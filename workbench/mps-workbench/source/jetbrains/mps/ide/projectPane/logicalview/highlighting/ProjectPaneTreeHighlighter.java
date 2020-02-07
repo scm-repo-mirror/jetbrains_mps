@@ -27,7 +27,7 @@ import jetbrains.mps.ide.ui.tree.TreeElement;
 import jetbrains.mps.ide.ui.tree.TreeNodeVisitor;
 import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
-import jetbrains.mps.project.Project;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.CancellableReadAction;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -61,7 +61,7 @@ public class ProjectPaneTreeHighlighter {
   private SModelNodeListeners myModelListeners;
   private volatile boolean myIsPaused = false;
 
-  public ProjectPaneTreeHighlighter(ProjectPaneTree tree, Project mpsProject) {
+  public ProjectPaneTreeHighlighter(ProjectPaneTree tree, MPSProject mpsProject) {
     myTree = tree;
     myProjectRepository = mpsProject.getRepository();
     myUpdater = new TreeNodeUpdater(mpsProject);

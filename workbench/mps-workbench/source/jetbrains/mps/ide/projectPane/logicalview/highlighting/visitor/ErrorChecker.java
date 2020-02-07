@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,11 @@ import jetbrains.mps.ide.projectPane.logicalview.highlighting.visitor.updates.Er
 import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
 import jetbrains.mps.ide.ui.tree.module.ProjectTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
-import jetbrains.mps.project.Project;
+import jetbrains.mps.progress.EmptyProgressMonitor;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.project.validation.MessageCollectProcessor;
+import jetbrains.mps.project.validation.ModelValidator;
 import jetbrains.mps.project.validation.ValidationUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -35,9 +37,9 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
  * visitXXX methods require model read
  */
 public class ErrorChecker extends TreeUpdateVisitor {
-  private final Project myProject;
+  private final MPSProject myProject;
 
-  public ErrorChecker(Project mpsProject) {
+  public ErrorChecker(MPSProject mpsProject) {
     myProject = mpsProject;
   }
 
@@ -51,7 +53,7 @@ public class ErrorChecker extends TreeUpdateVisitor {
       return;
     }
     MessageCollectProcessor<ModelReportItem> collector = new MessageCollectProcessor<>(true);
-    ValidationUtil.validateModel(modelDescriptor, collector);
+    new ModelValidator(myProject.getPlatform(), modelDescriptor).validate(collector, new EmptyProgressMonitor());
     addUpdate(node, createNodeUpdate(collector));
   }
 
