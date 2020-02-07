@@ -26,12 +26,12 @@ public class LightPattern_Inline_Test extends TestCase {
     boolean matches1 = false;
     boolean matches2 = false;
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0c0a0();
-    Pattern_c1xprt_a0c0a0 pattern0;
-    Pattern_c1xprt_a1c0a0 pattern1;
-    if ((pattern0 = new Pattern_c1xprt_a0c0a0()).match(nodeToMatch)) {
-      matches1 = Pattern_c1xprt_a0c0a0.getValue(nodeToMatch) >= 8 && Pattern_c1xprt_a0c0a0.getValue(nodeToMatch) <= 8 && SNodeOperations.isInstanceOf(Pattern_c1xprt_a0c0a0.getType(nodeToMatch), CONCEPTS.IntegerType$Eo) && Pattern_c1xprt_a0c0a0.getDecl(nodeToMatch) != null;
-    } else if ((pattern1 = new Pattern_c1xprt_a1c0a0()).match(nodeToMatch)) {
-      matches2 = Objects.equals(Pattern_c1xprt_a1c0a0.getName(nodeToMatch), "x");
+    Pattern_c1xprt_a0a2a0a pattern0;
+    Pattern_c1xprt_a0b2a0a pattern1;
+    if ((pattern0 = new Pattern_c1xprt_a0a2a0a()).match(nodeToMatch)) {
+      matches1 = Pattern_c1xprt_a0a2a0a.getValue(nodeToMatch) >= 8 && Pattern_c1xprt_a0a2a0a.getValue(nodeToMatch) <= 8 && SNodeOperations.isInstanceOf(Pattern_c1xprt_a0a2a0a.getType(nodeToMatch), CONCEPTS.IntegerType$Eo) && Pattern_c1xprt_a0a2a0a.getDecl(nodeToMatch) != null;
+    } else if ((pattern1 = new Pattern_c1xprt_a0b2a0a()).match(nodeToMatch)) {
+      matches2 = Objects.equals(Pattern_c1xprt_a0b2a0a.getName(nodeToMatch), "x");
     }
     Assert.assertTrue(matches1);
     Assert.assertFalse(matches2);
@@ -39,9 +39,9 @@ public class LightPattern_Inline_Test extends TestCase {
   public void test_testLabels() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0b0b0();
-    Pattern_c1xprt_a0b0b0 pattern0;
-    if ((pattern0 = new Pattern_c1xprt_a0b0b0()).match(nodeToMatch)) {
-      matches = SLinkOperations.getTarget(SLinkOperations.getTarget(Pattern_c1xprt_a0b0b0.getRoot(nodeToMatch), LINKS.localVariableDeclaration$O0D0), LINKS.type$pLrO) == Pattern_c1xprt_a0b0b0.getType(nodeToMatch);
+    Pattern_c1xprt_a0a1a1a pattern0;
+    if ((pattern0 = new Pattern_c1xprt_a0a1a1a()).match(nodeToMatch)) {
+      matches = SLinkOperations.getTarget(SLinkOperations.getTarget(Pattern_c1xprt_a0a1a1a.getRoot(nodeToMatch), LINKS.localVariableDeclaration$O0D0), LINKS.type$pLrO) == Pattern_c1xprt_a0a1a1a.getType(nodeToMatch);
     } else {
       matches = false;
     }
@@ -50,7 +50,7 @@ public class LightPattern_Inline_Test extends TestCase {
   public void test_testLabelsInternal() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0b0c0();
-    if (new Pattern_c1xprt_a0b0c0(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0b0c0.getValue(nodeToMatch), null) + 4).match(nodeToMatch)) {
+    if (new Pattern_c1xprt_a0a1a2a(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0a1a2a.getValue(nodeToMatch), 0) + 4).match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -60,7 +60,7 @@ public class LightPattern_Inline_Test extends TestCase {
   public void test_testLabelsInternalMismatch() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0b0d0();
-    if (new Pattern_c1xprt_a0b0d0(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0b0d0.getValue(nodeToMatch), null)).match(nodeToMatch)) {
+    if (new Pattern_c1xprt_a0a1a3a(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0a1a3a.getValue(nodeToMatch), 0)).match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -70,17 +70,17 @@ public class LightPattern_Inline_Test extends TestCase {
   public void test_testLabelsInternalSafety() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0b0e0();
-    if (new Pattern_c1xprt_a0b0e0(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0b0e0.getValue(nodeToMatch), null) + 2).match(nodeToMatch)) {
+    if (new Pattern_c1xprt_a0a1a4a(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0a1a4a.getValue(nodeToMatch), 0) + 2).match(nodeToMatch)) {
       matches = true;
-    } else if (new Pattern_c1xprt_a1b0e0(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a1b0e0.getValue(nodeToMatch), null) + 2).match(nodeToMatch)) {
+    } else if (new Pattern_c1xprt_a0b1a4a(AbstractGeneratedPattern.getWithDefault(Pattern_c1xprt_a0b1a4a.getValue(nodeToMatch), 0) + 2).match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
     }
     Assert.assertFalse(matches);
   }
-  private static class Pattern_c1xprt_a1c0a0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a1c0a0() {
+  private static class Pattern_c1xprt_a0b2a0a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0b2a0a() {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n14 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
@@ -95,8 +95,8 @@ public class LightPattern_Inline_Test extends TestCase {
       return container.getProperty(PROPS.name$tAp1);
     }
   }
-  private static class Pattern_c1xprt_a0c0a0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a0c0a0() {
+  private static class Pattern_c1xprt_a0a2a0a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0a2a0a() {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n15 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
@@ -137,8 +137,8 @@ public class LightPattern_Inline_Test extends TestCase {
       return container.getReferenceTarget(LINKS.variableDeclaration$2ky6);
     }
   }
-  private static class Pattern_c1xprt_a0b0b0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a0b0b0() {
+  private static class Pattern_c1xprt_a0a1a1a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0a1a1a() {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n19 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
@@ -157,8 +157,9 @@ public class LightPattern_Inline_Test extends TestCase {
       return AbstractGeneratedPattern.getNullableHead(container.getChildren(LINKS.type$pLrO));
     }
   }
-  private static class Pattern_c1xprt_a0b0c0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a0b0c0(Object p0) {
+  @SuppressWarnings(value = "OptionalAssignedToNull")
+  private static class Pattern_c1xprt_a0a1a2a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0a1a2a(Object p0) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.PlusExpression$Re);
       {
         NodeMatcherBuilder n20 = rootBuilder.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);
@@ -180,8 +181,9 @@ public class LightPattern_Inline_Test extends TestCase {
       return (container == null ? null : Optional.ofNullable(SPropertyOperations.getInteger(container.getProperty(PROPS.value$ZeO0))));
     }
   }
-  private static class Pattern_c1xprt_a0b0d0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a0b0d0(Object p0) {
+  @SuppressWarnings(value = "OptionalAssignedToNull")
+  private static class Pattern_c1xprt_a0a1a3a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0a1a3a(Object p0) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.PlusExpression$Re);
       {
         NodeMatcherBuilder n22 = rootBuilder.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);
@@ -203,8 +205,9 @@ public class LightPattern_Inline_Test extends TestCase {
       return (container == null ? null : Optional.ofNullable(SPropertyOperations.getInteger(container.getProperty(PROPS.value$ZeO0))));
     }
   }
-  private static class Pattern_c1xprt_a1b0e0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a1b0e0(Object p0) {
+  @SuppressWarnings(value = "OptionalAssignedToNull")
+  private static class Pattern_c1xprt_a0b1a4a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0b1a4a(Object p0) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.MulExpression$8_);
       {
         NodeMatcherBuilder n24 = rootBuilder.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);
@@ -226,8 +229,9 @@ public class LightPattern_Inline_Test extends TestCase {
       return (container == null ? null : Optional.ofNullable(SPropertyOperations.getInteger(container.getProperty(PROPS.value$ZeO0))));
     }
   }
-  private static class Pattern_c1xprt_a0b0e0 extends AbstractGeneratedPattern {
-    public Pattern_c1xprt_a0b0e0(Object p0) {
+  @SuppressWarnings(value = "OptionalAssignedToNull")
+  private static class Pattern_c1xprt_a0a1a4a extends AbstractGeneratedPattern {
+    public Pattern_c1xprt_a0a1a4a(Object p0) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.PlusExpression$Re);
       {
         NodeMatcherBuilder n26 = rootBuilder.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);

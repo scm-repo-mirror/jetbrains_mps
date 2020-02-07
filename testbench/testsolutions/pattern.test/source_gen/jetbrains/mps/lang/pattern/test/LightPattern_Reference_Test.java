@@ -7,13 +7,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import junit.framework.Assert;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.smodel.ModelAccess;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
-import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
@@ -80,7 +80,7 @@ public class LightPattern_Reference_Test extends TestCase {
     ModelAccess.instance().runReadAction(new Runnable() {
       public void run() {
         SNode nodeToMatch = _quotation_createNode_z02wj9_a0a0a2a5a();
-        if (new Pattern4_Pattern(SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object.<init>()"), SNodeOperations.getModel(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")).getRepository())).match(nodeToMatch)) {
+        if (new Pattern4_Pattern().match(nodeToMatch)) {
           matches.value = true;
         } else {
           matches.value = false;
@@ -94,7 +94,7 @@ public class LightPattern_Reference_Test extends TestCase {
     ModelAccess.instance().runReadAction(new Runnable() {
       public void run() {
         SNode nodeToMatch = _quotation_createNode_z02wj9_a0a0a1a6a();
-        if (new Pattern4_Pattern(SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object.<init>()"), SNodeOperations.getModel(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")).getRepository())).match(nodeToMatch)) {
+        if (new Pattern4_Pattern().match(nodeToMatch)) {
           matches.value = true;
         } else {
           matches.value = false;
@@ -172,7 +172,8 @@ public class LightPattern_Reference_Test extends TestCase {
     }
   }
   private static class Pattern4_Pattern extends AbstractGeneratedPattern {
-    public Pattern4_Pattern(SNode p0) {
+    public Pattern4_Pattern() {
+      SNode p0 = SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object.<init>()"), SNodeOperations.getModel(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")).getRepository());
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n6 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.GenericNewExpression$ev);

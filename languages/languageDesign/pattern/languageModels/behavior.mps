@@ -23,7 +23,7 @@
     <import index="tpcg" ref="r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="6xgk" ref="r:6e9ad488-5df2-49e4-8c01-8a7f3812adf7(jetbrains.mps.lang.scopes.runtime)" />
-    <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" implicit="true" />
+    <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -1552,6 +1552,19 @@
     <ref role="13h7C2" to="tp3t:53SOuJl2VUK" resolve="PatternBuilderClassifierMember" />
     <node concept="13hLZK" id="64p9aapFrPv" role="13h7CW">
       <node concept="3clFbS" id="64p9aapFrPw" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="64p9aapTmOp" role="13h7CS">
+      <property role="TrG5h" value="isStatic" />
+      <ref role="13i0hy" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+      <node concept="3Tm1VV" id="64p9aapTmOq" role="1B3o_S" />
+      <node concept="3clFbS" id="64p9aapTmOv" role="3clF47">
+        <node concept="3clFbF" id="64p9aapZ7cP" role="3cqZAp">
+          <node concept="3clFbT" id="64p9aapZ7cO" role="3clFbG">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="10P_77" id="64p9aapTmOw" role="3clF45" />
     </node>
     <node concept="13i0hz" id="64p9aapFrPD" role="13h7CS">
       <property role="TrG5h" value="getScope" />
