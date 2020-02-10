@@ -119,20 +119,15 @@ public class LightPattern_Reference_Test extends TestCase {
     Assert.assertTrue(matches.value);
   }
   public void test_patternSwitch5_matchesWithoutReference() throws Exception {
-    final Wrappers._boolean matches = new Wrappers._boolean();
-    ModelAccess.instance().runReadAction(new Runnable() {
-      public void run() {
-        SNode nodeToMatch = _quotation_createNode_z02wj9_a0a0a1a8a();
-        Pattern5_Pattern pattern0;
-        if ((pattern0 = new Pattern5_Pattern()).match(nodeToMatch)) {
-          // todo: the problem here is that Optional cannot hold null values 
-          matches.value = Pattern5_Pattern.getVar(nodeToMatch) == null;
-        } else {
-          matches.value = false;
-        }
-      }
-    });
-    Assert.assertTrue(matches.value);
+    boolean matches;
+    SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0i0();
+    Pattern5_Pattern pattern0;
+    if ((pattern0 = new Pattern5_Pattern()).match(nodeToMatch)) {
+      matches = Pattern5_Pattern.getVar(nodeToMatch) == null;
+    } else {
+      matches = false;
+    }
+    Assert.assertTrue(matches);
   }
   private static class Pattern1_Pattern extends AbstractGeneratedPattern {
     public Pattern1_Pattern() {
@@ -307,7 +302,7 @@ public class LightPattern_Reference_Test extends TestCase {
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"), quotedNode_2);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_z02wj9_a0a0a1a8a() {
+  private static SNode _quotation_createNode_z02wj9_a0b0i0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     SNode quotedNode_2 = null;

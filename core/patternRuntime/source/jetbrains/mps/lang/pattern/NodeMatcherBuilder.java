@@ -221,8 +221,9 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
   @Override
   public void setReferenceTarget(SReferenceLink link, @Nullable SNode target) {
-    if (target != null && (target.getModel() == null || target.getModel().getRepository() == null)) {
+    if (target != null && target.getModel() != null && target.getModel().getRepository() != null) {
       setReference(link, target.getReference());
+      return;
     }
     if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();

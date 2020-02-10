@@ -167,7 +167,7 @@ public class LightPattern_Inline_Test extends TestCase {
       }
       {
         NodeMatcherBuilder n21 = rootBuilder.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.IntegerConstant$mo);
-        n21.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(p0));
+        n21.setProperty(PROPS.value$ZeO0, "" + (p0));
       }
       setMatcher(rootBuilder.getMatcher());
     }
@@ -191,7 +191,7 @@ public class LightPattern_Inline_Test extends TestCase {
       }
       {
         NodeMatcherBuilder n23 = rootBuilder.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.IntegerConstant$mo);
-        n23.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(p0));
+        n23.setProperty(PROPS.value$ZeO0, "" + (p0));
       }
       setMatcher(rootBuilder.getMatcher());
     }
@@ -215,7 +215,7 @@ public class LightPattern_Inline_Test extends TestCase {
       }
       {
         NodeMatcherBuilder n25 = rootBuilder.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.IntegerConstant$mo);
-        n25.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(p0));
+        n25.setProperty(PROPS.value$ZeO0, "" + (p0));
       }
       setMatcher(rootBuilder.getMatcher());
     }
@@ -239,7 +239,7 @@ public class LightPattern_Inline_Test extends TestCase {
       }
       {
         NodeMatcherBuilder n27 = rootBuilder.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.IntegerConstant$mo);
-        n27.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(p0));
+        n27.setProperty(PROPS.value$ZeO0, "" + (p0));
       }
       setMatcher(rootBuilder.getMatcher());
     }

@@ -124,7 +124,7 @@ public class LightPattern_Property_Test extends TestCase {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n10 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.IntegerConstant$mo);
-        n10.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(239));
+        n10.setProperty(PROPS.value$ZeO0, "" + (239));
       }
       setMatcher(rootBuilder.getMatcher());
     }
@@ -134,7 +134,7 @@ public class LightPattern_Property_Test extends TestCase {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n11 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.StringLiteral$4G);
-        n11.setProperty(PROPS.value$kiE0, PROPS.value$kiE0.getType().toString(null));
+        n11.setProperty(PROPS.value$kiE0, null);
       }
       setMatcher(rootBuilder.getMatcher());
     }
