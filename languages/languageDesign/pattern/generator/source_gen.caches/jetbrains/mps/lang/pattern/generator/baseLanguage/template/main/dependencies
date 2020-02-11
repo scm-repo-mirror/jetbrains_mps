@@ -37,7 +37,6 @@
     <classNode dependClassName="jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext" />
     <classNode dependClassName="jetbrains.mps.generator.template.TemplateArgumentContext" />
     <classNode dependClassName="jetbrains.mps.generator.template.TemplateVarContext" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ITranslator2" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
@@ -45,7 +44,6 @@
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.LinkAttribute__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.pattern.behavior.PatternBuilder__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.lang.pattern.behavior.PatternSwitchCase__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.pattern.behavior.PatternVarsUtil" />
     <classNode dependClassName="jetbrains.mps.lang.quotation.behavior.NodeBuilderInitLink__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.quotation.behavior.NodeBuilderInitProperty__BehaviorDescriptor" />
