@@ -19,6 +19,7 @@ import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.ModelReportItem;
 import jetbrains.mps.project.validation.ModelValidator;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -28,6 +29,16 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 public class ModelPropertiesChecker extends IChecker.AbstractModelChecker<ModelReportItem> {
 
   private final ComponentHost myComponentHost;
+
+
+  /**
+   * DONT USE, IT IS HERE ONLY FOR BACKWARD COMPATIBILITY.
+   */
+  @Deprecated
+  @ToRemove(version = 2020.1)
+  public ModelPropertiesChecker() {
+    this.myComponentHost = null;
+  }
 
   public ModelPropertiesChecker(@NotNull ComponentHost componentHost) {
     myComponentHost = componentHost;
