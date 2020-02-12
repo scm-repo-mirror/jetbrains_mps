@@ -76,7 +76,12 @@ public class NodeBuilderInitProperty_Constraints extends BaseConstraintsDescript
     return references;
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return childConcept.isAbstract() || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.NodeBuilderInitPropertyValue$tJ);
+    if (childNode == null) {
+      return childConcept.isAbstract() || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.NodeBuilderInitPropertyValue$tJ);
+    } else {
+      // todo: remove clause after 2020.1  
+      return true;
+    }
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:abd7937b-2ad1-4cfc-8256-a7fa45a55f0f(jetbrains.mps.lang.quotation.constraints)", "6985522012214898256");
   private static final SNodePointer breakingNode_ui7ey_a0a0a0a0a1a0a0a0d = new SNodePointer("r:abd7937b-2ad1-4cfc-8256-a7fa45a55f0f(jetbrains.mps.lang.quotation.constraints)", "5455284157993911081");
