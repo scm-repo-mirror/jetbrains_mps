@@ -87,18 +87,6 @@ final class EDTExecutorInternal implements Disposable {
    */
   private final Queue<Task> myTaskQueue = new ConcurrentLinkedQueue<>();
 
-  EDTExecutorInternal() {
-    tellIdeaToBackOff();
-  }
-
-  /**
-   * otherwise the test in the idea plugin are failing since the ThreadTracker is very strict
-   * AP
-   */
-  private void tellIdeaToBackOff() {
-    ThreadTracker.longRunningThreadCreated(this, THREAD_GROUP_NAME);
-  }
-
   void scheduleTask(Task task) {
     traceTheCaller();
     checkTheContract();
