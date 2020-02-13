@@ -259,15 +259,15 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
     for (SourceRootKind kind : getSupportedFileKinds1()) {
       for (SourceRoot root : getSourceRoots(kind)) {
         Memento modelRootMemento = memento.createChild(kind.getName());
-        String contentRootPath = root.getAbsolutePath().getPath(); // must go away as soon as we allow relative paths
-        if (FileUtil.isAncestor(myContentDir.getPath(), contentRootPath)) {
-          String relPath = relativize(contentRootPath, myContentDir);
+        String sourceRootPath = root.getAbsolutePath().getPath(); // must go away as soon as we allow relative paths
+        if (myContentDir != null && FileUtil.isAncestor(myContentDir.getPath(), sourceRootPath)) {
+          String relPath = relativize(sourceRootPath, myContentDir);
           if (relPath.isEmpty()) {
             relPath = MPSExtentions.DOT;
           }
           modelRootMemento.put(LOCATION, relPath);
         } else {
-          modelRootMemento.put(PATH, contentRootPath);
+          modelRootMemento.put(PATH, sourceRootPath);
         }
       }
     }
