@@ -466,6 +466,50 @@
                   </node>
                 </node>
               </node>
+              <node concept="3cpWs8" id="66cnolf9qhv" role="3cqZAp">
+                <node concept="3cpWsn" id="66cnolf9qhw" role="3cpWs9">
+                  <property role="TrG5h" value="cncptModel" />
+                  <node concept="3uibUv" id="66cnolf9peZ" role="1tU5fm">
+                    <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+                  </node>
+                  <node concept="2JrnkZ" id="66cnolf9qhx" role="33vP2m">
+                    <node concept="2OqwBi" id="66cnolf9qhy" role="2JrQYb">
+                      <node concept="37vLTw" id="66cnolf9qhz" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1ofoPOHO3iB" resolve="ancestorConcept" />
+                      </node>
+                      <node concept="I4A8Y" id="66cnolf9qh$" role="2OqNvi" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbJ" id="66cnolf9rg1" role="3cqZAp">
+                <node concept="3clFbS" id="66cnolf9rg3" role="3clFbx">
+                  <node concept="RRSsy" id="66cnolf9sik" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fh_4/error" />
+                    <node concept="3cpWs3" id="66cnolf9sil" role="RRSoy">
+                      <node concept="Xl_RD" id="66cnolf9sim" role="3uHU7w">
+                        <property role="Xl_RC" value="'" />
+                      </node>
+                      <node concept="3cpWs3" id="66cnolf9sin" role="3uHU7B">
+                        <node concept="Xl_RD" id="66cnolf9sio" role="3uHU7B">
+                          <property role="Xl_RC" value="Could not found the ancestorConcept model while looking for the ancestors for the concept '" />
+                        </node>
+                        <node concept="37vLTw" id="66cnolf9sip" role="3uHU7w">
+                          <ref role="3cqZAo" node="1ofoPOHO3iB" resolve="ancestorConcept" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3cpWs6" id="66cnolf9siq" role="3cqZAp" />
+                  <node concept="3clFbH" id="66cnolf9rg2" role="3cqZAp" />
+                </node>
+                <node concept="3clFbC" id="66cnolf9s85" role="3clFbw">
+                  <node concept="10Nm6u" id="66cnolf9s8f" role="3uHU7w" />
+                  <node concept="37vLTw" id="66cnolf9roZ" role="3uHU7B">
+                    <ref role="3cqZAo" node="66cnolf9qhw" resolve="cncptModel" />
+                  </node>
+                </node>
+              </node>
               <node concept="3cpWs8" id="74j1j8ZLwhG" role="3cqZAp">
                 <node concept="3cpWsn" id="74j1j8ZLwhH" role="3cpWs9">
                   <property role="TrG5h" value="aspectModel" />
@@ -475,13 +519,8 @@
                       <node concept="liA8E" id="172ROKPCvmp" role="2OqNvi">
                         <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
                       </node>
-                      <node concept="2JrnkZ" id="172ROKPCuFh" role="2Oq$k0">
-                        <node concept="2OqwBi" id="172ROKP_Jxj" role="2JrQYb">
-                          <node concept="37vLTw" id="1ofoPOHOilK" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1ofoPOHO3iB" resolve="ancestorConcept" />
-                          </node>
-                          <node concept="I4A8Y" id="172ROKP_Keu" role="2OqNvi" />
-                        </node>
+                      <node concept="37vLTw" id="66cnolf9qh_" role="2Oq$k0">
+                        <ref role="3cqZAo" node="66cnolf9qhw" resolve="cncptModel" />
                       </node>
                     </node>
                   </node>
