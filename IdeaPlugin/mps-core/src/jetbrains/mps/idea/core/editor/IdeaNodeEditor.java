@@ -45,6 +45,10 @@ public class IdeaNodeEditor extends NodeEditor {
         }
       });
 
+      if (currNodeRef == null) {
+        return null;
+      }
+
       return new UsageTarget[]{new NodeUsageTarget(currNodeRef, ((MPSProject) myProject).getProject())};
 
     } else if (LangDataKeys.PSI_ELEMENT_ARRAY.is(dataId)) {
@@ -53,7 +57,7 @@ public class IdeaNodeEditor extends NodeEditor {
       return new ModelAccessHelper(myProject.getModelAccess()).runReadAction(new Computable<PsiElement[]>() {
         @Override
         public PsiElement[] compute() {
-          List<SNode> nodes =  MPSCommonDataKeys.NODES.getData(getCurrentEditorComponent());
+          List<SNode> nodes = MPSCommonDataKeys.NODES.getData(getCurrentEditorComponent());
           if (nodes == null) {
             return null;
           }
