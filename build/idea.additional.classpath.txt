@@ -50,11 +50,3 @@ languages/baseLanguage/closures/runtime/classes
 languages/baseLanguage/tuples/runtime/classes
 languages/baseLanguage/references/runtime/classes
 languages/baseLanguage/annotations/runtime/classes
-:platform
-languages/baseLanguage/baseLanguage/solutions/jetbrains.mps.baseLanguage.search/classes
-languages/baseLanguage/baseLanguage/solutions/jetbrains.mps.baseLanguage.util/classes
-core/migration-runtime/classes
-workbench/mps-platform/classes
-workbench/mps-debugger/classes
-workbench/mps-ui/classes
-workbench/mps-icons/classes

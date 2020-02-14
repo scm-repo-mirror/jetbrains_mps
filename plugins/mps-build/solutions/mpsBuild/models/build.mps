@@ -3938,6 +3938,22 @@
         <node concept="1E1SXE" id="6iXh2SsYGtu" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="16Vg0jOco3P" resolve="mps-platform" />
+          <node concept="398BVA" id="5uvKO4vOrK9" role="17Grwy">
+            <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+            <node concept="2Ry0Ak" id="5uvKO4vOs4m" role="iGT6I">
+              <property role="2Ry0Am" value="mps-platform.jar" />
+            </node>
+          </node>
+        </node>
+        <node concept="1E1SXE" id="5uvKO4vOsb5" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="16Vg0jOco3P" resolve="mps-platform" />
+          <node concept="398BVA" id="5uvKO4vOsb6" role="17Grwy">
+            <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+            <node concept="2Ry0Ak" id="5uvKO4vOsi5" role="iGT6I">
+              <property role="2Ry0Am" value="mps-icons.jar" />
+            </node>
+          </node>
         </node>
         <node concept="1E1SXE" id="5g8Dzn7kwmc" role="3bR37C">
           <property role="1E1SXH" value="true" />
@@ -4016,6 +4032,22 @@
         <node concept="1E1SXE" id="1tWbYFNh9AJ" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="1tWbYFNh9Av" resolve="mps-test" />
+          <node concept="398BVA" id="5uvKO4vOqG$" role="17Grwy">
+            <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+            <node concept="2Ry0Ak" id="5uvKO4vOred" role="iGT6I">
+              <property role="2Ry0Am" value="mps-test.jar" />
+            </node>
+          </node>
+        </node>
+        <node concept="1E1SXE" id="5uvKO4vOrkW" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="1tWbYFNh9Av" resolve="mps-test" />
+          <node concept="398BVA" id="5uvKO4vOrkX" role="17Grwy">
+            <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+            <node concept="2Ry0Ak" id="5uvKO4vOryF" role="iGT6I">
+              <property role="2Ry0Am" value="mps-environment.jar" />
+            </node>
+          </node>
         </node>
         <node concept="398BVA" id="6wK_PpNA8_Q" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
