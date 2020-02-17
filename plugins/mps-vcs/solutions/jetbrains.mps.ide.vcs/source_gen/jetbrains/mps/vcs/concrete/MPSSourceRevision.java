@@ -11,7 +11,8 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.application.PathManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
-import git4idea.branch.GitBranchUtil;
+import git4idea.repo.GitRepository;
+import git4idea.GitUtil;
 import jetbrains.mps.util.NameUtil;
 import com.intellij.openapi.vcs.VcsException;
 import git4idea.commands.GitSimpleHandler;
@@ -36,7 +37,8 @@ public class MPSSourceRevision extends SourceRevision {
     }
     Project project = ProjectManager.getInstance().getOpenProjects()[0];
     try {
-      String currentBranchName = check_9qzcwz_a0a0e0b(GitBranchUtil.getCurrentBranch(project, mpsHome));
+      GitRepository repository = GitUtil.getRepositoryManager(project).getRepositoryForRoot(mpsHome);
+      String currentBranchName = check_9qzcwz_a0b0e0b(check_9qzcwz_a0a1a4a1(repository));
       String currentRevision = getCurrentRevision(project, mpsHome);
       String mergeBase = getMergeBase(project, mpsHome);
       int distance = getDistance(project, mpsHome);
@@ -77,9 +79,15 @@ public class MPSSourceRevision extends SourceRevision {
     String count = h.run();
     return Integer.parseInt(count.trim());
   }
-  private static String check_9qzcwz_a0a0e0b(GitLocalBranch checkedDotOperand) {
+  private static String check_9qzcwz_a0b0e0b(GitLocalBranch checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getName();
+    }
+    return null;
+  }
+  private static GitLocalBranch check_9qzcwz_a0a1a4a1(GitRepository checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getCurrentBranch();
     }
     return null;
   }
