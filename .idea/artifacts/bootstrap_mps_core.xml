@@ -59,6 +59,9 @@
       <element id="archive" name="mps-textgen.jar">
         <element id="module-output" name="textgen" />
       </element>
+      <element id="archive" name="mps-references.jar">
+        <element id="module-output" name="baseLanguage-runtime" />
+      </element>
     </root>
   </artifact>
 </component>
