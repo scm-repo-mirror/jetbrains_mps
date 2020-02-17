@@ -18,6 +18,7 @@
     <import index="rfyv" ref="6fd1293f-7f65-4ffd-99dc-4719eca7c171/java:git4idea.branch(jetbrains.mps.ide.vcs.platform/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="5mlj" ref="6fd1293f-7f65-4ffd-99dc-4719eca7c171/java:git4idea.repo(jetbrains.mps.ide.vcs.platform/)" />
+    <import index="tkms" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.dvcs.repo(MPS.IDEA/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -384,7 +385,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="6s9bz$skRDy" role="2OqNvi">
-                    <ref role="37wK5l" to=":^" resolve="getRepositoryForRoot" />
+                    <ref role="37wK5l" to="tkms:~AbstractRepositoryManager.getRepositoryForRoot(com.intellij.openapi.vfs.VirtualFile)" resolve="getRepositoryForRoot" />
                     <node concept="37vLTw" id="6s9bz$skRDz" role="37wK5m">
                       <ref role="3cqZAo" node="3Lj0jv7ELvU" resolve="mpsHome" />
                     </node>
