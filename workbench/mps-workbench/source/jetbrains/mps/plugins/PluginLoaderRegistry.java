@@ -24,6 +24,7 @@ import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
+import com.intellij.openapi.progress.Task.Backgroundable;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.IconLoader;
@@ -394,7 +395,9 @@ public class PluginLoaderRegistry implements Disposable {
       // usually this section is called after rebuild/make
       // we have no indicator -- lets create one
       LOG.trace("running with the new");
-      task.queue();
+      // This task is instance of UpdatingTask => instance of Task.Modal
+      // As result method Task#queue require to be invoked inside write thread: see CoreProgressManager#run(Task)
+      ApplicationManager.getApplication().invokeLaterOnWriteThread(() -> task.queue());
     }
   }
 
