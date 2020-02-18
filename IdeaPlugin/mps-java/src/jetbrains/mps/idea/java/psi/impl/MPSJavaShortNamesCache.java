@@ -147,7 +147,9 @@ public class MPSJavaShortNamesCache extends PsiShortNamesCache {
   }
 
   @Override
-  public boolean processMethodsWithName(@NonNls @NotNull final String name, @NotNull final GlobalSearchScope scope, @NotNull final Processor<PsiMethod> processor) {
+  public boolean processMethodsWithName(@NonNls @NotNull final String name,
+                                        @NotNull final GlobalSearchScope scope,
+                                        @NotNull final Processor<? super PsiMethod> processor) {
     ApplicationManager.getApplication().assertReadAccessAllowed();
     final MPSPsiProvider psiProvider = MPSPsiProvider.getInstance(myProject);
     return new ModelAccessHelper(myProjectRepo).runReadAction(new Computable<Boolean>() {
