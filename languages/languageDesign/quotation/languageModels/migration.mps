@@ -322,6 +322,10 @@
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
+      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
+        <property id="8575328350543493365" name="message" index="huDt6" />
+        <property id="2423417345669755629" name="filter" index="1eyWvh" />
+      </concept>
     </language>
     <language id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration">
       <concept id="8352104482584315555" name="jetbrains.mps.lang.migration.structure.MigrationScript" flags="ig" index="3SyAh_">
@@ -469,6 +473,10 @@
                         </node>
                       </node>
                       <node concept="3clFbF" id="5OmbMbqdYYK" role="3cqZAp">
+                        <node concept="15s5l7" id="5zNZr7ZvvcS" role="lGtFl">
+                          <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;NodeBuilderExpression&gt; is not a subtype of node&lt;Expression&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/1175519336188]&quot;;" />
+                          <property role="huDt6" value="Error: type node&lt;NodeBuilderExpression&gt; is not a subtype of node&lt;Expression&gt;" />
+                        </node>
                         <node concept="37vLTI" id="5OmbMbqeg21" role="3clFbG">
                           <node concept="2pJPEk" id="5OmbMbqegnR" role="37vLTx">
                             <node concept="2pJPED" id="5OmbMbqehpm" role="2pJPEn">
@@ -1264,6 +1272,10 @@
                       <property role="3yWfEV" value="true" />
                       <node concept="3clFbS" id="1o$2SUuzebR" role="1bW5cS">
                         <node concept="3clFbF" id="1o$2SUuzeiQ" role="3cqZAp">
+                          <node concept="15s5l7" id="5zNZr7ZvtVx" role="lGtFl">
+                            <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;Expression&gt; is not comparable with node&lt;NodeBuilderInitLinkValue&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)/4101496941862450650]&quot;;" />
+                            <property role="huDt6" value="Error: type node&lt;Expression&gt; is not comparable with node&lt;NodeBuilderInitLinkValue&gt;" />
+                          </node>
                           <node concept="1Wc70l" id="1o$2SUuzh2e" role="3clFbG">
                             <node concept="2OqwBi" id="1o$2SUuzhQn" role="3uHU7w">
                               <node concept="2OqwBi" id="1o$2SUuzhmD" role="2Oq$k0">
@@ -1306,6 +1318,10 @@
                     <property role="3yWfEV" value="true" />
                     <node concept="3clFbS" id="1o$2SUuzfKZ" role="1bW5cS">
                       <node concept="3clFbF" id="1o$2SUuzg1D" role="3cqZAp">
+                        <node concept="15s5l7" id="5zNZr7Zvuh0" role="lGtFl">
+                          <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;NodeBuilderInitLinkValue&gt; is not comparable with node&lt;Expression&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)/5638817076583666571]&quot;;" />
+                          <property role="huDt6" value="Error: type node&lt;NodeBuilderInitLinkValue&gt; is not comparable with node&lt;Expression&gt;" />
+                        </node>
                         <node concept="37vLTI" id="1o$2SUuziBx" role="3clFbG">
                           <node concept="1PxgMI" id="1o$2SUuzjvd" role="37vLTx">
                             <node concept="chp4Y" id="1o$2SUuzjIT" role="3oSUPX">
