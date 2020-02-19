@@ -34,12 +34,12 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringRuntime;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MoveContainmentLinkSpecialization extends StructureSpecializationBase<SContainmentLink> {
   public Tuples._2<SContainmentLink, SNodeReference> fetchState(SNode movingNode, boolean filterOutInvalid) {
-    if (!((SNodeOperations.isInstanceOf(movingNode, CONCEPTS.LinkDeclaration$bA) && SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(movingNode, CONCEPTS.LinkDeclaration$bA), PROPS.metaClass$tHD7), 0xfc6f4e95b9L) && (SLinkOperations.getTarget(SNodeOperations.cast(movingNode, CONCEPTS.LinkDeclaration$bA), LINKS.specializedLink$3uH0) == null) && SNodeOperations.getModel(movingNode).getModule() instanceof Language))) {
+    if (!((SNodeOperations.isInstanceOf(movingNode, CONCEPTS.LinkDeclaration$bA) && SNodeOperations.hasRole(movingNode, LINKS.linkDeclaration$lL6$) && SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(movingNode, CONCEPTS.LinkDeclaration$bA), PROPS.metaClass$tHD7), 0xfc6f4e95b9L) && (SLinkOperations.getTarget(SNodeOperations.cast(movingNode, CONCEPTS.LinkDeclaration$bA), LINKS.specializedLink$3uH0) == null) && SNodeOperations.getModel(movingNode).getModule() instanceof Language))) {
       return null;
     }
     SContainmentLink deployedContainmentLink = MetaAdapterByDeclaration.getContainmentLink(movingNode);
@@ -102,17 +102,18 @@ public class MoveContainmentLinkSpecialization extends StructureSpecializationBa
     /*package*/ static final SConcept ContainmentLinkId$FL = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x74cb131f5923b6e7L, "jetbrains.mps.lang.smodel.structure.ContainmentLinkId");
   }
 
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
+    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
+    /*package*/ static final SContainmentLink sourceId$YxeZ = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741baL, 0x74cb131f592e8ab5L, "sourceId");
+    /*package*/ static final SContainmentLink targetId$Yxfu = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741baL, 0x74cb131f592e8ab6L, "targetId");
+  }
+
   private static final class PROPS {
     /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
     /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
     /*package*/ static final SProperty sourceCardinality$$E8z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality");
     /*package*/ static final SProperty linkId$ccI3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
     /*package*/ static final SProperty comment$MxQb = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, 0x11d3ec760e8L, "comment");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
-    /*package*/ static final SContainmentLink sourceId$YxeZ = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741baL, 0x74cb131f592e8ab5L, "sourceId");
-    /*package*/ static final SContainmentLink targetId$Yxfu = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741baL, 0x74cb131f592e8ab6L, "targetId");
   }
 }

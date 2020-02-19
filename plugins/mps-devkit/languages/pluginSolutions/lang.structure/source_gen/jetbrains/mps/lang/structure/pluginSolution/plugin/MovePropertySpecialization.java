@@ -30,12 +30,12 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringRuntime;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MovePropertySpecialization extends StructureSpecializationBase<SProperty> {
   public Tuples._2<SProperty, SNodeReference> fetchState(SNode movingNode, boolean filterOutInvalid) {
-    if (!((SNodeOperations.isInstanceOf(movingNode, CONCEPTS.PropertyDeclaration$c5) && SNodeOperations.getModel(movingNode).getModule() instanceof Language))) {
+    if (!((SNodeOperations.isInstanceOf(movingNode, CONCEPTS.PropertyDeclaration$c5) && SNodeOperations.hasRole(movingNode, LINKS.propertyDeclaration$lL73) && SNodeOperations.getModel(movingNode).getModule() instanceof Language))) {
       return null;
     }
     SProperty deployedProperty = MetaAdapterByDeclaration.getProperty(movingNode);
@@ -85,6 +85,12 @@ public class MovePropertySpecialization extends StructureSpecializationBase<SPro
     return rootBuilder1.getResult();
   }
 
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink propertyDeclaration$lL73 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration");
+    /*package*/ static final SContainmentLink sourceId$YxgU = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741b9L, 0x74cb131f592e8ab9L, "sourceId");
+    /*package*/ static final SContainmentLink targetId$Yxhp = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741b9L, 0x74cb131f592e8abaL, "targetId");
+  }
+
   private static final class CONCEPTS {
     /*package*/ static final SConcept PropertyDeclaration$c5 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
     /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
@@ -97,10 +103,5 @@ public class MovePropertySpecialization extends StructureSpecializationBase<SPro
     /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
     /*package*/ static final SProperty propertyId$cckp = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
     /*package*/ static final SProperty comment$MxQb = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, 0x11d3ec760e8L, "comment");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink sourceId$YxgU = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741b9L, 0x74cb131f592e8ab9L, "sourceId");
-    /*package*/ static final SContainmentLink targetId$Yxhp = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c1741b9L, 0x74cb131f592e8abaL, "targetId");
   }
 }

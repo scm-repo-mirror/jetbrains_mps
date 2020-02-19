@@ -710,7 +710,7 @@
   </root>
   <root nodeRef="r:cf512d15-78eb-402a-a0bd-f5eea680b5a8(jetbrains.mps.lang.structure.pluginSolution.plugin)/3628660716135353316">
     <file name="MovePropertySpecialization.java">
-      <node id="3628660716135353382" at="38,161,39,18" concept="10" />
+      <node id="3628660716135353382" at="38,232,39,18" concept="10" />
       <node id="4441410544845030289" at="40,5,41,82" concept="9" />
       <node id="4441410544845091026" at="42,71,43,18" concept="10" />
       <node id="3628660716135353355" at="44,5,45,111" concept="10" />
@@ -738,16 +738,17 @@
       <node id="3628660716135353452" at="82,81,83,93" concept="4" />
       <node id="3628660716135353452" at="83,93,84,93" concept="4" />
       <node id="3628660716135353452" at="84,93,85,36" concept="10" />
-      <node id="3628660716135353316" at="89,0,90,0" concept="13" trace="PropertyDeclaration$c5" />
-      <node id="3628660716135353316" at="90,0,91,0" concept="13" trace="AbstractConceptDeclaration$UN" />
-      <node id="3628660716135353316" at="91,0,92,0" concept="13" trace="DeprecatedNodeAnnotation$I8" />
-      <node id="3628660716135353316" at="92,0,93,0" concept="13" trace="MoveProperty$J" />
-      <node id="3628660716135353316" at="93,0,94,0" concept="13" trace="PropertyId$Ig" />
-      <node id="3628660716135353316" at="97,0,98,0" concept="13" trace="name$tAp1" />
-      <node id="3628660716135353316" at="98,0,99,0" concept="13" trace="propertyId$cckp" />
-      <node id="3628660716135353316" at="99,0,100,0" concept="13" trace="comment$MxQb" />
-      <node id="3628660716135353316" at="103,0,104,0" concept="13" trace="sourceId$YxgU" />
-      <node id="3628660716135353316" at="104,0,105,0" concept="13" trace="targetId$Yxhp" />
+      <node id="3628660716135353316" at="89,0,90,0" concept="13" trace="propertyDeclaration$lL73" />
+      <node id="3628660716135353316" at="90,0,91,0" concept="13" trace="sourceId$YxgU" />
+      <node id="3628660716135353316" at="91,0,92,0" concept="13" trace="targetId$Yxhp" />
+      <node id="3628660716135353316" at="95,0,96,0" concept="13" trace="PropertyDeclaration$c5" />
+      <node id="3628660716135353316" at="96,0,97,0" concept="13" trace="AbstractConceptDeclaration$UN" />
+      <node id="3628660716135353316" at="97,0,98,0" concept="13" trace="DeprecatedNodeAnnotation$I8" />
+      <node id="3628660716135353316" at="98,0,99,0" concept="13" trace="MoveProperty$J" />
+      <node id="3628660716135353316" at="99,0,100,0" concept="13" trace="PropertyId$Ig" />
+      <node id="3628660716135353316" at="103,0,104,0" concept="13" trace="name$tAp1" />
+      <node id="3628660716135353316" at="104,0,105,0" concept="13" trace="propertyId$cckp" />
+      <node id="3628660716135353316" at="105,0,106,0" concept="13" trace="comment$MxQb" />
       <node id="3628660716135353353" at="37,102,40,5" concept="7" />
       <node id="4441410544845047263" at="41,82,44,5" concept="7" />
       <node id="3628660716135353459" at="66,0,69,0" concept="8" trace="getDefaultSearchScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
@@ -759,7 +760,7 @@
       <node id="3628660716135353459" at="61,90,71,5" concept="2" />
       <node id="3628660716135353454" at="61,0,73,0" concept="8" trace="findInstances#(Lorg/jetbrains/mps/openapi/language/SProperty;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/Collection;" />
       <node id="3628660716135353424" at="47,0,61,0" concept="8" trace="confirm#(Ljava/util/List;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/module/SRepository;Ljetbrains/mps/lang/structure/pluginSolution/plugin/LanguageStructureMigrationParticipant/MigrationBuilder;Z)V" />
-      <scope id="4441410544845072457" at="38,161,39,18" />
+      <scope id="4441410544845072457" at="38,232,39,18" />
       <scope id="4441410544845087060" at="42,71,43,18" />
       <scope id="3628660716135353459" at="66,52,67,36" />
       <scope id="3628660716135353490" at="73,95,74,82" />
@@ -815,15 +816,15 @@
         <var name="updateModuleDependencies" id="6019047980173148269" />
       </scope>
       <unit id="3628660716135353459" at="65,42,69,7" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$1" />
-      <unit id="3628660716135353316" at="102,0,106,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$LINKS" />
-      <unit id="3628660716135353316" at="96,0,101,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$PROPS" />
-      <unit id="3628660716135353316" at="88,0,95,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$CONCEPTS" />
-      <unit id="3628660716135353316" at="36,0,107,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization" />
+      <unit id="3628660716135353316" at="88,0,93,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$LINKS" />
+      <unit id="3628660716135353316" at="102,0,107,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$PROPS" />
+      <unit id="3628660716135353316" at="94,0,101,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization$CONCEPTS" />
+      <unit id="3628660716135353316" at="36,0,108,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization" />
     </file>
   </root>
   <root nodeRef="r:cf512d15-78eb-402a-a0bd-f5eea680b5a8(jetbrains.mps.lang.structure.pluginSolution.plugin)/3628660716135449803">
     <file name="MoveContainmentLinkSpecialization.java">
-      <node id="3628660716135449869" at="42,444,43,18" concept="10" />
+      <node id="3628660716135449869" at="42,511,43,18" concept="10" />
       <node id="4441410544847078488" at="44,5,45,103" concept="9" />
       <node id="4441410544847075233" at="46,78,47,18" concept="10" />
       <node id="3628660716135449842" at="48,5,49,125" concept="10" />
@@ -858,14 +859,15 @@
       <node id="3628660716135449803" at="100,0,101,0" concept="13" trace="DeprecatedNodeAnnotation$I8" />
       <node id="3628660716135449803" at="101,0,102,0" concept="13" trace="MoveContainmentLink$1e" />
       <node id="3628660716135449803" at="102,0,103,0" concept="13" trace="ContainmentLinkId$FL" />
-      <node id="3628660716135449803" at="106,0,107,0" concept="13" trace="metaClass$tHD7" />
-      <node id="3628660716135449803" at="107,0,108,0" concept="13" trace="role$r_O$" />
-      <node id="3628660716135449803" at="108,0,109,0" concept="13" trace="sourceCardinality$$E8z" />
-      <node id="3628660716135449803" at="109,0,110,0" concept="13" trace="linkId$ccI3" />
-      <node id="3628660716135449803" at="110,0,111,0" concept="13" trace="comment$MxQb" />
-      <node id="3628660716135449803" at="114,0,115,0" concept="13" trace="specializedLink$3uH0" />
-      <node id="3628660716135449803" at="115,0,116,0" concept="13" trace="sourceId$YxeZ" />
-      <node id="3628660716135449803" at="116,0,117,0" concept="13" trace="targetId$Yxfu" />
+      <node id="3628660716135449803" at="106,0,107,0" concept="13" trace="linkDeclaration$lL6$" />
+      <node id="3628660716135449803" at="107,0,108,0" concept="13" trace="specializedLink$3uH0" />
+      <node id="3628660716135449803" at="108,0,109,0" concept="13" trace="sourceId$YxeZ" />
+      <node id="3628660716135449803" at="109,0,110,0" concept="13" trace="targetId$Yxfu" />
+      <node id="3628660716135449803" at="113,0,114,0" concept="13" trace="metaClass$tHD7" />
+      <node id="3628660716135449803" at="114,0,115,0" concept="13" trace="role$r_O$" />
+      <node id="3628660716135449803" at="115,0,116,0" concept="13" trace="sourceCardinality$$E8z" />
+      <node id="3628660716135449803" at="116,0,117,0" concept="13" trace="linkId$ccI3" />
+      <node id="3628660716135449803" at="117,0,118,0" concept="13" trace="comment$MxQb" />
       <node id="8193174057324206238" at="59,10,61,5" concept="2" />
       <node id="3628660716135449840" at="41,109,44,5" concept="7" />
       <node id="4441410544847075225" at="45,103,48,5" concept="7" />
@@ -879,7 +881,7 @@
       <node id="3628660716135449946" at="70,93,80,5" concept="2" />
       <node id="3628660716135449941" at="70,0,82,0" concept="8" trace="findInstances#(Lorg/jetbrains/mps/openapi/language/SContainmentLink;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/Collection;" />
       <node id="3628660716135449911" at="51,0,70,0" concept="8" trace="confirm#(Ljava/util/List;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/module/SRepository;Ljetbrains/mps/lang/structure/pluginSolution/plugin/LanguageStructureMigrationParticipant/MigrationBuilder;Z)V" />
-      <scope id="3628660716135449868" at="42,444,43,18" />
+      <scope id="3628660716135449868" at="42,511,43,18" />
       <scope id="4441410544847075232" at="46,78,47,18" />
       <scope id="8193174057324190965" at="57,90,58,267" />
       <scope id="8193174057324206239" at="59,12,60,267" />
@@ -937,15 +939,15 @@
         <var name="updateModuleDependencies" id="6019047980173122085" />
       </scope>
       <unit id="3628660716135449946" at="74,42,78,7" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$1" />
-      <unit id="3628660716135449803" at="113,0,118,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$LINKS" />
+      <unit id="3628660716135449803" at="105,0,111,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$LINKS" />
       <unit id="3628660716135449803" at="97,0,104,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$CONCEPTS" />
-      <unit id="3628660716135449803" at="105,0,112,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$PROPS" />
-      <unit id="3628660716135449803" at="40,0,119,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization" />
+      <unit id="3628660716135449803" at="112,0,119,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization$PROPS" />
+      <unit id="3628660716135449803" at="40,0,120,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization" />
     </file>
   </root>
   <root nodeRef="r:cf512d15-78eb-402a-a0bd-f5eea680b5a8(jetbrains.mps.lang.structure.pluginSolution.plugin)/3628660716135496438">
     <file name="MoveReferenceLinkSpecialization.java">
-      <node id="3628660716135496512" at="41,444,42,18" concept="10" />
+      <node id="3628660716135496512" at="41,511,42,18" concept="10" />
       <node id="4441410544847229293" at="43,5,44,97" concept="9" />
       <node id="4441410544847250136" at="45,76,46,18" concept="10" />
       <node id="3628660716135496477" at="47,5,48,121" concept="10" />
@@ -979,14 +981,15 @@
       <node id="3628660716135496438" at="95,0,96,0" concept="13" trace="DeprecatedNodeAnnotation$I8" />
       <node id="3628660716135496438" at="96,0,97,0" concept="13" trace="MoveReferenceLink$ZL" />
       <node id="3628660716135496438" at="97,0,98,0" concept="13" trace="ReferenceLinkId$Ic" />
-      <node id="3628660716135496438" at="101,0,102,0" concept="13" trace="metaClass$tHD7" />
-      <node id="3628660716135496438" at="102,0,103,0" concept="13" trace="role$r_O$" />
-      <node id="3628660716135496438" at="103,0,104,0" concept="13" trace="sourceCardinality$$E8z" />
-      <node id="3628660716135496438" at="104,0,105,0" concept="13" trace="linkId$ccI3" />
-      <node id="3628660716135496438" at="105,0,106,0" concept="13" trace="comment$MxQb" />
-      <node id="3628660716135496438" at="109,0,110,0" concept="13" trace="specializedLink$3uH0" />
-      <node id="3628660716135496438" at="110,0,111,0" concept="13" trace="sourceId$YxsZ" />
-      <node id="3628660716135496438" at="111,0,112,0" concept="13" trace="targetId$Yxtu" />
+      <node id="3628660716135496438" at="101,0,102,0" concept="13" trace="linkDeclaration$lL6$" />
+      <node id="3628660716135496438" at="102,0,103,0" concept="13" trace="specializedLink$3uH0" />
+      <node id="3628660716135496438" at="103,0,104,0" concept="13" trace="sourceId$YxsZ" />
+      <node id="3628660716135496438" at="104,0,105,0" concept="13" trace="targetId$Yxtu" />
+      <node id="3628660716135496438" at="108,0,109,0" concept="13" trace="metaClass$tHD7" />
+      <node id="3628660716135496438" at="109,0,110,0" concept="13" trace="role$r_O$" />
+      <node id="3628660716135496438" at="110,0,111,0" concept="13" trace="sourceCardinality$$E8z" />
+      <node id="3628660716135496438" at="111,0,112,0" concept="13" trace="linkId$ccI3" />
+      <node id="3628660716135496438" at="112,0,113,0" concept="13" trace="comment$MxQb" />
       <node id="3628660716135496475" at="40,107,43,5" concept="7" />
       <node id="4441410544847250128" at="44,97,47,5" concept="7" />
       <node id="3628660716135496597" at="70,0,73,0" concept="8" trace="getDefaultSearchScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
@@ -998,7 +1001,7 @@
       <node id="3628660716135496597" at="65,91,75,5" concept="2" />
       <node id="3628660716135496592" at="65,0,77,0" concept="8" trace="findInstances#(Lorg/jetbrains/mps/openapi/language/SReferenceLink;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/Collection;" />
       <node id="3628660716135496562" at="50,0,65,0" concept="8" trace="confirm#(Ljava/util/List;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/model/SNodeReference;Lorg/jetbrains/mps/openapi/module/SRepository;Ljetbrains/mps/lang/structure/pluginSolution/plugin/LanguageStructureMigrationParticipant/MigrationBuilder;Z)V" />
-      <scope id="3628660716135496511" at="41,444,42,18" />
+      <scope id="3628660716135496511" at="41,511,42,18" />
       <scope id="4441410544847250135" at="45,76,46,18" />
       <scope id="3628660716135496597" at="70,52,71,36" />
       <scope id="3628660716135496616" at="77,97,78,80" />
@@ -1054,10 +1057,10 @@
         <var name="updateModuleDependencies" id="6019047980173205579" />
       </scope>
       <unit id="3628660716135496597" at="69,42,73,7" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$1" />
-      <unit id="3628660716135496438" at="108,0,113,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$LINKS" />
+      <unit id="3628660716135496438" at="100,0,106,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$LINKS" />
       <unit id="3628660716135496438" at="92,0,99,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$CONCEPTS" />
-      <unit id="3628660716135496438" at="100,0,107,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$PROPS" />
-      <unit id="3628660716135496438" at="39,0,114,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization" />
+      <unit id="3628660716135496438" at="107,0,114,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization$PROPS" />
+      <unit id="3628660716135496438" at="39,0,115,0" name="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization" />
     </file>
   </root>
   <root nodeRef="r:cf512d15-78eb-402a-a0bd-f5eea680b5a8(jetbrains.mps.lang.structure.pluginSolution.plugin)/3947813777274799377">
