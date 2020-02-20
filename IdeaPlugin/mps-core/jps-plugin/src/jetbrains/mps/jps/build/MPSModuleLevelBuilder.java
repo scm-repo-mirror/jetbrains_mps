@@ -359,9 +359,10 @@ public class MPSModuleLevelBuilder extends ModuleLevelBuilder {
     return toCompile;
   }
 
+  @NotNull
   @Override
   public List<String> getCompilableFileExtensions() {
 //    return Arrays.asList(MODEL_ROOT, MODEL, MODEL_HEADER, TRACE_INFO_EXT);
-    return null;
+    return Collections.emptyList();
   }
 }
