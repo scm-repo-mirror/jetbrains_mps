@@ -13,9 +13,8 @@
       <sourceRoot location="mps-textgen.jar" />
       <sourceRoot location="mps-persistence.jar" />
       <!-- FIXME make sure nobody references these runtimes through MPS.Core. These are regular solutions, clients shall reference source nodes, not stubs-->
-      <sourceRoot location="mps-closures.jar" />
-      <sourceRoot location="mps-collections.jar" />
-      <sourceRoot location="mps-tuples.jar" />
+      <sourceRoot location="mps-closures.jar" /> <!-- few uses in closures language -->
+      <sourceRoot location="mps-tuples.jar" />   <!-- uses in generator of tuples language -->
       <sourceRoot location="mps-constraints-runtime.jar" />
       <!-- For historical reasons, next libraries were exposed through MPS.Core -->
       <sourceRoot location="log4j.jar" />
