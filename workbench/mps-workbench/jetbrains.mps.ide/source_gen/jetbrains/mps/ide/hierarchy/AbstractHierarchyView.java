@@ -61,10 +61,17 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
       return;
     }
     myHierarchyTree.dispose();
+    myHierarchyTree = null;
   }
+
 
   @Override
   protected void createTool() {
+    // no-op, UI constructed lazily on demand 
+    // FIXME refactor superclass not to demand implementation of useless methods 
+  }
+
+  private void createToolLazy() {
     myHierarchyTree = createHierarchyTree(false);
     myOccurenceNavigator = new OccurenceNavigatorSupport(myHierarchyTree) {
       @Nullable
@@ -229,6 +236,9 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
 
   @Override
   public JComponent getComponent() {
+    if (myComponent == null) {
+      createToolLazy();
+    }
     return myComponent;
   }
 

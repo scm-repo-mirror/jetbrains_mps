@@ -721,17 +721,93 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="ROdlokF6Of" role="3cqZAp">
+          <node concept="37vLTI" id="ROdlokF8Ak" role="3clFbG">
+            <node concept="10Nm6u" id="ROdlokF8Mh" role="37vLTx" />
+            <node concept="37vLTw" id="ROdlokF6Od" role="37vLTJ">
+              <ref role="3cqZAo" node="51NkKCgB3d9" resolve="myHierarchyTree" />
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="2AHcQZ" id="1hqpk0YMs13" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="7I$WKBiYPxR" role="jymVt" />
+    <node concept="2tJIrI" id="ROdlokFsga" role="jymVt" />
+    <node concept="3clFb_" id="ROdlokFt$P" role="jymVt">
+      <property role="TrG5h" value="createTool" />
+      <node concept="3Tmbuc" id="ROdlokFt$Q" role="1B3o_S" />
+      <node concept="3cqZAl" id="ROdlokFt$S" role="3clF45" />
+      <node concept="3clFbS" id="ROdlokFt$T" role="3clF47">
+        <node concept="3SKdUt" id="ROdlokFwDd" role="3cqZAp">
+          <node concept="1PaTwC" id="ROdlokFwDe" role="1aUNEU">
+            <node concept="3oM_SD" id="ROdlokFwDg" role="1PaTwD">
+              <property role="3oM_SC" value="no-op," />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFwJA" role="1PaTwD">
+              <property role="3oM_SC" value="UI" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFwK1" role="1PaTwD">
+              <property role="3oM_SC" value="constructed" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFwK5" role="1PaTwD">
+              <property role="3oM_SC" value="lazily" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFwKq" role="1PaTwD">
+              <property role="3oM_SC" value="on" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFwKw" role="1PaTwD">
+              <property role="3oM_SC" value="demand" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="ROdlokFxlB" role="3cqZAp">
+          <node concept="1PaTwC" id="ROdlokFxlC" role="1aUNEU">
+            <node concept="3oM_SD" id="ROdlokFxlE" role="1PaTwD">
+              <property role="3oM_SC" value="FIXME" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxlS" role="1PaTwD">
+              <property role="3oM_SC" value="refactor" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxtA" role="1PaTwD">
+              <property role="3oM_SC" value="superclass" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxtE" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxtJ" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxtP" role="1PaTwD">
+              <property role="3oM_SC" value="demand" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxtW" role="1PaTwD">
+              <property role="3oM_SC" value="implementation" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxuc" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxul" role="1PaTwD">
+              <property role="3oM_SC" value="useless" />
+            </node>
+            <node concept="3oM_SD" id="ROdlokFxuv" role="1PaTwD">
+              <property role="3oM_SC" value="methods" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="ROdlokFt$U" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="ROdlokFle0" role="jymVt" />
     <node concept="3clFb_" id="YlfeaJOSgw" role="jymVt">
       <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="createTool" />
+      <property role="TrG5h" value="createToolLazy" />
       <property role="DiZV1" value="false" />
-      <node concept="3Tmbuc" id="YlfeaJOSgx" role="1B3o_S" />
+      <node concept="3Tm6S6" id="ROdlokFpFv" role="1B3o_S" />
       <node concept="3cqZAl" id="YlfeaJOSgy" role="3clF45" />
       <node concept="3clFbS" id="YlfeaJOSgz" role="3clF47">
         <node concept="3clFbF" id="51NkKCgB3dW" role="3cqZAp">
@@ -980,9 +1056,6 @@
             <ref role="37wK5l" node="5CK42mQosJt" resolve="createControlPanel" />
           </node>
         </node>
-      </node>
-      <node concept="2AHcQZ" id="3tYsUK_SbTV" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="5CK42mQopxS" role="jymVt" />
@@ -2078,6 +2151,21 @@
         <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
       </node>
       <node concept="3clFbS" id="51NkKCgB3iA" role="3clF47">
+        <node concept="3clFbJ" id="ROdlokF_uq" role="3cqZAp">
+          <node concept="3clFbS" id="ROdlokF_us" role="3clFbx">
+            <node concept="3clFbF" id="ROdlokFHs4" role="3cqZAp">
+              <node concept="1rXfSq" id="ROdlokFHs2" role="3clFbG">
+                <ref role="37wK5l" node="YlfeaJOSgw" resolve="createToolLazy" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="ROdlokFH1I" role="3clFbw">
+            <node concept="10Nm6u" id="ROdlokFH83" role="3uHU7w" />
+            <node concept="37vLTw" id="ROdlokFFl4" role="3uHU7B">
+              <ref role="3cqZAo" node="51NkKCgB3dh" resolve="myComponent" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="51NkKCgB3iB" role="3cqZAp">
           <node concept="37vLTw" id="2BHiRxeuMzk" role="3cqZAk">
             <ref role="3cqZAo" node="51NkKCgB3dh" resolve="myComponent" />

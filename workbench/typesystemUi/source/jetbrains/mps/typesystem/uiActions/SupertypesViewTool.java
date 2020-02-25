@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,13 +41,9 @@ public class SupertypesViewTool extends AbstractHierarchyView {
   protected AbstractHierarchyTree createHierarchyTree(boolean isParentHierarchy) {
     SupertypesTree rv = new SupertypesTree(ProjectHelper.toMPSProject(getProject()));
     rv.setHierarchyView(this);
+    // in fact, AbstractHierarchyView.createToolLazy() does the same
+    rv.setRootVisible(false);
     return rv;
-  }
-
-  @Override
-  protected void createTool() {
-    super.createTool();
-    myHierarchyTree.setRootVisible(false);
   }
 
   @Override
