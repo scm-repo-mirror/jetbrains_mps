@@ -26,9 +26,9 @@ import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.TODOStyleClass;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.TODOStyleClass;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -139,6 +139,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
         editorCell.setSRole(LINKS.line$32mp);
       }
       Style style = new StyleImpl();
+      new TODOStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
       style.set(StyleAttributes.SELECTABLE, false);
       editorCell.getStyle().putAll(style);
       editorCell.addKeyMap(new SingleLineCommentKeys());
