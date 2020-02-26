@@ -109,7 +109,6 @@
     <classNode dependClassName="jetbrains.mps.vcs.changesmanager.tree.features.VirtualPackageFeature" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SReference" />
     <classNode extendsClassName="jetbrains.mps.vcs.changesmanager.tree.TreeNodeFeatureExtractor" />

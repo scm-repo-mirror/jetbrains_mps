@@ -7596,21 +7596,21 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
       <node concept="3clFbS" id="3zYHoP1jOqE" role="3clF47">
-        <node concept="3cpWs8" id="3zYHoP1jQGP" role="3cqZAp">
-          <node concept="3cpWsn" id="3zYHoP1jQGQ" role="3cpWs9">
-            <property role="TrG5h" value="node" />
-            <node concept="3uibUv" id="3zYHoP1jQGR" role="1tU5fm">
-              <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        <node concept="3cpWs8" id="3zYHoP1jQHR" role="3cqZAp">
+          <node concept="3cpWsn" id="3zYHoP1jQHS" role="3cpWs9">
+            <property role="TrG5h" value="nodePointer" />
+            <node concept="3uibUv" id="3zYHoP1jQHT" role="1tU5fm">
+              <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
             </node>
-            <node concept="10Nm6u" id="3zYHoP1jQHE" role="33vP2m" />
+            <node concept="10Nm6u" id="1X_4LYmjduT" role="33vP2m" />
           </node>
         </node>
         <node concept="3clFbJ" id="3zYHoP1jQGi" role="3cqZAp">
           <node concept="3clFbS" id="3zYHoP1jQGj" role="3clFbx">
             <node concept="3clFbF" id="3zYHoP1jQH2" role="3cqZAp">
               <node concept="37vLTI" id="3zYHoP1jQH8" role="3clFbG">
-                <node concept="37vLTw" id="3GM_nagTAq7" role="37vLTJ">
-                  <ref role="3cqZAo" node="3zYHoP1jQGQ" resolve="node" />
+                <node concept="37vLTw" id="1X_4LYmjajr" role="37vLTJ">
+                  <ref role="3cqZAo" node="3zYHoP1jQHS" resolve="nodePointer" />
                 </node>
                 <node concept="2OqwBi" id="3zYHoP1jQGS" role="37vLTx">
                   <node concept="1eOMI4" id="3zYHoP1jQGT" role="2Oq$k0">
@@ -7623,8 +7623,8 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="liA8E" id="3zYHoP1jQGX" role="2OqNvi">
-                    <ref role="37wK5l" to="7e8u:~MPSTreeNodeEx.getSNode()" resolve="getSNode" />
+                  <node concept="liA8E" id="1X_4LYmjaWF" role="2OqNvi">
+                    <ref role="37wK5l" to="7e8u:~MPSTreeNodeEx.getNodePointer()" resolve="getNodePointer" />
                   </node>
                 </node>
               </node>
@@ -7655,8 +7655,8 @@
             <node concept="3clFbS" id="3zYHoP1jQHd" role="3eOfB_">
               <node concept="3clFbF" id="3zYHoP1jQHo" role="3cqZAp">
                 <node concept="37vLTI" id="3zYHoP1jQHp" role="3clFbG">
-                  <node concept="37vLTw" id="3GM_nagTsEj" role="37vLTJ">
-                    <ref role="3cqZAo" node="3zYHoP1jQGQ" resolve="node" />
+                  <node concept="37vLTw" id="1X_4LYmjclr" role="37vLTJ">
+                    <ref role="3cqZAo" node="3zYHoP1jQHS" resolve="nodePointer" />
                   </node>
                   <node concept="2OqwBi" id="3zYHoP1jQHr" role="37vLTx">
                     <node concept="1eOMI4" id="3zYHoP1jQHs" role="2Oq$k0">
@@ -7674,35 +7674,10 @@
                         </node>
                       </node>
                     </node>
-                    <node concept="liA8E" id="3zYHoP1jQHw" role="2OqNvi">
-                      <ref role="37wK5l" to="7e8u:~MPSTreeNodeEx.getSNode()" resolve="getSNode" />
+                    <node concept="liA8E" id="1X_4LYmjcZf" role="2OqNvi">
+                      <ref role="37wK5l" to="7e8u:~MPSTreeNodeEx.getNodePointer()" resolve="getNodePointer" />
                     </node>
                   </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs8" id="3zYHoP1jQHR" role="3cqZAp">
-          <node concept="3cpWsn" id="3zYHoP1jQHS" role="3cpWs9">
-            <property role="TrG5h" value="nodePointer" />
-            <node concept="3uibUv" id="3zYHoP1jQHT" role="1tU5fm">
-              <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
-            </node>
-            <node concept="3K4zz7" id="2OoyE6VXtyG" role="33vP2m">
-              <node concept="10Nm6u" id="2OoyE6VXtzQ" role="3K4E3e" />
-              <node concept="2OqwBi" id="2OoyE6VXtXe" role="3K4GZi">
-                <node concept="37vLTw" id="2OoyE6VXt$Q" role="2Oq$k0">
-                  <ref role="3cqZAo" node="3zYHoP1jQGQ" resolve="node" />
-                </node>
-                <node concept="liA8E" id="2OoyE6VXuwA" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SNode.getReference()" resolve="getReference" />
-                </node>
-              </node>
-              <node concept="3clFbC" id="2OoyE6VXt9q" role="3K4Cdx">
-                <node concept="10Nm6u" id="2OoyE6VXtau" role="3uHU7w" />
-                <node concept="37vLTw" id="2OoyE6VXsom" role="3uHU7B">
-                  <ref role="3cqZAo" node="3zYHoP1jQGQ" resolve="node" />
                 </node>
               </node>
             </node>
