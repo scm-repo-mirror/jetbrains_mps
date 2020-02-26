@@ -20,6 +20,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -55,9 +56,17 @@ public final class MultiLineComment__BehaviorDescriptor extends BaseBHDescriptor
     return null;
   }
   /*package*/ static boolean isTODOComment_id1oNltBa72kg(@NotNull SNode __thisNode__) {
-    SNode firstLine = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$VaYR)).first();
-    if ((firstLine != null) && ListSequence.fromList(SLinkOperations.getChildren(firstLine, LINKS.elements$eRew)).isNotEmpty()) {
-      SNode firstElement = ListSequence.fromList(SLinkOperations.getChildren(firstLine, LINKS.elements$eRew)).first();
+    SNode firstLineWithText = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$VaYR)).findFirst(new IWhereFilter<SNode>() {
+      public boolean accept(SNode l) {
+        return (l != null) && ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).isNotEmpty() && ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).any(new IWhereFilter<SNode>() {
+          public boolean accept(SNode w) {
+            return SNodeOperations.isInstanceOf(w, CONCEPTS.Word$AM) && isNotEmptyString(trim_dm2sa1_a0a0a0a0a0a0a0a0a0a0a0a0k(SPropertyOperations.getString(SNodeOperations.cast(w, CONCEPTS.Word$AM), PROPS.value$cK70)));
+          }
+        });
+      }
+    });
+    if ((firstLineWithText != null)) {
+      SNode firstElement = ListSequence.fromList(SLinkOperations.getChildren(firstLineWithText, LINKS.elements$eRew)).first();
       if (SNodeOperations.isInstanceOf(firstElement, CONCEPTS.Word$AM)) {
         String text = SPropertyOperations.getString(SNodeOperations.cast(firstElement, CONCEPTS.Word$AM), PROPS.value$cK70);
         if (text != null) {
@@ -115,6 +124,12 @@ public final class MultiLineComment__BehaviorDescriptor extends BaseBHDescriptor
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
+  }
+  public static String trim_dm2sa1_a0a0a0a0a0a0a0a0a0a0a0a0k(String str) {
+    return (str == null ? null : str.trim());
   }
 
   private static final class LINKS {
