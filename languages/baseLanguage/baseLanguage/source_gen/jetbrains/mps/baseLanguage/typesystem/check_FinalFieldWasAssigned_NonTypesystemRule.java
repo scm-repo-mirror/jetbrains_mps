@@ -36,13 +36,19 @@ public class check_FinalFieldWasAssigned_NonTypesystemRule extends AbstractNonTy
       return;
     }
 
+    boolean initializedInInitializer = false;
+
     List<SNode> mayInitialize = new ArrayList<SNode>();
     ListSequence.fromList(mayInitialize).addSequence(Sequence.fromIterable(ClassConcept__BehaviorDescriptor.instanceInitializers_id6Fz0RL3y9UD.invoke(classifier)));
     ListSequence.fromList(mayInitialize).addSequence(Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(classifier)));
     List<SNode> doNotInitialize = new ArrayList<SNode>();
-    ListSequence.fromList(doNotInitialize).addSequence(ListSequence.fromList(mayInitialize));
+    ListSequence.fromList(doNotInitialize).addSequence(Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(classifier)));
     for (SNode member : mayInitialize) {
       if (member != null) {
+        if (ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.as(member, CONCEPTS.ConstructorDeclaration$5U), CONCEPTS.ThisConstructorInvocation$XM, false, new SAbstractConcept[]{})).isNotEmpty()) {
+          ListSequence.fromList(doNotInitialize).removeElement(member);
+          continue;
+        }
         for (SNode reference : ListSequence.fromList(SNodeOperations.getNodeDescendants(member, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.FieldDeclaration$Ps);
@@ -50,18 +56,24 @@ public class check_FinalFieldWasAssigned_NonTypesystemRule extends AbstractNonTy
         }).toListSequence()) {
           if (SLinkOperations.getTarget(reference, LINKS.variableDeclaration$2ky6) == field && CheckingUtil.isAssigned(reference)) {
             ListSequence.fromList(doNotInitialize).removeElement(member);
+            if (SNodeOperations.isInstanceOf(member, CONCEPTS.InstanceInitializer$BJ)) {
+              initializedInInitializer = true;
+            }
             continue;
           }
         }
         for (SNode reference : SNodeOperations.getNodeDescendants(member, CONCEPTS.FieldReferenceOperation$N8, false, new SAbstractConcept[]{})) {
           if (SLinkOperations.getTarget(reference, LINKS.fieldDeclaration$mLBy) == field && CheckingUtil.isAssigned(reference)) {
             ListSequence.fromList(doNotInitialize).removeElement(member);
+            if (SNodeOperations.isInstanceOf(member, CONCEPTS.InstanceInitializer$BJ)) {
+              initializedInInitializer = true;
+            }
             continue;
           }
         }
       }
     }
-    if (ListSequence.fromList(mayInitialize).isEmpty() || ListSequence.fromList(doNotInitialize).isNotEmpty()) {
+    if (ListSequence.fromList(mayInitialize).isEmpty() || (ListSequence.fromList(doNotInitialize).isNotEmpty() && !(initializedInInitializer))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(field, "Variable '" + SPropertyOperations.getString(field, PROPS.name$tAp1) + "' might not have been initialized", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "843236768047887576", null, errorTarget);
@@ -84,8 +96,11 @@ public class check_FinalFieldWasAssigned_NonTypesystemRule extends AbstractNonTy
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept ThisConstructorInvocation$XM = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation");
     /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
     /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept InstanceInitializer$BJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
     /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
   }
 

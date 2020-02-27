@@ -39,12 +39,18 @@ public abstract class AbstractInitializeFieldRefactoring {
       return false;
     }
 
+    boolean initializedInInitializer = false;
+
     List<SNode> mayInitialize = new ArrayList<SNode>();
     ListSequence.fromList(mayInitialize).addSequence(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(classifier, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("instanceInitializers", CONCEPTS.ClassConcept$IY, "6Fz0RL3y9UD")))));
     ListSequence.fromList(mayInitialize).addSequence(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(classifier, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("constructors", CONCEPTS.ClassConcept$IY, "4_LVZ3pCvsd")))));
-    ListSequence.fromList(doNotInitialize).addSequence(ListSequence.fromList(mayInitialize));
+    ListSequence.fromList(doNotInitialize).addSequence(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(classifier, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("constructors", CONCEPTS.ClassConcept$IY, "4_LVZ3pCvsd")))));
     for (SNode member : mayInitialize) {
       if (member != null) {
+        if (ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.as(member, CONCEPTS.ConceptDeclaration$qU), CONCEPTS.ThisConstructorInvocation$XM, false, new SAbstractConcept[]{})).isNotEmpty()) {
+          ListSequence.fromList(doNotInitialize).removeElement(member);
+          continue;
+        }
         for (SNode reference : ListSequence.fromList(SNodeOperations.getNodeDescendants(member, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.FieldDeclaration$Ps);
@@ -52,25 +58,34 @@ public abstract class AbstractInitializeFieldRefactoring {
         }).toListSequence()) {
           if (SLinkOperations.getTarget(reference, LINKS.variableDeclaration$2ky6) == field && CheckingUtil.isAssigned(reference)) {
             ListSequence.fromList(doNotInitialize).removeElement(member);
+            if (SNodeOperations.isInstanceOf(member, CONCEPTS.InstanceInitializer$BJ)) {
+              initializedInInitializer = true;
+            }
             continue;
           }
         }
         for (SNode reference : SNodeOperations.getNodeDescendants(member, CONCEPTS.FieldReferenceOperation$N8, false, new SAbstractConcept[]{})) {
           if (SLinkOperations.getTarget(reference, LINKS.fieldDeclaration$mLBy) == field && CheckingUtil.isAssigned(reference)) {
             ListSequence.fromList(doNotInitialize).removeElement(member);
+            if (SNodeOperations.isInstanceOf(member, CONCEPTS.InstanceInitializer$BJ)) {
+              initializedInInitializer = true;
+            }
             continue;
           }
         }
       }
     }
-    return ListSequence.fromList(mayInitialize).isEmpty() || ListSequence.fromList(doNotInitialize).isNotEmpty();
+    return ListSequence.fromList(mayInitialize).isEmpty() || (ListSequence.fromList(doNotInitialize).isNotEmpty() && !(initializedInInitializer));
   }
   public abstract void performRefactoring(SNode field, SNodeReference[] selectedConstructors, SRepository repository);
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept ThisConstructorInvocation$XM = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation");
     /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
     /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept InstanceInitializer$BJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
     /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
   }
 

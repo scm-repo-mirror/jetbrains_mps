@@ -48903,6 +48903,15 @@
           <node concept="3cqZAl" id="73g2kXOy9hq" role="3clF45" />
           <node concept="3Tm1VV" id="73g2kXOy9hr" role="1B3o_S" />
           <node concept="3clFbS" id="73g2kXOy9ht" role="3clF47">
+            <node concept="1VxSAg" id="1vBGqoDmvtY" role="3cqZAp">
+              <ref role="37wK5l" node="73g2kXOybkd" resolve="Foo1" />
+              <node concept="3cmrfG" id="1vBGqoDmw$q" role="37wK5m">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="3cmrfG" id="1vBGqoDmwF_" role="37wK5m">
+                <property role="3cmrfH" value="2" />
+              </node>
+            </node>
             <node concept="3clFbF" id="73g2kXOy9zm" role="3cqZAp">
               <node concept="2OqwBi" id="73g2kXOy9zj" role="3clFbG">
                 <node concept="10M0yZ" id="73g2kXOy9zk" role="2Oq$k0">
