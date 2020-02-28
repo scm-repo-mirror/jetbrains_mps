@@ -16,6 +16,7 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.event.ModelEventDispatch;
+import jetbrains.mps.smodel.references.ImmatureReferences;
 import jetbrains.mps.smodel.references.UnregisteredNodes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -224,6 +225,10 @@ final class AttachedNodeOwner extends SNodeOwner {
 
   @Override
   /*package*/ void fireReferenceChange(SNode node, SReferenceLink l, org.jetbrains.mps.openapi.model.SReference oldRef, org.jetbrains.mps.openapi.model.SReference newRef) {
+    if (newRef instanceof StaticReference && ((StaticReference) newRef).isDirect()) {
+      // XXX is it true we need to register immature even in update mode?
+      ImmatureReferences.getInstance().add((StaticReference) newRef);
+    }
     if (myModel.isUpdateMode()) {
       return;
     }

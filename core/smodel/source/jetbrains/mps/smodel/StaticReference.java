@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,8 @@ public final class StaticReference extends SReferenceBase {
     super(role, sourceNode, immatureTargetNode);
     myTargetModelReference = null;
     // 'young' reference
-    ImmatureReferences.getInstance().add(this);
+    // reference is registered to ImmatureReferences the moment it's part of attached model. Otherwise, we don't care to 'mature' it
+//    ImmatureReferences.getInstance().add(this);
   }
 
   /**
@@ -305,9 +306,9 @@ public final class StaticReference extends SReferenceBase {
       targetNode = UnregisteredNodes.instance().get(targetModel.getReference(), targetNodeId);
     }
     myImmatureTargetNode = targetNode;
-    if (myImmatureTargetNode != null) {
-      ImmatureReferences.getInstance().add(this);
-    }
+//    if (myImmatureTargetNode != null) {
+//      ImmatureReferences.getInstance().add(this);
+//    }
     // we intentionally leave old value in myTargetModelReference (and myTargetNodeId, too, although it's not in use at the moment) to address
     // scenario (III) outlined in #getTargetSModelReference(), above.
   }
@@ -318,7 +319,7 @@ public final class StaticReference extends SReferenceBase {
     if (myImmatureTargetNode == null) {
       return;
     }
-    ImmatureReferences.getInstance().remove(this);
+//    ImmatureReferences.getInstance().remove(this);
     final SNode immatureNode = myImmatureTargetNode;
     myImmatureTargetNode = null;
     myTargetNodeId = immatureNode.getNodeId();
