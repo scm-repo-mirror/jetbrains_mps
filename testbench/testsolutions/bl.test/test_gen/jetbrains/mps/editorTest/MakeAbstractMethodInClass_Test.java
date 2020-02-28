@@ -20,16 +20,16 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 @MPSLaunch
-public class ToggleAbstractMethodInClass_Test extends BaseTransformationTest {
+public class MakeAbstractMethodInClass_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(ToggleAbstractMethodInClass_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(MakeAbstractMethodInClass_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
 
-  public ToggleAbstractMethodInClass_Test() {
+  public MakeAbstractMethodInClass_Test() {
     super(ourParamCache);
   }
 
   @Test
-  public void test_ToggleAbstractMethodInClass() throws Throwable {
+  public void test_MakeAbstractMethodInClass() throws Throwable {
     new TestBody(this).testMethod();
   }
 
@@ -41,11 +41,11 @@ public class ToggleAbstractMethodInClass_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("1076865108598777504", "1076865108598778453");
-      invokeIntention("jetbrains.mps.baseLanguage.intentions.ToggleBLMethodAbstract_Intention", myStart.getNode());
+      initEditorComponent("2649128189909590155", "2649128189909590168");
+      typeString("abstract");
       Assert.assertTrue(new ModelAccessHelper(myProject.getRepository()).runReadAction(new Computable<Boolean>() {
         public Boolean compute() {
-          return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("1076865108598778453"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c108ca66L, "ClassConcept"))), LINKS.member$oYX5)).first(), CONCEPTS.InstanceMethodDeclaration$An), LINKS.body$WIlu), LINKS.statement$WHn8)).isEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("2649128189909590168"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c108ca66L, "ClassConcept"))), LINKS.member$oYX5)).first(), CONCEPTS.InstanceMethodDeclaration$An), LINKS.body$WIlu), LINKS.statement$WHn8)).isEmpty();
         }
       }));
 
