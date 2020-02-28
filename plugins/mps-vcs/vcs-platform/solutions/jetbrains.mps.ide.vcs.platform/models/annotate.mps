@@ -7365,6 +7365,7 @@
                     </node>
                     <node concept="3Tm6S6" id="13$TqNLIgyj" role="1B3o_S" />
                   </node>
+                  <node concept="2tJIrI" id="2j3A0Qk1jS$" role="jymVt" />
                   <node concept="3Tm1VV" id="13$TqNLIgyk" role="1B3o_S" />
                   <node concept="Xl_RD" id="13$TqNLIgyl" role="37wK5m">
                     <property role="Xl_RC" value="Retrieving annotations" />
@@ -7438,6 +7439,7 @@
                       <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
+                  <node concept="2tJIrI" id="2j3A0Qk1iQK" role="jymVt" />
                   <node concept="3clFb_" id="13$TqNLIgyL" role="jymVt">
                     <property role="TrG5h" value="onCancel" />
                     <node concept="2AHcQZ" id="13$TqNLIgyM" role="2AJF6D">
@@ -7453,6 +7455,7 @@
                     </node>
                     <node concept="3cqZAl" id="13$TqNLIgyR" role="3clF45" />
                   </node>
+                  <node concept="2tJIrI" id="2j3A0Qk1iQL" role="jymVt" />
                   <node concept="3clFb_" id="13$TqNLIgyS" role="jymVt">
                     <property role="TrG5h" value="onSuccess" />
                     <node concept="2AHcQZ" id="13$TqNLIgyT" role="2AJF6D">
@@ -7589,11 +7592,51 @@
                                 <ref role="37wK5l" to="8voc:~FileAnnotation.setReloader(com.intellij.util.Consumer)" resolve="setReloader" />
                                 <node concept="1bVj0M" id="7Tvsx7gvTow" role="37wK5m">
                                   <node concept="3clFbS" id="7Tvsx7gvTox" role="1bW5cS">
-                                    <node concept="3clFbF" id="7Tvsx7gwezb" role="3cqZAp">
-                                      <node concept="1rXfSq" id="7Tvsx7gweza" role="3clFbG">
-                                        <ref role="37wK5l" node="13$TqNLIflz" resolve="annotate" />
-                                        <node concept="37vLTw" id="7Tvsx7gwhUl" role="37wK5m">
-                                          <ref role="3cqZAo" node="13$TqNLIguV" resolve="editorComponent" />
+                                    <node concept="3cpWs8" id="2j3A0Qk1Lj8" role="3cqZAp">
+                                      <node concept="3cpWsn" id="2j3A0Qk1Lj9" role="3cpWs9">
+                                        <property role="TrG5h" value="modelAccess" />
+                                        <node concept="3uibUv" id="2j3A0Qk1Lja" role="1tU5fm">
+                                          <ref role="3uigEE" to="lui2:~ModelAccess" resolve="ModelAccess" />
+                                        </node>
+                                        <node concept="2OqwBi" id="2j3A0Qk1Ljb" role="33vP2m">
+                                          <node concept="liA8E" id="2j3A0Qk1Ljc" role="2OqNvi">
+                                            <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
+                                          </node>
+                                          <node concept="2OqwBi" id="2j3A0Qk1Ljd" role="2Oq$k0">
+                                            <node concept="2OqwBi" id="2j3A0Qk1Lje" role="2Oq$k0">
+                                              <node concept="37vLTw" id="2j3A0Qk1Ljf" role="2Oq$k0">
+                                                <ref role="3cqZAo" node="13$TqNLIguV" resolve="editorComponent" />
+                                              </node>
+                                              <node concept="liA8E" id="2j3A0Qk1Ljg" role="2OqNvi">
+                                                <ref role="37wK5l" to="exr9:~EditorComponent.getEditorContext()" resolve="getEditorContext" />
+                                              </node>
+                                            </node>
+                                            <node concept="liA8E" id="2j3A0Qk1Ljh" role="2OqNvi">
+                                              <ref role="37wK5l" to="exr9:~EditorContext.getRepository()" resolve="getRepository" />
+                                            </node>
+                                          </node>
+                                        </node>
+                                      </node>
+                                    </node>
+                                    <node concept="3clFbF" id="2j3A0Qk1MgH" role="3cqZAp">
+                                      <node concept="2OqwBi" id="2j3A0Qk1MKO" role="3clFbG">
+                                        <node concept="37vLTw" id="2j3A0Qk1MgF" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="2j3A0Qk1Lj9" resolve="modelAccess" />
+                                        </node>
+                                        <node concept="liA8E" id="2j3A0Qk1N1Y" role="2OqNvi">
+                                          <ref role="37wK5l" to="lui2:~ModelAccess.runReadAction(java.lang.Runnable)" resolve="runReadAction" />
+                                          <node concept="1bVj0M" id="2j3A0Qk1NYG" role="37wK5m">
+                                            <node concept="3clFbS" id="2j3A0Qk1NYH" role="1bW5cS">
+                                              <node concept="3clFbF" id="7Tvsx7gwezb" role="3cqZAp">
+                                                <node concept="1rXfSq" id="7Tvsx7gweza" role="3clFbG">
+                                                  <ref role="37wK5l" node="13$TqNLIflz" resolve="annotate" />
+                                                  <node concept="37vLTw" id="7Tvsx7gwhUl" role="37wK5m">
+                                                    <ref role="3cqZAo" node="13$TqNLIguV" resolve="editorComponent" />
+                                                  </node>
+                                                </node>
+                                              </node>
+                                            </node>
+                                          </node>
                                         </node>
                                       </node>
                                     </node>
@@ -7745,6 +7788,32 @@
                                 </node>
                               </node>
                               <node concept="3clFbH" id="5oWc8mxR1U4" role="3cqZAp" />
+                              <node concept="3cpWs8" id="2j3A0Qk1KO1" role="3cqZAp">
+                                <node concept="3cpWsn" id="2j3A0Qk1KO2" role="3cpWs9">
+                                  <property role="TrG5h" value="modelAccess" />
+                                  <node concept="3uibUv" id="2j3A0Qk1kex" role="1tU5fm">
+                                    <ref role="3uigEE" to="lui2:~ModelAccess" resolve="ModelAccess" />
+                                  </node>
+                                  <node concept="2OqwBi" id="2j3A0Qk1KO3" role="33vP2m">
+                                    <node concept="liA8E" id="2j3A0Qk1KO4" role="2OqNvi">
+                                      <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
+                                    </node>
+                                    <node concept="2OqwBi" id="2j3A0Qk1KO5" role="2Oq$k0">
+                                      <node concept="2OqwBi" id="2j3A0Qk1KO6" role="2Oq$k0">
+                                        <node concept="37vLTw" id="2j3A0Qk1KO7" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="13$TqNLIguV" resolve="editorComponent" />
+                                        </node>
+                                        <node concept="liA8E" id="2j3A0Qk1KO8" role="2OqNvi">
+                                          <ref role="37wK5l" to="exr9:~EditorComponent.getEditorContext()" resolve="getEditorContext" />
+                                        </node>
+                                      </node>
+                                      <node concept="liA8E" id="2j3A0Qk1KO9" role="2OqNvi">
+                                        <ref role="37wK5l" to="exr9:~EditorContext.getRepository()" resolve="getRepository" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                </node>
+                              </node>
                               <node concept="3clFbF" id="13$TqNLIgzm" role="3cqZAp">
                                 <node concept="2OqwBi" id="13$TqNLIgzn" role="3clFbG">
                                   <node concept="liA8E" id="13$TqNLIgzo" role="2OqNvi">
@@ -7792,23 +7861,8 @@
                                       </node>
                                     </node>
                                   </node>
-                                  <node concept="2OqwBi" id="13$TqNLIgzE" role="2Oq$k0">
-                                    <node concept="liA8E" id="13$TqNLIgzF" role="2OqNvi">
-                                      <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
-                                    </node>
-                                    <node concept="2OqwBi" id="13$TqNLIuNr" role="2Oq$k0">
-                                      <node concept="2OqwBi" id="13$TqNLIkV0" role="2Oq$k0">
-                                        <node concept="37vLTw" id="13$TqNLIkzN" role="2Oq$k0">
-                                          <ref role="3cqZAo" node="13$TqNLIguV" resolve="editorComponent" />
-                                        </node>
-                                        <node concept="liA8E" id="13$TqNLIuIN" role="2OqNvi">
-                                          <ref role="37wK5l" to="exr9:~EditorComponent.getEditorContext()" resolve="getEditorContext" />
-                                        </node>
-                                      </node>
-                                      <node concept="liA8E" id="13$TqNLIuTw" role="2OqNvi">
-                                        <ref role="37wK5l" to="exr9:~EditorContext.getRepository()" resolve="getRepository" />
-                                      </node>
-                                    </node>
+                                  <node concept="37vLTw" id="2j3A0Qk1KOa" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="2j3A0Qk1KO2" resolve="modelAccess" />
                                   </node>
                                 </node>
                               </node>
