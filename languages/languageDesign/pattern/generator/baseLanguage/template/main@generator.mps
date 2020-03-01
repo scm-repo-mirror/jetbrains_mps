@@ -6481,7 +6481,7 @@
     <node concept="9aQIb" id="1tcvH6aZR$c" role="13RCb5">
       <node concept="3clFbS" id="1tcvH6aZR$d" role="9aQI4">
         <node concept="3cpWs8" id="2r4rhgaB$4p" role="3cqZAp">
-          <node concept="15s5l7" id="S4WnV2NXDH" role="lGtFl">
+          <node concept="15s5l7" id="7S22xyoIUWn" role="lGtFl">
             <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;reference scopes (reference scopes)&quot;;FLAVOUR_MESSAGE=&quot;The reference  GeneratedPattern (classifier) is out of search scope&quot;;FLAVOUR_NODE_FEATURE=&quot;classifier&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)/6836281137582643069]&quot;;" />
             <property role="huDt6" value="The reference  GeneratedPattern (classifier) is out of search scope" />
           </node>
@@ -6615,7 +6615,7 @@
             </node>
             <node concept="2OqwBi" id="2r4rhgaBCCP" role="3eO9$A">
               <node concept="liA8E" id="2r4rhgaBCD2" role="2OqNvi">
-                <ref role="37wK5l" to="7jhi:~AbstractGeneratedPattern.match(org.jetbrains.mps.openapi.model.SNode)" resolve="match" />
+                <ref role="37wK5l" node="1GYwYhsnwWa" resolve="match" />
                 <node concept="37vLTw" id="2r4rhgaBCD3" role="37wK5m">
                   <ref role="3cqZAo" node="1tcvH6aZVDY" resolve="nodeToMatch" />
                 </node>
@@ -6722,7 +6722,7 @@
           </node>
           <node concept="2OqwBi" id="2r4rhgaBABL" role="3clFbw">
             <node concept="liA8E" id="2r4rhgaBBej" role="2OqNvi">
-              <ref role="37wK5l" to="7jhi:~AbstractGeneratedPattern.match(org.jetbrains.mps.openapi.model.SNode)" resolve="match" />
+              <ref role="37wK5l" node="1GYwYhsnwWa" resolve="match" />
               <node concept="37vLTw" id="2r4rhgaBBfB" role="37wK5m">
                 <ref role="3cqZAo" node="1tcvH6aZVDY" resolve="nodeToMatch" />
               </node>
