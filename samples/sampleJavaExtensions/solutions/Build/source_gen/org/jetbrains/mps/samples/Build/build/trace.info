@@ -2,7 +2,11 @@
 <debug-info version="2">
   <root nodeRef="r:91fb18c7-a74a-4784-95fb-46b200b2b62a(org.jetbrains.mps.samples.Build.build)/6792046066743130">
     <file name="build.xml">
+<<<<<<< HEAD
       <unit id="6792046066743130" at="1,0,1323,10" name="org.jetbrains.mps.samples.Build.build.build" />
+=======
+      <unit id="6792046066743130" at="1,0,1324,10" name="org.jetbrains.mps.samples.Build.build.build" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
     </file>
   </root>
 </debug-info>

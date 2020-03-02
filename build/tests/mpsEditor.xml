@@ -1481,6 +1481,7 @@
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.refactoring.participant.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.typesystemEngine.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.facets.jar" />
+      <library file="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.runtime.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.smodel.resources.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/mps-stubs.jar" />
@@ -1597,8 +1598,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
@@ -1651,8 +1657,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
@@ -1708,8 +1719,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.classifiers.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.closures.jar" />
@@ -1771,8 +1787,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
@@ -1824,8 +1845,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
@@ -1880,8 +1906,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
@@ -1991,8 +2022,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
@@ -2045,8 +2081,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
@@ -2098,8 +2139,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.classifiers.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.closures.jar" />
@@ -2165,8 +2211,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
@@ -2277,8 +2328,13 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.IDEA}/lib/ecj-4.13.jar" />
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.classifiers.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/languages/baseLanguage/jetbrains.mps.baseLanguage.closures.jar" />
@@ -2889,6 +2945,7 @@
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.refactoring.participant.jar" />
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.typesystemEngine.jar" />
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.facets.jar" />
+      <pathelement location="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.jar" />
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.make.runtime.jar" />
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/make/jetbrains.mps.smodel.resources.jar" />
       <pathelement location="${artifacts.mpsBootstrapCore}/languages/mps-stubs.jar" />

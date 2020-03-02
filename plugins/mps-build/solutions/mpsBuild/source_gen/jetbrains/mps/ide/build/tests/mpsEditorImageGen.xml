@@ -320,6 +320,7 @@
       <library file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.refactoring.participant.jar" />
       <library file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.typesystemEngine.jar" />
       <library file="${artifacts.mps}/languages/make/jetbrains.mps.make.facets.jar" />
+      <library file="${artifacts.mps}/languages/make/jetbrains.mps.make.jar" />
       <library file="${artifacts.mps}/languages/make/jetbrains.mps.make.runtime.jar" />
       <library file="${artifacts.mps}/languages/make/jetbrains.mps.smodel.resources.jar" />
       <library file="${artifacts.mps}/languages/mps-stubs.jar" />
@@ -413,7 +414,11 @@
         <fileset file="${artifacts.mps}/lib/log4j.jar" />
         <fileset file="${artifacts.mps}/lib/jdom.jar" />
         <fileset file="${artifacts.mps}/lib/trove4j.jar" />
+<<<<<<< HEAD
         <fileset file="${artifacts.mps}/lib/ecj-4.13.jar" />
+=======
+        <fileset file="${artifacts.mps}/lib/ecj-4.10.jar" />
+>>>>>>> 0e8b65f0b836cb10bf4a76ebc334f756d4fe1aaf
         <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
@@ -605,6 +610,7 @@
       <pathelement location="${artifacts.mps}/languages/languageDesign/jetbrains.mps.refactoring.participant.jar" />
       <pathelement location="${artifacts.mps}/languages/languageDesign/jetbrains.mps.typesystemEngine.jar" />
       <pathelement location="${artifacts.mps}/languages/make/jetbrains.mps.make.facets.jar" />
+      <pathelement location="${artifacts.mps}/languages/make/jetbrains.mps.make.jar" />
       <pathelement location="${artifacts.mps}/languages/make/jetbrains.mps.make.runtime.jar" />
       <pathelement location="${artifacts.mps}/languages/make/jetbrains.mps.smodel.resources.jar" />
       <pathelement location="${artifacts.mps}/languages/mps-stubs.jar" />
