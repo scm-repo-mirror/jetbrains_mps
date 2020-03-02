@@ -26,8 +26,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SReference;
 
+import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -211,8 +214,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
   private static class CommandContextProvider {
     // don't care about multi-threaded access as command are executed inside 1 thread only
     private boolean myEngaged = false;
-    // provisional, shall get replaced with per-model map
-    private CommandContextImpl mySharedContext;
+    private final Map<SModel, CommandContextImpl> myModel2Context = new IdentityHashMap<>();
 
     private final UnregisteredNodes UN = UnregisteredNodes.instance();
     private final ImmatureReferences IR = ImmatureReferences.getInstance();
@@ -230,26 +232,26 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     void discard() {
       IR.disable();
       UN.disable();
+      myModel2Context.clear();
       assert myEngaged;
       myEngaged = false;
     }
 
     ModelCommandContext get(SModel model) {
       if (myEngaged) {
-        if (mySharedContext == null) {
-          mySharedContext = new CommandContextImpl(UN, IR);
-        }
-        return mySharedContext;
+        return myModel2Context.computeIfAbsent(model, m -> new CommandContextImpl(m, UN, IR));
       }
       return null;
     }
   }
 
   private static class CommandContextImpl implements ModelCommandContext {
+    private final SModel myModel;
     private final UnregisteredNodes myUN;
     private final ImmatureReferences myIR;
 
-    public CommandContextImpl(UnregisteredNodes un, ImmatureReferences ir) {
+    public CommandContextImpl(SModel m, UnregisteredNodes un, ImmatureReferences ir) {
+      myModel = m;
       myUN = un;
       myIR = ir;
     }
@@ -269,6 +271,12 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
       if (association instanceof StaticReference && ((StaticReference) association).isDirect()) {
         myIR.add((StaticReference) association);
       }
+    }
+
+    @Nullable
+    @Override
+    public SNode resolveUnregistered(SNodeId nodeId) {
+      return myUN.get(myModel.getReference(), nodeId);
     }
   }
 }

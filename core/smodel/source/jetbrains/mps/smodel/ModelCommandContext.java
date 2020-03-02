@@ -18,6 +18,7 @@ package jetbrains.mps.smodel;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SReference;
 
 /**
@@ -41,12 +42,21 @@ public interface ModelCommandContext {
     @Override
     public void associationSet(SReference association) {
     }
+
+    @Nullable
+    @Override
+    public SNode resolveUnregistered(SNodeId nodeId) {
+      return null;
+    }
   };
 
-  void nodeAttached(SNode node);
-  void nodeDetached(SNode node);
+  void nodeAttached(/*NotNull*/ SNode node);
+  void nodeDetached(/*NotNull*/ SNode node);
 
-  void associationSet(SReference association);
+  void associationSet(/*NotNull*/ SReference association);
+
+  @Nullable
+  SNode resolveUnregistered(/*NotNull*/ SNodeId nodeId);
 
   interface Provider {
     // argument is never null

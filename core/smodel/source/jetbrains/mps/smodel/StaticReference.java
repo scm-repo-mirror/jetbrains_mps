@@ -19,8 +19,6 @@ import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
-import jetbrains.mps.smodel.references.ImmatureReferences;
-import jetbrains.mps.smodel.references.UnregisteredNodes;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
@@ -190,8 +188,10 @@ public final class StaticReference extends SReferenceBase {
     }
 
     SNode targetNode = targetModel.getNode(targetNodeId);
-    if (targetNode != null) return targetNode;
-    targetNode = UnregisteredNodes.instance().get(targetModel.getReference(), targetNodeId);
+    if (targetNode != null) {
+      return targetNode;
+    }
+    targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
     if (targetNode == null) {
       error("target model '" + targetModel.getReference() + "' doesn't contain node with id=" + getTargetNodeId(), true);
     }
@@ -303,7 +303,7 @@ public final class StaticReference extends SReferenceBase {
     }
     SNode targetNode = targetModel.getNode(targetNodeId);
     if (targetNode == null) {
-      targetNode = UnregisteredNodes.instance().get(targetModel.getReference(), targetNodeId);
+      targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
     }
     myImmatureTargetNode = targetNode;
 //    if (myImmatureTargetNode != null) {
@@ -326,5 +326,20 @@ public final class StaticReference extends SReferenceBase {
     final SModel targetModel = immatureNode.getModel();
     myTargetModelReference = targetModel == null ? null : targetModel.getReference();
     setResolveInfo(getResolveInfo(immatureNode));
+  }
+
+  private ModelCommandContext commandContext(SModel targetModel) {
+    // took repo from target model, assume MA is the same as the one for source's repo.
+    // Indeed, need to have clear contract what happens if source node is inside a repo, while target is not.
+    // I assume getTargetModel[_Fair] is not supposed to give target model in that case, therefore would have failed sooner than get to this method
+    final SRepository repo = targetModel.getRepository();
+    if (repo != null && repo.getModelAccess() instanceof ModelCommandContext.Provider) {
+      final ModelCommandContext cc = ((ModelCommandContext.Provider) repo.getModelAccess()).getCommandContext(targetModel);
+      if (cc != null) {
+        return cc;
+      }
+      // fall-through
+    }
+    return ModelCommandContext.EMPTY;
   }
 }
