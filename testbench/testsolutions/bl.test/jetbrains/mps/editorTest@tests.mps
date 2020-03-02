@@ -57637,12 +57637,30 @@
           <ref role="1iFR8X" to="ekwn:2XByp9s_j7f" resolve="Complete" />
         </node>
       </node>
+      <node concept="3SKdUt" id="7S22xyoS3kU" role="3cqZAp">
+        <node concept="1PaTwC" id="7S22xyoS3kV" role="1aUNEU">
+          <node concept="3oM_SD" id="7S22xyoS3kX" role="1PaTwD">
+            <property role="3oM_SC" value=".field" />
+          </node>
+        </node>
+      </node>
+      <node concept="3SKdUt" id="7S22xyoS44e" role="3cqZAp">
+        <node concept="1PaTwC" id="7S22xyoS44f" role="1aUNEU">
+          <node concept="3oM_SD" id="7S22xyoS44h" role="1PaTwD">
+            <property role="3oM_SC" value=".method()" />
+          </node>
+        </node>
+      </node>
+      <node concept="3SKdUt" id="7S22xyoS4c5" role="3cqZAp">
+        <node concept="1PaTwC" id="7S22xyoS4c6" role="1aUNEU">
+          <node concept="3oM_SD" id="7S22xyoS4c8" role="1PaTwD">
+            <property role="3oM_SC" value=".class" />
+          </node>
+        </node>
+      </node>
       <node concept="3vwNmj" id="7dAoyMZVC6A" role="3cqZAp">
         <node concept="1Wc70l" id="7mvMFqcd1m$" role="3vwVQn">
           <node concept="3clFbC" id="7mvMFqcd5VG" role="3uHU7w">
-            <node concept="3cmrfG" id="7mvMFqcd5W1" role="3uHU7w">
-              <property role="3cmrfH" value="2" />
-            </node>
             <node concept="2OqwBi" id="7mvMFqcd4z9" role="3uHU7B">
               <node concept="2OqwBi" id="7mvMFqcd2a9" role="2Oq$k0">
                 <node concept="369mXd" id="7mvMFqcd1q8" role="2Oq$k0" />
@@ -57653,6 +57671,9 @@
               <node concept="liA8E" id="7mvMFqcd4Ij" role="2OqNvi">
                 <ref role="37wK5l" to="6lvu:~NodeSubstituteChooser.getNumberOfActions()" resolve="getNumberOfActions" />
               </node>
+            </node>
+            <node concept="3cmrfG" id="7S22xyoS2A3" role="3uHU7w">
+              <property role="3cmrfH" value="3" />
             </node>
           </node>
           <node concept="2OqwBi" id="7mvMFqcd0Kx" role="3uHU7B">

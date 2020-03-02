@@ -23947,13 +23947,16 @@
       <node id="8475715909118777274" at="32,52,33,19" concept="11" />
       <node id="8475715909118777274" at="37,51,38,72" concept="2" />
       <node id="8475715909119629912" at="38,72,39,71" concept="2" />
-      <node id="8315441706324361638" at="39,71,40,162" concept="2" />
-      <node id="8475715909119664747" at="40,162,41,82" concept="2" />
+      <node id="9079830899492664634" at="39,71,40,16" concept="7" />
+      <node id="9079830899492667662" at="40,16,41,19" concept="7" />
+      <node id="9079830899492668165" at="41,19,42,16" concept="7" />
+      <node id="8315441706324361638" at="42,16,43,162" concept="2" />
+      <node id="8475715909119664747" at="43,162,44,82" concept="2" />
       <node id="8475715909118777274" at="18,0,20,0" concept="9" trace="ourParamCache" />
       <node id="8475715909118777274" at="21,0,24,0" concept="1" trace="StaticMethodCall_Complete_Test#()V" />
       <node id="8475715909118777274" at="32,0,35,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="8475715909118777274" at="25,0,29,0" concept="5" trace="test_StaticMethodCall_Complete#()V" />
-      <node id="8475715909118777274" at="36,0,43,0" concept="5" trace="testMethodImpl#()V" />
+      <node id="8475715909118777274" at="36,0,46,0" concept="5" trace="testMethodImpl#()V" />
       <scope id="8475715909118777274" at="21,43,22,25" />
       <scope id="8475715909118777274" at="26,65,27,36" />
       <scope id="8475715909118777274" at="32,52,33,19" />
@@ -23962,10 +23965,10 @@
         <var name="owner" id="8475715909118777274" />
       </scope>
       <scope id="8475715909118777274" at="25,0,29,0" />
-      <scope id="8475715909118777274" at="37,51,41,82" />
-      <scope id="8475715909118777274" at="36,0,43,0" />
-      <unit id="8475715909118777274" at="30,0,44,0" name="jetbrains.mps.editorTest.StaticMethodCall_Complete_Test$TestBody" />
-      <unit id="8475715909118777274" at="16,0,45,0" name="jetbrains.mps.editorTest.StaticMethodCall_Complete_Test" />
+      <scope id="8475715909118777274" at="37,51,44,82" />
+      <scope id="8475715909118777274" at="36,0,46,0" />
+      <unit id="8475715909118777274" at="30,0,47,0" name="jetbrains.mps.editorTest.StaticMethodCall_Complete_Test$TestBody" />
+      <unit id="8475715909118777274" at="16,0,48,0" name="jetbrains.mps.editorTest.StaticMethodCall_Complete_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8475715909118777380">
