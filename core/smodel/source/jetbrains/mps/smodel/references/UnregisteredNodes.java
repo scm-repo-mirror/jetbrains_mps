@@ -16,6 +16,7 @@
 package jetbrains.mps.smodel.references;
 
 import jetbrains.mps.util.PairMap;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -31,7 +32,7 @@ public class UnregisteredNodes {
   private final Object myLock = new Object();
 
   private boolean myDisabled = true;
-  private WarningLevel myWarningLevel = WarningLevel.ERROR;
+  private static WarningLevel myWarningLevel = WarningLevel.ERROR;
 
   public static UnregisteredNodes instance() {
     if (ourInstance == null) {
@@ -49,7 +50,13 @@ public class UnregisteredNodes {
     clear();
   }
 
-  public WarningLevel setWarningLevel(WarningLevel level) {
+  /**
+   * this flag was introduced to address MPS-18309, commit a73f01c9. It merely hides a problem rather than resolves any
+   * @deprecated caller shall take different approach to make sure it doesn't violate any SModel contract.
+   */
+  @Deprecated
+  @ToRemove(version = 2020.1)
+  public static WarningLevel setWarningLevel(WarningLevel level) {
     WarningLevel oldLevel = myWarningLevel;
     myWarningLevel = level;
     return oldLevel;
