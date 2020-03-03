@@ -216,19 +216,16 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     private boolean myEngaged = false;
     private final Map<SModel, CommandContextImpl> myModel2Context = new IdentityHashMap<>();
 
-    private final ImmatureReferences IR = ImmatureReferences.getInstance();
-
     /**/CommandContextProvider() {
     }
 
     void engage() {
       assert !myEngaged;
       myEngaged = true;
-      IR.enable();
     }
 
     void discard() {
-      IR.disable();
+      myModel2Context.values().forEach(CommandContextImpl::onCommandOver);
       myModel2Context.clear();
       assert myEngaged;
       myEngaged = false;
@@ -236,7 +233,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
 
     ModelCommandContext get(SModel model) {
       if (myEngaged) {
-        return myModel2Context.computeIfAbsent(model, m -> new CommandContextImpl(m, IR));
+        return myModel2Context.computeIfAbsent(model, CommandContextImpl::new);
       }
       return null;
     }
@@ -245,12 +242,11 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
   private static class CommandContextImpl implements ModelCommandContext {
     private final SModel myModel;
     private final UnregisteredNodes myUN;
-    private final ImmatureReferences myIR;
+    private ImmatureReferences myIR;
 
-    public CommandContextImpl(SModel m, ImmatureReferences ir) {
+    public CommandContextImpl(SModel m) {
       myModel = m;
       myUN = new UnregisteredNodes(myModel.getReference());
-      myIR = ir;
     }
 
     @Override
@@ -266,6 +262,9 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     @Override
     public void associationSet(SReference association) {
       if (association instanceof StaticReference && ((StaticReference) association).isDirect()) {
+        if (myIR == null) {
+          myIR = new ImmatureReferences();
+        }
         myIR.add((StaticReference) association);
       }
     }
@@ -274,6 +273,12 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     @Override
     public SNode resolveUnregistered(SNodeId nodeId) {
       return myUN.get(myModel.getReference(), nodeId);
+    }
+
+    /*package*/void onCommandOver() {
+      if (myIR != null) {
+        myIR.cleanup();
+      }
     }
   }
 }
