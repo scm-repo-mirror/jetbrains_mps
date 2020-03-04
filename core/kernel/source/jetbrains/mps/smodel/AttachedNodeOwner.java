@@ -46,8 +46,6 @@ final class AttachedNodeOwner extends SNodeOwner {
   private final SModel myModel;
   // can be null
   private ModelEventDispatch myEventDispatch;
-  // can be null
-  private ModelCommandContext myCommandContext;
 
   public AttachedNodeOwner(@NotNull SModel model) {
     myModel = model;
@@ -96,14 +94,12 @@ final class AttachedNodeOwner extends SNodeOwner {
 
   @Override
   public void registerNode(SNode node) {
-    myCommandContext = commandContext();
-    doRegister(node);
-    myCommandContext = null;
+    doRegister(node, commandContext());
     node.makeReferencesIndirect();
   }
 
   // pre: myCommandContext != null
-  private void doRegister(SNode node) {
+  private void doRegister(SNode node, ModelCommandContext commandContext) {
     // XXX model.registerNode shall go *BEFORE* setNodeOwner, otherwise SNode.setId fails - attached owner provides model.
     //     At the moment, there's copy-paste editor functionality that depends on ability to change nodeId
     //     (copied node preserves id of the original node, and if pasted into same model, there's id conflict which is resolved in SModel.assignNewId())
@@ -112,10 +108,10 @@ final class AttachedNodeOwner extends SNodeOwner {
     // for an attached node, its complete subtree has to share same SNodeOwner, assign it unconditionally
     // FIXME why UnregisteredNodes.put in SNode#unRegisterFromModel (#detach(SNodeOwner)) us conditioned with !isUpdateMode(), and this one is not?
     //       I suppose the reason was remove() doesn't hurt in case there's no such node, though not 100% sure
-    myCommandContext.nodeAttached(node);
+    commandContext.nodeAttached(node);
 
     for (SNode child = node.firstChild(); child != null; child = child.treeNext()) {
-      doRegister(child);
+      doRegister(child, commandContext);
     }
   }
 
@@ -132,23 +128,21 @@ final class AttachedNodeOwner extends SNodeOwner {
       node.makeReferencesDirect();
     }
 
-    myCommandContext = commandContext();
-    doUnregister(new DetachedNodeOwner(myModel), node);
-    myCommandContext = null;
+    doUnregister(new DetachedNodeOwner(myModel), node, commandContext());
   }
 
   // pre: myCommandContext != null
-  private void doUnregister(DetachedNodeOwner detachedOwner, SNode node) {
+  private void doUnregister(DetachedNodeOwner detachedOwner, SNode node, ModelCommandContext commandContext) {
     myModel.unregisterNode(node);
     if (!myModel.isUpdateMode()) {
       // XXX perhaps, SModel shall tell myOwner.enterUpdate()/myOwner.leaveUpdate() instead of isUpdateMode checks?
-      myCommandContext.nodeDetached(node);
+      commandContext.nodeDetached(node);
     }
     // XXX when we put a node in UnregisteredNodes, it better keep original SModel so that any reference pointing to the node could still get resolved.
     //     Tests like MakeFieldNonStaticAndHaveReferencesUpdated fail if UN receives a node with detached model owner (model unset)
     node.setNodeOwner(detachedOwner);
     for (SNode child = node.firstChild(); child != null; child = child.treeNext()) {
-      doUnregister(detachedOwner, child);
+      doUnregister(detachedOwner, child, commandContext);
     }
   }
 
