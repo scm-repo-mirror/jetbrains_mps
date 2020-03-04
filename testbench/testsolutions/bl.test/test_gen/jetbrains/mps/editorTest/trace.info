@@ -4474,9 +4474,9 @@
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/2649128189909590126">
-    <file name="MakeAbstractMethodInClass_Test.java">
-      <node id="2649128189909590126" at="27,43,28,25" concept="12" />
-      <node id="2649128189909590126" at="32,65,33,36" concept="2" />
+    <file name="AddAbstractToMethod_Test.java">
+      <node id="2649128189909590126" at="27,37,28,25" concept="12" />
+      <node id="2649128189909590126" at="32,59,33,36" concept="2" />
       <node id="2649128189909590126" at="38,52,39,19" concept="12" />
       <node id="2649128189909590126" at="43,51,44,72" concept="2" />
       <node id="2649128189909597125" at="44,72,45,29" concept="2" />
@@ -4487,14 +4487,14 @@
       <node id="2649128189909590126" at="58,0,59,0" concept="10" trace="statement$WHn8" />
       <node id="2649128189909590126" at="62,0,63,0" concept="10" trace="InstanceMethodDeclaration$An" />
       <node id="2649128189909590126" at="24,0,26,0" concept="10" trace="ourParamCache" />
-      <node id="2649128189909590126" at="27,0,30,0" concept="1" trace="MakeAbstractMethodInClass_Test#()V" />
+      <node id="2649128189909590126" at="27,0,30,0" concept="1" trace="AddAbstractToMethod_Test#()V" />
       <node id="2649128189909590126" at="38,0,41,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="2649128189909590137" at="47,0,50,0" concept="5" trace="compute#()Ljava/lang/Boolean;" />
-      <node id="2649128189909590126" at="31,0,35,0" concept="5" trace="test_MakeAbstractMethodInClass#()V" />
+      <node id="2649128189909590126" at="31,0,35,0" concept="5" trace="test_AddAbstractToMethod#()V" />
       <node id="2649128189909590129" at="45,29,50,10" concept="2" />
       <node id="2649128189909590126" at="42,0,53,0" concept="5" trace="testMethodImpl#()V" />
-      <scope id="2649128189909590126" at="27,43,28,25" />
-      <scope id="2649128189909590126" at="32,65,33,36" />
+      <scope id="2649128189909590126" at="27,37,28,25" />
+      <scope id="2649128189909590126" at="32,59,33,36" />
       <scope id="2649128189909590126" at="38,52,39,19" />
       <scope id="2649128189909590138" at="47,34,48,536" />
       <scope id="2649128189909590126" at="27,0,30,0" />
@@ -4505,57 +4505,17 @@
       <scope id="2649128189909590126" at="31,0,35,0" />
       <scope id="2649128189909590126" at="43,51,51,0" />
       <scope id="2649128189909590126" at="42,0,53,0" />
-      <unit id="2649128189909590126" at="61,0,64,0" name="jetbrains.mps.editorTest.MakeAbstractMethodInClass_Test$CONCEPTS" />
-      <unit id="2649128189909590137" at="46,91,50,7" name="jetbrains.mps.editorTest.MakeAbstractMethodInClass_Test$TestBody$1" />
-      <unit id="2649128189909590126" at="55,0,60,0" name="jetbrains.mps.editorTest.MakeAbstractMethodInClass_Test$LINKS" />
-      <unit id="2649128189909590126" at="36,0,54,0" name="jetbrains.mps.editorTest.MakeAbstractMethodInClass_Test$TestBody" />
-      <unit id="2649128189909590126" at="22,0,65,0" name="jetbrains.mps.editorTest.MakeAbstractMethodInClass_Test" />
-    </file>
-  </root>
-  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/2649128189909599604">
-    <file name="MakeNotAbstractMethodInClass_Test.java">
-      <node id="2649128189909599604" at="27,46,28,25" concept="12" />
-      <node id="2649128189909599604" at="32,68,33,36" concept="2" />
-      <node id="2649128189909599604" at="38,52,39,19" concept="12" />
-      <node id="2649128189909599604" at="43,51,44,72" concept="2" />
-      <node id="2649128189909607091" at="44,72,45,72" concept="2" />
-      <node id="2649128189909607652" at="45,72,46,72" concept="2" />
-      <node id="2649128189909599617" at="48,34,49,536" concept="7" />
-      <node id="2649128189909599631" at="51,10,52,0" concept="9" />
-      <node id="2649128189909599604" at="57,0,58,0" concept="10" trace="member$oYX5" />
-      <node id="2649128189909599604" at="58,0,59,0" concept="10" trace="body$WIlu" />
-      <node id="2649128189909599604" at="59,0,60,0" concept="10" trace="statement$WHn8" />
-      <node id="2649128189909599604" at="63,0,64,0" concept="10" trace="InstanceMethodDeclaration$An" />
-      <node id="2649128189909599604" at="24,0,26,0" concept="10" trace="ourParamCache" />
-      <node id="2649128189909599604" at="27,0,30,0" concept="1" trace="MakeNotAbstractMethodInClass_Test#()V" />
-      <node id="2649128189909599604" at="38,0,41,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="2649128189909599615" at="48,0,51,0" concept="5" trace="compute#()Ljava/lang/Boolean;" />
-      <node id="2649128189909599604" at="31,0,35,0" concept="5" trace="test_MakeNotAbstractMethodInClass#()V" />
-      <node id="2649128189909599607" at="46,72,51,10" concept="2" />
-      <node id="2649128189909599604" at="42,0,54,0" concept="5" trace="testMethodImpl#()V" />
-      <scope id="2649128189909599604" at="27,46,28,25" />
-      <scope id="2649128189909599604" at="32,68,33,36" />
-      <scope id="2649128189909599604" at="38,52,39,19" />
-      <scope id="2649128189909599616" at="48,34,49,536" />
-      <scope id="2649128189909599604" at="27,0,30,0" />
-      <scope id="2649128189909599604" at="38,0,41,0">
-        <var name="owner" id="2649128189909599604" />
-      </scope>
-      <scope id="2649128189909599615" at="48,0,51,0" />
-      <scope id="2649128189909599604" at="31,0,35,0" />
-      <scope id="2649128189909599604" at="43,51,52,0" />
-      <scope id="2649128189909599604" at="42,0,54,0" />
-      <unit id="2649128189909599604" at="62,0,65,0" name="jetbrains.mps.editorTest.MakeNotAbstractMethodInClass_Test$CONCEPTS" />
-      <unit id="2649128189909599615" at="47,91,51,7" name="jetbrains.mps.editorTest.MakeNotAbstractMethodInClass_Test$TestBody$1" />
-      <unit id="2649128189909599604" at="56,0,61,0" name="jetbrains.mps.editorTest.MakeNotAbstractMethodInClass_Test$LINKS" />
-      <unit id="2649128189909599604" at="36,0,55,0" name="jetbrains.mps.editorTest.MakeNotAbstractMethodInClass_Test$TestBody" />
-      <unit id="2649128189909599604" at="22,0,66,0" name="jetbrains.mps.editorTest.MakeNotAbstractMethodInClass_Test" />
+      <unit id="2649128189909590126" at="61,0,64,0" name="jetbrains.mps.editorTest.AddAbstractToMethod_Test$CONCEPTS" />
+      <unit id="2649128189909590137" at="46,91,50,7" name="jetbrains.mps.editorTest.AddAbstractToMethod_Test$TestBody$1" />
+      <unit id="2649128189909590126" at="55,0,60,0" name="jetbrains.mps.editorTest.AddAbstractToMethod_Test$LINKS" />
+      <unit id="2649128189909590126" at="36,0,54,0" name="jetbrains.mps.editorTest.AddAbstractToMethod_Test$TestBody" />
+      <unit id="2649128189909590126" at="22,0,65,0" name="jetbrains.mps.editorTest.AddAbstractToMethod_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/2649128189909933878">
-    <file name="RemoveDefaultMethodInInterface_Test.java">
-      <node id="2649128189909933878" at="27,48,28,25" concept="12" />
-      <node id="2649128189909933878" at="32,70,33,36" concept="2" />
+    <file name="RemoveDefaultInInterface_Test.java">
+      <node id="2649128189909933878" at="27,42,28,25" concept="12" />
+      <node id="2649128189909933878" at="32,64,33,36" concept="2" />
       <node id="2649128189909933878" at="38,52,39,19" concept="12" />
       <node id="2649128189909933878" at="43,51,44,72" concept="2" />
       <node id="2649128189909938121" at="44,72,45,72" concept="2" />
@@ -4567,14 +4527,14 @@
       <node id="2649128189909933878" at="59,0,60,0" concept="10" trace="statement$WHn8" />
       <node id="2649128189909933878" at="63,0,64,0" concept="10" trace="InstanceMethodDeclaration$An" />
       <node id="2649128189909933878" at="24,0,26,0" concept="10" trace="ourParamCache" />
-      <node id="2649128189909933878" at="27,0,30,0" concept="1" trace="RemoveDefaultMethodInInterface_Test#()V" />
+      <node id="2649128189909933878" at="27,0,30,0" concept="1" trace="RemoveDefaultInInterface_Test#()V" />
       <node id="2649128189909933878" at="38,0,41,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="2649128189909933889" at="48,0,51,0" concept="5" trace="compute#()Ljava/lang/Boolean;" />
-      <node id="2649128189909933878" at="31,0,35,0" concept="5" trace="test_RemoveDefaultMethodInInterface#()V" />
+      <node id="2649128189909933878" at="31,0,35,0" concept="5" trace="test_RemoveDefaultInInterface#()V" />
       <node id="2649128189909933881" at="46,72,51,10" concept="2" />
       <node id="2649128189909933878" at="42,0,54,0" concept="5" trace="testMethodImpl#()V" />
-      <scope id="2649128189909933878" at="27,48,28,25" />
-      <scope id="2649128189909933878" at="32,70,33,36" />
+      <scope id="2649128189909933878" at="27,42,28,25" />
+      <scope id="2649128189909933878" at="32,64,33,36" />
       <scope id="2649128189909933878" at="38,52,39,19" />
       <scope id="2649128189909933890" at="48,34,49,534" />
       <scope id="2649128189909933878" at="27,0,30,0" />
@@ -4585,11 +4545,11 @@
       <scope id="2649128189909933878" at="31,0,35,0" />
       <scope id="2649128189909933878" at="43,51,52,0" />
       <scope id="2649128189909933878" at="42,0,54,0" />
-      <unit id="2649128189909933878" at="62,0,65,0" name="jetbrains.mps.editorTest.RemoveDefaultMethodInInterface_Test$CONCEPTS" />
-      <unit id="2649128189909933889" at="47,91,51,7" name="jetbrains.mps.editorTest.RemoveDefaultMethodInInterface_Test$TestBody$1" />
-      <unit id="2649128189909933878" at="56,0,61,0" name="jetbrains.mps.editorTest.RemoveDefaultMethodInInterface_Test$LINKS" />
-      <unit id="2649128189909933878" at="36,0,55,0" name="jetbrains.mps.editorTest.RemoveDefaultMethodInInterface_Test$TestBody" />
-      <unit id="2649128189909933878" at="22,0,66,0" name="jetbrains.mps.editorTest.RemoveDefaultMethodInInterface_Test" />
+      <unit id="2649128189909933878" at="62,0,65,0" name="jetbrains.mps.editorTest.RemoveDefaultInInterface_Test$CONCEPTS" />
+      <unit id="2649128189909933889" at="47,91,51,7" name="jetbrains.mps.editorTest.RemoveDefaultInInterface_Test$TestBody$1" />
+      <unit id="2649128189909933878" at="56,0,61,0" name="jetbrains.mps.editorTest.RemoveDefaultInInterface_Test$LINKS" />
+      <unit id="2649128189909933878" at="36,0,55,0" name="jetbrains.mps.editorTest.RemoveDefaultInInterface_Test$TestBody" />
+      <unit id="2649128189909933878" at="22,0,66,0" name="jetbrains.mps.editorTest.RemoveDefaultInInterface_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/2649128189909939662">

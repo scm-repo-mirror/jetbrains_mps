@@ -95,6 +95,16 @@ public class ModifiersInsertHandler {
 
     };
   }
+  /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+      }
+
+    };
+  }
 
   public static void setCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     CellAction originalDelete = editorCell.getAction(CellActionType.DELETE);
@@ -119,6 +129,7 @@ public class ModifiersInsertHandler {
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
+    editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
 
   }
 
@@ -132,6 +143,9 @@ public class ModifiersInsertHandler {
     }
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
+    }
+    if (Objects.equals(actionType, CellActionType.DELETE)) {
+      editorCell.setAction(actionType, createAction_DELETE(node));
     }
   }
 

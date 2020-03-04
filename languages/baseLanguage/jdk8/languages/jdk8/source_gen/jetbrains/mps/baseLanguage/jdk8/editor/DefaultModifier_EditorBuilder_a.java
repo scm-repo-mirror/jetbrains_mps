@@ -41,6 +41,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.KeyWordSty
     Style style = new StyleImpl();
     new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
+    DeleteDefault.setCellActions(editorCell, myNode, getEditorContext());
     return editorCell;
   }
 }

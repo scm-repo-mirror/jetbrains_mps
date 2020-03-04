@@ -50,11 +50,6 @@ public class RemoveStaticMethodInInterface_Test extends BaseTransformationTest {
         }
       }));
 
-      Assert.assertTrue(new ModelAccessHelper(myProject.getRepository()).runReadAction(new Computable<Boolean>() {
-        public Boolean compute() {
-          return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getRealNodeById("2649128189909939708"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101edd46144L, "Interface"))), LINKS.member$oYX5)).first(), CONCEPTS.InstanceMethodDeclaration$An), LINKS.body$WIlu), LINKS.statement$WHn8)).isEmpty();
-        }
-      }));
     }
   }
 

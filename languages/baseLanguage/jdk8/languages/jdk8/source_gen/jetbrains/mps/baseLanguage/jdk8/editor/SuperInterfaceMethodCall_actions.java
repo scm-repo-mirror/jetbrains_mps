@@ -10,6 +10,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
 
 public class SuperInterfaceMethodCall_actions {
@@ -43,6 +44,14 @@ public class SuperInterfaceMethodCall_actions {
     if (deleteAction != originalDelete && backspaceAction == originalBackspace) {
       editorCell.setAction(CellActionType.BACKSPACE, deleteAction);
     }
+    String newObj = "";
+    if (deleteAction != originalDelete) {
+      newObj += "own_del";
+    }
+    if (backspaceAction != originalBackspace) {
+      newObj += "own_back";
+    }
+    editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_ACTIONS_SET, newObj);
   }
 
   public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
