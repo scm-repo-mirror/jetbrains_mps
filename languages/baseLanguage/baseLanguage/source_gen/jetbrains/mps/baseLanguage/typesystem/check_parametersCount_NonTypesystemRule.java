@@ -15,6 +15,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -54,15 +55,21 @@ public class check_parametersCount_NonTypesystemRule extends AbstractNonTypesyst
       } else {
         boolean isParamTypesOk = true;
         for (int i = 0; i < ListSequence.fromList(parameterDeclarations).count(); i++) {
+          SNode argType = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(ListSequence.fromList(actualArguments).getElement(i)), CONCEPTS.Type$IG);
           if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ListSequence.fromList(parameterDeclarations).getElement(i), LINKS.type$pLrO), CONCEPTS.VariableArityType$jT)) {
             SNode typeToMatch = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ListSequence.fromList(parameterDeclarations).getElement(i), LINKS.type$pLrO), CONCEPTS.VariableArityType$jT), LINKS.componentType$knmw);
-            for (int j = i; j < ListSequence.fromList(actualArguments).count(); j++) {
-              isParamTypesOk = isParamTypesOk && ParameterNameUtil.isArgumentSubtypeOfParameter(ListSequence.fromList(actualArguments).getElement(j), typeToMatch);
+            if (SNodeOperations.isInstanceOf(argType, CONCEPTS.ArrayType$Yv)) {
+              isParamTypesOk = isParamTypesOk && (SNodeOperations.getConcept(ListSequence.fromList(actualArguments).getElement(i)).isAbstract() || ParameterNameUtil.isArgumentSubtypeOfParameter(SLinkOperations.getTarget(SNodeOperations.as(argType, CONCEPTS.ArrayType$Yv), LINKS.componentType$10w), typeToMatch));
 
+            } else {
+              for (int j = i; j < ListSequence.fromList(actualArguments).count(); j++) {
+                isParamTypesOk = isParamTypesOk && (SNodeOperations.getConcept(ListSequence.fromList(actualArguments).getElement(j)).isAbstract() || ParameterNameUtil.isArgumentSubtypeOfParameter(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(ListSequence.fromList(actualArguments).getElement(j)), CONCEPTS.Type$IG), typeToMatch));
+
+              }
             }
             break;
           }
-          isParamTypesOk = isParamTypesOk && ParameterNameUtil.isArgumentSubtypeOfParameter(ListSequence.fromList(actualArguments).getElement(i), SLinkOperations.getTarget(ListSequence.fromList(parameterDeclarations).getElement(i), LINKS.type$pLrO));
+          isParamTypesOk = isParamTypesOk && (SNodeOperations.getConcept(ListSequence.fromList(actualArguments).getElement(i)).isAbstract() || ParameterNameUtil.isArgumentSubtypeOfParameter(SNodeOperations.as(argType, CONCEPTS.Type$IG), SLinkOperations.getTarget(ListSequence.fromList(parameterDeclarations).getElement(i), LINKS.type$pLrO)));
 
 
         }
@@ -101,10 +108,13 @@ public class check_parametersCount_NonTypesystemRule extends AbstractNonTypesyst
     /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
     /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink componentType$knmw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, 0x11c08f5f38cL, "componentType");
+    /*package*/ static final SContainmentLink componentType$10w = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept VariableArityType$jT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, "jetbrains.mps.baseLanguage.structure.VariableArityType");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept ArrayType$Yv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
     /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
   }
 }

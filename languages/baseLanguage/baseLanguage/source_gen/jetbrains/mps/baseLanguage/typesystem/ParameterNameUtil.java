@@ -50,8 +50,8 @@ public class ParameterNameUtil {
     return candidateName;
   }
 
-  public static boolean isArgumentSubtypeOfParameter(SNode arg, SNode paramType) {
-    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(arg), paramType) || SNodeOperations.getConcept(arg).isAbstract() || (SNodeOperations.isInstanceOf(paramType, CONCEPTS.IGenericType$$h) && ListSequence.fromList(SNodeOperations.getNodeDescendants(paramType, CONCEPTS.TypeVariableReference$vZ, true, new SAbstractConcept[]{})).isNotEmpty()) || (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(arg), CONCEPTS.IGenericType$$h) && ListSequence.fromList(SNodeOperations.getNodeDescendants(TypecheckingFacade.getFromContext().getTypeOf(arg), CONCEPTS.TypeVariableReference$vZ, true, new SAbstractConcept[]{})).isNotEmpty());
+  public static boolean isArgumentSubtypeOfParameter(SNode argType, SNode paramType) {
+    return TypecheckingFacade.getFromContext().isSubtype(argType, paramType) || (SNodeOperations.isInstanceOf(paramType, CONCEPTS.IGenericType$$h) && ListSequence.fromList(SNodeOperations.getNodeDescendants(paramType, CONCEPTS.TypeVariableReference$vZ, true, new SAbstractConcept[]{})).isNotEmpty()) || (SNodeOperations.isInstanceOf(argType, CONCEPTS.IGenericType$$h) && ListSequence.fromList(SNodeOperations.getNodeDescendants(TypecheckingFacade.getFromContext().getTypeOf(argType), CONCEPTS.TypeVariableReference$vZ, true, new SAbstractConcept[]{})).isNotEmpty());
   }
 
   /**
