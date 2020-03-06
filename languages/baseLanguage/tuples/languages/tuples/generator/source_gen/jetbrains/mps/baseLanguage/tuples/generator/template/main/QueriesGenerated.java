@@ -242,13 +242,22 @@ public class QueriesGenerated extends QueryProviderBase {
     return RuntimeNodePointers.tuplesIfaceByComponents(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.componentType$62ij)).count());
   }
   public static Object referenceMacro_GetReferent_0_1(final ReferenceMacroContext _context) {
+    return RuntimeNodePointers.tupleImplFromMethod(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.component$zxvz)).count());
+  }
+  public static Object referenceMacro_GetReferent_0_2(final ReferenceMacroContext _context) {
+    return RuntimeNodePointers.tupleImplFromMethod(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.component$zxvz)).count());
+  }
+  public static Object referenceMacro_GetReferent_0_3(final ReferenceMacroContext _context) {
+    return RuntimeNodePointers.tupleImplFromMethod(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.component$zxvz)).count());
+  }
+  public static Object referenceMacro_GetReferent_0_4(final ReferenceMacroContext _context) {
     // alternatively, could restore vardecl context node with MAP_SRC and rely on generator to restore reference. Would need a VAR to keep node, anyway. 
     return ((String) _context.getVariable("var:tmpVar"));
   }
-  public static Object referenceMacro_GetReferent_0_2(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_0_5(final ReferenceMacroContext _context) {
     return RuntimeNodePointers.tuplesIfaceByComponents(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.creator$itDQ), CONCEPTS.ArrayCreator$IL), LINKS.componentType$aKPo), CONCEPTS.IndexedTupleType$15), LINKS.componentType$62ij)).count());
   }
-  public static Object referenceMacro_GetReferent_0_3(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_0_6(final ReferenceMacroContext _context) {
     return RuntimeNodePointers.tuplesIfaceByComponents(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.creator$itDQ), CONCEPTS.ArrayCreator$IL), LINKS.componentType$aKPo), CONCEPTS.IndexedTupleType$15), LINKS.componentType$62ij)).count());
   }
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
@@ -307,10 +316,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
   }
   public static Object referenceMacro_GetReferent_4_7(final ReferenceMacroContext _context) {
+    return RuntimeNodePointers.tupleImplFromMethod(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.component$eWwg)).count());
+  }
+  public static Object referenceMacro_GetReferent_4_8(final ReferenceMacroContext _context) {
     int idx = 1 + SNodeOperations.getIndexInParent(_context.getNode()) + ((Integer) _context.getVariable("var:componentsInSuper"));
     return RuntimeNodePointers.tuplesIfaceByComponents(idx);
   }
-  public static Object referenceMacro_GetReferent_4_8(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_4_9(final ReferenceMacroContext _context) {
     int idx = 1 + SNodeOperations.getIndexInParent(_context.getNode()) + ((Integer) _context.getVariable("var:componentsInSuper"));
     return RuntimeNodePointers.tuplesIfaceByComponents(idx);
   }
@@ -370,7 +382,7 @@ public class QueriesGenerated extends QueryProviderBase {
     Integer index = (Integer) idx;
     SNode tupleNode = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), LINKS.tuple$Uqkp)), CONCEPTS.IndexedTupleType$15);
     if ((tupleNode == null)) {
-      return createClassifierType_x583g4_a0a3a08();
+      return createClassifierType_x583g4_a0a3a48();
     }
     List<SNode> componentType = SLinkOperations.getChildren(tupleNode, LINKS.componentType$62ij);
     SNode result = null;
@@ -1358,23 +1370,27 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
     rtqMethods.put("1238933287425", new RTQ(0, "_0"));
-    rtqMethods.put("8649208922452405376", new RTQ(1, "_tmp"));
-    rtqMethods.put("2413168484686156112", new RTQ(2, "Object"));
-    rtqMethods.put("1604260043160917472", new RTQ(3, "Object"));
-    rtqMethods.put("1241018440883", new RTQ(4, "Object"));
-    rtqMethods.put("2413168484686095911", new RTQ(5, "Object"));
-    rtqMethods.put("8755343252890081395", new RTQ(6, "Object"));
-    rtqMethods.put("1239636757671", new RTQ(7, "_1"));
-    rtqMethods.put("1239640673717", new RTQ(8, "component"));
-    rtqMethods.put("247710080512637348", new RTQ(9, "_1"));
-    rtqMethods.put("247710080512637565", new RTQ(10, "NamedTuple"));
-    rtqMethods.put("247710080512637638", new RTQ(11, "T"));
-    rtqMethods.put("247710080512637693", new RTQ(12, "_1"));
-    rtqMethods.put("574925412489664652", new RTQ(13, "empty1"));
-    rtqMethods.put("247710080512637241", new RTQ(14, "component"));
-    rtqMethods.put("4237952634722624282", new RTQ(15, "component"));
-    rtqMethods.put("6392574240232855005", new RTQ(16, "_1"));
-    rtqMethods.put("6392574240232854396", new RTQ(17, "_1"));
+    rtqMethods.put("1275460185645730287", new RTQ(1, "from"));
+    rtqMethods.put("1275460185645756292", new RTQ(2, "from"));
+    rtqMethods.put("1275460185645760671", new RTQ(3, "from"));
+    rtqMethods.put("8649208922452405376", new RTQ(4, "_tmp"));
+    rtqMethods.put("2413168484686156112", new RTQ(5, "Object"));
+    rtqMethods.put("1604260043160917472", new RTQ(6, "Object"));
+    rtqMethods.put("1241018440883", new RTQ(7, "Object"));
+    rtqMethods.put("2413168484686095911", new RTQ(8, "Object"));
+    rtqMethods.put("8755343252890081395", new RTQ(9, "Object"));
+    rtqMethods.put("1239636757671", new RTQ(10, "_1"));
+    rtqMethods.put("1239640673717", new RTQ(11, "component"));
+    rtqMethods.put("247710080512637348", new RTQ(12, "_1"));
+    rtqMethods.put("247710080512637565", new RTQ(13, "NamedTuple"));
+    rtqMethods.put("247710080512637638", new RTQ(14, "T"));
+    rtqMethods.put("247710080512637693", new RTQ(15, "_1"));
+    rtqMethods.put("574925412489664652", new RTQ(16, "empty1"));
+    rtqMethods.put("247710080512637241", new RTQ(17, "component"));
+    rtqMethods.put("4237952634722624282", new RTQ(18, "component"));
+    rtqMethods.put("1275460185645819590", new RTQ(19, "from"));
+    rtqMethods.put("6392574240232855005", new RTQ(20, "_1"));
+    rtqMethods.put("6392574240232854396", new RTQ(21, "_1"));
   }
   @NotNull
   @Override
@@ -1403,33 +1419,41 @@ public class QueriesGenerated extends QueryProviderBase {
         case 3:
           return QueriesGenerated.referenceMacro_GetReferent_0_3(ctx);
         case 4:
-          return QueriesGenerated.referenceMacro_GetReferent_1_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_0_4(ctx);
         case 5:
-          return QueriesGenerated.referenceMacro_GetReferent_1_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_0_5(ctx);
         case 6:
-          return QueriesGenerated.referenceMacro_GetReferent_1_2(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_0_6(ctx);
         case 7:
-          return QueriesGenerated.referenceMacro_GetReferent_2_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_0(ctx);
         case 8:
-          return QueriesGenerated.referenceMacro_GetReferent_2_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_1(ctx);
         case 9:
-          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_2(ctx);
         case 10:
-          return QueriesGenerated.referenceMacro_GetReferent_4_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_2_0(ctx);
         case 11:
-          return QueriesGenerated.referenceMacro_GetReferent_4_2(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_2_1(ctx);
         case 12:
-          return QueriesGenerated.referenceMacro_GetReferent_4_3(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
         case 13:
-          return QueriesGenerated.referenceMacro_GetReferent_4_4(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_1(ctx);
         case 14:
-          return QueriesGenerated.referenceMacro_GetReferent_4_5(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_2(ctx);
         case 15:
-          return QueriesGenerated.referenceMacro_GetReferent_4_6(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_3(ctx);
         case 16:
-          return QueriesGenerated.referenceMacro_GetReferent_4_7(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_4(ctx);
         case 17:
+          return QueriesGenerated.referenceMacro_GetReferent_4_5(ctx);
+        case 18:
+          return QueriesGenerated.referenceMacro_GetReferent_4_6(ctx);
+        case 19:
+          return QueriesGenerated.referenceMacro_GetReferent_4_7(ctx);
+        case 20:
           return QueriesGenerated.referenceMacro_GetReferent_4_8(ctx);
+        case 21:
+          return QueriesGenerated.referenceMacro_GetReferent_4_9(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -1497,7 +1521,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createClassifierType_x583g4_a0a3a08() {
+  private static SNode createClassifierType_x583g4_a0a3a48() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$IZ);
     n0.setReference(LINKS.classifier$pQ_R, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
@@ -1544,8 +1568,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SReferenceLink tupleDeclaration$GwJE = MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b88731cL, 0x1209b88b156L, "tupleDeclaration");
     /*package*/ static final SContainmentLink component$eWwg = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1208fa48aa5L, 0x12099b7fca9L, "component");
-    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
     /*package*/ static final SContainmentLink component$zxvz = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, 0x1207171832eL, "component");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
     /*package*/ static final SContainmentLink dimensionExpression$uV5v = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression");
     /*package*/ static final SContainmentLink expression$WGFJ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4b2dfdaL, 0x113e4b846d4L, "expression");
     /*package*/ static final SContainmentLink initValue$C3sh = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cd01b77ddL, 0x10cd01d19acL, "initValue");

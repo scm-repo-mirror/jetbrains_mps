@@ -60,4 +60,33 @@ public class RuntimeNodePointers {
     }
     return null;
   }
+
+  public static SNodeReference tupleImplFromMethod(int componentCount) {
+    // this switch is fragile, as UpdateTuplesRuntime doesn't preserve identity of from() methods, and it's hard to distinguish these methods here 
+    // perhaps, if ever face a need to regenerate tuples runtime, shall consider upgrading the script to preserve from() methods 
+    // Note, unlike from(), emptyN() methods have different name and get resolved by name in templates. 
+    switch (componentCount) {
+      case 0:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016223");
+      case 1:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016230");
+      case 2:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016243");
+      case 3:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016262");
+      case 4:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016287");
+      case 5:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016318");
+      case 6:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016355");
+      case 7:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016398");
+      case 8:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016447");
+      case 9:
+        return new SNodePointer("r:33366a6f-09e8-45e7-ae7f-cb8cf0c7ed05(jetbrains.mps.baseLanguage.tuples.runtime)", "574925412489016502");
+    }
+    return null;
+  }
 }

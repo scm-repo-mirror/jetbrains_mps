@@ -56,10 +56,26 @@
       <node id="977456125617127644" at="56,13,57,139" concept="3" />
       <node id="977456125617127651" at="58,13,59,139" concept="3" />
       <node id="977456125617127656" at="60,5,61,16" concept="3" />
+      <node id="1275460185645720830" at="64,72,65,147" concept="4" />
+      <node id="1275460185645721684" at="65,147,66,129" concept="4" />
+      <node id="1275460185645722456" at="66,129,67,104" concept="4" />
+      <node id="1275460185645070391" at="69,13,70,139" concept="3" />
+      <node id="1275460185645070397" at="71,13,72,139" concept="3" />
+      <node id="1275460185645070404" at="73,13,74,139" concept="3" />
+      <node id="1275460185645070411" at="75,13,76,139" concept="3" />
+      <node id="1275460185645070418" at="77,13,78,139" concept="3" />
+      <node id="1275460185645070425" at="79,13,80,139" concept="3" />
+      <node id="1275460185645070432" at="81,13,82,139" concept="3" />
+      <node id="1275460185645070439" at="83,13,84,139" concept="3" />
+      <node id="1275460185645070446" at="85,13,86,139" concept="3" />
+      <node id="1275460185645070453" at="87,13,88,139" concept="3" />
+      <node id="1275460185645720482" at="89,5,90,16" concept="3" />
       <node id="8649208922450584026" at="12,143,34,5" concept="6" />
       <node id="977456125617127584" at="38,74,60,5" concept="6" />
+      <node id="1275460185645070386" at="67,104,89,5" concept="6" />
       <node id="977456125617127241" at="38,0,63,0" concept="5" trace="tupleImplByComponents#(I)Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="8649208922450583897" at="9,0,37,0" concept="5" trace="tuplesIfaceByComponents#(I)Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="1275460185645069919" at="64,0,92,0" concept="5" trace="tupleImplFromMethod#(I)Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <scope id="8649208922450584105" at="14,13,15,140" />
       <scope id="8649208922450712373" at="16,13,17,140" />
       <scope id="8649208922450712443" at="18,13,19,140" />
@@ -80,15 +96,29 @@
       <scope id="977456125617127636" at="54,13,55,139" />
       <scope id="977456125617127643" at="56,13,57,139" />
       <scope id="977456125617127650" at="58,13,59,139" />
+      <scope id="1275460185645070390" at="69,13,70,139" />
+      <scope id="1275460185645070396" at="71,13,72,139" />
+      <scope id="1275460185645070403" at="73,13,74,139" />
+      <scope id="1275460185645070410" at="75,13,76,139" />
+      <scope id="1275460185645070417" at="77,13,78,139" />
+      <scope id="1275460185645070424" at="79,13,80,139" />
+      <scope id="1275460185645070431" at="81,13,82,139" />
+      <scope id="1275460185645070438" at="83,13,84,139" />
+      <scope id="1275460185645070445" at="85,13,86,139" />
+      <scope id="1275460185645070452" at="87,13,88,139" />
       <scope id="977456125617127077" at="38,74,61,16" />
       <scope id="977456125617127241" at="38,0,63,0">
         <var name="componentCount" id="977456125617127525" />
       </scope>
       <scope id="8649208922450583900" at="9,76,35,16" />
+      <scope id="1275460185645069674" at="64,72,90,16" />
       <scope id="8649208922450583897" at="9,0,37,0">
         <var name="componentCount" id="8649208922450583924" />
       </scope>
-      <unit id="8649208922450583775" at="8,0,64,0" name="jetbrains.mps.baseLanguage.tuples.generator.template.helpers.RuntimeNodePointers" />
+      <scope id="1275460185645069919" at="64,0,92,0">
+        <var name="componentCount" id="1275460185645070267" />
+      </scope>
+      <unit id="8649208922450583775" at="8,0,93,0" name="jetbrains.mps.baseLanguage.tuples.generator.template.helpers.RuntimeNodePointers" />
     </file>
   </root>
 </debug-info>
