@@ -178,12 +178,17 @@ public class JarEntryFile implements IFile {
 
   @Override
   public boolean rename(@NotNull String newName) {
-    return false;
+    throw new UnsupportedOperationException("Cannot rename JarEntryFiles");
   }
 
   @Override
   public boolean move(@NotNull IFile newParent) {
-    return false;
+    throw new UnsupportedOperationException("Cannot move JarEntryFiles");
+  }
+
+  @Override
+  public IFile copy(@NotNull IFile newParent, @NotNull String newName) {
+    throw new UnsupportedOperationException("Cannot copy JarEntryFiles");
   }
 
   @Override

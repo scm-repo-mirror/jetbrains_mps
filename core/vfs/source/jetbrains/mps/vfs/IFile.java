@@ -257,6 +257,20 @@ public interface IFile {
     }
     return newParent.findChild(simpleName);
   }
+  /**
+   * @return this if the operation is unsuccessful, new IFile pointing to the new location otherwise
+   * return#getName equals to 'newName'
+   * return not null if success
+   */
+  @Nullable
+  IFile copy(@NotNull IFile newParent, @NotNull String newName);
+
+  /**
+   * for convenience by default preserves the old name
+   */
+  default IFile copy(@NotNull IFile newParent) {
+    return copy(newParent, getName());
+  }
 
   InputStream openInputStream() throws IOException;
 

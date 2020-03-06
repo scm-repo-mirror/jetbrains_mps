@@ -134,12 +134,17 @@ public class JrtIoFile implements IFile {
 
   @Override
   public boolean rename(@NotNull String newName) {
-    return false;
+    throw new UnsupportedOperationException("Impossible to rename");
   }
 
   @Override
   public boolean move(@NotNull IFile newParent) {
-    return false;
+    throw new UnsupportedOperationException("Impossible to move");
+  }
+
+  @Override
+  public IFile copy(@NotNull IFile newParent, @NotNull String newName) {
+    throw new UnsupportedOperationException("Impossible to copy");
   }
 
   @Override

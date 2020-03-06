@@ -372,6 +372,30 @@ public class IdeaFile implements IFile, CachingFile {
   }
 
   @Override
+  public IdeaFile copy(@NotNull IFile newParent, @NotNull String newName) {
+    if (!(newParent instanceof IdeaFile)) {
+//      LOG.info("copying from IdeaFile to non-IdeaFile");
+    }
+    VirtualFile newParentFile = new IdeaFile(myFS, newParent.getPath()).findVirtualFile();
+    if (newParentFile != null) {
+      try {
+        VirtualFile virtualFile = findVirtualFile();
+        if (virtualFile != null) {
+          VirtualFile copy = virtualFile.copy(getFileSystem(), newParentFile, newName);
+          return new IdeaFile(myFS, copy);
+        } else {
+          LOG.error("Could not find the file to copy: '" + myPath + "'", new Throwable());
+          return null;
+        }
+      } catch (IOException e) {
+        LOG.warn("Could not copy file: ", e);
+        return null;
+      }
+    }
+    return null;
+  }
+
+  @Override
   public boolean move(@NotNull IFile newParent) {
     if (!(newParent instanceof IdeaFile)) {
       return false;
