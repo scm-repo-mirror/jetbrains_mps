@@ -16,8 +16,11 @@ import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ExpressionPatternProvider_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -82,6 +85,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(LINKS.expression$2how);
       }
+      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.Expression$TP, "jetbrains.mps.lang.pattern.editor.ExpressionPatternProvider"));
     }
     @Override
     protected EditorCell createEmptyCell() {
@@ -104,5 +108,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink expression$2how = MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x6e2e4373b51373f8L, 0x6e2e4373b51373f9L, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }

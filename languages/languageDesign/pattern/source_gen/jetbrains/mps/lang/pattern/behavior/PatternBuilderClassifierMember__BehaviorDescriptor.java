@@ -57,7 +57,9 @@ public final class PatternBuilderClassifierMember__BehaviorDescriptor extends Ba
     return NameUtil.capitalize(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_Pattern";
   }
   /*package*/ static void populateMember_id6r77ob2UW9O(@NotNull SNode __thisNode__, MembersPopulatingContext context, SNode classifier) {
-    context.exposeMember(__thisNode__, new ClassifierSignature(PatternBuilderClassifierMember__BehaviorDescriptor.getGeneratedName_id6SIgReParNN.invoke(__thisNode__)));
+    ClassifierSignature signature = new ClassifierSignature(PatternBuilderClassifierMember__BehaviorDescriptor.getGeneratedName_id6SIgReParNN.invoke(__thisNode__));
+    context.hideMembersForAncestors(signature);
+    context.exposeMember(__thisNode__, signature);
   }
 
   /*package*/ PatternBuilderClassifierMember__BehaviorDescriptor() {

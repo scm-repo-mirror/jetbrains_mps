@@ -15,12 +15,15 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class LocalPatternReference_Constraints extends BaseConstraintsDescriptor {
   public LocalPatternReference_Constraints() {
@@ -44,7 +47,11 @@ public class LocalPatternReference_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            return new NamedElementsScope(SNodeOperations.ofConcept(SLinkOperations.collectMany(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(_context.getContextNode(), null, false), CONCEPTS.Classifier$hJ), LINKS.member$oYX5), CONCEPTS.PatternBuilderClassifierMember$75));
+            return new NamedElementsScope(SNodeOperations.ofConcept(Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(_context.getContextNode(), null, false), CONCEPTS.Classifier$hJ)).translate(new ITranslator2<SNode, SNode>() {
+              public Iterable<SNode> translate(SNode it) {
+                return (Iterable<SNode>) IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(it));
+              }
+            }), CONCEPTS.PatternBuilderClassifierMember$75));
           }
         };
       }
@@ -63,6 +70,5 @@ public class LocalPatternReference_Constraints extends BaseConstraintsDescriptor
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink declaration$6hl0 = MetaAdapterFactory.getReferenceLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x174c7ed18b16ecfcL, 0x174c7ed18b16ecfdL, "declaration");
-    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }
