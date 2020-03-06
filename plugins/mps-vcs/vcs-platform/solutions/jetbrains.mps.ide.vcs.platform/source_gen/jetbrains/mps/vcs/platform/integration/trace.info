@@ -844,7 +844,7 @@
         <var name="coreComponents" id="219318228847869447" />
         <var name="reloadManager" id="8274493178031060068" />
       </scope>
-      <unit id="6477249786997134461" at="11,0,29,0" name="jetbrains.mps.vcs.platform.integration.PluginVCSManager" />
+      <unit id="6477249786997134461" at="11,0,29,0" name="jetbrains.mps.vfs.tracking.PluginVCSManager" />
     </file>
   </root>
   <root nodeRef="r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/7075964554776710007">
@@ -1602,20 +1602,20 @@
         <var name="model" id="3408442363875165181" />
         <var name="problems" id="3408442363875165183" />
       </scope>
-      <unit id="3408442363875250775" at="116,42,120,5" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$6" />
-      <unit id="3408442363877889724" at="121,63,125,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$2" />
-      <unit id="3408442363877631264" at="128,82,132,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$3" />
-      <unit id="5940954147434620763" at="280,91,284,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$9" />
-      <unit id="462019412804630829" at="233,62,239,5" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$8" />
-      <unit id="899038469128966842" at="89,37,97,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$1" />
-      <unit id="7788464498752623175" at="199,63,207,9" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$7$1" />
-      <unit id="5567467659001798892" at="218,68,226,11" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$7$2" />
-      <unit id="3408442363877675434" at="132,20,141,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$4" />
-      <unit id="6444884150137186281" at="149,152,159,11" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$5$1" />
-      <unit id="7788464498752623240" at="311,0,324,0" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$DiskMemoryConflictVersion" />
-      <unit id="899038469128756686" at="144,37,163,7" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$5" />
-      <unit id="7788464498752623167" at="189,56,229,5" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener$7" />
-      <unit id="7788464498752623152" at="63,0,342,0" name="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener" />
+      <unit id="3408442363875250775" at="116,42,120,5" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$6" />
+      <unit id="3408442363877889724" at="121,63,125,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$2" />
+      <unit id="3408442363877631264" at="128,82,132,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$3" />
+      <unit id="5940954147434620763" at="280,91,284,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$9" />
+      <unit id="462019412804630829" at="233,62,239,5" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$8" />
+      <unit id="899038469128966842" at="89,37,97,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$1" />
+      <unit id="7788464498752623175" at="199,63,207,9" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$7$1" />
+      <unit id="5567467659001798892" at="218,68,226,11" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$7$2" />
+      <unit id="3408442363877675434" at="132,20,141,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$4" />
+      <unit id="6444884150137186281" at="149,152,159,11" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$5$1" />
+      <unit id="7788464498752623240" at="311,0,324,0" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$DiskMemoryConflictVersion" />
+      <unit id="899038469128756686" at="144,37,163,7" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$5" />
+      <unit id="7788464498752623167" at="189,56,229,5" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener$7" />
+      <unit id="7788464498752623152" at="63,0,342,0" name="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener" />
     </file>
   </root>
   <root nodeRef="r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/7788464498752650651">
@@ -1726,7 +1726,7 @@
       </scope>
       <scope id="843347128766316658" at="17,0,20,0" />
       <scope id="843347128766304191" at="20,0,24,0" />
-      <unit id="843347128766303813" at="11,0,25,0" name="jetbrains.mps.vcs.platform.integration.ModelDiffContent" />
+      <unit id="843347128766303813" at="11,0,25,0" name="jetbrains.mps.vfs.tracking.ModelDiffContent" />
     </file>
   </root>
 </debug-info>

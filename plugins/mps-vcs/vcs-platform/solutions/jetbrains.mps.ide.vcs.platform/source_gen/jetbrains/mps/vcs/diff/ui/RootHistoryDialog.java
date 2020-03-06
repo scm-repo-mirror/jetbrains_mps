@@ -79,7 +79,7 @@ import com.intellij.diff.contents.EmptyContent;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.vcs.platform.integration.ModelDiffContent;
+import jetbrains.mps.vfs.tracking.ModelDiffContent;
 import com.intellij.openapi.util.Disposer;
 
 /**

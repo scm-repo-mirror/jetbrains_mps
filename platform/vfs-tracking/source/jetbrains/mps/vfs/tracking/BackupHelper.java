@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.vcs.platform.integration;
+package jetbrains.mps.vfs.tracking;
 
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
@@ -71,7 +72,9 @@ class BackupHelper {
     } else {
       model.getRepository().getModelAccess().runReadAction( () -> {
         try {
-          FileDataSource target = new FileDataSource(toIFile(new File(tmp, "memory")));
+          IFile file = toIOFile(fileWithModelName(model, tmp));
+          file.getParent().mkdirs();
+          FileDataSource target = new FileDataSource(file);
           factory.save(model, target);
         } catch (ModelSaveException | IOException e) {
           LOG.error("It was impossible to save the model backup ", e);
@@ -80,15 +83,25 @@ class BackupHelper {
     }
   }
 
+  @NotNull
+  private File fileWithModelName(@NotNull SModel model, @NotNull File tmp) {
+    return new File(new File(tmp, "memory"), model.getName().getSimpleName());
+  }
+
   private void copyOnDisk(@NotNull SModel model, @NotNull File parentTarget) {
     DataSource source = model.getSource();
     if (source instanceof FileSystemBasedDataSource) {
-      ((FileSystemBasedDataSource) source).physicalCopy(toIFile(new File(parentTarget, "disk")));
+      IFile diskDir = toIOFile(new File(parentTarget, "disk"));
+      diskDir.mkdirs();
+      // just for idea vfs, hopefully it will go away in 2020
+      ApplicationManager.getApplication().runWriteAction(() -> {
+        ((FileSystemBasedDataSource) source).physicalCopy(diskDir);
+      });
     }
   }
 
   @NotNull
-  private IFile toIFile(File disk) {
+  private IFile toIOFile(File disk) {
     return myVfsManager.getFileSystem(VFSManager.JAVA_IO_FILE_FS).getFile(disk);
   }
 }

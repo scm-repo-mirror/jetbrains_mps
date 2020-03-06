@@ -5,6 +5,7 @@ package jetbrains.mps.vcs.platform.integration;
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.diff.FrameDiffTool;
 import com.intellij.openapi.util.Key;
+import jetbrains.mps.vfs.tracking.ModelDiffContent;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import jetbrains.mps.vcs.diff.ui.ModelDifferenceViewer;

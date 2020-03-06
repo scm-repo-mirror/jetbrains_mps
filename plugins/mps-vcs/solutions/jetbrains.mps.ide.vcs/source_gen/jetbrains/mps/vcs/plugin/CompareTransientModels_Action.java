@@ -22,7 +22,7 @@ import jetbrains.mps.ide.ui.tree.SortUtil;
 import com.intellij.diff.contents.DiffContent;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.vcs.platform.integration.ModelDiffContent;
+import jetbrains.mps.vfs.tracking.ModelDiffContent;
 import com.intellij.diff.requests.DiffRequest;
 import com.intellij.diff.requests.SimpleDiffRequest;
 import com.intellij.diff.DiffManager;

@@ -106,7 +106,7 @@
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="com.intellij.openapi.vcs.impl.AbstractVcsHelperImpl" />
   </dependency>
-  <dependency className="jetbrains.mps.vcs.platform.integration.ModelDiffContent">
+  <dependency className="jetbrains.mps.vfs.tracking.ModelDiffContent">
     <classNode dependClassName="com.intellij.openapi.fileTypes.FileType" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
@@ -158,7 +158,7 @@
     <classNode dependClassName="jetbrains.mps.vcs.diff.merge.MergeTemporaryModel" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.ModelDifferenceViewer" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.Bounds" />
-    <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelDiffContent" />
+    <classNode dependClassName="jetbrains.mps.vfs.tracking.ModelDiffContent" />
     <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelDiffTool" />
     <classNode dependClassName="jetbrains.mps.vcspersistence.VCSPersistenceUtil" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -236,7 +236,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode extendsClassName="com.intellij.diff.merge.MergeTool" />
   </dependency>
-  <dependency className="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener">
+  <dependency className="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener">
     <classNode dependClassName="com.intellij.diff.DiffDialogHints" />
     <classNode dependClassName="com.intellij.diff.DiffManager" />
     <classNode dependClassName="com.intellij.diff.contents.DiffContent" />
@@ -289,7 +289,7 @@
     <classNode dependClassName="jetbrains.mps.smodel.ModelAccessHelper" />
     <classNode dependClassName="jetbrains.mps.util.Computable" />
     <classNode dependClassName="jetbrains.mps.util.FileUtil" />
-    <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelDiffContent" />
+    <classNode dependClassName="jetbrains.mps.vfs.tracking.ModelDiffContent" />
     <classNode dependClassName="jetbrains.mps.vcs.platform.util.MergeBackupUtil" />
     <classNode dependClassName="jetbrains.mps.vcs.util.MergeDriverBackupUtil" />
     <classNode dependClassName="jetbrains.mps.vcs.util.ModelVersion" />
@@ -345,13 +345,13 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="com.intellij.openapi.vcs.checkin.CheckinHandler" />
   </dependency>
-  <dependency className="jetbrains.mps.vcs.platform.integration.PluginVCSManager">
+  <dependency className="jetbrains.mps.vfs.tracking.PluginVCSManager">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.extapi.module.SRepositoryRegistry" />
     <classNode dependClassName="jetbrains.mps.ide.MPSCoreComponents" />
     <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadManager" />
-    <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener" />
+    <classNode dependClassName="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener" />
     <classNode extendsClassName="com.intellij.openapi.Disposable" />
   </dependency>
 </dependenciesRoot>

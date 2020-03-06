@@ -253,7 +253,7 @@
     <classNode dependClassName="jetbrains.mps.project.MPSExtentions" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.RootHistoryModel" />
-    <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelDiffContent" />
+    <classNode dependClassName="jetbrains.mps.vfs.tracking.ModelDiffContent" />
     <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelDiffViewer" />
     <classNode dependClassName="jetbrains.mps.vcspersistence.VCSPersistenceUtil" />
     <classNode dependClassName="org.jetbrains.annotations.NonNls" />

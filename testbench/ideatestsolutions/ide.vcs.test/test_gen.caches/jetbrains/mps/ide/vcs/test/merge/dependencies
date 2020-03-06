@@ -236,7 +236,7 @@
     <classNode dependClassName="jetbrains.mps.tool.environment.Environment" />
     <classNode dependClassName="jetbrains.mps.util.FileUtil" />
     <classNode dependClassName="jetbrains.mps.util.Reference" />
-    <classNode dependClassName="jetbrains.mps.vcs.platform.integration.ModelStorageProblemsListener" />
+    <classNode dependClassName="jetbrains.mps.vfs.tracking.ModelStorageProblemsListener" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />

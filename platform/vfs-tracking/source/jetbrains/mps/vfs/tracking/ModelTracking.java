@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.vcs.platform.integration;
+package jetbrains.mps.vfs.tracking;
 
 import com.intellij.openapi.Disposable;
 import jetbrains.mps.extapi.module.SRepositoryRegistry;
@@ -23,22 +23,21 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.VFSManager;
 import org.jetbrains.annotations.NotNull;
 
-public final class PluginVCSManager implements Disposable {
+public final class ModelTracking implements Disposable {
   private final ModelStorageProblemsListener myResolver;
   private final MPSCoreComponents myMPSComponents;
+  private final MPSProject myProject;
 
-  public PluginVCSManager(@NotNull MPSProject project, @NotNull MPSCoreComponents coreComponents, ReloadManager reloadManager) {
-    myResolver = new ModelStorageProblemsListener(project, coreComponents.getPersistenceFacade(), reloadManager, coreComponents.getPlatform().findComponent(VFSManager.class));
+  public ModelTracking(@NotNull MPSProject project, @NotNull MPSCoreComponents coreComponents, ReloadManager reloadManager) {
+    myResolver = new ModelStorageProblemsListener(project, coreComponents.getPersistenceFacade(), reloadManager,
+                                                  coreComponents.getPlatform().findComponent(VFSManager.class));
+    myProject = project;
     myMPSComponents = coreComponents;
-    getRegistry().addGlobalListener(myResolver);
+    project.getRepository().getModelAccess().runReadAction(() -> project.getRepository().addRepositoryListener(myResolver));
   }
 
   @Override
   public void dispose() {
-    getRegistry().removeGlobalListener(myResolver);
-  }
-
-  private SRepositoryRegistry getRegistry() {
-    return myMPSComponents.getPlatform().findComponent(SRepositoryRegistry.class);
+    myProject.getRepository().getModelAccess().runReadAction(() -> myProject.getRepository().removeRepositoryListener(myResolver));
   }
 }

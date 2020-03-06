@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.vcs.platform.integration;
+package jetbrains.mps.vfs.tracking;
 
 import com.intellij.diff.DiffDialogHints;
 import com.intellij.diff.DiffManager;
@@ -30,7 +30,6 @@ import jetbrains.mps.ide.platform.watching.ReloadManager;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.vfs.VFSManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -79,22 +78,26 @@ public final class ModelMemoryDiskConflictResolver {
       return;
     }
     FileSystemBasedDataSource source = (FileSystemBasedDataSource) model.getSource();
-    final File backupFile = new BackupHelper(model, myPersistenceFacade, myVfsManager).createBackup();
     ApplicationManager.getApplication().invokeLater(() -> {
       // do nothing if conflict was already resolved and model was saved or reloaded or unregistered
       if (!(model.isChanged()) || model.getRepository() == null) {
-        FileUtil.delete(backupFile);
         return;
       }
       assert model.getRepository() != null;
 
+      File backupFile = new BackupHelper(model, myPersistenceFacade, myVfsManager).createBackup();
       // fixme we need to check here that the world (= the underlying model & file) is still the same
-      UserChoice choice = showDiskMemoryQuestion(source, model, backupFile);
-      if (choice == UserChoice.MEMORY_CHOSEN) {
-        saveModel(model);
-      } else {
-        // fixme and here we need to check here that the world is still the same as well
-        model.getRepository().getModelAccess().executeCommand(model::reloadFromSource);
+      UserChoice choice = showDiskMemoryQuestion(model, backupFile);
+      switch (choice) {
+        case DISK_CHOSEN: {
+          // fixme and here we need to check that the world is still the same as well
+          myProject.getRepository().getModelAccess().executeCommand(model::reloadFromSource);
+          break;
+        }
+        case DIFF_CHOSEN: {
+          openDiffDialog(source, model);
+        }
+        default : saveModel(model);
       }
     }, ModalityState.NON_MODAL);
   }
@@ -108,38 +111,51 @@ public final class ModelMemoryDiskConflictResolver {
   }
 
   @NotNull
-  private UserChoice showDiskMemoryQuestion(@NotNull FileSystemBasedDataSource source, @NotNull SModel model, @NotNull File backupFile) {
-    String message = String.format("Changes have been made to \n%s\n model in memory and on disk.\nBackup of both versions was saved to \"%s\"\nWhich version to use?",
+  private UserChoice showDiskMemoryQuestion(@NotNull SModel model, @NotNull File backupFile) {
+    String message = String.format("Changes have been made to the model \n%s\n in memory and on disk.\nBackup of both versions was saved to \"%s\"\nWhich version to use?",
                                    model, backupFile.getAbsolutePath());
     String title = "Model Versions Conflict";
-    String[] options = {"Load Disk Version", "Save Memory Version", "Show Difference"};
-    // fixme true looks bad to me
-    while (true) {
-      // fixme replace with proper stuff
-      if (isApplicationInUnitTestOrHeadless()) {
-        return ourTestImplementation.show("") == 1 ? UserChoice.MEMORY_CHOSEN : UserChoice.DISK_CHOSEN;
-      }
-      int result = JOptionPane.showOptionDialog(ProjectHelper.toMainFrame(myProject), message, title, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, Messages.getQuestionIcon(), options, null);
-      switch (result) {
-        case 0:
-          return UserChoice.DISK_CHOSEN;
-        case 1:
-          return UserChoice.MEMORY_CHOSEN;
-        case 2:
-          return UserChoice.CANCEL;
-        default:
-          openDiffDialog(source, model); // should I be able to use diff and to choose the final version of the model I want to keep?
-      }
+    // fixme replace with proper stuff
+    if (isApplicationInUnitTestOrHeadless()) {
+      return ourTestImplementation.show("") == 1 ? UserChoice.MEMORY_CHOSEN : UserChoice.DISK_CHOSEN;
+    }
+    int result = JOptionPane.showOptionDialog(ProjectHelper.toMainFrame(myProject), message, title,
+                                              JOptionPane.YES_NO_CANCEL_OPTION,
+                                              JOptionPane.QUESTION_MESSAGE, Messages.getQuestionIcon(),
+                                              UserChoice.values(),
+                                              UserChoice.MEMORY_CHOSEN.ordinal());
+    switch (result) {
+      case 0:
+        return UserChoice.DISK_CHOSEN;
+      case 2:
+        return UserChoice.DIFF_CHOSEN;
+      default:
+        return UserChoice.MEMORY_CHOSEN;
     }
 
   }
 
   enum UserChoice {
-    DISK_CHOSEN,
-    MEMORY_CHOSEN,
-    CANCEL
+    DISK_CHOSEN("Load Disk Version"),
+    MEMORY_CHOSEN("Save Memory Version"), // default
+    DIFF_CHOSEN("Show Diff");
+
+    @NotNull
+    private final String myCaption;
+
+    UserChoice(@NotNull String caption) {
+      myCaption = caption;
+    }
+
+    @Override
+    public String toString() {
+      return myCaption;
+    }
   }
 
+  /**
+   * replace with the content of MemoryDiskConflictResolver (make a contribution to IJ)
+   */
   private void openDiffDialog(@NotNull FileSystemBasedDataSource source, @NotNull SModel model) {
     SModel onDisk = null;
     try {
@@ -152,8 +168,8 @@ public final class ModelMemoryDiskConflictResolver {
       return;
     }
     List<DiffContent> contents = ListSequence.fromListAndArray(new ArrayList<>(), new ModelDiffContent(onDisk), new ModelDiffContent(model));
-    List<String> titles = ListSequence.fromListAndArray(new ArrayList<>(), "Disk version (Read-Only)", "Memory Version");
-    DiffRequest request = new SimpleDiffRequest("Model on disk and model in memory differs", contents, titles);
+    List<String> titles = ListSequence.fromListAndArray(new ArrayList<>(), "Disk Version (Read-Only)", "Memory Version");
+    DiffRequest request = new SimpleDiffRequest("The model on disk and the model in memory differ", contents, titles);
     DiffManager.getInstance().showDiff(myProject.getProject(), request, DiffDialogHints.MODAL);
   }
 

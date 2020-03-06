@@ -108,6 +108,7 @@
       <module fileurl="file://$PROJECT_DIR$/plugins/mps-vcs/vcs-core/vcs-core.iml" filepath="$PROJECT_DIR$/plugins/mps-vcs/vcs-core/vcs-core.iml" group="plugins/vcs" />
       <module fileurl="file://$PROJECT_DIR$/plugins/mps-vcs/vcs-platform/vcs-platform.iml" filepath="$PROJECT_DIR$/plugins/mps-vcs/vcs-platform/vcs-platform.iml" group="plugins/vcs" />
       <module fileurl="file://$PROJECT_DIR$/core/vfs/vfs.iml" filepath="$PROJECT_DIR$/core/vfs/vfs.iml" group="core" />
+      <module fileurl="file://$PROJECT_DIR$/platform/vfs-tracking/vfs-tracking.iml" filepath="$PROJECT_DIR$/platform/vfs-tracking/vfs-tracking.iml" />
     </modules>
   </component>
 </project>

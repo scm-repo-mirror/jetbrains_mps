@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.vcs.platform.integration;
+package jetbrains.mps.vfs.tracking;
 
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
@@ -46,8 +46,6 @@ import java.util.Map;
  * The purpose of this class is twofold (that is a pity):
  *  - it reacts to load/save problems for a model
  *  - it reacts for a conflict and offers proper options to the user
- *
- *  TODO move from vcs to core
  *
  * @author apyshkin
  */
