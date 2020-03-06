@@ -41,6 +41,7 @@ import java.io.Reader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -133,12 +134,15 @@ public class FileUtil {
 
   }
 
-  public static void copyFile(File f, File to) {
+  public static boolean copyFile(File f, File to) {
+    if (Objects.equals(f, to)) return true;
     try {
       copyFileChecked(f, to);
     } catch (IOException e) {
       e.printStackTrace();
+      return false;
     }
+    return true;
   }
 
   public static void copyFileChecked(File f, File to) throws IOException {

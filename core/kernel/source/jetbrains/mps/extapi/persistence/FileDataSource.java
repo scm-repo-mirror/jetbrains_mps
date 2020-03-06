@@ -22,6 +22,7 @@ import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.FileSystemEvent;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.NullDataSource.NullDataSourceType;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
@@ -188,6 +189,14 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
   @Override
   public Collection<IFile> getAffectedFiles() {
     return Collections.singleton(myFile);
+  }
+
+  @Nullable
+  @Override
+  public FileSystemBasedDataSource physicalCopy(@NotNull IFile parentFolder) {
+    IFile res = myFile.copy(parentFolder);
+    if (res != null) return new FileDataSource(parentFolder.findChild(myFile.getName()));
+    else return null;
   }
 
   @NotNull

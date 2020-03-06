@@ -271,6 +271,14 @@ public class FolderDataSource extends DataSourceBase implements MultiStreamDataS
     return getAvailableStreams().iterator().hasNext();
   }
 
+  @Nullable
+  @Override
+  public FileSystemBasedDataSource physicalCopy(@NotNull IFile parentFolder) {
+    IFile res = myFolder.copy(parentFolder);
+    if (res != null) return new FileDataSource(parentFolder.findChild(myFolder.getName()));
+    else return null;
+  }
+
   @NotNull
   @Override
   public Collection<IFile> getAffectedFiles() {

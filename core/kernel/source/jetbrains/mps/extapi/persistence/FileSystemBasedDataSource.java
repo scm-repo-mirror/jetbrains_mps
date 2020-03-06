@@ -17,6 +17,7 @@ package jetbrains.mps.extapi.persistence;
 
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 
 import java.util.Collection;
@@ -48,4 +49,10 @@ public interface FileSystemBasedDataSource extends DataSource, DisposableDataSou
     return getAffectedFiles().stream()
                              .anyMatch(IFile::exists);
   }
+
+  /**
+   * @return null if some problem is encountered
+   */
+  @Nullable
+  FileSystemBasedDataSource physicalCopy(@NotNull IFile parentFolder);
 }

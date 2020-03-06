@@ -27,6 +27,7 @@ import jetbrains.mps.vfs.refresh.FileEventProcessor;
 import jetbrains.mps.vfs.refresh.FileSystemEvent;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
@@ -242,6 +243,12 @@ public class FolderSetDataSource extends DataSourceBase implements DataSource, F
   @Override
   public Collection<IFile> getAffectedFiles() {
     return getFiles();
+  }
+
+  @Nullable
+  @Override
+  public FileSystemBasedDataSource physicalCopy(@NotNull IFile parentFolder) {
+    throw new UnsupportedOperationException("Cannot copy this type of data source");
   }
 
   @NotNull
