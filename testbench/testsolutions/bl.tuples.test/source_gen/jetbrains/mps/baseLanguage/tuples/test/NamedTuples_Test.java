@@ -160,7 +160,7 @@ public class NamedTuples_Test extends TestCase {
     Assert.assertNotNull(pair);
   }
   public void test_implementsInterface() throws Exception {
-    Sample sample = new Sample(42);
+    Sample sample = new Sample(42, 0.0f);
     Assert.assertSame(42, sample.get());
     Assert.assertEquals("<42>", sample.getSample());
     ISample s = sample;
