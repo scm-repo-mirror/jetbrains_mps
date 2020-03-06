@@ -34,6 +34,7 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.extapi.persistence.FileDataSource;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.ide.platform.watching.ReloadManager;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -42,27 +43,29 @@ import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
-import jetbrains.mps.persistence.PersistenceUtil;
+import jetbrains.mps.persistence.PersistenceRegistry;
+import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.project.ProjectManager;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.vcs.platform.util.MergeBackupUtil;
-import jetbrains.mps.vcs.util.MergeDriverBackupUtil;
-import jetbrains.mps.vcs.util.ModelVersion;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.VFSManager;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
+import org.jetbrains.mps.openapi.persistence.DataSource;
+import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 
 import javax.swing.JOptionPane;
 import javax.swing.event.HyperlinkEvent;
@@ -75,13 +78,19 @@ import java.util.Map;
 
 public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
   private static final Logger LOG = LogManager.getLogger(ModelStorageProblemsListener.class);
+
+  @NotNull
+  private final PersistenceRegistry myPersistenceRegistry;
   private final ReloadManager myReloadManager;
+  private final VFSManager myVfsManager;
 
   private Notification myLastNotification;
   private volatile SModelReference myLastModel;
 
-  /*package*/ ModelStorageProblemsListener(ReloadManager reloadManager) {
+  /*package*/ ModelStorageProblemsListener(@NotNull PersistenceRegistry persistenceRegistry, @NotNull ReloadManager reloadManager, @NotNull VFSManager vfsManager) {
+    myPersistenceRegistry = persistenceRegistry;
     myReloadManager = reloadManager;
+    myVfsManager = vfsManager;
   }
 
   @Override
@@ -189,25 +198,27 @@ public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
   }
 
   private void resolveDiskMemoryConflict(@NotNull final EditableSModel model) {
-    if (!(model.getSource() instanceof FileDataSource)) {
+    DataSource source = model.getSource();
+    if (!(source instanceof FileDataSource)) {
       if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error(String.format("Conflicting content in memory and on disk for models '%s' and '%s'. MPS does not support this data source; it will save the model and ignore the external modifications.", model.getName(), model.getSource().getLocation()));
+        LOG.error(String.format("Conflicting content in memory and on disk for models '%s' and '%s'. MPS does not support this data source; it will save the model and ignore the external modifications.", model.getName(), source
+                                                                                                                                                                                                                                 .getLocation()));
       }
       saveModel(model);
       return;
     }
-    final IFile file = ((FileDataSource) model.getSource()).getFile();
-    final File backupFile = doBackup(file, model);
+    final File backupFile = doBackup(model);
+    final IFile file = ((FileDataSource) source).getFile();
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       public void run() {
         // do nothing if conflict was already resolved and model was saved or reloaded or unregistered 
         if (!(model.isChanged()) || model.getRepository() == null) {
-          backupFile.delete();
+          FileUtil.delete(backupFile);
           return;
         }
         assert model.getRepository() != null;
 
-        final boolean contentConflict = file.exists();
+        final boolean contentConflict = ((FileDataSource) source).exists();
         boolean needSave = myReloadManager.computeNoReload(new Computable<Boolean>() {
           public Boolean compute() {
             if (contentConflict) {
@@ -282,35 +293,11 @@ public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
       }
     }
   }
-  private static File doBackup(final IFile modelFile, final SModel inMemory) {
-    try {
-      File tmp = FileUtil.createTmpDir();
-      // as the model is already in repo, we can assume it's in supported persistence 
-      // XXX though not apparent why it's necessarily default xml persistence 
-      // XXX and why we don't use ModelFactory.save(openapi.SModel) here, with properly created FileDataSource at temp location. 
-      // XXX We still assume text-backed persistence. Perhaps, could use PersistenceVersionAware.getModelFactory() and its save() directly? 
-      String modelData = new ModelAccessHelper(inMemory.getRepository()).runReadAction(new Computable<String>() {
-        public String compute() {
-          return PersistenceUtil.saveModel(inMemory, FileUtil.getExtension(modelFile.getName()));
-        }
-      });
-      MergeDriverBackupUtil.writeContentsToFile(modelData.getBytes(FileUtil.DEFAULT_CHARSET), modelFile.getName(), tmp, DiskMemoryConflictVersion.MEMORY.getSuffix());
-      if (modelFile.exists()) {
-        com.intellij.openapi.util.io.FileUtil.copy(new File(modelFile.getPath()), new File(tmp.getAbsolutePath(), modelFile.getName() + "." + DiskMemoryConflictVersion.FILE_SYSTEM.getSuffix()));
-      }
-      File zipfile = MergeBackupUtil.chooseZipFileForModelFile(modelFile.getName());
-      zipfile.getParentFile().mkdirs();
-      FileUtil.zip(tmp, zipfile);
-      FileUtil.delete(tmp);
-      return zipfile;
-    } catch (IOException e) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("Cannot create backup during resolving disk-memory conflict for " + inMemory.getName(), e);
-      }
-      throw new RuntimeException(e);
-    }
-  }
 
+  /**
+   * TODO [0] --wtf
+   * copy everything from MemoryDiskConflictResolver
+   */
   private static void openDiffDialog(IFile modelFile, SModel inMemory) {
     SModel onDisk = VCSPersistenceUtil.loadModel(modelFile);
     com.intellij.openapi.project.Project project = com.intellij.openapi.project.ProjectManager.getInstance().getOpenProjects()[0];
@@ -318,20 +305,6 @@ public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
     List<String> titles = ListSequence.fromListAndArray(new ArrayList<String>(), "Filesystem version (Read-Only)", "Memory Version");
     DiffRequest request = new SimpleDiffRequest("Model file and model in memory differs", contents, titles);
     DiffManager.getInstance().showDiff(project, request, DiffDialogHints.MODAL);
-  }
-
-  public enum DiskMemoryConflictVersion implements ModelVersion {
-    FILE_SYSTEM("filesystem"),
-    MEMORY("memory");
-
-    private final String mySuffix;
-    private DiskMemoryConflictVersion(String suffix) {
-      mySuffix = suffix;
-    }
-    @Override
-    public String getSuffix() {
-      return mySuffix;
-    }
   }
 
   private static TestDialog ourTestImplementation = TestDialog.DEFAULT;
