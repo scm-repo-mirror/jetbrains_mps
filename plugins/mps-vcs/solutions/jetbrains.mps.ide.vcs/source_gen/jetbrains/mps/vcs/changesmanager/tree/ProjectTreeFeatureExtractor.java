@@ -22,7 +22,6 @@ import jetbrains.mps.vcs.changesmanager.tree.features.ReferencesFeature;
 import jetbrains.mps.ide.ui.smodel.ReferenceTreeNode;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.vcs.changesmanager.tree.features.ReferenceFeature;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.ide.ui.tree.smodel.PackageNode;
 import jetbrains.mps.vcs.changesmanager.tree.features.VirtualPackageFeature;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
@@ -56,7 +55,11 @@ public class ProjectTreeFeatureExtractor implements TreeNodeFeatureExtractor {
 
     if (treeNode instanceof ReferenceTreeNode) {
       SReference ref = ((ReferenceTreeNode) treeNode).getRef();
-      return new ReferenceFeature(new SNodePointer(ref.getSourceNode()), ref.getLink());
+      //  assume node.getReference is not null/null even for deleted nodes  
+      if (ref.getSourceNode() != null) {
+        return new ReferenceFeature(ref.getSourceNode().getReference(), ref.getLink());
+      }
+      return null;
     }
 
     if (treeNode instanceof PackageNode) {
