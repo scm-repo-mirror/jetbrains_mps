@@ -11455,20 +11455,6 @@
                 </node>
               </node>
             </node>
-            <node concept="3cpWs8" id="1nrk5lHz4bn" role="3cqZAp">
-              <node concept="3cpWsn" id="1nrk5lHz4bo" role="3cpWs9">
-                <property role="TrG5h" value="constraints" />
-                <node concept="3uibUv" id="1nrk5lHz4bp" role="1tU5fm">
-                  <ref role="3uigEE" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
-                </node>
-                <node concept="2OqwBi" id="1nrk5lHCOJa" role="33vP2m">
-                  <node concept="2WthIp" id="1nrk5lHCOfU" role="2Oq$k0" />
-                  <node concept="2XshWL" id="1nrk5lHCPX1" role="2OqNvi">
-                    <ref role="2WH_rO" node="1nrk5lHCGve" resolve="createConstraints" />
-                  </node>
-                </node>
-              </node>
-            </node>
             <node concept="3clFbF" id="1nrk5lHz4bD" role="3cqZAp">
               <node concept="2OqwBi" id="1nrk5lHz4bE" role="3clFbG">
                 <node concept="37vLTw" id="1nrk5lHz4bF" role="2Oq$k0">
@@ -11479,8 +11465,14 @@
                   <node concept="37vLTw" id="1nrk5lHz4bH" role="37wK5m">
                     <ref role="3cqZAo" node="1nrk5lHz4an" resolve="textPane" />
                   </node>
-                  <node concept="37vLTw" id="1nrk5lHz4bI" role="37wK5m">
-                    <ref role="3cqZAo" node="1nrk5lHz4bo" resolve="constraints" />
+                  <node concept="2OqwBi" id="29FDi0w8GME" role="37wK5m">
+                    <node concept="2WthIp" id="29FDi0w8GMF" role="2Oq$k0" />
+                    <node concept="2XshWL" id="29FDi0w8GMG" role="2OqNvi">
+                      <ref role="2WH_rO" node="1nrk5lHCGve" resolve="createConstraints" />
+                      <node concept="3cmrfG" id="29FDi0w8Hgx" role="2XxRq1">
+                        <property role="3cmrfH" value="0" />
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
@@ -11574,13 +11566,8 @@
                         <node concept="2GrUjf" id="6yUTBPwPkYo" role="37wK5m">
                           <ref role="2Gs0qQ" node="6yUTBPwOhJH" resolve="method" />
                         </node>
-                        <node concept="10QFUN" id="2CqJqadjHNa" role="37wK5m">
-                          <node concept="37vLTw" id="2CqJqadjHcQ" role="10QFUP">
-                            <ref role="3cqZAo" node="6yUTBPwOhJK" resolve="printer" />
-                          </node>
-                          <node concept="3uibUv" id="2CqJqadjHNb" role="10QFUM">
-                            <ref role="3uigEE" to="5ueo:~StyledTextPrinter" resolve="StyledTextPrinter" />
-                          </node>
+                        <node concept="37vLTw" id="2CqJqadjHcQ" role="37wK5m">
+                          <ref role="3cqZAo" node="6yUTBPwOhJK" resolve="printer" />
                         </node>
                       </node>
                     </node>
@@ -11702,37 +11689,6 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3cpWs8" id="6yUTBPwOhKN" role="3cqZAp">
-                    <node concept="3cpWsn" id="6yUTBPwOhKO" role="3cpWs9">
-                      <property role="TrG5h" value="constraints" />
-                      <node concept="3uibUv" id="6yUTBPwOhKP" role="1tU5fm">
-                        <ref role="3uigEE" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
-                      </node>
-                      <node concept="2OqwBi" id="1nrk5lHCUpe" role="33vP2m">
-                        <node concept="2WthIp" id="1nrk5lHCTKp" role="2Oq$k0" />
-                        <node concept="2XshWL" id="1nrk5lHCVL$" role="2OqNvi">
-                          <ref role="2WH_rO" node="1nrk5lHCGve" resolve="createConstraints" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3clFbF" id="6yUTBPwOhKY" role="3cqZAp">
-                    <node concept="37vLTI" id="6yUTBPwOhKZ" role="3clFbG">
-                      <node concept="3uNrnE" id="6yUTBPwOhL0" role="37vLTx">
-                        <node concept="37vLTw" id="3GM_nagT$p$" role="2$L3a6">
-                          <ref role="3cqZAo" node="6yUTBPwOhJj" resolve="lineNumber" />
-                        </node>
-                      </node>
-                      <node concept="2OqwBi" id="6yUTBPwOhL2" role="37vLTJ">
-                        <node concept="37vLTw" id="3GM_nagTrDK" role="2Oq$k0">
-                          <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
-                        </node>
-                        <node concept="2OwXpG" id="6yUTBPwOhL4" role="2OqNvi">
-                          <ref role="2Oxat5" to="z60i:~GridBagConstraints.gridy" resolve="gridy" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
                   <node concept="3clFbF" id="6yUTBPwOhL5" role="3cqZAp">
                     <node concept="2OqwBi" id="6yUTBPwOhL6" role="3clFbG">
                       <node concept="37vLTw" id="3GM_nagTvK1" role="2Oq$k0">
@@ -11743,59 +11699,22 @@
                         <node concept="37vLTw" id="3GM_nagTy$D" role="37wK5m">
                           <ref role="3cqZAo" node="6yUTBPwOhJX" resolve="textPane" />
                         </node>
-                        <node concept="37vLTw" id="3GM_nagTxwz" role="37wK5m">
-                          <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
+                        <node concept="2OqwBi" id="29FDi0w8HmG" role="37wK5m">
+                          <node concept="2WthIp" id="29FDi0w8HmH" role="2Oq$k0" />
+                          <node concept="2XshWL" id="29FDi0w8HmI" role="2OqNvi">
+                            <ref role="2WH_rO" node="1nrk5lHCGve" resolve="createConstraints" />
+                            <node concept="3uNrnE" id="29FDi0w8I4U" role="2XxRq1">
+                              <node concept="37vLTw" id="29FDi0w8I4V" role="2$L3a6">
+                                <ref role="3cqZAo" node="6yUTBPwOhJj" resolve="lineNumber" />
+                              </node>
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
                   </node>
                   <node concept="3clFbJ" id="6yUTBPwOhLb" role="3cqZAp">
                     <node concept="3clFbS" id="6yUTBPwOhLc" role="3clFbx">
-                      <node concept="3clFbF" id="6yUTBPwOhLd" role="3cqZAp">
-                        <node concept="37vLTI" id="6yUTBPwOhLe" role="3clFbG">
-                          <node concept="37vLTw" id="3GM_nagTxIh" role="37vLTJ">
-                            <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
-                          </node>
-                          <node concept="2ShNRf" id="6yUTBPwOhLg" role="37vLTx">
-                            <node concept="1pGfFk" id="6yUTBPwOhLh" role="2ShVmc">
-                              <ref role="37wK5l" to="z60i:~GridBagConstraints.&lt;init&gt;()" resolve="GridBagConstraints" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3clFbF" id="6yUTBPwOhLi" role="3cqZAp">
-                        <node concept="37vLTI" id="6yUTBPwOhLj" role="3clFbG">
-                          <node concept="10M0yZ" id="6yUTBPwOhLk" role="37vLTx">
-                            <ref role="1PxDUh" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
-                            <ref role="3cqZAo" to="z60i:~GridBagConstraints.HORIZONTAL" resolve="HORIZONTAL" />
-                          </node>
-                          <node concept="2OqwBi" id="6yUTBPwOhLl" role="37vLTJ">
-                            <node concept="37vLTw" id="3GM_nagTBVc" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
-                            </node>
-                            <node concept="2OwXpG" id="6yUTBPwOhLn" role="2OqNvi">
-                              <ref role="2Oxat5" to="z60i:~GridBagConstraints.fill" resolve="fill" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3clFbF" id="6yUTBPwOhLo" role="3cqZAp">
-                        <node concept="37vLTI" id="6yUTBPwOhLp" role="3clFbG">
-                          <node concept="3uNrnE" id="6yUTBPwOhLq" role="37vLTx">
-                            <node concept="37vLTw" id="3GM_nagT_Dr" role="2$L3a6">
-                              <ref role="3cqZAo" node="6yUTBPwOhJj" resolve="lineNumber" />
-                            </node>
-                          </node>
-                          <node concept="2OqwBi" id="6yUTBPwOhLs" role="37vLTJ">
-                            <node concept="37vLTw" id="3GM_nagTwSZ" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
-                            </node>
-                            <node concept="2OwXpG" id="6yUTBPwOhLu" role="2OqNvi">
-                              <ref role="2Oxat5" to="z60i:~GridBagConstraints.gridy" resolve="gridy" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
                       <node concept="3clFbF" id="6yUTBPwOhLv" role="3cqZAp">
                         <node concept="2OqwBi" id="6yUTBPwOhLw" role="3clFbG">
                           <node concept="37vLTw" id="3GM_nagTtAN" role="2Oq$k0">
@@ -11808,8 +11727,16 @@
                                 <ref role="37wK5l" node="6yUTBPwGjoU" resolve="Line" />
                               </node>
                             </node>
-                            <node concept="37vLTw" id="3GM_nagTrbs" role="37wK5m">
-                              <ref role="3cqZAo" node="6yUTBPwOhKO" resolve="constraints" />
+                            <node concept="2OqwBi" id="29FDi0w8Nl0" role="37wK5m">
+                              <node concept="2WthIp" id="29FDi0w8Nl1" role="2Oq$k0" />
+                              <node concept="2XshWL" id="29FDi0w8Nl2" role="2OqNvi">
+                                <ref role="2WH_rO" node="1nrk5lHCGve" resolve="createConstraints" />
+                                <node concept="3uNrnE" id="29FDi0w8Nl3" role="2XxRq1">
+                                  <node concept="37vLTw" id="29FDi0w8Nl4" role="2$L3a6">
+                                    <ref role="3cqZAo" node="6yUTBPwOhJj" resolve="lineNumber" />
+                                  </node>
+                                </node>
+                              </node>
                             </node>
                           </node>
                         </node>
@@ -12009,57 +11936,55 @@
         <ref role="3uigEE" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
       </node>
       <node concept="3clFbS" id="1nrk5lHCGvk" role="3clF47">
-        <node concept="3cpWs8" id="1nrk5lHCGw4" role="3cqZAp">
-          <node concept="3cpWsn" id="1nrk5lHCGw5" role="3cpWs9">
-            <property role="TrG5h" value="constraints" />
-            <node concept="3uibUv" id="1nrk5lHCGw6" role="1tU5fm">
-              <ref role="3uigEE" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
-            </node>
-            <node concept="2ShNRf" id="1nrk5lHCGw7" role="33vP2m">
-              <node concept="1pGfFk" id="1nrk5lHCGw8" role="2ShVmc">
-                <ref role="37wK5l" to="z60i:~GridBagConstraints.&lt;init&gt;()" resolve="GridBagConstraints" />
+        <node concept="3clFbF" id="29FDi0w8Fqw" role="3cqZAp">
+          <node concept="2ShNRf" id="29FDi0w8Esa" role="3clFbG">
+            <node concept="1pGfFk" id="29FDi0w8Esm" role="2ShVmc">
+              <ref role="37wK5l" to="z60i:~GridBagConstraints.&lt;init&gt;(int,int,int,int,double,double,int,int,java.awt.Insets,int,int)" resolve="GridBagConstraints" />
+              <node concept="3cmrfG" id="29FDi0w8Esn" role="37wK5m">
+                <property role="3cmrfH" value="0" />
+              </node>
+              <node concept="37vLTw" id="29FDi0w8Eso" role="37wK5m">
+                <ref role="3cqZAo" node="29FDi0w8CYc" resolve="row" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Esp" role="37wK5m">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Esq" role="37wK5m">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Esr" role="37wK5m">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Ess" role="37wK5m">
+                <property role="3cmrfH" value="0" />
+              </node>
+              <node concept="10M0yZ" id="29FDi0w8Est" role="37wK5m">
+                <ref role="1PxDUh" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
+                <ref role="3cqZAo" to="z60i:~GridBagConstraints.WEST" resolve="WEST" />
+              </node>
+              <node concept="10M0yZ" id="29FDi0w8Esv" role="37wK5m">
+                <ref role="3cqZAo" to="z60i:~GridBagConstraints.HORIZONTAL" resolve="HORIZONTAL" />
+                <ref role="1PxDUh" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
+              </node>
+              <node concept="2YIFZM" id="29FDi0w8EKN" role="37wK5m">
+                <ref role="37wK5l" to="g1qu:~JBUI.emptyInsets()" resolve="emptyInsets" />
+                <ref role="1Pybhc" to="g1qu:~JBUI" resolve="JBUI" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Esy" role="37wK5m">
+                <property role="3cmrfH" value="0" />
+              </node>
+              <node concept="3cmrfG" id="29FDi0w8Esz" role="37wK5m">
+                <property role="3cmrfH" value="0" />
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="1nrk5lHCGw9" role="3cqZAp">
-          <node concept="37vLTI" id="1nrk5lHCGwa" role="3clFbG">
-            <node concept="10M0yZ" id="1nrk5lHCGwb" role="37vLTx">
-              <ref role="1PxDUh" to="z60i:~GridBagConstraints" resolve="GridBagConstraints" />
-              <ref role="3cqZAo" to="z60i:~GridBagConstraints.BOTH" resolve="BOTH" />
-            </node>
-            <node concept="2OqwBi" id="1nrk5lHCGwc" role="37vLTJ">
-              <node concept="37vLTw" id="1nrk5lHCGwd" role="2Oq$k0">
-                <ref role="3cqZAo" node="1nrk5lHCGw5" resolve="constraints" />
-              </node>
-              <node concept="2OwXpG" id="1nrk5lHCGwe" role="2OqNvi">
-                <ref role="2Oxat5" to="z60i:~GridBagConstraints.fill" resolve="fill" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="1nrk5lHCGwf" role="3cqZAp">
-          <node concept="37vLTI" id="1nrk5lHCGwg" role="3clFbG">
-            <node concept="3cmrfG" id="1nrk5lHCGwh" role="37vLTx">
-              <property role="3cmrfH" value="0" />
-            </node>
-            <node concept="2OqwBi" id="1nrk5lHCGwi" role="37vLTJ">
-              <node concept="37vLTw" id="1nrk5lHCGwj" role="2Oq$k0">
-                <ref role="3cqZAo" node="1nrk5lHCGw5" resolve="constraints" />
-              </node>
-              <node concept="2OwXpG" id="1nrk5lHCGwk" role="2OqNvi">
-                <ref role="2Oxat5" to="z60i:~GridBagConstraints.gridy" resolve="gridy" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="1nrk5lHCMMk" role="3cqZAp">
-          <node concept="37vLTw" id="1nrk5lHCMU4" role="3cqZAk">
-            <ref role="3cqZAo" node="1nrk5lHCGw5" resolve="constraints" />
           </node>
         </node>
       </node>
       <node concept="3Tm6S6" id="1nrk5lHCGwr" role="1B3o_S" />
+      <node concept="37vLTG" id="29FDi0w8CYc" role="3clF46">
+        <property role="TrG5h" value="row" />
+        <node concept="10Oyi0" id="29FDi0w8CYb" role="1tU5fm" />
+      </node>
     </node>
     <node concept="1DS2jV" id="6PWCPPtWbkQ" role="1NuT2Z">
       <property role="TrG5h" value="editor" />
@@ -12123,52 +12048,26 @@
                       <node concept="2ShNRf" id="6PWCPPtWbru" role="33vP2m">
                         <node concept="1pGfFk" id="6PWCPPtWbrv" role="2ShVmc">
                           <ref role="37wK5l" to="z60i:~Point.&lt;init&gt;(int,int)" resolve="Point" />
-                          <node concept="3cpWs3" id="6PWCPPtWceI" role="37wK5m">
-                            <node concept="2OqwBi" id="6PWCPPtWceO" role="3uHU7w">
-                              <node concept="2OqwBi" id="6PWCPPtWceL" role="2Oq$k0">
-                                <node concept="2WthIp" id="6PWCPPtWceM" role="2Oq$k0" />
-                                <node concept="1DTwFV" id="6PWCPPtWceN" role="2OqNvi">
-                                  <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="6PWCPPtWceS" role="2OqNvi">
-                                <ref role="37wK5l" to="f4zo:~EditorCell.getWidth()" resolve="getWidth" />
+                          <node concept="2OqwBi" id="29FDi0wbshk" role="37wK5m">
+                            <node concept="2OqwBi" id="29FDi0wbq85" role="2Oq$k0">
+                              <node concept="2WthIp" id="29FDi0wbq88" role="2Oq$k0" />
+                              <node concept="1DTwFV" id="29FDi0wbq8a" role="2OqNvi">
+                                <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
                               </node>
                             </node>
-                            <node concept="2OqwBi" id="6PWCPPtWbr$" role="3uHU7B">
-                              <node concept="2OqwBi" id="6PWCPPtWbrw" role="2Oq$k0">
-                                <node concept="2WthIp" id="6PWCPPtWbrx" role="2Oq$k0" />
-                                <node concept="1DTwFV" id="6PWCPPtWbrz" role="2OqNvi">
-                                  <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="6PWCPPtWbrC" role="2OqNvi">
-                                <ref role="37wK5l" to="f4zo:~EditorCell.getX()" resolve="getX" />
-                              </node>
+                            <node concept="liA8E" id="29FDi0wbtFu" role="2OqNvi">
+                              <ref role="37wK5l" to="f4zo:~EditorCell.getCaretX()" resolve="getCaretX" />
                             </node>
                           </node>
-                          <node concept="3cpWs3" id="3Jg98l$LuO_" role="37wK5m">
-                            <node concept="2OqwBi" id="3Jg98l$LGeV" role="3uHU7w">
-                              <node concept="2OqwBi" id="3Jg98l$LGet" role="2Oq$k0">
-                                <node concept="2WthIp" id="3Jg98l$LGeu" role="2Oq$k0" />
-                                <node concept="1DTwFV" id="3Jg98l$LGev" role="2OqNvi">
-                                  <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="3Jg98l$LGrM" role="2OqNvi">
-                                <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
+                          <node concept="2OqwBi" id="6PWCPPtWceW" role="37wK5m">
+                            <node concept="2OqwBi" id="6PWCPPtWceT" role="2Oq$k0">
+                              <node concept="2WthIp" id="6PWCPPtWceU" role="2Oq$k0" />
+                              <node concept="1DTwFV" id="6PWCPPtWceV" role="2OqNvi">
+                                <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
                               </node>
                             </node>
-                            <node concept="2OqwBi" id="6PWCPPtWceW" role="3uHU7B">
-                              <node concept="2OqwBi" id="6PWCPPtWceT" role="2Oq$k0">
-                                <node concept="2WthIp" id="6PWCPPtWceU" role="2Oq$k0" />
-                                <node concept="1DTwFV" id="6PWCPPtWceV" role="2OqNvi">
-                                  <ref role="2WH_rO" node="6PWCPPtWbkw" resolve="cell" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="6PWCPPtWcf0" role="2OqNvi">
-                                <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
-                              </node>
+                            <node concept="liA8E" id="6PWCPPtWcf0" role="2OqNvi">
+                              <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
                             </node>
                           </node>
                         </node>
@@ -12227,6 +12126,9 @@
                           <node concept="3cpWs8" id="6yUTBPwQwxI" role="3cqZAp">
                             <node concept="3cpWsn" id="6yUTBPwQwxJ" role="3cpWs9">
                               <property role="TrG5h" value="component" />
+                              <node concept="3uibUv" id="bT3GMwWp78" role="1tU5fm">
+                                <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
+                              </node>
                               <node concept="2OqwBi" id="6yUTBPwQwxK" role="33vP2m">
                                 <node concept="2WthIp" id="6yUTBPwQwxL" role="2Oq$k0" />
                                 <node concept="2XshWL" id="6yUTBPwQwxM" role="2OqNvi">
@@ -12243,9 +12145,6 @@
                                     </node>
                                   </node>
                                 </node>
-                              </node>
-                              <node concept="3uibUv" id="bT3GMwWp78" role="1tU5fm">
-                                <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
                               </node>
                             </node>
                           </node>

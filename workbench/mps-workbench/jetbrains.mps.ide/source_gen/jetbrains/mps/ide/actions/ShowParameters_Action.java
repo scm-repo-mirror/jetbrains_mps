@@ -29,13 +29,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import javax.swing.JTextPane;
-import java.awt.GridBagConstraints;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.editor.runtime.style.StyledTextPrinter;
 import com.intellij.ui.JBColor;
 import java.awt.Color;
 import com.intellij.ui.Gray;
 import jetbrains.mps.nodeEditor.EditorSettings;
+import java.awt.GridBagConstraints;
+import com.intellij.util.ui.JBUI;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -101,7 +101,7 @@ public class ShowParameters_Action extends BaseAction {
     FeatureUsageTracker.getInstance().triggerFeatureUsed("editing.showParameters");
     ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        Point point = new Point(((EditorCell) MapSequence.fromMap(_params).get("cell")).getX() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getWidth(), ((EditorCell) MapSequence.fromMap(_params).get("cell")).getY() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getHeight());
+        Point point = new Point(((EditorCell) MapSequence.fromMap(_params).get("cell")).getCaretX(), ((EditorCell) MapSequence.fromMap(_params).get("cell")).getY());
         EditorCell currentCell = ((EditorCell) MapSequence.fromMap(_params).get("cell"));
         while (currentCell != null) {
           ParametersInformation parametersInformation = currentCell.getStyle().get(StyleAttributes.PARAMETERS_INFORMATION);
@@ -128,14 +128,13 @@ public class ShowParameters_Action extends BaseAction {
       StyledTextPrinterImpl printer = new StyledTextPrinterImpl();
       printer.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.DefaultClassCreator$sQ), LINKS.classifier$bk50), PROPS.name$tAp1) + "()");
       JTextPane textPane = ShowParameters_Action.this.createTextPane(printer, _params);
-      GridBagConstraints constraints = ShowParameters_Action.this.createConstraints(_params);
-      panel.add(textPane, constraints);
+      panel.add(textPane, ShowParameters_Action.this.createConstraints(0, _params));
     } else {
       Iterable<T> methods = parametersInformation.getMethods(node, ((EditorContext) MapSequence.fromMap(_params).get("editorContext")));
       int lineNumber = 0;
       for (T method : Sequence.fromIterable(methods)) {
         StyledTextPrinterImpl printer = new StyledTextPrinterImpl();
-        parametersInformation.getStyledMethodPresentation(node, ((EditorContext) MapSequence.fromMap(_params).get("editorContext")), method, (StyledTextPrinter) printer);
+        parametersInformation.getStyledMethodPresentation(node, ((EditorContext) MapSequence.fromMap(_params).get("editorContext")), method, printer);
         ShowParameters_Action.this.createTextPane(printer, _params);
 
         JTextPane textPane = ShowParameters_Action.this.createTextPane(printer, _params);
@@ -144,14 +143,9 @@ public class ShowParameters_Action extends BaseAction {
         } else {
           textPane.setBackground(HintUtil.getInformationColor());
         }
-        GridBagConstraints constraints = ShowParameters_Action.this.createConstraints(_params);
-        constraints.gridy = lineNumber++;
-        panel.add(textPane, constraints);
+        panel.add(textPane, ShowParameters_Action.this.createConstraints(lineNumber++, _params));
         if (Sequence.fromIterable(methods).last() != method) {
-          constraints = new GridBagConstraints();
-          constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.gridy = lineNumber++;
-          panel.add(new Line(), constraints);
+          panel.add(new Line(), ShowParameters_Action.this.createConstraints(lineNumber++, _params));
         }
       }
     }
@@ -167,11 +161,8 @@ public class ShowParameters_Action extends BaseAction {
     textPane.setForeground(JBColor.foreground());
     return textPane;
   }
-  private GridBagConstraints createConstraints(final Map<String, Object> _params) {
-    GridBagConstraints constraints = new GridBagConstraints();
-    constraints.fill = GridBagConstraints.BOTH;
-    constraints.gridy = 0;
-    return constraints;
+  private GridBagConstraints createConstraints(int row, final Map<String, Object> _params) {
+    return new GridBagConstraints(0, row, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, JBUI.emptyInsets(), 0, 0);
   }
 
   private static final class CONCEPTS {
