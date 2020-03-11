@@ -107,8 +107,6 @@ public final class CommonPaths {
 
   private static void addIdeaJars(Collection<QualifiedPath> result) {
     addRepackedIdeaJars(result);
-    addIfExists(result, "lib/bcpkix-jdk15on-1.64.jar");
-    addIfExists(result, "lib/bcprov-jdk15on-1.64.jar");
     addIfExists(result, "lib/netty-buffer-4.1.45.Final.jar");
     addIfExists(result, "lib/netty-codec-4.1.45.Final.jar");
     addIfExists(result, "lib/netty-codec-http-4.1.45.Final.jar");
