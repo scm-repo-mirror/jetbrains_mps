@@ -708,6 +708,9 @@
       <ref role="20lvS9" node="f$Wx3kv" resolve="StaticFieldDeclaration" />
       <ref role="20ksaX" node="fzcqZ_w" resolve="variableDeclaration" />
     </node>
+    <node concept="PrWs8" id="7S22xyoLQFv" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
+    </node>
   </node>
   <node concept="1TIwiD" id="f_0N3wd">
     <property role="TrG5h" value="ShortType" />
@@ -919,6 +922,9 @@
       <property role="IQ2ns" value="1081236769987" />
       <ref role="20lvS9" node="fIYIFWa" resolve="StaticMethodDeclaration" />
       <ref role="20ksaX" node="fz7wK6H" resolve="baseMethodDeclaration" />
+    </node>
+    <node concept="PrWs8" id="7S22xyoM0Xa" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
     </node>
   </node>
   <node concept="1TIwiD" id="fIYIFWa">
@@ -1141,6 +1147,9 @@
     <property role="34LRSv" value=".&lt;enum&gt;" />
     <property role="EcuMT" value="1083260308424" />
     <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
+    <node concept="PrWs8" id="7S22xyoMekL" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
+    </node>
     <node concept="PrWs8" id="5bNLJrPQj3J" role="PzmwI">
       <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
     </node>
@@ -1420,6 +1429,9 @@
       <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="1116615189566" />
       <ref role="20lvS9" node="g7pOWCK" resolve="Classifier" />
+    </node>
+    <node concept="PrWs8" id="7S22xyoM7Rh" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
     </node>
   </node>
   <node concept="1TIwiD" id="gyVMwX8">
@@ -2886,6 +2898,9 @@
       <property role="IQ2ns" value="1224573974191" />
       <ref role="20lvS9" node="fKQs72_" resolve="EnumClass" />
     </node>
+    <node concept="PrWs8" id="7S22xyoMmaR" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
+    </node>
   </node>
   <node concept="1TIwiD" id="hOpVQAF">
     <property role="TrG5h" value="BitwiseXorExpression" />
@@ -2914,6 +2929,9 @@
       <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="1224575174120" />
       <ref role="20lvS9" node="fKQs72_" resolve="EnumClass" />
+    </node>
+    <node concept="PrWs8" id="7S22xyoMh39" role="PzmwI">
+      <ref role="PrY4T" node="7S22xyoLQFx" resolve="QualifiedReference" />
     </node>
   </node>
   <node concept="1TIwiD" id="hOpV0KJ">
@@ -3755,6 +3773,13 @@
       <property role="20kJfa" value="text" />
       <property role="20lbJX" value="fLJekj5/0..n" />
       <ref role="20lvS9" to="zqge:2cLqkTm6J5A" resolve="Line" />
+      <node concept="asaX9" id="13gAna0airb" role="lGtFl" />
+    </node>
+    <node concept="1TJgyj" id="7fQBo8T7qsS" role="1TKVEi">
+      <property role="IQ2ns" value="8356039341262087992" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="line" />
+      <ref role="20lvS9" to="zqge:2cLqkTm6J5A" resolve="Line" />
     </node>
   </node>
   <node concept="1TIwiD" id="6KbE6jv0m5S">
@@ -4580,6 +4605,28 @@
     <property role="EcuMT" value="3093926081418224065" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="PlHQZ" id="7S22xyoLQFx">
+    <property role="TrG5h" value="QualifiedReference" />
+    <property role="EcuMT" value="9079830899491039969" />
+  </node>
+  <node concept="1TIwiD" id="1w9VmqdQ_lv">
+    <property role="EcuMT" value="1732176556423009631" />
+    <property role="3GE5qa" value="comments" />
+    <property role="TrG5h" value="MultiLineComment" />
+    <property role="34LRSv" value="/*" />
+    <property role="R4oN_" value="multi-line comment" />
+    <ref role="1TJDcQ" node="fzclF8l" resolve="Statement" />
+    <node concept="PrWs8" id="1w9VmqdQGnn" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
+    <node concept="1TJgyj" id="1w9VmqdQGu9" role="1TKVEi">
+      <property role="IQ2ns" value="1732176556423038857" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="lines" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="zqge:2cLqkTm6J5A" resolve="Line" />
+    </node>
   </node>
 </model>
 

@@ -8,7 +8,7 @@
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="-1" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="10" />
   </languages>
   <imports>
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" />
@@ -643,9 +643,9 @@
       <node concept="1oajcY" id="7HZe2EwZDkm" role="1oa70y" />
     </node>
     <node concept="1QGGSu" id="6XsdSphFVsn" role="3Uehp1">
-      <node concept="10M0yZ" id="6XsdSphG60i" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
-        <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Export" resolve="Export" />
+      <node concept="10M0yZ" id="5wRYDvyuP4H" role="3xaMm5">
+        <ref role="3cqZAo" to="z2i8:~AllIcons$ToolbarDecorator.Export" resolve="Export" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$ToolbarDecorator" resolve="AllIcons.ToolbarDecorator" />
       </node>
     </node>
     <node concept="tnohg" id="68aArIS9HDa" role="tncku">
@@ -1384,9 +1384,9 @@
     <property role="2uzpH1" value="Resume" />
     <property role="1teQrl" value="true" />
     <node concept="1QGGSu" id="6XsdSphGedS" role="3Uehp1">
-      <node concept="10M0yZ" id="6XsdSphGfg$" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Debugger$ThreadStates" resolve="AllIcons.Debugger.ThreadStates" />
-        <ref role="3cqZAo" to="z2i8:~AllIcons$Debugger$ThreadStates.Running" resolve="Running" />
+      <node concept="10M0yZ" id="5wRYDvyuLdV" role="3xaMm5">
+        <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Resume" resolve="Resume" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
       </node>
     </node>
     <node concept="tnohg" id="68aArIS9HI1" role="tncku">

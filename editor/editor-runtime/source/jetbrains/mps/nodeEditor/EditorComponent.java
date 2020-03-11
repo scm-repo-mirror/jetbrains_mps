@@ -351,7 +351,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   @SuppressWarnings({"UnusedDeclaration"})
   private ReferenceUnderliner myReferenceUnderliner = new ReferenceUnderliner();
   private BracesHighlighter myBracesHighlighter = new BracesHighlighter(this);
-  private boolean myPopupMenuEnabled = true;
+  private boolean myPopupMenuEnabled;
   private boolean myIsInFiguresHierarchy = false;
 
   private KeymapHandler<KeyEvent> myKeymapHandler = new AWTKeymapHandler();
@@ -371,6 +371,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     myRepository = repository;
     myEditorConfiguration = configuration;
     myReadOnly = myEditorConfiguration.readOnly;
+    myPopupMenuEnabled = configuration.hasContextMenu;
     myCommandContext = createCommandContext();
     myUpdater = createUpdater(myCommandContext);
     myHighlightManager = new NodeHighlightManager(this);
@@ -1030,10 +1031,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         notifyDisposal();
       }
 
-      final boolean needNewTypecheckingContext = updateContainingRoot(node);
-      if (needNewTypecheckingContext && myTypecheckingSessionHandle != null) {
-        myTypecheckingSessionHandle.release();
-        myTypecheckingSessionHandle = null;
+      final boolean needNewTypecheckingSession = updateContainingRoot(node);
+      if (needNewTypecheckingSession) {
+        releaseTypecheckingSession();
       }
 
       myNode = node;
@@ -1050,10 +1050,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
       myCommandContext.updateContextNode();
 
-      if (needNewTypecheckingContext && myNode != null) {
-        myTypecheckingSessionHandle = TypecheckingFacade
-                                          .getFromContext()
-                                          .requestNewSession(TypecheckingSession.Flags.forRoot(getNodeForTypechecking()).incremental());
+      if(needNewTypecheckingSession) {
+        requestTypecheckingSession();
       }
 
       rebuildEditorContent();
@@ -1062,6 +1060,21 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         notifyCreation();
       }
     });
+  }
+
+  protected void requestTypecheckingSession() {
+    if (myNode != null) {
+      myTypecheckingSessionHandle = TypecheckingFacade
+                                        .getFromContext()
+                                        .requestNewSession(TypecheckingSession.Flags.forRoot(getNodeForTypechecking()).incremental());
+    }
+  }
+
+  protected void releaseTypecheckingSession() {
+    if (myTypecheckingSessionHandle != null) {
+      myTypecheckingSessionHandle.release();
+      myTypecheckingSessionHandle = null;
+    }
   }
 
   public void addAdditionalPainter(AdditionalPainter additionalPainter) {
@@ -1372,10 +1385,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       hideMessageToolTip();
     }
 
-    if (myTypecheckingSessionHandle != null) {
-      myTypecheckingSessionHandle.release();
-      myTypecheckingSessionHandle = null;
-    }
+    releaseTypecheckingSession();
 
     myHighlightManager.dispose();
 
@@ -2406,8 +2416,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return true;
   }
 
-
-  private void deactivateSubstituteChooser() {
+  public final void deactivateSubstituteChooser() {
     myNodeSubstituteChooser.setVisible(false);
   }
 
@@ -2516,6 +2525,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return myReadOnly;
   }
 
+  /**
+   * @deprecated use {@link EditorConfigurationBuilder#hasContextMenu(boolean)} instead.
+   */
+  @Deprecated
   public void setPopupMenuEnabled(boolean popupMenuEnabled) {
     myPopupMenuEnabled = popupMenuEnabled;
   }
@@ -2696,21 +2709,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public void rebuildAfterReloadModel() {
-    if (myTypecheckingSessionHandle != null) {
-      myTypecheckingSessionHandle.release();
-      myTypecheckingSessionHandle = null;
-    }
+    releaseTypecheckingSession();
     if (myNodePointer != null) {
       myNode = myNodePointer.resolve(getRepository());
       myEditorContext = createEditorContext(myNode == null ? null : myNode.getModel(), myRepository);
       myUpdater.clearExplicitHints();
     }
     myCommandContext.updateContextNode();
-    if (myNode != null) {
-      myTypecheckingSessionHandle = TypecheckingFacade
-                                        .getFromContext()
-                                        .requestNewSession(TypecheckingSession.Flags.forRoot(getNodeForTypechecking()).incremental());
-    }
+    requestTypecheckingSession();
   }
 
   private static class MyBaseAction extends BaseAction implements DumbAware {

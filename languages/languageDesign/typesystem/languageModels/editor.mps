@@ -4,7 +4,7 @@
   <languages>
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="-1" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
@@ -41,6 +41,8 @@
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
+      <concept id="5991739802479784074" name="jetbrains.mps.lang.editor.structure.MenuTypeNamed" flags="ng" index="22hDWg" />
+      <concept id="5991739802479784073" name="jetbrains.mps.lang.editor.structure.MenuTypeDefault" flags="ng" index="22hDWj" />
       <concept id="2000375450116454183" name="jetbrains.mps.lang.editor.structure.ISubstituteMenu" flags="ng" index="22mbnS">
         <child id="414384289274416996" name="parts" index="3ft7WO" />
       </concept>
@@ -161,6 +163,7 @@
       </concept>
       <concept id="1630016958697344083" name="jetbrains.mps.lang.editor.structure.IMenu_Concept" flags="ng" index="2ZABuq">
         <reference id="6591946374543067572" name="conceptDeclaration" index="aqKnT" />
+        <child id="5991739802479788259" name="type" index="22hAXT" />
       </concept>
       <concept id="1630016958697286851" name="jetbrains.mps.lang.editor.structure.QueryFunctionParameter_parameterObject" flags="ng" index="2ZBlsa" />
       <concept id="1630016958697057551" name="jetbrains.mps.lang.editor.structure.IMenuPartParameterized" flags="ng" index="2ZBHr6">
@@ -2632,6 +2635,12 @@
               <property role="VOm3f" value="false" />
             </node>
             <node concept="2iRfu4" id="4NE36LgplWN" role="2iSdaV" />
+            <node concept="3F0ifn" id="1X0lLFxt3m0" role="3EZMnx">
+              <property role="3F0ifm" value="," />
+            </node>
+            <node concept="3F1sOY" id="1X0lLFxt3lM" role="3EZMnx">
+              <ref role="1NtTu8" to="tpd4:hjbfgWR" resolve="anotherNode" />
+            </node>
           </node>
           <node concept="3F0ifn" id="4NE36LgplWO" role="3EZMnx">
             <node concept="VPM3Z" id="4NE36LgplWP" role="3F10Kt">
@@ -5914,8 +5923,6 @@
     </node>
   </node>
   <node concept="3ICXOK" id="1wEcoXjJwOm">
-    <property role="TrG5h" value="InferenceRule_add_OverridesConceptFunction" />
-    <property role="3GE5qa" value="definition.rule" />
     <ref role="aqKnT" to="tpd4:h5YbPVU" resolve="InferenceRule" />
     <node concept="yp4Wq" id="1wEcoXjJwOn" role="lGtFl">
       <property role="yp4Ub" value="ext_1_RTransform" />
@@ -6152,6 +6159,9 @@
         </node>
       </node>
     </node>
+    <node concept="22hDWg" id="xzgvwPPpOx" role="22hAXT">
+      <property role="TrG5h" value="InferenceRule_add_OverridesConceptFunction" />
+    </node>
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwQh">
     <ref role="aqKnT" to="tpd4:hgmwoz7" resolve="TypeClause" />
@@ -6220,6 +6230,7 @@
       </node>
     </node>
     <node concept="2VfDsV" id="1wEcoXjJwVe" role="3ft7WO" />
+    <node concept="22hDWj" id="xzgvwPPpO_" role="22hAXT" />
   </node>
   <node concept="3p309x" id="1wEcoXjJwRX">
     <property role="TrG5h" value="EasyInferAndCheckingEntry_Contribution" />
@@ -6442,12 +6453,15 @@
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVf">
     <ref role="aqKnT" to="tpd4:hZcjoao" resolve="Operation_parameter" />
+    <node concept="22hDWj" id="xzgvwPPpOA" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVg">
     <ref role="aqKnT" to="tpd4:hS7zZI2" resolve="ConceptFunctionParameter_ContextNode" />
+    <node concept="22hDWj" id="xzgvwPPpOB" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVh">
     <ref role="aqKnT" to="tpd4:hZcjfmK" resolve="LeftOperandType_parameter" />
+    <node concept="22hDWj" id="xzgvwPPpOC" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVi">
     <ref role="aqKnT" to="tpd4:5x0erXP9MLB" resolve="Node_InferTypeOperation" />
@@ -6478,15 +6492,19 @@
         <ref role="4PJHt" to="tpd4:5x0erXP9MLB" resolve="Node_InferTypeOperation" />
       </node>
     </node>
+    <node concept="22hDWj" id="xzgvwPPpOD" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVj">
     <ref role="aqKnT" to="tpd4:hS7gLIB" resolve="ConceptFunctionParameter_var" />
+    <node concept="22hDWj" id="xzgvwPPpOE" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVk">
     <ref role="aqKnT" to="tpd4:hZcjoVq" resolve="RightOperandType_parameter" />
+    <node concept="22hDWj" id="xzgvwPPpOF" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVl">
     <ref role="aqKnT" to="tpd4:hS7zGQX" resolve="ConceptFunctionParameter_isAggregation" />
+    <node concept="22hDWj" id="xzgvwPPpOG" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVm">
     <ref role="aqKnT" to="tpd4:h7JvlS3" resolve="Node_TypeOperation" />
@@ -6517,21 +6535,27 @@
         <ref role="4PJHt" to="tpd4:h7JvlS3" resolve="Node_TypeOperation" />
       </node>
     </node>
+    <node concept="22hDWj" id="xzgvwPPpOH" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVn">
     <ref role="aqKnT" to="tpd4:25idkGdk026" resolve="AttributedNodeExpression" />
+    <node concept="22hDWj" id="xzgvwPPpOI" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVo">
     <ref role="aqKnT" to="tpd4:i1GQ0bS" resolve="MeetContainer" />
+    <node concept="22hDWj" id="xzgvwPPpOJ" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVp">
     <ref role="aqKnT" to="tpd4:hS7z$4e" resolve="ConceptFunctionParameter_Role" />
+    <node concept="22hDWj" id="xzgvwPPpOK" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVq">
     <ref role="aqKnT" to="tpd4:hGQ6cc0" resolve="ConceptFunctionParameter_node" />
+    <node concept="22hDWj" id="xzgvwPPpOL" role="22hAXT" />
   </node>
   <node concept="3p36aQ" id="1wEcoXjJwVr">
     <ref role="aqKnT" to="tpd4:i1GQybW" resolve="JoinContainer" />
+    <node concept="22hDWj" id="xzgvwPPpOM" role="22hAXT" />
   </node>
   <node concept="3INDKC" id="1wEcoXjJNxC">
     <property role="TrG5h" value="_Helgins_RT_Contribution" />
@@ -6654,8 +6678,6 @@
     </node>
   </node>
   <node concept="3ICXOK" id="1wEcoXjJNDe">
-    <property role="TrG5h" value="InferenceRule_ApplySideTransforms" />
-    <property role="3GE5qa" value="definition.rule" />
     <ref role="aqKnT" to="tpd4:h5YbPVU" resolve="InferenceRule" />
     <node concept="1Qtc8_" id="1wEcoXjJNDf" role="IW6Ez">
       <node concept="3cWJ9i" id="1wEcoXjJNDg" role="1Qtc8$">
@@ -6685,9 +6707,11 @@
         </node>
       </node>
     </node>
+    <node concept="22hDWg" id="xzgvwPPpOy" role="22hAXT">
+      <property role="TrG5h" value="InferenceRule_ApplySideTransforms" />
+    </node>
   </node>
   <node concept="3p36aQ" id="47y0FrqhJve">
-    <property role="3GE5qa" value="definition.statement.inequality" />
     <ref role="aqKnT" to="tpd4:49g6ijgJh$j" resolve="InequationReference" />
     <node concept="1s_PAr" id="47y0FrqhJvf" role="3ft7WO">
       <node concept="2kknPI" id="47y0FrqhJvg" role="1s_PAo">
@@ -6695,10 +6719,9 @@
       </node>
     </node>
     <node concept="2VfDsV" id="47y0FrqhJvh" role="3ft7WO" />
+    <node concept="22hDWj" id="xzgvwPPpON" role="22hAXT" />
   </node>
   <node concept="Q6S24" id="47y0FrqhJvc">
-    <property role="TrG5h" value="InequationReference_SmartReference" />
-    <property role="3GE5qa" value="definition.statement.inequality" />
     <ref role="aqKnT" to="tpd4:49g6ijgJh$j" resolve="InequationReference" />
     <node concept="3XHNnq" id="47y0FrqhJva" role="3ft7WO">
       <ref role="3XGfJA" to="tpd4:49g6ijgJh$k" resolve="inequation" />
@@ -6756,6 +6779,9 @@
       </node>
     </node>
     <node concept="382kZG" id="47y0FrqhJvd" role="lGtFl" />
+    <node concept="22hDWg" id="xzgvwPPpO$" role="22hAXT">
+      <property role="TrG5h" value="InequationReference_SmartReference" />
+    </node>
   </node>
   <node concept="24kQdi" id="21kJG8HcNXE">
     <property role="3GE5qa" value="definition.rule" />
@@ -6771,8 +6797,6 @@
     </node>
   </node>
   <node concept="3ICXOK" id="7E$SATCT7jg">
-    <property role="3GE5qa" value="definition.rule" />
-    <property role="TrG5h" value="NonTypesystemRule_backToAll" />
     <ref role="aqKnT" to="tpd4:hp8kY3U" resolve="NonTypesystemRule" />
     <node concept="1Qtc8_" id="7E$SATCT7jh" role="IW6Ez">
       <node concept="3eGOoe" id="7E$SATCT7jl" role="1Qtc8$" />
@@ -6826,6 +6850,9 @@
           </node>
         </node>
       </node>
+    </node>
+    <node concept="22hDWg" id="xzgvwPPpOz" role="22hAXT">
+      <property role="TrG5h" value="NonTypesystemRule_backToAll" />
     </node>
   </node>
 </model>

@@ -90,7 +90,7 @@ public class ProcessType_TransformationMenu extends TransformationMenuBase {
   private class TMP_Action_fvqin_a1 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Nullable
     protected TransformationMenuItem createItem(TransformationMenuContext context) {
-      TMP_Action_fvqin_a1.Item item = new TMP_Action_fvqin_a1.Item(context);
+      Item item = new Item(context);
       String description;
       try {
         description = "single item: " + item.getLabelText("");
@@ -161,8 +161,8 @@ public class ProcessType_TransformationMenu extends TransformationMenuBase {
 
   }
   private static SNode createCommandProcessType_fvqin_a0a0b0b() {
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.CommandProcessType$Cb);
-    return rootBuilder1.getResult();
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.CommandProcessType$Cb);
+    return n0.getResult();
   }
 
   private static final class CONCEPTS {

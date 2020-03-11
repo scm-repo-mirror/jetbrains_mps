@@ -19,6 +19,8 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.smodel.adapter.structure.types.SPrimitiveTypes;
+import org.jetbrains.mps.openapi.language.SType;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -67,7 +69,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_a.Item item = new SMP_Action_w0ulk7_a.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -102,10 +104,11 @@ public class constants extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode intConst = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.IntegerConstant$mo, null);
-        try {
-          SPropertyOperations.set(intConst, PROPS.value$ZeO0, Integer.parseInt(pattern));
-        } catch (NumberFormatException e) {
+        Object result = SPrimitiveTypes.INTEGER.fromString(pattern);
+        if (result == null || result == SType.NOT_A_VALUE) {
           SPropertyOperations.set(intConst, PROPS.value$ZeO0, 0);
+        } else {
+          SPropertyOperations.set(intConst, PROPS.value$ZeO0, (int) result);
         }
         return intConst;
       }
@@ -128,17 +131,8 @@ public class constants extends SubstituteMenuBase {
         return canExecute_internal(pattern, true);
       }
       public boolean canExecute_internal(@NotNull String pattern, boolean strictly) {
-        try {
-          Integer.parseInt(pattern);
-        } catch (NumberFormatException e) {
-          return false;
-        }
-
-        if (strictly) {
-          return REGEXP_w0ulk7_a0a0a2a21c5.matcher(pattern).matches();
-        } else {
-          return REGEXP_w0ulk7_a0a0a0c0m2f.matcher(pattern).matches();
-        }
+        Object result = SPrimitiveTypes.INTEGER.fromString(pattern);
+        return (result == null ? !(strictly) : result != SType.NOT_A_VALUE);
       }
     }
   }
@@ -147,7 +141,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_b.Item item = new SMP_Action_w0ulk7_b.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -212,7 +206,7 @@ public class constants extends SubstituteMenuBase {
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Boolean parameter, SubstituteMenuContext context) {
-      return new SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2(parameter).createItems(context);
+      return new SMP_Action_w0ulk7_a2(parameter).createItems(context);
     }
     @NotNull
     @Override
@@ -239,7 +233,7 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-        SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2.Item item = new SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2.Item(_context);
+        Item item = new Item(_context);
         String description;
         try {
           description = "Substitute item: " + item.getMatchingText("");
@@ -311,7 +305,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_d.Item item = new SMP_Action_w0ulk7_d.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -377,7 +371,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_e.Item item = new SMP_Action_w0ulk7_e.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -443,7 +437,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_f.Item item = new SMP_Action_w0ulk7_f.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -513,7 +507,7 @@ public class constants extends SubstituteMenuBase {
   public class SMP_Group_w0ulk7_g extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.VariableDeclaration$xe) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.ArrayLiteral$dK) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.AnnotationInstanceValue$sl);
+      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.VariableDeclaration$xe) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.ArrayLiteral$dK) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.AnnotationInstanceValue$sl) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.AnnotationMethodDeclaration$C2);
     }
     @NotNull
     @Override
@@ -545,8 +539,6 @@ public class constants extends SubstituteMenuBase {
       }, CONCEPTS.ArrayLiteral$dK));
     }
   }
-  private static final Pattern REGEXP_w0ulk7_a0a0a2a21c5 = Pattern.compile("-?\\d+", 0);
-  private static final Pattern REGEXP_w0ulk7_a0a0a0c0m2f = Pattern.compile("-?\\d*", 0);
   private static final Pattern REGEXP_w0ulk7_a0a0a21c6 = Pattern.compile("-?\\d+(?:l|L)", 0);
   private static final Pattern REGEXP_w0ulk7_a0a0a21c8 = Pattern.compile("-?[0-9]+\\.[0-9]*(?:[eE][\\-\\+]?[0-9]+)?[dD]?", 0);
   private static final Pattern REGEXP_w0ulk7_a0a0a21c9 = Pattern.compile("-?[0-9]+\\.[0-9]*(?:[eE][\\-\\+]?[0-9]+)?[fF]", 0);
@@ -560,9 +552,10 @@ public class constants extends SubstituteMenuBase {
     /*package*/ static final SConcept FloatingPointConstant$AA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, "jetbrains.mps.baseLanguage.structure.FloatingPointConstant");
     /*package*/ static final SConcept FloatingPointFloatConstant$pv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
     /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
-    /*package*/ static final SConcept AnnotationInstanceValue$sl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue");
     /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
     /*package*/ static final SConcept ArrayLiteral$dK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, "jetbrains.mps.baseLanguage.structure.ArrayLiteral");
+    /*package*/ static final SConcept AnnotationInstanceValue$sl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue");
+    /*package*/ static final SConcept AnnotationMethodDeclaration$C2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6a17a27L, "jetbrains.mps.baseLanguage.structure.AnnotationMethodDeclaration");
   }
 
   private static final class PROPS {

@@ -211,7 +211,6 @@
   </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveAbstractConceptSpecialization">
     <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
@@ -222,6 +221,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.CollectionSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.behavior.IMenu_Concept__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.RefactoringRuntime" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.ConceptId__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations" />
@@ -426,7 +426,6 @@
     <classNode extendsClassName="jetbrains.mps.refactoring.participant.plugin.MoveNodesAction" />
   </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveContainmentLinkSpecialization">
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
@@ -467,7 +466,6 @@
     <classNode extendsClassName="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveConceptMemberSpecialization" />
   </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MovePropertySpecialization">
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
@@ -504,7 +502,6 @@
     <classNode extendsClassName="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveConceptMemberSpecialization" />
   </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveReferenceLinkSpecialization">
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
@@ -756,7 +753,6 @@
     <classNode extendsClassName="jetbrains.mps.refactoring.participant.RefactoringParticipantBase" />
   </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.WriteSubconceptMigrationParticipant">
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.lang.Void" />

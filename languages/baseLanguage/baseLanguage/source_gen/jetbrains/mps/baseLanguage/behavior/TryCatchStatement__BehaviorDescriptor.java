@@ -52,7 +52,7 @@ public final class TryCatchStatement__BehaviorDescriptor extends BaseBHDescripto
     Set<SNode> thrownsFromBody = SetSequence.fromSet(new HashSet<SNode>());
     StatementList__BehaviorDescriptor.collectUncaughtThrowables_id4Gt7ANIVHca.invoke(body, thrownsFromBody, ((boolean) ignoreMayBeThrowables));
 
-    // remove what we have caught 
+    // remove what we have catched 
     for (SNode caatch : ListSequence.fromList(catchClause)) {
       Set<SNode> toRemove = SetSequence.fromSet(new HashSet<SNode>());
       for (SNode thrownFromBody : SetSequence.fromSet(thrownsFromBody)) {

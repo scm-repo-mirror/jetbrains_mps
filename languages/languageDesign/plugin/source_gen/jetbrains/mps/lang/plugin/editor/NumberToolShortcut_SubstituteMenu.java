@@ -66,7 +66,7 @@ public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_33swfs_b.Item item = new SMP_Action_33swfs_b.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -125,10 +125,10 @@ public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
       }
     }
   }
-  private static SNode createNumberToolShortcut_33swfs_a0a0b(Object p0) {
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.NumberToolShortcut$zP);
-    rootBuilder1.setProperty(PROPS.number$5Dx6, PROPS.number$5Dx6.getType().toString(p0));
-    return rootBuilder1.getResult();
+  private static SNode createNumberToolShortcut_33swfs_a0a0b(String p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.NumberToolShortcut$zP);
+    n0.setProperty(PROPS.number$5Dx6, p0);
+    return n0.getResult();
   }
   private static final Pattern REGEXP_33swfs_a0a0a11c5 = Pattern.compile("\\d", 0);
 

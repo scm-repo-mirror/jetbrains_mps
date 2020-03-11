@@ -6,6 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.smodel.EditableModelDescriptor;
 import jetbrains.mps.persistence.PersistenceVersionAware;
 import org.jetbrains.mps.openapi.model.EditableSModel;
+import jetbrains.mps.extapi.model.GeneratableSModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.NullDataSource;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -18,13 +19,14 @@ import jetbrains.mps.smodel.DefaultSModel;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.smodel.SModelHeader;
 
 /**
  * Merge model has to be EditableSModel for now (there's otherwise dubious use of isChanged status),
  * however, rest of the EditableSModel API is superfluous for the merge model.
  */
 @GeneratedClass(node = "r:e9c4e128-4808-4224-a92b-dbeed02eb860(jetbrains.mps.vcs.diff.merge)/1549936565245931290", model = "r:e9c4e128-4808-4224-a92b-dbeed02eb860(jetbrains.mps.vcs.diff.merge)")
-public final class MergeTemporaryModel extends EditableModelDescriptor implements PersistenceVersionAware, EditableSModel {
+public final class MergeTemporaryModel extends EditableModelDescriptor implements PersistenceVersionAware, EditableSModel, GeneratableSModel {
   private boolean myReadOnly;
 
   public MergeTemporaryModel(SModelReference modelRef, boolean readonly) {
@@ -101,7 +103,37 @@ public final class MergeTemporaryModel extends EditableModelDescriptor implement
 
   @Nullable
   public ModelFactory getModelFactory() {
-    // in fact, shall derive persitence from models being merged, however, so far we've got merge for default/xml persistence only, thus it's ok to hardcode specific factory 
+    // in fact, shall derive persistence from models being merged, however, so far we've got merge for default/xml persistence only, thus it's ok to hardcode specific factory 
+    // XXX is there any use of the method during merge? Perhaps, could go with plain 'null'? 
     return PersistenceFacade.getInstance().getDefaultModelFactory();
+  }
+
+  @Override
+  public boolean isGeneratable() {
+    return false;
+  }
+  @Override
+  public boolean isGenerateIntoModelFolder() {
+    return false;
+  }
+  @Override
+  public void setGenerateIntoModelFolder(boolean b) {
+  }
+  @Override
+  public String getModelHash() {
+    return null;
+  }
+  @Override
+  public void setDoNotGenerate(boolean b) {
+    if (getModelData() instanceof DefaultSModel) {
+      ((DefaultSModel) getModelData()).getSModelHeader().setOptionalProperty(SModelHeader.DO_NOT_GENERATE, Boolean.toString(b));
+    }
+  }
+  @Override
+  public boolean isDoNotGenerate() {
+    if (getModelData() instanceof DefaultSModel) {
+      return Boolean.parseBoolean(((DefaultSModel) getModelData()).getSModelHeader().getOptionalProperty(SModelHeader.DO_NOT_GENERATE));
+    }
+    return false;
   }
 }

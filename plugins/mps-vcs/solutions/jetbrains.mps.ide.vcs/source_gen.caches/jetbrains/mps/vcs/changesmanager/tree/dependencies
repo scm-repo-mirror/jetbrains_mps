@@ -98,7 +98,6 @@
     <classNode dependClassName="jetbrains.mps.ide.ui.tree.smodel.PackageNode" />
     <classNode dependClassName="jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode" />
     <classNode dependClassName="jetbrains.mps.ide.ui.tree.smodel.SNodeTreeNode" />
-    <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
     <classNode dependClassName="jetbrains.mps.vcs.changesmanager.tree.features.Feature" />
     <classNode dependClassName="jetbrains.mps.vcs.changesmanager.tree.features.ModelFeature" />
     <classNode dependClassName="jetbrains.mps.vcs.changesmanager.tree.features.NodeFeature" />

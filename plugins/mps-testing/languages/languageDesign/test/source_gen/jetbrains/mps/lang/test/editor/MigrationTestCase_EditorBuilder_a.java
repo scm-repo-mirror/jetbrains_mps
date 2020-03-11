@@ -344,7 +344,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     private EditorCell createError_0() {
       EditorCell_Error editorCell = new EditorCell_Error(getEditorContext(), myNode, "<no migration>");
       editorCell.setCellId("Error_w3rzlq_a2c0");
-      editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new migrationListHandler_w3rzlq_c2a.MigrationTestCase_generic_cellMenu_w3rzlq_a0a2c0(), new SChildSubstituteInfoPartEx(editorCell)}));
+      editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new MigrationTestCase_generic_cellMenu_w3rzlq_a0a2c0(), new SChildSubstituteInfoPartEx(editorCell)}));
       return editorCell;
     }
     public static class MigrationTestCase_generic_cellMenu_w3rzlq_a0a2c0 extends AbstractCellMenuPart_Generic_Group {
@@ -369,10 +369,10 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       protected EditorMenuDescriptor getEditorMenuDescriptor(Object parameterObject) {
         return new EditorMenuDescriptorBase("generic group with parameter: " + ((parameterObject == null ? "null" : parameterObject.toString())), new SNodePointer("r:00000000-0000-4000-0000-011c89590384(jetbrains.mps.lang.test.editor)", "6626913010124512135"));
       }
-      private static SNode createMigrationReference_w3rzlq_a0a0a0a0a2c0(SNode node0) {
-        SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.MigrationReference$BB);
-        rootBuilder1.setReferenceTarget(LINKS.migration$RUsw, node0);
-        return rootBuilder1.getResult();
+      private static SNode createMigrationReference_w3rzlq_a0a0a0a0a2c0(SNode p0) {
+        SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.MigrationReference$BB);
+        n0.setReferenceTarget(LINKS.migration$RUsw, p0);
+        return n0.getResult();
       }
     }
   }

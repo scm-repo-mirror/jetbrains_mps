@@ -44,8 +44,10 @@
     <classNode dependClassName="java.lang.Long" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.lang.reflect.Array" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
@@ -55,7 +57,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.util.Foo" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.util.MPS11114" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.util.Sum" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ArrayUtils" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
@@ -110,11 +111,12 @@
     <classNode dependClassName="java.lang.Long" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.lang.reflect.Array" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Iterator" />
     <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Bool" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Data" />
@@ -124,7 +126,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Record" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Sample" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.util.SharedPair" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ArrayUtils" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISequenceClosure" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
@@ -151,6 +152,7 @@
     <classNode extendsClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.tuples.test.Sample">
+    <classNode dependClassName="java.lang.Float" />
     <classNode dependClassName="java.lang.Integer" />
     <classNode dependClassName="java.lang.String" />
     <classNode extendsClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />

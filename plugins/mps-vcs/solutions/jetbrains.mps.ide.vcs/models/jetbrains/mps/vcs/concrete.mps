@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="10" />
   </languages>
   <imports>
     <import index="4hos" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.vcs(MPS.Workbench/)" />
@@ -17,6 +17,8 @@
     <import index="jlcu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs(MPS.IDEA/)" />
     <import index="rfyv" ref="6fd1293f-7f65-4ffd-99dc-4719eca7c171/java:git4idea.branch(jetbrains.mps.ide.vcs.platform/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="5mlj" ref="6fd1293f-7f65-4ffd-99dc-4719eca7c171/java:git4idea.repo(jetbrains.mps.ide.vcs.platform/)" />
+    <import index="tkms" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.dvcs.repo(MPS.IDEA/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -146,7 +148,7 @@
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
@@ -179,7 +181,7 @@
       <node concept="3Tm1VV" id="3Lj0jv7ELvB" role="1B3o_S" />
       <node concept="3clFbS" id="3Lj0jv7ELvC" role="3clF47">
         <node concept="3SKdUt" id="3Lj0jv7ELvD" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXokLY" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXokLY" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXokLZ" role="1PaTwD">
               <property role="3oM_SC" value="This" />
             </node>
@@ -234,7 +236,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="3Lj0jv7ELvF" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXokMg" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXokMg" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXokMh" role="1PaTwD">
               <property role="3oM_SC" value="It" />
             </node>
@@ -368,23 +370,44 @@
         </node>
         <node concept="SfApY" id="3Lj0jv7ELwf" role="3cqZAp">
           <node concept="3clFbS" id="3Lj0jv7ELwg" role="SfCbr">
+            <node concept="3cpWs8" id="6s9bz$skRDt" role="3cqZAp">
+              <node concept="3cpWsn" id="6s9bz$skRDs" role="3cpWs9">
+                <property role="TrG5h" value="repository" />
+                <node concept="3uibUv" id="6s9bz$skSUl" role="1tU5fm">
+                  <ref role="3uigEE" to="5mlj:~GitRepository" resolve="GitRepository" />
+                </node>
+                <node concept="2OqwBi" id="6s9bz$skRDv" role="33vP2m">
+                  <node concept="2YIFZM" id="6s9bz$skS24" role="2Oq$k0">
+                    <ref role="1Pybhc" to="hr4p:~GitUtil" resolve="GitUtil" />
+                    <ref role="37wK5l" to="hr4p:~GitUtil.getRepositoryManager(com.intellij.openapi.project.Project)" resolve="getRepositoryManager" />
+                    <node concept="37vLTw" id="6s9bz$skS25" role="37wK5m">
+                      <ref role="3cqZAo" node="3Lj0jv7ELw8" resolve="project" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="6s9bz$skRDy" role="2OqNvi">
+                    <ref role="37wK5l" to="tkms:~AbstractRepositoryManager.getRepositoryForRoot(com.intellij.openapi.vfs.VirtualFile)" resolve="getRepositoryForRoot" />
+                    <node concept="37vLTw" id="6s9bz$skRDz" role="37wK5m">
+                      <ref role="3cqZAo" node="3Lj0jv7ELvU" resolve="mpsHome" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3cpWs8" id="3Lj0jv7ELwh" role="3cqZAp">
               <node concept="3cpWsn" id="3Lj0jv7ELwi" role="3cpWs9">
                 <property role="TrG5h" value="currentBranchName" />
                 <node concept="17QB3L" id="3Lj0jv7ELwj" role="1tU5fm" />
                 <node concept="2EnYce" id="3Lj0jv7ELwk" role="33vP2m">
-                  <node concept="2YIFZM" id="46_v$3HTVy7" role="2Oq$k0">
-                    <ref role="37wK5l" to="rfyv:~GitBranchUtil.getCurrentBranch(com.intellij.openapi.project.Project,com.intellij.openapi.vfs.VirtualFile)" resolve="getCurrentBranch" />
-                    <ref role="1Pybhc" to="rfyv:~GitBranchUtil" resolve="GitBranchUtil" />
-                    <node concept="37vLTw" id="3GM_nagTwhI" role="37wK5m">
-                      <ref role="3cqZAo" node="3Lj0jv7ELw8" resolve="project" />
-                    </node>
-                    <node concept="37vLTw" id="3GM_nagTudD" role="37wK5m">
-                      <ref role="3cqZAo" node="3Lj0jv7ELvU" resolve="mpsHome" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="3Lj0jv7ELwo" role="2OqNvi">
+                  <node concept="liA8E" id="6s9bz$skU8L" role="2OqNvi">
                     <ref role="37wK5l" to="hr4p:~GitReference.getName()" resolve="getName" />
+                  </node>
+                  <node concept="2EnYce" id="6s9bz$skULR" role="2Oq$k0">
+                    <node concept="37vLTw" id="6s9bz$skTfi" role="2Oq$k0">
+                      <ref role="3cqZAo" node="6s9bz$skRDs" resolve="repository" />
+                    </node>
+                    <node concept="liA8E" id="6s9bz$skTXE" role="2OqNvi">
+                      <ref role="37wK5l" to="5mlj:~GitRepository.getCurrentBranch()" resolve="getCurrentBranch" />
+                    </node>
                   </node>
                 </node>
               </node>

@@ -7,7 +7,7 @@
     <use id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet" version="0" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="10" />
   </languages>
   <imports>
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
@@ -36,7 +36,6 @@
     <import index="mk8z" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="ap4t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator(MPS.Core/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
-    <import index="k9t0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.internal.collections.runtime(MPS.Core/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
     <import index="1gam" ref="r:dc013bd4-6bcf-44c3-9e08-a65e07c88df7(jetbrains.mps.internal.make.cfg)" />
@@ -272,7 +271,7 @@
       </concept>
       <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="2580416627845338977" name="jetbrains.mps.baseLanguage.structure.ImplicitAnnotationInstanceValue" flags="ng" index="1SXeKx" />
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
@@ -684,7 +683,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="6im5gTfDA6J" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXopIn" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXopIn" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXopIo" role="1PaTwD">
               <property role="3oM_SC" value="sanity" />
             </node>
@@ -825,7 +824,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="5OO$M3_uUKH" role="3cqZAp">
-          <node concept="1PaTwC" id="5OO$M3_uUKI" role="3ndbpf">
+          <node concept="1PaTwC" id="5OO$M3_uUKI" role="1aUNEU">
             <node concept="3oM_SD" id="5OO$M3_uUKK" role="1PaTwD">
               <property role="3oM_SC" value="XXX" />
             </node>
@@ -916,7 +915,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="5OeL7nc1Jxb" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXopI_" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXopI_" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXopIA" role="1PaTwD">
               <property role="3oM_SC" value="trace.info" />
             </node>
@@ -968,7 +967,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="5OeL7nc1MC0" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXopIQ" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXopIQ" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXopIR" role="1PaTwD">
               <property role="3oM_SC" value="fails" />
             </node>
@@ -1367,7 +1366,7 @@
               <node concept="3eNFk2" id="2XCiAnQPDEN" role="3eNLev">
                 <node concept="3clFbS" id="2XCiAnQPDEP" role="3eOfB_">
                   <node concept="3SKdUt" id="4c5XJtNNT_I" role="3cqZAp">
-                    <node concept="1PaTwC" id="ATZLwXopIY" role="3ndbpf">
+                    <node concept="1PaTwC" id="ATZLwXopIY" role="1aUNEU">
                       <node concept="3oM_SD" id="ATZLwXopIZ" role="1PaTwD">
                         <property role="3oM_SC" value="Don't" />
                       </node>
@@ -2025,7 +2024,7 @@
                     <node concept="3clFbJ" id="78bJneGY0Z5" role="3cqZAp">
                       <node concept="3clFbS" id="78bJneGY0Z7" role="3clFbx">
                         <node concept="3SKdUt" id="78bJneGYlIc" role="3cqZAp">
-                          <node concept="1PaTwC" id="ATZLwXopJf" role="3ndbpf">
+                          <node concept="1PaTwC" id="ATZLwXopJf" role="1aUNEU">
                             <node concept="3oM_SD" id="fM_JX6f$ZG" role="1PaTwD">
                               <property role="3oM_SC" value="no" />
                             </node>
@@ -3908,7 +3907,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="5Pnc_qQmmG6" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXopJu" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXopJu" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXopJv" role="1PaTwD">
               <property role="3oM_SC" value="it's" />
             </node>
@@ -4047,7 +4046,7 @@
       </node>
       <node concept="3clFbS" id="7X3$CtwaMPZ" role="3clF47">
         <node concept="3SKdUt" id="r94OK99o6X" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXopJN" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXopJN" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXopJO" role="1PaTwD">
               <property role="3oM_SC" value="module" />
             </node>
@@ -4494,14 +4493,14 @@
                   <node concept="Xl_RD" id="7X3$CtwaMRp" role="3uHU7B">
                     <property role="Xl_RC" value="Build errors:\n" />
                   </node>
-                  <node concept="2YIFZM" id="7X3$CtwaP5I" role="3uHU7w">
-                    <ref role="1Pybhc" to="k9t0:~IterableUtils" resolve="IterableUtils" />
-                    <ref role="37wK5l" to="k9t0:~IterableUtils.join(java.lang.Iterable,java.lang.String)" resolve="join" />
-                    <node concept="37vLTw" id="7X3$CtwaMRr" role="37wK5m">
-                      <ref role="3cqZAo" node="7X3$CtwaMRg" resolve="errors" />
-                    </node>
+                  <node concept="2YIFZM" id="25XiZe8RUxV" role="3uHU7w">
+                    <ref role="37wK5l" to="wyt6:~String.join(java.lang.CharSequence,java.lang.Iterable)" resolve="join" />
+                    <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                     <node concept="Xl_RD" id="7X3$CtwaMRs" role="37wK5m">
                       <property role="Xl_RC" value="\n" />
+                    </node>
+                    <node concept="37vLTw" id="25XiZe8RVbO" role="37wK5m">
+                      <ref role="3cqZAo" node="7X3$CtwaMRg" resolve="errors" />
                     </node>
                   </node>
                 </node>
@@ -4541,14 +4540,14 @@
                   <node concept="Xl_RD" id="7X3$CtwaMRB" role="3uHU7B">
                     <property role="Xl_RC" value="Build warnings:\n" />
                   </node>
-                  <node concept="2YIFZM" id="7X3$CtwaP5S" role="3uHU7w">
-                    <ref role="1Pybhc" to="k9t0:~IterableUtils" resolve="IterableUtils" />
-                    <ref role="37wK5l" to="k9t0:~IterableUtils.join(java.lang.Iterable,java.lang.String)" resolve="join" />
-                    <node concept="37vLTw" id="7X3$CtwaMRD" role="37wK5m">
-                      <ref role="3cqZAo" node="7X3$CtwaMRu" resolve="warns" />
-                    </node>
-                    <node concept="Xl_RD" id="7X3$CtwaMRE" role="37wK5m">
+                  <node concept="2YIFZM" id="25XiZe8RZhv" role="3uHU7w">
+                    <ref role="37wK5l" to="wyt6:~String.join(java.lang.CharSequence,java.lang.Iterable)" resolve="join" />
+                    <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
+                    <node concept="Xl_RD" id="25XiZe8RZhw" role="37wK5m">
                       <property role="Xl_RC" value="\n" />
+                    </node>
+                    <node concept="37vLTw" id="25XiZe8RZJu" role="37wK5m">
+                      <ref role="3cqZAo" node="7X3$CtwaMRu" resolve="warns" />
                     </node>
                   </node>
                 </node>
@@ -4563,7 +4562,7 @@
               </node>
             </node>
             <node concept="3SKdUt" id="10_gAdIkqJ8" role="3cqZAp">
-              <node concept="1PaTwC" id="ATZLwXopJU" role="3ndbpf">
+              <node concept="1PaTwC" id="ATZLwXopJU" role="1aUNEU">
                 <node concept="3oM_SD" id="ATZLwXopJV" role="1PaTwD">
                   <property role="3oM_SC" value="" />
                 </node>
@@ -4698,14 +4697,14 @@
               <node concept="Xl_RD" id="7X3$CtwaMS4" role="3uHU7B">
                 <property role="Xl_RC" value="Difference:\n" />
               </node>
-              <node concept="2YIFZM" id="7X3$CtwaP62" role="3uHU7w">
-                <ref role="1Pybhc" to="k9t0:~IterableUtils" resolve="IterableUtils" />
-                <ref role="37wK5l" to="k9t0:~IterableUtils.join(java.lang.Iterable,java.lang.String)" resolve="join" />
-                <node concept="37vLTw" id="7X3$CtwaMS6" role="37wK5m">
-                  <ref role="3cqZAo" node="7X3$CtwaMRV" resolve="diffReport" />
-                </node>
-                <node concept="Xl_RD" id="7X3$CtwaMS7" role="37wK5m">
+              <node concept="2YIFZM" id="25XiZe8S0vh" role="3uHU7w">
+                <ref role="37wK5l" to="wyt6:~String.join(java.lang.CharSequence,java.lang.Iterable)" resolve="join" />
+                <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
+                <node concept="Xl_RD" id="25XiZe8S0vi" role="37wK5m">
                   <property role="Xl_RC" value="\n" />
+                </node>
+                <node concept="37vLTw" id="25XiZe8S1e1" role="37wK5m">
+                  <ref role="3cqZAo" node="7X3$CtwaMRV" resolve="diffReport" />
                 </node>
               </node>
             </node>

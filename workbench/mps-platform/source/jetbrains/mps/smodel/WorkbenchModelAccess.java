@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import jetbrains.mps.smodel.undo.UndoContext;
 import jetbrains.mps.util.ComputeRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.openapi.model.SModel;
 
 import java.math.BigDecimal;
 
@@ -37,6 +38,8 @@ import static java.math.BigDecimal.valueOf;
  * We always first acquire IDEA's lock and only then acquire MPS's lock
  */
 public final class WorkbenchModelAccess extends ModelAccess implements Disposable {
+  public static final String THREAD_GROUP_NAME = "MPS EDT Executor Thread";
+
   private static final int WAIT_FOR_WRITE_LOCK_MILLIS = 200;
   private static final String IDEA_WRITE_LOCK_FAIL = "Failed to acquire the IDEA write lock after having waited for %.3f s";
 
@@ -51,7 +54,7 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
     mySubstitutedModelAccess = instance();
     assert mySubstitutedModelAccess instanceof DefaultModelAccess;
     setInstance(this);
-    myUndoHandler = (WorkbenchUndoHandler) ApplicationManager.getApplication().getComponent(UndoHandler.class);
+    myUndoHandler = new WorkbenchUndoHandler();
     myPlatformWriteHelper = new TryRunPlatformWriteHelper();
     myCancellableReads = new CancellableReadsManager();
     Disposer.register(this, myEDTExecutor);
@@ -123,7 +126,6 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
     if (handleIfCancellable(r)) {
       return;
     }
-    myCancellableReads.addIfCanCancel(r);
     myEDTExecutor.scheduleRead(() -> tryRead(r));
   }
 
@@ -318,6 +320,11 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
   @Override
   public boolean hasScheduledWrites() {
     return myPlatformWriteHelper.hasScheduledWrites() || super.hasScheduledWrites();
+  }
+
+  @Override
+  protected UndoHandler getUndoHandler(SModel model) {
+    return myUndoHandler;
   }
 
   /**

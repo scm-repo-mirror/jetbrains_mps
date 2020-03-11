@@ -14,6 +14,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_GeneratorInternal_InternalReferenceHolder;
   private ConceptPresentation props_GeneratorInternal_PropertyDescriptor;
   private ConceptPresentation props_GeneratorInternal_ReferenceDescriptor;
+  private ConceptPresentation props_INodeBuilderContainer;
   private ConceptPresentation props_ListAntiquotation;
   private ConceptPresentation props_ModelNodeInitializer;
   private ConceptPresentation props_NodeBuilder;
@@ -22,9 +23,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NodeBuilderInitLinkValue;
   private ConceptPresentation props_NodeBuilderInitPart;
   private ConceptPresentation props_NodeBuilderInitProperty;
+  private ConceptPresentation props_NodeBuilderInitPropertyValue;
   private ConceptPresentation props_NodeBuilderInitValueChild;
   private ConceptPresentation props_NodeBuilderList;
   private ConceptPresentation props_NodeBuilderNode;
+  private ConceptPresentation props_NodeBuilderPropertyExpression;
   private ConceptPresentation props_NodeBuilderRef;
   private ConceptPresentation props_PropertyAntiquotation;
   private ConceptPresentation props_Quotation;
@@ -70,6 +73,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_GeneratorInternal_ReferenceDescriptor = cpb.create();
         }
         return props_GeneratorInternal_ReferenceDescriptor;
+      case LanguageConceptSwitch.INodeBuilderContainer:
+        if (props_INodeBuilderContainer == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_INodeBuilderContainer = cpb.create();
+        }
+        return props_INodeBuilderContainer;
       case LanguageConceptSwitch.ListAntiquotation:
         if (props_ListAntiquotation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -125,6 +134,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NodeBuilderInitProperty = cpb.create();
         }
         return props_NodeBuilderInitProperty;
+      case LanguageConceptSwitch.NodeBuilderInitPropertyValue:
+        if (props_NodeBuilderInitPropertyValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_NodeBuilderInitPropertyValue = cpb.create();
+        }
+        return props_NodeBuilderInitPropertyValue;
       case LanguageConceptSwitch.NodeBuilderInitValueChild:
         if (props_NodeBuilderInitValueChild == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -145,6 +160,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NodeBuilderNode = cpb.create();
         }
         return props_NodeBuilderNode;
+      case LanguageConceptSwitch.NodeBuilderPropertyExpression:
+        if (props_NodeBuilderPropertyExpression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("NodeBuilderPropertyExpression");
+          props_NodeBuilderPropertyExpression = cpb.create();
+        }
+        return props_NodeBuilderPropertyExpression;
       case LanguageConceptSwitch.NodeBuilderRef:
         if (props_NodeBuilderRef == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

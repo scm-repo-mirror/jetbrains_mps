@@ -17,6 +17,7 @@ package jetbrains.mps;
 
 import com.intellij.concurrency.AsyncFuture;
 import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiReference;
@@ -44,6 +45,12 @@ public class EmptyPsiSearchHelper implements PsiSearchHelper {
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
+  @Override
+  public boolean processCandidateFilesForText(@NotNull GlobalSearchScope scope, short searchContext, boolean caseSensitively, @NotNull String text,
+                                              @NotNull Processor<? super VirtualFile> processor) {
+    return false;
+  }
+
   @NotNull
   @Override
   public PsiFile[] findFilesWithPlainTextWords(@NotNull String word) {
@@ -67,22 +74,22 @@ public class EmptyPsiSearchHelper implements PsiSearchHelper {
   }
 
   @Override
-  public boolean processAllFilesWithWord(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<PsiFile> processor, boolean caseSensitively) {
+  public boolean processAllFilesWithWord(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<? super PsiFile> processor, boolean caseSensitively) {
     return false;
   }
 
   @Override
-  public boolean processAllFilesWithWordInText(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<PsiFile> processor, boolean caseSensitively) {
+  public boolean processAllFilesWithWordInText(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<? super PsiFile> processor, boolean caseSensitively) {
     return false;
   }
 
   @Override
-  public boolean processAllFilesWithWordInComments(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<PsiFile> processor) {
+  public boolean processAllFilesWithWordInComments(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<? super PsiFile> processor) {
     return false;
   }
 
   @Override
-  public boolean processAllFilesWithWordInLiterals(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<PsiFile> processor) {
+  public boolean processAllFilesWithWordInLiterals(@NotNull String word, @NotNull GlobalSearchScope scope, @NotNull Processor<? super PsiFile> processor) {
     return false;
   }
 

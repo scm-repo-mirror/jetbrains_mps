@@ -9,11 +9,11 @@ import com.intellij.execution.configurations.RunProfile;
 import com.intellij.execution.executors.DefaultDebugExecutor;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import com.intellij.execution.ui.RunContentDescriptor;
-import com.intellij.openapi.project.Project;
 import com.intellij.execution.configurations.RunProfileState;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.ExecutionException;
+import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.project.Project;
 import com.intellij.execution.Executor;
 import jetbrains.mps.debug.api.IDebugger;
 import jetbrains.mps.debug.api.run.DebuggerRunProfileState;
@@ -41,9 +41,9 @@ public class MPSDebugRunner extends GenericProgramRunner {
     return "Default Debug Runner";
   }
   @Override
-  protected RunContentDescriptor doExecute(final Project project, final RunProfileState state, @Nullable final RunContentDescriptor contentToReuse, final ExecutionEnvironment env) throws ExecutionException {
+  protected RunContentDescriptor doExecute(final RunProfileState state, final ExecutionEnvironment enviroment) throws ExecutionException {
     //  FileDocumentManager.getInstance().saveAllDocuments(); 
-    return createContentDescriptor(project, env.getExecutor(), state, contentToReuse, env);
+    return createContentDescriptor(enviroment.getProject(), enviroment.getExecutor(), state, enviroment.getContentToReuse(), enviroment);
   }
   @Nullable
   protected RunContentDescriptor createContentDescriptor(Project project, Executor executor, RunProfileState state, RunContentDescriptor contentToReuse, ExecutionEnvironment env) throws ExecutionException {

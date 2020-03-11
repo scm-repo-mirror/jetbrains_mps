@@ -83,7 +83,7 @@ public class AbstractCreator_SubstituteMenu extends SubstituteMenuBase {
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
-      return new SMP_Param_p790zr_a.SMP_Action_p790zr_a0(parameter).createItems(context);
+      return new SMP_Action_p790zr_a0(parameter).createItems(context);
     }
     @NotNull
     @Override
@@ -126,7 +126,7 @@ public class AbstractCreator_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-        SMP_Param_p790zr_a.SMP_Action_p790zr_a0.Item item = new SMP_Param_p790zr_a.SMP_Action_p790zr_a0.Item(_context);
+        Item item = new Item(_context);
         String description;
         try {
           description = "Substitute item: " + item.getMatchingText("");
@@ -253,7 +253,7 @@ public class AbstractCreator_SubstituteMenu extends SubstituteMenuBase {
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
-      return new SMP_Param_p790zr_b.SMP_Action_p790zr_a1(parameter).createItems(context);
+      return new SMP_Action_p790zr_a1(parameter).createItems(context);
     }
     @NotNull
     @Override
@@ -293,7 +293,7 @@ public class AbstractCreator_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-        SMP_Param_p790zr_b.SMP_Action_p790zr_a1.Item item = new SMP_Param_p790zr_b.SMP_Action_p790zr_a1.Item(_context);
+        Item item = new Item(_context);
         String description;
         try {
           description = "Substitute item: " + item.getMatchingText("");
@@ -390,9 +390,9 @@ public class AbstractCreator_SubstituteMenu extends SubstituteMenuBase {
   }
   private static SNode createAnnotationInstance_p790zr_a0a4a5a0a0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.AnnotationInstance$5z);
-    rootBuilder1.setReference(LINKS.annotation$zNxu, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Override")));
-    return rootBuilder1.getResult();
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.AnnotationInstance$5z);
+    n0.setReference(LINKS.annotation$zNxu, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Override")));
+    return n0.getResult();
   }
 
   private static final class CONCEPTS {

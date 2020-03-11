@@ -24,8 +24,8 @@ import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
@@ -79,7 +79,7 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
   private class TMP_Action_y8xil4_a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Nullable
     protected TransformationMenuItem createItem(TransformationMenuContext context) {
-      TMP_Action_y8xil4_a0.Item item = new TMP_Action_y8xil4_a0.Item(context);
+      Item item = new Item(context);
       String description;
       try {
         description = "single item: " + item.getLabelText("");
@@ -115,7 +115,7 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
       @Override
       public void execute(@NotNull String pattern) {
         SNode catchClauseToReplace = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.getParent(_context.getNode())), CONCEPTS.CatchClause$hu);
-        SNode replacement = createMultipleCatchClause_y8xil4_a0b0a0a(SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.type$pLrO), CONCEPTS.ClassifierType$IZ), SLinkOperations.getChildren(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.annotation$oVP4), SLinkOperations.getChildren(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.smodelAttribute$K8bJ), SPropertyOperations.getBoolean(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), PROPS.isFinal$hIht), SPropertyOperations.getString(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), PROPS.name$tAp1));
+        SNode replacement = createMultipleCatchClause_y8xil4_a0b0a0a(SPropertyOperations.getBoolean(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), PROPS.isFinal$hIht), SLinkOperations.getChildren(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.annotation$oVP4), SLinkOperations.getChildren(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.smodelAttribute$K8bJ), SPropertyOperations.getString(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), PROPS.name$tAp1), SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_), LINKS.type$pLrO), CONCEPTS.ClassifierType$IZ));
         Map<SNode, SNode> referenceMap = MapSequence.<SNode, SNode>fromMapAndKeysArray(new HashMap<SNode, SNode>(), SLinkOperations.getTarget(catchClauseToReplace, LINKS.throwable$5XW_)).withValues(SLinkOperations.getTarget(replacement, LINKS.throwable$5XW_));
         SLinkOperations.setTarget(replacement, LINKS.catchBody$5XX4, SNodeOperations.cast(CopyUtil.copy(SLinkOperations.getTarget(catchClauseToReplace, LINKS.catchBody$5XX4), referenceMap, true), CONCEPTS.StatementList$TN));
         SNodeOperations.replaceWithAnother(catchClauseToReplace, replacement);
@@ -144,23 +144,24 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
     }
 
   }
-  private static SNode createMultipleCatchClause_y8xil4_a0b0a0a(SNode node0, Iterable<? extends SNode> seq0, Iterable<? extends SNode> seq1, Object p0, Object p1) {
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.MultipleCatchClause$U5);
+  private static SNode createMultipleCatchClause_y8xil4_a0b0a0a(boolean p0, Iterable<? extends SNode> p1, Iterable<? extends SNode> p2, String p3, SNode p4) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.MultipleCatchClause$U5);
+    n0.forChild(LINKS.catchBody$5XX4).initNull();
     {
-      SNodeBuilder n2 = rootBuilder1.forChild(LINKS.throwable$5XW_).init(CONCEPTS.CatchVariable$6W);
-      n2.setProperty(PROPS.isFinal$hIht, PROPS.isFinal$hIht.getType().toString(p0));
-      n2.forChild(LINKS.annotation$oVP4).initNodeList(seq0, CONCEPTS.AnnotationInstance$5z);
-      n2.forChild(LINKS.smodelAttribute$K8bJ).initNodeList(seq1, CONCEPTS.Attribute$RJ);
-      n2.setProperty(PROPS.name$tAp1, PROPS.name$tAp1.getType().toString(p1));
+      SNodeBuilder n1 = n0.forChild(LINKS.throwable$5XW_).init(CONCEPTS.CatchVariable$6W);
+      n1.setProperty(PROPS.isFinal$hIht, "" + (p0));
+      n1.forChild(LINKS.annotation$oVP4).initNodeList(p1, CONCEPTS.AnnotationInstance$5z);
+      n1.forChild(LINKS.smodelAttribute$K8bJ).initNodeList(p2, CONCEPTS.Attribute$RJ);
+      n1.setProperty(PROPS.name$tAp1, p3);
       {
-        SNodeBuilder n3 = n2.forChild(LINKS.type$pLrO).init(CONCEPTS.AlternativeType$aM);
+        SNodeBuilder n2 = n1.forChild(LINKS.type$pLrO).init(CONCEPTS.AlternativeType$aM);
         {
-          SNodeBuilder n4 = n3.forChild(LINKS.classes$Fu70).initNode(node0, CONCEPTS.Type$IG, false);
-          SNodeBuilder n5 = n4.forSibling().init(CONCEPTS.ClassifierType$IZ);
+          SNodeBuilder n3 = n2.forChild(LINKS.classes$Fu70).initNode(p4, CONCEPTS.Type$IG, false);
+          SNodeBuilder n4 = n3.forSibling().init(CONCEPTS.ClassifierType$IZ);
         }
       }
     }
-    return rootBuilder1.getResult();
+    return n0.getResult();
   }
 
   private static final class CONCEPTS {
@@ -177,9 +178,9 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink throwable$5XW_ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f39a56e2fL, 0x10f39a6a2f1L, "throwable");
-    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
     /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink catchBody$5XX4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f39a56e2fL, 0x10f39a6a2f2L, "catchBody");
     /*package*/ static final SContainmentLink classes$Fu70 = MetaAdapterFactory.getContainmentLink(0x96ee7a94411d4cf8L, 0x9b9496cad7e52411L, 0x70a99a0b674a3895L, 0x70a99a0b674a3896L, "classes");
   }

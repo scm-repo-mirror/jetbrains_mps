@@ -2,11 +2,8 @@
 <solution name="jetbrains.mps.lang.behavior.runtime" uuid="d936855b-48da-4812-a8a0-2bfddd633ac4" moduleVersion="0" compileInMPS="false">
   <compileInIDEA />
   <models>
-    <modelRoot contentPath="${module}" type="java_classes">
-      <sourceRoot location="classes" />
-    </modelRoot>
-    <modelRoot contentPath="${platform_lib}" type="java_classes">
-      <sourceRoot location="mps-behavior-runtime.jar" />
+    <modelRoot type="java_classes">
+      <sourceRoot path="${platform_lib}/mps-behavior-runtime.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -16,7 +13,7 @@
     </facet>
   </facets>
   <stubModelEntries>
-    <stubModelEntry path="${module}/classes" />
+    <stubModelEntry path="${platform_lib}/mps-behavior-runtime.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>
@@ -25,7 +22,7 @@
     <dependency reexport="true">d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)</dependency>
   </dependencies>
   <languageVersions>
-    <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="9" />
+    <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="10" />
     <language slang="l:f2801650-65d5-424e-bb1b-463a8781b786:jetbrains.mps.baseLanguage.javadoc" version="2" />
     <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
     <language slang="l:9ded098b-ad6a-4657-bfd9-48636cfe8bc3:jetbrains.mps.lang.traceable" version="0" />

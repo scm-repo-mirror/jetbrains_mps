@@ -37,7 +37,6 @@
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType">
     <classNode dependClassName="java.lang.Iterable" />
-    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.lang.Throwable" />

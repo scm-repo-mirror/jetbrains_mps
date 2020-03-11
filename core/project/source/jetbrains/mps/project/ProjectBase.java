@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -209,6 +209,10 @@ public abstract class ProjectBase extends Project {
     assert modulePath != null;
     SModuleListenerBase remove = myModulesListeners.remove(module.getModuleReference());
     module.removeModuleListener(remove);
+    if (module instanceof Generator && module.getRepository() == null) {
+      // it's a generator that has been unregistered as part of allKnownLangGenerators (see write action, below) for some project language module
+      return modulePath;
+    }
     SRepositoryExt repository = (SRepositoryExt) getRepository();
     repository.getModelAccess().runWriteAction(() -> {
       if (module instanceof Language) {

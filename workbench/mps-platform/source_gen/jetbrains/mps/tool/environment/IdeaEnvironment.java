@@ -7,6 +7,8 @@ import com.intellij.openapi.Disposable;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
+import com.intellij.testFramework.ThreadTracker;
+import jetbrains.mps.smodel.WorkbenchModelAccess;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.util.annotation.Hack;
 import java.util.StringJoiner;
@@ -18,7 +20,7 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import com.intellij.openapi.application.ApplicationManager;
 import java.awt.GraphicsEnvironment;
-import com.intellij.idea.IdeaTestApplication;
+import com.intellij.testFramework.TestApplicationManager;
 import com.intellij.util.PlatformUtils;
 import com.intellij.openapi.application.impl.ApplicationImpl;
 import jetbrains.mps.project.Project;
@@ -55,7 +57,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
   private static final String IDEA_LOAD_PLUGINS_ID = "idea.load.plugins.id";
   public static final String CREATE_PLUGIN_CLASSLOADERS = "idea.run.tests.with.bundled.plugins";
 
-  private Disposable myIdeaApplication;
+  private Object myIdeaApplication;
   private final boolean myUnitTestMode;
 
   static {
@@ -69,6 +71,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
   public IdeaEnvironment(@NotNull EnvironmentConfig config, boolean unitTestMode) {
     super(config);
     myUnitTestMode = unitTestMode;
+    ThreadTracker.longRunningThreadCreated(this, WorkbenchModelAccess.THREAD_GROUP_NAME);
   }
 
   public void init() {
@@ -189,10 +192,10 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
       if (oldValue == null) {
         System.setProperty(CREATE_PLUGIN_CLASSLOADERS, myConfig.doesCreatePluginClassLoaders() + "");
       }
-      // Force GraphicsEnvironment to cache headless false state before IdeaTestApplication resets it to true 
+      // Force GraphicsEnvironment to cache headless false state before TestApplicationManager resets it to true 
       System.setProperty("java.awt.headless", Boolean.FALSE.toString());
       GraphicsEnvironment.isHeadless();
-      myIdeaApplication = IdeaTestApplication.getInstance();
+      myIdeaApplication = TestApplicationManager.getInstance();
     } else {
       myIdeaApplication = createCommandLineApplication0();
     }
@@ -223,7 +226,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
     }
     MPSProject openedProject = openProjectInIdeaEnvironment(projectFile);
     if (testMode) {
-      Disposer.register(openedProject, disposable0);
+      Disposer.register(openedProject.getProject(), disposable0);
     }
     return openedProject;
   }
@@ -265,7 +268,11 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
         application.runWriteAction(new Runnable() {
           public void run() {
             // for IdeaTestApplication case (myUnitTestMode == true) dispose() eventually clears DTA.ourInstance field 
-            Disposer.dispose(myIdeaApplication);
+            if (myIdeaApplication instanceof Disposable) {
+              Disposer.dispose((Disposable) myIdeaApplication);
+            } else if (myIdeaApplication instanceof TestApplicationManager) {
+              ((TestApplicationManager) myIdeaApplication).dispose();
+            }
             myIdeaApplication = null;
           }
         });

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,8 +51,6 @@ import java.util.Map;
 public class Solution extends ReloadableModuleBase {
   private SolutionDescriptor mySolutionDescriptor;
   public static final String SOLUTION_MODELS = "models";
-  // idea plugin wants to turn it off sometimes, when it knows better what jdk is and what platform is
-  private boolean myUpdateBootstrapSolutions = true;
 
   private static Map<SModuleReference, ClassType> bootstrapCP = initBootstrapSolutions();
 
@@ -61,17 +59,19 @@ public class Solution extends ReloadableModuleBase {
     List<ClassType> classTypes = new ArrayList<>();
     classTypes.add(ClassType.JDK);
     classTypes.add(ClassType.JDK_TOOLS);
-    classTypes.add(ClassType.ANNOTATIONS);
-    classTypes.add(ClassType.OPENAPI);
-    classTypes.add(ClassType.CORE);
-    classTypes.add(ClassType.EDITOR);
-    classTypes.add(ClassType.PLATFORM);
     classTypes.add(ClassType.IDEA);
-    classTypes.add(ClassType.WORKBENCH);
-    classTypes.add(ClassType.TEST);
     for (ClassType classType : classTypes) {
       result.put(BootstrapLanguages.bootstrapSolutionRef(classType), classType);
     }
+    // FIXME this is a hack to ensure isBootstrapSolution tells true for migration code to ignore these modules
+    //       need better mechansim to exclude stub solutions like these from migration (perhaps, explicit mark as R/O?)
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.OPENAPI), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.ANNOTATIONS), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.EDITOR), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.WORKBENCH), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.TEST), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.PLATFORM), null);
+    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.CORE), null);
     return result;
   }
 
@@ -161,10 +161,6 @@ public class Solution extends ReloadableModuleBase {
     setModuleReference(mp);
   }
 
-  public void setUpdateBootstrapSolutions(boolean b) {
-    myUpdateBootstrapSolutions = b;
-  }
-
   @Override
   public void save() {
     super.save();
@@ -192,18 +188,20 @@ public class Solution extends ReloadableModuleBase {
 
   @Override
   public void updateModelsSet() {
-    if (myUpdateBootstrapSolutions) {
-      updateBootstrapSolutionLibraries();
-    }
+    updateBootstrapSolutionLibraries();
     super.updateModelsSet();
   }
 
   @Hack
-  private void updateBootstrapSolutionLibraries() {
+  protected void updateBootstrapSolutionLibraries() {
+    // idea plugin wants to turn it off sometimes, when it knows better what jdk is and what platform is
+
     ModuleDescriptor descriptor = getModuleDescriptor();
 
     ClassType classType = bootstrapCP.get(descriptor.getModuleReference());
-    if (classType == null) return;
+    if (classType == null) {
+      return;
+    }
 
     // do it only for first time
     List<QualifiedPath> jrtPaths = new ArrayList<>();

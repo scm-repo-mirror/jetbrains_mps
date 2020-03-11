@@ -869,12 +869,20 @@ public final class ModuleChecker {
       final String relPath = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(p);
       if (path.endsWith(".jar")) {
         if (type.doCheck) {
-          if (!(Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$qY)).any(new IWhereFilter<SNode>() {
+          boolean extractedJar = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$qY)).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
               return Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$PN10)), relPath);
             }
-          }))) {
-            report("jar stub library should be extracted into build script: " + relPath);
+          });
+          if (!(extractedJar)) {
+            boolean extractedAsJavaModule = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$mo)).any(new IWhereFilter<SNode>() {
+              public boolean accept(SNode it) {
+                return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$VgPH) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$VgPH)), relPath);
+              }
+            });
+            if (!(extractedAsJavaModule)) {
+              report("Java library jar should be extracted into build script: " + relPath);
+            }
           }
         }
 
@@ -1197,11 +1205,11 @@ public final class ModuleChecker {
   }
 
 
-  private static SNode createBuildMps_ModuleDependencyOnModule_yr5c5g_a0a0a0a31a63(SNode node0) {
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.BuildMps_ModuleDependencyOnModule$_g);
-    rootBuilder1.setReferenceTarget(LINKS.module$gbmo, node0);
-    rootBuilder1.setProperty(PROPS.reexport$gb$r, PROPS.reexport$gb$r.getType().toString(false));
-    return rootBuilder1.getResult();
+  private static SNode createBuildMps_ModuleDependencyOnModule_yr5c5g_a0a0a0a31a63(SNode p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BuildMps_ModuleDependencyOnModule$_g);
+    n0.setReferenceTarget(LINKS.module$gbmo, p0);
+    n0.setProperty(PROPS.reexport$gb$r, "" + (false));
+    return n0.getResult();
   }
 
   private static final class PROPS {

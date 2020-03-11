@@ -135,7 +135,7 @@
         <child id="1144230900587" name="variable" index="1Duv9x" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
@@ -676,7 +676,7 @@
       </node>
       <node concept="3clFbS" id="27" role="3clF47">
         <node concept="3SKdUt" id="2r" role="3cqZAp">
-          <node concept="1PaTwC" id="2v" role="3ndbpf">
+          <node concept="1PaTwC" id="2v" role="1aUNEU">
             <node concept="3oM_SD" id="2x" role="1PaTwD">
               <property role="3oM_SC" value="checking" />
               <node concept="cd27G" id="2_" role="lGtFl">
@@ -1552,7 +1552,7 @@
         <node concept="3clFbJ" id="7V" role="3cqZAp">
           <node concept="2ZW3vV" id="7Y" role="3clFbw">
             <node concept="3uibUv" id="81" role="2ZW6by">
-              <ref role="3uigEE" to="d3ym:sWS" resolve="check_switchArgument_NonTypesystemRule" />
+              <ref role="3uigEE" to="d3ym:tYB" resolve="check_switchArgument_NonTypesystemRule" />
               <node concept="cd27G" id="84" role="lGtFl">
                 <node concept="3u3nmq" id="85" role="cd27D">
                   <property role="3u3nmv" value="400642802550421653" />

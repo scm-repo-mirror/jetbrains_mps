@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="515552c7-fcc0-4ab4-9789-2f3c49344e85" name="jetbrains.mps.baseLanguage.varVariable" version="0" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -389,6 +389,51 @@
       </node>
     </node>
   </node>
+  <node concept="1h_SRR" id="4doMSU315PQ">
+    <property role="TrG5h" value="VarType_Delete" />
+    <ref role="1h_SK9" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
+    <node concept="1hA7zw" id="4doMSU315PR" role="1h_SK8">
+      <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
+      <node concept="1hAIg9" id="4doMSU315PS" role="1hA7z_">
+        <node concept="3clFbS" id="4doMSU315PT" role="2VODD2">
+          <node concept="3clFbF" id="4doMSU315Qe" role="3cqZAp">
+            <node concept="2OqwBi" id="4doMSU34Lm$" role="3clFbG">
+              <node concept="2OqwBi" id="4doMSU34KGd" role="2Oq$k0">
+                <node concept="2OqwBi" id="4doMSU31729" role="2Oq$k0">
+                  <node concept="1PxgMI" id="4doMSU316gC" role="2Oq$k0">
+                    <node concept="chp4Y" id="4doMSU316ij" role="3oSUPX">
+                      <ref role="cht4Q" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
+                    </node>
+                    <node concept="0IXxy" id="4doMSU315Qd" role="1m5AlR" />
+                  </node>
+                  <node concept="2DeJnW" id="4doMSU34KhX" role="2OqNvi">
+                    <ref role="1_rbq0" to="tpee:fzcpWvJ" resolve="LocalVariableDeclaration" />
+                  </node>
+                </node>
+                <node concept="3TrEf2" id="4doMSU34La7" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
+                </node>
+              </node>
+              <node concept="2DeJnY" id="4doMSU34LoG" role="2OqNvi">
+                <ref role="1A9B2P" to="tpee:fz3vP1H" resolve="Type" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="PKFIW" id="4doMSU31c0$">
+    <property role="TrG5h" value="VarVariable_Type" />
+    <ref role="1XX52x" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
+    <node concept="3F1sOY" id="4doMSU315FT" role="2wV5jI">
+      <ref role="1NtTu8" to="tpee:4VkOLwjf83e" resolve="type" />
+      <ref role="1ERwB7" node="4doMSU315PQ" resolve="VarType_Delete" />
+    </node>
+    <node concept="1PE4EZ" id="4doMSU31c0B" role="1PM95z">
+      <ref role="1PE7su" to="tpen:4doMSU31bY1" resolve="LovalVariableDeclaration_Type" />
+    </node>
+  </node>
   <node concept="IW6AY" id="4doMSU2ZRf4">
     <ref role="aqKnT" to="dvap:h8PeGkH" resolve="VarType" />
     <node concept="1Qtc8_" id="4doMSU2ZRf5" role="IW6Ez">
@@ -462,51 +507,6 @@
           </node>
         </node>
       </node>
-    </node>
-  </node>
-  <node concept="1h_SRR" id="4doMSU315PQ">
-    <property role="TrG5h" value="VarType_Delete" />
-    <ref role="1h_SK9" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
-    <node concept="1hA7zw" id="4doMSU315PR" role="1h_SK8">
-      <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
-      <node concept="1hAIg9" id="4doMSU315PS" role="1hA7z_">
-        <node concept="3clFbS" id="4doMSU315PT" role="2VODD2">
-          <node concept="3clFbF" id="4doMSU315Qe" role="3cqZAp">
-            <node concept="2OqwBi" id="4doMSU34Lm$" role="3clFbG">
-              <node concept="2OqwBi" id="4doMSU34KGd" role="2Oq$k0">
-                <node concept="2OqwBi" id="4doMSU31729" role="2Oq$k0">
-                  <node concept="1PxgMI" id="4doMSU316gC" role="2Oq$k0">
-                    <node concept="chp4Y" id="4doMSU316ij" role="3oSUPX">
-                      <ref role="cht4Q" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
-                    </node>
-                    <node concept="0IXxy" id="4doMSU315Qd" role="1m5AlR" />
-                  </node>
-                  <node concept="2DeJnW" id="4doMSU34KhX" role="2OqNvi">
-                    <ref role="1_rbq0" to="tpee:fzcpWvJ" resolve="LocalVariableDeclaration" />
-                  </node>
-                </node>
-                <node concept="3TrEf2" id="4doMSU34La7" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
-                </node>
-              </node>
-              <node concept="2DeJnY" id="4doMSU34LoG" role="2OqNvi">
-                <ref role="1A9B2P" to="tpee:fz3vP1H" resolve="Type" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="PKFIW" id="4doMSU31c0$">
-    <property role="TrG5h" value="VarVariable_Type" />
-    <ref role="1XX52x" to="dvap:hZKEzqp" resolve="VarVariableDeclaration" />
-    <node concept="3F1sOY" id="4doMSU315FT" role="2wV5jI">
-      <ref role="1NtTu8" to="tpee:4VkOLwjf83e" resolve="type" />
-      <ref role="1ERwB7" node="4doMSU315PQ" resolve="VarType_Delete" />
-    </node>
-    <node concept="1PE4EZ" id="4doMSU31c0B" role="1PM95z">
-      <ref role="1PE7su" to="tpen:4doMSU31bY1" resolve="LovalVariableDeclaration_Type" />
     </node>
   </node>
 </model>

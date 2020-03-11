@@ -49,7 +49,7 @@ public class Language extends LanguageRuntime {
 
   @Override
   public int getVersion() {
-    return 9;
+    return 10;
   }
 
   public SLanguageId getId() {
@@ -114,5 +114,6 @@ public class Language extends LanguageRuntime {
 
   @Override
   protected void contribute(@NotNull LanguageExtensions extensions) {
+    extensions.recordContribution("jetbrains.mps.lang.core", "ceab5195-25ea-4f22-9b92-103b95ca8c0c", EditorAspectDescriptor.class);
   }
 }

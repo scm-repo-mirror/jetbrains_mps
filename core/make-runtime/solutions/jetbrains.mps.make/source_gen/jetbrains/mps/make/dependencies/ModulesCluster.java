@@ -149,11 +149,9 @@ public class ModulesCluster {
 
     // XXX in fact, don't need to build complete set of dependencies, more effective is to follow one by one to see if it's vertex in the graph or it's known not to give any new dependency 
     GlobalModuleDependenciesManager depman = new GlobalModuleDependenciesManager(modExt);
-    Set<SModule> reqmods = SetSequence.fromSet(new HashSet<SModule>());
-    SetSequence.fromSet(reqmods).addSequence(CollectionSequence.fromCollection(depman.getModules(GlobalModuleDependenciesManager.Deptype.COMPILE)));
-    SetSequence.fromSet(reqmods).addSequence(CollectionSequence.fromCollection(depman.getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE)));
+    Iterable<SModule> reqmods = depman.getModules(GlobalModuleDependenciesManager.Deptype.COMPILE);
     // record edges only to existing vertexes 
-    SetSequence.fromSet(reqs).addSequence(SetSequence.fromSet(reqmods).select(new ISelector<SModule, ModuleDeps>() {
+    SetSequence.fromSet(reqs).addSequence(Sequence.fromIterable(reqmods).select(new ISelector<SModule, ModuleDeps>() {
       public ModuleDeps select(SModule m) {
         return MapSequence.fromMap(myDepsGraph).get(m.getModuleReference());
       }
@@ -221,13 +219,23 @@ public class ModulesCluster {
       return myAllVertices;
     }
 
-    public List<ModulesGraph.Cycle> compactTotalOrder() {
+    public List<Cycle> compactTotalOrder() {
+      // with compact() code moved to GraphAnalyzer, no need to use old method 
+      List<List<ModuleDeps>> order = totalOrder(true);
+      return ListSequence.fromList(order).select(new ISelector<List<ModuleDeps>, Cycle>() {
+        public Cycle select(List<ModuleDeps> it) {
+          return toCycle(it);
+        }
+      }).toListSequence();
+    }
+
+    public List<Cycle> compactTotalOrderOld() {
       List<List<ModuleDeps>> order = totalOrder();
       // XXX what's the point of this code, what do we 'compact' here? Do we merge cycles so that they are built together and later has a chance to load ok? 
-      ModulesGraph.Cycle prev = null;
-      List<ModulesGraph.Cycle> rv = ListSequence.fromList(new ArrayList<ModulesGraph.Cycle>());
+      Cycle prev = null;
+      List<Cycle> rv = ListSequence.fromList(new ArrayList<Cycle>());
       for (List<ModuleDeps> c : ListSequence.fromList(order)) {
-        ModulesGraph.Cycle cycle = toCycle(c);
+        Cycle cycle = toCycle(c);
         if (prev == null) {
           prev = cycle;
         } else {
@@ -245,8 +253,8 @@ public class ModulesCluster {
       return rv;
     }
 
-    private ModulesGraph.Cycle toCycle(List<ModuleDeps> cycle) {
-      return new ModulesGraph.Cycle(cycle);
+    private Cycle toCycle(List<ModuleDeps> cycle) {
+      return new Cycle(cycle);
     }
 
     /*package*/ static class Cycle {
@@ -256,13 +264,13 @@ public class ModulesCluster {
         myElements = elements;
       }
 
-      /*package*/ boolean independent(ModulesGraph.Cycle other) {
+      /*package*/ boolean independent(Cycle other) {
         // name of the method is pure guess 
         return Sequence.fromIterable(other.allRequired()).intersect(Sequence.fromIterable(allDependent())).isEmpty();
       }
 
-      /*package*/ ModulesGraph.Cycle concat(ModulesGraph.Cycle other) {
-        return new ModulesGraph.Cycle(ListSequence.fromList(myElements).concat(ListSequence.fromList(other.myElements)).toListSequence());
+      /*package*/ Cycle concat(Cycle other) {
+        return new Cycle(ListSequence.fromList(myElements).concat(ListSequence.fromList(other.myElements)).toListSequence());
       }
 
       /*package*/ List<SModule> modules() {

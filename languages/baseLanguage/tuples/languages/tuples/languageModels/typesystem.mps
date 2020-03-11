@@ -135,7 +135,7 @@
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
@@ -990,7 +990,7 @@
         </node>
       </node>
       <node concept="3SKdUt" id="3KVmYbXmNOj" role="3cqZAp">
-        <node concept="1PaTwC" id="ATZLwXnT5g" role="3ndbpf">
+        <node concept="1PaTwC" id="ATZLwXnT5g" role="1aUNEU">
           <node concept="3oM_SD" id="ATZLwXnT5h" role="1PaTwD">
             <property role="3oM_SC" value="all" />
           </node>
@@ -1349,8 +1349,11 @@
               <node concept="Xl_RD" id="1URWj4UG5GH" role="2MkJ7o">
                 <property role="Xl_RC" value="Incompatible named closure" />
               </node>
-              <node concept="1YBJjd" id="1URWj4UG5GI" role="1urrMF">
-                <ref role="1YBMHb" node="i2sGDM9" resolve="right" />
+              <node concept="2OqwBi" id="dzFXf_DK8r" role="1urrMF">
+                <node concept="3622Ei" id="dzFXf_DK8s" role="2Oq$k0" />
+                <node concept="liA8E" id="dzFXf_DK8t" role="2OqNvi">
+                  <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
+                </node>
               </node>
             </node>
           </node>

@@ -124,13 +124,13 @@ public class CheckNodeForErrors extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, "jetbrains.mps.lang.test"), 2);
   }
 
-  private static SNode createCheckNodeForErrorMessagesOperation_j3gqtx_a0a2a0a0a0d0a0d(Object p0, Object p1) {
-    SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.CheckNodeForErrorMessagesOperation$c0);
-    rootBuilder1.setProperty(PROPS.includeSelf$1l1v, PROPS.includeSelf$1l1v.getType().toString(p0));
-    rootBuilder1.setProperty(PROPS.allowErrors$vTwq, PROPS.allowErrors$vTwq.getType().toString(false));
-    rootBuilder1.setProperty(PROPS.allowWarnings$vTwT, PROPS.allowWarnings$vTwT.getType().toString(false));
-    rootBuilder1.setProperty(PROPS.name$tAp1, PROPS.name$tAp1.getType().toString(p1));
-    return rootBuilder1.getResult();
+  private static SNode createCheckNodeForErrorMessagesOperation_j3gqtx_a0a2a0a0a0d0a0d(boolean p0, String p1) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.CheckNodeForErrorMessagesOperation$c0);
+    n0.setProperty(PROPS.includeSelf$1l1v, "" + (p0));
+    n0.setProperty(PROPS.allowErrors$vTwq, "" + (false));
+    n0.setProperty(PROPS.allowWarnings$vTwT, "" + (false));
+    n0.setProperty(PROPS.name$tAp1, p1);
+    return n0.getResult();
   }
   private static SNode _quotation_createNode_j3gqtx_a0a3a0a0a0d0a0d() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
@@ -166,7 +166,7 @@ public class CheckNodeForErrors extends MigrationScriptBase {
     quotedNode_9 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, "jetbrains.mps.lang.text"), 0x229012ddae35f04L, "Word")).getResult();
     quotedNode_9.setProperty(MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value"), "annotation");
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"), quotedNode_9);
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text"), quotedNode_2);
+    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x73f69d82391da738L, "line"), quotedNode_2);
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_j3gqtx_a0a4a0a0a0d0a0d(Object parameter_1) {
@@ -195,7 +195,7 @@ public class CheckNodeForErrors extends MigrationScriptBase {
     quotedNode_7 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, "jetbrains.mps.lang.text"), 0x229012ddae35f04L, "Word")).getResult();
     quotedNode_7.setProperty(MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value"), "messages");
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"), quotedNode_7);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text"), quotedNode_3);
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x73f69d82391da738L, "line"), quotedNode_3);
     return quotedNode_2;
   }
 

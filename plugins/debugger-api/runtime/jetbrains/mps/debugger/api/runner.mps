@@ -2,7 +2,7 @@
 <model ref="r:2a614e43-21e7-49b5-9503-c8251b638b89(jetbrains.mps.debugger.api.runner)">
   <persistence version="9" />
   <languages>
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="10" />
   </languages>
   <imports>
     <import index="5ths" ref="r:0cf7389f-e174-4742-a3d2-15c79317838a(jetbrains.mps.debug.api.run)" />
@@ -80,6 +80,7 @@
       </concept>
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
+      <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -141,7 +142,7 @@
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
@@ -228,9 +229,7 @@
       <node concept="37vLTG" id="3SnNvqCbzlZ" role="3clF46">
         <property role="TrG5h" value="executorId" />
         <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="3SnNvqCbzm0" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
+        <node concept="17QB3L" id="6s9bz$sl3VU" role="1tU5fm" />
         <node concept="2AHcQZ" id="3SnNvqCbzm1" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
@@ -258,9 +257,7 @@
       <node concept="2AHcQZ" id="3SnNvqCbznc" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
-      <node concept="3uibUv" id="3SnNvqCbzn8" role="3clF45">
-        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-      </node>
+      <node concept="17QB3L" id="6s9bz$sl3$P" role="3clF45" />
       <node concept="3clFbS" id="3SnNvqCbzn9" role="3clF47">
         <node concept="3cpWs6" id="3SnNvqCbzna" role="3cqZAp">
           <node concept="Xl_RD" id="3SnNvqCbznb" role="3cqZAk">
@@ -282,7 +279,7 @@
       </node>
       <node concept="3clFbS" id="3SnNvqCbznq" role="3clF47">
         <node concept="3SKdUt" id="3SnNvqCbzti" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXobBd" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXobBd" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXobBe" role="1PaTwD">
               <property role="3oM_SC" value="" />
             </node>
@@ -294,12 +291,17 @@
         <node concept="3cpWs6" id="3SnNvqCbznr" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqyz9Pi" role="3cqZAk">
             <ref role="37wK5l" node="3SnNvqCbznz" resolve="createContentDescriptor" />
-            <node concept="37vLTw" id="2BHiRxghfZ4" role="37wK5m">
-              <ref role="3cqZAo" node="3SnNvqCbzng" resolve="project" />
+            <node concept="2OqwBi" id="6s9bz$sl612" role="37wK5m">
+              <node concept="37vLTw" id="6s9bz$sl5_O" role="2Oq$k0">
+                <ref role="3cqZAo" node="3SnNvqCbzno" resolve="enviroment" />
+              </node>
+              <node concept="liA8E" id="6s9bz$sl6pk" role="2OqNvi">
+                <ref role="37wK5l" to="fhz7:~ExecutionEnvironment.getProject()" resolve="getProject" />
+              </node>
             </node>
             <node concept="2OqwBi" id="7zMLEC01igj" role="37wK5m">
               <node concept="37vLTw" id="7zMLEC01cZm" role="2Oq$k0">
-                <ref role="3cqZAo" node="3SnNvqCbzno" resolve="env" />
+                <ref role="3cqZAo" node="3SnNvqCbzno" resolve="enviroment" />
               </node>
               <node concept="liA8E" id="7zMLEC01yGO" role="2OqNvi">
                 <ref role="37wK5l" to="fhz7:~ExecutionEnvironment.getExecutor()" resolve="getExecutor" />
@@ -308,20 +310,18 @@
             <node concept="37vLTw" id="2BHiRxghat$" role="37wK5m">
               <ref role="3cqZAo" node="3SnNvqCbznk" resolve="state" />
             </node>
-            <node concept="37vLTw" id="2BHiRxglYCF" role="37wK5m">
-              <ref role="3cqZAo" node="3SnNvqCbznm" resolve="contentToReuse" />
+            <node concept="2OqwBi" id="6s9bz$sl6ZZ" role="37wK5m">
+              <node concept="37vLTw" id="6s9bz$sl6G$" role="2Oq$k0">
+                <ref role="3cqZAo" node="3SnNvqCbzno" resolve="enviroment" />
+              </node>
+              <node concept="liA8E" id="6s9bz$sl7n4" role="2OqNvi">
+                <ref role="37wK5l" to="fhz7:~ExecutionEnvironment.getContentToReuse()" resolve="getContentToReuse" />
+              </node>
             </node>
             <node concept="37vLTw" id="2BHiRxgmiZw" role="37wK5m">
-              <ref role="3cqZAo" node="3SnNvqCbzno" resolve="env" />
+              <ref role="3cqZAo" node="3SnNvqCbzno" resolve="enviroment" />
             </node>
           </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="3SnNvqCbzng" role="3clF46">
-        <property role="TrG5h" value="project" />
-        <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="3oTAX9lRJVV" role="1tU5fm">
-          <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
       </node>
       <node concept="3Tmbuc" id="3SnNvqCbzne" role="1B3o_S" />
@@ -335,18 +335,8 @@
           <ref role="3uigEE" to="dj99:~RunProfileState" resolve="RunProfileState" />
         </node>
       </node>
-      <node concept="37vLTG" id="3SnNvqCbznm" role="3clF46">
-        <property role="TrG5h" value="contentToReuse" />
-        <property role="3TUv4t" value="true" />
-        <node concept="3uibUv" id="3SnNvqCbznn" role="1tU5fm">
-          <ref role="3uigEE" to="cjdg:~RunContentDescriptor" resolve="RunContentDescriptor" />
-        </node>
-        <node concept="2AHcQZ" id="UzCO9pGnjO" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
       <node concept="37vLTG" id="3SnNvqCbzno" role="3clF46">
-        <property role="TrG5h" value="env" />
+        <property role="TrG5h" value="enviroment" />
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="3SnNvqCbznp" role="1tU5fm">
           <ref role="3uigEE" to="fhz7:~ExecutionEnvironment" resolve="ExecutionEnvironment" />
@@ -377,7 +367,7 @@
           </node>
         </node>
         <node concept="3SKdUt" id="3SnNvqCbztk" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXobBg" role="3ndbpf">
+          <node concept="1PaTwC" id="ATZLwXobBg" role="1aUNEU">
             <node concept="3oM_SD" id="ATZLwXobBh" role="1PaTwD">
               <property role="3oM_SC" value="todo" />
             </node>

@@ -6,13 +6,13 @@ import junit.framework.TestCase;
 import junit.framework.Assert;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
-import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
+import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.tuples.util.SharedPair;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.ArrayUtils;
+import java.lang.reflect.Array;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.ISequenceClosure;
@@ -79,11 +79,11 @@ public class NamedTuples_Test extends TestCase {
     Data tpl1 = this.getData();
     Data tpl2 = this.getData();
     Assert.assertFalse(((Object) tpl1) == ((Object) tpl2));
-    Assert.assertTrue(MultiTuple.eq(tpl1, tpl2));
-    Assert.assertFalse(!(MultiTuple.eq(tpl1, tpl2)));
+    Assert.assertTrue(Objects.equals(tpl1, tpl2));
+    Assert.assertFalse(!(Objects.equals(tpl1, tpl2)));
     tpl2 = new Data(tpl2.bar(), tpl2.foo());
-    Assert.assertFalse(MultiTuple.eq(tpl1, tpl2));
-    Assert.assertTrue(!(MultiTuple.eq(tpl1, tpl2)));
+    Assert.assertFalse(Objects.equals(tpl1, tpl2));
+    Assert.assertTrue(!(Objects.equals(tpl1, tpl2)));
   }
   public void test_boolean() throws Exception {
     Bool truth = new Bool(true);
@@ -128,8 +128,8 @@ public class NamedTuples_Test extends TestCase {
     Assert.assertEquals("B", ListSequence.fromList(lot).getElement(1).first());
   }
   public void test_arrayOfTuples() throws Exception {
-    Pair<String, Long>[] arr1 = ArrayUtils.asArray(new Pair<String, Long>("A", 1L), new Pair<String, Long>("B", 2L));
-    Pair<String, Long>[] arr2 = (Pair<String, Long>[]) ArrayUtils.newArrayInstance(Pair.class, 2);
+    Pair<String, Long>[] arr1 = Tuples.asArray(new Pair<String, Long>("A", 1L), new Pair<String, Long>("B", 2L));
+    Pair<String, Long>[] arr2 = (Pair<String, Long>[]) Array.newInstance(Pair.class, 2);
     for (int idx = 0; idx < arr1.length; idx++) {
       arr2[idx] = arr1[idx];
     }
@@ -160,7 +160,7 @@ public class NamedTuples_Test extends TestCase {
     Assert.assertNotNull(pair);
   }
   public void test_implementsInterface() throws Exception {
-    Sample sample = new Sample(42);
+    Sample sample = new Sample(42, 0.0f);
     Assert.assertSame(42, sample.get());
     Assert.assertEquals("<42>", sample.getSample());
     ISample s = sample;

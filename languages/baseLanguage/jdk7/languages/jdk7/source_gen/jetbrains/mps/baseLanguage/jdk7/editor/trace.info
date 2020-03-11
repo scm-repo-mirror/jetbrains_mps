@@ -31,8 +31,8 @@
       <node id="6735953169130099020" at="71,124,72,156" concept="7" />
       <node id="6735953169130099035" at="73,138,74,45" concept="2" />
       <node id="6735953169130099020" at="75,5,76,18" concept="8" />
-      <node id="6735953169130099035" at="81,84,82,78" concept="7" />
-      <node id="6735953169130099035" at="82,78,83,25" concept="7" />
+      <node id="6735953169130099035" at="81,84,82,36" concept="7" />
+      <node id="6735953169130099035" at="82,36,83,25" concept="7" />
       <node id="6735953169130099035" at="84,11,85,62" concept="2" />
       <node id="6735953169130099035" at="86,29,87,103" concept="2" />
       <node id="6735953169130099035" at="87,103,88,20" concept="8" />
@@ -57,33 +57,34 @@
       <node id="6735953169130099035" at="137,157,138,46" concept="7" />
       <node id="6735953169130099035" at="138,46,139,290" concept="7" />
       <node id="6735953169130099035" at="140,114,141,56" concept="2" />
-      <node id="6735953169130123702" at="147,164,148,89" concept="7" />
-      <node id="6735953169130123702" at="149,5,150,100" concept="7" />
-      <node id="6735953169130123702" at="150,100,151,84" concept="2" />
-      <node id="6735953169130123702" at="151,84,152,92" concept="2" />
-      <node id="6735953169130123702" at="152,92,153,88" concept="2" />
-      <node id="6735953169130123702" at="153,88,154,78" concept="2" />
-      <node id="6735953169130123702" at="155,7,156,89" concept="7" />
-      <node id="6735953169130123702" at="157,9,158,101" concept="7" />
-      <node id="6735953169130123702" at="158,101,159,77" concept="7" />
-      <node id="6735953169130123702" at="162,5,163,36" concept="8" />
-      <node id="6735953169130099020" at="167,0,168,0" concept="9" trace="CatchClause$hu" />
-      <node id="6735953169130099020" at="168,0,169,0" concept="9" trace="ClassifierType$IZ" />
-      <node id="6735953169130099020" at="169,0,170,0" concept="9" trace="StatementList$TN" />
-      <node id="6735953169130099020" at="170,0,171,0" concept="9" trace="MultipleCatchClause$U5" />
-      <node id="6735953169130099020" at="171,0,172,0" concept="9" trace="CatchVariable$6W" />
-      <node id="6735953169130099020" at="172,0,173,0" concept="9" trace="AnnotationInstance$5z" />
-      <node id="6735953169130099020" at="173,0,174,0" concept="9" trace="Attribute$RJ" />
-      <node id="6735953169130099020" at="174,0,175,0" concept="9" trace="AlternativeType$aM" />
-      <node id="6735953169130099020" at="175,0,176,0" concept="9" trace="Type$IG" />
-      <node id="6735953169130099020" at="179,0,180,0" concept="9" trace="throwable$5XW_" />
-      <node id="6735953169130099020" at="180,0,181,0" concept="9" trace="type$pLrO" />
+      <node id="6735953169130123702" at="147,158,148,79" concept="7" />
+      <node id="6735953169130123702" at="148,79,149,49" concept="2" />
+      <node id="6735953169130123702" at="150,5,151,90" concept="7" />
+      <node id="6735953169130123702" at="151,90,152,52" concept="2" />
+      <node id="6735953169130123702" at="152,52,153,90" concept="2" />
+      <node id="6735953169130123702" at="153,90,154,86" concept="2" />
+      <node id="6735953169130123702" at="154,86,155,42" concept="2" />
+      <node id="6735953169130123702" at="156,7,157,89" concept="7" />
+      <node id="6735953169130123702" at="158,9,159,98" concept="7" />
+      <node id="6735953169130123702" at="159,98,160,77" concept="7" />
+      <node id="6735953169130123702" at="163,5,164,26" concept="8" />
+      <node id="6735953169130099020" at="168,0,169,0" concept="9" trace="CatchClause$hu" />
+      <node id="6735953169130099020" at="169,0,170,0" concept="9" trace="ClassifierType$IZ" />
+      <node id="6735953169130099020" at="170,0,171,0" concept="9" trace="StatementList$TN" />
+      <node id="6735953169130099020" at="171,0,172,0" concept="9" trace="MultipleCatchClause$U5" />
+      <node id="6735953169130099020" at="172,0,173,0" concept="9" trace="CatchVariable$6W" />
+      <node id="6735953169130099020" at="173,0,174,0" concept="9" trace="AnnotationInstance$5z" />
+      <node id="6735953169130099020" at="174,0,175,0" concept="9" trace="Attribute$RJ" />
+      <node id="6735953169130099020" at="175,0,176,0" concept="9" trace="AlternativeType$aM" />
+      <node id="6735953169130099020" at="176,0,177,0" concept="9" trace="Type$IG" />
+      <node id="6735953169130099020" at="180,0,181,0" concept="9" trace="throwable$5XW_" />
       <node id="6735953169130099020" at="181,0,182,0" concept="9" trace="annotation$oVP4" />
       <node id="6735953169130099020" at="182,0,183,0" concept="9" trace="smodelAttribute$K8bJ" />
-      <node id="6735953169130099020" at="183,0,184,0" concept="9" trace="catchBody$5XX4" />
-      <node id="6735953169130099020" at="184,0,185,0" concept="9" trace="classes$Fu70" />
-      <node id="6735953169130099020" at="188,0,189,0" concept="9" trace="isFinal$hIht" />
-      <node id="6735953169130099020" at="189,0,190,0" concept="9" trace="name$tAp1" />
+      <node id="6735953169130099020" at="183,0,184,0" concept="9" trace="type$pLrO" />
+      <node id="6735953169130099020" at="184,0,185,0" concept="9" trace="catchBody$5XX4" />
+      <node id="6735953169130099020" at="185,0,186,0" concept="9" trace="classes$Fu70" />
+      <node id="6735953169130099020" at="189,0,190,0" concept="9" trace="isFinal$hIht" />
+      <node id="6735953169130099020" at="190,0,191,0" concept="9" trace="name$tAp1" />
       <node id="6735953169130099020" at="48,0,51,0" concept="1" trace="ClassifierTypeToAlternativeType#()V" />
       <node id="6735953169130099029" at="72,156,75,5" concept="5" />
       <node id="6735953169130099035" at="103,0,106,0" concept="1" trace="Item#(Ljetbrains/mps/openapi/editor/menus/transformation/TransformationMenuContext;)V" />
@@ -92,19 +93,19 @@
       <node id="6735953169130099020" at="52,0,56,0" concept="6" trace="isApplicableToLocation#(Ljava/lang/String;)Z" />
       <node id="6735953169130099035" at="124,0,128,0" concept="6" trace="canExecute#(Ljava/lang/String;)Z" />
       <node id="6735953169130099035" at="131,0,135,0" concept="6" trace="getTraceInfo#()Ljetbrains/mps/openapi/editor/menus/EditorMenuTraceInfo;" />
-      <node id="6735953169130123702" at="156,89,160,9" concept="0" />
+      <node id="6735953169130123702" at="157,89,161,9" concept="0" />
       <node id="6735953169130099020" at="61,280,66,5" concept="13" />
       <node id="6735953169130099035" at="109,0,114,0" concept="6" trace="getLabelText#(Ljava/lang/String;)Ljava/lang/String;" />
       <node id="6735953169130099035" at="83,25,89,7" concept="12" />
       <node id="6735953169130099035" at="90,51,96,7" concept="13" />
-      <node id="6735953169130123702" at="154,78,161,7" concept="0" />
+      <node id="6735953169130123702" at="155,42,162,7" concept="0" />
       <node id="6735953169130099035" at="115,0,123,0" concept="6" trace="execute#(Ljava/lang/String;)V" />
       <node id="6735953169130099035" at="136,0,144,0" concept="6" trace="customize#(Ljava/lang/String;Ljetbrains/mps/openapi/editor/menus/style/EditorMenuItemStyle;)V" />
       <node id="6735953169130099020" at="69,0,78,0" concept="6" trace="getParts#(Ljetbrains/mps/openapi/editor/menus/transformation/TransformationMenuContext;)Ljava/util/List;" />
       <node id="6735953169130099020" at="57,0,68,0" concept="6" trace="createMenuItems#(Ljetbrains/mps/openapi/editor/menus/transformation/TransformationMenuContext;)Ljava/util/List;" />
-      <node id="6735953169130123702" at="148,89,162,5" concept="0" />
-      <node id="6735953169130123702" at="147,0,165,0" concept="10" trace="createMultipleCatchClause_y8xil4_a0b0a0a#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Object;Ljava/lang/Object;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6735953169130123702" at="149,49,163,5" concept="0" />
       <node id="6735953169130099035" at="80,0,99,0" concept="6" trace="createItem#(Ljetbrains/mps/openapi/editor/menus/transformation/TransformationMenuContext;)Ljetbrains/mps/openapi/editor/menus/transformation/TransformationMenuItem;" />
+      <node id="6735953169130123702" at="147,0,166,0" concept="10" trace="createMultipleCatchClause_y8xil4_a0b0a0a#(ZLjava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="6735953169130099020" at="48,44,49,16" />
       <scope id="6735953169130099020" at="53,67,54,63" />
       <scope id="6735953169130099020" at="62,9,63,44" />
@@ -123,9 +124,9 @@
       </scope>
       <scope id="6735953169130099035" at="86,29,88,20" />
       <scope id="6735953169130099035" at="91,11,93,71" />
-      <scope id="6735953169130123702" at="157,9,159,77">
+      <scope id="6735953169130123702" at="158,9,160,77">
+        <var name="n3" id="6735953169130123702" />
         <var name="n4" id="6735953169130123702" />
-        <var name="n5" id="6735953169130123702" />
       </scope>
       <scope id="6735953169130099020" at="48,0,51,0" />
       <scope id="6735953169130099035" at="103,0,106,0">
@@ -155,8 +156,8 @@
         <var name="referenceMap" id="6735953169130193005" />
         <var name="replacement" id="6735953169130123701" />
       </scope>
-      <scope id="6735953169130123702" at="155,7,160,9">
-        <var name="n3" id="6735953169130123702" />
+      <scope id="6735953169130123702" at="156,7,161,9">
+        <var name="n2" id="6735953169130123702" />
       </scope>
       <scope id="6735953169130099035" at="136,72,142,9">
         <var name="compositeContext" id="6735953169130099035" />
@@ -177,32 +178,32 @@
       <scope id="6735953169130099020" at="57,0,68,0">
         <var name="context" id="6735953169130099020" />
       </scope>
-      <scope id="6735953169130123702" at="149,5,161,7">
-        <var name="n2" id="6735953169130123702" />
+      <scope id="6735953169130123702" at="150,5,162,7">
+        <var name="n1" id="6735953169130123702" />
       </scope>
       <scope id="6735953169130099035" at="81,84,97,18">
         <var name="description" id="6735953169130099035" />
         <var name="item" id="6735953169130099035" />
       </scope>
-      <scope id="6735953169130123702" at="147,164,163,36">
-        <var name="rootBuilder1" id="6735953169130123702" />
-      </scope>
-      <scope id="6735953169130123702" at="147,0,165,0">
-        <var name="node0" id="6735953169130123702" />
-        <var name="p0" id="6735953169130123702" />
-        <var name="p1" id="6735953169130123702" />
-        <var name="seq0" id="6735953169130123702" />
-        <var name="seq1" id="6735953169130123702" />
+      <scope id="6735953169130123702" at="147,158,164,26">
+        <var name="n0" id="6735953169130123702" />
       </scope>
       <scope id="6735953169130099035" at="80,0,99,0">
         <var name="context" id="6735953169130099035" />
       </scope>
-      <unit id="6735953169130099020" at="187,0,191,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$PROPS" />
-      <unit id="6735953169130099020" at="178,0,186,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$LINKS" />
-      <unit id="6735953169130099020" at="166,0,177,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$CONCEPTS" />
+      <scope id="6735953169130123702" at="147,0,166,0">
+        <var name="p0" id="6735953169130123702" />
+        <var name="p1" id="6735953169130123702" />
+        <var name="p2" id="6735953169130123702" />
+        <var name="p3" id="6735953169130123702" />
+        <var name="p4" id="6735953169130123702" />
+      </scope>
+      <unit id="6735953169130099020" at="188,0,192,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$PROPS" />
+      <unit id="6735953169130099020" at="179,0,187,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$LINKS" />
+      <unit id="6735953169130099020" at="167,0,178,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$CONCEPTS" />
       <unit id="6735953169130099035" at="100,0,145,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$TMP_Action_y8xil4_a0$Item" />
       <unit id="6735953169130099035" at="79,0,147,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType$TMP_Action_y8xil4_a0" />
-      <unit id="6735953169130099020" at="47,0,192,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType" />
+      <unit id="6735953169130099020" at="47,0,193,0" name="jetbrains.mps.baseLanguage.jdk7.editor.ClassifierTypeToAlternativeType" />
     </file>
   </root>
   <root nodeRef="r:36ac5e74-eda1-4d4e-a1aa-d6254e7fc890(jetbrains.mps.baseLanguage.jdk7.editor)/8118189177080264887">

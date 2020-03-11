@@ -105,7 +105,7 @@
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
@@ -224,6 +224,9 @@
       <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
         <reference id="5455284157993910961" name="concept" index="2pJxaS" />
         <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
+      <concept id="6985522012210254362" name="jetbrains.mps.lang.quotation.structure.NodeBuilderPropertyExpression" flags="nn" index="WxPPo">
+        <child id="6985522012210254363" name="expression" index="WxPPp" />
       </concept>
     </language>
     <language id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build">
@@ -475,8 +478,10 @@
                                         <ref role="2pJxaS" to="kdzh:QkG2t1bKw$" resolve="GeneratorInternal_String" />
                                         <node concept="2pJxcG" id="3qWAZKHyjUa" role="2pJxcM">
                                           <ref role="2pJxcJ" to="kdzh:QkG2t1bKwB" resolve="path" />
-                                          <node concept="37vLTw" id="3qWAZKHykdY" role="28ntcv">
-                                            <ref role="3cqZAo" node="3qWAZKHyiZo" resolve="it" />
+                                          <node concept="WxPPo" id="6bbvpKWHoN7" role="28ntcv">
+                                            <node concept="37vLTw" id="3qWAZKHykdY" role="WxPPp">
+                                              <ref role="3cqZAo" node="3qWAZKHyiZo" resolve="it" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -1245,7 +1250,7 @@
                     <node concept="3IZrLx" id="38ougpFqyAG" role="3IZSJc">
                       <node concept="3clFbS" id="38ougpFqyAH" role="2VODD2">
                         <node concept="3SKdUt" id="38ougpFqFfv" role="3cqZAp">
-                          <node concept="1PaTwC" id="38ougpFqFuJ" role="3ndbpf">
+                          <node concept="1PaTwC" id="38ougpFqFuJ" role="1aUNEU">
                             <node concept="3oM_SD" id="38ougpFqFfy" role="1PaTwD">
                               <property role="3oM_SC" value="in" />
                             </node>
@@ -1285,7 +1290,7 @@
                           </node>
                         </node>
                         <node concept="3SKdUt" id="38ougpFqFBh" role="3cqZAp">
-                          <node concept="1PaTwC" id="38ougpFqMg9" role="3ndbpf">
+                          <node concept="1PaTwC" id="38ougpFqMg9" role="1aUNEU">
                             <node concept="3oM_SD" id="38ougpFqMuQ" role="1PaTwD">
                               <property role="3oM_SC" value="otherwise," />
                             </node>
@@ -1325,7 +1330,7 @@
                           </node>
                         </node>
                         <node concept="3SKdUt" id="38ougpFqMsx" role="3cqZAp">
-                          <node concept="1PaTwC" id="38ougpFqMsy" role="3ndbpf">
+                          <node concept="1PaTwC" id="38ougpFqMsy" role="1aUNEU">
                             <node concept="3oM_SD" id="38ougpFqMs$" role="1PaTwD">
                               <property role="3oM_SC" value="FIXME" />
                             </node>
@@ -1859,7 +1864,7 @@
               <node concept="2jfdEK" id="3umvbTCAhQC" role="1ps_xN">
                 <node concept="3clFbS" id="3umvbTCAhQE" role="2VODD2">
                   <node concept="3SKdUt" id="6p_fvFaALm9" role="3cqZAp">
-                    <node concept="1PaTwC" id="ATZLwXo0mb" role="3ndbpf">
+                    <node concept="1PaTwC" id="ATZLwXo0mb" role="1aUNEU">
                       <node concept="3oM_SD" id="ATZLwXo0mc" role="1PaTwD">
                         <property role="3oM_SC" value="design-time" />
                       </node>
