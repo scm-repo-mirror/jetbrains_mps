@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +15,15 @@
  */
 package jetbrains.mps.help;
 
+import com.intellij.ide.AppLifecycleListener;
 import com.intellij.openapi.application.ApplicationInfo;
-import com.intellij.openapi.components.ApplicationComponent;
-import org.jetbrains.annotations.NotNull;
+import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.Nullable;
 
-public class PlatformHelpURLProvider implements ApplicationComponent {
+public class PlatformHelpURLProvider implements AppLifecycleListener {
+
   @Override
-  public void initComponent() {
+  public void appStarting(@Nullable Project projectFromCommandLine) {
     HelpURLProvider.setInstance(new HelpURLProvider() {
       @Override
       public String getURL() {
@@ -35,16 +37,5 @@ public class PlatformHelpURLProvider implements ApplicationComponent {
                              minorVersion);
       }
     });
-  }
-
-  @Override
-  public void disposeComponent() {
-
-  }
-
-  @NotNull
-  @Override
-  public String getComponentName() {
-    return this.getClass().getSimpleName();
   }
 }
