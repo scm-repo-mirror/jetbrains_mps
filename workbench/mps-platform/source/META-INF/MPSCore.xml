@@ -77,9 +77,6 @@
       <implementation-class>jetbrains.mps.ide.persistence.PersistenceComponent</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.ide.icons.GlobalIconManager</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.platform.watching.WatchedRoots</implementation-class>
     </component>
   </application-components>
@@ -122,6 +119,8 @@
   </extensionPoints>
 
   <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="jetbrains.mps.ide.icons.GlobalIconManager"/>
+
     <fileTypeFactory implementation="jetbrains.mps.fileTypes.MPSFileTypeFactory"/>
 
     <virtualFileSystem implementationClass="jetbrains.mps.nodefs.NodeVirtualFileSystem" key="mps" physical="false"/>

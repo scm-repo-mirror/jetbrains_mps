@@ -17,53 +17,48 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root nodeRef="r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)/1315815304215647153">
     <file name="GlobalIconManager.java">
-      <node id="1315815304215679429" at="20,0,21,0" concept="3" trace="myClm" />
-      <node id="1315815304215833156" at="21,0,22,0" concept="3" trace="myListener" />
-      <node id="6478603752171603018" at="23,50,24,65" concept="13" />
-      <node id="1315815304215685441" at="24,65,25,39" concept="2" />
-      <node id="6478603752171632515" at="28,49,29,102" concept="9" />
-      <node id="6478603752171649437" at="29,102,30,114" concept="9" />
-      <node id="6478603752171671386" at="30,114,31,60" concept="9" />
-      <node id="6820864243353832723" at="31,60,32,85" concept="8" />
-      <node id="1315815304215681719" at="36,31,37,39" concept="2" />
-      <node id="1315815304215836571" at="41,34,42,37" concept="2" />
-      <node id="1315815304215662390" at="48,36,49,51" concept="8" />
-      <node id="1315815304215847511" at="55,89,56,27" concept="2" />
-      <node id="1315815304215853285" at="58,85,59,25" concept="2" />
-      <node id="1315815304215824706" at="53,0,55,0" concept="1" trace="MyDeployListener#()V" />
-      <node id="1315815304215820148" at="55,0,58,0" concept="6" trace="onUnloaded#(Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
-      <node id="1315815304215820160" at="58,0,61,0" concept="6" trace="onLoaded#(Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
-      <node id="1315815304215676496" at="23,0,27,0" concept="1" trace="GlobalIconManager#(Ljetbrains/mps/ide/MPSCoreComponents;)V" />
-      <node id="1315815304215660363" at="35,0,39,0" concept="6" trace="initComponent#()V" />
-      <node id="1315815304215660370" at="40,0,44,0" concept="6" trace="disposeComponent#()V" />
-      <node id="6820864243353824335" at="28,0,34,0" concept="12" trace="getInstance#()Ljetbrains/mps/ide/icons/GlobalIconManager;" />
-      <node id="1315815304215660377" at="45,0,51,0" concept="6" trace="getComponentName#()Ljava/lang/String;" />
-      <scope id="1315815304215824707" at="53,31,53,31" />
-      <scope id="1315815304215660368" at="36,31,37,39" />
-      <scope id="1315815304215660375" at="41,34,42,37" />
-      <scope id="1315815304215660385" at="48,36,49,51" />
-      <scope id="1315815304215820158" at="55,89,56,27" />
-      <scope id="1315815304215820170" at="58,85,59,25" />
-      <scope id="1315815304215676500" at="23,50,25,39" />
-      <scope id="1315815304215824706" at="53,0,55,0" />
-      <scope id="1315815304215820148" at="55,0,58,0">
+      <node id="1315815304215679429" at="21,0,22,0" concept="3" trace="myClm" />
+      <node id="1315815304215833156" at="22,0,23,0" concept="3" trace="myListener" />
+      <node id="6478603752171603018" at="24,30,25,136" concept="13" />
+      <node id="3994444193497774094" at="25,136,26,101" concept="7" />
+      <node id="1315815304215685441" at="26,101,27,39" concept="2" />
+      <node id="1315815304215681719" at="27,39,28,39" concept="2" />
+      <node id="3994444193497746671" at="28,39,29,32" concept="2" />
+      <node id="3994444193497729407" at="32,49,33,62" concept="8" />
+      <node id="1315815304215836571" at="38,24,39,39" concept="2" />
+      <node id="3994444193497763008" at="39,39,40,19" concept="2" />
+      <node id="1315815304215847511" at="47,89,48,27" concept="2" />
+      <node id="1315815304215853285" at="50,85,51,25" concept="2" />
+      <node id="1315815304215824706" at="45,0,47,0" concept="1" trace="MyDeployListener#()V" />
+      <node id="6820864243353824335" at="32,0,35,0" concept="12" trace="getInstance#()Ljetbrains/mps/ide/icons/GlobalIconManager;" />
+      <node id="1315815304215820148" at="47,0,50,0" concept="6" trace="onUnloaded#(Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
+      <node id="1315815304215820160" at="50,0,53,0" concept="6" trace="onLoaded#(Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)V" />
+      <node id="3994444193497758390" at="37,25,41,5" concept="5" />
+      <node id="1315815304215676496" at="24,0,31,0" concept="1" trace="GlobalIconManager#()V" />
+      <node id="3994444193497755598" at="36,0,43,0" concept="6" trace="dispose#()V" />
+      <scope id="1315815304215824707" at="45,31,45,31" />
+      <scope id="6820864243353823246" at="32,49,33,62" />
+      <scope id="1315815304215820158" at="47,89,48,27" />
+      <scope id="1315815304215820170" at="50,85,51,25" />
+      <scope id="3994444193497758392" at="38,24,40,19" />
+      <scope id="1315815304215824706" at="45,0,47,0" />
+      <scope id="6820864243353824335" at="32,0,35,0" />
+      <scope id="1315815304215820148" at="47,0,50,0">
         <var name="pm" id="1315815304215820155" />
         <var name="unloaded" id="1315815304215820152" />
       </scope>
-      <scope id="1315815304215820160" at="58,0,61,0">
+      <scope id="1315815304215820160" at="50,0,53,0">
         <var name="loaded" id="1315815304215820164" />
         <var name="pm" id="1315815304215820167" />
       </scope>
-      <scope id="1315815304215676496" at="23,0,27,0">
-        <var name="cc" id="1315815304215678984" />
+      <scope id="3994444193497755602" at="37,25,41,5" />
+      <scope id="1315815304215676500" at="24,30,29,32">
+        <var name="cc" id="3994444193497774095" />
       </scope>
-      <scope id="6820864243353823246" at="28,49,32,85" />
-      <scope id="1315815304215660363" at="35,0,39,0" />
-      <scope id="1315815304215660370" at="40,0,44,0" />
-      <scope id="6820864243353824335" at="28,0,34,0" />
-      <scope id="1315815304215660377" at="45,0,51,0" />
-      <unit id="1315815304215824702" at="52,0,62,0" name="jetbrains.mps.ide.icons.GlobalIconManager$MyDeployListener" />
-      <unit id="1315815304215647153" at="18,0,63,0" name="jetbrains.mps.ide.icons.GlobalIconManager" />
+      <scope id="1315815304215676496" at="24,0,31,0" />
+      <scope id="3994444193497755598" at="36,0,43,0" />
+      <unit id="1315815304215824702" at="44,0,54,0" name="jetbrains.mps.ide.icons.GlobalIconManager$MyDeployListener" />
+      <unit id="1315815304215647153" at="19,0,55,0" name="jetbrains.mps.ide.icons.GlobalIconManager" />
     </file>
   </root>
   <root nodeRef="r:836426ab-a6f4-4fa3-9a9c-34c02ed6ab5d(jetbrains.mps.ide.icons)/1315815304215925444">
