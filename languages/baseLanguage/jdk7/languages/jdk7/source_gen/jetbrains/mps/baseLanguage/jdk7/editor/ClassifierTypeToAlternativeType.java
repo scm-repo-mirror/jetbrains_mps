@@ -42,6 +42,7 @@ import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
@@ -158,6 +159,7 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
         {
           SNodeBuilder n3 = n2.forChild(LINKS.classes$Fu70).initNode(p4, CONCEPTS.Type$IG, false);
           SNodeBuilder n4 = n3.forSibling().init(CONCEPTS.ClassifierType$IZ);
+          n4.setReferenceTarget(LINKS.classifier$pQ_R, null);
         }
       }
     }
@@ -183,6 +185,7 @@ public class ClassifierTypeToAlternativeType extends TransformationMenuBase {
     /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink catchBody$5XX4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f39a56e2fL, 0x10f39a6a2f2L, "catchBody");
     /*package*/ static final SContainmentLink classes$Fu70 = MetaAdapterFactory.getContainmentLink(0x96ee7a94411d4cf8L, 0x9b9496cad7e52411L, 0x70a99a0b674a3895L, 0x70a99a0b674a3896L, "classes");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 
   private static final class PROPS {

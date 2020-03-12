@@ -376,6 +376,12 @@
                                 </node>
                                 <node concept="2pJPED" id="5PUUrvXF1NM" role="36be1Z">
                                   <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
+                                  <node concept="2pIpSj" id="4D3iSqzSzjv" role="2pJxcM">
+                                    <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
+                                    <node concept="36biLy" id="4D3iSqzSzkg" role="28nt2d">
+                                      <node concept="10Nm6u" id="4D3iSqzSzke" role="36biLW" />
+                                    </node>
+                                  </node>
                                 </node>
                               </node>
                             </node>
