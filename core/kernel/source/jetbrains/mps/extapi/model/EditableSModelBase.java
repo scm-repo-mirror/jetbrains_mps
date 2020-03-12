@@ -131,10 +131,11 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
       return;
     }
     repo.getModelAccess().runWriteAction(() -> {
-      if (isChanged()) {
-        resolveDiskConflict();
-      } else {
+      if (!isChanged()) {
         reloadFromSource();
+      } else {
+        // fixme when #saveAll is gone from ReloadManager then uncomment
+//        resolveDiskConflict();
       }
     });
   }

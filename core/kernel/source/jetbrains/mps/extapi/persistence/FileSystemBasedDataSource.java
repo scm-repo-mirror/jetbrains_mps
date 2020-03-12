@@ -51,6 +51,7 @@ public interface FileSystemBasedDataSource extends DataSource, DisposableDataSou
   }
 
   /**
+   * parentFolder must be a directory
    * @return null if some problem is encountered
    */
   @Nullable
