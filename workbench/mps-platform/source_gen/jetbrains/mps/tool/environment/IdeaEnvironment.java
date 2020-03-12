@@ -20,11 +20,9 @@ import java.awt.GraphicsEnvironment;
 import com.intellij.testFramework.TestApplicationManager;
 import com.intellij.testFramework.ThreadTracker;
 import jetbrains.mps.smodel.WorkbenchModelAccess;
-import com.intellij.openapi.Disposable;
-import com.intellij.util.PlatformUtils;
-import com.intellij.openapi.application.impl.ApplicationImpl;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.RuntimeFlags;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.vfs.newvfs.impl.VfsRootAccess;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.util.Disposer;
@@ -37,6 +35,7 @@ import jetbrains.mps.library.LibraryInitializer;
 import java.util.Collections;
 import com.intellij.openapi.project.ex.ProjectManagerEx;
 import jetbrains.mps.util.Reference;
+import java.util.concurrent.TimeUnit;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.vfs.refresh.DefaultCachingContext;
@@ -44,10 +43,10 @@ import com.intellij.testFramework.PlatformTestUtil;
 import jetbrains.mps.core.platform.Platform;
 import java.util.concurrent.Semaphore;
 import com.intellij.ide.startup.StartupManagerEx;
+import org.apache.log4j.Level;
 import com.intellij.openapi.project.DumbService;
 
 /**
- * Use #getOrCreate method to construct this kind of environment
  * TODO: fix dispose methods
  */
 @GeneratedClass(node = "r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)/7413225496542992859", model = "r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)")
@@ -196,19 +195,9 @@ public final class IdeaEnvironment extends EnvironmentBase {
       GraphicsEnvironment.isHeadless();
       myIdeaApplication = TestApplicationManager.getInstance();
     } else {
-      myIdeaApplication = createCommandLineApplication0();
+      myIdeaApplication = MPSHeadlessPlatformStarter.Holder.IT.createApp();
     }
     ThreadTracker.longRunningThreadCreated(ApplicationManager.getApplication(), WorkbenchModelAccess.THREAD_GROUP_NAME);
-  }
-
-  private Disposable createCommandLineApplication0() {
-    // copied from IdeaTestApplication.getInstance(String) 
-    // next line is shorthand for PlatformTestCase.doAutodetectPlatformPrefix() 
-    System.setProperty(PlatformUtils.PLATFORM_PREFIX_KEY, PlatformUtils.IDEA_CE_PREFIX);
-    // Prior 2019.3, there used to be  CommandLineApplication class that served as inspiration for the next lines 
-    ApplicationImpl rv = new ApplicationImpl(true, false, true, true);
-    rv.load(null);
-    return rv;
   }
 
   @Override
@@ -337,7 +326,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
       }
     });
 
-    waiter.wait0();
+    waiter.wait0(30, TimeUnit.SECONDS);
 
     return project.get().getComponent(MPSProject.class);
   }
@@ -404,18 +393,24 @@ public final class IdeaEnvironment extends EnvironmentBase {
       return StartupManagerEx.getInstanceEx(myProject);
     }
 
-    public void wait0() {
-      StartupManagerEx startupManager = getStartupManager();
-      if (startupManager.postStartupActivityPassed()) {
-        return;
+    public void wait0(long time, TimeUnit units) {
+      for (int attempt = 0; attempt < 3; ++attempt) {
+        StartupManagerEx startupManager = getStartupManager();
+        if (startupManager.postStartupActivityPassed()) {
+          return;
+        }
+        try {
+          mySem.tryAcquire(time / 3, units);
+        } catch (InterruptedException e) {
+          throw new InterruptedWhileWaitingForPostStartupException("Caught exception while waiting for the post startup activities", e);
+        }
+        waitForDumbModeToFinish();
       }
-      try {
-        mySem.acquire();
-      } catch (InterruptedException e) {
-        throw new InterruptedWhileWaitingForPostStartupException("Caught exception while waiting for the post startup activities", e);
+      if (!(myProject.isDisposed()) && !(getStartupManager().postStartupActivityPassed())) {
+        if (LOG.isEnabledFor(Level.ERROR)) {
+          LOG.error("Could not wait until post-startup activities are finished", new IllegalStateException());
+        }
       }
-      waitForDumbModeToFinish();
-      assert startupManager.postStartupActivityPassed();
     }
 
     private void waitForDumbModeToFinish() {
