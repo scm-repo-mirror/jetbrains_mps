@@ -71,6 +71,7 @@
     <import index="ot7" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress.util(MPS.IDEA/)" />
     <import index="xo69" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.diff.util(MPS.IDEA/)" />
     <import index="xygl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress(MPS.IDEA/)" />
+    <import index="24bc" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.vfs.tracking(MPS.Platform/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -15541,7 +15542,7 @@
             </node>
             <node concept="2ShNRf" id="gkhJ4LvJby" role="3K4GZi">
               <node concept="1pGfFk" id="gkhJ4LvJbz" role="2ShVmc">
-                <ref role="37wK5l" to="qyr2:IOaVVgtyks" resolve="ModelDiffContent" />
+                <ref role="37wK5l" to="24bc:~ModelDiffContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel)" resolve="ModelDiffContent" />
                 <node concept="37vLTw" id="gkhJ4LvJb$" role="37wK5m">
                   <ref role="3cqZAo" node="gkhJ4LvJb5" resolve="loaded" />
                 </node>
