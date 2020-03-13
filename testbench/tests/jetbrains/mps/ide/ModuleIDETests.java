@@ -16,7 +16,6 @@
 package jetbrains.mps.ide;
 
 import com.intellij.configurationStore.StoreReloadManager;
-import jdk.jshell.spi.ExecutionControl.RunException;
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.module.ModuleDeleteHelper;

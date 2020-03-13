@@ -5,7 +5,7 @@
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
     <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
     <use id="b1ab8c10-c118-4755-bf2a-cebab35cf533" name="tooltips" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
@@ -286,7 +286,7 @@
     <language id="b1ab8c10-c118-4755-bf2a-cebab35cf533" name="tooltips">
       <concept id="3877544518697302453" name="tooltips.structure.AuxEditorCellWithRefToGeneratedHint" flags="ng" index="wufu7">
         <reference id="3877544518697376288" name="hint" index="wtTgi" />
-        <child id="672449538226969699" name="popup" index="36ct$D" />
+        <child id="672449538226969699" name="tooltip" index="36ct$D" />
       </concept>
     </language>
   </registry>
@@ -805,7 +805,7 @@
               <node concept="2OqwBi" id="7CuN9i8PwHp" role="2Oq$k0">
                 <node concept="30H73N" id="7CuN9i8Pw_i" role="2Oq$k0" />
                 <node concept="3TrEf2" id="7CuN9i8PwIP" role="2OqNvi">
-                  <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="popup" />
+                  <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="tooltip" />
                 </node>
               </node>
               <node concept="3x8VRR" id="7CuN9i8Px8b" role="2OqNvi" />
@@ -855,7 +855,7 @@
                 <node concept="2OqwBi" id="7CuN9i8PXuR" role="2Oq$k0">
                   <node concept="30H73N" id="7CuN9i8PXi4" role="2Oq$k0" />
                   <node concept="3TrEf2" id="7CuN9i8PXwc" role="2OqNvi">
-                    <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="popup" />
+                    <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="tooltip" />
                   </node>
                 </node>
                 <node concept="3x8VRR" id="7CuN9i8PYid" role="2OqNvi" />
@@ -929,7 +929,7 @@
               <node concept="2OqwBi" id="7CuN9i8PSYb" role="3clFbG">
                 <node concept="30H73N" id="7CuN9i8PSTS" role="2Oq$k0" />
                 <node concept="3TrEf2" id="7CuN9i8PSZB" role="2OqNvi">
-                  <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="popup" />
+                  <ref role="3Tt5mk" to="bhcn:_l1kFfpdLz" resolve="tooltip" />
                 </node>
               </node>
             </node>

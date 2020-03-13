@@ -54,10 +54,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.hasRole(_context.getNode(), LINKS.tooltipCell$xoma) && !(SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.AuxEditorCellWithRefToGeneratedHint$Ys));
   }
   public static boolean rule_Condition_3_1(final BaseMappingRuleContext _context) {
-    return (SLinkOperations.getTarget(_context.getNode(), LINKS.popup$C$j8) != null);
+    return (SLinkOperations.getTarget(_context.getNode(), LINKS.tooltip$C$j8) != null);
   }
   public static boolean rule_Condition_3_2(final BaseMappingRuleContext _context) {
-    return SNodeOperations.hasRole(_context.getNode(), LINKS.tooltipCell$xoma) && (SLinkOperations.getTarget(_context.getNode(), LINKS.popup$C$j8) != null);
+    return SNodeOperations.hasRole(_context.getNode(), LINKS.tooltipCell$xoma) && (SLinkOperations.getTarget(_context.getNode(), LINKS.tooltip$C$j8) != null);
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     SNode popup = SLinkOperations.getTarget(_context.getNode(), LINKS.tooltipCell$xoma);
@@ -98,7 +98,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getNode();
   }
   public static SNode sourceNodeQuery_4_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.popup$C$j8);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.tooltip$C$j8);
   }
   public static Iterable<SNode> sourceNodesQuery_2_0(final SourceSubstituteMacroNodesContext _context) {
     return SModelOperations.nodes(_context.getInputModel(), CONCEPTS.CellModel_Tooltip$Ew);
@@ -346,7 +346,7 @@ public class QueriesGenerated extends QueryProviderBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink tooltipCell$xoma = MetaAdapterFactory.getContainmentLink(0xb1ab8c10c1184755L, 0xbf2acebab35cf533L, 0x7f7a04fd2c647be3L, 0x35cfce3215bf1834L, "tooltipCell");
-    /*package*/ static final SContainmentLink popup$C$j8 = MetaAdapterFactory.getContainmentLink(0xb1ab8c10c1184755L, 0xbf2acebab35cf533L, 0x35cfce3215b739b5L, 0x955054acf64dc63L, "popup");
+    /*package*/ static final SContainmentLink tooltip$C$j8 = MetaAdapterFactory.getContainmentLink(0xb1ab8c10c1184755L, 0xbf2acebab35cf533L, 0x35cfce3215b739b5L, 0x955054acf64dc63L, "tooltip");
     /*package*/ static final SReferenceLink hint$qgBu = MetaAdapterFactory.getReferenceLink(0xb1ab8c10c1184755L, 0xbf2acebab35cf533L, 0x35cfce3215b739b5L, 0x35cfce3215b85a20L, "hint");
     /*package*/ static final SContainmentLink visibleCell$bVDO = MetaAdapterFactory.getContainmentLink(0xb1ab8c10c1184755L, 0xbf2acebab35cf533L, 0x7f7a04fd2c647be3L, 0x7f7a04fd2c64819dL, "visibleCell");
     /*package*/ static final SReferenceLink conceptDeclaration$sbgS = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration");
