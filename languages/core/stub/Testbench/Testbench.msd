@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="Testbench" uuid="920eaa0e-ecca-46bc-bee7-4e5c59213dd6" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot type="java_classes">
       <sourceRoot path="${mps_home}/lib/mps-environment.jar" />

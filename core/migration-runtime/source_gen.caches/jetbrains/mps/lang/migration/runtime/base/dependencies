@@ -102,7 +102,6 @@
     <classNode dependClassName="jetbrains.mps.project.AbstractModule" />
     <classNode dependClassName="jetbrains.mps.project.DevKit" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
-    <classNode dependClassName="jetbrains.mps.project.Solution" />
     <classNode dependClassName="jetbrains.mps.project.dependency.GlobalModuleDependenciesManager" />
     <classNode dependClassName="jetbrains.mps.project.structure.modules.ModuleDescriptor" />
     <classNode dependClassName="jetbrains.mps.smodel.SLanguageHierarchy" />

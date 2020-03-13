@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="MPS.OpenAPI" uuid="8865b7a8-5271-43d3-884c-6fd1d9cfdd34" moduleVersion="0" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot type="java_classes">
       <sourceRoot path="${mps_home}/lib/mps-openapi.jar" />

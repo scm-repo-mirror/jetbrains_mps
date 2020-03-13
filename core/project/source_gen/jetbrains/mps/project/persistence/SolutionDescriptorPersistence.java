@@ -26,8 +26,8 @@ public class SolutionDescriptorPersistence {
   public static final String SOURCE_PATH = "sourcePath";
   public static final String SOURCE_PATH_SOURCE = "source";
   public static final String COMPILE_IN_MPS = "compileInMPS";
-  public static final String PLUGIN_KIND = "pluginKind";
-  public static final String JAVA_LANGUAGE_LEVEL = "javaLanguageLevel";
+  /*package*/ static final String PLUGIN_KIND = "pluginKind";
+  /*package*/ static final String JAVA_LANGUAGE_LEVEL = "javaLanguageLevel";
   private final MacroHelper myMacroHelper;
 
   public SolutionDescriptorPersistence(@NotNull MacroHelper macroHelper) {
@@ -78,6 +78,8 @@ public class SolutionDescriptorPersistence {
           result_8ckma3_a0a0a0b0l.getModelRootDescriptors().addAll(ModuleDescriptorPersistence.loadModelRoots(XmlUtil.children(XmlUtil.first(rootElement, "models"), "modelRoot"), myMacroHelper));
 
           result_8ckma3_a0a0a0b0l.setNeedsExternalIdeaCompile(XmlUtil.first(rootElement, "compileInIDEA") != null);
+
+          result_8ckma3_a0a0a0b0l.readOnlyStubModule(XmlUtil.first(rootElement, "readOnlyStubs") != null);
 
           Element facets = XmlUtil.first(rootElement, "facets");
           if (facets != null) {
@@ -130,6 +132,9 @@ public class SolutionDescriptorPersistence {
     }
     if (descriptor.needsExternalIdeaCompile()) {
       result.addContent(new Element("compileInIDEA"));
+    }
+    if (descriptor.isReadOnlyStubModule()) {
+      result.addContent(new Element("readOnlyStubs"));
     }
 
     Element models = new Element("models");

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="MPS.IDEA" uuid="498d89d2-c2e9-11e2-ad49-6cf049e62fe5" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
       <sourceRoot location="openapi.jar" />

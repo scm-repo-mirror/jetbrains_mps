@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ public class SolutionDescriptor extends ModuleDescriptor {
   private SolutionKind myKind = SolutionKind.NONE;
   private boolean myCompileInMPS = true;
   private boolean myRequestCompileIDEA = false;
+  private boolean myReadOnlyStubModule = false;
   private JavaLanguageLevel myJavaLanguageLevel = JavaLanguageLevel.getDefault();
 
   public final String getOutputPath() {
@@ -55,8 +56,13 @@ public class SolutionDescriptor extends ModuleDescriptor {
     return myRequestCompileIDEA;
   }
 
+  @NotNull
   public JavaLanguageLevel getJavaLanguageLevel() {
     return myJavaLanguageLevel;
+  }
+
+  public boolean isReadOnlyStubModule() {
+    return myReadOnlyStubModule;
   }
 
   @Override
@@ -68,8 +74,16 @@ public class SolutionDescriptor extends ModuleDescriptor {
     myCompileInMPS = compileInMPS;
   }
 
-  public final void setJavaLanguageLevel(JavaLanguageLevel level) {
+  public final void setJavaLanguageLevel(@NotNull JavaLanguageLevel level) {
     myJavaLanguageLevel = level;
+  }
+
+  /**
+   * EXPERIMENTAL. Indicates that solution is full of stub models. The module needs to be excluded from certain operations
+   * like migration (MigrationModuleUtil relies on Solution.isBootstrapSolution to exclude mps-provided stub solutions from migration)
+   */
+  public final void readOnlyStubModule(boolean roStubModule) {
+    myReadOnlyStubModule = roStubModule;
   }
 
   @Override

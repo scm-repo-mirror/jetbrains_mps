@@ -9639,7 +9639,6 @@
     <node concept="Wx3nA" id="5DYpX5HRPQs" role="jymVt">
       <property role="TrG5h" value="PLUGIN_KIND" />
       <property role="3TUv4t" value="true" />
-      <node concept="3Tm1VV" id="5DYpX5HRPQt" role="1B3o_S" />
       <node concept="17QB3L" id="5DYpX5HRPQu" role="1tU5fm" />
       <node concept="Xl_RD" id="5DYpX5HRPQv" role="33vP2m">
         <property role="Xl_RC" value="pluginKind" />
@@ -9648,7 +9647,6 @@
     <node concept="Wx3nA" id="5DYpX5HRHXG" role="jymVt">
       <property role="TrG5h" value="JAVA_LANGUAGE_LEVEL" />
       <property role="3TUv4t" value="true" />
-      <node concept="3Tm1VV" id="5DYpX5HRHXH" role="1B3o_S" />
       <node concept="17QB3L" id="5DYpX5HRHXI" role="1tU5fm" />
       <node concept="Xl_RD" id="5DYpX5HRHXJ" role="33vP2m">
         <property role="Xl_RC" value="javaLanguageLevel" />
@@ -10036,6 +10034,28 @@
                                 </node>
                                 <node concept="Xl_RD" id="7PzOcl10HUA" role="37wK5m">
                                   <property role="Xl_RC" value="compileInIDEA" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbH" id="Uui6m16vtl" role="3cqZAp" />
+                      <node concept="3clFbF" id="1hywME4NDgl" role="3cqZAp">
+                        <node concept="2OqwBi" id="1hywME4NEbs" role="3clFbG">
+                          <node concept="1bf8Ab" id="1hywME4NDgj" role="2Oq$k0" />
+                          <node concept="liA8E" id="l2QlraDbG7" role="2OqNvi">
+                            <ref role="37wK5l" to="w0gx:~SolutionDescriptor.readOnlyStubModule(boolean)" resolve="readOnlyStubModule" />
+                            <node concept="3y3z36" id="l2QlraDbVx" role="37wK5m">
+                              <node concept="10Nm6u" id="l2QlraDbVy" role="3uHU7w" />
+                              <node concept="2YIFZM" id="l2QlraDbVz" role="3uHU7B">
+                                <ref role="1Pybhc" to="7a2w:4eI2K_Iuet$" resolve="XmlUtil" />
+                                <ref role="37wK5l" to="7a2w:4eI2K_Iuew6" resolve="first" />
+                                <node concept="37vLTw" id="l2QlraDbV$" role="37wK5m">
+                                  <ref role="3cqZAo" node="33oJVYhfQy$" resolve="rootElement" />
+                                </node>
+                                <node concept="Xl_RD" id="l2QlraDbV_" role="37wK5m">
+                                  <property role="Xl_RC" value="readOnlyStubs" />
                                 </node>
                               </node>
                             </node>
@@ -10630,6 +10650,36 @@
             </node>
             <node concept="liA8E" id="7PzOcl10XBj" role="2OqNvi">
               <ref role="37wK5l" to="w0gx:~SolutionDescriptor.needsExternalIdeaCompile()" resolve="needsExternalIdeaCompile" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="l2QlraDeHV" role="3cqZAp">
+          <node concept="3clFbS" id="l2QlraDeHX" role="3clFbx">
+            <node concept="3clFbF" id="l2QlraDhf4" role="3cqZAp">
+              <node concept="2OqwBi" id="l2QlraDhqV" role="3clFbG">
+                <node concept="37vLTw" id="l2QlraDhf2" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1Tieq1im88u" resolve="result" />
+                </node>
+                <node concept="liA8E" id="l2QlraDh$S" role="2OqNvi">
+                  <ref role="37wK5l" to="mmaq:~Element.addContent(org.jdom.Element)" resolve="addContent" />
+                  <node concept="2ShNRf" id="l2QlraDhCu" role="37wK5m">
+                    <node concept="1pGfFk" id="l2QlraDjLf" role="2ShVmc">
+                      <ref role="37wK5l" to="mmaq:~Element.&lt;init&gt;(java.lang.String)" resolve="Element" />
+                      <node concept="Xl_RD" id="l2QlraDk3Z" role="37wK5m">
+                        <property role="Xl_RC" value="readOnlyStubs" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="l2QlraDgtM" role="3clFbw">
+            <node concept="37vLTw" id="l2QlraDfQ$" role="2Oq$k0">
+              <ref role="3cqZAo" node="33oJVYhgCCY" resolve="descriptor" />
+            </node>
+            <node concept="liA8E" id="l2QlraDhaV" role="2OqNvi">
+              <ref role="37wK5l" to="w0gx:~SolutionDescriptor.isReadOnlyStubModule()" resolve="isReadOnlyStubModule" />
             </node>
           </node>
         </node>

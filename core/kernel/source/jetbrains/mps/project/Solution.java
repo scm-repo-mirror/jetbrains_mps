@@ -60,16 +60,6 @@ public class Solution extends ReloadableModuleBase {
     for (ClassType classType : classTypes) {
       result.put(BootstrapLanguages.bootstrapSolutionRef(classType), classType);
     }
-    // FIXME this is a hack to ensure isBootstrapSolution tells true for migration code to ignore these modules
-    //       need better mechansim to exclude stub solutions like these from migration (perhaps, explicit mark as R/O?)
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.OPENAPI), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.ANNOTATIONS), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.EDITOR), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.WORKBENCH), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.TEST), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.PLATFORM), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.CORE), null);
-    result.put(BootstrapLanguages.bootstrapSolutionRef(ClassType.IDEA), null);
     return result;
   }
 
@@ -156,16 +146,15 @@ public class Solution extends ReloadableModuleBase {
 
   @Override
   public void save() {
-    super.save();
-    //do not save stub solutions (otherwise build model generation fails)
-    SModuleReference ref = this.getModuleReference();
-    if (isBootstrapSolution(ref)) return;
     // in StubSolutions myDescriptorFile is null, so preventing NPE here (MPS-16793)
-    if (getDescriptorFile() == null || isReadOnly()) return;
-
+    if (getDescriptorFile() == null || isReadOnly()) {
+      return;
+    }
     if (mySolutionDescriptor.getLoadException() != null){
       return;
     }
+
+    super.save();
 
     try {
       DescriptorIO<SolutionDescriptor> io = DescriptorIOFacade.getInstance().standardProvider().solutionDescriptorIO();
@@ -175,8 +164,9 @@ public class Solution extends ReloadableModuleBase {
     }
   }
 
-  public static boolean isBootstrapSolution(SModuleReference ref) {
-    return bootstrapCP.keySet().contains(ref);
+  @Override
+  public boolean isReadOnly() {
+    return super.isReadOnly() || getModuleDescriptor().isReadOnlyStubModule();
   }
 
   @Override

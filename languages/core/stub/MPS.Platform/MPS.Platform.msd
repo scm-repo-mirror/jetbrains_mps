@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="MPS.Platform" uuid="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot type="java_classes">
       <sourceRoot path="${mps_home}/lib/mps-platform.jar" />

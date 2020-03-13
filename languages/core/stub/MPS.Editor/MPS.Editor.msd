@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="MPS.Editor" uuid="1ed103c3-3aa6-49b7-9c21-6765ee11f224" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot type="java_classes">
       <sourceRoot path="${mps_home}/lib/mps-editor.jar" />

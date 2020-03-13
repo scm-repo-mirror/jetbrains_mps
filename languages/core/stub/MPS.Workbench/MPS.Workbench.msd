@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solution name="MPS.Workbench" uuid="86441d7a-e194-42da-81a5-2161ec62a379" compileInMPS="false">
+  <readOnlyStubs/>
   <models>
     <modelRoot type="java_classes">
       <sourceRoot path="${mps_home}/lib/mps-workbench.jar" />
