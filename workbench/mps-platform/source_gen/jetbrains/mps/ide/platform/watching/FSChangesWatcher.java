@@ -44,6 +44,9 @@ public class FSChangesWatcher implements ApplicationComponent {
     @Override
     public void afterRefreshFinish(boolean async) {
       myReloadManager.resumeReloads();
+      if (!async) {
+        myReloadManager.flush();
+      }
     }
   };
   private MessageBusConnection myConnection;
