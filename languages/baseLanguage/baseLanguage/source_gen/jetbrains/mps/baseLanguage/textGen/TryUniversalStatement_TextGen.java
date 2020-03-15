@@ -14,7 +14,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-public class TryWithResourcesStatement_TextGen extends TextGenDescriptorBase {
+public class TryUniversalStatement_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
@@ -34,18 +34,18 @@ public class TryWithResourcesStatement_TextGen extends TextGenDescriptorBase {
     }
     tgs.append(") {");
     ctx.getBuffer().area().increaseIndent();
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$TQ1f));
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$4P0u));
     ctx.getBuffer().area().decreaseIndent();
     tgs.newLine();
-    for (SNode clause : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.catchClause$GIrD)) {
+    for (SNode clause : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.catchClause$4PbB)) {
       tgs.appendNode(clause);
       tgs.newLine();
     }
-    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.finallyBody$LPze) != null)) {
+    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.finallyBody$4P0X) != null)) {
       tgs.indent();
       tgs.append("} finally {");
       ctx.getBuffer().area().increaseIndent();
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.finallyBody$LPze));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.finallyBody$4P0X));
       ctx.getBuffer().area().decreaseIndent();
       tgs.newLine();
       tgs.indent();
@@ -58,9 +58,9 @@ public class TryWithResourcesStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink resource$nWfw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x4a434b86a54515feL, "resource");
-    /*package*/ static final SContainmentLink body$TQ1f = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10cacec83aeL, "body");
-    /*package*/ static final SContainmentLink catchClause$GIrD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10f39abd97cL, "catchClause");
-    /*package*/ static final SContainmentLink finallyBody$LPze = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10cacecb713L, "finallyBody");
+    /*package*/ static final SContainmentLink body$4P0u = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb114L, "body");
+    /*package*/ static final SContainmentLink catchClause$4PbB = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb116L, "catchClause");
+    /*package*/ static final SContainmentLink finallyBody$4P0X = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb115L, "finallyBody");
   }
 
   private static final class CONCEPTS {

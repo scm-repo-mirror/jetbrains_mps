@@ -63,11 +63,11 @@ public class check_CaughtWasThrown_NonTypesystemRule extends AbstractNonTypesyst
                 {
                   SNode matchingNode_13ophr_b1a0b0a0b0 = SNodeOperations.getParent(catchClause);
                   if (matchingNode_13ophr_b1a0b0a0b0 != null) {
-                    matches_13ophr_b1a0b0a0b0 = matchingNode_13ophr_b1a0b0a0b0.getConcept().isSubConceptOf(CONCEPTS.TryWithResourcesStatement$80);
+                    matches_13ophr_b1a0b0a0b0 = matchingNode_13ophr_b1a0b0a0b0.getConcept().isSubConceptOf(CONCEPTS.TryUniversalStatement$80);
                   }
                 }
                 if (matches_13ophr_b1a0b0a0b0) {
-                  SetSequence.fromSet(thrown).addSequence(SetSequence.fromSet(StatementList__BehaviorDescriptor.uncaughtThrowables_id2SVUfbZ9Qq1.invoke(SLinkOperations.getTarget(matchedNode_13ophr_b0a1a0a1a, LINKS.body$TQ1f), ((boolean) false))));
+                  SetSequence.fromSet(thrown).addSequence(SetSequence.fromSet(StatementList__BehaviorDescriptor.uncaughtThrowables_id2SVUfbZ9Qq1.invoke(SLinkOperations.getTarget(matchedNode_13ophr_b0a1a0a1a, LINKS.body$4P0u), ((boolean) false))));
                   SetSequence.fromSet(thrown).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(matchedNode_13ophr_b0a1a0a1a, LINKS.resource$nWfw)).translate(new ITranslator2<SNode, SNode>() {
                     public Iterable<SNode> translate(SNode it) {
                       return new ResourceVariableHelper(it).getCloseThrown();
@@ -144,7 +144,7 @@ public class check_CaughtWasThrown_NonTypesystemRule extends AbstractNonTypesyst
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
     /*package*/ static final SConcept TryCatchStatement$x5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f383e6771L, "jetbrains.mps.baseLanguage.structure.TryCatchStatement");
-    /*package*/ static final SConcept TryWithResourcesStatement$80 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryWithResourcesStatement");
+    /*package*/ static final SConcept TryUniversalStatement$80 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryUniversalStatement");
     /*package*/ static final SConcept TryFinallyStatement$Vw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, "jetbrains.mps.baseLanguage.structure.TryFinallyStatement");
     /*package*/ static final SConcept AbstractCatchClause$ZI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2aefd560f43fe1c1L, "jetbrains.mps.baseLanguage.structure.AbstractCatchClause");
   }
@@ -152,7 +152,8 @@ public class check_CaughtWasThrown_NonTypesystemRule extends AbstractNonTypesyst
   private static final class LINKS {
     /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
     /*package*/ static final SContainmentLink body$9KDK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f383e6771L, 0x10f383e83d4L, "body");
-    /*package*/ static final SContainmentLink body$TQ1f = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10cacec83aeL, "body");
+    /*package*/ static final SContainmentLink body$4P0u = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb114L, "body");
     /*package*/ static final SContainmentLink resource$nWfw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x4a434b86a54515feL, "resource");
+    /*package*/ static final SContainmentLink body$TQ1f = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10cacec83aeL, "body");
   }
 }

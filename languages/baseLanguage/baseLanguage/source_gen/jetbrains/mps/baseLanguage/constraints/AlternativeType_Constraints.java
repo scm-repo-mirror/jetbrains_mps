@@ -38,7 +38,7 @@ public class AlternativeType_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return Objects.equals(link, LINKS.type$pLrO) && SNodeOperations.isInstanceOf(parentNode, CONCEPTS.CatchVariable$6W) && SNodeOperations.hasRole(parentNode, LINKS.throwable$5XW_) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentNode), CONCEPTS.MultipleCatchClause$U5);
+    return Objects.equals(link, LINKS.type$pLrO) && SNodeOperations.isInstanceOf(parentNode, CONCEPTS.CatchVariable$6W) && SNodeOperations.hasRole(parentNode, LINKS.throwable$pijh) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentNode), CONCEPTS.MultipleCatchClause$U5);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "8118189177080279029");
 
@@ -50,6 +50,6 @@ public class AlternativeType_Constraints extends BaseConstraintsDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
-    /*package*/ static final SContainmentLink throwable$5XW_ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f39a56e2fL, 0x10f39a6a2f1L, "throwable");
+    /*package*/ static final SContainmentLink throwable$pijh = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2aefd560f401b9c6L, 0x72ddc71311eda6f4L, "throwable");
   }
 }

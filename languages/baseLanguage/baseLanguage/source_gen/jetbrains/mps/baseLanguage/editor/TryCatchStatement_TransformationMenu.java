@@ -77,7 +77,7 @@ public class TryCatchStatement_TransformationMenu extends TransformationMenuBase
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
       context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "named transformation menu " + "tryCatch_TryCatchStatement", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586945991")));
+      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "named transformation menu " + "tryCatch_TryCatchStatement_DEPRECATED", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586945991")));
       try {
         return super.createItems(context);
       } finally {
@@ -91,7 +91,7 @@ public class TryCatchStatement_TransformationMenu extends TransformationMenuBase
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.tryCatch_TryCatchStatement");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.tryCatch_TryCatchStatement_DEPRECATED");
     }
 
   }
@@ -100,7 +100,7 @@ public class TryCatchStatement_TransformationMenu extends TransformationMenuBase
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
       context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "named transformation menu " + "convertToTry_TryCatchStatement", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586946612")));
+      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "named transformation menu " + "convertToTry_TryCatchStatement_DEPRECATED", new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "1741258697586946612")));
       try {
         return super.createItems(context);
       } finally {
@@ -114,7 +114,7 @@ public class TryCatchStatement_TransformationMenu extends TransformationMenuBase
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.convertToTry_TryCatchStatement");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.convertToTry_TryCatchStatement_DEPRECATED");
     }
 
   }

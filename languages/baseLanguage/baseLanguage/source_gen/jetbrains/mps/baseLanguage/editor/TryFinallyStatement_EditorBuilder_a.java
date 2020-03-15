@@ -157,7 +157,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.MATCHING_LABEL, "try");
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
-    TryStatement_DeleteBodyEndingBrace.setCellActions(editorCell, myNode, getEditorContext());
+    TryStatement_DeleteBodyEndingBrace_DEPRECATED.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.TryFinallyStatement$Vw));
     editorCell.setDefaultText("");
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
@@ -233,7 +233,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createCollection_1() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
     editorCell.setCellId("finally");
-    TryStatement_FinallyBlock_Actions.setCellActions(editorCell, myNode, getEditorContext());
+    TryStatement_FinallyBlock_Actions_DEPRECATED.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_4());
     editorCell.addEditorCell(createConstant_5());
     editorCell.addEditorCell(createRefNode_1());
@@ -247,7 +247,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     new KeyWordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
     editorCell.getStyle().putAll(style);
-    TryStatement_FinallyBlock_Actions.setCellActions(editorCell, myNode, getEditorContext());
+    TryStatement_FinallyBlock_Actions_DEPRECATED.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");
     return editorCell;
   }
@@ -259,7 +259,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.MATCHING_LABEL, "finally");
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
-    TryStatement_FinallyBlock_Actions.setCellActions(editorCell, myNode, getEditorContext());
+    TryStatement_FinallyBlock_Actions_DEPRECATED.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");
     return editorCell;
   }
@@ -330,7 +330,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.MATCHING_LABEL, "finally");
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
-    TryStatement_FinallyBlock_Actions.setCellActions(editorCell, myNode, getEditorContext());
+    TryStatement_FinallyBlock_Actions_DEPRECATED.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setDefaultText("");
     return editorCell;
   }

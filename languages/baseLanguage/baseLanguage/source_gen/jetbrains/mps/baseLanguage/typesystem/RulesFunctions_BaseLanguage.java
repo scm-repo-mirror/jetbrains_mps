@@ -568,7 +568,7 @@ __switch__:
     List<SNode> ancSLs = SNodeOperations.getNodeAncestors(mainNode, CONCEPTS.StatementList$TN, false);
     boolean useQuickfix = false;
     boolean supportsCheckedExceptions = true;
-    for (SNode anc : SNodeOperations.getNodeAncestorsWhereConceptInList(mainNode, new SAbstractConcept[]{CONCEPTS.TryFinallyStatement$Vw, CONCEPTS.TryCatchStatement$x5, CONCEPTS.IStatementListContainer$4L}, false)) {
+    for (SNode anc : SNodeOperations.getNodeAncestorsWhereConceptInList(mainNode, new SAbstractConcept[]{CONCEPTS.TryFinallyStatement$Vw, CONCEPTS.TryCatchStatement$x5, CONCEPTS.TryUniversalStatement$80, CONCEPTS.IStatementListContainer$4L}, false)) {
       if (ListSequence.fromList(throwTypes).isEmpty()) {
         return;
       }
@@ -579,16 +579,16 @@ __switch__:
           {
             SNode matchingNode_5ahx9e_a1a6a91 = anc;
             if (matchingNode_5ahx9e_a1a6a91 != null) {
-              matches_5ahx9e_a1a6a91 = matchingNode_5ahx9e_a1a6a91.getConcept().isSubConceptOf(CONCEPTS.TryWithResourcesStatement$80);
+              matches_5ahx9e_a1a6a91 = matchingNode_5ahx9e_a1a6a91.getConcept().isSubConceptOf(CONCEPTS.TryUniversalStatement$80);
             }
           }
           if (matches_5ahx9e_a1a6a91) {
-            if (ListSequence.fromList(ancSLs).contains(SLinkOperations.getTarget(matchedNode_5ahx9e_b0g0t, LINKS.body$TQ1f)) || ListSequence.fromList(SNodeOperations.getNodeAncestors(mainNode, CONCEPTS.ResourceVariable$QC, true)).any(new IWhereFilter<SNode>() {
+            if (ListSequence.fromList(ancSLs).contains(SLinkOperations.getTarget(matchedNode_5ahx9e_b0g0t, LINKS.body$4P0u)) || ListSequence.fromList(SNodeOperations.getNodeAncestors(mainNode, CONCEPTS.ResourceVariable$QC, true)).any(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return SNodeOperations.getParent(it) == matchedNode_5ahx9e_b0g0t;
               }
             })) {
-              for (final SNode caughtType : ListSequence.fromList(SLinkOperations.getChildren(matchedNode_5ahx9e_b0g0t, LINKS.catchClause$GIrD)).translate(new ITranslator2<SNode, SNode>() {
+              for (final SNode caughtType : ListSequence.fromList(SLinkOperations.getChildren(matchedNode_5ahx9e_b0g0t, LINKS.catchClause$4PbB)).translate(new ITranslator2<SNode, SNode>() {
                 public Iterable<SNode> translate(SNode it) {
                   return (List<SNode>) AbstractCatchClause__BehaviorDescriptor.getCaughtTypes_id2FJPm3OMxhX.invoke(it);
                 }
@@ -866,6 +866,8 @@ __switch__:
     /*package*/ static final SContainmentLink componentType$knmw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, 0x11c08f5f38cL, "componentType");
     /*package*/ static final SContainmentLink componentType$10w = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType");
     /*package*/ static final SContainmentLink staticInitializer$Oea4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x110ca5f7c5aL, "staticInitializer");
+    /*package*/ static final SContainmentLink catchClause$4PbB = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb116L, "catchClause");
+    /*package*/ static final SContainmentLink body$4P0u = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb114L, "body");
     /*package*/ static final SContainmentLink catchClause$GIrD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10f39abd97cL, "catchClause");
     /*package*/ static final SContainmentLink body$TQ1f = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, 0x10cacec83aeL, "body");
     /*package*/ static final SContainmentLink catchClause$jGNt = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f383e6771L, 0x10f39a8ba1fL, "catchClause");
@@ -898,7 +900,7 @@ __switch__:
     /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept TryFinallyStatement$Vw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cacebf556L, "jetbrains.mps.baseLanguage.structure.TryFinallyStatement");
     /*package*/ static final SConcept TryCatchStatement$x5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f383e6771L, "jetbrains.mps.baseLanguage.structure.TryCatchStatement");
-    /*package*/ static final SConcept TryWithResourcesStatement$80 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryWithResourcesStatement");
+    /*package*/ static final SConcept TryUniversalStatement$80 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryUniversalStatement");
     /*package*/ static final SConcept ResourceVariable$QC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a546561eL, "jetbrains.mps.baseLanguage.structure.ResourceVariable");
     /*package*/ static final SInterfaceConcept IMethodLike$kl = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
     /*package*/ static final SInterfaceConcept ITryCatchStatement$WV = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3399756d2c03d422L, "jetbrains.mps.baseLanguage.structure.ITryCatchStatement");

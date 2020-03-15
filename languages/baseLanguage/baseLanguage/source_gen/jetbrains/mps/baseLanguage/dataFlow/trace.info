@@ -20,7 +20,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="DataFlowAspectDescriptorImpl.java">
-      <unit at="17,0,173,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
+      <unit at="17,0,174,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206454554507">
@@ -1855,7 +1855,7 @@
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/5351203823917419908">
-    <file name="TryWithResourcesStatement_DataFlow.java">
+    <file name="TryUniversalStatement_DataFlow.java">
       <node id="5351203823917419910" at="16,60,17,133" concept="4" />
       <node id="348420060653816440" at="18,120,19,52" concept="4" />
       <node id="5252852921988984471" at="21,93,22,171" concept="4" />
@@ -1870,9 +1870,9 @@
       <node id="5252852921988984539" at="51,137,52,111" concept="4" />
       <node id="5351203823917419910" at="52,111,53,136" concept="4" />
       <node id="5351203823917419908" at="57,0,58,0" concept="13" trace="resource$nWfw" />
-      <node id="5351203823917419908" at="58,0,59,0" concept="13" trace="catchClause$GIrD" />
-      <node id="5351203823917419908" at="59,0,60,0" concept="13" trace="body$TQ1f" />
-      <node id="5351203823917419908" at="60,0,61,0" concept="13" trace="finallyBody$LPze" />
+      <node id="5351203823917419908" at="58,0,59,0" concept="13" trace="catchClause$4PbB" />
+      <node id="5351203823917419908" at="59,0,60,0" concept="13" trace="body$4P0u" />
+      <node id="5351203823917419908" at="60,0,61,0" concept="13" trace="finallyBody$4P0X" />
       <node id="348420060653816434" at="17,133,20,5" concept="6" />
       <node id="5252852921988984469" at="20,5,23,5" concept="6" />
       <node id="5252852921988984485" at="25,148,28,7" concept="7" />
@@ -1917,11 +1917,11 @@
       <scope id="5351203823917419908" at="16,0,55,0">
         <var name="_context" id="5351203823917419908" />
       </scope>
-      <unit id="5252852921988984503" at="30,55,34,9" name="jetbrains.mps.baseLanguage.dataFlow.TryWithResourcesStatement_DataFlow$1" />
-      <unit id="5252852921988984522" at="37,51,41,5" name="jetbrains.mps.baseLanguage.dataFlow.TryWithResourcesStatement_DataFlow$2" />
-      <unit id="5252852921988984529" at="44,53,48,7" name="jetbrains.mps.baseLanguage.dataFlow.TryWithResourcesStatement_DataFlow$3" />
-      <unit id="5351203823917419908" at="56,0,62,0" name="jetbrains.mps.baseLanguage.dataFlow.TryWithResourcesStatement_DataFlow$LINKS" />
-      <unit id="5351203823917419908" at="15,0,63,0" name="jetbrains.mps.baseLanguage.dataFlow.TryWithResourcesStatement_DataFlow" />
+      <unit id="5252852921988984503" at="30,55,34,9" name="jetbrains.mps.baseLanguage.dataFlow.TryUniversalStatement_DataFlow$1" />
+      <unit id="5252852921988984522" at="37,51,41,5" name="jetbrains.mps.baseLanguage.dataFlow.TryUniversalStatement_DataFlow$2" />
+      <unit id="5252852921988984529" at="44,53,48,7" name="jetbrains.mps.baseLanguage.dataFlow.TryUniversalStatement_DataFlow$3" />
+      <unit id="5351203823917419908" at="56,0,62,0" name="jetbrains.mps.baseLanguage.dataFlow.TryUniversalStatement_DataFlow$LINKS" />
+      <unit id="5351203823917419908" at="15,0,63,0" name="jetbrains.mps.baseLanguage.dataFlow.TryUniversalStatement_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/5730083271929368106">
@@ -2061,6 +2061,10 @@
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/6868777471677432036">
+    <file name="DataFlowAspectDescriptorImpl.java">
+      <node id="6868777471677432036" at="22,58,23,351" concept="10" />
+      <scope id="6868777471677432036" at="22,58,23,351" />
+    </file>
     <file name="NullableAnalyzerRunner.java">
       <node id="6868777471677432036" at="30,0,31,0" concept="5" trace="myNode" />
       <node id="6868777471677432036" at="31,45,32,80" concept="16" />
@@ -3022,6 +3026,21 @@
       <unit id="8142618655170135552" at="35,0,38,0" name="jetbrains.mps.baseLanguage.dataFlow.StubStatementList_DataFlow$LINKS" />
       <unit id="8142618655170135552" at="30,0,34,0" name="jetbrains.mps.baseLanguage.dataFlow.StubStatementList_DataFlow$CONCEPTS" />
       <unit id="8142618655170135552" at="16,0,39,0" name="jetbrains.mps.baseLanguage.dataFlow.StubStatementList_DataFlow" />
+    </file>
+  </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/8276990574895944461">
+    <file name="MultipleCatchClause_DataFlow.java">
+      <node id="8276990574895944485" at="13,60,14,204" concept="4" />
+      <node id="8276990574895944489" at="14,204,15,109" concept="4" />
+      <node id="8276990574895944461" at="19,0,20,0" concept="13" trace="throwable$pijh" />
+      <node id="8276990574895944461" at="20,0,21,0" concept="13" trace="catchBody$pijK" />
+      <node id="8276990574895944461" at="13,0,17,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="8276990574895944463" at="13,60,15,109" />
+      <scope id="8276990574895944461" at="13,0,17,0">
+        <var name="_context" id="8276990574895944461" />
+      </scope>
+      <unit id="8276990574895944461" at="18,0,22,0" name="jetbrains.mps.baseLanguage.dataFlow.MultipleCatchClause_DataFlow$LINKS" />
+      <unit id="8276990574895944461" at="12,0,23,0" name="jetbrains.mps.baseLanguage.dataFlow.MultipleCatchClause_DataFlow" />
     </file>
   </root>
 </debug-info>

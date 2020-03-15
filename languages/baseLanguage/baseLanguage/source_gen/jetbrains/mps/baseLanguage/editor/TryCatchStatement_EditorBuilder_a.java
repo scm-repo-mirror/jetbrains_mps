@@ -224,7 +224,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     private EditorCell createError_0() {
       EditorCell_Error editorCell = new EditorCell_Error(getEditorContext(), myNode, "<catch>");
       editorCell.setCellId("Error_k2ibe6_a4a");
-      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.addClause"));
+      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.TryCatchStatement$x5, "jetbrains.mps.baseLanguage.editor.addClause_DEPRECATED"));
       editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
       return editorCell;
     }

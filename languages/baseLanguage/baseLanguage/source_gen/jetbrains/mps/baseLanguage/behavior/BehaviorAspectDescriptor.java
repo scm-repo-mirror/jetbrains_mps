@@ -207,7 +207,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myIWillBeClassifier__BehaviorDescriptor = new IWillBeClassifier__BehaviorDescriptor();
   private final BHDescriptor myDefaultModifier__BehaviorDescriptor = new DefaultModifier__BehaviorDescriptor();
   private final BHDescriptor myFloatingPointFloatConstant__BehaviorDescriptor = new FloatingPointFloatConstant__BehaviorDescriptor();
-  private final BHDescriptor myTryWithResourcesStatement__BehaviorDescriptor = new TryWithResourcesStatement__BehaviorDescriptor();
+  private final BHDescriptor myTryUniversalStatement__BehaviorDescriptor = new TryUniversalStatement__BehaviorDescriptor();
   private final BHDescriptor myResourceVariable__BehaviorDescriptor = new ResourceVariable__BehaviorDescriptor();
   private final BHDescriptor myLocalPropertyReference__BehaviorDescriptor = new LocalPropertyReference__BehaviorDescriptor();
   private final BHDescriptor myGenericLValueExpression__BehaviorDescriptor = new GenericLValueExpression__BehaviorDescriptor();
@@ -629,7 +629,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 195:
         return myTryFinallyStatement__BehaviorDescriptor;
       case 196:
-        return myTryWithResourcesStatement__BehaviorDescriptor;
+        return myTryUniversalStatement__BehaviorDescriptor;
       case 197:
         return myType__BehaviorDescriptor;
       case 198:

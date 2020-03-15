@@ -2056,7 +2056,7 @@
       <node id="1176896711973" at="40,0,43,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="1176896711973" at="43,0,46,0" concept="11" trace="overrides#()Z" />
       <node id="1176896807264" at="27,63,32,11" concept="1" />
-      <node id="1176896807264" at="26,67,33,9" concept="10" />
+      <node id="1176896807264" at="26,89,33,9" concept="10" />
       <node id="1196777955040" at="46,0,53,0" concept="17" trace="_quotation_createNode_x2lca0_a1a0c0a0a0a0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="8118189177079410585" at="25,150,34,7" concept="10" />
       <node id="8118189177078552560" at="24,132,35,5" concept="9" />
@@ -2080,7 +2080,7 @@
         <var name="facade" id="1196777955040" />
         <var name="quotedNode_1" id="1196777955040" />
       </scope>
-      <scope id="8118189177079410587" at="26,67,33,9" />
+      <scope id="8118189177079410587" at="26,89,33,9" />
       <scope id="1196777955040" at="46,0,53,0" />
       <scope id="8118189177078552566" at="25,150,34,7" />
       <scope id="1176896711974" at="24,132,35,5" />
@@ -2357,7 +2357,7 @@
       <node id="4460871289557451558" at="575,7,576,51" concept="12" />
       <node id="348420060658217612" at="577,9,578,49" concept="12" />
       <node id="348420060658217612" at="579,11,580,52" concept="12" />
-      <node id="348420060658217612" at="581,54,582,134" concept="6" />
+      <node id="348420060658217612" at="581,54,582,130" concept="6" />
       <node id="348420060658477502" at="587,47,588,81" concept="13" />
       <node id="348420060658217640" at="592,60,593,119" concept="13" />
       <node id="348420060658217625" at="597,51,598,89" concept="13" />
@@ -2481,48 +2481,50 @@
       <node id="1176897069499" at="866,0,867,0" concept="16" trace="componentType$knmw" />
       <node id="1176897069499" at="867,0,868,0" concept="16" trace="componentType$10w" />
       <node id="1176897069499" at="868,0,869,0" concept="16" trace="staticInitializer$Oea4" />
-      <node id="1176897069499" at="869,0,870,0" concept="16" trace="catchClause$GIrD" />
-      <node id="1176897069499" at="870,0,871,0" concept="16" trace="body$TQ1f" />
-      <node id="1176897069499" at="871,0,872,0" concept="16" trace="catchClause$jGNt" />
-      <node id="1176897069499" at="872,0,873,0" concept="16" trace="body$9KDK" />
-      <node id="1176897069499" at="873,0,874,0" concept="16" trace="variableDeclaration$2ky6" />
-      <node id="1176897069499" at="874,0,875,0" concept="16" trace="operation$X4R8" />
-      <node id="1176897069499" at="875,0,876,0" concept="16" trace="fieldDeclaration$mLBy" />
-      <node id="1176897069499" at="876,0,877,0" concept="16" trace="operand$Lcrr" />
-      <node id="1176897069499" at="877,0,878,0" concept="16" trace="property$KTS0" />
-      <node id="1176897069499" at="878,0,879,0" concept="16" trace="property$64$K" />
-      <node id="1176897069499" at="882,0,883,0" concept="16" trace="ReturnStatement$SF" />
-      <node id="1176897069499" at="883,0,884,0" concept="16" trace="AnonymousClass$aF" />
-      <node id="1176897069499" at="884,0,885,0" concept="16" trace="SingleLineComment$jI" />
-      <node id="1176897069499" at="885,0,886,0" concept="16" trace="ConceptFunction$Tt" />
-      <node id="1176897069499" at="886,0,887,0" concept="16" trace="IStatementListContainer$4L" />
-      <node id="1176897069499" at="887,0,888,0" concept="16" trace="Quotation$UL" />
-      <node id="1176897069499" at="888,0,889,0" concept="16" trace="Classifier$hJ" />
-      <node id="1176897069499" at="889,0,890,0" concept="16" trace="ClassifierType$IZ" />
-      <node id="1176897069499" at="890,0,891,0" concept="16" trace="VariableArityType$jT" />
-      <node id="1176897069499" at="891,0,892,0" concept="16" trace="ArrayType$Yv" />
-      <node id="1176897069499" at="892,0,893,0" concept="16" trace="TypeVariableReference$vZ" />
-      <node id="1176897069499" at="893,0,894,0" concept="16" trace="FieldDeclaration$Ps" />
-      <node id="1176897069499" at="894,0,895,0" concept="16" trace="StaticFieldDeclaration$R5" />
-      <node id="1176897069499" at="895,0,896,0" concept="16" trace="BaseMethodDeclaration$RR" />
-      <node id="1176897069499" at="896,0,897,0" concept="16" trace="StaticMethodDeclaration$eX" />
-      <node id="1176897069499" at="897,0,898,0" concept="16" trace="StatementList$TN" />
-      <node id="1176897069499" at="898,0,899,0" concept="16" trace="ClassConcept$IY" />
-      <node id="1176897069499" at="899,0,900,0" concept="16" trace="TryFinallyStatement$Vw" />
-      <node id="1176897069499" at="900,0,901,0" concept="16" trace="TryCatchStatement$x5" />
-      <node id="1176897069499" at="901,0,902,0" concept="16" trace="TryWithResourcesStatement$80" />
-      <node id="1176897069499" at="902,0,903,0" concept="16" trace="ResourceVariable$QC" />
-      <node id="1176897069499" at="903,0,904,0" concept="16" trace="IMethodLike$kl" />
-      <node id="1176897069499" at="904,0,905,0" concept="16" trace="ITryCatchStatement$WV" />
-      <node id="1176897069499" at="905,0,906,0" concept="16" trace="Interface$Kp" />
-      <node id="1176897069499" at="906,0,907,0" concept="16" trace="VariableReference$sQ" />
-      <node id="1176897069499" at="907,0,908,0" concept="16" trace="DotExpression$6a" />
-      <node id="1176897069499" at="908,0,909,0" concept="16" trace="FieldReferenceOperation$N8" />
-      <node id="1176897069499" at="909,0,910,0" concept="16" trace="ThisExpression$7A" />
-      <node id="1176897069499" at="910,0,911,0" concept="16" trace="LocalPropertyReference$4g" />
-      <node id="1176897069499" at="911,0,912,0" concept="16" trace="PropertyReference$OZ" />
-      <node id="1176897069499" at="912,0,913,0" concept="16" trace="NullLiteral$q4" />
-      <node id="1176897069499" at="916,0,917,0" concept="16" trace="name$tAp1" />
+      <node id="1176897069499" at="869,0,870,0" concept="16" trace="catchClause$4PbB" />
+      <node id="1176897069499" at="870,0,871,0" concept="16" trace="body$4P0u" />
+      <node id="1176897069499" at="871,0,872,0" concept="16" trace="catchClause$GIrD" />
+      <node id="1176897069499" at="872,0,873,0" concept="16" trace="body$TQ1f" />
+      <node id="1176897069499" at="873,0,874,0" concept="16" trace="catchClause$jGNt" />
+      <node id="1176897069499" at="874,0,875,0" concept="16" trace="body$9KDK" />
+      <node id="1176897069499" at="875,0,876,0" concept="16" trace="variableDeclaration$2ky6" />
+      <node id="1176897069499" at="876,0,877,0" concept="16" trace="operation$X4R8" />
+      <node id="1176897069499" at="877,0,878,0" concept="16" trace="fieldDeclaration$mLBy" />
+      <node id="1176897069499" at="878,0,879,0" concept="16" trace="operand$Lcrr" />
+      <node id="1176897069499" at="879,0,880,0" concept="16" trace="property$KTS0" />
+      <node id="1176897069499" at="880,0,881,0" concept="16" trace="property$64$K" />
+      <node id="1176897069499" at="884,0,885,0" concept="16" trace="ReturnStatement$SF" />
+      <node id="1176897069499" at="885,0,886,0" concept="16" trace="AnonymousClass$aF" />
+      <node id="1176897069499" at="886,0,887,0" concept="16" trace="SingleLineComment$jI" />
+      <node id="1176897069499" at="887,0,888,0" concept="16" trace="ConceptFunction$Tt" />
+      <node id="1176897069499" at="888,0,889,0" concept="16" trace="IStatementListContainer$4L" />
+      <node id="1176897069499" at="889,0,890,0" concept="16" trace="Quotation$UL" />
+      <node id="1176897069499" at="890,0,891,0" concept="16" trace="Classifier$hJ" />
+      <node id="1176897069499" at="891,0,892,0" concept="16" trace="ClassifierType$IZ" />
+      <node id="1176897069499" at="892,0,893,0" concept="16" trace="VariableArityType$jT" />
+      <node id="1176897069499" at="893,0,894,0" concept="16" trace="ArrayType$Yv" />
+      <node id="1176897069499" at="894,0,895,0" concept="16" trace="TypeVariableReference$vZ" />
+      <node id="1176897069499" at="895,0,896,0" concept="16" trace="FieldDeclaration$Ps" />
+      <node id="1176897069499" at="896,0,897,0" concept="16" trace="StaticFieldDeclaration$R5" />
+      <node id="1176897069499" at="897,0,898,0" concept="16" trace="BaseMethodDeclaration$RR" />
+      <node id="1176897069499" at="898,0,899,0" concept="16" trace="StaticMethodDeclaration$eX" />
+      <node id="1176897069499" at="899,0,900,0" concept="16" trace="StatementList$TN" />
+      <node id="1176897069499" at="900,0,901,0" concept="16" trace="ClassConcept$IY" />
+      <node id="1176897069499" at="901,0,902,0" concept="16" trace="TryFinallyStatement$Vw" />
+      <node id="1176897069499" at="902,0,903,0" concept="16" trace="TryCatchStatement$x5" />
+      <node id="1176897069499" at="903,0,904,0" concept="16" trace="TryUniversalStatement$80" />
+      <node id="1176897069499" at="904,0,905,0" concept="16" trace="ResourceVariable$QC" />
+      <node id="1176897069499" at="905,0,906,0" concept="16" trace="IMethodLike$kl" />
+      <node id="1176897069499" at="906,0,907,0" concept="16" trace="ITryCatchStatement$WV" />
+      <node id="1176897069499" at="907,0,908,0" concept="16" trace="Interface$Kp" />
+      <node id="1176897069499" at="908,0,909,0" concept="16" trace="VariableReference$sQ" />
+      <node id="1176897069499" at="909,0,910,0" concept="16" trace="DotExpression$6a" />
+      <node id="1176897069499" at="910,0,911,0" concept="16" trace="FieldReferenceOperation$N8" />
+      <node id="1176897069499" at="911,0,912,0" concept="16" trace="ThisExpression$7A" />
+      <node id="1176897069499" at="912,0,913,0" concept="16" trace="LocalPropertyReference$4g" />
+      <node id="1176897069499" at="913,0,914,0" concept="16" trace="PropertyReference$OZ" />
+      <node id="1176897069499" at="914,0,915,0" concept="16" trace="NullLiteral$q4" />
+      <node id="1176897069499" at="918,0,919,0" concept="16" trace="name$tAp1" />
       <node id="7152041109751866370" at="54,0,56,0" concept="3" trace="RulesFunctions_BaseLanguage#()V" />
       <node id="1203439621022" at="459,10,461,5" concept="1" />
       <node id="968206336460282393" at="735,12,737,7" concept="1" />
@@ -2542,7 +2544,7 @@
       <node id="3115327157609989920" at="539,7,542,7" concept="10" />
       <node id="4460871289557451587" at="561,0,564,0" concept="11" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="4460871289557453802" at="564,7,567,5" concept="10" />
-      <node id="4460871289557451497" at="571,216,574,7" concept="10" />
+      <node id="4460871289557451497" at="571,251,574,7" concept="10" />
       <node id="348420060658217612" at="580,52,583,13" concept="10" />
       <node id="348420060658474782" at="587,0,590,0" concept="11" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="348420060658217638" at="592,0,595,0" concept="11" trace="translate#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
@@ -2748,7 +2750,7 @@
       <scope id="4460871289557451588" at="561,39,562,212" />
       <scope id="4460871289557453803" at="565,54,566,13" />
       <scope id="4460871289557451498" at="572,56,573,15" />
-      <scope id="348420060658217612" at="581,54,582,134" />
+      <scope id="348420060658217612" at="581,54,582,130" />
       <scope id="348420060658474783" at="587,47,588,81" />
       <scope id="348420060658217639" at="592,60,593,119" />
       <scope id="348420060658217624" at="597,51,598,89" />
@@ -3342,7 +3344,7 @@
       <scope id="1203441237750" at="281,173,385,5">
         <var name="parameterDeclarations" id="1219946893022" />
       </scope>
-      <scope id="4460871289557451534" at="571,216,675,7" />
+      <scope id="4460871289557451534" at="571,251,675,7" />
       <scope id="4460871289557451533" at="570,45,676,5">
         <var name="anc" id="4460871289557451535" />
       </scope>
@@ -3364,7 +3366,7 @@
         <var name="throwables" id="1210182111348" />
         <var name="typeCheckingContext" id="1210182111329" />
       </scope>
-      <unit id="1176897069499" at="915,0,918,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$PROPS" />
+      <unit id="1176897069499" at="917,0,920,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$PROPS" />
       <unit id="4460871289557451587" at="560,54,564,5" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$4" />
       <unit id="348420060658474782" at="586,238,590,13" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$7" />
       <unit id="348420060658217638" at="591,159,595,15" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$6" />
@@ -3376,12 +3378,12 @@
       <unit id="4460871289557453764" at="657,74,661,25" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$12" />
       <unit id="5380162141339274295" at="395,49,403,7" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$3" />
       <unit id="1220347102532" at="341,67,355,19" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$2" />
-      <unit id="1176897069499" at="853,0,880,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$LINKS" />
-      <unit id="1176897069499" at="881,0,914,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$CONCEPTS" />
+      <unit id="1176897069499" at="853,0,882,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$LINKS" />
+      <unit id="1176897069499" at="883,0,916,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$CONCEPTS" />
       <unit id="1227876792379" at="87,23,167,13" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$1$1$1" />
       <unit id="1227876792379" at="85,19,169,9" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$1$1" />
       <unit id="1227876792379" at="83,110,171,5" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage$1" />
-      <unit id="1176897069499" at="53,0,919,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage" />
+      <unit id="1176897069499" at="53,0,921,0" name="jetbrains.mps.baseLanguage.typesystem.RulesFunctions_BaseLanguage" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/1176897875482">
@@ -19061,7 +19063,7 @@
       <node id="8512491756795014495" at="59,46,60,192" concept="6" />
       <node id="348420060656795580" at="61,22,62,58" concept="12" />
       <node id="348420060656795580" at="63,17,64,96" concept="12" />
-      <node id="348420060656795580" at="65,63,66,146" concept="6" />
+      <node id="348420060656795580" at="65,63,66,142" concept="6" />
       <node id="348420060656891533" at="69,48,70,247" concept="6" />
       <node id="348420060656862647" at="72,64,73,77" concept="13" />
       <node id="8512491756795014504" at="76,24,77,60" concept="12" />
@@ -19097,13 +19099,14 @@
       <node id="2248407684786392198" at="140,199,141,24" concept="13" />
       <node id="3759381730162150198" at="145,0,146,0" concept="16" trace="ClassifierType$IZ" />
       <node id="3759381730162150198" at="146,0,147,0" concept="16" trace="TryCatchStatement$x5" />
-      <node id="3759381730162150198" at="147,0,148,0" concept="16" trace="TryWithResourcesStatement$80" />
+      <node id="3759381730162150198" at="147,0,148,0" concept="16" trace="TryUniversalStatement$80" />
       <node id="3759381730162150198" at="148,0,149,0" concept="16" trace="TryFinallyStatement$Vw" />
       <node id="3759381730162150198" at="149,0,150,0" concept="16" trace="AbstractCatchClause$ZI" />
       <node id="3759381730162150198" at="153,0,154,0" concept="16" trace="classifier$pQ_R" />
       <node id="3759381730162150198" at="154,0,155,0" concept="16" trace="body$9KDK" />
-      <node id="3759381730162150198" at="155,0,156,0" concept="16" trace="body$TQ1f" />
+      <node id="3759381730162150198" at="155,0,156,0" concept="16" trace="body$4P0u" />
       <node id="3759381730162150198" at="156,0,157,0" concept="16" trace="resource$nWfw" />
+      <node id="3759381730162150198" at="157,0,158,0" concept="16" trace="body$TQ1f" />
       <node id="3759381730162150198" at="38,0,40,0" concept="3" trace="check_CaughtWasThrown_NonTypesystemRule#()V" />
       <node id="8512491756795014492" at="54,94,57,17" concept="10" />
       <node id="348420060656795580" at="64,96,67,19" concept="10" />
@@ -19139,7 +19142,7 @@
       <scope id="8512491756795014441" at="45,493,46,20" />
       <scope id="8512491756795014492" at="55,61,56,136" />
       <scope id="8512491756795014492" at="59,46,60,192" />
-      <scope id="348420060656795580" at="65,63,66,146" />
+      <scope id="348420060656795580" at="65,63,66,142" />
       <scope id="348420060656861240" at="72,64,73,77" />
       <scope id="8512491756795014504" at="80,65,81,142" />
       <scope id="8512491756795014504" at="84,50,85,196" />
@@ -19230,9 +19233,9 @@
       </scope>
       <unit id="348420060656861239" at="71,246,75,19" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule$1" />
       <unit id="8512491756795014532" at="92,52,96,11" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule$2" />
-      <unit id="3759381730162150198" at="152,0,158,0" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule$LINKS" />
       <unit id="3759381730162150198" at="144,0,151,0" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule$CONCEPTS" />
-      <unit id="3759381730162150198" at="37,0,159,0" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule" />
+      <unit id="3759381730162150198" at="152,0,159,0" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule$LINKS" />
+      <unit id="3759381730162150198" at="37,0,160,0" name="jetbrains.mps.baseLanguage.typesystem.check_CaughtWasThrown_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3791846458263577202">
@@ -25630,84 +25633,121 @@
       <node id="6468716278891286954" at="37,5,38,0" concept="15" />
       <node id="6468716278891285799" at="38,0,39,219" concept="12" />
       <node id="6468716278894209467" at="39,219,40,0" concept="15" />
-      <node id="6468716278891292385" at="40,0,41,78" concept="12" />
-      <node id="6468716278888169135" at="44,78,45,17" concept="13" />
-      <node id="6468716278894343938" at="46,9,47,0" concept="15" />
-      <node id="6468716278885843074" at="47,0,48,202" concept="12" />
-      <node id="6468716278885841418" at="48,202,49,245" concept="6" />
-      <node id="6468716278885853641" at="49,245,50,256" concept="6" />
-      <node id="6468716278885865851" at="50,256,51,183" concept="6" />
-      <node id="6468716278885901365" at="51,183,52,119" concept="6" />
-      <node id="6468716278891294107" at="52,119,53,63" concept="6" />
-      <node id="6468716278891287231" at="55,7,56,0" concept="15" />
-      <node id="6468716278892841102" at="56,0,57,0" concept="15" />
-      <node id="6468716278892862647" at="58,37,59,121" concept="6" />
-      <node id="6468716278891374470" at="60,92,61,200" concept="6" />
-      <node id="6468716278891444875" at="62,101,63,202" concept="6" />
-      <node id="6468716278885633131" at="65,12,66,212" concept="12" />
-      <node id="6468716278885543968" at="66,212,67,244" concept="6" />
-      <node id="6468716278885779789" at="67,244,68,79" concept="6" />
-      <node id="6468716278885695737" at="68,79,69,172" concept="6" />
-      <node id="6468716278885786073" at="69,172,70,144" concept="6" />
-      <node id="6468716278885421770" at="75,0,76,0" concept="16" trace="Statement$ok" />
-      <node id="6468716278885421770" at="76,0,77,0" concept="16" trace="ITryCatchStatement$WV" />
-      <node id="6468716278885421770" at="77,0,78,0" concept="16" trace="ClassifierType$IZ" />
-      <node id="6468716278885421770" at="78,0,79,0" concept="16" trace="Type$IG" />
-      <node id="6468716278885421770" at="79,0,80,0" concept="16" trace="TryCatchStatement$x5" />
-      <node id="6468716278885421770" at="80,0,81,0" concept="16" trace="TryFinallyStatement$Vw" />
-      <node id="6468716278885421770" at="84,0,85,0" concept="16" trace="catchBody$5XX4" />
-      <node id="6468716278885421770" at="85,0,86,0" concept="16" trace="throwable$5XW_" />
-      <node id="6468716278885421770" at="86,0,87,0" concept="16" trace="type$pLrO" />
-      <node id="6468716278885421770" at="87,0,88,0" concept="16" trace="catchClause$jGNt" />
-      <node id="6468716278885421770" at="88,0,89,0" concept="16" trace="catchClause$GIrD" />
-      <node id="6468716278885421770" at="89,0,90,0" concept="16" trace="body$9KDK" />
-      <node id="6468716278885421770" at="90,0,91,0" concept="16" trace="statement$WHn8" />
-      <node id="6468716278885421770" at="94,0,95,0" concept="16" trace="name$tAp1" />
+      <node id="6468716278885843074" at="42,37,43,202" concept="12" />
+      <node id="6468716278885841418" at="43,202,44,245" concept="6" />
+      <node id="6468716278885853641" at="44,245,45,256" concept="6" />
+      <node id="6468716278885865851" at="45,256,46,183" concept="6" />
+      <node id="6468716278885901365" at="46,183,47,119" concept="6" />
+      <node id="1589331134356102629" at="47,119,48,27" concept="13" />
+      <node id="6468716278892841102" at="50,24,51,0" concept="15" />
+      <node id="6468716278891374470" at="53,92,54,200" concept="6" />
+      <node id="6468716278891444875" at="55,101,56,202" concept="6" />
+      <node id="1589331134357102811" at="59,41,60,99" concept="13" />
+      <node id="6468716278885633131" at="64,12,65,212" concept="12" />
+      <node id="6468716278885543968" at="65,212,66,244" concept="6" />
+      <node id="6468716278885779789" at="66,244,67,79" concept="6" />
+      <node id="6468716278885695737" at="67,79,68,172" concept="6" />
+      <node id="6468716278885786073" at="68,172,69,144" concept="6" />
+      <node id="1589331134356404095" at="72,84,73,79" concept="12" />
+      <node id="1589331134356404095" at="73,79,74,70" concept="6" />
+      <node id="1589331134356404095" at="75,5,76,90" concept="12" />
+      <node id="1589331134356404095" at="77,7,78,89" concept="12" />
+      <node id="1589331134356404095" at="79,9,80,98" concept="12" />
+      <node id="1589331134356404095" at="82,7,83,43" concept="6" />
+      <node id="1589331134356404095" at="84,5,85,26" concept="13" />
+      <node id="6468716278885421770" at="89,0,90,0" concept="16" trace="Statement$ok" />
+      <node id="6468716278885421770" at="90,0,91,0" concept="16" trace="ITryCatchStatement$WV" />
+      <node id="6468716278885421770" at="91,0,92,0" concept="16" trace="ClassifierType$IZ" />
+      <node id="6468716278885421770" at="92,0,93,0" concept="16" trace="Type$IG" />
+      <node id="6468716278885421770" at="93,0,94,0" concept="16" trace="TryCatchStatement$x5" />
+      <node id="6468716278885421770" at="94,0,95,0" concept="16" trace="TryFinallyStatement$Vw" />
+      <node id="6468716278885421770" at="95,0,96,0" concept="16" trace="TryUniversalStatement$80" />
+      <node id="6468716278885421770" at="96,0,97,0" concept="16" trace="MultipleCatchClause$U5" />
+      <node id="6468716278885421770" at="97,0,98,0" concept="16" trace="StatementList$TN" />
+      <node id="6468716278885421770" at="98,0,99,0" concept="16" trace="CatchVariable$6W" />
+      <node id="6468716278885421770" at="99,0,100,0" concept="16" trace="AlternativeType$aM" />
+      <node id="6468716278885421770" at="103,0,104,0" concept="16" trace="catchBody$5XX4" />
+      <node id="6468716278885421770" at="104,0,105,0" concept="16" trace="throwable$5XW_" />
+      <node id="6468716278885421770" at="105,0,106,0" concept="16" trace="type$pLrO" />
+      <node id="6468716278885421770" at="106,0,107,0" concept="16" trace="catchClause$jGNt" />
+      <node id="6468716278885421770" at="107,0,108,0" concept="16" trace="catchClause$GIrD" />
+      <node id="6468716278885421770" at="108,0,109,0" concept="16" trace="catchClause$4PbB" />
+      <node id="6468716278885421770" at="109,0,110,0" concept="16" trace="body$9KDK" />
+      <node id="6468716278885421770" at="110,0,111,0" concept="16" trace="statement$WHn8" />
+      <node id="6468716278885421770" at="111,0,112,0" concept="16" trace="catchBody$pijK" />
+      <node id="6468716278885421770" at="112,0,113,0" concept="16" trace="throwable$pijh" />
+      <node id="6468716278885421770" at="113,0,114,0" concept="16" trace="classes$Fu70" />
+      <node id="6468716278885421770" at="117,0,118,0" concept="16" trace="name$tAp1" />
       <node id="6468716278885421770" at="24,0,27,0" concept="3" trace="SurroundExceptionWithTryCatch_QuickFix#()V" />
       <node id="6468716278885421770" at="27,0,30,0" concept="11" trace="getDescription#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
       <node id="6468716278885495297" at="30,35,33,5" concept="10" />
       <node id="6468716278885776765" at="34,105,37,5" concept="10" />
-      <node id="6468716278888169133" at="43,35,46,9" concept="10" />
-      <node id="6468716278891372802" at="59,121,64,7" concept="10" />
-      <node id="6468716278891286174" at="65,10,71,5" concept="1" />
-      <node id="6468716278888211849" at="43,0,55,0" concept="11" trace="visit#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="6468716278888197710" at="41,78,55,7" concept="6" />
-      <node id="6468716278891269806" at="57,0,71,5" concept="10" />
-      <node id="6468716278885421770" at="30,0,73,0" concept="11" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="1589331134356209348" at="59,0,62,0" concept="11" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1589331134356404095" at="78,89,81,9" concept="1" />
+      <node id="1589331134355762875" at="57,103,62,12" concept="6" />
+      <node id="6468716278891286174" at="64,10,70,5" concept="1" />
+      <node id="1589331134356404095" at="76,90,82,7" concept="1" />
+      <node id="1589331134355953456" at="42,0,50,0" concept="11" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6468716278891292385" at="40,0,50,24" concept="12" />
+      <node id="1589331134356404095" at="74,70,84,5" concept="1" />
+      <node id="6468716278891372802" at="52,37,63,7" concept="10" />
+      <node id="1589331134356404095" at="72,0,87,0" concept="17" trace="createMultipleCatchClause_fo535k_a0a0a0a0a0b0a8a2#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6468716278891269806" at="51,0,70,5" concept="10" />
+      <node id="6468716278885421770" at="30,0,72,0" concept="11" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <scope id="6468716278885421770" at="24,51,25,132" />
       <scope id="6468716278885473298" at="27,44,28,146" />
       <scope id="6468716278885495298" at="31,133,32,13" />
       <scope id="6468716278885776768" at="35,36,36,13" />
-      <scope id="6468716278888169134" at="44,78,45,17" />
-      <scope id="6468716278891372805" at="60,92,61,200" />
-      <scope id="6468716278891443063" at="62,101,63,202" />
+      <scope id="6468716278891372805" at="53,92,54,200" />
+      <scope id="6468716278891443063" at="55,101,56,202" />
+      <scope id="1589331134356209349" at="59,41,60,99" />
+      <scope id="1589331134356404095" at="79,9,80,98">
+        <var name="n3" id="1589331134356404095" />
+      </scope>
       <scope id="6468716278885421770" at="24,0,27,0" />
       <scope id="6468716278885421770" at="27,0,30,0">
         <var name="node" id="6468716278885421770" />
       </scope>
-      <scope id="6468716278891286175" at="65,12,70,144">
+      <scope id="1589331134356209348" at="59,0,62,0">
+        <var name="it" id="1589331134356209348" />
+      </scope>
+      <scope id="1589331134356404095" at="77,7,81,9">
+        <var name="n2" id="1589331134356404095" />
+      </scope>
+      <scope id="1589331134355757494" at="57,103,62,12" />
+      <scope id="6468716278891286175" at="64,12,69,144">
         <var name="tryCatchStatement" id="6468716278885633132" />
       </scope>
-      <scope id="6468716278891269809" at="58,37,64,7" />
-      <scope id="6468716278888211850" at="43,35,53,63">
+      <scope id="1589331134355953457" at="42,37,48,27">
         <var name="catchClause" id="6468716278885843075" />
       </scope>
-      <scope id="6468716278888211849" at="43,0,55,0">
-        <var name="it" id="6468716278888211849" />
+      <scope id="1589331134355953456" at="42,0,50,0">
+        <var name="it" id="1589331134355953456" />
       </scope>
-      <scope id="6468716278885421772" at="30,35,71,5">
+      <scope id="1589331134356404095" at="75,5,83,43">
+        <var name="n1" id="1589331134356404095" />
+      </scope>
+      <scope id="6468716278891269809" at="52,37,63,7" />
+      <scope id="1589331134356404095" at="72,84,85,26">
+        <var name="n0" id="1589331134356404095" />
+      </scope>
+      <scope id="1589331134356404095" at="72,0,87,0">
+        <var name="p0" id="1589331134356404095" />
+      </scope>
+      <scope id="6468716278885421772" at="30,35,70,5">
         <var name="ancestorStatement" id="6468716278885769157" />
         <var name="clauses" id="6468716278891292386" />
         <var name="parentTryStatement" id="6468716278891285800" />
       </scope>
-      <scope id="6468716278885421770" at="30,0,73,0">
+      <scope id="6468716278885421770" at="30,0,72,0">
         <var name="node" id="6468716278885421770" />
       </scope>
-      <unit id="6468716278885421770" at="93,0,96,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$PROPS" />
-      <unit id="6468716278885421770" at="74,0,82,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$CONCEPTS" />
-      <unit id="6468716278885421770" at="83,0,92,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$LINKS" />
-      <unit id="6468716278888211849" at="42,130,55,5" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$1" />
-      <unit id="6468716278885421770" at="23,0,97,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix" />
+      <unit id="6468716278885421770" at="116,0,119,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$PROPS" />
+      <unit id="1589331134356209348" at="58,351,62,9" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$2" />
+      <unit id="1589331134355953456" at="41,205,50,5" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$1" />
+      <unit id="6468716278885421770" at="88,0,101,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$CONCEPTS" />
+      <unit id="6468716278885421770" at="102,0,115,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix$LINKS" />
+      <unit id="6468716278885421770" at="23,0,120,0" name="jetbrains.mps.baseLanguage.typesystem.SurroundExceptionWithTryCatch_QuickFix" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/6468716278917629997">

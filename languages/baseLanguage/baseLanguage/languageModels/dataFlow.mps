@@ -7627,7 +7627,7 @@
   </node>
   <node concept="3_zdsH" id="4D3iSq_jOQ4">
     <property role="3GE5qa" value="control_flow.try_catch" />
-    <ref role="3_znuS" to="tpee:4D3iSq_hhnM" resolve="TryWithResourcesStatement" />
+    <ref role="3_znuS" to="tpee:4D3iSq_hhnM" resolve="TryUniversalStatement" />
     <node concept="3__wT9" id="4D3iSq_jOQ5" role="3_A6iZ">
       <node concept="3clFbS" id="4D3iSq_jOQ6" role="2VODD2">
         <node concept="4dLnG" id="4z_SuroxEUj" role="3cqZAp">
@@ -7662,8 +7662,8 @@
               </node>
               <node concept="2OqwBi" id="4z_SuroxEUq" role="1DdaDG">
                 <node concept="3__QtB" id="4z_SuroxEUr" role="2Oq$k0" />
-                <node concept="3Tsc0h" id="4z_SuroxEUs" role="2OqNvi">
-                  <ref role="3TtcxE" to="tpee:gWTEX_W" resolve="catchClause" />
+                <node concept="3Tsc0h" id="1oes3VXAhRk" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpee:7btLLchmV4m" resolve="catchClause" />
                 </node>
               </node>
               <node concept="3cpWsn" id="4z_SuroxEUt" role="1Duv9x">
@@ -7676,8 +7676,8 @@
             <node concept="3AgYrR" id="4z_SuroxEUv" role="3cqZAp">
               <node concept="2OqwBi" id="4z_SuroxEUw" role="3Ah4Yx">
                 <node concept="3__QtB" id="4z_SuroxEUx" role="2Oq$k0" />
-                <node concept="3TrEf2" id="4z_SuroxEUy" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tpee:gMGV8eI" resolve="body" />
+                <node concept="3TrEf2" id="1oes3VXAjLm" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:7btLLchmV4k" resolve="body" />
                 </node>
               </node>
             </node>
@@ -7745,8 +7745,8 @@
                     </node>
                     <node concept="2OqwBi" id="4z_SuroxEV1" role="37wK5m">
                       <node concept="3__QtB" id="4z_SuroxEV2" role="2Oq$k0" />
-                      <node concept="3Tsc0h" id="4z_SuroxEV3" role="2OqNvi">
-                        <ref role="3TtcxE" to="tpee:gWTEX_W" resolve="catchClause" />
+                      <node concept="3Tsc0h" id="1oes3VXAjQt" role="2OqNvi">
+                        <ref role="3TtcxE" to="tpee:7btLLchmV4m" resolve="catchClause" />
                       </node>
                     </node>
                   </node>
@@ -7760,8 +7760,8 @@
               <node concept="2_nv34" id="4z_SuroxEV6" role="1DdaDG">
                 <node concept="2OqwBi" id="4z_SuroxEV7" role="2_nv35">
                   <node concept="3__QtB" id="4z_SuroxEV8" role="2Oq$k0" />
-                  <node concept="3TrEf2" id="4z_SuroxEV9" role="2OqNvi">
-                    <ref role="3Tt5mk" to="tpee:gMGV8eI" resolve="body" />
+                  <node concept="3TrEf2" id="1oes3VXAjPI" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpee:7btLLchmV4k" resolve="body" />
                   </node>
                 </node>
               </node>
@@ -7790,8 +7790,8 @@
               </node>
               <node concept="2OqwBi" id="4z_SuroxEVk" role="1DdaDG">
                 <node concept="3__QtB" id="4z_SuroxEVl" role="2Oq$k0" />
-                <node concept="3Tsc0h" id="4z_SuroxEVm" role="2OqNvi">
-                  <ref role="3TtcxE" to="tpee:gWTEX_W" resolve="catchClause" />
+                <node concept="3Tsc0h" id="1oes3VXAl2d" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpee:7btLLchmV4m" resolve="catchClause" />
                 </node>
               </node>
               <node concept="3cpWsn" id="4z_SuroxEVn" role="1Duv9x">
@@ -7809,10 +7809,34 @@
             <node concept="3AgYrR" id="4z_SuroxEVr" role="3cqZAp">
               <node concept="2OqwBi" id="4z_SuroxEVs" role="3Ah4Yx">
                 <node concept="3__QtB" id="4z_SuroxEVt" role="2Oq$k0" />
-                <node concept="3TrEf2" id="4z_SuroxEVu" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tpee:gMGVbsj" resolve="finallyBody" />
+                <node concept="3TrEf2" id="1oes3VXAmZK" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:7btLLchmV4l" resolve="finallyBody" />
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3_zdsH" id="7btLLchVtcd">
+    <property role="3GE5qa" value="control_flow.try_catch" />
+    <ref role="3_znuS" to="tpee:2FJPm3O0rB6" resolve="MultipleCatchClause" />
+    <node concept="3__wT9" id="7btLLchVtce" role="3_A6iZ">
+      <node concept="3clFbS" id="7btLLchVtcf" role="2VODD2">
+        <node concept="3_FXB6" id="7btLLchVtc_" role="3cqZAp">
+          <node concept="2OqwBi" id="7btLLchVtcA" role="3_H1SZ">
+            <node concept="3__QtB" id="7btLLchVtcB" role="2Oq$k0" />
+            <node concept="3TrEf2" id="7btLLchVtcC" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpee:7btLLchVqrO" resolve="throwable" />
+            </node>
+          </node>
+        </node>
+        <node concept="3AgYrR" id="7btLLchVtcD" role="3cqZAp">
+          <node concept="2OqwBi" id="7btLLchVtcE" role="3Ah4Yx">
+            <node concept="3__QtB" id="7btLLchVtcF" role="2Oq$k0" />
+            <node concept="3TrEf2" id="7btLLchVtcG" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpee:7btLLchVqrP" resolve="catchBody" />
             </node>
           </node>
         </node>

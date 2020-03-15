@@ -7,8 +7,8 @@ import jetbrains.mps.openapi.actions.descriptor.ActionAspectDescriptor;
 import java.util.Collection;
 import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Arrays;
 import jetbrains.mps.openapi.actions.descriptor.CopyPreProcessor;
 import jetbrains.mps.openapi.actions.descriptor.PastePostProcessor;
 import jetbrains.mps.openapi.actions.descriptor.PasteWrapper;
@@ -19,72 +19,72 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
   @Override
   public Collection<NodeFactory> getFactories(SAbstractConcept concept) {
     if (LANGUAGE_FQ_NAME.equals(concept.getLanguage().getQualifiedName())) {
-      switch (Arrays.binarySearch(stringSwitchCases_tpto26_a0a0a0c, concept.getName())) {
-        case 0:
+      switch (concept.getName()) {
+        case "AbstractForStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_5649551303341182515());
-        case 1:
+        case "AdditionalForLoopVariable":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_2256531611052034561());
-        case 2:
+        case "AnnotationMethodDeclaration":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_6624237184120886046());
-        case 3:
+        case "BaseAssignmentExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1231770721117());
-        case 4:
+        case "BinaryIntegerLiteral":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_141880770457554690());
-        case 5:
+        case "BinaryOperation":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1158797366354());
-        case 6:
+        case "BitwiseNotExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1225896127900());
-        case 7:
+        case "BlockStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1205764418295());
-        case 8:
+        case "ClassConcept":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1213605907036());
-        case 9:
+        case "ConstructorDeclaration":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1178291598889());
-        case 10:
+        case "DoWhileStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_3450034536571911403());
-        case 11:
+        case "FieldDeclaration":
           return Collections.<NodeFactory>singletonList(new FieldConversions.NodeFactory_3207672282897664378());
-        case 12:
+        case "ForStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1188991552884());
-        case 13:
+        case "ForeachStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1188991457470());
-        case 14:
+        case "GenericNewExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1187945171249());
-        case 15:
+        case "HexIntegerLiteral":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_141880770457524215());
-        case 16:
+        case "IfStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1178272045313());
-        case 17:
+        case "ImplicitAnnotationInstanceValue":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_2580416627845395972());
-        case 18:
+        case "InstanceMethodDeclaration":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_8355037393041908808());
-        case 19:
+        case "Interface":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_3073231036166227544());
-        case 20:
+        case "LocalVariableDeclaration":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1704216628350805216());
-        case 21:
+        case "NotExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1159218040860());
-        case 22:
+        case "OctalIntegerLiteral":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_141880770457552783());
-        case 23:
+        case "ParenthesizedExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1158857529258());
-        case 24:
+        case "PrefixDecrementExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_434283027167909682());
-        case 25:
+        case "PrefixIncrementExpression":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_434283027167909705());
-        case 26:
+        case "ReturnStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1158938591701());
-        case 27:
+        case "SingleLineComment":
           return Collections.<NodeFactory>singletonList(new SingleLineComment_factories.NodeFactory_4123120730936387298());
-        case 28:
+        case "StaticFieldDeclaration":
           return Arrays.asList(new NodeFactory[]{new BL_node_factories.NodeFactory_1178291730239(), new FieldConversions.NodeFactory_3207672282897614589()});
-        case 29:
+        case "StaticMethodDeclaration":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_2509912883396146006());
-        case 30:
+        case "TryCatchStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1183997671100());
-        case 31:
+        case "TryFinallyStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_1183997675651());
-        case 32:
+        case "WhileStatement":
           return Collections.<NodeFactory>singletonList(new BL_node_factories.NodeFactory_3450034536571911384());
         default:
       }
@@ -104,5 +104,4 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
   public Collection<PasteWrapper> getPasteWrappers() {
     return Arrays.asList(new PasteWrapper[]{new wrappers_PasteWrapper_0(), new wrappers_PasteWrapper_1(), new wrappers_PasteWrapper_2(), new wrappers_PasteWrapper_3(), new wrappers_PasteWrapper_4(), new wrappers_PasteWrapper_5(), new wrappers_PasteWrapper_6(), new wrappers_PasteWrapper_7(), new wrappers_PasteWrapper_8(), new wrappers_PasteWrapper_9(), new wrappers_PasteWrapper_10(), new wrappers_PasteWrapper_11(), new wrappers_PasteWrapper_12(), new wrappers_PasteWrapper_13(), new wrappers_PasteWrapper_14(), new wrappers_PasteWrapper_15(), new wrappers_PasteWrapper_16(), new wrappers_PasteWrapper_17()});
   }
-  private static final String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"AbstractForStatement", "AdditionalForLoopVariable", "AnnotationMethodDeclaration", "BaseAssignmentExpression", "BinaryIntegerLiteral", "BinaryOperation", "BitwiseNotExpression", "BlockStatement", "ClassConcept", "ConstructorDeclaration", "DoWhileStatement", "FieldDeclaration", "ForStatement", "ForeachStatement", "GenericNewExpression", "HexIntegerLiteral", "IfStatement", "ImplicitAnnotationInstanceValue", "InstanceMethodDeclaration", "Interface", "LocalVariableDeclaration", "NotExpression", "OctalIntegerLiteral", "ParenthesizedExpression", "PrefixDecrementExpression", "PrefixIncrementExpression", "ReturnStatement", "SingleLineComment", "StaticFieldDeclaration", "StaticMethodDeclaration", "TryCatchStatement", "TryFinallyStatement", "WhileStatement"};
 }

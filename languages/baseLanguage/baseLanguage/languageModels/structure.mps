@@ -4652,7 +4652,27 @@
     <property role="EcuMT" value="3093926081414150598" />
     <property role="TrG5h" value="MultipleCatchClause" />
     <property role="3GE5qa" value="control_flow.try_catch" />
-    <ref role="1TJDcQ" node="gWTDmSJ" resolve="CatchClause" />
+    <ref role="1TJDcQ" node="2FJPm3OfY71" resolve="AbstractCatchClause" />
+    <node concept="1TJgyj" id="7btLLchVqrO" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="throwable" />
+      <property role="20lbJX" value="fLJekj4/1" />
+      <property role="IQ2ns" value="8276990574895933172" />
+      <ref role="20lvS9" node="4iVGRTTqGsI" resolve="CatchVariable" />
+    </node>
+    <node concept="1TJgyj" id="7btLLchVqrP" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="catchBody" />
+      <property role="20lbJX" value="fLJekj4/1" />
+      <property role="IQ2ns" value="8276990574895933173" />
+      <ref role="20lvS9" node="fzclF80" resolve="StatementList" />
+    </node>
+    <node concept="PrWs8" id="7btLLchVqrS" role="PzmwI">
+      <ref role="PrY4T" to="356a:4pl5GY7LKmy" resolve="ScopeConcept" />
+    </node>
+    <node concept="PrWs8" id="7btLLchVqrX" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4D3iSq_h_ou">
     <property role="EcuMT" value="5351203823916832286" />
@@ -4662,19 +4682,45 @@
   </node>
   <node concept="1TIwiD" id="4D3iSq_hhnM">
     <property role="EcuMT" value="5351203823916750322" />
-    <property role="TrG5h" value="TryWithResourcesStatement" />
+    <property role="TrG5h" value="TryUniversalStatement" />
     <property role="3GE5qa" value="control_flow.try_catch" />
     <property role="34LRSv" value="try with resources" />
-    <ref role="1TJDcQ" node="gMGUZlm" resolve="TryFinallyStatement" />
+    <ref role="1TJDcQ" node="fzclF8l" resolve="Statement" />
     <node concept="1TJgyj" id="4D3iSq_hhnY" role="1TKVEi">
       <property role="IQ2ns" value="5351203823916750334" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="resource" />
-      <property role="20lbJX" value="fLJekj6/_1__n" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="4D3iSq_h_ou" resolve="ResourceVariable" />
+    </node>
+    <node concept="1TJgyj" id="7btLLchmV4k" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="body" />
+      <property role="20lbJX" value="fLJekj4/1" />
+      <property role="IQ2ns" value="8276990574886367508" />
+      <ref role="20lvS9" node="fzclF80" resolve="StatementList" />
+    </node>
+    <node concept="1TJgyj" id="7btLLchmV4m" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="catchClause" />
+      <property role="20lbJX" value="fLJekj5/0..n" />
+      <property role="IQ2ns" value="8276990574886367510" />
+      <ref role="20lvS9" node="2FJPm3O0rB6" resolve="MultipleCatchClause" />
+    </node>
+    <node concept="1TJgyj" id="7btLLchmV4l" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="finallyBody" />
+      <property role="IQ2ns" value="8276990574886367509" />
+      <ref role="20lvS9" node="7btLLciI9aG" resolve="FinallyClause" />
     </node>
     <node concept="PrWs8" id="4D3iSq_iWaC" role="PzmwI">
       <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
+    <node concept="PrWs8" id="7btLLchnF9O" role="PzmwI">
+      <ref role="PrY4T" node="3eptmOG0Xgy" resolve="ITryCatchStatement" />
+    </node>
+    <node concept="PrWs8" id="7btLLciEiJ_" role="PzmwI">
+      <ref role="PrY4T" node="i0zv2NF" resolve="IContainsStatementList" />
     </node>
   </node>
   <node concept="1TIwiD" id="43H3v3JgacM">
@@ -4695,6 +4741,19 @@
       <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="1719162360409958622" />
       <ref role="20lvS9" node="g7pOWCK" resolve="Classifier" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7btLLciI9aG">
+    <property role="EcuMT" value="8276990574909231788" />
+    <property role="3GE5qa" value="control_flow.try_catch" />
+    <property role="TrG5h" value="FinallyClause" />
+    <property role="34LRSv" value="finally" />
+    <node concept="1TJgyj" id="7btLLciI9IU" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="finallyBody" />
+      <property role="20lbJX" value="fLJekj4/1" />
+      <property role="IQ2ns" value="8276990574909234106" />
+      <ref role="20lvS9" node="fzclF80" resolve="StatementList" />
     </node>
   </node>
 </model>

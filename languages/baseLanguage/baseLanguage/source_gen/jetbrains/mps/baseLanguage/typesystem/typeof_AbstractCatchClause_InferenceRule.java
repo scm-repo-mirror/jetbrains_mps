@@ -23,7 +23,7 @@ public class typeof_AbstractCatchClause_InferenceRule extends AbstractInferenceR
   }
   public void applyRule(final SNode abstractCatchClause, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     for (SNode caughtType : ListSequence.fromList(AbstractCatchClause__BehaviorDescriptor.getCaughtTypes_id2FJPm3OMxhX.invoke(abstractCatchClause))) {
-      if (!(SNodeOperations.getConcept(caughtType).isAbstract())) {
+      if (caughtType != null && !(SNodeOperations.getConcept(caughtType).isAbstract())) {
         if (!(typeCheckingContext.isSingleTypeComputation())) {
           {
             SNode _nodeToCheck_1029348928467 = caughtType;

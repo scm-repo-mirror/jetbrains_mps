@@ -9400,6 +9400,26 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="1oes3W1jDEK" role="3bR37C">
+          <node concept="3bR9La" id="1oes3W1jDEL" role="1SiIV1">
+            <ref role="3bR37D" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1oes3W1jDEM" role="3bR37C">
+          <node concept="3bR9La" id="1oes3W1jDEN" role="1SiIV1">
+            <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1oes3W1jDEO" role="3bR37C">
+          <node concept="3bR9La" id="1oes3W1jDEP" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6KYb" resolve="jetbrains.mps.baseLanguage" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1oes3W1jDEQ" role="3bR37C">
+          <node concept="3bR9La" id="1oes3W1jDER" role="1SiIV1">
+            <ref role="3bR37D" node="7Kfy9QB6LfQ" resolve="jetbrains.mps.kernel" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtD" id="7iiyGQ7dLQL" role="2G$12L">
         <property role="BnDLt" value="true" />

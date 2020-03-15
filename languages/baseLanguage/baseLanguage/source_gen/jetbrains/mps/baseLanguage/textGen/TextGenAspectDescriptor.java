@@ -204,6 +204,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new MulExpression_TextGen();
       case LanguageConceptSwitch.MultiLineComment:
         return new MultiLineComment_TextGen();
+      case LanguageConceptSwitch.MultipleCatchClause:
+        return new MultipleCatchClause_TextGen();
       case LanguageConceptSwitch.NestedNewExpression:
         return new NestedNewExpression_TextGen();
       case LanguageConceptSwitch.NotEqualsExpression:
@@ -298,8 +300,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new TryCatchStatement_TextGen();
       case LanguageConceptSwitch.TryFinallyStatement:
         return new TryFinallyStatement_TextGen();
-      case LanguageConceptSwitch.TryWithResourcesStatement:
-        return new TryWithResourcesStatement_TextGen();
+      case LanguageConceptSwitch.TryUniversalStatement:
+        return new TryUniversalStatement_TextGen();
       case LanguageConceptSwitch.TypeVariableDeclaration:
         return new TypeVariableDeclaration_TextGen();
       case LanguageConceptSwitch.TypeVariableReference:
