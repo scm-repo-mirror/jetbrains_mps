@@ -95,9 +95,6 @@
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
-      <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
-        <reference id="2820489544401957798" name="classifier" index="HV5vE" />
-      </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
@@ -22964,8 +22961,8 @@
               <ref role="3uigEE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
             </node>
             <node concept="2ShNRf" id="3waFG77kqkt" role="33vP2m">
-              <node concept="HV5vD" id="34w7x6AJkUw" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
+              <node concept="1pGfFk" id="Me9jjHmsXP" role="2ShVmc">
+                <ref role="37wK5l" to="89o2:Me9jjHmrDM" resolve="IntroduceFieldRefactoring" />
               </node>
             </node>
           </node>
@@ -26808,8 +26805,8 @@
               <ref role="3uigEE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
             </node>
             <node concept="2ShNRf" id="7bjhXcU7KNy" role="33vP2m">
-              <node concept="HV5vD" id="7bjhXcU7KNz" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
+              <node concept="1pGfFk" id="Me9jjHnQO2" role="2ShVmc">
+                <ref role="37wK5l" to="89o2:Me9jjHmrDM" resolve="IntroduceFieldRefactoring" />
               </node>
             </node>
           </node>
@@ -27008,8 +27005,8 @@
               <ref role="3uigEE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
             </node>
             <node concept="2ShNRf" id="7bjhXcU8pvH" role="33vP2m">
-              <node concept="HV5vD" id="7bjhXcU8pvI" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:7nrhK3uHcGM" resolve="IntroduceFieldRefactoring" />
+              <node concept="1pGfFk" id="Me9jjHmtqs" role="2ShVmc">
+                <ref role="37wK5l" to="89o2:Me9jjHmrDM" resolve="IntroduceFieldRefactoring" />
               </node>
             </node>
           </node>

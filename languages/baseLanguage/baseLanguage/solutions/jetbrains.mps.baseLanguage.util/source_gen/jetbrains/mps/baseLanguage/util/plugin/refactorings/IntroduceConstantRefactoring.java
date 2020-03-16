@@ -15,11 +15,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 @GeneratedClass(node = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)/8492459591399169241", model = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)")
 public class IntroduceConstantRefactoring extends IntroduceVariableRefactoring {
+  protected SNode targetClass;
+  public IntroduceConstantRefactoring(SNode targetClass) {
+    this.targetClass = targetClass;
+  }
+
   public IntroduceConstantRefactoring() {
   }
   @Override
   public SNode doRefactoring() {
-    SNode newDeclaration = _quotation_createNode_2jj2z2_a0a0b(myVisibilityLevel.getNode(), SNodeOperations.copyNode(getExpressionType()), SNodeOperations.copyNode(getExpression()), getName());
+    SNode newDeclaration = _quotation_createNode_2jj2z2_a0a0e(myVisibilityLevel.getNode(), SNodeOperations.copyNode(getExpressionType()), SNodeOperations.copyNode(getExpression()), getName());
     MemberInsertingUtils.insertClassifierMemberInBestPlace(SNodeOperations.cast(this.myContainer, CONCEPTS.ClassConcept$IY), newDeclaration);
     replaceNode(getExpression(), newDeclaration);
     if (this.myIsReplacingAll) {
@@ -31,6 +36,10 @@ public class IntroduceConstantRefactoring extends IntroduceVariableRefactoring {
   }
   @Override
   protected SNode findContainer(SNode node) {
+    if (targetClass != null) {
+      return targetClass;
+    }
+
     SNode container = SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$IY, false, false);
     while ((SNodeOperations.getNodeAncestor(container, CONCEPTS.ClassConcept$IY, false, false) != null)) {
       container = SNodeOperations.getNodeAncestor(container, CONCEPTS.ClassConcept$IY, false, false);
@@ -40,15 +49,15 @@ public class IntroduceConstantRefactoring extends IntroduceVariableRefactoring {
   @Override
   public void replaceNode(SNode node, SNode declaration) {
     if (Scope.getScope(Scope.parent(node), node, CONCEPTS.VariableDeclaration$xe).contains(declaration)) {
-      SNodeOperations.replaceWithAnother(node, _quotation_createNode_2jj2z2_a0a0a0a3(declaration));
+      SNodeOperations.replaceWithAnother(node, _quotation_createNode_2jj2z2_a0a0a0a6(declaration));
     } else {
-      SNodeOperations.replaceWithAnother(node, _quotation_createNode_2jj2z2_a0a0a0a0d(this.myContainer, declaration));
+      SNodeOperations.replaceWithAnother(node, _quotation_createNode_2jj2z2_a0a0a0a0g(this.myContainer, declaration));
     }
   }
   public static boolean isApplicable(SNode node) {
     return SNodeOperations.isInstanceOf(node, CONCEPTS.Expression$TP) && (SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$IY, false, false) != null);
   }
-  private static SNode _quotation_createNode_2jj2z2_a0a0b(Object parameter_1, Object parameter_2, Object parameter_3, Object parameter_4) {
+  private static SNode _quotation_createNode_2jj2z2_a0a0e(Object parameter_1, Object parameter_2, Object parameter_3, Object parameter_4) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
@@ -71,14 +80,14 @@ public class IntroduceConstantRefactoring extends IntroduceVariableRefactoring {
     }
     return quotedNode_5;
   }
-  private static SNode _quotation_createNode_2jj2z2_a0a0a0a3(Object parameter_1) {
+  private static SNode _quotation_createNode_2jj2z2_a0a0a0a6(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e98L, "VariableReference")).getResult();
     SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), (SNode) parameter_1);
     return quotedNode_2;
   }
-  private static SNode _quotation_createNode_2jj2z2_a0a0a0a0d(Object parameter_1, Object parameter_2) {
+  private static SNode _quotation_createNode_2jj2z2_a0a0a0a0g(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940c80846L, "StaticFieldReference")).getResult();

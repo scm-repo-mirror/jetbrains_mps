@@ -24,6 +24,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.featureStatistics.FeatureUsageTracker;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.ide.platform.dialogs.choosers.NodeChooserDialog;
 import javax.swing.JOptionPane;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -103,14 +107,42 @@ public class IntroduceConstant_Action extends BaseAction {
         return SNodeOperations.getNodeAncestor(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.Expression$TP, true, false);
       }
     }).runRead(((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess());
+
     final Wrappers._T<IntroduceConstantRefactoring> refactoring = new Wrappers._T<IntroduceConstantRefactoring>();
     final Wrappers._T<String> error = new Wrappers._T<String>();
+    final Wrappers._T<List<SNode>> candidateClasses = new Wrappers._T<List<SNode>>();
+
     ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        refactoring.value = new IntroduceConstantRefactoring();
+        candidateClasses.value = ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToRefactor, CONCEPTS.ClassConcept$IY, false)).where(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return !(SNodeOperations.isInstanceOf(it, CONCEPTS.AnonymousClass$aF));
+          }
+        }).toListSequence();
+      }
+    });
+
+    final Wrappers._T<SNode> desiredTargetClass = new Wrappers._T<SNode>();
+    if (ListSequence.fromList(candidateClasses.value).count() > 1) {
+      final NodeChooserDialog classChooser = new NodeChooserDialog(((Project) MapSequence.fromMap(_params).get("projct")), candidateClasses.value);
+      classChooser.show();
+      ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          desiredTargetClass.value = (classChooser.getResult() != null ? SNodeOperations.as(classChooser.getResult().resolve(((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository()), CONCEPTS.ClassConcept$IY) : null);
+        }
+      });
+    } else {
+      desiredTargetClass.value = ListSequence.fromList(candidateClasses.value).getElement(0);
+    }
+
+    ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        refactoring.value = new IntroduceConstantRefactoring(desiredTargetClass.value);
         error.value = refactoring.value.init(nodeToRefactor, ((EditorComponent) MapSequence.fromMap(_params).get("component")));
       }
     });
+
+
     if (error.value == null) {
       IntroduceConstantDialog dialog = new IntroduceConstantDialog(((Project) MapSequence.fromMap(_params).get("projct")), refactoring.value, ((EditorContext) MapSequence.fromMap(_params).get("editorContext")));
       dialog.show();
@@ -121,5 +153,7 @@ public class IntroduceConstant_Action extends BaseAction {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
   }
 }

@@ -23,6 +23,17 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)/2315910000642826453", model = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)")
 public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefactoring {
+  protected SNode targetClass;
+  public IntroduceStaticFieldRefactoring(SNode targetClass) {
+    this.targetClass = targetClass;
+  }
+  public IntroduceStaticFieldRefactoring() {
+  }
+  @Override
+  protected SNode findContainer(SNode node) {
+    return (targetClass != null ? targetClass : super.findContainer(node));
+  }
+
   @Override
   public SNode doRefactoring() {
     this.findDuplicates();
@@ -32,17 +43,17 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
     SNode expression = SNodeOperations.copyNode(this.getExpression());
 
     if (myFieldInitialization == FieldInitializationPlace.FIELD) {
-      newDeclaration = _quotation_createNode_282g55_a0a0g0a(myVisibilityLevel.getNode(), expressionType, name, expression);
+      newDeclaration = _quotation_createNode_282g55_a0a0g0f(myVisibilityLevel.getNode(), expressionType, name, expression);
     } else {
-      newDeclaration = _quotation_createNode_282g55_a0a0a6a0(myVisibilityLevel.getNode(), expressionType, name);
+      newDeclaration = _quotation_createNode_282g55_a0a0a6a5(myVisibilityLevel.getNode(), expressionType, name);
     }
     if (myIsFinal) {
       SPropertyOperations.assign(newDeclaration, PROPS.isFinal$hIht, true);
     }
-    SNode classConcept = SNodeOperations.getNodeAncestor(this.getExpression(), CONCEPTS.ClassConcept$IY, false, false);
+    SNode classConcept = SNodeOperations.as(myContainer, CONCEPTS.ClassConcept$IY);
     MemberInsertingUtils.insertClassifierMemberInBestPlace(classConcept, newDeclaration);
-    SNode assignExp = _quotation_createNode_282g55_a0k0a(expression, newDeclaration);
-    SNode assignmentStatement = _quotation_createNode_282g55_a0l0a(assignExp);
+    SNode assignExp = _quotation_createNode_282g55_a0k0f(expression, newDeclaration);
+    SNode assignmentStatement = _quotation_createNode_282g55_a0l0f(assignExp);
 
     if (this.myFieldInitialization == FieldInitializationPlace.METHOD) {
       SNodeOperations.insertPrevSiblingChild(SNodeOperations.getNodeAncestor(this.getExpression(), CONCEPTS.Statement$ok, false, false), SNodeOperations.copyNode(assignmentStatement));
@@ -76,10 +87,10 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
 
   @Override
   public void replaceNode(SNode node, SNode declaration) {
-    SNodeOperations.replaceWithAnother(node, _quotation_createNode_282g55_a0a0a2(declaration));
+    SNodeOperations.replaceWithAnother(node, _quotation_createNode_282g55_a0a0a7(declaration));
   }
 
-  private static SNode _quotation_createNode_282g55_a0a0g0a(Object parameter_1, Object parameter_2, Object parameter_3, Object parameter_4) {
+  private static SNode _quotation_createNode_282g55_a0a0g0f(Object parameter_1, Object parameter_2, Object parameter_3, Object parameter_4) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
@@ -101,7 +112,7 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
     }
     return quotedNode_5;
   }
-  private static SNode _quotation_createNode_282g55_a0a0a6a0(Object parameter_1, Object parameter_2, Object parameter_3) {
+  private static SNode _quotation_createNode_282g55_a0a0a6a5(Object parameter_1, Object parameter_2, Object parameter_3) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_4 = null;
     SNode quotedNode_5 = null;
@@ -118,7 +129,7 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
     }
     return quotedNode_4;
   }
-  private static SNode _quotation_createNode_282g55_a0k0a(Object parameter_1, Object parameter_2) {
+  private static SNode _quotation_createNode_282g55_a0k0f(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
@@ -133,7 +144,7 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"), quotedNode_5);
     return quotedNode_3;
   }
-  private static SNode _quotation_createNode_282g55_a0l0a(Object parameter_1) {
+  private static SNode _quotation_createNode_282g55_a0l0f(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
@@ -144,7 +155,7 @@ public class IntroduceStaticFieldRefactoring extends AbstractIntroduceFieldRefac
     }
     return quotedNode_2;
   }
-  private static SNode _quotation_createNode_282g55_a0a0a2(Object parameter_1) {
+  private static SNode _quotation_createNode_282g55_a0a0a7(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e98L, "VariableReference")).getResult();

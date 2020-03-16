@@ -24,6 +24,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.featureStatistics.FeatureUsageTracker;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.ide.platform.dialogs.choosers.NodeChooserDialog;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.AbstractIntroduceFieldRefactoring;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.IntroduceStaticFieldRefactoring;
 import javax.swing.JOptionPane;
@@ -100,6 +104,7 @@ public class IntroduceField_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     FeatureUsageTracker.getInstance().triggerFeatureUsed("refactoring.introduceField");
     final Wrappers._boolean mustBeStatic = new Wrappers._boolean();
+    final Wrappers._T<List<SNode>> candidateClasses = new Wrappers._T<List<SNode>>();
 
     final SNode nodeToRefactor = new ModelComputeRunnable<SNode>(new Computable<SNode>() {
       public SNode compute() {
@@ -121,10 +126,28 @@ public class IntroduceField_Action extends BaseAction {
           current = SNodeOperations.getParent(current);
         }
         mustBeStatic.value = false;
+        candidateClasses.value = ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToRefactor, CONCEPTS.ClassConcept$IY, false)).where(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return !(SNodeOperations.isInstanceOf(it, CONCEPTS.AnonymousClass$aF));
+          }
+        }).toListSequence();
       }
     });
 
-    final AbstractIntroduceFieldRefactoring introducer = (mustBeStatic.value ? new IntroduceStaticFieldRefactoring() : new IntroduceFieldRefactoring());
+    final Wrappers._T<SNode> desiredTargetClass = new Wrappers._T<SNode>();
+    if (ListSequence.fromList(candidateClasses.value).count() > 1) {
+      final NodeChooserDialog classChooser = new NodeChooserDialog(((Project) MapSequence.fromMap(_params).get("project")), candidateClasses.value);
+      classChooser.show();
+      ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          desiredTargetClass.value = (classChooser.getResult() != null ? SNodeOperations.as(classChooser.getResult().resolve(((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository()), CONCEPTS.ClassConcept$IY) : null);
+        }
+      });
+    } else {
+      desiredTargetClass.value = ListSequence.fromList(candidateClasses.value).getElement(0);
+    }
+
+    final AbstractIntroduceFieldRefactoring introducer = (mustBeStatic.value ? new IntroduceStaticFieldRefactoring(desiredTargetClass.value) : new IntroduceFieldRefactoring(desiredTargetClass.value));
     final Wrappers._T<String> error = new Wrappers._T<String>();
     ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runWriteAction(new Runnable() {
       public void run() {
@@ -147,5 +170,7 @@ public class IntroduceField_Action extends BaseAction {
     /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
     /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
     /*package*/ static final SConcept InstanceInitializer$BJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
   }
 }
