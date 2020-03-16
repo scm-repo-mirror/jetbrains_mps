@@ -82,9 +82,15 @@ final class BehaviorChecker {
 
   private static void checkConceptIsValid(@NotNull SAbstractConcept someConcept) {
     if (!someConcept.isValid()) {
-      throw new IllegalArgumentException(String.format("The concept %s is not valid, probably the language %s is not deployed",
+      throw new ConceptIsNotValidException(String.format("The concept %s is not valid, probably the language %s is not deployed",
                                                        someConcept,
                                                        someConcept.getLanguage().getQualifiedName()));
+    }
+  }
+
+  public static class ConceptIsNotValidException extends RuntimeException {
+    public ConceptIsNotValidException(@NotNull String msg) {
+      super(msg);
     }
   }
 
