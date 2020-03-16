@@ -15,7 +15,7 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.make.MakeSession;
-import jetbrains.mps.ide.make.DefaultMakeMessageHandler;
+import jetbrains.mps.make.ErrorsLoggingHandler;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.make.resources.IResource;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -68,7 +68,7 @@ public abstract class AbstractRefactoringTest extends EnvironmentAwareTestCase {
     if (LOG.isInfoEnabled()) {
       LOG.info("Making modules: " + ListSequence.fromList(modules).toListSequence());
     }
-    MakeSession session = new MakeSession(project, new DefaultMakeMessageHandler(project), true);
+    MakeSession session = new MakeSession(project, new ErrorsLoggingHandler(LogManager.getLogger(AbstractRefactoringTest.class)), true);
     final Wrappers._T<List<? extends IResource>> inputRes = new Wrappers._T<List<? extends IResource>>(null);
     project.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
