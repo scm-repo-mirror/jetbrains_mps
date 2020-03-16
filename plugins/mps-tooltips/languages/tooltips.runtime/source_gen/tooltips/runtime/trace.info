@@ -125,12 +125,12 @@
   <root nodeRef="r:3838bb8b-fecd-4f7c-841e-325717a43980(tooltips.runtime)/6684188996981561601">
     <file name="TooltipUtils.java">
       <node id="6684188996981605137" at="17,121,18,70" concept="8" />
-      <node id="6684188996981620804" at="18,70,19,86" concept="9" />
+      <node id="6684188996981620804" at="18,70,19,94" concept="9" />
       <node id="6684188996981568723" at="13,0,15,0" concept="1" trace="TooltipUtils#()V" />
       <node id="6684188996981571011" at="16,0,21,0" concept="12" trace="getHintsForNode#(Ljetbrains/mps/nodeEditor/EditorComponent;Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/List;" />
       <scope id="6684188996981568726" at="13,26,13,26" />
       <scope id="6684188996981568723" at="13,0,15,0" />
-      <scope id="6684188996981571014" at="17,121,19,86">
+      <scope id="6684188996981571014" at="17,121,19,94">
         <var name="hintsArray" id="6684188996981605140" />
       </scope>
       <scope id="6684188996981571011" at="16,0,21,0">

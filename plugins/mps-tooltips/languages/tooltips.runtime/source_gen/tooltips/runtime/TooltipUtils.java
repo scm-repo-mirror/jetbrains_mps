@@ -16,6 +16,6 @@ public class TooltipUtils {
   @NotNull
   public static List<String> getHintsForNode(@NotNull final EditorComponent editorComponent, @NotNull final SNode node) {
     String[] hintsArray = editorComponent.getEditorHintsForNode(node);
-    return (hintsArray == null ? Collections.emptyList() : Arrays.asList(hintsArray));
+    return (hintsArray == null ? Collections.<String>emptyList() : Arrays.asList(hintsArray));
   }
 }

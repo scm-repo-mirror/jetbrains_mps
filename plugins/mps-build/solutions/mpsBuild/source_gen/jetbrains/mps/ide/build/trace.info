@@ -135,6 +135,11 @@
       <unit id="7401958389406848608" at="1,0,302,10" name="jetbrains.mps.ide.build.mpsJavaPlatform" />
     </file>
   </root>
+  <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7735258172337199450">
+    <file name="mpsTooltips.xml">
+      <unit id="7735258172337199450" at="1,0,812,10" name="jetbrains.mps.ide.build.mpsTooltips" />
+    </file>
+  </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7759561396119470053">
     <file name="mpsTrueBootstrap.xml">
       <unit id="7759561396119470053" at="1,0,726,10" name="jetbrains.mps.ide.build.mpsTrueBootstrap" />
