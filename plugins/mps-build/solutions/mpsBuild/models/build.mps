@@ -10807,6 +10807,11 @@
               <ref role="3bR37D" node="7Kfy9QB6KZG" resolve="jetbrains.mps.baseLanguage.closures" />
             </node>
           </node>
+          <node concept="1SiIV0" id="4tBmJikSrAT" role="3bR37C">
+            <node concept="3bR9La" id="4tBmJikSs0M" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6KYK" resolve="jetbrains.mps.baseLanguage.util" />
+            </node>
+          </node>
           <node concept="1SiIV0" id="7YI57w6K0gs" role="3bR37C">
             <node concept="3bR9La" id="7YI57w6K0gt" role="1SiIV1">
               <ref role="3bR37D" node="7Kfy9QB6L9c" resolve="jetbrains.mps.lang.quotation" />
