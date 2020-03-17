@@ -45,8 +45,7 @@ public class BaseLanguageEnvironmentHelper {
     return getLanguageLevel(SNodeOperations.getModel(contextNode));
   }
   public JavaLanguageLevel getLanguageLevel(SModel contextModel) {
-    JavaLanguageLevel moduleLevel = check_sif9ng_a0a0c(check_sif9ng_a0a0a2(check_sif9ng_a0a0a0c(contextModel)));
-    return (moduleLevel == null ? JavaLanguageLevel.getDefault() : moduleLevel);
+    return check_sif9ng_a0a0c(check_sif9ng_a0a0a2(check_sif9ng_a0a0a0c(contextModel)));
   }
 
   public List<SNode> findStubClassifiers(SNode nodeClassifier) {

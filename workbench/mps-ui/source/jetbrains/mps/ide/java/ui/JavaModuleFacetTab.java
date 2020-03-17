@@ -40,6 +40,7 @@ import jetbrains.mps.ide.ui.dialogs.properties.MPSPropertiesConfigurable;
 import jetbrains.mps.ide.ui.dialogs.properties.PropertiesBundle;
 import jetbrains.mps.ide.ui.dialogs.properties.tabs.BaseTab;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import jetbrains.mps.migration.global.ProjectMigrationWithOptions.Option;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaLanguageLevel;
 import jetbrains.mps.project.facets.JavaModuleFacetImpl;
@@ -66,7 +67,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 // FIXME #apply() shall not deal with ModuleDescriptor directly, instead, JavaModuleFacet.save() shall put that there (better yet,
 // to memento, not to be different from other facets, provided we don't use isCompileInMPS and getKind directly from descriptor)
@@ -78,7 +83,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
   private JBCheckBox myCompileInMPS;
   private JBCheckBox myExternalIdeaCompile;
   private ComboBox<SolutionKind> mySolutionKind;
-  private ComboBox<JavaLanguageLevel> myLanguageLevel;
+  private ComboBox<Optional<JavaLanguageLevel>> myLanguageLevel;
   private JBLabel myUpdateModelRoots;
 
   private final JavaModuleFacetImpl myJavaModuleFacet;
@@ -130,8 +135,12 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
                                           GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
       JBLabel languageLevelLabel = new JBLabel("Language level:");
-      myLanguageLevel = new ComboBox<>(new DefaultComboBoxModel<>(JavaLanguageLevel.values()));
-      myLanguageLevel.setSelectedItem(descriptor.getJavaLanguageLevel());
+      List<Optional<JavaLanguageLevel>> values = new ArrayList<>();
+      for (JavaLanguageLevel value : JavaLanguageLevel.values()) {
+        values.add(Optional.of(value));
+      }
+      myLanguageLevel = new ComboBox<>(new DefaultComboBoxModel<>(values.toArray((Optional<JavaLanguageLevel>[]) new Optional[]{})));
+      myLanguageLevel.setSelectedItem(Optional.ofNullable(descriptor.getJavaLanguageLevel()));
 
       advancedTab.add(languageLevelLabel,
                       new GridConstraints(row, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED,
@@ -247,7 +256,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       if (myExternalIdeaCompile != null) {
         solutionCheck |= descriptor.needsExternalIdeaCompile() != myExternalIdeaCompile.isSelected();
       }
-      solutionCheck |= descriptor.getJavaLanguageLevel() != myLanguageLevel.getSelectedItem();
+      solutionCheck |= !Optional.ofNullable(descriptor.getJavaLanguageLevel()).equals(myLanguageLevel.getSelectedItem());
     }
 
     // Any change in table model will require re-save, even if state in the end is the same, to simplify this check.
@@ -261,7 +270,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
       assert descriptor != null;
       descriptor.setCompileInMPS(myCompileInMPS.isSelected());
       descriptor.setKind((SolutionKind) mySolutionKind.getSelectedItem());
-      descriptor.setJavaLanguageLevel((JavaLanguageLevel) myLanguageLevel.getSelectedItem());
+      descriptor.setJavaLanguageLevel(((Optional<JavaLanguageLevel>) myLanguageLevel.getSelectedItem()).orElse(null));
       if (myExternalIdeaCompile != null) {
         descriptor.setNeedsExternalIdeaCompile(myExternalIdeaCompile.isSelected());
       }
