@@ -11925,11 +11925,11 @@
       <node id="8884554759541381521" at="66,90,67,110" concept="12" />
       <node id="1164142520230174704" at="70,80,71,79" concept="12" />
       <node id="4838165336394137701" at="76,159,77,23" concept="12" />
-      <node id="4838165336394156663" at="81,229,82,18" concept="12" />
+      <node id="4838165336394156663" at="81,233,82,18" concept="12" />
       <node id="4838165336394117583" at="83,5,84,101" concept="11" />
       <node id="5627737464653206005" at="84,101,85,30" concept="12" />
       <node id="4838165336394203154" at="90,147,91,22" concept="12" />
-      <node id="4838165336394203158" at="95,229,96,19" concept="12" />
+      <node id="4838165336394203158" at="95,233,96,19" concept="12" />
       <node id="1164142520230175056" at="97,5,98,154" concept="12" />
       <node id="2253967391922344580" at="100,87,101,236" concept="12" />
       <node id="4025276038182459805" at="103,107,104,168" concept="11" />
@@ -11984,18 +11984,19 @@
       <node id="1213877435147" at="237,0,238,0" concept="15" trace="name$tAp1" />
       <node id="1213877435147" at="241,0,242,0" concept="15" trace="JavaModifier$nA" />
       <node id="1213877435147" at="242,0,243,0" concept="15" trace="Interface$Kp" />
-      <node id="1213877435147" at="243,0,244,0" concept="15" trace="PublicVisibility$qe" />
-      <node id="1213877435147" at="244,0,245,0" concept="15" trace="InstanceMethodDeclaration$An" />
-      <node id="1213877435147" at="245,0,246,0" concept="15" trace="Classifier$hJ" />
-      <node id="1213877435147" at="246,0,247,0" concept="15" trace="AnonymousClass$aF" />
-      <node id="1213877435147" at="247,0,248,0" concept="15" trace="ClassConcept$IY" />
-      <node id="1213877435147" at="248,0,249,0" concept="15" trace="MethodDeclaration$93" />
-      <node id="1213877435147" at="252,0,253,0" concept="15" trace="modifiers$akE0" />
-      <node id="1213877435147" at="253,0,254,0" concept="15" trace="visibility$2GiC" />
-      <node id="1213877435147" at="254,0,255,0" concept="15" trace="parameter$WIkZ" />
-      <node id="1213877435147" at="255,0,256,0" concept="15" trace="classifier$1y5e" />
-      <node id="1213877435147" at="256,0,257,0" concept="15" trace="superclass$_pqe" />
-      <node id="1213877435147" at="257,0,258,0" concept="15" trace="classifier$pQ_R" />
+      <node id="1213877435147" at="243,0,244,0" concept="15" trace="PrivateVisibility$Se" />
+      <node id="1213877435147" at="244,0,245,0" concept="15" trace="PublicVisibility$qe" />
+      <node id="1213877435147" at="245,0,246,0" concept="15" trace="InstanceMethodDeclaration$An" />
+      <node id="1213877435147" at="246,0,247,0" concept="15" trace="Classifier$hJ" />
+      <node id="1213877435147" at="247,0,248,0" concept="15" trace="AnonymousClass$aF" />
+      <node id="1213877435147" at="248,0,249,0" concept="15" trace="ClassConcept$IY" />
+      <node id="1213877435147" at="249,0,250,0" concept="15" trace="MethodDeclaration$93" />
+      <node id="1213877435147" at="253,0,254,0" concept="15" trace="modifiers$akE0" />
+      <node id="1213877435147" at="254,0,255,0" concept="15" trace="visibility$2GiC" />
+      <node id="1213877435147" at="255,0,256,0" concept="15" trace="parameter$WIkZ" />
+      <node id="1213877435147" at="256,0,257,0" concept="15" trace="classifier$1y5e" />
+      <node id="1213877435147" at="257,0,258,0" concept="15" trace="superclass$_pqe" />
+      <node id="1213877435147" at="258,0,259,0" concept="15" trace="classifier$pQ_R" />
       <node id="1213877435147" at="57,0,59,0" concept="16" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1213877435147" at="165,0,167,0" concept="3" trace="InstanceMethodDeclaration__BehaviorDescriptor#()V" />
       <node id="1213877435147" at="60,0,63,0" concept="16" trace="isDataFlowChecked_idhRptrfk#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -12046,9 +12047,9 @@
       <scope id="8884554759541381514" at="66,90,67,110" />
       <scope id="1614955283357191299" at="70,80,71,79" />
       <scope id="4838165336394133202" at="76,159,77,23" />
-      <scope id="4838165336394141231" at="81,229,82,18" />
+      <scope id="4838165336394141231" at="81,233,82,18" />
       <scope id="4838165336394203153" at="90,147,91,22" />
-      <scope id="4838165336394203157" at="95,229,96,19" />
+      <scope id="4838165336394203157" at="95,233,96,19" />
       <scope id="2253967391922322969" at="100,87,101,236" />
       <scope id="8302934035210373084" at="110,41,111,18" />
       <scope id="8302934035209417011" at="115,50,116,97" />
@@ -12195,9 +12196,9 @@
       <unit id="8302934035209417010" at="114,83,118,5" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$1" />
       <unit id="1669927482046999257" at="135,93,139,5" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$2" />
       <unit id="1213877435147" at="234,0,239,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$PROPS" />
-      <unit id="1213877435147" at="251,0,259,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$LINKS" />
-      <unit id="1213877435147" at="240,0,250,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$CONCEPTS" />
-      <unit id="1213877435147" at="39,0,260,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor" />
+      <unit id="1213877435147" at="252,0,260,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$LINKS" />
+      <unit id="1213877435147" at="240,0,251,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor$CONCEPTS" />
+      <unit id="1213877435147" at="39,0,261,0" name="jetbrains.mps.baseLanguage.behavior.InstanceMethodDeclaration__BehaviorDescriptor" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)/1213877435744">
