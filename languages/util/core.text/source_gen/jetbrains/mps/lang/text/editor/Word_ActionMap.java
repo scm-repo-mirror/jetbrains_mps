@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.Objects;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.text.behavior.IHoldLines__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.lang.text.behavior.IHoldLines__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
@@ -56,34 +56,22 @@ public class Word_ActionMap {
           List<SNode> data = pasteData.getNodes();
 
           final Wrappers._T<SNode> currentLine = new Wrappers._T<SNode>(SNodeOperations.getNodeAncestor(currentNode.value, CONCEPTS.Line$w3, false, false));
-          final boolean copyOnMultipleLines = data.size() > 1 && SNodeOperations.isInstanceOf(((SNode) data.get(0)), CONCEPTS.Line$w3) && SNodeOperations.getContainingLink(currentLine.value).isMultiple();
+          final boolean copyMultipleLinesToMultipleLines = data.size() > 1 && SNodeOperations.isInstanceOf(((SNode) data.get(0)), CONCEPTS.Line$w3) && SNodeOperations.getContainingLink(currentLine.value).isMultiple();
 
           for (SNode n : data) {
             if (SNodeOperations.isInstanceOf(n, CONCEPTS.Word$AM)) {
-              SNode copy = SNodeOperations.copyNode(n);
+              SNode copy = SNodeOperations.cast(SNodeOperations.copyNode(n), CONCEPTS.TextElement$Ue);
               SNodeOperations.insertNextSiblingChild(currentNode.value, copy);
               currentNode.value = copy;
             } else if (SNodeOperations.isInstanceOf(n, CONCEPTS.Line$w3)) {
-              if (copyOnMultipleLines) {
+              if (copyMultipleLinesToMultipleLines) {
                 if (Objects.equals(n, data.get(0))) {
-                  SNode restOfLine = Line__BehaviorDescriptor.split_id1YnOZxANc9P.invoke(currentLine.value, SNodeOperations.as(currentNode.value, CONCEPTS.TextElement$Ue));
-                  if ((restOfLine != null) && !((boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(restOfLine))) {
-                    SNodeOperations.insertNextSiblingChild(currentLine.value, restOfLine);
-                  }
-                  Line__BehaviorDescriptor.merge_id1YnOZxALrLu.invoke(currentLine.value, SNodeOperations.copyNode(SNodeOperations.as(n, CONCEPTS.Line$w3)));
+                  TextEditorHelper.insertLineIntoLines(currentLine.value, currentNode.value, SNodeOperations.copyNode(SNodeOperations.as(n, CONCEPTS.Line$w3)));
                 } else {
                   currentLine.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentLine.value, SNodeOperations.copyNode(SNodeOperations.as(n, CONCEPTS.Line$w3))), CONCEPTS.Line$w3);
                 }
               } else {
-                Iterable<SNode> copies = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(n, CONCEPTS.Line$w3), LINKS.elements$eRew)).select(new ISelector<SNode, SNode>() {
-                  public SNode select(SNode it) {
-                    return SNodeOperations.copyNode(it);
-                  }
-                });
-                for (SNode element : copies) {
-                  SNodeOperations.insertNextSiblingChild(currentNode.value, element);
-                  currentNode.value = element;
-                }
+                Line__BehaviorDescriptor.merge_id1YnOZxAMHtO.invoke(currentLine.value, SNodeOperations.cast(n, CONCEPTS.Line$w3), currentNode.value);
               }
             } else if (SNodeOperations.isInstanceOf(n, CONCEPTS.IHoldLines$hX)) {
               if (ListSequence.fromList(IHoldLines__BehaviorDescriptor.getLines_id6GJhO0n1Xys.invoke(SNodeOperations.as(n, CONCEPTS.IHoldLines$hX))).count() == 0) {
@@ -106,11 +94,7 @@ public class Word_ActionMap {
                     public void visit(SNode line) {
                       if (firstLine.value) {
                         firstLine.value = false;
-                        SNode restOfLine = Line__BehaviorDescriptor.split_id1YnOZxANc9P.invoke(currentLine.value, SNodeOperations.as(currentNode.value, CONCEPTS.TextElement$Ue));
-                        if ((restOfLine != null) && !((boolean) Line__BehaviorDescriptor.isEmptyLine_id1YnOZxAO76B.invoke(restOfLine))) {
-                          SNodeOperations.insertNextSiblingChild(currentLine.value, restOfLine);
-                        }
-                        Line__BehaviorDescriptor.merge_id1YnOZxALrLu.invoke(currentLine.value, SNodeOperations.copyNode(line));
+                        TextEditorHelper.insertLineIntoLines(currentLine.value, currentNode.value, SNodeOperations.copyNode(line));
                       } else {
                         currentLine.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentLine.value, SNodeOperations.copyNode(line)), CONCEPTS.Line$w3);
                       }
@@ -119,16 +103,7 @@ public class Word_ActionMap {
                 } else {
                   ListSequence.fromList(IHoldLines__BehaviorDescriptor.getLines_id6GJhO0n1Xys.invoke(SNodeOperations.as(n, CONCEPTS.IHoldLines$hX))).visitAll(new IVisitor<SNode>() {
                     public void visit(SNode line) {
-                      ListSequence.fromList(SLinkOperations.getChildren(line, LINKS.elements$eRew)).select(new ISelector<SNode, SNode>() {
-                        public SNode select(SNode it) {
-                          return SNodeOperations.copyNode(it);
-                        }
-                      }).visitAll(new IVisitor<SNode>() {
-                        public void visit(SNode element) {
-                          SNodeOperations.insertNextSiblingChild(currentNode.value, element);
-                          currentNode.value = element;
-                        }
-                      });
+                      Line__BehaviorDescriptor.merge_id1YnOZxAMHtO.invoke(currentLine.value, line, currentNode.value);
                     }
                   });
                 }
