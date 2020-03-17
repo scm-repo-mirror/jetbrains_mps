@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2003-2012 JetBrains s.r.o.
+  ~ Copyright 2003-2020 JetBrains s.r.o.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project name="IDEA-plugin-compile" default="build" basedir=".">
+<project name="MPS-as-IDEA-plugin" default="build" basedir=".">
 
   <!--
      1. To pass IDEA locations to the script run it with the following Java system properties:
@@ -414,6 +414,7 @@
       <jvmarg value="-Didea.log.perf.stats=false"/>
       <formatter type="xml"/>
       <sysproperty key="jdk.home.path" value="${jdkPath}"/>
+      <sysproperty key="java.awt.headless" value="false"/>
       <sysproperty key="idea.platform.prefix" value="Idea"/>
       <sysproperty key="idea.config.path" value="${test.platform.sandbox.dir}/config"/>
       <sysproperty key="idea.system.path" value="${test.platform.sandbox.dir}/system"/>

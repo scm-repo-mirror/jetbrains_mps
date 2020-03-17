@@ -15,5 +15,17 @@
     <buildFile url="file://$PROJECT_DIR$/editor/instrumentation/build.xml" />
     <buildFile url="file://$PROJECT_DIR$/testbench/cleanup.xml" />
     <buildFile url="file://$PROJECT_DIR$/build/getResources.xml" />
+    <buildFile url="file://$PROJECT_DIR$/IdeaPlugin/getPlatform.xml">
+      <properties>
+        <property name="home.idea_ce" value="$ProjectFileDir$/build/IDEA" />
+      </properties>
+    </buildFile>
+    <buildFile url="file://$PROJECT_DIR$/IdeaPlugin/build.xml">
+      <maximumHeapSize value="1024" />
+      <properties>
+        <property name="home.jdk" value="/Library/Java/JavaVirtualMachines/jbrsdk11/Contents/Home/" />
+        <property name="home.idea_ce" value="$ProjectFileDir$/build/IDEA" />
+      </properties>
+    </buildFile>
   </component>
 </project>

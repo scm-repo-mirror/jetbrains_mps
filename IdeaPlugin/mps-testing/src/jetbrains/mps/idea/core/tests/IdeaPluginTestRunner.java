@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,14 +17,15 @@
 package jetbrains.mps.idea.core.tests;
 
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.util.Reference;
 import org.jetbrains.annotations.NonNls;
+import org.junit.Assert;
 import org.junit.runner.Runner;
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.RunnerBuilder;
 
+import java.awt.GraphicsEnvironment;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,14 +40,15 @@ public class IdeaPluginTestRunner extends Suite {
   private static final String MODULE_NAMES_PROPERTY = "mps.test.module.names";
   @NonNls
   private static final String MODEL_NAMES_PROPERTY = "mps.test.model.references";
-  @NonNls
-  private static final ModuleId LANG_TEST_RUNTIME = ModuleId.fromString("707c4fde-f79a-44b5-b3d7-b5cef8844ccf");
 
   public IdeaPluginTestRunner(Class<?> klass, RunnerBuilder builder) throws InitializationError {
     super(klass, getRunners(klass, builder));
   }
 
   private static List<Runner> getRunners(Class<?> klass, RunnerBuilder builder) throws InitializationError {
+    Assert.assertNull("Tests control headless setting through system property", System.getProperty("java.awt.headless"));
+    System.setProperty("java.awt.headless", Boolean.FALSE.toString());
+    Assert.assertFalse("100+ editor tests would fail in headless mode", GraphicsEnvironment.isHeadless());
     List<Runner> result = new ArrayList<>();
     MPSTestFixture mpsFixture = MPSTestFixtureFactory.getFixtureFactory().createMPSFixture(klass.getName());
     try {
