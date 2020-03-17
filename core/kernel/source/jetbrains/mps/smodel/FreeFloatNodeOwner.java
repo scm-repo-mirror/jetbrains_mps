@@ -15,6 +15,9 @@
  */
 package jetbrains.mps.smodel;
 
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModelReference;
+
 /**
  * State of a node not being added to any model yet.
  * This is the state any node has at creation time.
@@ -30,6 +33,11 @@ final class FreeFloatNodeOwner extends SNodeOwner {
 
   @Override
   public SModel getModel() {
+    return null;
+  }
+
+  @Override
+  SModelReference lastKnownModel() {
     return null;
   }
 

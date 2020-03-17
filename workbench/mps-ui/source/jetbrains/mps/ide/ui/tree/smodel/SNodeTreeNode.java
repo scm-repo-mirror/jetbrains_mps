@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ public class SNodeTreeNode extends MPSTreeNodeEx implements NodeTargetProvider {
   private final SNode myNode;
   private final String myRole;
   private final Condition<SNode> myCondition;
+  private final SNodeReference myNodePointer;
 
   public SNodeTreeNode(SNode node) {
     this(node, null);
@@ -58,13 +59,9 @@ public class SNodeTreeNode extends MPSTreeNodeEx implements NodeTargetProvider {
     myNode = node;
     myRole = role;
     myCondition = condition;
-    setUserObject(node.getNodeId().toString());
-
-    if (myNode == null) {
-      setNodeIdentifier("null");
-    } else {
-      setNodeIdentifier(myNode.getNodeId().toString());
-    }
+    myNodePointer = node.getReference();
+    setNodeIdentifier(myNode.getNodeId().toString());
+    setUserObject(getNodeIdentifier()); // what's the point in duplicating nodeIdentifier and userObject?
     setToggleClickCount(-1);
     // as a replacement for isLeaf() that used to consult isShowStructure setting, be explicit this node may have children.
     setAllowsChildren(true);
@@ -134,6 +131,12 @@ public class SNodeTreeNode extends MPSTreeNodeEx implements NodeTargetProvider {
   @Override
   public SNode getSNode() {
     return myNode;
+  }
+
+  @Nullable
+  @Override
+  public SNodeReference getNodePointer() {
+    return myNodePointer;
   }
 
   @Override

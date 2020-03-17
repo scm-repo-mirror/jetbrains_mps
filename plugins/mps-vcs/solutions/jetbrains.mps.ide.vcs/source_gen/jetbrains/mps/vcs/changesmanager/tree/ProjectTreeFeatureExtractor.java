@@ -7,9 +7,8 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcs.changesmanager.tree.features.Feature;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
 import jetbrains.mps.ide.ui.tree.smodel.SNodeTreeNode;
 import jetbrains.mps.ide.ui.smodel.ConceptTreeNode;
 import jetbrains.mps.vcs.changesmanager.tree.features.NodeFeature;
@@ -34,13 +33,12 @@ public class ProjectTreeFeatureExtractor implements TreeNodeFeatureExtractor {
   @Nullable
   @Override
   public Feature getFeature(@NotNull MPSTreeNode treeNode) {
-    SNode node = null;
+    SNodeReference nodePointer = null;
     if (treeNode instanceof MPSTreeNodeEx) {
-      node = ((MPSTreeNodeEx) treeNode).getSNode();
+      nodePointer = ((MPSTreeNodeEx) treeNode).getNodePointer();
     } else if (treeNode.getParent() instanceof MPSTreeNodeEx) {
-      node = ((MPSTreeNodeEx) treeNode.getParent()).getSNode();
+      nodePointer = ((MPSTreeNodeEx) treeNode.getParent()).getNodePointer();
     }
-    SNodeReference nodePointer = (node == null ? null : node.getReference());
     if (nodePointer != null && nodePointer.getModelReference() != null) {
       if (treeNode instanceof SNodeTreeNode || treeNode instanceof ConceptTreeNode) {
         return new NodeFeature(nodePointer);

@@ -69,7 +69,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
    */
   @SuppressWarnings("VolatileArrayField")
   private volatile Object[] myUserObjects; // key,value,key,value ; copy-on-write (!)
-  private SConcept myConcept; //todo make final after 3.2
+  private final SConcept myConcept;
   private SNode parent;
   /**
    * access only in firstChild()/firstChildInRole(role)
@@ -239,7 +239,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   @NotNull
   @Override
   public SNodeReference getReference() {
-    return new jetbrains.mps.smodel.SNodePointer(this);
+    return new jetbrains.mps.smodel.SNodePointer(myOwner.lastKnownModel(), myId);
   }
 
   @Override

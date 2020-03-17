@@ -53,7 +53,11 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
   /*package*/ boolean hasGenerationTarget(SModel inputModel) {
     // tells if we got an idea where we'd like to generate a model to 
     // generic alternative to SModelOperations.getOutputLocation() != null check 
-    return getGenerationTargetFacet(inputModel) != null;
+    GenerationTargetFacet gtf = getGenerationTargetFacet(inputModel);
+    if (gtf == null) {
+      return false;
+    }
+    return gtf != null && gtf.getOutputRoot(inputModel) != null;
   }
 
   private GenerationTargetFacet getGenerationTargetFacet(SModel model) {
@@ -197,9 +201,12 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
     // arbitrary file. 
     GenerationTargetFacet gtf = getGenerationTargetFacet(generatedInputModel);
     if (gtf == null) {
-      throw new IllegalStateException();
+      throw new IllegalStateException(String.format("No module facet to specify textgen destination for %s", generatedInputModel.getName()));
     }
     IFile outputDir = gtf.getOutputLocation(generatedInputModel);
+    if (outputDir == null) {
+      throw new IllegalStateException(String.format("No output location specified for model %s", generatedInputModel.getName()));
+    }
     // In fact, we are not obliged to cache FDC per output dir, it' just handy to keep them here to perform batched delta update later. 
     // Could be new FDC() right in the facet code and then feed this manager with fdc.getDelta() result 
     FileDeltaCollector rv = myModelLocationStreams.get(outputDir);

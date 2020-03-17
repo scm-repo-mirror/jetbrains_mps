@@ -16,6 +16,8 @@
 package jetbrains.mps.smodel;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModelReference;
 
 /**
  * This is a state nodes being removed from a model get.
@@ -41,6 +43,12 @@ final class DetachedNodeOwner extends SNodeOwner {
   @Override
   public SModel getModel() {
     return null;
+  }
+
+  @Nullable
+  @Override
+  SModelReference lastKnownModel() {
+    return myModelForUndo.getReference();
   }
 
   @Override

@@ -18,9 +18,11 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.smodel.ModelCommandContext.Provider;
 import jetbrains.mps.smodel.event.ModelEventDispatch;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SRepository;
 
@@ -90,6 +92,11 @@ final class AttachedNodeOwner extends SNodeOwner {
   @Override
   public SModel getModel() {
     return myModel;
+  }
+
+  @Override
+  SModelReference lastKnownModel() {
+    return myModel.getReference();
   }
 
   @Override
