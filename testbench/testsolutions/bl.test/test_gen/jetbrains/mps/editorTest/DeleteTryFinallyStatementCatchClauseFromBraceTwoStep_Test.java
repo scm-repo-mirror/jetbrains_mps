@@ -43,7 +43,7 @@ public class DeleteTryFinallyStatementCatchClauseFromBraceTwoStep_Test extends B
           invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
           getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(new Runnable() {
             public void run() {
-              Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), SNodeOperations.cast(getNodeById("5758795789001193993"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10f39a56e2fL, "CatchClause")))));
+              Assert.assertTrue(DeletionApproverUtil.isApprovedForDeletion(getEditorComponent().getEditorContext(), SNodeOperations.cast(getNodeById("2640093672104848616"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x2aefd560f401b9c6L, "MultipleCatchClause")))));
             }
           });
           invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
