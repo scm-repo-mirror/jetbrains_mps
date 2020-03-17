@@ -295,6 +295,7 @@
       <concept id="1186414860679" name="jetbrains.mps.lang.editor.structure.EditableStyleClassItem" flags="ln" index="VPxyj" />
       <concept id="1186414928363" name="jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem" flags="ln" index="VPM3Z" />
       <concept id="1186414949600" name="jetbrains.mps.lang.editor.structure.AutoDeletableStyleClassItem" flags="ln" index="VPRnO" />
+      <concept id="1186414976055" name="jetbrains.mps.lang.editor.structure.DrawBorderStyleClassItem" flags="ln" index="VPXOz" />
       <concept id="1186414999511" name="jetbrains.mps.lang.editor.structure.UnderlinedStyleClassItem" flags="ln" index="VQ3r3">
         <property id="1214316229833" name="underlined" index="2USNnj" />
       </concept>
@@ -17542,7 +17543,7 @@
         <property role="3F0ifm" value="//" />
         <ref role="1ERwB7" node="5mGEVCe5SFh" resolve="UncommentSingleLineComment" />
         <node concept="Vb9p2" id="4ov_DcGTVH8" role="3F10Kt">
-          <property role="Vbekb" value="BOLD_ITALIC" />
+          <property role="Vbekb" value="g1_tSyq/BOLD_ITALIC" />
         </node>
       </node>
       <node concept="3F1sOY" id="7fQBo8Te9je" role="3EZMnx">
@@ -31382,6 +31383,9 @@
         </node>
       </node>
       <node concept="l2Vlx" id="3VARyd8Xi_U" role="2iSdaV" />
+      <node concept="VPXOz" id="6RljYLbvIst" role="3F10Kt">
+        <property role="VOm3f" value="true" />
+      </node>
     </node>
     <node concept="B$lHz" id="7B8ZS0iM6om" role="6VMZX">
       <node concept="2w$q5c" id="7B8ZS0iM6on" role="B$lH_">
