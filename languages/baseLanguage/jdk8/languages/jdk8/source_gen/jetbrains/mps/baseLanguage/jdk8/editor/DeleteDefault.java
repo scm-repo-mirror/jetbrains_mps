@@ -30,10 +30,8 @@ public class DeleteDefault {
         SNodeOperations.deleteNode(node);
         if (method != null) {
           if (!((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasBody_id10BRnhak8m8.invoke(method))) {
-            System.out.println("taaa");
             ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(method, LINKS.body$WIlu), LINKS.statement$WHn8)).clear();
           }
-          System.out.println("faaa");
           editorContext.selectWRTFocusPolicy(method);
         }
       }
@@ -50,10 +48,8 @@ public class DeleteDefault {
         SNodeOperations.deleteNode(node);
         if (method != null) {
           if (!((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasBody_id10BRnhak8m8.invoke(method))) {
-            System.out.println("taaa");
             ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(method, LINKS.body$WIlu), LINKS.statement$WHn8)).clear();
           }
-          System.out.println("faaa");
           editorContext.selectWRTFocusPolicy(method);
         }
       }
@@ -70,29 +66,27 @@ public class DeleteDefault {
 
     // If we set a DELETE action but no BACKSPACE action, 
     // use the DELETE action for BACKSPACE as well. 
-    CellAction deleteAction = editorCell.getAction(CellActionType.DELETE);
-    CellAction backspaceAction = editorCell.getAction(CellActionType.BACKSPACE);
-    if (deleteAction != originalDelete && backspaceAction == originalBackspace) {
-      editorCell.setAction(CellActionType.BACKSPACE, deleteAction);
+    CellAction delete = editorCell.getAction(CellActionType.DELETE);
+    CellAction backspace = editorCell.getAction(CellActionType.BACKSPACE);
+    if (delete != originalDelete && backspace == originalBackspace) {
+      editorCell.setAction(CellActionType.BACKSPACE, delete);
     }
-    String newObj = "";
-    if (deleteAction != originalDelete) {
-      newObj += "own_del";
+    if (delete != originalDelete) {
+      editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_DELETE_SET, OB);
     }
-    if (backspaceAction != originalBackspace) {
-      newObj += "own_back";
+    if (backspace != originalBackspace) {
+      editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_BACKSPACE_SET, OB);
     }
-    editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_ACTIONS_SET, newObj);
   }
 
-  public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
+  private static final Object OB = new Object();
 
+  public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
     editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
-
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {

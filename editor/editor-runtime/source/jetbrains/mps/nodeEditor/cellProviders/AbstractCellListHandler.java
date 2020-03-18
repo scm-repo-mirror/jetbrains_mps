@@ -28,6 +28,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.mps.openapi.language.SConceptFeature;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -35,6 +36,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class AbstractCellListHandler extends AbstractEditorBuilder implements EditorBuilderEnvironment {
+  public static final String ELEMENT_CELL_COMPLETE_SET = "element-cell-complete-set";
+  public static final String ELEMENT_CELL_BACKSPACE_SET = "element-cell-backspace-set";
+  public static final String ELEMENT_CELL_DELETE_SET = "element-cell-delete-set";
+
+  // other actions
   public static final String ELEMENT_CELL_ACTIONS_SET = "element-cell-actions-set";
 
   protected EditorCell_Collection myListEditorCell_Collection;

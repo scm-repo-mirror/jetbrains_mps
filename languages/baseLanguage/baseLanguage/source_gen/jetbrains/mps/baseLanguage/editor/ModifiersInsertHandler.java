@@ -20,6 +20,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -95,16 +96,6 @@ public class ModifiersInsertHandler {
 
     };
   }
-  /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-      }
-
-    };
-  }
 
   public static void setCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     CellAction originalDelete = editorCell.getAction(CellActionType.DELETE);
@@ -115,22 +106,27 @@ public class ModifiersInsertHandler {
 
     // If we set a DELETE action but no BACKSPACE action, 
     // use the DELETE action for BACKSPACE as well. 
-    CellAction deleteAction = editorCell.getAction(CellActionType.DELETE);
-    CellAction backspaceAction = editorCell.getAction(CellActionType.BACKSPACE);
-    if (deleteAction != originalDelete && backspaceAction == originalBackspace) {
-      editorCell.setAction(CellActionType.BACKSPACE, deleteAction);
+    CellAction delete = editorCell.getAction(CellActionType.DELETE);
+    CellAction backspace = editorCell.getAction(CellActionType.BACKSPACE);
+    if (delete != originalDelete && backspace == originalBackspace) {
+      editorCell.setAction(CellActionType.BACKSPACE, delete);
+    }
+    if (delete != originalDelete) {
+      editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_DELETE_SET, OB);
+    }
+    if (backspace != originalBackspace) {
+      editorCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_BACKSPACE_SET, OB);
     }
   }
 
-  public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
+  private static final Object OB = new Object();
 
+  public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
-    editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
-
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -143,9 +139,6 @@ public class ModifiersInsertHandler {
     }
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
-    }
-    if (Objects.equals(actionType, CellActionType.DELETE)) {
-      editorCell.setAction(actionType, createAction_DELETE(node));
     }
   }
 

@@ -11,16 +11,16 @@ import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 
 @MPSLaunch
-public class DefaultInInterfaceRemoveMod_Test extends BaseTransformationTest {
+public class DeleteDefaultInInterface_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(DefaultInInterfaceRemoveMod_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(DeleteDefaultInInterface_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
 
-  public DefaultInInterfaceRemoveMod_Test() {
+  public DeleteDefaultInInterface_Test() {
     super(ourParamCache);
   }
 
   @Test
-  public void test_DefaultInInterfaceRemoveMod() throws Throwable {
+  public void test_DeleteDefaultInInterface() throws Throwable {
     new TestBody(this).testMethod();
   }
 
@@ -32,9 +32,10 @@ public class DefaultInInterfaceRemoveMod_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("4452056467061131317", "4452056467061131537");
+      initEditorComponent("6967768675453316733", "6967768675453316747");
       invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
+
     }
   }
 }
