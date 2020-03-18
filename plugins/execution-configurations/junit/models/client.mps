@@ -64,6 +64,7 @@
     <import index="ddon" ref="r:58ba176b-8a52-400c-bf27-725996471cb9(jetbrains.mps.core.tool.environment.common)" />
     <import index="b0pz" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.facets(MPS.Core/)" />
     <import index="fyhl" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps(MPS.Core/)" />
+    <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
     <import index="hypd" ref="r:aa31e43e-9240-4f4d-b6db-5c1c9a86c59e(jetbrains.mps.lang.project.structure)" implicit="true" />
   </imports>
   <registry>
@@ -9987,13 +9988,53 @@
       <node concept="3Tm6S6" id="B6nJXVtJgF" role="1B3o_S" />
       <node concept="17QB3L" id="B6nJXVtJFK" role="3clF45" />
       <node concept="3clFbS" id="B6nJXVtJgH" role="3clF47">
-        <node concept="3cpWs6" id="B6nJXVtJM4" role="3cqZAp">
-          <node concept="3cpWs3" id="B6nJXVtLi6" role="3cqZAk">
-            <node concept="2OqwBi" id="B6nJXVtLQP" role="3uHU7w">
-              <node concept="37vLTw" id="B6nJXVtLsh" role="2Oq$k0">
+        <node concept="3cpWs8" id="5dmi9bFV0zd" role="3cqZAp">
+          <node concept="3cpWsn" id="5dmi9bFV0ze" role="3cpWs9">
+            <property role="TrG5h" value="val" />
+            <node concept="17QB3L" id="5dmi9bFUUO6" role="1tU5fm" />
+            <node concept="2OqwBi" id="5dmi9bFV0zf" role="33vP2m">
+              <node concept="37vLTw" id="5dmi9bFV0zg" role="2Oq$k0">
                 <ref role="3cqZAo" node="B6nJXVtJJA" resolve="propValue" />
               </node>
-              <node concept="EvHYZ" id="B6nJXVtMI2" role="2OqNvi" />
+              <node concept="EvHYZ" id="5dmi9bFV0zh" role="2OqNvi" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="5dmi9bFV155" role="3cqZAp">
+          <node concept="3clFbS" id="5dmi9bFV157" role="3clFbx">
+            <node concept="3clFbF" id="5dmi9bFV3wP" role="3cqZAp">
+              <node concept="37vLTI" id="5dmi9bFV3Rm" role="3clFbG">
+                <node concept="3cpWs3" id="5dmi9bFV4xO" role="37vLTx">
+                  <node concept="Xl_RD" id="5dmi9bFV4y1" role="3uHU7w">
+                    <property role="Xl_RC" value="\&quot;" />
+                  </node>
+                  <node concept="3cpWs3" id="5dmi9bFV3Ts" role="3uHU7B">
+                    <node concept="Xl_RD" id="5dmi9bFV3RI" role="3uHU7B">
+                      <property role="Xl_RC" value="\&quot;" />
+                    </node>
+                    <node concept="37vLTw" id="5dmi9bFV3TH" role="3uHU7w">
+                      <ref role="3cqZAo" node="5dmi9bFV0ze" resolve="val" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="5dmi9bFV3wM" role="37vLTJ">
+                  <ref role="3cqZAo" node="5dmi9bFV0ze" resolve="val" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2YIFZM" id="5dmi9bFV2vf" role="3clFbw">
+            <ref role="37wK5l" to="zdap:~StringUtil.containsWhitespaces(java.lang.CharSequence)" resolve="containsWhitespaces" />
+            <ref role="1Pybhc" to="zdap:~StringUtil" resolve="StringUtil" />
+            <node concept="37vLTw" id="5dmi9bFV2vT" role="37wK5m">
+              <ref role="3cqZAo" node="5dmi9bFV0ze" resolve="val" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="B6nJXVtJM4" role="3cqZAp">
+          <node concept="3cpWs3" id="B6nJXVtLi6" role="3cqZAk">
+            <node concept="37vLTw" id="5dmi9bFV0zi" role="3uHU7w">
+              <ref role="3cqZAo" node="5dmi9bFV0ze" resolve="val" />
             </node>
             <node concept="3cpWs3" id="B6nJXVtKDk" role="3uHU7B">
               <node concept="3cpWs3" id="B6nJXVtK9H" role="3uHU7B">
