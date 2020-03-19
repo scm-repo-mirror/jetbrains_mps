@@ -273,7 +273,7 @@
       <node concept="24cAiW" id="5I1s5NvQ4SV" role="24cAkG">
         <node concept="NbPM2" id="1tJmw8EBzLa" role="XX84c">
           <node concept="3Mxwew" id="1tJmw8EBzL9" role="3MwsjC">
-            <property role="3MwjfP" value="true" />
+            <property role="3MwjfP" value="false" />
           </node>
         </node>
       </node>
@@ -3851,7 +3851,7 @@
       <node concept="24cAiW" id="5I1s5NvQ4SY" role="24cAkG">
         <node concept="NbPM2" id="1tJmw8EBzL6" role="XX84c">
           <node concept="3Mxwew" id="1tJmw8EBzL5" role="3MwsjC">
-            <property role="3MwjfP" value="true" />
+            <property role="3MwjfP" value="false" />
           </node>
         </node>
       </node>
@@ -5004,6 +5004,11 @@
       <node concept="24cAiW" id="5I1s5NvQ4T0" role="24cAkG">
         <node concept="24YFd4" id="7CxlxzFvXqH" role="24YFd7">
           <ref role="24YFd5" to="ffeo:6WtY9M1bDO_" resolve="jetbrains.mps.ide.java" />
+        </node>
+        <node concept="NbPM2" id="33YWcaLmKPH" role="XX84c">
+          <node concept="3Mxwew" id="33YWcaLmKPG" role="3MwsjC">
+            <property role="3MwjfP" value="true" />
+          </node>
         </node>
       </node>
       <node concept="22LTRF" id="PTnqpvDqSS" role="22LTRK">
@@ -11684,7 +11689,13 @@
     </node>
     <node concept="22LTRH" id="1Ue8MQkfJm6" role="1hWBAP">
       <property role="TrG5h" value="typeSystem" />
-      <node concept="24cAiW" id="5I1s5NvQ4Td" role="24cAkG" />
+      <node concept="24cAiW" id="5I1s5NvQ4Td" role="24cAkG">
+        <node concept="NbPM2" id="33YWcaLmKPL" role="XX84c">
+          <node concept="3Mxwew" id="33YWcaLmKPK" role="3MwsjC">
+            <property role="3MwjfP" value="true" />
+          </node>
+        </node>
+      </node>
       <node concept="22LTRM" id="1Ue8MQkfJm7" role="22LTRK">
         <ref role="22LTRN" node="1Ue8MQkfJlW" resolve="jetbrains.mps.lang.typesystem.test" />
       </node>
