@@ -72,6 +72,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     AbstractCellListHandler handler = new elementsListHandler_78ent8_b0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("refNodeList_elements");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_WRAP_ANCHOR, false);
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT_ANCHOR, true);
+    editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
