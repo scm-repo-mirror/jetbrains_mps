@@ -28,6 +28,9 @@ import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.update.Activatable;
 import com.intellij.util.ui.update.UiNotifyConnector;
+import jetbrains.mps.icons.MPSIcons;
+import jetbrains.mps.icons.MPSIcons.ProjectPane;
+import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.Nls;
@@ -37,6 +40,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 
+import javax.swing.Icon;
 import javax.swing.JComponent;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -80,7 +84,7 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
 
   @Override
   public void showNotify() {
-    myFuture = EdtExecutorService.getScheduledExecutorInstance().scheduleWithFixedDelay(this::updateState, 1, 10, TimeUnit.SECONDS);
+    myFuture = EdtExecutorService.getScheduledExecutorInstance().scheduleWithFixedDelay(this::updateState, 1, 5, TimeUnit.SECONDS);
   }
 
   @Override
@@ -132,13 +136,20 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
     g.setColor(USED_COLOR);
     g.fillRect(0, 0, usedBarLength, size.height - 1);
 
+    g.setColor(JBColor.GRAY);
+    g.drawLine(size.width - 1, 0, size.width - 1, size.height - 1);
+    g.drawLine(0, 0, 0, size.height - 1);
+
+    Icon icon = ProjectPane.LogicalView;
+    icon.paintIcon(this, g, size.width - icon.getIconWidth() - 4, (size.height - icon.getIconHeight()) / 2);
+
     //text
     super.paintComponent(g);
   }
 
   @Override
   protected String getTextForPreferredSize() {
-    return " " + getCaption(1000,1000);
+    return " " + getCaption(1000, 1000);
   }
 
   private void updateState() {
@@ -151,7 +162,7 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
 
       myLastLoadedModels = 0;
       myModelsTotal = 0;
-      for (SModule module: repo.getModules()){
+      for (SModule module : repo.getModules()) {
         for (SModel m : module.getModels()) {
           myModelsTotal++;
           if (m.isLoaded()) {
@@ -167,7 +178,7 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
 
   @NotNull
   private String getCaption(int loaded, int max) {
-    return loaded + " of " + max;
+    return loaded + " of " + max + "       "; // last spaces make a place for icon
   }
 
   @NotNull
