@@ -1,14 +1,25 @@
-// Copyright 2000-2019 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+/*
+ * Copyright 2003-2020 JetBrains s.r.o.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package jetbrains.mps.ide.memtool;
 
-import com.intellij.notification.impl.widget.IdeNotificationArea;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.CustomStatusBarWidget;
 import com.intellij.openapi.wm.StatusBar;
-import com.intellij.openapi.wm.StatusBar.Anchors;
 import com.intellij.openapi.wm.StatusBarWidget;
 import com.intellij.openapi.wm.StatusBarWidgetFactory;
-import com.intellij.openapi.wm.StatusBarWidgetProvider;
 import com.intellij.openapi.wm.impl.status.TextPanel;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
@@ -18,6 +29,7 @@ import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.update.Activatable;
 import com.intellij.util.ui.update.UiNotifyConnector;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -39,28 +51,22 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
   public static final String WIDGET_ID = "Models";
   private static final Color USED_COLOR = JBColor.namedColor("MemoryIndicator.usedBackground", new JBColor(Gray._185, Gray._110));
 
-  private Project myProject;
+  private final MPSProject myProject;
   private ScheduledFuture<?> myFuture;
   private int myLastLoadedModels = 0;
   private int myModelsTotal = 1000;
 
-  private MouseListener myActionListener = new MouseAdapter() {
+  private final MouseListener myActionListener = new MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e) {
-      if (myProject == null) {
-        return;
-      }
-      MemManager memManager = myProject.getComponent(MemManager.class);
-      if (memManager == null) {
-        return;
-      }
+      new UnloadModelsActivity(myProject.getRepository()).run();
 
-      memManager.cleanupFromAction();
       updateState();
     }
   };
 
-  public LoadedModelsPanel() {
+  public LoadedModelsPanel(MPSProject mpsProject) {
+    myProject = mpsProject;
     setOpaque(false);
     setFocusable(false);
     setTextAlignment(CENTER_ALIGNMENT);
@@ -92,7 +98,6 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
 
   @Override
   public void install(@NotNull StatusBar statusBar) {
-    myProject = statusBar.getProject();
   }
 
   @Nullable
@@ -117,7 +122,7 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
     Dimension size = getSize();
     int barWidth = size.width;
 
-    int usedBarLength = (int) (barWidth * myLastLoadedModels / myModelsTotal);
+    int usedBarLength = barWidth * myLastLoadedModels / myModelsTotal;
 
     // background
     g.setColor(UIUtil.getPanelBackground());
@@ -141,7 +146,7 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
       return;
     }
 
-    SRepository repo = ProjectHelper.getProjectRepository(myProject);
+    final SRepository repo = myProject.getRepository();
     repo.getModelAccess().runReadAction(()->{
 
       myLastLoadedModels = 0;
@@ -180,13 +185,13 @@ public final class LoadedModelsPanel extends TextPanel implements StatusBarWidge
 
   @Override
   public boolean isAvailable(@NotNull Project project) {
-    return true;
+    return ProjectHelper.fromIdeaProject(project) != null;
   }
 
   @NotNull
   @Override
   public StatusBarWidget createWidget(@NotNull Project project) {
-    return new LoadedModelsPanel();
+    return new LoadedModelsPanel(ProjectHelper.fromIdeaProject(project));
   }
 
   @Override

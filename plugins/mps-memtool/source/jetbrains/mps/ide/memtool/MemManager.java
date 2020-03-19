@@ -20,7 +20,6 @@ import com.intellij.notification.NotificationDisplayType;
 import com.intellij.notification.NotificationGroup;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.startup.StartupActivity;
 import com.intellij.openapi.util.registry.Registry;
@@ -36,13 +35,7 @@ import jetbrains.mps.project.MPSProject;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
-
-import java.util.function.Consumer;
-
-import static com.intellij.openapi.util.io.FileUtilRt.MEGABYTE;
 
 public class MemManager implements StartupActivity.Background {
   public static final int DELAY = 5;
@@ -103,32 +96,22 @@ public class MemManager implements StartupActivity.Background {
     if (myComponentHost.findComponent(MakeServiceComponent.class).isSessionActive()) {
       return;
     }
-    long usedMemBefore = getUsedMem();
-    long modelsBefore = countModels(true);
-    long timeBefore = System.currentTimeMillis();
-    //this needs to be run in EDT as it may want to save models => access files => have Idea write lock
-    ApplicationManager.getApplication().invokeAndWait(this::unloadModels, ModalityState.NON_MODAL);
-    long timeAfterUnloading = System.currentTimeMillis();
-    System.gc();
-    long timeAfter = System.currentTimeMillis();
-    long usedMemAfter = getUsedMem();
-    long modelsAfter = countModels(true);
-    long modelsTotal = countModels(false);
-    LOG.info(String.format("Models unloaded: %d [total: %d, loaded: %d]; Unloading time: %.2fs; GC time: %.2fs; Memory freed: %dmb ",
-                           modelsBefore - modelsAfter, modelsTotal, modelsAfter, (1.0 * timeAfterUnloading - timeBefore) / 1000,
-                           (1.0 * timeAfter - timeAfterUnloading) / 1000,
-                           usedMemBefore - usedMemAfter));
+
+    final UnloadModelsActivity a = new UnloadModelsActivity(getRepo());
+
+    a.run();
+    long modelsAfter = a.countModels(true);
 
     final long[] modelsLongAfter = new long[1];
     //let's see what happens not so long after
     myAlarm.addRequest(() -> {
-      modelsLongAfter[0] = countModels(true);
+      modelsLongAfter[0] = a.countModels(true);
       LOG.info(String.format("[%ss]: Models reloaded: %d", DELAY, modelsLongAfter[0] - modelsAfter));
     }, DELAY * 1000);
 
     //let's see what happens long after
     myAlarm.addRequest(() -> {
-      long modelsLongLongAfter = countModels(true);
+      long modelsLongLongAfter = a.countModels(true);
       LOG.info(String.format("[%ss]: Models reloaded: %d", DELAY2, modelsLongLongAfter - modelsLongAfter[0]));
     }, DELAY2 * 1000);
   }
@@ -137,36 +120,6 @@ public class MemManager implements StartupActivity.Background {
   private SRepository getRepo() {
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
     return mpsProject.getRepository();
-  }
-
-  private long countModels(boolean loadedOnly) {
-    final int[] res = {0};
-    forEachModel(getRepo(), m -> {
-      if (!loadedOnly || m.isLoaded()) {
-        res[0]++;
-      }
-    });
-    return res[0];
-  }
-
-  private void unloadModels() {
-    forEachModel(getRepo(), SModel::unload);
-  }
-
-  private void forEachModel(SRepository repo, Consumer<SModel> consumer) {
-    repo.getModelAccess().runWriteAction(() -> {
-      for (SModule module : repo.getModules()) {
-        for (SModel model : module.getModels()) {
-          consumer.accept(model);
-        }
-      }
-    });
-  }
-
-  private long getUsedMem() {
-    Runtime rt = Runtime.getRuntime();
-    long allocatedMem = rt.totalMemory() / MEGABYTE;
-    return allocatedMem - rt.freeMemory() / MEGABYTE;
   }
 
   private class MyRepeatingCleanup implements Runnable {
