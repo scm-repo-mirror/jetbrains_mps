@@ -3134,16 +3134,6 @@
       <node concept="3Tm6S6" id="6LlhC3WLCN7" role="1B3o_S" />
       <node concept="10P_77" id="6LlhC3WLD7Y" role="1tU5fm" />
     </node>
-    <node concept="312cEg" id="3eUNqOk88p_" role="jymVt">
-      <property role="34CwA1" value="false" />
-      <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="myMacrosProvider" />
-      <property role="3TUv4t" value="false" />
-      <node concept="3Tm6S6" id="3eUNqOk86rD" role="1B3o_S" />
-      <node concept="3uibUv" id="3eUNqOk88pe" role="1tU5fm">
-        <ref role="3uigEE" to="z1c3:~PathMacrosProvider" resolve="PathMacrosProvider" />
-      </node>
-    </node>
     <node concept="312cEg" id="yBZlauHaA8" role="jymVt">
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
@@ -3471,19 +3461,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="3eUNqOk8a2j" role="3cqZAp">
-          <node concept="37vLTI" id="3eUNqOk8ajJ" role="3clFbG">
-            <node concept="37vLTw" id="3eUNqOk8a2h" role="37vLTJ">
-              <ref role="3cqZAo" node="3eUNqOk88p_" resolve="myMacrosProvider" />
-            </node>
-            <node concept="1rXfSq" id="3eUNqOk8uc7" role="37vLTx">
-              <ref role="37wK5l" node="5mza6Qqg6Rs" resolve="createMapMacrosProvider" />
-              <node concept="37vLTw" id="3eUNqOk8uex" role="37wK5m">
-                <ref role="3cqZAo" node="5mza6QqkOGZ" resolve="macros" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="KL8AqljyKb" role="3cqZAp">
           <node concept="2OqwBi" id="KL8AqljyKc" role="3clFbG">
             <node concept="37vLTw" id="1Pvl5nrecMW" role="2Oq$k0">
@@ -3491,22 +3468,18 @@
             </node>
             <node concept="liA8E" id="KL8AqljyKe" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~PathMacros.addMacrosProvider(jetbrains.mps.project.PathMacrosProvider)" resolve="addMacrosProvider" />
-              <node concept="37vLTw" id="3eUNqOk8aQZ" role="37wK5m">
-                <ref role="3cqZAo" node="3eUNqOk88p_" resolve="myMacrosProvider" />
+              <node concept="1rXfSq" id="4JRAuHL9cSF" role="37wK5m">
+                <ref role="37wK5l" node="5mza6Qqg6Rs" resolve="createMapMacrosProvider" />
+                <node concept="37vLTw" id="4JRAuHL9cSG" role="37wK5m">
+                  <ref role="3cqZAo" node="5mza6QqkOGZ" resolve="macros" />
+                </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="3cpWs6" id="2jln2VqYaJu" role="3cqZAp">
-          <node concept="37vLTw" id="3eUNqOk8aSw" role="3cqZAk">
-            <ref role="3cqZAo" node="3eUNqOk88p_" resolve="myMacrosProvider" />
-          </node>
-        </node>
       </node>
       <node concept="3Tm6S6" id="2jln2VqY4EW" role="1B3o_S" />
-      <node concept="3uibUv" id="2jln2Vr5Gu6" role="3clF45">
-        <ref role="3uigEE" to="z1c3:~PathMacrosProvider" resolve="PathMacrosProvider" />
-      </node>
+      <node concept="3cqZAl" id="4JRAuHL9g18" role="3clF45" />
       <node concept="37vLTG" id="1Pvl5nreaRM" role="3clF46">
         <property role="TrG5h" value="macroComponent" />
         <node concept="3uibUv" id="1Pvl5nreaRL" role="1tU5fm">
@@ -3691,6 +3664,26 @@
                 </node>
                 <node concept="liA8E" id="2jln2Vr2Pbo" role="2OqNvi">
                   <ref role="37wK5l" to="v9gs:2jln2Vr1dnx" resolve="isValidDirectory" />
+                </node>
+              </node>
+              <node concept="9aQIb" id="4JRAuHL96K8" role="9aQIa">
+                <node concept="3clFbS" id="4JRAuHL96K9" role="9aQI4">
+                  <node concept="RRSsy" id="4JRAuHL96Vd" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fh_4/error" />
+                    <node concept="3cpWs3" id="4JRAuHL970V" role="RRSoy">
+                      <node concept="3cpWs3" id="4JRAuHL97t7" role="3uHU7B">
+                        <node concept="37vLTw" id="4JRAuHL97uR" role="3uHU7w">
+                          <ref role="3cqZAo" node="KL8AqljyJx" resolve="macroName" />
+                        </node>
+                        <node concept="Xl_RD" id="4JRAuHL9711" role="3uHU7B">
+                          <property role="Xl_RC" value="The macro '" />
+                        </node>
+                      </node>
+                      <node concept="Xl_RD" id="4JRAuHL9713" role="3uHU7w">
+                        <property role="Xl_RC" value="' to non-existent location" />
+                      </node>
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
