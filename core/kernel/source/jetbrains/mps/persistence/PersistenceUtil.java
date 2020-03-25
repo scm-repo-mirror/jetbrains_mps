@@ -16,6 +16,7 @@
 package jetbrains.mps.persistence;
 
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
+import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.JDOMUtil;
@@ -96,12 +97,6 @@ public final class PersistenceUtil {
   }
 
   @Nullable
-  public static SModel loadBinaryModel(final byte[] content) {
-    //noinspection ConstantConditions
-    return loadModel(content, getModelFactoryService().getFactoryByType(PreinstalledModelFactoryTypes.BINARY));
-  }
-
-  @Nullable
   public static SModel loadModel(@NotNull DataSource dataSource, @NotNull ModelFactoryService modelFactoryService) {
     final ModelFactory mf = modelFactoryService.getDefaultModelFactory(dataSource.getType());
     if (mf == null) {
@@ -143,10 +138,20 @@ public final class PersistenceUtil {
     return null;
   }
 
+  /**
+   * @deprecated use the one with {@code ModelFactoryService argument}
+   */
+  @Deprecated
   public static Element saveModelToXml(final SModel model) {
+    return saveModelToXml(model, getModelFactoryService());
+  }
+
+  public static Element saveModelToXml(@NotNull final SModel model, @NotNull ModelFactoryService modelFactoryService) {
+    // XXX no idea why not getFactoryByType(), but didn't change myself as not clear whether to use PLAIN_XML or PER_ROOT_XML type given use of MODEL ds kind
+    ModelFactory factory = modelFactoryService.getDefaultModelFactory(PreinstalledDataSourceTypes.MODEL);
     try {
       SAXBuilder saxBuilder = new SAXBuilder();
-      Element rootElement = saxBuilder.build(modelContentAsStream(model, MPSExtentions.MODEL)).getRootElement();
+      Element rootElement = saxBuilder.build(modelAsStream(model, factory)).getRootElement();
       rootElement.detach();
       return rootElement;
     } catch (IOException | JDOMException e) {
@@ -159,8 +164,8 @@ public final class PersistenceUtil {
     return loadModel(JDOMUtil.asString(new org.jdom.Document(element)));
   }
 
-  public static byte[] saveBinaryModel(final SModel model) {
-    ModelFactory factory = getModelFactoryService().getFactoryByType(PreinstalledModelFactoryTypes.BINARY);
+  @Nullable
+  public static byte[] modelAsBytes(@NotNull final SModel model, @NotNull ModelFactory factory) {
     try {
       InMemoryStreamDataSource source = new InMemoryStreamDataSource();
       factory.save(model, source);
@@ -175,8 +180,7 @@ public final class PersistenceUtil {
    * Serialize model with a persistence identified by extension and provide access to serialized content through InputStream.
    * @return empty stream in case serialization failed. Caller is responsible to close the stream.
    */
-  public static InputStream modelContentAsStream(final SModel model, String extension) {
-    ModelFactory factory = getModelFactoryService().getDefaultModelFactory(FileExtensionDataSourceType.of(extension));
+  private static InputStream modelAsStream(final SModel model, @Nullable ModelFactory factory) {
     if (factory != null) {
       try {
         InMemoryStreamDataSource source = new InMemoryStreamDataSource();
@@ -188,21 +192,6 @@ public final class PersistenceUtil {
       }
     }
     return new ByteArrayInputStream(new byte[0]);
-  }
-
-  public static String savePerRootModel(final SModel model, String name) {
-    ModelFactory factory = getModelFactoryService().getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
-    if (factory == null) {
-      return null;
-    }
-    try {
-      InMemoryMultiStreamDataSource source = new InMemoryMultiStreamDataSource();
-      factory.save(model, source);
-      return source.getContent(name, FileUtil.DEFAULT_CHARSET_NAME);
-    } catch (ModelSaveException | IOException e) {
-      LOG.error(e);
-    }
-    return null;
   }
 
   public static String savePerRootModel(final SModel model, boolean isHeader) {
