@@ -244,7 +244,7 @@ public class MergeRootsPane {
     ChangeGroupLayout layout = createChangeGroupLayout(mine, inspector);
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
-    DiffEditorSeparator separator = new DiffEditorSeparator(ProjectHelper.getProjectRepository(myProject), layout);
+    DiffEditorSeparator separator = new DiffEditorSeparator(ProjectHelper.getProjectRepository(myProject), layout, null);
     JPanel panel = (inspector ? myBottomPanel : myTopPanel);
     GridBagConstraints gbc = new GridBagConstraints((mine ? 1 : 3), 0, 1, 1, 0, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, 0, 5, 0), 0, 0);
     panel.add(separator, gbc);

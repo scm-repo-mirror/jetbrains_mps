@@ -19,6 +19,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import java.awt.Graphics;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import com.intellij.ui.ColorUtil;
 import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import java.awt.Rectangle;
 import jetbrains.mps.nodeEditor.cells.GeometryUtil;
@@ -106,7 +107,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       return;
     }
     if (isDirectCell(cell)) {
-      ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, getColor(), false);
+      ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, ColorUtil.darker(getColor(), 1), false);
       repaintConflictedMessages(graphics, cell);
     } else {
       if (myMessageTarget instanceof DeletedNodeMessageTarget) {
@@ -423,6 +424,12 @@ __switch__:
   }
   public interface ConflictChecker {
     boolean isChangeConflicted(ModelChange change);
+  }
+
+  public void drawBandInEditor(Graphics graphics, EditorComponent editorComponent) {
+    Bounds bounds = getBounds(editorComponent);
+    graphics.setColor(getColor());
+    graphics.fillRect(0, (int) bounds.start(), editorComponent.getWidth(), bounds.length());
   }
   private static String check_myu41h_a0a0r(SProperty checkedDotOperand) {
     if (null != checkedDotOperand) {

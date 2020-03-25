@@ -12,6 +12,8 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
 import jetbrains.mps.project.IProject;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
@@ -27,7 +29,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import javax.swing.JComponent;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.nodeEditor.commands.CommandContextWithVF;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.behaviour.BHReflection;
@@ -48,6 +49,7 @@ public class DiffEditor implements EditorMessageOwner {
   private JLabel myTitle;
   private InspectorEditorComponent myInspector;
   private Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
+  private List<ChangedBandInEditorPainter> myBandPainters = ListSequence.fromList(new ArrayList<ChangedBandInEditorPainter>());
 
 
   public DiffEditor(final IProject project, SNode node, String contentTitle, boolean isLeftEditor) {
@@ -133,6 +135,20 @@ public class DiffEditor implements EditorMessageOwner {
         });
       }
     });
+    Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
+      public void visit(final EditorComponent ec) {
+        ListSequence.fromList(messages).visitAll(new IVisitor<ChangeEditorMessage>() {
+          public void visit(ChangeEditorMessage m) {
+            {
+              ChangedBandInEditorPainter painter = new ChangedBandInEditorPainter(m);
+              ec.addAdditionalPainter(painter);
+              ListSequence.fromList(myBandPainters).addElement(painter);
+            }
+          }
+        });
+      }
+    });
+
   }
   public void repaintAndRebuildEditorMessages() {
     Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
@@ -151,6 +167,17 @@ public class DiffEditor implements EditorMessageOwner {
       }
     });
     MapSequence.fromMap(myChangeToMessages).clear();
+    Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
+      public void visit(final EditorComponent ec) {
+        ListSequence.fromList(myBandPainters).visitAll(new IVisitor<ChangedBandInEditorPainter>() {
+          public void visit(ChangedBandInEditorPainter p) {
+            ec.removeAdditionalPainter(p);
+          }
+        });
+      }
+    });
+    ListSequence.fromList(myBandPainters).clear();
+
   }
   public void dispose() {
     myMainEditorComponent.dispose();

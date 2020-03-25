@@ -153,7 +153,7 @@ public class StructDifferencePane {
     ChangeGroupLayout layout = new DiffChangeGroupLayout(null, myChangeSet, myOldEditor, myNewEditor, inspector);
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
-    DiffEditorSeparator separator = new DiffEditorSeparator(ProjectHelper.getProjectRepository(myProject), layout);
+    DiffEditorSeparator separator = new DiffEditorSeparator(ProjectHelper.getProjectRepository(myProject), layout, null);
     GridBagConstraints gbc = new GridBagConstraints(1, 0, 1, 1, 0, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, 0, 5, 0), 0, 0);
     ((inspector ? myBottomPanel : myTopPanel)).add(separator, gbc);
     ListSequence.fromList(myEditorSeparators).addElement(separator);

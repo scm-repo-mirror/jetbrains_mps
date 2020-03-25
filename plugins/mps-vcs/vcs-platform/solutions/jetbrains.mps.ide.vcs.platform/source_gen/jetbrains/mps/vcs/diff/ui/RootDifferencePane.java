@@ -14,25 +14,42 @@ import java.util.ArrayList;
 import jetbrains.mps.vcs.diff.ui.common.DiffEditorSeparator;
 import jetbrains.mps.vcs.diff.ui.common.DiffEditorsGroup;
 import com.intellij.ui.JBSplitter;
+import com.intellij.diff.tools.util.side.TwosideContentPanel;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser;
+import java.util.Arrays;
 import com.intellij.openapi.actionSystem.ToggleAction;
 import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
-import com.intellij.openapi.actionSystem.ActionGroup;
+import com.intellij.diff.tools.util.DiffSplitter;
+import com.intellij.diff.util.DiffDividerDrawUtil;
+import org.jetbrains.annotations.NotNull;
+import java.awt.Graphics;
 import javax.swing.JComponent;
+import java.awt.Graphics2D;
+import com.intellij.diff.util.DiffDrawUtil;
 import org.jetbrains.annotations.Nullable;
+import java.awt.Color;
+import com.intellij.openapi.ui.GraphicsConfig;
+import com.intellij.util.ui.GraphicsUtil;
+import jetbrains.mps.internal.collections.runtime.IMapping;
+import jetbrains.mps.vcs.diff.ui.common.ChangeGroup;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
+import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import jetbrains.mps.vcs.diff.ui.common.ChangedBandInHighlighterPainter;
 import jetbrains.mps.smodel.SModelOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -51,10 +68,11 @@ public class RootDifferencePane implements IHighlighter {
 
   private List<ChangeGroupLayout> myChangeGroupLayouts = ListSequence.fromList(new ArrayList<ChangeGroupLayout>());
   private List<DiffEditorSeparator> myEditorSeparators = ListSequence.fromList(new ArrayList<DiffEditorSeparator>());
+  private DiffEditorSeparator myTopSeparator = null;
   private DiffEditorsGroup myDiffEditorsGroup = new DiffEditorsGroup();
 
   private JBSplitter myPanel = new JBSplitter(true, 0.7f);
-  private JPanel myTopPanel = new JPanel(new GridBagLayout());
+  private TwosideContentPanel myTopPanel;
   private JPanel myBottomPanel = new JPanel(new GridBagLayout());
   private boolean isInspectorShown = PropertiesComponent.getInstance().getBoolean(PARAM_SHOW_INSPECTOR, true);
 
@@ -68,6 +86,11 @@ public class RootDifferencePane implements IHighlighter {
 
     myOldEditor = addEditor(0, myChangeSet.getOldModel(), titles[0]);
     myNewEditor = addEditor(1, myChangeSet.getNewModel(), titles[1]);
+
+    myTopPanel = new TwosideContentPanel(Arrays.asList(myOldEditor.getTopComponent(), myNewEditor.getTopComponent()));
+
+    myTopPanel.setPainter(new MyDividerPainter());
+
     linkEditors(true);
     linkEditors(false);
 
@@ -115,6 +138,45 @@ public class RootDifferencePane implements IHighlighter {
           rehighlight();
         }
       });
+    }
+  }
+
+  private class MyDividerPainter implements DiffSplitter.Painter, DiffDividerDrawUtil.DividerPaintable {
+    @Override
+    public void paint(@NotNull Graphics g, @NotNull JComponent divider) {
+      Graphics2D gg = DiffDividerDrawUtil.getDividerGraphics(g, divider, myOldEditor.getTopComponent());
+
+      gg.setColor(DiffDrawUtil.getDividerColor());
+      gg.fill(gg.getClipBounds());
+
+      final List<DiffDividerDrawUtil.DividerPolygon> polygons = new ArrayList<DiffDividerDrawUtil.DividerPolygon>();
+
+      int width = divider.getWidth();
+
+      process(new DiffDividerDrawUtil.DividerPaintable.Handler() {
+        @Override
+        public boolean process(int startLine1, int endLine1, int startLine2, int endLine2, @Nullable Color fillColor, @Nullable Color borderColor, boolean dottedBorder) {
+          return polygons.add(new DiffDividerDrawUtil.DividerPolygon(startLine1, startLine2, endLine1, endLine2, fillColor, borderColor, dottedBorder));
+        }
+      });
+
+      GraphicsConfig config = GraphicsUtil.setupAAPainting(gg);
+      for (DiffDividerDrawUtil.DividerPolygon dividerPolygon : ListSequence.fromList(polygons)) {
+        dividerPolygon.paint(gg, width, true);
+      }
+      config.restore();
+
+      gg.dispose();
+    }
+    @Override
+    public void process(@NotNull DiffDividerDrawUtil.DividerPaintable.Handler handler) {
+      for (IMapping<ChangeGroup, Tuples._2<Bounds, Bounds>> groupWithBounds : MapSequence.fromMap(myTopSeparator.getGroupsWithBounds())) {
+        Bounds left = groupWithBounds.value()._0();
+        Bounds right = groupWithBounds.value()._1();
+        if (!(handler.process((int) left.start() + 1, (int) left.end() + 1, (int) right.start() + 1, (int) right.end() + 1, ChangeColors.get(groupWithBounds.key().getChangeType()), null, false))) {
+          return;
+        }
+      }
     }
   }
 
@@ -179,10 +241,16 @@ public class RootDifferencePane implements IHighlighter {
     ChangeGroupLayout layout = new DiffChangeGroupLayout(null, myChangeSet, myOldEditor, myNewEditor, inspector);
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
-    DiffEditorSeparator separator = new DiffEditorSeparator(myProject.getRepository(), layout);
+    DiffEditorSeparator separator = new DiffEditorSeparator(myProject.getRepository(), layout, myTopPanel.getSplitter());
     GridBagConstraints gbc = new GridBagConstraints(1, 0, 1, 1, 0, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, 0, 5, 0), 0, 0);
-    ((inspector ? myBottomPanel : myTopPanel)).add(separator, gbc);
-    ListSequence.fromList(myEditorSeparators).addElement(separator);
+    if (inspector) {
+      myBottomPanel.add(separator, gbc);
+      ListSequence.fromList(myEditorSeparators).addElement(separator);
+    } else {
+      myTopSeparator = separator;
+      ChangedBandInHighlighterPainter.addTo(myOldEditor, layout, inspector);
+      ChangedBandInHighlighterPainter.addTo(myNewEditor, layout, inspector);
+    }
     if (!(SModelOperations.isReadOnly(myChangeSet.getNewModel()))) {
       DiffButtonsPainter.addTo(this, myOldEditor, layout, inspector);
       DiffButtonsPainter.addTo(this, myNewEditor, layout, inspector);
@@ -191,8 +259,7 @@ public class RootDifferencePane implements IHighlighter {
   private DiffEditor addEditor(int index, SModel model, String title) {
     final DiffEditor result = new DiffEditor(myProject, model.getNode(myRootId), title, index == 0);
 
-    GridBagConstraints gbc = new GridBagConstraints(index * 2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, (index == 0 ? 5 : 0), 5, (index == 2 ? 5 : 0)), 0, 0);
-    myTopPanel.add(result.getTopComponent(), gbc);
+    GridBagConstraints gbc = new GridBagConstraints(index * 2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, (index == 0 ? 5 : 0), 5, (index == 1 ? 5 : 0)), 0, 0);
     myBottomPanel.add(result.getInspector().getExternalComponent(), gbc);
 
     myDiffEditorsGroup.add(result);

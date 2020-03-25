@@ -8,6 +8,7 @@ import jetbrains.mps.ide.tooltips.TooltipComponent;
 import java.util.Map;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.module.SRepository;
+import com.intellij.diff.tools.util.DiffSplitter;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.Dimension;
@@ -34,9 +35,11 @@ public class DiffEditorSeparator extends JComponent implements TooltipComponent 
   private Map<ChangeGroup, Tuples._2<Bounds, Bounds>> myGroupsWithBounds;
   private Map<ChangeGroup, String> myChangeGroupDescriptions;
   private final SRepository myRepoWithChanges;
+  private final DiffSplitter myDiffSplitter;
 
-  public DiffEditorSeparator(SRepository repoWithChanges, ChangeGroupLayout changeGroupLayout) {
+  public DiffEditorSeparator(SRepository repoWithChanges, ChangeGroupLayout changeGroupLayout, DiffSplitter diffSplitter) {
     myChangeGroupLayout = changeGroupLayout;
+    myDiffSplitter = diffSplitter;
     // FIXME It seems that changes in ChangeGroupLayout may be tied to live models in a repository, therfore, access to model 
     //       properties e.g. in ModelChange.getDescription() shall be guarded by model read. It's odd to guard each distinct getDescription 
     //       from within ModelChange, therefore looks reasonable to do it at this level, where we do bulk analyze of all the changes. However, 
@@ -58,6 +61,14 @@ public class DiffEditorSeparator extends JComponent implements TooltipComponent 
       }
     });
     MPSToolTipManager.getInstance().registerComponent(this);
+  }
+
+  public Map<ChangeGroup, Tuples._2<Bounds, Bounds>> getGroupsWithBounds() {
+    synchronized (this) {
+      myGroupsWithBounds = null;
+      ensureBoundsCalculated();
+      return myGroupsWithBounds;
+    }
   }
 
   private void ensureBoundsCalculated() {
@@ -112,6 +123,10 @@ public class DiffEditorSeparator extends JComponent implements TooltipComponent 
     synchronized (this) {
       myGroupsWithBounds = null;
       myChangeGroupDescriptions = null;
+    }
+    if (myDiffSplitter != null) {
+      myDiffSplitter.repaintDivider();
+      return;
     }
     repaint();
   }
