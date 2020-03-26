@@ -35,10 +35,7 @@
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="jetbrains.mps.InternalFlag" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.ide.vcs.SourceRevision" />
-    <classNode dependClassName="jetbrains.mps.vcs.concrete.MPSSourceRevision" />
     <classNode dependClassName="jetbrains.mps.vcs.platform.mergedriver.MergeDriverNotification" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
     <classNode dependClassName="org.apache.log4j.Logger" />

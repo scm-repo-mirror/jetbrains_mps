@@ -14,9 +14,6 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="80f9" ref="r:36539f52-7ec3-4937-98bf-1fbc1fbe99fc(jetbrains.mps.vcs.platform.mergedriver)" />
-    <import index="fyhk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps(MPS.Core/)" />
-    <import index="4hos" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.vcs(MPS.Workbench/)" />
-    <import index="lgvi" ref="r:35a4b074-cc8b-4e81-89c0-bb4cef49e017(jetbrains.mps.vcs.concrete)" />
     <import index="jlcu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs(MPS.IDEA/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
@@ -779,25 +776,6 @@
                 <ref role="3cqZAo" node="6KGokXnArdk" resolve="vcsListener" />
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="4VdnjWGg50V" role="3cqZAp">
-          <node concept="3clFbS" id="4VdnjWGg50W" role="3clFbx">
-            <node concept="3clFbF" id="4pJeNdvvBqS" role="3cqZAp">
-              <node concept="2YIFZM" id="4pJeNdvvBqU" role="3clFbG">
-                <ref role="1Pybhc" to="4hos:~SourceRevision" resolve="SourceRevision" />
-                <ref role="37wK5l" to="4hos:~SourceRevision.setProvider(jetbrains.mps.ide.vcs.SourceRevision)" resolve="setProvider" />
-                <node concept="2ShNRf" id="4pJeNdvvBqV" role="37wK5m">
-                  <node concept="1pGfFk" id="4pJeNdvvBqX" role="2ShVmc">
-                    <ref role="37wK5l" to="lgvi:3Lj0jv7ELv_" resolve="MPSSourceRevision" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2YIFZM" id="4VdnjWGg510" role="3clFbw">
-            <ref role="1Pybhc" to="fyhk:~InternalFlag" resolve="InternalFlag" />
-            <ref role="37wK5l" to="fyhk:~InternalFlag.isInternalMode()" resolve="isInternalMode" />
           </node>
         </node>
         <node concept="3clFbF" id="78tlMyQ2NpZ" role="3cqZAp">
