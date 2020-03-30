@@ -218,7 +218,6 @@
     <classNode extendsClassName="jetbrains.mps.nodeEditor.AbstractAdditionalPainter" />
   </dependency>
   <dependency className="jetbrains.mps.vcs.diff.ui.common.ChangedBandInHighlighterPainter">
-    <classNode dependClassName="com.intellij.ui.ColorUtil" />
     <classNode dependClassName="java.awt.Color" />
     <classNode dependClassName="java.awt.Graphics" />
     <classNode dependClassName="java.lang.Override" />

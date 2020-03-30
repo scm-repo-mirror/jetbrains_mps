@@ -118,10 +118,14 @@ public abstract class AbstractFoldingAreaPainter {
 
   protected void repaint(int y, int height) {
     int foldingLineX = getLeftHighlighter().getFoldingLineX();
-    myLeftHighlighter.repaint(foldingLineX - getLeftAreaWidth(), y, foldingLineX + getRightAreaWidth() + 1, height + 1);
+    myLeftHighlighter.repaint(foldingLineX - getLeftAreaWidth(), y, getLeftAreaWidth() + getRightAreaWidth() + 1, height + 1);
   }
 
   protected int getLocalXCoordinate(MouseEvent e) {
     return e.getX() - getLeftHighlighter().getFoldingLineX();
+  }
+
+  protected boolean isBackgroundPainter(){
+    return false;
   }
 }

@@ -21809,6 +21809,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="5VERMveEaEh" role="jymVt" />
     <node concept="3clFb_" id="5fuM4wy23JX" role="jymVt">
       <property role="TrG5h" value="getWeight" />
       <node concept="3Tm1VV" id="5fuM4wy23JY" role="1B3o_S" />
@@ -21824,6 +21825,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="5VERMveEant" role="jymVt" />
     <node concept="3clFb_" id="6w$iG4R$6hB" role="jymVt">
       <property role="TrG5h" value="paintInLocalCoordinates" />
       <node concept="3Tmbuc" id="6w$iG4R$6hC" role="1B3o_S" />
@@ -21956,20 +21958,24 @@
                 </node>
               </node>
             </node>
-            <node concept="3clFbF" id="1EOY2Ihno0F" role="3cqZAp">
-              <node concept="37vLTI" id="1EOY2Ihnot7" role="3clFbG">
-                <node concept="2YIFZM" id="1EOY2IhnoI4" role="37vLTx">
-                  <ref role="37wK5l" to="lzb2:~ColorUtil.withAlpha(java.awt.Color,double)" resolve="withAlpha" />
-                  <ref role="1Pybhc" to="lzb2:~ColorUtil" resolve="ColorUtil" />
-                  <node concept="37vLTw" id="1EOY2IhnpGw" role="37wK5m">
+            <node concept="1X3_iC" id="4aGUAAtBAfb" role="lGtFl">
+              <property role="3V$3am" value="statement" />
+              <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+              <node concept="3clFbF" id="1EOY2Ihno0F" role="8Wnug">
+                <node concept="37vLTI" id="1EOY2Ihnot7" role="3clFbG">
+                  <node concept="2YIFZM" id="1EOY2IhnoI4" role="37vLTx">
+                    <ref role="37wK5l" to="lzb2:~ColorUtil.withAlpha(java.awt.Color,double)" resolve="withAlpha" />
+                    <ref role="1Pybhc" to="lzb2:~ColorUtil" resolve="ColorUtil" />
+                    <node concept="37vLTw" id="1EOY2IhnpGw" role="37wK5m">
+                      <ref role="3cqZAo" node="4lv_zTejPtX" resolve="color" />
+                    </node>
+                    <node concept="2$xPTn" id="1EOY2IhnpRm" role="37wK5m">
+                      <property role="2$xPTl" value="0.75f" />
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="1EOY2Ihno0D" role="37vLTJ">
                     <ref role="3cqZAo" node="4lv_zTejPtX" resolve="color" />
                   </node>
-                  <node concept="2$xPTn" id="1EOY2IhnpRm" role="37wK5m">
-                    <property role="2$xPTl" value="0.75f" />
-                  </node>
-                </node>
-                <node concept="37vLTw" id="1EOY2Ihno0D" role="37vLTJ">
-                  <ref role="3cqZAo" node="4lv_zTejPtX" resolve="color" />
                 </node>
               </node>
             </node>
@@ -22255,6 +22261,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="5VERMveEa3E" role="jymVt" />
     <node concept="3uibUv" id="6w$iG4RzFa_" role="1zkMxy">
       <ref role="3uigEE" node="6w$iG4Rztdj" resolve="DiffFoldingAreaPainter" />
     </node>
@@ -22342,6 +22349,22 @@
       <node concept="37vLTG" id="7DvDtqayCrj" role="3clF46">
         <property role="TrG5h" value="inspector" />
         <node concept="10P_77" id="7DvDtqayCrk" role="1tU5fm" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5VERMveE8F2" role="jymVt" />
+    <node concept="3clFb_" id="5VERMveE66a" role="jymVt">
+      <property role="TrG5h" value="isBackgroundPainter" />
+      <node concept="3Tmbuc" id="5VERMveE66b" role="1B3o_S" />
+      <node concept="10P_77" id="5VERMveE66d" role="3clF45" />
+      <node concept="3clFbS" id="5VERMveE66f" role="3clF47">
+        <node concept="3clFbF" id="5VERMveE7iN" role="3cqZAp">
+          <node concept="3clFbT" id="5VERMveE7iM" role="3clFbG">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5VERMveE66g" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
