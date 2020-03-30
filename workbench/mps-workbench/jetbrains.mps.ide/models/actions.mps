@@ -2193,9 +2193,25 @@
                               </node>
                               <node concept="2ShNRf" id="6DRNpvPQ8ao" role="33vP2m">
                                 <node concept="1pGfFk" id="6DRNpvPQ8ap" role="2ShVmc">
-                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="OptimizeImportsHelper" />
+                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.project.ModelsAutoImportsManager)" resolve="OptimizeImportsHelper" />
                                   <node concept="37vLTw" id="6DRNpvPQbJR" role="37wK5m">
                                     <ref role="3cqZAo" node="6DRNpvPQ9vI" resolve="repo" />
+                                  </node>
+                                  <node concept="2OqwBi" id="7d67DGPV3q7" role="37wK5m">
+                                    <node concept="2OqwBi" id="7d67DGPV23d" role="2Oq$k0">
+                                      <node concept="2WthIp" id="7d67DGPV23g" role="2Oq$k0">
+                                        <ref role="32nkFo" node="hGoCYw9" resolve="OptimizeProjectImports" />
+                                      </node>
+                                      <node concept="1DTwFV" id="7d67DGPV23i" role="2OqNvi">
+                                        <ref role="2WH_rO" node="hHNVeaJ" resolve="project" />
+                                      </node>
+                                    </node>
+                                    <node concept="liA8E" id="7d67DGPV4bm" role="2OqNvi">
+                                      <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                                      <node concept="3VsKOn" id="7d67DGPV4gk" role="37wK5m">
+                                        <ref role="3VsUkX" to="z1c3:~ModelsAutoImportsManager" resolve="ModelsAutoImportsManager" />
+                                      </node>
+                                    </node>
                                   </node>
                                 </node>
                               </node>
@@ -7329,9 +7345,25 @@
                               </node>
                               <node concept="2ShNRf" id="fZRHvh7P15" role="33vP2m">
                                 <node concept="1pGfFk" id="fZRHvh7P16" role="2ShVmc">
-                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="OptimizeImportsHelper" />
+                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.project.ModelsAutoImportsManager)" resolve="OptimizeImportsHelper" />
                                   <node concept="37vLTw" id="6DRNpvPQhfu" role="37wK5m">
                                     <ref role="3cqZAo" node="6DRNpvPQgnT" resolve="repo" />
+                                  </node>
+                                  <node concept="2OqwBi" id="7d67DGPUUU3" role="37wK5m">
+                                    <node concept="2OqwBi" id="7d67DGPUUey" role="2Oq$k0">
+                                      <node concept="2WthIp" id="7d67DGPUUe_" role="2Oq$k0">
+                                        <ref role="32nkFo" node="hZs6NFo" resolve="OptimizeModelImports" />
+                                      </node>
+                                      <node concept="1DTwFV" id="7d67DGPUUeB" role="2OqNvi">
+                                        <ref role="2WH_rO" node="5wEedBrtMyq" resolve="project" />
+                                      </node>
+                                    </node>
+                                    <node concept="liA8E" id="7d67DGPUVXI" role="2OqNvi">
+                                      <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                                      <node concept="3VsKOn" id="7d67DGPUXj_" role="37wK5m">
+                                        <ref role="3VsUkX" to="z1c3:~ModelsAutoImportsManager" resolve="ModelsAutoImportsManager" />
+                                      </node>
+                                    </node>
                                   </node>
                                 </node>
                               </node>
@@ -7832,9 +7864,25 @@
                               </node>
                               <node concept="2ShNRf" id="fZRHvh7HnD" role="33vP2m">
                                 <node concept="1pGfFk" id="fZRHvh7HnE" role="2ShVmc">
-                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="OptimizeImportsHelper" />
+                                  <ref role="37wK5l" to="z1c3:~OptimizeImportsHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.project.ModelsAutoImportsManager)" resolve="OptimizeImportsHelper" />
                                   <node concept="37vLTw" id="6DRNpvPRSw4" role="37wK5m">
                                     <ref role="3cqZAo" node="CJPgsJ0h4N" resolve="repo" />
+                                  </node>
+                                  <node concept="2OqwBi" id="7d67DGPV0qD" role="37wK5m">
+                                    <node concept="2OqwBi" id="7d67DGPUZzC" role="2Oq$k0">
+                                      <node concept="2WthIp" id="7d67DGPUZzF" role="2Oq$k0">
+                                        <ref role="32nkFo" node="hZsaXY1" resolve="OptimizeModuleImports" />
+                                      </node>
+                                      <node concept="1DTwFV" id="7d67DGPUZzH" role="2OqNvi">
+                                        <ref role="2WH_rO" node="5wEedBru7_8" resolve="project" />
+                                      </node>
+                                    </node>
+                                    <node concept="liA8E" id="7d67DGPV1hr" role="2OqNvi">
+                                      <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                                      <node concept="3VsKOn" id="7d67DGPV1mR" role="37wK5m">
+                                        <ref role="3VsUkX" to="z1c3:~ModelsAutoImportsManager" resolve="ModelsAutoImportsManager" />
+                                      </node>
+                                    </node>
                                   </node>
                                 </node>
                               </node>
