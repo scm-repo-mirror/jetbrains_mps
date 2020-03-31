@@ -130,33 +130,39 @@ public class SingleZipWithJavaSources implements JavadocSupplier {
   @Nullable
   private Documentation buildFor(char[] contents, TypeDeclaration typeDecl) {
     String classDoc = javadocLinesAsString(typeDecl.javadoc, contents);
-    HashMap<String, String> fieldName2Doc = new HashMap<String, String>();
-    for (FieldDeclaration fd : typeDecl.fields) {
-      String fieldDoc = javadocLinesAsString(fd.javadoc, contents);
-      if (fieldDoc != null) {
-        fieldName2Doc.put(new String(fd.name), fieldDoc);
+    HashMap<String, String> fieldName2Doc = null;
+    if (typeDecl.fields != null) {
+      fieldName2Doc = new HashMap<String, String>();
+      for (FieldDeclaration fd : typeDecl.fields) {
+        String fieldDoc = javadocLinesAsString(fd.javadoc, contents);
+        if (fieldDoc != null) {
+          fieldName2Doc.put(new String(fd.name), fieldDoc);
+        }
       }
     }
-    HashMap<String, String> method2Doc = new HashMap<String, String>();
-    for (AbstractMethodDeclaration md : typeDecl.methods) {
-      String methodDoc = javadocLinesAsString(md.javadoc, contents);
-      if (methodDoc == null) {
-        continue;
-      }
-      StringBuilder methodSig = new StringBuilder();
-      methodSig.append(md.selector);
-      methodSig.append('(');
-      if (md.arguments != null && md.arguments.length > 0) {
-        for (Argument a : md.arguments) {
-          methodSig.append(a.type.getLastToken());
-          methodSig.append(',');
+    HashMap<String, String> method2Doc = null;
+    if (typeDecl.methods != null) {
+      method2Doc = new HashMap<String, String>();
+      for (AbstractMethodDeclaration md : typeDecl.methods) {
+        String methodDoc = javadocLinesAsString(md.javadoc, contents);
+        if (methodDoc == null) {
+          continue;
         }
-        methodSig.setLength(methodSig.length() - 1);
-      }
-      methodSig.append(')');
-      if (md.isMethod()) {
-        methodSig.append(':');
-        methodSig.append(((MethodDeclaration) md).returnType.getLastToken());
+        StringBuilder methodSig = new StringBuilder();
+        methodSig.append(md.selector);
+        methodSig.append('(');
+        if (md.arguments != null && md.arguments.length > 0) {
+          for (Argument a : md.arguments) {
+            methodSig.append(a.type.getLastToken());
+            methodSig.append(',');
+          }
+          methodSig.setLength(methodSig.length() - 1);
+        }
+        methodSig.append(')');
+        if (md.isMethod()) {
+          methodSig.append(':');
+          methodSig.append(((MethodDeclaration) md).returnType.getLastToken());
+        }
       }
     }
     // FIXME caller has to look into memberTypes if it needs to 
