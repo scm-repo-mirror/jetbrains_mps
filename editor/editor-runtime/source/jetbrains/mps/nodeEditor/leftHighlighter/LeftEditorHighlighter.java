@@ -539,7 +539,7 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
     int newHeight = myEditorComponent.getPreferredSize().height;
     if (myWidth != newWidth || myHeight != newHeight) {
       myWidth = newWidth;
-      myHeight = newHeight;
+      myHeight = newHeight + myEditorComponent.getHorizontalScrollBarOffset();
       firePreferredSizeChanged();
     }
   }
@@ -550,7 +550,7 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
 
   @Override
   public Dimension getPreferredSize() {
-    return new Dimension(myWidth + 1, myEditorComponent.getPreferredSize().height);
+    return new Dimension(myWidth + 1, myHeight);
   }
 
   //used in plugin

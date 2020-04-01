@@ -740,6 +740,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return myScrollPane.getViewport();
   }
 
+  public int getHorizontalScrollBarOffset() {
+    return myScrollPane.getHorizontalScrollBar().isVisible() ? myScrollPane.getHorizontalScrollBar().getPreferredSize().height : 0;
+  }
+
   Point getViewPosition() {
     return hasUI() ? getViewport().getViewPosition() : new Point(0, 0);
   }
@@ -1050,7 +1054,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
       myCommandContext.updateContextNode();
 
-      if(needNewTypecheckingSession) {
+      if (needNewTypecheckingSession) {
         requestTypecheckingSession();
       }
 
