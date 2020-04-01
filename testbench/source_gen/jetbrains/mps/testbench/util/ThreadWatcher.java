@@ -72,6 +72,9 @@ public class ThreadWatcher implements Output {
 
       // com.intellij.openapi.project.CacheUpdateRunner#createRunnable 
       builder.append("|(Indexing)");
+
+      // java.util.concurrent.ForkJoinPool#workerNamePrefix 
+      builder.append("|(ForkJoinPool.*)");
       // -------------------------------- 
 
 
