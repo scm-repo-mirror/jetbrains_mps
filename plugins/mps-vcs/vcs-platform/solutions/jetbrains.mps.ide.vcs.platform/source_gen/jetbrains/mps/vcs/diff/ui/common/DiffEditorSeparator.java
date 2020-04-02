@@ -137,7 +137,7 @@ public class DiffEditorSeparator extends JComponent implements TooltipComponent 
     return myChangeGroupLayout.getRightComponent().getViewport();
   }
   private int getOffset(JViewport viewport) {
-    return -viewport.getViewPosition().y + myChangeGroupLayout.getEditorVerticalOffset();
+    return -viewport.getViewPosition().y;
   }
   @Override
   public String getMPSTooltipText(MouseEvent mouseEvent) {

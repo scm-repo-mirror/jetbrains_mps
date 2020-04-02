@@ -48,6 +48,7 @@ import com.intellij.openapi.wm.ex.StatusBarEx;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBScrollBar;
 import com.intellij.ui.components.JBScrollPane;
+import com.intellij.ui.components.JBScrollPane.Flip;
 import com.intellij.util.io.URLUtil;
 import com.intellij.util.ui.ButtonlessScrollBarUI;
 import com.intellij.util.ui.UIUtil;
@@ -553,9 +554,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private void createUI(EditorConfiguration editorConfiguration) {
     myVerticalScrollBar = new MyScrollBar(Adjustable.VERTICAL);
 
-    myScrollPane = ScrollPaneFactory.createScrollPane();
+    myScrollPane = createScrollPane();
     if (editorConfiguration.rightToLeft) {
-      myScrollPane.setLayout(new LeftHandScrollbarLayout());
+      myScrollPane.putClientProperty(JBScrollPane.Flip.class, Flip.HORIZONTAL);
     }
     myScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     myScrollPane.setVerticalScrollBar(myVerticalScrollBar);
@@ -667,6 +668,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     });
     UISettings.setupEditorAntialiasing(this);
   }
+
+
+  protected JScrollPane createScrollPane(){
+    return ScrollPaneFactory.createScrollPane();
+  }
+
 
   boolean hasUI() {
     return myEditorConfiguration.withUI;

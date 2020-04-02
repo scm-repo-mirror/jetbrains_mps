@@ -21,6 +21,7 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser;
 import java.util.Arrays;
+import javax.swing.JComponent;
 import com.intellij.openapi.actionSystem.ToggleAction;
 import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -29,7 +30,6 @@ import com.intellij.diff.tools.util.DiffSplitter;
 import com.intellij.diff.util.DiffDividerDrawUtil;
 import org.jetbrains.annotations.NotNull;
 import java.awt.Graphics;
-import javax.swing.JComponent;
 import java.awt.Graphics2D;
 import com.intellij.diff.util.DiffDrawUtil;
 import org.jetbrains.annotations.Nullable;
@@ -89,7 +89,7 @@ public class RootDifferencePane implements IHighlighter {
     myNewEditor = addEditor(1, myChangeSet.getNewModel(), titles[1]);
 
     myTopPanel = new TwosideContentPanel(Arrays.asList(myOldEditor.getTopComponent(), myNewEditor.getTopComponent()));
-
+    myTopPanel.setTitles(createTitles());
     myTopPanel.setPainter(new MyDividerPainter());
 
     linkEditors(true);
@@ -106,11 +106,13 @@ public class RootDifferencePane implements IHighlighter {
     createActionGroup(isEditable, rootName);
   }
 
+  protected List<JComponent> createTitles() {
+    return Arrays.asList(myOldEditor.getTitleComponent(), myNewEditor.getTitleComponent());
+  }
+
   /*package*/ void setEditorTitles(String before, String after) {
     myOldEditor.setTitle(before);
     myNewEditor.setTitle(after);
-    myOldEditor.getTopComponent().repaint();
-    myNewEditor.getTopComponent().repaint();
   }
 
   private void createActionGroup(boolean isEditable, String rootName) {
@@ -177,10 +179,10 @@ public class RootDifferencePane implements IHighlighter {
       for (IMapping<ChangeGroup, Tuples._2<Bounds, Bounds>> groupWithBounds : MapSequence.fromMap(myTopSeparator.getGroupsWithBounds())) {
         Bounds left = groupWithBounds.value()._0();
         Bounds right = groupWithBounds.value()._1();
-        int leftStart = (int) left.start() + 1;
-        int leftEnd = (int) left.end() + 1;
-        int rightStart = (int) right.start() + 1;
-        int rightEnd = (int) right.end() + 1;
+        int leftStart = (int) left.start();
+        int leftEnd = (int) left.end();
+        int rightStart = (int) right.start();
+        int rightEnd = (int) right.end();
         Color color = ChangeColors.get(groupWithBounds.key().getChangeType());
         // separate changes with the same color 
         if (color.equals(prevGroupColor)) {

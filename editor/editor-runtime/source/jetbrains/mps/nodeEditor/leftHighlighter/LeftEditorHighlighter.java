@@ -396,23 +396,20 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
     if (myRightToLeft) {
       recalculateFoldingAreaWidth();
       updateSeparatorLinePosition();
-      if (updateFolding) {
-        for (AbstractFoldingAreaPainter painter : myFoldingAreaPainters) {
-          painter.relayout();
-        }
-        // wee need to recalculateIconRenderersWidth only if one of collections was folded/unfolded
-        recalculateIconRenderersWidth();
-      }
-      recalculateTextColumnWidth();
     } else {
       recalculateTextColumnWidth();
-      if (updateFolding) {
-        for (AbstractFoldingAreaPainter painter : myFoldingAreaPainters) {
-          painter.relayout();
-        }
-        // wee need to recalculateIconRenderersWidth only if one of collections was folded/unfolded
-        recalculateIconRenderersWidth();
+    }
+
+    if (updateFolding) {
+      for (AbstractFoldingAreaPainter painter : myFoldingAreaPainters) {
+        painter.relayout();
       }
+      // wee need to recalculateIconRenderersWidth only if one of collections was folded/unfolded
+      recalculateIconRenderersWidth();
+    }
+    if (myRightToLeft) {
+      recalculateTextColumnWidth();
+    } else {
       recalculateFoldingAreaWidth();
       updateSeparatorLinePosition();
     }

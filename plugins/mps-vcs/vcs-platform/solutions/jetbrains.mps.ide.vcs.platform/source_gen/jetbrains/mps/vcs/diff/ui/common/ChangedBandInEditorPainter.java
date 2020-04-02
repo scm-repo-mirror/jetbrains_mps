@@ -45,20 +45,20 @@ public class ChangedBandInEditorPainter extends AbstractAdditionalPainter<Change
   public void paintBackground(Graphics graphics, EditorComponent component) {
     Color prevGroupColor = null;
     int prevGroupBottomLineY = -1;
+    int x = 0;
+    int width = component.getWidth();
     for (ChangeGroup changeGroup : ListSequence.fromList(myChangeGroupLayout.getChangeGroups())) {
       Color color = ChangeColors.get(changeGroup.getChangeType());
       graphics.setColor(color);
-      int x = 0;
-      int width = component.getWidth();
       Bounds bounds = changeGroup.getBounds(myIsLeftEditor);
       int y = (bounds.length() == 1 ? (int) bounds.start() - 1 : (int) bounds.start());
       int height = (bounds.length() == 1 ? 2 : bounds.length());
-      graphics.fillRect(x, y, width, height);
       // separate changes with the same color 
       if (y == prevGroupBottomLineY && color.equals(prevGroupColor)) {
-        graphics.setColor(component.getBackground());
-        graphics.fillRect(x, y, width, 1);
+        y++;
+        height--;
       }
+      graphics.fillRect(x, y, width, height);
       prevGroupColor = color;
       prevGroupBottomLineY = y + height;
     }

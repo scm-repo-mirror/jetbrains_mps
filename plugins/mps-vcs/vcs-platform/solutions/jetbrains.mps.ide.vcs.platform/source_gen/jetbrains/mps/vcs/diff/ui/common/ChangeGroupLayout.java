@@ -121,6 +121,7 @@ public abstract class ChangeGroupLayout {
     assert myChangeGroups != null;
     return myChangeGroups;
   }
+
   public void invalidate() {
     myChangeGroups = null;
     ListSequence.fromList(myInvalidateListeners).visitAll(new IVisitor<ChangeGroupInvalidateListener>() {
@@ -129,14 +130,7 @@ public abstract class ChangeGroupLayout {
       }
     });
   }
-  public int getEditorVerticalOffset() {
-    if (myInspector) {
-      return 0;
-    } else {
-      assert getLeftComponent().getExternalComponent().getY() == getRightComponent().getExternalComponent().getY();
-      return getLeftComponent().getExternalComponent().getY();
-    }
-  }
+
   private static Bounds findBounds(Iterable<ChangeEditorMessage> messages, final EditorComponent editorComponent) {
     Bounds bounds = null;
     if (Sequence.fromIterable(messages).isNotEmpty()) {
@@ -155,7 +149,7 @@ public abstract class ChangeGroupLayout {
       });
     }
     if (bounds == null || bounds.length() <= 0) {
-      int y = check_cuq72k_a0a0c0s(check_cuq72k_a0a0a2a81(editorComponent));
+      int y = check_cuq72k_a0a0c0t(check_cuq72k_a0a0a2a91(editorComponent));
       return new Bounds(y, y);
     } else {
       return bounds;
@@ -171,13 +165,13 @@ public abstract class ChangeGroupLayout {
     }
     return null;
   }
-  private static int check_cuq72k_a0a0c0s(EditorCell checkedDotOperand) {
+  private static int check_cuq72k_a0a0c0t(EditorCell checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getY();
     }
     return 0;
   }
-  private static EditorCell check_cuq72k_a0a0a2a81(EditorComponent checkedDotOperand) {
+  private static EditorCell check_cuq72k_a0a0a2a91(EditorComponent checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getRootCell();
     }

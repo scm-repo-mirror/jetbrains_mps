@@ -4,8 +4,7 @@ package jetbrains.mps.vcs.diff.ui.common;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.JComponent;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import java.util.Map;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
@@ -20,18 +19,19 @@ import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import java.awt.Dimension;
-import java.awt.BorderLayout;
+import javax.swing.JLabel;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import javax.swing.JComponent;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.nodeEditor.commands.CommandContextWithVF;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
+import javax.swing.JScrollPane;
+import com.intellij.ui.ScrollPaneFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import org.jetbrains.annotations.NonNls;
@@ -44,8 +44,8 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748338308", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public class DiffEditor implements EditorMessageOwner {
   private MainEditorComponent myMainEditorComponent;
-  private JPanel myTopComponent;
-  private JLabel myTitle;
+  private String myTitle;
+  private JComponent myTitleComponent;
   private InspectorEditorComponent myInspector;
   private Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
   private boolean myIsLeftEditor;
@@ -53,6 +53,7 @@ public class DiffEditor implements EditorMessageOwner {
 
   public DiffEditor(final IProject project, SNode node, String contentTitle, boolean isLeftEditor) {
     myIsLeftEditor = isLeftEditor;
+    myTitle = contentTitle;
     myMainEditorComponent = new MainEditorComponent(project.getRepository(), true, isLeftEditor);
     myInspector = new InspectorEditorComponent(project.getRepository(), new EditorConfigurationBuilder().rightToLeft(isLeftEditor).build());
     Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
@@ -69,21 +70,28 @@ public class DiffEditor implements EditorMessageOwner {
       }
     });
 
-    myTopComponent = new JPanel(new BorderLayout());
-    myTitle = new JLabel();
-    setTitle(contentTitle);
-    myTitle.setToolTipText(contentTitle);
-    myTopComponent.add(myTitle, BorderLayout.NORTH);
-    myTopComponent.add(myMainEditorComponent.getExternalComponent(), BorderLayout.CENTER);
-    myTopComponent.setPreferredSize(new Dimension());
+    myTitleComponent = new JLabel(((contentTitle == null || contentTitle.length() == 0) ? "" : contentTitle));
   }
 
   public boolean isLeftEditor() {
     return myIsLeftEditor;
   }
 
-  public void setTitle(String title) {
-    myTitle.setText(((title == null || title.length() == 0) ? " " : title));
+  public void setTitle(String newTitle) {
+    if ((newTitle == null && myTitle == null) || (myTitle != null && myTitle.equals(newTitle))) {
+      return;
+    }
+    myTitle = newTitle;
+    updateTitleComponent();
+  }
+
+  private void updateTitleComponent() {
+    ((JLabel) myTitleComponent).setText(((myTitle == null || myTitle.length() == 0) ? " " : myTitle));
+    myTitleComponent.repaint();
+  }
+
+  public JComponent getTitleComponent() {
+    return myTitleComponent;
   }
 
   public SNode getEditedNode() {
@@ -113,7 +121,7 @@ public class DiffEditor implements EditorMessageOwner {
   }
 
   public JComponent getTopComponent() {
-    return myTopComponent;
+    return myMainEditorComponent.getExternalComponent();
   }
   public MainEditorComponent getMainEditor() {
     return myMainEditorComponent;
@@ -174,6 +182,12 @@ public class DiffEditor implements EditorMessageOwner {
       super(repository, new EditorConfigurationBuilder().showErrorsGutter(showGutter).rightToLeft(rightToLeft).build());
       myDiffFileEditor = new DiffFileEditor(this);
       setDefaultPopupGroupId(((String) BHReflection.invoke0(SNodeOperations.getNode("r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)", "426251916200108583"), CONCEPTS.ActionGroupDeclaration$YL, SMethodTrimmedId.create("getGeneratedClassFQName", CONCEPTS.ActionGroupDeclaration$YL, "hEwJa8g"))));
+    }
+
+
+    @Override
+    protected JScrollPane createScrollPane() {
+      return ScrollPaneFactory.createScrollPane(null, true);
     }
 
     @Override
