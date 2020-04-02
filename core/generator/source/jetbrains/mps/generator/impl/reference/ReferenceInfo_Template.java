@@ -64,7 +64,7 @@ public class ReferenceInfo_Template extends ReferenceInfo {
   private SNode doResolve_Straightforward(PostponedReference ref) {
     final TemplateGenerator generator = ref.getGenerator();
     // try to find for the same inputNode
-    SNode outputTargetNode = generator.findOutputNodeByInputAndTemplateNode(myContext.getInput(), myTemplateTargetNode);
+    SNode outputTargetNode = generator.findOutputNodeByInputAndTemplateNode(myContext.getInput(), myContext.executionPathIdentity(), myTemplateTargetNode);
     if (outputTargetNode != null) {
       checkCrossRootTemplateReference(outputTargetNode, ref);
       return outputTargetNode;
@@ -80,7 +80,7 @@ public class ReferenceInfo_Template extends ReferenceInfo {
     // try to find for indirect input nodes
     // XXX likely, myContext.getInput() we've checked already above, would come here again.
     for (SNode historyInputNode : myContext.getInputHistory()) {
-      outputTargetNode = generator.findOutputNodeByInputAndTemplateNode(historyInputNode, myTemplateTargetNode);
+      outputTargetNode = generator.findOutputNodeByInputAndTemplateNode(historyInputNode, myContext.executionPathIdentity(), myTemplateTargetNode);
       if (outputTargetNode != null) {
         checkCrossRootTemplateReference(outputTargetNode, ref);
         return outputTargetNode;

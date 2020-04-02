@@ -28,6 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,6 +40,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Semaphore;
 import java.util.stream.Collectors;
 
 /**
@@ -59,8 +61,9 @@ public final class GeneratorMappings {
   /* new style map: Object means multiple nodes for the template */
   private final ConcurrentMap<String, Object> myTemplateNodeIdToOutputNodeMap = new ConcurrentHashMap<>();
 
-  /* new style map: template,input -> output */
-  private final ConcurrentMap<Pair<String, SNode>, SNode> myTemplateNodeIdAndInputNodeToOutputNodeMap = new ConcurrentHashMap<>();
+  /* templateId -> [input -> output,generation] */
+  private final ConcurrentMap<String, NodeTagCabinet> myTemplateNodeIdAndInputNodeToOutputNodeMap = new ConcurrentHashMap<>();
+
 
   /*
    * there might be few conditional roots, and we can't prevent them from using same ML (not too much sense, however)
@@ -146,25 +149,38 @@ public final class GeneratorMappings {
     }
   }
 
-  void addOutputNodeByInputAndTemplateNode(SNode inputNode, String templateNodeId, SNode outputNode) {
+  void addOutputNodeByInputAndTemplateNode(TemplateContext templateContext, String templateNodeId, SNode outputNode) {
     // todo: combination of (templateN, inputN) -> outputN
     // todo: is not unique
     // todo: generator should report error on attempt to obtain not unique output-node
     if (templateNodeId == null) {
       return;
     }
-    myTemplateNodeIdAndInputNodeToOutputNodeMap.put(new Pair<>(templateNodeId, inputNode), outputNode);
+    recordsOf(templateNodeId).put(templateContext.getInput(), templateContext.executionPathIdentity(), outputNode);
+  }
+
+  private NodeTagCabinet recordsOf(String templateNodeId) {
+    return myTemplateNodeIdAndInputNodeToOutputNodeMap.computeIfAbsent(templateNodeId, p -> new NodeTagCabinet());
   }
 
   void addOutputNodeForContext(TemplateContext templateContext, String templateNodeId, SNode outputNode) {
     // todo: combination of (templateN, inputN) -> outputN
     // todo: is not unique
     // todo: generator should report error on attempt to obtain not unique output-node
-    addOutputNodeByInputAndTemplateNode(templateContext.getInput(), templateNodeId, outputNode);
+    if (templateContext.getInput() == null) {
+      // FIXME though everything seems to work without recording output nodes when input == null,
+      //       i decided to keep it here to get back to the question how come it works e.g. in a structure aspect, where ConceptPresentation
+      //       references LanguageSwitch class (from another create root rule) and get the reference resolved
+      addOutputNodeByTemplateNode(templateNodeId, outputNode);
+      return;
+    }
+    final int tag = templateContext.executionPathIdentity();
+    final NodeTagCabinet templateRecords = recordsOf(templateNodeId);
+    // == addOutputNodeByInputAndTemplateNode(templateContext, templateNodeId, outputNode);
+    templateRecords.put(templateContext.getInput(), tag, outputNode);
     // ~38 cases in MPS itself when it's important, mostly for tests
     for (SNode historyInputNode : templateContext.getInputHistory()) {
-      Pair<String,SNode> key = new Pair<>(templateNodeId, historyInputNode);
-      myTemplateNodeIdAndInputNodeToOutputNodeMap.putIfAbsent(key, outputNode);
+      templateRecords.putIfAbsent(historyInputNode, tag, outputNode);
     }
 //    addOutputNodeByTemplateNode(templateNodeId, outputNode);
   }
@@ -229,8 +245,12 @@ public final class GeneratorMappings {
     return null;
   }
 
-  public SNode findOutputNodeByInputAndTemplateNode(SNode inputNode, String templateNodeId) {
-    return myTemplateNodeIdAndInputNodeToOutputNodeMap.get(new Pair<>(templateNodeId, inputNode));
+  public SNode findOutputNodeByInputAndTemplateNode(SNode inputNode, final int execPathId, String templateNodeId) {
+    if (inputNode == null) {
+      // this case is handled by findOutputNodeByTemplateNodeUnique()
+      return null;
+    }
+    return recordsOf(templateNodeId).get(inputNode, execPathId);
   }
 
   public boolean isInputNodeHasUniqueCopiedOutputNode(SNode inputNode) {
@@ -338,5 +358,109 @@ public final class GeneratorMappings {
       }
     }
     myConditionalRoots.forEach(p -> cp.record(p.o1, p.o2));
+  }
+
+  private static final class TagNodeList {
+    final static int INITIAL_SIZE = 10;
+    private int[] tags = new int[INITIAL_SIZE];
+    private SNode[] nodes = new SNode[INITIAL_SIZE];
+    private final Semaphore myChangeLock = new Semaphore(1);
+    private int count;
+
+    TagNodeList(SNode ignored) {
+
+    }
+
+    public void add(SNode n, int t) {
+      myChangeLock.acquireUninterruptibly();
+      implGrowAndAdd(n, t);
+      myChangeLock.release();
+    }
+
+    private void implGrowAndAdd(SNode n, int t) {
+      int capacity = tags.length;
+      if (count == capacity) {
+        capacity += INITIAL_SIZE;
+        tags = Arrays.copyOf(tags, capacity);
+        nodes = Arrays.copyOf(nodes, capacity);
+      }
+      tags[count] = t;
+      nodes[count] = n;
+      count++;
+    }
+
+    public void addIfNewTag(final SNode n, final int t) {
+      final int[] cp = tags;
+      final int cpCnt = count;
+      for (int x = cpCnt - 1; x >= 0; x--) {
+        if (cp[x] == t) {
+          return;
+        }
+      }
+      myChangeLock.acquireUninterruptibly();
+      // repeat the search, just in case there's any change; check only those added
+      boolean alreadyThere = false;
+      if (cp != tags) {
+        // array has been copied, up to cpCnt it's the same, though.
+        for (int x = count - 1; x >= cpCnt; x--) {
+          if (tags[x] == t) {
+            alreadyThere = true;
+            break;
+          }
+        }
+      }
+      if (!alreadyThere) {
+        implGrowAndAdd(n, t);
+      }
+      myChangeLock.release();
+    }
+
+
+    SNode first() {
+      return nodes[0];
+    }
+
+    SNode lastWithTag(final int tag) {
+      for (int i = count - 1; i >= 0; i--) {
+        if (tags[i] == tag) {
+          return nodes[i];
+        }
+      }
+      return null;
+    }
+
+    int size() {
+      return count;
+    }
+  }
+
+  // FIXME in fact, seems more fruitful to keep thread-local instances, don't bother with synchronize, and merge them before references get resolved
+  private static class NodeTagCabinet {
+    private final ConcurrentMap<SNode, TagNodeList> myMap = new ConcurrentHashMap<>();
+
+    void put(final SNode key, final int tag, final SNode value) {
+      myMap.computeIfAbsent(key, TagNodeList::new).add(value, tag);
+    }
+
+    void putIfAbsent(final SNode key, final int tag, final SNode value) {
+      myMap.computeIfAbsent(key, TagNodeList::new).addIfNewTag(value, tag);
+    }
+
+    @Nullable
+    public SNode get(SNode key, int tag) {
+      final TagNodeList l = myMap.get(key);
+      if (l == null) {
+        return null;
+      }
+      if (l.size() == 1) {
+        return l.first();
+      }
+      // get the last one, just in case same input node has been reduced to different output nodes in the same template
+      // I've seen that in Template_string_switch_template (jdk7), where
+      //    tnode1.addChild(myAggregationLinks[2], child7);
+      // changed to
+      //    tnode1.addChild(myAggregationLinks[2], child6);
+      return l.lastWithTag(tag);
+    }
   }
 }

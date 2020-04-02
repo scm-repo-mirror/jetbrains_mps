@@ -77,6 +77,15 @@ public class DefaultTemplateContext implements TemplateContext {
     return myEnv;
   }
 
+  @Override
+  public int executionPathIdentity() {
+    DefaultTemplateContext topmost = this;
+    while (topmost.myParent != null) {
+      topmost = topmost.myParent;
+    }
+    return topmost.hashCode();
+  }
+
   public DefaultTemplateContext getParent() {
     return myParent;
   }
