@@ -185,7 +185,7 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   public void nullInputSwitch(SNodeReference _switch) throws GenerationCanceledException, GenerationFailureException {
     final TemplateSwitchMapping templateSwitch = generator.getSwitch(_switch);
     if (templateSwitch != null) {
-      templateSwitch.processNull(this, _switch, new DefaultTemplateContext(this, null, null));
+      templateSwitch.processNull(this);
     }
   }
 
@@ -214,7 +214,7 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
     // try the default case
     TemplateSwitchMapping current = generator.getSwitch(_switch);
     if (current != null) {
-      outputNodes = current.applyDefault(this, _switch, context.getInputName(), context); // FIXME TSM.applyDefault without explicit mappingLabel
+      outputNodes = current.applyDefault(context);
       generator.recordTransformInputTrace(context.getInput(), outputNodes);
       return outputNodes;
     }
