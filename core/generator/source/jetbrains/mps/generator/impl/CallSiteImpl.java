@@ -57,6 +57,7 @@ final class CallSiteImpl implements TemplateCallSite {
   public boolean weave(@NotNull TemplateContext context, @NotNull SNode outputContextNode, @Nullable WeavingWithAnchor anchorQuery) throws GenerationException {
     // FIXME have to use WeaveContext+NodeWeaveFacility as long as TemplateDeclarationWeavingAware2.weave requires these
     WeaveContextImpl wc = new WeaveContextImpl(outputContextNode, context, anchorQuery);
+    // as long as we need WC instance to invoke old weave(wc, nwf), use it for NWS, too. Once 2020.1 is out, pass WC stuff right into NWS cons
     final NodeWeaveFacility nwf = new NodeWeaveSupport(wc, myCallSite, myEnvironment);
     final Collection<SNode> weaved = myTemplateDeclaration.weave(wc, nwf);
     if (weaved != null && !weaved.isEmpty()) {

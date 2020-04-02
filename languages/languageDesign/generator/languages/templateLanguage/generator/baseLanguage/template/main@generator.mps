@@ -8710,15 +8710,6 @@
             <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
           </node>
         </node>
-        <node concept="37vLTG" id="7Iy0yFgJaiC" role="3clF46">
-          <property role="TrG5h" value="weaveContext" />
-          <node concept="3uibUv" id="6eeiFlcpigP" role="1tU5fm">
-            <ref role="3uigEE" to="r99j:~NodeWeaveFacility$WeaveContext" resolve="NodeWeaveFacility.WeaveContext" />
-          </node>
-          <node concept="2AHcQZ" id="7Iy0yFgJaiE" role="2AJF6D">
-            <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-          </node>
-        </node>
         <node concept="37vLTG" id="7Iy0yFgJaiF" role="3clF46">
           <property role="TrG5h" value="weaveSupport" />
           <node concept="3uibUv" id="7Iy0yFgJaiG" role="1tU5fm">

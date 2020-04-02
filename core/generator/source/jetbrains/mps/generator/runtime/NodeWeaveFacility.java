@@ -16,6 +16,7 @@
 package jetbrains.mps.generator.runtime;
 
 import jetbrains.mps.generator.impl.GenerationFailureException;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -57,6 +58,13 @@ public interface NodeWeaveFacility {
   void weaveNode(@NotNull SContainmentLink childRole, @NotNull SNode outputNodeToWeave) throws GenerationFailureException;
 
   // there's need to pass more than 1 parameter to weaving, hence the context.
+  /**
+   * @deprecated with TemplateCallSite, everything needed specifically for weaving could go right into NodeWeaveSupport,
+   *             see {@link jetbrains.mps.generator.impl.CallSiteImpl#weave(TemplateContext, SNode, WeavingWithAnchor)}
+   *             Generated classes that implement TemplateDeclaration reference this class in 2019.3 though don't use anything from it
+   */
+  @Deprecated
+  @ToRemove(version = 2020.1)
   interface WeaveContext {
     /**
      * @return context node of a weaving rule or macro. Not necessarily the parent nodes get weaved into, as actual parent

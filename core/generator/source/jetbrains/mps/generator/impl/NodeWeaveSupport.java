@@ -40,7 +40,7 @@ public final class NodeWeaveSupport implements NodeWeaveFacility {
   @NotNull
   private final WeaveContext myWeaveContext;
 
-  public NodeWeaveSupport(@NotNull WeaveContext weaveContext, @NotNull SNodeReference templateNodeReference, @NotNull TemplateExecutionEnvironmentImpl env) {
+  /*package*/ NodeWeaveSupport(@NotNull WeaveContext weaveContext, @NotNull SNodeReference templateNodeReference, @NotNull TemplateExecutionEnvironmentImpl env) {
     myWeaveContext = weaveContext;
     myTemplateContext = weaveContext.getTemplateContext();
     myTemplateNode = templateNodeReference;
