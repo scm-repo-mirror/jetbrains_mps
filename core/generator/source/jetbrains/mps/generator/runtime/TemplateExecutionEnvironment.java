@@ -66,6 +66,12 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
   @NotNull
   SNode createOutputNode(@NotNull SConcept concept);
 
+  /**
+   * TemplateGenerator is implementation class and there's no apparent reason why TEE clients might need access to it.
+   * @return
+   */
+  @Deprecated
+  @ToRemove(version = 2020.1)
   @NotNull
   TemplateGenerator getGenerator();
 
@@ -100,6 +106,19 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
    * Support for $INSERT$ macro, adopt a node, prepare it to get inserted into output model
    */
   SNode insertNode(SNode node, SNodeReference templateNode, TemplateContext templateContext) throws GenerationCanceledException, GenerationFailureException;
+
+  /**
+   * FIXME provisional API just to get rid of TemplateGenerator:getGenerator exposure. Would be great to use smth like TemplateDeclarationKey, just the name is unfortunate
+   *       Perhaps, shall go with SwitchCallSite right away?
+   *       Intentionally no TemplateContext argument as (a) it's null input case (b) message is a plain text
+   *
+   * XXX perhaps, Collection.emptyList() as return value?
+   * @param _switch identifies switch declaration
+   * @throws GenerationCanceledException provisionally, I expect null handling to get extended with option to fail generation, we'd need to account for this scenario right away
+   * @throws GenerationFailureException
+   * @since 20201.
+   */
+  void nullInputSwitch(SNodeReference _switch) throws GenerationCanceledException, GenerationFailureException;
 
   @Nullable
   Collection<SNode> trySwitch(SNodeReference _switch, TemplateContext context) throws GenerationException;

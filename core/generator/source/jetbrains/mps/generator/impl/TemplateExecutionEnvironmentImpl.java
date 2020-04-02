@@ -181,6 +181,14 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
     return new ChildAdopter(generator).adopt(child, templateContext);
   }
 
+  @Override
+  public void nullInputSwitch(SNodeReference _switch) throws GenerationCanceledException, GenerationFailureException {
+    final TemplateSwitchMapping templateSwitch = generator.getSwitch(_switch);
+    if (templateSwitch != null) {
+      templateSwitch.processNull(this, _switch, new DefaultTemplateContext(this, null, null));
+    }
+  }
+
   @Nullable
   @Override
   public Collection<SNode> trySwitch(SNodeReference _switch, TemplateContext context) throws GenerationException {
