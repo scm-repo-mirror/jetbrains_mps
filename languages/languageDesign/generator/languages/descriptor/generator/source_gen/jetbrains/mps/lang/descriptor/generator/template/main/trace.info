@@ -3216,38 +3216,30 @@
       <node id="2030416617761786951" at="22,41,23,158" concept="9" />
       <node id="2030416617761786951" at="25,45,26,16" concept="9" />
       <node id="2030416617761786951" at="28,62,29,34" concept="9" />
-      <node id="2030416617761786951" at="31,199,32,55" concept="8" />
-      <node id="2030416617761786951" at="32,55,33,18" concept="9" />
+      <node id="2030416617761786951" at="31,99,32,78" concept="8" />
+      <node id="2030416617761786951" at="32,78,33,55" concept="8" />
+      <node id="2030416617761786951" at="33,55,34,18" concept="9" />
       <node id="2030416617761786951" at="20,0,22,0" concept="1" trace="Switch_InstantiateAspectDescriptor#()V" />
-      <node id="2030416617761786951" at="35,0,37,0" concept="7" trace="processNull#(Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;Lorg/jetbrains/mps/openapi/model/SNodeReference;Ljetbrains/mps/generator/runtime/TemplateContext;)V" />
       <node id="2030416617761786951" at="22,0,25,0" concept="7" trace="getSwitchNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="2030416617761786951" at="25,0,28,0" concept="7" trace="getModifiesSwitch#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="2030416617761786951" at="28,0,31,0" concept="7" trace="getReductionRules#()Ljava/lang/Iterable;" />
-      <node id="2030416617761786951" at="31,0,35,0" concept="7" trace="applyDefault#(Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;Lorg/jetbrains/mps/openapi/model/SNodeReference;Ljava/lang/String;Ljetbrains/mps/generator/runtime/TemplateContext;)Ljava/util/Collection;" />
+      <node id="2030416617761786951" at="31,0,36,0" concept="7" trace="applyDefault#(Ljetbrains/mps/generator/runtime/TemplateContext;)Ljava/util/Collection;" />
       <scope id="2030416617761786951" at="20,47,20,47" />
-      <scope id="2030416617761786951" at="35,125,35,125" />
       <scope id="2030416617761786951" at="22,41,23,158" />
       <scope id="2030416617761786951" at="25,45,26,16" />
       <scope id="2030416617761786951" at="28,62,29,34" />
       <scope id="2030416617761786951" at="20,0,22,0" />
-      <scope id="2030416617761786951" at="31,199,33,18">
-        <var name="tlist1" id="2030416617761786951" />
-      </scope>
-      <scope id="2030416617761786951" at="35,0,37,0">
-        <var name="context" id="2030416617761786951" />
-        <var name="environment" id="2030416617761786951" />
-        <var name="templateSwitch" id="2030416617761786951" />
-      </scope>
       <scope id="2030416617761786951" at="22,0,25,0" />
       <scope id="2030416617761786951" at="25,0,28,0" />
       <scope id="2030416617761786951" at="28,0,31,0" />
-      <scope id="2030416617761786951" at="31,0,35,0">
-        <var name="context" id="2030416617761786951" />
+      <scope id="2030416617761786951" at="31,99,34,18">
         <var name="environment" id="2030416617761786951" />
-        <var name="mappingLabel" id="2030416617761786951" />
-        <var name="templateSwitch" id="2030416617761786951" />
+        <var name="tlist1" id="2030416617761786951" />
       </scope>
-      <unit id="2030416617761786951" at="18,0,38,0" name="jetbrains.mps.lang.descriptor.generator.template.main.Switch_InstantiateAspectDescriptor" />
+      <scope id="2030416617761786951" at="31,0,36,0">
+        <var name="context" id="2030416617761786951" />
+      </scope>
+      <unit id="2030416617761786951" at="18,0,37,0" name="jetbrains.mps.lang.descriptor.generator.template.main.Switch_InstantiateAspectDescriptor" />
     </file>
     <file name="Template_Language.java">
       <node id="2030416617761819425" at="1010,95,1011,97" concept="3" />
@@ -5497,38 +5489,30 @@
       <node id="3242214770611334795" at="22,41,23,158" concept="9" />
       <node id="3242214770611334795" at="25,45,26,16" concept="9" />
       <node id="3242214770611334795" at="28,62,29,34" concept="9" />
-      <node id="3242214770611334795" at="31,199,32,55" concept="8" />
-      <node id="3242214770611334795" at="32,55,33,18" concept="9" />
+      <node id="3242214770611334795" at="31,99,32,78" concept="8" />
+      <node id="3242214770611334795" at="32,78,33,55" concept="8" />
+      <node id="3242214770611334795" at="33,55,34,18" concept="9" />
       <node id="3242214770611334795" at="20,0,22,0" concept="1" trace="Switch_ContrubuteLanguageExtensions#()V" />
-      <node id="3242214770611334795" at="35,0,37,0" concept="7" trace="processNull#(Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;Lorg/jetbrains/mps/openapi/model/SNodeReference;Ljetbrains/mps/generator/runtime/TemplateContext;)V" />
       <node id="3242214770611334795" at="22,0,25,0" concept="7" trace="getSwitchNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="3242214770611334795" at="25,0,28,0" concept="7" trace="getModifiesSwitch#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="3242214770611334795" at="28,0,31,0" concept="7" trace="getReductionRules#()Ljava/lang/Iterable;" />
-      <node id="3242214770611334795" at="31,0,35,0" concept="7" trace="applyDefault#(Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;Lorg/jetbrains/mps/openapi/model/SNodeReference;Ljava/lang/String;Ljetbrains/mps/generator/runtime/TemplateContext;)Ljava/util/Collection;" />
+      <node id="3242214770611334795" at="31,0,36,0" concept="7" trace="applyDefault#(Ljetbrains/mps/generator/runtime/TemplateContext;)Ljava/util/Collection;" />
       <scope id="3242214770611334795" at="20,48,20,48" />
-      <scope id="3242214770611334795" at="35,125,35,125" />
       <scope id="3242214770611334795" at="22,41,23,158" />
       <scope id="3242214770611334795" at="25,45,26,16" />
       <scope id="3242214770611334795" at="28,62,29,34" />
       <scope id="3242214770611334795" at="20,0,22,0" />
-      <scope id="3242214770611334795" at="31,199,33,18">
-        <var name="tlist1" id="3242214770611334795" />
-      </scope>
-      <scope id="3242214770611334795" at="35,0,37,0">
-        <var name="context" id="3242214770611334795" />
-        <var name="environment" id="3242214770611334795" />
-        <var name="templateSwitch" id="3242214770611334795" />
-      </scope>
       <scope id="3242214770611334795" at="22,0,25,0" />
       <scope id="3242214770611334795" at="25,0,28,0" />
       <scope id="3242214770611334795" at="28,0,31,0" />
-      <scope id="3242214770611334795" at="31,0,35,0">
-        <var name="context" id="3242214770611334795" />
+      <scope id="3242214770611334795" at="31,99,34,18">
         <var name="environment" id="3242214770611334795" />
-        <var name="mappingLabel" id="3242214770611334795" />
-        <var name="templateSwitch" id="3242214770611334795" />
+        <var name="tlist1" id="3242214770611334795" />
       </scope>
-      <unit id="3242214770611334795" at="18,0,38,0" name="jetbrains.mps.lang.descriptor.generator.template.main.Switch_ContrubuteLanguageExtensions" />
+      <scope id="3242214770611334795" at="31,0,36,0">
+        <var name="context" id="3242214770611334795" />
+      </scope>
+      <unit id="3242214770611334795" at="18,0,37,0" name="jetbrains.mps.lang.descriptor.generator.template.main.Switch_ContrubuteLanguageExtensions" />
     </file>
     <file name="Template_Language.java">
       <node id="3242214770611334796" at="1181,88,1182,90" concept="3" />
