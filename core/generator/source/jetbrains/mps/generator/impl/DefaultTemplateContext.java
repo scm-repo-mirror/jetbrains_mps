@@ -71,6 +71,15 @@ public class DefaultTemplateContext implements TemplateContext {
     myVars = vars;
   }
 
+  private DefaultTemplateContext(TemplateExecutionEnvironment env, SNode inputNode, @Nullable String inputName, Map<String, Object> vars) {
+    myEnv = env;
+    myParent = null;
+    myInputName = inputName;
+    myInputNode = inputNode;
+    myPattern = null;
+    myVars = vars;
+  }
+
   @NotNull
   @Override
   public TemplateExecutionEnvironment getEnvironment() {
@@ -84,6 +93,11 @@ public class DefaultTemplateContext implements TemplateContext {
       topmost = topmost.myParent;
     }
     return topmost.hashCode();
+  }
+
+  @Override
+  public TemplateContext asTopContext() {
+    return new DefaultTemplateContext(myEnv, myInputNode, myInputName, myVars);
   }
 
   public DefaultTemplateContext getParent() {
