@@ -8,8 +8,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.SModelStereotype;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class MappingRuleTemplateNodeSearchScope extends ModelsScope {
   public MappingRuleTemplateNodeSearchScope(SModel model) {
@@ -18,10 +16,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       public boolean accept(SModel it) {
         return SModelStereotype.isGeneratorModel(it);
       }
-    }), true, CONCEPTS.INamedConcept$nV);
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    }), true, null);
   }
 }

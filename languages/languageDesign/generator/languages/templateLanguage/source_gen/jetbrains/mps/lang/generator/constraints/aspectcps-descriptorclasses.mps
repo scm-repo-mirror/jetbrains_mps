@@ -12,7 +12,6 @@
     <import index="tpf8" ref="r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
@@ -2132,11 +2131,10 @@
               </node>
             </node>
           </node>
-          <node concept="35c_gC" id="a9" role="37wK5m">
-            <ref role="35c_gD" to="tpck:h0TrEE$" resolve="INamedConcept" />
+          <node concept="10Nm6u" id="a9" role="37wK5m">
             <node concept="cd27G" id="bb" role="lGtFl">
               <node concept="3u3nmq" id="bc" role="cd27D">
-                <property role="3u3nmv" value="445563756713607134" />
+                <property role="3u3nmv" value="6224457144720069411" />
               </node>
             </node>
           </node>
