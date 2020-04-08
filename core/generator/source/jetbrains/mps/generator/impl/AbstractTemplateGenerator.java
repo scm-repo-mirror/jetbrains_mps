@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,10 +100,6 @@ public abstract class AbstractTemplateGenerator implements ITemplateGenerator {
     }
   }
 
-  public SNode findOutputNodeByTemplateNodeUnique(String templateNode) {
-    return myMappings.findOutputNodeByTemplateNodeUnique(templateNode);
-  }
-
   @Override
   public SNode findOutputNodeByInputNodeAndMappingName(SNode inputNode, String mappingName) {
     if (inputNode != null) {
@@ -133,11 +129,15 @@ public abstract class AbstractTemplateGenerator implements ITemplateGenerator {
     myMappings.addCopiedOutputNodeForInputNode(inputNode, outputNode);
   }
 
-  public void addOutputNodeByInputAndTemplateNode(SNode inputNode, String templateNodeId, SNode outputNode) {
-    myMappings.addOutputNodeByInputAndTemplateNode(inputNode, templateNodeId, outputNode);
+  public void addOutputNodeByInputAndTemplateNode(TemplateContext templateContext, String templateNodeId, SNode outputNode) {
+    // in fact, no apprent reason not to use addOutputNodeForContext, as this method is in use from weaving rule, which is applied with fresh TC anyway
+    // and hence empty history
+    myMappings.addOutputNodeByInputAndTemplateNode(templateContext, templateNodeId, outputNode);
   }
 
   void nodeCopied(TemplateContext context, SNode outputNode, String templateNodeId) {
+    // FIXME if template node could not be referenced, no reason to record the mapping. In generated templates, we analyze incoming references,
+    //       in interpreted, can use concept's StaticScope
     myMappings.addOutputNodeForContext(context, templateNodeId, outputNode);
   }
 
@@ -145,10 +145,6 @@ public abstract class AbstractTemplateGenerator implements ITemplateGenerator {
     SNode node = findCopiedOutputNodeForInputNode(inputNode);
     if (myMappings.isInputNodeHasUniqueCopiedOutputNode(inputNode)) return node;
     return null;
-  }
-
-  public SNode findOutputNodeByInputAndTemplateNode(SNode inputNode, String templateNodeId) {
-    return myMappings.findOutputNodeByInputAndTemplateNode(inputNode, templateNodeId);
   }
 
   public SNode findOutputNodeById(SNodeId nodeId) {

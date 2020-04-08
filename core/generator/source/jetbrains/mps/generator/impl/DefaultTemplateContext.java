@@ -34,6 +34,7 @@ public class DefaultTemplateContext implements TemplateContext {
   private final DefaultTemplateContext myParent;
   private final SNode myInputNode;
   private final String myInputName;
+  private final int myExecutionPathId;
 
   private final GeneratedMatchingPattern myPattern;
   private final Map<String, Object> myVars;
@@ -46,6 +47,7 @@ public class DefaultTemplateContext implements TemplateContext {
     myInputNode = inputNode;
     myPattern = null;
     myVars = null;
+    myExecutionPathId = System.identityHashCode(this);
   }
 
   /**
@@ -64,17 +66,38 @@ public class DefaultTemplateContext implements TemplateContext {
 
   private DefaultTemplateContext(DefaultTemplateContext parent, String inputName, SNode inputNode, GeneratedMatchingPattern pattern, Map<String,Object> vars) {
     myParent = parent;
-    myEnv = parent == null ? null : parent.myEnv;
+    myEnv = parent.myEnv;
     myInputName = inputName;
     myInputNode = inputNode;
     myPattern = pattern;
     myVars = vars;
+    myExecutionPathId = parent.executionPathIdentity();
+  }
+
+  private DefaultTemplateContext(DefaultTemplateContext parent, int ignored) {
+    myParent = parent;
+    myEnv = parent.myEnv;
+    myInputName = parent.getInputName();
+    myInputNode = parent.getInput();
+    myPattern = null;
+    myVars = null;
+    myExecutionPathId = System.identityHashCode(this);
   }
 
   @NotNull
   @Override
   public TemplateExecutionEnvironment getEnvironment() {
     return myEnv;
+  }
+
+  @Override
+  public int executionPathIdentity() {
+    return myExecutionPathId;
+  }
+
+  @Override
+  public TemplateContext withNewExecutionPath() {
+    return new DefaultTemplateContext(this, 0);
   }
 
   public DefaultTemplateContext getParent() {

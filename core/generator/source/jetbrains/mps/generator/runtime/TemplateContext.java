@@ -37,6 +37,16 @@ public interface TemplateContext {
   @NotNull
   TemplateExecutionEnvironment getEnvironment();
 
+  /**
+   * EXPERIMENTAL API, DON'T USE OUTSIDE OF GENERATOR INTERNALS
+   */
+  int executionPathIdentity();
+
+  /**
+   * EXPERIMENTAL API, DON'T USE OUTSIDE OF GENERATOR INTERNALS
+   */
+  TemplateContext withNewExecutionPath();
+
   SNode getInput();
 
   String getInputName();

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -223,13 +222,31 @@ public abstract class RuleConsequenceProcessor {
       }
 
       try {
-        Collection<SNode> rv = myTemplate.apply(env, myTemplateCall.prepareCallContext(context));
-        return new ArrayList<>(rv);
+        final ArrayList<SNode> rv = new ArrayList<>();
+        myTemplate.apply(myTemplateCall.prepareCallContext(context), new CollectorSink(rv));
+        return rv;
       } catch (GenerationFailureException | GenerationCanceledException | DismissTopMappingRuleException | AbandonRuleInputException ex) {
         throw ex;
       } catch (GenerationException ex) {
         throw new GenerationFailureException(ex);
       }
+    }
+  }
+
+  private static class TemplateConsequence extends RuleConsequenceProcessor {
+    private final TemplateContainer myTemplateContainer;
+
+    public TemplateConsequence(TemplateContainer templateContainer) {
+      myTemplateContainer = templateContainer;
+    }
+
+    @NotNull
+    @Override
+    public List<SNode> processRuleConsequence(@NotNull TemplateContext context)
+      throws GenerationFailureException, DismissTopMappingRuleException, GenerationCanceledException {
+      ArrayList<SNode> outputNodes = new ArrayList<>();
+      myTemplateContainer.apply(new CollectorSink(outputNodes), context);
+      return outputNodes;
     }
   }
 
@@ -256,7 +273,7 @@ public abstract class RuleConsequenceProcessor {
     public void inlineTemplateWithContext(SNode ruleConsequence) {
       SNode templateContainer = RuleUtil.getInlineTemplateWithContext_contentNode(ruleConsequence);
       if (templateContainer != null) {
-        myConsequence = new TemplateContainer(templateContainer);
+        myConsequence = new TemplateConsequence(new TemplateContainer(templateContainer));
       } else {
         myConsequence = new BadConsequence(ruleConsequence, "error processing template consequence: no 'template'");
       }
@@ -266,7 +283,7 @@ public abstract class RuleConsequenceProcessor {
     public void inlineTemplate(SNode ruleConsequence) {
       SNode templateNode = RuleUtil.getInlineTemplate_templateNode(ruleConsequence);
       if (templateNode != null) {
-        myConsequence = new TemplateContainer(new Pair<>(templateNode, null));
+        myConsequence = new TemplateConsequence(new TemplateContainer(new Pair<>(templateNode, null)));
       } else {
         myConsequence = new BadConsequence(ruleConsequence, "no template node");
       }

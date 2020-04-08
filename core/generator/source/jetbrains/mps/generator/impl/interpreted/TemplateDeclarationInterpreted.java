@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.generator.impl.interpreted;
 
-import jetbrains.mps.generator.impl.CollectorSink;
 import jetbrains.mps.generator.impl.GenerationFailureException;
 import jetbrains.mps.generator.impl.RuleUtil;
 import jetbrains.mps.generator.impl.TemplateContainer;
@@ -26,7 +25,6 @@ import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.NodeWeaveFacility;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.TemplateDeclarationBase;
-import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -80,16 +78,15 @@ public final class TemplateDeclarationInterpreted extends TemplateDeclarationBas
   }
 
   @Override
-  public Collection<SNode> apply(@NotNull TemplateExecutionEnvironment environment, @NotNull TemplateContext context) throws GenerationException {
+  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
     final TemplateContainer tc = getTemplates();
-    CollectorSink s = new CollectorSink(new ArrayList<>());
-    tc.apply(s, context);
-    return s.getCollected();
+    tc.apply(sink, context);
   }
 
   @Override
   public Collection<SNode> weave(@NotNull NodeWeaveFacility weaveFacility) throws GenerationException {
     // Calling code is responsible to configure arguments
+    // FIXME finally, have to deal with distinction b/w TC and WTC, with 2020.1 out, would need weaving to go through regular apply(TC,AS)
     WeaveTemplateContainer tc = new WeaveTemplateContainer(myTemplateNode);
     ArrayList<SNode> allWeavedNodes = new ArrayList<>();
     ApplySink s = new ApplySink() {
@@ -114,8 +111,13 @@ public final class TemplateDeclarationInterpreted extends TemplateDeclarationBas
       }
     };
     TemplateContext context = weaveFacility.getTemplateContext();
+    // FIXME weave() in generated templates is not recorded into trace
+    //       There's GenerationTrace.trace updated inside TemplateContainer.apply(), but it happens for interpreted templates only.
+    //       Besides, I believe it's also true for regular TD.apply(), at least I see no access to GenerationTrace in generated code.
+    //       Well, CALL/LOOM macro do record trace in interpreted mode, and trace for compiled reduction rules is handled in TEEI.tryToReduce
     tc.apply(s, context);
 
-    return Collections.emptyList();
+    // CallSiteImpl needs return value to record trace of output nodes
+    return allWeavedNodes;
   }
 }
