@@ -35,17 +35,15 @@ import java.util.Iterator;
 public final class NodeWeaveSupport implements NodeWeaveFacility {
   private TemplateContext myTemplateContext;
   private final SNodeReference myTemplateNode;
-  private final TemplateExecutionEnvironmentImpl myEnv;
   private final TemplateGenerator myGenerator;
   @NotNull
   private final WeaveContext myWeaveContext;
 
-  /*package*/ NodeWeaveSupport(@NotNull WeaveContext weaveContext, @NotNull SNodeReference templateNodeReference, @NotNull TemplateExecutionEnvironmentImpl env) {
+  /*package*/ NodeWeaveSupport(@NotNull WeaveContext weaveContext, @NotNull SNodeReference templateNodeReference, @NotNull TemplateGenerator generator) {
     myWeaveContext = weaveContext;
     myTemplateContext = weaveContext.getTemplateContext();
     myTemplateNode = templateNodeReference;
-    myEnv = env;
-    myGenerator = env.getGenerator();
+    myGenerator = generator;
   }
 
   @NotNull
