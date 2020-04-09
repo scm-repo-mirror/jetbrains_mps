@@ -1363,6 +1363,32 @@
       <unit id="2420730201805087069" at="14,0,45,0" name="jetbrains.mps.lang.editor.actions.test.TwoStepDeleteChildWithAttributeAttributeSelected_Test" />
     </file>
   </root>
+  <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/251303122734594730">
+    <file name="Subst_SlashAsterisk_Test.java">
+      <node id="251303122734594730" at="18,37,19,25" concept="8" />
+      <node id="251303122734594730" at="23,59,24,36" concept="1" />
+      <node id="251303122734594730" at="29,52,30,19" concept="8" />
+      <node id="251303122734594730" at="34,51,35,70" concept="1" />
+      <node id="251303122734610464" at="35,70,36,30" concept="1" />
+      <node id="251303122734594730" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="251303122734594730" at="18,0,21,0" concept="0" trace="Subst_SlashAsterisk_Test#()V" />
+      <node id="251303122734594730" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="251303122734594730" at="22,0,26,0" concept="3" trace="test_Subst_SlashAsterisk#()V" />
+      <node id="251303122734594730" at="33,0,38,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="251303122734594730" at="18,37,19,25" />
+      <scope id="251303122734594730" at="23,59,24,36" />
+      <scope id="251303122734594730" at="29,52,30,19" />
+      <scope id="251303122734594730" at="34,51,36,30" />
+      <scope id="251303122734594730" at="18,0,21,0" />
+      <scope id="251303122734594730" at="29,0,32,0">
+        <var name="owner" id="251303122734594730" />
+      </scope>
+      <scope id="251303122734594730" at="22,0,26,0" />
+      <scope id="251303122734594730" at="33,0,38,0" />
+      <unit id="251303122734594730" at="27,0,39,0" name="jetbrains.mps.lang.editor.actions.test.Subst_SlashAsterisk_Test$TestBody" />
+      <unit id="251303122734594730" at="13,0,40,0" name="jetbrains.mps.lang.editor.actions.test.Subst_SlashAsterisk_Test" />
+    </file>
+  </root>
   <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/2579781306647325577">
     <file name="ActionMapImportIndividualViaWildcard_Test.java">
       <node id="2579781306647325577" at="18,54,19,25" concept="8" />

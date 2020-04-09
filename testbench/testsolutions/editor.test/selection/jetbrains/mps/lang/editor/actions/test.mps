@@ -120,6 +120,9 @@
       </concept>
       <concept id="1153422305557" name="jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression" flags="nn" index="2dkUwp" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
+      <concept id="1732176556423009631" name="jetbrains.mps.baseLanguage.structure.MultiLineComment" flags="ng" index="2lOVwT">
+        <child id="1732176556423038857" name="lines" index="2lOMFJ" />
+      </concept>
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="classes" index="nSUat" />
       </concept>
@@ -12496,6 +12499,49 @@
           </node>
           <node concept="3clFbT" id="4XAkAubrnaf" role="37wK5m">
             <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="dWNHJhyFEE">
+    <property role="TrG5h" value="Subst_SlashAsterisk" />
+    <property role="3GE5qa" value="substitute" />
+    <property role="3YCmrE" value="MPS-31641 Removed special handling of asterisk" />
+    <node concept="3clFbS" id="dWNHJhyFEF" role="LjaKd">
+      <node concept="2TK7Tu" id="dWNHJhyJww" role="3cqZAp">
+        <property role="2TTd_B" value="/*Comment" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="dWNHJhyGq5" role="25YQCW">
+      <node concept="9aQIb" id="dWNHJhyGq3" role="1qenE9">
+        <node concept="3clFbS" id="dWNHJhyGq4" role="9aQI4">
+          <node concept="LIFWc" id="dWNHJhyHcU" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="Constant_u338ov_a0a" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="dWNHJhyH2R" role="25YQFr">
+      <node concept="9aQIb" id="dWNHJhyH2P" role="1qenE9">
+        <node concept="3clFbS" id="dWNHJhyH2Q" role="9aQI4">
+          <node concept="2lOVwT" id="dWNHJhyHcN" role="3cqZAp">
+            <node concept="1PaTwC" id="dWNHJhyHcO" role="2lOMFJ">
+              <node concept="3oM_SD" id="dWNHJhyHcQ" role="1PaTwD">
+                <property role="3oM_SC" value="Comment" />
+                <node concept="LIFWc" id="dWNHJhyJA6" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="7" />
+                  <property role="p6zMs" value="7" />
+                  <property role="LIFWd" value="property_value" />
+                </node>
+              </node>
+            </node>
           </node>
         </node>
       </node>
