@@ -22,6 +22,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 
 import java.nio.ByteBuffer;
 import java.util.Collection;
+import java.util.function.Consumer;
 
 /**
  * Alternative trace mechanism approach. Unlike {@link RuleTrace}, not a 'get a bundle ready and fire as batch', but with distinct notifications for each phase.
@@ -30,21 +31,25 @@ import java.util.Collection;
  * @author Artem Tikhomirov
  */
 public final class RuleTrace2 {
-  private final Collection<ClientToken> myClients;
+  private final Consumer<byte[]> myDispatch;
+  private final int myKind;
   private final byte[] myHeader;
 
   /*package*/ RuleTrace2(Collection<ClientToken> interestedInTheRule, TemplateReductionRule reductionRule) {
-    myClients = interestedInTheRule;
+    myDispatch = new MessageDispatch(interestedInTheRule);
+    myKind = 0x01;
     myHeader = reductionRule.getRuleNode().toString().getBytes();
   }
 
   /*package*/ RuleTrace2(Collection<ClientToken> interestedInTheRule, TemplateCreateRootRule createRootRule) {
-    myClients = interestedInTheRule;
+    myDispatch = new MessageDispatch(interestedInTheRule);
+    myKind = 0x02;
     myHeader = createRootRule.getRuleNode().toString().getBytes();
   }
 
   /*package*/ RuleTrace2(Collection<ClientToken> interestedInTheRule, TemplateRootMappingRule rootMapRule) {
-    myClients = interestedInTheRule;
+    myDispatch = new MessageDispatch(interestedInTheRule);
+    myKind = 0x02;
     myHeader = rootMapRule.getRuleNode().toString().getBytes();
   }
 
@@ -76,7 +81,8 @@ public final class RuleTrace2 {
 
   private void notify(int ... message) {
     // could be thread-local with pre-filled header and thread id
-    final ByteBuffer bb = ByteBuffer.allocate(myHeader.length + message.length * 4 + 8*2 /*long threadId, time*/ + 1 /*zero byte*/ + 4 /*msg len*/);
+    final ByteBuffer bb = ByteBuffer.allocate(4 + myHeader.length + message.length * 4 + 8*2 /*long threadId, time*/ + 1 /*zero byte*/ + 4 /*msg len*/);
+    bb.putInt(myKind);
     bb.put(myHeader);
     bb.put((byte) 0);
     bb.putLong(Thread.currentThread().getId());
@@ -85,9 +91,6 @@ public final class RuleTrace2 {
     for (int m : message) {
       bb.putInt(m);
     }
-    final byte[] array = bb.array();
-    for (ClientToken client : myClients) {
-      client.sendToClient(array);
-    }
+    myDispatch.accept(bb.array());
   }
 }

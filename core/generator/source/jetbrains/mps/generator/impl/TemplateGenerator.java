@@ -53,6 +53,7 @@ import jetbrains.mps.generator.runtime.TemplateRule;
 import jetbrains.mps.generator.runtime.TemplateSwitchMapping;
 import jetbrains.mps.generator.template.DefaultQueryExecutionContext;
 import jetbrains.mps.generator.template.QueryExecutionContext;
+import jetbrains.mps.generator.trace.LabelTrace;
 import jetbrains.mps.generator.trace.RuleTrace2;
 import jetbrains.mps.generator.trace.TraceFacility;
 import jetbrains.mps.smodel.CopyUtil;
@@ -514,6 +515,18 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
 
   protected DeltaBuilder createDeltaBuilder() {
     return DeltaBuilder.newSingleThreadDeltaBuilder();
+  }
+
+  @Override
+  public void registerMappingLabel(SNode inputNode, String mappingName, SNode outputNode) {
+    final TraceFacility traceSession;
+    if (inputNode != null && mappingName != null && outputNode != null && (traceSession = getTraceSession()) != null) {
+      final LabelTrace lt = traceSession.lm(mappingName);
+      if (lt != null) {
+        lt.register(inputNode, outputNode);
+      }
+    }
+    super.registerMappingLabel(inputNode, mappingName, outputNode);
   }
 
   @Override
