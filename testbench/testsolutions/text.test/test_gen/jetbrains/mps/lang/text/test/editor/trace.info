@@ -113,6 +113,297 @@
       <unit id="2823219366503239304" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectWordAndLine_Test" />
     </file>
   </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002003779">
+    <file name="SelectRows1_Test.java">
+      <node id="4676474846002003779" at="18,29,19,25" concept="5" />
+      <node id="4676474846002003779" at="23,51,24,36" concept="1" />
+      <node id="4676474846002003779" at="29,52,30,19" concept="5" />
+      <node id="4676474846002003779" at="34,51,35,72" concept="1" />
+      <node id="4676474846002003800" at="35,72,36,73" concept="1" />
+      <node id="4676474846002004930" at="36,73,37,73" concept="1" />
+      <node id="4676474846002004938" at="37,73,38,73" concept="1" />
+      <node id="4676474846002003802" at="38,73,39,72" concept="1" />
+      <node id="4676474846002003779" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002003779" at="18,0,21,0" concept="0" trace="SelectRows1_Test#()V" />
+      <node id="4676474846002003779" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002003779" at="22,0,26,0" concept="2" trace="test_SelectRows1#()V" />
+      <node id="4676474846002003779" at="33,0,41,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002003779" at="18,29,19,25" />
+      <scope id="4676474846002003779" at="23,51,24,36" />
+      <scope id="4676474846002003779" at="29,52,30,19" />
+      <scope id="4676474846002003779" at="18,0,21,0" />
+      <scope id="4676474846002003779" at="29,0,32,0">
+        <var name="owner" id="4676474846002003779" />
+      </scope>
+      <scope id="4676474846002003779" at="22,0,26,0" />
+      <scope id="4676474846002003779" at="34,51,39,72" />
+      <scope id="4676474846002003779" at="33,0,41,0" />
+      <unit id="4676474846002003779" at="27,0,42,0" name="jetbrains.mps.lang.text.test.editor.SelectRows1_Test$TestBody" />
+      <unit id="4676474846002003779" at="13,0,43,0" name="jetbrains.mps.lang.text.test.editor.SelectRows1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002003849">
+    <file name="SelectMultiline11_Test.java">
+      <node id="4676474846002003849" at="18,35,19,25" concept="5" />
+      <node id="4676474846002003849" at="23,57,24,36" concept="1" />
+      <node id="4676474846002003849" at="29,52,30,19" concept="5" />
+      <node id="4676474846002003849" at="34,51,35,72" concept="1" />
+      <node id="4676474846002003870" at="35,72,36,73" concept="1" />
+      <node id="4676474846002029781" at="36,73,37,73" concept="1" />
+      <node id="4676474846002029789" at="37,73,38,73" concept="1" />
+      <node id="4676474846002029799" at="38,73,39,73" concept="1" />
+      <node id="4676474846002029811" at="39,73,40,73" concept="1" />
+      <node id="4676474846002029825" at="40,73,41,73" concept="1" />
+      <node id="4676474846002323238" at="41,73,42,73" concept="1" />
+      <node id="4676474846002003872" at="42,73,43,72" concept="1" />
+      <node id="4676474846002003849" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002003849" at="18,0,21,0" concept="0" trace="SelectMultiline11_Test#()V" />
+      <node id="4676474846002003849" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002003849" at="22,0,26,0" concept="2" trace="test_SelectMultiline11#()V" />
+      <node id="4676474846002003849" at="33,0,45,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002003849" at="18,35,19,25" />
+      <scope id="4676474846002003849" at="23,57,24,36" />
+      <scope id="4676474846002003849" at="29,52,30,19" />
+      <scope id="4676474846002003849" at="18,0,21,0" />
+      <scope id="4676474846002003849" at="29,0,32,0">
+        <var name="owner" id="4676474846002003849" />
+      </scope>
+      <scope id="4676474846002003849" at="22,0,26,0" />
+      <scope id="4676474846002003849" at="34,51,43,72" />
+      <scope id="4676474846002003849" at="33,0,45,0" />
+      <unit id="4676474846002003849" at="27,0,46,0" name="jetbrains.mps.lang.text.test.editor.SelectMultiline11_Test$TestBody" />
+      <unit id="4676474846002003849" at="13,0,47,0" name="jetbrains.mps.lang.text.test.editor.SelectMultiline11_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002011746">
+    <file name="SelectRows2_Test.java">
+      <node id="4676474846002011746" at="18,29,19,25" concept="5" />
+      <node id="4676474846002011746" at="23,51,24,36" concept="1" />
+      <node id="4676474846002011746" at="29,52,30,19" concept="5" />
+      <node id="4676474846002011746" at="34,51,35,72" concept="1" />
+      <node id="4676474846002011748" at="35,72,36,73" concept="1" />
+      <node id="4676474846002011750" at="36,73,37,73" concept="1" />
+      <node id="4676474846002011754" at="37,73,38,72" concept="1" />
+      <node id="4676474846002011746" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002011746" at="18,0,21,0" concept="0" trace="SelectRows2_Test#()V" />
+      <node id="4676474846002011746" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002011746" at="22,0,26,0" concept="2" trace="test_SelectRows2#()V" />
+      <node id="4676474846002011746" at="33,0,40,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002011746" at="18,29,19,25" />
+      <scope id="4676474846002011746" at="23,51,24,36" />
+      <scope id="4676474846002011746" at="29,52,30,19" />
+      <scope id="4676474846002011746" at="18,0,21,0" />
+      <scope id="4676474846002011746" at="29,0,32,0">
+        <var name="owner" id="4676474846002011746" />
+      </scope>
+      <scope id="4676474846002011746" at="22,0,26,0" />
+      <scope id="4676474846002011746" at="34,51,38,72" />
+      <scope id="4676474846002011746" at="33,0,40,0" />
+      <unit id="4676474846002011746" at="27,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectRows2_Test$TestBody" />
+      <unit id="4676474846002011746" at="13,0,42,0" name="jetbrains.mps.lang.text.test.editor.SelectRows2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012032">
+    <file name="SelectRows3_Test.java">
+      <node id="4676474846002012032" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012032" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012032" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012032" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012034" at="35,72,36,77" concept="1" />
+      <node id="4676474846002012128" at="36,77,37,77" concept="1" />
+      <node id="4676474846002012036" at="37,77,38,73" concept="1" />
+      <node id="4676474846002012038" at="38,73,39,72" concept="1" />
+      <node id="4676474846002012032" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012032" at="18,0,21,0" concept="0" trace="SelectRows3_Test#()V" />
+      <node id="4676474846002012032" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012032" at="22,0,26,0" concept="2" trace="test_SelectRows3#()V" />
+      <node id="4676474846002012032" at="33,0,41,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012032" at="18,29,19,25" />
+      <scope id="4676474846002012032" at="23,51,24,36" />
+      <scope id="4676474846002012032" at="29,52,30,19" />
+      <scope id="4676474846002012032" at="18,0,21,0" />
+      <scope id="4676474846002012032" at="29,0,32,0">
+        <var name="owner" id="4676474846002012032" />
+      </scope>
+      <scope id="4676474846002012032" at="22,0,26,0" />
+      <scope id="4676474846002012032" at="34,51,39,72" />
+      <scope id="4676474846002012032" at="33,0,41,0" />
+      <unit id="4676474846002012032" at="27,0,42,0" name="jetbrains.mps.lang.text.test.editor.SelectRows3_Test$TestBody" />
+      <unit id="4676474846002012032" at="13,0,43,0" name="jetbrains.mps.lang.text.test.editor.SelectRows3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012138">
+    <file name="SelectRows4_Test.java">
+      <node id="4676474846002012138" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012138" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012138" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012138" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012140" at="35,72,36,77" concept="1" />
+      <node id="4676474846002012142" at="36,77,37,77" concept="1" />
+      <node id="4676474846002012144" at="37,77,38,73" concept="1" />
+      <node id="4676474846002012234" at="38,73,39,73" concept="1" />
+      <node id="4676474846002012246" at="39,73,40,73" concept="1" />
+      <node id="4676474846002012146" at="40,73,41,72" concept="1" />
+      <node id="4676474846002012138" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012138" at="18,0,21,0" concept="0" trace="SelectRows4_Test#()V" />
+      <node id="4676474846002012138" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012138" at="22,0,26,0" concept="2" trace="test_SelectRows4#()V" />
+      <node id="4676474846002012138" at="33,0,43,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012138" at="18,29,19,25" />
+      <scope id="4676474846002012138" at="23,51,24,36" />
+      <scope id="4676474846002012138" at="29,52,30,19" />
+      <scope id="4676474846002012138" at="18,0,21,0" />
+      <scope id="4676474846002012138" at="29,0,32,0">
+        <var name="owner" id="4676474846002012138" />
+      </scope>
+      <scope id="4676474846002012138" at="22,0,26,0" />
+      <scope id="4676474846002012138" at="34,51,41,72" />
+      <scope id="4676474846002012138" at="33,0,43,0" />
+      <unit id="4676474846002012138" at="27,0,44,0" name="jetbrains.mps.lang.text.test.editor.SelectRows4_Test$TestBody" />
+      <unit id="4676474846002012138" at="13,0,45,0" name="jetbrains.mps.lang.text.test.editor.SelectRows4_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012338">
+    <file name="SelectRows5_Test.java">
+      <node id="4676474846002012338" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012338" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012338" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012338" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012340" at="35,72,36,77" concept="1" />
+      <node id="4676474846002012350" at="36,77,37,72" concept="1" />
+      <node id="4676474846002012338" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012338" at="18,0,21,0" concept="0" trace="SelectRows5_Test#()V" />
+      <node id="4676474846002012338" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012338" at="22,0,26,0" concept="2" trace="test_SelectRows5#()V" />
+      <node id="4676474846002012338" at="33,0,39,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012338" at="18,29,19,25" />
+      <scope id="4676474846002012338" at="23,51,24,36" />
+      <scope id="4676474846002012338" at="29,52,30,19" />
+      <scope id="4676474846002012338" at="18,0,21,0" />
+      <scope id="4676474846002012338" at="29,0,32,0">
+        <var name="owner" id="4676474846002012338" />
+      </scope>
+      <scope id="4676474846002012338" at="34,51,37,72" />
+      <scope id="4676474846002012338" at="22,0,26,0" />
+      <scope id="4676474846002012338" at="33,0,39,0" />
+      <unit id="4676474846002012338" at="27,0,40,0" name="jetbrains.mps.lang.text.test.editor.SelectRows5_Test$TestBody" />
+      <unit id="4676474846002012338" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectRows5_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012444">
+    <file name="SelectRows6_Test.java">
+      <node id="4676474846002012444" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012444" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012444" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012444" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012446" at="35,72,36,73" concept="1" />
+      <node id="4676474846002012448" at="36,73,37,72" concept="1" />
+      <node id="4676474846002012444" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012444" at="18,0,21,0" concept="0" trace="SelectRows6_Test#()V" />
+      <node id="4676474846002012444" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012444" at="22,0,26,0" concept="2" trace="test_SelectRows6#()V" />
+      <node id="4676474846002012444" at="33,0,39,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012444" at="18,29,19,25" />
+      <scope id="4676474846002012444" at="23,51,24,36" />
+      <scope id="4676474846002012444" at="29,52,30,19" />
+      <scope id="4676474846002012444" at="18,0,21,0" />
+      <scope id="4676474846002012444" at="29,0,32,0">
+        <var name="owner" id="4676474846002012444" />
+      </scope>
+      <scope id="4676474846002012444" at="34,51,37,72" />
+      <scope id="4676474846002012444" at="22,0,26,0" />
+      <scope id="4676474846002012444" at="33,0,39,0" />
+      <unit id="4676474846002012444" at="27,0,40,0" name="jetbrains.mps.lang.text.test.editor.SelectRows6_Test$TestBody" />
+      <unit id="4676474846002012444" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectRows6_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012545">
+    <file name="SelectRows7_Test.java">
+      <node id="4676474846002012545" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012545" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012545" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012545" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012547" at="35,72,36,73" concept="1" />
+      <node id="4676474846002012549" at="36,73,37,72" concept="1" />
+      <node id="4676474846002012545" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012545" at="18,0,21,0" concept="0" trace="SelectRows7_Test#()V" />
+      <node id="4676474846002012545" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012545" at="22,0,26,0" concept="2" trace="test_SelectRows7#()V" />
+      <node id="4676474846002012545" at="33,0,39,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012545" at="18,29,19,25" />
+      <scope id="4676474846002012545" at="23,51,24,36" />
+      <scope id="4676474846002012545" at="29,52,30,19" />
+      <scope id="4676474846002012545" at="18,0,21,0" />
+      <scope id="4676474846002012545" at="29,0,32,0">
+        <var name="owner" id="4676474846002012545" />
+      </scope>
+      <scope id="4676474846002012545" at="34,51,37,72" />
+      <scope id="4676474846002012545" at="22,0,26,0" />
+      <scope id="4676474846002012545" at="33,0,39,0" />
+      <unit id="4676474846002012545" at="27,0,40,0" name="jetbrains.mps.lang.text.test.editor.SelectRows7_Test$TestBody" />
+      <unit id="4676474846002012545" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectRows7_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002012646">
+    <file name="SelectRows8_Test.java">
+      <node id="4676474846002012646" at="18,29,19,25" concept="5" />
+      <node id="4676474846002012646" at="23,51,24,36" concept="1" />
+      <node id="4676474846002012646" at="29,52,30,19" concept="5" />
+      <node id="4676474846002012646" at="34,51,35,72" concept="1" />
+      <node id="4676474846002012648" at="35,72,36,77" concept="1" />
+      <node id="4676474846002012650" at="36,77,37,72" concept="1" />
+      <node id="4676474846002012646" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002012646" at="18,0,21,0" concept="0" trace="SelectRows8_Test#()V" />
+      <node id="4676474846002012646" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002012646" at="22,0,26,0" concept="2" trace="test_SelectRows8#()V" />
+      <node id="4676474846002012646" at="33,0,39,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002012646" at="18,29,19,25" />
+      <scope id="4676474846002012646" at="23,51,24,36" />
+      <scope id="4676474846002012646" at="29,52,30,19" />
+      <scope id="4676474846002012646" at="18,0,21,0" />
+      <scope id="4676474846002012646" at="29,0,32,0">
+        <var name="owner" id="4676474846002012646" />
+      </scope>
+      <scope id="4676474846002012646" at="34,51,37,72" />
+      <scope id="4676474846002012646" at="22,0,26,0" />
+      <scope id="4676474846002012646" at="33,0,39,0" />
+      <unit id="4676474846002012646" at="27,0,40,0" name="jetbrains.mps.lang.text.test.editor.SelectRows8_Test$TestBody" />
+      <unit id="4676474846002012646" at="13,0,41,0" name="jetbrains.mps.lang.text.test.editor.SelectRows8_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/4676474846002323162">
+    <file name="SelectMultiline12_Test.java">
+      <node id="4676474846002323162" at="18,35,19,25" concept="5" />
+      <node id="4676474846002323162" at="23,57,24,36" concept="1" />
+      <node id="4676474846002323162" at="29,52,30,19" concept="5" />
+      <node id="4676474846002323162" at="34,51,35,72" concept="1" />
+      <node id="4676474846002323185" at="35,72,36,74" concept="1" />
+      <node id="4676474846002323277" at="36,74,37,74" concept="1" />
+      <node id="4676474846002323295" at="37,74,38,74" concept="1" />
+      <node id="4676474846002323315" at="38,74,39,74" concept="1" />
+      <node id="4676474846002323337" at="39,74,40,74" concept="1" />
+      <node id="4676474846002323361" at="40,74,41,74" concept="1" />
+      <node id="4676474846002323387" at="41,74,42,74" concept="1" />
+      <node id="4676474846002323197" at="42,74,43,69" concept="1" />
+      <node id="4676474846002323162" at="15,0,17,0" concept="4" trace="ourParamCache" />
+      <node id="4676474846002323162" at="18,0,21,0" concept="0" trace="SelectMultiline12_Test#()V" />
+      <node id="4676474846002323162" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4676474846002323162" at="22,0,26,0" concept="2" trace="test_SelectMultiline12#()V" />
+      <node id="4676474846002323162" at="33,0,45,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="4676474846002323162" at="18,35,19,25" />
+      <scope id="4676474846002323162" at="23,57,24,36" />
+      <scope id="4676474846002323162" at="29,52,30,19" />
+      <scope id="4676474846002323162" at="18,0,21,0" />
+      <scope id="4676474846002323162" at="29,0,32,0">
+        <var name="owner" id="4676474846002323162" />
+      </scope>
+      <scope id="4676474846002323162" at="22,0,26,0" />
+      <scope id="4676474846002323162" at="34,51,43,69" />
+      <scope id="4676474846002323162" at="33,0,45,0" />
+      <unit id="4676474846002323162" at="27,0,46,0" name="jetbrains.mps.lang.text.test.editor.SelectMultiline12_Test$TestBody" />
+      <unit id="4676474846002323162" at="13,0,47,0" name="jetbrains.mps.lang.text.test.editor.SelectMultiline12_Test" />
+    </file>
+  </root>
   <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/474718489010535049">
     <file name="SplitRichWord_Test.java">
       <node id="474718489010535049" at="18,31,19,25" concept="5" />
@@ -1132,8 +1423,8 @@
       <node id="908515276058402354" at="18,29,19,25" concept="5" />
       <node id="908515276058402354" at="23,51,24,36" concept="1" />
       <node id="908515276058402354" at="29,52,30,19" concept="5" />
-      <node id="908515276058402354" at="34,51,35,70" concept="1" />
-      <node id="908515276058402365" at="35,70,36,74" concept="1" />
+      <node id="908515276058402354" at="34,51,35,71" concept="1" />
+      <node id="908515276058402365" at="35,71,36,74" concept="1" />
       <node id="908515276058402600" at="36,74,37,72" concept="1" />
       <node id="908515276058402354" at="15,0,17,0" concept="4" trace="ourParamCache" />
       <node id="908515276058402354" at="18,0,21,0" concept="0" trace="SelectLeft3_Test#()V" />
@@ -1159,17 +1450,18 @@
       <node id="908515276058402809" at="18,29,19,25" concept="5" />
       <node id="908515276058402809" at="23,51,24,36" concept="1" />
       <node id="908515276058402809" at="29,52,30,19" concept="5" />
-      <node id="908515276058402809" at="34,51,35,70" concept="1" />
-      <node id="908515276058402820" at="35,70,36,73" concept="1" />
+      <node id="908515276058402809" at="34,51,35,71" concept="1" />
+      <node id="908515276058402820" at="35,71,36,73" concept="1" />
       <node id="908515276058402943" at="36,73,37,73" concept="1" />
-      <node id="908515276058402976" at="37,73,38,73" concept="1" />
-      <node id="908515276058403184" at="38,73,39,73" concept="1" />
-      <node id="908515276058403038" at="39,73,40,72" concept="1" />
+      <node id="1161837059391408474" at="37,73,38,73" concept="1" />
+      <node id="908515276058402976" at="38,73,39,74" concept="1" />
+      <node id="908515276058403038" at="39,74,40,72" concept="1" />
+      <node id="1161837059391418829" at="40,72,41,0" concept="3" />
       <node id="908515276058402809" at="15,0,17,0" concept="4" trace="ourParamCache" />
       <node id="908515276058402809" at="18,0,21,0" concept="0" trace="SelectLeft4_Test#()V" />
       <node id="908515276058402809" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="908515276058402809" at="22,0,26,0" concept="2" trace="test_SelectLeft4#()V" />
-      <node id="908515276058402809" at="33,0,42,0" concept="2" trace="testMethodImpl#()V" />
+      <node id="908515276058402809" at="33,0,43,0" concept="2" trace="testMethodImpl#()V" />
       <scope id="908515276058402809" at="18,29,19,25" />
       <scope id="908515276058402809" at="23,51,24,36" />
       <scope id="908515276058402809" at="29,52,30,19" />
@@ -1178,10 +1470,10 @@
         <var name="owner" id="908515276058402809" />
       </scope>
       <scope id="908515276058402809" at="22,0,26,0" />
-      <scope id="908515276058402809" at="34,51,40,72" />
-      <scope id="908515276058402809" at="33,0,42,0" />
-      <unit id="908515276058402809" at="27,0,43,0" name="jetbrains.mps.lang.text.test.editor.SelectLeft4_Test$TestBody" />
-      <unit id="908515276058402809" at="13,0,44,0" name="jetbrains.mps.lang.text.test.editor.SelectLeft4_Test" />
+      <scope id="908515276058402809" at="34,51,41,0" />
+      <scope id="908515276058402809" at="33,0,43,0" />
+      <unit id="908515276058402809" at="27,0,44,0" name="jetbrains.mps.lang.text.test.editor.SelectLeft4_Test$TestBody" />
+      <unit id="908515276058402809" at="13,0,45,0" name="jetbrains.mps.lang.text.test.editor.SelectLeft4_Test" />
     </file>
   </root>
   <root nodeRef="r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)/908515276058413930">
@@ -1474,8 +1766,8 @@
       <node id="908515276058417122" at="18,35,19,25" concept="5" />
       <node id="908515276058417122" at="23,57,24,36" concept="1" />
       <node id="908515276058417122" at="29,52,30,19" concept="5" />
-      <node id="908515276058417122" at="34,51,35,70" concept="1" />
-      <node id="908515276058417142" at="35,70,36,73" concept="1" />
+      <node id="908515276058417122" at="34,51,35,71" concept="1" />
+      <node id="908515276058417142" at="35,71,36,73" concept="1" />
       <node id="908515276058418940" at="36,73,37,72" concept="1" />
       <node id="908515276058417122" at="15,0,17,0" concept="4" trace="ourParamCache" />
       <node id="908515276058417122" at="18,0,21,0" concept="0" trace="SelectMultiline10_Test#()V" />

@@ -32,7 +32,7 @@ public class SelectMultiline10_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("908515276058417124", "908515276058417145");
+      initEditorComponent("908515276058417124", "1161837059391429300");
       invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
     }

@@ -11,16 +11,16 @@ import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 
 @MPSLaunch
-public class SelectLeft3_Test extends BaseTransformationTest {
+public class SelectRows3_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(SelectLeft3_Test.class, "${mps_home}", "r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(SelectRows3_Test.class, "${mps_home}", "r:6cf522f1-8af4-45dd-b0f5-721b6e5caab5(jetbrains.mps.lang.text.test.editor@tests)", false);
 
-  public SelectLeft3_Test() {
+  public SelectRows3_Test() {
     super(ourParamCache);
   }
 
   @Test
-  public void test_SelectLeft3() throws Throwable {
+  public void test_SelectRows3() throws Throwable {
     new TestBody(this).testMethod();
   }
 
@@ -32,8 +32,10 @@ public class SelectLeft3_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("908515276058402356", "1161837059391618322");
-      invokeAction("jetbrains.mps.ide.editor.actions.SelectRight_Action");
+      initEditorComponent("4676474846002012041", "4676474846002012073");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectPrevious_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectPrevious_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectNext_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
     }
   }
