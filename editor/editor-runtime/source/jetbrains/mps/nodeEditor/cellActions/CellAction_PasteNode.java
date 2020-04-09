@@ -189,7 +189,12 @@ public class CellAction_PasteNode extends AbstractCellAction {
           } else {
             currentSelectedNodes = new ArrayList<>();
             for (SNodeReference ref : selectedReferences) {
-              currentSelectedNodes.add(ref.resolve(context.getRepository()));
+              SNode node = ref.resolve(context.getRepository());
+              if (node == null) {
+                LOG.warning("Paste aborted. Node reference no longer valid: " + ref);
+              } else {
+                currentSelectedNodes.add(node);
+              }
             }
           }
 
