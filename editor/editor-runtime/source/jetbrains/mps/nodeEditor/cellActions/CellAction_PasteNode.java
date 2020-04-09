@@ -192,6 +192,7 @@ public class CellAction_PasteNode extends AbstractCellAction {
               SNode node = ref.resolve(context.getRepository());
               if (node == null) {
                 LOG.warning("Paste aborted. Node reference no longer valid: " + ref);
+                return;
               } else {
                 currentSelectedNodes.add(node);
               }
