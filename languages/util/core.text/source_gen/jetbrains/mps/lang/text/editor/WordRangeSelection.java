@@ -56,6 +56,8 @@ public class WordRangeSelection extends AbstractMultipleSelection {
 
   public WordRangeSelection(@NotNull EditorComponent editorComponent, Map<String, String> properties, CellInfo cellInfo) throws SelectionStoreException, SelectionRestoreException {
     super(editorComponent);
+    // TODO ClassCastException - module id 
+    // TODO selected single node or multiple nodes cannot have intentions run on them 
     // TODO preserve and move the cursor position 
     // TODO allow per-character selection 
     // TODO select also spaces 
@@ -65,6 +67,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     // TODO copy spaces into the clipboard 
     // TODO select up/down 
     // TODO combine with other types of selection 
+    // TODO remove ExpandableRangeSelection 
     if (cellInfo != null) {
       throw new SelectionStoreException("Non-null CellInfo object passed as a parameter: " + cellInfo);
     }
@@ -148,7 +151,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   }
   @Override
   public SelectionInfo getSelectionInfo() {
-    SelectionInfoImpl selectionInfo = new SelectionInfoImpl(this.getClass().getName());
+    SelectionInfoImpl selectionInfo = new SelectionInfoImpl(this.getClass().getName(), PersistenceFacade.getInstance().createModuleReference("c7fb639f-be78-4307-89b0-b5959c3fa8c8(jetbrains.mps.lang.text)"));
     selectionInfo.getPropertiesMap().put(MODEL_ID_PROPERTY_NAME, myModelReference);
     selectionInfo.getPropertiesMap().put(FIRST_NODE_ID_PROPERTY_NAME, myFirstNode.getNodeId().toString());
     selectionInfo.getPropertiesMap().put(LAST_NODE_ID_PROPERTY_NAME, myLastNode.getNodeId().toString());
@@ -183,7 +186,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     if (type == CellActionType.BACKSPACE || type == CellActionType.DELETE) {
       performDeleteAction(type);
       return;
-    } else if (type == CellActionType.SELECT_RIGHT) {
+    } else if (type == CellActionType.SELECT_RIGHT || type == CellActionType.SELECT_NEXT) {
       final SelectionManager selectionManager = getEditorComponent().getSelectionManager();
       editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
         @Override
@@ -202,7 +205,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
         }
       });
     } else
-    if (type == CellActionType.SELECT_LEFT) {
+    if (type == CellActionType.SELECT_LEFT || type == CellActionType.SELECT_PREVIOUS) {
       final SelectionManager selectionManager = getEditorComponent().getSelectionManager();
       editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
         @Override
