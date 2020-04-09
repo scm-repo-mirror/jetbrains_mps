@@ -61,6 +61,9 @@ public class Line_Actions {
         boolean includeCurrentNodeInSelection = selection.getSelectionEnd() != selection.getSelectionStart();
 
         SNode prevNode = SNodeOperations.as(SNodeOperations.getPrevSibling(currentWord), CONCEPTS.TextElement$Ue);
+        if (prevNode == null) {
+          prevNode = currentWord;
+        }
         WordRangeSelection ws = new WordRangeSelection(editorContext.getEditorComponent(), prevNode, (includeCurrentNodeInSelection ? currentWord : prevNode), false);
         selectionManager.pushSelection(ws);
 
@@ -107,10 +110,13 @@ public class Line_Actions {
         List<SNode> selectedNodes = selection.getSelectedNodes();
         SNode currentWord = SNodeOperations.as(selectedNodes.get(selectedNodes.size() - 1), CONCEPTS.TextElement$Ue);
         boolean includeCurrentNodeInSelection = selection.getSelectionEnd() != selection.getSelectionStart();
-        SNode nexttNode = SNodeOperations.as(SNodeOperations.getNextSibling(currentWord), CONCEPTS.TextElement$Ue);
 
+        SNode nextNode = SNodeOperations.as(SNodeOperations.getNextSibling(currentWord), CONCEPTS.TextElement$Ue);
+        if (nextNode == null) {
+          nextNode = currentWord;
+        }
 
-        WordRangeSelection ws = new WordRangeSelection(editorContext.getEditorComponent(), (includeCurrentNodeInSelection ? currentWord : nexttNode), nexttNode, true);
+        WordRangeSelection ws = new WordRangeSelection(editorContext.getEditorComponent(), (includeCurrentNodeInSelection ? currentWord : nextNode), nextNode, true);
         selectionManager.pushSelection(ws);
 
       }

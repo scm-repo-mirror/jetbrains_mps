@@ -28,11 +28,11 @@ import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import jetbrains.mps.openapi.editor.cells.CellAction;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
+import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
@@ -294,12 +294,12 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   private void performDeleteAction(final CellActionType type) {
     final EditorContext editorContext = getEditorComponent().getEditorContext();
     int selectedCellsSize = getSelectedCells().size();
-    if (selectedCellsSize > 1) {
+    if (selectedCellsSize > 0) {
       editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
         @Override
         public void doExecute() {
           List<SNode> selectedNodes = getSelectedNodes();
-          assert selectedNodes.size() > 1;
+          assert selectedNodes.size() > 0;
           SNode firstSelected = SNodeOperations.as(selectedNodes.get(0), CONCEPTS.TextElement$Ue);
           SNode lastSelected = SNodeOperations.as(selectedNodes.get(selectedNodes.size() - 1), CONCEPTS.TextElement$Ue);
           SNode prevSelectableNode = getNextSelectableNode(firstSelected, false);
@@ -324,26 +324,6 @@ public class WordRangeSelection extends AbstractMultipleSelection {
           }
         }
       });
-    } else
-    if (selectedCellsSize == 1) {
-      EditorCell nodeCell = getFirstCell();
-      final CellAction action = nodeCell.getAction(type);
-      if (action == null) {
-        return;
-      }
-      if (!(canExecute(editorContext, action))) {
-        return;
-      }
-      if (action.executeInCommand()) {
-        editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
-          @Override
-          public void doExecute() {
-            action.execute(editorContext);
-          }
-        });
-      } else {
-        action.execute(editorContext);
-      }
     }
   }
 
