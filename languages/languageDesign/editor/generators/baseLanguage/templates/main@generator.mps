@@ -1634,7 +1634,7 @@
             </node>
           </node>
           <node concept="2GUZhq" id="5ajRFTcHXFG" role="3cqZAp">
-            <node concept="1tp6Ag" id="6UtCO5dGvrp" role="lGtFl">
+            <node concept="1tp6Ag" id="7XUBClp43vW" role="lGtFl">
               <property role="1tp6A2" value="f3061a53-9226-4cc5-a443-f952ceaf5816(jetbrains.mps.baseLanguage)/10" />
               <property role="1tp6Ah" value="unknown attributes" />
               <property role="1tp6Au" value="This node should have been migrated, but has annotations not recognised by the migration. Please review this code and migrate manually if necessary. Unknown attribute: jetbrains.mps.lang.generator.structure.IfMacro" />
@@ -32202,7 +32202,7 @@
                 </node>
               </node>
             </node>
-            <node concept="1tp6Ag" id="6UtCO5dGvrq" role="lGtFl">
+            <node concept="1tp6Ag" id="7XUBClp43vX" role="lGtFl">
               <property role="1tp6A2" value="f3061a53-9226-4cc5-a443-f952ceaf5816(jetbrains.mps.baseLanguage)/10" />
               <property role="1tp6Ah" value="unknown attributes" />
               <property role="1tp6Au" value="This node should have been migrated, but has annotations not recognised by the migration. Please review this code and migrate manually if necessary. Unknown attribute: jetbrains.mps.lang.generator.structure.IfMacro" />
