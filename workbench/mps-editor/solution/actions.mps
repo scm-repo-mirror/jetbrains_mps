@@ -6457,36 +6457,13 @@
     <node concept="2ScWuX" id="7aqfviVHYZf" role="tmbBb">
       <node concept="3clFbS" id="7aqfviVHYZg" role="2VODD2">
         <node concept="3clFbF" id="7aqfviVHYZh" role="3cqZAp">
-          <node concept="1Wc70l" id="7eEUNheG5u" role="3clFbG">
-            <node concept="2ZW3vV" id="7aqfviVI1DW" role="3uHU7w">
-              <node concept="3uibUv" id="7aqfviVI1DZ" role="2ZW6by">
-                <ref role="3uigEE" to="lwvz:~SingularSelection" resolve="SingularSelection" />
-              </node>
-              <node concept="2OqwBi" id="7aqfviVI1Dv" role="2ZW6bz">
-                <node concept="2OqwBi" id="7aqfviVHZu3" role="2Oq$k0">
-                  <node concept="2OqwBi" id="7aqfviVHYZi" role="2Oq$k0">
-                    <node concept="2WthIp" id="7aqfviVHYZj" role="2Oq$k0" />
-                    <node concept="1DTwFV" id="7aqfviVHYZk" role="2OqNvi">
-                      <ref role="2WH_rO" node="7aqfviVHWRi" resolve="editorComponent" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="7aqfviVI1Du" role="2OqNvi">
-                    <ref role="37wK5l" to="exr9:~EditorComponent.getSelectionManager()" resolve="getSelectionManager" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="7aqfviVI1Dz" role="2OqNvi">
-                  <ref role="37wK5l" to="lwvz:~SelectionManager.getSelection()" resolve="getSelection" />
-                </node>
-              </node>
-            </node>
-            <node concept="2YIFZM" id="7eEUNheG5x" role="3uHU7B">
-              <ref role="37wK5l" node="7eEUNheFwJ" resolve="isReadonlyActionEnabled" />
-              <ref role="1Pybhc" node="6KwcZ1G4033" resolve="EditorActionUtils" />
-              <node concept="2OqwBi" id="7eEUNheG5y" role="37wK5m">
-                <node concept="2WthIp" id="7eEUNheG5z" role="2Oq$k0" />
-                <node concept="1DTwFV" id="7eEUNheG5$" role="2OqNvi">
-                  <ref role="2WH_rO" node="7aqfviVHWRi" resolve="editorComponent" />
-                </node>
+          <node concept="2YIFZM" id="7eEUNheG5x" role="3clFbG">
+            <ref role="37wK5l" node="7eEUNheFwJ" resolve="isReadonlyActionEnabled" />
+            <ref role="1Pybhc" node="6KwcZ1G4033" resolve="EditorActionUtils" />
+            <node concept="2OqwBi" id="7eEUNheG5y" role="37wK5m">
+              <node concept="2WthIp" id="7eEUNheG5z" role="2Oq$k0" />
+              <node concept="1DTwFV" id="7eEUNheG5$" role="2OqNvi">
+                <ref role="2WH_rO" node="7aqfviVHWRi" resolve="editorComponent" />
               </node>
             </node>
           </node>
@@ -6538,36 +6515,13 @@
     <node concept="2ScWuX" id="7aqfviVI1DC" role="tmbBb">
       <node concept="3clFbS" id="7aqfviVI1DD" role="2VODD2">
         <node concept="3clFbF" id="7aqfviVI1DE" role="3cqZAp">
-          <node concept="1Wc70l" id="7eEUNheG5Y" role="3clFbG">
-            <node concept="2ZW3vV" id="7aqfviVI1DS" role="3uHU7w">
-              <node concept="3uibUv" id="7aqfviVI1DV" role="2ZW6by">
-                <ref role="3uigEE" to="lwvz:~SingularSelection" resolve="SingularSelection" />
-              </node>
-              <node concept="2OqwBi" id="7aqfviVI1DN" role="2ZW6bz">
-                <node concept="2OqwBi" id="7aqfviVI1DI" role="2Oq$k0">
-                  <node concept="2OqwBi" id="7aqfviVI1DF" role="2Oq$k0">
-                    <node concept="2WthIp" id="7aqfviVI1DG" role="2Oq$k0" />
-                    <node concept="1DTwFV" id="7aqfviVI1DH" role="2OqNvi">
-                      <ref role="2WH_rO" node="7aqfviVHWRk" resolve="editorComponent" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="7aqfviVI1DM" role="2OqNvi">
-                    <ref role="37wK5l" to="exr9:~EditorComponent.getSelectionManager()" resolve="getSelectionManager" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="7aqfviVI1DR" role="2OqNvi">
-                  <ref role="37wK5l" to="lwvz:~SelectionManager.getSelection()" resolve="getSelection" />
-                </node>
-              </node>
-            </node>
-            <node concept="2YIFZM" id="7eEUNheG61" role="3uHU7B">
-              <ref role="37wK5l" node="7eEUNheFwJ" resolve="isReadonlyActionEnabled" />
-              <ref role="1Pybhc" node="6KwcZ1G4033" resolve="EditorActionUtils" />
-              <node concept="2OqwBi" id="7eEUNheG62" role="37wK5m">
-                <node concept="2WthIp" id="7eEUNheG63" role="2Oq$k0" />
-                <node concept="1DTwFV" id="7eEUNheG64" role="2OqNvi">
-                  <ref role="2WH_rO" node="7aqfviVHWRk" resolve="editorComponent" />
-                </node>
+          <node concept="2YIFZM" id="7eEUNheG61" role="3clFbG">
+            <ref role="37wK5l" node="7eEUNheFwJ" resolve="isReadonlyActionEnabled" />
+            <ref role="1Pybhc" node="6KwcZ1G4033" resolve="EditorActionUtils" />
+            <node concept="2OqwBi" id="7eEUNheG62" role="37wK5m">
+              <node concept="2WthIp" id="7eEUNheG63" role="2Oq$k0" />
+              <node concept="1DTwFV" id="7eEUNheG64" role="2OqNvi">
+                <ref role="2WH_rO" node="7aqfviVHWRk" resolve="editorComponent" />
               </node>
             </node>
           </node>
@@ -13063,7 +13017,7 @@
   <node concept="sE7Ow" id="5GUQLVLhj1C">
     <property role="TrG5h" value="WordAddLink" />
     <property role="72QZ$" value="true" />
-    <property role="2uzpH1" value="Add Link" />
+    <property role="2uzpH1" value="Add URL" />
     <property role="3GE5qa" value="EditMenuActions" />
     <node concept="1DS2jV" id="JjUvrnYNpi" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
@@ -13129,7 +13083,7 @@
   </node>
   <node concept="sE7Ow" id="AuZ4iSlSB$">
     <property role="TrG5h" value="WordRemoveLink" />
-    <property role="2uzpH1" value="Remove Link" />
+    <property role="2uzpH1" value="Remove URL" />
     <property role="3GE5qa" value="EditMenuActions" />
     <node concept="2S4$dB" id="AuZ4iSlSBB" role="1NuT2Z">
       <property role="TrG5h" value="node" />
@@ -13554,7 +13508,7 @@
                 <node concept="1pGfFk" id="62tSVkRC7sT" role="2ShVmc">
                   <ref role="37wK5l" to="dxuu:~JLabel.&lt;init&gt;(java.lang.String)" resolve="JLabel" />
                   <node concept="Xl_RD" id="62tSVkRC7sU" role="37wK5m">
-                    <property role="Xl_RC" value="Link: " />
+                    <property role="Xl_RC" value="URL: " />
                   </node>
                 </node>
               </node>

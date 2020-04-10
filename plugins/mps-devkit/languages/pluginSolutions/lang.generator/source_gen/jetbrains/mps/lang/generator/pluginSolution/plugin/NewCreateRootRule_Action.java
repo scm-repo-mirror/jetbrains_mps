@@ -16,17 +16,16 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Objects;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -56,17 +55,12 @@ public class NewCreateRootRule_Action extends BaseAction {
     if (ListSequence.fromList(configs).isEmpty()) {
       return false;
     }
-    SNode usage = ListSequence.fromList(configs).findFirst(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.createRootRule$gnQA)).findFirst(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return SLinkOperations.getTarget(it, LINKS.templateNode$RXGY) == event.getData(MPSCommonDataKeys.NODE);
-          }
-        }) != null;
-      }
-    });
     //  not used in a rule yet? 
-    return usage == null;
+    return !(Sequence.fromIterable(SLinkOperations.collectMany(configs, LINKS.createRootRule$gnQA)).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return SLinkOperations.getTarget(it, LINKS.templateNode$RXGY) == event.getData(MPSCommonDataKeys.NODE);
+      }
+    }));
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -79,9 +73,6 @@ public class NewCreateRootRule_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV))) {
-        node = null;
-      }
       if (node == null) {
         return false;
       }
@@ -98,9 +89,10 @@ public class NewCreateRootRule_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     List<SNode> configs = SModelOperations.roots(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), CONCEPTS.MappingConfiguration$rB);
     if (ListSequence.fromList(configs).count() > 1) {
+      final String virtualPackage = SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), PROPS.virtualPackage$j19t);
       Iterable<SNode> sameVPackConfigs = ListSequence.fromList(configs).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return EqualUtil.equals(SPropertyOperations.getString(it, PROPS.virtualPackage$j19t), SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), PROPS.virtualPackage$j19t));
+          return Objects.equals(SPropertyOperations.getString(it, PROPS.virtualPackage$j19t), virtualPackage);
         }
       });
       if (Sequence.fromIterable(sameVPackConfigs).isNotEmpty()) {
@@ -120,7 +112,6 @@ public class NewCreateRootRule_Action extends BaseAction {
   private static final class CONCEPTS {
     /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
     /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
-    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 
   private static final class LINKS {

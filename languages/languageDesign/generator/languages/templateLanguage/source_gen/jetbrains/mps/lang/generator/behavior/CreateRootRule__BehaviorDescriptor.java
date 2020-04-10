@@ -16,8 +16,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -36,7 +37,7 @@ public final class CreateRootRule__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     StringBuilder sb = new StringBuilder(SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__)));
-    sb.append(" ").append(SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.templateNode$RXGY), PROPS.name$tAp1));
+    sb.append(" ").append(BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.templateNode$RXGY)));
     String mappingLabel = SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.label$mMNq), PROPS.name$tAp1);
     if (mappingLabel != null) {
       sb.append(" [").append(mappingLabel).append("]");

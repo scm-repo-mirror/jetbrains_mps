@@ -76,14 +76,13 @@ public final class NewTemplateInRootMappingRule_Intention extends AbstractIntent
       final SNode rule = node;
       CreateFromUsageUtil.showCreateNewRootMenu(editorContext, new Setter<SNode>() {
         public void set(SNode root) {
-          if (!(SNodeOperations.isInstanceOf(root, CONCEPTS.INamedConcept$nV))) {
-            return;
+          if (SNodeOperations.isInstanceOf(root, CONCEPTS.INamedConcept$nV)) {
+            SPropertyOperations.set(SNodeOperations.cast(root, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1, name.value);
           }
-          SPropertyOperations.set(SNodeOperations.cast(root, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1, name.value);
           MacroIntentionsUtil.copyVirtualPackage(root, node);
           SNodeFactoryOperations.setNewAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8), CONCEPTS.RootTemplateAnnotation$u8);
           SLinkOperations.setTarget(AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)), LINKS.applicableConcept$jo4f, SLinkOperations.getTarget(rule, LINKS.applicableConcept$ljwo));
-          SLinkOperations.setTarget(rule, LINKS.template$FjUa, SNodeOperations.cast(root, CONCEPTS.INamedConcept$nV));
+          SLinkOperations.setTarget(rule, LINKS.template$FjUa, root);
           SelectionUtil.selectCell(editorContext, rule, "templateName");
         }
       }, new Condition<SConcept>() {

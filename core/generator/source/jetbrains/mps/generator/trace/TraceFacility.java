@@ -51,6 +51,10 @@ public final class TraceFacility {
     return new RuleTrace(interestedInTheRule, reductionRule);
   }
 
+  public LabelTrace lm(String name) {
+    return new LabelTrace(new MessageDispatch(myActiveClients), name);
+  }
+
   public RuleTrace2 rule(TemplateReductionRule reductionRule) {
     // may want to cache RT2 instances per RR if single thread or RT2 made thread-aware
     final RuleTrace2 rv = new RuleTrace2(myActiveClients, reductionRule);

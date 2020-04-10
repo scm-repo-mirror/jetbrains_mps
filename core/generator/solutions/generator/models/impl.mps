@@ -3692,9 +3692,7 @@
           <ref role="ehGHo" to="tpf8:gYVPola" resolve="CreateRootRule" />
         </node>
       </node>
-      <node concept="3Tqbb2" id="1wehcMpUvm2" role="3clF45">
-        <ref role="ehGHo" to="tpck:h0TrEE$" resolve="INamedConcept" />
-      </node>
+      <node concept="3Tqbb2" id="1wehcMpUvm2" role="3clF45" />
       <node concept="3Tm1VV" id="1wehcMpUvlR" role="1B3o_S" />
       <node concept="3clFbS" id="1wehcMpUvlS" role="3clF47">
         <node concept="3clFbF" id="1wehcMpUvlV" role="3cqZAp">

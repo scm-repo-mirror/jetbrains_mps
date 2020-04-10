@@ -13,7 +13,6 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -807,9 +806,7 @@
           <node concept="3clFbT" id="oIXu13GXAR" role="37wK5m">
             <property role="3clFbU" value="true" />
           </node>
-          <node concept="35c_gC" id="oIXu13GZZu" role="37wK5m">
-            <ref role="35c_gD" to="tpck:h0TrEE$" resolve="INamedConcept" />
-          </node>
+          <node concept="10Nm6u" id="5pxHGHAFDcz" role="37wK5m" />
         </node>
       </node>
     </node>

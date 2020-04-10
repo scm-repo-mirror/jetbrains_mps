@@ -29,6 +29,7 @@ import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
 import jetbrains.mps.persistence.PersistenceUtil;
 import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.ide.platform.watching.ReloadManager;
 import java.util.List;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.ChangeSet;
@@ -127,16 +128,21 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
         });
       }
     });
+    // Once VFS changed in the write action, above, FSChangesWatcher starts a reload session with a help of ReloadManager. Session is queued with MergingUpdateQueue (EDT, 500ms) and have little 
+    // chance to send out DataSource.changed event till the moment DiffRegistry completes ChangesTracking.update(false) for the modified file. As long as ChangesTracking cares about changes of model  
+    // against 'repository' revision (BaseVersionUtil.getBaseVersionModel() -> getBaseVersionContent() -> change.getBeforeRevision()), there are no differences with in-memory model content and 
+    // myDiff.getChangeSet is empty. With the flush(), we try to force model notice its changes (i.e. reload based on changedContent), giving ChangesTracking.update code a chance to build actual changeset. 
+    ApplicationManager.getApplication().getComponent(ReloadManager.class).flush();
     myEnv.flushAllEvents();
     updateChangeListManager();
     myWaitHelper.waitForDiffRegistry();
-    Assert.assertTrue(ListSequence.fromList(check_2jv4hj_a0a9a5(myDiff.getChangeSet())).isNotEmpty());
+    Assert.assertTrue(ListSequence.fromList(check_2jv4hj_a0a41a5(myDiff.getChangeSet())).isNotEmpty());
 
     revertDiskChangesAndWait(getTestModelFile(), true);
     revertMemChangesAndWait(true);
     updateChangeListManager();
     myWaitHelper.waitForDiffRegistry();
-    Assert.assertTrue(ListSequence.fromList(check_2jv4hj_a0a51a5(myDiff.getChangeSet())).isEmpty());
+    Assert.assertTrue(ListSequence.fromList(check_2jv4hj_a0a02a5(myDiff.getChangeSet())).isEmpty());
   }
   private static List<ModelChange> check_2jv4hj_a0a31a1(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
@@ -155,13 +161,13 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
     n0.setProperty(PROPS.name$tAp1, "NewRoot");
     return n0.getResult();
   }
-  private static List<ModelChange> check_2jv4hj_a0a9a5(ChangeSet checkedDotOperand) {
+  private static List<ModelChange> check_2jv4hj_a0a41a5(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelChanges();
     }
     return null;
   }
-  private static List<ModelChange> check_2jv4hj_a0a51a5(ChangeSet checkedDotOperand) {
+  private static List<ModelChange> check_2jv4hj_a0a02a5(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelChanges();
     }

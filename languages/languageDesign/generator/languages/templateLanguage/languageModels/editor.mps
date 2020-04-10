@@ -3086,17 +3086,8 @@
         <property role="1$x2rV" value="&lt;no template&gt;" />
         <ref role="1NtTu8" to="tpf8:gYVPold" resolve="templateNode" />
         <node concept="1sVBvm" id="gYVRr4j" role="1sWHZn">
-          <node concept="3F0A7n" id="gYVRr4k" role="2wV5jI">
-            <property role="1Intyy" value="true" />
-            <property role="1$x2rV" value="&lt;no name&gt;" />
-            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-            <node concept="Vb9p2" id="hEUNQWO" role="3F10Kt">
-              <property role="Vbekb" value="g1_kEg4/ITALIC" />
-            </node>
-            <node concept="VechU" id="hEZR8qX" role="3F10Kt">
-              <property role="Vb096" value="g1_eI4o/DARK_BLUE" />
-            </node>
-            <node concept="2SqB2G" id="60txkN75afh" role="2SqHTX">
+          <node concept="3SHvHV" id="5pxHGHAFF$7" role="2wV5jI">
+            <node concept="2SqB2G" id="1GoWtC0zoa6" role="2SqHTX">
               <property role="TrG5h" value="templateName" />
             </node>
           </node>
