@@ -28,7 +28,6 @@ import jetbrains.mps.generator.impl.template.QueryExecutor;
 import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateCallSite;
 import jetbrains.mps.generator.runtime.TemplateContext;
-import jetbrains.mps.generator.runtime.TemplateDeclaration;
 import jetbrains.mps.generator.runtime.TemplateDeclarationKey;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.InlineSwitchCaseContext;
@@ -37,6 +36,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -192,7 +192,7 @@ public abstract class RuleConsequenceProcessor {
     private final TemplateDeclarationKey myTemplateDeclaration;
     private final TemplateCall myTemplateCall;
     private final SNodeReference myRulePointer;
-    private TemplateCallSite myCallSite;
+    private SoftReference<TemplateCallSite> myCallSite;
 
     /**
      * If we invoked generated external template from non-generated generator, we use TEE.applyTemplate() or its replacement here,
@@ -216,15 +216,16 @@ public abstract class RuleConsequenceProcessor {
         env.getLogger().error(myRulePointer, "number of arguments doesn't match myTemplate", GeneratorUtil.describeInput(context));
       }
 
-      if (myCallSite == null) {
+      TemplateCallSite callSite = myCallSite == null ? null : myCallSite.get();
+      if (callSite == null) {
         // XXX don't care to ensure single initialization in case I ever get here in parallel threads.
         //     I expect no state in the possibly decorated TD instance, hence don't care to pay the price of an extra instance
-        myCallSite = env.callSite(myTemplateDeclaration, myRulePointer);
+        myCallSite = new SoftReference<>(callSite = env.callSite(myTemplateDeclaration, myRulePointer));
       }
 
       try {
         // XXX I know it's only CallSiteImpl that returns List always
-        return (List<SNode>) myCallSite.apply(myTemplateCall.prepareCallContext(context));
+        return (List<SNode>) callSite.apply(myTemplateCall.prepareCallContext(context));
       } catch (GenerationFailureException | GenerationCanceledException | DismissTopMappingRuleException | AbandonRuleInputException ex) {
         throw ex;
       } catch (GenerationException ex) {
