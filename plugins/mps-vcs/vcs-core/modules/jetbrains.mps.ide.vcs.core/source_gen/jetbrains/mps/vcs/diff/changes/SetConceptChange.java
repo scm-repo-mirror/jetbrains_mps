@@ -63,9 +63,9 @@ public class SetConceptChange extends NodeChange {
       SReferenceLink link = SLinkOperations.getRefLink(ref);
       String string = SLinkOperations.getResolveInfo(ref);
       if (targetNodeId == null) {
-        node.setReference(link, new DynamicReference(link, node, targetModelReference, string));
+        newNode.setReference(link, new DynamicReference(link, newNode, targetModelReference, string));
       } else {
-        node.setReference(link, new StaticReference(link, node, targetModelReference, targetNodeId, string));
+        newNode.setReference(link, new StaticReference(link, newNode, targetModelReference, targetNodeId, string));
       }
     }
     for (SNode child : ListSequence.fromList(SNodeOperations.getChildren(node))) {
