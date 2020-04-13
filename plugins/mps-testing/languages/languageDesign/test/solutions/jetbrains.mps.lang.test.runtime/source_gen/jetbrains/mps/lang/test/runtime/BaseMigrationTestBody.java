@@ -42,16 +42,13 @@ public abstract class BaseMigrationTestBody extends BaseTestBody {
     return SModelOperations.roots(tempModel, null);
   }
   public void testMethod() {
-    testMethod(false);
-  }
-  public void testMethod(boolean stableIds) {
     MigrationScript[] scripts = getMigrationScript();
     SModel model = TemporaryModels.getInstance().createEditable(false, TempModuleOptions.nonReloadableModule());
     for (SNode root : ListSequence.fromList(CopyUtil.copy(CollectionSequence.fromCollection(getInputNodes()).toListSequence()))) {
       SModelOperations.addRootNode(model, root);
     }
     SModel model2 = null;
-    if (stableIds) {
+    if (shouldCheckStableIds()) {
       model2 = TemporaryModels.getInstance().createEditable(false, TempModuleOptions.nonReloadableModule());
       CopyUtil.copyModelContentAndPreserveIds(model, model2);
       // It is unclear why CopyUtil does not update internal references by itself and we have to do it explicitly 
@@ -84,7 +81,7 @@ public abstract class BaseMigrationTestBody extends BaseTestBody {
         org.junit.Assert.fail("Post-migration check for script '" + script + "' failed with problem: " + problem.toString());
       }
     }
-    if (stableIds) {
+    if (shouldCheckStableIds()) {
       List<SNode> roots2 = runMigration(model2, scripts);
       postProcess(roots2);
       NodesMatcher matcher2 = new NodesMatcher(roots, roots2);
@@ -110,5 +107,8 @@ public abstract class BaseMigrationTestBody extends BaseTestBody {
   public abstract Collection<SNode> getOutputNodes();
   public abstract MigrationScript[] getMigrationScript();
   public void postProcess(Collection<SNode> output) {
+  }
+  public boolean shouldCheckStableIds() {
+    return false;
   }
 }

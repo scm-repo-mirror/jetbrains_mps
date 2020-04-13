@@ -37,7 +37,7 @@ public class MigrateTryStatement_Test extends BaseTransformationTest {
 
   @Test
   public void test_MigrateTryStatement_Test() throws Throwable {
-    new TestBody(this).testMethod(true);
+    new TestBody(this).testMethod();
   }
 
   /*package*/ static class TestBody extends BaseMigrationTestBody {
@@ -57,6 +57,10 @@ public class MigrateTryStatement_Test extends BaseTransformationTest {
     @Override
     public MigrationScript[] getMigrationScript() {
       return new MigrationScript[]{new MigrateTryStatement()};
+    }
+    @Override
+    public boolean shouldCheckStableIds() {
+      return true;
     }
   }
 
