@@ -11360,7 +11360,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="2duWW7SguP$" role="jymVt" />
-    <node concept="2tJIrI" id="42UviMImjHn" role="jymVt" />
     <node concept="3clFb_" id="42UviMImjHo" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getActions" />
@@ -11680,7 +11679,13 @@
               <node concept="1pGfFk" id="42UviMImjKt" role="2ShVmc">
                 <ref role="37wK5l" to="hdhb:5zpsdFy5nh9" resolve="DiffChangeGroupLayout" />
                 <node concept="10Nm6u" id="42UviMImjKu" role="37wK5m" />
-                <node concept="10Nm6u" id="7E9qMns05I7" role="37wK5m" />
+                <node concept="2YIFZM" id="RlK7l30i6o" role="37wK5m">
+                  <ref role="37wK5l" to="alof:~ProjectHelper.getProjectRepository(com.intellij.openapi.project.Project)" resolve="getProjectRepository" />
+                  <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
+                  <node concept="37vLTw" id="RlK7l30iLI" role="37wK5m">
+                    <ref role="3cqZAo" node="42UviMImjCW" resolve="myProject" />
+                  </node>
+                </node>
                 <node concept="37vLTw" id="42UviMImjKv" role="37wK5m">
                   <ref role="3cqZAo" node="42UviMImjCZ" resolve="myChangeSet" />
                 </node>

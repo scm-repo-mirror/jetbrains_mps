@@ -45,10 +45,10 @@ import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import javax.swing.JPanel;
 import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages;
 import jetbrains.mps.smodel.SModelOperations;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.StructChangeSetBuilder;
@@ -241,7 +241,6 @@ public class StructDifferencePane implements PropertyChangeListener {
     }
   }
 
-
   public ActionGroup getActions() {
     return myActionGroup;
   }
@@ -280,7 +279,7 @@ public class StructDifferencePane implements PropertyChangeListener {
   }
 
   private void linkEditors(TwosideContentPanel panel, boolean inspector) {
-    DiffChangeGroupLayout layout = new DiffChangeGroupLayout(null, null, myChangeSet, myOldEditor, myNewEditor, getSplitterRepainter(panel), inspector);
+    DiffChangeGroupLayout layout = new DiffChangeGroupLayout(null, ProjectHelper.getProjectRepository(myProject), myChangeSet, myOldEditor, myNewEditor, getSplitterRepainter(panel), inspector);
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
     if (!(SModelOperations.isReadOnly(myChangeSet.getNewModel()))) {
