@@ -61,6 +61,7 @@
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.TypeDeclaration" />
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.TypeParameter" />
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.TypeReference" />
+    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.UnionTypeReference" />
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.Wildcard" />
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.classfmt.ClassFileConstants" />
     <classNode dependClassName="org.eclipse.jdt.internal.compiler.impl.BooleanConstant" />
