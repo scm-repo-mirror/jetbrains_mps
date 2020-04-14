@@ -30,7 +30,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.nodeEditor.configuration.EditorConfiguration;
 import javax.swing.JScrollPane;
@@ -56,8 +55,8 @@ public class DiffEditor implements EditorMessageOwner {
   private JComponent myTitleComponent;
   private InspectorEditorComponent myInspectorComponent;
   private Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
-  private ChangeGroupLayout[] myLeftChangeGroupLayouts = new ChangeGroupLayout[2];
-  private ChangeGroupLayout[] myRightChangeGroupLayouts = new ChangeGroupLayout[2];
+  private DiffChangeGroupLayout[] myLeftChangeGroupLayouts = new DiffChangeGroupLayout[2];
+  private DiffChangeGroupLayout[] myRightChangeGroupLayouts = new DiffChangeGroupLayout[2];
 
 
   public DiffEditor(final IProject project, SNode node, String contentTitle, boolean rightToLeft, boolean isInspectorShown) {
@@ -99,11 +98,11 @@ public class DiffEditor implements EditorMessageOwner {
     myPanel.setSecondComponent((show ? getBottomComponent() : null));
   }
 
-  public void setLeftChangeGroupLayout(ChangeGroupLayout changeGroupLayout, boolean inspector) {
+  public void setLeftChangeGroupLayout(DiffChangeGroupLayout changeGroupLayout, boolean inspector) {
     myLeftChangeGroupLayouts[(inspector ? 1 : 0)] = changeGroupLayout;
   }
 
-  public void setRightChangeGroupLayout(ChangeGroupLayout changeGroupLayout, boolean inspector) {
+  public void setRightChangeGroupLayout(DiffChangeGroupLayout changeGroupLayout, boolean inspector) {
     myRightChangeGroupLayouts[(inspector ? 1 : 0)] = changeGroupLayout;
   }
 
@@ -223,11 +222,11 @@ public class DiffEditor implements EditorMessageOwner {
     return Sequence.fromArray(new EditorComponent[]{myMainEditorComponent, myInspectorComponent});
   }
 
-  public ChangeGroupLayout getLeftChangeGroupLayout(boolean inspector) {
+  public DiffChangeGroupLayout getLeftChangeGroupLayout(boolean inspector) {
     return myLeftChangeGroupLayouts[(inspector ? 1 : 0)];
   }
 
-  public ChangeGroupLayout getRightChangeGroupLayout(boolean inspector) {
+  public DiffChangeGroupLayout getRightChangeGroupLayout(boolean inspector) {
     return myRightChangeGroupLayouts[(inspector ? 1 : 0)];
   }
 
@@ -239,7 +238,7 @@ public class DiffEditor implements EditorMessageOwner {
     return areas;
   }
 
-  private List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(ChangeGroupLayout layout, boolean isLeftEditor) {
+  private List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(DiffChangeGroupLayout layout, boolean isLeftEditor) {
     List<EditorComponent.BackgroundColoredRange> areas = ListSequence.fromList(new ArrayList<EditorComponent.BackgroundColoredRange>());
     if (layout == null) {
       return areas;
@@ -260,29 +259,10 @@ public class DiffEditor implements EditorMessageOwner {
       if (bounds.length() == 1) {
         height = 2;
       }
-      ListSequence.fromList(areas).addElement(new EditorComponent.BackgroundColoredRange(color, y, height, true));
+      ListSequence.fromList(areas).addElement(new EditorComponent.BackgroundColoredRange(color, y, height, layout.getChangeGroupDescription(changeGroup)));
       prevGroupBottomLineY = y + height;
     }
     return areas;
-  }
-
-  public String getBackgroundMessageText(MouseEvent event, boolean inspector) {
-    String leftChangeText = null;
-    ChangeGroupLayout leftLayout = getLeftChangeGroupLayout(inspector);
-    if (leftLayout != null) {
-      leftChangeText = leftLayout.getBackgroundMessagesText(event, inspector, false);
-    }
-    String rightChangeText = null;
-    ChangeGroupLayout rightLayout = getRightChangeGroupLayout(inspector);
-    if (rightLayout != null) {
-      rightChangeText = rightLayout.getBackgroundMessagesText(event, inspector, true);
-    }
-    // In case of two conflicting changes none of messages is shown in the central editor 
-    if (leftChangeText != null && rightChangeText != null) {
-      return null;
-    }
-
-    return (leftChangeText != null ? leftChangeText : rightChangeText);
   }
 
   public class MyInspectorEditorComponent extends InspectorEditorComponent {
@@ -297,17 +277,9 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    protected String getBackgroundMessagesText(MouseEvent event) {
-      return getBackgroundMessageText(event, true);
-    }
-
-    @Override
     public List<EditorComponent.BackgroundColoredRange> getBackgroundColoredRanges() {
-      List<EditorComponent.BackgroundColoredRange> areas = super.getBackgroundColoredRanges();
-      ListSequence.fromList(areas).addSequence(ListSequence.fromList(getColoredGroupBounds(true)));
-      return areas;
+      return getColoredGroupBounds(true);
     }
-
   }
 
   public class MainEditorComponent extends EditorComponent {
@@ -321,15 +293,8 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    protected String getBackgroundMessagesText(MouseEvent event) {
-      return getBackgroundMessageText(event, false);
-    }
-
-    @Override
     public List<EditorComponent.BackgroundColoredRange> getBackgroundColoredRanges() {
-      List<EditorComponent.BackgroundColoredRange> areas = super.getBackgroundColoredRanges();
-      ListSequence.fromList(areas).addSequence(ListSequence.fromList(getColoredGroupBounds(false)));
-      return areas;
+      return getColoredGroupBounds(false);
     }
 
     @Override

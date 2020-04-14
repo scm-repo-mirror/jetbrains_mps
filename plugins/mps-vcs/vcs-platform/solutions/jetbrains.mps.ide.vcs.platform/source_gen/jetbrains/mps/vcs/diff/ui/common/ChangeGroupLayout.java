@@ -22,7 +22,6 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import java.awt.event.MouseEvent;
 import jetbrains.mps.nodeEditor.cells.EditorCell;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748337213", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
@@ -48,7 +47,7 @@ public abstract class ChangeGroupLayout {
   protected abstract List<ChangeEditorMessage> getRightMessages(ModelChange change);
   @Nullable
   protected abstract ChangeSet getChangeSet();
-  private void calculateChangeGroups() {
+  protected void calculateChangeGroups() {
     final Map<ModelChange, Bounds> left = MapSequence.fromMap(new HashMap<ModelChange, Bounds>());
     final Map<ModelChange, Bounds> right = MapSequence.fromMap(new HashMap<ModelChange, Bounds>());
     for (ModelChange change : ListSequence.fromList(check_cuq72k_a2a21(getChangeSet(), this))) {
@@ -166,11 +165,6 @@ public abstract class ChangeGroupLayout {
     int tolerance = (canBeAdjacent ? 0 : 1);
     return (int) a.end() - tolerance < (int) b.start() || (int) b.end() - tolerance < (int) a.start();
   }
-
-  protected String getBackgroundMessagesText(MouseEvent event, boolean isInspector, boolean isLeftEditor) {
-    return null;
-  }
-
   private static List<ModelChange> check_cuq72k_a2a21(ChangeSet checkedDotOperand, ChangeGroupLayout checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelChanges();

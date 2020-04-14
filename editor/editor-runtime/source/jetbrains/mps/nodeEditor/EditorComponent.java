@@ -886,7 +886,17 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return rv.get();
   }
 
-  protected String getBackgroundMessagesText(MouseEvent event) {
+  private String getBackgroundMessagesText(MouseEvent event) {
+    Point p = event.getPoint();
+    if (p.x < 0 || p.x > getWidth()) {
+      return null;
+    }
+    int y = p.y;// - getViewPosition().y;
+    for (BackgroundColoredRange area : getBackgroundColoredRanges()) {
+      if (y >= area.getPosition() && y <= area.getPosition() + area.getHeight()) {
+        return area.getTooltipText();
+      }
+    }
     return null;
   }
 
@@ -2120,12 +2130,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     for (BackgroundColoredRange area : getBackgroundColoredRanges()) {
       if (g.hitClip(0, area.getPosition(), getWidth(), area.getHeight())) {
-        Color color;
-        if (area.colorCanBeMixed()) {
-          color = TextDiffTypeFactory.getMiddleColor(area.getColor(), getBackground());
-        } else {
-          color = area.getColor();
-        }
+        Color color = TextDiffTypeFactory.getMiddleColor(area.getColor(), getBackground());
         g.setColor(color);
         g.fillRect(0, area.getPosition(), getWidth(), area.getHeight());
       }
@@ -3057,13 +3062,13 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     private final Color myColor;
     private final int myPosition;
     private final int myHeight;
-    private final boolean myColorCanBeMixed;
+    private final String myTooltipText;
 
-    public BackgroundColoredRange(Color color, int position, int height, boolean colorCanBeMixed) {
+    public BackgroundColoredRange(Color color, int position, int height, String tooltipText) {
       myColor = color;
       myPosition = position;
       myHeight = height;
-      myColorCanBeMixed = colorCanBeMixed;
+      myTooltipText = tooltipText;
     }
 
     public Color getColor() {
@@ -3078,8 +3083,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       return myHeight;
     }
 
-    public boolean colorCanBeMixed() {
-      return myColorCanBeMixed;
+    public String getTooltipText() {
+      return myTooltipText;
     }
   }
 

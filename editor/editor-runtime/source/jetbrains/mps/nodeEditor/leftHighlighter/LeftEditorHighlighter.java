@@ -56,6 +56,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -313,7 +314,8 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
     for (BackgroundColoredRange coloredRange : myEditorComponent.getBackgroundColoredRanges()) {
       if (g.hitClip(clipBounds.x, coloredRange.getPosition(), clipBounds.width, coloredRange.getHeight())) {
         g.setColor(coloredRange.getColor());
-        g.fillRect(myRightToLeft ? myFoldingLineX : clipBounds.x, coloredRange.getPosition(), myRightToLeft ? clipBounds.width - myFoldingLineX : myFoldingLineX,
+        g.fillRect(myRightToLeft ? myFoldingLineX : clipBounds.x, coloredRange.getPosition(),
+                   myRightToLeft ? clipBounds.width - myFoldingLineX : myFoldingLineX,
                    coloredRange.getHeight());
         Color mixedColor = TextDiffTypeFactory.getMiddleColor(coloredRange.getColor(), getEditorComponent().getBackground());
         g.setColor(mixedColor);
@@ -573,8 +575,25 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
         return iconRenderer.getTooltipText();
       }
     }
-    return null;
+    return getBackgroundMessagesText(e);
   }
+
+  private String getBackgroundMessagesText(MouseEvent event) {
+    String text = null;
+    Point p = event.getPoint();
+    if (p.x < 0 || p.x > getWidth()) {
+      return null;
+    }
+    for (BackgroundColoredRange area : myEditorComponent.getBackgroundColoredRanges()) {
+      int y = p.y;
+      if (y >= area.getPosition() && y <= area.getPosition() + area.getHeight()) {
+        text = area.getTooltipText();
+      }
+    }
+    text = text == null ? text : text.replace("\n", "<br>");
+    return text;
+  }
+
 
   @Override
   protected void processMouseEvent(MouseEvent e) {
