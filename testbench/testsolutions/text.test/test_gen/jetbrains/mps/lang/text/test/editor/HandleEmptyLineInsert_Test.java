@@ -32,8 +32,13 @@ public class HandleEmptyLineInsert_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("6662390049125772396", "6662390049125772888");
-      invokeAction("jetbrains.mps.ide.editor.actions.Insert_Action");
+      initEditorComponent("6662390049125777249", "6662390049125777272");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.MoveElementsUp_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.MoveLeft_Action");
     }
   }
 }
