@@ -107,7 +107,6 @@ public class DiffEditor implements EditorMessageOwner {
     myRightChangeGroupLayouts[(inspector ? 1 : 0)] = changeGroupLayout;
   }
 
-
   public void setTitle(String newTitle) {
     if ((newTitle == null && myTitle == null) || (myTitle != null && myTitle.equals(newTitle))) {
       return;
@@ -156,7 +155,6 @@ public class DiffEditor implements EditorMessageOwner {
       if (rightChangeGroupLayout != null) {
         rightChangeGroupLayout.repaintSplitter();
       }
-
     }
   }
 
@@ -241,7 +239,7 @@ public class DiffEditor implements EditorMessageOwner {
     return areas;
   }
 
-  public List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(ChangeGroupLayout layout, boolean isLeftEditor) {
+  private List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(ChangeGroupLayout layout, boolean isLeftEditor) {
     List<EditorComponent.BackgroundColoredRange> areas = ListSequence.fromList(new ArrayList<EditorComponent.BackgroundColoredRange>());
     if (layout == null) {
       return areas;
