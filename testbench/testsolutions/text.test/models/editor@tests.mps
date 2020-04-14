@@ -6419,7 +6419,7 @@
   </node>
   <node concept="LiM7Y" id="5LP$7dDfjXv">
     <property role="3GE5qa" value="emptyLine" />
-    <property role="TrG5h" value="HandleEmptyLineInsert" />
+    <property role="TrG5h" value="HandleMoveElementsUp" />
     <node concept="1qefOq" id="5LP$7dDfjXw" role="25YQCW">
       <node concept="3DQ70j" id="5LP$7dDfjXx" role="1qenE9">
         <node concept="1Pa9Pv" id="5LP$7dDfjXy" role="3DQ709">
