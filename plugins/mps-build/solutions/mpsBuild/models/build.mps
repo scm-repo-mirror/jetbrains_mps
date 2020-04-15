@@ -27836,6 +27836,9 @@
         <node concept="3_I8Xc" id="1d6huufKTb8" role="39821P">
           <ref role="3_I8Xa" node="1d6huufKT8x" resolve="mps-project-migrations" />
         </node>
+        <node concept="3_I8Xc" id="4ADTmBwDI5J" role="39821P">
+          <ref role="3_I8Xa" node="6Hpa5co69Cc" resolve="mps-tooltips" />
+        </node>
         <node concept="3_I8Xc" id="1Z_UwmOKF0$" role="39821P">
           <ref role="3_I8Xa" node="78GwwOvE66$" resolve="mps-build" />
         </node>
@@ -28036,6 +28039,9 @@
     </node>
     <node concept="2sgV4H" id="4rWmS7H9vSZ" role="1l3spa">
       <ref role="1l3spb" node="5xa9wY2vh7j" resolve="mpsExecutionPlugin" />
+    </node>
+    <node concept="2sgV4H" id="4ADTmBwDI50" role="1l3spa">
+      <ref role="1l3spb" node="6Hpa5co69_q" resolve="mpsTooltips" />
     </node>
     <node concept="2sgV4H" id="5wzCg4BNmTs" role="1l3spa">
       <ref role="1l3spb" node="ymnOULAEsd" resolve="mpsTesting" />
@@ -49866,11 +49872,14 @@
         <ref role="398BVh" node="6Hpa5co69C6" resolve="idea_home" />
       </node>
     </node>
+    <node concept="2sgV4H" id="4ADTmBwvn3c" role="1l3spa">
+      <ref role="1l3spb" node="6S1jmf0xDFC" resolve="mpsBootstrapCore" />
+    </node>
+    <node concept="2sgV4H" id="4ADTmBwvn3o" role="1l3spa">
+      <ref role="1l3spb" node="5D1dJ7xWer5" resolve="mpsCore" />
+    </node>
     <node concept="2sgV4H" id="xAoHD7ixsB" role="1l3spa">
       <ref role="1l3spb" node="2eDSGe9d1ot" resolve="mpsWorkbench" />
-    </node>
-    <node concept="2sgV4H" id="xAoHD7j4Qb" role="1l3spa">
-      <ref role="1l3spb" node="3IKDaVZmzS6" resolve="mps" />
     </node>
   </node>
 </model>
