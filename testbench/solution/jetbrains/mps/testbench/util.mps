@@ -760,6 +760,27 @@
               </node>
             </node>
           </node>
+          <node concept="3clFbH" id="tUQoC7twe7" role="3cqZAp" />
+          <node concept="3SKdUt" id="tUQoC7t_HZ" role="3cqZAp">
+            <node concept="1PaTwC" id="tUQoC7t_I0" role="1aUNEU">
+              <node concept="3oM_SD" id="tUQoC7tAhb" role="1PaTwD">
+                <property role="3oM_SC" value="java.util.concurrent.ForkJoinPool#workerNamePrefix" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="tUQoC7tx$N" role="3cqZAp">
+            <node concept="2OqwBi" id="tUQoC7txYQ" role="3clFbG">
+              <node concept="37vLTw" id="tUQoC7tx$L" role="2Oq$k0">
+                <ref role="3cqZAo" node="3m4z3Ef4MhY" resolve="builder" />
+              </node>
+              <node concept="liA8E" id="tUQoC7tyAO" role="2OqNvi">
+                <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
+                <node concept="Xl_RD" id="tUQoC7t$0p" role="37wK5m">
+                  <property role="Xl_RC" value="|(ForkJoinPool.*)" />
+                </node>
+              </node>
+            </node>
+          </node>
           <node concept="3SKdUt" id="3m4z3Ef6VAX" role="3cqZAp">
             <node concept="1PaTwC" id="3m4z3Ef6VAY" role="1aUNEU">
               <node concept="3oM_SD" id="3m4z3Ef6WpE" role="1PaTwD">
