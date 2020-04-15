@@ -31,7 +31,7 @@ import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import jetbrains.mps.ide.tooltips.TooltipComponent;
 import jetbrains.mps.nodeEditor.EditorComponent;
-import jetbrains.mps.nodeEditor.EditorComponent.BackgroundColoredRange;
+import jetbrains.mps.nodeEditor.EditorComponent.ChangedInterval;
 import jetbrains.mps.nodeEditor.EditorMessageIconRenderer;
 import jetbrains.mps.nodeEditor.EditorMessageIconRenderer.IconRendererType;
 import jetbrains.mps.nodeEditor.EditorSettings;
@@ -264,7 +264,7 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
   public void paintComponent(Graphics g) {
     Rectangle clipBounds = g.getClipBounds();
     paintBackgroundAndFoldingLine(g, clipBounds);
-    paintColoredAreas(g, clipBounds);
+    paintChangedIntervals(g, clipBounds);
     paintTextColumns(g, clipBounds);
     paintIconRenderers(g, clipBounds);
     paintFoldingArea(g, clipBounds);
@@ -308,21 +308,21 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
     UIUtil.drawVDottedLine(g2d, myFoldingLineX, clipBounds.y, clipBounds.y + clipBounds.height, getBackground(), fgColor);
   }
 
-  private void paintColoredAreas(Graphics g, Rectangle clipBounds) {
+  private void paintChangedIntervals(Graphics g, Rectangle clipBounds) {
     Graphics2D g2d = (Graphics2D) g;
 
-    for (BackgroundColoredRange coloredRange : myEditorComponent.getBackgroundColoredRanges()) {
-      if (g.hitClip(clipBounds.x, coloredRange.getPosition(), clipBounds.width, coloredRange.getHeight())) {
-        g.setColor(coloredRange.getColor());
-        g.fillRect(myRightToLeft ? myFoldingLineX : clipBounds.x, coloredRange.getPosition(),
+    for (ChangedInterval changedInterval : myEditorComponent.getChangedIntervals()) {
+      if (g.hitClip(clipBounds.x, changedInterval.getPosition(), clipBounds.width, changedInterval.getHeight())) {
+        g.setColor(changedInterval.getColor());
+        g.fillRect(myRightToLeft ? myFoldingLineX : clipBounds.x, changedInterval.getPosition(),
                    myRightToLeft ? clipBounds.width - myFoldingLineX : myFoldingLineX,
-                   coloredRange.getHeight());
-        Color mixedColor = TextDiffTypeFactory.getMiddleColor(coloredRange.getColor(), getEditorComponent().getBackground());
+                   changedInterval.getHeight());
+        Color mixedColor = TextDiffTypeFactory.getMiddleColor(changedInterval.getColor(), getEditorComponent().getBackground());
         g.setColor(mixedColor);
-        g.fillRect(myRightToLeft ? 0 : myFoldingLineX, coloredRange.getPosition(), myRightToLeft ? myFoldingLineX : clipBounds.width - myFoldingLineX,
-                   coloredRange.getHeight());
+        g.fillRect(myRightToLeft ? 0 : myFoldingLineX, changedInterval.getPosition(), myRightToLeft ? myFoldingLineX : clipBounds.width - myFoldingLineX,
+                   changedInterval.getHeight());
 
-        UIUtil.drawVDottedLine(g2d, myFoldingLineX, coloredRange.getPosition(), coloredRange.getPosition() + coloredRange.getHeight(), coloredRange.getColor(),
+        UIUtil.drawVDottedLine(g2d, myFoldingLineX, changedInterval.getPosition(), changedInterval.getPosition() + changedInterval.getHeight(), changedInterval.getColor(),
                                EditorSettings.getInstance().getLeftHighlighterTearLineColor());
       }
     }
@@ -575,23 +575,28 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
         return iconRenderer.getTooltipText();
       }
     }
-    return getBackgroundMessagesText(e);
+    return getChangedIntervalText(e);
   }
 
-  private String getBackgroundMessagesText(MouseEvent event) {
-    String text = null;
+  private String getChangedIntervalText(MouseEvent event) {
     Point p = event.getPoint();
     if (p.x < 0 || p.x > getWidth()) {
       return null;
     }
-    for (BackgroundColoredRange area : myEditorComponent.getBackgroundColoredRanges()) {
-      int y = p.y;
-      if (y >= area.getPosition() && y <= area.getPosition() + area.getHeight()) {
-        text = area.getTooltipText();
+    StringBuilder sb = null;
+    for (ChangedInterval changedInterval : myEditorComponent.getChangedIntervals()) {
+      if (p.y >= changedInterval.getPosition() && p.y <= changedInterval.getPosition() + changedInterval.getHeight()) {
+        if (sb == null) {
+          sb = new StringBuilder(changedInterval.getTooltipText());
+          continue;
+        }
+        sb.append("\n\n").append(changedInterval.getTooltipText());
       }
     }
-    text = text == null ? text : text.replace("\n", "<br>");
-    return text;
+    if (sb == null){
+      return null;
+    }
+    return sb.toString().replace("\n", "<br>");
   }
 
 

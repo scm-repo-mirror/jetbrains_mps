@@ -231,15 +231,15 @@ public class DiffEditor implements EditorMessageOwner {
   }
 
 
-  public List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(boolean inspector) {
-    List<EditorComponent.BackgroundColoredRange> areas = ListSequence.fromList(new ArrayList<EditorComponent.BackgroundColoredRange>());
-    ListSequence.fromList(areas).addSequence(ListSequence.fromList(getColoredGroupBounds(getLeftChangeGroupLayout(inspector), false)));
-    ListSequence.fromList(areas).addSequence(ListSequence.fromList(getColoredGroupBounds(getRightChangeGroupLayout(inspector), true)));
+  public List<EditorComponent.ChangedInterval> getIntervals(boolean inspector) {
+    List<EditorComponent.ChangedInterval> areas = ListSequence.fromList(new ArrayList<EditorComponent.ChangedInterval>());
+    ListSequence.fromList(areas).addSequence(ListSequence.fromList(getIntervals(getLeftChangeGroupLayout(inspector), false)));
+    ListSequence.fromList(areas).addSequence(ListSequence.fromList(getIntervals(getRightChangeGroupLayout(inspector), true)));
     return areas;
   }
 
-  private List<EditorComponent.BackgroundColoredRange> getColoredGroupBounds(DiffChangeGroupLayout layout, boolean isLeftEditor) {
-    List<EditorComponent.BackgroundColoredRange> areas = ListSequence.fromList(new ArrayList<EditorComponent.BackgroundColoredRange>());
+  private List<EditorComponent.ChangedInterval> getIntervals(DiffChangeGroupLayout layout, boolean isLeftEditor) {
+    List<EditorComponent.ChangedInterval> areas = ListSequence.fromList(new ArrayList<EditorComponent.ChangedInterval>());
     if (layout == null) {
       return areas;
     }
@@ -249,6 +249,7 @@ public class DiffEditor implements EditorMessageOwner {
       Bounds bounds = changeGroup.getBounds(isLeftEditor);
       int y = (int) bounds.start();
       int height = bounds.length();
+
       // separate changes close to each other 
       if (y == prevGroupBottomLineY) {
         y++;
@@ -256,10 +257,14 @@ public class DiffEditor implements EditorMessageOwner {
       } else if (bounds.length() == 1) {
         y--;
       }
+
+      // splitter polygons have minimal 2 pixels height 
       if (bounds.length() == 1) {
         height = 2;
       }
-      ListSequence.fromList(areas).addElement(new EditorComponent.BackgroundColoredRange(color, y, height, layout.getChangeGroupDescription(changeGroup)));
+
+      String description = layout.getChangeGroupDescription(changeGroup);
+      ListSequence.fromList(areas).addElement(new EditorComponent.ChangedInterval(y, height, color, description));
       prevGroupBottomLineY = y + height;
     }
     return areas;
@@ -277,8 +282,8 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    public List<EditorComponent.BackgroundColoredRange> getBackgroundColoredRanges() {
-      return getColoredGroupBounds(true);
+    public List<EditorComponent.ChangedInterval> getChangedIntervals() {
+      return getIntervals(true);
     }
   }
 
@@ -293,8 +298,8 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    public List<EditorComponent.BackgroundColoredRange> getBackgroundColoredRanges() {
-      return getColoredGroupBounds(false);
+    public List<EditorComponent.ChangedInterval> getChangedIntervals() {
+      return getIntervals(false);
     }
 
     @Override

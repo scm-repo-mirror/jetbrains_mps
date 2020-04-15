@@ -10692,20 +10692,20 @@
     <node concept="2tJIrI" id="sfM5akN9k2" role="jymVt" />
     <node concept="2tJIrI" id="2ZO3ptD2$05" role="jymVt" />
     <node concept="3clFb_" id="2ZO3ptD2THL" role="jymVt">
-      <property role="TrG5h" value="getColoredGroupBounds" />
+      <property role="TrG5h" value="getIntervals" />
       <node concept="3clFbS" id="2ZO3ptD2THO" role="3clF47">
         <node concept="3cpWs8" id="2ZO3ptD30EP" role="3cqZAp">
           <node concept="3cpWsn" id="2ZO3ptD30EQ" role="3cpWs9">
             <property role="TrG5h" value="areas" />
             <node concept="_YKpA" id="2ZO3ptD30ER" role="1tU5fm">
-              <node concept="3uibUv" id="3nupPS33hW_" role="_ZDj9">
-                <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+              <node concept="3uibUv" id="4kNrfN$1Wy8" role="_ZDj9">
+                <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
               </node>
             </node>
             <node concept="2ShNRf" id="2ZO3ptD36qW" role="33vP2m">
               <node concept="Tc6Ow" id="2ZO3ptD3PTg" role="2ShVmc">
-                <node concept="3uibUv" id="3nupPS33lxl" role="HW$YZ">
-                  <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+                <node concept="3uibUv" id="4kNrfN$2bLe" role="HW$YZ">
+                  <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
                 </node>
               </node>
             </node>
@@ -10718,7 +10718,7 @@
             </node>
             <node concept="X8dFx" id="sfM5akOrtS" role="2OqNvi">
               <node concept="1rXfSq" id="sfM5akOsa2" role="25WWJ7">
-                <ref role="37wK5l" node="sfM5akN_EX" resolve="getColoredGroupBounds" />
+                <ref role="37wK5l" node="sfM5akN_EX" resolve="getIntervals" />
                 <node concept="1rXfSq" id="sfM5akOtjp" role="37wK5m">
                   <ref role="37wK5l" node="2ZO3ptD4isd" resolve="getLeftChangeGroupLayout" />
                   <node concept="37vLTw" id="sfM5akOuCv" role="37wK5m">
@@ -10737,7 +10737,7 @@
             </node>
             <node concept="X8dFx" id="sfM5akOz8d" role="2OqNvi">
               <node concept="1rXfSq" id="sfM5akOz8e" role="25WWJ7">
-                <ref role="37wK5l" node="sfM5akN_EX" resolve="getColoredGroupBounds" />
+                <ref role="37wK5l" node="sfM5akN_EX" resolve="getIntervals" />
                 <node concept="1rXfSq" id="sfM5akOz8f" role="37wK5m">
                   <ref role="37wK5l" node="sfM5akNd9b" resolve="getRightChangeGroupLayout" />
                   <node concept="37vLTw" id="sfM5akOz8g" role="37wK5m">
@@ -10759,8 +10759,8 @@
       </node>
       <node concept="3Tm1VV" id="2ZO3ptD2P8N" role="1B3o_S" />
       <node concept="_YKpA" id="2ZO3ptD2Sys" role="3clF45">
-        <node concept="3uibUv" id="3nupPS33epf" role="_ZDj9">
-          <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+        <node concept="3uibUv" id="4kNrfN$1Tna" role="_ZDj9">
+          <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
         </node>
       </node>
       <node concept="37vLTG" id="2ZO3ptD2X68" role="3clF46">
@@ -10770,20 +10770,20 @@
     </node>
     <node concept="2tJIrI" id="sfM5akNsm$" role="jymVt" />
     <node concept="3clFb_" id="sfM5akN_EX" role="jymVt">
-      <property role="TrG5h" value="getColoredGroupBounds" />
+      <property role="TrG5h" value="getIntervals" />
       <node concept="3clFbS" id="sfM5akN_F0" role="3clF47">
         <node concept="3cpWs8" id="sfM5akNIA5" role="3cqZAp">
           <node concept="3cpWsn" id="sfM5akNIA6" role="3cpWs9">
             <property role="TrG5h" value="areas" />
             <node concept="_YKpA" id="sfM5akNIA7" role="1tU5fm">
-              <node concept="3uibUv" id="sfM5akNIA8" role="_ZDj9">
-                <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+              <node concept="3uibUv" id="4kNrfN$2ez0" role="_ZDj9">
+                <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
               </node>
             </node>
             <node concept="2ShNRf" id="sfM5akNIA9" role="33vP2m">
               <node concept="Tc6Ow" id="sfM5akNIAa" role="2ShVmc">
-                <node concept="3uibUv" id="sfM5akNIAb" role="HW$YZ">
-                  <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+                <node concept="3uibUv" id="4kNrfN$2iHB" role="HW$YZ">
+                  <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
                 </node>
               </node>
             </node>
@@ -10885,6 +10885,7 @@
                 </node>
               </node>
             </node>
+            <node concept="3clFbH" id="5lGhqPldn3J" role="3cqZAp" />
             <node concept="3SKdUt" id="sfM5akNIAH" role="3cqZAp">
               <node concept="1PaTwC" id="sfM5akNIAI" role="1aUNEU">
                 <node concept="3oM_SD" id="sfM5akNIAJ" role="1PaTwD">
@@ -10957,6 +10958,32 @@
                 </node>
               </node>
             </node>
+            <node concept="3clFbH" id="5lGhqPldnWC" role="3cqZAp" />
+            <node concept="3SKdUt" id="5lGhqPldlT5" role="3cqZAp">
+              <node concept="1PaTwC" id="5lGhqPldlT6" role="1aUNEU">
+                <node concept="3oM_SD" id="5lGhqPldlT8" role="1PaTwD">
+                  <property role="3oM_SC" value="splitter" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldmKf" role="1PaTwD">
+                  <property role="3oM_SC" value="polygons" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldmMy" role="1PaTwD">
+                  <property role="3oM_SC" value="have" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldmUl" role="1PaTwD">
+                  <property role="3oM_SC" value="minimal" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldmVE" role="1PaTwD">
+                  <property role="3oM_SC" value="2" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldmWS" role="1PaTwD">
+                  <property role="3oM_SC" value="pixels" />
+                </node>
+                <node concept="3oM_SD" id="5lGhqPldn0n" role="1PaTwD">
+                  <property role="3oM_SC" value="height" />
+                </node>
+              </node>
+            </node>
             <node concept="3clFbJ" id="sfM5akNIBa" role="3cqZAp">
               <node concept="3clFbS" id="sfM5akNIBb" role="3clFbx">
                 <node concept="3clFbF" id="sfM5akNIBc" role="3cqZAp">
@@ -10984,6 +11011,24 @@
                 </node>
               </node>
             </node>
+            <node concept="3clFbH" id="5lGhqPldw9$" role="3cqZAp" />
+            <node concept="3cpWs8" id="5lGhqPldpfH" role="3cqZAp">
+              <node concept="3cpWsn" id="5lGhqPldpfK" role="3cpWs9">
+                <property role="TrG5h" value="description" />
+                <node concept="17QB3L" id="5lGhqPldpfF" role="1tU5fm" />
+                <node concept="2OqwBi" id="5lGhqPldr7M" role="33vP2m">
+                  <node concept="37vLTw" id="5lGhqPldqAG" role="2Oq$k0">
+                    <ref role="3cqZAo" node="sfM5akNE9I" resolve="layout" />
+                  </node>
+                  <node concept="liA8E" id="5lGhqPldroI" role="2OqNvi">
+                    <ref role="37wK5l" node="1OPdfj7zHsE" resolve="getChangeGroupDescription" />
+                    <node concept="2GrUjf" id="5lGhqPldrSW" role="37wK5m">
+                      <ref role="2Gs0qQ" node="sfM5akNIAh" resolve="changeGroup" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="sfM5akNIBl" role="3cqZAp">
               <node concept="2OqwBi" id="sfM5akNIBm" role="3clFbG">
                 <node concept="37vLTw" id="sfM5akNIBn" role="2Oq$k0">
@@ -10992,26 +11037,18 @@
                 <node concept="TSZUe" id="sfM5akNIBo" role="2OqNvi">
                   <node concept="2ShNRf" id="sfM5akNIBp" role="25WWJ7">
                     <node concept="1pGfFk" id="sfM5akNIBq" role="2ShVmc">
-                      <ref role="37wK5l" to="exr9:~EditorComponent$BackgroundColoredRange.&lt;init&gt;(java.awt.Color,int,int,java.lang.String)" resolve="EditorComponent.BackgroundColoredRange" />
-                      <node concept="37vLTw" id="sfM5akNIBr" role="37wK5m">
-                        <ref role="3cqZAo" node="sfM5akNIAk" resolve="color" />
-                      </node>
+                      <ref role="37wK5l" to="exr9:~EditorComponent$ChangedInterval.&lt;init&gt;(int,int,java.awt.Color,java.lang.String)" resolve="EditorComponent.ChangedInterval" />
                       <node concept="37vLTw" id="sfM5akNIBs" role="37wK5m">
                         <ref role="3cqZAo" node="sfM5akNIAy" resolve="y" />
                       </node>
                       <node concept="37vLTw" id="sfM5akNIBt" role="37wK5m">
                         <ref role="3cqZAo" node="sfM5akNIAC" resolve="height" />
                       </node>
-                      <node concept="2OqwBi" id="1OPdfj7$ck7" role="37wK5m">
-                        <node concept="37vLTw" id="1OPdfj7$bP6" role="2Oq$k0">
-                          <ref role="3cqZAo" node="sfM5akNE9I" resolve="layout" />
-                        </node>
-                        <node concept="liA8E" id="1OPdfj7$dDj" role="2OqNvi">
-                          <ref role="37wK5l" node="1OPdfj7zHsE" resolve="getChangeGroupDescription" />
-                          <node concept="2GrUjf" id="1OPdfj7$eaI" role="37wK5m">
-                            <ref role="2Gs0qQ" node="sfM5akNIAh" resolve="changeGroup" />
-                          </node>
-                        </node>
+                      <node concept="37vLTw" id="4kNrfN$1Lvj" role="37wK5m">
+                        <ref role="3cqZAo" node="sfM5akNIAk" resolve="color" />
+                      </node>
+                      <node concept="37vLTw" id="5lGhqPldvkZ" role="37wK5m">
+                        <ref role="3cqZAo" node="5lGhqPldpfK" resolve="description" />
                       </node>
                     </node>
                   </node>
@@ -11051,8 +11088,8 @@
       </node>
       <node concept="3Tm6S6" id="sfM5akNvXA" role="1B3o_S" />
       <node concept="_YKpA" id="sfM5akN$rI" role="3clF45">
-        <node concept="3uibUv" id="sfM5akN$N9" role="_ZDj9">
-          <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+        <node concept="3uibUv" id="4kNrfN$1Oos" role="_ZDj9">
+          <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
         </node>
       </node>
       <node concept="37vLTG" id="sfM5akNE9I" role="3clF46">
@@ -11134,18 +11171,18 @@
       </node>
       <node concept="2tJIrI" id="2Yog8EfztjW" role="jymVt" />
       <node concept="3clFb_" id="2Yog8EfztFs" role="jymVt">
-        <property role="TrG5h" value="getBackgroundColoredRanges" />
+        <property role="TrG5h" value="getChangedIntervals" />
         <node concept="3Tm1VV" id="2Yog8EfztFt" role="1B3o_S" />
         <node concept="3uibUv" id="2Yog8EfztFu" role="3clF45">
           <ref role="3uigEE" to="33ny:~List" resolve="List" />
-          <node concept="3uibUv" id="3nupPS33ZGG" role="11_B2D">
-            <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+          <node concept="3uibUv" id="4kNrfN$1Nve" role="11_B2D">
+            <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
           </node>
         </node>
         <node concept="3clFbS" id="2Yog8EfztFw" role="3clF47">
           <node concept="3clFbF" id="FkVf8DIOil" role="3cqZAp">
             <node concept="1rXfSq" id="FkVf8DIOij" role="3clFbG">
-              <ref role="37wK5l" node="2ZO3ptD2THL" resolve="getColoredGroupBounds" />
+              <ref role="37wK5l" node="2ZO3ptD2THL" resolve="getIntervals" />
               <node concept="3clFbT" id="FkVf8DIQwu" role="37wK5m">
                 <property role="3clFbU" value="true" />
               </node>
@@ -11271,18 +11308,18 @@
       <node concept="3Tm1VV" id="42hl10VHayA" role="1B3o_S" />
       <node concept="2tJIrI" id="pZ0GUvHlLj" role="jymVt" />
       <node concept="3clFb_" id="pZ0GUvHn1n" role="jymVt">
-        <property role="TrG5h" value="getBackgroundColoredRanges" />
+        <property role="TrG5h" value="getChangedIntervals" />
         <node concept="3Tm1VV" id="pZ0GUvHn1o" role="1B3o_S" />
         <node concept="3uibUv" id="pZ0GUvHn1q" role="3clF45">
           <ref role="3uigEE" to="33ny:~List" resolve="List" />
-          <node concept="3uibUv" id="3nupPS349iT" role="11_B2D">
-            <ref role="3uigEE" to="exr9:~EditorComponent$BackgroundColoredRange" resolve="EditorComponent.BackgroundColoredRange" />
+          <node concept="3uibUv" id="4kNrfN$2na0" role="11_B2D">
+            <ref role="3uigEE" to="exr9:~EditorComponent$ChangedInterval" resolve="EditorComponent.ChangedInterval" />
           </node>
         </node>
         <node concept="3clFbS" id="pZ0GUvHn1s" role="3clF47">
           <node concept="3clFbF" id="FkVf8DITD9" role="3cqZAp">
             <node concept="1rXfSq" id="FkVf8DITDb" role="3clFbG">
-              <ref role="37wK5l" node="2ZO3ptD2THL" resolve="getColoredGroupBounds" />
+              <ref role="37wK5l" node="2ZO3ptD2THL" resolve="getIntervals" />
               <node concept="3clFbT" id="FkVf8DITDc" role="37wK5m" />
             </node>
           </node>

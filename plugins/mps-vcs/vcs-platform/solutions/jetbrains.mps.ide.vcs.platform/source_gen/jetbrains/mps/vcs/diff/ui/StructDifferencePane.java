@@ -124,7 +124,6 @@ public class StructDifferencePane implements PropertyChangeListener {
     return panel;
   }
 
-
   protected List<JComponent> createTitles() {
     return Arrays.asList(myOldEditor.getTitleComponent(), myNewEditor.getTitleComponent());
   }

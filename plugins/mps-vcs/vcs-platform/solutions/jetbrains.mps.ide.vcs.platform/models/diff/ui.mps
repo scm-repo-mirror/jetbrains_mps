@@ -10223,7 +10223,6 @@
         <ref role="3uigEE" to="xlkh:~TwosideContentPanel" resolve="TwosideContentPanel" />
       </node>
     </node>
-    <node concept="2tJIrI" id="2duWW7Sf6ki" role="jymVt" />
     <node concept="2tJIrI" id="2duWW7Sf6kj" role="jymVt" />
     <node concept="3clFb_" id="2duWW7Sf6kk" role="jymVt">
       <property role="TrG5h" value="createTitles" />

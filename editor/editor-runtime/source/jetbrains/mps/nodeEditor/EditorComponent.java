@@ -872,12 +872,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
           return;
         }
         String text = null;
-        // messages from cells have higher priority than messages from areas.
+        // messages from cells have higher priority than messages from changed areas.
         if (cell != null) {
           text = getMessagesTextFor(cell);
         }
         if (text == null) {
-          text = getBackgroundMessagesText(event);
+          text = getChangedIntervalText(event);
         }
         text = text == null ? text : text.replace("\n", "<br>");
         rv.set(text);
@@ -886,18 +886,22 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return rv.get();
   }
 
-  private String getBackgroundMessagesText(MouseEvent event) {
+  private String getChangedIntervalText(MouseEvent event) {
     Point p = event.getPoint();
     if (p.x < 0 || p.x > getWidth()) {
       return null;
     }
-    int y = p.y;// - getViewPosition().y;
-    for (BackgroundColoredRange area : getBackgroundColoredRanges()) {
-      if (y >= area.getPosition() && y <= area.getPosition() + area.getHeight()) {
-        return area.getTooltipText();
+    StringBuilder text = null;
+    for (ChangedInterval changedInterval : getChangedIntervals()) {
+      if (p.y >= changedInterval.getPosition() && p.y <= changedInterval.getPosition() + changedInterval.getHeight()) {
+        if (text == null) {
+          text = new StringBuilder(changedInterval.getTooltipText());
+          continue;
+        }
+        text.append("\n\n").append(changedInterval.getTooltipText());
       }
     }
-    return null;
+    return text == null ? null : text.toString();
   }
 
 
@@ -2128,11 +2132,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     }
 
-    for (BackgroundColoredRange area : getBackgroundColoredRanges()) {
-      if (g.hitClip(0, area.getPosition(), getWidth(), area.getHeight())) {
-        Color color = TextDiffTypeFactory.getMiddleColor(area.getColor(), getBackground());
+    for (ChangedInterval changedInterval : getChangedIntervals()) {
+      if (g.hitClip(0, changedInterval.getPosition(), getWidth(), changedInterval.getHeight())) {
+        Color color = TextDiffTypeFactory.getMiddleColor(changedInterval.getColor(), getBackground());
         g.setColor(color);
-        g.fillRect(0, area.getPosition(), getWidth(), area.getHeight());
+        g.fillRect(0, changedInterval.getPosition(), getWidth(), changedInterval.getHeight());
       }
     }
 
@@ -2161,7 +2165,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         additionalPainter.paint(g, this);
       }
     }
-
   }
 
   Dimension getPreferredComponentSize() {
@@ -3054,20 +3057,21 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
   }
 
-  public List<BackgroundColoredRange> getBackgroundColoredRanges() {
+  public List<ChangedInterval> getChangedIntervals() {
     return new ArrayList<>();
   }
 
-  public static class BackgroundColoredRange {
-    private final Color myColor;
+  public static class ChangedInterval {
+
     private final int myPosition;
     private final int myHeight;
+    private final Color myColor;
     private final String myTooltipText;
 
-    public BackgroundColoredRange(Color color, int position, int height, String tooltipText) {
-      myColor = color;
+    public ChangedInterval(int position, int height, Color color, String tooltipText) {
       myPosition = position;
       myHeight = height;
+      myColor = color;
       myTooltipText = tooltipText;
     }
 
