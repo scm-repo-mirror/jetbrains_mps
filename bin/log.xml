@@ -51,6 +51,11 @@
       <layout class="org.apache.log4j.PatternLayout">
           <param name="ConversionPattern" value="[%7r] %6p - %30.30c - %m \n"/>
       </layout>
+      <!-- See MPS-31904 -->
+      <filter class="org.apache.log4j.varia.StringMatchFilter">
+          <param name="stringToMatch" value="Do not use constructor injection"/>
+          <param name="acceptOnMatch" value="false"/>
+    </filter>
   </appender>
 
 
@@ -67,6 +72,11 @@
       <layout class="org.apache.log4j.PatternLayout">
           <param name="ConversionPattern" value="%d [%7r] %6p - %30.60c - %m \n"/>
       </layout>
+      <!-- See MPS-31904 -->
+      <filter class="org.apache.log4j.varia.StringMatchFilter">
+          <param name="stringToMatch" value="Do not use constructor injection"/>
+          <param name="acceptOnMatch" value="false"/>
+      </filter>
   </appender>
 
   <appender name="FILE-LOCAL" class="org.apache.log4j.RollingFileAppender">
