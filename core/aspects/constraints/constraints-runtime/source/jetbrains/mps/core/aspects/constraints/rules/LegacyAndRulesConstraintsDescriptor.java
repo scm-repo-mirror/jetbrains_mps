@@ -39,12 +39,10 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -70,6 +68,9 @@ public final class LegacyAndRulesConstraintsDescriptor implements RulesConstrain
 
   public LegacyAndRulesConstraintsDescriptor(@NotNull SAbstractConcept concept,
                                              @NotNull RulesConstraintsDescriptor rulesDescriptor) {
+    if (rulesDescriptor instanceof LegacyAndRulesConstraintsDescriptor) {
+      throw new IllegalArgumentException("Cannot construct a legacy wrapper over a legacy wrapper, " + concept);
+    }
     myConcept = concept;
     myRulesDescriptor = rulesDescriptor;
   }
@@ -180,6 +181,13 @@ public final class LegacyAndRulesConstraintsDescriptor implements RulesConstrain
   }
 
   @NotNull
+  @Override
+  public <C extends Context> Stream<Rule<C>> getRules(@NotNull RuleKind kind) {
+    return getRulesOfKind(kind).stream()
+                               .map(it -> (Rule<C>) it);
+  }
+
+  @NotNull
   private List<Rule<?>> getRulesOfKind(@NotNull RuleKind kind) {
     List<Rule<?>> result = new ArrayList<>();
     Set<SAbstractConcept> visited = new HashSet<>();
@@ -187,21 +195,22 @@ public final class LegacyAndRulesConstraintsDescriptor implements RulesConstrain
     stack.addFirst(myConcept);
     while (!stack.isEmpty()) {
       SAbstractConcept nextConcept = stack.pollFirst();
-      if (!visited.add(nextConcept)) continue;
-      LegacyAndRulesConstraintsDescriptor compoDescriptor = getLegacyAndRulesDescriptor(nextConcept);
-      List<Rule<?>> legacyRules = compoDescriptor.getDeclaredLegacyRules().stream()
-                                                 .filter(r1 -> r1.getKind().equals(kind))
-                                                 .collect(Collectors.toList());
-      result.addAll(legacyRules);
-      if (legacyRules.isEmpty()) {
-        // 'legacy' domination: we skip the supertree of 'concept' ancestors
-        List<Rule<?>> newRules = compoDescriptor.getDeclaredNewRules().stream()
-                                                .filter(r1 -> r1.getKind().equals(kind))
-                                                .collect(Collectors.toList());
-        result.addAll(newRules);
-        SModelUtil.getDirectSuperConcepts(nextConcept).stream()
-                  .filter(c -> !visited.contains(c))
-                  .forEach(stack::add);
+      if (visited.add(nextConcept)) {
+        LegacyAndRulesConstraintsDescriptor comboDescriptor = getLegacyAndRulesDescriptor(nextConcept);
+        List<Rule<?>> legacyRules = comboDescriptor.getDeclaredLegacyRules().stream()
+                                                   .filter(r1 -> r1.getKind().equals(kind))
+                                                   .collect(Collectors.toList());
+        result.addAll(legacyRules);
+        if (legacyRules.isEmpty()) {
+          // 'legacy' domination: we skip the supertree of 'concept' ancestors
+          List<Rule<?>> newRules = comboDescriptor.getDeclaredNewRules().stream()
+                                                  .filter(r1 -> r1.getKind().equals(kind))
+                                                  .collect(Collectors.toList());
+          result.addAll(newRules);
+          SModelUtil.getDirectSuperConcepts(nextConcept).stream()
+                    .filter(c -> !visited.contains(c))
+                    .forEach(stack::add);
+        }
       }
     }
     return result;
@@ -212,12 +221,34 @@ public final class LegacyAndRulesConstraintsDescriptor implements RulesConstrain
     if (concept.equals(myConcept)) {
       return this;
     }
-    return new LegacyAndRulesConstraintsDescriptor(concept, getRegistry().getRulesDescriptor(concept));
+    return wrapIfNeeded(concept);
+  }
+
+  @NotNull
+  private LegacyAndRulesConstraintsDescriptor wrapIfNeeded(@NotNull SAbstractConcept concept) {
+    RulesConstraintsDescriptor rulesDescriptor = getRegistry().getRulesDescriptor(concept);
+    if (rulesDescriptor instanceof LegacyAndRulesConstraintsDescriptor) {
+      return (LegacyAndRulesConstraintsDescriptor) rulesDescriptor;
+    }
+    return new LegacyAndRulesConstraintsDescriptor(concept, rulesDescriptor);
   }
 
   @NotNull
   private ConstraintsDescriptor getLegacyDescriptor(@NotNull SAbstractConcept concept) {
     return ConceptRegistry.getInstance().getConstraintsDescriptor(concept);
+  }
+
+  @Override
+  public int hashCode() {
+    return myConcept.hashCode();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj instanceof LegacyAndRulesConstraintsDescriptor) {
+      return ((LegacyAndRulesConstraintsDescriptor) obj).myConcept.equals(myConcept);
+    }
+    return false;
   }
 
   @Override
