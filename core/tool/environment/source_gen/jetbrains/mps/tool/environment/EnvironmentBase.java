@@ -6,8 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.RuntimeFlags;
-import jetbrains.mps.TestMode;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.project.PathMacros;
 import jetbrains.mps.library.LibraryInitializer;
@@ -40,10 +38,6 @@ public abstract class EnvironmentBase implements Environment {
   }
 
   public EnvironmentBase(@NotNull EnvironmentConfig config) {
-    if (!(RuntimeFlags.isTestMode())) {
-      // XXX it is odd to enfore test mode for any use of Environment, isn't it? 
-      RuntimeFlags.setTestMode(TestMode.USUAL);
-    }
     myConfig = config;
   }
 
