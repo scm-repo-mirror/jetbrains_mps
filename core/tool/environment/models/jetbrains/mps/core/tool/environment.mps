@@ -3252,6 +3252,28 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbJ" id="28TMbOSEMM8" role="3cqZAp">
+          <node concept="3clFbS" id="28TMbOSEMMa" role="3clFbx">
+            <node concept="3clFbF" id="28TMbOSENT1" role="3cqZAp">
+              <node concept="2YIFZM" id="28TMbOSENTk" role="3clFbG">
+                <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
+                <ref role="37wK5l" to="fyhk:~RuntimeFlags.setTestMode(jetbrains.mps.TestMode)" resolve="setTestMode" />
+                <node concept="Rm8GO" id="28TMbOSENW4" role="37wK5m">
+                  <ref role="Rm8GQ" to="fyhk:~TestMode.USUAL" resolve="USUAL" />
+                  <ref role="1Px2BO" to="fyhk:~TestMode" resolve="TestMode" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="28TMbOSF95h" role="3clFbw">
+            <node concept="liA8E" id="28TMbOSF9f4" role="2OqNvi">
+              <ref role="37wK5l" node="28TMbOSF4Ad" resolve="isTestMode" />
+            </node>
+            <node concept="37vLTw" id="28TMbOSF9oE" role="2Oq$k0">
+              <ref role="3cqZAo" node="3eUNqOk7wUa" resolve="myConfig" />
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="3Tm1VV" id="3eUNqOk4feL" role="1B3o_S" />
       <node concept="37vLTG" id="3eUNqOk7wX9" role="3clF46">
@@ -3265,7 +3287,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="28TMbOSELL7" role="jymVt" />
-    <node concept="2tJIrI" id="3eUNqOk6cjb" role="jymVt" />
     <node concept="3clFb_" id="3eUNqOk6clf" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="init" />
@@ -3295,28 +3316,6 @@
             </node>
             <node concept="1rXfSq" id="3x_lgCAcKqC" role="37vLTx">
               <ref role="37wK5l" node="3x_lgCAcjqZ" resolve="createRootClassLoader" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="28TMbOSEMM8" role="3cqZAp">
-          <node concept="3clFbS" id="28TMbOSEMMa" role="3clFbx">
-            <node concept="3clFbF" id="28TMbOSENT1" role="3cqZAp">
-              <node concept="2YIFZM" id="28TMbOSENTk" role="3clFbG">
-                <ref role="37wK5l" to="fyhk:~RuntimeFlags.setTestMode(jetbrains.mps.TestMode)" resolve="setTestMode" />
-                <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
-                <node concept="Rm8GO" id="28TMbOSENW4" role="37wK5m">
-                  <ref role="Rm8GQ" to="fyhk:~TestMode.USUAL" resolve="USUAL" />
-                  <ref role="1Px2BO" to="fyhk:~TestMode" resolve="TestMode" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="28TMbOSF95h" role="3clFbw">
-            <node concept="liA8E" id="28TMbOSF9f4" role="2OqNvi">
-              <ref role="37wK5l" node="28TMbOSF4Ad" resolve="isTestMode" />
-            </node>
-            <node concept="37vLTw" id="28TMbOSF9oE" role="2Oq$k0">
-              <ref role="3cqZAo" node="3eUNqOk7wUa" resolve="myConfig" />
             </node>
           </node>
         </node>
