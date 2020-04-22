@@ -239,19 +239,10 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   }
 
   private String buildTextualRepresentationOfSelectedCells() {
-    StringBuilder builder = new StringBuilder("");
-    SNode current = myFirstNode;
-    while (true) {
-      builder.append(getEditorComponent().findNodeCell(current, true).renderText().getText());
-      if (current == myLastNode) {
-        break;
-      }
-      if ((SNodeOperations.getNextSibling(current) == null)) {
-        builder.append("\n");
-      } else {
-        builder.append(" ");
-      }
-      current = getNextSelectableNode(current, true);
+    StringBuilder builder = new StringBuilder();
+    for (EditorCell cell : getSelectedCells()) {
+      builder.append(cell.renderText().getText());
+      builder.append((cell.getNextSibling() == null ? "\n" : " "));
     }
     return builder.toString();
   }
