@@ -72,5 +72,8 @@ teamcity-info.xml
 /bin/win
 /build/resources/mps
 
+# Path to log files which is overriden in run configuration to allow developers to see log output in run/debug console
+/log/
+
 # Versions of library dependecies required for platform (like Kotlin, JDK etc)
 /build/dependencies
