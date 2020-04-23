@@ -61,6 +61,7 @@ import java.util.Iterator;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.SReference;
@@ -448,6 +449,10 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
       return _quotation_createNode_un708i_a0a5a53(path);
     } else if (module instanceof Language) {
       return _quotation_createNode_un708i_a0a0f0jb(path);
+    } else if (module instanceof Generator) {
+      // at the moment, LanguagesStep uses project.getProjectModules() to populate tree, hence only standalone generator modules could end up here 
+      // If, however, we would need to make sure it's top-level module here, likely would have to resort to GeneratorDescriptor.isStandaloneModule check here. 
+      return _quotation_createNode_un708i_a2a1f0jb(path);
     } else {
       return _quotation_createNode_un708i_a0a0f0jb_0(path);
     }
@@ -1821,6 +1826,18 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xcf935df46994e9cL, 0xa132fa109541cba3L, "jetbrains.mps.build.mps"), 0x2c446791464290f8L, "BuildMps_Language")).getResult();
+    quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact"), "true");
+    quotedNode_3 = (SNode) parameter_1;
+    if (quotedNode_3 != null) {
+      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path"), SNodeOperations.copyIfNecessary(quotedNode_3));
+    }
+    return quotedNode_2;
+  }
+  private static SNode _quotation_createNode_un708i_a2a1f0jb(Object parameter_1) {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_2 = null;
+    SNode quotedNode_3 = null;
+    quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xcf935df46994e9cL, 0xa132fa109541cba3L, "jetbrains.mps.build.mps"), 0x4c6db07d2e56a8b4L, "BuildMps_Generator")).getResult();
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact"), "true");
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
