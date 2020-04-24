@@ -192,7 +192,9 @@ public final class Renamer {
       return module;
     }
 
-    if (checkDescriptorFileExists(module)) {
+    if (checkDescriptorFileExists(module) && !isLanguageOwnedGenerator(module)) {
+      // for a generator module sharing descriptor file with its source language, no need to rename the file.
+      // Explicit project module management is not needed, too, as Project doesn't track generators owned by a language.
       myProject.removeModule(module);
       for (AbstractModule subModule : subModules) {
         myProject.removeModule(subModule);
@@ -263,6 +265,10 @@ public final class Renamer {
     }
 
     return module;
+  }
+
+  private boolean isLanguageOwnedGenerator(AbstractModule module) {
+    return module instanceof Generator && !((Generator) module).getModuleDescriptor().isStandaloneModule();
   }
 
   // TODO-TODO-DO
