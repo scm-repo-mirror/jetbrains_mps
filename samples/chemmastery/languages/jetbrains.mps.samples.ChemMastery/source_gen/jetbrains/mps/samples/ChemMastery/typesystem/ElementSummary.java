@@ -81,7 +81,7 @@ public class ElementSummary {
     });
     MapSequence.fromMap(this.elementCounts).where(new IWhereFilter<IMapping<String, Integer>>() {
       public boolean accept(IMapping<String, Integer> el) {
-        return el.value() != MapSequence.fromMap(other.elementCounts).get(el.key());
+        return MapSequence.fromMap(other.elementCounts).containsKey(el.key()) && el.value() != MapSequence.fromMap(other.elementCounts).get(el.key());
       }
     }).visitAll(new IVisitor<IMapping<String, Integer>>() {
       public void visit(IMapping<String, Integer> el) {
