@@ -168,6 +168,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.property("id", 0x5b2638e8bdcd7deaL).type(PrimitiveTypeId.STRING).origin("6567999678834376170").done();
     b.property("atomic_number", 0x6ef7184faba53976L).type(PrimitiveTypeId.INTEGER).origin("7995886393880820086").done();
+    b.property("details_url", 0x2b5828a8c1e2ab18L).type(PrimitiveTypeId.STRING).origin("3123291046853913368").done();
     b.alias("chemical element");
     return b.create();
   }

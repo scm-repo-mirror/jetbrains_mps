@@ -26,6 +26,7 @@
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
       <concept id="1402906326895675325" name="jetbrains.mps.lang.editor.structure.CellActionMap_FunctionParm_selectedNode" flags="nn" index="0IXxy" />
+      <concept id="3696012239575138270" name="jetbrains.mps.lang.editor.structure.CellModel_URL" flags="sg" stub="8104358048506729359" index="225u1i" />
       <concept id="5991739802479784074" name="jetbrains.mps.lang.editor.structure.MenuTypeNamed" flags="ng" index="22hDWg" />
       <concept id="5991739802479784073" name="jetbrains.mps.lang.editor.structure.MenuTypeDefault" flags="ng" index="22hDWj" />
       <concept id="2000375450116454183" name="jetbrains.mps.lang.editor.structure.ISubstituteMenu" flags="ng" index="22mbnS">
@@ -1753,6 +1754,26 @@
           <node concept="3F0A7n" id="2Hoaaz1ROvU" role="2wV5jI">
             <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="ngid:6VR64YFDj_Q" resolve="atomic_number" />
+          </node>
+        </node>
+        <node concept="ljvvj" id="2Hoaaz1SEB4" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="2Hoaaz1SEBs" role="3EZMnx">
+        <property role="3F0ifm" value="" />
+        <node concept="ljvvj" id="2Hoaaz1SEBN" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="2Hoaaz1SECd" role="3EZMnx">
+        <property role="3F0ifm" value="More details:" />
+      </node>
+      <node concept="1iCGBv" id="2Hoaaz1SEEz" role="3EZMnx">
+        <ref role="1NtTu8" to="ngid:6VR64YFDy_W" resolve="element" />
+        <node concept="1sVBvm" id="2Hoaaz1SEE_" role="1sWHZn">
+          <node concept="225u1i" id="2Hoaaz1SEF3" role="2wV5jI">
+            <ref role="1NtTu8" to="ngid:2Hoaaz1SEGo" resolve="details_url" />
           </node>
         </node>
       </node>

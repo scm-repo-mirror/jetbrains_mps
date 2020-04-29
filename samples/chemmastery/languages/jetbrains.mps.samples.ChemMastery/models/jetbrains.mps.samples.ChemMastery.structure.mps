@@ -171,6 +171,11 @@
       <property role="TrG5h" value="atomic_number" />
       <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
     </node>
+    <node concept="1TJgyi" id="2Hoaaz1SEGo" role="1TKVEl">
+      <property role="IQ2nx" value="3123291046853913368" />
+      <property role="TrG5h" value="details_url" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
     <node concept="PrWs8" id="6VR64YFDj_M" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
