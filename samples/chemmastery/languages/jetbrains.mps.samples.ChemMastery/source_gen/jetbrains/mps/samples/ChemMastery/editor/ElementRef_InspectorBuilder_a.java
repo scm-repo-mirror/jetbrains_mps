@@ -478,6 +478,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       EditorCell editorCell;
       editorCell = provider.createEditorCell(getEditorContext());
       editorCell.setCellId("URL_mwjwii_0");
+      ElementURLHandling.setCellActions(editorCell, myNode, getEditorContext());
       editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
       SNode attributeConcept = provider.getRoleAttribute();
       if (attributeConcept != null) {
