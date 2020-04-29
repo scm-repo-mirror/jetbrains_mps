@@ -20,6 +20,8 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 import jetbrains.mps.lang.editor.menus.transformation.DefaultTransformationMenuLookup;
@@ -30,6 +32,7 @@ import javax.swing.JComponent;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class SheetEntry_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -72,8 +75,13 @@ import org.jetbrains.mps.openapi.language.SProperty;
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_ekbrl8_a0");
     editorCell.addEditorCell(createConstant_0());
-    editorCell.addEditorCell(createReadOnlyModelAccessor_0());
+    if (nodeCondition_ekbrl8_a1a0()) {
+      editorCell.addEditorCell(createReadOnlyModelAccessor_0());
+    }
     return editorCell;
+  }
+  private boolean nodeCondition_ekbrl8_a1a0() {
+    return SNodeOperations.isInstanceOf(myNode, CONCEPTS.EquationEntry$Nz);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
@@ -87,7 +95,8 @@ import org.jetbrains.mps.openapi.language.SProperty;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
       public String getText() {
-        return String.valueOf(SNodeOperations.getIndexInParent(myNode) + 1) + ")";
+        Iterable<SNode> entries = SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getParent(myNode), CONCEPTS.ChemSheet$zx), LINKS.entries$$D86), CONCEPTS.EquationEntry$Nz);
+        return String.valueOf(Sequence.fromIterable(entries).indexOf(myNode) + 1) + ")";
       }
     }, myNode);
     editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());
@@ -211,12 +220,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ChemSheet$zx = MetaAdapterFactory.getConcept(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f2130L, "jetbrains.mps.samples.ChemMastery.structure.ChemSheet");
+    /*package*/ static final SConcept EquationEntry$Nz = MetaAdapterFactory.getConcept(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f24e0L, "jetbrains.mps.samples.ChemMastery.structure.EquationEntry");
     /*package*/ static final SConcept SheetEntry$F9 = MetaAdapterFactory.getConcept(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f24daL, "jetbrains.mps.samples.ChemMastery.structure.SheetEntry");
     /*package*/ static final SConcept DocumentationEntry$Ox = MetaAdapterFactory.getConcept(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f24e2L, "jetbrains.mps.samples.ChemMastery.structure.DocumentationEntry");
-    /*package*/ static final SConcept EquationEntry$Nz = MetaAdapterFactory.getConcept(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f24e0L, "jetbrains.mps.samples.ChemMastery.structure.EquationEntry");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty showButtons$T8V0 = MetaAdapterFactory.getProperty(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f2130L, 0x5b2638e8bdbef0c0L, "showButtons");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink entries$$D86 = MetaAdapterFactory.getContainmentLink(0xa9a262e8f8054598L, 0x88c614f38937d309L, 0x6ef7184fab9f2130L, 0x6ef7184fab9f24ddL, "entries");
   }
 }
