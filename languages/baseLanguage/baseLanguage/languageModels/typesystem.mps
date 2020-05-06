@@ -91,7 +91,7 @@
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1224500799915" name="jetbrains.mps.baseLanguage.structure.BitwiseXorExpression" flags="nn" index="pVQyQ" />
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
@@ -73737,6 +73737,61 @@
           </node>
         </node>
       </node>
+    </node>
+  </node>
+  <node concept="18kY7G" id="4vDGnVXhSuJ">
+    <property role="TrG5h" value="check_TryUniversalStatement" />
+    <property role="3GE5qa" value="control_flow.try_catch" />
+    <node concept="3clFbS" id="4vDGnVXhSuK" role="18ibNy">
+      <node concept="2Mj0R9" id="4vDGnVXhTma" role="3cqZAp">
+        <node concept="22lmx$" id="4vDGnVXiek0" role="2MkoU_">
+          <node concept="2OqwBi" id="4vDGnVXif$$" role="3uHU7w">
+            <node concept="2OqwBi" id="4vDGnVXieBz" role="2Oq$k0">
+              <node concept="1YBJjd" id="4vDGnVXiemU" role="2Oq$k0">
+                <ref role="1YBMHb" node="4vDGnVXhSuM" resolve="tryStatement" />
+              </node>
+              <node concept="3TrEf2" id="4vDGnVXieZj" role="2OqNvi">
+                <ref role="3Tt5mk" to="tpee:7btLLchmV4l" resolve="finallyClause" />
+              </node>
+            </node>
+            <node concept="3x8VRR" id="4vDGnVXifMk" role="2OqNvi" />
+          </node>
+          <node concept="22lmx$" id="4vDGnVXi5tj" role="3uHU7B">
+            <node concept="2OqwBi" id="4vDGnVXhZGu" role="3uHU7B">
+              <node concept="2OqwBi" id="4vDGnVXhTG1" role="2Oq$k0">
+                <node concept="1YBJjd" id="4vDGnVXhTAn" role="2Oq$k0">
+                  <ref role="1YBMHb" node="4vDGnVXhSuM" resolve="tryStatement" />
+                </node>
+                <node concept="3Tsc0h" id="4vDGnVXhU7V" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpee:4D3iSq_hhnY" resolve="resource" />
+                </node>
+              </node>
+              <node concept="3GX2aA" id="4vDGnVXi4Ny" role="2OqNvi" />
+            </node>
+            <node concept="2OqwBi" id="4vDGnVXi8_F" role="3uHU7w">
+              <node concept="2OqwBi" id="4vDGnVXi5KX" role="2Oq$k0">
+                <node concept="1YBJjd" id="4vDGnVXi5x$" role="2Oq$k0">
+                  <ref role="1YBMHb" node="4vDGnVXhSuM" resolve="tryStatement" />
+                </node>
+                <node concept="3Tsc0h" id="4vDGnVXi6ao" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpee:7btLLchmV4m" resolve="catchClause" />
+                </node>
+              </node>
+              <node concept="3GX2aA" id="4vDGnVXibdW" role="2OqNvi" />
+            </node>
+          </node>
+        </node>
+        <node concept="Xl_RD" id="4vDGnVXifSb" role="2MkJ7o">
+          <property role="Xl_RC" value="'try' statement should have either clauses or resources" />
+        </node>
+        <node concept="1YBJjd" id="4vDGnVXig41" role="1urrMF">
+          <ref role="1YBMHb" node="4vDGnVXhSuM" resolve="tryStatement" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="4vDGnVXhSuM" role="1YuTPh">
+      <property role="TrG5h" value="tryStatement" />
+      <ref role="1YaFvo" to="tpee:4D3iSq_hhnM" resolve="TryUniversalStatement" />
     </node>
   </node>
 </model>
