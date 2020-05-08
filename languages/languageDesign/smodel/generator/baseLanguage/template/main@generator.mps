@@ -15894,8 +15894,6 @@
     <node concept="312cEu" id="6GJuFl5ZYPe" role="13RCb5">
       <property role="TrG5h" value="Class" />
       <node concept="Wx3nA" id="52uv6IIlrb$" role="jymVt">
-        <property role="2dlcS1" value="false" />
-        <property role="2dld4O" value="false" />
         <property role="TrG5h" value="index" />
         <property role="3TUv4t" value="true" />
         <node concept="3Tm6S6" id="52uv6IIlrb_" role="1B3o_S" />
