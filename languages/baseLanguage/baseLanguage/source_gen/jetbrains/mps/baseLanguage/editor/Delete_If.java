@@ -5,20 +5,15 @@ package jetbrains.mps.baseLanguage.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
-import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Delete_If {
 
@@ -28,20 +23,14 @@ public class Delete_If {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode candidate = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(node, LINKS.ifTrue$WJ1E), LINKS.statement$WHn8)).first();
+        SNode candidate = SNodeOperations.cast(SNodeOperations.getNextSibling(node), CONCEPTS.Statement$ok);
         if ((candidate == null)) {
-          candidate = SNodeOperations.cast(SNodeOperations.getNextSibling(node), CONCEPTS.Statement$ok);
-          if ((candidate == null)) {
-            candidate = SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.Statement$ok);
-          }
+          candidate = SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.Statement$ok);
         }
         if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
-        UnwrapStatementsUtil.unwrapIf(node);
-        if ((candidate != null)) {
-          SelectionUtil.selectCell(editorContext, candidate, SelectionManager.FIRST_CELL);
-        }
+        SNodeOperations.deleteNode(node);
       }
 
     };
@@ -86,11 +75,6 @@ public class Delete_If {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 
   private static final class CONCEPTS {

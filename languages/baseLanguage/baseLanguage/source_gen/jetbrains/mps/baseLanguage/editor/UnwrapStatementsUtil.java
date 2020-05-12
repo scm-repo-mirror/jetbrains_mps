@@ -9,13 +9,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.baseLanguage.behavior.SingleLineComment__BehaviorDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.editor.runtime.impl.cellActions.CommentUtil;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.baseLanguage.behavior.IContainsStatementList__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.behavior.SingleLineComment__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -35,6 +35,12 @@ public class UnwrapStatementsUtil {
     unwrapStatementListInContainer(ifStatement, SLinkOperations.getTarget(ifStatement, LINKS.ifTrue$WJ1E));
   }
 
+  private static void prependComment(SNode toWrap, String text) {
+    SNode s = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment"));
+    SingleLineComment__BehaviorDescriptor.parseAndAddWords_id13gAna0o0W6.invoke(s, text);
+    SNodeOperations.insertPrevSiblingChild(toWrap, s);
+  }
+
   public static SNode unwrapElse(final SNode ifStatement) {
     if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i))) {
       SNode block = SNodeFactoryOperations.createNewNode(CONCEPTS.BlockStatement$1i, null);
@@ -44,15 +50,6 @@ public class UnwrapStatementsUtil {
     assert SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i);
 
     Iterable<SNode> commentedNodes = CommentUtil.uncommentAll(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0));
-
-    SNode first = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0), LINKS.statement$WHn8)).first();
-    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0), LINKS.statement$WHn8)).any(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return !(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(it)), CONCEPTS.Statement$ok));
-      }
-    })) {
-      UnwrapStatementsUtil.prependComment(first, "The else content");
-    }
     SNodeOperations.insertNextSiblingChild(ifStatement, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement")));
 
     List<SNode> statements = ListSequence.fromListWithValues(new ArrayList<SNode>(), SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0), LINKS.statement$WHn8));
@@ -89,11 +86,6 @@ public class UnwrapStatementsUtil {
     });
     SNodeOperations.deleteNode(toDelete);
     CommentUtil.commentOutAll(commentedNodes);
-  }
-  private static void prependComment(SNode toWrap, String text) {
-    SNode s = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment"));
-    SingleLineComment__BehaviorDescriptor.parseAndAddWords_id13gAna0o0W6.invoke(s, text);
-    SNodeOperations.insertPrevSiblingChild(toWrap, s);
   }
 
   private static final class LINKS {
