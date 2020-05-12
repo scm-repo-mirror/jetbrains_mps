@@ -19,6 +19,7 @@ import jetbrains.mps.smodel.BaseScope;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.util.annotation.ToRemove;
+import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.ModelAccess;
@@ -27,6 +28,7 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
@@ -174,6 +176,24 @@ public abstract class Project implements MPSModuleOwner, IProject {
       }
     }
     return result;
+  }
+
+  /**
+   * Project-sensitive replacement for {@code CachingFileSystem.scheduleUpdateForWrittenFiles(Iterable<IFile> writtenFiles)}.
+   * Tells project that its certain files were likely modified by external code and need a refresh.
+   * Primary purpose of the method is to let IDEA-backed project implementation to let VCS know about file changes
+   * that had happened not through IDEA VFS mechanism (see MPS-14247 and MPS-29564)
+   * <p/>
+   * By default, no-op, subclasses are not required to invoke super as there's nothing we can do in this base implementation anyway
+   *
+   * @param files files that has been modified (added/changed) by a process that may have avoided use of
+   *              proper platform mechanism (i.e. IDEA VFS).
+   *              @implNote Note, callers are unlikely to ensure the set of
+   *              files belong to this particular project, it's implementation responsibility to
+   *              pick files it can handle (given the fact IDEA's VFS is not per-project, this might be irrelevant, though).
+   */
+  public void reconcileProjectFiles(Iterable<IFile> files) {
+    // no-op
   }
 
   @Override

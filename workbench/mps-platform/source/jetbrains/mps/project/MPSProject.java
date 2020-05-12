@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 package jetbrains.mps.project;
 
 import com.intellij.ide.impl.ProjectUtil;
-import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.ex.ProjectManagerEx;
 import com.intellij.openapi.util.InvalidDataException;
+import com.intellij.openapi.vcs.changes.ChangeListManager;
 import jetbrains.mps.extapi.module.SRepositoryRegistry;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
@@ -29,6 +29,7 @@ import jetbrains.mps.ide.vfs.ProjectRootListenerComponent;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.WorkbenchModelAccess;
+import jetbrains.mps.vfs.IFile;
 import org.jdom.JDOMException;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -144,5 +145,11 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
    */
   public final IdeaFileSystem getFileSystem() {
     return myProjectFileSystem;
+  }
+
+  @Override
+  public void reconcileProjectFiles(Iterable<IFile> files) {
+    myProjectFileSystem.scheduleUpdateForWrittenFiles(files);
+    ChangeListManager.getInstance(myProject).scheduleUpdate();
   }
 }
