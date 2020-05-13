@@ -46,6 +46,7 @@ import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.ModelLoadingOption;
+import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import org.jetbrains.mps.openapi.persistence.UnsupportedDataSourceException;
@@ -217,7 +218,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
 
   @Override
-  public void save(@NotNull SModel model, @NotNull DataSource dataSource) throws IOException {
+  public void save(@NotNull SModel model, @NotNull DataSource dataSource) throws ModelSaveException, UnsupportedDataSourceException {
     if (!(dataSource instanceof StreamDataSource)) {
       throw new UnsupportedDataSourceException(dataSource);
     }
@@ -292,7 +293,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
 
     @Override
-    public void saveModel(@NotNull SModelHeader header, SModelData modelData) throws IOException {
+    public void saveModel(@NotNull SModelHeader header, SModelData modelData) throws ModelSaveException {
       ModelPersistence.saveModel((jetbrains.mps.smodel.SModel) modelData, getSource0(), header.getPersistenceVersion());
     }
   }

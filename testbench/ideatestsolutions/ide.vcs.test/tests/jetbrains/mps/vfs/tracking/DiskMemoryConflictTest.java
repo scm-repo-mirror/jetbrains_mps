@@ -19,7 +19,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.ide.MPSCoreComponents;
-import jetbrains.mps.ide.platform.watching.ReloadManager;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -403,7 +402,7 @@ public class DiskMemoryConflictTest implements EnvironmentAware {
       try {
         try {
           ModelPersistence.saveModel(myModelBackup, myOriginalModelDataSource, myModelBackup.getSModelHeader().getPersistenceVersion());
-        } catch (IOException e) {
+        } catch (Exception e) {
           e.printStackTrace();
           return e;
         }

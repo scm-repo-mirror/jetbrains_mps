@@ -16,7 +16,6 @@ import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.persistence.PersistenceUtil;
 import jetbrains.mps.smodel.persistence.def.ModelPersistence;
-import java.io.IOException;
 import junit.framework.Assert;
 import java.util.List;
 import java.util.Comparator;
@@ -69,9 +68,9 @@ import java.util.Arrays;
     try {
       filter.start();
       ModelPersistence.saveModel(myTestModel.getSModel(), dataSource, persistence);
-    } catch (IOException e) {
-      Assert.fail("Exception during test. See log for details");
+    } catch (Exception e) {
       e.printStackTrace();
+      Assert.fail("Exception during test. See log for details");
     } finally {
       filter.stop();
     }

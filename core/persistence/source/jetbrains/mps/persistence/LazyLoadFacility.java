@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import jetbrains.mps.smodel.persistence.def.ModelReadException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 
 import java.io.IOException;
@@ -86,5 +87,5 @@ public abstract class LazyLoadFacility {
    */
   public abstract boolean doesSaveUpgradePersistence(@NotNull SModelHeader header);
 
-  public abstract void saveModel(@NotNull SModelHeader header, SModelData modelData) throws IOException;
+  public abstract void saveModel(@NotNull SModelHeader header, SModelData modelData) throws ModelSaveException, IOException;
 }
