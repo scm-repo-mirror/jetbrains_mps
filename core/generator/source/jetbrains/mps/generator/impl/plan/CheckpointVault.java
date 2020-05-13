@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@
  */
 package jetbrains.mps.generator.impl.plan;
 
-import jetbrains.mps.extapi.model.SModelBase;
-import jetbrains.mps.extapi.persistence.ModelFactoryService;
+import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.generator.generationTypes.StreamHandler;
 import jetbrains.mps.generator.impl.ModelStreamManager;
 import jetbrains.mps.generator.impl.SingleStreamSource;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.PlanIdentity;
-import jetbrains.mps.smodel.persistence.def.ModelPersistence;
+import jetbrains.mps.persistence.PersistenceUtil.InMemoryStreamDataSource;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.JDOMUtil;
 import org.apache.log4j.Logger;
 import org.jdom.Document;
@@ -34,6 +34,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import org.jetbrains.mps.openapi.persistence.datasource.FileExtensionDataSourceType;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -187,8 +188,8 @@ public class CheckpointVault {
   }
 
   private SModel loadModel(Entry entry) throws IOException, ModelLoadException {
-    final ModelFactory modelFactory = PersistenceFacade.getInstance().getDefaultModelFactory();
     final SingleStreamSource source = new SingleStreamSource(myStreams.getOutputLocation(), entry.getFilename());
+    final ModelFactory modelFactory = entry.modelFactory();
     return modelFactory.load(source);
   }
 
@@ -209,13 +210,21 @@ public class CheckpointVault {
       }
       // buildCheckpointRegistry() above ensures we've got all file names;
       CheckpointState cpState = entry.myChangedState;
-      // FIXME use ModelFactory.save(cpState.getCheckpointModel(), InMemoryDataSource) instead
-      Document d = ModelPersistence.saveModel(((SModelBase) cpState.getCheckpointModel()).getSModel());
-      handler.saveStream(entry.getFilename(), d.getRootElement());
+      final ModelFactory modelFactory = entry.modelFactory();
+      InMemoryStreamDataSource ds = new InMemoryStreamDataSource();
+      try {
+        modelFactory.save(cpState.getCheckpointModel(), ds);
+        handler.saveStream(entry.getFilename(), ds.getContentBytes());
+      } catch (Exception ex) {
+        // FIXME what can I do here?
+        Logger.getLogger(CheckpointVault.class).error("Failed to save checkpoint state " + cpState.getCheckpoint(), ex);
+        // ignore
+      }
     }
   }
 
   private static class Entry {
+    private static final FileExtensionDataSourceType CP_MODEL_DATASOURCE_TYPE = PreinstalledDataSourceTypes.BINARY; // PreinstalledDataSourceTypes.MPS
     /*package*/ final CheckpointIdentity myCheckpoint;
     private String myFile;
     /*package*/ CheckpointState myChangedState; // non-null value indicates checkpoint model was updated and need save
@@ -227,10 +236,21 @@ public class CheckpointVault {
 
     private String getFilename() {
       if (myFile == null) {
-        String fname = myCheckpoint.getPlan().getPersistenceValue() + '-' + myCheckpoint.getPersistenceValue() + ".mps";
+        FileExtensionDataSourceType dst = CP_MODEL_DATASOURCE_TYPE;
+        String fname = myCheckpoint.getPlan().getPersistenceValue() + '-' + myCheckpoint.getPersistenceValue() + '.' + dst.getFileExtension();
         myFile = fname;
       }
       return myFile;
+    }
+
+    /*package*/ ModelFactory modelFactory() {
+      final String ext = FileUtil.getExtension(getFilename());
+      if (ext == null) {
+        return PersistenceFacade.getInstance().getModelFactory(PreinstalledDataSourceTypes.MPS);
+      } else {
+        return PersistenceFacade.getInstance().getModelFactory(FileExtensionDataSourceType.of(ext));
+      }
+
     }
   }
 }
