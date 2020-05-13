@@ -1313,6 +1313,7 @@
         <node concept="3F0ifn" id="hT0KxlS" role="2czzBI">
           <property role="ilYzB" value="&lt;no statements&gt;" />
           <ref role="1k5W1q" node="4vDGnVWLnSS" resolve="Placeholder" />
+          <ref role="1ERwB7" node="3ZN84_5a0AE" resolve="NoCutOnEmptyStatementList" />
         </node>
         <node concept="VPM3Z" id="hT0KxlX" role="3F10Kt">
           <property role="VOm3f" value="false" />
@@ -68499,6 +68500,16 @@
     <node concept="3VyMlK" id="4vDGnVVJWN0" role="3ft7WO" />
     <node concept="3VyMlK" id="4vDGnVVw_f_" role="3ft7WO" />
     <node concept="22hDWj" id="4vDGnVVw_9p" role="22hAXT" />
+  </node>
+  <node concept="1h_SRR" id="3ZN84_5a0AE">
+    <property role="TrG5h" value="NoCutOnEmptyStatementList" />
+    <ref role="1h_SK9" to="tpee:fzclF80" resolve="StatementList" />
+    <node concept="1hA7zw" id="3ZN84_5a0AF" role="1h_SK8">
+      <property role="1hAc7j" value="7P1WhNABBii/cut_action_id" />
+      <node concept="1hAIg9" id="3ZN84_5a0AG" role="1hA7z_">
+        <node concept="3clFbS" id="3ZN84_5a0AH" role="2VODD2" />
+      </node>
+    </node>
   </node>
 </model>
 

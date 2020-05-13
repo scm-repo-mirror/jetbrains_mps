@@ -146,6 +146,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       Style style = new StyleImpl();
       new PlaceholderStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
       editorCell.getStyle().putAll(style);
+      NoCutOnEmptyStatementList.setCellActions(editorCell, myNode, getEditorContext());
       editorCell.setDefaultText("<no statements>");
       return editorCell;
     }
