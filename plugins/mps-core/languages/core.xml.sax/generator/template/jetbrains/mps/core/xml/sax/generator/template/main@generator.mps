@@ -28,6 +28,7 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1219920932475" name="jetbrains.mps.baseLanguage.structure.VariableArityType" flags="in" index="8X2XB">
         <child id="1219921048460" name="componentType" index="8Xvag" />
       </concept>
@@ -3366,14 +3367,25 @@
           <node concept="3IZrLx" id="1XGsQcRH_Te" role="3IZSJc">
             <node concept="3clFbS" id="1XGsQcRH_Tf" role="2VODD2">
               <node concept="3clFbF" id="1XGsQcRH_Tg" role="3cqZAp">
-                <node concept="2OqwBi" id="1XGsQcRH_Th" role="3clFbG">
-                  <node concept="2OqwBi" id="1XGsQcRH_Ti" role="2Oq$k0">
-                    <node concept="30H73N" id="1XGsQcRH_Tj" role="2Oq$k0" />
-                    <node concept="3Tsc0h" id="1XGsQcRH_Tk" role="2OqNvi">
-                      <ref role="3TtcxE" to="nv7r:1XGsQcRHubP" resolve="children" />
+                <node concept="22lmx$" id="5qDPNZFXIxt" role="3clFbG">
+                  <node concept="2OqwBi" id="5qDPNZFXKmr" role="3uHU7w">
+                    <node concept="2OqwBi" id="5qDPNZFXJJz" role="2Oq$k0">
+                      <node concept="30H73N" id="5qDPNZFXJwd" role="2Oq$k0" />
+                      <node concept="3TrEf2" id="5qDPNZFXK2r" role="2OqNvi">
+                        <ref role="3Tt5mk" to="nv7r:3FXqjtq0ws5" resolve="defaultChild" />
+                      </node>
                     </node>
+                    <node concept="3x8VRR" id="5qDPNZFXKzk" role="2OqNvi" />
                   </node>
-                  <node concept="3GX2aA" id="1XGsQcRH_Tl" role="2OqNvi" />
+                  <node concept="2OqwBi" id="1XGsQcRH_Th" role="3uHU7B">
+                    <node concept="2OqwBi" id="1XGsQcRH_Ti" role="2Oq$k0">
+                      <node concept="30H73N" id="1XGsQcRH_Tj" role="2Oq$k0" />
+                      <node concept="3Tsc0h" id="1XGsQcRH_Tk" role="2OqNvi">
+                        <ref role="3TtcxE" to="nv7r:1XGsQcRHubP" resolve="children" />
+                      </node>
+                    </node>
+                    <node concept="3GX2aA" id="1XGsQcRH_Tl" role="2OqNvi" />
+                  </node>
                 </node>
               </node>
             </node>

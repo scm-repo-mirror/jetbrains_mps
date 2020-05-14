@@ -172,7 +172,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SLinkOperations.getTarget(_context.getNode(), LINKS.defaultChild$$W4S) != null);
   }
   public static boolean ifMacro_Condition_0_15(final IfMacroContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.children$Y_Nu)).isNotEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.children$Y_Nu)).isNotEmpty() || (SLinkOperations.getTarget(_context.getNode(), LINKS.defaultChild$$W4S) != null);
   }
   public static boolean ifMacro_Condition_0_16(final IfMacroContext _context) {
     return ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.XMLSAXHandler_resultObject$tz, false, new SAbstractConcept[]{})).isNotEmpty() && (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.XMLSAXNodeRule$AV), LINKS.type$Y_Mw) != null);
