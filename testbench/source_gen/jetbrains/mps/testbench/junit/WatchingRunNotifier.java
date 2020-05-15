@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 public class WatchingRunNotifier extends DelegatingRunNotifier {
   private static final Level DEFAULT_WATCH_LOGGER_LEVEL = Level.ERROR;
   private static final Pattern EXECUTION_LIMIT_FAILED_PATTERN = Pattern.compile("(\\d)* ms execution limit failed for:[^,]*,(\\d*)(\\s)*");
+  private static final Pattern USER_PREF_DIR = Pattern.compile(".*INFO: Created user preferences directory.*");
   private static final Pattern WARN_PATTERN_MULTILINE = Pattern.compile("\\[([\\d\\s])*\\](\\s)*WARN.*:\\n[^\\[^\\s].*");
   private static final Pattern WARN_PATTERN = Pattern.compile("\\[([\\d\\s])*\\](\\s)*WARN.*");
   private static final Pattern MPS_31017 = Pattern.compile(".*java\\.util\\.prefs\\.FileSystemPreferences.*");
@@ -52,6 +53,7 @@ public class WatchingRunNotifier extends DelegatingRunNotifier {
     result.add(EXECUTION_LIMIT_FAILED_PATTERN);
     result.add(MPS_31017);
     result.add(MPS_31017_2);
+    result.add(USER_PREF_DIR);
     if (ignoreWarnings) {
       result.add(WARN_PATTERN_MULTILINE);
       result.add(WARN_PATTERN);

@@ -31,7 +31,7 @@
       <concept id="1153417849900" name="jetbrains.mps.baseLanguage.structure.GreaterThanOrEqualsExpression" flags="nn" index="2d3UOw" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1239714755177" name="jetbrains.mps.baseLanguage.structure.AbstractUnaryNumberOperation" flags="nn" index="2$Kvd9">
@@ -1206,6 +1206,23 @@
         </node>
       </node>
     </node>
+    <node concept="Wx3nA" id="1J2TV5rOszA" role="jymVt">
+      <property role="2dlcS1" value="false" />
+      <property role="2dld4O" value="false" />
+      <property role="TrG5h" value="USER_PREF_DIR" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="1J2TV5rOszB" role="1B3o_S" />
+      <node concept="3uibUv" id="1J2TV5rOszC" role="1tU5fm">
+        <ref role="3uigEE" to="ni5j:~Pattern" resolve="Pattern" />
+      </node>
+      <node concept="2YIFZM" id="1J2TV5rOszD" role="33vP2m">
+        <ref role="37wK5l" to="ni5j:~Pattern.compile(java.lang.String)" resolve="compile" />
+        <ref role="1Pybhc" to="ni5j:~Pattern" resolve="Pattern" />
+        <node concept="Xl_RD" id="1J2TV5rOszE" role="37wK5m">
+          <property role="Xl_RC" value=".*INFO: Created user preferences directory.*" />
+        </node>
+      </node>
+    </node>
     <node concept="Wx3nA" id="d4HXLLrJ5v" role="jymVt">
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
@@ -1492,6 +1509,19 @@
               <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
               <node concept="37vLTw" id="2JhJ33Kh7PK" role="37wK5m">
                 <ref role="3cqZAo" node="2JhJ33Kh01e" resolve="MPS_31017_2" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1J2TV5rOuHs" role="3cqZAp">
+          <node concept="2OqwBi" id="1J2TV5rOuHt" role="3clFbG">
+            <node concept="37vLTw" id="1J2TV5rOuHu" role="2Oq$k0">
+              <ref role="3cqZAo" node="d4HXLLrEoG" resolve="result" />
+            </node>
+            <node concept="liA8E" id="1J2TV5rOuHv" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+              <node concept="37vLTw" id="1J2TV5rOwuI" role="37wK5m">
+                <ref role="3cqZAo" node="1J2TV5rOszA" resolve="USER_PREF_DIR" />
               </node>
             </node>
           </node>
