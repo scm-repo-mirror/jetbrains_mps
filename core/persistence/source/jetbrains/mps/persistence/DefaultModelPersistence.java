@@ -42,7 +42,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SModel.Problem.Kind;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;
@@ -243,16 +242,9 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
   @Override
   public void save(@NotNull SModel model, @NotNull DataSource dataSource, @Nullable ModelSaveOption... options) throws ModelSaveException {
-    if (!(dataSource instanceof StreamDataSource)) {
-      String m = String.format("Incompatible data source %s(%s) for model %s", dataSource.getType(), dataSource.getLocation(), model.getReference());
-      PersistenceProblem pp = new PersistenceProblem(Kind.Save, m, dataSource.getLocation(), true);
-      throw new ModelSaveException(pp.getText(), Collections.singleton(pp));
-    }
+    checkSaveStreamDataSource(dataSource, model.getReference());
     // improved alternative to ModelPersistence.saveModel
-    if (dataSource.isReadOnly()) {
-      final PersistenceProblem p = new PersistenceProblem(Kind.Save, String.format("`%s' is read-only", dataSource.getLocation()), dataSource.getLocation(), true);
-      throw new ModelSaveException(p.getText(), Collections.singleton(p));
-    }
+    checkSaveReadOnlyDataSource(dataSource);
 
     if (model instanceof PersistenceVersionAware) {
       int persistenceVersion = ((PersistenceVersionAware) model).getPersistenceVersion();
@@ -264,8 +256,8 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
     try {
       final IModelPersistence mpImpl = ModelPersistence.getPersistence(ModelPersistence.LAST_VERSION);
-      // FIXME extract proper mmiProvider in case we remove
-      final IModelWriter modelWriter = mpImpl.getModelWriter(new RegularMetaModelInfo(), options);
+      final MetaModelInfoProvider mmiProvider = ModelPersistence.mmiProviderFor(((SModelBase) model).getModelData());
+      final IModelWriter modelWriter = mpImpl.getModelWriter(mmiProvider, options);
       Document document = modelWriter.saveModel(((SModelBase) model).getSModel());
       JDOMUtil.writeDocument(document, (StreamDataSource) dataSource);
     } catch (Exception ex) {
@@ -293,6 +285,19 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
   @Override
   public List<DataSourceType> getPreferredDataSourceTypes() {
     return Collections.singletonList(PreinstalledDataSourceTypes.MPS);
+  }
+
+  /*package*/ static void checkSaveStreamDataSource(DataSource dataSource, SModelReference modelReference) throws ModelSaveException {
+    if (!(dataSource instanceof StreamDataSource)) {
+      String m = String.format("Incompatible data source %s(%s) for model %s", dataSource.getType(), dataSource.getLocation(), modelReference);
+      throw new ModelSaveException(PersistenceProblem.errorSave(m, dataSource));
+    }
+  }
+
+  /*package*/ static void checkSaveReadOnlyDataSource(DataSource dataSource) throws ModelSaveException {
+    if (dataSource.isReadOnly()) {
+      throw new ModelSaveException(PersistenceProblem.errorSave(String.format("`%s' is read-only", dataSource.getLocation()), dataSource));
+    }
   }
 
   /**

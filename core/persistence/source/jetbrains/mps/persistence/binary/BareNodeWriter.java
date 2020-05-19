@@ -57,7 +57,7 @@ public class BareNodeWriter {
 
   protected final Predicate<SModelReference> myLocalModelReference;
   protected final ModelOutputStream myOut;
-  private final boolean myWriteUserObjects;
+  private boolean myWriteUserObjects = true; // true is legacy setting
 
   /**
    * @deprecated use {@link #BareNodeWriter(Predicate, ModelOutputStream, boolean)} instead
@@ -74,15 +74,26 @@ public class BareNodeWriter {
     myWriteUserObjects = writeUserObjects;
   }
 
-  public BareNodeWriter(@NotNull ModelOutputStream os, boolean writeUserObjects) {
-    this(x -> false, os, writeUserObjects);
+  public BareNodeWriter(@NotNull ModelOutputStream os) {
+    this(x -> false, os, true);
   }
+
+
 
   public void writeNodes(Collection<SNode> nodes) throws IOException {
     myOut.writeInt(nodes.size());
     for (SNode n : nodes) {
       writeNode(n);
     }
+  }
+
+  /**
+   * By default, recognized user objects are written (legacy setting)
+   * @return {@code this} for chaining
+   */
+  public BareNodeWriter keepUserObjects(boolean needUserObjects) {
+    myWriteUserObjects = needUserObjects;
+    return this;
   }
 
   public final void writeNode(SNode node) throws IOException {

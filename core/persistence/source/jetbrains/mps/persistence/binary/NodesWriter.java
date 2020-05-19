@@ -39,6 +39,11 @@ public final class NodesWriter extends BareNodeWriter {
     myInfo = idInfo;
   }
 
+  public NodesWriter keepUserObjects(boolean needUserObjects) {
+    super.keepUserObjects(needUserObjects);
+    return this;
+  }
+
   @Override
   protected void writeNodePrim(SNode node) throws IOException {
     ConceptInfo conceptInfo = myInfo.find(node.getConcept());

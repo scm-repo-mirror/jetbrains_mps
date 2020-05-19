@@ -266,6 +266,21 @@ public class ModelPersistence {
   }
 
   /**
+   * DO NOT USE THIS METHOD OUTSIDE OF MPS
+   *
+   * This is internal contract how we pass {@link MetaModelInfoProvider} instances around
+   */
+  @NotNull
+  public static MetaModelInfoProvider mmiProviderFor(SModelData model) {
+    final SModelHeader header = model instanceof DefaultSModel ? ((DefaultSModel) model).getSModelHeader() : null;
+    if (header != null && header.getMetaInfoProvider() != null) {
+      return header.getMetaInfoProvider();
+    } else {
+      return new RegularMetaModelInfo();
+    }
+  }
+
+  /**
    * Serialize model to xml in conformance with given persistence version.
    *
    * @throws ModelSaveException if persistenceVersion is invalid (use {@link #LAST_VERSION} if uncertain
@@ -275,15 +290,9 @@ public class ModelPersistence {
     if (modelPersistence == null) {
       final String m = String.format("Unknown persistence version %d", persistenceVersion);
       PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
-      throw new ModelSaveException(m, Collections.singleton(p));
+      throw new ModelSaveException(p);
     }
-    final SModelHeader header = model instanceof DefaultSModel ? ((DefaultSModel) model).getSModelHeader() : null;
-    final MetaModelInfoProvider mmiProvider;
-    if (header != null && header.getMetaInfoProvider() != null) {
-      mmiProvider = header.getMetaInfoProvider();
-    } else {
-      mmiProvider = new RegularMetaModelInfo();
-    }
+    final MetaModelInfoProvider mmiProvider = mmiProviderFor(model);
     IModelWriter writer = modelPersistence.getModelWriter(mmiProvider);
     if (writer == null) {
       final String m = String.format("Persistence has no writer. Version %d", persistenceVersion);

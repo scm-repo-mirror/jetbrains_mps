@@ -191,7 +191,7 @@ public abstract class FileSwapOwner implements TransientSwapOwner {
 
     private void saveModel(List<SNode> roots, ModelOutputStream os) throws IOException {
       os.writeInt(VERSION);
-      new BareNodeWriter(os, true).writeNodes(roots);
+      new BareNodeWriter(os).writeNodes(roots);
     }
 
   }
@@ -200,7 +200,7 @@ public abstract class FileSwapOwner implements TransientSwapOwner {
   public static SNode writeAndReadNode(SNode node) throws IOException {
     ByteArrayOutputStream os = new ByteArrayOutputStream();
     ModelOutputStream mos = new ModelOutputStream(os);
-    BareNodeWriter writer = new BareNodeWriter(mos, true);
+    BareNodeWriter writer = new BareNodeWriter(mos);
     writer.writeNode(node);
     mos.close();
 

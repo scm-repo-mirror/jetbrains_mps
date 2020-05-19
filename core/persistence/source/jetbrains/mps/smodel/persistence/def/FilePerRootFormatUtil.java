@@ -17,7 +17,6 @@ package jetbrains.mps.smodel.persistence.def;
 
 import jetbrains.mps.persistence.FilePerRootDataSource;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
-import jetbrains.mps.persistence.MetaModelInfoProvider.RegularMetaModelInfo;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.smodel.SModelHeader;
@@ -155,9 +154,10 @@ public class FilePerRootFormatUtil {
     persistenceVersion = actualPersistenceVersion(persistenceVersion);
 
     // upgrade?
-    SModelHeader modelHeader = null;
     int oldVersion = persistenceVersion;
+    // FIXME shall use PersistenceVersionAware and openapi.SModel, not smodel.SModel impl here
     if (modelData instanceof DefaultSModel) {
+      SModelHeader modelHeader = null;
       DefaultSModel dsm = (DefaultSModel) modelData;
       modelHeader = dsm.getSModelHeader();
       oldVersion = modelHeader.getPersistenceVersion();
@@ -165,12 +165,7 @@ public class FilePerRootFormatUtil {
         modelHeader.setPersistenceVersion(persistenceVersion);
       }
     }
-    final MetaModelInfoProvider mmiProvider;
-    if (modelHeader != null && modelHeader.getMetaInfoProvider() != null) {
-      mmiProvider = modelHeader.getMetaInfoProvider();
-    } else {
-      mmiProvider = new RegularMetaModelInfo();
-    }
+    final MetaModelInfoProvider mmiProvider = ModelPersistence.mmiProviderFor(modelData);
 
     // save into JDOM
     if (persistenceVersion < 9) {
