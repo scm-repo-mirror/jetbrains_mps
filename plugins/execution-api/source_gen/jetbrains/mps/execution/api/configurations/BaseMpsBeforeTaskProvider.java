@@ -22,7 +22,7 @@ import com.intellij.openapi.util.Key;
 import com.intellij.openapi.project.Project;
 
 @GeneratedClass(node = "r:49e72ff8-8ace-42fd-8f9f-5961eed9792e(jetbrains.mps.execution.api.configurations)/7037083547575991021", model = "r:49e72ff8-8ace-42fd-8f9f-5961eed9792e(jetbrains.mps.execution.api.configurations)")
-public abstract class BaseMpsBeforeTaskProvider<T extends BaseMpsBeforeTaskProvider.BaseMpsBeforeRunTask> extends BeforeRunTaskProvider<T> {
+public abstract class BaseMpsBeforeTaskProvider<T extends BaseMpsBeforeTaskProvider.BaseMpsBeforeRunTask<?>> extends BeforeRunTaskProvider<T> {
   private static final Logger LOG = LogManager.getLogger(BaseMpsBeforeTaskProvider.class);
   private final String myName;
   private final String myCaption;
@@ -134,7 +134,7 @@ public abstract class BaseMpsBeforeTaskProvider<T extends BaseMpsBeforeTaskProvi
     return "configure";
   }
 
-  public static abstract class BaseMpsBeforeRunTask<T extends BaseMpsBeforeRunTask> extends BeforeRunTask<T> {
+  public static abstract class BaseMpsBeforeRunTask<T extends BaseMpsBeforeRunTask<?>> extends BeforeRunTask<T> {
     public BaseMpsBeforeRunTask(@NotNull Key<T> providerId) {
       super(providerId);
       setEnabled(true);
