@@ -6150,7 +6150,7 @@
           <node concept="398BVA" id="ROdlokvOU8" role="17Grwy">
             <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
             <node concept="2Ry0Ak" id="ROdlokvOU9" role="iGT6I">
-              <property role="2Ry0Am" value="asm-all-7.0.1.jar" />
+              <property role="2Ry0Am" value="asm-all-8.0.1.jar" />
             </node>
           </node>
         </node>
@@ -25418,7 +25418,7 @@
       <node concept="13uQ2_" id="4Xk_ETUiPTn" role="39821P">
         <node concept="3_J27D" id="4Xk_ETUiPTp" role="13uQ07">
           <node concept="3Mxwew" id="4Xk_ETUiPU7" role="3MwsjC">
-            <property role="3MwjfP" value="asm-all-7.0.1.jar" />
+            <property role="3MwjfP" value="asm-all-8.0.1.jar" />
           </node>
         </node>
       </node>
@@ -37149,6 +37149,9 @@
       <property role="2eq24a" value="true" />
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
     </node>
+    <node concept="26Ea6D" id="Rq3MOfED6S" role="2hID6k">
+      <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
+    </node>
     <node concept="26EafG" id="BJYGrH08Xy" role="26Ea7d">
       <property role="26EafJ" value="lib/branding.jar" />
     </node>
@@ -37275,9 +37278,6 @@
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
     </node>
     <node concept="26Ea6D" id="Rq3MOfED7X" role="26FZ21">
-      <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
-    </node>
-    <node concept="26Ea6D" id="Rq3MOfED6S" role="2hID6k">
       <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
     </node>
   </node>
