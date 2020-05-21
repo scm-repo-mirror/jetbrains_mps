@@ -20,7 +20,6 @@ import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModule.DeploymentStatus;
 import jetbrains.mps.progress.EmptyProgressMonitor;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.ComputeRunnable;
@@ -313,19 +312,19 @@ public class ClassLoaderManager implements CoreComponent {
   @Internal
   public void runTransaction(@NotNull Runnable transaction) {
     myRepository.getModelAccess().checkReadAccess();
-
-    myLoadingModulesLock.lock();
-    try {
+    runTransaction(() -> {
       transaction.run();
-    } finally {
-      myLoadingModulesLock.unlock();
-    }
+      return "no_result";
+    });
   }
 
   private <T> T runTransaction(@NotNull Computable<T> transaction) {
-    ComputeRunnable<T> runnable = new ComputeRunnable<>(transaction);
-    runnable.run();
-    return runnable.getResult();
+    myLoadingModulesLock.lock();
+    try {
+      return transaction.compute();
+    } finally {
+      myLoadingModulesLock.unlock();
+    }
   }
 
   @NotNull
