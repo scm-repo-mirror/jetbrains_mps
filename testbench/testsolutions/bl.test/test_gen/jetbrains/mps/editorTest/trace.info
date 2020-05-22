@@ -876,9 +876,9 @@
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1230058635881">
-    <file name="IfAndElseTest_Test.java">
-      <node id="1230058635881" at="18,31,19,25" concept="11" />
-      <node id="1230058635881" at="23,53,24,36" concept="2" />
+    <file name="CompleteIfAndElseTest_Test.java">
+      <node id="1230058635881" at="18,39,19,25" concept="11" />
+      <node id="1230058635881" at="23,61,24,36" concept="2" />
       <node id="1230058635881" at="29,52,30,19" concept="11" />
       <node id="1230058635881" at="34,51,35,60" concept="2" />
       <node id="1230058635895" at="35,60,36,27" concept="2" />
@@ -889,12 +889,12 @@
       <node id="403806536168445098" at="40,71,41,71" concept="2" />
       <node id="1236015848046" at="41,71,42,27" concept="2" />
       <node id="1230058635881" at="15,0,17,0" concept="9" trace="ourParamCache" />
-      <node id="1230058635881" at="18,0,21,0" concept="1" trace="IfAndElseTest_Test#()V" />
+      <node id="1230058635881" at="18,0,21,0" concept="1" trace="CompleteIfAndElseTest_Test#()V" />
       <node id="1230058635881" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230058635881" at="22,0,26,0" concept="5" trace="test_IfAndElseTest#()V" />
+      <node id="1230058635881" at="22,0,26,0" concept="5" trace="test_CompleteIfAndElseTest#()V" />
       <node id="1230058635881" at="33,0,44,0" concept="5" trace="testMethodImpl#()V" />
-      <scope id="1230058635881" at="18,31,19,25" />
-      <scope id="1230058635881" at="23,53,24,36" />
+      <scope id="1230058635881" at="18,39,19,25" />
+      <scope id="1230058635881" at="23,61,24,36" />
       <scope id="1230058635881" at="29,52,30,19" />
       <scope id="1230058635881" at="18,0,21,0" />
       <scope id="1230058635881" at="29,0,32,0">
@@ -903,8 +903,8 @@
       <scope id="1230058635881" at="22,0,26,0" />
       <scope id="1230058635881" at="34,51,42,27" />
       <scope id="1230058635881" at="33,0,44,0" />
-      <unit id="1230058635881" at="27,0,45,0" name="jetbrains.mps.editorTest.IfAndElseTest_Test$TestBody" />
-      <unit id="1230058635881" at="13,0,46,0" name="jetbrains.mps.editorTest.IfAndElseTest_Test" />
+      <unit id="1230058635881" at="27,0,45,0" name="jetbrains.mps.editorTest.CompleteIfAndElseTest_Test$TestBody" />
+      <unit id="1230058635881" at="13,0,46,0" name="jetbrains.mps.editorTest.CompleteIfAndElseTest_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1230058635925">
@@ -24087,6 +24087,272 @@
       <scope id="8340179215567349528" at="33,0,38,0" />
       <unit id="8340179215567349528" at="27,0,39,0" name="jetbrains.mps.editorTest.EnterOnElseIfEndingBrace3_Test$TestBody" />
       <unit id="8340179215567349528" at="13,0,40,0" name="jetbrains.mps.editorTest.EnterOnElseIfEndingBrace3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215568668086">
+    <file name="IfAndElse1_Test.java">
+      <node id="8340179215568668086" at="18,28,19,25" concept="11" />
+      <node id="8340179215568668086" at="23,50,24,36" concept="2" />
+      <node id="8340179215568668086" at="29,52,30,19" concept="11" />
+      <node id="8340179215568668086" at="34,51,35,72" concept="2" />
+      <node id="8340179215568669045" at="35,72,36,26" concept="2" />
+      <node id="8340179215568669636" at="36,26,37,71" concept="2" />
+      <node id="8340179215568668086" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215568668086" at="18,0,21,0" concept="1" trace="IfAndElse1_Test#()V" />
+      <node id="8340179215568668086" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215568668086" at="22,0,26,0" concept="5" trace="test_IfAndElse1#()V" />
+      <node id="8340179215568668086" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215568668086" at="18,28,19,25" />
+      <scope id="8340179215568668086" at="23,50,24,36" />
+      <scope id="8340179215568668086" at="29,52,30,19" />
+      <scope id="8340179215568668086" at="18,0,21,0" />
+      <scope id="8340179215568668086" at="29,0,32,0">
+        <var name="owner" id="8340179215568668086" />
+      </scope>
+      <scope id="8340179215568668086" at="34,51,37,71" />
+      <scope id="8340179215568668086" at="22,0,26,0" />
+      <scope id="8340179215568668086" at="33,0,39,0" />
+      <unit id="8340179215568668086" at="27,0,40,0" name="jetbrains.mps.editorTest.IfAndElse1_Test$TestBody" />
+      <unit id="8340179215568668086" at="13,0,41,0" name="jetbrains.mps.editorTest.IfAndElse1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215568669670">
+    <file name="IfAndElse2_Test.java">
+      <node id="8340179215568669670" at="18,28,19,25" concept="11" />
+      <node id="8340179215568669670" at="23,50,24,36" concept="2" />
+      <node id="8340179215568669670" at="29,52,30,19" concept="11" />
+      <node id="8340179215568669670" at="34,51,35,72" concept="2" />
+      <node id="8340179215568669688" at="35,72,36,27" concept="2" />
+      <node id="8340179215568669670" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215568669670" at="18,0,21,0" concept="1" trace="IfAndElse2_Test#()V" />
+      <node id="8340179215568669670" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215568669670" at="22,0,26,0" concept="5" trace="test_IfAndElse2#()V" />
+      <node id="8340179215568669670" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215568669670" at="18,28,19,25" />
+      <scope id="8340179215568669670" at="23,50,24,36" />
+      <scope id="8340179215568669670" at="29,52,30,19" />
+      <scope id="8340179215568669670" at="34,51,36,27" />
+      <scope id="8340179215568669670" at="18,0,21,0" />
+      <scope id="8340179215568669670" at="29,0,32,0">
+        <var name="owner" id="8340179215568669670" />
+      </scope>
+      <scope id="8340179215568669670" at="22,0,26,0" />
+      <scope id="8340179215568669670" at="33,0,38,0" />
+      <unit id="8340179215568669670" at="27,0,39,0" name="jetbrains.mps.editorTest.IfAndElse2_Test$TestBody" />
+      <unit id="8340179215568669670" at="13,0,40,0" name="jetbrains.mps.editorTest.IfAndElse2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215568812480">
+    <file name="ElseIf1_Test.java">
+      <node id="8340179215568812480" at="18,25,19,25" concept="11" />
+      <node id="8340179215568812480" at="23,47,24,36" concept="2" />
+      <node id="8340179215568812480" at="29,52,30,19" concept="11" />
+      <node id="8340179215568812480" at="34,51,35,72" concept="2" />
+      <node id="8340179215568812498" at="35,72,36,25" concept="2" />
+      <node id="8340179215568812499" at="36,25,37,71" concept="2" />
+      <node id="8340179215568812480" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215568812480" at="18,0,21,0" concept="1" trace="ElseIf1_Test#()V" />
+      <node id="8340179215568812480" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215568812480" at="22,0,26,0" concept="5" trace="test_ElseIf1#()V" />
+      <node id="8340179215568812480" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215568812480" at="18,25,19,25" />
+      <scope id="8340179215568812480" at="23,47,24,36" />
+      <scope id="8340179215568812480" at="29,52,30,19" />
+      <scope id="8340179215568812480" at="18,0,21,0" />
+      <scope id="8340179215568812480" at="29,0,32,0">
+        <var name="owner" id="8340179215568812480" />
+      </scope>
+      <scope id="8340179215568812480" at="34,51,37,71" />
+      <scope id="8340179215568812480" at="22,0,26,0" />
+      <scope id="8340179215568812480" at="33,0,39,0" />
+      <unit id="8340179215568812480" at="27,0,40,0" name="jetbrains.mps.editorTest.ElseIf1_Test$TestBody" />
+      <unit id="8340179215568812480" at="13,0,41,0" name="jetbrains.mps.editorTest.ElseIf1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215568812726">
+    <file name="ElseIf2_Test.java">
+      <node id="8340179215568812726" at="18,25,19,25" concept="11" />
+      <node id="8340179215568812726" at="23,47,24,36" concept="2" />
+      <node id="8340179215568812726" at="29,52,30,19" concept="11" />
+      <node id="8340179215568812726" at="34,51,35,72" concept="2" />
+      <node id="8340179215568812744" at="35,72,36,27" concept="2" />
+      <node id="8340179215568812745" at="36,27,37,71" concept="2" />
+      <node id="8340179215568812726" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215568812726" at="18,0,21,0" concept="1" trace="ElseIf2_Test#()V" />
+      <node id="8340179215568812726" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215568812726" at="22,0,26,0" concept="5" trace="test_ElseIf2#()V" />
+      <node id="8340179215568812726" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215568812726" at="18,25,19,25" />
+      <scope id="8340179215568812726" at="23,47,24,36" />
+      <scope id="8340179215568812726" at="29,52,30,19" />
+      <scope id="8340179215568812726" at="18,0,21,0" />
+      <scope id="8340179215568812726" at="29,0,32,0">
+        <var name="owner" id="8340179215568812726" />
+      </scope>
+      <scope id="8340179215568812726" at="34,51,37,71" />
+      <scope id="8340179215568812726" at="22,0,26,0" />
+      <scope id="8340179215568812726" at="33,0,39,0" />
+      <unit id="8340179215568812726" at="27,0,40,0" name="jetbrains.mps.editorTest.ElseIf2_Test$TestBody" />
+      <unit id="8340179215568812726" at="13,0,41,0" name="jetbrains.mps.editorTest.ElseIf2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215568812910">
+    <file name="ElseIf3_Test.java">
+      <node id="8340179215568812910" at="18,25,19,25" concept="11" />
+      <node id="8340179215568812910" at="23,47,24,36" concept="2" />
+      <node id="8340179215568812910" at="29,52,30,19" concept="11" />
+      <node id="8340179215568812910" at="34,51,35,72" concept="2" />
+      <node id="8340179215568812928" at="35,72,36,28" concept="2" />
+      <node id="8340179215568812910" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215568812910" at="18,0,21,0" concept="1" trace="ElseIf3_Test#()V" />
+      <node id="8340179215568812910" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215568812910" at="22,0,26,0" concept="5" trace="test_ElseIf3#()V" />
+      <node id="8340179215568812910" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215568812910" at="18,25,19,25" />
+      <scope id="8340179215568812910" at="23,47,24,36" />
+      <scope id="8340179215568812910" at="29,52,30,19" />
+      <scope id="8340179215568812910" at="34,51,36,28" />
+      <scope id="8340179215568812910" at="18,0,21,0" />
+      <scope id="8340179215568812910" at="29,0,32,0">
+        <var name="owner" id="8340179215568812910" />
+      </scope>
+      <scope id="8340179215568812910" at="22,0,26,0" />
+      <scope id="8340179215568812910" at="33,0,38,0" />
+      <unit id="8340179215568812910" at="27,0,39,0" name="jetbrains.mps.editorTest.ElseIf3_Test$TestBody" />
+      <unit id="8340179215568812910" at="13,0,40,0" name="jetbrains.mps.editorTest.ElseIf3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215569243806">
+    <file name="IfAndElse3_Test.java">
+      <node id="8340179215569243806" at="18,28,19,25" concept="11" />
+      <node id="8340179215569243806" at="23,50,24,36" concept="2" />
+      <node id="8340179215569243806" at="29,52,30,19" concept="11" />
+      <node id="8340179215569243806" at="34,51,35,72" concept="2" />
+      <node id="8340179215569243824" at="35,72,36,27" concept="2" />
+      <node id="8340179215569243806" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215569243806" at="18,0,21,0" concept="1" trace="IfAndElse3_Test#()V" />
+      <node id="8340179215569243806" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215569243806" at="22,0,26,0" concept="5" trace="test_IfAndElse3#()V" />
+      <node id="8340179215569243806" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215569243806" at="18,28,19,25" />
+      <scope id="8340179215569243806" at="23,50,24,36" />
+      <scope id="8340179215569243806" at="29,52,30,19" />
+      <scope id="8340179215569243806" at="34,51,36,27" />
+      <scope id="8340179215569243806" at="18,0,21,0" />
+      <scope id="8340179215569243806" at="29,0,32,0">
+        <var name="owner" id="8340179215569243806" />
+      </scope>
+      <scope id="8340179215569243806" at="22,0,26,0" />
+      <scope id="8340179215569243806" at="33,0,38,0" />
+      <unit id="8340179215569243806" at="27,0,39,0" name="jetbrains.mps.editorTest.IfAndElse3_Test$TestBody" />
+      <unit id="8340179215569243806" at="13,0,40,0" name="jetbrains.mps.editorTest.IfAndElse3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215569244485">
+    <file name="IfAndElse4_Test.java">
+      <node id="8340179215569244485" at="18,28,19,25" concept="11" />
+      <node id="8340179215569244485" at="23,50,24,36" concept="2" />
+      <node id="8340179215569244485" at="29,52,30,19" concept="11" />
+      <node id="8340179215569244485" at="34,51,35,72" concept="2" />
+      <node id="8340179215569244497" at="35,72,36,26" concept="2" />
+      <node id="8340179215569245202" at="36,26,37,71" concept="2" />
+      <node id="8340179215569244485" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215569244485" at="18,0,21,0" concept="1" trace="IfAndElse4_Test#()V" />
+      <node id="8340179215569244485" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215569244485" at="22,0,26,0" concept="5" trace="test_IfAndElse4#()V" />
+      <node id="8340179215569244485" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215569244485" at="18,28,19,25" />
+      <scope id="8340179215569244485" at="23,50,24,36" />
+      <scope id="8340179215569244485" at="29,52,30,19" />
+      <scope id="8340179215569244485" at="18,0,21,0" />
+      <scope id="8340179215569244485" at="29,0,32,0">
+        <var name="owner" id="8340179215569244485" />
+      </scope>
+      <scope id="8340179215569244485" at="34,51,37,71" />
+      <scope id="8340179215569244485" at="22,0,26,0" />
+      <scope id="8340179215569244485" at="33,0,39,0" />
+      <unit id="8340179215569244485" at="27,0,40,0" name="jetbrains.mps.editorTest.IfAndElse4_Test$TestBody" />
+      <unit id="8340179215569244485" at="13,0,41,0" name="jetbrains.mps.editorTest.IfAndElse4_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215569389955">
+    <file name="ElseIf4_Test.java">
+      <node id="8340179215569389955" at="18,25,19,25" concept="11" />
+      <node id="8340179215569389955" at="23,47,24,36" concept="2" />
+      <node id="8340179215569389955" at="29,52,30,19" concept="11" />
+      <node id="8340179215569389955" at="34,51,35,72" concept="2" />
+      <node id="8340179215569389974" at="35,72,36,25" concept="2" />
+      <node id="8340179215569389975" at="36,25,37,71" concept="2" />
+      <node id="8340179215569389955" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215569389955" at="18,0,21,0" concept="1" trace="ElseIf4_Test#()V" />
+      <node id="8340179215569389955" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215569389955" at="22,0,26,0" concept="5" trace="test_ElseIf4#()V" />
+      <node id="8340179215569389955" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215569389955" at="18,25,19,25" />
+      <scope id="8340179215569389955" at="23,47,24,36" />
+      <scope id="8340179215569389955" at="29,52,30,19" />
+      <scope id="8340179215569389955" at="18,0,21,0" />
+      <scope id="8340179215569389955" at="29,0,32,0">
+        <var name="owner" id="8340179215569389955" />
+      </scope>
+      <scope id="8340179215569389955" at="34,51,37,71" />
+      <scope id="8340179215569389955" at="22,0,26,0" />
+      <scope id="8340179215569389955" at="33,0,39,0" />
+      <unit id="8340179215569389955" at="27,0,40,0" name="jetbrains.mps.editorTest.ElseIf4_Test$TestBody" />
+      <unit id="8340179215569389955" at="13,0,41,0" name="jetbrains.mps.editorTest.ElseIf4_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215569391129">
+    <file name="ElseIf5_Test.java">
+      <node id="8340179215569391129" at="18,25,19,25" concept="11" />
+      <node id="8340179215569391129" at="23,47,24,36" concept="2" />
+      <node id="8340179215569391129" at="29,52,30,19" concept="11" />
+      <node id="8340179215569391129" at="34,51,35,72" concept="2" />
+      <node id="8340179215569391141" at="35,72,36,27" concept="2" />
+      <node id="8340179215569391142" at="36,27,37,71" concept="2" />
+      <node id="8340179215569391129" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215569391129" at="18,0,21,0" concept="1" trace="ElseIf5_Test#()V" />
+      <node id="8340179215569391129" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215569391129" at="22,0,26,0" concept="5" trace="test_ElseIf5#()V" />
+      <node id="8340179215569391129" at="33,0,39,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215569391129" at="18,25,19,25" />
+      <scope id="8340179215569391129" at="23,47,24,36" />
+      <scope id="8340179215569391129" at="29,52,30,19" />
+      <scope id="8340179215569391129" at="18,0,21,0" />
+      <scope id="8340179215569391129" at="29,0,32,0">
+        <var name="owner" id="8340179215569391129" />
+      </scope>
+      <scope id="8340179215569391129" at="34,51,37,71" />
+      <scope id="8340179215569391129" at="22,0,26,0" />
+      <scope id="8340179215569391129" at="33,0,39,0" />
+      <unit id="8340179215569391129" at="27,0,40,0" name="jetbrains.mps.editorTest.ElseIf5_Test$TestBody" />
+      <unit id="8340179215569391129" at="13,0,41,0" name="jetbrains.mps.editorTest.ElseIf5_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8340179215569391454">
+    <file name="ElseIf6_Test.java">
+      <node id="8340179215569391454" at="18,25,19,25" concept="11" />
+      <node id="8340179215569391454" at="23,47,24,36" concept="2" />
+      <node id="8340179215569391454" at="29,52,30,19" concept="11" />
+      <node id="8340179215569391454" at="34,51,35,72" concept="2" />
+      <node id="8340179215569391466" at="35,72,36,28" concept="2" />
+      <node id="8340179215569391454" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8340179215569391454" at="18,0,21,0" concept="1" trace="ElseIf6_Test#()V" />
+      <node id="8340179215569391454" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8340179215569391454" at="22,0,26,0" concept="5" trace="test_ElseIf6#()V" />
+      <node id="8340179215569391454" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8340179215569391454" at="18,25,19,25" />
+      <scope id="8340179215569391454" at="23,47,24,36" />
+      <scope id="8340179215569391454" at="29,52,30,19" />
+      <scope id="8340179215569391454" at="34,51,36,28" />
+      <scope id="8340179215569391454" at="18,0,21,0" />
+      <scope id="8340179215569391454" at="29,0,32,0">
+        <var name="owner" id="8340179215569391454" />
+      </scope>
+      <scope id="8340179215569391454" at="22,0,26,0" />
+      <scope id="8340179215569391454" at="33,0,38,0" />
+      <unit id="8340179215569391454" at="27,0,39,0" name="jetbrains.mps.editorTest.ElseIf6_Test$TestBody" />
+      <unit id="8340179215569391454" at="13,0,40,0" name="jetbrains.mps.editorTest.ElseIf6_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8347245235043427382">
