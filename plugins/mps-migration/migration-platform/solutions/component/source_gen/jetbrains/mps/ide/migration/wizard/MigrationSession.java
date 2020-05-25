@@ -72,7 +72,7 @@ public interface MigrationSession {
   }
 
   enum MigrationStepKind {
-    RESAVE(),
+    UPDATE_VERSIONS(),
     MIGRATE()
   }
 }

@@ -31,7 +31,7 @@
       <node id="5822313438509089139" at="20,30,21,44" concept="5" />
       <node id="4815078419491651752" at="21,44,22,72" concept="5" />
       <node id="4815078419491658564" at="22,72,23,55" concept="5" />
-      <node id="8963586065233140148" at="24,17,25,72" concept="5" />
+      <node id="8963586065233140148" at="24,17,25,81" concept="5" />
       <node id="8963586065233150398" at="27,18,28,73" concept="5" />
       <node id="4930617085367837000" at="32,31,33,24" concept="12" />
       <node id="4930617085367841607" at="36,51,37,31" concept="12" />
@@ -46,7 +46,7 @@
       <node id="2885477569139444402" at="43,0,47,0" concept="10" trace="getChecker#()Ljetbrains/mps/ide/migration/MigrationChecker;" />
       <node id="4815078419491561401" at="47,0,51,0" concept="10" trace="getExecutor#()Ljetbrains/mps/ide/migration/MigrationExecutor;" />
       <node id="1244156871960204839" at="19,0,31,0" concept="3" trace="MigrationSessionImpl#(Ljetbrains/mps/project/MPSProject;Ljetbrains/mps/ide/migration/MigrationRegistry;ZZ)V" />
-      <scope id="231600208032399540" at="24,17,25,72" />
+      <scope id="231600208032399540" at="24,17,25,81" />
       <scope id="231600208032414004" at="27,18,28,73" />
       <scope id="4930617085367814498" at="32,31,33,24" />
       <scope id="4930617085367814508" at="36,51,37,31" />
@@ -2263,8 +2263,8 @@
       <node id="201922306411011647" at="104,11,105,42" concept="5" />
       <node id="201922306411187559" at="109,37,110,37" concept="5" />
       <node id="201922306411011664" at="111,11,112,44" concept="5" />
-      <node id="450661628815323365" at="114,8,115,72" concept="5" />
-      <node id="3680172630958226772" at="115,72,116,73" concept="5" />
+      <node id="450661628815323365" at="114,8,115,81" concept="5" />
+      <node id="3680172630958226772" at="115,81,116,73" concept="5" />
       <node id="2885477569139370618" at="118,33,119,23" concept="12" />
       <node id="2885477569139992534" at="121,53,122,61" concept="12" />
       <node id="4815078419491530032" at="124,42,125,23" concept="12" />

@@ -5122,7 +5122,7 @@
               <node concept="liA8E" id="p14_OrrV3C" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~Set.add(java.lang.Object)" resolve="add" />
                 <node concept="Rm8GO" id="p14_OrrWlD" role="37wK5m">
-                  <ref role="Rm8GQ" to="o8ag:cQNMA1EOlP" resolve="RESAVE" />
+                  <ref role="Rm8GQ" to="o8ag:cQNMA1EOlP" resolve="UPDATE_VERSIONS" />
                   <ref role="1Px2BO" to="o8ag:cQNMA1ENsh" resolve="MigrationSession.MigrationStepKind" />
                 </node>
               </node>
@@ -15513,7 +15513,7 @@
                   <ref role="37wK5l" to="33ny:~Set.add(java.lang.Object)" resolve="add" />
                   <node concept="Rm8GO" id="cQNMA1Fqlv" role="37wK5m">
                     <ref role="1Px2BO" to="o8ag:cQNMA1ENsh" resolve="MigrationSession.MigrationStepKind" />
-                    <ref role="Rm8GQ" to="o8ag:cQNMA1EOlP" resolve="RESAVE" />
+                    <ref role="Rm8GQ" to="o8ag:cQNMA1EOlP" resolve="UPDATE_VERSIONS" />
                   </node>
                 </node>
               </node>
