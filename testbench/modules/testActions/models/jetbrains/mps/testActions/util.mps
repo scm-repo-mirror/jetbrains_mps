@@ -15,6 +15,7 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
@@ -37,6 +38,10 @@
       <concept id="1081236700938" name="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" flags="ig" index="2YIFZL" />
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
+      </concept>
+      <concept id="1081256982272" name="jetbrains.mps.baseLanguage.structure.InstanceOfExpression" flags="nn" index="2ZW3vV">
+        <child id="1081256993305" name="classType" index="2ZW6by" />
+        <child id="1081256993304" name="leftExpression" index="2ZW6bz" />
       </concept>
       <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
         <reference id="1144433057691" name="classifier" index="1PxDUh" />
@@ -92,6 +97,9 @@
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
       <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
+      <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
+        <child id="1081516765348" name="expression" index="3fr31v" />
+      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -267,10 +275,22 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbC" id="60vmtYCOzDu" role="3clFbw">
-            <node concept="10Nm6u" id="60vmtYCOzNW" role="3uHU7w" />
-            <node concept="37vLTw" id="60vmtYCOz6k" role="3uHU7B">
-              <ref role="3cqZAo" node="1YKWOow4fO7" resolve="descriptor" />
+          <node concept="22lmx$" id="71flaoMx9C0" role="3clFbw">
+            <node concept="3fqX7Q" id="71flaoMxbiZ" role="3uHU7w">
+              <node concept="2ZW3vV" id="71flaoMxbj1" role="3fr31v">
+                <node concept="3uibUv" id="71flaoMxbj2" role="2ZW6by">
+                  <ref role="3uigEE" to="ctgy:~IdeaPluginDescriptorImpl" resolve="IdeaPluginDescriptorImpl" />
+                </node>
+                <node concept="37vLTw" id="71flaoMxbj3" role="2ZW6bz">
+                  <ref role="3cqZAo" node="1YKWOow4fO7" resolve="descriptor" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbC" id="60vmtYCOzDu" role="3uHU7B">
+              <node concept="37vLTw" id="60vmtYCOz6k" role="3uHU7B">
+                <ref role="3cqZAo" node="1YKWOow4fO7" resolve="descriptor" />
+              </node>
+              <node concept="10Nm6u" id="60vmtYCOzNW" role="3uHU7w" />
             </node>
           </node>
         </node>
@@ -305,11 +325,18 @@
             </node>
           </node>
           <node concept="2OqwBi" id="1YKWOow4fVv" role="1DdaDG">
-            <node concept="37vLTw" id="3GM_nagTBfD" role="2Oq$k0">
-              <ref role="3cqZAo" node="1YKWOow4fO7" resolve="descriptor" />
+            <node concept="1eOMI4" id="71flaoMxbL5" role="2Oq$k0">
+              <node concept="10QFUN" id="71flaoMxbUa" role="1eOMHV">
+                <node concept="3uibUv" id="71flaoMxc57" role="10QFUM">
+                  <ref role="3uigEE" to="ctgy:~IdeaPluginDescriptorImpl" resolve="IdeaPluginDescriptorImpl" />
+                </node>
+                <node concept="37vLTw" id="3GM_nagTBfD" role="10QFUP">
+                  <ref role="3cqZAo" node="1YKWOow4fO7" resolve="descriptor" />
+                </node>
+              </node>
             </node>
-            <node concept="liA8E" id="7H0x_FtPnpJ" role="2OqNvi">
-              <ref role="37wK5l" to="9ti4:~PluginDescriptor.getActionDescriptionElements()" resolve="getActionDescriptionElements" />
+            <node concept="liA8E" id="71flaoMxe5F" role="2OqNvi">
+              <ref role="37wK5l" to="ctgy:~IdeaPluginDescriptorImpl.getActionDescriptionElements()" resolve="getActionDescriptionElements" />
             </node>
           </node>
         </node>

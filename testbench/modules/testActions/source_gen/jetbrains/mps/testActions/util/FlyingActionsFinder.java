@@ -8,6 +8,7 @@ import java.util.HashSet;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
+import com.intellij.ide.plugins.IdeaPluginDescriptorImpl;
 import org.jdom.Element;
 import java.util.Arrays;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -32,10 +33,10 @@ public class FlyingActionsFinder {
     IdeaPluginDescriptor descriptor = PluginManagerCore.getPlugin(pluginId);
     Set<String> ideaCoreActions = new HashSet<String>();
 
-    if (descriptor == null) {
+    if (descriptor == null || !(descriptor instanceof IdeaPluginDescriptorImpl)) {
       return ideaCoreActions;
     }
-    for (Element element : descriptor.getActionDescriptionElements()) {
+    for (Element element : ((IdeaPluginDescriptorImpl) descriptor).getActionDescriptionElements()) {
       ideaCoreActions.add(element.getAttributeValue("id"));
     }
     return ideaCoreActions;
