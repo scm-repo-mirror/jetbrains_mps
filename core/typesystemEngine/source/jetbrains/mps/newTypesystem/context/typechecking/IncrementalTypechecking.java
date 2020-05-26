@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -209,8 +209,9 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
       return;
     }
 
-    Set<SNode> hashSet = new THashSet<>(1);
-    hashSet.add(myNodeTypeAccess.peekNode());
+    Set<SNode> hashSet = myNodeTypeAccess.peekNode() != null ?
+                         Collections.singleton(myNodeTypeAccess.peekNode()) :
+                         Collections.emptySet();
     getTypecheckingComponent().addDependentNodesTypeSystem(node, hashSet, typeAffected);
   }
 
