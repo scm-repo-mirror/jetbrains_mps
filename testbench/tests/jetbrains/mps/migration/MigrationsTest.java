@@ -104,8 +104,8 @@ public class MigrationsTest implements EnvironmentAware {
     int num = changes.size();
     Assert.assertTrue("Changes: " + num, num >= 6); //additional migrations may appear from lang design languages
     Assert.assertEquals(MigrationTask.FINISHED, changes.get(0).getLabel());
-    Assert.assertEquals(MigrationTask.STARTED, changes.get(num - 1).getLabel());
-    for (int i = 1; i < num - 1; i++) {
+    Assert.assertEquals(MigrationTask.STARTED, changes.get(num - 2).getLabel());
+    for (int i = 1; i < num - 2; i++) {
       Assert.assertTrue(changes.get(i).getName().startsWith(MigrationTask.APPLY));
     }
     // only for 193

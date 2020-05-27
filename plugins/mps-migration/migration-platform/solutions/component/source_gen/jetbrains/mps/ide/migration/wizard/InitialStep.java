@@ -129,16 +129,13 @@ public class InitialStep extends BaseStep {
         MigrationRegistry manager = mySession.getMigrationRegistry();
         final Icon migrationIcon = GlobalIconManager.getInstance().getIconFor(CONCEPTS.MigrationScript$u3);
 
-        // module resave 
-        if (mySession.getRequiredSteps().contains(MigrationSession.MigrationStepKind.RESAVE)) {
-          DefaultMutableTreeNode uroot = new DefaultMutableTreeNode("Update Module Descriptors");
-          DefaultMutableTreeNode umig = new MyTreeNode("Update Versions in Descriptors", migrationIcon);
-          uroot.add(umig);
-          root.add(uroot);
-        }
-
         // project migrations 
         final DefaultMutableTreeNode croot = new DefaultMutableTreeNode("Cleanups");
+        croot.add(new MyTreeNode("Re-save project", migrationIcon));
+        if (mySession.getRequiredSteps().contains(MigrationSession.MigrationStepKind.UPDATE_VERSIONS)) {
+          croot.add(new MyTreeNode("Update Versions in Descriptors", migrationIcon));
+        }
+
         final DefaultMutableTreeNode proot = new DefaultMutableTreeNode("Project Migrations");
         CollectionSequence.fromCollection(manager.getProjectMigrations()).visitAll(new IVisitor<ProjectMigration>() {
           public void visit(ProjectMigration it) {

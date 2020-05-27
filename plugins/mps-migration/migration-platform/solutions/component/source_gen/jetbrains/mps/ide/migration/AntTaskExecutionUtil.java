@@ -112,7 +112,7 @@ public class AntTaskExecutionUtil {
           super.executeProjectMigration(pm);
         }
       };
-      getRequiredSteps().add(MigrationSession.MigrationStepKind.RESAVE);
+      getRequiredSteps().add(MigrationSession.MigrationStepKind.UPDATE_VERSIONS);
       getRequiredSteps().add(MigrationSession.MigrationStepKind.MIGRATE);
     }
     public Project getProject() {

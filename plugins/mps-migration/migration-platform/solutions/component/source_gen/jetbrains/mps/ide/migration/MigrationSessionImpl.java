@@ -22,7 +22,7 @@ import jetbrains.mps.project.Project;
     myChecker = new MigrationCheckerImpl(mpsProject, migrationRegistry);
     myExecutor = new MigrationExecutorImpl(mpsProject);
     if (resave) {
-      getRequiredSteps().add(MigrationSession.MigrationStepKind.RESAVE);
+      getRequiredSteps().add(MigrationSession.MigrationStepKind.UPDATE_VERSIONS);
     }
     if (migrate) {
       getRequiredSteps().add(MigrationSession.MigrationStepKind.MIGRATE);
