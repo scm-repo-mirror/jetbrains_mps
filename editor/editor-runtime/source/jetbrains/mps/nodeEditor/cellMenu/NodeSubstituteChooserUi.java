@@ -15,8 +15,11 @@
  */
 package jetbrains.mps.nodeEditor.cellMenu;
 
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
+import com.intellij.openapi.keymap.KeymapUtil;
 import com.intellij.openapi.ui.popup.JBPopup;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.ui.ScrollPaneFactory;
@@ -120,6 +123,12 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
     JPanel mainPanel = new JPanel(new MyLayoutManager());
     mainPanel.add(myScrollPane, BorderLayout.CENTER);
 
+    String adText = null;
+    AnAction action = ActionManagerEx.getInstance().getAction("jetbrains.mps.ide.devkit.actions.ShowEditorMenuItemTrace_Action");
+    if (action != null) {
+      adText = "Press " + KeymapUtil.getFirstKeyboardShortcutText(action) + " to " + action.getTemplateText();
+    }
+
     myPopup = JBPopupFactory.getInstance().createComponentPopupBuilder(mainPanel, mainPanel)
                             .setResizable(true)
                             .setCancelKeyEnabled(false)
@@ -127,6 +136,7 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
                             .setCancelOnOtherWindowOpen(false)
                             .setCancelOnWindowDeactivation(true)
                             .setLocateWithinScreenBounds(false)
+                            .setAdText(adText)
                             .setCancelCallback(() -> {
                               myNodeSubstituteChooser.setVisible(false);
                               return true;
