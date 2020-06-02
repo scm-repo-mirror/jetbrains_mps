@@ -15,10 +15,11 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.logging.Logger;
+import jetbrains.mps.logging.Log4jUtil;
 import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
 import jetbrains.mps.util.containers.EmptyIterable;
 import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -44,7 +45,7 @@ import static jetbrains.mps.util.SNodeOperations.getDebugText;
  * It's not encouraged for a new code, though, and might change in future, that's why it's stated here and not in openapi.SNode
  */
 public class SNode implements org.jetbrains.mps.openapi.model.SNode {
-  private static final Logger LOG = Logger.wrap(LogManager.getLogger(SNode.class));
+  private static final Logger LOG = LogManager.getLogger(SNode.class);
   private static final String[] EMPTY_ARRAY = new String[0];
   private static final Object USER_OBJECT_LOCK = new Object();
 
@@ -228,7 +229,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
         s = String.format("(instance of %s)", getConcept().getName());
       }
     } catch (RuntimeException t) {
-      LOG.error(t, this);
+      LOG.error(Log4jUtil.createMessageObject("Failed to get string presentation of a node", this), t);
     }
     if (s == null) {
       return "???";
