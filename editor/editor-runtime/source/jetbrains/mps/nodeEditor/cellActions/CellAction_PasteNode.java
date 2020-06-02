@@ -299,6 +299,10 @@ public class CellAction_PasteNode extends AbstractCellAction {
     }
 
     if (cell instanceof EditorCell_Label && cell.getSRole() == null) {
+      if (GeometryUtil.isFirstPositionInBigCell(cell)) {
+        return cell;
+      }
+
       EditorCell result = new ChildrenCollectionFinder(cell, true, false).find();
       if (result != null) {
         return result;
