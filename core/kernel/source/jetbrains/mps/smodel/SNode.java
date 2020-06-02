@@ -225,7 +225,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
     try {
       s = findProperty(SNodeUtil.property_INamedConcept_name);
       if (s == null) {
-        s = getPresentation();
+        s = String.format("(instance of %s)", getConcept().getName());
       }
     } catch (RuntimeException t) {
       LOG.error(t, this);
