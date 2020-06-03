@@ -191,27 +191,27 @@
     </file>
     <file name="TestConcept_ConstraintsFeedback.java">
       <node id="24399255754237582" at="22,0,23,0" concept="6" trace="CONCEPT" />
-      <node id="2884486869351403844" at="27,77,28,132" concept="5" />
-      <node id="2802122285522107748" at="34,81,35,286" concept="5" />
-      <node id="2802122285522073499" at="41,79,42,151" concept="5" />
-      <node id="2884486869351523035" at="48,79,49,180" concept="5" />
+      <node id="2884486869351403844" at="27,71,28,105" concept="5" />
+      <node id="2802122285522107748" at="34,75,35,246" concept="5" />
+      <node id="2802122285522073499" at="41,73,42,124" concept="5" />
+      <node id="2884486869351523035" at="48,73,49,153" concept="5" />
       <node id="24399255754237582" at="53,0,54,0" concept="6" trace="PROVIDERS" />
       <node id="24399255754237582" at="55,44,56,19" concept="8" />
       <node id="24399255754237582" at="61,58,62,30" concept="5" />
       <node id="24399255754237582" at="55,0,58,0" concept="0" trace="TestConcept_ConstraintsFeedback#()V" />
-      <node id="2884486869351403844" at="25,0,30,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeRootContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="2802122285522107748" at="32,0,37,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeAncestorContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="2802122285522073499" at="39,0,44,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="2884486869351523035" at="46,0,51,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="2884486869351403844" at="25,0,30,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeRootContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
+      <node id="2802122285522107748" at="32,0,37,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeAncestorContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
+      <node id="2802122285522073499" at="39,0,44,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
+      <node id="2884486869351523035" at="46,0,51,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
       <node id="24399255754237582" at="59,0,64,0" concept="3" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
       <node id="2884486869351403844" at="24,0,31,0" concept="6" trace="MSGPROVIDER_WhenConstraintRuleFails_rhl8yx_a" />
       <node id="2802122285522107748" at="31,0,38,0" concept="6" trace="MSGPROVIDER_WhenConstraintRuleFails_rhl8yx_b" />
       <node id="2802122285522073499" at="38,0,45,0" concept="6" trace="MSGPROVIDER_WhenConstraintRuleFails_rhl8yx_c" />
       <node id="2884486869351523035" at="45,0,52,0" concept="6" trace="MSGPROVIDER_WhenConstraintRuleFails_rhl8yx_d" />
-      <scope id="2884486869351403844" at="27,77,28,132" />
-      <scope id="2802122285522107748" at="34,81,35,286" />
-      <scope id="2802122285522073499" at="41,79,42,151" />
-      <scope id="2884486869351523035" at="48,79,49,180" />
+      <scope id="2884486869351403844" at="27,71,28,105" />
+      <scope id="2802122285522107748" at="34,75,35,246" />
+      <scope id="2802122285522073499" at="41,73,42,124" />
+      <scope id="2884486869351523035" at="48,73,49,153" />
       <scope id="24399255754237582" at="55,44,56,19" />
       <scope id="24399255754237582" at="61,58,62,30" />
       <scope id="24399255754237582" at="55,0,58,0" />
@@ -300,15 +300,15 @@
     </file>
     <file name="TestConcept0_ConstraintsFeedback.java">
       <node id="2884486869351404316" at="20,0,21,0" concept="6" trace="CONCEPT" />
-      <node id="2884486869351404322" at="25,79,26,143" concept="5" />
+      <node id="2884486869351404322" at="25,73,26,112" concept="5" />
       <node id="2884486869351404316" at="30,0,31,0" concept="6" trace="PROVIDERS" />
       <node id="2884486869351404316" at="32,45,33,19" concept="8" />
       <node id="2884486869351404316" at="38,58,39,30" concept="5" />
       <node id="2884486869351404316" at="32,0,35,0" concept="0" trace="TestConcept0_ConstraintsFeedback#()V" />
-      <node id="2884486869351404322" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="2884486869351404322" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
       <node id="2884486869351404316" at="36,0,41,0" concept="3" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
       <node id="2884486869351404322" at="22,0,29,0" concept="6" trace="MSGPROVIDER_WhenConstraintRuleFails_12wgcr_a" />
-      <scope id="2884486869351404322" at="25,79,26,143" />
+      <scope id="2884486869351404322" at="25,73,26,112" />
       <scope id="2884486869351404316" at="32,45,33,19" />
       <scope id="2884486869351404316" at="38,58,39,30" />
       <scope id="2884486869351404316" at="32,0,35,0" />

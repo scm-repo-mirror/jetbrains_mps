@@ -11611,6 +11611,11 @@
               </node>
             </node>
           </node>
+          <node concept="1SiIV0" id="tOE0vnzun3" role="3bR37C">
+            <node concept="3bR9La" id="tOE0vnzu$a" role="1SiIV1">
+              <ref role="3bR37D" node="3qkjbZn89Td" resolve="jetbrains.mps.lang.messages" />
+            </node>
+          </node>
         </node>
         <node concept="1SiIV0" id="3qkjbZn899I" role="3bR37C">
           <node concept="3bR9La" id="3qkjbZn899J" role="1SiIV1">
@@ -37149,9 +37154,6 @@
       <property role="2eq24a" value="true" />
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
     </node>
-    <node concept="26Ea6D" id="Rq3MOfED6S" role="2hID6k">
-      <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
-    </node>
     <node concept="26EafG" id="BJYGrH08Xy" role="26Ea7d">
       <property role="26EafJ" value="lib/branding.jar" />
     </node>
@@ -37278,6 +37280,9 @@
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
     </node>
     <node concept="26Ea6D" id="Rq3MOfED7X" role="26FZ21">
+      <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
+    </node>
+    <node concept="26Ea6D" id="Rq3MOfED6S" role="2hID6k">
       <property role="26Ea6C" value="-Didea.initially.ask.config=true" />
     </node>
   </node>

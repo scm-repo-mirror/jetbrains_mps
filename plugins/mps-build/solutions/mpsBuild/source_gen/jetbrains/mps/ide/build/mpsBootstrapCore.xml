@@ -4846,6 +4846,7 @@
           <module ref="16e76fe3-9534-4def-afb7-925a169a7c0b(jetbrains.mps.lang.feedback.messages)" kind="cl" />
           <module ref="033598a4-76a9-47e1-ac89-a300c0fceab8(jetbrains.mps.lang.feedback.problem)" kind="cl" />
           <module ref="3f67a24c-17dc-4d34-9ecd-d2790f764ce0(jetbrains.mps.lang.feedback.problem#01)" kind="cl" />
+          <module ref="ad93155d-79b2-4759-b10c-55123e763903(jetbrains.mps.lang.messages)" kind="cl" />
           <module ref="9abaaae2-decf-4e97-bf80-9109e8b759cc(jetbrains.mps.lang.messages.api)" kind="cl" />
         </dependencies>
         <uses>
@@ -20796,7 +20797,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.jetbrains.mps.lang.feedback.messages#01" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-typesystem, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.feedback-api, java.compile.idea-platform, java.compile.messages-api, java.compile.messages-for-rules, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-editor, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-ui, java.compile.vfs-tracking, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.feedback, java.compile.jetbrains.mps.lang.feedback.messages, java.compile.jetbrains.mps.lang.feedback.problem, java.compile.jetbrains.mps.lang.feedback.problem#01, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.scopes.runtime, java.compile.jetbrains.mps.lang.structure, fetchDependencies">
+  <target name="java.compile.jetbrains.mps.lang.feedback.messages#01" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-typesystem, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.feedback-api, java.compile.idea-platform, java.compile.messages-api, java.compile.messages-for-rules, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-editor, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-ui, java.compile.vfs-tracking, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.feedback, java.compile.jetbrains.mps.lang.feedback.messages, java.compile.jetbrains.mps.lang.feedback.problem, java.compile.jetbrains.mps.lang.feedback.problem#01, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.messages, java.compile.jetbrains.mps.lang.scopes.runtime, java.compile.jetbrains.mps.lang.structure, fetchDependencies">
     <mkdir dir="${mps_home}/languages/languageDesign/feedback/messages/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.feedback.messages#01" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -20859,6 +20860,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem#01" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton" />
+        <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.messages" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.scopes.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />

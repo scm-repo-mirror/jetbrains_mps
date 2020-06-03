@@ -90,19 +90,19 @@
     </file>
     <file name="ChildConcept_ConstraintsFeedback.java">
       <node id="2184230058468666857" at="20,0,21,0" concept="7" trace="CONCEPT" />
-      <node id="8878450512092605112" at="25,79,26,72" concept="5" />
-      <node id="8878450512092611868" at="32,79,33,71" concept="5" />
+      <node id="8878450512092605112" at="25,73,26,72" concept="5" />
+      <node id="8878450512092611868" at="32,73,33,71" concept="5" />
       <node id="2184230058468666857" at="37,0,38,0" concept="7" trace="PROVIDERS" />
       <node id="2184230058468666857" at="39,45,40,19" concept="9" />
       <node id="2184230058468666857" at="45,58,46,30" concept="5" />
       <node id="2184230058468666857" at="39,0,42,0" concept="0" trace="ChildConcept_ConstraintsFeedback#()V" />
-      <node id="8878450512092605112" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="8878450512092611868" at="30,0,35,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="8878450512092605112" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
+      <node id="8878450512092611868" at="30,0,35,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/ContainmentContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
       <node id="2184230058468666857" at="43,0,48,0" concept="3" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
       <node id="8878450512092605112" at="22,0,29,0" concept="7" trace="MSGPROVIDER_WhenConstraintRuleFails_v9r23o_a" />
       <node id="8878450512092611868" at="29,0,36,0" concept="7" trace="MSGPROVIDER_WhenConstraintRuleFails_v9r23o_b" />
-      <scope id="8878450512092605112" at="25,79,26,72" />
-      <scope id="8878450512092611868" at="32,79,33,71" />
+      <scope id="8878450512092605112" at="25,73,26,72" />
+      <scope id="8878450512092611868" at="32,73,33,71" />
       <scope id="2184230058468666857" at="39,45,40,19" />
       <scope id="2184230058468666857" at="45,58,46,30" />
       <scope id="2184230058468666857" at="39,0,42,0" />
@@ -154,15 +154,15 @@
     </file>
     <file name="SometimesRootableConcept_ConstraintsFeedback.java">
       <node id="4999334160817514360" at="20,0,21,0" concept="7" trace="CONCEPT" />
-      <node id="4999334160817514362" at="25,77,26,81" concept="5" />
+      <node id="4999334160817514362" at="25,71,26,81" concept="5" />
       <node id="4999334160817514360" at="30,0,31,0" concept="7" trace="PROVIDERS" />
       <node id="4999334160817514360" at="32,57,33,19" concept="9" />
       <node id="4999334160817514360" at="38,58,39,30" concept="5" />
       <node id="4999334160817514360" at="32,0,35,0" concept="0" trace="SometimesRootableConcept_ConstraintsFeedback#()V" />
-      <node id="4999334160817514362" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeRootContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="4999334160817514362" at="23,0,28,0" concept="3" trace="yieldMessage#(Ljetbrains/mps/core/aspects/constraints/rules/kinds/CanBeRootContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/Msg;" />
       <node id="4999334160817514360" at="36,0,41,0" concept="3" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
       <node id="4999334160817514362" at="22,0,29,0" concept="7" trace="MSGPROVIDER_WhenConstraintRuleFails_uykiez_a" />
-      <scope id="4999334160817514362" at="25,77,26,81" />
+      <scope id="4999334160817514362" at="25,71,26,81" />
       <scope id="4999334160817514360" at="32,57,33,19" />
       <scope id="4999334160817514360" at="38,58,39,30" />
       <scope id="4999334160817514360" at="32,0,35,0" />

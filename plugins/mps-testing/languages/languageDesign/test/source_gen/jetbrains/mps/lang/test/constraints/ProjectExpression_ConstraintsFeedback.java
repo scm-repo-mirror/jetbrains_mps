@@ -22,7 +22,7 @@ public final class ProjectExpression_ConstraintsFeedback extends BaseFeedbackDes
   private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_l5xegm_a = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(ProjectExpression_ConstraintRules.Rule_unnamed_5silxy_b0.ID_unnamed_5silxy_b0)) {
     @NotNull
     @Override
-    public MessageProvider.StringMsg yieldMessage(ContainmentContext context) {
+    public MessageProvider.Msg yieldMessage(ContainmentContext context) {
       return new MessageProvider.StringMsg("There is no MPS 'project' in this kind of ITestable node");
     }
   };

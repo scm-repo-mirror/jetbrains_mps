@@ -3066,7 +3066,7 @@
                 <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
               </node>
               <node concept="3uibUv" id="cG" role="3clF45">
-                <ref role="3uigEE" to="j809:~MessageProvider$StringMsg" resolve="MessageProvider.StringMsg" />
+                <ref role="3uigEE" to="j809:~MessageProvider$Msg" resolve="MessageProvider.Msg" />
               </node>
               <node concept="37vLTG" id="cH" role="3clF46">
                 <property role="TrG5h" value="context" />
