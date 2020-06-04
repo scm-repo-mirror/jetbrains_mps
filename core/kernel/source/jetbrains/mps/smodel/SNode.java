@@ -27,6 +27,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
@@ -696,6 +697,12 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   }
 
   @Override
+  public void setReference(@NotNull SReferenceLink role, ResolveInfo resolveInfo) {
+    String ri = resolveInfo instanceof ResolveInfo.S ? ((ResolveInfo.S) resolveInfo).getValue() : null;
+    setReference(role, DynamicReference.createDynamicReference(role, this, null, ri));
+  }
+
+  @Override
   public SNode getReferenceTarget(@NotNull SReferenceLink role) {
     assertCanRead();
 
@@ -753,8 +760,13 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
     myOwner.fireReferenceChange(this, role, toRemove, toAdd);
   }
 
+  @Override
+  public void dropReference(@NotNull SReferenceLink role) {
+    setReference(role, (org.jetbrains.mps.openapi.model.SReference) null);
+  }
+
   public void insertChildBefore(@NotNull final SContainmentLink role, @NotNull org.jetbrains.mps.openapi.model.SNode child,
-      @Nullable final org.jetbrains.mps.openapi.model.SNode anchor) {
+                                @Nullable final org.jetbrains.mps.openapi.model.SNode anchor) {
     assertCanChange();
 
     final SNode schild = (SNode) child;

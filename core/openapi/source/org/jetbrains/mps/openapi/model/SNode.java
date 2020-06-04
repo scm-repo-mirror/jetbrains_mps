@@ -221,9 +221,21 @@ public interface SNode {
   // refs
 
   /**
-   * Sets a reference of the given role to a particular node
+   * Sets a reference of the given role to a particular node. {@code null} target effectively removes the reference
    */
   void setReferenceTarget(@NotNull SReferenceLink role, @Nullable SNode target);
+
+  /**
+   * Establish a 'dynamic' reference, the one with target determined by external scope based on {@code resolveInfo} additional information.
+   * FIXME dynamic references are generally not persisted, don't use them in models that are serialized using regular MPS persistence
+   *
+   * At the moment, we support {@code String} auxiliary resolution information, see {@link ResolveInfo#of(String)}
+   *
+   * @since 2020.2
+   * @param role meta-object that identifies association relation.
+   * @param resolveInfo auxiliary information for use to find proper target in a scope
+   */
+  void setReference(@NotNull SReferenceLink role, ResolveInfo resolveInfo);
 
   /**
    * Null means the reference has not been set or was set to null. It's impossible to the distinguish the two cases.
@@ -249,6 +261,12 @@ public interface SNode {
   void setReference(@NotNull SReferenceLink role, @Nullable SReference reference);
   // FIXME replace with setReference(SReference) or setReference(SReferenceLink link, SNode source, SNode target).
   // It's stupid to have explicit role along with SReference.getLink() (which not necessarily match)
+
+  /**
+   * Clears association between this node and whatever target node associated with the specified role
+   * @param role association meta-object
+   */
+  void dropReference(@NotNull SReferenceLink role);
 
   /**
    * Retrieves all SReferences from the node.

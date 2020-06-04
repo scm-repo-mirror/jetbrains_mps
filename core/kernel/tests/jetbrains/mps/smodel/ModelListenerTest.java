@@ -508,7 +508,7 @@ public class ModelListenerTest {
     myErrors.checkThat(cl2.myChangedReferences.contains(ourRef.getRoleName()), equalTo(true));
     // delete, with setReference()
     cl1.reset(); cl2.reset();
-    r2c1.setReference(ourRef, null);
+    r2c1.setReference(ourRef, (SReference) null);
     myErrors.checkThat(cl1.myAddedRef.size(), equalTo(0));
     myErrors.checkThat(cl1.myRemovedRef.size(), equalTo(1));
     myErrors.checkThat(cl2.myChangedReferences.size(), equalTo(1));
