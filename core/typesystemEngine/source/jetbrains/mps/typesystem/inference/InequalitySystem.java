@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,15 @@ import jetbrains.mps.newTypesystem.SubTypingManagerNew;
 import jetbrains.mps.newTypesystem.SubtypingUtil;
 import jetbrains.mps.newTypesystem.state.Equations;
 import jetbrains.mps.newTypesystem.state.State;
-import jetbrains.mps.smodel.StaticReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class InequalitySystem {
   private SNode myHoleType;
@@ -199,7 +203,7 @@ public class InequalitySystem {
         SNode target = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref);
         SNode restored = mapping.get(target);
         if (restored != null) {
-          node.setReference(ref.getRole(), new StaticReference(ref.getRole(), ref.getSourceNode(), restored));
+          node.setReferenceTarget(ref.getLink(), restored);
         }
       }
     }

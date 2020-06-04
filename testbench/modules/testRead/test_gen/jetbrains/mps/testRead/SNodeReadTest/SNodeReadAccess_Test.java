@@ -18,6 +18,7 @@ import junit.framework.Assert;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.NodeReadAccessCasterInEditor;
 import java.util.Map;
 import java.util.HashMap;
@@ -32,7 +33,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.beans.XMLDecoder;
 import java.util.HashSet;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
@@ -148,14 +148,15 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
       addNodeById("4195712261513743410");
       SNode sNode = SNodeOperations.cast(getNodeById("8150353254540236424"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xfc092b6b77L, "BlockStatement")));
       SNode child = SNodeOperations.cast(getNodeById("8150353254540236551"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7f0L, "LocalVariableDeclarationStatement")));
+      final SContainmentLink containmentLink = child.getContainmentLink();
       child.getParent().removeChild(child);
 
       StatCountNodeReadAccessInEditorListener listener = new StatCountNodeReadAccessInEditorListener(sNode);
       NodeReadAccessCasterInEditor.setCellBuildNodeReadAccessListener(listener);
 
-      sNode.addChild("", child);
+      sNode.addChild(containmentLink, child);
 
-      this.assertMethod("public void jetbrains.mps.smodel.SNode.addChild(java.lang.String,org.jetbrains.mps.openapi.model.SNode)", listener.getResults().o1);
+      this.assertMethod("public void jetbrains.mps.smodel.SNode.addChild(org.jetbrains.mps.openapi.language.SContainmentLink,org.jetbrains.mps.openapi.model.SNode)", listener.getResults().o1);
     }
     public void test_getChildren() throws Exception {
       addNodeById("8150353254540236423");

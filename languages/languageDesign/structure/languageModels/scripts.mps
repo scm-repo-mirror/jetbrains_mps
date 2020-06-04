@@ -540,16 +540,15 @@
                     <node concept="_YI3z" id="5gLR1OH$cb6" role="2JrQYb" />
                   </node>
                   <node concept="liA8E" id="5gLR1OH$cbp" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SNode.setReference(java.lang.String,org.jetbrains.mps.openapi.model.SReference)" resolve="setReference" />
+                    <ref role="37wK5l" to="mhbf:~SNode.dropReference(org.jetbrains.mps.openapi.language.SReferenceLink)" resolve="dropReference" />
                     <node concept="2OqwBi" id="2mTpoiCwwHH" role="37wK5m">
-                      <node concept="liA8E" id="2mTpoiCwxJA" role="2OqNvi">
-                        <ref role="37wK5l" to="mhbf:~SReference.getRole()" resolve="getRole" />
+                      <node concept="liA8E" id="7MXN6Bu$9AI" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~SReference.getLink()" resolve="getLink" />
                       </node>
                       <node concept="2GrUjf" id="5gLR1OH$cco" role="2Oq$k0">
                         <ref role="2Gs0qQ" node="5gLR1OH$cc0" resolve="ref" />
                       </node>
                     </node>
-                    <node concept="10Nm6u" id="2mTpoiCwxMP" role="37wK5m" />
                   </node>
                 </node>
               </node>

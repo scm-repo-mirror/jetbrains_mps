@@ -19,6 +19,7 @@ import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -73,7 +74,16 @@ public class RemoveUITestPropertyFromTestInfo extends MigrationScriptBase {
             public SNode compute() {
               return new _FunctionTypes._return_P1_E0<SNode, SNode>() {
                 public SNode invoke(SNode node) {
-                  node.setProperty("uiTest", null);
+                  SProperty uiTestProp = null;
+                  for (SProperty p : Sequence.fromIterable(node.getProperties())) {
+                    if ("uiTest".equals(p.getName())) {
+                      uiTestProp = p;
+                      break;
+                    }
+                  }
+                  if (uiTestProp != null) {
+                    node.setProperty(uiTestProp, null);
+                  }
                   return node;
                 }
               }.invoke(nodeToMigrate);

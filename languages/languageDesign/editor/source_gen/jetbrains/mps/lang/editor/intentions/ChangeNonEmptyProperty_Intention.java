@@ -14,13 +14,14 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.util.SNodeOperations;
-import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
-import org.jetbrains.mps.openapi.model.SReference;
+import java.util.ArrayList;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -61,18 +62,19 @@ public final class ChangeNonEmptyProperty_Intention extends AbstractIntentionDes
       SNode property = SNodeFactoryOperations.createNewNode(CONCEPTS.CellModel_Property$iE, null);
       SLinkOperations.setTarget(property, LINKS.relationDeclaration$wbRV, SLinkOperations.getTarget(node, LINKS.relationDeclaration$wbRV));
       SLinkOperations.setTarget(node, LINKS.relationDeclaration$wbRV, null);
-      for (SNode child : ListSequence.fromList(SNodeOperations.getChildren(node))) {
-        String role = child.getRoleInParent();
-        node.removeChild(child);
+      List<SNode> copy = ListSequence.fromListWithValues(new ArrayList<SNode>(), SNodeOperations.getChildren(node));
+      for (SNode child : ListSequence.fromList(copy)) {
+        SContainmentLink role = SNodeOperations.getContainingLink(child);
+        SNodeOperations.deleteNode(child);
         property.addChild(role, child);
       }
-      for (Map.Entry<String, String> propertyEntry : SetSequence.fromSet(SNodeOperations.getProperties(node).entrySet())) {
-        SNodeAccessUtil.setProperty(property, propertyEntry.getKey(), propertyEntry.getValue());
+      for (SProperty p : Sequence.fromIterable(node.getProperties())) {
+        property.setProperty(p, node.getProperty(p));
       }
       for (SReference reference : Sequence.fromIterable(node.getReferences())) {
-        property.setReference(reference.getRole(), reference);
+        property.setReferenceTarget(reference.getLink(), reference.getTargetNode());
       }
-      jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.replaceWithAnother(node, property);
+      SNodeOperations.replaceWithAnother(node, property);
     }
     @Override
     public IntentionDescriptor getDescriptor() {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package org.jetbrains.mps.openapi.model;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -320,21 +321,24 @@ public interface SNode {
   String getRoleInParent();
 
   /**
-   * @deprecated use hasProperty(SProperty)
+   * @deprecated use hasProperty(SProperty), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   boolean hasProperty(String propertyName);
 
   /**
-   * @deprecated use getProperty(SProperty)
+   * @deprecated use getProperty(SProperty), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   String getProperty(String propertyName);
 
   /**
-   * @deprecated use setProperty(SProperty)
+   * @deprecated use setProperty(SProperty), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   void setProperty(String propertyName, String propertyValue);
 
   /**
@@ -344,46 +348,53 @@ public interface SNode {
   Iterable<String> getPropertyNames();
 
   /**
-   * @deprecated use setReferenceTarget(SReferenceLink, SNode)
+   * @deprecated use setReferenceTarget(SReferenceLink, SNode), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   void setReferenceTarget(String role, @Nullable SNode target);
 
   /**
-   * @deprecated use getReferenceTarget(SReferenceLink)
+   * @deprecated use getReferenceTarget(SReferenceLink), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   SNode getReferenceTarget(String role);
 
   // SReferences
 
   /**
-   * @deprecated use getReference(SReferenceLink)
+   * @deprecated use getReference(SReferenceLink), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   SReference getReference(String role);
 
   /**
-   * @deprecated use setReference(SReferenceLink, SReference)
+   * @deprecated use setReference(SReferenceLink, SReference), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   void setReference(String role, SReference reference);
 
   /**
-   * @deprecated use insertChildBefore(SContainmentLink, SNode, SNode)
+   * @deprecated use insertChildBefore(SContainmentLink, SNode, SNode), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   void insertChildBefore(String role, SNode child, @Nullable SNode anchor);
 
   /**
-   * @deprecated use addChild(SContainmentLink, SNode)
+   * @deprecated use addChild(SContainmentLink, SNode), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   void addChild(String role, SNode child);
 
   /**
-   * @deprecated use getChildren(SContainmentLink)
+   * @deprecated use getChildren(SContainmentLink), or {@code jetbrains.mps.smodel.SNodeLegacy} for compatibility code
    */
   @Deprecated
+  @ToRemove(version = 2020.2)
   Iterable<? extends SNode> getChildren(String role);
 }

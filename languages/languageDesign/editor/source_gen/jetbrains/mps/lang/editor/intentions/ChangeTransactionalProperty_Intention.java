@@ -15,17 +15,17 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
-import org.jetbrains.mps.openapi.model.SReference;
+import java.util.ArrayList;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ChangeTransactionalProperty_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -63,16 +63,17 @@ public final class ChangeTransactionalProperty_Intention extends AbstractIntenti
       SLinkOperations.setTarget(transactional, LINKS.relationDeclaration$wbRV, SLinkOperations.getTarget(node, LINKS.property$p2l_));
       SLinkOperations.setTarget(node, LINKS.property$p2l_, null);
       SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.handlerBlock$XyaY));
-      for (SNode child : ListSequence.fromList(jetbrains.mps.util.SNodeOperations.getChildren(node))) {
-        String role = child.getRoleInParent();
-        node.removeChild(child);
+      List<SNode> copy = ListSequence.fromListWithValues(new ArrayList<SNode>(), SNodeOperations.getChildren(node));
+      for (SNode child : ListSequence.fromList(copy)) {
+        SContainmentLink role = SNodeOperations.getContainingLink(child);
+        SNodeOperations.deleteNode(child);
         transactional.addChild(role, child);
       }
-      for (Map.Entry<String, String> propertyEntry : SetSequence.fromSet(jetbrains.mps.util.SNodeOperations.getProperties(node).entrySet())) {
-        SNodeAccessUtil.setProperty(transactional, propertyEntry.getKey(), propertyEntry.getValue());
+      for (SProperty p : Sequence.fromIterable(node.getProperties())) {
+        transactional.setProperty(p, node.getProperty(p));
       }
       for (SReference reference : Sequence.fromIterable(node.getReferences())) {
-        transactional.setReference(reference.getRole(), reference);
+        transactional.setReferenceTarget(reference.getLink(), reference.getTargetNode());
       }
       SNodeOperations.replaceWithAnother(node, transactional);
     }

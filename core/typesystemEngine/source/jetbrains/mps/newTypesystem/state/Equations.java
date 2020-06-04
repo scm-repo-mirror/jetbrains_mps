@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystemEngine.util.LatticeUtil;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.Pair;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
@@ -223,8 +224,9 @@ public class Equations {
           newNode = convertReferentVariable(node, reference.getRole(), newNode);
         }
         if (newNode != oldNode) {
-          String role = reference.getRole();
-          node.setReference(role, null);
+          SReferenceLink role = reference.getLink();
+          // no idea why set null/set newNode via constraints, not just set newNode.
+          node.dropReference(role);
           SNodeAccessUtil.setReferenceTarget(node, role, newNode);
         }
       }

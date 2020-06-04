@@ -21,7 +21,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.annotations.Nullable;
+import java.util.Collections;
 import jetbrains.mps.smodel.CopyUtil;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.smodel.ModelDependencyUpdate;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.smodel.ModelAccessHelper;
@@ -109,16 +111,15 @@ public class RefactoringContext {
     return result;
   }
   public SNode moveNodeToNode(SNode sourceNode, String role, SNode targetNode) {
-    List<SNode> nodes = new ArrayList<SNode>();
-    nodes.add(sourceNode);
-    List<SNode> result = moveNodesToNode(nodes, role, targetNode);
+    List<SNode> result = moveNodesToNode(Collections.singletonList(sourceNode), role, targetNode);
     return result.get(0);
   }
   public List<SNode> moveNodesToNode(List<SNode> sourceNodes, String role, SNode targetNode) {
     HashMap<SNode, SNode> mapping = new HashMap<SNode, SNode>();
     List<SNode> targetNodes = CopyUtil.copy(sourceNodes, mapping);
+    SNodeLegacy tnLegacy = new SNodeLegacy(targetNode);
     for (SNode node : targetNodes) {
-      targetNode.addChild(role, node);
+      tnLegacy.insertChildBefore(role, node, null);
     }
     SNode oldParent = null;
     for (SNode node : sourceNodes) {
@@ -133,12 +134,14 @@ public class RefactoringContext {
     }
     return targetNodes;
   }
+
   public SNode moveNodeToModel(SNode sourceNode, SModel targetModel) {
     List<SNode> nodes = new ArrayList<SNode>();
     nodes.add(sourceNode);
     List<SNode> result = moveNodesToModel(nodes, targetModel);
     return result.get(0);
   }
+
   public List<SNode> moveNodesToModel(List<SNode> sourceNodes, SModel targetModel) {
     if (sourceNodes.isEmpty()) {
       return new ArrayList<SNode>();

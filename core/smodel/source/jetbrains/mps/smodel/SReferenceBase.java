@@ -95,6 +95,7 @@ public abstract class SReferenceBase extends SReference {
   protected String getResolveInfo(SNode immatureNode) {
     // FIXME need a better approach to keep names of predefined attributes;
     // however, a dependency to generated kernel module is an overkill for the sake of few strings
+    // XXX move both smodel.SNode and SNodeLegacy to [smodel], why it's in [kernel]?
     String value = immatureNode.getProperty("resolveInfo");
     if (value != null) {
       return value;

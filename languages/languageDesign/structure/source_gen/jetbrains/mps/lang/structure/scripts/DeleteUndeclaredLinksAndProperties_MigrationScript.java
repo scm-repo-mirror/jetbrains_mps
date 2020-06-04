@@ -111,7 +111,7 @@ public final class DeleteUndeclaredLinksAndProperties_MigrationScript extends Ba
             return !(SLinkOperations.getRefLink(it).isValid());
           }
         }).toGenericArray(SReference.class)) {
-          node.setReference(ref.getRole(), null);
+          node.dropReference(ref.getLink());
         }
       }
       @Override

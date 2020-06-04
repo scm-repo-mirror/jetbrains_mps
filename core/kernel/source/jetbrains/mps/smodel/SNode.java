@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.logging.Log4jUtil;
-import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
 import jetbrains.mps.util.containers.EmptyIterable;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -44,6 +43,8 @@ import static jetbrains.mps.util.SNodeOperations.getDebugText;
 /**
  * As a tribute to legacy code, we do allow access to constant and meta-info objects of a node without read access.
  * It's not encouraged for a new code, though, and might change in future, that's why it's stated here and not in openapi.SNode
+ *
+ * How come this one is in [kernel], not [smodel]?
  */
 public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   private static final Logger LOG = LogManager.getLogger(SNode.class);
@@ -853,20 +854,19 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   @Deprecated
   @Override
   public final boolean hasProperty(String propertyName) {
-    return hasProperty(convertToProp(propertyName));
+    return new SNodeLegacy(this).hasProperty(propertyName);
   }
 
   @Deprecated
   @Override
   public final String getProperty(String propertyName) {
-    return getProperty(convertToProp(propertyName));
+    return new SNodeLegacy(this).getProperty(propertyName);
   }
 
   @Deprecated
   @Override
   public void setProperty(String propertyName, String propertyValue) {
-    SProperty prop = convertToProp(propertyName);
-    setProperty(prop, propertyValue);
+    new SNodeLegacy(this).setProperty(propertyName, propertyValue);
   }
 
   @Deprecated
@@ -882,58 +882,43 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   @Deprecated
   @Override
   public void setReferenceTarget(String role, @Nullable org.jetbrains.mps.openapi.model.SNode target) {
-    setReferenceTarget(convertToRef(role), target);
+    new SNodeLegacy(this).setReferenceTarget(role, target);
   }
 
   @Deprecated
   @Override
   public SNode getReferenceTarget(String role) {
-    return getReferenceTarget(convertToRef(role));
+    return new SNodeLegacy(this).getReferenceTarget(role);
   }
 
   @Deprecated
   @Override
   public SReference getReference(String role) {
-    return getReference(convertToRef(role));
+    return new SNodeLegacy(this).getReference(role);
   }
 
   @Deprecated
   @Override
   public void setReference(String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
-    setReference(convertToRef(role), reference);
+    new SNodeLegacy(this).setReference(role, reference);
   }
 
   @Deprecated
   public void insertChildBefore(@NotNull String role, org.jetbrains.mps.openapi.model.SNode child,
       @Nullable final org.jetbrains.mps.openapi.model.SNode anchor) {
-    insertChildBefore(convertToLink(role), child, anchor);
+    new SNodeLegacy(this).insertChildBefore(role, child, anchor);
   }
 
   @Deprecated
   @Override
   public void addChild(String role, org.jetbrains.mps.openapi.model.SNode child) {
-    insertChildBefore(role, child, null);
+    new SNodeLegacy(this).insertChildBefore(role, child, null);
   }
 
   @Deprecated
   @Override
   @NotNull
   public List<SNode> getChildren(String role) {
-    return getChildren(convertToLink(role));
-  }
-
-  @NotNull
-  private SContainmentLink convertToLink(String role) {
-    return ((ConceptMetaInfoConverter) myConcept).convertAggregation(role);
-  }
-
-  @NotNull
-  private SReferenceLink convertToRef(String role) {
-    return ((ConceptMetaInfoConverter) myConcept).convertAssociation(role);
-  }
-
-  @NotNull
-  private SProperty convertToProp(String name) {
-    return ((ConceptMetaInfoConverter) myConcept).convertProperty(name);
+    return new SNodeLegacy(this).getChildren(role);
   }
 }
