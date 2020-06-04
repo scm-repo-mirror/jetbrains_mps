@@ -22,11 +22,11 @@ import jetbrains.mps.smodel.SModelLegacy;
 import jetbrains.mps.util.xml.BreakParseSAXException;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.SNodeId;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.vcspersistence.SNodeFactory;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.apache.log4j.Level;
-import jetbrains.mps.smodel.StaticReference;
 
 @GeneratedClass(node = "r:b11ed8aa-3bfd-4e32-9f42-fbe92f0be58c(jetbrains.mps.smodel.persistence.def.v7)/286176397450364062", model = "r:b11ed8aa-3bfd-4e32-9f42-fbe92f0be58c(jetbrains.mps.smodel.persistence.def.v7)")
 public class ModelReader7Handler extends XMLSAXHandler<ModelLoadResult> {
@@ -348,7 +348,7 @@ public class ModelReader7Handler extends XMLSAXHandler<ModelLoadResult> {
       SNode child = (SNode) value;
       if (child != null) {
         String role = (String) child.getUserObject("role");
-        result.addChild(role, child);
+        new SNodeLegacy(result).insertChildBefore(role, child, null);
         child.putUserObject("role", null);
       }
     }
@@ -432,15 +432,14 @@ public class ModelReader7Handler extends XMLSAXHandler<ModelLoadResult> {
         }
         return;
       }
-      StaticReference ref = new StaticReference(my_helperField.readRole(child[0]), result, ptr.getModelReference(), ptr.getNodeId(), child[2]);
 
-      result.setReference(ref.getRole(), ref);
+      new SNodeLegacy(result).setReference(my_helperField.readRole(child[0]), ptr.getModelReference(), ptr.getNodeId(), child[2]);
     }
     private void handleChild_286176397450364333(Object resultObject, Object value) throws SAXException {
       SNode result = (SNode) resultObject;
       SNode child = (SNode) value;
       String role = (String) child.getUserObject("role");
-      result.addChild((role), child);
+      new SNodeLegacy(result).insertChildBefore(role, child, null);
       child.putUserObject("role", null);
     }
   }

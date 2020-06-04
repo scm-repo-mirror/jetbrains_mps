@@ -27,10 +27,10 @@ import jetbrains.mps.smodel.runtime.ConceptKind;
 import jetbrains.mps.smodel.runtime.StaticScope;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.smodel.InterfaceSNode;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.apache.log4j.Level;
-import jetbrains.mps.smodel.StaticReference;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 
 @GeneratedClass(node = "r:050eb90d-d917-47d4-8d74-cc37a63452a4(jetbrains.mps.smodel.persistence.def.v8)/286176397450364062", model = "r:050eb90d-d917-47d4-8d74-cc37a63452a4(jetbrains.mps.smodel.persistence.def.v8)")
@@ -417,7 +417,7 @@ public class ModelReader8Handler extends XMLSAXHandler<ModelLoadResult> {
       String[] child = (String[]) value;
       if (child[1] != null) {
         String pname = my_helperField.readName(child[0]);
-        result.setProperty(pname, child[1]);
+        new SNodeLegacy(result).setProperty(pname, child[1]);
       }
     }
     private void handleChild_286176397450364288(Object resultObject, Object value) throws SAXException {
@@ -431,15 +431,14 @@ public class ModelReader8Handler extends XMLSAXHandler<ModelLoadResult> {
         }
         return;
       }
-      StaticReference ref = new StaticReference(my_helperField.readRole(child[0]), result, ptr.getModelReference(), ptr.getNodeId(), child[2]);
-      result.setReference(ref.getRole(), ref);
+      new SNodeLegacy(result).setReference(my_helperField.readRole(child[0]), ptr.getModelReference(), ptr.getNodeId(), child[2]);
     }
     private void handleChild_286176397450364333(Object resultObject, Object value) throws SAXException {
       SNode result = (SNode) resultObject;
       SNode child = (SNode) value;
       if (child != null) {
         String role = (String) child.getUserObject("role");
-        result.addChild(role, child);
+        new SNodeLegacy(result).insertChildBefore(role, child, null);
         child.putUserObject("role", null);
       }
     }
@@ -451,7 +450,7 @@ public class ModelReader8Handler extends XMLSAXHandler<ModelLoadResult> {
         String stubConcept = my_helperField.getStubConceptQualifiedName(child._2());
         if (stubConcept != null) {
           jetbrains.mps.smodel.SNode childNode = SNodeFactory.newRegular(stubConcept);
-          result.addChild(child._0(), childNode);
+          new SNodeLegacy(result).insertChildBefore(child._0(), childNode, null);
           return;
         }
       }

@@ -22,6 +22,8 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.model.SNodeId;
 
 import java.util.List;
 
@@ -85,6 +87,18 @@ public final class SNodeLegacy {
 
   public void setReference(String role, @Nullable org.jetbrains.mps.openapi.model.SReference reference) {
     myNode.setReference(convertToRef(role), reference);
+  }
+
+  public void setReference(String role, SModelReference targetModel, String resolveInfo) {
+    final String modelName = targetModel == null ? null : targetModel.getModelName(); // XXX perhaps, shall be getName().getLongName(). Have to check
+    // ClassifierScope (and others?) how it deals with the dotted name. At the moment, however, there's no use for model name, hence it's all the same what to pass in there
+    final SReference ref = DynamicReference.createDynamicReference(convertToRef(role), myNode, modelName, resolveInfo);
+    myNode.setReference(ref.getLink(), ref);
+  }
+
+  public void setReference(String role, SModelReference targetModel, SNodeId targetNode, String resolveInfo) {
+    final SReference ref = SReference.create(convertToRef(role), myNode, targetModel, targetNode, resolveInfo);
+    myNode.setReference(ref.getLink(), ref);
   }
 
   public void insertChildBefore(@NotNull String role, org.jetbrains.mps.openapi.model.SNode child,

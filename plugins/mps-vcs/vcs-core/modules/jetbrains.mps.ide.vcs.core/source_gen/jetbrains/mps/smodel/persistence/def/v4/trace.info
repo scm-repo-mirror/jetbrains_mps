@@ -112,140 +112,141 @@
   </root>
   <root nodeRef="r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)/453110257780703469">
     <file name="ReferencePersister4.java">
-      <node id="453110257780703516" at="25,0,26,0" concept="12" trace="LOG" />
-      <node id="453110257780703523" at="26,0,27,0" concept="4" trace="mySourceNode" />
-      <node id="453110257780703527" at="27,0,28,0" concept="4" trace="myRole" />
-      <node id="453110257780703531" at="28,0,29,0" concept="4" trace="myTargetId" />
-      <node id="453110257780703535" at="29,0,30,0" concept="4" trace="myResolveInfo" />
-      <node id="453110257780703539" at="30,0,31,0" concept="4" trace="myImportedModelInfo" />
-      <node id="453110257780703544" at="31,0,32,0" concept="4" trace="myUseUIDs" />
-      <node id="453110257780703548" at="32,0,33,0" concept="4" trace="myNotImported" />
-      <node id="6277474553412668294" at="34,82,35,231" concept="3" />
-      <node id="453110257780703607" at="37,117,38,49" concept="9" />
-      <node id="453110257780703614" at="38,49,39,72" concept="9" />
-      <node id="453110257780703621" at="39,72,40,29" concept="3" />
-      <node id="453110257780703627" at="40,29,41,35" concept="3" />
-      <node id="453110257780703633" at="41,35,42,23" concept="3" />
-      <node id="453110257780703646" at="43,34,44,98" concept="9" />
-      <node id="453110257780703651" at="44,98,45,52" concept="3" />
-      <node id="453110257780703657" at="45,52,46,68" concept="3" />
-      <node id="453110257780703663" at="46,68,47,56" concept="3" />
-      <node id="453110257780703669" at="48,5,49,37" concept="3" />
-      <node id="453110257780703684" at="51,99,52,90" concept="9" />
-      <node id="453110257780703688" at="52,90,53,10" concept="9" />
-      <node id="453110257780703694" at="54,18,55,39" concept="3" />
-      <node id="453110257780703701" at="56,12,57,39" concept="3" />
-      <node id="453110257780703712" at="59,16,60,84" concept="3" />
-      <node id="453110257780703719" at="60,84,61,64" concept="9" />
-      <node id="453110257780703727" at="62,31,63,53" concept="3" />
-      <node id="453110257780703731" at="63,53,64,91" concept="3" />
-      <node id="453110257780703739" at="65,7,66,78" concept="3" />
-      <node id="453110257780703748" at="67,12,68,57" concept="3" />
-      <node id="453110257780703752" at="68,57,69,61" concept="3" />
-      <node id="453110257780703756" at="70,5,71,37" concept="10" />
-      <node id="453110257780703763" at="74,32,75,24" concept="10" />
-      <node id="453110257780703770" at="78,27,79,18" concept="10" />
-      <node id="453110257780703777" at="82,31,83,22" concept="10" />
-      <node id="453110257780703784" at="86,34,87,25" concept="10" />
-      <node id="453110257780703791" at="90,37,91,16" concept="10" />
-      <node id="453110257780703802" at="93,122,94,66" concept="9" />
-      <node id="453110257780703815" at="96,48,97,94" concept="3" />
-      <node id="453110257780703833" at="101,26,102,84" concept="3" />
-      <node id="453110257780703840" at="103,14,104,78" concept="3" />
-      <node id="453110257780703852" at="106,43,107,192" concept="3" />
-      <node id="453110257780703872" at="107,192,108,20" concept="10" />
-      <node id="453110257780703882" at="111,37,112,159" concept="3" />
-      <node id="453110257780703898" at="112,159,113,18" concept="10" />
-      <node id="453110257780703909" at="115,41,116,119" concept="10" />
-      <node id="453110257780703921" at="117,5,118,156" concept="10" />
+      <node id="453110257780703516" at="24,0,25,0" concept="12" trace="LOG" />
+      <node id="453110257780703523" at="25,0,26,0" concept="4" trace="mySourceNode" />
+      <node id="453110257780703527" at="26,0,27,0" concept="4" trace="myRole" />
+      <node id="453110257780703531" at="27,0,28,0" concept="4" trace="myTargetId" />
+      <node id="453110257780703535" at="28,0,29,0" concept="4" trace="myResolveInfo" />
+      <node id="453110257780703539" at="29,0,30,0" concept="4" trace="myImportedModelInfo" />
+      <node id="453110257780703544" at="30,0,31,0" concept="4" trace="myUseUIDs" />
+      <node id="453110257780703548" at="31,0,32,0" concept="4" trace="myNotImported" />
+      <node id="6277474553412668294" at="33,82,34,231" concept="3" />
+      <node id="453110257780703607" at="36,117,37,49" concept="9" />
+      <node id="453110257780703614" at="37,49,38,72" concept="9" />
+      <node id="453110257780703621" at="38,72,39,29" concept="3" />
+      <node id="453110257780703627" at="39,29,40,35" concept="3" />
+      <node id="453110257780703633" at="40,35,41,23" concept="3" />
+      <node id="453110257780703646" at="42,34,43,98" concept="9" />
+      <node id="453110257780703651" at="43,98,44,52" concept="3" />
+      <node id="453110257780703657" at="44,52,45,68" concept="3" />
+      <node id="453110257780703663" at="45,68,46,56" concept="3" />
+      <node id="453110257780703669" at="47,5,48,37" concept="3" />
+      <node id="453110257780703684" at="50,99,51,90" concept="9" />
+      <node id="453110257780703688" at="51,90,52,10" concept="9" />
+      <node id="453110257780703694" at="53,18,54,39" concept="3" />
+      <node id="453110257780703701" at="55,12,56,39" concept="3" />
+      <node id="453110257780703712" at="58,16,59,84" concept="3" />
+      <node id="453110257780703719" at="59,84,60,64" concept="9" />
+      <node id="453110257780703727" at="61,31,62,53" concept="3" />
+      <node id="453110257780703731" at="62,53,63,91" concept="3" />
+      <node id="453110257780703739" at="64,7,65,78" concept="3" />
+      <node id="453110257780703748" at="66,12,67,57" concept="3" />
+      <node id="453110257780703752" at="67,57,68,61" concept="3" />
+      <node id="453110257780703756" at="69,5,70,37" concept="10" />
+      <node id="453110257780703763" at="73,32,74,24" concept="10" />
+      <node id="453110257780703770" at="77,27,78,18" concept="10" />
+      <node id="453110257780703777" at="81,31,82,22" concept="10" />
+      <node id="453110257780703784" at="85,34,86,25" concept="10" />
+      <node id="453110257780703791" at="89,37,90,16" concept="10" />
+      <node id="453110257780703802" at="92,114,93,66" concept="9" />
+      <node id="453110257780703815" at="95,48,96,94" concept="3" />
+      <node id="453110257780703833" at="100,26,101,84" concept="3" />
+      <node id="453110257780703840" at="102,14,103,78" concept="3" />
+      <node id="453110257780703852" at="105,43,106,192" concept="3" />
+      <node id="453110257780703872" at="106,192,107,15" concept="10" />
+      <node id="453110257780703882" at="110,37,111,159" concept="3" />
+      <node id="453110257780703898" at="111,159,112,13" concept="10" />
+      <node id="4257940565903992520" at="114,41,115,105" concept="3" />
+      <node id="4257940565904016498" at="116,12,117,145" concept="3" />
       <node id="453110257780703955" at="123,58,124,49" concept="10" />
       <node id="453110257780703961" at="126,5,127,16" concept="10" />
-      <node id="453110257780703973" at="130,95,131,99" concept="9" />
-      <node id="453110257780703982" at="132,28,133,72" concept="3" />
-      <node id="2781727533174408138" at="137,134,138,61" concept="11" />
-      <node id="453110257780704192" at="142,9,143,51" concept="10" />
-      <node id="453110257780704200" at="144,39,145,16" concept="10" />
-      <node id="453110257780703479" at="150,0,151,0" concept="4" trace="notImported" />
-      <node id="453110257780703484" at="151,0,152,0" concept="4" trace="targetInfo" />
-      <node id="453110257780703488" at="152,0,153,0" concept="4" trace="importedModelInfo" />
-      <node id="453110257780703499" at="156,0,157,0" concept="4" trace="sourceNode" />
-      <node id="453110257780703503" at="157,0,158,0" concept="4" trace="role" />
-      <node id="453110257780703507" at="158,0,159,0" concept="4" trace="resolveInfo" />
-      <node id="453110257780703511" at="159,0,160,0" concept="4" trace="targetNodeId" />
-      <node id="453110257780703699" at="56,10,58,5" concept="0" />
-      <node id="453110257780703838" at="103,12,105,7" concept="0" />
-      <node id="453110257780703746" at="67,10,70,5" concept="0" />
-      <node id="453110257780703809" at="95,20,98,7" concept="7" />
-      <node id="453110257780703900" at="114,5,117,5" concept="7" />
+      <node id="4257940565903950939" at="130,95,131,74" concept="3" />
+      <node id="2781727533174408138" at="134,134,135,61" concept="11" />
+      <node id="453110257780704192" at="139,9,140,51" concept="10" />
+      <node id="453110257780704200" at="141,39,142,16" concept="10" />
+      <node id="453110257780703479" at="147,0,148,0" concept="4" trace="notImported" />
+      <node id="453110257780703484" at="148,0,149,0" concept="4" trace="targetInfo" />
+      <node id="453110257780703488" at="149,0,150,0" concept="4" trace="importedModelInfo" />
+      <node id="453110257780703499" at="153,0,154,0" concept="4" trace="sourceNode" />
+      <node id="453110257780703503" at="154,0,155,0" concept="4" trace="role" />
+      <node id="453110257780703507" at="155,0,156,0" concept="4" trace="resolveInfo" />
+      <node id="453110257780703511" at="156,0,157,0" concept="4" trace="targetNodeId" />
+      <node id="453110257780703699" at="55,10,57,5" concept="0" />
+      <node id="453110257780703838" at="102,12,104,7" concept="0" />
+      <node id="4257940565904013248" at="116,10,118,5" concept="0" />
+      <node id="453110257780703746" at="66,10,69,5" concept="0" />
+      <node id="453110257780703809" at="94,20,97,7" concept="7" />
       <node id="453110257780703949" at="122,72,125,7" concept="7" />
-      <node id="453110257780703978" at="131,99,134,5" concept="7" />
-      <node id="453110257780703552" at="33,0,37,0" concept="8" trace="fillFields#(Lorg/jdom/Element;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
-      <node id="453110257780703722" at="61,64,65,7" concept="7" />
-      <node id="453110257780703760" at="73,0,77,0" concept="8" trace="getSourceNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="453110257780703767" at="77,0,81,0" concept="8" trace="getRole#()Ljava/lang/String;" />
-      <node id="453110257780703774" at="81,0,85,0" concept="8" trace="getTargetId#()Ljava/lang/String;" />
-      <node id="453110257780703781" at="85,0,89,0" concept="8" trace="getResolveInfo#()Ljava/lang/String;" />
-      <node id="453110257780703788" at="89,0,93,0" concept="8" trace="getExtResolveInfo#()Ljava/lang/String;" />
-      <node id="453110257780703846" at="105,7,109,7" concept="7" />
-      <node id="453110257780703874" at="110,5,114,5" concept="7" />
-      <node id="453110257780703993" at="136,0,140,0" concept="8" trace="saveReference#(Lorg/jdom/Element;Lorg/jetbrains/mps/openapi/model/SReference;ZLjetbrains/mps/smodel/persistence/def/VisibleModelElements;)V" />
-      <node id="453110257780703690" at="53,10,58,5" concept="7" />
-      <node id="453110257780703829" at="100,32,105,7" concept="7" />
+      <node id="453110257780703552" at="32,0,36,0" concept="8" trace="fillFields#(Lorg/jdom/Element;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <node id="453110257780703722" at="60,64,64,7" concept="7" />
+      <node id="453110257780703760" at="72,0,76,0" concept="8" trace="getSourceNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="453110257780703767" at="76,0,80,0" concept="8" trace="getRole#()Ljava/lang/String;" />
+      <node id="453110257780703774" at="80,0,84,0" concept="8" trace="getTargetId#()Ljava/lang/String;" />
+      <node id="453110257780703781" at="84,0,88,0" concept="8" trace="getResolveInfo#()Ljava/lang/String;" />
+      <node id="453110257780703788" at="88,0,92,0" concept="8" trace="getExtResolveInfo#()Ljava/lang/String;" />
+      <node id="453110257780703846" at="104,7,108,7" concept="7" />
+      <node id="453110257780703874" at="109,5,113,5" concept="7" />
+      <node id="453110257780703965" at="129,0,133,0" concept="8" trace="createReferenceInModel#(Ljetbrains/mps/smodel/SModel;Ljetbrains/mps/smodel/persistence/def/VisibleModelElements;)V" />
+      <node id="453110257780703993" at="133,0,137,0" concept="8" trace="saveReference#(Lorg/jdom/Element;Lorg/jetbrains/mps/openapi/model/SReference;ZLjetbrains/mps/smodel/persistence/def/VisibleModelElements;)V" />
+      <node id="453110257780703690" at="52,10,57,5" concept="7" />
+      <node id="453110257780703829" at="99,32,104,7" concept="7" />
+      <node id="453110257780703900" at="113,5,118,5" concept="7" />
       <node id="453110257780703946" at="121,86,126,5" concept="6" />
-      <node id="453110257780704203" at="141,31,146,5" concept="14" />
-      <node id="453110257780703639" at="42,23,48,5" concept="7" />
-      <node id="453110257780703965" at="129,0,136,0" concept="8" trace="createReferenceInModel#(Ljetbrains/mps/smodel/SModel;Ljetbrains/mps/smodel/persistence/def/VisibleModelElements;)V" />
-      <node id="453110257780704187" at="140,0,148,0" concept="8" trace="getImportIndex#()I" />
+      <node id="453110257780704203" at="138,31,143,5" concept="14" />
+      <node id="453110257780703639" at="41,23,47,5" concept="7" />
+      <node id="453110257780704187" at="137,0,145,0" concept="8" trace="getImportIndex#()I" />
       <node id="453110257780703939" at="120,0,129,0" concept="13" trace="getImportedModelUID#(Ljetbrains/mps/smodel/SModel;I)Lorg/jetbrains/mps/openapi/model/SModelReference;" />
-      <node id="453110257780703822" at="99,10,110,5" concept="7" />
-      <node id="453110257780703706" at="58,5,70,5" concept="7" />
-      <node id="453110257780703592" at="37,0,51,0" concept="8" trace="fillFields#(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
-      <node id="453110257780703805" at="94,66,110,5" concept="7" />
-      <node id="453110257780703677" at="51,0,73,0" concept="8" trace="parseAttTargetNodeId#(Ljava/lang/String;Z)Ljetbrains/mps/smodel/persistence/def/v4/ReferencePersister4/ReferenceTargetDescriptor;" />
-      <node id="453110257780703795" at="93,0,120,0" concept="8" trace="createReferenceInModelDoNotAddToSourceNode#(Ljetbrains/mps/smodel/SModel;Ljetbrains/mps/smodel/persistence/def/VisibleModelElements;)Lorg/jetbrains/mps/openapi/model/SReference;" />
-      <scope id="453110257780703560" at="34,82,35,231" />
-      <scope id="453110257780703693" at="54,18,55,39" />
-      <scope id="453110257780703700" at="56,12,57,39" />
-      <scope id="453110257780703762" at="74,32,75,24" />
-      <scope id="453110257780703769" at="78,27,79,18" />
-      <scope id="453110257780703776" at="82,31,83,22" />
-      <scope id="453110257780703783" at="86,34,87,25" />
-      <scope id="453110257780703790" at="90,37,91,16" />
-      <scope id="453110257780703814" at="96,48,97,94" />
-      <scope id="453110257780703832" at="101,26,102,84" />
-      <scope id="453110257780703839" at="103,14,104,78" />
-      <scope id="453110257780703908" at="115,41,116,119" />
+      <node id="453110257780703822" at="98,10,109,5" concept="7" />
+      <node id="453110257780703706" at="57,5,69,5" concept="7" />
+      <node id="453110257780703592" at="36,0,50,0" concept="8" trace="fillFields#(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <node id="453110257780703805" at="93,66,109,5" concept="7" />
+      <node id="453110257780703677" at="50,0,72,0" concept="8" trace="parseAttTargetNodeId#(Ljava/lang/String;Z)Ljetbrains/mps/smodel/persistence/def/v4/ReferencePersister4/ReferenceTargetDescriptor;" />
+      <node id="453110257780703795" at="92,0,120,0" concept="8" trace="createReferenceInModelAndAddToSourceNode#(Ljetbrains/mps/smodel/SModel;Ljetbrains/mps/smodel/persistence/def/VisibleModelElements;)V" />
+      <scope id="453110257780703560" at="33,82,34,231" />
+      <scope id="453110257780703693" at="53,18,54,39" />
+      <scope id="453110257780703700" at="55,12,56,39" />
+      <scope id="453110257780703762" at="73,32,74,24" />
+      <scope id="453110257780703769" at="77,27,78,18" />
+      <scope id="453110257780703776" at="81,31,82,22" />
+      <scope id="453110257780703783" at="85,34,86,25" />
+      <scope id="453110257780703790" at="89,37,90,16" />
+      <scope id="453110257780703814" at="95,48,96,94" />
+      <scope id="453110257780703832" at="100,26,101,84" />
+      <scope id="453110257780703839" at="102,14,103,78" />
+      <scope id="453110257780703908" at="114,41,115,105" />
+      <scope id="4257940565904013249" at="116,12,117,145" />
       <scope id="453110257780703954" at="123,58,124,49" />
-      <scope id="453110257780703990" at="132,28,133,72" />
-      <scope id="453110257780704003" at="137,134,138,61" />
-      <scope id="453110257780704191" at="142,9,143,51" />
-      <scope id="453110257780704199" at="144,39,145,16" />
-      <scope id="453110257780703726" at="62,31,64,91" />
-      <scope id="453110257780703747" at="67,12,69,61" />
-      <scope id="453110257780703851" at="106,43,108,20" />
-      <scope id="453110257780703881" at="111,37,113,18" />
-      <scope id="453110257780704204" at="144,5,146,5">
+      <scope id="453110257780703971" at="130,95,131,74" />
+      <scope id="453110257780704003" at="134,134,135,61" />
+      <scope id="453110257780704191" at="139,9,140,51" />
+      <scope id="453110257780704199" at="141,39,142,16" />
+      <scope id="453110257780703726" at="61,31,63,91" />
+      <scope id="453110257780703747" at="66,12,68,61" />
+      <scope id="453110257780703851" at="105,43,107,15" />
+      <scope id="453110257780703881" at="110,37,112,13" />
+      <scope id="453110257780704204" at="141,5,143,5">
         <var name="e" id="453110257780704195" />
       </scope>
-      <scope id="453110257780703808" at="95,20,98,7" />
+      <scope id="453110257780703808" at="94,20,97,7" />
       <scope id="453110257780703948" at="122,72,125,7" />
-      <scope id="453110257780703552" at="33,0,37,0">
+      <scope id="453110257780703552" at="32,0,36,0">
         <var name="linkElement" id="453110257780703554" />
         <var name="sourceNode" id="453110257780703556" />
         <var name="useUIDs" id="453110257780703558" />
       </scope>
-      <scope id="453110257780703644" at="43,34,47,56">
+      <scope id="453110257780703644" at="42,34,46,56">
         <var name="targetDescriptor" id="453110257780703645" />
       </scope>
-      <scope id="453110257780703760" at="73,0,77,0" />
-      <scope id="453110257780703767" at="77,0,81,0" />
-      <scope id="453110257780703774" at="81,0,85,0" />
-      <scope id="453110257780703781" at="85,0,89,0" />
-      <scope id="453110257780703788" at="89,0,93,0" />
-      <scope id="453110257780703971" at="130,95,134,5">
-        <var name="reference" id="453110257780703972" />
+      <scope id="453110257780703760" at="72,0,76,0" />
+      <scope id="453110257780703767" at="76,0,80,0" />
+      <scope id="453110257780703774" at="80,0,84,0" />
+      <scope id="453110257780703781" at="84,0,88,0" />
+      <scope id="453110257780703788" at="88,0,92,0" />
+      <scope id="453110257780703965" at="129,0,133,0">
+        <var name="model" id="453110257780703967" />
+        <var name="visibleModelElements" id="453110257780703969" />
       </scope>
-      <scope id="453110257780703993" at="136,0,140,0">
+      <scope id="453110257780703993" at="133,0,137,0">
         <var name="parentElement" id="453110257780703995" />
         <var name="reference" id="453110257780703997" />
         <var name="useUIDs" id="453110257780703999" />
@@ -254,50 +255,46 @@
       <scope id="453110257780703946" at="121,86,126,5">
         <var name="importElement" id="453110257780703957" />
       </scope>
-      <scope id="453110257780704189" at="141,31,146,5" />
+      <scope id="453110257780704189" at="138,31,143,5" />
       <scope id="453110257780703945" at="121,86,127,16" />
-      <scope id="453110257780703711" at="59,16,66,78">
+      <scope id="453110257780703711" at="58,16,65,78">
         <var name="info" id="453110257780703718" />
       </scope>
-      <scope id="453110257780703965" at="129,0,136,0">
-        <var name="model" id="453110257780703967" />
-        <var name="visibleModelElements" id="453110257780703969" />
-      </scope>
-      <scope id="453110257780704187" at="140,0,148,0" />
-      <scope id="453110257780703828" at="100,32,109,7" />
+      <scope id="453110257780704187" at="137,0,145,0" />
+      <scope id="453110257780703828" at="99,32,108,7" />
       <scope id="453110257780703939" at="120,0,129,0">
         <var name="referenceID" id="453110257780703943" />
         <var name="sModel" id="453110257780703941" />
       </scope>
-      <scope id="453110257780703605" at="37,117,49,37">
+      <scope id="453110257780703605" at="36,117,48,37">
         <var name="attTargetNodeId" id="453110257780703613" />
         <var name="role" id="453110257780703606" />
       </scope>
-      <scope id="453110257780703592" at="37,0,51,0">
+      <scope id="453110257780703592" at="36,0,50,0">
         <var name="resolveInfo" id="453110257780703595" />
         <var name="role_" id="453110257780703593" />
         <var name="sourceNode" id="453110257780703599" />
         <var name="targetNodeId_" id="453110257780703597" />
         <var name="useUIDs" id="453110257780703601" />
       </scope>
-      <scope id="453110257780703682" at="51,99,71,37">
+      <scope id="453110257780703682" at="50,99,70,37">
         <var name="i" id="453110257780703687" />
         <var name="referenceTargetDescriptor" id="453110257780703683" />
       </scope>
-      <scope id="453110257780703677" at="51,0,73,0">
+      <scope id="453110257780703677" at="50,0,72,0">
         <var name="attTargetNodeId" id="453110257780703678" />
         <var name="useUIDs" id="453110257780703680" />
       </scope>
-      <scope id="453110257780703800" at="93,122,118,156">
+      <scope id="453110257780703800" at="92,114,118,5">
         <var name="importedModelReference" id="453110257780703801" />
       </scope>
-      <scope id="453110257780703795" at="93,0,120,0">
+      <scope id="453110257780703795" at="92,0,120,0">
         <var name="model" id="453110257780703796" />
         <var name="visibleModelElements" id="453110257780703798" />
       </scope>
-      <unit id="453110257780703472" at="148,0,154,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4$ReferenceTargetDescriptor" />
-      <unit id="453110257780703492" at="154,0,161,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4$ReferenceDescriptor" />
-      <unit id="453110257780703469" at="23,0,162,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4" />
+      <unit id="453110257780703472" at="145,0,151,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4$ReferenceTargetDescriptor" />
+      <unit id="453110257780703492" at="151,0,158,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4$ReferenceDescriptor" />
+      <unit id="453110257780703469" at="22,0,159,0" name="jetbrains.mps.smodel.persistence.def.v4.ReferencePersister4" />
     </file>
   </root>
   <root nodeRef="r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)/453110257780704229">
@@ -372,7 +369,7 @@
       <node id="453110257780704778" at="142,51,143,81" concept="9" />
       <node id="453110257780704783" at="143,81,144,61" concept="9" />
       <node id="453110257780704790" at="144,61,145,92" concept="9" />
-      <node id="453110257780704800" at="146,34,147,71" concept="3" />
+      <node id="4257940565903938002" at="146,34,147,71" concept="3" />
       <node id="453110257780704810" at="149,5,150,69" concept="9" />
       <node id="453110257780704818" at="151,31,152,43" concept="9" />
       <node id="453110257780704824" at="152,43,153,74" concept="9" />
@@ -384,7 +381,7 @@
       <node id="453110257780704860" at="160,86,161,49" concept="9" />
       <node id="453110257780704865" at="161,49,162,82" concept="9" />
       <node id="453110257780704883" at="163,46,164,101" concept="3" />
-      <node id="453110257780704891" at="165,14,166,39" concept="3" />
+      <node id="453110257780704891" at="165,14,166,71" concept="3" />
       <node id="453110257780704904" at="168,5,169,16" concept="10" />
       <node id="453110257780704889" at="165,12,167,7" concept="0" />
       <node id="453110257780704240" at="32,0,35,0" concept="8" trace="getLegacyImportedModelUIDString#(Lorg/jdom/Element;)Ljava/lang/String;" />
@@ -422,7 +419,7 @@
       <scope id="453110257780704625" at="121,35,122,134" />
       <scope id="453110257780704799" at="146,34,147,71" />
       <scope id="453110257780704882" at="163,46,164,101" />
-      <scope id="453110257780704890" at="165,14,166,39" />
+      <scope id="453110257780704890" at="165,14,166,71" />
       <scope id="453110257780704436" at="77,43,79,74" />
       <scope id="453110257780704447" at="81,43,83,17" />
       <scope id="453110257780704547" at="105,77,107,81" />

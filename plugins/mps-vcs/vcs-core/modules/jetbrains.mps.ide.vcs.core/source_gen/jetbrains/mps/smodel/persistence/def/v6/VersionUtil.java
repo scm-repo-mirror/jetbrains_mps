@@ -11,10 +11,8 @@ import jetbrains.mps.smodel.SModel;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
-import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.smodel.DynamicReference;
-import jetbrains.mps.smodel.StaticReference;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.smodel.SNodeId;
 
 @GeneratedClass(node = "r:83748538-cbc9-4e2d-b0e1-e282b3d0c13d(jetbrains.mps.smodel.persistence.def.v6)/453110257780685237", model = "r:83748538-cbc9-4e2d-b0e1-e282b3d0c13d(jetbrains.mps.smodel.persistence.def.v6)")
@@ -154,18 +152,18 @@ public class VersionUtil {
   public String readName(String s) {
     return parse(s, true).text;
   }
-  public SReference readLink(SNode node, String rawRole, String rawTarget, String resolveInfo) {
+  public void readLink(SNode node, String rawRole, String rawTarget, String resolveInfo) {
     String role = readRole(rawRole);
     ParseResult target = parse(rawTarget, true);
     SModelReference modelRef = getSModelReference(target.modelID);
     if (modelRef == null) {
       LOG.error("couldn't create reference '" + role + "' : import for index [" + target.modelID + "] not found");
-      return null;
+      return;
     } else
     if (target.text.equals("^")) {
-      return new DynamicReference(role, node, modelRef, resolveInfo);
+      new SNodeLegacy(node).setReference(role, modelRef, resolveInfo);
     } else {
-      return new StaticReference(role, node, modelRef, SNodeId.fromString(target.text), resolveInfo);
+      new SNodeLegacy(node).setReference(role, modelRef, SNodeId.fromString(target.text), resolveInfo);
     }
   }
   public static String readRoleSimple(String s) {

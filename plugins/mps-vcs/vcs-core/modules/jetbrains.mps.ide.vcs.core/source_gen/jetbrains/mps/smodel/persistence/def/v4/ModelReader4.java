@@ -23,7 +23,7 @@ import jetbrains.mps.smodel.persistence.def.VisibleModelElements;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcspersistence.SNodeFactory;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.util.SNodeOperations;
 
 @GeneratedClass(node = "r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)/453110257780704229", model = "r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)")
@@ -144,7 +144,7 @@ public class ModelReader4 implements IModelReader {
       String propertyName = VersionUtil.getPropertyName(raw);
       String propertyValue = propertyElement.getAttributeValue(VCSPersistenceSupport.VALUE);
       if (propertyValue != null) {
-        SNodeAccessUtil.setProperty(node, propertyName, propertyValue);
+        new SNodeLegacy(node).setProperty(propertyName, propertyValue);
       }
     }
     List links = nodeElement.getChildren(VCSPersistenceSupport.LINK);
@@ -163,7 +163,7 @@ public class ModelReader4 implements IModelReader {
       if (role == null || childNode == null) {
         LOG.errorWithTrace("Error reading child node in node " + SNodeOperations.getDebugText(node));
       } else {
-        node.addChild(role, childNode);
+        new SNodeLegacy(node).insertChildBefore(role, childNode, null);
       }
     }
     return node;

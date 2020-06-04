@@ -9,16 +9,15 @@ import org.apache.log4j.LogManager;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jdom.Element;
 import jetbrains.mps.vcspersistence.VCSPersistenceSupport;
-import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.smodel.persistence.def.VisibleModelElements;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import jetbrains.mps.util.SNodeOperations;
-import jetbrains.mps.smodel.DynamicReference;
-import jetbrains.mps.smodel.StaticReference;
+import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.smodel.SNodeId;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SReference;
 
 @GeneratedClass(node = "r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)/453110257780703469", model = "r:8276e029-a527-420e-8e0f-72df2934554c(jetbrains.mps.smodel.persistence.def.v4)")
 public class ReferencePersister4 implements IReferencePersister {
@@ -90,7 +89,7 @@ public class ReferencePersister4 implements IReferencePersister {
   public String getExtResolveInfo() {
     return null;
   }
-  private SReference createReferenceInModelDoNotAddToSourceNode(SModel model, VisibleModelElements visibleModelElements) {
+  private void createReferenceInModelAndAddToSourceNode(SModel model, VisibleModelElements visibleModelElements) {
     SModelReference importedModelReference = model.getReference();
     if (myUseUIDs) {
       if (!(myImportedModelInfo.equals("-1"))) {
@@ -105,17 +104,18 @@ public class ReferencePersister4 implements IReferencePersister {
       }
       if (importedModelReference == null) {
         LOG.error("couldn't create reference '" + this.getRole() + "' from " + SNodeOperations.getDebugText(this.getSourceNode()) + " : import for index [" + getImportIndex() + "] not found");
-        return null;
+        return;
       }
     }
     if (this.getTargetId() == null) {
       LOG.error("couldn't create reference '" + this.getRole() + "' from " + SNodeOperations.getDebugText(this.getSourceNode()) + " : target node id is null");
-      return null;
+      return;
     }
     if (this.getTargetId().equals("^")) {
-      return new DynamicReference(this.getRole(), this.getSourceNode(), importedModelReference, this.getResolveInfo());
+      new SNodeLegacy(getSourceNode()).setReference(getRole(), importedModelReference, getResolveInfo());
+    } else {
+      new SNodeLegacy(getSourceNode()).setReference(getRole(), importedModelReference, SNodeId.fromString(this.getTargetId()), getResolveInfo());
     }
-    return new StaticReference(this.getRole(), this.getSourceNode(), importedModelReference, SNodeId.fromString(this.getTargetId()), this.getResolveInfo());
   }
   @Nullable
   private static SModelReference getImportedModelUID(SModel sModel, int referenceID) {
@@ -128,10 +128,7 @@ public class ReferencePersister4 implements IReferencePersister {
   }
   @Override
   public void createReferenceInModel(SModel model, VisibleModelElements visibleModelElements) {
-    SReference reference = createReferenceInModelDoNotAddToSourceNode(model, visibleModelElements);
-    if (reference != null) {
-      this.getSourceNode().setReference(reference.getRole(), reference);
-    }
+    createReferenceInModelAndAddToSourceNode(model, visibleModelElements);
   }
   @Override
   public void saveReference(Element parentElement, SReference reference, boolean useUIDs, VisibleModelElements visibleModelElements) {
