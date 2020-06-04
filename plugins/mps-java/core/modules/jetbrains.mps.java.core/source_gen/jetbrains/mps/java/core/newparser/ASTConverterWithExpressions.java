@@ -49,6 +49,7 @@ import org.eclipse.jdt.internal.compiler.ast.PrefixExpression;
 import org.eclipse.jdt.internal.compiler.ast.NullLiteral;
 import org.eclipse.jdt.internal.compiler.ast.SuperReference;
 import org.eclipse.jdt.internal.compiler.ast.QualifiedThisReference;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.eclipse.jdt.internal.compiler.ast.NameReference;
 import org.eclipse.jdt.internal.compiler.ast.QualifiedAllocationExpression;
@@ -442,8 +443,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
   }
   /*package*/ SNode convertExpression(SingleNameReference x) {
     SNode varRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference"));
-    SReference sref = new DynamicReference(LINKS.variableDeclaration$2ky6, varRef, null, new String(x.token));
-    varRef.setReference(sref.getLink(), sref);
+    varRef.setReference(LINKS.variableDeclaration$2ky6, ResolveInfo.of(new String(x.token)));
     return varRef;
   }
   /*package*/ SNode convertExpression(QualifiedNameReference x) {
@@ -479,8 +479,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
 
 
       SNode lmc = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9404L, "jetbrains.mps.baseLanguage.structure.LocalMethodCall"));
-      org.jetbrains.mps.openapi.model.SReference ref = new DynamicReference(LINKS.baseMethodDeclaration$$A7i, lmc, null, methodName);
-      lmc.setReference(LINKS.baseMethodDeclaration$$A7i, ref);
+      lmc.setReference(LINKS.baseMethodDeclaration$$A7i, ResolveInfo.of(methodName));
 
       result = lmc;
       call = lmc;
@@ -530,8 +529,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
 
       } else if (x.receiver instanceof SuperReference) {
         SNode smc = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf9d78b55aaL, "jetbrains.mps.baseLanguage.structure.SuperMethodCall"));
-        org.jetbrains.mps.openapi.model.SReference ref = new DynamicReference(LINKS.baseMethodDeclaration$$A7i, smc, null, methodName);
-        smc.setReference(ref.getLink(), ref);
+        smc.setReference(LINKS.baseMethodDeclaration$$A7i, ResolveInfo.of(methodName));
 
         result = smc;
         call = smc;
@@ -545,8 +543,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
         SNode instCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation"));
         SLinkOperations.setTarget(dotExpr, LINKS.operation$X4R8, instCall);
 
-        org.jetbrains.mps.openapi.model.SReference sref = new DynamicReference(LINKS.baseMethodDeclaration$$A7i, instCall, null, methodName);
-        instCall.setReference(sref.getLink(), sref);
+        instCall.setReference(LINKS.baseMethodDeclaration$$A7i, ResolveInfo.of(methodName));
 
         result = dotExpr;
         call = instCall;
@@ -667,8 +664,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
     SLinkOperations.setTarget(result, LINKS.operand$Lcrr, convertExpressionWrap(x.receiver));
     SNode fieldRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation"));
     SLinkOperations.setTarget(result, LINKS.operation$X4R8, fieldRef);
-    SReference sref = new DynamicReference(LINKS.fieldDeclaration$mLBy, fieldRef, null, new String(x.token));
-    fieldRef.setReference(sref.getRole(), sref);
+    fieldRef.setReference(LINKS.fieldDeclaration$mLBy, ResolveInfo.of(new String(x.token)));
     return result;
   }
   /*package*/ SNode convertExpression(QualifiedAllocationExpression x) throws JavaParseException {
@@ -725,8 +721,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
 
   }
   public int addReference(SingleTypeReference typeRef, SNode source, SReferenceLink role) {
-    org.jetbrains.mps.openapi.model.SReference ref = new DynamicReference(role, source, null, new String(typeRef.token));
-    source.setReference(role, ref);
+    source.setReference(role, ResolveInfo.of(new String(typeRef.token)));
     return 1;
   }
   public int addReference(QualifiedTypeReference typeRef, SNode source, SReferenceLink role) {
@@ -739,8 +734,7 @@ public class ASTConverterWithExpressions extends ASTConverter {
     }
     String qname = sb.toString();
 
-    org.jetbrains.mps.openapi.model.SReference ref = new DynamicReference(role, source, null, qname);
-    source.setReference(role, ref);
+    source.setReference(role, ResolveInfo.of(qname));
     return 2;
   }
 

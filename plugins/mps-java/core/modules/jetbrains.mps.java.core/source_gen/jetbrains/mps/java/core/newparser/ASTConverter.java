@@ -42,8 +42,7 @@ import org.eclipse.jdt.internal.compiler.ast.Annotation;
 import org.eclipse.jdt.internal.compiler.ast.SingleTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.QualifiedTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.MemberValuePair;
-import jetbrains.mps.smodel.SReference;
-import jetbrains.mps.smodel.DynamicReference;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.eclipse.jdt.internal.compiler.ast.Argument;
@@ -55,6 +54,7 @@ import org.eclipse.jdt.internal.compiler.ast.ParameterizedSingleTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ArrayTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ParameterizedQualifiedTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ArrayQualifiedTypeReference;
+import jetbrains.mps.smodel.DynamicReference;
 import org.eclipse.jdt.internal.compiler.impl.Constant;
 import org.eclipse.jdt.internal.compiler.impl.BooleanConstant;
 import org.eclipse.jdt.internal.compiler.impl.ByteConstant;
@@ -67,7 +67,6 @@ import org.eclipse.jdt.internal.compiler.impl.ShortConstant;
 import org.eclipse.jdt.internal.compiler.impl.StringConstant;
 import org.eclipse.jdt.internal.compiler.util.Util;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.smodel.StaticReference;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -516,8 +515,7 @@ public class ASTConverter {
     SNode node = buildAnnotationInstance(name);
     for (MemberValuePair pair : anno.memberValuePairs()) {
       SNode val = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue"));
-      SReference ref = new DynamicReference(LINKS.key$y5Ln, val, null, new String(pair.name));
-      val.setReference(ref.getRole(), ref);
+      val.setReference(LINKS.key$y5Ln, ResolveInfo.of(new String(pair.name)));
       SLinkOperations.setTarget(val, LINKS.value$Bis, convertExpression(pair.value));
       ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.value$EXfF)).addElement(val);
     }
@@ -803,8 +801,7 @@ public class ASTConverter {
 
   public SNode buildClassifierType(String typ, TypeReference typRef) {
     SNode cls = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
-    SReference ref = new DynamicReference(LINKS.classifier$pQ_R, cls, null, typ);
-    cls.setReference(LINKS.classifier$pQ_R, ref);
+    cls.setReference(LINKS.classifier$pQ_R, ResolveInfo.of(typ));
 
     TypeReference[] typeArgs = null;
 
@@ -832,8 +829,7 @@ public class ASTConverter {
 
   public SNode buildAnnotationInstance(String name) {
     SNode anno = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance"));
-    SReference ref = new DynamicReference(LINKS.annotation$zNxu, anno, null, name);
-    anno.setReference(LINKS.annotation$zNxu, ref);
+    anno.setReference(LINKS.annotation$zNxu, ResolveInfo.of(name));
     return anno;
   }
 
@@ -1086,15 +1082,13 @@ public class ASTConverter {
         // we have this var name 
         SNode typeVar = MapSequence.fromMap(myTypeVars).get(name);
         SNode typeVarRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference"));
-        SReference ref;
         // let's see if var has been parsed already 
         if (typeVar != null) {
-          ref = new StaticReference(LINKS.typeVariableDeclaration$U0X4, typeVarRef, typeVar);
+          SLinkOperations.setTarget(typeVarRef, LINKS.typeVariableDeclaration$U0X4, typeVar);
         } else {
-          ref = new DynamicReference(LINKS.typeVariableDeclaration$U0X4, typeVarRef, null, name);
+          typeVarRef.setReference(LINKS.typeVariableDeclaration$U0X4, ResolveInfo.of(name));
         }
 
-        typeVarRef.setReference(ref.getRole(), ref);
         return typeVarRef;
       }
     }

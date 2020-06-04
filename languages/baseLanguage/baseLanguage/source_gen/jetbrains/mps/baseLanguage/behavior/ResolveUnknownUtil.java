@@ -14,8 +14,7 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.baseLanguage.scopes.MethodResolveUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.smodel.DynamicReference;
-import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -188,11 +187,9 @@ public final class ResolveUnknownUtil {
           if ((target != null)) {
             SLinkOperations.setTarget(call, LINKS.classConcept$BsUa, SNodeOperations.cast(target, CONCEPTS.ClassConcept$IY));
           } else {
-            DynamicReference dr = new DynamicReference(LINKS.classConcept$BsUa, call, null, className);
-            call.setReference(dr.getLink(), dr);
+            call.setReference(LINKS.classConcept$BsUa, ResolveInfo.of(className));
           }
-          SReference sref = new DynamicReference(LINKS.baseMethodDeclaration$$A7i, call, null, SPropertyOperations.getString(x, PROPS.callee$Nebc));
-          call.setReference(sref.getLink(), sref);
+          call.setReference(LINKS.baseMethodDeclaration$$A7i, ResolveInfo.of(SPropertyOperations.getString(x, PROPS.callee$Nebc)));
           reattachMethodArguments(x, call);
           reattachTypeArguments(x, call);
           return call;
@@ -210,8 +207,7 @@ public final class ResolveUnknownUtil {
           SNode call = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation"));
           SLinkOperations.setTarget(dotExpr, LINKS.operation$X4R8, call);
 
-          SReference sref = new DynamicReference(LINKS.baseMethodDeclaration$$A7i, call, null, SPropertyOperations.getString(x, PROPS.callee$Nebc));
-          call.setReference(sref.getLink(), sref);
+          call.setReference(LINKS.baseMethodDeclaration$$A7i, ResolveInfo.of(SPropertyOperations.getString(x, PROPS.callee$Nebc)));
 
           reattachMethodArguments(x, call);
           reattachTypeArguments(x, call);
@@ -280,9 +276,7 @@ public final class ResolveUnknownUtil {
         } else {
           SNode statFieldRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference"));
           SLinkOperations.setTarget(statFieldRef, LINKS.classifier$ZTjE, cls);
-          SReference fieldRef;
-          fieldRef = new DynamicReference(LINKS.variableDeclaration$2ky6, statFieldRef, null, memberName);
-          statFieldRef.setReference(fieldRef.getLink(), fieldRef);
+          statFieldRef.setReference(LINKS.variableDeclaration$2ky6, ResolveInfo.of(memberName));
           operand = statFieldRef;
         }
         // +1 is here because static field takes one extra token 
@@ -308,8 +302,7 @@ public final class ResolveUnknownUtil {
     SLinkOperations.setTarget(dotExpr, LINKS.operand$Lcrr, holder);
     SNode fieldRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation"));
     SLinkOperations.setTarget(dotExpr, LINKS.operation$X4R8, fieldRef);
-    SReference sref = new DynamicReference(LINKS.fieldDeclaration$mLBy, fieldRef, null, fieldName);
-    fieldRef.setReference(sref.getLink(), sref);
+    fieldRef.setReference(LINKS.fieldDeclaration$mLBy, ResolveInfo.of(fieldName));
     return dotExpr;
   }
   public static SNode tryFirstTokenAsVarRef(SNode x) {
@@ -325,8 +318,7 @@ public final class ResolveUnknownUtil {
       // it's a variable 
 
       SNode varRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference"));
-      SReference sref = new DynamicReference(LINKS.variableDeclaration$2ky6, varRef, null, name);
-      varRef.setReference(sref.getLink(), sref);
+      varRef.setReference(LINKS.variableDeclaration$2ky6, ResolveInfo.of(name));
 
       return varRef;
     } else {

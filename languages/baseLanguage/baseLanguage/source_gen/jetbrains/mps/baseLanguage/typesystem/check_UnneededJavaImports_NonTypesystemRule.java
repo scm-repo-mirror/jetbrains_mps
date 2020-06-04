@@ -26,12 +26,12 @@ import jetbrains.mps.internal.collections.runtime.DequeSequence;
 import java.util.LinkedList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -75,15 +75,14 @@ public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonType
         break;
       }
 
-      Iterable<? extends SReference> refs = node.getReferences();
-      for (SReference ref : Sequence.fromIterable(refs)) {
+      for (SReference ref : ListSequence.fromList(SNodeOperations.getReferences(node))) {
         if (!(ref instanceof DynamicReference)) {
           continue;
         }
 
         dynRefsPresent = true;
 
-        String resolveInfo = ((DynamicReference) ref).getResolveInfo();
+        String resolveInfo = SLinkOperations.getResolveInfo(ref);
         SetSequence.fromSet(retain).addElement(MapSequence.fromMap(importsByName).get(resolveInfo));
       }
     }

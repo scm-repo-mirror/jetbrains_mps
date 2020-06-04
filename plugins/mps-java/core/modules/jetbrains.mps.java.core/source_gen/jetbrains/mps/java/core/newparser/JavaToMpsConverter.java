@@ -43,12 +43,12 @@ import jetbrains.mps.internal.collections.runtime.ISequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.IFileUtil;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -328,11 +328,7 @@ public class JavaToMpsConverter {
       public ISequence<SReference> invoke(SNode node) {
         return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.DotExpression$6a, false, new SAbstractConcept[]{})).translate(new ITranslator2<SNode, SReference>() {
           public Iterable<SReference> translate(SNode it) {
-            if (Sequence.fromIterable(deepReferences(SLinkOperations.getTarget(it, LINKS.operand$Lcrr))).any(new IWhereFilter<SReference>() {
-              public boolean accept(SReference it) {
-                return (SReference) it instanceof DynamicReference;
-              }
-            })) {
+            if (Sequence.fromIterable(deepReferences(SLinkOperations.getTarget(it, LINKS.operand$Lcrr))).ofType(DynamicReference.class).isNotEmpty()) {
               return ListSequence.fromList(new ArrayList<SReference>());
             } else {
               if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.operation$X4R8), CONCEPTS.FieldReferenceOperation$N8)) {
@@ -1022,9 +1018,8 @@ public class JavaToMpsConverter {
       }
 
       SNode source = ref.getSourceNode();
-      SModelReference targetModel = target.getModel().getReference();
 
-      SReference staticRef = StaticReference.create(ref.getLink(), source, targetModel, target.getNodeId(), ((DynamicReference) ref).getResolveInfo());
+      SReference staticRef = jetbrains.mps.smodel.SReference.create(ref.getLink(), source, target.getReference(), ((DynamicReference) ref).getResolveInfo());
 
       List<SReference> nodeRefs = MapSequence.fromMap(result).get(source.getReference());
       if (nodeRefs == null) {
@@ -1049,7 +1044,7 @@ public class JavaToMpsConverter {
             // avoiding self-import 
             ((SModelInternal) sourceModel).addModelImport(targetModelRef);
           }
-          node.setReference(it.getRole(), it);
+          node.setReference(it.getLink(), it);
         }
       });
     }
