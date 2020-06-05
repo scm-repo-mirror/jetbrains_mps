@@ -308,10 +308,6 @@ public class DiffEditor implements EditorMessageOwner {
   private class MyLeftHighlighterPainter extends BackgroundWithFoldingLinePainter {
 
     private final boolean myInspector;
-    private Integer myY;
-    private Integer myHeight;
-    private Color myHighlighterAreaColor;
-    private Color myEditorAreaColor;
     private Iterable<ColoredStripWithTooltip> myColoredStripsUnderMouse = null;
 
     public MyLeftHighlighterPainter(LeftEditorHighlighter leftEditorHighlighter, boolean inspector) {
@@ -322,26 +318,6 @@ public class DiffEditor implements EditorMessageOwner {
     @Override
     public int getWeight() {
       return 2;
-    }
-
-    @Override
-    public Integer getY() {
-      return myY;
-    }
-
-    @Override
-    public Integer getHeight() {
-      return myHeight;
-    }
-
-    @Override
-    public Color getHighlighterAreaColor() {
-      return myHighlighterAreaColor;
-    }
-
-    @Override
-    public Color getEditorAreaColor() {
-      return myEditorAreaColor;
     }
 
     @Override
@@ -365,11 +341,8 @@ public class DiffEditor implements EditorMessageOwner {
         if (!(g.hitClip(getLeftHighlighter().getX(), strip.y, getLeftHighlighter().getWidth(), strip.height))) {
           continue;
         }
-        myHighlighterAreaColor = strip.color;
-        myEditorAreaColor = TextDiffTypeFactory.getMiddleColor(strip.color, getEditorComponent().getBackground());
-        myY = strip.y;
-        myHeight = strip.height;
-        super.paint(g);
+        Color editorColor = TextDiffTypeFactory.getMiddleColor(strip.color, getEditorComponent().getBackground());
+        paint(g, strip.y, strip.height, editorColor, strip.color);
       }
     }
   }

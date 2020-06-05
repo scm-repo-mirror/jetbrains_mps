@@ -18,7 +18,6 @@ package jetbrains.mps.nodeEditor.leftHighlighter;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,9 +25,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 /**
- * Paints the background for {@link LeftEditorHighlighter} from the vertical position defined by {@link #getY()}.
- * A painted area size is defined by {@link #getHeight()} method. If {@link #getY()} or {@link #getHeight()} return null
- * then the default values are used.
+ * Paints the background for {@link LeftEditorHighlighter}
  * <p>
  * The folding line splits the background to the left and the right areas.
  * <p>
@@ -49,16 +46,15 @@ public class BackgroundWithFoldingLinePainter extends AbstractHighlighterPainter
 
   @Override
   public void paint(Graphics g) {
+    Rectangle clipBounds = g.getClipBounds();
+    paint(g, clipBounds.y, clipBounds.height, getLeftHighlighter().getEditorComponent().getBackground(), getLeftHighlighter().getBackground());
+  }
+
+  protected void paint(Graphics g, int y, int height, Color editorAreaColor, Color highlighterAreaColor) {
 
     Rectangle clipBounds = g.getClipBounds();
-    int height = getHeight() == null ? clipBounds.height : getHeight();
-    int y = getY() == null ? clipBounds.y : getY();
 
-    if (height <= 0) {
-      return;
-    }
-
-    if (getY() != null && !g.hitClip(clipBounds.x, getY(), clipBounds.width, getHeight())) {
+    if (height <= 0 || !g.hitClip(clipBounds.x, y, clipBounds.width, height)) {
       return;
     }
     int foldingLineX = getLeftHighlighter().getFoldingLineX();
@@ -68,8 +64,8 @@ public class BackgroundWithFoldingLinePainter extends AbstractHighlighterPainter
     int leftAreaWidth = foldingLineX - leftAreaX;
     int rightAreaX = foldingLineX + foldingLineWidth;
     int rightAreaWidth = leftAreaX + clipBounds.width - rightAreaX;
-    Color leftAreaColor = myRightToLeft ? getEditorAreaColor() : getHighlighterAreaColor();
-    Color rightAreaColor = myRightToLeft ? getHighlighterAreaColor() : getEditorAreaColor();
+    Color leftAreaColor = myRightToLeft ? editorAreaColor : highlighterAreaColor;
+    Color rightAreaColor = myRightToLeft ? highlighterAreaColor : editorAreaColor;
 
     g.setColor(leftAreaColor);
     g.fillRect(leftAreaX, y, leftAreaWidth, height);
@@ -80,29 +76,12 @@ public class BackgroundWithFoldingLinePainter extends AbstractHighlighterPainter
                            getDottedLineFgLineColor());
   }
 
-  @Nullable
-  public Integer getY() {
-    return null;
-  }
 
-  @Nullable
-  public Integer getHeight() {
-    return null;
-  }
-
-  public Color getEditorAreaColor() {
-    return getLeftHighlighter().getEditorComponent().getBackground();
-  }
-
-  public Color getHighlighterAreaColor() {
-    return getLeftHighlighter().getBackground();
-  }
-
-  public Color getDottedLineFgLineColor() {
+  protected Color getDottedLineFgLineColor() {
     return EditorSettings.getInstance().getLeftHighlighterTearLineColor();
   }
 
-  public Color getDottedLineBgColor() {
-    return getHighlighterAreaColor();
+  protected Color getDottedLineBgColor() {
+    return getLeftHighlighter().getBackground();
   }
 }

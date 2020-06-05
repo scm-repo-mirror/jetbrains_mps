@@ -21,6 +21,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 public class SelectedCellAreaPainter extends BackgroundWithFoldingLinePainter {
 
@@ -32,29 +33,10 @@ public class SelectedCellAreaPainter extends BackgroundWithFoldingLinePainter {
     super(leftHighlighter, rightToLeft);
   }
 
-  @Override
-  public Color getHighlighterAreaColor() {
-    return myBgColor;
-  }
-
-  @Override
-  public Color getEditorAreaColor() {
-    return myBgColor;
-  }
 
   @Override
   public int getWeight() {
     return 1;
-  }
-
-  @Override
-  public Integer getY() {
-    return myY;
-  }
-
-  @Override
-  public Integer getHeight() {
-    return myHeight;
   }
 
   public void updateSelection() {
@@ -66,6 +48,11 @@ public class SelectedCellAreaPainter extends BackgroundWithFoldingLinePainter {
       myY = -1;
       myHeight = 0;
     }
+  }
+
+  @Override
+  public void paint(Graphics g) {
+    paint(g, myY, myHeight, myBgColor, myBgColor);
   }
 
   @Override
