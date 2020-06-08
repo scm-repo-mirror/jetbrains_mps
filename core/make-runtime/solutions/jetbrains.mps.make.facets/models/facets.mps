@@ -34,8 +34,6 @@
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
-    <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" />
-    <import index="7nyy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.refresh(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
@@ -64,7 +62,7 @@
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
@@ -109,10 +107,6 @@
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
-      <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
-        <child id="1070534934091" name="type" index="10QFUM" />
-        <child id="1070534934092" name="expression" index="10QFUP" />
-      </concept>
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg">
         <property id="8606350594693632173" name="isTransient" index="eg7rD" />
         <property id="1240249534625" name="isVolatile" index="34CwA1" />
@@ -186,9 +180,6 @@
         <child id="1206060619838" name="condition" index="3eO9$A" />
         <child id="1206060644605" name="statementList" index="3eOfB_" />
       </concept>
-      <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
-        <child id="1079359253376" name="expression" index="1eOMHV" />
-      </concept>
       <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
@@ -227,7 +218,7 @@
       </concept>
       <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="ng" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
-        <child id="8276990574886367509" name="finallyBody" index="1zxBo6" />
+        <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
@@ -2137,47 +2128,19 @@
                               </node>
                             </node>
                           </node>
-                          <node concept="3cpWs8" id="1p6u8bgqzIH" role="3cqZAp">
-                            <node concept="3cpWsn" id="1p6u8bgqzII" role="3cpWs9">
-                              <property role="TrG5h" value="fs" />
-                              <node concept="3uibUv" id="1p6u8bgqzIG" role="1tU5fm">
-                                <ref role="3uigEE" to="3ju5:~FileSystem" resolve="FileSystem" />
-                              </node>
-                              <node concept="2YIFZM" id="1p6u8bgqzIJ" role="33vP2m">
-                                <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
-                                <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3clFbJ" id="1p6u8bgq$Xu" role="3cqZAp">
-                            <node concept="3clFbS" id="1p6u8bgq$Xw" role="3clFbx">
-                              <node concept="3clFbF" id="taepSZ9rBd" role="3cqZAp">
-                                <node concept="2OqwBi" id="taepSZ9rBe" role="3clFbG">
-                                  <node concept="1eOMI4" id="FjsiYEGaDq" role="2Oq$k0">
-                                    <node concept="10QFUN" id="FjsiYEGaDp" role="1eOMHV">
-                                      <node concept="37vLTw" id="1p6u8bgqzIK" role="10QFUP">
-                                        <ref role="3cqZAo" node="1p6u8bgqzII" resolve="fs" />
-                                      </node>
-                                      <node concept="3uibUv" id="1p6u8bgvfkf" role="10QFUM">
-                                        <ref role="3uigEE" to="7nyy:~CachingFileSystem" resolve="CachingFileSystem" />
-                                      </node>
-                                    </node>
-                                  </node>
-                                  <node concept="liA8E" id="taepSZ9rBg" role="2OqNvi">
-                                    <ref role="37wK5l" to="7nyy:~CachingFileSystem.scheduleUpdateForWrittenFiles(java.lang.Iterable)" resolve="scheduleUpdateForWrittenFiles" />
-                                    <node concept="37vLTw" id="3GM_nagTrhj" role="37wK5m">
-                                      <ref role="3cqZAo" node="taepSZ9r_u" resolve="writtenFiles" />
-                                    </node>
-                                  </node>
+                          <node concept="3clFbF" id="DdaUIZt6G5" role="3cqZAp">
+                            <node concept="2OqwBi" id="DdaUIZt7Y0" role="3clFbG">
+                              <node concept="2OqwBi" id="DdaUIZt75a" role="2Oq$k0">
+                                <node concept="2_BwXt" id="DdaUIZt6G3" role="2Oq$k0" />
+                                <node concept="liA8E" id="DdaUIZt7yO" role="2OqNvi">
+                                  <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
                                 </node>
                               </node>
-                            </node>
-                            <node concept="2ZW3vV" id="1p6u8bgq_WQ" role="3clFbw">
-                              <node concept="3uibUv" id="1p6u8bgveVr" role="2ZW6by">
-                                <ref role="3uigEE" to="7nyy:~CachingFileSystem" resolve="CachingFileSystem" />
-                              </node>
-                              <node concept="37vLTw" id="1p6u8bgq_ov" role="2ZW6bz">
-                                <ref role="3cqZAo" node="1p6u8bgqzII" resolve="fs" />
+                              <node concept="liA8E" id="54II3jLqGhm" role="2OqNvi">
+                                <ref role="37wK5l" to="z1c3:~Project.reconcileProjectFiles(java.lang.Iterable)" resolve="reconcileProjectFiles" />
+                                <node concept="37vLTw" id="54II3jLqGAH" role="37wK5m">
+                                  <ref role="3cqZAo" node="taepSZ9r_u" resolve="writtenFiles" />
+                                </node>
                               </node>
                             </node>
                           </node>

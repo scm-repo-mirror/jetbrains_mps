@@ -36,21 +36,13 @@ public class IfStatement_LastBrace {
           if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2))) {
             return;
           }
-          SNode nodeToSelect = UnwrapStatementsUtil.unwrapElse(node);
-          if (nodeToSelect != null) {
-            SelectionUtil.selectCell(editorContext, nodeToSelect, SelectionManager.FIRST_CELL);
-          } else {
-            SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_CELL, -1);
-          }
+          SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2));
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_CELL, -1);
         } else {
           if (DeletionApproverUtil.approve(editorContext, node)) {
             return;
           }
-          if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(node, LINKS.ifTrue$WJ1E), LINKS.statement$WHn8)).isNotEmpty()) {
-            UnwrapStatementsUtil.unwrapIf(node);
-          } else {
-            SNodeOperations.deleteNode(node);
-          }
+          SNodeOperations.deleteNode(node);
         }
       }
 
@@ -101,7 +93,5 @@ public class IfStatement_LastBrace {
   private static final class LINKS {
     /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
     /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
-    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 }

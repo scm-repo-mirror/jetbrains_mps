@@ -120,11 +120,8 @@ public class JDOMUtil {
   }
 
   public static void writeDocument(Document document, String filePath) throws IOException {
-    OutputStream stream = new BufferedOutputStream(new FileOutputStream(filePath));
-    try {
+    try (OutputStream stream = new BufferedOutputStream(new FileOutputStream(filePath))) {
       writeDocument(document, stream);
-    } finally {
-      stream.close();
     }
   }
 
@@ -135,29 +132,20 @@ public class JDOMUtil {
   }
 
   public static void writeDocument(Document document, IFile file) throws IOException {
-    OutputStream stream = new BufferedOutputStream(file.openOutputStream());
-    try {
+    try (OutputStream stream = new BufferedOutputStream(file.openOutputStream())) {
       writeDocument(document, stream);
-    } finally {
-      stream.close();
     }
   }
 
   public static void writeDocument(Document document, StreamDataSource source) throws IOException {
-    OutputStream stream = new BufferedOutputStream(source.openOutputStream());
-    try {
+    try (OutputStream stream = new BufferedOutputStream(source.openOutputStream())) {
       writeDocument(document, stream);
-    } finally {
-      stream.close();
     }
   }
 
   public static void writeDocument(Document document, MultiStreamDataSource source, String streamName) throws IOException {
-    OutputStream stream = new BufferedOutputStream(source.openOutputStream(streamName));
-    try {
+    try (OutputStream stream = new BufferedOutputStream(source.openOutputStream(streamName))) {
       writeDocument(document, stream);
-    } finally {
-      stream.close();
     }
   }
 

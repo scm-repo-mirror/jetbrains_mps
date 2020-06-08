@@ -319,11 +319,6 @@ public abstract class ProjectBase extends Project {
     return ProjectManager.getInstance().getOpenedProjects().contains(this);
   }
 
-  @NotNull
-  public String toString() {
-    return "MPS Project [" + getName() + (isDisposed() ? ", disposed]" : "]");
-  }
-
   /**
    * Access components that constitute core of MPS platform.
    */

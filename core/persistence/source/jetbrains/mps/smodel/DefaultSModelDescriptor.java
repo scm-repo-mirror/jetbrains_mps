@@ -31,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel.Problem.Kind;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -126,7 +127,7 @@ public class DefaultSModelDescriptor extends LazyEditableSModelBase implements G
   }
 
   @Override
-  protected boolean saveModel() throws IOException {
+  protected boolean saveModel() throws ModelSaveException, IOException {
     SModel smodel = getSModel();
     if (smodel instanceof InvalidSModel) {
       // we do not save stub model to not overwrite the real model

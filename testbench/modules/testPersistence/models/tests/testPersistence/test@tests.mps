@@ -60,7 +60,7 @@
       <concept id="1153422305557" name="jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression" flags="nn" index="2dkUwp" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1239709250944" name="jetbrains.mps.baseLanguage.structure.PrefixIncrementExpression" flags="nn" index="2$rviw" />
@@ -239,7 +239,7 @@
       </concept>
       <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="ng" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
-        <child id="8276990574886367509" name="finallyBody" index="1zxBo6" />
+        <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
@@ -5133,19 +5133,12 @@
               <property role="3TUv4t" value="false" />
               <property role="TrG5h" value="e" />
               <node concept="nSUau" id="xvs04dIv7R" role="1tU5fm">
-                <node concept="3uibUv" id="6BljlJl_E4l" role="nSUat">
-                  <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
+                <node concept="3uibUv" id="3ohPGWovfh6" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
                 </node>
               </node>
             </node>
             <node concept="3clFbS" id="6BljlJl_E4c" role="1zc67A">
-              <node concept="3xETmq" id="6BljlJl_E4d" role="3cqZAp">
-                <node concept="3_1$Yv" id="6BljlJl_E4e" role="3_9lra">
-                  <node concept="Xl_RD" id="6BljlJl_E4f" role="3_1BAH">
-                    <property role="Xl_RC" value="Exception during test. See log for details" />
-                  </node>
-                </node>
-              </node>
               <node concept="3clFbF" id="6BljlJl_E4g" role="3cqZAp">
                 <node concept="2OqwBi" id="6BljlJl_E4h" role="3clFbG">
                   <node concept="37vLTw" id="6BljlJl_E4i" role="2Oq$k0">
@@ -5153,6 +5146,13 @@
                   </node>
                   <node concept="liA8E" id="6BljlJl_E4j" role="2OqNvi">
                     <ref role="37wK5l" to="wyt6:~Throwable.printStackTrace()" resolve="printStackTrace" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3xETmq" id="6BljlJl_E4d" role="3cqZAp">
+                <node concept="3_1$Yv" id="6BljlJl_E4e" role="3_9lra">
+                  <node concept="Xl_RD" id="6BljlJl_E4f" role="3_1BAH">
+                    <property role="Xl_RC" value="Exception during test. See log for details" />
                   </node>
                 </node>
               </node>

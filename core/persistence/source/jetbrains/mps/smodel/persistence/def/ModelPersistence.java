@@ -15,8 +15,11 @@
  */
 package jetbrains.mps.smodel.persistence.def;
 
+import jetbrains.mps.extapi.model.PersistenceProblem;
 import jetbrains.mps.extapi.model.SModelData;
 import jetbrains.mps.persistence.IndexAwareModelFactory.Callback;
+import jetbrains.mps.persistence.MetaModelInfoProvider;
+import jetbrains.mps.persistence.MetaModelInfoProvider.RegularMetaModelInfo;
 import jetbrains.mps.persistence.xml.XMLPersistence;
 import jetbrains.mps.persistence.xml.XMLPersistence.Indexer;
 import jetbrains.mps.smodel.DefaultSModel;
@@ -36,7 +39,9 @@ import org.apache.log4j.Logger;
 import org.jdom.Document;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModel.Problem.Kind;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import org.xml.sax.Attributes;
@@ -48,6 +53,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -203,11 +209,12 @@ public class ModelPersistence {
    * FIXME why does this method do silent update? Would be better to update explicitly, and fail from the method if can't save with specified version
    *  returns upgraded model, or null if the model doesn't require update
    */
-  public static DefaultSModel saveModel(@NotNull SModel model, @NotNull StreamDataSource source, int persistenceVersion) throws IOException {
+  public static DefaultSModel saveModel(@NotNull SModel model, @NotNull StreamDataSource source, int persistenceVersion) throws ModelSaveException {
     LOG.debug("Saving model " + model.getReference() + " to " + source.getLocation());
 
     if (source.isReadOnly()) {
-      throw new IOException("`" + source.getLocation() + "' is read-only");
+      final PersistenceProblem p = new PersistenceProblem(Kind.Save, String.format("`%s' is read-only", source.getLocation()), source.getLocation(), true);
+      throw new ModelSaveException(p.getText(), Collections.singleton(p));
     }
 
     // upgrade?
@@ -222,14 +229,19 @@ public class ModelPersistence {
     }
 
     // save model
-    Document document = modelToXml(model, persistenceVersion);
-    JDOMUtil.writeDocument(document, source);
+    try {
+      Document document = modelToXml(model, persistenceVersion);
+      JDOMUtil.writeDocument(document, source);
 
-    if (oldVersion != persistenceVersion) {
-      LOG.info("persistence upgraded: " + oldVersion + "->" + persistenceVersion + " " + model.getReference());
-      return (DefaultSModel) model;
+      if (oldVersion != persistenceVersion) {
+        LOG.info("persistence upgraded: " + oldVersion + "->" + persistenceVersion + " " + model.getReference());
+        return (DefaultSModel) model;
+      }
+      return null;
+    } catch (IOException ex) {
+      PersistenceProblem p = new PersistenceProblem(Kind.Save, "Failed to serialize XML document into stream", source.getLocation(), true);
+      throw new ModelSaveException(p.getText(), Collections.singleton(p), ex);
     }
-    return null;
   }
 
   /**
@@ -245,22 +257,38 @@ public class ModelPersistence {
     if (persistenceVersion == -1 || !isSupported(persistenceVersion) || getPersistence(persistenceVersion) == null) {
       persistenceVersion = ModelPersistence.LAST_VERSION;
     }
-    return modelToXml(sourceModel, persistenceVersion);
+    try {
+      return modelToXml(sourceModel, persistenceVersion);
+    } catch (ModelSaveException ex) {
+      LOG.error(ex.getMessage(), ex);
+      throw new IllegalStateException(ex);
+    }
   }
 
   /**
    * Serialize model to xml in conformance with given persistence version.
    *
-   * @throws java.lang.IllegalArgumentException if persistenceVersion is invalid (use {@link #LAST_VERSION} if uncertain
+   * @throws ModelSaveException if persistenceVersion is invalid (use {@link #LAST_VERSION} if uncertain
    */
-  private static Document modelToXml(@NotNull SModel model, int persistenceVersion) {
+  private static Document modelToXml(@NotNull SModel model, int persistenceVersion) throws ModelSaveException {
     IModelPersistence modelPersistence = getPersistence(persistenceVersion);
     if (modelPersistence == null) {
-      throw new IllegalArgumentException(String.format("Unknown persistence version %d", persistenceVersion));
+      final String m = String.format("Unknown persistence version %d", persistenceVersion);
+      PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
+      throw new ModelSaveException(m, Collections.singleton(p));
     }
-    IModelWriter writer = modelPersistence.getModelWriter(model instanceof DefaultSModel ? ((DefaultSModel) model).getSModelHeader() : null);
+    final SModelHeader header = model instanceof DefaultSModel ? ((DefaultSModel) model).getSModelHeader() : null;
+    final MetaModelInfoProvider mmiProvider;
+    if (header != null && header.getMetaInfoProvider() != null) {
+      mmiProvider = header.getMetaInfoProvider();
+    } else {
+      mmiProvider = new RegularMetaModelInfo();
+    }
+    IModelWriter writer = modelPersistence.getModelWriter(mmiProvider);
     if (writer == null) {
-      throw new IllegalArgumentException(String.format("Persistence has no writer. Version %d", persistenceVersion));
+      final String m = String.format("Persistence has no writer. Version %d", persistenceVersion);
+      PersistenceProblem p = new PersistenceProblem(Kind.Save, m, String.valueOf(model.getReference()), true);
+      throw new ModelSaveException(m, Collections.singleton(p));
     }
     return writer.saveModel(model);
   }

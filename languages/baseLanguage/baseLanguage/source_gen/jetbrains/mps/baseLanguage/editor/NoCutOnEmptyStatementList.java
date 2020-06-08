@@ -5,25 +5,20 @@ package jetbrains.mps.baseLanguage.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
 
-public class IfStatement_FirstBrace {
+public class NoCutOnEmptyStatementList {
 
-  /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
+  /*package*/ static AbstractCellAction createAction_CUT(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (DeletionApproverUtil.approve(editorContext, node)) {
-          return;
-        }
-        UnwrapStatementsUtil.unwrapIf(node);
       }
 
     };
@@ -57,7 +52,7 @@ public class IfStatement_FirstBrace {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
-    editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
+    editorCell.setAction(CellActionType.CUT, createAction_CUT(node));
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -65,8 +60,8 @@ public class IfStatement_FirstBrace {
     // set cell action(s) of the given type from imported action maps 
 
     // set cell action of the given type defined directly in this action map 
-    if (Objects.equals(actionType, CellActionType.DELETE)) {
-      editorCell.setAction(actionType, createAction_DELETE(node));
+    if (Objects.equals(actionType, CellActionType.CUT)) {
+      editorCell.setAction(actionType, createAction_CUT(node));
     }
   }
 }
