@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.smodel.presentation;
 
-import jetbrains.mps.smodel.DynamicReference;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -130,8 +130,8 @@ public class ReferenceConceptUtil {
       return null;
     }
     SReference reference = node.getReference(characteristicReference);
-    if (reference instanceof DynamicReference) {
-      return ((DynamicReference) reference).getResolveInfo();
+    if (SLinkOperations.isDynamic(reference)) {
+      return SLinkOperations.getResolveInfo(reference);
     }
     SNode referentNode = node.getReferenceTarget(characteristicReference);
     final String referentPresentation;

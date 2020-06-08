@@ -14,7 +14,7 @@ import org.eclipse.jdt.internal.compiler.ast.ParameterizedSingleTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ParameterizedQualifiedTypeReference;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.smodel.DynamicReference;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.smodel.StaticReference;
 import org.eclipse.jdt.internal.compiler.ast.ASTNode;
@@ -41,7 +41,6 @@ import org.eclipse.jdt.internal.compiler.ast.AND_AND_Expression;
 import org.eclipse.jdt.internal.compiler.ast.OR_OR_Expression;
 import java.util.List;
 import java.util.ArrayList;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.eclipse.jdt.internal.compiler.ast.CompoundAssignment;
 import org.eclipse.jdt.internal.compiler.ast.EqualExpression;
 import org.eclipse.jdt.internal.compiler.ast.OperatorIds;
@@ -117,10 +116,10 @@ public class ASTConverterWithExpressions extends ASTConverter {
     return sb.toString();
   }
   private void adjustClassReference(SNode clsType, SNode source, SReferenceLink role) {
-    SReference sref = clsType.getReference(LINKS.classifier$pQ_R);
-    if (sref instanceof DynamicReference) {
+    SReference sref = SNodeOperations.getReference(clsType, LINKS.classifier$pQ_R);
+    if (SLinkOperations.isDynamic(sref)) {
       // code that used to be here ( bcea8a63) intentionally didn't pass additional target model info 
-      source.setReference(role, ResolveInfo.of(((DynamicReference) sref).getResolveInfo()));
+      source.setReference(role, ResolveInfo.of(SLinkOperations.getResolveInfo(sref)));
     } else if (sref instanceof StaticReference) {
       source.setReferenceTarget(role, sref.getTargetNode());
     } else {

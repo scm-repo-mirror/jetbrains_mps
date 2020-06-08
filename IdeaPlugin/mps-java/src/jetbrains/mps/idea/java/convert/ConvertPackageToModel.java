@@ -51,6 +51,7 @@ import jetbrains.mps.idea.core.psi.impl.MPSPsiNode;
 import jetbrains.mps.idea.core.refactoring.NodePtr;
 import jetbrains.mps.idea.java.psiStubs.JavaForeignIdBuilder;
 import jetbrains.mps.java.core.newparser.JavaToMpsConverter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.DynamicReference;
@@ -211,10 +212,9 @@ public class ConvertPackageToModel extends AnAction {
           if (target == null) continue;
 
           SNode source = ref.getSourceNode();
-          String role = ref.getRole();
 
           jetbrains.mps.smodel.SReference finalStaticRef = StaticReference.create(ref.getLink(), source, target);
-          finalStaticRef.setResolveInfo(((DynamicReference) ref).getResolveInfo());
+          finalStaticRef.setResolveInfo(SLinkOperations.getResolveInfo(ref));
           source.setReference(finalStaticRef.getLink(), finalStaticRef);
         }
 

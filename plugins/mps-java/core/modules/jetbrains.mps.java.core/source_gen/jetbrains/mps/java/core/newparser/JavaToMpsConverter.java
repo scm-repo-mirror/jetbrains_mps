@@ -43,12 +43,11 @@ import jetbrains.mps.internal.collections.runtime.ISequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.DynamicReference;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.IFileUtil;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -328,7 +327,11 @@ public class JavaToMpsConverter {
       public ISequence<SReference> invoke(SNode node) {
         return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.DotExpression$6a, false, new SAbstractConcept[]{})).translate(new ITranslator2<SNode, SReference>() {
           public Iterable<SReference> translate(SNode it) {
-            if (Sequence.fromIterable(deepReferences(SLinkOperations.getTarget(it, LINKS.operand$Lcrr))).ofType(DynamicReference.class).isNotEmpty()) {
+            if (Sequence.fromIterable(deepReferences(SLinkOperations.getTarget(it, LINKS.operand$Lcrr))).any(new IWhereFilter<SReference>() {
+              public boolean accept(SReference it) {
+                return SLinkOperations.isDynamic(it);
+              }
+            })) {
               return ListSequence.fromList(new ArrayList<SReference>());
             } else {
               if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.operation$X4R8), CONCEPTS.FieldReferenceOperation$N8)) {
@@ -501,7 +504,7 @@ public class JavaToMpsConverter {
           for (SNode fieldRefOp : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.FieldReferenceOperation$N8, false, new SAbstractConcept[]{}))) {
 
             SReference fieldRef = SNodeOperations.getReference(fieldRefOp, LINKS.fieldDeclaration$mLBy);
-            if (!((fieldRef instanceof DynamicReference && "length".equals((((DynamicReference) fieldRef).getResolveInfo()))))) {
+            if (!((SLinkOperations.isDynamic(fieldRef) && "length".equals(SLinkOperations.getResolveInfo(fieldRef))))) {
               continue;
             }
 
@@ -510,7 +513,7 @@ public class JavaToMpsConverter {
             Iterable<SReference> operandRefs = SNodeOperations.getReferences(operand);
             if (Sequence.fromIterable(operandRefs).any(new IWhereFilter<SReference>() {
               public boolean accept(SReference it) {
-                return it instanceof DynamicReference;
+                return SLinkOperations.isDynamic(it);
               }
             })) {
               continue;
@@ -527,7 +530,7 @@ public class JavaToMpsConverter {
           for (SNode imco : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.InstanceMethodCallOperation$1G, false, new SAbstractConcept[]{}))) {
 
             SReference fieldRef = SNodeOperations.getReference(imco, LINKS.baseMethodDeclaration$$A7i);
-            if (!((fieldRef instanceof DynamicReference && "clone".equals((((DynamicReference) fieldRef).getResolveInfo()))))) {
+            if (!((SLinkOperations.isDynamic(fieldRef) && "clone".equals(SLinkOperations.getResolveInfo(fieldRef))))) {
               continue;
             }
 
@@ -536,7 +539,7 @@ public class JavaToMpsConverter {
             Iterable<SReference> operandRefs = SNodeOperations.getReferences(operand);
             if (Sequence.fromIterable(operandRefs).any(new IWhereFilter<SReference>() {
               public boolean accept(SReference it) {
-                return it instanceof DynamicReference;
+                return SLinkOperations.isDynamic(it);
               }
             })) {
               continue;
@@ -667,7 +670,7 @@ public class JavaToMpsConverter {
       return null;
     }
     SReference ref = SNodeOperations.getReference(varRef, LINKS.variableDeclaration$2ky6);
-    if (!(ref instanceof DynamicReference)) {
+    if (!(SLinkOperations.isDynamic(ref))) {
       return null;
     }
 
@@ -678,7 +681,7 @@ public class JavaToMpsConverter {
     // now we can try to search 
     SNode gateway = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved")));
 
-    String enumConstName = ((DynamicReference) ref).getResolveInfo();
+    String enumConstName = SLinkOperations.getResolveInfo(ref);
 
     for (SNode enclosingEnum : ListSequence.fromList(SNodeOperations.getNodeAncestors(varRef, CONCEPTS.EnumClass$uy, false))) {
       SNode enumConstRef = makeEnumConstRef(enclosingEnum, enumConstName);
@@ -760,11 +763,11 @@ public class JavaToMpsConverter {
       return null;
     }
     SReference ref = SNodeOperations.getReference(SNodeOperations.cast(caseExp, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
-    if (!(ref instanceof DynamicReference)) {
+    if (!(SLinkOperations.isDynamic(ref))) {
       return null;
     }
 
-    final String enumConstName = ((DynamicReference) ref).getResolveInfo();
+    final String enumConstName = SLinkOperations.getResolveInfo(ref);
 
     SNode scrutenee = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(caseExp, CONCEPTS.SwitchStatement$S1, false, false), LINKS.expression$z0sO);
     if ((scrutenee == null)) {
@@ -888,15 +891,15 @@ public class JavaToMpsConverter {
         break;
       }
 
-      Iterable<? extends SReference> refs = node.getReferences();
+      Iterable<SReference> refs = SNodeOperations.getReferences(node);
       for (SReference ref : Sequence.fromIterable(refs)) {
-        if (!(ref instanceof DynamicReference)) {
+        if (!(SLinkOperations.isDynamic(ref))) {
           continue;
         }
 
         dynRefsPresent = true;
 
-        String resolveInfo = ((DynamicReference) ref).getResolveInfo();
+        String resolveInfo = SLinkOperations.getResolveInfo(ref);
         SetSequence.fromSet(retain).addElement(MapSequence.fromMap(importsByName).get(resolveInfo));
       }
     }
@@ -990,7 +993,7 @@ public class JavaToMpsConverter {
       }
     }).select(new ISelector<SNode, SReference>() {
       public SReference select(SNode it) {
-        return SNodeOperations.getReference(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
+        return SNodeOperations.getReference(it, LINKS.variableDeclaration$2ky6);
       }
     });
   }
@@ -1005,10 +1008,10 @@ public class JavaToMpsConverter {
 
   private void resolveRefs(Iterable<SReference> refs, Map<SNodeReference, List<SReference>> result) {
     for (SReference ref : refs) {
-      if (!(ref instanceof DynamicReference)) {
+      if (!(SLinkOperations.isDynamic(ref))) {
         continue;
       }
-      if (SetSequence.fromSet(myVisitedRefs).contains((SReference) ref)) {
+      if (SetSequence.fromSet(myVisitedRefs).contains(ref)) {
         continue;
       }
 
@@ -1019,7 +1022,7 @@ public class JavaToMpsConverter {
 
       SNode source = ref.getSourceNode();
 
-      SReference staticRef = jetbrains.mps.smodel.SReference.create(ref.getLink(), source, target.getReference(), ((DynamicReference) ref).getResolveInfo());
+      SReference staticRef = jetbrains.mps.smodel.SReference.create(ref.getLink(), source, target.getReference(), SLinkOperations.getResolveInfo(ref));
 
       List<SReference> nodeRefs = MapSequence.fromMap(result).get(source.getReference());
       if (nodeRefs == null) {

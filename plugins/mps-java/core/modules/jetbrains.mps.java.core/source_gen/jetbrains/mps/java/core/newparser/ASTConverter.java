@@ -54,7 +54,6 @@ import org.eclipse.jdt.internal.compiler.ast.ParameterizedSingleTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ArrayTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ParameterizedQualifiedTypeReference;
 import org.eclipse.jdt.internal.compiler.ast.ArrayQualifiedTypeReference;
-import jetbrains.mps.smodel.DynamicReference;
 import org.eclipse.jdt.internal.compiler.impl.Constant;
 import org.eclipse.jdt.internal.compiler.impl.BooleanConstant;
 import org.eclipse.jdt.internal.compiler.impl.ByteConstant;
@@ -867,17 +866,11 @@ public class ASTConverter {
     return (bitmap & flag) != 0;
   }
 
-  public String getTypeName(SNode type) {
+  private String getTypeName(SNode type) {
     if (SNodeOperations.isInstanceOf(type, CONCEPTS.PrimitiveType$5)) {
       return SConceptOperations.conceptAlias(SNodeOperations.getConcept(SNodeOperations.cast(type, CONCEPTS.PrimitiveType$5)));
     } else if (SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$IZ)) {
-      //  we'll do assert later when parser always returns dynamic refs 
-      if (SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ).getReference(LINKS.classifier$pQ_R) instanceof DynamicReference) {
-        DynamicReference dynRef = (DynamicReference) SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ).getReference(LINKS.classifier$pQ_R);
-        return dynRef.getResolveInfo();
-      } else {
-        return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R), PROPS.name$tAp1);
-      }
+      return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R), PROPS.name$tAp1);
     } else if (SNodeOperations.isInstanceOf(type, CONCEPTS.TypeVariableReference$vZ)) {
       return "Tv:" + SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(type, CONCEPTS.TypeVariableReference$vZ), LINKS.typeVariableDeclaration$U0X4), PROPS.name$tAp1);
     } else {

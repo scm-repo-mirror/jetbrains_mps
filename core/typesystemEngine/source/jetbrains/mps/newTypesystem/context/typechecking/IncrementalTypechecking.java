@@ -20,6 +20,7 @@ import gnu.trove.THashSet;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.errors.IErrorReporter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.typesystem.runtime.ICheckingRule_Runtime;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.logging.Logger;
@@ -376,7 +377,7 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
     private void markReferenceTargetsInvalid(List<SReference> references) {
       for (SReference reference : references) {
         // MPS-18585 IncrementalTypecheking doesn't invalidate target nodes of dynamic refs if source node has been detached from model
-        if (reference instanceof DynamicReference) {
+        if (SLinkOperations.isDynamic(reference)) {
           // the problem was in a more strict case:
           // dynamic reference from a detached node (its getTargetNode() seems to be non-sensible)
           // but I skip all DynamicReferences
@@ -399,7 +400,7 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
       }
       if (!event.isAdded()) return;
       // MPS-18585 IncrementalTypecheking doesn't invalidate target nodes of dynamic refs if source node has been detached from model
-      if (ref instanceof DynamicReference && ref.getSourceNode().getModel() == null) {
+      if (SLinkOperations.isDynamic(ref) && ref.getSourceNode().getModel() == null) {
         return;
       }
       SNode node = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(event.getReference());

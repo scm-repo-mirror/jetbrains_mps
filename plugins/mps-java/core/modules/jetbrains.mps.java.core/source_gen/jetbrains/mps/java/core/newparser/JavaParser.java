@@ -36,7 +36,6 @@ import jetbrains.mps.internal.collections.runtime.DequeSequence;
 import java.util.LinkedList;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.smodel.SModelInternal;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -320,9 +319,9 @@ public class JavaParser {
       SModel ourModel = node.getModel();
       DequeSequence.fromDequeNew(stack).addSequence(ListSequence.fromList(SNodeOperations.getChildren(node)));
 
-      Iterable<? extends SReference> refs = node.getReferences();
+      Iterable<SReference> refs = SNodeOperations.getReferences(node);
       for (SReference ref : Sequence.fromIterable(refs)) {
-        if (!(ref instanceof DynamicReference)) {
+        if (!(SLinkOperations.isDynamic(ref))) {
           continue;
         }
         // FIXME temp hack around typesystem looping when resolving certain dyn.references 
