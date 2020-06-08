@@ -413,7 +413,7 @@ public class DiffEditor implements EditorMessageOwner {
     @Override
     public String getToolTipText(MouseEvent event) {
       String text = super.getToolTipText(event);
-      return (text != null ? text : getToolTipTextFromColoredStrips(getColoredStripsUnderMouse(event, false)));
+      return (text != null ? text : getToolTipTextFromColoredStrips(getColoredStripsUnderMouse(event, true)));
     }
 
     @Override
