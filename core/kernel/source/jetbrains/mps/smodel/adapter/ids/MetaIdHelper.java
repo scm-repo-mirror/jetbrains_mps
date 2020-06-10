@@ -61,6 +61,13 @@ public final class MetaIdHelper {
     return MetaIdFactory.INVALID_CONCEPT_ID;
   }
 
+  /**
+   * @see #unrecognized(SProperty)
+   */
+  public static boolean unrecognized(SAbstractConcept c) {
+    return MetaIdFactory.INVALID_CONCEPT_ID.equals(getConcept(c));
+  }
+
   @NotNull
   public static SPropertyId getProperty(SProperty p) {
     //todo make serialization via serialize method
@@ -68,6 +75,13 @@ public final class MetaIdHelper {
       return ((SPropertyAdapter) p).getId();
     }
     return MetaIdFactory.INVALID_PROP_ID;
+  }
+
+  /**
+   * Unlike {@link org.jetbrains.mps.openapi.language.SConceptFeature#isValid()}, this method checks id value only
+   */
+  public static boolean unrecognized(SProperty c) {
+    return MetaIdFactory.INVALID_PROP_ID.equals(getProperty(c));
   }
 
   @NotNull

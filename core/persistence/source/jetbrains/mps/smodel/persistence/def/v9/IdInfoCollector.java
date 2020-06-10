@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ import jetbrains.mps.persistence.MetaModelInfoProvider;
 import jetbrains.mps.persistence.registry.ConceptInfo;
 import jetbrains.mps.persistence.registry.IdInfoRegistry;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
+import jetbrains.mps.smodel.adapter.ids.SConceptFeatureId;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import jetbrains.mps.smodel.adapter.ids.SContainmentLinkId;
 import jetbrains.mps.smodel.adapter.ids.SPropertyId;
@@ -27,7 +28,8 @@ import jetbrains.mps.smodel.runtime.ConceptKind;
 import jetbrains.mps.smodel.runtime.StaticScope;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConceptFeature;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -78,16 +80,16 @@ public class IdInfoCollector {
 
 
   private void fillConcept(SNode n) {
-    registerConcept(MetaIdHelper.getConcept(n.getConcept()));
+    registerConcept(n.getConcept());
   }
 
   private void fillProperties(SNode n) {
     for (SProperty prop : n.getProperties()) {
       SPropertyId propId = MetaIdHelper.getProperty(prop);
-      SConceptId conceptId = propId.getConceptId();
-      final ConceptInfo conceptInfo = registerConcept(conceptId);
+      final ConceptInfo conceptInfo = registerConcept(prop, propId);
       if (!conceptInfo.knows(propId)) {
-        conceptInfo.addProperty(propId, myMetaInfoProvider.getPropertyName(propId));
+        final String propertyName = myMetaInfoProvider.getPropertyName(propId);
+        conceptInfo.addProperty(propId, propertyName == null || propertyName.isEmpty() ? prop.getName() : propertyName);
       }
     }
   }
@@ -134,12 +136,47 @@ public class IdInfoCollector {
     }
     String conceptName = myMetaInfoProvider.getConceptName(concept);
     ConceptInfo ci = myRegistry.registerConcept(concept, conceptName);
+    fillFromMMMIP(ci, concept);
+    return ci;
+  }
+
+  private void fillFromMMMIP(ConceptInfo ci, SConceptId concept) {
     final StaticScope scope = myMetaInfoProvider.getScope(concept);
     final ConceptKind kind = myMetaInfoProvider.getKind(concept);
     ci.setImplementationKind(scope, kind);
     if (kind == ConceptKind.IMPLEMENTATION_WITH_STUB) {
       ci.setStubCounterpart(myMetaInfoProvider.getStubConcept(concept));
     }
+  }
+
+  private ConceptInfo registerConcept(SAbstractConcept c) {
+    final SConceptId conceptId = MetaIdHelper.getConcept(c);
+    if (c.isValid() || MetaIdHelper.unrecognized(c)) {
+      return registerConcept(conceptId);
+    }
+    if (!myRegistry.knows(conceptId.getLanguageId())) {
+      myRegistry.registerLanguage(conceptId.getLanguageId(), c.getLanguage().getQualifiedName());
+    }
+    String conceptName = myMetaInfoProvider.getConceptName(conceptId);
+    ConceptInfo ci = myRegistry.registerConcept(conceptId, conceptName == null || conceptName.isEmpty() ? c.getQualifiedName() : conceptName);
+    // XXX scope, kind, stub - we don't keep this in SAbstractConcept!!
+    //     however, it's all the same for a concept with isValid() == false, there's no place to extract this data from either
+    //     therefore, I resort here to the same code as in a general case
+    fillFromMMMIP(ci, conceptId);
     return ci;
+  }
+
+  // XXX would be great to have SConceptFeatureWithId interface
+  private ConceptInfo registerConcept(SConceptFeature cf, SConceptFeatureId cfId) {
+    final SAbstractConcept c = cf.getOwner();
+    if (MetaIdHelper.unrecognized(c)) {
+      // we can not get proper information about owner of the concept feature (irrespective whether there's ConceptDescriptor runtime counterpart or not),
+      // resort to using conceptId value recorded in the concept feature itself
+      return registerConcept(cfId.getConceptId());
+    }
+    // either there's ConceptDescriptor for a feature (isValid() == true) or there's a SAbstractConcept adapter instance that knows its pieces
+    // (e.g. SPropertyAdapter3 case). IOW unrecognized() == false, i.e. no runtime descriptor but it's a feature/concept
+    // we have constructed earlier from some persistence data (or by other means that preserves feature owner information)
+    return registerConcept(c);
   }
 }
