@@ -5592,13 +5592,13 @@
                 <property role="TrG5h" value="newReference" />
                 <node concept="2ShNRf" id="4XrW5KhyNq2" role="33vP2m">
                   <node concept="1pGfFk" id="4XrW5KhyNq3" role="2ShVmc">
-                    <ref role="37wK5l" to="w1kc:~StaticReference.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId,java.lang.String)" resolve="StaticReference" />
+                    <ref role="37wK5l" to="w1kc:~StaticReference.&lt;init&gt;(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId,java.lang.String)" resolve="StaticReference" />
                     <node concept="2OqwBi" id="4XrW5KhyNq4" role="37wK5m">
                       <node concept="37vLTw" id="4XrW5KhyNPD" role="2Oq$k0">
                         <ref role="3cqZAo" node="4XrW5KhyL_7" resolve="oldReference" />
                       </node>
-                      <node concept="liA8E" id="4XrW5KhyNq5" role="2OqNvi">
-                        <ref role="37wK5l" to="mhbf:~SReference.getRole()" resolve="getRole" />
+                      <node concept="liA8E" id="2b433Uy91At" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~SReference.getLink()" resolve="getLink" />
                       </node>
                     </node>
                     <node concept="_YI3z" id="4XrW5KhyNq7" role="37wK5m" />

@@ -70,12 +70,6 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
     return create(role, sourceNode, pointer.getModelReference(), pointer.getNodeId(), resolveInfo);
   }
 
-  @Deprecated
-  @ToRemove(version = 3.2)
-  public static SReference create(String role, SNode sourceNode, SModelReference targetModelReference, SNodeId targetNodeId) {
-    return new StaticReference(role, sourceNode, targetModelReference, targetNodeId, null);
-  }
-
   /**
    * @return Whether logging was really disabled by this call, i.e. it wasn't already disabled before
    */
@@ -155,13 +149,13 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
     return myResolveInfo;
   }
 
-  //-------- error logging -----------
-
   public void setResolveInfo(String info) {
     myResolveInfo = InternUtil.intern(info);
   }
 
   protected abstract SNode getTargetNode_internal();
+
+  //-------- error logging -----------
 
   /**
    * prints error to log

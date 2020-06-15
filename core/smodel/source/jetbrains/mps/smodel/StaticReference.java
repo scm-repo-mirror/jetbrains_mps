@@ -18,7 +18,6 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
@@ -32,6 +31,8 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 //final used by find usages
+// afaiu, the code that was added along with the comment above, StaticReferenceInfo, didn't really assume 'final' for the class.
+//        and it's long gone, anyway. Both comments could be removed.
 public final class StaticReference extends SReferenceBase {
   private SNodeId myTargetNodeId;    // mature
   private volatile SModelReference myTargetModelReference;  // mature
@@ -61,24 +62,6 @@ public final class StaticReference extends SReferenceBase {
     myTargetModelReference = targetModelReference;
     setResolveInfo(resolveInfo);
     myTargetNodeId = nodeId;
-  }
-
-  /**
-   * create 'young' reference
-   */
-  @Deprecated
-  public StaticReference(@NotNull String role, @NotNull SNode sourceNode, @NotNull SNode immatureTargetNode) {
-    this(((ConceptMetaInfoConverter) sourceNode.getConcept()).convertAssociation(role), sourceNode, immatureTargetNode);
-  }
-
-  /**
-   * create 'mature' reference
-   */
-  @Deprecated
-  public StaticReference(@NotNull String role, @NotNull SNode sourceNode, @Nullable SModelReference targetModelReference, @Nullable SNodeId nodeId,
-      @Nullable String resolveInfo) {
-    // 'targetModelReference' can be null only if it is broken external reference
-    this(((ConceptMetaInfoConverter) sourceNode.getConcept()).convertAssociation(role), sourceNode, targetModelReference, nodeId, resolveInfo);
   }
 
   @Override
