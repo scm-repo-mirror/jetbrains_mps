@@ -93,7 +93,7 @@ public final class DynamicReference extends SReferenceBase {
   }
 
   private DynamicReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, String resolveInfo) {
-    super(role, sourceNode, null);
+    super(role, sourceNode);
     setResolveInfo(resolveInfo);
   }
 

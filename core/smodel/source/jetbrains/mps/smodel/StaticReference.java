@@ -35,12 +35,14 @@ import org.jetbrains.mps.openapi.module.SRepository;
 public final class StaticReference extends SReferenceBase {
   private SNodeId myTargetNodeId;    // mature
   private volatile SModelReference myTargetModelReference;  // mature
+  private volatile SNode myImmatureTargetNode;              // young
 
   /**
    * create 'young' reference
    */
   public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @NotNull SNode immatureTargetNode) {
-    super(role, sourceNode, immatureTargetNode);
+    super(role, sourceNode);
+    myImmatureTargetNode = immatureTargetNode;
     myTargetModelReference = null;
     // 'young' reference
     // reference is registered to ImmatureReferences the moment it's part of attached model. Otherwise, we don't care to 'mature' it
@@ -53,7 +55,8 @@ public final class StaticReference extends SReferenceBase {
   public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @Nullable SModelReference targetModelReference, @Nullable SNodeId nodeId,
       @Nullable String resolveInfo) {
     // 'targetModelReference' can be null only if it is broken external reference
-    super(role, sourceNode, null);
+    super(role, sourceNode);
+    myImmatureTargetNode = null;
     // if ref is 'mature' then 'targetModelReference' is either NOT NULL, or it is broken external reference, or it is dynamic reference
     myTargetModelReference = targetModelReference;
     setResolveInfo(resolveInfo);
@@ -314,8 +317,7 @@ public final class StaticReference extends SReferenceBase {
   }
 
   // in fact, counterpart to #makeDirect(), above, to be named makeIndirect() then.
-  @Override
-  protected synchronized void makeMature() {
+  private synchronized void makeMature() {
     if (myImmatureTargetNode == null) {
       return;
     }
@@ -327,6 +329,62 @@ public final class StaticReference extends SReferenceBase {
     myTargetModelReference = targetModel == null ? null : targetModel.getReference();
     setResolveInfo(getResolveInfo(immatureNode));
   }
+
+  @Nullable
+  private String getResolveInfo(SNode immatureNode) {
+    // FIXME need a better approach to keep names of predefined attributes;
+    // however, a dependency to generated kernel module is an overkill for the sake of few strings
+    // XXX move both smodel.SNode and SNodeLegacy to [smodel], why it's in [kernel]?
+    String value = immatureNode.getProperty("resolveInfo");
+    if (value != null) {
+      return value;
+    }
+    return immatureNode.getName();
+  }
+
+
+  public boolean isDirect() {
+    return myImmatureTargetNode != null;
+  }
+
+  // aka makeMature
+  @Override
+  public final boolean makeIndirect() {
+    return makeIndirect(false);
+  }
+
+  /**
+   * It's possible to make reference 'mature' iff both its source and target nodes belong to a model.
+   * It's not clear what if these models are not attached to a repository, why would we care to make reference 'indirect' in this case.
+   * @return {@code true} when/if reference became 'mature' (i.e. doesn't have target node object but its identity)
+   */
+  public synchronized final boolean makeIndirect(boolean force) {
+    if (myImmatureTargetNode == null) {
+      return true;
+    }
+
+    SNode sourceNode = getSourceNode();
+    SModel sourceModel = sourceNode.getModel();
+    if (sourceModel == null) {
+      return false /*myImmatureTargetNode == null*/;
+    }
+
+    if (myImmatureTargetNode.getModel() != null) {
+      // assert sourceModel != null;
+      // convert 'young' reference to 'mature'
+      makeMature();
+      // FWIW, myImmatureTargetNode == null here
+    }
+    if (force && myImmatureTargetNode != null) {
+      // assert sourceModel != null;
+      final boolean targetNodeIsInModel = myImmatureTargetNode.getModel() != null;
+      final String m = String.format("ImmatureTargetNode(modelID: %s, nodeID: %s): isRegistered = %b", myImmatureTargetNode.getModel(), myImmatureTargetNode.getNodeId(), targetNodeIsInModel);
+      error("Impossible to resolve immature reference", false, new ProblemDescription(myImmatureTargetNode.getReference(), m));
+      myImmatureTargetNode = null;
+    }
+    return myImmatureTargetNode == null;
+  }
+
 
   private ModelCommandContext commandContext(SModel targetModel) {
     // took repo from target model, assume MA is the same as the one for source's repo.
