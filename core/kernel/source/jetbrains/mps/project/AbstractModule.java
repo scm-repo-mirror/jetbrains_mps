@@ -470,18 +470,22 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
         LOG.warn(String.format("no registered factory for a facet with type=`%s'", facetType));
         continue;
       }
-      SModuleFacet newFacet = factory.create(this);
-      if (!(newFacet instanceof ModuleFacetBase)) {
-        // FIXME review setupFacet logic (especially overrides). I'd rather perform load() for all and attach in case it's ModuleFacetBase, but not error
-        LOG.error("broken facet factory: " + factory.getClass().getName());
-        continue;
-      }
+      if (!factory.isApplicable(this)) {
+        LOG.error("This module is not applicable for the facet factory '" + factory + "'", new IllegalStateException());
+      } else {
+        SModuleFacet newFacet = factory.create(this);
+        if (!(newFacet instanceof ModuleFacetBase)) {
+          // FIXME review setupFacet logic (especially overrides). I'd rather perform load() for all and attach in case it's ModuleFacetBase, but not error
+          LOG.error("broken facet factory: " + factory.getClass().getName());
+          continue;
+        }
 
-      ModuleFacetBase facet = (ModuleFacetBase) newFacet;
-      Memento m = config.get(facetType);
-      facet = setupFacet(facet, m);
-      if (facet != null) {
-        myFacets.add(facet);
+        ModuleFacetBase facet = (ModuleFacetBase) newFacet;
+        Memento m = config.get(facetType);
+        facet = setupFacet(facet, m);
+        if (facet != null) {
+          myFacets.add(facet);
+        }
       }
     }
   }
