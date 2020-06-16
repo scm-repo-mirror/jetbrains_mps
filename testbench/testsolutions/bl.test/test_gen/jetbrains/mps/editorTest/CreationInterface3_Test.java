@@ -33,7 +33,7 @@ public class CreationInterface3_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("3543341247930470664", "3543341247930470668");
-      typeString("public final @interface");
+      typeString("final @interface");
     }
   }
 }

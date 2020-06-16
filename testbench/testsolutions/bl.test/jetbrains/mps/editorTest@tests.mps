@@ -29475,7 +29475,7 @@
     </node>
   </node>
   <node concept="LiM7Y" id="34GuxtKSnRU">
-    <property role="TrG5h" value="PrivateNotAccepted" />
+    <property role="TrG5h" value="PrivateAccepted" />
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSnRV" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSnRW" role="3cqZAp">
@@ -29502,7 +29502,16 @@
       <node concept="3HP615" id="34GuxtKSnS1" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="2tJIrI" id="34GuxtM0rfH" role="jymVt" />
+        <node concept="3kUTH3" id="6XWv8xDeyRq" role="jymVt">
+          <node concept="3Tm6S6" id="6XWv8xDeyRo" role="1B3o_S" />
+          <node concept="LIFWc" id="6XWv8xDeyRJ" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="Constant_imlbz9_k0" />
+          </node>
+        </node>
         <node concept="3Tm1VV" id="34GuxtKSnS3" role="1B3o_S" />
       </node>
     </node>
@@ -29785,7 +29794,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSuGJ" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSuGK" role="3cqZAp">
-        <property role="2TTd_B" value="public class Foo" />
+        <property role="2TTd_B" value="class Foo" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aH" role="25YQCW">
@@ -29804,17 +29813,14 @@
         <node concept="3Tm1VV" id="34GuxtKSuGO" role="1B3o_S" />
       </node>
     </node>
-    <node concept="1qefOq" id="2aQPn0Pn9oM" role="25YQFr">
-      <node concept="3HP615" id="34GuxtKSuGP" role="1qenE9">
+    <node concept="1qefOq" id="3FnniMqCEPD" role="25YQFr">
+      <node concept="3HP615" id="3FnniMqCEPE" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="312cEu" id="34GuxtKS_r8" role="jymVt">
-          <property role="2bfB8j" value="true" />
-          <property role="1sVAO0" value="false" />
-          <property role="1EXbeo" value="false" />
+        <node concept="312cEu" id="3FnniMqCEX8" role="jymVt">
           <property role="TrG5h" value="Foo" />
-          <node concept="3Tm1VV" id="34GuxtKSuL3" role="1B3o_S" />
-          <node concept="LIFWc" id="34GuxtKS_rD" role="lGtFl">
+          <node concept="3Tm1VV" id="3FnniMqCEX9" role="1B3o_S" />
+          <node concept="LIFWc" id="3FnniMqCEZw" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="3" />
@@ -29822,7 +29828,7 @@
             <property role="LIFWd" value="property_name" />
           </node>
         </node>
-        <node concept="3Tm1VV" id="34GuxtKSuGT" role="1B3o_S" />
+        <node concept="3Tm1VV" id="3FnniMqCEPH" role="1B3o_S" />
       </node>
     </node>
   </node>
@@ -29877,7 +29883,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSCbr" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSCbs" role="3cqZAp">
-        <property role="2TTd_B" value="public final static class Foo" />
+        <property role="2TTd_B" value="final static class Foo" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aJ" role="25YQCW">
@@ -29896,17 +29902,15 @@
         <node concept="3Tm1VV" id="34GuxtKSCbw" role="1B3o_S" />
       </node>
     </node>
-    <node concept="1qefOq" id="2aQPn0Pn9oO" role="25YQFr">
-      <node concept="3HP615" id="34GuxtKSCbx" role="1qenE9">
+    <node concept="1qefOq" id="6XWv8xDc7nK" role="25YQFr">
+      <node concept="3HP615" id="6XWv8xDc7nL" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="312cEu" id="1muh51oyWG8" role="jymVt">
-          <property role="2bfB8j" value="false" />
-          <property role="1sVAO0" value="false" />
+        <node concept="312cEu" id="6XWv8xDc9I1" role="jymVt">
           <property role="1EXbeo" value="true" />
           <property role="TrG5h" value="Foo" />
-          <node concept="3Tm1VV" id="1muh51oyWGa" role="1B3o_S" />
-          <node concept="LIFWc" id="1muh51oyWHF" role="lGtFl">
+          <node concept="3Tm1VV" id="6XWv8xDc9I3" role="1B3o_S" />
+          <node concept="LIFWc" id="6XWv8xDc9Kp" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="3" />
@@ -29914,7 +29918,7 @@
             <property role="LIFWd" value="property_name" />
           </node>
         </node>
-        <node concept="3Tm1VV" id="34GuxtKSCb$" role="1B3o_S" />
+        <node concept="3Tm1VV" id="6XWv8xDc7nO" role="1B3o_S" />
       </node>
     </node>
   </node>
@@ -29923,7 +29927,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSCIH" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSCII" role="3cqZAp">
-        <property role="2TTd_B" value="public interface Foo" />
+        <property role="2TTd_B" value="interface Foo" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aK" role="25YQCW">
@@ -29942,14 +29946,15 @@
         <node concept="3Tm1VV" id="34GuxtKSCIM" role="1B3o_S" />
       </node>
     </node>
-    <node concept="1qefOq" id="2aQPn0Pn9oP" role="25YQFr">
-      <node concept="3HP615" id="34GuxtKSCIN" role="1qenE9">
+    <node concept="1qefOq" id="6XWv8xDbv9e" role="25YQFr">
+      <node concept="3HP615" id="6XWv8xDbv9f" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="3HP615" id="34GuxtKSCQX" role="jymVt">
+        <node concept="3HP615" id="6XWv8xDbvgH" role="jymVt">
+          <property role="2bfB8j" value="true" />
           <property role="TrG5h" value="Foo" />
-          <node concept="3Tm1VV" id="34GuxtKSCMY" role="1B3o_S" />
-          <node concept="LIFWc" id="34GuxtKSCRf" role="lGtFl">
+          <node concept="3Tm1VV" id="6XWv8xDbvgI" role="1B3o_S" />
+          <node concept="LIFWc" id="6XWv8xDbvit" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="3" />
@@ -29957,7 +29962,7 @@
             <property role="LIFWd" value="property_name" />
           </node>
         </node>
-        <node concept="3Tm1VV" id="34GuxtKSCIR" role="1B3o_S" />
+        <node concept="3Tm1VV" id="6XWv8xDbv9i" role="1B3o_S" />
       </node>
     </node>
   </node>
@@ -29966,7 +29971,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSCRt" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSCRu" role="3cqZAp">
-        <property role="2TTd_B" value="public static interface Foo" />
+        <property role="2TTd_B" value="static interface Foo" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aL" role="25YQCW">
@@ -29985,14 +29990,14 @@
         <node concept="3Tm1VV" id="34GuxtKSCRy" role="1B3o_S" />
       </node>
     </node>
-    <node concept="1qefOq" id="2aQPn0Pn9oQ" role="25YQFr">
-      <node concept="3HP615" id="34GuxtKSCRz" role="1qenE9">
+    <node concept="1qefOq" id="6XWv8xDc9LJ" role="25YQFr">
+      <node concept="3HP615" id="6XWv8xDc9LK" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="3HP615" id="34GuxtKSD3A" role="jymVt">
+        <node concept="3HP615" id="6XWv8xDc9ZV" role="jymVt">
           <property role="TrG5h" value="Foo" />
-          <node concept="3Tm1VV" id="34GuxtKSCVK" role="1B3o_S" />
-          <node concept="LIFWc" id="34GuxtKSD3S" role="lGtFl">
+          <node concept="3Tm1VV" id="6XWv8xDc9ZX" role="1B3o_S" />
+          <node concept="LIFWc" id="6XWv8xDca26" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="3" />
@@ -30000,7 +30005,7 @@
             <property role="LIFWd" value="property_name" />
           </node>
         </node>
-        <node concept="3Tm1VV" id="34GuxtKSCRB" role="1B3o_S" />
+        <node concept="3Tm1VV" id="6XWv8xDc9LN" role="1B3o_S" />
       </node>
     </node>
   </node>
@@ -30009,7 +30014,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSD46" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSD47" role="3cqZAp">
-        <property role="2TTd_B" value="public final @interface" />
+        <property role="2TTd_B" value="final @interface" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aM" role="25YQCW">
@@ -30034,8 +30039,7 @@
         <property role="TrG5h" value="Foo" />
         <node concept="3kUTH3" id="1f52fUdwuIT" role="jymVt">
           <property role="3kUJlk" value="true" />
-          <node concept="3Tm1VV" id="1f52fUdwuIR" role="1B3o_S" />
-          <node concept="LIFWc" id="1f52fUdwvp9" role="lGtFl">
+          <node concept="LIFWc" id="6XWv8xDcSHo" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="10" />
@@ -30145,7 +30149,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKSIeP" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKSIeQ" role="3cqZAp">
-        <property role="2TTd_B" value="public void foo(" />
+        <property role="2TTd_B" value="void foo(" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aP" role="25YQCW">
@@ -30164,18 +30168,16 @@
         <node concept="3Tm1VV" id="34GuxtKSIeU" role="1B3o_S" />
       </node>
     </node>
-    <node concept="1qefOq" id="2aQPn0Pn9oU" role="25YQFr">
-      <node concept="3HP615" id="34GuxtKSIeV" role="1qenE9">
+    <node concept="1qefOq" id="6XWv8xDds3R" role="25YQFr">
+      <node concept="3HP615" id="6XWv8xDds3S" role="1qenE9">
         <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Foo" />
-        <node concept="3clFb_" id="1f52fUdvPT8" role="jymVt">
-          <property role="1EzhhJ" value="false" />
-          <property role="2aFKle" value="false" />
+        <node concept="3clFb_" id="6XWv8xDdsaP" role="jymVt">
           <property role="TrG5h" value="foo" />
-          <node concept="3clFbS" id="1f52fUdvPTb" role="3clF47" />
-          <node concept="3Tm1VV" id="1f52fUdvPTc" role="1B3o_S" />
-          <node concept="3cqZAl" id="1f52fUdvPT6" role="3clF45" />
-          <node concept="LIFWc" id="1f52fUdvPUQ" role="lGtFl">
+          <node concept="3clFbS" id="6XWv8xDdsaS" role="3clF47" />
+          <node concept="3Tm1VV" id="6XWv8xDdsaT" role="1B3o_S" />
+          <node concept="3cqZAl" id="6XWv8xDdsaw" role="3clF45" />
+          <node concept="LIFWc" id="6XWv8xDdsbp" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="0" />
@@ -30183,7 +30185,7 @@
             <property role="LIFWd" value="Constant_359zr8_a8a" />
           </node>
         </node>
-        <node concept="3Tm1VV" id="34GuxtKSIf1" role="1B3o_S" />
+        <node concept="3Tm1VV" id="6XWv8xDds3V" role="1B3o_S" />
       </node>
     </node>
   </node>
@@ -30327,7 +30329,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="34GuxtKXshw" role="LjaKd">
       <node concept="2TK7Tu" id="34GuxtKXshx" role="3cqZAp">
-        <property role="2TTd_B" value="public static final string a=&quot;10" />
+        <property role="2TTd_B" value="static final string a=&quot;10" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aT" role="25YQCW">
@@ -30375,7 +30377,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="aW10gi4Q_w" role="LjaKd">
       <node concept="2TK7Tu" id="aW10gi4Q_x" role="3cqZAp">
-        <property role="2TTd_B" value="public void bar " />
+        <property role="2TTd_B" value="void bar " />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aU" role="25YQCW">
@@ -30469,7 +30471,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="aW10giCiye" role="LjaKd">
       <node concept="2TK7Tu" id="aW10giCiyf" role="3cqZAp">
-        <property role="2TTd_B" value="public static final int foo " />
+        <property role="2TTd_B" value="static final int foo " />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9aW" role="25YQCW">
@@ -36329,7 +36331,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="6RoYNmL1ahZ" role="LjaKd">
       <node concept="2TK7Tu" id="6RoYNmL1ai0" role="3cqZAp">
-        <property role="2TTd_B" value="public static int foo(" />
+        <property role="2TTd_B" value="static int foo(" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9c1" role="25YQCW">
@@ -36421,7 +36423,7 @@
     <property role="3GE5qa" value="incompleteMember.interface" />
     <node concept="3clFbS" id="5Jf1oRi9Zpk" role="LjaKd">
       <node concept="2TK7Tu" id="5Jf1oRi9Zpl" role="3cqZAp">
-        <property role="2TTd_B" value="public static final int foo=10" />
+        <property role="2TTd_B" value="static final int foo=10" />
       </node>
     </node>
     <node concept="1qefOq" id="2aQPn0Pn9c3" role="25YQCW">

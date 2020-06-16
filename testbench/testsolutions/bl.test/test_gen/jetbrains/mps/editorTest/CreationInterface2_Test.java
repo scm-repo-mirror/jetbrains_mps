@@ -32,8 +32,8 @@ public class CreationInterface2_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("3543341247930469855", "3543341247930469859");
-      typeString("public static interface Foo");
+      initEditorComponent("3543341247930469855", "8033432760644312176");
+      typeString("static interface Foo");
     }
   }
 }

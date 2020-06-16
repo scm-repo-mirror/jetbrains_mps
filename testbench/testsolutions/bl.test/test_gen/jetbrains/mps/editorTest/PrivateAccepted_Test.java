@@ -11,16 +11,16 @@ import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 
 @MPSLaunch
-public class PrivateNotAccepted_Test extends BaseTransformationTest {
+public class PrivateAccepted_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(PrivateNotAccepted_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(PrivateAccepted_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
 
-  public PrivateNotAccepted_Test() {
+  public PrivateAccepted_Test() {
     super(ourParamCache);
   }
 
   @Test
-  public void test_PrivateNotAccepted() throws Throwable {
+  public void test_PrivateAccepted() throws Throwable {
     new TestBody(this).testMethod();
   }
 

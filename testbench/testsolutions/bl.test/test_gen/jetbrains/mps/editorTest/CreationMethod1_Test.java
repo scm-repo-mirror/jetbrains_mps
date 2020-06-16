@@ -32,8 +32,8 @@ public class CreationMethod1_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("3543341247930491831", "3543341247930491835");
-      typeString("public void foo(");
+      initEditorComponent("3543341247930491831", "8033432760644649208");
+      typeString("void foo(");
     }
   }
 }

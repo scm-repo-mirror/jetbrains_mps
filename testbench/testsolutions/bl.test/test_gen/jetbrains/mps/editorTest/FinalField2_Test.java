@@ -33,7 +33,7 @@ public class FinalField2_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("6615512484304909910", "6615512484304909914");
-      typeString("public static final int foo=10");
+      typeString("static final int foo=10");
     }
   }
 }

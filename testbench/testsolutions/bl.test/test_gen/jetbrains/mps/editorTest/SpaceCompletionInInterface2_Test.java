@@ -33,7 +33,7 @@ public class SpaceCompletionInInterface2_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("197036899236391056", "197036899236391060");
-      typeString("public static final int foo ");
+      typeString("static final int foo ");
     }
   }
 }
