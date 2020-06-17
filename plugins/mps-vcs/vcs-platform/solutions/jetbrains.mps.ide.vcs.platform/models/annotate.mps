@@ -22,7 +22,6 @@
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
     <import index="g51k" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cells(MPS.Editor/)" />
-    <import index="67qc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.messageTargets(MPS.Editor/)" />
     <import index="5fzo" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.persistence.def(MPS.Core/)" />
     <import index="rlg8" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.highlighter(MPS.Editor/)" />
     <import index="yah0" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.history(MPS.IDEA/)" />
@@ -2854,7 +2853,7 @@
                     <node concept="37vLTI" id="4UOgrFUPMJF" role="3clFbG">
                       <node concept="2ShNRf" id="4UOgrFUPSyr" role="37vLTx">
                         <node concept="1pGfFk" id="4UOgrFUQ8RI" role="2ShVmc">
-                          <ref role="37wK5l" to="67qc:~CellFinder$CellForPropertyCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty)" resolve="CellFinder.CellForPropertyCondition" />
+                          <ref role="37wK5l" to="f4zo:~CellConditions$PropertyCellCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty)" resolve="CellConditions.PropertyCellCondition" />
                           <node concept="37vLTw" id="4UOgrFUQi3Q" role="37wK5m">
                             <ref role="3cqZAo" node="7t8y_6kIn3P" resolve="node" />
                           </node>
@@ -2891,7 +2890,7 @@
                       <node concept="37vLTI" id="4UOgrFUN$yv" role="3clFbG">
                         <node concept="2ShNRf" id="4UOgrFUMBZo" role="37vLTx">
                           <node concept="1pGfFk" id="4UOgrFUNse2" role="2ShVmc">
-                            <ref role="37wK5l" to="67qc:~CellFinder$CellForPropertyLegacyCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="CellFinder.CellForPropertyLegacyCondition" />
+                            <ref role="37wK5l" to="g51k:~CellConditions$LegacyPropertyCellCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="CellConditions.LegacyPropertyCellCondition" />
                             <node concept="37vLTw" id="4UOgrFUS1MW" role="37wK5m">
                               <ref role="3cqZAo" node="7t8y_6kIn3P" resolve="node" />
                             </node>
@@ -3063,7 +3062,7 @@
                     <node concept="37vLTI" id="4UOgrFUUPOm" role="3clFbG">
                       <node concept="2ShNRf" id="4UOgrFUUYG4" role="37vLTx">
                         <node concept="1pGfFk" id="4UOgrFUV9jm" role="2ShVmc">
-                          <ref role="37wK5l" to="67qc:~CellFinder$CellForReferenceCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink)" resolve="CellFinder.CellForReferenceCondition" />
+                          <ref role="37wK5l" to="f4zo:~CellConditions$AssociationCellCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink)" resolve="CellConditions.AssociationCellCondition" />
                           <node concept="37vLTw" id="4UOgrFUVhtW" role="37wK5m">
                             <ref role="3cqZAo" node="7t8y_6kIn3P" resolve="node" />
                           </node>
@@ -3100,7 +3099,7 @@
                       <node concept="37vLTI" id="4UOgrFUWzRZ" role="3clFbG">
                         <node concept="2ShNRf" id="4UOgrFUWGgc" role="37vLTx">
                           <node concept="1pGfFk" id="4UOgrFUWOsM" role="2ShVmc">
-                            <ref role="37wK5l" to="67qc:~CellFinder$CellForReferenceLegacyCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="CellFinder.CellForReferenceLegacyCondition" />
+                            <ref role="37wK5l" to="g51k:~CellConditions$LegacyAssociationCellCondition.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="CellConditions.LegacyAssociationCellCondition" />
                             <node concept="37vLTw" id="4UOgrFUWWP_" role="37wK5m">
                               <ref role="3cqZAo" node="7t8y_6kIn3P" resolve="node" />
                             </node>

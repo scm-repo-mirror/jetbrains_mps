@@ -57,7 +57,7 @@ import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.mps.util.Condition;
-import jetbrains.mps.nodeEditor.messageTargets.CellFinder;
+import jetbrains.mps.openapi.editor.cells.CellConditions;
 import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
 import java.util.Collections;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -298,18 +298,18 @@ public class AnnotationColumn extends AbstractLeftColumn {
       PropertyLineContent plc = (PropertyLineContent) content;
       final Condition<EditorCell> isPropCell;
       if (plc.getProperty() != null) {
-        isPropCell = new CellFinder.CellForPropertyCondition(node, plc.getProperty());
+        isPropCell = new CellConditions.PropertyCellCondition(node, plc.getProperty());
       } else {
-        isPropCell = new CellFinder.CellForPropertyLegacyCondition(node, plc.getName());
+        isPropCell = new jetbrains.mps.nodeEditor.cells.CellConditions.LegacyPropertyCellCondition(node, plc.getName());
       }
       return CellFinderUtil.findChildByCondition(bigCellForNode, isPropCell, true, true);
     } else if (content instanceof ReferenceLineContent) {
       ReferenceLineContent rlc = (ReferenceLineContent) content;
       final Condition<EditorCell> isRefCell;
       if (rlc.getLink() != null) {
-        isRefCell = new CellFinder.CellForReferenceCondition(node, rlc.getLink());
+        isRefCell = new CellConditions.AssociationCellCondition(node, rlc.getLink());
       } else {
-        isRefCell = new CellFinder.CellForReferenceLegacyCondition(node, rlc.getRole());
+        isRefCell = new jetbrains.mps.nodeEditor.cells.CellConditions.LegacyAssociationCellCondition(node, rlc.getRole());
       }
       return CellFinderUtil.findChildByCondition(bigCellForNode, isRefCell, true, true);
     } else {

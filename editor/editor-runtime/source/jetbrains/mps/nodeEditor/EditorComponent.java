@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor;
 
-import com.intellij.diff.util.TextDiffTypeFactory;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.CopyProvider;
 import com.intellij.ide.CutProvider;
@@ -107,6 +106,8 @@ import jetbrains.mps.openapi.editor.assist.ContextAssistant;
 import jetbrains.mps.openapi.editor.assist.ContextAssistantManager;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import jetbrains.mps.openapi.editor.cells.CellConditions.AggregationCellCondition;
+import jetbrains.mps.openapi.editor.cells.CellConditions.AssociationCellCondition;
 import jetbrains.mps.openapi.editor.cells.CellMessagesUtil;
 import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCellContext;
@@ -144,6 +145,8 @@ import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -1722,12 +1725,39 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return (EditorCell) bigCell;
   }
 
+  @Override
   public EditorCell findNodeCellWithRole(SNode node, String role) {
     EditorCell rootCell = findNodeCell(node);
     if (rootCell == null) {
       return null;
     }
+    // FIXME why not CellFinderUtil.findChildByCondition? Seem to be identical code.
+    // FIXME why cast, does any client of this method use this internal interface?
     return (EditorCell) findNodeCellWithRole(rootCell, role, node);
+  }
+
+  @Override
+  public jetbrains.mps.openapi.editor.cells.EditorCell findNodeCellWithRole(SNode node, @Nullable SReferenceLink link) {
+    if (node == null || link == null) {
+      return null;
+    }
+    EditorCell rootCell = findNodeCell(node);
+    if (rootCell == null) {
+      return null;
+    }
+    return CellFinderUtil.findChildByCondition(rootCell, new AssociationCellCondition(node, link), true, true);
+  }
+
+  @Override
+  public jetbrains.mps.openapi.editor.cells.EditorCell findNodeCellWithRole(SNode node, @Nullable SContainmentLink link) {
+    if (node == null || link == null) {
+      return null;
+    }
+    EditorCell rootCell = findNodeCell(node);
+    if (rootCell == null) {
+      return null;
+    }
+    return CellFinderUtil.findChildByCondition(rootCell, new AggregationCellCondition(node, link), true, true);
   }
 
   private jetbrains.mps.openapi.editor.cells.EditorCell findNodeCellWithRole(jetbrains.mps.openapi.editor.cells.EditorCell rootCell, String role,
