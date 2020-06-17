@@ -99,12 +99,11 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
   }
 
   private void addListener1(@NotNull IFile file, @NotNull FileListener listener) {
-    FileListenerAdapter listener1 = new FileListenerAdapter(file, listener);
-    ApplicationManager.getApplication().runReadAction(() -> myListenersContainer.addListener(listener1));
+    ApplicationManager.getApplication().runReadAction(() -> myListenersContainer.addListener(listener, file));
   }
 
   private void removeListener1(@NotNull IFile file, @NotNull FileListener listener) {
-    myListenersContainer.removeListener(new FileListenerAdapter(file, listener));
+    myListenersContainer.removeListener(listener, file);
   }
 
   public FileSystemListenersContainer getListenersContainer() {

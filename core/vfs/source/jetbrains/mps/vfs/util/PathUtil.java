@@ -39,6 +39,6 @@ public class PathUtil {
   }
 
   public static boolean isRoot(@NotNull String path) {
-    return path.endsWith(":/") || path.equals("/");
+    return path.endsWith(":/") || "/".equals(path);
   }
 }

@@ -27,7 +27,7 @@ import org.jetbrains.mps.openapi.persistence.DataSourceListener;
  */
 public class ModelSourceChangeTracker implements DataSourceListener {
   protected final ReloadCallback myCallback;
-  private long mySourceTimestamp = -1;
+  private long mySourceTimestamp = -1L;
 
   public ModelSourceChangeTracker(@NotNull ReloadCallback callback) {
     myCallback = callback;

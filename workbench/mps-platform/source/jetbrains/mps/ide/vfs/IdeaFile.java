@@ -608,12 +608,11 @@ public class IdeaFile implements IFile, CachingFile {
     if (isInArchive()) {
       LOG.warn("There might be a problem when adding file listener for the files inside the archive: '" + getPath() + "'");
     }
-    FileListenerAdapter listenerAdapter = new FileListenerAdapter(this, listener);
-    getFileSystem().addListener(listenerAdapter);
+    getFileSystem().addListener(FileListenerAdapter.adapt(this, listener));
   }
 
   @Override
   public void removeListener(@NotNull FileListener listener) {
-    getFileSystem().removeListener(new FileListenerAdapter(this, listener));
+    getFileSystem().removeListener(FileListenerAdapter.adapt(this, listener));
   }
 }
