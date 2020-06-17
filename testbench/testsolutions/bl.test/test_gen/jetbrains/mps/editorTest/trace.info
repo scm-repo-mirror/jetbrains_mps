@@ -3163,6 +3163,117 @@
       <unit id="1883175908513185012" at="13,0,40,0" name="jetbrains.mps.editorTest.AddingTypeParameterToConstructor_Test" />
     </file>
   </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1904073756307438995">
+    <file name="CreationMethod3_Test.java">
+      <node id="1904073756307438995" at="18,33,19,25" concept="11" />
+      <node id="1904073756307438995" at="23,55,24,36" concept="2" />
+      <node id="1904073756307438995" at="29,52,30,19" concept="11" />
+      <node id="1904073756307438995" at="34,51,35,72" concept="2" />
+      <node id="1904073756307438997" at="35,72,36,44" concept="2" />
+      <node id="1904073756307438995" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="1904073756307438995" at="18,0,21,0" concept="1" trace="CreationMethod3_Test#()V" />
+      <node id="1904073756307438995" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1904073756307438995" at="22,0,26,0" concept="5" trace="test_CreationMethod3#()V" />
+      <node id="1904073756307438995" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="1904073756307438995" at="18,33,19,25" />
+      <scope id="1904073756307438995" at="23,55,24,36" />
+      <scope id="1904073756307438995" at="29,52,30,19" />
+      <scope id="1904073756307438995" at="34,51,36,44" />
+      <scope id="1904073756307438995" at="18,0,21,0" />
+      <scope id="1904073756307438995" at="29,0,32,0">
+        <var name="owner" id="1904073756307438995" />
+      </scope>
+      <scope id="1904073756307438995" at="22,0,26,0" />
+      <scope id="1904073756307438995" at="33,0,38,0" />
+      <unit id="1904073756307438995" at="27,0,39,0" name="jetbrains.mps.editorTest.CreationMethod3_Test$TestBody" />
+      <unit id="1904073756307438995" at="13,0,40,0" name="jetbrains.mps.editorTest.CreationMethod3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1904073756307478240">
+    <file name="CreationMethod5_Test.java">
+      <node id="1904073756307478240" at="18,33,19,25" concept="11" />
+      <node id="1904073756307478240" at="23,55,24,36" concept="2" />
+      <node id="1904073756307478240" at="29,52,30,19" concept="11" />
+      <node id="1904073756307478240" at="34,51,35,72" concept="2" />
+      <node id="1904073756307478242" at="35,72,36,37" concept="2" />
+      <node id="1904073756307478240" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="1904073756307478240" at="18,0,21,0" concept="1" trace="CreationMethod5_Test#()V" />
+      <node id="1904073756307478240" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1904073756307478240" at="22,0,26,0" concept="5" trace="test_CreationMethod5#()V" />
+      <node id="1904073756307478240" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="1904073756307478240" at="18,33,19,25" />
+      <scope id="1904073756307478240" at="23,55,24,36" />
+      <scope id="1904073756307478240" at="29,52,30,19" />
+      <scope id="1904073756307478240" at="34,51,36,37" />
+      <scope id="1904073756307478240" at="18,0,21,0" />
+      <scope id="1904073756307478240" at="29,0,32,0">
+        <var name="owner" id="1904073756307478240" />
+      </scope>
+      <scope id="1904073756307478240" at="22,0,26,0" />
+      <scope id="1904073756307478240" at="33,0,38,0" />
+      <unit id="1904073756307478240" at="27,0,39,0" name="jetbrains.mps.editorTest.CreationMethod5_Test$TestBody" />
+      <unit id="1904073756307478240" at="13,0,40,0" name="jetbrains.mps.editorTest.CreationMethod5_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1904073756307479198">
+    <file name="PublicToPrivateMethod_Test.java">
+      <node id="1904073756307479198" at="18,39,19,25" concept="11" />
+      <node id="1904073756307479198" at="23,61,24,36" concept="2" />
+      <node id="1904073756307479198" at="29,52,30,19" concept="11" />
+      <node id="1904073756307479198" at="34,51,35,72" concept="2" />
+      <node id="1904073756307479200" at="35,72,36,28" concept="2" />
+      <node id="1904073756307479198" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="1904073756307479198" at="18,0,21,0" concept="1" trace="PublicToPrivateMethod_Test#()V" />
+      <node id="1904073756307479198" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1904073756307479198" at="22,0,26,0" concept="5" trace="test_PublicToPrivateMethod#()V" />
+      <node id="1904073756307479198" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="1904073756307479198" at="18,39,19,25" />
+      <scope id="1904073756307479198" at="23,61,24,36" />
+      <scope id="1904073756307479198" at="29,52,30,19" />
+      <scope id="1904073756307479198" at="34,51,36,28" />
+      <scope id="1904073756307479198" at="18,0,21,0" />
+      <scope id="1904073756307479198" at="29,0,32,0">
+        <var name="owner" id="1904073756307479198" />
+      </scope>
+      <scope id="1904073756307479198" at="22,0,26,0" />
+      <scope id="1904073756307479198" at="33,0,38,0" />
+      <unit id="1904073756307479198" at="27,0,39,0" name="jetbrains.mps.editorTest.PublicToPrivateMethod_Test$TestBody" />
+      <unit id="1904073756307479198" at="13,0,40,0" name="jetbrains.mps.editorTest.PublicToPrivateMethod_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1904073756307480321">
+    <file name="PrivateToPublicMethod_Test.java">
+      <node id="1904073756307480321" at="18,39,19,25" concept="11" />
+      <node id="1904073756307480321" at="23,61,24,36" concept="2" />
+      <node id="1904073756307480321" at="29,52,30,19" concept="11" />
+      <node id="1904073756307480321" at="34,51,35,72" concept="2" />
+      <node id="1904073756307481516" at="35,72,36,72" concept="2" />
+      <node id="1904073756307481549" at="36,72,37,72" concept="2" />
+      <node id="1904073756307481563" at="37,72,38,72" concept="2" />
+      <node id="1904073756307481579" at="38,72,39,72" concept="2" />
+      <node id="1904073756307481589" at="39,72,40,72" concept="2" />
+      <node id="1904073756307481609" at="40,72,41,72" concept="2" />
+      <node id="1904073756307481623" at="41,72,42,72" concept="2" />
+      <node id="1904073756307481639" at="42,72,43,72" concept="2" />
+      <node id="1904073756307480321" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="1904073756307480321" at="18,0,21,0" concept="1" trace="PrivateToPublicMethod_Test#()V" />
+      <node id="1904073756307480321" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1904073756307480321" at="22,0,26,0" concept="5" trace="test_PrivateToPublicMethod#()V" />
+      <node id="1904073756307480321" at="33,0,45,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="1904073756307480321" at="18,39,19,25" />
+      <scope id="1904073756307480321" at="23,61,24,36" />
+      <scope id="1904073756307480321" at="29,52,30,19" />
+      <scope id="1904073756307480321" at="18,0,21,0" />
+      <scope id="1904073756307480321" at="29,0,32,0">
+        <var name="owner" id="1904073756307480321" />
+      </scope>
+      <scope id="1904073756307480321" at="22,0,26,0" />
+      <scope id="1904073756307480321" at="34,51,43,72" />
+      <scope id="1904073756307480321" at="33,0,45,0" />
+      <unit id="1904073756307480321" at="27,0,46,0" name="jetbrains.mps.editorTest.PrivateToPublicMethod_Test$TestBody" />
+      <unit id="1904073756307480321" at="13,0,47,0" name="jetbrains.mps.editorTest.PrivateToPublicMethod_Test" />
+    </file>
+  </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/1932269937152125075">
     <file name="RestoreRangeSeletion_Test.java">
       <node id="1932269937152125075" at="20,38,21,25" concept="11" />
