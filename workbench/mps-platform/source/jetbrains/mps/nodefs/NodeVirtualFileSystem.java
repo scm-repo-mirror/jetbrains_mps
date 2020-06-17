@@ -230,6 +230,23 @@ public final class NodeVirtualFileSystem extends VirtualFileSystem implements Di
     return new ModelAccessHelper(myGlobalRepoFiles.getRepository()).runReadAction(() -> myGlobalRepoFiles.findFileByPath(path));
   }
 
+  @NotNull
+  @Override
+  public String extractPresentableUrl(@NotNull String path) {
+    // Paths in our filesystem start with a colon-separated prefix, which is not against the rules (there's not documentation in VirtualFile to
+    // stipulate a contract on file path), however, IDEA does expect it to be much like a local path, e.g. by converting *final* VirtualFile.getPresentableUrl()
+    // to java.nio.file.Path (see com.intellij.openapi.fileEditor.impl.EditorsSplitters#updateFileName(), MPS-31691)
+    final int idx;
+    if (path.startsWith(MPSModelVirtualFile.MODEL_PREFIX)) {
+      idx = MPSModelVirtualFile.MODEL_PREFIX.length();
+    } else if (path.startsWith(MPSNodeVirtualFile.NODE_PREFIX)) {
+      idx = MPSNodeVirtualFile.NODE_PREFIX.length();
+    } else {
+      idx = 0;
+    }
+    return super.extractPresentableUrl(idx == 0 ? path : path.substring(idx));
+  }
+
   @Override
   public void refresh(boolean asynchronous) {
     // no-op

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.nodefs;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
-import com.intellij.testFramework.LightVirtualFileBase;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.extapi.persistence.FolderDataSource;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
@@ -39,7 +38,7 @@ import java.io.OutputStream;
  * User: fyodor
  * Date: 3/6/13
  */
-public final class MPSModelVirtualFile extends LightVirtualFileBase {
+public final class MPSModelVirtualFile extends VirtualFile {
   private static final Logger LOG = LogManager.getLogger(MPSModelVirtualFile.class);
   private static final byte[] ZERO_BYTES = new byte[0];
   public static final String MODEL_PREFIX = "model://";
@@ -51,7 +50,6 @@ public final class MPSModelVirtualFile extends LightVirtualFileBase {
   private String myPath;
 
   MPSModelVirtualFile(@NotNull SModelReference modelReference, @NotNull RepositoryVirtualFiles vfs) {
-    super("", null, 0);
     myModelReference = modelReference;
     myRepoFiles = vfs;
     updateFields();
@@ -94,7 +92,17 @@ public final class MPSModelVirtualFile extends LightVirtualFileBase {
   }
 
   @Override
+  public boolean isWritable() {
+    return true;
+  }
+
+  @Override
   public boolean isDirectory() {
+    return true;
+  }
+
+  @Override
+  public boolean isValid() {
     return true;
   }
 
@@ -117,6 +125,11 @@ public final class MPSModelVirtualFile extends LightVirtualFileBase {
     });
   }
 
+  @Override
+  public VirtualFile[] getChildren() {
+    return new VirtualFile[0];
+  }
+
   @NotNull
   @Override
   public OutputStream getOutputStream(Object requestor, long newModificationStamp, long newTimeStamp) {
@@ -127,6 +140,16 @@ public final class MPSModelVirtualFile extends LightVirtualFileBase {
   @Override
   public byte[] contentsToByteArray() {
     return ZERO_BYTES;
+  }
+
+  @Override
+  public long getTimeStamp() {
+    return 0;
+  }
+
+  @Override
+  public long getLength() {
+    return 0;
   }
 
   @Override
