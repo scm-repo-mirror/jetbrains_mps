@@ -161,7 +161,7 @@ public class JpsSolutionIdea extends Solution {
   @Override
   protected SModuleFacet loadAndAttachIfNeeded(@NotNull SModuleFacet facet, Memento memento) {
     if (facet instanceof JavaModuleFacet) {
-      facet = new JavaModuleFacetImpl(module) {
+      facet = new JavaModuleFacetImpl(this) {
         @Override
         public IFile getClassesGen() {
           IFile descriptorFile = getDescriptorFile();
