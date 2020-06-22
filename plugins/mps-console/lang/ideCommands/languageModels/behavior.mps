@@ -2783,6 +2783,14 @@
                   <ref role="37wK5l" to="tft2:~EngagedGeneratorCollector.getDirectlyUsedLanguages()" resolve="getDirectlyUsedLanguages" />
                 </node>
               </node>
+              <node concept="2OqwBi" id="3y9uGy1moqL" role="37wK5m">
+                <node concept="37vLTw" id="3y9uGy1mokn" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2DNBjvG1cn" resolve="gp" />
+                </node>
+                <node concept="liA8E" id="3y9uGy1moz4" role="2OqNvi">
+                  <ref role="37wK5l" to="ap4t:~ModelGenerationPlan.getGenerators()" resolve="getGenerators" />
+                </node>
+              </node>
             </node>
           </node>
         </node>

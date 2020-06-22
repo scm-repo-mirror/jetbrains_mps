@@ -189,6 +189,11 @@
       <concept id="1144230876926" name="jetbrains.mps.baseLanguage.structure.AbstractForStatement" flags="nn" index="1DupvO">
         <child id="1144230900587" name="variable" index="1Duv9x" />
       </concept>
+      <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
+        <child id="1163668914799" name="condition" index="3K4Cdx" />
+        <child id="1163668922816" name="ifTrue" index="3K4E3e" />
+        <child id="1163668934364" name="ifFalse" index="3K4GZi" />
+      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
@@ -2233,6 +2238,137 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="3y9uGy1mxXX" role="3cqZAp">
+          <node concept="3cpWsn" id="3y9uGy1mxY3" role="3cpWs9">
+            <property role="TrG5h" value="coveredByPlanGenerators" />
+            <node concept="3uibUv" id="3y9uGy1mxY5" role="1tU5fm">
+              <ref role="3uigEE" to="33ny:~HashSet" resolve="HashSet" />
+              <node concept="3uibUv" id="3y9uGy1mybO" role="11_B2D">
+                <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
+              </node>
+            </node>
+            <node concept="2ShNRf" id="3y9uGy1mygj" role="33vP2m">
+              <node concept="1pGfFk" id="3y9uGy1mScz" role="2ShVmc">
+                <ref role="37wK5l" to="33ny:~HashSet.&lt;init&gt;()" resolve="HashSet" />
+                <node concept="3uibUv" id="3y9uGy1mSgR" role="1pMfVU">
+                  <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="3y9uGy1mUZN" role="3cqZAp">
+          <node concept="1PaTwC" id="3y9uGy1mUZO" role="1aUNEU">
+            <node concept="3oM_SD" id="3y9uGy1mUZP" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVom" role="1PaTwD">
+              <property role="3oM_SC" value="perhaps," />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVlg" role="1PaTwD">
+              <property role="3oM_SC" value="shall" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVlj" role="1PaTwD">
+              <property role="3oM_SC" value="change/extend" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVlv" role="1PaTwD">
+              <property role="3oM_SC" value="contract" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVlG" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVlM" role="1PaTwD">
+              <property role="3oM_SC" value="MGP.coversLanguage()" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVm9" role="1PaTwD">
+              <property role="3oM_SC" value="instead" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVmx" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVmM" role="1PaTwD">
+              <property role="3oM_SC" value="collecting" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVmW" role="1PaTwD">
+              <property role="3oM_SC" value="source" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVnf" role="1PaTwD">
+              <property role="3oM_SC" value="languages" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVnr" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="3y9uGy1mVnK" role="1PaTwD">
+              <property role="3oM_SC" value="templates." />
+            </node>
+          </node>
+        </node>
+        <node concept="1DcWWT" id="3y9uGy1mwH8" role="3cqZAp">
+          <node concept="3clFbS" id="3y9uGy1mwHb" role="2LFqv$">
+            <node concept="3clFbF" id="3y9uGy1mSk9" role="3cqZAp">
+              <node concept="2OqwBi" id="3y9uGy1mTeD" role="3clFbG">
+                <node concept="37vLTw" id="3y9uGy1mSk7" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3y9uGy1mxY3" resolve="coveredByPlanGenerators" />
+                </node>
+                <node concept="liA8E" id="3y9uGy1mUrG" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~HashSet.add(java.lang.Object)" resolve="add" />
+                  <node concept="2OqwBi" id="3y9uGy1mxAn" role="37wK5m">
+                    <node concept="2OqwBi" id="3y9uGy1mxmX" role="2Oq$k0">
+                      <node concept="37vLTw" id="3y9uGy1mxda" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3y9uGy1mwHc" resolve="tm" />
+                      </node>
+                      <node concept="liA8E" id="3y9uGy1mxw1" role="2OqNvi">
+                        <ref role="37wK5l" to="vndm:~GeneratorRuntime.getSourceLanguage()" resolve="getSourceLanguage" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="3y9uGy1mxHS" role="2OqNvi">
+                      <ref role="37wK5l" to="vndm:~LanguageRuntime.getIdentity()" resolve="getIdentity" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWsn" id="3y9uGy1mwHc" role="1Duv9x">
+            <property role="TrG5h" value="tm" />
+            <node concept="3uibUv" id="3y9uGy1mwHg" role="1tU5fm">
+              <ref role="3uigEE" to="r99j:~TemplateModule" resolve="TemplateModule" />
+            </node>
+          </node>
+          <node concept="37vLTw" id="3y9uGy1mwHh" role="1DdaDG">
+            <ref role="3cqZAo" node="3y9uGy1moAf" resolve="actualGenerators" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3y9uGy1mVFJ" role="3cqZAp">
+          <node concept="3clFbS" id="3y9uGy1mVFL" role="3clFbx">
+            <node concept="3clFbF" id="3y9uGy1mYYe" role="3cqZAp">
+              <node concept="2OqwBi" id="3y9uGy1mZb4" role="3clFbG">
+                <node concept="37vLTw" id="3y9uGy1mYYc" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4dzOCaryl3g" resolve="console" />
+                </node>
+                <node concept="liA8E" id="3y9uGy1mZnR" role="2OqNvi">
+                  <ref role="37wK5l" to="qgo0:5WpmwkrQPWC" resolve="addText" />
+                  <node concept="Xl_RD" id="3y9uGy1mZuk" role="37wK5m">
+                    <property role="Xl_RC" value="Beware, some languages used in the model are not covered by the generation plan!\n\n" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3fqX7Q" id="3y9uGy1mYxr" role="3clFbw">
+            <node concept="2OqwBi" id="3y9uGy1mYxt" role="3fr31v">
+              <node concept="37vLTw" id="3y9uGy1mYxu" role="2Oq$k0">
+                <ref role="3cqZAo" node="3y9uGy1mxY3" resolve="coveredByPlanGenerators" />
+              </node>
+              <node concept="liA8E" id="3y9uGy1mYxv" role="2OqNvi">
+                <ref role="37wK5l" to="33ny:~AbstractCollection.containsAll(java.util.Collection)" resolve="containsAll" />
+                <node concept="37vLTw" id="3y9uGy1mYxw" role="37wK5m">
+                  <ref role="3cqZAo" node="4FXPPIUfqXw" resolve="languagesInUse" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="1DcWWT" id="4FXPPIUgqfi" role="3cqZAp">
           <node concept="3cpWsn" id="4FXPPIUgqfj" role="1Duv9x">
             <property role="TrG5h" value="l" />
@@ -2257,6 +2393,45 @@
                 </node>
               </node>
             </node>
+            <node concept="3cpWs8" id="3y9uGy1mZUM" role="3cqZAp">
+              <node concept="3cpWsn" id="3y9uGy1mZUN" role="3cpWs9">
+                <property role="TrG5h" value="m" />
+                <node concept="3uibUv" id="3y9uGy1mYG9" role="1tU5fm">
+                  <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+                </node>
+                <node concept="2YIFZM" id="3y9uGy1mZUO" role="33vP2m">
+                  <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
+                  <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
+                  <node concept="3K4zz7" id="3y9uGy1n7nY" role="37wK5m">
+                    <node concept="2OqwBi" id="3y9uGy1n1Yu" role="3K4Cdx">
+                      <node concept="37vLTw" id="3y9uGy1n0QX" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3y9uGy1mxY3" resolve="coveredByPlanGenerators" />
+                      </node>
+                      <node concept="liA8E" id="3y9uGy1n2Yj" role="2OqNvi">
+                        <ref role="37wK5l" to="33ny:~HashSet.contains(java.lang.Object)" resolve="contains" />
+                        <node concept="37vLTw" id="3y9uGy1n38Y" role="37wK5m">
+                          <ref role="3cqZAo" node="4FXPPIUgqfj" resolve="l" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="Xl_RD" id="3y9uGy1mZUP" role="3K4E3e">
+                      <property role="Xl_RC" value="%s\n" />
+                    </node>
+                    <node concept="Xl_RD" id="3y9uGy1n7RL" role="3K4GZi">
+                      <property role="Xl_RC" value="%s  [NOT IN THE PLAN]\n" />
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="3y9uGy1mZUQ" role="37wK5m">
+                    <node concept="37vLTw" id="3y9uGy1mZUR" role="2Oq$k0">
+                      <ref role="3cqZAo" node="4FXPPIUgqfj" resolve="l" />
+                    </node>
+                    <node concept="liA8E" id="3y9uGy1mZUS" role="2OqNvi">
+                      <ref role="37wK5l" to="c17a:~SLanguage.getQualifiedName()" resolve="getQualifiedName" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="4FXPPIUgtmj" role="3cqZAp">
               <node concept="2OqwBi" id="4FXPPIUgtmk" role="3clFbG">
                 <node concept="37vLTw" id="4FXPPIUgtml" role="2Oq$k0">
@@ -2264,20 +2439,8 @@
                 </node>
                 <node concept="liA8E" id="4FXPPIUgtmm" role="2OqNvi">
                   <ref role="37wK5l" to="qgo0:5WpmwkrQPWC" resolve="addText" />
-                  <node concept="2YIFZM" id="4FXPPIUgtmn" role="37wK5m">
-                    <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
-                    <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
-                    <node concept="Xl_RD" id="4FXPPIUgtmo" role="37wK5m">
-                      <property role="Xl_RC" value="%s\n" />
-                    </node>
-                    <node concept="2OqwBi" id="4FXPPIUgul$" role="37wK5m">
-                      <node concept="37vLTw" id="4FXPPIUgu8J" role="2Oq$k0">
-                        <ref role="3cqZAo" node="4FXPPIUgqfj" resolve="l" />
-                      </node>
-                      <node concept="liA8E" id="4FXPPIUguzi" role="2OqNvi">
-                        <ref role="37wK5l" to="c17a:~SLanguage.getQualifiedName()" resolve="getQualifiedName" />
-                      </node>
-                    </node>
+                  <node concept="37vLTw" id="3y9uGy1mZUT" role="37wK5m">
+                    <ref role="3cqZAo" node="3y9uGy1mZUN" resolve="m" />
                   </node>
                 </node>
               </node>
@@ -2298,6 +2461,15 @@
           <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
           <node concept="3uibUv" id="4FXPPIUfrHe" role="11_B2D">
             <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="3y9uGy1moAf" role="3clF46">
+        <property role="TrG5h" value="actualGenerators" />
+        <node concept="3uibUv" id="3y9uGy1mo$k" role="1tU5fm">
+          <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
+          <node concept="3uibUv" id="3y9uGy1mo$n" role="11_B2D">
+            <ref role="3uigEE" to="r99j:~TemplateModule" resolve="TemplateModule" />
           </node>
         </node>
       </node>

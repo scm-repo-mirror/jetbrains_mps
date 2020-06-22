@@ -110,7 +110,7 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
     helper.show(gp);
     EngagedGeneratorCollector egc = new EngagedGeneratorCollector(model, null);
     egc.getGenerators();
-    helper.printLanguages(egc.getDirectlyUsedLanguages());
+    helper.printLanguages(egc.getDirectlyUsedLanguages(), gp.getGenerators());
     final ArrayList<String> trace = new ArrayList<String>();
     egc.dump(new Consumer<String>() {
       public void accept(String s) {

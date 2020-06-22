@@ -25,6 +25,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import java.util.ArrayList;
 import jetbrains.mps.generator.impl.plan.ConnectedComponentPartitioner;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import java.util.HashSet;
 import jetbrains.mps.generator.impl.plan.Conflict;
 import java.util.Set;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -147,11 +148,20 @@ public class PartitioningHelper {
     // } 
   }
 
-  public void printLanguages(Collection<SLanguage> languagesInUse) {
+  public void printLanguages(Collection<SLanguage> languagesInUse, Collection<TemplateModule> actualGenerators) {
     console.addText("Model directly uses next languages (including explicitly engaged, if any):\n");
+    HashSet<SLanguage> coveredByPlanGenerators = new HashSet<SLanguage>();
+    // XXX perhaps, shall change/extend contract of MGP.coversLanguage() instead of collecting source languages from templates. 
+    for (TemplateModule tm : actualGenerators) {
+      coveredByPlanGenerators.add(tm.getSourceLanguage().getIdentity());
+    }
+    if (!(coveredByPlanGenerators.containsAll(languagesInUse))) {
+      console.addText("Beware, some languages used in the model are not covered by the generation plan!\n\n");
+    }
     for (SLanguage l : languagesInUse) {
       console.addText("  ");
-      console.addText(String.format("%s\n", l.getQualifiedName()));
+      String m = String.format((coveredByPlanGenerators.contains(l) ? "%s\n" : "%s  [NOT IN THE PLAN]\n"), l.getQualifiedName());
+      console.addText(m);
     }
     consoleDelimiter();
   }
