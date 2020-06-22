@@ -32,9 +32,6 @@
       <implementation-class>jetbrains.mps.watching.WatchedRootsUpdater</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.watching.ModelFocusSynchronizer</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.platform.watching.ModelCacheReloader</implementation-class>
     </component>
     <component>
@@ -170,5 +167,9 @@
   <extensions defaultExtensionNs="jetbrains.mps">
     <NodeEditorFactory implementation="jetbrains.mps.workbench.editors.TabsMPSEditorFactory"/>
   </extensions>
+
+  <applicationListeners>
+    <listener class="jetbrains.mps.watching.ModelFocusSynchronizer" topic="com.intellij.ide.FrameStateListener"/>
+  </applicationListeners>
 
 </components>
