@@ -45,10 +45,18 @@ public final class ModelAccessHelper {
     return r.getResult();
   }
 
+  public void runReadAction(Runnable r) {
+    myModelAccess.runReadAction(r);
+  }
+
   public <T> T runWriteAction(final Computable<T> c) {
     final ComputeRunnable<T> r = new ComputeRunnable<>(c);
     myModelAccess.runWriteAction(r);
     return r.getResult();
+  }
+
+  public void runWriteAction(Runnable r) {
+    myModelAccess.runWriteAction(r);
   }
 
     /**

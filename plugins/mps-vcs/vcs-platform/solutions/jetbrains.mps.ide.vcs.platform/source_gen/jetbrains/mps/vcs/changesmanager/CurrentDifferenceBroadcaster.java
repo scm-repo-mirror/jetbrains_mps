@@ -5,6 +5,8 @@ package jetbrains.mps.vcs.changesmanager;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
+
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
@@ -41,7 +43,6 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
       }
     }
   }
-  @Override
   public void changeAdded(@NotNull final ModelChange change) {
     fireEvent("changeAdded", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
       public void invoke(CurrentDifferenceListener listener) {
@@ -49,7 +50,6 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
       }
     });
   }
-  @Override
   public void changeRemoved(@NotNull final ModelChange change) {
     fireEvent("changeRemoved", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
       public void invoke(CurrentDifferenceListener listener) {
@@ -57,7 +57,6 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
       }
     });
   }
-  @Override
   public void changeUpdateStarted() {
     fireEvent("changeUpdateStarted", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
       public void invoke(CurrentDifferenceListener listener) {
@@ -65,11 +64,32 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
       }
     });
   }
-  @Override
   public void changeUpdateFinished() {
     fireEvent("changeUpdateFinished", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
       public void invoke(CurrentDifferenceListener listener) {
+        Logger logger = LogManager.getLogger(CurrentDifferenceBroadcaster.class);
+        logger.debug(" changeupdatefinished for " + listener.getClass().getSimpleName());
         listener.changeUpdateFinished();
+        logger.debug(" changeupdatefinished done for " + listener.getClass().getSimpleName());
+      }
+    });
+  }
+
+  public void changesAdded(List<ModelChange> modelChanges) {
+    fireEvent("changesAdded", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
+      public void invoke(CurrentDifferenceListener listener) {
+        Logger logger = LogManager.getLogger(CurrentDifferenceBroadcaster.class);
+        logger.debug("  changesAdded " + listener.getClass().getSimpleName());
+        listener.changesAdded(modelChanges);
+        logger.debug("  done changesAdded " + listener.getClass().getSimpleName());
+      }
+    });
+  }
+
+  public void changesRemoved(List<ModelChange> modelChanges) {
+    fireEvent("changesRemoved", new _FunctionTypes._void_P1_E0<CurrentDifferenceListener>() {
+      public void invoke(CurrentDifferenceListener listener) {
+        listener.changesRemoved(modelChanges);
       }
     });
   }

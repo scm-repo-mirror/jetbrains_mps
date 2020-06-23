@@ -40,18 +40,6 @@ public class CounterMap<K> {
     myHandler = handler;
   }
 
-  public CounterMap() {
-    this(new CounterMapHandler<K>() {
-      @Override
-      public void counterZero(@NotNull K key) {
-      }
-
-      @Override
-      public void counterNonZero(@NotNull K key) {
-      }
-    });
-  }
-
   public void increment(K key) {
     if (myMap.containsKey(key)) {
       myMap.put(key, myMap.get(key) + 1);

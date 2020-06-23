@@ -4,20 +4,16 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SRepository;
-
-import java.util.Objects;
 
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/5060092229902868246", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class DeletedChildFeature extends AbstractNodeFeature {
   private final String myRole;
   private final int myIndex;
-  private final NodeFeature myParentFeature = new NodeFeature(getNodePointer());
 
-  public DeletedChildFeature(@NotNull SNodeReference nodePointer, String role, int index) {
-    super(nodePointer);
+  public DeletedChildFeature(@NotNull SNodeReference nodePointer, String role, int index, SNodeId rootId) {
+    super(nodePointer, new NodeFeature(nodePointer, rootId));
     myRole = role;
     myIndex = index;
   }
@@ -41,10 +37,5 @@ public class DeletedChildFeature extends AbstractNodeFeature {
   @Override
   public String toString() {
     return "Node reference {" + getNodePointerString() + "|" + myRole + "|" + myIndex + "}";
-  }
-  @Nullable
-  @Override
-  protected Feature getParent(SRepository repo) {
-    return myParentFeature;
   }
 }

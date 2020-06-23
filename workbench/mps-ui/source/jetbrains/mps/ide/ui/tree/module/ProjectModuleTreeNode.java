@@ -15,9 +15,13 @@
  */
 package jetbrains.mps.ide.ui.tree.module;
 
+import com.intellij.openapi.vcs.impl.VcsFileStatusProvider;
+import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.TreeElement;
 import jetbrains.mps.ide.ui.tree.TreeNodeVisitor;
+import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.Project;
@@ -25,11 +29,13 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.ProjectStructureModule;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 
 public abstract class ProjectModuleTreeNode extends MPSTreeNode implements MPSModuleTreeNode, TreeElement {
   private final SModule myModule;
+  private final Project myProject;
 
   public static ProjectModuleTreeNode createFor(Project project, SModule module) {
     return createFor(project, module, false);
@@ -48,8 +54,16 @@ public abstract class ProjectModuleTreeNode extends MPSTreeNode implements MPSMo
     return null;
   }
 
+  @Deprecated
   protected ProjectModuleTreeNode(@NotNull SModule module) {
     super(module.getModuleName());
+    myModule = module;
+    myProject = null;
+  }
+
+  protected ProjectModuleTreeNode(@NotNull SModule module, Project project) {
+    super(module.getModuleName());
+    myProject = project;
     myModule = module;
   }
 

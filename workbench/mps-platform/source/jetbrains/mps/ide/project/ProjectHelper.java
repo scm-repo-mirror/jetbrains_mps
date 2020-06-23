@@ -31,13 +31,6 @@ import java.awt.Frame;
  * Evgeny Gryaznov, 9/29/11
  */
 public class ProjectHelper {
-
-  /**
-   * @deprecated use {@link MPSProject#getProject()} instead
-   */
-  @Deprecated
-  @ToRemove(version = 3.4)
-  @Nullable
   public static com.intellij.openapi.project.Project toIdeaProject(Project p) {
     if (p instanceof MPSProject) {
       return ((MPSProject) p).getProject();

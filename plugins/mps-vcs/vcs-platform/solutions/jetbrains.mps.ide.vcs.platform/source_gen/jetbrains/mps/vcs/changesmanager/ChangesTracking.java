@@ -167,7 +167,7 @@ public class ChangesTracking {
     SRepository repo = ProjectHelper.fromIdeaProject(myProject).getRepository();
     final Wrappers._boolean doNotContinue = new Wrappers._boolean(true);
     final Wrappers._boolean useEmptyBaseModel = new Wrappers._boolean(false);
-    LOG.info("READ ACESS FIRST");
+    LOG.info("READ ACCESS FIRST");
     repo.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         synchronized (LOCK) {
@@ -179,7 +179,8 @@ public class ChangesTracking {
           }
 
           boolean isConflict = ConflictsUtil.isModelOrModuleConflicting(myModelDescriptor, myProject);
-          FileStatus status = (isConflict ? FileStatus.MERGED_WITH_CONFLICTS : getStatus(myModelDescriptor));
+          FileStatus status = (isConflict ? FileStatus.MERGED_WITH_CONFLICTS
+                                          : getStatus(myModelDescriptor));
 
           // todo: make !force working for per-root persistence (here status==null) 
           if (status != null && myStatusOnLastUpdate == status && !(force)) {
@@ -197,7 +198,7 @@ public class ChangesTracking {
         }
       }
     });
-    LOG.info("READ ACESS FIRST finished");
+    LOG.info("READ ACCESS FIRST finished");
     if (doNotContinue.value) {
       return;
     }
@@ -232,7 +233,7 @@ public class ChangesTracking {
           if (!(myDisposed)) {
             DiffModelUtil.renameModel(baseVersionModel.value, "repository");
             LOG.debug("building change set");
-            ChangeSet changeSet = ChangeSetBuilder.buildChangeSet(baseVersionModel.value, myModelDescriptor, true);
+            @NotNull ChangeSet changeSet = ChangeSetBuilder.buildChangeSet(baseVersionModel.value, myModelDescriptor, true);
             LOG.debug("change set built ");
             LOG.debug("setting change set");
             myDifference.setChangeSet((ChangeSetImpl) changeSet);

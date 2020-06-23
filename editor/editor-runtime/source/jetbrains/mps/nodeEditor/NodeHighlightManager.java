@@ -318,9 +318,9 @@ public class NodeHighlightManager implements EditorMessageOwner {
    * Should work even if NodeHighlightManager is disposed because it can be called by the Highlighter thread
    */
   public Set<SimpleEditorMessage> getMessages() {
-    Set<SimpleEditorMessage> result = new HashSet<>();
+    Set<SimpleEditorMessage> result;
     synchronized (myMessagesLock) {
-      result.addAll(myMessages);
+      result = new HashSet<>(myMessages);
     }
     return result;
   }

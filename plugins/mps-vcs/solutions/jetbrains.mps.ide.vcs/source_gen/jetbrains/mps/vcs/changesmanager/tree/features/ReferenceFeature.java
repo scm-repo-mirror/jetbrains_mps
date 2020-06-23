@@ -5,29 +5,21 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SRepository;
 
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/5060092229902868645", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class ReferenceFeature extends AbstractNodeFeature {
   private final SReferenceLink myReference;
-  private final ReferencesFeature myParentFeature = new ReferencesFeature(getNodePointer());
 
-  public ReferenceFeature(@NotNull SNodeReference nodePointer, @NotNull SReferenceLink ref) {
-    super(nodePointer);
+  public ReferenceFeature(@NotNull SNodeReference nodePointer, @NotNull SReferenceLink ref, SNodeId rootId) {
+    super(nodePointer, new NodeFeature(nodePointer, rootId));
     myReference = ref;
   }
   @NotNull
   public SReferenceLink getReference() {
     return myReference;
   }
-  @Nullable
-  @Override
-  protected Feature getParent(SRepository repo) {
-    return myParentFeature;
-  }
-
   @Override
   public int hashCode() {
     return myReference.hashCode() * 13 + getNodePointer().hashCode() * 29;

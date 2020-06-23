@@ -5,18 +5,14 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SRepository;
 
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/8214059917935786316", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class VirtualPackageFeature extends Feature {
   private final String myVirtualPackage;
-  private final Feature myParentFeature;
 
   public VirtualPackageFeature(@NotNull SModelReference modelReference, @NotNull String virtualPackage) {
     super(modelReference);
     myVirtualPackage = virtualPackage;
-    myParentFeature = calcParentFeature();
   }
 
   @NotNull
@@ -39,20 +35,14 @@ public class VirtualPackageFeature extends Feature {
     return false;
   }
 
-  @Nullable
-  @Override
-  protected Feature getParent(SRepository repo) {
-    return myParentFeature;
-  }
-
-  @Nullable
-  private Feature calcParentFeature() {
-    int lastIndexOf = myVirtualPackage.lastIndexOf('.');
-    if (lastIndexOf == -1) {
-      return null;
-    } else {
-      String parentPackage = myVirtualPackage.substring(0, lastIndexOf);
-      return new VirtualPackageFeature(getModelReference(), parentPackage);
-    }
-  }
+//  @Nullable
+//  private Feature calcParentFeature() {
+//    int lastIndexOf = myVirtualPackage.lastIndexOf('.');
+//    if (lastIndexOf == -1) {
+//      return null;
+//    } else {
+//      String parentPackage = myVirtualPackage.substring(0, lastIndexOf);
+//      return new VirtualPackageFeature(getModelReference(), parentPackage);
+//    }
+//  }
 }

@@ -374,7 +374,7 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
    *
    * @param message message to attach
    */
-  public void addTreeMessage(@NotNull TreeMessage message) {
+  public boolean addTreeMessage(@NotNull TreeMessage message) {
     List<TreeMessage> treeMessages = myTreeMessages;
     if (treeMessages == null) {
       synchronized (this) {
@@ -384,7 +384,7 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
         treeMessages = myTreeMessages;
       }
     }
-    treeMessages.add(message);
+    return treeMessages.add(message);
   }
 
   /**

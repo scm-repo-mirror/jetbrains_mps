@@ -5,8 +5,6 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SRepository;
 
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/3201398707754971881", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class ModelFeature extends Feature {
@@ -27,11 +25,6 @@ public class ModelFeature extends Feature {
     return false;
   }
 
-  @Nullable
-  @Override
-  protected Feature getParent(SRepository repo) {
-    return null;
-  }
   @NotNull
   @Override
   public String toString() {

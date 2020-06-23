@@ -18,7 +18,7 @@ public class HierarchyFeatureExtractor implements TreeNodeFeatureExtractor {
   @Override
   public Feature getFeature(@NotNull MPSTreeNode treeNode) {
     if (treeNode instanceof HierarchyTreeNode) {
-      return new NodeFeature(((HierarchyTreeNode) treeNode).getNodeReference());
+      return new NodeFeature(((HierarchyTreeNode) treeNode).getNodeReference(), null);
     }
     return null;
   }

@@ -5,17 +5,15 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.module.SRepository;
 
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/5060092229902868568", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class PropertyFeature extends AbstractNodeFeature {
   private final SProperty myProperty;
-  private final PropertiesFeature myParentFeature = new PropertiesFeature(getNodePointer());
 
-  public PropertyFeature(@NotNull SNodeReference nodePointer, @NotNull SProperty p) {
-    super(nodePointer);
+  public PropertyFeature(@NotNull SNodeReference nodePointer, @NotNull SProperty p, SNodeId rootId) {
+    super(nodePointer, new NodeFeature(nodePointer, rootId));
     myProperty = p;
   }
   @NotNull
@@ -26,11 +24,6 @@ public class PropertyFeature extends AbstractNodeFeature {
   @NotNull
   public SProperty getProperty() {
     return myProperty;
-  }
-  @Nullable
-  @Override
-  protected Feature getParent(SRepository repo) {
-    return myParentFeature;
   }
   @Override
   public boolean equals(Object object) {

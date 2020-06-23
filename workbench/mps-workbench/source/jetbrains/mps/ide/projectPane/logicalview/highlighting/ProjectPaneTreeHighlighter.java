@@ -298,6 +298,8 @@ public class ProjectPaneTreeHighlighter {
 
     @Override
     public void beforeTreeDisposed(MPSTree tree) {
+      System.out.println("TREE IS DISPOSING");
+      myExecutor.shutdown();
     }
   }
 

@@ -4,36 +4,25 @@ package jetbrains.mps.vcs.changesmanager.tree.features;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.module.SRepository;
-
-import java.util.stream.Stream;
+import org.jetbrains.mps.openapi.model.SNodeId;
 
 /**
- * Feature is either node, node's property, node's reference, node's property list,
- * or node's reference list (see subclasses)
+ * Feature is a model change abstraction
+ *
+ * Features are only needed for tree vcs highlighting.
+ * Features can be constructed from model changes (vcs thing) and from MPSTree nodes (ui tree entity)
  */
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/5060092229902868305", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public abstract class Feature {
   private final SModelReference myModelReference;
+
   protected Feature(@NotNull SModelReference modelReference) {
     myModelReference = modelReference;
   }
+
   @NotNull
   public final SModelReference getModelReference() {
     return myModelReference;
-  }
-  @Nullable
-  protected abstract Feature getParent(SRepository repo);
-  @NotNull
-  @Override
-  public abstract String toString();
-  public final Stream<Feature> getAncestors(SRepository repo) {
-    Stream.Builder<Feature> result = Stream.builder();
-    for (Feature current = getParent(repo); current != null; current = current.getParent(repo)) {
-      result.accept(current);
-    }
-    return result.build();
   }
 }

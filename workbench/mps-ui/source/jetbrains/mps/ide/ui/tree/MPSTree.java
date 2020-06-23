@@ -76,8 +76,8 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
 
   private List<MPSTreeNodeListener> myTreeNodeListeners = new ArrayList<>();
 
-  // todo: make unique name
-  private MergingUpdateQueue myQueue = new MergingUpdateQueue("MPS Tree Rebuild Later Watcher Queue", 500, true, null);
+  private final MergingUpdateQueue myQueue = new MergingUpdateQueue("MPS Tree Rebuild Later Watcher Queue",
+                                                              500, true, null);
   private final Object myUpdateId = new Object();
 
   private boolean myDisposed = false;

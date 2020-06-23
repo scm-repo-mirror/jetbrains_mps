@@ -33,7 +33,7 @@ public class UsagesTreeFeatureExtractor implements TreeNodeFeatureExtractor {
       } else if (nodeData instanceof NodeNodeData) {
         SNodeReference np = ((NodeNodeData) nodeData).getNodePointer();
         if (np != null) {
-          return new NodeFeature(np);
+          return new NodeFeature(np, null);
         }
       }
     }

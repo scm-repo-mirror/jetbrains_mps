@@ -88,7 +88,7 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
     return myMpsProject;
   }
 
-  /*package*/ void updateModelIfTracked(@NotNull SModelReference modelRef, boolean forceFull) {
+  private void updateModelIfTracked(@NotNull SModelReference modelRef, boolean forceFull) {
     synchronized (myCurrentDifferences) {
       CurrentDifference modelDiff = MapSequence.fromMap(myCurrentDifferences).get(modelRef);
       if (modelDiff != null) {
@@ -97,7 +97,7 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
     }
   }
 
-  /*package*/ void updateModel(@Nullable VirtualFile file) {
+  private void updateModel(@Nullable VirtualFile file) {
     if (file == null) {
       return;
     }
@@ -130,6 +130,9 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
       }
     }
   }
+  /**
+   * get existing or create a new one
+   */
   @NotNull
   public CurrentDifference getCurrentDifference(@NotNull EditableSModel modelDescriptor) {
     synchronized (myCurrentDifferences) {
@@ -140,6 +143,14 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
       return MapSequence.fromMap(myCurrentDifferences).get(modelRef);
     }
   }
+
+  @Nullable
+  public CurrentDifference getExistingCurDifference(@NotNull SModelReference modelReference) {
+    synchronized (myCurrentDifferences) {
+      return myCurrentDifferences.get(modelReference);
+    }
+  }
+
   public void addGlobalDifferenceListener(@NotNull CurrentDifferenceListener listener) {
     myGlobalBroadcaster.addDifferenceListener(listener);
   }

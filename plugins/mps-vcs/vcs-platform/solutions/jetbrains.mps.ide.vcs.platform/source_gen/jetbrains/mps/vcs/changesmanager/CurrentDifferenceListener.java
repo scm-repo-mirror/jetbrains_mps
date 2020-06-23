@@ -4,6 +4,8 @@ package jetbrains.mps.vcs.changesmanager;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.EventListener;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 
@@ -13,4 +15,12 @@ public interface CurrentDifferenceListener extends EventListener {
   void changeRemoved(@NotNull ModelChange change);
   void changeUpdateStarted();
   void changeUpdateFinished();
+
+  default void changesAdded(@NotNull List<ModelChange> changes) {
+    for (ModelChange c : changes) changeAdded(c);
+
+  }
+  default void changesRemoved(@NotNull List<ModelChange> changes) {
+    for (ModelChange c : changes) changeRemoved(c);
+  }
 }

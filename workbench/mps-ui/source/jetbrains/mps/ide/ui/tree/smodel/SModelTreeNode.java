@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.ide.ui.tree.smodel;
 
+import com.intellij.openapi.editor.colors.ColorKey;
+import com.intellij.openapi.editor.colors.EditorColorsManager;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.ui.tree.MPSTreeChildOrder;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
@@ -266,6 +268,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   @Override
   protected void doUpdatePresentation() {
     setText(myTextSource.calculateText(this));
+    setColor(EditorColorsManager.getInstance().getGlobalScheme().getColor(ColorKey.createColorKey("FILESTATUS_NOT_CHANGED")));
   }
 
   @Override
