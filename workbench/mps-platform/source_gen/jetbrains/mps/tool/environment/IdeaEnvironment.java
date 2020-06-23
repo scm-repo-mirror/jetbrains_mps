@@ -308,7 +308,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
     if (!(myConfig.isTestMode())) {
       // fixme in testmode everything works as it did (see StartupManagerImpl) 
       // probably we need to find a better way to open a project in here 
-      ((StartupManagerImpl) StartupManager.getInstance(project.get())).runPostStartupActivities();
+//      ((StartupManagerImpl) StartupManager.getInstance(project.get())).runPostStartupActivities();
     }
 
     if (!(exc.isNull())) {
