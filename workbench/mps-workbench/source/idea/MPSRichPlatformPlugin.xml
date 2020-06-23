@@ -346,18 +346,8 @@
         <xi:fallback/>
   </xi:include>
   -->
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Copy paste from XmlPlugin.xml-->
-    <applicationService serviceInterface="com.intellij.ide.browsers.BrowserLauncher" serviceImplementation="com.intellij.ide.browsers.BrowserLauncherImpl"/>
-    <applicationService serviceImplementation="com.intellij.ide.browsers.WebBrowserManager"/>
-  </extensions>
 
   <xi:include href="/META-INF/SpellCheckerPlugin.xml" xpointer="xpointer(/idea-plugin/*)"/>
-
-  <!-- Copy paste from XmlPlugin.xml-->
-  <extensions defaultExtensionNs="org.jetbrains">
-    <urlOpener implementation="com.intellij.ide.browsers.impl.DefaultUrlOpener" order="last"/>
-  </extensions>
 
   <xi:include href="/META-INF/builtInServer.xml">
     <xi:fallback/>
