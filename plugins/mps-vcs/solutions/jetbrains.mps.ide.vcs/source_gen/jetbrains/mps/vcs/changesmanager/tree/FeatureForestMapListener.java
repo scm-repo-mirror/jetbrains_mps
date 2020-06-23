@@ -7,6 +7,6 @@ import java.util.EventListener;
 import jetbrains.mps.vcs.changesmanager.tree.features.Feature;
 
 @GeneratedClass(node = "r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)/5668645347099288944", model = "r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)")
-public interface FeatureForestMapListener<V> extends EventListener {
+public interface FeatureForestMapListener extends EventListener {
   void featureStateChanged(Feature feature);
 }

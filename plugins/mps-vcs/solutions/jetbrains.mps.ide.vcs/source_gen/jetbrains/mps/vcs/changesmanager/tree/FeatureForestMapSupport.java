@@ -8,6 +8,8 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.project.MPSProject;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.changesmanager.tree.features.Feature;
 import java.util.List;
@@ -61,7 +63,7 @@ public class FeatureForestMapSupport extends AbstractProjectComponent {
     return myMap;
   }
 
-  /*package*/ static Feature[] getFeaturesForChange(@NotNull ModelChange change) {
+  private static Feature[] getFeaturesForChange(@NotNull ModelChange change) {
     List<Feature> result = ListSequence.fromList(new ArrayList<Feature>());
     SModelReference modelReference = SModelOperations.getPointer(change.getChangeSet().getNewModel());
     if (change instanceof AddRootChange) {
@@ -108,15 +110,41 @@ public class FeatureForestMapSupport extends AbstractProjectComponent {
     public void changeAdded(@NotNull final ModelChange change) {
       myProjectRepo.getModelAccess().runReadAction(new Runnable() {
         public void run() {
-          // FIXME does getFeaturesForChange need model read? 
+          // FIXME does getFeaturesForChange need model read?
           Feature[] features = FeatureForestMapSupport.getFeaturesForChange(change);
           MapSequence.fromMap(myChangeToFeaturesMap).put(change, features);
           for (Feature f : MapSequence.fromMap(myChangeToFeaturesMap).get(change)) {
-            myMap.put(f, change);
+            myMap.put(f, change); // HOTSPOT
           }
         }
       });
     }
+
+    @Override
+    public void changesAdded(@NotNull List<ModelChange> changes) {
+      NodeFeature.ourCounter = new HashMap<>();
+      for (ModelChange c : changes) {
+        changeAdded(c);
+      }
+      FeatureForestMap.setLoggingEnabled(true);
+      Logger logger = LogManager.getLogger(FeatureForestMapSupport.class);
+      logger.info("COUNTER diff nodes" + NodeFeature.ourCounter.size());
+      logger.info("RESOLVE " + NodeFeature.ourTimeResolve.values().stream()
+                                                         .mapToLong(it -> it)
+                                                         .average());
+      logger.info("PROP " + NodeFeature.ourTimeProp.values().stream()
+                                                   .mapToLong(it -> it)
+                                                   .average());
+      logger.info("PARENT " + NodeFeature.ourTimeParent.values().stream()
+                                                       .mapToLong(it -> it)
+                                                       .average());
+    }
+
+    @Override
+    public void changesRemoved(@NotNull List<ModelChange> changes) {
+      super.changesRemoved(changes);
+    }
+
     @Override
     public void changeRemoved(@NotNull ModelChange change) {
       Sequence.fromIterable(Sequence.fromArray(MapSequence.fromMap(myChangeToFeaturesMap).get(change))).visitAll(new IVisitor<Feature>() {
