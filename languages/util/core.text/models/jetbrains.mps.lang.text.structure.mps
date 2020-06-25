@@ -10,6 +10,12 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
+        <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
+      </concept>
+      <concept id="1082978499127" name="jetbrains.mps.lang.structure.structure.ConstrainedDataTypeDeclaration" flags="ng" index="Az7Fb">
+        <property id="1083066089218" name="constraint" index="FLfZY" />
+      </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <property id="4628067390765907488" name="conceptShortDescription" index="R4oN_" />
@@ -99,6 +105,13 @@
     <node concept="PrWs8" id="6GJhO0n9ZL6" role="PzmwI">
       <ref role="PrY4T" node="6GJhO0n1XxQ" resolve="IHoldLines" />
     </node>
+    <node concept="1TJgyj" id="7Vz6ZmoXHtS" role="1TKVEi">
+      <property role="IQ2ns" value="9143182410139490168" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="paragraphs" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="7Vz6ZmoXeMu" resolve="Paragraph" />
+    </node>
     <node concept="1TJgyj" id="2cLqkTm6weS" role="1TKVEi">
       <property role="IQ2ns" value="2535923850359210936" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -143,6 +156,83 @@
   <node concept="PlHQZ" id="6GJhO0n1XxQ">
     <property role="EcuMT" value="7723470226553559158" />
     <property role="TrG5h" value="IHoldLines" />
+  </node>
+  <node concept="PlHQZ" id="2MpFNjy3tyx">
+    <property role="EcuMT" value="3213792450771277985" />
+    <property role="3GE5qa" value="textual" />
+    <property role="TrG5h" value="IHoldParagraphs" />
+  </node>
+  <node concept="Az7Fb" id="7Vz6ZmoXaVw">
+    <property role="3F6X1D" value="9143182410139348704" />
+    <property role="TrG5h" value="CharacterValueType" />
+    <property role="FLfZY" value="." />
+    <property role="3GE5qa" value="textual" />
+  </node>
+  <node concept="1TIwiD" id="2MpFNjy3pNV">
+    <property role="EcuMT" value="3213792450771262715" />
+    <property role="3GE5qa" value="textual" />
+    <property role="TrG5h" value="TextualElement" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="1TIwiD" id="7Vz6ZmoXeMu">
+    <property role="EcuMT" value="9143182410139364510" />
+    <property role="TrG5h" value="Paragraph" />
+    <property role="3GE5qa" value="textual" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="7Vz6ZmoXeRv" role="1TKVEi">
+      <property role="IQ2ns" value="9143182410139364831" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="letters" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="2MpFNjy3pNV" resolve="TextualElement" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7Vz6ZmoXaKt">
+    <property role="EcuMT" value="9143182410139347997" />
+    <property role="TrG5h" value="Letter" />
+    <property role="3GE5qa" value="textual" />
+    <ref role="1TJDcQ" node="2MpFNjy3pNV" resolve="TextualElement" />
+    <node concept="1TJgyi" id="7Vz6ZmoXaQu" role="1TKVEl">
+      <property role="IQ2nx" value="9143182410139348382" />
+      <property role="TrG5h" value="value" />
+      <ref role="AX2Wp" node="7Vz6ZmoXaVw" resolve="CharacterValueType" />
+    </node>
+    <node concept="1TJgyi" id="7Y6hwefsRt0" role="1TKVEl">
+      <property role="IQ2nx" value="9189109070801631040" />
+      <property role="TrG5h" value="bold" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="1TJgyi" id="7Y6hwefsRt1" role="1TKVEl">
+      <property role="IQ2nx" value="9189109070801631041" />
+      <property role="TrG5h" value="italic" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="1TJgyi" id="7Y6hwefsRt2" role="1TKVEl">
+      <property role="IQ2nx" value="9189109070801631042" />
+      <property role="TrG5h" value="underlined" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2MpFNjy3sHf">
+    <property role="EcuMT" value="3213792450771274575" />
+    <property role="TrG5h" value="NodeWrapperTextualElement" />
+    <property role="34LRSv" value="wrapped node" />
+    <property role="R4oN_" value="element which wraps any node" />
+    <property role="3GE5qa" value="textual" />
+    <ref role="1TJDcQ" node="2MpFNjy3pNV" resolve="TextualElement" />
+    <node concept="1TJgyj" id="2MpFNjy3sHg" role="1TKVEi">
+      <property role="IQ2ns" value="3133179214568824810" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="node" />
+      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    </node>
+    <node concept="PrWs8" id="2MpFNjy3sHh" role="PzmwI">
+      <ref role="PrY4T" to="tpck:53J1IcJV913" resolve="ISkipConstraintsChecking" />
+    </node>
+    <node concept="PrWs8" id="2MpFNjy3sHi" role="PzmwI">
+      <ref role="PrY4T" to="tpck:1V3wYmOJsDm" resolve="IDontApplyTypesystemRules" />
+    </node>
   </node>
 </model>
 

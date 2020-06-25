@@ -10,19 +10,29 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
   public static final int IHoldLines = 0;
-  public static final int Line = 1;
-  public static final int NodeWrapperElement = 2;
-  public static final int Text = 3;
-  public static final int TextElement = 4;
-  public static final int Word = 5;
+  public static final int IHoldParagraphs = 1;
+  public static final int Letter = 2;
+  public static final int Line = 3;
+  public static final int NodeWrapperElement = 4;
+  public static final int NodeWrapperTextualElement = 5;
+  public static final int Paragraph = 6;
+  public static final int Text = 7;
+  public static final int TextElement = 8;
+  public static final int TextualElement = 9;
+  public static final int Word = 10;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L);
     builder.put(0x6b2f47401707d876L, IHoldLines);
+    builder.put(0x2c99af34e20dd8a1L, IHoldParagraphs);
+    builder.put(0x7ee31bf598f4ac1dL, Letter);
     builder.put(0x2331694e561af166L, Line);
     builder.put(0x2b7b49e536031fe9L, NodeWrapperElement);
+    builder.put(0x2c99af34e20dcb4fL, NodeWrapperTextualElement);
+    builder.put(0x7ee31bf598f4ec9eL, Paragraph);
     builder.put(0x2331694e5619f411L, Text);
     builder.put(0x229012ddae35ee7L, TextElement);
+    builder.put(0x2c99af34e20d9cfbL, TextualElement);
     builder.put(0x229012ddae35f04L, Word);
     myIndex = builder.seal();
   }
