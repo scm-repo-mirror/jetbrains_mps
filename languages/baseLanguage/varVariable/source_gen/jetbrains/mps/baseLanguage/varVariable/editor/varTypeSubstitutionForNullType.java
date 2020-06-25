@@ -92,7 +92,8 @@ public class varTypeSubstitutionForNullType extends SubstituteMenuBase {
       public SNode createNode(@NotNull String pattern) {
         SNode createdNode = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x112353ac52dL, "jetbrains.mps.baseLanguage.varVariable.structure.VarType"));
         SNode var = SNodeFactoryOperations.replaceWithNewChild(_context.getParentNode(), CONCEPTS.VarVariableDeclaration$Of);
-        SLinkOperations.setTarget(var, LINKS.type$pLrO, createdNode);
+        SLinkOperations.setTarget(var, LINKS.type$pLrO, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x112353ac52dL, "jetbrains.mps.baseLanguage.varVariable.structure.VarType")));
+        // Intentionally returning a throw-away node, as the parent VariableDeclaration is being replaced 
         return createdNode;
       }
 

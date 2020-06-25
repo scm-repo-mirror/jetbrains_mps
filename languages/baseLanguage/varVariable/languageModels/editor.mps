@@ -174,6 +174,9 @@
         <child id="1163668922816" name="ifTrue" index="3K4E3e" />
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
+      <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
+      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
     <language id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions">
@@ -228,6 +231,14 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
+      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="ng" index="3oM_SD">
+        <property id="155656958578482949" name="value" index="3oM_SC" />
+      </concept>
+      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="ng" index="1PaTwC">
+        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
   </registry>
@@ -588,9 +599,53 @@
                 </node>
               </node>
               <node concept="2oxUTD" id="7T85vNGX8hX" role="2OqNvi">
-                <node concept="37vLTw" id="7T85vNGX9BF" role="2oxUTC">
-                  <ref role="3cqZAo" node="7T85vNGX8Ct" resolve="createdNode" />
+                <node concept="2ShNRf" id="3LjROhoiOGY" role="2oxUTC">
+                  <node concept="3zrR0B" id="3LjROhoiOGZ" role="2ShVmc">
+                    <node concept="3Tqbb2" id="3LjROhoiOH0" role="3zrR0E">
+                      <ref role="ehGHo" to="dvap:h8PeGkH" resolve="VarType" />
+                    </node>
+                  </node>
                 </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3SKdUt" id="7Vz6ZmoVxas" role="3cqZAp">
+            <node concept="1PaTwC" id="7Vz6ZmoVxat" role="1aUNEU">
+              <node concept="3oM_SD" id="7Vz6ZmoVxau" role="1PaTwD">
+                <property role="3oM_SC" value="Intentionally" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxgH" role="1PaTwD">
+                <property role="3oM_SC" value="returning" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxk2" role="1PaTwD">
+                <property role="3oM_SC" value="a" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxk7" role="1PaTwD">
+                <property role="3oM_SC" value="throw-away" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxoJ" role="1PaTwD">
+                <property role="3oM_SC" value="node," />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxrh" role="1PaTwD">
+                <property role="3oM_SC" value="as" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxrp" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxrX" role="1PaTwD">
+                <property role="3oM_SC" value="parent" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxBX" role="1PaTwD">
+                <property role="3oM_SC" value="VariableDeclaration" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxDH" role="1PaTwD">
+                <property role="3oM_SC" value="is" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxE3" role="1PaTwD">
+                <property role="3oM_SC" value="being" />
+              </node>
+              <node concept="3oM_SD" id="7Vz6ZmoVxIx" role="1PaTwD">
+                <property role="3oM_SC" value="replaced" />
               </node>
             </node>
           </node>
