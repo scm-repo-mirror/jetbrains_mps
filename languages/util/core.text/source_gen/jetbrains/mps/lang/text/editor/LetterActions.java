@@ -53,7 +53,7 @@ public class LetterActions {
         } else {
           SNode nodeToSelect = (SNodeOperations.getNextSibling(currentNode) != null ? SNodeOperations.getNextSibling(currentNode) : SNodeOperations.getParent(currentNode));
           SNodeOperations.deleteNode(currentNode);
-          SelectionUtil.selectNode(editorContext, nodeToSelect);
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, nodeToSelect, SelectionManager.FIRST_CELL, 0);
         }
       }
 

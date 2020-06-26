@@ -55,6 +55,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     editorCell.setCellId("Collection_mjy4lr_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
+    ParagraphHandling.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createRefNodeList_0());
     return editorCell;
   }
@@ -145,7 +146,9 @@ import org.jetbrains.mps.openapi.language.SProperty;
       Style style = new StyleImpl();
       style.set(StyleAttributes.EDITABLE, true);
       editorCell.getStyle().putAll(style);
-      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.Paragraph$V6, "jetbrains.mps.lang.text.editor.EmptyParagraph"));
+      EmptyParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
+      editorCell.addKeyMap(new EmptyParagraphKeys());
+      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.Paragraph$V6, "jetbrains.mps.lang.text.editor.EmptyParagraphMenu"));
       editorCell.setDefaultText("");
       editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
       return editorCell;

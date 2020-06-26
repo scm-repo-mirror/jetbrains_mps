@@ -60,8 +60,8 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
       case 0:
         if (true) {
           switch (menuId.getFqName()) {
-            case "jetbrains.mps.lang.text.editor.EmptyParagraph":
-              return Arrays.asList(new TransformationMenu[]{new EmptyParagraph()});
+            case "jetbrains.mps.lang.text.editor.EmptyParagraphMenu":
+              return Arrays.asList(new TransformationMenu[]{new EmptyParagraphMenu()});
             default:
           }
         }
