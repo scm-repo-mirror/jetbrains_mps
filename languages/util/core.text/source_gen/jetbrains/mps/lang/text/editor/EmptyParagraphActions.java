@@ -5,17 +5,37 @@ package jetbrains.mps.lang.text.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
-import java.util.Objects;
 
 public class EmptyParagraphActions {
 
+  /*package*/ static AbstractCellAction createAction_BACKSPACE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        SNode currentNode = editorContext.getSelectedNode();
+        if (!(Objects.equals(currentNode, node))) {
+          SNodeOperations.deleteNode(node);
+        } else {
+          SNode prev = SNodeOperations.getPrevSibling(currentNode);
+          SNodeOperations.deleteNode(currentNode);
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, prev, SelectionManager.LAST_CELL, -1);
+        }
+      }
+
+    };
+  }
   /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
@@ -56,6 +76,7 @@ public class EmptyParagraphActions {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
+    editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
   }
 
@@ -64,6 +85,9 @@ public class EmptyParagraphActions {
     // set cell action(s) of the given type from imported action maps 
 
     // set cell action of the given type defined directly in this action map 
+    if (Objects.equals(actionType, CellActionType.BACKSPACE)) {
+      editorCell.setAction(actionType, createAction_BACKSPACE(node));
+    }
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }

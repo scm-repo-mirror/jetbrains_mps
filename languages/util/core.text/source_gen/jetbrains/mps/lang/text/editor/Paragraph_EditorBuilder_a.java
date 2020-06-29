@@ -55,7 +55,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     editorCell.setCellId("Collection_mjy4lr_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    ParagraphHandling.setCellActions(editorCell, myNode, getEditorContext());
+    ParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createRefNodeList_0());
     return editorCell;
   }
@@ -63,6 +63,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     AbstractCellListHandler handler = new lettersListHandler_mjy4lr_a0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("refNodeList_letters");
+    ParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
