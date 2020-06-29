@@ -34,8 +34,6 @@ import jetbrains.mps.library.LibraryInitializer;
 import java.util.Collections;
 import com.intellij.openapi.project.ex.ProjectManagerEx;
 import jetbrains.mps.util.Reference;
-import com.intellij.ide.startup.impl.StartupManagerImpl;
-import com.intellij.openapi.startup.StartupManager;
 import java.util.concurrent.TimeUnit;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
@@ -305,11 +303,6 @@ public final class IdeaEnvironment extends EnvironmentBase {
         }
       }
     }, ModalityState.NON_MODAL);
-    if (!(myConfig.isTestMode())) {
-      // fixme in testmode everything works as it did (see StartupManagerImpl) 
-      // probably we need to find a better way to open a project in here 
-//      ((StartupManagerImpl) StartupManager.getInstance(project.get())).runPostStartupActivities();
-    }
 
     if (!(exc.isNull())) {
       throw new CouldNotLoadProjectException(String.format("ProjectManager could not load project from '%s'", projectFile.getAbsolutePath()), exc.get());
