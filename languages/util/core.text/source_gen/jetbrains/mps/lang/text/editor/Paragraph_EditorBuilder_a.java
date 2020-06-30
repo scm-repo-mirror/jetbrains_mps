@@ -63,7 +63,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     AbstractCellListHandler handler = new lettersListHandler_mjy4lr_a0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("refNodeList_letters");
-    ParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
+    ParagraphCollectionActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }

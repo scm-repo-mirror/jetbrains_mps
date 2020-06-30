@@ -5,11 +5,10 @@ package jetbrains.mps.lang.text.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
-import java.util.Objects;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -17,19 +16,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 
 public class ParagraphActions {
 
-  /*package*/ static AbstractCellAction createAction_INSERT_BEFORE(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeOperations.insertNewPrevSiblingChild(node, MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph"));
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.FIRST_CELL, 0);
-
-      }
-
-    };
-  }
   /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
@@ -81,7 +67,6 @@ public class ParagraphActions {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
-    editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
   }
 
@@ -90,9 +75,6 @@ public class ParagraphActions {
     // set cell action(s) of the given type from imported action maps 
 
     // set cell action of the given type defined directly in this action map 
-    if (Objects.equals(actionType, CellActionType.INSERT_BEFORE)) {
-      editorCell.setAction(actionType, createAction_INSERT_BEFORE(node));
-    }
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
