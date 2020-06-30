@@ -93,7 +93,7 @@ public class PushEditorHints_Action extends BaseAction {
     } else {
       ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(new Runnable() {
         public void run() {
-          Collection<SLanguage> availableLanguages = MenuUtil.getUsedLanguages(currentModel);
+          Collection<SLanguage> availableLanguages = MenuUtil.getUsedAndDependentLanguages(currentModel);
           hintSettings.value = new ConceptEditorHintSettings(languageRegistry, availableLanguages);
         }
       });

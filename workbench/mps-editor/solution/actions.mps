@@ -210,7 +210,7 @@
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1076505808687" name="jetbrains.mps.baseLanguage.structure.WhileStatement" flags="nn" index="2$JKZl">
@@ -10402,10 +10402,10 @@
                                 <ref role="3uigEE" to="c17a:~SLanguage" resolve="SLanguage" />
                               </node>
                             </node>
-                            <node concept="2YIFZM" id="vufwfTWUXB" role="33vP2m">
-                              <ref role="37wK5l" to="y4ob:~MenuUtil.getUsedLanguages(org.jetbrains.mps.openapi.model.SModel)" resolve="getUsedLanguages" />
+                            <node concept="2YIFZM" id="5T8kb3IAXpv" role="33vP2m">
+                              <ref role="37wK5l" to="y4ob:~MenuUtil.getUsedAndDependentLanguages(org.jetbrains.mps.openapi.model.SModel)" resolve="getUsedAndDependentLanguages" />
                               <ref role="1Pybhc" to="y4ob:~MenuUtil" resolve="MenuUtil" />
-                              <node concept="37vLTw" id="vufwfTWUXC" role="37wK5m">
+                              <node concept="37vLTw" id="5T8kb3IAXpw" role="37wK5m">
                                 <ref role="3cqZAo" node="4gWmQVtBE7S" resolve="currentModel" />
                               </node>
                             </node>
