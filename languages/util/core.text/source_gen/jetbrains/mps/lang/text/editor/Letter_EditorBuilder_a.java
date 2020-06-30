@@ -92,11 +92,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
   private int _StyleParameter_QueryFunction_uxymkz_a4a() {
     SNode letter = SNodeOperations.as(getNode(), CONCEPTS.Letter$hC);
-    if (SPropertyOperations.getBoolean(letter, PROPS.bold$WTX$) && (SPropertyOperations.getBoolean(letter, PROPS.italic$WTZ1))) {
+    if (SPropertyOperations.getBoolean(letter, PROPS.bold$bwJL) && (SPropertyOperations.getBoolean(letter, PROPS.italic$bwKg))) {
       return MPSFonts.BOLD_ITALIC;
-    } else if (SPropertyOperations.getBoolean(letter, PROPS.bold$WTX$)) {
+    } else if (SPropertyOperations.getBoolean(letter, PROPS.bold$bwJL)) {
       return MPSFonts.BOLD;
-    } else if (SPropertyOperations.getBoolean(letter, PROPS.italic$WTZ1)) {
+    } else if (SPropertyOperations.getBoolean(letter, PROPS.italic$bwKg)) {
       return MPSFonts.ITALIC;
     }
     return MPSFonts.PLAIN;
@@ -105,8 +105,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private static final class PROPS {
     /*package*/ static final SProperty value$OMJc = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, 0x7ee31bf598f4ad9eL, "value");
     /*package*/ static final SProperty underlined$bwKJ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, 0x7f8646038f737742L, "underlined");
-    /*package*/ static final SProperty italic$WTZ1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
-    /*package*/ static final SProperty bold$WTX$ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold");
+    /*package*/ static final SProperty italic$bwKg = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, 0x7f8646038f737741L, "italic");
+    /*package*/ static final SProperty bold$bwJL = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, 0x7f8646038f737740L, "bold");
   }
 
   private static final class CONCEPTS {

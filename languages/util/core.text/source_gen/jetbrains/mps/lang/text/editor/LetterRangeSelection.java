@@ -452,6 +452,28 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
     }
   }
 
+  public static SNode findNodeAbove(SNode node, EditorCell cell, EditorContext editorContext) {
+    EditorCell rootCell = cell.getRootParent();
+    EditorCell currentCell = cell;
+    EditorCell foundLeaf = rootCell.findLeaf(currentCell.getX(), currentCell.getY() - currentCell.getHeight());
+    while ((foundLeaf == null && currentCell.getPrevSibling() != null)) {
+      currentCell = currentCell.getPrevSibling();
+      foundLeaf = rootCell.findLeaf(currentCell.getX(), currentCell.getY() - currentCell.getHeight());
+    }
+    return (foundLeaf != null ? SNodeOperations.as(foundLeaf.getSNode(), CONCEPTS.TextualElement$73) : null);
+  }
+
+  public static SNode findNodeBelow(SNode node, EditorCell cell, EditorContext editorContext) {
+    EditorCell rootCell = cell.getRootParent();
+    EditorCell currentCell = cell;
+    EditorCell foundLeaf = rootCell.findLeaf(currentCell.getX(), currentCell.getY() + currentCell.getHeight());
+    while ((foundLeaf == null && currentCell.getPrevSibling() != null)) {
+      currentCell = currentCell.getPrevSibling();
+      foundLeaf = rootCell.findLeaf(currentCell.getX(), currentCell.getY() - currentCell.getHeight());
+    }
+    return (foundLeaf != null ? SNodeOperations.as(foundLeaf.getSNode(), CONCEPTS.TextualElement$73) : null);
+  }
+
   private static final class CONCEPTS {
     /*package*/ static final SConcept TextualElement$73 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20d9cfbL, "jetbrains.mps.lang.text.structure.TextualElement");
     /*package*/ static final SConcept Paragraph$V6 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph");
