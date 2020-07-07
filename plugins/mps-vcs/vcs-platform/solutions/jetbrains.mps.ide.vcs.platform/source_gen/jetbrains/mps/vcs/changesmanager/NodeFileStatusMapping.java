@@ -93,10 +93,10 @@ public class NodeFileStatusMapping implements ProjectComponent {
         if (m instanceof EditableSModel && m.getSource() instanceof FileDataSource && !(m.isReadOnly())) {
           EditableSModel model = (EditableSModel) m;
           final Project ideaProject = myProject.getProject();
-          if (ConflictsUtil.isModelOrModuleConflicting(model, ideaProject)) {
+          CurrentDifference diff = myRegistry.getCurrentDifference(model);
+          if (diff.isConflicted()) {
             return FileStatus.MERGED_WITH_CONFLICTS;
           }
-          CurrentDifference diff = myRegistry.getCurrentDifference(model);
           if (diff.getChangeSet() == null) return FileStatus.NOT_CHANGED;
 //          LogManager.getLogger(NodeFileStatusMapping.class).info("filtering model changes");
           List<ModelChange> modelChanges = diff.getChangeSet().getModelChanges();

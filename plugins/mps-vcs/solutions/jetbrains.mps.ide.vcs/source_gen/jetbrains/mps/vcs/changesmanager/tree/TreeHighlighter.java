@@ -21,6 +21,7 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.vcs.changesmanager.CurrentDifference;
 import jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry;
 import jetbrains.mps.vcs.changesmanager.tree.features.Feature;
+import jetbrains.mps.vcs.changesmanager.tree.features.ModelFeature;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -62,8 +63,12 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
   /**
    * use TreeHighlighterFactory to instantiate
    */
-  /*package*/ TreeHighlighter(@NotNull CurrentDifferenceRegistry registry, @NotNull FeatureForestMapSupport featureForestMapSupport, @NotNull MPSTree tree,
-                              @NotNull TreeNodeFeatureExtractor featureExtractor, boolean removeNodesOnModelDisposal, @NotNull MergingUpdateQueue queue) {
+  /*package*/ TreeHighlighter(@NotNull CurrentDifferenceRegistry registry,
+                              @NotNull FeatureForestMapSupport featureForestMapSupport,
+                              @NotNull MPSTree tree,
+                              @NotNull TreeNodeFeatureExtractor featureExtractor,
+                              boolean removeNodesOnModelDisposal,
+                              @NotNull MergingUpdateQueue queue) {
     myRegistry = registry;
     myFeaturesFromVcs = featureForestMapSupport.getMap();
     myTree = tree;
@@ -179,7 +184,7 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
                            .map(Feature::getModelReference)
                            .collect(Collectors.toSet());
 
-    Set<SModelReference> pulledModelChanges = triggerVCSUpdates(allMRefs);
+    Set<SModelReference> pulledModelChanges = pullVCSUpdates(allMRefs);
 
     rehighlightFeatures0(features.stream()
                                  .filter(f -> !pulledModelChanges.contains(f.getModelReference()))
@@ -189,7 +194,7 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
   /**
    * @return those modelReferences for which update was triggered
    */
-  private Set<SModelReference> triggerVCSUpdates(@NotNull Collection<SModelReference> modelReferences) {
+  private Set<SModelReference> pullVCSUpdates(@NotNull Collection<SModelReference> modelReferences) {
     Set<SModelReference> result = new HashSet<>();
     Collection<SModelReference> modelRefsThatNeedRead = triggerViaOnlyMRef(modelReferences, result);
     if (!modelRefsThatNeedRead.isEmpty()) {
@@ -198,8 +203,11 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
                                                    .map(mRef -> mRef.resolve(getProjectRepository()))
                                                    .filter(m -> m instanceof EditableSModel && !m.isReadOnly())
                                                    .forEach(m -> {
-                                                     if (myRegistry.getCurrentDifference((EditableSModel) m).setEnabled(true)) {
-                                                       result.add(m.getReference());
+                                                     CurrentDifference currentDifference = myRegistry.getCurrentDifference((EditableSModel) m);
+                                                     if (currentDifference.setEnabled(true)) {
+                                                       if (!currentDifference.isConflicted()) {
+                                                         result.add(m.getReference());
+                                                       }
                                                      }
                                                    }));
     }
@@ -297,7 +305,8 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
 
     @Override
     public void run() {
-      Set<SModelReference> triggered = myHighlighter.triggerVCSUpdates(Collections.singleton(myFeature.getModelReference()));
+      SModelReference modelReference = myFeature.getModelReference();
+      Set<SModelReference> triggered = myHighlighter.pullVCSUpdates(Collections.singleton(modelReference));
       if (triggered.isEmpty()) {
         myHighlighter.rehighlightFeatures0(Collections.singleton(myFeature));
       }
@@ -408,11 +417,9 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
 
   @Nullable
   private TreeMessage getMessage(@Nullable ChangeType type, Feature feature) {
-//    Project project = myRegistry.getProject();
-    // todo not doing this 10000000000000000 times for example
-//    if (ConflictsUtil.isModelOrModuleConflicting(modelDescriptor, project)) {
-//      return getMessage(FileStatus.MERGED_WITH_CONFLICTS);
-//    }
+    if (feature instanceof ModelFeature && myRegistry.getExistingCurDifference(feature.getModelReference()).isConflicted()) {
+      return getMessage(FileStatus.MERGED_WITH_CONFLICTS);
+    }
     if (type == null) {
       return getMessage(FileStatus.NOT_CHANGED);
     }

@@ -63,6 +63,7 @@ import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -113,7 +114,7 @@ public class ChangesTracking {
   private Set<ModelChange> myMetadataChanges = SetSequence.fromSet(new HashSet<ModelChange>());
   private BidirectionalMap<SNodeId, ModelChange> myAddedNodesToChanges = new BidirectionalMap<SNodeId, ModelChange>();
   private Tuples._2<SNodeId, List<SNodeId>> myLastParentAndNewChildrenIds;
-  private FileStatus myStatusOnLastUpdate;
+  private final AtomicReference<FileStatus> myStatusOnLastUpdate = new AtomicReference<>(FileStatus.NOT_CHANGED);
   private EventConsumingMapping myEventConsumingMapping = new EventConsumingMapping();
 
   public ChangesTracking(@NotNull CurrentDifferenceRegistry registry, @NotNull CurrentDifference difference) {
@@ -187,13 +188,13 @@ public class ChangesTracking {
                                           : calcStatus());
 
           // todo: make !force working for per-root persistence (here status==null) 
-          if (status != null && myStatusOnLastUpdate == status && !(force)) {
+          if (status != null && myStatusOnLastUpdate.get() == status && !(force)) {
             return;
           }
 
           myDifference.removeChangeSet();
 
-          myStatusOnLastUpdate = status;
+          myStatusOnLastUpdate.set(status);
           if (FileStatus.NOT_CHANGED == status && !(force)) {
             return;
           }
@@ -289,7 +290,7 @@ public class ChangesTracking {
 
   @NotNull
   public FileStatus getStatus() {
-    return myStatusOnLastUpdate;
+    return myStatusOnLastUpdate.get();
   }
 
   private FileStatus calcStatus() {
