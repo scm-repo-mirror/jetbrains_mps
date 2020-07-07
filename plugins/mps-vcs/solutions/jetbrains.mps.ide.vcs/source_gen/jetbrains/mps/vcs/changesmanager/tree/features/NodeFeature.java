@@ -9,18 +9,16 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @GeneratedClass(node = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)/5060092229902868493", model = "r:eed7a462-d012-4d9f-b223-97987e5d1cb3(jetbrains.mps.vcs.changesmanager.tree.features)")
 public class NodeFeature extends AbstractNodeFeature {
-  public static Map<SNodeReference, Integer> ourCounter = new HashMap<>();
-  public static Map<SNodeReference, Long> ourTimeResolve = new HashMap<>();
-  public static Map<SNodeReference, Long> ourTimeParent = new HashMap<>();
-  public static Map<SNodeReference, Long> ourTimeProp = new HashMap<>();
 
-  public NodeFeature(SNodeReference nodePointer, @Nullable SNodeId rootId) {
-    super(nodePointer, calcParentFeature(nodePointer, rootId));
+  public NodeFeature(SNodeReference nodeReference, @Nullable SNodeId rootId) {
+    super(nodeReference, calcParentFeature(nodeReference, rootId));
+  }
+
+  @Deprecated(forRemoval = true)
+  public NodeFeature(SNodeReference nodeReference) {
+    this(nodeReference, null);
   }
 
   @NotNull
@@ -28,42 +26,6 @@ public class NodeFeature extends AbstractNodeFeature {
     return (rootId == null || rootId.equals(nodePointer.getNodeId())) ? new ModelFeature(nodePointer.getModelReference())
                                                                       : new NodeFeature(new SNodePointer(nodePointer.getModelReference(), rootId), rootId);
   }
-//
-//  public static NodeFeature create(SNodeReference nodeReference, SRepository repo) {
-//    Feature parentFeature = calcParent(nodeReference, repo);
-//    return new NodeFeature(nodeReference, parentFeature);
-//  }
-
-//  /**
-//   * works in O(height)
-//   * todo resolve features using the hierarchy in the MPSTree
-//   */
-//  @Nullable
-//  private static Feature calcParent(SNodeReference nodePointer, SRepository repo) {
-////    int was0 = ourCounter.getOrDefault(nodePointer, 0);
-////    ourCounter.put(nodePointer, was0 + 1);
-////    long cur = System.nanoTime();
-//    SNode node = nodePointer.resolve(repo);
-////    long was = ourTimeResolve.getOrDefault(nodePointer, 0L);
-////    ourTimeResolve.put(nodePointer, was + System.nanoTime() - cur);
-////    cur = System.nanoTime();
-//    SNode parentNode = SNodeOperations.getParent(node);
-////    was = ourTimeParent.getOrDefault(nodePointer, 0L);
-////    ourTimeParent.put(nodePointer, was + System.nanoTime() - cur);
-//    if (parentNode == null) {
-////      cur = System.nanoTime();
-//      String virtualPackage = SPropertyOperations.getString(node, PROPS.virtualPackage$j19t);
-////      was = ourTimeProp.getOrDefault(nodePointer, 0L);
-////      ourTimeProp.put(nodePointer, was + System.nanoTime() - cur);
-//
-//      if ((virtualPackage == null || virtualPackage.isEmpty())) {
-//        return null;
-//      } else {
-//        return new VirtualPackageFeature(nodePointer.getModelReference(), virtualPackage);
-//      }
-//    }
-//    return NodeFeature.create(parentNode.getReference(), repo);
-//  }
 
   @Override
   public int hashCode() {
@@ -83,8 +45,4 @@ public class NodeFeature extends AbstractNodeFeature {
   public String toString() {
     return "Node {" + getNodePointerString() + "}";
   }
-
-//  private static final class PROPS {
-//    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
-//  }
 }
