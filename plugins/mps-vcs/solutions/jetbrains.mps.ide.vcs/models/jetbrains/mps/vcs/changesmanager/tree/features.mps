@@ -194,7 +194,7 @@
           </node>
           <node concept="2ShNRf" id="4uLJMq1lgNy" role="37wK5m">
             <node concept="1pGfFk" id="4uLJMq1lh3N" role="2ShVmc">
-              <ref role="37wK5l" node="4oT3Lbm4M0g" resolve="NodeFeature" />
+              <ref role="37wK5l" node="1A9$eqssqQn" resolve="NodeFeature" />
               <node concept="37vLTw" id="4uLJMq1lh4e" role="37wK5m">
                 <ref role="3cqZAo" node="4oT3Lbm4LX1" resolve="nodePointer" />
               </node>
@@ -539,7 +539,7 @@
           </node>
           <node concept="2ShNRf" id="4uLJMq1liZT" role="37wK5m">
             <node concept="1pGfFk" id="4uLJMq1ljge" role="2ShVmc">
-              <ref role="37wK5l" node="4oT3Lbm4M0g" resolve="NodeFeature" />
+              <ref role="37wK5l" node="1A9$eqssqQn" resolve="NodeFeature" />
               <node concept="37vLTw" id="4uLJMq1ljgD" role="37wK5m">
                 <ref role="3cqZAo" node="4oT3Lbm4M01" resolve="nodePointer" />
               </node>
@@ -695,7 +695,7 @@
             </node>
             <node concept="2ShNRf" id="4uLJMq1kZ2j" role="3K4GZi">
               <node concept="1pGfFk" id="4uLJMq1kZ2x" role="2ShVmc">
-                <ref role="37wK5l" node="4oT3Lbm4M0g" resolve="NodeFeature" />
+                <ref role="37wK5l" node="1A9$eqssqQn" resolve="NodeFeature" />
                 <node concept="2ShNRf" id="4uLJMq1kZi5" role="37wK5m">
                   <node concept="1pGfFk" id="4uLJMq1kZir" role="2ShVmc">
                     <ref role="37wK5l" to="w1kc:~SNodePointer.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="SNodePointer" />
@@ -1017,7 +1017,7 @@
           </node>
           <node concept="2ShNRf" id="4uLJMq1ljFd" role="37wK5m">
             <node concept="1pGfFk" id="4uLJMq1ljVu" role="2ShVmc">
-              <ref role="37wK5l" node="4oT3Lbm4M0g" resolve="NodeFeature" />
+              <ref role="37wK5l" node="1A9$eqssqQn" resolve="NodeFeature" />
               <node concept="37vLTw" id="4uLJMq1ljVT" role="37wK5m">
                 <ref role="3cqZAo" node="4oT3Lbm4M1C" resolve="nodePointer" />
               </node>
@@ -1295,7 +1295,7 @@
           </node>
           <node concept="2ShNRf" id="4uLJMq1ldE$" role="37wK5m">
             <node concept="1pGfFk" id="4uLJMq1ldUP" role="2ShVmc">
-              <ref role="37wK5l" node="4oT3Lbm4M0g" resolve="NodeFeature" />
+              <ref role="37wK5l" node="1A9$eqssqQn" resolve="NodeFeature" />
               <node concept="37vLTw" id="4uLJMq1ldVg" role="37wK5m">
                 <ref role="3cqZAo" node="4oT3Lbm4M2P" resolve="nodePointer" />
               </node>

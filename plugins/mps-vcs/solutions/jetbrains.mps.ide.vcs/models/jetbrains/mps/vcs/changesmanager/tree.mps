@@ -2860,7 +2860,7 @@
                             <ref role="37wK5l" to="1ctc:~Stream$Builder.accept(java.lang.Object)" resolve="accept" />
                             <node concept="2ShNRf" id="4uLJMq1kBJC" role="37wK5m">
                               <node concept="1pGfFk" id="4uLJMq1kBJD" role="2ShVmc">
-                                <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                                <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                                 <node concept="2ShNRf" id="4uLJMq1kNn9" role="37wK5m">
                                   <node concept="1pGfFk" id="4uLJMq1kNnv" role="2ShVmc">
                                     <ref role="37wK5l" to="w1kc:~SNodePointer.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="SNodePointer" />
@@ -3073,7 +3073,7 @@
                                         <ref role="37wK5l" to="1ctc:~Stream$Builder.accept(java.lang.Object)" resolve="accept" />
                                         <node concept="2ShNRf" id="4uLJMq1kN1I" role="37wK5m">
                                           <node concept="1pGfFk" id="4uLJMq1kN3e" role="2ShVmc">
-                                            <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                                            <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                                             <node concept="37vLTw" id="4uLJMq1kN3f" role="37wK5m">
                                               <ref role="3cqZAo" node="4uLJMq1k$MD" resolve="nodePointer" />
                                             </node>
@@ -3375,7 +3375,7 @@
                   <ref role="37wK5l" to="1ctc:~Stream$Builder.accept(java.lang.Object)" resolve="accept" />
                   <node concept="2ShNRf" id="4uLJMq1kEhy" role="37wK5m">
                     <node concept="1pGfFk" id="4uLJMq1kEhz" role="2ShVmc">
-                      <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                      <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                       <node concept="37vLTw" id="4uLJMq1kEh$" role="37wK5m">
                         <ref role="3cqZAo" node="4uLJMq1k$Kp" resolve="nodePointer" />
                       </node>
@@ -9240,7 +9240,7 @@
                 <node concept="3cpWs6" id="3zYHoP1jOAu" role="3cqZAp">
                   <node concept="2ShNRf" id="3zYHoP1jOAw" role="3cqZAk">
                     <node concept="1pGfFk" id="3zYHoP1jOAy" role="2ShVmc">
-                      <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                      <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                       <node concept="37vLTw" id="3GM_nagTzeU" role="37wK5m">
                         <ref role="3cqZAo" node="3zYHoP1jQHS" resolve="nodePointer" />
                       </node>
@@ -10506,7 +10506,7 @@
                       <node concept="3cpWs6" id="fQV$h4hpZU" role="3cqZAp">
                         <node concept="2ShNRf" id="fQV$h4hpZX" role="3cqZAk">
                           <node concept="1pGfFk" id="fQV$h4hpZZ" role="2ShVmc">
-                            <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                            <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                             <node concept="37vLTw" id="3GM_nagTzpq" role="37wK5m">
                               <ref role="3cqZAo" node="fQV$h4hpZB" resolve="np" />
                             </node>
@@ -10574,7 +10574,7 @@
             <node concept="3cpWs6" id="5$KqLV$yOX$" role="3cqZAp">
               <node concept="2ShNRf" id="5$KqLV$yOXA" role="3cqZAk">
                 <node concept="1pGfFk" id="5$KqLV$yOXC" role="2ShVmc">
-                  <ref role="37wK5l" to="gwd2:4oT3Lbm4M0g" resolve="NodeFeature" />
+                  <ref role="37wK5l" to="gwd2:1A9$eqssqQn" resolve="NodeFeature" />
                   <node concept="2OqwBi" id="5$KqLV$yOJO" role="37wK5m">
                     <node concept="1eOMI4" id="5$KqLV$yOJP" role="2Oq$k0">
                       <node concept="10QFUN" id="5$KqLV$yOJQ" role="1eOMHV">
