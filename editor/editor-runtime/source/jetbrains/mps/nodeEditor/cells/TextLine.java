@@ -257,7 +257,7 @@ public class TextLine {
 
   private int calculateMinWidth() {
     if (myMinWidth == -1) {
-      myMinWidth = Math.max(myMinimalLength * charWidth(), 2);
+      myMinWidth = Math.max(myMinimalLength * charWidth(), myStyle.get(StyleAttributes.SELECTABLE) ? 2 : 0);
     }
     return myMinWidth;
   }
