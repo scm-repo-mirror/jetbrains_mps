@@ -39,6 +39,7 @@ public class SelectLeft_Siblings_Test extends BaseTransformationTest {
       invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.SelectLeft_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");
     }
   }

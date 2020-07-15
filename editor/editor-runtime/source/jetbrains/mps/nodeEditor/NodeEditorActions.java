@@ -572,8 +572,14 @@ public class NodeEditorActions {
       SContainmentLink currentRole = selectedNodes.get(0).getContainmentLink();
       SNode nextSibling = getNextSibling(selectedNodes, currentRole);
 
+      EditorCell cell = context.getEditorComponent().findNodeCell(selectedNodes.get(0));
+      boolean wholeLabelSelected = cell instanceof EditorCell_Label && ((EditorCell_Label) cell).isEverythingSelected();
+      boolean selectUp = current.getDirection() == SelectionDirection.NONE && !wholeLabelSelected;
+
       Selection newSelection;
-      if (nextSibling != null) {
+      if (selectUp) {
+        newSelection = selectionManager.createSelection(cell);
+      } else if (nextSibling != null) {
         if (mySide == SelectionDirection.RIGHT) {
           newSelection = selectionManager.createRangeSelection(selectedNodes.get(0), nextSibling);
         } else {
@@ -594,6 +600,9 @@ public class NodeEditorActions {
 
       newSelection.setDirection(mySide == SelectionDirection.LEFT ? SelectionDirection.LEFT : SelectionDirection.RIGHT);
       selectionManager.pushSelection(newSelection);
+      if (selectUp && cell instanceof EditorCell_Label) {
+        ((EditorCell_Label) cell).selectAll();
+      }
     }
 
     @Nullable
