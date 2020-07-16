@@ -87,16 +87,29 @@ public final class ConvertToBinaryWorker {
       myFile = file;
     }
 
+    @NotNull
+    @Override
+    public String getStreamName() {
+      return myFile.getName();
+    }
+
+    @NotNull
     @Override
     public InputStream openInputStream() throws IOException {
       return new FileInputStream(myFile);
     }
 
+    @NotNull
     @Override
     public OutputStream openOutputStream() throws IOException {
       myFile.getParentFile().mkdirs();
       myFile.createNewFile();
       return new FileOutputStream(myFile);
+    }
+
+    @Override
+    public boolean delete() {
+      return false;
     }
 
 

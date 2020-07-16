@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.generator.impl;
+package jetbrains.mps.persistence;
 
-import jetbrains.mps.extapi.persistence.DataSourceBase;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
+import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 
 import java.io.IOException;
@@ -25,48 +24,62 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Adapts MultiStreamDataSource to StreamDataSource (picks one stream).
+ * @author apyshkin
+ * @since 16/07/2020
  */
-public class SingleStreamSource extends DataSourceBase implements StreamDataSource {
-  private final MultiStreamDataSource myDataSource;
-  private final String myStreamName;
+public abstract class StreamDataSourceBase implements StreamDataSource {
+  private final String myName;
 
-  public SingleStreamSource(@NotNull MultiStreamDataSource streamDataSource, @NotNull String name) {
-    myDataSource = streamDataSource;
-    myStreamName = name;
+  public StreamDataSourceBase(@NotNull String name) {
+    myName = name;
   }
 
   @NotNull
   @Override
-  public String getStreamName() {
-    return myStreamName;
-  }
-
-  @Override
-  public boolean isReadOnly() {
-    return myDataSource.isReadOnly();
+  public final String getStreamName() {
+    return myName;
   }
 
   @NotNull
   @Override
   public String getLocation() {
-    return myStreamName;
+    return "in-memory";
+  }
+
+  @Override
+  public boolean isReadOnly() {
+    return true;
   }
 
   @NotNull
   @Override
   public InputStream openInputStream() throws IOException {
-    return myDataSource.getStreamByNameOrFail(myStreamName).openInputStream();
+    throw new UnsupportedOperationException();
   }
 
   @NotNull
   @Override
   public OutputStream openOutputStream() throws IOException {
-    return myDataSource.getStreamByNameOrFail(myStreamName).openOutputStream();
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void addListener(@NotNull DataSourceListener listener) {
+
+  }
+
+  @Override
+  public void removeListener(@NotNull DataSourceListener listener) {
+
+  }
+
+  @Override
+  public long getTimestamp() {
+    return 0;
   }
 
   @Override
   public boolean delete() {
-    return myDataSource.delete();
+    return false;
   }
 }

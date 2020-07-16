@@ -15,13 +15,11 @@
  */
 package jetbrains.mps.persistence;
 
-import jetbrains.mps.persistence.PersistenceUtil.StreamDataSourceBase;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -36,9 +34,11 @@ public class ByteArrayInputSource extends StreamDataSourceBase {
   private final byte[] myInput;
 
   public ByteArrayInputSource(@NotNull byte[] input) {
+    super("byte-array");
     myInput = input;
   }
 
+  @NotNull
   @Override
   public InputStream openInputStream() {
     return new ByteArrayInputStream(myInput);

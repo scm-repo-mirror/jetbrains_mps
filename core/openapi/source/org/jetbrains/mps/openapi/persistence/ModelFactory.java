@@ -158,8 +158,9 @@ public interface ModelFactory {
    * sorted from the most preferred to the less preferred data source type.
    *
    * fixme [AP] I will move it from here since it does not relate to the API of the model factory itself,
-   * it is just a plugin for DefaultModelRoot to enable automatic 'data source' <-> 'model factory'
-   * relation.
+   *            it is just a plugin for DefaultModelRoot to enable automatic 'data source' <-> 'model factory'
+   *            relation.
+   *            It was a mistake to put this method here in the first place.
    *
    * @return a list of data source kinds which might be considered when MPS
    *         meets a data source location and needs to choose a model factory

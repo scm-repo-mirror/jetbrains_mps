@@ -23,17 +23,13 @@ import jetbrains.mps.persistence.MetaModelInfoProvider.MetaInfoLoadingOption;
 import jetbrains.mps.persistence.MetaModelInfoProvider.RegularMetaModelInfo;
 import jetbrains.mps.persistence.MetaModelInfoProvider.StuffedMetaModelInfo;
 import jetbrains.mps.persistence.binary.BinaryPersistence;
-import jetbrains.mps.persistence.binary.NodesWriter;
-import jetbrains.mps.persistence.registry.IdInfoRegistry;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.smodel.DefaultSModelDescriptor;
 import jetbrains.mps.smodel.SModelHeader;
 import jetbrains.mps.smodel.SModelId;
 import jetbrains.mps.smodel.loading.ModelLoadResult;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
-import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
-import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -59,7 +55,6 @@ import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,7 +63,7 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 /**
  * evgeny, 11/20/12
  */
-public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory {
+public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory, DataLocationAwareModelFactory {
   @NotNull
   private static PersistenceFacade FACADE() {
     return PersistenceFacade.getInstance();
@@ -201,6 +196,29 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
     final ModelFactory modelFactory = FACADE().getModelFactory(MPSExtentions.MODEL_BINARY);
     assert modelFactory instanceof BinaryModelFactory;
     return new DefaultSModelDescriptor(new PersistenceFacility((BinaryModelFactory) modelFactory, dataSource), header.createCopy());
+  }
+
+  @Nullable
+  @Override
+  public DataSource getNodeLocation(@NotNull SNode node) {
+    CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
+    SModel model = node.getModel();
+    if (model == null) return null;
+    correctnessChecker.checkAndWarn(model);
+    if (!correctnessChecker.doesMFSupportDS(model)) {
+      return null;
+    }
+    return model.getSource();
+  }
+
+  @NotNull
+  public DataSource getMetaInfoLocation(@NotNull SModel model) {
+    CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
+    correctnessChecker.checkAndWarn(model);
+    if (!correctnessChecker.doesMFSupportDS(model)) {
+      return null;
+    }
+    return model.getSource();
   }
 
   private static class PersistenceFacility extends LazyLoadFacility {

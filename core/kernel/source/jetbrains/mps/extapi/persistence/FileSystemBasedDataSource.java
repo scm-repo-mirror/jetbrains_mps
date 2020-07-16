@@ -18,9 +18,11 @@ package jetbrains.mps.extapi.persistence;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 
 import java.util.Collection;
+import java.util.stream.Stream;
 
 /**
  * This kind of data source describes a location within physical file system.
@@ -49,6 +51,24 @@ public interface FileSystemBasedDataSource extends DataSource, DisposableDataSou
     return getAffectedFiles().stream()
                              .anyMatch(IFile::exists);
   }
+
+  /**
+   * while {@link #getAffectedFiles()} might contain dirs, this method returns all their contents
+   */
+  default Stream<IFile> getAffectedFilesWithDirsExtracted() {
+    return withDirsExtracted(getAffectedFiles().stream());
+  }
+
+  static Stream<IFile> withDirsExtracted(Stream<IFile> files) {
+    return files.flatMap(file -> {
+      if (file.isDirectory()) {
+        return withDirsExtracted(file.getChildren().stream());
+      } else {
+        return Stream.of(file);
+      }
+    });
+  }
+
 
   /**
    * parentFolder must be a directory

@@ -42,7 +42,7 @@ public abstract class DataSourceBase implements DataSource {
 
   @Override
   public long getTimestamp() {
-    return 0;
+    return 0L;
   }
 
   public void refresh() {

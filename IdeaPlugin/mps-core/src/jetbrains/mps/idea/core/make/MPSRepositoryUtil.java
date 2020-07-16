@@ -29,6 +29,7 @@ import jetbrains.mps.idea.core.module.JavaStubModelHeader;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.persistence.FilePerRootDataSource;
+import jetbrains.mps.persistence.LoadedStrategyAware;
 import jetbrains.mps.persistence.PersistenceVersionAware;
 import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
 import jetbrains.mps.persistence.java.library.JavaClassStubModelDescriptor;
@@ -128,7 +129,7 @@ public class MPSRepositoryUtil {
       Object header = null;
       CachedModelData.Kind cacheKind = CachedModelData.Kind.Unknown;
       if (model instanceof PersistenceVersionAware) {
-        ModelFactory mf = ((PersistenceVersionAware) model).getModelFactory();
+        ModelFactory mf = ((LoadedStrategyAware) model).getModelFactory();
         if (mf == null) {
           LogManager.getLogger(MPSRepositoryUtil.class).warn("The model factory is null for the model " + model);
           return null;

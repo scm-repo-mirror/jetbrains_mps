@@ -31,8 +31,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
-import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
@@ -48,12 +46,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
 /**
- * Must be replaced with the FileDataSource everywhere.
- * Additional functionality (like #isIncluded) must be extracted or removed.
- * Remember: it is supposed to be just a simple notion of location with file system for {@link ModelFactory}
- * to load/save/create models there.
- *
- * @author apyshkin
  * evgeny, 11/3/12
  */
 public class FolderSetDataSource extends DataSourceBase implements DataSource, FileEventProcessor, FileSystemBasedDataSource {
@@ -141,11 +133,10 @@ public class FolderSetDataSource extends DataSourceBase implements DataSource, F
   }
 
   @Override
-  public void delete() {
-    Collection<IFile> toDelete = getFiles();
-    for (IFile f : toDelete) {
-      f.deleteIfExists();
-    }
+  public boolean delete() {
+    return getFiles().stream()
+                     .map(IFile::deleteIfExists)
+                     .reduce(true, (a, b) -> (a && b));
   }
 
   private FileSystem getFS() {

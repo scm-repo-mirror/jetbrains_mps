@@ -15,8 +15,9 @@
  */
 package jetbrains.mps.smodel.persistence.def;
 
-import jetbrains.mps.persistence.FilePerRootDataSource;
+import jetbrains.mps.persistence.FilePerRootModelFactory;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
+import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.smodel.SModelHeader;
@@ -56,7 +57,7 @@ public class FilePerRootFormatUtil {
   public static SModelHeader loadDescriptor(MultiStreamDataSource dataSource) throws ModelReadException {
     InputStream in = null;
     try {
-      in = dataSource.openInputStream(FilePerRootDataSource.HEADER_FILE);
+      in = dataSource.getStreamByNameOrFail(MPSExtentions.DOT_MODEL_HEADER).openInputStream();
       InputSource source = new InputSource(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
 
       return ModelPersistence.loadDescriptor(source);
@@ -80,7 +81,7 @@ public class FilePerRootFormatUtil {
     XMLSAXHandler<ModelLoadResult> headerHandler = mp.getModelReaderHandler(targetState, header);
     InputStream in = null;
     try {
-      in = dataSource.openInputStream(FilePerRootDataSource.HEADER_FILE);
+      in = dataSource.getStreamByNameOrFail(MPSExtentions.DOT_MODEL_HEADER).openInputStream();
       InputSource source = new InputSource(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
       ModelPersistence.parseAndHandleExceptions(source, headerHandler);
       if (headerHandler.getResult().getContentKind() != ContentKind.MODEL_HEADER) {
@@ -96,20 +97,20 @@ public class FilePerRootFormatUtil {
     header = result.getSModelHeader();
 
     // load roots
-    List<String> streams = new ArrayList<>();
-    for (String s : dataSource.getAvailableStreams()) streams.add(s);
-    Collections.sort(streams);
-    for (String stream : streams) {
-      if (!(stream.endsWith(FilePerRootDataSource.ROOT_EXTENSION))) continue;
+    List<String> streamNames = new ArrayList<>();
+    for (String s : dataSource.getAvailableStreams()) streamNames.add(s);
+    Collections.sort(streamNames);
+    for (String streamName : streamNames) {
+      if (!(streamName.endsWith(MPSExtentions.DOT_MODEL_ROOT))) continue;
 
       XMLSAXHandler<ModelLoadResult> rootHandler = mp.getModelReaderHandler(targetState, header);
       in = null;
       try {
-        in = dataSource.openInputStream(stream);
+        in = dataSource.openInputStream(streamName);
         InputSource source = new InputSource(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
         ModelPersistence.parseAndHandleExceptions(source, rootHandler);
         if (rootHandler.getResult().getContentKind() != ContentKind.MODEL_ROOT) {
-          throw new ModelReadException("Couldn't read model: " + stream + " root file is broken", null);
+          throw new ModelReadException("Couldn't read model: " + streamName + " root file is broken", null);
         }
         if (rootHandler.getResult().getState() == ModelLoadingState.INTERFACE_LOADED) {
           headerHandler.getResult().setState(ModelLoadingState.INTERFACE_LOADED);
@@ -119,7 +120,7 @@ public class FilePerRootFormatUtil {
         model.enterUpdateMode();
         for (SNode rootNode : model.getRootNodes()) {
           if (count != 0) {
-            throw new ModelReadException(String.format("Couldn't read model from stream %s: root file is broken - contains more than one roots", stream), null);
+            throw new ModelReadException(String.format("Couldn't read model from stream %s: root file is broken - contains more than one roots", streamName), null);
           }
           count++;
           // detach it from its spurious model, which is just a container for this single root
@@ -130,7 +131,7 @@ public class FilePerRootFormatUtil {
         model.leaveUpdateMode();
       } catch (Exception e) {
         Throwable th = e.getCause() == null ? e : e.getCause();
-        throw new ModelReadException(String.format("Couldn't read model from stream %s: %s", stream, th.getMessage()), th, header);
+        throw new ModelReadException(String.format("Couldn't read model from stream %s: %s", streamName, th.getMessage()), th, header);
       } finally {
         FileUtil.closeFileSafe(in);
       }
@@ -204,6 +205,10 @@ public class FilePerRootFormatUtil {
     return false;
   }
 
+  /**
+   * @deprecated replace with {@link jetbrains.mps.persistence.DataLocationAwareModelFactory#getNodeLocation(SNode)}
+   */
+  @Deprecated(forRemoval = true)
   public static Map<SNodeId, String> getStreamNames(Iterable<SNode> roots) {
     Map<SNodeId, String> result = new HashMap<>();
     Set<String> usedNames = new HashSet<>();
@@ -222,16 +227,16 @@ public class FilePerRootFormatUtil {
           value = baseString + index;
         }
       }
-      result.put(key, value + "." + FilePerRootDataSource.ROOT_EXTENSION);
+      result.put(key, value + MPSExtentions.DOT_MODEL_ROOT);
     }
     return result;
   }
 
-  private static String asFileName(String s) {
+  public static String asFileName(String s) {
     if (s == null) return "";
     StringBuilder sb = new StringBuilder(s.length());
     for (int i = 0; i < s.length(); i++) {
-      int c = (int) s.charAt(i);
+      int c = s.charAt(i);
       if (c < 32) continue;
       if (c >= 127 && !Character.isLetterOrDigit(c)) {
         sb.append(Character.isWhitespace(c) ? ' ' : '_');

@@ -16,36 +16,107 @@
 package org.jetbrains.mps.openapi.persistence;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
- * A data source with multiple input streams, each identified by a unique name.
+ * A data source with multiple input/output stream data sources (streams), each identified by a unique name.
+ * It may be useful if we want to read/write data from different places independently.
+ *
+ * For instance I want to store metadata in one place and the real stuff in the other place.
+ * Or I can store my special meta-data nodes in-memory, while the main data on disk.
+ *
  * FolderDataSource may serve as a good example of a concrete implementation.
+ *
+ * @see StreamDataSource
+ * @author apyshkin
  */
 public interface MultiStreamDataSource extends DataSource {
-
-  @NotNull Iterable<String> getAvailableStreams();
+  /**
+   * @deprecated use {@link #getSubStreams()}
+   */
+  @Deprecated(forRemoval = true)
+  @NotNull
+  default Iterable<String> getAvailableStreams() {
+    return getSubStreams().map(StreamDataSource::getStreamName)
+                          .collect(Collectors.toList());
+  }
 
   /**
-   * Access named stream for reading. Caller is responsible to close the stream once done.
-   * @param name name of the stream to read // fixme what does it mean -- the name???
-   * @return stream to read from, never <code>null</code>
-   * @throws IOException if failed to open given named stream
+   * return a sequence of possible streams;
+   * each stream we identify uniquely by {@link StreamDataSource#getStreamName()}
+   */
+  @NotNull Stream<StreamDataSource> getSubStreams();
+
+  @Nullable
+  default StreamDataSource getStreamByName(@NotNull String name) {
+    return getSubStreams().filter(sds -> name.equals(sds.getStreamName()))
+                          .findAny()
+                          .orElse(null);
+  }
+
+  /**
+   * override {@link #getStreamByName(String)} please instead of this method
    */
   @NotNull
-  InputStream openInputStream(String name) throws IOException;
+  default StreamDataSource getStreamByNameOrFail(@NotNull String name) throws IOException {
+    StreamDataSource streamByName = getStreamByName(name);
+    if (streamByName == null) {
+      throw new IOException("Could not find a stream by the name " + name + " in " + this);
+    }
+    return streamByName;
+  }
+
+  /**
+   * Access named stream for reading.
+   * Caller is responsible to close the stream once done.
+   * @param name name of the stream to read
+   * @return stream to read from, never <code>null</code>
+   * @throws IOException if failed to open given named stream
+   * @deprecated use {@link #getSubStreams()} and {@link #getStreamByName(String)}
+   */
+  @NotNull
+  @Deprecated
+  default InputStream openInputStream(@NotNull String name) throws IOException {
+    return getStreamByNameOrFail(name).openInputStream();
+  }
 
   /**
    * Access named stream for writing. Caller is responsible to close the stream once done.
    * @param name name of the stream to write
    * @return stream to write to, never <code>null</code>
-   * @throws IOException
+   * @throws IOException if failed to open given named stream
+   * @deprecated use {@link #getSubStreams()} and {@link #getStreamByName(String)}
    */
   @NotNull
-  OutputStream openOutputStream(String name) throws IOException;
+  @Deprecated
+  default OutputStream openOutputStream(@NotNull String name) throws IOException {
+    return getStreamByNameOrFail(name).openOutputStream();
+  }
 
-  boolean delete(String name);
+  /**
+   * deletes all the containing stream ds and maybe smth else
+   */
+  default boolean delete() {
+    return getSubStreams().map(StreamDataSource::delete)
+                          .reduce(true, (a, b) -> a && b);
+  }
+
+  /**
+   * @return if successfully deleted
+   * @deprecated use {@link StreamDataSource#delete()} and {@link #getStreamByName(String)}
+   */
+  @Deprecated
+  default boolean delete(@NotNull String name) {
+    try {
+      return getStreamByNameOrFail(name).delete();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 }

@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.project;
 
-public class MPSExtentions {
+public final class MPSExtentions {
   public static final String MPS_PROJECT = "mpr";
   public static final String IDEAWORKSPACE = "iws";
   public static final String WORKSPACE = "mws";

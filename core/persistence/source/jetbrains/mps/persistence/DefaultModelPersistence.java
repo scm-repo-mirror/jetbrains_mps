@@ -44,6 +44,7 @@ import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.DataSourceNotSupportedProblem;
 import org.jetbrains.mps.openapi.persistence.MFProblem;
@@ -69,7 +70,7 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 /**
  * Factory for models stored in .mps files.
  */
-public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFactory {
+public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFactory, DataLocationAwareModelFactory {
   private static final Logger LOG = LogManager.getLogger(DefaultModelPersistence.class);
 
   public enum ContentLoadingExtentOptions implements ModelLoadingOption {
@@ -278,6 +279,29 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
   @Override
   public ModelFactoryType getType() {
     return PreinstalledModelFactoryTypes.PLAIN_XML;
+  }
+
+  @Nullable
+  @Override
+  public DataSource getNodeLocation(@NotNull SNode node) {
+    CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
+    SModel model = node.getModel();
+    if (model == null) return null;
+    correctnessChecker.checkAndWarn(model);
+    if (!correctnessChecker.doesMFSupportDS(model)) {
+      return null;
+    }
+    return model.getSource();
+  }
+
+  @NotNull
+  public DataSource getMetaInfoLocation(@NotNull SModel model) {
+    CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
+    correctnessChecker.checkAndWarn(model);
+    if (!correctnessChecker.doesMFSupportDS(model)) {
+      return null;
+    }
+    return model.getSource();
   }
 
   @NotNull

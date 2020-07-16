@@ -5,6 +5,8 @@ package jetbrains.mps.idea.java.psiStubs;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.extapi.persistence.DataSourceBase;
 import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -68,7 +70,7 @@ public class MultiplePsiJavaStubDataSource extends DataSourceBase implements Jav
   }
 
   @Override
-  public void addListener(DataSourceListener listener) {
+  public void addListener(@NotNull DataSourceListener listener) {
     super.addListener(listener);
     synchronized (LOCK) {
       if (ListSequence.fromList(myListeners).isEmpty()) {
@@ -79,7 +81,7 @@ public class MultiplePsiJavaStubDataSource extends DataSourceBase implements Jav
   }
 
   @Override
-  public void removeListener(DataSourceListener listener) {
+  public void removeListener(@NotNull DataSourceListener listener) {
     synchronized (LOCK) {
       ListSequence.fromList(myListeners).removeElement(listener);
       if (ListSequence.fromList(myListeners).isEmpty()) {

@@ -16,7 +16,7 @@
 package jetbrains.mps.smodel.persistence.def.v9;
 
 import jetbrains.mps.RuntimeFlags;
-import jetbrains.mps.persistence.FilePerRootDataSource;
+import jetbrains.mps.persistence.FilePerRootModelFactory;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
 import jetbrains.mps.persistence.registry.AggregationLinkInfo;
 import jetbrains.mps.persistence.registry.AssociationLinkInfo;
@@ -24,6 +24,7 @@ import jetbrains.mps.persistence.registry.ConceptInfo;
 import jetbrains.mps.persistence.registry.IdInfoRegistry;
 import jetbrains.mps.persistence.registry.LangInfo;
 import jetbrains.mps.persistence.registry.PropertyInfo;
+import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.smodel.SModel.ImportElement;
@@ -337,7 +338,7 @@ public class ModelWriter9 implements IModelWriter {
     final ImportsHelper wholeModelImports = myImportsHelper;
 
     Map<String, Document> result = new HashMap<>();
-    result.put(FilePerRootDataSource.HEADER_FILE, new Document(headerRoot));
+    result.put(MPSExtentions.DOT_MODEL_HEADER, new Document(headerRoot));
     // roots
     Map<SNodeId, String> rootToFile = FilePerRootFormatUtil.getStreamNames(sourceModel.getRootNodes());
     for (SNode root : sourceModel.getRootNodes()) {

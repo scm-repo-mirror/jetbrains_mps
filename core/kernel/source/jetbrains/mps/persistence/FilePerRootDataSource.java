@@ -27,24 +27,19 @@ import org.jetbrains.mps.openapi.persistence.ModelRoot;
 
 import java.net.URI;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
- * @see FolderDataSource comments
- *
  * evgeny, 6/3/13
  */
-@ToRemove(version = 4.0)
 public final class FilePerRootDataSource extends FolderDataSource {
+  @Deprecated(forRemoval = true)
   public static final String HEADER_FILE = MPSExtentions.DOT_MODEL_HEADER;
+  @Deprecated(forRemoval = true)
   public static final String ROOT_EXTENSION = MPSExtentions.MODEL_ROOT;
 
   public FilePerRootDataSource(@NotNull IFile folder) {
-    super(folder);
-  }
-
-  @Override
-  public boolean isIncluded(@NotNull IFile file) {
-    return super.isIncluded(file) && isPerRootPersistenceFile(file);
+    super(folder, FilePerRootDataSource::isPerRootPersistenceFile);
   }
 
   @Override

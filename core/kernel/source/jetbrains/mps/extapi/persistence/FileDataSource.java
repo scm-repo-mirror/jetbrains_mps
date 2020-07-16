@@ -96,11 +96,19 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
     return myFile.toString();
   }
 
+  @NotNull
+  @Override
+  public String getStreamName() {
+    return myFile.getName();
+  }
+
+  @NotNull
   @Override
   public InputStream openInputStream() throws IOException {
     return myFile.openInputStream();
   }
 
+  @NotNull
   @Override
   public OutputStream openOutputStream() throws IOException {
     return myFile.openOutputStream();
@@ -144,10 +152,11 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
   }
 
   @Override
-  public void delete() {
+  public boolean delete() {
     if (myFile.exists() && !isReadOnly()) {
-      myFile.delete();
+      return myFile.delete();
     }
+    return false;
   }
 
   protected void stopListening() {
