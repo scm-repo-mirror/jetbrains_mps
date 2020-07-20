@@ -15,7 +15,7 @@ import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.changesmanager.tree.features.AbstractNodeFeature;
 import java.util.function.BiFunction;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Collection;
 import java.util.Set;
 import java.util.HashSet;
@@ -145,11 +145,11 @@ public class FeaturesFromVcs {
     if (!(myFeature2Change.containsValue(change))) {
       log("Trying to remove model change which is not there: " + change);
     }
-    List<Feature> keysByValue = new ArrayList<Feature>(myFeature2Change.getKeysByValue(change));
+    List<Feature> keysByValue = myFeature2Change.getKeysByValue(change);
     if (keysByValue == null) {
       return;
     }
-    for (Feature f : keysByValue) {
+    for (Feature f : Collections.unmodifiableList(keysByValue)) {
       remove(f, change);
     }
   }
