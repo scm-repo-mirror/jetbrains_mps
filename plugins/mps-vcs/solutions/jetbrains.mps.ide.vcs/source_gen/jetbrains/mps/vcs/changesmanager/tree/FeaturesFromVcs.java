@@ -15,7 +15,6 @@ import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.changesmanager.tree.features.AbstractNodeFeature;
 import java.util.function.BiFunction;
-import java.util.Collections;
 import java.util.Collection;
 import java.util.Set;
 import java.util.HashSet;
@@ -149,7 +148,7 @@ public class FeaturesFromVcs {
     if (keysByValue == null) {
       return;
     }
-    for (Feature f : Collections.unmodifiableList(keysByValue)) {
+    for (Feature f : List.copyOf(keysByValue)) {
       remove(f, change);
     }
   }

@@ -1560,10 +1560,10 @@
               </node>
             </node>
           </node>
-          <node concept="2YIFZM" id="2RsojPStDID" role="1DdaDG">
-            <ref role="37wK5l" to="33ny:~Collections.unmodifiableList(java.util.List)" resolve="unmodifiableList" />
-            <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
-            <node concept="37vLTw" id="2RsojPStDJR" role="37wK5m">
+          <node concept="2YIFZM" id="4qh0bIZ2fY6" role="1DdaDG">
+            <ref role="37wK5l" to="33ny:~List.copyOf(java.util.Collection)" resolve="copyOf" />
+            <ref role="1Pybhc" to="33ny:~List" resolve="List" />
+            <node concept="37vLTw" id="4qh0bIZ2fZk" role="37wK5m">
               <ref role="3cqZAo" node="2RsojPStpkm" resolve="keysByValue" />
             </node>
           </node>
