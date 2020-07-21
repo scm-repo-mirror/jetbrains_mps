@@ -8,6 +8,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -33,7 +34,7 @@ public class TryStatement_DeleteBodyEndingBrace {
           if (DeletionApproverUtil.approve(editorContext, node)) {
             return;
           }
-          UnwrapStatementsUtil.unwrapIContainsStatementList(node);
+          SNodeOperations.deleteNode(node);
         }
       }
 
