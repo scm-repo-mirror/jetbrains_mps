@@ -38717,7 +38717,7 @@
       <node concept="3clFbS" id="1Z$YwB5tsCq" role="2VODD2">
         <node concept="3clFbF" id="1Z$YwB5tsCr" role="3cqZAp">
           <node concept="Xl_RD" id="1Z$YwB5tsCs" role="3clFbG">
-            <property role="Xl_RC" value="Remove redundunt 'extends Object'" />
+            <property role="Xl_RC" value="Remove redundant 'extends Object'" />
           </node>
         </node>
       </node>
