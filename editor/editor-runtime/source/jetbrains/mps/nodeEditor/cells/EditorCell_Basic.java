@@ -700,7 +700,7 @@ public abstract class EditorCell_Basic implements EditorCell, Entry<jetbrains.mp
 
   protected void paintSelectionIfRequired(Graphics g, ParentSettings parentSettings) {
     if (isSelectionPainted()) {
-      paintSelection(g, getSelectionColor(), true, parentSettings);
+      paintSelection(g, getSelectionColor(), false, parentSettings);
     }
   }
 

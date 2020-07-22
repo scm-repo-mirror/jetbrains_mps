@@ -120,7 +120,7 @@ public class DeletionApproverImpl implements DeletionApprover, EditorMessageOwne
     public void paint(Graphics g, EditorComponent editorComponent, EditorCell cell) {
       if (cell instanceof jetbrains.mps.nodeEditor.cells.EditorCell) {
         Color color = new Color(getColor().getRed(), getColor().getGreen(), getColor().getBlue(), getColor().getAlpha() / 5);
-        ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(g, color, true);
+        ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(g, color, false);
 
       } else {
         super.paint(g, editorComponent, cell);
