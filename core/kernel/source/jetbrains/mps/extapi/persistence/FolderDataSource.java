@@ -25,6 +25,7 @@ import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
+import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
 import org.jetbrains.mps.openapi.persistence.MultiStreamDataSourceListener;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
@@ -109,6 +110,15 @@ public class FolderDataSource extends DataSourceBase implements MultiStreamDataS
   public Stream<StreamDataSource> getSubStreams() {
     return getChildrenFiles().filter(this::isIncluded)
                              .map(FileDataSource::new);
+  }
+
+  @NotNull
+  @Override
+  public StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+    if (getStreamByName(name) != null) {
+      return getStreamByName(name);
+    }
+    return new FileDataSource(myFolder.findChild(name));
   }
 
   @Override

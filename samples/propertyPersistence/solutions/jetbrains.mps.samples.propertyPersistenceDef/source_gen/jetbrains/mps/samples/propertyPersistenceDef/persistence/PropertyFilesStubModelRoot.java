@@ -88,7 +88,7 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
 
   private Set<SModel> getModels(IFile dir) {
     Set<SModel> models = SetSequence.fromSet(new HashSet<SModel>());
-    PropertyFilesDataSource dataSource = new PropertyFilesDataSource(dir, this);
+    PropertyFilesDataSource dataSource = new PropertyFilesDataSource(dir);
     if (dataSource.hasPropertyFiles()) {
       String pkg = dir.getName();
       if ((pkg != null && pkg.length() > 0)) {

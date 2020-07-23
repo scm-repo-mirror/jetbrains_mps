@@ -14,11 +14,8 @@ import org.jetbrains.mps.openapi.model.SModel;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import java.util.Collections;
-import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.persistence.FilePerRootDataSource;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
+import java.util.stream.Collectors;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Generator;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -26,6 +23,8 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.project.AbstractModule;
 import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.FileStatusManager;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -45,16 +44,9 @@ public class ConflictsUtil {
       return ListSequence.fromList(new ArrayList<VirtualFile>());
     }
     DataSource ds = model.getSource();
-    Iterable<IFile> filesToCheck = Sequence.fromIterable(Collections.<IFile>emptyList());
-    if (ds instanceof FileDataSource) {
-      filesToCheck = Sequence.<IFile>singleton(((FileDataSource) ds).getFile());
-    } else if (ds instanceof FilePerRootDataSource) {
-      final FilePerRootDataSource ds1 = (FilePerRootDataSource) ds;
-      filesToCheck = Sequence.fromIterable(((Iterable<String>) ds1.getAvailableStreams())).select(new ISelector<String, IFile>() {
-        public IFile select(String it) {
-          return ds1.getFile(it);
-        }
-      });
+    List<IFile> filesToCheck = ListSequence.fromList(new ArrayList<IFile>());
+    if (ds instanceof FileSystemBasedDataSource) {
+      filesToCheck = ((List<IFile>) ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().collect(Collectors.toList()));
     }
     return getConflictingFiles(filesToCheck, project);
   }

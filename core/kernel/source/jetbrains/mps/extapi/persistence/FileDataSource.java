@@ -50,9 +50,9 @@ import java.util.List;
  *
  * @author evgeny, 11/2/12
  */
-public class FileDataSource extends DataSourceBase implements StreamDataSource, FileSystemListener, FileSystemBasedDataSource {
+public class FileDataSource extends DataSourceBase implements StreamDataSource, FileSystemListener, FileSystemBasedDataSource, StreamAsMultiDataSource {
   private final Object LOCK = new Object();
-  private List<DataSourceListener> myListeners = new ArrayList<>();
+  private final List<DataSourceListener> myListeners = new ArrayList<>();
 
   private IFile myFile;
 
@@ -73,6 +73,9 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
                                    .build();
   }
 
+  /**
+   * fixme
+   */
   public void setFile(@NotNull IFile file) {
     synchronized (LOCK) {
       if (!(myListeners.isEmpty())) {
@@ -207,6 +210,16 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
   @Override
   public Collection<IFile> getAffectedFiles() {
     return Collections.singleton(myFile);
+  }
+
+  @NotNull
+  @Override
+  public StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+    if (!name.equals(getStreamName())) {
+      throw new IllegalArgumentException("There is no streams with name " + name + " here, only: " + getStreamName());
+    }
+    // no need to create anything due to such IFile implementation who will create itself on #openOutputStream
+    return getSubStreams().findAny().orElseThrow();
   }
 
   @Nullable

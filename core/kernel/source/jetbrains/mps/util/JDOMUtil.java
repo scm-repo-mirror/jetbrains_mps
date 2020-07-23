@@ -144,7 +144,7 @@ public class JDOMUtil {
   }
 
   public static void writeDocument(Document document, MultiStreamDataSource source, String streamName) throws IOException {
-    try (OutputStream stream = new BufferedOutputStream(source.openOutputStream(streamName))) {
+    try (OutputStream stream = new BufferedOutputStream(source.getStreamByNameOrCreate(streamName).openOutputStream())) {
       writeDocument(document, stream);
     }
   }

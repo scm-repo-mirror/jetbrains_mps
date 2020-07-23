@@ -48,103 +48,91 @@
   </root>
   <root nodeRef="r:e4939376-be00-4167-9510-67715eca6425(jetbrains.mps.vcs.platform.util)/6933307669479741763">
     <file name="ConflictsUtil.java">
-      <node id="6933307669479741777" at="38,89,39,200" concept="8" />
-      <node id="3193265634048474577" at="44,45,45,65" concept="8" />
-      <node id="3193265634047896621" at="46,5,47,38" concept="7" />
-      <node id="3193265634048107951" at="47,38,48,89" concept="7" />
-      <node id="3193265634048120795" at="49,39,50,80" concept="2" />
-      <node id="3193265634048914445" at="51,53,52,67" concept="7" />
-      <node id="3193265634048146193" at="54,40,55,33" concept="8" />
-      <node id="3193265634049020082" at="58,5,59,54" concept="8" />
-      <node id="2584767166692766717" at="63,113,64,77" concept="7" />
-      <node id="5365698658913628403" at="65,90,66,82" concept="7" />
-      <node id="5365698658913628928" at="66,82,67,39" concept="0" />
-      <node id="6933307669479741860" at="67,39,68,107" concept="2" />
-      <node id="2584767166692660117" at="70,43,71,55" concept="7" />
-      <node id="2584767166692774860" at="72,48,73,84" concept="2" />
-      <node id="3193265634049013197" at="75,5,76,54" concept="8" />
-      <node id="3193265634047949001" at="79,94,80,77" concept="7" />
-      <node id="3193265634047957007" at="80,77,81,105" concept="8" />
-      <node id="3193265634048983930" at="86,42,87,57" concept="8" />
-      <node id="3193265634048983921" at="90,44,91,44" concept="8" />
-      <node id="6933307669479741765" at="35,0,37,0" concept="1" trace="ConflictsUtil#()V" />
-      <node id="6933307669479741769" at="38,0,41,0" concept="11" trace="isModelOrModuleConflicting#(Lorg/jetbrains/mps/openapi/model/EditableSModel;Lcom/intellij/openapi/project/Project;)Z" />
-      <node id="3193265634047873318" at="43,110,46,5" concept="5" />
-      <node id="3193265634048146191" at="54,0,57,0" concept="6" trace="select#(Ljava/lang/String;)Ljetbrains/mps/vfs/IFile;" />
-      <node id="2584767166692662118" at="71,55,74,7" concept="5" />
-      <node id="3193265634048983928" at="86,0,89,0" concept="6" trace="select#(Ljetbrains/mps/vfs/IFile;)Lcom/intellij/openapi/vfs/VirtualFile;" />
-      <node id="3193265634048983919" at="90,0,93,0" concept="6" trace="accept#(Lcom/intellij/openapi/vfs/VirtualFile;)Z" />
-      <node id="3193265634047932084" at="79,0,83,0" concept="11" trace="isConflictedFile#(Lcom/intellij/openapi/vfs/VirtualFile;Lcom/intellij/openapi/project/Project;)Z" />
-      <node id="3193265634048142441" at="52,67,57,9" concept="2" />
-      <node id="6933307669479741858" at="64,77,69,5" concept="5" />
-      <node id="1979649482472157839" at="69,5,75,5" concept="5" />
-      <node id="3193265634048983913" at="84,102,93,24" concept="8" />
-      <node id="6933307669479741806" at="48,89,58,5" concept="5" />
-      <node id="3193265634048983407" at="84,0,95,0" concept="11" trace="getConflictingFiles#(Ljava/lang/Iterable;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
-      <node id="6933307669479741848" at="62,0,78,0" concept="11" trace="getConflictingModuleFiles#(Lorg/jetbrains/mps/openapi/module/SModule;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
-      <node id="6933307669479741796" at="42,0,61,0" concept="11" trace="getConflictingModelFiles#(Lorg/jetbrains/mps/openapi/model/SModel;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
-      <scope id="6933307669479741768" at="35,26,35,26" />
-      <scope id="6933307669479741776" at="38,89,39,200" />
-      <scope id="3193265634047873321" at="44,45,45,65" />
-      <scope id="6933307669479741807" at="49,39,50,80" />
-      <scope id="3193265634048146192" at="54,40,55,33" />
-      <scope id="2584767166692662120" at="72,48,73,84" />
-      <scope id="3193265634048983929" at="86,42,87,57" />
-      <scope id="3193265634048983920" at="90,44,91,44" />
-      <scope id="6933307669479741765" at="35,0,37,0" />
-      <scope id="3193265634047932087" at="79,94,81,105">
+      <node id="6933307669479741777" at="37,89,38,200" concept="8" />
+      <node id="3193265634048474577" at="43,45,44,65" concept="8" />
+      <node id="3193265634047896621" at="45,5,46,38" concept="7" />
+      <node id="3193265634048107951" at="46,38,47,77" concept="7" />
+      <node id="3193265634048142441" at="48,50,49,135" concept="2" />
+      <node id="3193265634049020082" at="50,5,51,54" concept="8" />
+      <node id="2584767166692766717" at="55,113,56,77" concept="7" />
+      <node id="5365698658913628403" at="57,90,58,82" concept="7" />
+      <node id="5365698658913628928" at="58,82,59,39" concept="0" />
+      <node id="6933307669479741860" at="59,39,60,107" concept="2" />
+      <node id="2584767166692660117" at="62,43,63,55" concept="7" />
+      <node id="2584767166692774860" at="64,48,65,84" concept="2" />
+      <node id="3193265634049013197" at="67,5,68,54" concept="8" />
+      <node id="3193265634047949001" at="71,94,72,77" concept="7" />
+      <node id="3193265634047957007" at="72,77,73,105" concept="8" />
+      <node id="3193265634048983930" at="78,42,79,57" concept="8" />
+      <node id="3193265634048983921" at="82,44,83,44" concept="8" />
+      <node id="6933307669479741765" at="34,0,36,0" concept="1" trace="ConflictsUtil#()V" />
+      <node id="6933307669479741769" at="37,0,40,0" concept="11" trace="isModelOrModuleConflicting#(Lorg/jetbrains/mps/openapi/model/EditableSModel;Lcom/intellij/openapi/project/Project;)Z" />
+      <node id="3193265634047873318" at="42,110,45,5" concept="5" />
+      <node id="6933307669479741806" at="47,77,50,5" concept="5" />
+      <node id="2584767166692662118" at="63,55,66,7" concept="5" />
+      <node id="3193265634048983928" at="78,0,81,0" concept="6" trace="select#(Ljetbrains/mps/vfs/IFile;)Lcom/intellij/openapi/vfs/VirtualFile;" />
+      <node id="3193265634048983919" at="82,0,85,0" concept="6" trace="accept#(Lcom/intellij/openapi/vfs/VirtualFile;)Z" />
+      <node id="3193265634047932084" at="71,0,75,0" concept="11" trace="isConflictedFile#(Lcom/intellij/openapi/vfs/VirtualFile;Lcom/intellij/openapi/project/Project;)Z" />
+      <node id="6933307669479741858" at="56,77,61,5" concept="5" />
+      <node id="1979649482472157839" at="61,5,67,5" concept="5" />
+      <node id="3193265634048983913" at="76,102,85,24" concept="8" />
+      <node id="3193265634048983407" at="76,0,87,0" concept="11" trace="getConflictingFiles#(Ljava/lang/Iterable;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
+      <node id="6933307669479741796" at="41,0,53,0" concept="11" trace="getConflictingModelFiles#(Lorg/jetbrains/mps/openapi/model/SModel;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
+      <node id="6933307669479741848" at="54,0,70,0" concept="11" trace="getConflictingModuleFiles#(Lorg/jetbrains/mps/openapi/module/SModule;Lcom/intellij/openapi/project/Project;)Ljava/util/List;" />
+      <scope id="6933307669479741768" at="34,26,34,26" />
+      <scope id="6933307669479741776" at="37,89,38,200" />
+      <scope id="3193265634047873321" at="43,45,44,65" />
+      <scope id="6933307669479741807" at="48,50,49,135" />
+      <scope id="2584767166692662120" at="64,48,65,84" />
+      <scope id="3193265634048983929" at="78,42,79,57" />
+      <scope id="3193265634048983920" at="82,44,83,44" />
+      <scope id="6933307669479741765" at="34,0,36,0" />
+      <scope id="3193265634047932087" at="71,94,73,105">
         <var name="status" id="3193265634047949002" />
       </scope>
-      <scope id="6933307669479741769" at="38,0,41,0">
+      <scope id="6933307669479741769" at="37,0,40,0">
         <var name="emd" id="6933307669479741770" />
         <var name="project" id="6933307669479741772" />
       </scope>
-      <scope id="3193265634048146191" at="54,0,57,0">
-        <var name="it" id="3193265634048146191" />
-      </scope>
-      <scope id="6933307669479741859" at="65,90,68,107">
+      <scope id="6933307669479741859" at="57,90,60,107">
         <var name="projectRepository" id="5365698658913628404" />
       </scope>
-      <scope id="3193265634048983928" at="86,0,89,0">
+      <scope id="3193265634048983928" at="78,0,81,0">
         <var name="f" id="3193265634048983928" />
       </scope>
-      <scope id="3193265634048983919" at="90,0,93,0">
+      <scope id="3193265634048983919" at="82,0,85,0">
         <var name="f" id="3193265634048983919" />
       </scope>
-      <scope id="3193265634048958011" at="70,43,74,7">
+      <scope id="3193265634048958011" at="62,43,66,7">
         <var name="amodule" id="2584767166692660118" />
       </scope>
-      <scope id="3193265634047932084" at="79,0,83,0">
+      <scope id="3193265634047932084" at="71,0,75,0">
         <var name="project" id="3193265634047950710" />
         <var name="vf" id="3193265634047935061" />
       </scope>
-      <scope id="3193265634047916774" at="51,53,57,9">
-        <var name="ds1" id="3193265634048914446" />
-      </scope>
-      <scope id="3193265634048983410" at="84,102,93,24" />
-      <scope id="3193265634048983407" at="84,0,95,0">
-        <var name="files" id="3193265634048983726" />
-        <var name="project" id="3193265634048989507" />
-      </scope>
-      <scope id="6933307669479741857" at="63,113,76,54">
-        <var name="filesToCheck" id="2584767166692766720" />
-      </scope>
-      <scope id="6933307669479741805" at="43,110,59,54">
+      <scope id="6933307669479741805" at="42,110,51,54">
         <var name="ds" id="3193265634047896622" />
         <var name="filesToCheck" id="3193265634048107954" />
       </scope>
-      <scope id="6933307669479741848" at="62,0,78,0">
-        <var name="module" id="6933307669479741849" />
-        <var name="project" id="6933307669479741852" />
+      <scope id="3193265634048983410" at="76,102,85,24" />
+      <scope id="3193265634048983407" at="76,0,87,0">
+        <var name="files" id="3193265634048983726" />
+        <var name="project" id="3193265634048989507" />
       </scope>
-      <scope id="6933307669479741796" at="42,0,61,0">
+      <scope id="6933307669479741796" at="41,0,53,0">
         <var name="model" id="6933307669479741797" />
         <var name="project" id="6933307669479741800" />
       </scope>
-      <unit id="3193265634048146191" at="53,102,57,7" name="jetbrains.mps.vcs.platform.util.ConflictsUtil$1" />
-      <unit id="3193265634048983928" at="85,51,89,5" name="jetbrains.mps.vcs.platform.util.ConflictsUtil$2" />
-      <unit id="3193265634048983919" at="89,62,93,5" name="jetbrains.mps.vcs.platform.util.ConflictsUtil$3" />
-      <unit id="6933307669479741763" at="33,0,96,0" name="jetbrains.mps.vcs.platform.util.ConflictsUtil" />
+      <scope id="6933307669479741857" at="55,113,68,54">
+        <var name="filesToCheck" id="2584767166692766720" />
+      </scope>
+      <scope id="6933307669479741848" at="54,0,70,0">
+        <var name="module" id="6933307669479741849" />
+        <var name="project" id="6933307669479741852" />
+      </scope>
+      <unit id="3193265634048983928" at="77,51,81,5" name="jetbrains.mps.vcs.platform.util.ConflictsUtil$1" />
+      <unit id="3193265634048983919" at="81,62,85,5" name="jetbrains.mps.vcs.platform.util.ConflictsUtil$2" />
+      <unit id="6933307669479741763" at="32,0,88,0" name="jetbrains.mps.vcs.platform.util.ConflictsUtil" />
     </file>
   </root>
   <root nodeRef="r:e4939376-be00-4167-9510-67715eca6425(jetbrains.mps.vcs.platform.util)/6933307669479990701">

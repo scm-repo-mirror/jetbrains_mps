@@ -55,7 +55,7 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
 
   @Override
   public void projectOpened() {
-    myFileStatusManager.addFileStatusListener(myFileStatusListener);
+    myFileStatusManager.addFileStatusListener(myFileStatusListener, myMpsProject.getProject());
     new RepoListenerRegistrar(myMpsProject.getRepository(), myModelRepositoryListener).attach();
     // do not start the command thread immediately, let project refresh its structures and components. 
     // Not sure whether to use StartupManager.registerPostStartupActivity or runWhenSmart; chose latter as its javadoc 
@@ -69,7 +69,6 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
 
   @Override
   public void projectClosed() {
-    myFileStatusManager.removeFileStatusListener(myFileStatusListener);
     new RepoListenerRegistrar(myMpsProject.getRepository(), myModelRepositoryListener).detach();
     synchronized (myCurrentDifferences) {
       for (CurrentDifference modelChangesManager : Sequence.fromIterable(MapSequence.fromMap(myCurrentDifferences).values())) {

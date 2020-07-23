@@ -50,6 +50,7 @@ import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.ModelLoadingOption;
 import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import org.jetbrains.mps.openapi.persistence.UnsupportedDataSourceException;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import org.xml.sax.InputSource;
@@ -62,6 +63,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 
@@ -244,15 +246,42 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
     return source.getStreamByName(FilePerRootFormatUtil.asFileName(fileName));
   }
 
-  @NotNull
+  @Nullable
+  @Override
   public DataSource getMetaInfoLocation(@NotNull SModel model) {
+    MultiStreamDataSource source = getMSource(model);
+    if (source == null) {
+      return null;
+    }
+    return source.getStreamByName(MPSExtentions.DOT_MODEL_HEADER);
+  }
+
+  @Nullable
+  @Override
+  public DataSource getDataLocation(@NotNull SModel model) {
+    MultiStreamDataSource source = getMSource(model);
+    if (source == null) {
+      return null;
+    }
+
+    return new ReadOnlyMultiStreamDataSource(source.getLocation()) {
+      @NotNull
+      @Override
+      public Stream<StreamDataSource> getSubStreams() {
+        return source.getSubStreams()
+                     .filter(sds -> !sds.getStreamName().equals(MPSExtentions.DOT_MODEL_HEADER));
+      }
+    };
+  }
+
+  @Nullable
+  public MultiStreamDataSource getMSource(@NotNull SModel model) {
     CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
     correctnessChecker.checkAndWarn(model);
     if (!correctnessChecker.doesMFSupportDS(model)) {
       return null;
     }
-    MultiStreamDataSource source = (MultiStreamDataSource) model.getSource();
-    return source.getStreamByName(MPSExtentions.DOT_MODEL_HEADER);
+    return (MultiStreamDataSource) model.getSource();
   }
 
   private static class PersistenceFacility extends LazyLoadFacility {

@@ -20,14 +20,18 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
 /**
- * Represents a location of the model data sources to build models.
+ * Represents a location abstraction + some means to work with data at the location.
+ *
+ * Usually {@code DataSource} points to the model data sources.
  * For example it can be based on files, internet content, database content, etc.
  *
  * NB:
  * Must not contain any information on the storage format specifics --
  * all that belongs to the {@link ModelFactory}.
  *
- * For implementation consider extending {@code jetbrains.mps.extapi.persistence.DataSourceBase}.
+ * For implementation consider extending {@code jetbrains.mps.extapi.persistence.DataSourceBase}, {@code MultiStreamSourceBase}, {@code StreamSourceBase}
+ * fixme rather we need to separate the location part of the accessing the data at the location
+ *       right now we have both here, but no abstract means to read/write because on this level there is no common access mechanism that we could offer
  *
  * @author apyshkin
  */
@@ -54,9 +58,8 @@ public interface DataSource {
   long getTimestamp();
 
   /**
-   * TODO Makes sense only with API which introduce changes to the <code>DataSource</code>. Currently it is incomplete.
-   * Usually there is a possibility to edit <code>DataSource</code>.
-   * For examples please see {@link StreamDataSource}.
+   * Sometimes there is a possibility to edit <code>DataSource</code>, though it is not available on this level.
+   * For examples please see {@link StreamDataSource}, {@link MultiStreamDataSource}.
    *
    * @return whether this data source can be changed.
    */

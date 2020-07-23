@@ -11,11 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.persistence.DataSource;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.persistence.DataLocationAwareModelFactory;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
+import java.util.Optional;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.persistence.FilePerRootDataSource;
-import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import com.intellij.openapi.project.Project;
@@ -44,6 +43,7 @@ import jetbrains.mps.vcs.platform.integration.ModelDiffViewer;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.diff.DiffManager;
 import com.intellij.openapi.vcs.impl.VcsFileStatusProvider;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -52,8 +52,6 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
 import java.util.Collections;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SModelReference;
 
 @GeneratedClass(node = "r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)/8230098746512809101", model = "r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)")
 public final class VcsActionsUtil {
@@ -71,21 +69,20 @@ public final class VcsActionsUtil {
   @Nullable
   public VirtualFile detectVirtualFile() {
     final Wrappers._T<DataSource> source = new Wrappers._T<DataSource>();
-    myProject.getModelAccess().runReadAction(new _Adapters._return_P0_E0_to_Runnable_adapter(new _FunctionTypes._return_P0_E0<DataSource>() {
-      public DataSource invoke() {
-        return source.value = check_brpb5o_a0a0a0a1a6(check_brpb5o_a0a0a0a0b0g(myNodeRef.getModelReference(), myProject));
+    myProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        source.value = DataLocationAwareModelFactory.nodeLocation(myNodeRef.resolve(myProject.getRepository()));
       }
-    }));
-    IFile iFile;
-    if (source.value instanceof FileDataSource) {
-      iFile = ((FileDataSource) source.value).getFile();
-    } else if (source.value instanceof FilePerRootDataSource) {
-      // FIXME other uses of FilePerRootDataSource.getFile suggest we shall use approach similar to FilePerRootFormatUtil.getStreamNames instead of assumption of root.name + '.mpsr' 
-      iFile = ((FilePerRootDataSource) source.value).getFile(myContainingRootName + '.' + MPSExtentions.MODEL_ROOT);
-    } else {
+    });
+    if (!((source.value instanceof FileSystemBasedDataSource))) {
       return null;
     }
-    return VirtualFileUtils.getProjectVirtualFile(iFile);
+    FileSystemBasedDataSource fbds = (FileSystemBasedDataSource) source.value;
+    Optional<IFile> anyFile = fbds.getAffectedFilesWithDirsExtracted().findAny();
+    if (anyFile.isEmpty()) {
+      return null;
+    }
+    return VirtualFileUtils.getProjectVirtualFile(anyFile.get());
   }
 
   public void showRootDifference(@Nullable final Bounds bounds) {
@@ -253,17 +250,5 @@ __switch__:
         return getUnversionedFilesForModule(project, m);
       }
     }).toListSequence();
-  }
-  private static DataSource check_brpb5o_a0a0a0a1a6(SModel checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getSource();
-    }
-    return null;
-  }
-  private static SModel check_brpb5o_a0a0a0a0b0g(SModelReference checkedDotOperand, MPSProject myProject) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.resolve(myProject.getRepository());
-    }
-    return null;
   }
 }

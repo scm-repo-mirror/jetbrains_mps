@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 @GeneratedClass(node = "r:a178d3c3-970e-4352-b61c-4e55abc3bc24(jetbrains.mps.vcs.core.mergedriver)/1578360511938004001", model = "r:a178d3c3-970e-4352-b61c-4e55abc3bc24(jetbrains.mps.vcs.core.mergedriver)")
 public class FileContent extends DataSourceBase implements StreamDataSource {
   private final File myFile;
-  private byte[] data;
+  private final byte[] data;
 
   public FileContent(File file) throws IOException {
     myFile = file;
@@ -39,14 +39,27 @@ public class FileContent extends DataSourceBase implements StreamDataSource {
     return data;
   }
 
+  @NotNull
+  @Override
+  public String getStreamName() {
+    return "";
+  }
+
+  @NotNull
   @Override
   public InputStream openInputStream() {
     return new ByteArrayInputStream(data);
   }
 
+  @NotNull
   @Override
   public OutputStream openOutputStream() throws IOException {
     return new FileOutputStream(myFile);
+  }
+
+  @Override
+  public boolean delete() {
+    return false;
   }
 
   @Override

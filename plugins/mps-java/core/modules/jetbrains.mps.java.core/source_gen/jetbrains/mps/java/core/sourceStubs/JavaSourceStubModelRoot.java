@@ -33,7 +33,7 @@ import jetbrains.mps.persistence.CopyFileBasedModelRootHelper;
 public class JavaSourceStubModelRoot extends FileBasedModelRoot implements CopyableModelRoot<JavaSourceStubModelRoot> {
   private static final Logger LOG = Logger.getLogger(JavaSourceStubModelRoot.class);
 
-  private String TYPE = "java_source_stubs";
+  private static final String TYPE = "java_source_stubs";
 
   private static final String PATH_KEY = "path";
 
@@ -58,7 +58,7 @@ public class JavaSourceStubModelRoot extends FileBasedModelRoot implements Copya
   }
 
   protected MPSJavaSrcDataSource newDataSource(IFile dir) {
-    return new MPSJavaSrcDataSource(dir, this);
+    return new MPSJavaSrcDataSource(dir);
   }
 
   @Override

@@ -19,12 +19,9 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.persistence.MultiStreamDataSourceBase;
 import jetbrains.mps.persistence.StreamDataSourceBase;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
-import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -65,7 +62,7 @@ public class DeployedStreamManager implements ModelStreamManager {
     private final String myParentLocation;
 
     public SingleDataSourceImpl(@NotNull ReloadableModule module, @NotNull String parentLocation, @NotNull String name) {
-      super(name);
+      super(name, parentLocation + ":" + name);
       myModule = module;
       myParentLocation = parentLocation;
     }
@@ -84,6 +81,11 @@ public class DeployedStreamManager implements ModelStreamManager {
       }
       throw new FileNotFoundException(String.format("Couldn't find model stream '%s' in module %s (at %s)", name, myModule.getModuleName(), myParentLocation));
     }
+
+    @Override
+    public boolean isReadOnly() {
+      return true;
+    }
   }
 
   private static boolean isMCLAlive(ReloadableModule module) {
@@ -98,12 +100,12 @@ public class DeployedStreamManager implements ModelStreamManager {
     return null != module.getClassLoader().getResource(toResourceName(location, shortName));
   }
 
-
   private static class DataSourceImpl extends MultiStreamDataSourceBase {
     private final ReloadableModule myModule;
     private final String myLocation;
 
     DataSourceImpl(@NotNull ReloadableModule module, @NotNull String location) {
+      super(location);
       myModule = module;
       myLocation = location;
     }
@@ -121,8 +123,13 @@ public class DeployedStreamManager implements ModelStreamManager {
 
     @NotNull
     @Override
-    public String getLocation() {
-      return myLocation;
+    public StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+      return null;
+    }
+
+    @Override
+    public boolean isReadOnly() {
+      return true;
     }
   }
 }

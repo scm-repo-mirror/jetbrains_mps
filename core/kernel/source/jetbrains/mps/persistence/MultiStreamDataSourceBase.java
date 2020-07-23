@@ -18,21 +18,22 @@ package jetbrains.mps.persistence;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
+import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 
 /**
  * @author apyshkin
  * @since 16/07/2020
  */
 public abstract class MultiStreamDataSourceBase implements MultiStreamDataSource {
+  private final String myLocation;
+
+  protected MultiStreamDataSourceBase(@NotNull String location) {
+    myLocation = location;
+  }
+
   @Override
   public boolean delete() {
     throw new UnsupportedOperationException();
-  }
-
-  @NotNull
-  @Override
-  public String getLocation() {
-    return "in-memory";
   }
 
   @Override
@@ -40,18 +41,30 @@ public abstract class MultiStreamDataSourceBase implements MultiStreamDataSource
     throw new UnsupportedOperationException();
   }
 
+  @NotNull
+  @Override
+  public StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+    StreamDataSource existing = getStreamByNameOrFail(name);
+    if (existing != null) {
+      return existing;
+    }
+    // write your own code
+    return null;
+  }
+
   @Override
   public void removeListener(@NotNull DataSourceListener listener) {
     throw new UnsupportedOperationException();
   }
 
+  @NotNull
   @Override
-  public long getTimestamp() {
-    return 0;
+  public final String getLocation() {
+    return myLocation;
   }
 
   @Override
-  public boolean isReadOnly() {
-    return true;
+  public long getTimestamp() {
+    return 0L;
   }
 }

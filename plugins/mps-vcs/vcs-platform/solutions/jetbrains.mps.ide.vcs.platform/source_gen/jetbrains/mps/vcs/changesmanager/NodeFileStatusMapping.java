@@ -4,8 +4,6 @@ package jetbrains.mps.vcs.changesmanager;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.components.ProjectComponent;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import java.util.Map;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import com.intellij.openapi.vcs.FileStatus;
@@ -18,15 +16,14 @@ import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.Computable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.EditableSModel;
-import jetbrains.mps.extapi.persistence.FileDataSource;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import com.intellij.openapi.project.Project;
 import java.util.List;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.vcs.diff.changes.AddRootChange;
-import com.intellij.openapi.vfs.VirtualFile;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -38,7 +35,6 @@ import jetbrains.mps.vcs.diff.ChangeSet;
 
 @GeneratedClass(node = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/2722286076674338162", model = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)")
 public class NodeFileStatusMapping implements ProjectComponent {
-  private static final Logger LOG = LogManager.getLogger(NodeFileStatusMapping.class);
   private final CurrentDifferenceRegistry myRegistry;
   private final Map<SNodeReference, FileStatus> myFileStatusMap = new ConcurrentHashMap<SNodeReference, FileStatus>();
   private final CurrentDifferenceListener myGlobalListener = new MyGlobalListener();
@@ -90,7 +86,7 @@ public class NodeFileStatusMapping implements ProjectComponent {
     ComputeRunnable<FileStatus> cr = new ComputeRunnable<FileStatus>(new Computable<FileStatus>() {
       public FileStatus compute() {
         SModel m = root.getModelReference().resolve(myProject.getRepository());
-        if (m instanceof EditableSModel && m.getSource() instanceof FileDataSource && !(m.isReadOnly())) {
+        if (m instanceof EditableSModel && m.getSource() instanceof FileSystemBasedDataSource && !(m.isReadOnly())) {
           EditableSModel model = (EditableSModel) m;
           final Project ideaProject = myProject.getProject();
           CurrentDifference diff = myRegistry.getCurrentDifference(model);
@@ -100,29 +96,28 @@ public class NodeFileStatusMapping implements ProjectComponent {
           if (diff.getChangeSet() == null) {
             return FileStatus.NOT_CHANGED;
           }
-          if (LOG.isTraceEnabled()) {
-            LOG.trace("filtering model changes");
-          }
-          List<ModelChange> modelChanges = check_onkh7z_a0g0b0a0a0a0r(diff.getChangeSet());
+          List<ModelChange> modelChanges = check_onkh7z_a0f0b0a0a0a0r(diff.getChangeSet());
           List<ModelChange> rootChanges = ListSequence.fromList(modelChanges).where(new IWhereFilter<ModelChange>() {
             public boolean accept(ModelChange ch) {
               return root.getNodeId().equals(ch.getRootId());
             }
           }).distinct().toListSequence();
-          if (LOG.isTraceEnabled()) {
-            LOG.trace("done filtering model changes");
-          }
           if (ListSequence.fromList(rootChanges).isNotEmpty()) {
-            if (ListSequence.fromList(rootChanges).first() instanceof AddRootChange) {
-              VirtualFile vf = VirtualFileUtils.getProjectVirtualFile(((FileDataSource) m.getSource()).getFile());
-              if (vf != null) {
-                FileStatus modelStatus = FileStatusManager.getInstance(ideaProject).getStatus(vf);
-                if (BaseVersionUtil.isAddedFileStatus(modelStatus)) {
-                  return modelStatus;
-                }
+            if (ListSequence.fromList(rootChanges).any(new IWhereFilter<ModelChange>() {
+              public boolean accept(ModelChange it) {
+                return it instanceof AddRootChange;
               }
+            })) {
               return FileStatus.ADDED;
             }
+            if (ListSequence.fromList(rootChanges).any(new IWhereFilter<ModelChange>() {
+              public boolean accept(ModelChange it) {
+                return it instanceof DeleteRootChange;
+              }
+            })) {
+              return FileStatus.DELETED;
+            }
+
             return FileStatus.MODIFIED;
           }
         }
@@ -173,9 +168,6 @@ public class NodeFileStatusMapping implements ProjectComponent {
 
     @Override
     public void changeUpdateFinished() {
-      if (LOG.isTraceEnabled()) {
-        LOG.trace("TOTAL AFFECTED " + myAffectedRoots.size());
-      }
       for (SNodeReference ref : myAffectedRoots) {
         updateNodeStatus(ref);
       }
@@ -198,7 +190,7 @@ public class NodeFileStatusMapping implements ProjectComponent {
       addAffectedRoot(change);
     }
   }
-  private static List<ModelChange> check_onkh7z_a0g0b0a0a0a0r(ChangeSet checkedDotOperand) {
+  private static List<ModelChange> check_onkh7z_a0f0b0a0a0a0r(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelChanges();
     }

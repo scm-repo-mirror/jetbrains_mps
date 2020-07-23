@@ -58,11 +58,11 @@ public final class FilePerRootDataSource extends FolderDataSource {
   @Internal
   public static boolean isPerRootPersistenceFile(@NotNull IFile file) {
     String fileName = file.getName();
-    if (HEADER_FILE.equals(fileName)) {
+    if (MPSExtentions.DOT_MODEL_HEADER.equals(fileName)) {
       return true;
     }
 
     String extension = FileUtil.getExtension(fileName);
-    return ROOT_EXTENSION.equals(extension);
+    return MPSExtentions.MODEL_ROOT.equals(extension);
   }
 }

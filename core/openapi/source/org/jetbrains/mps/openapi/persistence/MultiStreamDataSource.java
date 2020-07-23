@@ -21,6 +21,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -55,22 +58,29 @@ public interface MultiStreamDataSource extends DataSource {
 
   @Nullable
   default StreamDataSource getStreamByName(@NotNull String name) {
-    return getSubStreams().filter(sds -> name.equals(sds.getStreamName()))
-                          .findAny()
-                          .orElse(null);
+    List<StreamDataSource> collect = getSubStreams().filter(sds -> name.equals(sds.getStreamName())).collect(Collectors.toList());
+    if (collect.size() > 1) {
+      LogManager.getLogManager().getLogger("MultiStreamDataSource").log(Level.WARNING, "There are multiple sub streams with the same name " + this);
+    }
+    return collect.stream()
+                  .findAny()
+                  .orElse(null);
   }
 
   /**
    * override {@link #getStreamByName(String)} please instead of this method
    */
   @NotNull
-  default StreamDataSource getStreamByNameOrFail(@NotNull String name) throws IOException {
+  default StreamDataSource getStreamByNameOrFail(@NotNull String name) {
     StreamDataSource streamByName = getStreamByName(name);
     if (streamByName == null) {
-      throw new IOException("Could not find a stream by the name " + name + " in " + this);
+      throw new IllegalArgumentException("Could not find a stream by the name " + name + " in " + this);
     }
     return streamByName;
   }
+
+  @NotNull
+  StreamDataSource getStreamByNameOrCreate(@NotNull String name);
 
   /**
    * Access named stream for reading.
@@ -83,7 +93,11 @@ public interface MultiStreamDataSource extends DataSource {
   @NotNull
   @Deprecated
   default InputStream openInputStream(@NotNull String name) throws IOException {
-    return getStreamByNameOrFail(name).openInputStream();
+    StreamDataSource ds = getStreamByName(name);
+    if (ds == null) {
+      throw new IOException("No stream found with the name " + name + " in " + this);
+    }
+    return ds.openInputStream();
   }
 
   /**
@@ -96,11 +110,11 @@ public interface MultiStreamDataSource extends DataSource {
   @NotNull
   @Deprecated
   default OutputStream openOutputStream(@NotNull String name) throws IOException {
-    return getStreamByNameOrFail(name).openOutputStream();
+    return getStreamByNameOrCreate(name).openOutputStream();
   }
 
   /**
-   * deletes all the containing stream ds and maybe smth else
+   * deletes all the containing stream ds and maybe something else
    */
   default boolean delete() {
     return getSubStreams().map(StreamDataSource::delete)
@@ -113,10 +127,6 @@ public interface MultiStreamDataSource extends DataSource {
    */
   @Deprecated
   default boolean delete(@NotNull String name) {
-    try {
-      return getStreamByNameOrFail(name).delete();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
+    return getStreamByNameOrFail(name).delete();
   }
 }

@@ -23,7 +23,8 @@ import java.io.OutputStream;
 
 /**
  * A data source with a single input stream.
- * For implementation consider extending FileDataSource or DataSourceBase
+ * Here it is cosy for us to distance ourselves from file-system
+ * and to work with streams of data rather than files.
  */
 public interface StreamDataSource extends DataSource {
   /**

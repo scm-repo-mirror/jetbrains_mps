@@ -211,8 +211,15 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory,
     return model.getSource();
   }
 
-  @NotNull
+  @Nullable
+  @Override
   public DataSource getMetaInfoLocation(@NotNull SModel model) {
+    return getDataLocation(model);
+  }
+
+  @Nullable
+  @Override
+  public DataSource getDataLocation(@NotNull SModel model) {
     CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
     correctnessChecker.checkAndWarn(model);
     if (!correctnessChecker.doesMFSupportDS(model)) {

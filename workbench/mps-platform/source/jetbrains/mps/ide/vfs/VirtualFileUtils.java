@@ -72,7 +72,7 @@ public final class VirtualFileUtils {
   }
 
   /**
-   * It is hack due to the 3.4 release coming soon. We have to use idea vfs to comply with
+   * It is hack due to the 3.4 elease coming soon. We have to use idea vfs to comply with
    * IDEA subsystems which require VirtualFile (e.g. idea indexing/find usages)
    *
    * AP: I hope that it will go away in the nearest future since we do not need vfs tracking these files' physical changes

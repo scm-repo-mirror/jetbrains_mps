@@ -296,6 +296,12 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
   @NotNull
   public DataSource getMetaInfoLocation(@NotNull SModel model) {
+    return getDataLocation(model);
+  }
+
+  @Nullable
+  @Override
+  public DataSource getDataLocation(@NotNull SModel model) {
     CorrectnessChecker correctnessChecker = new CorrectnessChecker(this);
     correctnessChecker.checkAndWarn(model);
     if (!correctnessChecker.doesMFSupportDS(model)) {

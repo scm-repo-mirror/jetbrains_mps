@@ -557,6 +557,9 @@ public class FileUtil {
     return name;
   }
 
+  /**
+   * without dot
+   */
   @Nullable
   public static String getExtension(@NotNull String name) {
     int i = name.lastIndexOf(DOT);

@@ -12,12 +12,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.nodeEditor.leftHighlighter.AbstractLeftColumn;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.nodeEditor.leftHighlighter.LeftEditorHighlighter;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.DataSource;
+import jetbrains.mps.persistence.DataLocationAwareModelFactory;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
+import java.util.Optional;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.persistence.FilePerRootDataSource;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
@@ -43,7 +45,6 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.openapi.vcs.changes.ui.ChangesViewContentManager;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.progress.ProgressManager;
-import org.jetbrains.mps.openapi.model.SModel;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/8955628568092674522", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public class AnnotationHelper {
@@ -70,6 +71,7 @@ public class AnnotationHelper {
 
   private boolean annotate(@NotNull final EditorComponent editorComponent, boolean dryRun) {
     // check if annotation is in progress (always called from ui thread) 
+    ThreadUtils.assertEDT();
     if (SetSequence.fromSet(ourProgress).contains(editorComponent)) {
       return false;
     }
@@ -83,18 +85,19 @@ public class AnnotationHelper {
       return true;
     }
     final SNode root = editorComponent.getEditedNode();
-
-    DataSource source = check_19hp0u_a0i0i(check_19hp0u_a0a8a8(root));
-    IFile iFile;
-    if (source instanceof FileDataSource) {
-      iFile = ((FileDataSource) source).getFile();
-    } else if (source instanceof FilePerRootDataSource) {
-      // FIXME other uses of FilePerRootDataSource.getFile suggest we shall use approach similar to FilePerRootFormatUtil.getStreamNames instead of assumption of root.name + '.mpsr' 
-      //    better yet, there should be FilePerRootDataSource.getFile(node<> rootNode) that hides relevant logic 
-      iFile = ((FilePerRootDataSource) source).getFile(root.getName() + "." + FilePerRootDataSource.ROOT_EXTENSION);
-    } else {
+    if (root == null) {
       return false;
     }
+    DataSource source = DataLocationAwareModelFactory.nodeLocation(root);
+    if (!((source instanceof FileSystemBasedDataSource))) {
+      return false;
+    }
+    FileSystemBasedDataSource fbds = (FileSystemBasedDataSource) source;
+    Optional<IFile> anyFile = fbds.getAffectedFilesWithDirsExtracted().findAny();
+    if (anyFile.isEmpty()) {
+      return false;
+    }
+    IFile iFile = anyFile.get();
     final Project ideaProject = myProject.getProject();
     final VirtualFile file = VirtualFileUtils.getProjectVirtualFile(iFile);
     if (file == null) {
@@ -215,17 +218,5 @@ public class AnnotationHelper {
 
   public boolean isAnnotateable(EditorComponent editorComponent) {
     return annotate(editorComponent, true);
-  }
-  private static DataSource check_19hp0u_a0i0i(SModel checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getSource();
-    }
-    return null;
-  }
-  private static SModel check_19hp0u_a0a8a8(SNode checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getModel();
-    }
-    return null;
   }
 }

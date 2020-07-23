@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.persistence;
 
+import jetbrains.mps.extapi.persistence.StreamAsMultiDataSource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.StreamDataSource;
@@ -22,16 +23,19 @@ import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.stream.Stream;
 
 /**
  * @author apyshkin
  * @since 16/07/2020
  */
-public abstract class StreamDataSourceBase implements StreamDataSource {
+public abstract class StreamDataSourceBase implements StreamDataSource, StreamAsMultiDataSource {
   private final String myName;
+  private final String myLocation;
 
-  public StreamDataSourceBase(@NotNull String name) {
+  public StreamDataSourceBase(@NotNull String name, @NotNull String location) {
     myName = name;
+    myLocation = location;
   }
 
   @NotNull
@@ -43,12 +47,7 @@ public abstract class StreamDataSourceBase implements StreamDataSource {
   @NotNull
   @Override
   public String getLocation() {
-    return "in-memory";
-  }
-
-  @Override
-  public boolean isReadOnly() {
-    return true;
+    return myLocation;
   }
 
   @NotNull
@@ -65,21 +64,28 @@ public abstract class StreamDataSourceBase implements StreamDataSource {
 
   @Override
   public void addListener(@NotNull DataSourceListener listener) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void removeListener(@NotNull DataSourceListener listener) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public long getTimestamp() {
-    return 0;
+    return 0L;
   }
 
+  @NotNull
   @Override
-  public boolean delete() {
-    return false;
+  public final Stream<StreamDataSource> getSubStreams() {
+    return StreamAsMultiDataSource.super.getSubStreams();
+  }
+
+  @NotNull
+  @Override
+  public final StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+    return StreamAsMultiDataSource.super.getStreamByNameOrCreate(name);
   }
 }

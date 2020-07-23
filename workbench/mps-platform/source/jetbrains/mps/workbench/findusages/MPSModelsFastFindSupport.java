@@ -54,6 +54,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.FindUsagesParticipant;
+import org.jetbrains.mps.openapi.persistence.MultiStreamDataSource;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
@@ -64,6 +65,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 // FIXME utilize project to deal with dumb mode and use project's FS to get VirtualFile for an IFile
 public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposable {
@@ -270,15 +272,12 @@ public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposab
     if (ds instanceof FileDataSource) {
       return Collections.singletonList(((FileDataSource) ds).getFile());
     } else {
-      FilePerRootDataSource fds = (FilePerRootDataSource) ds;
-      Set<IFile> files = new HashSet<>();
-      for (String streamName : fds.getAvailableStreams()) {
-        IFile file = fds.getFile(streamName);
-        if (fds.isIncluded(file)) {
-          files.add(file);
-        }
-      }
-      return files;
+      MultiStreamDataSource fds = (MultiStreamDataSource) ds;
+      return fds.getSubStreams()
+                .filter(stream -> stream instanceof FileDataSource)
+                .map((stream -> (FileDataSource) stream))
+                .map(FileDataSource::getFile)
+                .collect(Collectors.toSet());
     }
   }
 }

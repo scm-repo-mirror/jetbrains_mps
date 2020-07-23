@@ -34,14 +34,31 @@ public class ByteArrayInputSource extends StreamDataSourceBase {
   private final byte[] myInput;
 
   public ByteArrayInputSource(@NotNull byte[] input) {
-    super("byte-array");
+    super("no-name", "in-memory");
     myInput = input;
+  }
+
+  public ByteArrayInputSource(@NotNull String name,
+                              @NotNull String location,
+                              @NotNull byte[] input) {
+    super(name, location);
+    myInput = input;
+  }
+
+  @Override
+  public String toString() {
+    return "ByteArray under me; my name is " + getStreamName() + "; location: " + getLocation();
   }
 
   @NotNull
   @Override
   public InputStream openInputStream() {
     return new ByteArrayInputStream(myInput);
+  }
+
+  @Override
+  public boolean isReadOnly() {
+    return true;
   }
 
   @Nullable

@@ -48,6 +48,7 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.junit.Assert;
@@ -93,7 +94,17 @@ public class TestModuleFactoryBase implements TestModuleFactory {
       if (module instanceof Language || module instanceof Solution) {
         // HACK. With used languages of a module being derived from that of owned models,
         // we need a model to keep this imports
-        InMemoryStreamDataSource ds = new InMemoryStreamDataSource();
+        InMemoryStreamDataSource ds = new InMemoryStreamDataSource() {
+          @Override
+          public void addListener(@NotNull DataSourceListener listener) {
+            //ignore
+          }
+
+          @Override
+          public void removeListener(@NotNull DataSourceListener listener) {
+            //ignore
+          }
+        };
         ModelFactoryService factoryService = myEnvironment.getPlatform().findComponent(ModelFactoryService.class);
         if (factoryService == null) {
           throw new IllegalStateException("Model factory service was not found");

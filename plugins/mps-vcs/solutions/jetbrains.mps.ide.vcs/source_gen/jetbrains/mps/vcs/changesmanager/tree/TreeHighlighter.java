@@ -515,7 +515,7 @@ public class TreeHighlighter implements TreeMessageOwner, LafManagerListener {
     }
 
     private void rehighlightAllFeaturesFromVCS(@NotNull Collection<Feature> allFeatures) {
-      if (myTree.isDisposed()) {
+      if (myTree.isDisposed() || !(myTree.isShowing())) {
         return;
       }
       rehighlightFeatures0(allFeatures);

@@ -12,10 +12,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 public class DeleteRootChange extends ModelChange {
   private final SNodeId myNodeId;
 
+
   public DeleteRootChange(ChangeSet changeSet, SNodeId nodeId) {
     super(changeSet, nodeId);
     myNodeId = nodeId;
   }
+
 
   @Override
   public void apply(@NotNull SModel model, @NotNull NodeCopier nodeCopier) {

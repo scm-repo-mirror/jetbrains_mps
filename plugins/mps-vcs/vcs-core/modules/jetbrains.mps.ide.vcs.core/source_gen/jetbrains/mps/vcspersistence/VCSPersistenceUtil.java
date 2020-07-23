@@ -42,7 +42,7 @@ import jetbrains.mps.project.structure.modules.ModuleReference;
 @GeneratedClass(node = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)/2076945889653642029", model = "r:57faf072-5a23-4c30-9cf6-da73f0e0a8ad(jetbrains.mps.vcspersistence)")
 public class VCSPersistenceUtil {
   public static SModel loadModel(final byte[] content, String extension) {
-    // returns null if an error occured, as its predcessor in PersistenceUtil. 
+    // returns null if an error occurred, as its predecessor in PersistenceUtil. 
     // [MM] not sure this is correct, just left it unchanged 
 
     SModel oldModel = loadFromOldMPSPersistence(content);

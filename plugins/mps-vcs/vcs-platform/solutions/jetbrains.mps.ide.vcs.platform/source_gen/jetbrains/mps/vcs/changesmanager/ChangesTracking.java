@@ -38,16 +38,14 @@ import jetbrains.mps.vcs.diff.ChangeSet;
 import jetbrains.mps.vcs.diff.ChangeSetBuilder;
 import jetbrains.mps.vcs.diff.ChangeSetImpl;
 import org.jetbrains.mps.openapi.persistence.DataSource;
-import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.persistence.FilePerRootDataSource;
-import jetbrains.mps.ide.vfs.IdeaFile;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vcs.ProjectLevelVcsManager;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
-import com.intellij.openapi.vcs.FileStatusManager;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import java.util.function.Predicate;
+import jetbrains.mps.vfs.IFile;
+import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import com.intellij.openapi.vcs.ProjectLevelVcsManager;
+import jetbrains.mps.persistence.DataLocationAwareModelFactory;
+import com.intellij.openapi.vcs.FileStatusManager;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -67,7 +65,6 @@ import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
 import java.util.Map;
 import java.util.HashMap;
-import jetbrains.mps.smodel.persistence.def.FilePerRootFormatUtil;
 import com.intellij.openapi.vcs.impl.VcsFileStatusProvider;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
@@ -216,7 +213,7 @@ public class ChangesTracking {
     if (useEmptyBaseModel.value) {
       baseVersionModel.value = new MergeTemporaryModel(myModelDescriptor.getReference(), true);
     } else {
-      baseVersionModel.value = BaseVersionUtil.getBaseVersionModel(myModelDescriptor, myProject);
+      baseVersionModel.value = new BaseVersionModelLoader(myProject).getBaseVersionModel(myModelDescriptor);
     }
     if (baseVersionModel.value == null) {
       return;
@@ -275,37 +272,30 @@ public class ChangesTracking {
 
   private boolean isUnderVcs(@NotNull SModel model) {
     DataSource ds = model.getSource();
-    IFile file = null;
-    if (ds instanceof FileDataSource) {
-      file = ((FileDataSource) ds).getFile();
-    } else if (ds instanceof FilePerRootDataSource) {
-      file = ((FilePerRootDataSource) ds).getFile(FilePerRootDataSource.HEADER_FILE);
-    }
-    if (file == null) {
+    if (!((ds instanceof FileSystemBasedDataSource))) {
       return false;
     }
-    if (!(file instanceof IdeaFile)) {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn("File " + file + " must be a project file and managed by IDEA FS");
+    return ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().anyMatch(new Predicate<IFile>() {
+      @Override
+      public boolean test(IFile f) {
+        VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(f);
+        return vFile != null && ProjectLevelVcsManager.getInstance(myProject).getVcsFor(vFile) != null;
       }
-      return false;
-    }
-    VirtualFile vFile = ((IdeaFile) file).getVirtualFile();
-    return vFile != null && ProjectLevelVcsManager.getInstance(myProject).getVcsFor(vFile) != null;
+    });
   }
 
   private boolean isAdded(SModel model) {
-    DataSource ds = model.getSource();
-    IFile file = null;
-    if (ds instanceof FileDataSource) {
-      file = ((FileDataSource) ds).getFile();
-    } else if (ds instanceof FilePerRootDataSource) {
-      file = ((FilePerRootDataSource) ds).getFile(FilePerRootDataSource.HEADER_FILE);
+    DataSource ds = DataLocationAwareModelFactory.metaInfoLocation(model);
+    if (!((ds instanceof FileSystemBasedDataSource))) {
+      return false;
     }
-    VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(file);
-    assert vFile != null;
-    FileStatus status = FileStatusManager.getInstance(myProject).getStatus(vFile);
-    return BaseVersionUtil.isAddedFileStatus(status);
+    return ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().allMatch(new Predicate<IFile>() {
+      @Override
+      public boolean test(IFile f) {
+        VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(f);
+        return vFile != null && FileStatusManager.getInstance(myProject).getStatus(vFile) == FileStatus.ADDED;
+      }
+    });
   }
 
   @NotNull
@@ -317,7 +307,7 @@ public class ChangesTracking {
     DataSource ds = myModelDescriptor.getSource();
     final FileStatusManager fsm = FileStatusManager.getInstance(myProject);
     if (ds instanceof FileSystemBasedDataSource) {
-      List<FileStatus> statuses = (List<FileStatus>) ((FileSystemBasedDataSource) ds).getAffectedFiles().stream().filter(new Predicate<IFile>() {
+      List<FileStatus> statuses = (List<FileStatus>) ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().filter(new Predicate<IFile>() {
         @Override
         public boolean test(IFile obj) {
           return Objects.nonNull(obj);
@@ -347,14 +337,14 @@ public class ChangesTracking {
         return FileStatus.MERGED_WITH_CONFLICTS;
       }
       if (statuses.isEmpty()) {
-        return FileStatus.UNKNOWN;
+        return FileStatus.NOT_CHANGED;
       }
       if (statuses.size() == 1) {
         return statuses.get(0);
       }
       return FileStatus.MODIFIED;
     }
-    return FileStatus.UNKNOWN;
+    return FileStatus.NOT_CHANGED;
   }
 
   private void addChange(@NotNull ModelChange change) {
@@ -511,23 +501,13 @@ public class ChangesTracking {
       // make model file[s] dirty 
       Set<IFile> affectedFiles = SetSequence.fromSet(new HashSet<IFile>());
       DataSource dataSource = myModelDescriptor.getSource();
-      if (dataSource instanceof FileDataSource) {
-        SetSequence.fromSet(affectedFiles).addElement(((FileDataSource) dataSource).getFile());
-      } else if (dataSource instanceof FilePerRootDataSource) {
-        FilePerRootDataSource ds = (FilePerRootDataSource) dataSource;
-        Map<SNodeId, String> streamNames = FilePerRootFormatUtil.getStreamNames(myModelDescriptor.getRootNodes());
-        for (SModelEvent event : ListSequence.fromList(events)) {
-          SNodeId rootId = check_5iuzi5_a0a0c0a9a3cc(event.getAffectedRoot());
-          if (rootId != null && streamNames.containsKey(rootId)) {
-            SetSequence.fromSet(affectedFiles).addElement(ds.getFile(streamNames.get(rootId)));
-          }
-        }
-        // model file can be affected also 
-        SetSequence.fromSet(affectedFiles).addElement(ds.getFile(FilePerRootDataSource.HEADER_FILE));
+      if (dataSource instanceof FileSystemBasedDataSource) {
+        List<IFile> collected = (List<IFile>) (((FileSystemBasedDataSource) dataSource).getAffectedFilesWithDirsExtracted().collect(Collectors.toList()));
+        SetSequence.fromSet(affectedFiles).addSequence(ListSequence.fromList(collected));
       }
       VcsFileStatusProvider provider = VcsFileStatusProvider.getInstance(myProject);
       for (IFile iFile : SetSequence.fromSet(affectedFiles)) {
-        VirtualFile vFile = VirtualFileUtils.getVirtualFile(iFile);
+        VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(iFile);
         if (vFile != null) {
           Document document = FileDocumentManager.getInstance().getDocument(vFile);
           if (document != null && provider != null) {
@@ -756,12 +736,6 @@ public class ChangesTracking {
   private static SModel check_5iuzi5_a0a0a64(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getOldModel();
-    }
-    return null;
-  }
-  private static SNodeId check_5iuzi5_a0a0c0a9a3cc(SNode checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getNodeId();
     }
     return null;
   }

@@ -18,7 +18,6 @@ package jetbrains.mps.generator.impl.plan;
 import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.generator.generationTypes.StreamHandler;
 import jetbrains.mps.generator.impl.ModelStreamManager;
-import jetbrains.mps.generator.impl.SingleStreamSource;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.persistence.PersistenceUtil.InMemoryStreamDataSource;
@@ -35,6 +34,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import org.jetbrains.mps.openapi.persistence.datasource.FileExtensionDataSourceType;
 
 import java.io.FileNotFoundException;
@@ -191,7 +191,7 @@ public class CheckpointVault {
   }
 
   private SModel loadModel(Entry entry) throws IOException, ModelLoadException {
-    final SingleStreamSource source = new SingleStreamSource(myStreams.getOutputLocation(), entry.getFilename());
+    final StreamDataSource source = myStreams.getOutputLocation().getStreamByNameOrFail(entry.getFilename());
     final ModelFactory modelFactory = entry.modelFactory();
     return modelFactory.load(source);
   }

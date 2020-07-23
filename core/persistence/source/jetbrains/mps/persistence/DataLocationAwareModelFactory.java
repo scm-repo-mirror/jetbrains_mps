@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.persistence;
 
-import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -46,6 +45,16 @@ public interface DataLocationAwareModelFactory extends ModelFactory {
     return null;
   }
 
+  @Nullable static DataSource dataLocation(@NotNull SModel model) {
+    if (model instanceof LoadedStrategyAware) {
+      ModelFactory modelFactory = ((LoadedStrategyAware) model).getModelFactory();
+      if (modelFactory instanceof DataLocationAwareModelFactory) {
+        return ((DataLocationAwareModelFactory) modelFactory).getDataLocation(model);
+      }
+    }
+    return null;
+  }
+
   @Nullable static DataSource nodeLocation(@NotNull SNode node) {
     SModel model = node.getModel();
     if (model instanceof LoadedStrategyAware) {
@@ -58,18 +67,16 @@ public interface DataLocationAwareModelFactory extends ModelFactory {
   }
 
   /**
-   * streams which contain the description of a model (as opposed to the model data itself)
-   * must be a subset of {@link FileSystemBasedDataSource#getAffectedFilesWithDirsExtracted()}
+   * source which contains the description of a model (as opposed to the model data itself)
    *
    * by default we assume that each file is self-contained and so each of them may contain meta-data
    */
-  @Nullable
-  default DataSource getMetaInfoLocation(@NotNull SModel model) {
-    new CorrectnessChecker(this).checkAndWarn(model);
-//    FileSystemBasedDataSource dataSource = (FileSystemBasedDataSource) model.getSource();
-//    return dataSource.getAffectedFilesWithDirsExtracted();
-    throw new UnsupportedOperationException();
-  }
+  @Nullable DataSource getMetaInfoLocation(@NotNull SModel model);
+
+  /**
+   * source which contains the model data
+   */
+  @Nullable DataSource getDataLocation(@NotNull SModel model);
 
   /**
    * if there are several files for a single model sometimes we need to know which file contains which part of the model
@@ -85,9 +92,6 @@ public interface DataLocationAwareModelFactory extends ModelFactory {
     }
 
     void checkAndWarn(@NotNull SModel model) {
-//      if (!isModelFileBased(model)) {
-//        throw new IllegalArgumentException("Here must be a data source related to fs " + model);
-//      }
       if (model instanceof LoadedStrategyAware) {
         ModelFactory nominalMF = ((LoadedStrategyAware) model).getModelFactory();
         if (nominalMF != null && !Objects.equals(myMF, nominalMF)) {
@@ -99,9 +103,5 @@ public interface DataLocationAwareModelFactory extends ModelFactory {
     boolean doesMFSupportDS(@NotNull SModel model) {
       return myMF.supports(model.getSource());
     }
-
-//    boolean isModelFileBased(@NotNull SModel model) {
-//      return model.getSource() instanceof FileSystemBasedDataSource;
-//    }
   }
 }

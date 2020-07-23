@@ -18,7 +18,6 @@ package jetbrains.mps.extapi.persistence;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 
 import java.util.Collection;
@@ -28,7 +27,8 @@ import java.util.stream.Stream;
  * This kind of data source describes a location within physical file system.
  * For example it can be a folder or a single file or a set of folders.
  * <p>
- * TODO I would rather have a single implementor of this
+ * TODO I would rather have a single implementor of this, model factory is the point of polymorphism why location is also
+ *        affected (PerRootDataSource for instance)?
  *
  * @author evgeny, apyshkin
  * @since 11/4/12

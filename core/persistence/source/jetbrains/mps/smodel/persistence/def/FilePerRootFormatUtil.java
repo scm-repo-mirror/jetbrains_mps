@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.persistence.def;
 
-import jetbrains.mps.persistence.FilePerRootModelFactory;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.smodel.DefaultSModel;

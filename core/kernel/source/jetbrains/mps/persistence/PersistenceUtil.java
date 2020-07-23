@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.persistence.ContentOption;
 import org.jetbrains.mps.openapi.persistence.DataSource;
+import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.ModelSaveException;
@@ -167,7 +168,7 @@ public final class PersistenceUtil {
     return new ByteArrayInputStream(new byte[0]);
   }
 
-  public final static class InMemoryStreamDataSource extends StreamDataSourceBase {
+  public static class InMemoryStreamDataSource extends StreamDataSourceBase {
     private final AtomicReference<ByteArrayOutputStream> myStream = new AtomicReference<>();
 
     /**
@@ -178,7 +179,7 @@ public final class PersistenceUtil {
     }
 
     public InMemoryStreamDataSource(@NotNull String name) {
-      super(name);
+      super(name, "in-memory");
     }
 
     @NotNull
@@ -186,11 +187,6 @@ public final class PersistenceUtil {
     public OutputStream openOutputStream() {
       myStream.compareAndSet(null, new ByteArrayOutputStream());
       return myStream.get();
-    }
-
-    @Override
-    public boolean delete() {
-      return false;
     }
 
     @Override
@@ -224,6 +220,10 @@ public final class PersistenceUtil {
   public static class InMemoryMultiStreamDataSource extends MultiStreamDataSourceBase {
     private final Map<StreamDataSource, ByteArrayOutputStream> myStreams = new HashMap<>();
 
+    public InMemoryMultiStreamDataSource() {
+      super("in-memory");
+    }
+
     @NotNull
     @Override
     public Stream<StreamDataSource> getSubStreams() {
@@ -240,6 +240,12 @@ public final class PersistenceUtil {
         return key;
       }
       return res;
+    }
+
+    @NotNull
+    @Override
+    public StreamDataSource getStreamByNameOrCreate(@NotNull String name) {
+      return getStreamByNameOrFail(name);
     }
 
     @Override
@@ -261,8 +267,6 @@ public final class PersistenceUtil {
         return stream.toString(charsetName);
       } catch (UnsupportedEncodingException e) {
         LOG.error(e);
-      } catch (IOException e) {
-        LOG.error("", e);
       }
       return null;
     }

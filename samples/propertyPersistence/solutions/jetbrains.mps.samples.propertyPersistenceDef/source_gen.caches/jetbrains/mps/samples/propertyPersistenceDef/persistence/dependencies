@@ -2,11 +2,10 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.samples.propertyPersistenceDef.persistence.PropertyFilesDataSource">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.util.function.Predicate" />
     <classNode dependClassName="jetbrains.mps.vfs.IFile" />
     <classNode dependClassName="org.apache.log4j.Logger" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.ModelRoot" />
     <classNode extendsClassName="jetbrains.mps.extapi.persistence.FolderDataSource" />
   </dependency>
   <dependency className="jetbrains.mps.samples.propertyPersistenceDef.persistence.PropertyFilesStubModelDescriptor">

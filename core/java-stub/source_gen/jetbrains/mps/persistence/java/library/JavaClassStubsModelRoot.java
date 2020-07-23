@@ -268,7 +268,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
 
     @Override
     public long getTimestamp() {
-      return 0;
+      return 0L;
     }
   }
 
