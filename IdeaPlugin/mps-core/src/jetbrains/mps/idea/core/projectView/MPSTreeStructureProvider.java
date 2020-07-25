@@ -147,11 +147,12 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
               continue;
             }
 
-            if (currentDirectoryDataSource != null && currentDirectoryDataSource.isIncluded(modelFile)) {
+            if (currentDirectoryDataSource != null && currentDirectoryDataSource.getStreamByName(modelFile.getName()) != null) {
               // it's a file that constitutes a FolderDataSource-backed model, remove it from the tree (root nodes are shown instead)
-              if (updatedChildren == null) updatedChildren = new ArrayList<>(children);
-              int idx = updatedChildren.indexOf(child);
-              updatedChildren.remove(idx);
+              if (updatedChildren == null) {
+                updatedChildren = new ArrayList<>(children);
+              }
+              updatedChildren.remove(child);
             }
 
           } else if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && ((ProjectViewNode) child).getVirtualFile().isDirectory()) {
