@@ -1656,23 +1656,21 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public void relayout() {
+    if (isDisposed()) {
+      return;
+    }
     doRelayout();
-    revalidate();
     repaintExternalComponent();
   }
 
   private void doRelayout() {
-    // TODO: check for myDisposed in all methods calling this one
-    if (isDisposed()) {
-      return;
-    }
-
     myRootCell.setX(myShiftX);
     myRootCell.setY(myShiftY);
     myRootCell.relayout();
     if (!hasUI()) {
       return;
     }
+    revalidate();
     myLeftHighlighter.relayout(true);
     if (mySearchPanel != null && mySearchPanel.isVisible()) {
       mySearchPanel.search(false);
