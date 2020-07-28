@@ -22,15 +22,16 @@ import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.keymap.KeymapUtil;
 import com.intellij.openapi.ui.popup.JBPopup;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.openapi.ui.popup.JBPopupListener;
+import com.intellij.openapi.ui.popup.LightweightWindowEvent;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.util.ui.AbstractLayoutManager;
-import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
 import jetbrains.mps.util.ModelComputeRunnable;
 import jetbrains.mps.util.WindowsUtil;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -48,15 +49,15 @@ import static jetbrains.mps.nodeEditor.cellMenu.NodeSubstituteChooser.MAX_LOOKUP
 
 class NodeSubstituteChooserUi implements ISubstituteChooserUi {
   //COLORS: change after IDEA com.intellij.codeInsight.lookup.impl.LookupCellRenderer will be refactored to use Editor's Fonts & Colors settings
-  private static final Color BACKGROUND_COLOR = UIUtil.isUnderDarcula() ? new Color(0x141D29) : new Color(235, 244, 254);
-  static final Color FOREGROUND_COLOR = EditorColorsManager.getInstance().getGlobalScheme().getDefaultForeground();
+  private static final Color BACKGROUND_COLOR = new JBColor(new Color(235, 244, 254), new Color(0x141D29));
+  private static final Color FOREGROUND_COLOR = EditorColorsManager.getInstance().getGlobalScheme().getDefaultForeground();
   private static final Color SELECTED_BACKGROUND_COLOR = EditorColorsManager.getInstance().getGlobalScheme().getColor(EditorColors.SELECTION_BACKGROUND_COLOR);
   static final Color SELECTED_FOREGROUND_COLOR = EditorColorsManager.getInstance().getGlobalScheme().getColor(EditorColors.SELECTION_FOREGROUND_COLOR);
   private static final int MY_MIN_CELL_WIDTH = 300;
 
 
-  private NodeSubstituteChooser myNodeSubstituteChooser;
-  private NodeSubstitutePatternEditor myPatternEditor;
+  private final NodeSubstituteChooser myNodeSubstituteChooser;
+  private final NodeSubstitutePatternEditor myPatternEditor;
   private final JList<SubstituteAction> myList;
   private NodeItemCellRenderer myCellRenderer;
 
@@ -64,6 +65,7 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
 
   private JBPopup myPopup;
   private JScrollPane myScrollPane;
+  private JBPopupListener myOnCloseListener;
 
   NodeSubstituteChooserUi(@NotNull NodeSubstituteChooser nodeSubstituteChooser, @NotNull JList<SubstituteAction> list,
                           @NotNull NodeSubstitutePatternEditor patternEditor) {
@@ -74,13 +76,12 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
 
   public void refreshUi(boolean recalculateSize) {
     if (recalculateSize) {
-      resetListSize();
-      myPopup.getContent().validate();
-      myPopup.pack(true, true);
-      resetRelativePosition(myPopup.getContent().getPreferredSize());
-      updateLocation();
+      myPopup.removeListener(myOnCloseListener);
+      myPopup.cancel();
+      show();
+    } else {
+      myList.ensureIndexIsVisible(myList.getSelectedIndex());
     }
-    myList.ensureIndexIsVisible(myList.getSelectedIndex());
   }
 
   private void resetListSize() {
@@ -129,6 +130,12 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
       adText = "Press " + KeymapUtil.getFirstKeyboardShortcutText(action) + " to " + action.getTemplateText();
     }
 
+    myOnCloseListener = new JBPopupListener() {
+      @Override
+      public void onClosed(@NotNull LightweightWindowEvent event) {
+        myNodeSubstituteChooser.setVisible(false);
+      }
+    };
     myPopup = JBPopupFactory.getInstance().createComponentPopupBuilder(mainPanel, mainPanel)
                             .setResizable(true)
                             .setCancelKeyEnabled(false)
@@ -137,10 +144,7 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
                             .setCancelOnWindowDeactivation(true)
                             .setLocateWithinScreenBounds(false)
                             .setAdText(adText)
-                            .setCancelCallback(() -> {
-                              myNodeSubstituteChooser.setVisible(false);
-                              return true;
-                            })
+                            .addListener(myOnCloseListener)
                             .createPopup();
     myPopup.setMinimumSize(new Dimension(MY_MIN_CELL_WIDTH, 0));
 
@@ -206,23 +210,13 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
   private PopupPosition calculateRelativePosition(Dimension popupSize) {
     Point location = myPatternEditor.getLeftBottomPosition();
     Rectangle deviceBounds = WindowsUtil.findDeviceBoundsAt(location);
-    if (location.getY() + popupSize.height > deviceBounds.height + deviceBounds.y - 150 &&
-        location.getY() - myPatternEditor.getHeight() / 2 > deviceBounds.y + deviceBounds.height / 2) {
+    if (location.y + popupSize.height > deviceBounds.height + deviceBounds.y - 150 &&
+        location.y - myPatternEditor.getHeight() / 2 > deviceBounds.y + deviceBounds.height / 2) {
       return PopupPosition.TOP;
     } else {
       return PopupPosition.BOTTOM;
     }
   }
-
-  private void resetRelativePosition(Dimension popupSize) {
-    if (myRelativePosition == PopupPosition.BOTTOM) {
-      PopupPosition popupPosition = calculateRelativePosition(popupSize);
-      if (popupPosition == PopupPosition.TOP) {
-        myRelativePosition = popupPosition;
-      }
-    }
-  }
-
 
   private Point getLocationWithRespectToScreenBounds(Point location, Rectangle deviceBounds, Dimension popupSize) {
     if (location.x < deviceBounds.x) {
