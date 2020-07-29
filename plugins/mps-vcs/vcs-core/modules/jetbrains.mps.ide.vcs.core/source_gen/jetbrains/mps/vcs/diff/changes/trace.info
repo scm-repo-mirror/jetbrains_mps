@@ -1456,39 +1456,39 @@
   <root nodeRef="r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/6359197607515894913">
     <file name="DeleteRootChange.java">
       <node id="6359197607515894914" at="13,0,14,0" concept="7" trace="myNodeId" />
-      <node id="6359197607515894923" at="15,64,16,29" concept="17" />
-      <node id="6359197607515894925" at="16,29,17,22" concept="6" />
-      <node id="3396946986144282997" at="21,76,22,43" concept="0" />
-      <node id="3396946986144281926" at="22,43,23,37" concept="6" />
-      <node id="3395217057974219645" at="28,48,29,78" concept="12" />
-      <node id="8401260027345476560" at="34,31,35,29" concept="12" />
-      <node id="6359197607515895104" at="39,28,40,37" concept="12" />
-      <node id="5786223774279741725" at="44,34,45,39" concept="12" />
-      <node id="6359197607515894919" at="15,0,19,0" concept="3" trace="DeleteRootChange#(Ljetbrains/mps/vcs/diff/ChangeSet;Lorg/jetbrains/mps/openapi/model/SNodeId;)V" />
-      <node id="6359197607515895100" at="38,0,42,0" concept="10" trace="toString#()Ljava/lang/String;" />
-      <node id="5786223774279741721" at="43,0,47,0" concept="10" trace="getDescription#()Ljava/lang/String;" />
-      <node id="3396946986144281919" at="20,0,25,0" concept="10" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/vcs/diff/changes/NodeCopier;)V" />
-      <node id="3395217057974219639" at="26,0,31,0" concept="10" trace="createOppositeChange#()Ljetbrains/mps/vcs/diff/changes/ModelChange;" />
-      <node id="8401260027345476553" at="32,0,37,0" concept="10" trace="getType#()Ljetbrains/mps/vcs/diff/changes/ChangeType;" />
-      <scope id="3395217057974219642" at="28,48,29,78" />
-      <scope id="8401260027345476556" at="34,31,35,29" />
-      <scope id="6359197607515895103" at="39,28,40,37" />
-      <scope id="5786223774279741724" at="44,34,45,39" />
-      <scope id="6359197607515894922" at="15,64,17,22" />
-      <scope id="3396946986144281925" at="21,76,23,37" />
-      <scope id="6359197607515894919" at="15,0,19,0">
+      <node id="6359197607515894923" at="16,64,17,29" concept="17" />
+      <node id="6359197607515894925" at="17,29,18,22" concept="6" />
+      <node id="3396946986144282997" at="23,76,24,43" concept="0" />
+      <node id="3396946986144281926" at="24,43,25,37" concept="6" />
+      <node id="3395217057974219645" at="30,48,31,78" concept="12" />
+      <node id="8401260027345476560" at="36,31,37,29" concept="12" />
+      <node id="6359197607515895104" at="41,28,42,37" concept="12" />
+      <node id="5786223774279741725" at="46,34,47,39" concept="12" />
+      <node id="6359197607515894919" at="16,0,20,0" concept="3" trace="DeleteRootChange#(Ljetbrains/mps/vcs/diff/ChangeSet;Lorg/jetbrains/mps/openapi/model/SNodeId;)V" />
+      <node id="6359197607515895100" at="40,0,44,0" concept="10" trace="toString#()Ljava/lang/String;" />
+      <node id="5786223774279741721" at="45,0,49,0" concept="10" trace="getDescription#()Ljava/lang/String;" />
+      <node id="3396946986144281919" at="22,0,27,0" concept="10" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/vcs/diff/changes/NodeCopier;)V" />
+      <node id="3395217057974219639" at="28,0,33,0" concept="10" trace="createOppositeChange#()Ljetbrains/mps/vcs/diff/changes/ModelChange;" />
+      <node id="8401260027345476553" at="34,0,39,0" concept="10" trace="getType#()Ljetbrains/mps/vcs/diff/changes/ChangeType;" />
+      <scope id="3395217057974219642" at="30,48,31,78" />
+      <scope id="8401260027345476556" at="36,31,37,29" />
+      <scope id="6359197607515895103" at="41,28,42,37" />
+      <scope id="5786223774279741724" at="46,34,47,39" />
+      <scope id="6359197607515894922" at="16,64,18,22" />
+      <scope id="3396946986144281925" at="23,76,25,37" />
+      <scope id="6359197607515894919" at="16,0,20,0">
         <var name="changeSet" id="6359197607515894929" />
         <var name="nodeId" id="6359197607515894931" />
       </scope>
-      <scope id="6359197607515895100" at="38,0,42,0" />
-      <scope id="5786223774279741721" at="43,0,47,0" />
-      <scope id="3396946986144281919" at="20,0,25,0">
+      <scope id="6359197607515895100" at="40,0,44,0" />
+      <scope id="5786223774279741721" at="45,0,49,0" />
+      <scope id="3396946986144281919" at="22,0,27,0">
         <var name="model" id="3396946986144281922" />
         <var name="nodeCopier" id="5746253950163662092" />
       </scope>
-      <scope id="3395217057974219639" at="26,0,31,0" />
-      <scope id="8401260027345476553" at="32,0,37,0" />
-      <unit id="6359197607515894913" at="11,0,48,0" name="jetbrains.mps.vcs.diff.changes.DeleteRootChange" />
+      <scope id="3395217057974219639" at="28,0,33,0" />
+      <scope id="8401260027345476553" at="34,0,39,0" />
+      <unit id="6359197607515894913" at="11,0,50,0" name="jetbrains.mps.vcs.diff.changes.DeleteRootChange" />
     </file>
   </root>
   <root nodeRef="r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/6562343564267115985">
