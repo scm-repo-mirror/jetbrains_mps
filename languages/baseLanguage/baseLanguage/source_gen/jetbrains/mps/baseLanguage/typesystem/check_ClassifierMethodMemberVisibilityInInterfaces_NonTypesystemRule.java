@@ -23,10 +23,10 @@ public class check_ClassifierMethodMemberVisibilityInInterfaces_NonTypesystemRul
   public check_ClassifierMethodMemberVisibilityInInterfaces_NonTypesystemRule() {
   }
   public void applyRule(final SNode method, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.visibility$2GiC), CONCEPTS.ProtectedVisibility$OD) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), CONCEPTS.Interface$Kp)) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.visibility$jt1o), CONCEPTS.ProtectedVisibility$OD) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), CONCEPTS.Interface$Kp)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(method, LINKS.visibility$2GiC), "Modifier 'protected' is not allowed here", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4239960020344814997", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(method, LINKS.visibility$jt1o), "Modifier 'protected' is not allowed here", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4239960020344814997", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.RemoveProtected_QuickFix", "4239960020344841391", false);
           _reporter_2309309498.addIntentionProvider(intentionProvider);
@@ -51,6 +51,6 @@ public class check_ClassifierMethodMemberVisibilityInInterfaces_NonTypesystemRul
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink visibility$jt1o = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }

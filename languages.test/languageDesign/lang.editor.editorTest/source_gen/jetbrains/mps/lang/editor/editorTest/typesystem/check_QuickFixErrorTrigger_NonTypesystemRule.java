@@ -22,65 +22,65 @@ public class check_QuickFixErrorTrigger_NonTypesystemRule extends AbstractNonTyp
   public check_QuickFixErrorTrigger_NonTypesystemRule() {
   }
   public void applyRule(final SNode trigger, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SPropertyOperations.getString(trigger, PROPS.message$EoNw).equals("This is an error")) {
+    if (SPropertyOperations.getString(trigger, PROPS.message$y0Ww).equals("This is an error")) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$EoNw), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050509006685", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$y0Ww), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050509006685", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050509872171", false);
-          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050509874732", false);
-          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050509014099", false);
-          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }
     }
-    if (SPropertyOperations.getString(trigger, PROPS.message$EoNw).equals("Another error")) {
+    if (SPropertyOperations.getString(trigger, PROPS.message$y0Ww).equals("Another error")) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$EoNw), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050510071106", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$y0Ww), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050510071106", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071113", false);
-          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071120", false);
-          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071127", false);
-          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }
     }
-    if (SPropertyOperations.getString(trigger, PROPS.message$EoNw).equals("Last error")) {
+    if (SPropertyOperations.getString(trigger, PROPS.message$y0Ww).equals("Last error")) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$EoNw), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050510071442", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SNodeOperations.getParent(trigger), SPropertyOperations.getString(trigger, PROPS.message$y0Ww), "r:3b4c6266-b03b-4213-a8e8-189fda2aa77c(jetbrains.mps.lang.editor.editorTest.typesystem)", "8036481050510071442", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071449", false);
-          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "1. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071456", false);
-          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "2. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.editorTest.typesystem.QuickFixApplied_QuickFix", "8036481050510071463", false);
-          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$EoNw));
+          intentionProvider.putArgument("message", "3. " + SPropertyOperations.getString(trigger, PROPS.message$y0Ww));
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }
@@ -97,7 +97,7 @@ public class check_QuickFixErrorTrigger_NonTypesystemRule extends AbstractNonTyp
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty message$EoNw = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c47L, 0x6f8750efb3b35c48L, "message");
+    /*package*/ static final SProperty message$y0Ww = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c47L, 0x6f8750efb3b35c48L, "message");
   }
 
   private static final class CONCEPTS {

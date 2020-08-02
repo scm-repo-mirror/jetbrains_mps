@@ -92,7 +92,7 @@ public class varTypeSubstitutionForNullType extends SubstituteMenuBase {
       public SNode createNode(@NotNull String pattern) {
         SNode createdNode = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x112353ac52dL, "jetbrains.mps.baseLanguage.varVariable.structure.VarType"));
         SNode var = SNodeFactoryOperations.replaceWithNewChild(_context.getParentNode(), CONCEPTS.VarVariableDeclaration$Of);
-        SLinkOperations.setTarget(var, LINKS.type$pLrO, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x112353ac52dL, "jetbrains.mps.baseLanguage.varVariable.structure.VarType")));
+        SLinkOperations.setTarget(var, LINKS.type$uWuc, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x112353ac52dL, "jetbrains.mps.baseLanguage.varVariable.structure.VarType")));
         // Intentionally returning a throw-away node, as the parent VariableDeclaration is being replaced 
         return createdNode;
       }
@@ -131,6 +131,6 @@ public class varTypeSubstitutionForNullType extends SubstituteMenuBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink type$uWuc = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

@@ -675,7 +675,7 @@
                   <uo k="s:originTrace" v="n:6036237525966325224" />
                   <node concept="1BaE9c" id="26" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
-                    <property role="1BaxDp" value="baseMethodDeclaration$$A7i" />
+                    <property role="1BaxDp" value="baseMethodDeclaration$ItxI" />
                     <uo k="s:originTrace" v="n:6036237525966325224" />
                     <node concept="2YIFZM" id="2b" role="1Bazha">
                       <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />
@@ -1760,7 +1760,7 @@
                   <uo k="s:originTrace" v="n:6146091894852365519" />
                   <node concept="1BaE9c" id="6J" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
-                    <property role="1BaxDp" value="baseVariableDeclaration$$Ls0" />
+                    <property role="1BaxDp" value="baseVariableDeclaration$NW$0" />
                     <uo k="s:originTrace" v="n:6146091894852365519" />
                     <node concept="2YIFZM" id="6O" role="1Bazha">
                       <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />

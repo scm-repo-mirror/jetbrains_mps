@@ -24,11 +24,11 @@ public class QuickFixApplied_QuickFix extends QuickFix_Runtime {
   }
   public void execute(SNode node) {
     SNode res = createQuickFixResolution_b6tyvt_a0a0c(((String) QuickFixApplied_QuickFix.this.getField("message")[0]));
-    ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.QuickFixStatement$1q), LINKS.resolution$MaVU)).addElement(res);
+    ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.QuickFixStatement$1q), LINKS.resolution$jj16)).addElement(res);
   }
   private static SNode createQuickFixResolution_b6tyvt_a0a0c(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.QuickFixResolution$IY);
-    n0.setProperty(PROPS.message$XD10, p0);
+    n0.setProperty(PROPS.message$QRv0, p0);
     return n0.getResult();
   }
 
@@ -38,10 +38,10 @@ public class QuickFixApplied_QuickFix extends QuickFix_Runtime {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink resolution$MaVU = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3c03c17L, "resolution");
+    /*package*/ static final SContainmentLink resolution$jj16 = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3c03c17L, "resolution");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty message$XD10 = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3c02480L, 0x6f8750efb3c02481L, "message");
+    /*package*/ static final SProperty message$QRv0 = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3c02480L, 0x6f8750efb3c02481L, "message");
   }
 }

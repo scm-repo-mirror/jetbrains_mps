@@ -99,14 +99,14 @@ import org.jetbrains.mps.openapi.language.SProperty;
     return editorCell;
   }
   private EditorCell createRefCell_0() {
-    final SReferenceLink referenceLink = LINKS.quickfix$lIpb;
+    final SReferenceLink referenceLink = LINKS.quickfix$xucl;
     SReferenceCellProvider provider = new SReferenceCellProvider(getNode(), referenceLink, getEditorContext()) {
       protected EditorCell createReferenceCell(final SNode targetNode) {
         EditorCell cell = getUpdateSession().updateReferencedNodeCell(new Computable<EditorCell>() {
           public EditorCell compute() {
             return new Inline_Builder0(getEditorContext(), getNode(), targetNode).createCell();
           }
-        }, targetNode, LINKS.quickfix$lIpb);
+        }, targetNode, LINKS.quickfix$xucl);
         CellUtil.setupIDeprecatableStyles(targetNode, cell);
         setSemanticNodeToCells(cell, getNode());
         installDeleteActions_nullable_reference(cell);
@@ -119,7 +119,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
     if (editorCell.getSRole() == null) {
       editorCell.setReferenceCell(true);
-      editorCell.setSRole(LINKS.quickfix$lIpb);
+      editorCell.setSRole(LINKS.quickfix$xucl);
     }
     editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new ReferenceCellContext(getNode(), getNode(), referenceLink), new SubstituteInfoPartExt[]{new ApplyQuickFix_generic_cellMenu_jhinkb_a0b0(), new SChildSubstituteInfoPartEx(editorCell)}));
     Iterable<SNode> referenceAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.LinkAttribute$7j);
@@ -188,7 +188,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
         }
       }).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.helginsIntention$u2WC)).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.helginsIntention$zrno)).isNotEmpty();
         }
       }).toListSequence();
 
@@ -200,16 +200,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
         }
       }).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.helginsIntention$ksfL)).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.helginsIntention$TFCJ)).isNotEmpty();
         }
       }).toListSequence();
 
       List<SNode> intentions = ListSequence.fromList(new ArrayList<SNode>());
       for (SNode report : ListSequence.fromList(reports)) {
-        intentions.addAll(ListSequence.fromList(SLinkOperations.getChildren(report, LINKS.helginsIntention$u2WC)).toListSequence());
+        intentions.addAll(ListSequence.fromList(SLinkOperations.getChildren(report, LINKS.helginsIntention$zrno)).toListSequence());
       }
       for (SNode report : ListSequence.fromList(equations)) {
-        intentions.addAll(ListSequence.fromList(SLinkOperations.getChildren(report, LINKS.helginsIntention$ksfL)).toListSequence());
+        intentions.addAll(ListSequence.fromList(SLinkOperations.getChildren(report, LINKS.helginsIntention$TFCJ)).toListSequence());
       }
       return intentions;
     }
@@ -217,7 +217,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
       this.handleAction_impl((SNode) parameterObject, node, model, operationContext, editorContext);
     }
     public void handleAction_impl(SNode parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SLinkOperations.setTarget(node, LINKS.quickfix$lIpb, parameterObject);
+      SLinkOperations.setTarget(node, LINKS.quickfix$xucl, parameterObject);
     }
     public boolean isReferentPresentation() {
       return false;
@@ -226,7 +226,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
       return this.getMatchingText_internal((SNode) parameterObject);
     }
     public String getMatchingText_internal(SNode parameterObject) {
-      return SPropertyOperations.getString(SLinkOperations.getTarget(parameterObject, LINKS.quickFix$FQGK), PROPS.name$tAp1) + " from " + MessageStatement__BehaviorDescriptor.getName_id1oFBbRehoLP.invoke(SNodeOperations.cast(SNodeOperations.getParent(parameterObject), CONCEPTS.MessageStatement$Ql));
+      return SPropertyOperations.getString(SLinkOperations.getTarget(parameterObject, LINKS.quickFix$fvFg), PROPS.name$lA7v) + " from " + MessageStatement__BehaviorDescriptor.getName_id1oFBbRehoLP.invoke(SNodeOperations.cast(SNodeOperations.getParent(parameterObject), CONCEPTS.MessageStatement$Ql));
     }
 
     @Override
@@ -242,10 +242,10 @@ import org.jetbrains.mps.openapi.language.SProperty;
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink quickfix$lIpb = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4915dd563bf07730L, 0x6a6d08c403e6ad97L, "quickfix");
-    /*package*/ static final SContainmentLink helginsIntention$u2WC = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x36a3e6f668ce5a59L, 0x36a3e6f668ce5c15L, "helginsIntention");
-    /*package*/ static final SContainmentLink helginsIntention$ksfL = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, 0x11b2b6fabb9L, "helginsIntention");
-    /*package*/ static final SReferenceLink quickFix$FQGK = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b3667ec7bL, "quickFix");
+    /*package*/ static final SReferenceLink quickfix$xucl = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4915dd563bf07730L, 0x6a6d08c403e6ad97L, "quickfix");
+    /*package*/ static final SContainmentLink helginsIntention$zrno = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x36a3e6f668ce5a59L, 0x36a3e6f668ce5c15L, "helginsIntention");
+    /*package*/ static final SContainmentLink helginsIntention$TFCJ = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, 0x11b2b6fabb9L, "helginsIntention");
+    /*package*/ static final SReferenceLink quickFix$fvFg = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b3667ec7bL, "quickFix");
   }
 
   private static final class CONCEPTS {
@@ -256,6 +256,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty name$lA7v = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -106,7 +106,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.trigger$EoOt;
+      return LINKS.trigger$y1q3;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.QuickFixErrorTrigger$1T;
@@ -119,7 +119,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(triggerListHandler_du3hdu_d0.this.getNode(), LINKS.trigger$EoOt));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(triggerListHandler_du3hdu_d0.this.getNode(), LINKS.trigger$y1q3));
       try {
         EditorCell emptyCell = null;
         emptyCell = createConstant_2();
@@ -212,7 +212,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.resolution$MaVU;
+      return LINKS.resolution$jj16;
     }
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.QuickFixResolution$IY;
@@ -225,7 +225,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(resolutionListHandler_du3hdu_g0.this.getNode(), LINKS.resolution$MaVU));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(resolutionListHandler_du3hdu_g0.this.getNode(), LINKS.resolution$jj16));
       try {
         EditorCell emptyCell = null;
         emptyCell = createConstant_5();
@@ -282,8 +282,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink trigger$EoOt = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3b35c4aL, "trigger");
-    /*package*/ static final SContainmentLink resolution$MaVU = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3c03c17L, "resolution");
+    /*package*/ static final SContainmentLink trigger$y1q3 = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3b35c4aL, "trigger");
+    /*package*/ static final SContainmentLink resolution$jj16 = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6f8750efb3b35c46L, 0x6f8750efb3c03c17L, "resolution");
   }
 
   private static final class CONCEPTS {

@@ -407,7 +407,7 @@
                   <uo k="s:originTrace" v="n:3892287256988699831" />
                   <node concept="1BaE9c" id="15" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
-                    <property role="1BaxDp" value="color$2quX" />
+                    <property role="1BaxDp" value="color$aOZz" />
                     <uo k="s:originTrace" v="n:3892287256988699831" />
                     <node concept="2YIFZM" id="1a" role="1Bazha">
                       <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />

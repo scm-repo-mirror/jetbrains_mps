@@ -35,7 +35,7 @@ public class ElseIfEnterOnEndingBrace {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return (SNodeOperations.getNextSibling(node) == null) && (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.IfStatement$pi), LINKS.ifFalseStatement$Xnu2) == null);
+        return (SNodeOperations.getNextSibling(node) == null) && (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.IfStatement$pi), LINKS.ifFalseStatement$InyY) == null);
       }
 
     };
@@ -87,6 +87,6 @@ public class ElseIfEnterOnEndingBrace {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink ifFalseStatement$InyY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
   }
 }

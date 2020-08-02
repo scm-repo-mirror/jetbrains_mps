@@ -44,7 +44,7 @@ public final class UnwrapStatementList_Intention extends AbstractIntentionDescri
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(node, CONCEPTS.Statement$ok) && Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(IContainsStatementList__BehaviorDescriptor.getStatementList_idi0zv5tb.invoke(node), LINKS.statement$WHn8)).isNotEmpty();
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.Statement$ok) && Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(IContainsStatementList__BehaviorDescriptor.getStatementList_idi0zv5tb.invoke(node), LINKS.statement$pYcS)).isNotEmpty();
   }
   private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
     return Objects.equals(SNodeOperations.getNodeAncestor(childNode, CONCEPTS.StatementList$TN, true, false), IContainsStatementList__BehaviorDescriptor.getStatementList_idi0zv5tb.invoke(node));
@@ -81,7 +81,7 @@ public final class UnwrapStatementList_Intention extends AbstractIntentionDescri
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink statement$pYcS = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 
   private static final class CONCEPTS {

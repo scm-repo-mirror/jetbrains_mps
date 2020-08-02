@@ -42,9 +42,9 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     StringBuilder sb = new StringBuilder();
-    for (SNode me : SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$mGgm), LINKS.part$x7tZ)) {
+    for (SNode me : SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$ZrUE), LINKS.part$2Bxx)) {
       if (SNodeOperations.isInstanceOf(me, CONCEPTS.LiteralMessageExpression$Ga)) {
-        sb.append(SPropertyOperations.getString(SNodeOperations.cast(me, CONCEPTS.LiteralMessageExpression$Ga), PROPS.message$vnr0));
+        sb.append(SPropertyOperations.getString(SNodeOperations.cast(me, CONCEPTS.LiteralMessageExpression$Ga), PROPS.message$cm50));
       } else if (SNodeOperations.isInstanceOf(me, CONCEPTS.MacroMessageExpression$LH)) {
         sb.append("%s");
       }
@@ -52,44 +52,44 @@ public class QueriesGenerated extends QueryProviderBase {
     return sb.toString();
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
-    String baseName = "MSGPROVIDER_ " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD));
+    String baseName = "MSGPROVIDER_ " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR));
     String capitalizedWithoutSpaces = NameUtil.multiWordCapitalize(baseName).replaceAll("\\s+", "");
     return _context.createUniqueName(capitalizedWithoutSpaces, _context.getNode());
   }
   public static boolean ifMacro_Condition_1_0(final IfMacroContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$mGgm) != null;
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$ZrUE) != null;
   }
   public static boolean ifMacro_Condition_1_1(final IfMacroContext _context) {
     // XXX Not that I like this code, but don't want to deal with the complete restructuring of message/feedback/context languages 
     //   
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$mGgm), LINKS.part$x7tZ), CONCEPTS.MacroMessageExpression$LH)).isEmpty();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$ZrUE), LINKS.part$2Bxx), CONCEPTS.MacroMessageExpression$LH)).isEmpty();
   }
   public static SNode sourceNodeQuery_1_0(final SourceSubstituteMacroNodeContext _context) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR));
   }
   public static SNode sourceNodeQuery_1_1(final SourceSubstituteMacroNodeContext _context) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR));
   }
   public static SNode sourceNodeQuery_1_2(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$mGgm);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$ZrUE);
   }
   public static SNode sourceNodeQuery_1_3(final SourceSubstituteMacroNodeContext _context) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR));
   }
   public static SNode sourceNodeQuery_1_4(final SourceSubstituteMacroNodeContext _context) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR));
   }
   public static Object templateArgumentQuery_1_0(final TemplateArgumentContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR);
   }
   public static Object templateArgumentQuery_1_1(final TemplateArgumentContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR);
   }
   public static Object templateArgumentQuery_1_2(final TemplateArgumentContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$7FCD);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.problem$I8FR);
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$mGgm), LINKS.part$x7tZ), CONCEPTS.MacroMessageExpression$LH);
+    return SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.message$ZrUE), LINKS.part$2Bxx), CONCEPTS.MacroMessageExpression$LH);
   }
   private final Map<String, SourceNodeQuery> snqMethods = new HashMap<String, SourceNodeQuery>();
   {
@@ -267,12 +267,12 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty message$vnr0 = MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message");
+    /*package*/ static final SProperty message$cm50 = MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink message$mGgm = MetaAdapterFactory.getContainmentLink(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message");
-    /*package*/ static final SContainmentLink part$x7tZ = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part");
-    /*package*/ static final SContainmentLink problem$7FCD = MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem");
+    /*package*/ static final SContainmentLink message$ZrUE = MetaAdapterFactory.getContainmentLink(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message");
+    /*package*/ static final SContainmentLink part$2Bxx = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part");
+    /*package*/ static final SContainmentLink problem$I8FR = MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem");
   }
 }

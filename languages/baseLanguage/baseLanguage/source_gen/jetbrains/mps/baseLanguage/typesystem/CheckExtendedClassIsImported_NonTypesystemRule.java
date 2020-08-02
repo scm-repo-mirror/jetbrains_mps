@@ -32,7 +32,7 @@ public class CheckExtendedClassIsImported_NonTypesystemRule extends AbstractNonT
     return false;
   }
   public void applyRule(final SNode classifierType, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode classifier = SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R);
+    SNode classifier = SLinkOperations.getTarget(classifierType, LINKS.classifier$xslD);
     if (classifier == null) {
       return;
     }
@@ -42,7 +42,7 @@ public class CheckExtendedClassIsImported_NonTypesystemRule extends AbstractNonT
 
     Collection<SModule> deps = depManager.getModules(GlobalModuleDependenciesManager.Deptype.COMPILE);
     for (SNode extendedClassifierType : Classifier__BehaviorDescriptor.getExtendedClassifierTypes_id1UeCwxlWKny.invoke(classifier)) {
-      SNode extendedClassifier = SLinkOperations.getTarget(extendedClassifierType, LINKS.classifier$pQ_R);
+      SNode extendedClassifier = SLinkOperations.getTarget(extendedClassifierType, LINKS.classifier$xslD);
       if (extendedClassifier == null) {
         continue;
       }
@@ -75,7 +75,7 @@ public class CheckExtendedClassIsImported_NonTypesystemRule extends AbstractNonT
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SReferenceLink classifier$xslD = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 
   private static final class CONCEPTS {

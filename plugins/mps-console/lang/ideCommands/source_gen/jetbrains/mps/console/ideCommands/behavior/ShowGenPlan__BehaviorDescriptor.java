@@ -57,10 +57,10 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void doExecute_id2SpVAIqougW(@NotNull SNode __thisNode__, ConsoleContext context, final ConsoleStream console) {
     SRepository repo = context.getProject().getRepository();
     final SModel model;
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.targetModel$v7Da) != null)) {
-      model = ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.targetModel$v7Da)).resolve(repo);
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.targetModel$4GVQ) != null)) {
+      model = ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.targetModel$4GVQ)).resolve(repo);
     } else {
-      model = ModelReference__BehaviorDescriptor.getModel_id67MRmR$z8Z2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.targetModelOld$qKbK), repo);
+      model = ModelReference__BehaviorDescriptor.getModel_id67MRmR$z8Z2.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.targetModelOld$XlGg), repo);
     }
     if (model == null) {
       return;
@@ -80,8 +80,8 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
         if (dupMsg.add(m.getText())) {
           if (m.getHintObject() instanceof SNodeReference) {
             SNode cn = SModelOperations.createNewNode(model, null, CONCEPTS.ClickableNode$Xe);
-            SLinkOperations.setTarget(cn, LINKS.target$2tUW, NodePointer__BehaviorDescriptor.create_id4nxIQVL$eu9.invoke(SNodeOperations.asSConcept(CONCEPTS.NodePointer$qL), model, (SNodeReference) m.getHintObject()));
-            SPropertyOperations.assign(cn, PROPS.text$fNjX, m.getText());
+            SLinkOperations.setTarget(cn, LINKS.target$cvz4, NodePointer__BehaviorDescriptor.create_id4nxIQVL$eu9.invoke(SNodeOperations.asSConcept(CONCEPTS.NodePointer$qL), model, (SNodeReference) m.getHintObject()));
+            SPropertyOperations.assign(cn, PROPS.text$DQEz, m.getText());
             console.addNode(cn);
           } else {
             console.addText(m.getText());
@@ -94,7 +94,7 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
 
     PartitioningHelper helper = new PartitioningHelper(messagesView, console);
     ModelGenerationPlan gp;
-    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.ignoreExternalPlan$FyLA)) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.ignoreExternalPlan$5Q1q)) {
       gp = new GenerationPlan(model);
       if (externalPlan != null) {
         console.addText("Model has alternative plan configured externally, ignored\n");
@@ -169,9 +169,9 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink targetModel$v7Da = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x70ee8fac615b4f33L, "targetModel");
-    /*package*/ static final SContainmentLink targetModelOld$qKbK = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x61f2dd6de47f867aL, "targetModelOld");
-    /*package*/ static final SContainmentLink target$2tUW = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x72ed699ef9552c28L, 0x72ed699ef9552c2dL, "target");
+    /*package*/ static final SContainmentLink targetModel$4GVQ = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x70ee8fac615b4f33L, "targetModel");
+    /*package*/ static final SContainmentLink targetModelOld$XlGg = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x61f2dd6de47f867aL, "targetModelOld");
+    /*package*/ static final SContainmentLink target$cvz4 = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x72ed699ef9552c28L, 0x72ed699ef9552c2dL, "target");
   }
 
   private static final class CONCEPTS {
@@ -180,7 +180,7 @@ public final class ShowGenPlan__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty text$fNjX = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bb9f5b0L, 0x360b134fc047ce2aL, "text");
-    /*package*/ static final SProperty ignoreExternalPlan$FyLA = MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x2c510b378f8ce5ddL, "ignoreExternalPlan");
+    /*package*/ static final SProperty text$DQEz = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bb9f5b0L, 0x360b134fc047ce2aL, "text");
+    /*package*/ static final SProperty ignoreExternalPlan$5Q1q = MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x2c510b378f8ce5ddL, "ignoreExternalPlan");
   }
 }

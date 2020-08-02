@@ -23,7 +23,7 @@ public class check_InstanceMethodDeclarationNeedsBody_NonTypesystemRule extends 
   public check_InstanceMethodDeclarationNeedsBody_NonTypesystemRule() {
   }
   public void applyRule(final SNode instanceMethodDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasBody_id10BRnhak8m8.invoke(instanceMethodDeclaration)) && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(instanceMethodDeclaration, LINKS.body$WIlu), LINKS.statement$WHn8)).isNotEmpty()) {
+    if (!((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasBody_id10BRnhak8m8.invoke(instanceMethodDeclaration)) && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(instanceMethodDeclaration, LINKS.body$qspy), LINKS.statement$pYcS)).isNotEmpty()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(instanceMethodDeclaration, "The method body can be empty", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3054699313861830628", null, errorTarget);
@@ -45,8 +45,8 @@ public class check_InstanceMethodDeclarationNeedsBody_NonTypesystemRule extends 
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink body$qspy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink statement$pYcS = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 
   private static final class CONCEPTS {

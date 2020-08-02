@@ -22,7 +22,7 @@ public class check_InstanceMethodDeclarationNeedsVisibility_NonTypesystemRule ex
   public check_InstanceMethodDeclarationNeedsVisibility_NonTypesystemRule() {
   }
   public void applyRule(final SNode instanceMethodDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(instanceMethodDeclaration), CONCEPTS.Interface$Kp) && (SLinkOperations.getTarget(instanceMethodDeclaration, LINKS.visibility$2GiC) == null) && false) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(instanceMethodDeclaration), CONCEPTS.Interface$Kp) && (SLinkOperations.getTarget(instanceMethodDeclaration, LINKS.visibility$jt1o) == null) && false) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(instanceMethodDeclaration, "The method visibility must be public", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3054699313863889344", null, errorTarget);
@@ -49,6 +49,6 @@ public class check_InstanceMethodDeclarationNeedsVisibility_NonTypesystemRule ex
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink visibility$jt1o = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }

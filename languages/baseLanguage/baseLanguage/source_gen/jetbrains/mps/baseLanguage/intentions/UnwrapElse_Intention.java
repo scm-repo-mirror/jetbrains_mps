@@ -44,10 +44,10 @@ public final class UnwrapElse_Intention extends AbstractIntentionDescriptor impl
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2) != null) && (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i)) || Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0), LINKS.statement$WHn8)).isNotEmpty());
+    return (SLinkOperations.getTarget(node, LINKS.ifFalseStatement$InyY) != null) && (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$InyY), CONCEPTS.BlockStatement$1i)) || Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$InyY), CONCEPTS.BlockStatement$1i), LINKS.statements$J0D0), LINKS.statement$pYcS)).isNotEmpty());
   }
   private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
-    return ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(childNode, CONCEPTS.IfStatement$pi, true, false), LINKS.ifFalseStatement$Xnu2), null, false, new SAbstractConcept[]{})).contains(childNode);
+    return ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(childNode, CONCEPTS.IfStatement$pi, true, false), LINKS.ifFalseStatement$InyY), null, false, new SAbstractConcept[]{})).contains(childNode);
   }
   @Override
   public boolean isSurroundWith() {
@@ -77,9 +77,9 @@ public final class UnwrapElse_Intention extends AbstractIntentionDescriptor impl
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
-    /*package*/ static final SContainmentLink statements$uqR0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements");
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink ifFalseStatement$InyY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink statements$J0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements");
+    /*package*/ static final SContainmentLink statement$pYcS = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 
   private static final class CONCEPTS {

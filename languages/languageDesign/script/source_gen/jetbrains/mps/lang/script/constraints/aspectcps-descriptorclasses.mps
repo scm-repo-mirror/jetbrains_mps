@@ -438,7 +438,7 @@
                   <uo k="s:originTrace" v="n:338341484719580003" />
                   <node concept="1BaE9c" id="17" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
-                    <property role="1BaxDp" value="methodDeclaration$4Hf0" />
+                    <property role="1BaxDp" value="methodDeclaration$hUh0" />
                     <uo k="s:originTrace" v="n:338341484719580003" />
                     <node concept="2YIFZM" id="1c" role="1Bazha">
                       <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />
@@ -1302,7 +1302,7 @@
                   <uo k="s:originTrace" v="n:849077997121906173" />
                   <node concept="1BaE9c" id="4N" role="37wK5m">
                     <property role="1ouuDV" value="LINKS" />
-                    <property role="1BaxDp" value="newMethodDeclaration$swRl" />
+                    <property role="1BaxDp" value="newMethodDeclaration$NUNb" />
                     <uo k="s:originTrace" v="n:849077997121906173" />
                     <node concept="2YIFZM" id="4S" role="1Bazha">
                       <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />

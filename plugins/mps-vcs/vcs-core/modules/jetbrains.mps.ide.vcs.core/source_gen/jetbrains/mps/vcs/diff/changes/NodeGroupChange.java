@@ -195,7 +195,7 @@ public class NodeGroupChange extends ModelChange {
     if (ListSequence.fromList(nodesToAdd).isEmpty()) {
       return;
     }
-    SContainmentLink link = (SNodeOperations.isInstanceOf(ListSequence.fromList(nodesToAdd).first(), CONCEPTS.ChildAttribute$XQ) ? LINKS.smodelAttribute$K8bJ : myRole);
+    SContainmentLink link = (SNodeOperations.isInstanceOf(ListSequence.fromList(nodesToAdd).first(), CONCEPTS.ChildAttribute$XQ) ? LINKS.smodelAttribute$jXFL : myRole);
     SNode parent = getNodeOrRenamedNode(model, nodeCopier, getParentNodeId(false));
     SNode beforAnchor = getNodeOrRenamedNode(model, nodeCopier, myBeforeAnchorId);
     for (SNode newNode : ListSequence.fromList(nodesToAdd)) {
@@ -299,7 +299,7 @@ public class NodeGroupChange extends ModelChange {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+    /*package*/ static final SContainmentLink smodelAttribute$jXFL = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 
   private static final class CONCEPTS {

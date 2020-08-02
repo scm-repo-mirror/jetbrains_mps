@@ -17,7 +17,7 @@ public class ClearMethodBody_QuickFix extends QuickFix_Runtime {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3054699313861830864"));
   }
   public void execute(SNode node) {
-    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.as(node, CONCEPTS.InstanceMethodDeclaration$An), LINKS.body$WIlu), LINKS.statement$WHn8)).clear();
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.as(node, CONCEPTS.InstanceMethodDeclaration$An), LINKS.body$qspy), LINKS.statement$pYcS)).clear();
   }
 
   private static final class CONCEPTS {
@@ -25,7 +25,7 @@ public class ClearMethodBody_QuickFix extends QuickFix_Runtime {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
-    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink body$qspy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink statement$pYcS = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 }

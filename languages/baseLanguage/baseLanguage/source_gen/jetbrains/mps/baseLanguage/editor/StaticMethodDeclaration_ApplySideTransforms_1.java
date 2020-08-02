@@ -96,7 +96,7 @@ public class StaticMethodDeclaration_ApplySideTransforms_1 extends Transformatio
   public class TMP_Group_968v2d_b0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.Interface$Kp) && ((SLinkOperations.getTarget(_context.getNode(), LINKS.visibility$2GiC) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.visibility$2GiC), CONCEPTS.PublicVisibility$qe));
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.Interface$Kp) && ((SLinkOperations.getTarget(_context.getNode(), LINKS.visibility$jt1o) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.visibility$jt1o), CONCEPTS.PublicVisibility$qe));
     }
 
     @NotNull
@@ -152,7 +152,7 @@ public class StaticMethodDeclaration_ApplySideTransforms_1 extends Transformatio
 
         @Override
         public void execute(@NotNull String pattern) {
-          SLinkOperations.setTarget(_context.getNode(), LINKS.visibility$2GiC, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility")));
+          SLinkOperations.setTarget(_context.getNode(), LINKS.visibility$jt1o, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility")));
         }
 
 
@@ -211,6 +211,6 @@ public class StaticMethodDeclaration_ApplySideTransforms_1 extends Transformatio
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink visibility$jt1o = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }

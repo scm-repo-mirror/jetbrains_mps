@@ -48,7 +48,7 @@ public class DefaultModifier_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_Group_bh5s0w_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return JavaLanguageLevel.JAVA_8.covers(new BaseLanguageEnvironmentHelper().getLanguageLevel(_context.getModel())) && SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.InstanceMethodDeclaration$An) && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.as(_context.getParentNode(), CONCEPTS.InstanceMethodDeclaration$An), LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se));
+      return JavaLanguageLevel.JAVA_8.covers(new BaseLanguageEnvironmentHelper().getLanguageLevel(_context.getModel())) && SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.InstanceMethodDeclaration$An) && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.as(_context.getParentNode(), CONCEPTS.InstanceMethodDeclaration$An), LINKS.visibility$jt1o), CONCEPTS.PrivateVisibility$Se));
     }
     @NotNull
     @Override
@@ -88,6 +88,6 @@ public class DefaultModifier_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink visibility$jt1o = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }
