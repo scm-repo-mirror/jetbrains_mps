@@ -14,7 +14,6 @@
   <property name="artifacts.mpsTesting" location="${build.dir}/artifacts/mpsTesting" />
   <property name="artifacts.mpsJavaPlatform" location="${build.dir}/artifacts/mpsJavaPlatform" />
   <property name="artifacts.mpsJavaIdeaPlugin" location="${build.dir}/artifacts/mpsJavaIdeaPlugin" />
-  <property name="artifacts.mpsJpsIdea" location="${build.dir}/artifacts/mpsJpsIdea" />
   <property name="artifacts.mpsIdeaVcs" location="${build.dir}/artifacts/mpsIdeaVcs" />
   <property name="artifacts.mpsBuild" location="${build.dir}/artifacts/mpsBuild" />
   <property name="artifacts.mpsVcsPlatform" location="${build.dir}/artifacts/mpsVcsPlatform" />

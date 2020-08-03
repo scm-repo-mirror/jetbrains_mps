@@ -452,9 +452,6 @@
     <node concept="2sgV4H" id="2pZ8abj52Az" role="1l3spa">
       <ref role="1l3spb" node="2pZ8abj52_6" resolve="mpsJavaIdeaPlugin" />
     </node>
-    <node concept="2sgV4H" id="3ZROizBXKv3" role="1l3spa">
-      <ref role="1l3spb" node="3ZROizBXHBz" resolve="mpsJpsIdea" />
-    </node>
     <node concept="2sgV4H" id="1CCAtQqcUe8" role="1l3spa">
       <ref role="1l3spb" node="73fHb9hpukJ" resolve="mpsIdeaVcs" />
     </node>
@@ -759,9 +756,6 @@
     </node>
     <node concept="2sgV4H" id="611WBGkeUrH" role="1l3spa">
       <ref role="1l3spb" node="3ZROizBXGck" resolve="mpsPluginCommon" />
-    </node>
-    <node concept="2sgV4H" id="2lhaZfbX07x" role="1l3spa">
-      <ref role="1l3spb" node="3ZROizBXHBz" resolve="mpsJpsIdea" />
     </node>
     <node concept="2kB4xC" id="611WBGkdzRb" role="1l3spd">
       <property role="TrG5h" value="plugin.version" />
@@ -1068,6 +1062,9 @@
       </node>
     </node>
     <node concept="10PD9b" id="611WBGkdzRx" role="10PD9s" />
+    <node concept="2sgV4H" id="2lhaZfbX07x" role="1l3spa">
+      <ref role="1l3spb" node="3ZROizBXHBz" resolve="mpsJpsIdea" />
+    </node>
   </node>
   <node concept="1l3spW" id="7wEVz0c3rKX">
     <property role="TrG5h" value="mpsPluginDist" />
@@ -1592,9 +1589,6 @@
     <node concept="2sgV4H" id="73fHb9hpulo" role="1l3spa">
       <ref role="1l3spb" node="2pZ8abj52_6" resolve="mpsJavaIdeaPlugin" />
     </node>
-    <node concept="2sgV4H" id="73fHb9hpulp" role="1l3spa">
-      <ref role="1l3spb" node="3ZROizBXHBz" resolve="mpsJpsIdea" />
-    </node>
     <node concept="2sgV4H" id="73fHb9hpulq" role="1l3spa">
       <ref role="1l3spb" to="ffeo:7pdFgzxlDme" resolve="mpsBuild" />
     </node>
@@ -1855,9 +1849,6 @@
     </node>
     <node concept="2sgV4H" id="48p7sjLwe8C" role="1l3spa">
       <ref role="1l3spb" node="2pZ8abj52_6" resolve="mpsJavaIdeaPlugin" />
-    </node>
-    <node concept="2sgV4H" id="48p7sjLwe8D" role="1l3spa">
-      <ref role="1l3spb" node="3ZROizBXHBz" resolve="mpsJpsIdea" />
     </node>
     <node concept="2sgV4H" id="48p7sjLwe8E" role="1l3spa">
       <ref role="1l3spb" to="ffeo:7pdFgzxlDme" resolve="mpsBuild" />
