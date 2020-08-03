@@ -42,11 +42,9 @@
     <mkdir dir="${build.layout}/lib/jps" />
     <jar destfile="${build.layout}/lib/jps/mps-java-jps-plugin.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-java-jps-plugin" />
-      <zipfileset dir="${mps_home}/IdeaPlugin/mps-java/jps-plugin/META-INF/services" prefix="META-INF/services" />
     </jar>
     <jar destfile="${build.layout}/lib/jps/mps-core-jps-plugin.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-core-jps-plugin" />
-      <zipfileset dir="${mps_home}/IdeaPlugin/mps-core/jps-plugin/META-INF/services" prefix="META-INF/services" />
     </jar>
     <echo file="${build.layout}/build.properties">mpsBootstrapCore.version=${mpsBootstrapCore.version}${line.separator}mpsPluginCommon.plugin.version=${mpsPluginCommon.plugin.version}${line.separator}mpsPluginCommon.date=${mpsPluginCommon.date}</echo>
   </target>
