@@ -14,28 +14,45 @@
  * limitations under the License.
  */
 
-package jetbrains.mps.jps.model.impl;
+package jetbrains.mps.jps.j8compatibility;
 
+import com.intellij.openapi.util.SystemInfo;
 import jetbrains.mps.jps.model.JpsMPSExtensionService;
 import jetbrains.mps.jps.model.JpsMPSModuleExtension;
+import jetbrains.mps.jps.model.impl.JpsMPSExtensionServiceImpl;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.jps.model.module.JpsModule;
 
-/**
- * evgeny, 11/28/12
- */
-public class JpsMPSExtensionServiceImpl implements JpsMPSExtensionService {
+public class J8JpsMPSExtensionServiceImpl implements JpsMPSExtensionService {
+  private Object myDelegate = null;
 
   @Nullable
   @Override
   public JpsMPSModuleExtension getExtension(@Nullable JpsModule module) {
-    return module != null ? module.getContainer().getChild(JpsMPSModuleExtensionImpl.ROLE) : null;
+    if (!SystemInfo.isJavaVersionAtLeast(11)) {
+      return null;
+    }
+
+    synchronized (this) {
+      if (myDelegate == null) {
+        myDelegate = new JpsMPSExtensionServiceImpl();
+      }
+    }
+    return ((JpsMPSExtensionServiceImpl) myDelegate).getExtension(module);
   }
 
   @Override
   public void setExtension(@NotNull JpsModule module, @NotNull JpsMPSModuleExtension extension) {
-    module.getContainer().setChild(JpsMPSModuleExtensionImpl.ROLE, extension);
-  }
+    if (!SystemInfo.isJavaVersionAtLeast(11)) {
+      return;
+    }
 
+    synchronized (this) {
+      if (myDelegate == null) {
+        myDelegate = new JpsMPSExtensionServiceImpl();
+      }
+    }
+    ((JpsMPSExtensionServiceImpl) myDelegate).setExtension(module, extension);
+  }
 }
