@@ -21,7 +21,7 @@ public class check_ClassConceptAbstractAndFinal_NonTypesystemRule extends Abstra
   public check_ClassConceptAbstractAndFinal_NonTypesystemRule() {
   }
   public void applyRule(final SNode classConcept, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SPropertyOperations.getBoolean(classConcept, PROPS.isFinal$dzaH) && SPropertyOperations.getBoolean(classConcept, PROPS.abstractClass$gY5l)) {
+    if (SPropertyOperations.getBoolean(classConcept, PROPS.isFinal$$2bN) && SPropertyOperations.getBoolean(classConcept, PROPS.abstractClass$e4_b)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(classConcept, "Illegal combination of modifiers 'final' and 'abstract'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8431410806096003797", null, errorTarget);
@@ -47,8 +47,8 @@ public class check_ClassConceptAbstractAndFinal_NonTypesystemRule extends Abstra
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
-    /*package*/ static final SProperty isFinal$dzaH = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
+    /*package*/ static final SProperty abstractClass$e4_b = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
+    /*package*/ static final SProperty isFinal$$2bN = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
   }
 
   private static final class CONCEPTS {

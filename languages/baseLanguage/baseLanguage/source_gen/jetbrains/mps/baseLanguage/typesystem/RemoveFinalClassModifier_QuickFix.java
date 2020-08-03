@@ -19,7 +19,7 @@ public class RemoveFinalClassModifier_QuickFix extends QuickFix_Runtime {
     return "Remove the 'final' modifier";
   }
   public void execute(SNode node) {
-    SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.ClassConcept$IY), PROPS.isFinal$dzaH, false);
+    SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.ClassConcept$IY), PROPS.isFinal$$2bN, false);
   }
 
   private static final class CONCEPTS {
@@ -27,6 +27,6 @@ public class RemoveFinalClassModifier_QuickFix extends QuickFix_Runtime {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isFinal$dzaH = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
+    /*package*/ static final SProperty isFinal$$2bN = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
   }
 }

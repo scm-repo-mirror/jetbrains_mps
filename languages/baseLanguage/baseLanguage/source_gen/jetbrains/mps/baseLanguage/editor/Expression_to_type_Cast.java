@@ -151,14 +151,16 @@ public class Expression_to_type_Cast extends TransformationMenuBase {
           SLinkOperations.setTarget(result, LINKS.expression$izU1, targetExpression);
           PrecedenceUtil.parenthesiseIfNecessary(targetExpression);
 
-          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.Expression$TP) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.ParenthesizedExpression$vE))) {
-            SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
-            SNodeOperations.replaceWithAnother(result, parens);
-            SLinkOperations.setTarget(parens, LINKS.expression$efP0, result);
-          }
+          SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
+          SNodeOperations.replaceWithAnother(result, parens);
+          SLinkOperations.setTarget(parens, LINKS.expression$efP0, result);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
+        @Override
+        public boolean canExecute(@NotNull String pattern) {
+          return !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ParenthesizedExpression$vE));
+        }
 
         @Nullable
         @Override
@@ -167,7 +169,7 @@ public class Expression_to_type_Cast extends TransformationMenuBase {
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
-          return "type cast of current node";
+          return "type cast of current node and wrap in parens";
         }
 
 
@@ -231,7 +233,7 @@ public class Expression_to_type_Cast extends TransformationMenuBase {
           SLinkOperations.setTarget(result, LINKS.expression$izU1, targetExpression);
           PrecedenceUtil.parenthesiseIfNecessary(targetExpression);
 
-          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.Expression$TP) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.ParenthesizedExpression$vE))) {
+          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.Expression$TP) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.ParenthesizedExpression$vE)) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(result), CONCEPTS.BinaryOperation$vf))) {
             SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
             SNodeOperations.replaceWithAnother(result, parens);
             SLinkOperations.setTarget(parens, LINKS.expression$efP0, result);
@@ -275,6 +277,7 @@ public class Expression_to_type_Cast extends TransformationMenuBase {
     /*package*/ static final SConcept IncompleteLeftParen$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
     /*package*/ static final SConcept CastExpression$7m = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
     /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
   }
 
   private static final class LINKS {

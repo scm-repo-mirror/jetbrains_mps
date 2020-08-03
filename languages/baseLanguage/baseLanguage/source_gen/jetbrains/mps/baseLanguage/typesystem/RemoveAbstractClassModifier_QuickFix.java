@@ -19,7 +19,7 @@ public class RemoveAbstractClassModifier_QuickFix extends QuickFix_Runtime {
     return "Remove the 'abstract' modifier";
   }
   public void execute(SNode node) {
-    SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.ClassConcept$IY), PROPS.abstractClass$gY5l, false);
+    SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.ClassConcept$IY), PROPS.abstractClass$e4_b, false);
   }
 
   private static final class CONCEPTS {
@@ -27,6 +27,6 @@ public class RemoveAbstractClassModifier_QuickFix extends QuickFix_Runtime {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
+    /*package*/ static final SProperty abstractClass$e4_b = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
   }
 }

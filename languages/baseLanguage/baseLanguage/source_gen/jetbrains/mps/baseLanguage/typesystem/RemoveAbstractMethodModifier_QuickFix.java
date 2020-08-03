@@ -9,16 +9,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class RemoveAbstractModifier_QuickFix extends QuickFix_Runtime {
-  public RemoveAbstractModifier_QuickFix() {
+public class RemoveAbstractMethodModifier_QuickFix extends QuickFix_Runtime {
+  public RemoveAbstractMethodModifier_QuickFix() {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2577576048763133371"));
   }
   public String getDescription(SNode node) {
     return "Remove the 'abstract' modifier";
   }
   public void execute(SNode node) {
-    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$gogN);
-    SPropertyOperations.assign(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$gogN, false);
+    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractMethodModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$gogN);
+    SPropertyOperations.assign(((SNode) RemoveAbstractMethodModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$gogN, false);
   }
 
   private static final class PROPS {
