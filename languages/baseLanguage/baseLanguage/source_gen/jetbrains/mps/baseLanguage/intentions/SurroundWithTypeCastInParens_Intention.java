@@ -10,10 +10,10 @@ import jetbrains.mps.openapi.intentions.Kind;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.baseLanguage.actions.ExpectedType_FactoryUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -23,17 +23,17 @@ import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public final class SurroundWithTypeCast_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class SurroundWithTypeCastInParens_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
-  public SurroundWithTypeCast_Intention() {
-    super(Kind.NORMAL, false, new SNodePointer("r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)", "418779379561917490"));
+  public SurroundWithTypeCastInParens_Intention() {
+    super(Kind.NORMAL, false, new SNodePointer("r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)", "8431410806093835357"));
   }
   @Override
   public String getPresentation() {
-    return "SurroundWithTypeCast";
+    return "SurroundWithTypeCastInParens";
   }
   @Override
   public boolean isApplicable(final SNode node, final EditorContext editorContext) {
@@ -43,7 +43,7 @@ public final class SurroundWithTypeCast_Intention extends AbstractIntentionDescr
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return editorContext.getSelectedNodes().size() == 1;
+    return editorContext.getSelectedNodes().size() == 1 && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.ParenthesizedExpression$vE));
   }
   @Override
   public boolean isSurroundWith() {
@@ -60,26 +60,22 @@ public final class SurroundWithTypeCast_Intention extends AbstractIntentionDescr
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "(Type) expr";
+      return "((Type) expr)";
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode expectedType = ExpectedType_FactoryUtil.createExpectedType(node);
-      SNode castExpression = _quotation_createNode_3zfq0u_a0b0a(SNodeOperations.copyNode(node), expectedType);
+      SNode castExpression = _quotation_createNode_fkvgh1_a0b0a(SNodeOperations.copyNode(node), expectedType);
 
-      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Expression$TP) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.ParenthesizedExpression$vE)) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.BinaryOperation$vf))) {
-        SNode paren = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
-        SLinkOperations.setTarget(paren, LINKS.expression$efP0, castExpression);
-        SNodeOperations.replaceWithAnother(node, paren);
-      } else {
-        SNodeOperations.replaceWithAnother(node, castExpression);
-      }
+      SNode paren = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
+      SLinkOperations.setTarget(paren, LINKS.expression$4_F0, castExpression);
+      SNodeOperations.replaceWithAnother(node, paren);
 
       if (PrecedenceUtil.needsParensInsideCastExpression(castExpression)) {
-        SNode expression = SLinkOperations.getTarget(castExpression, LINKS.expression$izU1);
+        SNode expression = SLinkOperations.getTarget(castExpression, LINKS.expression$8QPv);
         SNode p = SNodeFactoryOperations.createNewNode(CONCEPTS.ParenthesizedExpression$vE, null);
         SNode result = SNodeOperations.replaceWithAnother(expression, p);
-        SLinkOperations.setTarget(p, LINKS.expression$efP0, expression);
+        SLinkOperations.setTarget(p, LINKS.expression$4_F0, expression);
       }
 
       if (expectedType != null) {
@@ -90,10 +86,10 @@ public final class SurroundWithTypeCast_Intention extends AbstractIntentionDescr
     }
     @Override
     public IntentionDescriptor getDescriptor() {
-      return SurroundWithTypeCast_Intention.this;
+      return SurroundWithTypeCastInParens_Intention.this;
     }
   }
-  private static SNode _quotation_createNode_3zfq0u_a0b0a(Object parameter_1, Object parameter_2) {
+  private static SNode _quotation_createNode_fkvgh1_a0b0a(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
@@ -110,14 +106,12 @@ public final class SurroundWithTypeCast_Intention extends AbstractIntentionDescr
     return quotedNode_3;
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink expression$efP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
-    /*package*/ static final SContainmentLink expression$izU1 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
   }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink expression$8QPv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
   }
 }
