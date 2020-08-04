@@ -65,8 +65,8 @@ if [ -n "$MPS_JDK" ] && [ -x "$MPS_JDK/bin/java" ]; then
   JDK="$MPS_JDK"
 fi
 
-if [ -z "$JDK" ] && [ -s "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS2020.2/mps.jdk" ]; then
-  USER_JRE=$("$CAT" "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS2020.2/mps.jdk")
+if [ -z "$JDK" ] && [ -s "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS$version.major$.$version.minor$/mps.jdk" ]; then
+  USER_JRE=$("$CAT" "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS$version.major$.$version.minor$/mps.jdk")
   if [ ! -d "$USER_JRE" ]; then
     USER_JRE="$IDE_HOME/$USER_JRE"
   fi
@@ -170,9 +170,9 @@ if [ -n "$IDEA_VM_OPTIONS" ] && [ -r "$IDEA_VM_OPTIONS" ]; then
 elif [ -r "$IDE_HOME.vmoptions" ]; then
   # Toolbox
   VM_OPTIONS_FILE="$IDE_HOME.vmoptions"
-elif [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS2020.2/mps$BITS.vmoptions" ]; then
+elif [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS$version.major$.$version.minor$/mps$BITS.vmoptions" ]; then
   # user-overridden
-  VM_OPTIONS_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS2020.2/mps$BITS.vmoptions"
+  VM_OPTIONS_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/$IDEA_VENDOR_NAME/MPS$version.major$.$version.minor$/mps$BITS.vmoptions"
 elif [ -r "$IDE_BIN_HOME/mps$BITS.vmoptions" ]; then
   # default, standard installation
   VM_OPTIONS_FILE="$IDE_BIN_HOME/mps$BITS.vmoptions"
@@ -218,7 +218,7 @@ fi
 IFS="$(printf '\n\t')"
 # shellcheck disable=SC2086
 MAIN_CLASS=jetbrains.mps.Launcher
-IDEA_PATHS_SELECTOR=MPS2020.2
+IDEA_PATHS_SELECTOR=MPS$version.major$.$version.minor$
 "$JAVA_BIN" \
   ${AGENT} \
   -classpath "$CLASSPATH" \

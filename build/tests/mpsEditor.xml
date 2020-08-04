@@ -13,6 +13,10 @@
   <property name="artifacts.mpsConsolePlugin" location="${mps_home}/plugins" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mpsCore}/build.properties" prefix="import.mpsCore" />
+  <property name="mpsBootstrapCore.version.major" value="${import.mpsCore.mpsBootstrapCore.version.major}" />
+  <property name="mpsBootstrapCore.version.minor" value="${import.mpsCore.mpsBootstrapCore.version.minor}" />
+  <property name="mpsBootstrapCore.version.bugfixNr" value="${import.mpsCore.mpsBootstrapCore.version.bugfixNr}" />
+  <property name="mpsBootstrapCore.version.eap" value="${import.mpsCore.mpsBootstrapCore.version.eap}" />
   <property name="mpsBootstrapCore.version" value="${import.mpsCore.mpsBootstrapCore.version}" />
   <property name="environment" value="env" />
   <property name="env.JAVA_HOME" value="${java.home}/.." />
@@ -1374,7 +1378,7 @@
       <zipfileset file="${basedir}/testbench/testsolutions/editor.forms.test/jetbrains.mps.lang.editor.forms.tests.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-editor.forms.test-models" prefix="module/models" />
     </jar>
-    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
+    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version.major=${mpsBootstrapCore.version.major}${line.separator}mpsBootstrapCore.version.minor=${mpsBootstrapCore.version.minor}${line.separator}mpsBootstrapCore.version.bugfixNr=${mpsBootstrapCore.version.bugfixNr}${line.separator}mpsBootstrapCore.version.eap=${mpsBootstrapCore.version.eap}${line.separator}mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
   </target>
   
   <target name="buildDependents" />

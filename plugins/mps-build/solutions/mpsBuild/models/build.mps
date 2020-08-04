@@ -418,6 +418,7 @@
         <child id="5894421362116952242" name="documentation" index="3$Ir1d" />
         <child id="1084163669516664629" name="copyrightForeground" index="3KTKoD" />
         <child id="1084163669516639223" name="foreground" index="3KTYbF" />
+        <child id="4157435862321767641" name="version" index="3ZAC$U" />
       </concept>
       <concept id="7753544965996489991" name="jetbrains.mps.build.mps.structure.BuildMps_BrandingUpdateSite" flags="ng" index="1zDKOm">
         <child id="6108265972537335225" name="updateUrl" index="2EtnoK" />
@@ -489,6 +490,12 @@
       <concept id="3335207478148059730" name="jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJarContent" flags="ng" index="3PtdJl" />
       <concept id="7259033139236285166" name="jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency" flags="nn" index="1SiIV0">
         <child id="7259033139236285167" name="dependency" index="1SiIV1" />
+      </concept>
+      <concept id="4157435862321765764" name="jetbrains.mps.build.mps.structure.BuildMps_BrandingVersion" flags="ng" index="3ZAF1B">
+        <child id="4157435862321765794" name="versionEap" index="3ZAF11" />
+        <child id="4157435862321765793" name="versionBugfixNr" index="3ZAF12" />
+        <child id="4157435862321765792" name="versionMinor" index="3ZAF13" />
+        <child id="4157435862321765791" name="versionMajor" index="3ZAF1W" />
       </concept>
     </language>
   </registry>
@@ -2006,12 +2013,60 @@
         <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
     </node>
+    <node concept="2kB4xC" id="3AMbuf1a7Ob" role="1l3spd">
+      <property role="TrG5h" value="version.major" />
+      <node concept="aVJcg" id="3AMbuf1a7Oc" role="aVJcv">
+        <node concept="NbPM2" id="3AMbuf1a7Od" role="aVJcq">
+          <node concept="3Mxwew" id="3AMbuf1a7Oe" role="3MwsjC">
+            <property role="3MwjfP" value="2020" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2kB4xC" id="3AMbuf1a7Of" role="1l3spd">
+      <property role="TrG5h" value="version.minor" />
+      <node concept="aVJcg" id="3AMbuf1a7Og" role="aVJcv">
+        <node concept="NbPM2" id="3AMbuf1a7Oh" role="aVJcq">
+          <node concept="3Mxwew" id="3AMbuf1a7Oi" role="3MwsjC">
+            <property role="3MwjfP" value="2" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2kB4xC" id="3AMbuf1N5Oy" role="1l3spd">
+      <property role="TrG5h" value="version.bugfixNr" />
+      <node concept="aVJcg" id="3AMbuf1N6Pd" role="aVJcv">
+        <node concept="NbPM2" id="3AMbuf1N6Pc" role="aVJcq" />
+      </node>
+    </node>
+    <node concept="2kB4xC" id="3AMbuf1a7On" role="1l3spd">
+      <property role="TrG5h" value="version.eap" />
+      <node concept="aVJcg" id="3AMbuf1a7Oo" role="aVJcv">
+        <node concept="NbPM2" id="3AMbuf1a7Op" role="aVJcq">
+          <node concept="3Mxwew" id="3AMbuf1a7Oq" role="3MwsjC">
+            <property role="3MwjfP" value=" EAP" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2kB4xC" id="5HVSRHdVf2d" role="1l3spd">
       <property role="TrG5h" value="version" />
       <node concept="aVJcg" id="5HVSRHdVf2e" role="aVJcv">
         <node concept="NbPM2" id="5HVSRHdVf2f" role="aVJcq">
-          <node concept="3Mxwew" id="5HVSRHdVf2g" role="3MwsjC">
-            <property role="3MwjfP" value="2020.2 EAP" />
+          <node concept="3Mxwey" id="3AMbuf1a81I" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+          </node>
+          <node concept="3Mxwew" id="3AMbuf1a8Pd" role="3MwsjC">
+            <property role="3MwjfP" value="." />
+          </node>
+          <node concept="3Mxwey" id="3AMbuf1a9eU" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+          </node>
+          <node concept="3Mxwey" id="3AMbuf1yvbX" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+          </node>
+          <node concept="3Mxwey" id="3AMbuf1N728" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
           </node>
         </node>
       </node>
@@ -25889,6 +25944,60 @@
             </node>
             <node concept="28jJK3" id="2lgcjg3akLO" role="39821P">
               <property role="28jJZ5" value="755" />
+              <node concept="1688n2" id="3AMbuf1C$UC" role="28jJR8">
+                <property role="1688n3" value="\$version\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf1C$UD" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf1C$UE" role="3MwsjC">
+                    <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf1C$UF" role="28jJR8">
+                <property role="1688n3" value="\$build\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf1C$UG" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf1C$UH" role="3MwsjC">
+                    <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf49mSF" role="28jJR8">
+                <property role="1688n3" value="\$version\.major\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf49mSG" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf49mSH" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf49mSV" role="28jJR8">
+                <property role="1688n3" value="\$version\.minor\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf49mSW" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf49mSX" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf49mTe" role="28jJR8">
+                <property role="1688n3" value="\$version\.bugfixNr\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf49mTf" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf49mTg" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf49mT$" role="28jJR8">
+                <property role="1688n3" value="\$version\.eap\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf49mT_" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf49mTA" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+                  </node>
+                </node>
+              </node>
               <node concept="3co7Ac" id="2lgcjg3akLU" role="28jJR8">
                 <property role="3co7Am" value="lf" />
                 <property role="3cpA_W" value="true" />
@@ -26034,6 +26143,60 @@
               </node>
               <node concept="28jJK3" id="2lgcjg3akLV" role="39821P">
                 <property role="28jJZ5" value="755" />
+                <node concept="1688n2" id="3AMbuf1C$Vd" role="28jJR8">
+                  <property role="1688n3" value="\$version\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf1C$Ve" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf1C$Vf" role="3MwsjC">
+                      <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="1688n2" id="3AMbuf1C$Vg" role="28jJR8">
+                  <property role="1688n3" value="\$build\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf1C$Vh" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf1C$Vi" role="3MwsjC">
+                      <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="1688n2" id="3AMbuf5bSBH" role="28jJR8">
+                  <property role="1688n3" value="\$version\.major\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf5bSBI" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf5bSBJ" role="3MwsjC">
+                      <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="1688n2" id="3AMbuf5bSBK" role="28jJR8">
+                  <property role="1688n3" value="\$version\.minor\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf5bSBL" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf5bSBM" role="3MwsjC">
+                      <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="1688n2" id="3AMbuf5bSBN" role="28jJR8">
+                  <property role="1688n3" value="\$version\.bugfixNr\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf5bSBO" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf5bSBP" role="3MwsjC">
+                      <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="1688n2" id="3AMbuf5bSBQ" role="28jJR8">
+                  <property role="1688n3" value="\$version\.eap\$" />
+                  <property role="1688n6" value="g" />
+                  <node concept="NbPM2" id="3AMbuf5bSBR" role="1688n0">
+                    <node concept="3Mxwey" id="3AMbuf5bSBS" role="3MwsjC">
+                      <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="3co7Ac" id="2lgcjg3akM5" role="28jJR8">
                   <property role="3co7Am" value="crlf" />
                 </node>
@@ -26278,6 +26441,7 @@
                   </node>
                   <node concept="1688n2" id="3f6C5dcXexj" role="28jJR8">
                     <property role="1688n3" value="\$version\$" />
+                    <property role="1688n6" value="g" />
                     <node concept="NbPM2" id="3f6C5dcXexk" role="1688n0">
                       <node concept="3Mxwey" id="3f6C5dcXexl" role="3MwsjC">
                         <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
@@ -26286,9 +26450,46 @@
                   </node>
                   <node concept="1688n2" id="3f6C5dcXexm" role="28jJR8">
                     <property role="1688n3" value="\$build\$" />
+                    <property role="1688n6" value="g" />
                     <node concept="NbPM2" id="3f6C5dcXexn" role="1688n0">
                       <node concept="3Mxwey" id="3f6C5dcXexo" role="3MwsjC">
                         <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="1688n2" id="3AMbuf5bSCi" role="28jJR8">
+                    <property role="1688n3" value="\$version\.major\$" />
+                    <property role="1688n6" value="g" />
+                    <node concept="NbPM2" id="3AMbuf5bSCj" role="1688n0">
+                      <node concept="3Mxwey" id="3AMbuf5bSCk" role="3MwsjC">
+                        <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="1688n2" id="3AMbuf5bSCl" role="28jJR8">
+                    <property role="1688n3" value="\$version\.minor\$" />
+                    <property role="1688n6" value="g" />
+                    <node concept="NbPM2" id="3AMbuf5bSCm" role="1688n0">
+                      <node concept="3Mxwey" id="3AMbuf5bSCn" role="3MwsjC">
+                        <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="1688n2" id="3AMbuf5bSCo" role="28jJR8">
+                    <property role="1688n3" value="\$version\.bugfixNr\$" />
+                    <property role="1688n6" value="g" />
+                    <node concept="NbPM2" id="3AMbuf5bSCp" role="1688n0">
+                      <node concept="3Mxwey" id="3AMbuf5bSCq" role="3MwsjC">
+                        <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="1688n2" id="3AMbuf5bSCr" role="28jJR8">
+                    <property role="1688n3" value="\$version\.eap\$" />
+                    <property role="1688n6" value="g" />
+                    <node concept="NbPM2" id="3AMbuf5bSCs" role="1688n0">
+                      <node concept="3Mxwey" id="3AMbuf5bSCt" role="3MwsjC">
+                        <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
                       </node>
                     </node>
                   </node>
@@ -26550,6 +26751,60 @@
             </node>
             <node concept="28jJK3" id="2lgcjg3aF5C" role="39821P">
               <property role="28jJZ5" value="755" />
+              <node concept="1688n2" id="3AMbuf2J3f2" role="28jJR8">
+                <property role="1688n3" value="\$version\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf2J3f3" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf2J3f4" role="3MwsjC">
+                    <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf2J3f5" role="28jJR8">
+                <property role="1688n3" value="\$build\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf2J3f6" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf2J3f7" role="3MwsjC">
+                    <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSCU" role="28jJR8">
+                <property role="1688n3" value="\$version\.major\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSCV" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSCW" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSCX" role="28jJR8">
+                <property role="1688n3" value="\$version\.minor\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSCY" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSCZ" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSD0" role="28jJR8">
+                <property role="1688n3" value="\$version\.bugfixNr\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSD1" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSD2" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSD3" role="28jJR8">
+                <property role="1688n3" value="\$version\.eap\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSD4" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSD5" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+                  </node>
+                </node>
+              </node>
               <node concept="3co7Ac" id="2lgcjg3aF5H" role="28jJR8">
                 <property role="3co7Am" value="lf" />
                 <property role="3cpA_W" value="true" />
@@ -26830,6 +27085,60 @@
             </node>
             <node concept="28jJK3" id="AwiPu7jHTT" role="39821P">
               <property role="28jJZ5" value="755" />
+              <node concept="1688n2" id="3AMbuf4jKG6" role="28jJR8">
+                <property role="1688n3" value="\$version\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf4jKG7" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf4jKG8" role="3MwsjC">
+                    <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf4jKG9" role="28jJR8">
+                <property role="1688n3" value="\$build\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf4jKGa" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf4jKGb" role="3MwsjC">
+                    <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSDv" role="28jJR8">
+                <property role="1688n3" value="\$version\.major\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSDw" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSDx" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSDy" role="28jJR8">
+                <property role="1688n3" value="\$version\.minor\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSDz" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSD$" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSD_" role="28jJR8">
+                <property role="1688n3" value="\$version\.bugfixNr\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSDA" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSDB" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSDC" role="28jJR8">
+                <property role="1688n3" value="\$version\.eap\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSDD" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSDE" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+                  </node>
+                </node>
+              </node>
               <node concept="3co7Ac" id="AwiPu7jHTU" role="28jJR8">
                 <property role="3co7Am" value="crlf" />
               </node>
@@ -27148,6 +27457,7 @@
               </node>
               <node concept="1688n2" id="6xv$4WsFwzb" role="28jJR8">
                 <property role="1688n3" value="\$version\$" />
+                <property role="1688n6" value="g" />
                 <node concept="NbPM2" id="6xv$4WsFwzc" role="1688n0">
                   <node concept="3Mxwey" id="6xv$4WsFwzd" role="3MwsjC">
                     <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
@@ -27156,9 +27466,46 @@
               </node>
               <node concept="1688n2" id="6xv$4WsFwze" role="28jJR8">
                 <property role="1688n3" value="\$build\$" />
+                <property role="1688n6" value="g" />
                 <node concept="NbPM2" id="6xv$4WsFwzf" role="1688n0">
                   <node concept="3Mxwey" id="6xv$4WsFwzg" role="3MwsjC">
                     <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSE4" role="28jJR8">
+                <property role="1688n3" value="\$version\.major\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSE5" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSE6" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSE7" role="28jJR8">
+                <property role="1688n3" value="\$version\.minor\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSE8" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSE9" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSEa" role="28jJR8">
+                <property role="1688n3" value="\$version\.bugfixNr\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSEb" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSEc" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+                  </node>
+                </node>
+              </node>
+              <node concept="1688n2" id="3AMbuf5bSEd" role="28jJR8">
+                <property role="1688n3" value="\$version\.eap\$" />
+                <property role="1688n6" value="g" />
+                <node concept="NbPM2" id="3AMbuf5bSEe" role="1688n0">
+                  <node concept="3Mxwey" id="3AMbuf5bSEf" role="3MwsjC">
+                    <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
                   </node>
                 </node>
               </node>
@@ -27224,6 +27571,7 @@
         </node>
         <node concept="1688n2" id="AwiPu7jIGf" role="28jJR8">
           <property role="1688n3" value="\$version\$" />
+          <property role="1688n6" value="g" />
           <node concept="NbPM2" id="AwiPu7jIGg" role="1688n0">
             <node concept="3Mxwey" id="AwiPu7jIGh" role="3MwsjC">
               <ref role="3Mxwex" node="5HVSRHdVf2d" resolve="version" />
@@ -27232,9 +27580,46 @@
         </node>
         <node concept="1688n2" id="AwiPu7jIGi" role="28jJR8">
           <property role="1688n3" value="\$build\$" />
+          <property role="1688n6" value="g" />
           <node concept="NbPM2" id="AwiPu7jIGj" role="1688n0">
             <node concept="3Mxwey" id="AwiPu7jIGk" role="3MwsjC">
               <ref role="3Mxwex" node="3IKDaVZnAxg" resolve="build.number" />
+            </node>
+          </node>
+        </node>
+        <node concept="1688n2" id="3AMbuf5bSEG" role="28jJR8">
+          <property role="1688n3" value="\$version\.major\$" />
+          <property role="1688n6" value="g" />
+          <node concept="NbPM2" id="3AMbuf5bSEH" role="1688n0">
+            <node concept="3Mxwey" id="3AMbuf5bSEI" role="3MwsjC">
+              <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+            </node>
+          </node>
+        </node>
+        <node concept="1688n2" id="3AMbuf5bSEJ" role="28jJR8">
+          <property role="1688n3" value="\$version\.minor\$" />
+          <property role="1688n6" value="g" />
+          <node concept="NbPM2" id="3AMbuf5bSEK" role="1688n0">
+            <node concept="3Mxwey" id="3AMbuf5bSEL" role="3MwsjC">
+              <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+            </node>
+          </node>
+        </node>
+        <node concept="1688n2" id="3AMbuf5bSEM" role="28jJR8">
+          <property role="1688n3" value="\$version\.bugfixNr\$" />
+          <property role="1688n6" value="g" />
+          <node concept="NbPM2" id="3AMbuf5bSEN" role="1688n0">
+            <node concept="3Mxwey" id="3AMbuf5bSEO" role="3MwsjC">
+              <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+            </node>
+          </node>
+        </node>
+        <node concept="1688n2" id="3AMbuf5bSEP" role="28jJR8">
+          <property role="1688n3" value="\$version\.eap\$" />
+          <property role="1688n6" value="g" />
+          <node concept="NbPM2" id="3AMbuf5bSEQ" role="1688n0">
+            <node concept="3Mxwey" id="3AMbuf5bSER" role="3MwsjC">
+              <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
             </node>
           </node>
         </node>
@@ -27614,6 +27999,28 @@
           <property role="3MwjfP" value="JetBrains" />
         </node>
       </node>
+      <node concept="3ZAF1B" id="3AMbuf6qfk0" role="3ZAC$U">
+        <node concept="3_J27D" id="3AMbuf6qfk1" role="3ZAF1W">
+          <node concept="3Mxwey" id="3AMbuf6qfkj" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Ob" resolve="version.major" />
+          </node>
+        </node>
+        <node concept="3_J27D" id="3AMbuf6qfk3" role="3ZAF13">
+          <node concept="3Mxwey" id="3AMbuf6qfkl" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7Of" resolve="version.minor" />
+          </node>
+        </node>
+        <node concept="NbPM2" id="3AMbuf6qfk5" role="3ZAF12">
+          <node concept="3Mxwey" id="3AMbuf6qfkn" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1N5Oy" resolve="version.bugfixNr" />
+          </node>
+        </node>
+        <node concept="NbPM2" id="3AMbuf6qfk7" role="3ZAF11">
+          <node concept="3Mxwey" id="3AMbuf6qfkp" role="3MwsjC">
+            <ref role="3Mxwex" node="3AMbuf1a7On" resolve="version.eap" />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="3jsGME" id="3yx5FXANrTm" role="3989C9">
       <property role="TrG5h" value="mps-tips" />
@@ -27772,7 +28179,7 @@
             </node>
           </node>
           <node concept="1zDrgl" id="6Iq8148gFCu" role="39821P">
-            <ref role="1zDrgn" node="6Iq8148fw_a" resolve="JetBrains MPS 2020.2" />
+            <ref role="1zDrgn" node="6Iq8148fw_a" resolve="JetBrains MPS ${version.major}.${version.minor}" />
           </node>
           <node concept="28jJK3" id="5gyid2dEaaf" role="39821P">
             <node concept="55IIr" id="5gyid2dEaag" role="28jJRO">
@@ -37031,7 +37438,7 @@
     <property role="TrG5h" value="mps" />
     <property role="3GE5qa" value="ide.data" />
     <property role="26EafI" value="bin" />
-    <ref role="1_kbm$" node="6Iq8148fw_a" resolve="JetBrains MPS 2020.2" />
+    <ref role="1_kbm$" node="6Iq8148fw_a" resolve="JetBrains MPS ${version.major}.${version.minor}" />
     <node concept="1X3_iC" id="6KekG3H$kGh" role="lGtFl">
       <property role="3V$3am" value="vmOptions64" />
       <property role="3V$3ak" value="d5033cee-f632-44b6-b308-89d4fbde34ff/3885435385580582152/2693344784283221851" />

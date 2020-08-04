@@ -30,6 +30,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_BuildMps_BrandingKeymap;
   private ConceptPresentation props_BuildMps_BrandingStats;
   private ConceptPresentation props_BuildMps_BrandingUpdateSite;
+  private ConceptPresentation props_BuildMps_BrandingVersion;
   private ConceptPresentation props_BuildMps_DevKit;
   private ConceptPresentation props_BuildMps_DevKitExport;
   private ConceptPresentation props_BuildMps_DevKitExportLanguage;
@@ -193,6 +194,10 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.BuildMps_Branding:
         if (props_BuildMps_Branding == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL);
+          cpb.deprecateProperty(0x308857b584c74e44L, "major");
+          cpb.deprecateProperty(0x308857b584c74e45L, "minor");
+          cpb.deprecateProperty(0x3acf8ab06f017071L, "bugfixNr");
+          cpb.deprecateProperty(0x308857b584c74e46L, "eap");
           cpb.deprecateAggregation(0x54c4eb89feb0001cL, "icon32opaque");
           cpb.deprecateAggregation(0x5efec015d9c0dee8L, "iconToolWindow");
           cpb.deprecateAggregation(0x54a6365f080e9d69L, "editorBGUrl");
@@ -237,6 +242,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BuildMps_BrandingUpdateSite = cpb.create();
         }
         return props_BuildMps_BrandingUpdateSite;
+      case LanguageConceptSwitch.BuildMps_BrandingVersion:
+        if (props_BuildMps_BrandingVersion == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("version");
+          props_BuildMps_BrandingVersion = cpb.create();
+        }
+        return props_BuildMps_BrandingVersion;
       case LanguageConceptSwitch.BuildMps_DevKit:
         if (props_BuildMps_DevKit == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -311,7 +323,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_BuildMps_IdeaPlugin == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a13b0pc);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a23b0qc);
           props_BuildMps_IdeaPlugin = cpb.create();
         }
         return props_BuildMps_IdeaPlugin;

@@ -722,6 +722,12 @@
       <property role="IQ2ns" value="781140262677914381" />
       <ref role="20lvS9" node="FnaIS$F0fo" resolve="BuildMps_BrandingCompany" />
     </node>
+    <node concept="1TJgyj" id="3AMbuf6aajp" role="1TKVEi">
+      <property role="IQ2ns" value="4157435862321767641" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="version" />
+      <ref role="20lvS9" node="3AMbuf6a9Q4" resolve="BuildMps_BrandingVersion" />
+    </node>
     <node concept="1TJgyj" id="5j4USBYG00p" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="buildNumber" />
@@ -993,21 +999,25 @@
       <property role="TrG5h" value="major" />
       <property role="IQ2nx" value="3497141547781541444" />
       <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+      <node concept="asaX9" id="3AMbuf1lt3A" role="lGtFl" />
     </node>
     <node concept="1TJgyi" id="328lVm4LOT5" role="1TKVEl">
       <property role="TrG5h" value="minor" />
       <property role="IQ2nx" value="3497141547781541445" />
       <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
+      <node concept="asaX9" id="3AMbuf1lt3C" role="lGtFl" />
     </node>
     <node concept="1TJgyi" id="3FfyF1J0n1L" role="1TKVEl">
       <property role="TrG5h" value="bugfixNr" />
       <property role="IQ2nx" value="4237758264760168561" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+      <node concept="asaX9" id="3AMbuf1lt3E" role="lGtFl" />
     </node>
     <node concept="1TJgyi" id="328lVm4LOT6" role="1TKVEl">
       <property role="TrG5h" value="eap" />
       <property role="IQ2nx" value="3497141547781541446" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="3AMbuf1lt3G" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="6Iq8148gbcl" role="PzmwI">
       <ref role="PrY4T" to="3ior:6Iq8148fTg2" resolve="BuildSource_FilesetProjectPart" />
@@ -1797,6 +1807,41 @@
       <property role="TrG5h" value="never" />
       <property role="3tVfz5" value="250862790757304013" />
       <ref role="2wpffI" node="dVfA4asWrd" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="3AMbuf6a9Q4">
+    <property role="EcuMT" value="4157435862321765764" />
+    <property role="3GE5qa" value="Project.Branding" />
+    <property role="TrG5h" value="BuildMps_BrandingVersion" />
+    <property role="34LRSv" value="version" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="3AMbuf6a9Qv" role="1TKVEi">
+      <property role="IQ2ns" value="4157435862321765791" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="versionMajor" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="3ior:IFRVVI5ZTn" resolve="BuildStringNotEmpty" />
+    </node>
+    <node concept="1TJgyj" id="3AMbuf6a9Qw" role="1TKVEi">
+      <property role="IQ2ns" value="4157435862321765792" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="versionMinor" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="3ior:IFRVVI5ZTn" resolve="BuildStringNotEmpty" />
+    </node>
+    <node concept="1TJgyj" id="3AMbuf6a9Qx" role="1TKVEi">
+      <property role="IQ2ns" value="4157435862321765793" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="versionBugfixNr" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="3ior:3NagsOfThPf" resolve="BuildString" />
+    </node>
+    <node concept="1TJgyj" id="3AMbuf6a9Qy" role="1TKVEi">
+      <property role="IQ2ns" value="4157435862321765794" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="versionEap" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="3ior:3NagsOfThPf" resolve="BuildString" />
     </node>
   </node>
 </model>

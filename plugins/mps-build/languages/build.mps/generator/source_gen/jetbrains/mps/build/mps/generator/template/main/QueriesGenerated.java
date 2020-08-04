@@ -29,6 +29,7 @@ import jetbrains.mps.build.util.DependenciesHelper;
 import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
 import jetbrains.mps.build.util.Context;
+import jetbrains.mps.build.mps.behavior.BuildMps_Branding__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.build.mps.behavior.BuildMps_Tips__BehaviorDescriptor;
 import jetbrains.mps.build.mps.behavior.BuildMps_TipsPackage__BehaviorDescriptor;
@@ -312,17 +313,14 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(((SNode) _context.getVariable("branding")), LINKS.codename$Kt6g), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding"))));
   }
   public static Object propertyMacro_GetValue_8_1(final PropertyMacroContext _context) {
-    return Integer.toString(SPropertyOperations.getInteger(((SNode) _context.getVariable("branding")), PROPS.major$SSKf));
+    return (String) BuildMps_Branding__BehaviorDescriptor.getVersionMajor_id3AMbuf0qvyc.invoke(((SNode) _context.getVariable("branding")), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding"))));
   }
   public static Object propertyMacro_GetValue_8_2(final PropertyMacroContext _context) {
-    String result = Integer.toString(SPropertyOperations.getInteger(((SNode) _context.getVariable("branding")), PROPS.minor$SSZg));
-    if (isNotEmptyString(SPropertyOperations.getString(((SNode) _context.getVariable("branding")), PROPS.bugfixNr$$9ss))) {
-      result += "." + SPropertyOperations.getString(((SNode) _context.getVariable("branding")), PROPS.bugfixNr$$9ss);
-    }
+    String result = BuildMps_Branding__BehaviorDescriptor.getVersionMinor_id3AMbuf0qHKA.invoke(((SNode) _context.getVariable("branding")), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding")))) + BuildMps_Branding__BehaviorDescriptor.getVersionBugfixNr_id3AMbuf3$r6x.invoke(((SNode) _context.getVariable("branding")), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding"))));
     return result;
   }
   public static Object propertyMacro_GetValue_8_3(final PropertyMacroContext _context) {
-    return (SPropertyOperations.getBoolean(((SNode) _context.getVariable("branding")), PROPS.eap$STeh) ? "true" : "false");
+    return (isNotEmptyString(BuildMps_Branding__BehaviorDescriptor.getVersionEap_id3AMbuf0qQ5F.invoke(((SNode) _context.getVariable("branding")), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding"))))) ? "true" : "false");
   }
   public static Object propertyMacro_GetValue_8_4(final PropertyMacroContext _context) {
     return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(((SNode) _context.getVariable("branding")), LINKS.updateWebsite$$jVn), LINKS.updateChannel$_uwX), Context.defaultContext(_context).getMacros(((SNode) _context.getVariable("branding"))));
@@ -3462,10 +3460,6 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty stripImplementation$r80o = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x6de50fcfc334192fL, "stripImplementation");
     /*package*/ static final SProperty deployFolderName$k8X8 = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c195c50L, 0x281831b8d7259819L, "deployFolderName");
     /*package*/ static final SProperty stripImplementation$GhvE = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x6de50fcfc3523742L, "stripImplementation");
-    /*package*/ static final SProperty major$SSKf = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e44L, "major");
-    /*package*/ static final SProperty minor$SSZg = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e45L, "minor");
-    /*package*/ static final SProperty bugfixNr$$9ss = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x3acf8ab06f017071L, "bugfixNr");
-    /*package*/ static final SProperty eap$STeh = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e46L, "eap");
     /*package*/ static final SProperty id$sSa_ = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bb6fL, "id");
     /*package*/ static final SProperty url$fyax = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6cb3984bfe5b72d3L, 0x6cb3984bfe5b72d5L, "url");
     /*package*/ static final SProperty name$fypy = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6cb3984bfe5b72d3L, 0x6cb3984bfe5b72d6L, "name");

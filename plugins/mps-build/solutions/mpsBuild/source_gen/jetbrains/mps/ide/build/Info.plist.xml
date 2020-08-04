@@ -101,7 +101,7 @@
         <string>false</string>
         
         <key>idea.paths.selector</key>
-        <string>MPS2020.2</string>
+        <string>MPS$version.major$.$version.minor$</string>
         
         <key>idea.vendor.name</key>
         <string>JetBrains</string>
@@ -114,7 +114,7 @@
         <key>idea.home.path</key>
         <string>$APP_PACKAGE/Contents</string>
       </dict>
-      <!--Use Contents/bin/mps.vmoptions or ~/Library/Preferences/MPS2020.2/mps.vmoptions file to modify VMOptions-->
+      <!--Use Contents/bin/mps.vmoptions or ~/Library/Preferences/MPS$version.major$.$version.minor$/mps.vmoptions file to modify VMOptions-->
       <key>VMOptions</key>
       <string>-XX:+UseCompressedOops</string>
       <key>WorkingDirectory</key>

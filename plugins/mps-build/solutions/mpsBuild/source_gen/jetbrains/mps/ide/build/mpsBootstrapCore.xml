@@ -3,7 +3,11 @@
   <property name="build.dir" location="build" />
   <property name="build.tmp" location="${build.dir}/tmp/mpsBootstrapCore" />
   <property name="build.layout" location="${build.dir}/artifacts/mpsBootstrapCore" />
-  <property name="version" value="2020.2 EAP" />
+  <property name="version.major" value="2020" />
+  <property name="version.minor" value="2" />
+  <property name="version.bugfixNr" value="" />
+  <property name="version.eap" value=" EAP" />
+  <property name="version" value="${version.major}.${version.minor}${version.bugfixNr}${version.eap}" />
   <property name="idea_home" location="" />
   <property name="mps_home" location="${basedir}" />
   <property name="platform_lib" location="${basedir}/lib" />
@@ -15973,7 +15977,7 @@
       <zipfileset file="${mps_home}/core/tool/builder/jetbrains.mps.tool.builder.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-tool-builder-models" prefix="module/models" />
     </jar>
-    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version=${version}</echo>
+    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version.major=${version.major}${line.separator}mpsBootstrapCore.version.minor=${version.minor}${line.separator}mpsBootstrapCore.version.bugfixNr=${version.bugfixNr}${line.separator}mpsBootstrapCore.version.eap=${version.eap}${line.separator}mpsBootstrapCore.version=${version}</echo>
   </target>
   
   <target name="buildDependents">

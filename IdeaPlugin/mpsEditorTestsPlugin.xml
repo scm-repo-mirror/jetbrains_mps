@@ -7,6 +7,10 @@
   <property name="idea_home" location="" />
   <property name="artifacts.mpsEditor" location="${build.dir}/artifacts/mpsEditor" />
   <property file="${artifacts.mpsEditor}/build.properties" prefix="import.mpsEditor" />
+  <property name="mpsBootstrapCore.version.major" value="${import.mpsEditor.mpsBootstrapCore.version.major}" />
+  <property name="mpsBootstrapCore.version.minor" value="${import.mpsEditor.mpsBootstrapCore.version.minor}" />
+  <property name="mpsBootstrapCore.version.bugfixNr" value="${import.mpsEditor.mpsBootstrapCore.version.bugfixNr}" />
+  <property name="mpsBootstrapCore.version.eap" value="${import.mpsEditor.mpsBootstrapCore.version.eap}" />
   <property name="mpsBootstrapCore.version" value="${import.mpsEditor.mpsBootstrapCore.version}" />
   
   <target name="assemble" depends="classes, declare-mps-tasks, fetchDependencies">
@@ -31,7 +35,7 @@
     <copy todir="${build.layout}/mps.editor.tests/languages">
       <fileset dir="${artifacts.mpsEditor}/tests" />
     </copy>
-    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
+    <echo file="${build.layout}/build.properties">mpsBootstrapCore.version.major=${mpsBootstrapCore.version.major}${line.separator}mpsBootstrapCore.version.minor=${mpsBootstrapCore.version.minor}${line.separator}mpsBootstrapCore.version.bugfixNr=${mpsBootstrapCore.version.bugfixNr}${line.separator}mpsBootstrapCore.version.eap=${mpsBootstrapCore.version.eap}${line.separator}mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
   </target>
   
   <target name="buildDependents">

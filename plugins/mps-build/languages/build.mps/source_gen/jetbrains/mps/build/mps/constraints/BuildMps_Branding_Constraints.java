@@ -8,7 +8,7 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.build.mps.behavior.BuildMps_Branding__BehaviorDescriptor;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
@@ -32,7 +32,7 @@ public class BuildMps_Branding_Constraints extends BaseConstraintsDescriptor {
     }
     @Override
     public Object getValue(SNode node) {
-      return String.format("%s %d.%d", BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(node, LINKS.fullName$o3D7), null), SPropertyOperations.getInteger(node, PROPS.major$SSKf), SPropertyOperations.getInteger(node, PROPS.minor$SSZg));
+      return String.format("%s %s.%s", BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(node, LINKS.fullName$o3D7), null), BuildMps_Branding__BehaviorDescriptor.getVersionMajor_id3AMbuf0qvyc.invoke(node, null), BuildMps_Branding__BehaviorDescriptor.getVersionMinor_id3AMbuf0qHKA.invoke(node, null));
     }
   }
   @Override
@@ -48,8 +48,6 @@ public class BuildMps_Branding_Constraints extends BaseConstraintsDescriptor {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$lA7v = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty major$SSKf = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e44L, "major");
-    /*package*/ static final SProperty minor$SSZg = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e45L, "minor");
   }
 
   private static final class LINKS {

@@ -22,6 +22,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
+import jetbrains.mps.build.mps.behavior.BuildMps_Branding__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -114,6 +115,16 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
 
     if ((branding == null)) {
       return "MPS";
+    }
+
+    if ((boolean) BuildMps_Branding__BehaviorDescriptor.isNewVersionFormat_id3AMbuf0qvWw.invoke(branding)) {
+      // assume there is either plain text or version.major + version.minor "macros" will be used 
+      String result = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(branding, LINKS.product$o3q6), null) + BuildMps_Branding__BehaviorDescriptor.getVersionMajor_id3AMbuf0qvyc.invoke(branding, null) + "." + BuildMps_Branding__BehaviorDescriptor.getVersionMinor_id3AMbuf0qHKA.invoke(branding, null);
+      if (result.contains("$")) {
+        // substitute with the "macros" 
+        result = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(branding, LINKS.product$o3q6), null) + "$version.major$.$version.minor$";
+      }
+      return result;
     }
 
     // Assume that brandig.codename always consists from instances of BuildTextStringPart so we don't need MacroHelper 

@@ -12,6 +12,7 @@
     <import index="vbkb" ref="r:08f2b659-8469-4592-93bf-a6edb46ec86d(jetbrains.mps.build.behavior)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
+    <import index="2txq" ref="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -284,7 +285,7 @@
               <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
               <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
               <node concept="Xl_RD" id="3TEkTgEKtRD" role="37wK5m">
-                <property role="Xl_RC" value="%s %d.%d" />
+                <property role="Xl_RC" value="%s %s.%s" />
               </node>
               <node concept="2OqwBi" id="3TEkTgEKxMi" role="37wK5m">
                 <node concept="2OqwBi" id="3TEkTgEKxMj" role="2Oq$k0">
@@ -298,16 +299,18 @@
                   <node concept="10Nm6u" id="3TEkTgEKxMn" role="37wK5m" />
                 </node>
               </node>
-              <node concept="2OqwBi" id="3TEkTgEKz3x" role="37wK5m">
-                <node concept="EsrRn" id="3TEkTgEKy$s" role="2Oq$k0" />
-                <node concept="3TrcHB" id="3TEkTgEKzAl" role="2OqNvi">
-                  <ref role="3TsBF5" to="kdzh:328lVm4LOT4" resolve="major" />
+              <node concept="2OqwBi" id="3AMbuf1yOUy" role="37wK5m">
+                <node concept="EsrRn" id="3AMbuf1yOUz" role="2Oq$k0" />
+                <node concept="2qgKlT" id="3AMbuf1yOU$" role="2OqNvi">
+                  <ref role="37wK5l" to="2txq:3AMbuf0qvyc" resolve="getVersionMajor" />
+                  <node concept="10Nm6u" id="3AMbuf1yOU_" role="37wK5m" />
                 </node>
               </node>
-              <node concept="2OqwBi" id="3TEkTgEKAtZ" role="37wK5m">
-                <node concept="EsrRn" id="3TEkTgEK$w7" role="2Oq$k0" />
-                <node concept="3TrcHB" id="3TEkTgEKB6N" role="2OqNvi">
-                  <ref role="3TsBF5" to="kdzh:328lVm4LOT5" resolve="minor" />
+              <node concept="2OqwBi" id="3AMbuf1yP2M" role="37wK5m">
+                <node concept="EsrRn" id="3AMbuf1yP2N" role="2Oq$k0" />
+                <node concept="2qgKlT" id="3AMbuf1yP2O" role="2OqNvi">
+                  <ref role="37wK5l" to="2txq:3AMbuf0qHKA" resolve="getVersionMinor" />
+                  <node concept="10Nm6u" id="3AMbuf1yP2P" role="37wK5m" />
                 </node>
               </node>
             </node>
