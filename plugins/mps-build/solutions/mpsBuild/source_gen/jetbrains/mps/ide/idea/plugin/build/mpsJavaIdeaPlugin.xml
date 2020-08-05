@@ -6,17 +6,18 @@
   <property name="mps_home" location="${basedir}" />
   <property name="idea_home" location="" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
+  <property name="artifacts.mpsJpsIdeaJ8Compatibility" location="${build.dir}/artifacts/mpsJpsIdeaJ8Compatibility" />
   <property name="artifacts.mpsJpsIdea" location="${build.dir}/artifacts/mpsJpsIdea" />
   <property name="artifacts.mpsJavaPlatform" location="${build.dir}/artifacts/mpsJavaPlatform" />
   <property name="artifacts.mpsPluginCommon" location="${build.dir}/artifacts/mpsPluginCommon" />
   <property name="artifacts.mpsPluginCore" location="${build.dir}/artifacts/mpsPluginCore" />
   <property name="artifacts.IDEA" location="${idea_home}" />
   <property file="${artifacts.mpsBootstrapCore}/build.properties" prefix="import.mpsBootstrapCore" />
-  <property file="${artifacts.mpsJpsIdea}/build.properties" prefix="import.mpsJpsIdea" />
+  <property file="${artifacts.mpsJpsIdeaJ8Compatibility}/build.properties" prefix="import.mpsJpsIdeaJ8Compatibility" />
   <property file="${artifacts.mpsPluginCore}/build.properties" prefix="import.mpsPluginCore" />
   <property name="mpsBootstrapCore.version" value="${import.mpsBootstrapCore.mpsBootstrapCore.version}" />
-  <property name="mpsPluginCommon.plugin.version" value="${import.mpsJpsIdea.mpsPluginCommon.plugin.version}" />
-  <property name="mpsPluginCommon.date" value="${import.mpsJpsIdea.mpsPluginCommon.date}" />
+  <property name="mpsPluginCommon.plugin.version" value="${import.mpsJpsIdeaJ8Compatibility.mpsPluginCommon.plugin.version}" />
+  <property name="mpsPluginCommon.date" value="${import.mpsJpsIdeaJ8Compatibility.mpsPluginCommon.date}" />
   <property name="mpsPluginCore.plugin.version" value="${import.mpsPluginCore.mpsPluginCore.plugin.version}" />
   <property name="mpsPluginCore.date" value="${import.mpsPluginCore.mpsPluginCore.date}" />
   <property name="environment" value="env" />
@@ -53,6 +54,7 @@
     </copy>
     <mkdir dir="${build.layout}/mps-idea-java/lib" />
     <mkdir dir="${build.layout}/mps-idea-java/lib/jps" />
+    <copy file="${artifacts.mpsJpsIdeaJ8Compatibility}/lib/jps/mps-java-jps-plugin-j8.jar" todir="${build.layout}/mps-idea-java/lib/jps" />
     <copy file="${artifacts.mpsJpsIdea}/lib/jps/mps-java-jps-plugin.jar" todir="${build.layout}/mps-idea-java/lib/jps" />
     <jar destfile="${build.layout}/mps-idea-java/lib/mps-java-idea.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-java-idea" />
@@ -70,6 +72,7 @@
     <ant antfile="build/mpsJavaPlatformPre.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsJavaPlatform.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="IdeaPlugin/mpsJpsIdea.xml" inheritAll="false" useNativeBasedir="true" />
+    <ant antfile="IdeaPlugin/mpsJpsIdeaJ8Compatibility.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="IdeaPlugin/mpsPluginCore.xml" inheritAll="false" useNativeBasedir="true" />
   </target>
   
