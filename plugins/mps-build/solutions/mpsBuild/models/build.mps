@@ -43776,7 +43776,7 @@
               </node>
             </node>
             <node concept="3yLZsm" id="GF9IugZbdY" role="3yL2VB">
-              <property role="3yLZsk" value="../../git4idea/lib/remote-servers-get.jar" />
+              <property role="3yLZsk" value="../../git4idea/lib/remote-servers-git.jar" />
               <node concept="398BVA" id="GF9IugZbdZ" role="3yLZsn">
                 <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
                 <node concept="2Ry0Ak" id="GF9IugZbe0" role="iGT6I">
