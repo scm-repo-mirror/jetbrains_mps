@@ -18,7 +18,6 @@ package jetbrains.mps.nodeEditor;
 import com.intellij.ide.PowerSaveMode;
 import com.intellij.ide.ui.AntialiasingType;
 import com.intellij.ide.ui.UISettings;
-import com.intellij.ide.ui.UISettingsListener;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -27,8 +26,10 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.FontPreferences;
+import com.intellij.openapi.editor.colors.ModifiableFontPreferences;
+import com.intellij.openapi.editor.colors.impl.AppEditorFontOptions;
 import com.intellij.openapi.editor.ex.util.EditorUtil;
-import com.intellij.openapi.util.Disposer;
+import com.intellij.openapi.options.Configurable;
 import com.intellij.ui.JBColor;
 import jetbrains.mps.nodeEditor.EditorSettings.MyState;
 import jetbrains.mps.nodeEditor.cells.EditorFontMetricsImpl;
@@ -43,6 +44,7 @@ import org.jetbrains.annotations.TestOnly;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @State(
@@ -360,15 +362,66 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
     }
   }
 
+  private static boolean firstGetStateCall = true;
+  private boolean oldSettingsImported = false;
+
   @Override
   @NotNull
   public MyState getState() {
+    // TODO: Clean up in in 2020.3!
+    // This hack allows to clean only some of the fields in the state:
+    // Just right after first call of PersistentStateComponent#loadState platform calls
+    // PersistentStateComponent#getState to cache and check diffs with next getState calls.
+    // When non default old settings are detected on first load
+    // then old state returned on first getState call and Font & AA settings are set to default values.
+    // This makes platform re-save state with reset Font and AA so next load will ignore this settings.
+    if (firstGetStateCall) {
+      firstGetStateCall = false;
+      if (oldSettingsImported) {
+        final MyState stateWOFontAndAA = new MyState();
+        stateWOFontAndAA.copyPartiallyFrom(myState); // reset unused options
+        MyState oldState = myState;
+        myState = stateWOFontAndAA; // use reset state
+        return oldState;
+      }
+    }
+
     return myState;
   }
 
   @Override
   public void loadState(@NotNull MyState state) {
     myState = state;
+
+    // TODO: Remove in 2020.3!
+    // Second check confirms that this is MPS to avoid setting Font from plugin:
+    // in plugin subclass configurable 'EditorSettingsConfigurableOptionsProvider' is used.
+    if (!oldSettingsImported && Configurable.APPLICATION_CONFIGURABLE.getExtensionList().stream().anyMatch(
+        configurable -> EditorSettingsConfigurable.class.getName().equals(configurable.instanceClass))) {
+      // Because old values are reset in the EditorSettings#getState method this code should be called only once
+      final MyState defaultState = new MyState();
+
+      // Try to detect non default values for Font set by user in old settings
+      if (!defaultState.fontFamily.equals(myState.fontFamily) || defaultState.fontSize != myState.fontSize || defaultState.lineSpacing != myState.lineSpacing) {
+        // Try to set Font settings defined by user to platform ones
+        if (AppEditorFontOptions.getInstance().getFontPreferences() instanceof ModifiableFontPreferences) {
+          final ModifiableFontPreferences fontPreferences = (ModifiableFontPreferences) AppEditorFontOptions.getInstance().getFontPreferences();
+          final String fontFamily = myState.fontFamily == null ? defaultState.fontFamily : myState.fontFamily;
+          fontPreferences.setEffectiveFontFamilies(Collections.singletonList(fontFamily));
+          fontPreferences.setRealFontFamilies(Collections.singletonList(fontFamily));
+          fontPreferences.setTemplateFontSize(myState.fontSize);
+          fontPreferences.resetFontSizes();
+          fontPreferences.setLineSpacing((float) myState.lineSpacing);
+          oldSettingsImported = true;
+        }
+      }
+
+      // Check if user turned of antialiasing
+      if (!myState.useAntialiasing) {
+        UISettings.getInstance().setEditorAAType(AntialiasingType.OFF);
+        oldSettingsImported = true;
+      }
+    }
     updateCachedValue();
   }
 
@@ -378,11 +431,19 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
 
   @SuppressWarnings("WeakerAccess")
   public static class MyState {
+    @ScheduledForRemoval(inVersion = "2020.3")
+    @Deprecated(since = "2020.2", forRemoval = true)
     public String fontFamily = FontPreferences.DEFAULT_FONT_NAME;
+    @ScheduledForRemoval(inVersion = "2020.3")
+    @Deprecated(since = "2020.2", forRemoval = true)
     public int fontSize = FontPreferences.DEFAULT_FONT_SIZE;
+    @ScheduledForRemoval(inVersion = "2020.3")
+    @Deprecated(since = "2020.2", forRemoval = true)
     public double lineSpacing = FontPreferences.DEFAULT_LINE_SPACING;
 
     public int textWidth = 500;
+    @ScheduledForRemoval(inVersion = "2020.3")
+    @Deprecated(since = "2020.2", forRemoval = true)
     public boolean useAntialiasing = true;
 
     public boolean useBraces = true;
@@ -403,6 +464,25 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
     public boolean showContextAssistant = true;
     public int caretBlinkPeriod = DEFAULT_CARET_BLINK_PERIOD;
     public boolean reflectiveEditorReadonly = false;
+
+    /**
+     * Copy all but Font and Antialiasing settings
+     */
+    private void copyPartiallyFrom(@NotNull MyState myState) {
+      textWidth = myState.textWidth;
+      useBraces = myState.useBraces;
+      useTwoStepDeletion = myState.useTwoStepDeletion;
+      typeOverExistingText = myState.typeOverExistingText;
+      indentSize = myState.indentSize;
+      verticalBound = myState.verticalBound;
+      autoQuickFix = myState.autoQuickFix;
+      showPlain = myState.showPlain;
+      showGrayed = myState.showGrayed;
+      show = myState.show;
+      showContextAssistant = myState.showContextAssistant;
+      reflectiveEditorReadonly = myState.reflectiveEditorReadonly;
+      caretBlinkPeriod = myState.caretBlinkPeriod;
+    }
 
     @Override
     public boolean equals(Object o) {
