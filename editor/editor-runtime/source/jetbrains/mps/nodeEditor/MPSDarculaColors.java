@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package jetbrains.mps.nodeEditor;
 
 import com.intellij.ui.DarculaColors;
 import com.intellij.ui.JBColor;
+import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 
 import java.awt.Color;
 
@@ -24,6 +25,8 @@ import java.awt.Color;
  * @author apyshkin
  * @since 2019-07-26
  */
+@ScheduledForRemoval(inVersion = "2020.3")
+@Deprecated(since = "2020.2")
 public final class MPSDarculaColors {
   public static final Color RED = DarculaColors.RED;
   public static final Color BLUE = DarculaColors.BLUE;

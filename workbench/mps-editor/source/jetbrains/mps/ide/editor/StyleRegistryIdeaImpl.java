@@ -27,8 +27,6 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
-import jetbrains.mps.nodeEditor.MPSColors;
-import jetbrains.mps.nodeEditor.MPSDarculaColors;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.util.Pair;
@@ -205,16 +203,16 @@ public class StyleRegistryIdeaImpl extends StyleRegistry {
   private void fillColorMappings() {
     final Color bg = getEditorBackground();
     // todo we need to remove this colors since user must provide JBColor all by himself or even better use some color scheme
-    my2DarkColorsMapping.put(new Pair<>(Color.PINK, bg), MPSDarculaColors.PINK);
-    my2DarkColorsMapping.put(new Pair<>(Color.ORANGE, bg), MPSDarculaColors.ORANGE);
-    my2DarkColorsMapping.put(new Pair<>(Color.YELLOW, bg), MPSDarculaColors.YELLOW);
-    my2DarkColorsMapping.put(new Pair<>(Color.GREEN, bg), MPSDarculaColors.GREEN);
-    my2DarkColorsMapping.put(new Pair<>(Color.MAGENTA, bg), MPSDarculaColors.DARK_MAGENTA);
-    my2DarkColorsMapping.put(new Pair<>(Color.CYAN, bg), MPSDarculaColors.CYAN);
-    my2DarkColorsMapping.put(new Pair<>(Color.BLUE, bg), MPSDarculaColors.BLUE);
-    my2DarkColorsMapping.put(new Pair<>(Color.LIGHT_GRAY, bg), MPSDarculaColors.LIGHT_GRAY);
-    my2DarkColorsMapping.put(new Pair<>(Color.GRAY, bg), MPSDarculaColors.GRAY);
-    my2DarkColorsMapping.put(new Pair<>(Color.DARK_GRAY, bg), MPSDarculaColors.DARK_GRAY);
+    my2DarkColorsMapping.put(new Pair<>(Color.PINK, bg), JBColor.PINK.darker().darker());
+    my2DarkColorsMapping.put(new Pair<>(Color.ORANGE, bg), JBColor.ORANGE);
+    my2DarkColorsMapping.put(new Pair<>(Color.YELLOW, bg), JBColor.YELLOW);
+    my2DarkColorsMapping.put(new Pair<>(Color.GREEN, bg), JBColor.GREEN);
+    my2DarkColorsMapping.put(new Pair<>(Color.MAGENTA, bg), JBColor.MAGENTA);
+    my2DarkColorsMapping.put(new Pair<>(Color.CYAN, bg), JBColor.CYAN);
+    my2DarkColorsMapping.put(new Pair<>(Color.BLUE, bg), JBColor.BLUE);
+    my2DarkColorsMapping.put(new Pair<>(Color.LIGHT_GRAY, bg), JBColor.LIGHT_GRAY);
+    my2DarkColorsMapping.put(new Pair<>(Color.GRAY, bg), JBColor.GRAY);
+    my2DarkColorsMapping.put(new Pair<>(Color.DARK_GRAY, bg), JBColor.DARK_GRAY);
     my2DarkColorsMapping.put(new Pair<>(Color.WHITE, bg), getEditorBackground());
     my2DarkColorsMapping.put(new Pair<>(Color.BLACK, bg), getEditorForeground());
   }

@@ -18,6 +18,7 @@ package jetbrains.mps.nodeEditor;
 import com.intellij.icons.AllIcons.General;
 import com.intellij.openapi.editor.colors.CodeInsightColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
+import com.intellij.openapi.editor.impl.EditorImpl;
 import com.intellij.ui.ColorUtil;
 import com.intellij.util.IconUtil;
 import com.intellij.util.containers.SortedList;
@@ -31,6 +32,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.Icon;
 import javax.swing.JButton;
@@ -92,27 +94,28 @@ public class MessagesGutter extends ButtonlessScrollBarUI.Transparent implements
   //copied from com.intellij.openapi.editor.impl.EditorMarkupModelImpl
   @Override
   protected Color adjustColor(Color c) {
-    if (isMacOverlayScrollbar()) {
-      return super.adjustColor(c);
-    }
+    return isMacOverlayScrollbar() ? super.adjustColor(c) : adjustThumbColor(super.adjustColor(c), isDark());
+  }
 
-    if (UIUtil.isUnderDarcula()) {
-      return c;
-    }
-    return ColorUtil.withAlpha(ColorUtil.shift(super.adjustColor(c), 0.9), 0.85);
+
+  /**
+   * Copy paste of {@link EditorImpl#adjustThumbColor(java.awt.Color, boolean)}
+   */
+  @NotNull
+  private static Color adjustThumbColor(@NotNull Color base, boolean dark) {
+    return dark ? ColorUtil.withAlpha(ColorUtil.shift(base, 1.35), 0.5)
+                : ColorUtil.withAlpha(ColorUtil.shift(base, 0.68), 0.4);
   }
 
   //copied from com.intellij.openapi.editor.impl.EditorMarkupModelImpl
   @Override
   protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
-
     if (isMacOverlayScrollbar()) {
       if (!myRightToLeft) {
         super.paintThumb(g, c, thumbBounds);
       } else {
         Graphics2D g2d = (Graphics2D) g;
         AffineTransform old = g2d.getTransform();
-
         AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
         tx.translate(-c.getWidth(), 0);
         g2d.transform(tx);
