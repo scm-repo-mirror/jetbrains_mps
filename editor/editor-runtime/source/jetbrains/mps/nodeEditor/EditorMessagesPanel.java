@@ -24,6 +24,7 @@ import com.intellij.unscramble.AnalyzeStacktraceUtil;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.messages.IMessage;
 import jetbrains.mps.messages.IMessageHandler;
+import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
@@ -41,14 +42,14 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 class EditorMessagesPanel extends JPanel implements IMessageHandler {
 
   private final Project myProject;
   private final MPSProject myMPSProject;
-  private final Set<SNodeId> reportedNodes = new HashSet<>();
+  private final Map<SNodeId, JComponent> reportedNodes = new HashMap<>();
   private final JPanel myErrorsPanel = new JPanel();
 
   EditorMessagesPanel(Project project) {
@@ -59,9 +60,14 @@ class EditorMessagesPanel extends JPanel implements IMessageHandler {
   @Override
   public void handle(@NotNull IMessage msg) {
     SNodeReference node = (SNodeReference) msg.getHintObject();
-    if (node != null && reportedNodes.add(node.getNodeId())) {
-      addErrorPanel(msg, node);
-      setVisible(true);
+    SNodeId nodeId = node.getNodeId();
+    if (msg.getKind() == MessageKind.ERROR) {
+      if (!reportedNodes.containsKey(nodeId)) {
+        addErrorPanel(msg, node);
+        setVisible(true);
+      }
+    } else {
+      removeReport(nodeId);
     }
   }
 
@@ -83,17 +89,22 @@ class EditorMessagesPanel extends JPanel implements IMessageHandler {
       errorReport.add(stackTrace);
     }
     HyperlinkLabel dismiss = new HyperlinkLabel("Dismiss");
-    dismiss.addHyperlinkListener(hyperlinkEvent -> {
-      reportedNodes.remove(node.getNodeId());
-      myErrorsPanel.remove(errorReport);
-      updatePreferredSize();
-      EditorMessagesPanel.this.revalidate();
-    });
+    dismiss.addHyperlinkListener(hyperlinkEvent -> removeReport(node.getNodeId()));
     errorReport.add(dismiss);
     errorReport.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, JBColor.GRAY));
     myErrorsPanel.add(errorReport);
+    reportedNodes.put(node.getNodeId(), errorReport);
 
     updatePreferredSize();
+  }
+
+  private void removeReport(SNodeId nodeId) {
+    JComponent errorReport = reportedNodes.remove(nodeId);
+    if (errorReport != null) {
+      myErrorsPanel.remove(errorReport);
+      updatePreferredSize();
+      revalidate();
+    }
   }
 
   private void updatePreferredSize() {

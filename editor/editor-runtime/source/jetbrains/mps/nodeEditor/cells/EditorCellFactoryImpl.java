@@ -102,6 +102,7 @@ public class EditorCellFactoryImpl implements EditorCellFactory {
       try {
         result = createCell(node, isInspector, editor);
         assert result.isBig() : "Non-big " + (isInspector ? "inspector " : "") + "cell was created by " + editor.getClass().getName() + " ConceptEditor.";
+        reportSuccess(node);
       } catch (RuntimeException | AssertionError | LinkageError e) {
         reportError(node, e);
         LOG.warning("Failed to create cell for node: " + SNodeOperations.getDebugText(node) + " using default editor", e, node);
@@ -115,6 +116,12 @@ public class EditorCellFactoryImpl implements EditorCellFactory {
       assert result.isBig() : "Non-big " + (isInspector ? "inspector " : "") + "cell was created by DefaultEditor: " + editor.getClass().getName();
     }
     return result;
+  }
+
+  private void reportSuccess(SNode node){
+    Message message = new Message(MessageKind.INFORMATION, this.getClass(), "");
+    message.setHintObject(node.getReference());
+    myEditorContext.getEditorComponent().getMessageHandler().handle(message);
   }
 
   private void reportError(SNode node, Throwable e) {
