@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-17gugpbqgizhzyut7wn4q3e2uzvkipt">
+<product version="3" modelHash="7vitu64s55d4wdcwui75fdz3j0cafmq">
   <files names="HttpRequest.java:HttpSupportPluginNotifications.java:IHttpRequestHandler.java:IHttpRequestHandlerFactory.java:MPSIntegrationPortManager.java:MPSInternalPortManager.java:MPSRequestManager.java" />
 </product>
 

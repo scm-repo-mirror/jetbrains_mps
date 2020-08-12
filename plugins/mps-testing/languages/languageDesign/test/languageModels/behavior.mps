@@ -78,7 +78,7 @@
       </concept>
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
-      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1076505808687" name="jetbrains.mps.baseLanguage.structure.WhileStatement" flags="nn" index="2$JKZl">
         <child id="1076505808688" name="condition" index="2$JKZa" />
       </concept>
@@ -3043,7 +3043,7 @@
             </node>
             <node concept="TSZUe" id="2wBFdLy6Qq9" role="2OqNvi">
               <node concept="37vLTw" id="2wBFdLy7dA3" role="25WWJ7">
-                <ref role="3cqZAo" node="2wBFdLy6LTj" />
+                <ref role="3cqZAo" node="2wBFdLy6LTj" resolve="newNode" />
               </node>
             </node>
           </node>

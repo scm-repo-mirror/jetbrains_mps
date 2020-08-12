@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-52uj5wgyqy0v79f0n6tt4rd9424d15w">
+<product version="3" modelHash="7wm1yvs0pxspn899xrblste5mlzg6vc">
   <files names="AbstractNodeFeature.java:DeletedChildFeature.java:Feature.java:ModelFeature.java:NodeAggregationFeature.java:NodeFeature.java:PropertiesFeature.java:PropertyFeature.java:ReferenceFeature.java:ReferencesFeature.java:VirtualPackageFeature.java" />
 </product>
 

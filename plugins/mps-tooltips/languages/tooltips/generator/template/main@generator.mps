@@ -46,7 +46,7 @@
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
-      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
@@ -281,8 +281,8 @@
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
       <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
     </language>
-    <language id="b1ab8c10-c118-4755-bf2a-cebab35cf533" name="tooltips">
-      <concept id="3877544518697302453" name="tooltips.structure.AuxEditorCellWithRefToGeneratedHint" flags="ng" index="wufu7">
+    <language id="b1ab8c10-c118-4755-bf2a-cebab35cf533" name="jetbrains.mps.lang.editor.tooltips">
+      <concept id="3877544518697302453" name="jetbrains.mps.lang.editor.tooltips.structure.AuxEditorCellWithRefToGeneratedHint" flags="ng" index="wufu7">
         <reference id="3877544518697376288" name="hint" index="wtTgi" />
         <child id="672449538226969699" name="tooltip" index="36ct$D" />
       </concept>

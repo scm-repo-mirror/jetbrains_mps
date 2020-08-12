@@ -95,7 +95,7 @@
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
-      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1076505808687" name="jetbrains.mps.baseLanguage.structure.WhileStatement" flags="nn" index="2$JKZl">
         <child id="1076505808688" name="condition" index="2$JKZa" />
       </concept>
@@ -298,7 +298,7 @@
         <child id="1170075728144" name="expression" index="1HWFw0" />
         <child id="1170075736412" name="block" index="1HWHxc" />
       </concept>
-      <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="ng" index="3J1_TO">
+      <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
@@ -1601,7 +1601,7 @@
                 <node concept="2OqwBi" id="7l6b$Kxs8e2" role="37vLTx">
                   <node concept="2OqwBi" id="ku3LtoUny9" role="2Oq$k0">
                     <node concept="37vLTw" id="ku3LtoUldz" role="2Oq$k0">
-                      <ref role="3cqZAo" node="ku3LtoTEo8" />
+                      <ref role="3cqZAo" node="ku3LtoTEo8" resolve="mpsPlatform" />
                     </node>
                     <node concept="liA8E" id="ku3LtoUpLU" role="2OqNvi">
                       <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
@@ -1614,7 +1614,7 @@
                     <ref role="37wK5l" to="ends:~ModelFactoryService.getDefaultModelFactory(org.jetbrains.mps.openapi.persistence.datasource.DataSourceType)" resolve="getDefaultModelFactory" />
                     <node concept="2OqwBi" id="7vnZ8Y08ixo" role="37wK5m">
                       <node concept="37vLTw" id="7vnZ8Y08hJK" role="2Oq$k0">
-                        <ref role="3cqZAo" node="7vnZ8Y08edx" />
+                        <ref role="3cqZAo" node="7vnZ8Y08edx" resolve="source" />
                       </node>
                       <node concept="liA8E" id="7vnZ8Y08j2g" role="2OqNvi">
                         <ref role="37wK5l" to="dush:~DataSource.getType()" resolve="getType" />

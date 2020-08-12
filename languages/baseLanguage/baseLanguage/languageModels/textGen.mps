@@ -56,7 +56,7 @@
       <concept id="1153417849900" name="jetbrains.mps.baseLanguage.structure.GreaterThanOrEqualsExpression" flags="nn" index="2d3UOw" />
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
-      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1076505808687" name="jetbrains.mps.baseLanguage.structure.WhileStatement" flags="nn" index="2$JKZl">
         <child id="1076505808688" name="condition" index="2$JKZa" />
       </concept>
@@ -4562,7 +4562,7 @@
           <node concept="3clFbS" id="1X7GQqyQ92t" role="3clFbx">
             <node concept="lc7rE" id="3z9AKIuZ1vm" role="3cqZAp">
               <node concept="1bDJIP" id="3z9AKIuZ1vp" role="lcghm">
-                <ref role="1rvKf6" node="hXZP8nY" />
+                <ref role="1rvKf6" node="hXZP8nY" resolve="visibilityWithIndent" />
                 <node concept="2OqwBi" id="3z9AKIuZ1vq" role="1ryhcI">
                   <node concept="117lpO" id="3z9AKIuZ1vr" role="2Oq$k0" />
                   <node concept="3TrEf2" id="3z9AKIuZ1vs" role="2OqNvi">

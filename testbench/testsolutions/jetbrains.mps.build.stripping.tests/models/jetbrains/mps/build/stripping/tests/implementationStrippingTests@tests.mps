@@ -88,8 +88,8 @@
       <concept id="8276990574909231788" name="jetbrains.mps.baseLanguage.structure.FinallyClause" flags="ng" index="1wplmZ">
         <child id="8276990574909234106" name="finallyBody" index="1wplMD" />
       </concept>
-      <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="ng" index="3J1_TO">
-        <child id="8276990574886367509" name="finallyBody" index="1zxBo6" />
+      <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
+        <child id="8276990574886367509" name="finallyClause" index="1zxBo6" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
       </concept>
     </language>
@@ -112,30 +112,30 @@
         <child id="3308300503039683650" name="direction" index="2C15Q5" />
       </concept>
       <concept id="3308300503039675723" name="jetbrains.mps.samples.Kaja.structure.South" flags="ng" index="2C17Mc" />
-      <concept id="3308300503039667424" name="jetbrains.mps.samples.Kaja.structure.While" flags="ng" index="2C1pOB">
+      <concept id="3308300503039667424" name="jetbrains.mps.samples.Kaja.structure.While" flags="nn" index="2C1pOB">
         <child id="3308300503039667427" name="body" index="2C1pO$" />
         <child id="3308300503039667426" name="condition" index="2C1pO_" />
       </concept>
       <concept id="3308300503039654064" name="jetbrains.mps.samples.Kaja.structure.Not" flags="ng" index="2C1s_R">
         <child id="3308300503039654067" name="original" index="2C1s_O" />
       </concept>
-      <concept id="3308300503039647627" name="jetbrains.mps.samples.Kaja.structure.LeftTurn" flags="ng" index="2C1uTc" />
-      <concept id="3308300503039647678" name="jetbrains.mps.samples.Kaja.structure.IfStatement" flags="ng" index="2C1uTT">
+      <concept id="3308300503039647627" name="jetbrains.mps.samples.Kaja.structure.LeftTurn" flags="nn" index="2C1uTc" />
+      <concept id="3308300503039647678" name="jetbrains.mps.samples.Kaja.structure.IfStatement" flags="nn" index="2C1uTT">
         <child id="3308300503039647685" name="falseBranch" index="2C1uS2" />
         <child id="3308300503039647684" name="trueBranch" index="2C1uS3" />
         <child id="3308300503039647680" name="condition" index="2C1uS7" />
       </concept>
-      <concept id="3308300503039740438" name="jetbrains.mps.samples.Kaja.structure.EmptyLine" flags="ng" index="2C1RJh" />
-      <concept id="3308300503039896127" name="jetbrains.mps.samples.Kaja.structure.CommandList" flags="ng" index="2C6hJS">
+      <concept id="3308300503039740438" name="jetbrains.mps.samples.Kaja.structure.EmptyLine" flags="nn" index="2C1RJh" />
+      <concept id="3308300503039896127" name="jetbrains.mps.samples.Kaja.structure.CommandList" flags="nn" index="2C6hJS">
         <child id="3308300503039896128" name="commands" index="2C6hI7" />
       </concept>
-      <concept id="6405700485436287811" name="jetbrains.mps.samples.Kaja.structure.CommentLine" flags="ng" index="1b7Vn$">
+      <concept id="6405700485436287811" name="jetbrains.mps.samples.Kaja.structure.CommentLine" flags="nn" index="1b7Vn$">
         <property id="6405700485436287813" name="text" index="1b7Vny" />
       </concept>
       <concept id="3265739055509559110" name="jetbrains.mps.samples.Kaja.structure.Script" flags="ng" index="1x_AGo">
         <child id="3265739055509559116" name="body" index="1x_AGi" />
       </concept>
-      <concept id="3265739055509559138" name="jetbrains.mps.samples.Kaja.structure.Step" flags="ng" index="1x_AGW" />
+      <concept id="3265739055509559138" name="jetbrains.mps.samples.Kaja.structure.Step" flags="nn" index="1x_AGW" />
     </language>
   </registry>
   <node concept="2XOHcx" id="1NKy5CJqdFf">
