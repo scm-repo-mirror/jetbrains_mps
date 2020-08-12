@@ -28,22 +28,22 @@ public class check_StaticFieldReference_NonTypesystemRule extends AbstractNonTyp
   public check_StaticFieldReference_NonTypesystemRule() {
   }
   public void applyRule(final SNode staticFieldReference, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<SNode> collidingDeclarations = Sequence.fromIterable(Members.visibleStaticFields(SLinkOperations.getTarget(staticFieldReference, LINKS.classifier$WKxm), staticFieldReference)).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> collidingDeclarations = Sequence.fromIterable(Members.visibleStaticFields(SLinkOperations.getTarget(staticFieldReference, LINKS.classifier$BPY8), staticFieldReference)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$lA7v), SPropertyOperations.getString(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$7WwU), PROPS.name$lA7v)) && !(Objects.equals(it, SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$7WwU)));
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), SPropertyOperations.getString(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG), PROPS.name$MnvL)) && !(Objects.equals(it, SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG)));
       }
     });
     Sequence.fromIterable(collidingDeclarations).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(staticFieldReference, "Reference to " + SPropertyOperations.getString(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$7WwU), PROPS.name$lA7v) + " is ambiguous, both " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$7WwU)) + " and " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(it) + " match.", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "518225087815268273", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(staticFieldReference, "Reference to " + SPropertyOperations.getString(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG), PROPS.name$MnvL) + " is ambiguous, both " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG)) + " and " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(it) + " match.", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "518225087815268273", null, errorTarget);
         }
       }
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return CONCEPTS.StaticFieldReference$K8;
+    return CONCEPTS.StaticFieldReference$cU;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -53,15 +53,15 @@ public class check_StaticFieldReference_NonTypesystemRule extends AbstractNonTyp
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink classifier$WKxm = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier");
-    /*package*/ static final SReferenceLink variableDeclaration$7WwU = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SReferenceLink classifier$BPY8 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier");
+    /*package*/ static final SReferenceLink variableDeclaration$N1XG = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty name$lA7v = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept StaticFieldReference$K8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
+    /*package*/ static final SConcept StaticFieldReference$cU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
   }
 }
