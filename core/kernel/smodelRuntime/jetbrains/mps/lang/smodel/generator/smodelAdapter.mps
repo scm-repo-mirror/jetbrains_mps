@@ -19454,7 +19454,7 @@
             <node concept="3clFbS" id="5kAj9bZdoeK" role="9aQI4">
               <node concept="3clFbF" id="5kAj9bZdoeL" role="3cqZAp">
                 <node concept="1rXfSq" id="5kAj9bZdoeM" role="3clFbG">
-                  <ref role="37wK5l" to="33ny:~AbstractCollection.addAll(java.util.Collection)" resolve="addAll" />
+                  <ref role="37wK5l" to="33ny:~List.addAll(java.util.Collection)" resolve="addAll" />
                   <node concept="37vLTw" id="5kAj9bZdoeN" role="37wK5m">
                     <ref role="3cqZAo" node="5kAj9bZdoee" resolve="c" />
                   </node>
