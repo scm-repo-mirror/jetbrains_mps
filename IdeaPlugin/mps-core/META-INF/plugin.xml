@@ -91,9 +91,9 @@
               xpointer="xpointer(/components/*)"/>
   <xi:include href="../../../workbench/mps-editor/source_gen/jetbrains/mps/ide/editor/actions/MPSEditorActions.xml"
               xpointer="xpointer(/components/*)"/>
+  <xi:include href="../../../workbench/mps-ui/source/META-INF/MPSUI.xml" xpointer="xpointer(/components/*)"/>
 
   <project-components>
-    <xi:include href="../../../workbench/mps-ui/source/META-INF/MPSUI.xml" xpointer="xpointer(/components/project-components/*)"/>
     <component>
       <implementation-class>jetbrains.mps.idea.core.config.ConfigurationChecker</implementation-class>
     </component>
@@ -130,7 +130,6 @@
   </project-components>
 
   <extensionPoints>
-    <xi:include href="../../../workbench/mps-ui/source/META-INF/MPSUI.xml" xpointer="xpointer(/components/extensionPoints/*)"/>
     <extensionPoint qualifiedName="com.intellij.mps.modelRootContributor"
                     beanClass="jetbrains.mps.idea.core.project.ModelRootContributorEP"/>
     <extensionPoint qualifiedName="com.intellij.mps.modelTemplateProvider"
@@ -146,7 +145,6 @@
   </extensionPoints>
 
   <extensions defaultExtensionNs="com.intellij">
-    <mps.modelRootEntry rootType="default" title="&amp;Default" className="jetbrains.mps.ide.ui.dialogs.properties.roots.editors.FileBasedModelRootEntryFactory"/>
     <mps.modelRootContributor className="jetbrains.mps.idea.core.project.stubs.ModuleLibStubProvider"/>
     <editorOptionsProvider
             instance="jetbrains.mps.nodeEditor.EditorSettingsConfigurable$EditorSettingsConfigurableOptionsProvider"/>
