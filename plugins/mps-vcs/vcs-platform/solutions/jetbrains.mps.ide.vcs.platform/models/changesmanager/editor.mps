@@ -45,6 +45,7 @@
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="i8bi" ref="r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)" />
+    <import index="drih" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor.colors(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -776,6 +777,9 @@
     <node concept="3uibUv" id="1z$$IgbmziI" role="EKbjA">
       <ref role="3uigEE" to="kpve:~EditorMessageOwner" resolve="EditorMessageOwner" />
     </node>
+    <node concept="3uibUv" id="4vNekCDDY2S" role="EKbjA">
+      <ref role="3uigEE" to="drih:~EditorColorsListener" resolve="EditorColorsListener" />
+    </node>
     <node concept="3Tm1VV" id="5zpsdFy5B1_" role="1B3o_S" />
     <node concept="312cEg" id="5zpsdFy5B1v" role="jymVt">
       <property role="TrG5h" value="myEditorComponent" />
@@ -885,7 +889,24 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="9ee6OG4Ci5" role="3cqZAp" />
+        <node concept="3clFbF" id="5ZshaoOxOd4" role="3cqZAp">
+          <node concept="2YIFZM" id="5ZshaoOxOd5" role="3clFbG">
+            <ref role="1Pybhc" to="hdhb:42hl10VH9R2" resolve="ChangeColors" />
+            <ref role="37wK5l" to="hdhb:5ZshaoOu8hy" resolve="updateEditorColors" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="5RyQKNAXyJr" role="3cqZAp">
+          <node concept="2OqwBi" id="5RyQKNAX$Lc" role="3clFbG">
+            <node concept="37vLTw" id="5RyQKNAXyJp" role="2Oq$k0">
+              <ref role="3cqZAo" node="5zpsdFy5B1v" resolve="myEditorComponent" />
+            </node>
+            <node concept="liA8E" id="5RyQKNAXAPG" role="2OqNvi">
+              <ref role="37wK5l" to="exr9:~EditorComponent.addEditorColorsListener(com.intellij.openapi.editor.colors.EditorColorsListener)" resolve="addEditorColorsListener" />
+              <node concept="Xjq3P" id="4vNekCDEcmW" role="37wK5m" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="6dpsswaOdNW" role="3cqZAp" />
         <node concept="3clFbF" id="1IWbOwDRc9Y" role="3cqZAp">
           <node concept="2OqwBi" id="1IWbOwDRc9Z" role="3clFbG">
             <node concept="2OqwBi" id="1IWbOwDRca0" role="2Oq$k0">
@@ -1380,6 +1401,31 @@
         </node>
       </node>
     </node>
+    <node concept="3clFb_" id="4vNekCDE4hl" role="jymVt">
+      <property role="TrG5h" value="globalSchemeChange" />
+      <node concept="3Tm1VV" id="4vNekCDE4hm" role="1B3o_S" />
+      <node concept="3cqZAl" id="4vNekCDE4ho" role="3clF45" />
+      <node concept="37vLTG" id="4vNekCDE4hp" role="3clF46">
+        <property role="TrG5h" value="scheme" />
+        <node concept="3uibUv" id="4vNekCDE4hq" role="1tU5fm">
+          <ref role="3uigEE" to="drih:~EditorColorsScheme" resolve="EditorColorsScheme" />
+        </node>
+        <node concept="2AHcQZ" id="4vNekCDE4hr" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="4vNekCDE4hs" role="3clF47">
+        <node concept="3clFbF" id="4vNekCDEbfz" role="3cqZAp">
+          <node concept="2YIFZM" id="4vNekCDEbf$" role="3clFbG">
+            <ref role="1Pybhc" to="hdhb:42hl10VH9R2" resolve="ChangeColors" />
+            <ref role="37wK5l" to="hdhb:5ZshaoOu8hy" resolve="updateEditorColors" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4vNekCDE4ht" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
     <node concept="3clFb_" id="5zpsdFy5Cpg" role="jymVt">
       <property role="TrG5h" value="createMessages" />
       <node concept="_YKpA" id="5zpsdFy5Cre" role="3clF45">
@@ -1809,6 +1855,31 @@
                 </node>
                 <node concept="37vLTw" id="2BHiRxeujY8" role="37vLTJ">
                   <ref role="3cqZAo" node="5zpsdFy5CaT" resolve="myDisposed" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="4vNekCDDI7Q" role="3cqZAp">
+              <node concept="3clFbS" id="4vNekCDDI7S" role="3clFbx">
+                <node concept="3clFbF" id="4vNekCDDR6_" role="3cqZAp">
+                  <node concept="2OqwBi" id="4vNekCDDSsr" role="3clFbG">
+                    <node concept="37vLTw" id="4vNekCDDR6z" role="2Oq$k0">
+                      <ref role="3cqZAo" node="5zpsdFy5B1v" resolve="myEditorComponent" />
+                    </node>
+                    <node concept="liA8E" id="4vNekCDDTMV" role="2OqNvi">
+                      <ref role="37wK5l" to="exr9:~EditorComponent.removeEditorColorsListener(com.intellij.openapi.editor.colors.EditorColorsListener)" resolve="removeEditorColorsListener" />
+                      <node concept="Xjq3P" id="4vNekCDEcU1" role="37wK5m" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3fqX7Q" id="4vNekCDDLY1" role="3clFbw">
+                <node concept="2OqwBi" id="4vNekCDDLY3" role="3fr31v">
+                  <node concept="37vLTw" id="4vNekCDDLY4" role="2Oq$k0">
+                    <ref role="3cqZAo" node="5zpsdFy5B1v" resolve="myEditorComponent" />
+                  </node>
+                  <node concept="liA8E" id="4vNekCDDLY5" role="2OqNvi">
+                    <ref role="37wK5l" to="exr9:~EditorComponent.isDisposed()" resolve="isDisposed" />
+                  </node>
                 </node>
               </node>
             </node>

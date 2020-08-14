@@ -397,38 +397,39 @@
     <file name="ChangeColors.java">
       <node id="4652592318748335579" at="18,0,19,0" concept="16" trace="ourColors" />
       <node id="4652592318748335589" at="19,0,20,0" concept="16" trace="ourTreeColors" />
-      <node id="4652592318748335659" at="20,0,21,0" concept="16" trace="ADD" />
-      <node id="4652592318748335667" at="21,0,22,0" concept="16" trace="DELETE" />
-      <node id="4652592318748335675" at="22,0,23,0" concept="16" trace="CHANGE" />
-      <node id="4652592318748335683" at="23,0,24,0" concept="16" trace="CONFLICTED" />
-      <node id="4652592318748335562" at="27,59,28,58" concept="13" />
-      <node id="4652592318748335574" at="31,66,32,62" concept="13" />
-      <node id="4652592318748335606" at="34,10,35,60" concept="6" />
-      <node id="4652592318748335612" at="35,60,36,88" concept="6" />
-      <node id="4652592318748335618" at="36,88,37,0" concept="15" />
-      <node id="4652592318748335619" at="37,0,38,66" concept="6" />
-      <node id="4652592318748335625" at="38,66,39,93" concept="6" />
-      <node id="4652592318748335631" at="39,93,40,0" concept="15" />
-      <node id="4652592318748335632" at="40,0,41,66" concept="6" />
-      <node id="4652592318748335638" at="41,66,42,94" concept="6" />
-      <node id="4652592318748335644" at="42,94,43,0" concept="15" />
-      <node id="4652592318748335645" at="43,0,44,74" concept="6" />
-      <node id="4652592318748335651" at="44,74,45,111" concept="6" />
-      <node id="4652592318748335600" at="24,0,26,0" concept="3" trace="ChangeColors#()V" />
-      <node id="4652592318748335555" at="26,0,30,0" concept="17" trace="get#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
-      <node id="4652592318748335567" at="30,0,34,0" concept="17" trace="getForTree#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
-      <scope id="4652592318748335603" at="24,26,24,26" />
-      <scope id="4652592318748335561" at="27,59,28,58" />
-      <scope id="4652592318748335573" at="31,66,32,62" />
-      <scope id="4652592318748335600" at="24,0,26,0" />
-      <scope id="4652592318748335555" at="26,0,30,0">
+      <node id="4652592318748335562" at="25,59,26,58" concept="13" />
+      <node id="4652592318748335574" at="30,66,31,62" concept="13" />
+      <node id="6907471409115096436" at="34,10,35,25" concept="6" />
+      <node id="4652592318748335612" at="35,25,36,88" concept="6" />
+      <node id="4652592318748335625" at="36,88,37,93" concept="6" />
+      <node id="4652592318748335638" at="37,93,38,94" concept="6" />
+      <node id="4652592318748335651" at="38,94,39,111" concept="6" />
+      <node id="6907471409115081820" at="42,56,43,0" concept="15" />
+      <node id="6907471409115076282" at="43,0,44,153" concept="6" />
+      <node id="6907471409115076307" at="44,153,45,0" concept="15" />
+      <node id="6907471409115076308" at="45,0,46,155" concept="6" />
+      <node id="6907471409115076333" at="46,155,47,0" concept="15" />
+      <node id="6907471409115076334" at="47,0,48,156" concept="6" />
+      <node id="6907471409115076359" at="48,156,49,0" concept="15" />
+      <node id="6907471409115076360" at="49,0,50,160" concept="6" />
+      <node id="4652592318748335600" at="21,0,23,0" concept="3" trace="ChangeColors#()V" />
+      <node id="4652592318748335555" at="24,0,28,0" concept="17" trace="get#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="4652592318748335567" at="29,0,33,0" concept="17" trace="getForTree#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="6907471409115071586" at="42,0,52,0" concept="17" trace="updateEditorColors#()V" />
+      <scope id="4652592318748335603" at="21,26,21,26" />
+      <scope id="4652592318748335561" at="25,59,26,58" />
+      <scope id="4652592318748335573" at="30,66,31,62" />
+      <scope id="4652592318748335600" at="21,0,23,0" />
+      <scope id="4652592318748335555" at="24,0,28,0">
         <var name="changeType" id="4652592318748335556" />
       </scope>
-      <scope id="4652592318748335567" at="30,0,34,0">
+      <scope id="4652592318748335567" at="29,0,33,0">
         <var name="changeType" id="4652592318748335568" />
       </scope>
-      <scope id="4652592318748335605" at="34,10,45,111" />
-      <unit id="4652592318748335554" at="16,0,48,0" name="jetbrains.mps.vcs.diff.ui.common.ChangeColors" />
+      <scope id="4652592318748335605" at="34,10,39,111" />
+      <scope id="6907471409115071589" at="42,56,50,160" />
+      <scope id="6907471409115071586" at="42,0,52,0" />
+      <unit id="4652592318748335554" at="16,0,53,0" name="jetbrains.mps.vcs.diff.ui.common.ChangeColors" />
     </file>
   </root>
   <root nodeRef="r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748335691">

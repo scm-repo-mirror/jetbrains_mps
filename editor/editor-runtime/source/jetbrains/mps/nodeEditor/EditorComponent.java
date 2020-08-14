@@ -36,7 +36,9 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.colors.EditorColors;
+import com.intellij.openapi.editor.colors.EditorColorsListener;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
+import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
@@ -233,7 +235,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private InputMethodRequests myInputMethodRequests;
   protected Handle myTypecheckingSessionHandle;
   @Nullable
-  private MessageBusConnection myMessageBusConnection;
+  private final MessageBusConnection myMessageBusConnection;
 
   public static void turnOnAliasingIfPossible(Graphics2D g) {
     if (!RenderingHints.VALUE_TEXT_ANTIALIAS_OFF.equals(AntialiasingType.getKeyForCurrentScope(true))) {
@@ -301,6 +303,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       });
     }
   };
+
+  private final List<EditorColorsListener> myEditorColorsListeners = new ArrayList<>();
 
   private boolean myReadOnly;
   private String myLastWrittenStatus = "";
@@ -558,16 +562,29 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     if (ApplicationManager.getApplication() != null) {
       myMessageBusConnection = ApplicationManager.getApplication().getMessageBus().connect();
       myMessageBusConnection.subscribe(
-          EditorColorsManager.TOPIC, scheme -> {
-            EditorComponent.this.update();
-            EditorComponent.this.setBackground(StyleRegistry.getInstance().getEditorBackground());
-          }
+          EditorColorsManager.TOPIC, scheme -> globalColorSchemeChange(scheme)
       );
+    } else {
+      myMessageBusConnection = null;
     }
 
     if (configuration.withUI) {
       createUI(configuration);
     }
+  }
+
+  public void addEditorColorsListener(EditorColorsListener listener) {
+    myEditorColorsListeners.add(listener);
+  }
+
+  public void removeEditorColorsListener(EditorColorsListener listener) {
+    myEditorColorsListeners.remove(listener);
+  }
+
+  private void globalColorSchemeChange(@Nullable EditorColorsScheme scheme) {
+    myEditorColorsListeners.forEach(listener -> listener.globalSchemeChange(scheme));
+    EditorComponent.this.update();
+    EditorComponent.this.setBackground(StyleRegistry.getInstance().getEditorBackground());
   }
 
   // TODO:
@@ -1453,6 +1470,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     mySelectionManager.dispose();
 
     myLeftMarginPressListeners.clear();
+
+    myEditorColorsListeners.clear();
 
     myFocusTracker.dispose();
 

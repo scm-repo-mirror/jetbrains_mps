@@ -4,6 +4,7 @@ package jetbrains.mps.vcs.diff.ui;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.beans.PropertyChangeListener;
+import com.intellij.openapi.editor.colors.EditorColorsListener;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.vcs.diff.StructChangeSet;
 import jetbrains.mps.vcs.diff.ui.common.DiffEditor;
@@ -17,7 +18,13 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.util.messages.MessageBusConnection;
 import org.jetbrains.mps.openapi.model.SNodeId;
+import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.editor.colors.EditorColorsManager;
+import com.intellij.openapi.editor.colors.EditorColorsScheme;
+import jetbrains.mps.ide.project.ProjectHelper;
 import java.beans.PropertyChangeEvent;
 import com.intellij.openapi.ui.Splitter;
 import java.util.Arrays;
@@ -41,20 +48,18 @@ import jetbrains.mps.vcs.diff.ui.common.ChangeGroup;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import javax.swing.JPanel;
-import com.intellij.openapi.application.ApplicationManager;
-import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages;
 import jetbrains.mps.smodel.SModelOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.StructChangeSetBuilder;
+import org.jetbrains.mps.openapi.module.ModelAccess;
 
 @GeneratedClass(node = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)/4664177994952686123", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
-public class StructDifferencePane implements PropertyChangeListener {
+public class StructDifferencePane implements PropertyChangeListener, EditorColorsListener {
   private static final String PARAM_SHOW_INSPECTOR = StructDifferencePane.class.getName() + "ShowInspector";
   private static final String PARAM_INSPECTOR_SPLITTER_POSITION = StructDifferencePane.class.getName() + "InspectorSplitterPosition";
   private Project myProject;
@@ -71,6 +76,9 @@ public class StructDifferencePane implements PropertyChangeListener {
 
   private DefaultActionGroup myActionGroup;
   private NextPreviousTraverser myTraverser;
+
+  @Nullable
+  private final MessageBusConnection myMessageBusConnection;
 
   public StructDifferencePane(Project project, StructChangeSet changeSet, String[] titles) {
     myChangeSet = changeSet;
@@ -97,7 +105,21 @@ public class StructDifferencePane implements PropertyChangeListener {
     myPanel = createTwosideContentPanel();
     myTraverser = new NextPreviousTraverser(myChangeGroupLayouts, myNewEditor.getMainEditor());
     createActionGroup();
+    ChangeColors.updateEditorColors();
+    if (ApplicationManager.getApplication() != null) {
+      myMessageBusConnection = ApplicationManager.getApplication().getMessageBus().connect();
+      myMessageBusConnection.subscribe(EditorColorsManager.TOPIC, this);
+    } else {
+      myMessageBusConnection = null;
+    }
   }
+
+  @Override
+  public void globalSchemeChange(@Nullable EditorColorsScheme scheme) {
+    ChangeColors.updateEditorColors();
+    check_n8nr2l_a1a12(ProjectHelper.getModelAccess(myProject), this);
+  }
+
 
   @Override
   public void propertyChange(PropertyChangeEvent event) {
@@ -326,8 +348,15 @@ public class StructDifferencePane implements PropertyChangeListener {
   private void higlightChange(DiffEditor diffEditor, SModel model, boolean isOldEditor, ModelChange change) {
     diffEditor.highlightChange(model, change, isOldEditor, null);
   }
-  public void rehighlight() {
-    StructChangeSetBuilder.rebuildChangeSet(myChangeSet);
+
+  private void rehighlightNoRebuild() {
+    rehighlight(false);
+  }
+
+  public void rehighlight(boolean rebuild) {
+    if (rebuild) {
+      StructChangeSetBuilder.rebuildChangeSet(myChangeSet);
+    }
     myNewEditor.unhighlightAllChanges();
     myOldEditor.unhighlightAllChanges();
 
@@ -347,6 +376,19 @@ public class StructDifferencePane implements PropertyChangeListener {
     myDiffEditorsGroup.dispose();
     myOldEditor = null;
     myNewEditor = null;
+    if (myMessageBusConnection != null) {
+      myMessageBusConnection.disconnect();
+    }
   }
 
+  private static void check_n8nr2l_a1a12(ModelAccess checkedDotOperand, final StructDifferencePane checkedDotThisExpression) {
+    if (null != checkedDotOperand) {
+      checkedDotOperand.runReadAction(new Runnable() {
+        public void run() {
+          checkedDotThisExpression.rehighlightNoRebuild();
+        }
+      });
+    }
+
+  }
 }
