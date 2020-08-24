@@ -10,6 +10,8 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
+import jetbrains.mps.smodel.runtime.ConceptKind;
+import jetbrains.mps.smodel.runtime.StaticScope;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
@@ -76,6 +78,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/2535923850359271782");
     b.version(2);
     b.aggregate("elements", 0x2331694e561af167L).target(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L).optional(true).ordered(true).multiple(true).origin("2535923850359271783").done();
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForNodeWrapperElement() {
@@ -87,6 +90,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/3133179214568824809");
     b.version(2);
     b.aggregate("node", 0x2b7b49e536031feaL).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(true).ordered(true).multiple(false).origin("3133179214568824810").done();
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("node");
     return b.create();
   }
@@ -98,6 +102,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/2535923850359206929");
     b.version(2);
     b.aggregate("lines", 0x2331694e561a03b8L).target(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L).optional(false).ordered(true).multiple(true).origin("2535923850359210936").done();
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTextElement() {
@@ -105,6 +110,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, true, false);
     b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/155656958578482919");
     b.version(2);
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForWord() {
@@ -118,6 +124,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("italic", 0x57d1fa7f2af1d481L).type(PrimitiveTypeId.BOOLEAN).origin("6328114375520539777").done();
     b.property("underlined", 0x57d1fa7f2af1d494L).type(PrimitiveTypeId.BOOLEAN).origin("6328114375520539796").done();
     b.property("url", 0x57d1fa7f2af1d485L).type(PrimitiveTypeId.STRING).origin("6328114375520539781").done();
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }
 }

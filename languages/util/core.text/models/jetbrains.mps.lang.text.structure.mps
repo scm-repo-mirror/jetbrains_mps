@@ -23,6 +23,7 @@
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
+        <property id="5404671619616246344" name="staticScope" index="2_RsDV" />
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
         <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
@@ -52,12 +53,14 @@
     <property role="3GE5qa" value="" />
     <property role="TrG5h" value="TextElement" />
     <property role="R5$K7" value="true" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="8D0iRqSPW4">
     <property role="EcuMT" value="155656958578482948" />
     <property role="3GE5qa" value="" />
     <property role="TrG5h" value="Word" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" node="8D0iRqSPVB" resolve="TextElement" />
     <node concept="1TJgyi" id="8D0iRqSPW5" role="1TKVEl">
       <property role="IQ2nx" value="155656958578482949" />
@@ -88,6 +91,7 @@
   <node concept="1TIwiD" id="2cLqkTm6vgh">
     <property role="EcuMT" value="2535923850359206929" />
     <property role="TrG5h" value="Text" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="PrWs8" id="2cLqkTm6vgi" role="PzmwI">
       <ref role="PrY4T" to="tpck:3xhyJYa45Zm" resolve="IPlaceholderContent" />
@@ -106,6 +110,7 @@
   <node concept="1TIwiD" id="2cLqkTm6J5A">
     <property role="EcuMT" value="2535923850359271782" />
     <property role="TrG5h" value="Line" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="2cLqkTm6J5B" role="1TKVEi">
       <property role="IQ2ns" value="2535923850359271783" />
@@ -120,6 +125,7 @@
     <property role="TrG5h" value="NodeWrapperElement" />
     <property role="34LRSv" value="node" />
     <property role="R4oN_" value="element which wraps any node" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" node="8D0iRqSPVB" resolve="TextElement" />
     <node concept="1TJgyj" id="2HViukQ0LZE" role="1TKVEi">
       <property role="IQ2ns" value="3133179214568824810" />
