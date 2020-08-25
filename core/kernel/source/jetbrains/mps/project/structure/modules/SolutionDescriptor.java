@@ -17,6 +17,7 @@ package jetbrains.mps.project.structure.modules;
 
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
+import org.jetbrains.annotations.ApiStatus.Experimental;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -54,6 +55,7 @@ public class SolutionDescriptor extends ModuleDescriptor {
     return myRequestCompileIDEA;
   }
 
+  @Experimental
   public boolean isReadOnlyStubModule() {
     return myReadOnlyStubModule;
   }
@@ -68,9 +70,14 @@ public class SolutionDescriptor extends ModuleDescriptor {
   }
 
   /**
-   * EXPERIMENTAL. Indicates that solution is full of stub models. The module needs to be excluded from certain operations
-   * like migration (MigrationModuleUtil relies on Solution.isBootstrapSolution to exclude mps-provided stub solutions from migration)
+   * Indicates that solution contains only stub models.
+   * <br><br>
+   * Such module needs to be excluded from certain operations. For example:
+   * <br>
+   * {@link jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil#isModuleMigrateable} relies on
+   * {@link org.jetbrains.mps.openapi.module.SModule#isReadOnly()} to exclude mps-provided stub solutions from migration.
    */
+  @Experimental
   public final void readOnlyStubModule(boolean roStubModule) {
     myReadOnlyStubModule = roStubModule;
   }
