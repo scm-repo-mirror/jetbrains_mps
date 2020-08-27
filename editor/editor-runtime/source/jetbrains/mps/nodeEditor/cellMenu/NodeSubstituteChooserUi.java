@@ -208,14 +208,17 @@ class NodeSubstituteChooserUi implements ISubstituteChooserUi {
   }
 
   private PopupPosition calculateRelativePosition(Dimension popupSize) {
-    Point location = myPatternEditor.getLeftBottomPosition();
-    Rectangle deviceBounds = WindowsUtil.findDeviceBoundsAt(location);
-    if (location.y + popupSize.height > deviceBounds.height + deviceBounds.y - 150 &&
-        location.y - myPatternEditor.getHeight() / 2 > deviceBounds.y + deviceBounds.height / 2) {
-      return PopupPosition.TOP;
-    } else {
-      return PopupPosition.BOTTOM;
+    if (myRelativePosition == null) {
+      Point location = myPatternEditor.getLeftBottomPosition();
+      Rectangle deviceBounds = WindowsUtil.findDeviceBoundsAt(location);
+      if (location.y + popupSize.height > deviceBounds.height + deviceBounds.y - 150 &&
+          location.y - myPatternEditor.getHeight() / 2 > deviceBounds.y + deviceBounds.height / 2) {
+        myRelativePosition = PopupPosition.TOP;
+      } else {
+        myRelativePosition = PopupPosition.BOTTOM;
+      }
     }
+    return myRelativePosition;
   }
 
   private Point getLocationWithRespectToScreenBounds(Point location, Rectangle deviceBounds, Dimension popupSize) {
