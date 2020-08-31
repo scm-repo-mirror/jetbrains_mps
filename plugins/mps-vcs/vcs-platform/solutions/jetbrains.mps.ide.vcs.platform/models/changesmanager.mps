@@ -2669,13 +2669,8 @@
                   </node>
                 </node>
                 <node concept="2OqwBi" id="2KujyEVJte_" role="10QFUP">
-                  <node concept="2OqwBi" id="2KujyEVJteA" role="2Oq$k0">
-                    <node concept="37vLTw" id="2KujyEVJteB" role="2Oq$k0">
-                      <ref role="3cqZAo" node="7vnZ8Y09h_m" resolve="myOriginal" />
-                    </node>
-                    <node concept="liA8E" id="2KujyEVJteC" role="2OqNvi">
-                      <ref role="37wK5l" to="dush:~MultiStreamDataSource.getSubStreams()" resolve="getSubStreams" />
-                    </node>
+                  <node concept="1rXfSq" id="6KS9fagR9YC" role="2Oq$k0">
+                    <ref role="37wK5l" node="6ww30Znlylc" resolve="getSubStreams" />
                   </node>
                   <node concept="liA8E" id="2KujyEVJteD" role="2OqNvi">
                     <ref role="37wK5l" to="1ctc:~Stream.collect(java.util.stream.Collector)" resolve="collect" />
@@ -2702,14 +2697,14 @@
                         <node concept="3cpWs3" id="2KujyEVJzpv" role="3uHU7B">
                           <node concept="3cpWs3" id="2KujyEVJz5z" role="3uHU7B">
                             <node concept="Xl_RD" id="2KujyEVJxxH" role="3uHU7B">
-                              <property role="Xl_RC" value="The original ds " />
+                              <property role="Xl_RC" value="The redirecting ds from " />
                             </node>
                             <node concept="37vLTw" id="2KujyEVJz7F" role="3uHU7w">
                               <ref role="3cqZAo" node="7vnZ8Y09h_m" resolve="myOriginal" />
                             </node>
                           </node>
                           <node concept="Xl_RD" id="2KujyEVJzrz" role="3uHU7w">
-                            <property role="Xl_RC" value=" has only " />
+                            <property role="Xl_RC" value=" has multiple " />
                           </node>
                         </node>
                         <node concept="2OqwBi" id="2KujyEVJ$qJ" role="3uHU7w">
@@ -2777,109 +2772,10 @@
           <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
         </node>
         <node concept="3clFbS" id="2KujyEVJkP_" role="3clF47">
-          <node concept="3cpWs8" id="2KujyEVKdyG" role="3cqZAp">
-            <node concept="3cpWsn" id="2KujyEVKdyH" role="3cpWs9">
-              <property role="TrG5h" value="subs" />
-              <node concept="3uibUv" id="2KujyEVKdyI" role="1tU5fm">
-                <ref role="3uigEE" to="33ny:~List" resolve="List" />
-                <node concept="3uibUv" id="2KujyEVKdyJ" role="11_B2D">
-                  <ref role="3uigEE" to="dush:~StreamDataSource" resolve="StreamDataSource" />
-                </node>
-              </node>
-              <node concept="10QFUN" id="2KujyEVKdyK" role="33vP2m">
-                <node concept="3uibUv" id="2KujyEVKdyL" role="10QFUM">
-                  <ref role="3uigEE" to="33ny:~List" resolve="List" />
-                  <node concept="3uibUv" id="2KujyEVKdyM" role="11_B2D">
-                    <ref role="3uigEE" to="dush:~StreamDataSource" resolve="StreamDataSource" />
-                  </node>
-                </node>
-                <node concept="2OqwBi" id="2KujyEVKdyN" role="10QFUP">
-                  <node concept="2OqwBi" id="2KujyEVKdyO" role="2Oq$k0">
-                    <node concept="37vLTw" id="2KujyEVKdyP" role="2Oq$k0">
-                      <ref role="3cqZAo" node="7vnZ8Y09h_m" resolve="myOriginal" />
-                    </node>
-                    <node concept="liA8E" id="2KujyEVKdyQ" role="2OqNvi">
-                      <ref role="37wK5l" to="dush:~MultiStreamDataSource.getSubStreams()" resolve="getSubStreams" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="2KujyEVKdyR" role="2OqNvi">
-                    <ref role="37wK5l" to="1ctc:~Stream.collect(java.util.stream.Collector)" resolve="collect" />
-                    <node concept="2YIFZM" id="2KujyEVKdyS" role="37wK5m">
-                      <ref role="37wK5l" to="1ctc:~Collectors.toList()" resolve="toList" />
-                      <ref role="1Pybhc" to="1ctc:~Collectors" resolve="Collectors" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbJ" id="2KujyEVKdyT" role="3cqZAp">
-            <node concept="3clFbS" id="2KujyEVKdyU" role="3clFbx">
-              <node concept="YS8fn" id="2KujyEVKdyV" role="3cqZAp">
-                <node concept="2ShNRf" id="2KujyEVKdyW" role="YScLw">
-                  <node concept="1pGfFk" id="2KujyEVKdyX" role="2ShVmc">
-                    <ref role="37wK5l" to="guwi:~IOException.&lt;init&gt;(java.lang.String)" resolve="IOException" />
-                    <node concept="3cpWs3" id="2KujyEVKdyY" role="37wK5m">
-                      <node concept="Xl_RD" id="2KujyEVKdyZ" role="3uHU7w">
-                        <property role="Xl_RC" value=" substreams" />
-                      </node>
-                      <node concept="3cpWs3" id="2KujyEVKdz0" role="3uHU7B">
-                        <node concept="3cpWs3" id="2KujyEVKdz1" role="3uHU7B">
-                          <node concept="3cpWs3" id="2KujyEVKdz2" role="3uHU7B">
-                            <node concept="Xl_RD" id="2KujyEVKdz3" role="3uHU7B">
-                              <property role="Xl_RC" value="The original ds " />
-                            </node>
-                            <node concept="37vLTw" id="2KujyEVKdz4" role="3uHU7w">
-                              <ref role="3cqZAo" node="7vnZ8Y09h_m" resolve="myOriginal" />
-                            </node>
-                          </node>
-                          <node concept="Xl_RD" id="2KujyEVKdz5" role="3uHU7w">
-                            <property role="Xl_RC" value=" has only " />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="2KujyEVKdz6" role="3uHU7w">
-                          <node concept="37vLTw" id="2KujyEVKdz7" role="2Oq$k0">
-                            <ref role="3cqZAo" node="2KujyEVKdyH" resolve="subs" />
-                          </node>
-                          <node concept="liA8E" id="2KujyEVKdz8" role="2OqNvi">
-                            <ref role="37wK5l" to="33ny:~List.size()" resolve="size" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3y3z36" id="2KujyEVKdz9" role="3clFbw">
-              <node concept="2OqwBi" id="2KujyEVKdza" role="3uHU7B">
-                <node concept="37vLTw" id="2KujyEVKdzb" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2KujyEVKdyH" resolve="subs" />
-                </node>
-                <node concept="liA8E" id="2KujyEVKdzc" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~List.size()" resolve="size" />
-                </node>
-              </node>
-              <node concept="3cmrfG" id="2KujyEVKdzd" role="3uHU7w">
-                <property role="3cmrfH" value="1" />
-              </node>
-            </node>
-          </node>
-          <node concept="3cpWs6" id="2KujyEVKdze" role="3cqZAp">
-            <node concept="2OqwBi" id="2KujyEVKdzf" role="3cqZAk">
-              <node concept="2OqwBi" id="2KujyEVKdzg" role="2Oq$k0">
-                <node concept="37vLTw" id="2KujyEVKdzh" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2KujyEVKdyH" resolve="subs" />
-                </node>
-                <node concept="liA8E" id="2KujyEVKdzi" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~List.get(int)" resolve="get" />
-                  <node concept="3cmrfG" id="2KujyEVKdzj" role="37wK5m">
-                    <property role="3cmrfH" value="0" />
-                  </node>
-                </node>
-              </node>
-              <node concept="liA8E" id="2KujyEVKdXl" role="2OqNvi">
-                <ref role="37wK5l" to="dush:~StreamDataSource.openOutputStream()" resolve="openOutputStream" />
+          <node concept="YS8fn" id="6KS9fagRaDE" role="3cqZAp">
+            <node concept="2ShNRf" id="6KS9fagRaFJ" role="YScLw">
+              <node concept="1pGfFk" id="6KS9fagRYxO" role="2ShVmc">
+                <ref role="37wK5l" to="wyt6:~UnsupportedOperationException.&lt;init&gt;()" resolve="UnsupportedOperationException" />
               </node>
             </node>
           </node>

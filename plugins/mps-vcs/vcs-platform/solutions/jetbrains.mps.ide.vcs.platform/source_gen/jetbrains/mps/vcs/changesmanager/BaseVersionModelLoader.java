@@ -215,9 +215,9 @@ import java.io.OutputStream;
     @NotNull
     @Override
     public InputStream openInputStream() throws IOException {
-      List<StreamDataSource> subs = (List<StreamDataSource>) myOriginal.getSubStreams().collect(Collectors.toList());
+      List<StreamDataSource> subs = (List<StreamDataSource>) getSubStreams().collect(Collectors.toList());
       if (subs.size() != 1) {
-        throw new IOException("The original ds " + myOriginal + " has only " + subs.size() + " substreams");
+        throw new IOException("The redirecting ds from " + myOriginal + " has multiple " + subs.size() + " substreams");
       }
       return subs.get(0).openInputStream();
     }
@@ -225,11 +225,7 @@ import java.io.OutputStream;
     @NotNull
     @Override
     public OutputStream openOutputStream() throws IOException {
-      List<StreamDataSource> subs = (List<StreamDataSource>) myOriginal.getSubStreams().collect(Collectors.toList());
-      if (subs.size() != 1) {
-        throw new IOException("The original ds " + myOriginal + " has only " + subs.size() + " substreams");
-      }
-      return subs.get(0).openOutputStream();
+      throw new UnsupportedOperationException();
     }
   }
 }
