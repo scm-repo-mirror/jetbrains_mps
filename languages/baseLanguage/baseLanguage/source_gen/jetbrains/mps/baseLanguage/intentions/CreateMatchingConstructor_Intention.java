@@ -109,7 +109,7 @@ public final class CreateMatchingConstructor_Intention extends AbstractIntention
               Sequence.fromIterable(selectedSuperConstructorsFinal).visitAll(new IVisitor<SNode>() {
                 public void visit(SNode superConstructor) {
                   SNode currentSuperConstructorCopy = SNodeOperations.copyNode(superConstructor);
-                  ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(currentSuperConstructorCopy, LINKS.body$5xQk), LINKS.statement$53DE)).clear();
+                  SLinkOperations.setNewChild(currentSuperConstructorCopy, LINKS.body$5xQk, null);
                   SNode superCall = SLinkOperations.addNewChild(SLinkOperations.getTarget(currentSuperConstructorCopy, LINKS.body$5xQk), LINKS.statement$53DE, CONCEPTS.SuperConstructorInvocation$wU);
                   SLinkOperations.setTarget(superCall, LINKS.baseMethodDeclaration$pyYw, superConstructor);
                   for (SNode param : SLinkOperations.getChildren(currentSuperConstructorCopy, LINKS.parameter$5xBj)) {
