@@ -20,7 +20,7 @@
     <import index="1fjm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.lang.dataFlow.framework(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="tp2q" ref="r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)" />
-    <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
+    <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -226,6 +226,11 @@
       </concept>
       <concept id="1144230876926" name="jetbrains.mps.baseLanguage.structure.AbstractForStatement" flags="nn" index="1DupvO">
         <child id="1144230900587" name="variable" index="1Duv9x" />
+      </concept>
+      <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
+        <child id="1163668914799" name="condition" index="3K4Cdx" />
+        <child id="1163668922816" name="ifTrue" index="3K4E3e" />
+        <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
       <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
@@ -477,6 +482,59 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="1JZUx7lQKCK" role="3cqZAp">
+          <node concept="3cpWsn" id="1JZUx7lQKCL" role="3cpWs9">
+            <property role="TrG5h" value="isCompileTimeConstant" />
+            <node concept="10P_77" id="1JZUx7lQKu7" role="1tU5fm" />
+            <node concept="2OqwBi" id="1JZUx7lQKCM" role="33vP2m">
+              <node concept="2OqwBi" id="1JZUx7lQKCN" role="2Oq$k0">
+                <node concept="3__QtB" id="1JZUx7lQKCO" role="2Oq$k0" />
+                <node concept="3TrEf2" id="1JZUx7lQKCP" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:fzclF8o" resolve="condition" />
+                </node>
+              </node>
+              <node concept="2qgKlT" id="1JZUx7lQKCQ" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:i1LOPRp" resolve="isCompileTimeConstant" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="1JZUx7lQHB5" role="3cqZAp">
+          <node concept="3cpWsn" id="1JZUx7lQHB6" role="3cpWs9">
+            <property role="TrG5h" value="compileTimeConstantValue" />
+            <node concept="3uibUv" id="1JZUx7lQGJv" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+            </node>
+            <node concept="3K4zz7" id="1JZUx7lQKbD" role="33vP2m">
+              <node concept="10Nm6u" id="1JZUx7lQKsy" role="3K4GZi" />
+              <node concept="37vLTw" id="1JZUx7lQKCR" role="3K4Cdx">
+                <ref role="3cqZAo" node="1JZUx7lQKCL" resolve="isCompileTimeConstant" />
+              </node>
+              <node concept="2OqwBi" id="1JZUx7lQHB7" role="3K4E3e">
+                <node concept="2OqwBi" id="1JZUx7lQHB8" role="2Oq$k0">
+                  <node concept="3__QtB" id="1JZUx7lQJDU" role="2Oq$k0" />
+                  <node concept="3TrEf2" id="1JZUx7lQHBa" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpee:fzclF8o" resolve="condition" />
+                  </node>
+                </node>
+                <node concept="2qgKlT" id="1JZUx7lQHBb" role="2OqNvi">
+                  <ref role="37wK5l" to="tpek:i1LP2xI" resolve="getCompileTimeConstantValue" />
+                  <node concept="2OqwBi" id="1JZUx7lQHBc" role="37wK5m">
+                    <node concept="2JrnkZ" id="1JZUx7lQHBd" role="2Oq$k0">
+                      <node concept="2OqwBi" id="1JZUx7lQHBe" role="2JrQYb">
+                        <node concept="3__QtB" id="1JZUx7lQHBf" role="2Oq$k0" />
+                        <node concept="I4A8Y" id="1JZUx7lQHBg" role="2OqNvi" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="1JZUx7lQHBh" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="KxWJvxa_rZ" role="3cqZAp">
           <node concept="3clFbS" id="KxWJvxa_s1" role="3clFbx">
             <node concept="3cpWs8" id="KxWJvxa_ko" role="3cqZAp">
@@ -489,27 +547,8 @@
                   <node concept="3uibUv" id="KxWJvxa_kr" role="10QFUM">
                     <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
                   </node>
-                  <node concept="2OqwBi" id="KxWJvxa_ks" role="10QFUP">
-                    <node concept="2OqwBi" id="KxWJvxa_kt" role="2Oq$k0">
-                      <node concept="3__QtB" id="KxWJvxa_ku" role="2Oq$k0" />
-                      <node concept="3TrEf2" id="KxWJvxa_kv" role="2OqNvi">
-                        <ref role="3Tt5mk" to="tpee:fzclF8o" resolve="condition" />
-                      </node>
-                    </node>
-                    <node concept="2qgKlT" id="KxWJvxa_kw" role="2OqNvi">
-                      <ref role="37wK5l" to="tpek:i1LP2xI" resolve="getCompileTimeConstantValue" />
-                      <node concept="2OqwBi" id="KxWJvxa_kx" role="37wK5m">
-                        <node concept="2JrnkZ" id="KxWJvxa_ky" role="2Oq$k0">
-                          <node concept="2OqwBi" id="KxWJvxa_kz" role="2JrQYb">
-                            <node concept="3__QtB" id="KxWJvxa_k$" role="2Oq$k0" />
-                            <node concept="I4A8Y" id="KxWJvxa_k_" role="2OqNvi" />
-                          </node>
-                        </node>
-                        <node concept="liA8E" id="KxWJvxa_kA" role="2OqNvi">
-                          <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
-                        </node>
-                      </node>
-                    </node>
+                  <node concept="37vLTw" id="1JZUx7lQHBi" role="10QFUP">
+                    <ref role="3cqZAo" node="1JZUx7lQHB6" resolve="compileTimeConstantValue" />
                   </node>
                 </node>
               </node>
@@ -560,15 +599,27 @@
               </node>
             </node>
           </node>
-          <node concept="2OqwBi" id="1D9sZqfeBl1" role="3clFbw">
-            <node concept="2OqwBi" id="1D9sZqfeBl2" role="2Oq$k0">
-              <node concept="3__QtB" id="1D9sZqfeBl3" role="2Oq$k0" />
-              <node concept="3TrEf2" id="1D9sZqfeBl4" role="2OqNvi">
-                <ref role="3Tt5mk" to="tpee:fzclF8o" resolve="condition" />
+          <node concept="1Wc70l" id="1JZUx7lQMJC" role="3clFbw">
+            <node concept="1eOMI4" id="1JZUx7lQNfu" role="3uHU7w">
+              <node concept="22lmx$" id="1JZUx7lQNhu" role="1eOMHV">
+                <node concept="2ZW3vV" id="1JZUx7lQNrH" role="3uHU7w">
+                  <node concept="3uibUv" id="1JZUx7lQNum" role="2ZW6by">
+                    <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
+                  </node>
+                  <node concept="37vLTw" id="1JZUx7lQNkE" role="2ZW6bz">
+                    <ref role="3cqZAo" node="1JZUx7lQHB6" resolve="compileTimeConstantValue" />
+                  </node>
+                </node>
+                <node concept="3clFbC" id="1JZUx7lQN7I" role="3uHU7B">
+                  <node concept="37vLTw" id="1JZUx7lQN1Y" role="3uHU7B">
+                    <ref role="3cqZAo" node="1JZUx7lQHB6" resolve="compileTimeConstantValue" />
+                  </node>
+                  <node concept="10Nm6u" id="1JZUx7lQNaS" role="3uHU7w" />
+                </node>
               </node>
             </node>
-            <node concept="2qgKlT" id="1D9sZqfeBl5" role="2OqNvi">
-              <ref role="37wK5l" to="tpek:i1LOPRp" resolve="isCompileTimeConstant" />
+            <node concept="37vLTw" id="1JZUx7lQKCS" role="3uHU7B">
+              <ref role="3cqZAo" node="1JZUx7lQKCL" resolve="isCompileTimeConstant" />
             </node>
           </node>
           <node concept="9aQIb" id="KxWJvxb6bF" role="9aQIa">

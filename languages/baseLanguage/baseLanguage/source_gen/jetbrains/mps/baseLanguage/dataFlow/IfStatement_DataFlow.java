@@ -15,8 +15,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class IfStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
     _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
-    if ((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17))) {
-      Boolean v = (Boolean) Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17), SNodeOperations.getModel(_context.getNode()).getModule());
+    boolean isCompileTimeConstant = (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
+    Object compileTimeConstantValue = (isCompileTimeConstant ? Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17), SNodeOperations.getModel(_context.getNode()).getModule()) : null);
+    if (isCompileTimeConstant && (compileTimeConstantValue == null || compileTimeConstantValue instanceof Boolean)) {
+      Boolean v = (Boolean) compileTimeConstantValue;
       if (v != null && v.booleanValue()) {
         _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.ifTrue$5Rg8));
         _context.getBuilder().emitMayBeUnreachable(new Runnable() {

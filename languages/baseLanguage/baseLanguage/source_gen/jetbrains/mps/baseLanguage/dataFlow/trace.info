@@ -26,57 +26,62 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206454554507">
     <file name="IfStatement_DataFlow.java">
       <node id="1206454560120" at="16,60,17,109" concept="4" />
-      <node id="874246949135078680" at="18,159,19,231" concept="9" />
-      <node id="874246949135084716" at="20,42,21,110" concept="4" />
-      <node id="874246949135087343" at="23,29,24,190" concept="4" />
-      <node id="874246949135088108" at="26,11,27,15" concept="10" />
-      <node id="874246949135089592" at="28,14,29,199" concept="4" />
-      <node id="1894172621088425982" at="31,12,32,200" concept="4" />
-      <node id="1206454592091" at="32,200,33,108" concept="4" />
-      <node id="1217868921099" at="36,29,37,185" concept="4" />
-      <node id="1217867419051" at="41,5,42,49" concept="4" />
-      <node id="1217863442978" at="43,99,44,50" concept="4" />
-      <node id="1206454676454" at="46,95,47,118" concept="4" />
-      <node id="1206454554507" at="52,0,53,0" concept="13" trace="condition$5R17" />
-      <node id="1206454554507" at="53,0,54,0" concept="13" trace="ifTrue$5Rg8" />
-      <node id="1206454554507" at="54,0,55,0" concept="13" trace="ifFalseStatement$psZK" />
-      <node id="1206454554507" at="55,0,56,0" concept="13" trace="elsifClauses$EVJW" />
-      <node id="874246949135089353" at="28,12,30,7" concept="1" />
-      <node id="1894172621088223636" at="23,0,26,0" concept="8" trace="run#()V" />
-      <node id="1217868916800" at="36,0,39,0" concept="8" trace="run#()V" />
-      <node id="1217863442976" at="42,49,45,5" concept="6" />
-      <node id="1206454760986" at="45,5,48,5" concept="7" />
-      <node id="1894172621088223636" at="21,110,26,11" concept="4" />
-      <node id="1217868916800" at="34,293,39,11" concept="4" />
-      <node id="1217867461508" at="33,108,40,7" concept="7" />
-      <node id="874246949135213291" at="31,10,41,5" concept="1" />
-      <node id="874246949135084191" at="19,231,30,7" concept="7" />
-      <node id="874246949135079167" at="17,109,41,5" concept="7" />
-      <node id="1206454554507" at="16,0,50,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="1894172621088223636" at="23,29,24,190" />
-      <scope id="874246949135089354" at="28,14,29,199" />
-      <scope id="1217868916800" at="36,29,37,185" />
-      <scope id="1217863442977" at="43,99,44,50" />
-      <scope id="1206454760987" at="46,95,47,118" />
-      <scope id="1894172621088223636" at="23,0,26,0" />
-      <scope id="1217868916800" at="36,0,39,0" />
-      <scope id="1217863442976" at="42,49,45,5">
+      <node id="2017588520408517168" at="17,109,18,185" concept="9" />
+      <node id="2017588520408504773" at="18,185,19,274" concept="9" />
+      <node id="874246949135078680" at="20,117,21,53" concept="9" />
+      <node id="874246949135084716" at="22,42,23,110" concept="4" />
+      <node id="874246949135087343" at="25,29,26,190" concept="4" />
+      <node id="874246949135088108" at="28,11,29,15" concept="10" />
+      <node id="874246949135089592" at="30,14,31,199" concept="4" />
+      <node id="1894172621088425982" at="33,12,34,200" concept="4" />
+      <node id="1206454592091" at="34,200,35,108" concept="4" />
+      <node id="1217868921099" at="38,29,39,185" concept="4" />
+      <node id="1217867419051" at="43,5,44,49" concept="4" />
+      <node id="1217863442978" at="45,99,46,50" concept="4" />
+      <node id="1206454676454" at="48,95,49,118" concept="4" />
+      <node id="1206454554507" at="54,0,55,0" concept="13" trace="condition$5R17" />
+      <node id="1206454554507" at="55,0,56,0" concept="13" trace="ifTrue$5Rg8" />
+      <node id="1206454554507" at="56,0,57,0" concept="13" trace="ifFalseStatement$psZK" />
+      <node id="1206454554507" at="57,0,58,0" concept="13" trace="elsifClauses$EVJW" />
+      <node id="874246949135089353" at="30,12,32,7" concept="1" />
+      <node id="1894172621088223636" at="25,0,28,0" concept="8" trace="run#()V" />
+      <node id="1217868916800" at="38,0,41,0" concept="8" trace="run#()V" />
+      <node id="1217863442976" at="44,49,47,5" concept="6" />
+      <node id="1206454760986" at="47,5,50,5" concept="7" />
+      <node id="1894172621088223636" at="23,110,28,11" concept="4" />
+      <node id="1217868916800" at="36,293,41,11" concept="4" />
+      <node id="1217867461508" at="35,108,42,7" concept="7" />
+      <node id="874246949135213291" at="33,10,43,5" concept="1" />
+      <node id="874246949135084191" at="21,53,32,7" concept="7" />
+      <node id="874246949135079167" at="19,274,43,5" concept="7" />
+      <node id="1206454554507" at="16,0,52,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="1894172621088223636" at="25,29,26,190" />
+      <scope id="874246949135089354" at="30,14,31,199" />
+      <scope id="1217868916800" at="38,29,39,185" />
+      <scope id="1217863442977" at="45,99,46,50" />
+      <scope id="1206454760987" at="48,95,49,118" />
+      <scope id="1894172621088223636" at="25,0,28,0" />
+      <scope id="1217868916800" at="38,0,41,0" />
+      <scope id="1217863442976" at="44,49,47,5">
         <var name="elseIf" id="1217863442983" />
       </scope>
-      <scope id="1217867461509" at="34,293,39,11" />
-      <scope id="874246949135084193" at="20,42,27,15" />
-      <scope id="874246949135213292" at="31,12,40,7" />
-      <scope id="874246949135079169" at="18,159,30,7">
+      <scope id="1217867461509" at="36,293,41,11" />
+      <scope id="874246949135084193" at="22,42,29,15" />
+      <scope id="874246949135213292" at="33,12,42,7" />
+      <scope id="874246949135079169" at="20,117,32,7">
         <var name="v" id="874246949135078681" />
       </scope>
-      <scope id="1206454554509" at="16,60,48,5" />
-      <scope id="1206454554507" at="16,0,50,0">
+      <scope id="1206454554509" at="16,60,50,5">
+        <var name="compileTimeConstantValue" id="2017588520408504774" />
+        <var name="isCompileTimeConstant" id="2017588520408517169" />
+      </scope>
+      <scope id="1206454554507" at="16,0,52,0">
         <var name="_context" id="1206454554507" />
       </scope>
-      <unit id="1894172621088223636" at="22,55,26,9" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$1" />
-      <unit id="1217868916800" at="35,55,39,9" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$2" />
-      <unit id="1206454554507" at="51,0,57,0" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$LINKS" />
-      <unit id="1206454554507" at="15,0,58,0" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow" />
+      <unit id="1894172621088223636" at="24,55,28,9" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$1" />
+      <unit id="1217868916800" at="37,55,41,9" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$2" />
+      <unit id="1206454554507" at="53,0,59,0" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow$LINKS" />
+      <unit id="1206454554507" at="15,0,60,0" name="jetbrains.mps.baseLanguage.dataFlow.IfStatement_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206455216234">
