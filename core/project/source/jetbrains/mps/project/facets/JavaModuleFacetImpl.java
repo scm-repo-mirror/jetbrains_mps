@@ -83,7 +83,13 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   }
 
   public void setLanguageLevel(@Nullable JavaLanguageLevel level) {
-    myJavaLanguageLevel = level;
+    if (level == JavaLanguageLevel.getDefault(isCompileInMps()) && myJavaLanguageLevel != level) {
+      // remove the value iff the value set there didn't match the default (or not set at all).
+      // Keep the value the way it was there just in case user wants to keep its module descriptor intact (e.g. doesn't want to rely on MPS defaults)
+      myJavaLanguageLevel = null;
+    } else {
+      myJavaLanguageLevel = level;
+    }
   }
 
   @NotNull
@@ -190,6 +196,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   public void save(@NotNull Memento memento) {
     super.save(memento);
     if (myJavaLanguageLevel != null) {
+      // if myJavaLanguageLevel value has been read, write it back even if it's the same as default
       memento.put(JAVA_LANGUAGE_LEVEL, myJavaLanguageLevel.name());
     }
     // FIXME On one hand, it looks stupid to account for existing values in the memento, a lot of ugly code
