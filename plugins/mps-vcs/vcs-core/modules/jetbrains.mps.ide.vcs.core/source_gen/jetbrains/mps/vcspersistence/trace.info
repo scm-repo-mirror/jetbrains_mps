@@ -78,7 +78,7 @@
       <node id="4358260748604633809" at="183,26,184,45" concept="3" />
       <node id="4241451198545414160" at="185,14,186,49" concept="3" />
       <node id="4241451198545417655" at="191,53,192,47" concept="9" />
-      <node id="4241451198545420110" at="195,71,196,57" concept="3" />
+      <node id="4241451198545420110" at="195,80,196,57" concept="3" />
       <node id="5732380106248370339" at="200,71,201,143" concept="8" />
       <node id="5732380106248371787" at="201,143,202,43" concept="8" />
       <node id="5732380106248373657" at="202,43,203,42" concept="8" />
@@ -113,7 +113,7 @@
       <node id="4289863944169206610" at="225,0,228,0" concept="7" trace="getModelName#()Ljava/lang/String;" />
       <node id="96280186594385033" at="171,0,175,0" concept="7" trace="getModelFactory#()Lorg/jetbrains/mps/openapi/persistence/ModelFactory;" />
       <node id="96280186594366329" at="176,0,180,0" concept="1" trace="MyModel#(Ljetbrains/mps/smodel/SModel;Ljetbrains/mps/smodel/SModelHeader;)V" />
-      <node id="4241451198545411506" at="194,0,198,0" concept="7" trace="forEach#(Ljava/util/function/BiConsumer;)V" />
+      <node id="4241451198545411506" at="194,0,198,0" concept="7" trace="forEachAttribute#(Ljava/util/function/BiConsumer;)V" />
       <node id="4289863944169167085" at="206,125,210,5" concept="6" />
       <node id="4289863944169206618" at="228,0,232,0" concept="7" trace="hashCode#()I" />
       <node id="4289863944169206627" at="232,0,236,0" concept="7" trace="equals#(Ljava/lang/Object;)Z" />
@@ -165,7 +165,7 @@
       <scope id="4358260748604631610" at="183,26,184,45" />
       <scope id="4358260748604635941" at="185,14,186,49" />
       <scope id="4241451198545411502" at="191,53,192,47" />
-      <scope id="4241451198545411517" at="195,71,196,57" />
+      <scope id="4241451198545411517" at="195,80,196,57" />
       <scope id="4289863944169209258" at="216,44,217,29" />
       <scope id="4289863944169206599" at="219,29,220,36" />
       <scope id="4289863944169206607" at="222,39,223,18" />

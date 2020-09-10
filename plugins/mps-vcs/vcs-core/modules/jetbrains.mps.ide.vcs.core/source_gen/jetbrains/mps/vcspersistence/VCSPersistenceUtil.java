@@ -192,7 +192,7 @@ public class VCSPersistenceUtil {
       return myHeader.getOptionalProperty(key);
     }
     @Override
-    public void forEach(@NotNull BiConsumer<String, String> consumer) {
+    public void forEachAttribute(@NotNull BiConsumer<String, String> consumer) {
       myHeader.getOptionalProperties().forEach(consumer);
     }
   }

@@ -496,11 +496,21 @@ public class ChangeSetBuilder {
       ModelWithAttributes newModel = (ModelWithAttributes) myNewModel;
       final ModelWithAttributes oldModel = (ModelWithAttributes) myOldModel;
 
+      final Set<String> seenAttr = new HashSet<String>();
       newModel.forEachAttribute(new BiConsumer<String, String>() {
         public void accept(String k, String v) {
+          seenAttr.add(k);
           String oldv = oldModel.getAttribute(k);
           if (!(Objects.equals(v, oldv))) {
             ListSequence.fromList(myNewChanges).addElement(new ModelAttributeChange(myChangeSet, k, v));
+          }
+        }
+      });
+      // check if any attribute has been deleted in the new version of the model 
+      oldModel.forEachAttribute(new BiConsumer<String, String>() {
+        public void accept(String k, String v) {
+          if (!(seenAttr.contains(k))) {
+            ListSequence.fromList(myNewChanges).addElement(new ModelAttributeChange(myChangeSet, k, null));
           }
         }
       });
