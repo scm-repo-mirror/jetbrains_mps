@@ -16,12 +16,8 @@
 package jetbrains.mps.generator.runtime;
 
 import jetbrains.mps.generator.impl.GenerationFailureException;
-import jetbrains.mps.generator.runtime.NodeWeaveFacility.WeaveContext;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
-
-import java.util.Collection;
 
 /**
  * Represents an outcome of template fragment.
@@ -78,35 +74,11 @@ public abstract class FragmentResult {
   public abstract void label(TemplateContext templateContext, String label);
 
   /**
-   * REMOVE ONCE 2020.2 is out as there's 2020.1-generated code that uses this method from TDWA2.weave() implementation method
-   *
-   * @deprecated {@link #reportTo(ApplySink)} is better (with CollectorSink)
-   * Report node/collection of nodes this TF has produced to supplied collection
-   * @param collection never null
-   */
-  @Deprecated
-  @ToRemove(version = 2020.1)
-  public abstract void reportTo(Collection<SNode> collection);
-
-  /**
    * Deliver node/collection of nodes into supplied sink with {@link #getAggregation() fragment's aggregation link}.
    * XXX How to validate a child (proper concept/role): initially idea was to pass TC/TEE here, now it seems that ApplySink has/right place to do that.
    * Intentionally don't use NotNull annotations as don't need these checks at runtime
    * @param sink never null
-   * @throws GenerationFailureException rethrows one from {@link ApplySink ApplySing.add()}
+   * @throws GenerationFailureException rethrows one from {@link ApplySink ApplySink.add()}
    */
   public abstract void reportTo(ApplySink sink) throws GenerationFailureException;
-
-  /**
-   * REMOVE ONCE 2020.2 is out as there's 2020.1-generated code that uses this method from TDWA2.weave() implementation method
-   *
-   * Code similar to {@link #reportTo(ApplySink)} intended for weave scenario, where anchor query has to be respected.
-   * @deprecated to be replaced with #reportTo(ApplySink) call, where sink knows about weaving whereabouts (anchor query and context parent)
-   * @param weaveFacility knows parent and how to find out anchor for newly injected node
-   * @return {@code this} for convenience
-   * @throws GenerationFailureException rethrows one from {@link NodeWeaveFacility#weaveNode(SContainmentLink, SNode)}
-   */
-  @Deprecated
-  @ToRemove(version = 2020.1)
-  public abstract FragmentResult weaveWith(NodeWeaveFacility weaveFacility) throws GenerationFailureException;
 }

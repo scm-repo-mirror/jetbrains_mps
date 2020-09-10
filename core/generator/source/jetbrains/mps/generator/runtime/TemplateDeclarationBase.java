@@ -72,27 +72,10 @@ public abstract class TemplateDeclarationBase implements TemplateDeclaration {
       }
 
       @Override
-      public void reportTo(Collection<SNode> collection) {
-        if (myResult != null) {
-          collection.addAll(myResult);
-        }
-      }
-
-      @Override
       public void reportTo(ApplySink sink) throws GenerationFailureException {
         if (myResult != null) {
           sink.add(getAggregation(), myResult);
         }
-      }
-
-      @Override
-      public FragmentResult weaveWith(NodeWeaveFacility weaveFacility) throws GenerationFailureException {
-        if (myResult != null) {
-          for (SNode n : myResult) {
-            weaveFacility.weaveNode(myAggregation, n);
-          }
-        }
-        return this;
       }
     }
     return new FR2(myAggregationLinks[aggregationIndex], result);
@@ -120,27 +103,10 @@ public abstract class TemplateDeclarationBase implements TemplateDeclaration {
       }
 
       @Override
-      public void reportTo(Collection<SNode> collection) {
-        if (myResult != null) {
-          // TemplateUtil.asList used to ignore null values
-          collection.add(myResult);
-        }
-      }
-
-      @Override
       public void reportTo(ApplySink sink) throws GenerationFailureException {
         if (myResult != null) {
           sink.add(getAggregation(), myResult);
         }
-      }
-
-      @Override
-      public FragmentResult weaveWith(NodeWeaveFacility weaveFacility) throws GenerationFailureException {
-        // original code in template for TemplateDeclaration didn't care about null,
-        // therefore let NPE jump out of the window here as well. However, see no reason why not to check
-        // and continue gracefully. FIXME Need a documentation (here, one for end-user) and clear contract!
-        weaveFacility.weaveNode(myAggregation, myResult);
-        return this;
       }
     }
     return new FR1(myAggregationLinks[aggregationIndex], result);
