@@ -47791,16 +47791,6 @@
             <node concept="Saw0i" id="29MgzqRz4ID" role="39821P">
               <ref role="Saw0g" node="7gQEwkA7l8u" resolve="consoleTool" />
             </node>
-            <node concept="398223" id="29MgzqRz4IE" role="39821P">
-              <node concept="1bldCd" id="29MgzqRz4IF" role="39821P">
-                <ref role="3$exzV" node="7gQEwkA7nSV" resolve="jetbrains.mps.console" />
-              </node>
-              <node concept="3_J27D" id="29MgzqRz4IH" role="Nbhlr">
-                <node concept="3Mxwew" id="29MgzqRz4II" role="3MwsjC">
-                  <property role="3MwjfP" value="modules" />
-                </node>
-              </node>
-            </node>
             <node concept="3_J27D" id="29MgzqRz4IJ" role="Nbhlr">
               <node concept="3Mxwew" id="29MgzqRz4IK" role="3MwsjC">
                 <property role="3MwjfP" value="mps-console.jar" />
@@ -47809,6 +47799,18 @@
           </node>
         </node>
         <node concept="398223" id="1KUoCioOWan" role="39821P">
+          <node concept="L2wRC" id="nwEYnHGQbE" role="39821P">
+            <ref role="L2wRA" node="7gQEwkA7nSV" resolve="jetbrains.mps.console" />
+            <node concept="3yLZsm" id="nwEYnHGQcl" role="3yL2VB">
+              <property role="3yLZsk" value="../lib/mps-console.jar" />
+              <node concept="398BVA" id="nwEYnHGQcp" role="3yLZsn">
+                <ref role="398BVh" node="3E9C6pCXO$D" resolve="plugin_home" />
+                <node concept="2Ry0Ak" id="nwEYnHGQcB" role="iGT6I">
+                  <property role="2Ry0Am" value="classes" />
+                </node>
+              </node>
+            </node>
+          </node>
           <node concept="L2wRC" id="5KZE9Bn_wA_" role="39821P">
             <ref role="L2wRA" node="1jP7OZe3yCg" resolve="jetbrains.mps.console.devkit" />
           </node>
@@ -47839,13 +47841,6 @@
           <node concept="3_J27D" id="1KUoCioOWap" role="Nbhlr">
             <node concept="3Mxwew" id="1KUoCioOWaw" role="3MwsjC">
               <property role="3MwjfP" value="lang" />
-            </node>
-          </node>
-        </node>
-        <node concept="398223" id="5peYeZGo8Vu" role="39821P">
-          <node concept="3_J27D" id="5peYeZGo8Vv" role="Nbhlr">
-            <node concept="3Mxwew" id="5peYeZGo8Vw" role="3MwsjC">
-              <property role="3MwjfP" value="languages" />
             </node>
           </node>
         </node>
