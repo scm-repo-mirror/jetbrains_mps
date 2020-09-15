@@ -37,6 +37,7 @@ import java.net.URLClassLoader;
   private final Map<String, Descriptor> myPlugins = new HashMap<String, Descriptor>();
   private final Map<String, ClassLoader> myLoaders = new HashMap<String, ClassLoader>();
   private final Pattern myPluginIdPattern = Pattern.compile("<id>([a-zA-Z_0-9.]+)</id>");
+  private final Pattern myLangLocationPattern = Pattern.compile("<mps\\.LanguageLibrary\\s+dir=\"([^\"]*)\"");
 
 
   /*package*/ PlatformPlugins(EnvironmentConfig config) {
@@ -45,8 +46,8 @@ import java.net.URLClassLoader;
     for (PluginData pd : config.getPlugins()) {
       File pluginLocation = new File(pd.path);
       List<File> cp = detectClasspath(pluginLocation);
-      List<File> langLibs = detectLanguageLibraries(pluginLocation);
-      final CharSequence pluginXmlContent = readFile(new File(pluginLocation, PLUGIN_DESCRIPTOR_LOCATION), 4096);
+      final CharSequence pluginXmlContent = readFile(new File(pluginLocation, PLUGIN_DESCRIPTOR_LOCATION), 8192);
+      List<File> langLibs = detectLanguageLibraries(pluginLocation, pluginXmlContent);
       final Matcher idMatcher = myPluginIdPattern.matcher(pluginXmlContent);
       final String detectedId = (idMatcher.find() ? idMatcher.group(1) : null);
       final String pluginId;
@@ -122,7 +123,7 @@ import java.net.URLClassLoader;
   }
 
   /*package*/ Collection<Descriptor> found() {
-    //  provisional method, just to move forward. I indend to hide implementation structures from the outer world eventually. 
+    //  provisional method, just to move forward. I intend to hide implementation structures from the outer world eventually. 
     return Collections.<Descriptor>unmodifiableCollection(myPlugins.values());
   }
 
@@ -159,12 +160,23 @@ import java.net.URLClassLoader;
     }
   }
 
-  private List<File> detectLanguageLibraries(File pluginLocation) {
-    // unless we parse plugin.xml to read actual mps.LanguageLibrary extpoint, use hardcoded locations for mps modules distributed in plugins 
+  private List<File> detectLanguageLibraries(File pluginLocation, CharSequence pluginXmlContent) {
     ArrayList<File> rv = new ArrayList<File>(3);
+    Matcher m = myLangLocationPattern.matcher(pluginXmlContent);
+    if (m.find()) {
+      do {
+        File f = new File(pluginLocation, m.group(1));
+        if (f.exists()) {
+          rv.add(f);
+        }
+      } while (m.find());
+      return rv;
+    }
+    // if we didn't find LanguageLibrary while parsing plugin.xml, use hardcoded locations for mps modules distributed in plugins 
     // in most cases it's "languages" (LL dir="/" value is often the same as "languages", I didn't find a plugin to put modules under root 
-    // but e.g. mps-build uses both "solutions" and "pluginSolutions", projectMigrations uses "solution" 
-    for (String loc : new String[]{"languages", "solutions", "pluginSolutions", "solution"}) {
+    // for deployment, though quite a few keep modules at root in sources. 
+    // e.g. mps-build uses both "solutions" and "pluginSolutions", projectMigrations uses "solution", mps-console uses "lang" 
+    for (String loc : new String[]{"languages", "solutions", "pluginSolutions", "solution", "lang"}) {
       File f = new File(pluginLocation, loc);
       if (f.exists()) {
         rv.add(f);
@@ -197,7 +209,7 @@ import java.net.URLClassLoader;
     //     here, with <library> dependency on <plugin> CLASSPATH, relevant at all?) 
     // FIXME the funny thing about plugin CL here is that at the moment we collect plugin CP with all the libraries into global 
     //       classpath and we could use myRootClassLoader right away. Moreover, CL built here is plain wrong for IdeaEnvironment case 
-    //       as <plugin>/lib/ classses are already available in the global CP and it's odd to expose them again for SLibrary's fallback CL. 
+    //       as <plugin>/lib/ classes are already available in the global CP and it's odd to expose them again for SLibrary's fallback CL. 
     //       What saves us here is the fact ClassLoader consults parent CL first and finds the classes there. 
     //       I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin 
     //       classloaders after all. 
