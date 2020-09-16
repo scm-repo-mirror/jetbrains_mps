@@ -13,7 +13,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedHashSet;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -37,11 +37,7 @@ public class RequiredPlugins {
     for (SNode plugin : ListSequence.fromList(myPlugins)) {
       collectDependencies(plugin, visited);
     }
-    SetSequence.fromSet(myDependencies).addSequence(SetSequence.fromSet(visited).subtract(ListSequence.fromList(myPlugins)).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    }).toListSequence());
+    SetSequence.fromSet(myDependencies).addSequence(SetSequence.fromSet(visited).subtract(ListSequence.fromList(myPlugins)).where(new NotNullWhereFilter<SNode>()).toListSequence());
   }
 
   public Iterable<SNode> returnDependencies() {
@@ -49,11 +45,7 @@ public class RequiredPlugins {
     for (SNode plugin : ListSequence.fromList(myPlugins)) {
       collectDependencies(plugin, visited);
     }
-    return SetSequence.fromSet(visited).subtract(ListSequence.fromList(myPlugins)).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    }).toListSequence();
+    return SetSequence.fromSet(visited).subtract(ListSequence.fromList(myPlugins)).where(new NotNullWhereFilter<SNode>()).toListSequence();
   }
 
   public Iterable<SNode> returnDepsWithInitial() {
