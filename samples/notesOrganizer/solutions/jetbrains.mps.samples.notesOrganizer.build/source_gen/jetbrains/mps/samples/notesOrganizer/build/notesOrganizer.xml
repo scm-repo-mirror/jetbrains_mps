@@ -275,8 +275,6 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.dataFlow.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.descriptor.jar" />
-      <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.editor.forms.jar" />
-      <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.editor.forms.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.editor.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.feedback.skeleton.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/languageDesign/jetbrains.mps.lang.findUsages.jar" />
