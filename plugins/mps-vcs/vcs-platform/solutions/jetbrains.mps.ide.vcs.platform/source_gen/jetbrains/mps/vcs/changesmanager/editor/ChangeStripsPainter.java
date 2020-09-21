@@ -4,7 +4,6 @@ package jetbrains.mps.vcs.changesmanager.editor;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.nodeEditor.leftHighlighter.AbstractFoldingAreaPainter;
-import java.awt.Color;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupLayout;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroup;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages;
@@ -37,9 +36,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 
 @GeneratedClass(node = "r:06e50ed3-c893-4772-ba4a-878fc9de01d0(jetbrains.mps.vcs.changesmanager.editor)/867367425399189430", model = "r:06e50ed3-c893-4772-ba4a-878fc9de01d0(jetbrains.mps.vcs.changesmanager.editor)")
 public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
-  private static final int AREA_WIDTH = 6;
+  private static final int AREA_WIDTH = 9;
   private static final int ARROW_HEIGHT = 8;
-  private static final Color AREA_FRAME_COLOR = Color.GRAY;
   private EditorHighlighter myEditorHighlighter;
   private ChangeGroupLayout myChangeGroupLayout;
   private ChangeGroup myGroupUnderMouse;
@@ -75,12 +73,9 @@ public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
         Graphics2D g2d = ((Graphics2D) g);
         Object oldAntialiasing = g2d.getRenderingHint(RenderingHints.KEY_ANTIALIASING);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        int[] xPoints = new int[]{-AREA_WIDTH, -AREA_WIDTH, -1};
+        int[] xPoints = new int[]{-AREA_WIDTH, -AREA_WIDTH, 0};
         int[] yPoints = new int[]{y, y + ChangeStripsPainter.ARROW_HEIGHT, y + ChangeStripsPainter.ARROW_HEIGHT / 2};
         g.fillPolygon(xPoints, yPoints, 3);
-
-        g.setColor(AREA_FRAME_COLOR);
-        g.drawPolygon(xPoints, yPoints, 3);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, oldAntialiasing);
         continue;
       }
@@ -92,11 +87,6 @@ public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
         break;
       }
       g.fillRect(-AREA_WIDTH, y, AREA_WIDTH, height);
-
-      g.setColor(AREA_FRAME_COLOR);
-      g.drawLine(-AREA_WIDTH, y, 0, y);
-      g.drawLine(-AREA_WIDTH, y + height, 0, y + height);
-      g.drawLine(-AREA_WIDTH, y, -AREA_WIDTH, y + height);
     }
   }
   @Override
@@ -193,7 +183,7 @@ public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
     if (event.getID() != MouseEvent.MOUSE_CLICKED) {
       return;
     }
-    check_h84zmo_a1a02(myPopupToolbar);
+    check_h84zmo_a1a91(myPopupToolbar);
     getEditorComponent().requestFocus();
     if (event.getButton() == MouseEvent.BUTTON1) {
       ChangeGroup changeGroup = findMessageGroupUnder(event.getPoint());
@@ -239,10 +229,10 @@ public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
   }
   @Nullable
   /*package*/ ChangeGroup getCurrentChangeGroup() {
-    return check_h84zmo_a0a42(myPopupToolbar);
+    return check_h84zmo_a0a32(myPopupToolbar);
   }
   /*package*/ void showPopupForGroup(@Nullable ChangeGroup group) {
-    check_h84zmo_a0a52(myPopupToolbar);
+    check_h84zmo_a0a42(myPopupToolbar);
     if (group != null) {
       showPopupForGroup(group, (int) group.getBounds(true).start());
     }
@@ -252,19 +242,19 @@ public class ChangeStripsPainter extends AbstractFoldingAreaPainter {
     myGroupMessages.dispose();
     super.dispose();
   }
-  private static void check_h84zmo_a1a02(PopupPanel checkedDotOperand) {
+  private static void check_h84zmo_a1a91(PopupPanel checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.dispose();
     }
 
   }
-  private static ChangeGroup check_h84zmo_a0a42(PopupPanel checkedDotOperand) {
+  private static ChangeGroup check_h84zmo_a0a32(PopupPanel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getChangeGroup();
     }
     return null;
   }
-  private static void check_h84zmo_a0a52(PopupPanel checkedDotOperand) {
+  private static void check_h84zmo_a0a42(PopupPanel checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.dispose();
     }

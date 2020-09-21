@@ -34,7 +34,6 @@
     <classNode extendsClassName="jetbrains.mps.openapi.editor.message.EditorMessageOwner" />
   </dependency>
   <dependency className="jetbrains.mps.vcs.changesmanager.editor.ChangeStripsPainter">
-    <classNode dependClassName="java.awt.Color" />
     <classNode dependClassName="java.awt.Cursor" />
     <classNode dependClassName="java.awt.Graphics" />
     <classNode dependClassName="java.awt.Graphics2D" />

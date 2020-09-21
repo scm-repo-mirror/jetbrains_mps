@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.nodeEditor.leftHighlighter;
 
-import com.intellij.util.ui.UIUtil;
+import com.intellij.ui.paint.LinePainter2D;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import org.jetbrains.annotations.NotNull;
 
@@ -72,8 +72,8 @@ public class BackgroundWithFoldingLinePainter extends AbstractHighlighterPainter
     g.setColor(rightAreaColor);
     g.fillRect(rightAreaX, y, rightAreaWidth, height);
 
-    UIUtil.drawVDottedLine((Graphics2D) g, foldingLineX, y, y + height - 1, getDottedLineBgColor(),
-                           getDottedLineFgLineColor());
+    g.setColor(getDottedLineFgLineColor());
+    LinePainter2D.paint((Graphics2D) g, foldingLineX, y, foldingLineX, y + height - 1);
   }
 
 
