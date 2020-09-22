@@ -14,7 +14,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_GenerationContextOp_CopyWithTrace;
   private ConceptPresentation props_GenerationContextOp_CreateIndexedName;
   private ConceptPresentation props_GenerationContextOp_CreateUniqueName;
-  private ConceptPresentation props_GenerationContextOp_DirtyNode;
   private ConceptPresentation props_GenerationContextOp_GenParameterRef;
   private ConceptPresentation props_GenerationContextOp_GetCopiedOutputByInput;
   private ConceptPresentation props_GenerationContextOp_GetInputModel;
@@ -87,15 +86,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_GenerationContextOp_CreateUniqueName = cpb.create();
         }
         return props_GenerationContextOp_CreateUniqueName;
-      case LanguageConceptSwitch.GenerationContextOp_DirtyNode:
-        if (props_GenerationContextOp_DirtyNode == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.shortDesc("checks if node is not ignored by generator");
-          cpb.rawPresentation("is dirty");
-          props_GenerationContextOp_DirtyNode = cpb.create();
-        }
-        return props_GenerationContextOp_DirtyNode;
       case LanguageConceptSwitch.GenerationContextOp_GenParameterRef:
         if (props_GenerationContextOp_GenParameterRef == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

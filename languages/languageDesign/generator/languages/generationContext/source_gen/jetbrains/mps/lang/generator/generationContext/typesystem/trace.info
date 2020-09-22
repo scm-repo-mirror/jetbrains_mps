@@ -13,15 +13,15 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="10,0,130,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.TypesystemDescriptor" />
+      <unit at="10,0,126,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.TypesystemDescriptor" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1048903277989362626">
     <file name="TypesystemDescriptor.java">
-      <node id="1048903277989362626" at="108,5,109,99" concept="5" />
-      <node id="1048903277989362626" at="109,99,110,47" concept="2" />
-      <node id="1048903277989362626" at="107,5,111,5" concept="0" />
-      <scope id="1048903277989362626" at="108,5,110,47">
+      <node id="1048903277989362626" at="104,5,105,99" concept="5" />
+      <node id="1048903277989362626" at="105,99,106,47" concept="2" />
+      <node id="1048903277989362626" at="103,5,107,5" concept="0" />
+      <scope id="1048903277989362626" at="104,5,106,47">
         <var name="inferenceRule" id="1048903277989362626" />
       </scope>
     </file>
@@ -124,10 +124,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1216860931280">
     <file name="TypesystemDescriptor.java">
-      <node id="1216860931280" at="112,5,113,107" concept="5" />
-      <node id="1216860931280" at="113,107,114,55" concept="2" />
-      <node id="1216860931280" at="111,5,115,5" concept="0" />
-      <scope id="1216860931280" at="112,5,114,55">
+      <node id="1216860931280" at="108,5,109,107" concept="5" />
+      <node id="1216860931280" at="109,107,110,55" concept="2" />
+      <node id="1216860931280" at="107,5,111,5" concept="0" />
+      <scope id="1216860931280" at="108,5,110,55">
         <var name="nonTypesystemRule" id="1216860931280" />
       </scope>
     </file>
@@ -178,10 +178,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1216860931317">
     <file name="TypesystemDescriptor.java">
-      <node id="1216860931317" at="124,5,125,99" concept="5" />
-      <node id="1216860931317" at="125,99,126,47" concept="2" />
-      <node id="1216860931317" at="123,5,127,5" concept="0" />
-      <scope id="1216860931317" at="124,5,126,47">
+      <node id="1216860931317" at="120,5,121,99" concept="5" />
+      <node id="1216860931317" at="121,99,122,47" concept="2" />
+      <node id="1216860931317" at="119,5,123,5" concept="0" />
+      <scope id="1216860931317" at="120,5,122,47">
         <var name="subtypingRule" id="1216860931317" />
       </scope>
     </file>
@@ -229,10 +229,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1216860931323">
     <file name="TypesystemDescriptor.java">
-      <node id="1216860931323" at="52,5,53,108" concept="5" />
-      <node id="1216860931323" at="53,108,54,47" concept="2" />
-      <node id="1216860931323" at="51,5,55,5" concept="0" />
-      <scope id="1216860931323" at="52,5,54,47">
+      <node id="1216860931323" at="48,5,49,108" concept="5" />
+      <node id="1216860931323" at="49,108,50,47" concept="2" />
+      <node id="1216860931323" at="47,5,51,5" concept="0" />
+      <scope id="1216860931323" at="48,5,50,47">
         <var name="inferenceRule" id="1216860931323" />
       </scope>
     </file>
@@ -292,10 +292,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1216860931339">
     <file name="TypesystemDescriptor.java">
-      <node id="1216860931339" at="56,5,57,116" concept="5" />
-      <node id="1216860931339" at="57,116,58,47" concept="2" />
-      <node id="1216860931339" at="55,5,59,5" concept="0" />
-      <scope id="1216860931339" at="56,5,58,47">
+      <node id="1216860931339" at="52,5,53,116" concept="5" />
+      <node id="1216860931339" at="53,116,54,47" concept="2" />
+      <node id="1216860931339" at="51,5,55,5" concept="0" />
+      <scope id="1216860931339" at="52,5,54,47">
         <var name="inferenceRule" id="1216860931339" />
       </scope>
     </file>
@@ -380,10 +380,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1217882174994">
     <file name="TypesystemDescriptor.java">
-      <node id="1217882174994" at="72,5,73,111" concept="5" />
-      <node id="1217882174994" at="73,111,74,47" concept="2" />
-      <node id="1217882174994" at="71,5,75,5" concept="0" />
-      <scope id="1217882174994" at="72,5,74,47">
+      <node id="1217882174994" at="68,5,69,111" concept="5" />
+      <node id="1217882174994" at="69,111,70,47" concept="2" />
+      <node id="1217882174994" at="67,5,71,5" concept="0" />
+      <scope id="1217882174994" at="68,5,70,47">
         <var name="inferenceRule" id="1217882174994" />
       </scope>
     </file>
@@ -443,10 +443,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1217884943203">
     <file name="TypesystemDescriptor.java">
-      <node id="1217884943203" at="36,5,37,114" concept="5" />
-      <node id="1217884943203" at="37,114,38,47" concept="2" />
-      <node id="1217884943203" at="35,5,39,5" concept="0" />
-      <scope id="1217884943203" at="36,5,38,47">
+      <node id="1217884943203" at="32,5,33,114" concept="5" />
+      <node id="1217884943203" at="33,114,34,47" concept="2" />
+      <node id="1217884943203" at="31,5,35,5" concept="0" />
+      <scope id="1217884943203" at="32,5,34,47">
         <var name="inferenceRule" id="1217884943203" />
       </scope>
     </file>
@@ -493,10 +493,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1221157279658">
     <file name="TypesystemDescriptor.java">
-      <node id="1221157279658" at="64,5,65,120" concept="5" />
-      <node id="1221157279658" at="65,120,66,47" concept="2" />
-      <node id="1221157279658" at="63,5,67,5" concept="0" />
-      <scope id="1221157279658" at="64,5,66,47">
+      <node id="1221157279658" at="60,5,61,120" concept="5" />
+      <node id="1221157279658" at="61,120,62,47" concept="2" />
+      <node id="1221157279658" at="59,5,63,5" concept="0" />
+      <scope id="1221157279658" at="60,5,62,47">
         <var name="inferenceRule" id="1221157279658" />
       </scope>
     </file>
@@ -581,10 +581,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1221219721844">
     <file name="TypesystemDescriptor.java">
-      <node id="1221219721844" at="60,5,61,133" concept="5" />
-      <node id="1221219721844" at="61,133,62,47" concept="2" />
-      <node id="1221219721844" at="59,5,63,5" concept="0" />
-      <scope id="1221219721844" at="60,5,62,47">
+      <node id="1221219721844" at="56,5,57,133" concept="5" />
+      <node id="1221219721844" at="57,133,58,47" concept="2" />
+      <node id="1221219721844" at="55,5,59,5" concept="0" />
+      <scope id="1221219721844" at="56,5,58,47">
         <var name="inferenceRule" id="1221219721844" />
       </scope>
     </file>
@@ -669,10 +669,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1221220308822">
     <file name="TypesystemDescriptor.java">
-      <node id="1221220308822" at="120,5,121,101" concept="5" />
-      <node id="1221220308822" at="121,101,122,55" concept="2" />
-      <node id="1221220308822" at="119,5,123,5" concept="0" />
-      <scope id="1221220308822" at="120,5,122,55">
+      <node id="1221220308822" at="116,5,117,101" concept="5" />
+      <node id="1221220308822" at="117,101,118,55" concept="2" />
+      <node id="1221220308822" at="115,5,119,5" concept="0" />
+      <scope id="1221220308822" at="116,5,118,55">
         <var name="nonTypesystemRule" id="1221220308822" />
       </scope>
     </file>
@@ -716,10 +716,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1229478029842">
     <file name="TypesystemDescriptor.java">
-      <node id="1229478029842" at="44,5,45,122" concept="5" />
-      <node id="1229478029842" at="45,122,46,47" concept="2" />
-      <node id="1229478029842" at="43,5,47,5" concept="0" />
-      <scope id="1229478029842" at="44,5,46,47">
+      <node id="1229478029842" at="40,5,41,122" concept="5" />
+      <node id="1229478029842" at="41,122,42,47" concept="2" />
+      <node id="1229478029842" at="39,5,43,5" concept="0" />
+      <scope id="1229478029842" at="40,5,42,47">
         <var name="inferenceRule" id="1229478029842" />
       </scope>
     </file>
@@ -773,10 +773,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1758784108619297846">
     <file name="TypesystemDescriptor.java">
-      <node id="1758784108619297846" at="76,5,77,106" concept="5" />
-      <node id="1758784108619297846" at="77,106,78,47" concept="2" />
-      <node id="1758784108619297846" at="75,5,79,5" concept="0" />
-      <scope id="1758784108619297846" at="76,5,78,47">
+      <node id="1758784108619297846" at="72,5,73,106" concept="5" />
+      <node id="1758784108619297846" at="73,106,74,47" concept="2" />
+      <node id="1758784108619297846" at="71,5,75,5" concept="0" />
+      <scope id="1758784108619297846" at="72,5,74,47">
         <var name="inferenceRule" id="1758784108619297846" />
       </scope>
     </file>
@@ -822,10 +822,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1758784108619321949">
     <file name="TypesystemDescriptor.java">
-      <node id="1758784108619321949" at="88,5,89,110" concept="5" />
-      <node id="1758784108619321949" at="89,110,90,47" concept="2" />
-      <node id="1758784108619321949" at="87,5,91,5" concept="0" />
-      <scope id="1758784108619321949" at="88,5,90,47">
+      <node id="1758784108619321949" at="84,5,85,110" concept="5" />
+      <node id="1758784108619321949" at="85,110,86,47" concept="2" />
+      <node id="1758784108619321949" at="83,5,87,5" concept="0" />
+      <scope id="1758784108619321949" at="84,5,86,47">
         <var name="inferenceRule" id="1758784108619321949" />
       </scope>
     </file>
@@ -871,10 +871,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/1892993302480476553">
     <file name="TypesystemDescriptor.java">
-      <node id="1892993302480476553" at="96,5,97,107" concept="5" />
-      <node id="1892993302480476553" at="97,107,98,47" concept="2" />
-      <node id="1892993302480476553" at="95,5,99,5" concept="0" />
-      <scope id="1892993302480476553" at="96,5,98,47">
+      <node id="1892993302480476553" at="92,5,93,107" concept="5" />
+      <node id="1892993302480476553" at="93,107,94,47" concept="2" />
+      <node id="1892993302480476553" at="91,5,95,5" concept="0" />
+      <scope id="1892993302480476553" at="92,5,94,47">
         <var name="inferenceRule" id="1892993302480476553" />
       </scope>
     </file>
@@ -972,10 +972,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/2507865635201615237">
     <file name="TypesystemDescriptor.java">
-      <node id="2507865635201615237" at="32,5,33,107" concept="5" />
-      <node id="2507865635201615237" at="33,107,34,47" concept="2" />
-      <node id="2507865635201615237" at="31,5,35,5" concept="0" />
-      <scope id="2507865635201615237" at="32,5,34,47">
+      <node id="2507865635201615237" at="28,5,29,107" concept="5" />
+      <node id="2507865635201615237" at="29,107,30,47" concept="2" />
+      <node id="2507865635201615237" at="27,5,31,5" concept="0" />
+      <scope id="2507865635201615237" at="28,5,30,47">
         <var name="inferenceRule" id="2507865635201615237" />
       </scope>
     </file>
@@ -1033,10 +1033,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/3228980938641126415">
     <file name="TypesystemDescriptor.java">
-      <node id="3228980938641126415" at="100,5,101,105" concept="5" />
-      <node id="3228980938641126415" at="101,105,102,47" concept="2" />
-      <node id="3228980938641126415" at="99,5,103,5" concept="0" />
-      <scope id="3228980938641126415" at="100,5,102,47">
+      <node id="3228980938641126415" at="96,5,97,105" concept="5" />
+      <node id="3228980938641126415" at="97,105,98,47" concept="2" />
+      <node id="3228980938641126415" at="95,5,99,5" concept="0" />
+      <scope id="3228980938641126415" at="96,5,98,47">
         <var name="inferenceRule" id="3228980938641126415" />
       </scope>
     </file>
@@ -1095,10 +1095,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/4589968773278182924">
     <file name="TypesystemDescriptor.java">
-      <node id="4589968773278182924" at="84,5,85,102" concept="5" />
-      <node id="4589968773278182924" at="85,102,86,47" concept="2" />
-      <node id="4589968773278182924" at="83,5,87,5" concept="0" />
-      <scope id="4589968773278182924" at="84,5,86,47">
+      <node id="4589968773278182924" at="80,5,81,102" concept="5" />
+      <node id="4589968773278182924" at="81,102,82,47" concept="2" />
+      <node id="4589968773278182924" at="79,5,83,5" concept="0" />
+      <scope id="4589968773278182924" at="80,5,82,47">
         <var name="inferenceRule" id="4589968773278182924" />
       </scope>
     </file>
@@ -1144,10 +1144,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/5190093307972834950">
     <file name="TypesystemDescriptor.java">
-      <node id="5190093307972834950" at="80,5,81,104" concept="5" />
-      <node id="5190093307972834950" at="81,104,82,47" concept="2" />
-      <node id="5190093307972834950" at="79,5,83,5" concept="0" />
-      <scope id="5190093307972834950" at="80,5,82,47">
+      <node id="5190093307972834950" at="76,5,77,104" concept="5" />
+      <node id="5190093307972834950" at="77,104,78,47" concept="2" />
+      <node id="5190093307972834950" at="75,5,79,5" concept="0" />
+      <scope id="5190093307972834950" at="76,5,78,47">
         <var name="inferenceRule" id="5190093307972834950" />
       </scope>
     </file>
@@ -1192,91 +1192,12 @@
       <unit id="5190093307972834950" at="18,0,47,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.typeof_GenerationContextOp_ParameterRef_InferenceRule" />
     </file>
   </root>
-  <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/5403673535105110311">
-    <file name="TypesystemDescriptor.java">
-      <node id="5403673535105110311" at="28,5,29,101" concept="5" />
-      <node id="5403673535105110311" at="29,101,30,47" concept="2" />
-      <node id="5403673535105110311" at="27,5,31,5" concept="0" />
-      <scope id="5403673535105110311" at="28,5,30,47">
-        <var name="inferenceRule" id="5403673535105110311" />
-      </scope>
-    </file>
-    <file name="typeof_GenerationContextOp_DirtyNode_InferenceRule.java">
-      <node id="5403673535105110320" at="23,5,24,44" concept="5" />
-      <node id="5403673535105110320" at="24,44,25,223" concept="5" />
-      <node id="5403673535105110320" at="25,223,26,304" concept="2" />
-      <node id="6908928803899694660" at="29,7,30,97" concept="5" />
-      <node id="6908928803899694660" at="30,97,31,225" concept="5" />
-      <node id="6908928803899694660" at="31,225,32,330" concept="2" />
-      <node id="5403673535105110311" at="36,50,37,53" concept="6" />
-      <node id="5403673535105110311" at="39,68,40,102" concept="6" />
-      <node id="5403673535105110311" at="42,30,43,17" concept="6" />
-      <node id="5403673535105110325" at="45,65,46,63" concept="5" />
-      <node id="5403673535105110325" at="46,63,47,30" concept="5" />
-      <node id="5403673535105110325" at="47,30,48,230" concept="2" />
-      <node id="5403673535105110325" at="48,230,49,24" concept="6" />
-      <node id="6908928803899694667" at="51,67,52,63" concept="5" />
-      <node id="6908928803899694667" at="52,63,53,30" concept="5" />
-      <node id="6908928803899694667" at="53,30,54,228" concept="2" />
-      <node id="6908928803899694667" at="54,228,55,24" concept="6" />
-      <node id="5403673535105110311" at="59,0,60,0" concept="8" trace="nodeToCheck$vqm6" />
-      <node id="5403673535105110311" at="63,0,64,0" concept="8" trace="GenerationContextOp_DirtyNode$nv" />
-      <node id="5403673535105110311" at="20,0,22,0" concept="1" trace="typeof_GenerationContextOp_DirtyNode_InferenceRule#()V" />
-      <node id="5403673535105110311" at="36,0,39,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="5403673535105110311" at="39,0,42,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="5403673535105110311" at="42,0,45,0" concept="4" trace="overrides#()Z" />
-      <node id="5403673535105110320" at="22,115,27,5" concept="0" />
-      <node id="6908928803899694660" at="28,59,33,7" concept="0" />
-      <node id="5403673535105110325" at="45,0,51,0" concept="9" trace="_quotation_createNode_3ufvnu_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6908928803899694667" at="51,0,57,0" concept="9" trace="_quotation_createNode_3ufvnu_a1a0c0a0b0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6908928803899694660" at="27,5,34,5" concept="3" />
-      <node id="5403673535105110311" at="22,0,36,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="5403673535105110311" at="20,63,20,63" />
-      <scope id="5403673535105110311" at="36,50,37,53" />
-      <scope id="5403673535105110311" at="39,68,40,102" />
-      <scope id="5403673535105110311" at="42,30,43,17" />
-      <scope id="5403673535105110311" at="20,0,22,0" />
-      <scope id="5403673535105110320" at="23,5,26,304">
-        <var name="_info_12389875345" id="5403673535105110320" />
-        <var name="_nodeToCheck_1029348928467" id="5403673535105110320" />
-      </scope>
-      <scope id="6908928803899694660" at="29,7,32,330">
-        <var name="_info_12389875345" id="6908928803899694660" />
-        <var name="_nodeToCheck_1029348928467" id="6908928803899694660" />
-      </scope>
-      <scope id="5403673535105110311" at="36,0,39,0" />
-      <scope id="5403673535105110311" at="39,0,42,0">
-        <var name="argument" id="5403673535105110311" />
-      </scope>
-      <scope id="5403673535105110311" at="42,0,45,0" />
-      <scope id="5403673535105110325" at="45,65,49,24">
-        <var name="facade" id="5403673535105110325" />
-        <var name="quotedNode_1" id="5403673535105110325" />
-      </scope>
-      <scope id="6908928803899694667" at="51,67,55,24">
-        <var name="facade" id="6908928803899694667" />
-        <var name="quotedNode_1" id="6908928803899694667" />
-      </scope>
-      <scope id="6908928803899694660" at="28,59,33,7" />
-      <scope id="5403673535105110325" at="45,0,51,0" />
-      <scope id="6908928803899694667" at="51,0,57,0" />
-      <scope id="5403673535105110313" at="22,115,34,5" />
-      <scope id="5403673535105110311" at="22,0,36,0">
-        <var name="op" id="5403673535105110311" />
-        <var name="status" id="5403673535105110311" />
-        <var name="typeCheckingContext" id="5403673535105110311" />
-      </scope>
-      <unit id="5403673535105110311" at="58,0,61,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.typeof_GenerationContextOp_DirtyNode_InferenceRule$LINKS" />
-      <unit id="5403673535105110311" at="62,0,65,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.typeof_GenerationContextOp_DirtyNode_InferenceRule$CONCEPTS" />
-      <unit id="5403673535105110311" at="19,0,66,0" name="jetbrains.mps.lang.generator.generationContext.typesystem.typeof_GenerationContextOp_DirtyNode_InferenceRule" />
-    </file>
-  </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/5615708520036939474">
     <file name="TypesystemDescriptor.java">
-      <node id="5615708520036939474" at="92,5,93,105" concept="5" />
-      <node id="5615708520036939474" at="93,105,94,47" concept="2" />
-      <node id="5615708520036939474" at="91,5,95,5" concept="0" />
-      <scope id="5615708520036939474" at="92,5,94,47">
+      <node id="5615708520036939474" at="88,5,89,105" concept="5" />
+      <node id="5615708520036939474" at="89,105,90,47" concept="2" />
+      <node id="5615708520036939474" at="87,5,91,5" concept="0" />
+      <scope id="5615708520036939474" at="88,5,90,47">
         <var name="inferenceRule" id="5615708520036939474" />
       </scope>
     </file>
@@ -1508,10 +1429,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/654553635094951495">
     <file name="TypesystemDescriptor.java">
-      <node id="654553635094951495" at="40,5,41,105" concept="5" />
-      <node id="654553635094951495" at="41,105,42,47" concept="2" />
-      <node id="654553635094951495" at="39,5,43,5" concept="0" />
-      <scope id="654553635094951495" at="40,5,42,47">
+      <node id="654553635094951495" at="36,5,37,105" concept="5" />
+      <node id="654553635094951495" at="37,105,38,47" concept="2" />
+      <node id="654553635094951495" at="35,5,39,5" concept="0" />
+      <scope id="654553635094951495" at="36,5,38,47">
         <var name="inferenceRule" id="654553635094951495" />
       </scope>
     </file>
@@ -1565,10 +1486,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/654553635094953128">
     <file name="TypesystemDescriptor.java">
-      <node id="654553635094953128" at="48,5,49,113" concept="5" />
-      <node id="654553635094953128" at="49,113,50,47" concept="2" />
-      <node id="654553635094953128" at="47,5,51,5" concept="0" />
-      <scope id="654553635094953128" at="48,5,50,47">
+      <node id="654553635094953128" at="44,5,45,113" concept="5" />
+      <node id="654553635094953128" at="45,113,46,47" concept="2" />
+      <node id="654553635094953128" at="43,5,47,5" concept="0" />
+      <scope id="654553635094953128" at="44,5,46,47">
         <var name="inferenceRule" id="654553635094953128" />
       </scope>
     </file>
@@ -1622,10 +1543,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/654553635094954651">
     <file name="TypesystemDescriptor.java">
-      <node id="654553635094954651" at="68,5,69,106" concept="5" />
-      <node id="654553635094954651" at="69,106,70,47" concept="2" />
-      <node id="654553635094954651" at="67,5,71,5" concept="0" />
-      <scope id="654553635094954651" at="68,5,70,47">
+      <node id="654553635094954651" at="64,5,65,106" concept="5" />
+      <node id="654553635094954651" at="65,106,66,47" concept="2" />
+      <node id="654553635094954651" at="63,5,67,5" concept="0" />
+      <scope id="654553635094954651" at="64,5,66,47">
         <var name="inferenceRule" id="654553635094954651" />
       </scope>
     </file>
@@ -1679,10 +1600,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/654553635094959374">
     <file name="TypesystemDescriptor.java">
-      <node id="654553635094959374" at="104,5,105,112" concept="5" />
-      <node id="654553635094959374" at="105,112,106,47" concept="2" />
-      <node id="654553635094959374" at="103,5,107,5" concept="0" />
-      <scope id="654553635094959374" at="104,5,106,47">
+      <node id="654553635094959374" at="100,5,101,112" concept="5" />
+      <node id="654553635094959374" at="101,112,102,47" concept="2" />
+      <node id="654553635094959374" at="99,5,103,5" concept="0" />
+      <scope id="654553635094959374" at="100,5,102,47">
         <var name="inferenceRule" id="654553635094959374" />
       </scope>
     </file>
@@ -1737,10 +1658,10 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)/6851978633175404723">
     <file name="TypesystemDescriptor.java">
-      <node id="6851978633175404723" at="116,5,117,119" concept="5" />
-      <node id="6851978633175404723" at="117,119,118,55" concept="2" />
-      <node id="6851978633175404723" at="115,5,119,5" concept="0" />
-      <scope id="6851978633175404723" at="116,5,118,55">
+      <node id="6851978633175404723" at="112,5,113,119" concept="5" />
+      <node id="6851978633175404723" at="113,119,114,55" concept="2" />
+      <node id="6851978633175404723" at="111,5,115,5" concept="0" />
+      <scope id="6851978633175404723" at="112,5,114,55">
         <var name="nonTypesystemRule" id="6851978633175404723" />
       </scope>
     </file>

@@ -26,10 +26,6 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myInferenceRules.add(inferenceRule);
     }
     {
-      InferenceRule_Runtime inferenceRule = new typeof_GenerationContextOp_DirtyNode_InferenceRule();
-      this.myInferenceRules.add(inferenceRule);
-    }
-    {
       InferenceRule_Runtime inferenceRule = new typeof_GenerationContextOp_GenParameterRef_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
