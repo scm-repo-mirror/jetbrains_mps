@@ -8,8 +8,8 @@ import org.apache.log4j.LogManager;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.apache.log4j.Level;
-import java.util.List;
 import jetbrains.mps.util.annotation.ToRemove;
+import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -44,6 +44,12 @@ public class AttributeOperations {
     return Sequence.fromIterable(list).first();
 
   }
+  /**
+   * 
+   * @deprecated  use {@code  IAttributeDescriptor.set()} instead
+   */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2020.3)
   public static SNode setAttribute(SNode node, IAttributeDescriptor descriptor, SNode value) {
     Iterable<SNode> oldlist = getAttributes(node, descriptor);
     if (Sequence.fromIterable(oldlist).isEmpty() && value != null) {
@@ -183,7 +189,7 @@ public class AttributeOperations {
   public static boolean hasChildAttributes(SNode node) {
     return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(node, LINKS.smodelAttribute$KJ43), CONCEPTS.ChildAttribute$m8)).isNotEmpty();
   }
-  public static class AttributeList extends AbstractMutableChildrenList {
+  private static class AttributeList extends AbstractMutableChildrenList {
     private SNode myNode;
     private IAttributeDescriptor myDescriptor;
     public AttributeList(SNode attributed, IAttributeDescriptor descriptor) {

@@ -35,6 +35,12 @@ public interface IAttributeDescriptor {
   default SNode addNew(@Nullable SNode recipient, @NotNull SConcept attributeConcept) {
     return null;
   }
+  default SNode set(@Nullable SNode recipient, @Nullable SNode attrValue) {
+    return attrValue;
+  }
+  default SNode add(@Nullable SNode recipient, @Nullable SNode attrValue) {
+    return attrValue;
+  }
 
   class AttributeDescriptor implements IAttributeDescriptor {
     protected final SAbstractConcept myAttributeConcept;
@@ -69,6 +75,15 @@ public interface IAttributeDescriptor {
     public SNode addNew(@Nullable SNode recipient, @NotNull SConcept attributeConcept) {
       SNode newAttr = (SNode) SModelOperations.createNewNode((recipient == null ? null : recipient.getModel()), null, attributeConcept);
       return AttributeOperations.addAttribute(recipient, this, newAttr);
+    }
+
+    @Override
+    public SNode set(@Nullable SNode recipient, @Nullable SNode attrValue) {
+      return AttributeOperations.setAttribute(recipient, this, attrValue);
+    }
+    @Override
+    public SNode add(@Nullable SNode recipient, @Nullable SNode attrValue) {
+      return AttributeOperations.addAttribute(recipient, this, (SNode) attrValue);
     }
   }
   class AllAttributes extends AttributeDescriptor {
