@@ -149,7 +149,7 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
     LOG.info("Updating " + getName());
     try {
       if (progressIndicator != null) {
-        progressIndicator.setText2("Loading Project Modules");
+        progressIndicator.setText2("Loading project modules");
       }
       super.update();
       if (progressIndicator != null) {
