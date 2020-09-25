@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -89,8 +89,9 @@ import java.util.stream.Collectors;
  * editor (activation, auto-select/expand), etc.
  */
 public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider, ProjectModuleTreeNode.ModuleNodeChildrenProvider {
-  private ProjectPane myProjectPane;
-  private KeyAdapter myKeyListener = new KeyAdapter() {
+  private final ProjectPane myProjectPane;
+
+  private final KeyAdapter myKeyListener = new KeyAdapter() {
     @Override
     public void keyPressed(KeyEvent e) {
       if (e.getModifiers() != 0 || e.getKeyCode() != KeyEvent.VK_ENTER) {

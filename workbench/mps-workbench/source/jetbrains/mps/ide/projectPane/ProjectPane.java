@@ -63,6 +63,7 @@ import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TempModule2;
 import jetbrains.mps.util.annotation.Hack;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jdom.Element;
@@ -246,17 +247,20 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   @Override
   public ActionCallback updateFromRoot(boolean restoreExpandedPaths) {
     // XXX why not MPSTree.rebuildLater?
-    // FIXME what's the difference with #rebuildTree?
+    // FIXME is there need for #rebuildTree?
+    final ActionCallback cb = new ActionCallback();
     myUpdateQueue.queue(new AbstractUpdate(UpdateID.REBUILD) {
       @Override
       public void run() {
-        if (getTree() == null) {
+        if (getTree() == null || getProject().isDisposed()) {
+          cb.reject("already disposed");
           return;
         }
         getTree().rebuildNow();
+        cb.setDone();
       }
     });
-    return new ActionCallback(); // todo
+    return cb;
   }
 
   @Override
@@ -290,17 +294,14 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     return myScrollPane != null;
   }
 
+  /**
+   * @deprecated use {@link #rebuild()} instead
+   */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2020.3)
   public void rebuildTree() {
     // @see #updateFromRoot
-    myUpdateQueue.queue(new AbstractUpdate(UpdateID.REBUILD) {
-      @Override
-      public void run() {
-        if (getTree() == null || getProject().isDisposed()) {
-          return;
-        }
-        getTree().rebuildNow();
-      }
-    });
+    updateFromRoot(true);
   }
 
   public void activate() {
@@ -310,10 +311,10 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
 
   @Override
   public void rebuild() {
-    // This method can be called from different threads, however rebuildTree()
+    // This method can be called from different threads, however updateFromRoot()
     // merely adds an update to the update queue, and thus it's safe to invoke it
     // without runReadInEDT or runInUIThreadNoWait as it used to be.
-    rebuildTree();
+    updateFromRoot(true);
   }
 
   @Override
