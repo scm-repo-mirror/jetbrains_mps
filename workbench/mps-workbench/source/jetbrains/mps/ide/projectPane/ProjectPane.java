@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -138,8 +138,8 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   private final ShowDescriptorModelsAction myShowDescriptorModelsAction;
   private final MessageBusConnection myMessageBus;
 
-  public ProjectPane(final Project project, ProjectView projectView) {
-    super(project, projectView);
+  public ProjectPane(final Project project) {
+    super(project);
     myUpdateQueue.setRestartTimerOnAdd(true);
     myReloadListener = new ReloadListener() {
       @Override

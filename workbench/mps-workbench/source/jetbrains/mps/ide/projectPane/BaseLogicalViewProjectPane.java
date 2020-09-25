@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,6 +59,7 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.util.Pair;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.workbench.FileSystemModelHelper;
@@ -84,7 +85,6 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane {
-  private final ProjectView myProjectView;
   private VirtualFileManagerListener myRefreshListener = new RefreshListener();
   private final MyRepositoryListener myRepositoryListener = new MyRepositoryListener();
   protected boolean myDisposed;
@@ -108,9 +108,17 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     }
   };
 
+  /**
+   * @deprecated use {@link #BaseLogicalViewProjectPane(Project)} instead
+   */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2020.3)
   protected BaseLogicalViewProjectPane(Project project, ProjectView projectView) {
     super(project);
-    myProjectView = projectView;
+  }
+
+  protected BaseLogicalViewProjectPane(Project project) {
+    super(project);
   }
 
   public Project getProject() {
@@ -118,7 +126,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
   }
 
   public ProjectView getProjectView() {
-    return myProjectView;
+    return ProjectView.getInstance(myProject);
   }
 
   /*package*/ ProjectViewState getProjectViewState() {
