@@ -44,7 +44,7 @@ import javax.swing.Icon;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-import java.awt.Font;
+import java.awt.font.TextAttribute;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
@@ -383,7 +383,7 @@ public class UsagesTree extends MPSTree {
         // assume INodeRepresentator could use count in caption, if needed
         root.showCounter(false);
         // not every INodeRepresentator.getResultsText uses <strong>, but I don't care
-        root.setFontStyle(Font.BOLD);
+        root.addFontAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
       }
     } else if (usageData instanceof ResultsNodeData) {
       // used to be in ResultsNodeData.getText
@@ -394,7 +394,7 @@ public class UsagesTree extends MPSTree {
         // assume INodeRepresentator could use count in caption, if needed
         root.showCounter(false);
         // not every INodeRepresentator.getResultsText uses <strong>, but I don't care
-        root.setFontStyle(Font.BOLD);
+        root.addFontAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
       }
       // generally, we show counter for all BaseNodeData.isResultsSection(), however, assume presentationProvider decides whether to use counter itself.
       root.showCounter(false);

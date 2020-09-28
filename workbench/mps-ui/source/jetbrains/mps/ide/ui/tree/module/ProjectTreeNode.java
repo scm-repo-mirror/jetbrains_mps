@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,10 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.Project;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.Font;
+import java.awt.font.TextAttribute;
 
 public class ProjectTreeNode extends TextTreeNode implements TreeElement {
-  private Project myProject;
+  private final Project myProject;
   private MessageBusConnection myConnect;
 
   public ProjectTreeNode(Project project) {
@@ -45,7 +45,7 @@ public class ProjectTreeNode extends TextTreeNode implements TreeElement {
   protected void doUpdatePresentation() {
     super.doUpdatePresentation();
     setText(myProject.getName());
-    setFontStyle(Font.BOLD);
+    addFontAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
     if (myProject instanceof MPSProject) {
       com.intellij.openapi.project.Project ideaProject = ((MPSProject) myProject).getProject();
 

@@ -89,24 +89,25 @@ public class NewMPSTreeCellRenderer implements TreeCellRenderer {
     Icon icon = null;
     String text = value.toString();
     String additionalText = null;
+    final Font treeFont = tree.getFont();
     if (value instanceof MPSTreeNode) {
       MPSTreeNode treeNode = (MPSTreeNode) value;
       icon = treeNode.getIcon();
       text = treeNode.getText();
       additionalText = treeNode.getAdditionalText();
 
-      Font newFont = tree.getFont().deriveFont(treeNode.getFontStyle());
-      newFont = newFont.deriveFont(treeNode.getFontAttributes());
-      myMainTextLabel.setFont(newFont);
-      myAdditionalTextLabel.setFont(tree.getFont());
+      // XXX I feel that having a context with cached font for a given set of attributes could be beneficial here
+      final Font mlFont = treeFont.deriveFont(treeNode.getFontAttributes());
+      myMainTextLabel.setFont(mlFont);
+      myAdditionalTextLabel.setFont(treeFont);
 
       if (!selected) {
         myMainTextLabel.setForeground(treeNode.getColor());
       }
       myNode = treeNode;
     } else {
-      myMainTextLabel.setFont(tree.getFont());
-      myAdditionalTextLabel.setFont(tree.getFont());
+      myMainTextLabel.setFont(treeFont);
+      myAdditionalTextLabel.setFont(treeFont);
       myNode = null;
     }
 

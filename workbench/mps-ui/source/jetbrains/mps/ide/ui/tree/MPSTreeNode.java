@@ -486,7 +486,8 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
     myOptionalAttributes.get("mps.tree.font", WithFontAttributes::newDelegate).setFontAttribute(key, value);
   }
 
-  public final Map getFontAttributes() {
+  @NotNull
+  public final Map<TextAttribute, Object> getFontAttributes() {
     final WithFontAttributes fontAttributes = myOptionalAttributes.get("mps.tree.font");
     return fontAttributes == null ? Collections.emptyMap() : fontAttributes.getFontAttributes();
   }
