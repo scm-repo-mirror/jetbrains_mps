@@ -150,10 +150,8 @@ public abstract class BaseProjectPlugin implements PersistentStateComponent<Plug
   }
 
   private void disposePrefsToolsAndCustomParts() {
-    if (!myIJProject.isDisposed()) {
-      disposePrefComponents(myPrefsComponents);
-      disposeTools(myTools);
-    }
+    disposePrefComponents(myPrefsComponents);
+    disposeTools(myTools);
     disposeCustomPluginParts();
     myPrefsComponents.clear();
     myTools.clear();
