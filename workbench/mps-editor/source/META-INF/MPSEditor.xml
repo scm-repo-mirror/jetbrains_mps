@@ -81,6 +81,7 @@
 
     <component>
       <implementation-class>jetbrains.mps.ide.editor.StyleRegistryIdeaImpl</implementation-class>
+      <loadForDefaultProject/>
     </component>
 
     <component>
