@@ -25,6 +25,7 @@ import jetbrains.mps.util.Pair;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -62,16 +63,29 @@ public final class TreeNodeUpdater {
         }
         final int count = updates.size();
         if (count > 0) {
-          myProject.getModelAccess().runReadInEDT(new RefreshBatch(updates));
+          CountDownLatch batchOver = new CountDownLatch(1);
+          myProject.getModelAccess().runReadInEDT(new RefreshBatch(updates, batchOver));
+          // FIXME runReadInEDT returns immediately, perhaps, can refactor this code for the Runnable  to
+          // poll myUpdates directly as long as there's no cancel request rather than fire multiple short reads?
+          //
+          // 1 second is to give delayed ReadInEDT a chance to get started and do some updates.
+          // FIXME in fact, would be great to allow custom code on CancellableReadAction.cancel()
+          //       (here, would signal with the latch that it's over, so that this await() can finish immediately)
+          // regardless of whether it has completed by count down (true) or timeout (false), rely on
+          // queue size to decide whether to re-schedule or to try again
+          batchOver.await(1000, TimeUnit.MILLISECONDS);
           // RefreshBatch could get cancelled, keep what's left in updates for another try
-          if (updates.size() == count) {
-            // if it was cancelled right away, without even trying to process, take some rest, don't push reads (likely, there's pending write that
-            // cancels reads right away), just re-schedule another process()
+          if (updates.size() != 0) {
+            // if not precessed completely, or was cancelled right away, without even trying to process,
+            // (likely, there's pending write that cancels reads) - take some rest, don't push reads &
+            // just re-schedule another process()
             scheduleProcess();
             return;
           }
         }
       } while (!updates.isEmpty() || !myUpdates.isEmpty());
+    } catch (InterruptedException ex) {
+      scheduleProcess();
     } finally {
       myGuard.release();
     }
@@ -102,9 +116,11 @@ public final class TreeNodeUpdater {
   // runs in EDT with model read; modifies deque supplied as an argument
   private static class RefreshBatch extends CancellableReadAction {
     private final ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> myQueue;
+    private final CountDownLatch myBatchOver;
 
-    RefreshBatch(ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> updates) {
+    RefreshBatch(ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> updates, CountDownLatch batchOver) {
       myQueue = updates;
+      myBatchOver = batchOver;
     }
 
     @Override
@@ -123,6 +139,7 @@ public final class TreeNodeUpdater {
         u.o2.update(treeNode);
         treeNode.updateNodePresentationInTree();
       }
+      myBatchOver.countDown();
     }
   }
 }
