@@ -34,6 +34,11 @@ import org.junit.runners.model.RunnerBuilder;
  */
 @RunWith(CoreTestSuite.class)
 @Suite.SuiteClasses({
+    jetbrains.mps.util.JDOMUtilTest.class,
+    jetbrains.mps.util.StringUtilTest.class,
+    jetbrains.mps.util.IterableUtilTest.class,
+    jetbrains.mps.util.NameUtilTest.class,
+    jetbrains.mps.util.MacrosTest.class,
     jetbrains.mps.dataFlow.lang.InitializedVariablesAnalysisTest.class,
     jetbrains.mps.dataFlow.lang.LivenessAnalysisTest.class,
     jetbrains.mps.dataFlow.lang.ProgramTest.class,
