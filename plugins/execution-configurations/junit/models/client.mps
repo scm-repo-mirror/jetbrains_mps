@@ -4467,6 +4467,24 @@
         <ref role="2AI5Lk" to="mhfm:~TestOnly" resolve="TestOnly" />
       </node>
     </node>
+    <node concept="2tJIrI" id="4LTxumxYq4g" role="jymVt" />
+    <node concept="3clFb_" id="4LTxumxYuy5" role="jymVt">
+      <property role="TrG5h" value="isTerminated" />
+      <node concept="3clFbS" id="4LTxumxYuy8" role="3clF47">
+        <node concept="3cpWs6" id="4LTxumxYuPw" role="3cqZAp">
+          <node concept="2OqwBi" id="4LTxumxYz7p" role="3cqZAk">
+            <node concept="37vLTw" id="4LTxumxYuR5" role="2Oq$k0">
+              <ref role="3cqZAo" node="xTUx3LmJNy" resolve="myInnerData" />
+            </node>
+            <node concept="liA8E" id="4LTxumxYzkP" role="2OqNvi">
+              <ref role="37wK5l" node="xTUx3LqSRd" resolve="isTerminated" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="4LTxumxYueV" role="1B3o_S" />
+      <node concept="10P_77" id="4LTxumxYuwh" role="3clF45" />
+    </node>
     <node concept="3UR2Jj" id="31Rnc32cVJS" role="lGtFl">
       <node concept="TZ5HA" id="31Rnc32cVJT" role="TZ5H$">
         <node concept="1dT_AC" id="31Rnc32cVJU" role="1dT_Ay">

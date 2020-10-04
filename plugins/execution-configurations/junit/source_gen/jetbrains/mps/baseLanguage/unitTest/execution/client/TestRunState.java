@@ -349,4 +349,8 @@ public final class TestRunState {
   public int getFailedTests() {
     return myInnerData.myFailedTests;
   }
+
+  public boolean isTerminated() {
+    return myInnerData.isTerminated();
+  }
 }

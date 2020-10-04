@@ -1344,6 +1344,7 @@
       <node id="610776582974805694" at="339,70,340,62" concept="11" />
       <node id="8783623208251085749" at="344,34,345,40" concept="11" />
       <node id="8783623208251158094" at="349,31,350,37" concept="11" />
+      <node id="5510582840376028512" at="353,33,354,38" concept="11" />
       <node id="5881102044690183274" at="46,0,48,0" concept="6" trace="myTestCase2MethodsMap" />
       <node id="8526392799789554071" at="188,10,190,5" concept="1" />
       <node id="2254978909345137164" at="60,0,63,0" concept="9" trace="accept#(Ljetbrains/mps/baseLanguage/unitTest/execution/client/ITestNodeWrapper;)Z" />
@@ -1374,6 +1375,7 @@
       <node id="4866165190355083435" at="321,0,324,0" concept="9" trace="visit#(Ljetbrains/mps/baseLanguage/unitTest/execution/client/TestStateListener;)V" />
       <node id="5881102044690183230" at="330,0,333,0" concept="9" trace="addListener#(Ljetbrains/mps/baseLanguage/unitTest/execution/client/TestStateListener;)V" />
       <node id="5881102044690183243" at="334,0,337,0" concept="9" trace="removeListener#(Ljetbrains/mps/baseLanguage/unitTest/execution/client/TestStateListener;)V" />
+      <node id="5510582840376027269" at="353,0,356,0" concept="9" trace="isTerminated#()Z" />
       <node id="8526392799790279981" at="207,90,211,9" concept="8" />
       <node id="3443931564295405486" at="250,0,254,0" concept="9" trace="accept#(Ljetbrains/mps/baseLanguage/unitTest/execution/TestMethodNodeKey;)Z" />
       <node id="5881102044690183256" at="338,0,342,0" concept="9" trace="getTestsMap#()Ljava/util/Map;" />
@@ -1454,6 +1456,7 @@
       <scope id="5881102044690183258" at="339,70,340,62" />
       <scope id="8783623208251066330" at="344,34,345,40" />
       <scope id="8783623208251158093" at="349,31,350,37" />
+      <scope id="5510582840376027272" at="353,33,354,38" />
       <scope id="3443931564293619864" at="113,84,115,48">
         <var name="nodeKey" id="3443931564293917880" />
       </scope>
@@ -1528,6 +1531,7 @@
       <scope id="5881102044690183243" at="334,0,337,0">
         <var name="listener" id="5881102044690183254" />
       </scope>
+      <scope id="5510582840376027269" at="353,0,356,0" />
       <scope id="5881102044690183359" at="91,62,95,73" />
       <scope id="8526392799789925744" at="207,90,211,9" />
       <scope id="3443931564295405486" at="250,0,254,0">
@@ -1660,7 +1664,7 @@
       <unit id="4866165190354004298" at="291,52,295,5" name="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState$12" />
       <unit id="4866165190355083435" at="320,52,324,5" name="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState$13" />
       <unit id="3443931564295405486" at="249,80,254,7" name="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState$10" />
-      <unit id="5881102044690182514" at="41,0,353,0" name="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState" />
+      <unit id="5881102044690182514" at="41,0,357,0" name="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState" />
     </file>
   </root>
   <root nodeRef="r:63a75970-913d-4a7b-99e2-8ca72ff6f509(jetbrains.mps.baseLanguage.unitTest.execution.client)/5881102044690183390">

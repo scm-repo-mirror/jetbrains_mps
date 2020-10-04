@@ -58,6 +58,10 @@ public class TestTree extends MPSTree implements Disposable, TestStateListener {
     myAnimator = new TestTreeIconRepainter(this);
   }
 
+  public RootTestTreeNode getRoot() {
+    return myRoot;
+  }
+
   private Map<ITestNodeWrapper, TestTreeNode> buildModelUIMapping() {
     Map<ITestNodeWrapper, TestTreeNode> result = MapSequence.fromMap(new LinkedHashMap<ITestNodeWrapper, TestTreeNode>(16, (float) 0.75, false));
     for (ITestNodeWrapper testCase : MapSequence.fromMap(myTestCase2MethodsMap).keySet()) {

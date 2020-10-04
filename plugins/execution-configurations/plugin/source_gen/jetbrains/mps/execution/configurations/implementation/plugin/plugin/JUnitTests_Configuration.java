@@ -19,6 +19,8 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
 import com.intellij.execution.process.ProcessHandler;
+import com.intellij.execution.Executor;
+import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.ui.ConsoleView;
 import jetbrains.mps.execution.api.configurations.ConsoleCreator;
 import jetbrains.mps.ide.actions.StandaloneMPSStackTraceFilter;
@@ -28,7 +30,6 @@ import com.intellij.execution.configurations.ConfigurationFactory;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.RunProfileState;
 import org.jetbrains.annotations.NotNull;
-import com.intellij.execution.Executor;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.ExecutionException;
 import com.intellij.openapi.options.SettingsEditor;
@@ -116,10 +117,10 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     conf.getJavaParameters().setVmOptions("-ea");
     return conf;
   }
-  public UnitTestViewComponent createTestViewComponent(TestRunState runState, final ProcessHandler process) {
+  public UnitTestViewComponent createTestViewComponent(TestRunState runState, final ProcessHandler process, Executor executor, RunConfiguration rc) {
     ConsoleView console = ConsoleCreator.createConsoleView(this.getProject(), false);
     console.addMessageFilter(new StandaloneMPSStackTraceFilter(this.getProject()));
-    return new UnitTestViewComponent(this.getProject(), console, runState, new _FunctionTypes._void_P0_E0() {
+    return new UnitTestViewComponent(this.getProject(), rc, executor, console, runState, new _FunctionTypes._void_P0_E0() {
       public void invoke() {
         if (process != null) {
           process.destroyProcess();

@@ -110,10 +110,10 @@
     <import index="ifj7" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.util(MPS.Core/)" />
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="jtsr" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.project(MPS.OpenAPI/)" />
+    <import index="dj99" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution.configurations(MPS.IDEA/)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" implicit="true" />
     <import index="hypd" ref="r:aa31e43e-9240-4f4d-b6db-5c1c9a86c59e(jetbrains.mps.lang.project.structure)" implicit="true" />
-    <import index="dj99" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution.configurations(MPS.IDEA/)" implicit="true" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -2493,6 +2493,12 @@
                 <node concept="2WthIp" id="1b7CZFPOB$n" role="2Oq$k0" />
                 <node concept="3a8Xsn" id="1b7CZFPOBPx" role="2OqNvi" />
               </node>
+              <node concept="37vLTw" id="4LTxumy3qIq" role="37wK5m">
+                <ref role="3cqZAo" node="4LTxumy3qt0" resolve="rc" />
+              </node>
+              <node concept="37vLTw" id="4LTxumy3idN" role="37wK5m">
+                <ref role="3cqZAo" node="4LTxumy3hz3" resolve="executor" />
+              </node>
               <node concept="37vLTw" id="1b7CZFPOrh_" role="37wK5m">
                 <ref role="3cqZAo" node="1b7CZFPOrhg" resolve="console" />
               </node>
@@ -2538,6 +2544,18 @@
         <property role="TrG5h" value="process" />
         <node concept="3uibUv" id="1b7CZFPOCzn" role="1tU5fm">
           <ref role="3uigEE" to="uu3z:~ProcessHandler" resolve="ProcessHandler" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="4LTxumy3hz3" role="3clF46">
+        <property role="TrG5h" value="executor" />
+        <node concept="3uibUv" id="4LTxumy3idC" role="1tU5fm">
+          <ref role="3uigEE" to="3v5a:~Executor" resolve="Executor" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="4LTxumy3qt0" role="3clF46">
+        <property role="TrG5h" value="rc" />
+        <node concept="3uibUv" id="4LTxumy3qDu" role="1tU5fm">
+          <ref role="3uigEE" to="dj99:~RunConfiguration" resolve="RunConfiguration" />
         </node>
       </node>
     </node>
@@ -3206,6 +3224,8 @@
                 <node concept="37vLTw" id="1b7CZFPOGQx" role="2XxRq1">
                   <ref role="3cqZAo" node="xK0$touKnT" resolve="process" />
                 </node>
+                <node concept="3OoTgS" id="4LTxumy3zr9" role="2XxRq1" />
+                <node concept="RBKsg" id="4LTxumy3BSc" role="2XxRq1" />
               </node>
             </node>
           </node>

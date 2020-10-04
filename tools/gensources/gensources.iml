@@ -970,9 +970,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.build/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/source_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/generator/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/sandbox/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/_theSimplestLanguage/languages/theSimplestLanguage/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/_theSimplestLanguage/languages/theSimplestLanguage/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/_theSimplestLanguage/solutions/jetbrains.mps.samples.theSimplestLanguage.sandbox/classes_gen" />
@@ -1014,6 +1011,9 @@
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customAspect/solutions/SampleCustomAspect.build/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customAspect/solutions/jetbrains.mps.samples.customAspect.documentation.pluginSolution/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customAspect/solutions/jetbrains.mps.samples.customAspect.documentation.runtime/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../samples/customTestCases/languages/jetbrains.mps.samples.CustomTestCases/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../samples/customTestCases/languages/jetbrains.mps.samples.CustomTestCases/generator/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../samples/customTestCases/languages/jetbrains.mps.samples.CustomTestCases/sandbox/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customizedDebugger/languages/jetbrains.mps.samples.customizedDebugger.Bottomline/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customizedDebugger/languages/jetbrains.mps.samples.customizedDebugger.Bottomline/sandbox/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/customizedDebugger/languages/jetbrains.mps.samples.customizedDebugger.Highlevel/classes_gen" />
@@ -1600,4 +1600,3 @@
     <orderEntry type="module" module-name="messages-for-structure" />
   </component>
 </module>
-

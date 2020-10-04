@@ -12,6 +12,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import com.intellij.openapi.project.Project;
+import com.intellij.execution.configurations.RunConfiguration;
+import com.intellij.execution.Executor;
 import com.intellij.execution.ui.ConsoleView;
 import java.awt.BorderLayout;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -60,7 +62,7 @@ public class UnitTestViewComponent extends JPanel implements Disposable {
   private final StatisticsTableModel myStatisticsModel;
   private final List<_FunctionTypes._void_P0_E0> myListeners = ListSequence.fromList(new ArrayList<_FunctionTypes._void_P0_E0>());
 
-  public UnitTestViewComponent(Project project, ConsoleView console, TestRunState testRunState, _FunctionTypes._void_P0_E0 closeListener) {
+  public UnitTestViewComponent(Project project, RunConfiguration rc, Executor executor, ConsoleView console, TestRunState testRunState, _FunctionTypes._void_P0_E0 closeListener) {
     super(new BorderLayout());
     myProject = ProjectHelper.fromIdeaProject(project);
     myTestState = testRunState;
@@ -69,7 +71,7 @@ public class UnitTestViewComponent extends JPanel implements Disposable {
     myTreeComponent = new TestTree(myTestState, myProject, this);
     myTreeComponent.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
     myTestNavigator = new FailedTestOccurrenceNavigator(myTreeComponent);
-    myToolbarPanel = new TestToolbarPanel(myTreeComponent, myTestNavigator);
+    myToolbarPanel = new TestToolbarPanel(myTreeComponent, myTestState, myTestNavigator, rc, executor, myProject.getProject());
 
     JComponent leftPanel = createTreePanel(myToolbarPanel, myTreeComponent);
     myProgressLineComponent = new TestProgressLine();
