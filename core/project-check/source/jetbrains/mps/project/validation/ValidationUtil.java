@@ -19,11 +19,9 @@ import jetbrains.mps.checkers.IChecker;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.ModelReportItem;
-import jetbrains.mps.extapi.model.TransientSModel;
+import jetbrains.mps.errors.item.ModelReportItemBase;
 import jetbrains.mps.extapi.module.TransientSModule;
-import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.generator.impl.GenPlanTranslator;
-import jetbrains.mps.generator.impl.RuleUtil;
 import jetbrains.mps.generator.impl.plan.DependencyCollectorPlanBuilder;
 import jetbrains.mps.generator.impl.plan.ModelScanner;
 import jetbrains.mps.progress.EmptyProgressMonitor;
@@ -35,23 +33,15 @@ import jetbrains.mps.project.structure.modules.Dependency;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.mappingpriorities.MappingConfig_AbstractRef;
 import jetbrains.mps.project.structure.modules.mappingpriorities.MappingPriorityRule;
-import jetbrains.mps.smodel.FastNodeFinder;
-import jetbrains.mps.smodel.FastNodeFinderManager;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.ModelDependencyScanner;
-import jetbrains.mps.smodel.SModelInternal;
-import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.util.CollectionUtil;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -62,14 +52,9 @@ import org.jetbrains.mps.openapi.module.SDependencyScope;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.jetbrains.mps.openapi.module.SearchScope;
-import org.jetbrains.mps.openapi.persistence.DataSource;
-import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import org.jetbrains.mps.openapi.util.Processor;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -96,13 +81,13 @@ public class ValidationUtil {
   @Deprecated
   @ToRemove(version = 2020.1)
   public static void validateModel(@NotNull final SModel model, @NotNull Processor<? super ModelReportItem> processor) {
-    // there's 1 use in mbeddr, in com.mbeddr.mpsutil.projectview.runtime
-    final EmptyProgressMonitor pm = new EmptyProgressMonitor();
-    new ModelValidator(model).validate(i -> {
-      if (!processor.process(i)) {
-        pm.cancel();
+    // there was 1 use in mbeddr, in com.mbeddr.mpsutil.projectview.runtime; refactored Oct 5, 2020 in mps/2020.2 branch.
+    processor.process(new ModelReportItemBase(MessageStatus.ERROR, model.getReference(), "ValidationUtil.validateModel() is NO-OP, please refactor your code to use ModelValidator!") {
+      @Override
+      public ItemKind getIssueKind() {
+        return IssueKindReportItem.MODEL_PROPERTIES.deriveItemKind();
       }
-    }, pm);
+    });
   }
 
   public static void validateModule(final SModule m, Processor<? super ModuleValidationProblem> processor) {

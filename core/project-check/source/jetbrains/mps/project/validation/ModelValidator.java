@@ -34,7 +34,6 @@ import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
@@ -60,16 +59,6 @@ public final class ModelValidator {
   private final ComponentHost myComponentHost;
   private final SModel myModel;
   private boolean mySkipUnlessLoaded = false;
-
-  /**
-   * @deprecated once use without CH gone, make it NotNull
-   */
-  @Deprecated
-  @ToRemove(version = 2020.1)
-  /*package*/ ModelValidator(@NotNull final SModel model) {
-    myComponentHost = null;
-    myModel = model;
-  }
 
   public ModelValidator(@NotNull ComponentHost componentHost, @NotNull final SModel model) {
     myComponentHost = componentHost;
@@ -136,7 +125,7 @@ public final class ModelValidator {
         // Use of `((DefaultSModelDescriptor) model).getModelFactory()` would restore undesired [persistence] dependency.
         // Anyway, hiding ModelPersistence.LAST_VERSION logic behind ModelFactory.needsUpgrade() is much better approach
         // than the one used to be here (with knowledge of specific implementation internals and assumption about xml as default model factory kind).
-        final ModelFactoryService modelFactoryService = myComponentHost == null ? ModelFactoryService.getInstance() : myComponentHost.findComponent(ModelFactoryService.class);
+        final ModelFactoryService modelFactoryService = myComponentHost.findComponent(ModelFactoryService.class);
         ModelFactory actualModelFactory = modelFactoryService.getDefaultModelFactory(modelSourceType);
         if (actualModelFactory != null && actualModelFactory.supports(modelSource)) {
           try {

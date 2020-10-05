@@ -130,6 +130,7 @@ public class PersistenceRegistry extends org.jetbrains.mps.openapi.persistence.P
   @Deprecated
   @Override
   public ModelFactory getDefaultModelFactory() {
+    // XXX as long as PersistenceFacade knows a out ModelFactoryService, don't see anything wrong with this method (just gives handy access to MPS defaults)
     return getModelFactory(PreinstalledModelFactoryTypes.PLAIN_XML);
   }
 

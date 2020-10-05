@@ -76,6 +76,7 @@ public final class ModelFactoryService implements ModelFactoryRegistry, CoreComp
   @Deprecated
   @ToRemove(version = 2018.3)
   public static synchronized ModelFactoryService getInstance() {
+    // there are no uses in mbeddr, 1 use in DBModelFactory, ModelFactoryRegistrar doesn't give any context to instaniated MF
     return ourInstance;
   }
 
