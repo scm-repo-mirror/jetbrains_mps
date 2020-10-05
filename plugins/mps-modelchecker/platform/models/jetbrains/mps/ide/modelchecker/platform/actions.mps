@@ -8636,35 +8636,17 @@
       </node>
     </node>
     <node concept="312cEg" id="6UWbfHqhzDv" role="jymVt">
-      <property role="TrG5h" value="myCoreComponents" />
-      <property role="3TUv4t" value="true" />
+      <property role="TrG5h" value="myCheckerRegistry" />
       <node concept="3Tm6S6" id="6UWbfHqhzDw" role="1B3o_S" />
-      <node concept="3uibUv" id="6UWbfHqhzDy" role="1tU5fm">
-        <ref role="3uigEE" to="3a50:~MPSCoreComponents" resolve="MPSCoreComponents" />
+      <node concept="3uibUv" id="7Rp9OyiBrbj" role="1tU5fm">
+        <ref role="3uigEE" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
       </node>
     </node>
     <node concept="2tJIrI" id="6UWbfHqhyKL" role="jymVt" />
     <node concept="3clFbW" id="6UWbfHqhy2s" role="jymVt">
       <node concept="3cqZAl" id="6UWbfHqhy2v" role="3clF45" />
       <node concept="3Tm1VV" id="6UWbfHqhy2w" role="1B3o_S" />
-      <node concept="3clFbS" id="6UWbfHqhy2x" role="3clF47">
-        <node concept="3clFbF" id="6UWbfHqhzDz" role="3cqZAp">
-          <node concept="37vLTI" id="6UWbfHqhzD_" role="3clFbG">
-            <node concept="37vLTw" id="6UWbfHqhzDC" role="37vLTJ">
-              <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCoreComponents" />
-            </node>
-            <node concept="37vLTw" id="6UWbfHqhzDD" role="37vLTx">
-              <ref role="3cqZAo" node="6UWbfHqhzAx" resolve="mpsCore" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="6UWbfHqhzAx" role="3clF46">
-        <property role="TrG5h" value="mpsCore" />
-        <node concept="3uibUv" id="6UWbfHqhzAw" role="1tU5fm">
-          <ref role="3uigEE" to="3a50:~MPSCoreComponents" resolve="MPSCoreComponents" />
-        </node>
-      </node>
+      <node concept="3clFbS" id="6UWbfHqhy2x" role="3clF47" />
     </node>
     <node concept="2tJIrI" id="6UWbfHqhvkT" role="jymVt" />
     <node concept="3clFb_" id="xWHpBq5PLx" role="jymVt">
@@ -8675,24 +8657,24 @@
       <node concept="3Tm1VV" id="xWHpBq5PLy" role="1B3o_S" />
       <node concept="3cqZAl" id="xWHpBq5PL$" role="3clF45" />
       <node concept="3clFbS" id="xWHpBq5PLA" role="3clF47">
-        <node concept="3cpWs8" id="6UWbfHqhELe" role="3cqZAp">
-          <node concept="3cpWsn" id="6UWbfHqhELf" role="3cpWs9">
-            <property role="TrG5h" value="checkerRegistry" />
-            <node concept="3uibUv" id="6UWbfHqhEL8" role="1tU5fm">
-              <ref role="3uigEE" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
+        <node concept="3clFbF" id="7Rp9OyiBznc" role="3cqZAp">
+          <node concept="37vLTI" id="7Rp9OyiB$qn" role="3clFbG">
+            <node concept="37vLTw" id="7Rp9OyiBzna" role="37vLTJ">
+              <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCheckerRegistry" />
             </node>
-            <node concept="2OqwBi" id="6UWbfHqhELg" role="33vP2m">
-              <node concept="2OqwBi" id="6UWbfHqhELh" role="2Oq$k0">
-                <node concept="37vLTw" id="6UWbfHqhELi" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCoreComponents" />
-                </node>
-                <node concept="liA8E" id="6UWbfHqhELj" role="2OqNvi">
+            <node concept="2OqwBi" id="7Rp9OyiB_gr" role="37vLTx">
+              <node concept="2OqwBi" id="7Rp9OyiB_gs" role="2Oq$k0">
+                <node concept="liA8E" id="7Rp9OyiB_gt" role="2OqNvi">
                   <ref role="37wK5l" to="3a50:~MPSCoreComponents.getPlatform()" resolve="getPlatform" />
                 </node>
+                <node concept="2YIFZM" id="7Rp9OyiB_gu" role="2Oq$k0">
+                  <ref role="1Pybhc" to="3a50:~MPSCoreComponents" resolve="MPSCoreComponents" />
+                  <ref role="37wK5l" to="3a50:~MPSCoreComponents.getInstance()" resolve="getInstance" />
+                </node>
               </node>
-              <node concept="liA8E" id="6UWbfHqhELk" role="2OqNvi">
+              <node concept="liA8E" id="7Rp9OyiB_gv" role="2OqNvi">
                 <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
-                <node concept="3VsKOn" id="6UWbfHqhELl" role="37wK5m">
+                <node concept="3VsKOn" id="7Rp9OyiB_gw" role="37wK5m">
                   <ref role="3VsUkX" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
                 </node>
               </node>
@@ -8705,8 +8687,8 @@
           </node>
           <node concept="3clFbC" id="6UWbfHqhIn0" role="3clFbw">
             <node concept="10Nm6u" id="6UWbfHqhI$c" role="3uHU7w" />
-            <node concept="37vLTw" id="6UWbfHqhHa8" role="3uHU7B">
-              <ref role="3cqZAo" node="6UWbfHqhELf" resolve="checkerRegistry" />
+            <node concept="37vLTw" id="7Rp9OyiBB2f" role="3uHU7B">
+              <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCheckerRegistry" />
             </node>
           </node>
         </node>
@@ -8752,8 +8734,8 @@
                     <ref role="2Gs0qQ" node="xWHpBq6ivz" resolve="checker" />
                   </node>
                 </node>
-                <node concept="37vLTw" id="6UWbfHqhJAZ" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6UWbfHqhELf" resolve="checkerRegistry" />
+                <node concept="37vLTw" id="7Rp9OyiBBd4" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCheckerRegistry" />
                 </node>
               </node>
             </node>
@@ -8772,38 +8754,14 @@
       <node concept="3Tm1VV" id="xWHpBq5PLD" role="1B3o_S" />
       <node concept="3cqZAl" id="xWHpBq5PLF" role="3clF45" />
       <node concept="3clFbS" id="xWHpBq5PLH" role="3clF47">
-        <node concept="3cpWs8" id="6UWbfHqhJCw" role="3cqZAp">
-          <node concept="3cpWsn" id="6UWbfHqhJCx" role="3cpWs9">
-            <property role="TrG5h" value="checkerRegistry" />
-            <node concept="3uibUv" id="6UWbfHqhJCy" role="1tU5fm">
-              <ref role="3uigEE" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
-            </node>
-            <node concept="2OqwBi" id="6UWbfHqhJCz" role="33vP2m">
-              <node concept="2OqwBi" id="6UWbfHqhJC$" role="2Oq$k0">
-                <node concept="37vLTw" id="6UWbfHqhJC_" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCoreComponents" />
-                </node>
-                <node concept="liA8E" id="6UWbfHqhJCA" role="2OqNvi">
-                  <ref role="37wK5l" to="3a50:~MPSCoreComponents.getPlatform()" resolve="getPlatform" />
-                </node>
-              </node>
-              <node concept="liA8E" id="6UWbfHqhJCB" role="2OqNvi">
-                <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
-                <node concept="3VsKOn" id="6UWbfHqhJCC" role="37wK5m">
-                  <ref role="3VsUkX" to="2gg1:~CheckerRegistry" resolve="CheckerRegistry" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbJ" id="6UWbfHqhJCD" role="3cqZAp">
           <node concept="3clFbS" id="6UWbfHqhJCE" role="3clFbx">
             <node concept="3cpWs6" id="6UWbfHqhJCF" role="3cqZAp" />
           </node>
           <node concept="3clFbC" id="6UWbfHqhJCG" role="3clFbw">
             <node concept="10Nm6u" id="6UWbfHqhJCH" role="3uHU7w" />
-            <node concept="37vLTw" id="6UWbfHqhJCI" role="3uHU7B">
-              <ref role="3cqZAo" node="6UWbfHqhJCx" resolve="checkerRegistry" />
+            <node concept="37vLTw" id="7Rp9OyiBBSi" role="3uHU7B">
+              <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCheckerRegistry" />
             </node>
           </node>
         </node>
@@ -8823,8 +8781,8 @@
                     <ref role="2Gs0qQ" node="xWHpBq6eRT" resolve="checker" />
                   </node>
                 </node>
-                <node concept="37vLTw" id="6UWbfHqhKic" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6UWbfHqhJCx" resolve="checkerRegistry" />
+                <node concept="37vLTw" id="7Rp9OyiBC35" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6UWbfHqhzDv" resolve="myCheckerRegistry" />
                 </node>
               </node>
             </node>

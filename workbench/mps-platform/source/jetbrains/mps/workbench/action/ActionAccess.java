@@ -107,7 +107,7 @@ public interface ActionAccess {
         Logger.getLogger(ActionAccess.class).error(String.format("Action %s needs a command but is executed without project.", getClass().getName()));
         // Present implementation of openapi.ModelAccess in global repository doesn't support commands,
         // thus we run it as a mere write action
-        ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getModuleRepository().getModelAccess().runWriteAction(execute);
+        MPSCoreComponents.getInstance().getModuleRepository().getModelAccess().runWriteAction(execute);
       }
     }
     @Override

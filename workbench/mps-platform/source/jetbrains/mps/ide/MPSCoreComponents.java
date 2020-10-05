@@ -94,4 +94,16 @@ public class MPSCoreComponents implements Disposable {
   public MPSModuleRepository getModuleRepository() {
     return myPlatform.findComponent(MPSModuleRepository.class);
   }
+
+  /**
+   * Use this to hide knowledge whether {@code MPSCoreComponents} is an application "service" or "component".
+   * <h2>
+   * NOTE, use of singleton here doesn't mean green light to use of singletons around MPS code, this is stateless, pure behavior
+   * shorthand for platform's mechanism to access components/services.
+   * </h2>
+   */
+  public static MPSCoreComponents getInstance() {
+    // With IDEA's "service" approach, I don't have other option but to follow platform's approach at least for few elements like MPSCoreComponents
+    return ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
+  }
 }
