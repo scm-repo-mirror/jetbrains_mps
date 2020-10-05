@@ -19873,11 +19873,11 @@
                 </node>
               </node>
               <node concept="liA8E" id="4LTxumxXnvb" role="2OqNvi">
-                <ref role="37wK5l" to=":^" resolve="getMagnitude" />
+                <ref role="37wK5l" node="4LTxumxYE4N" resolve="getMagnitude" />
               </node>
             </node>
             <node concept="liA8E" id="4LTxumxXnvc" role="2OqNvi">
-              <ref role="37wK5l" to=":^" resolve="getValue" />
+              <ref role="37wK5l" to="bgby:~TestStateInfo$Magnitude.getValue()" resolve="getValue" />
             </node>
           </node>
         </node>
@@ -20616,11 +20616,11 @@
           <node concept="1eOMI4" id="4LTxumxZu2A" role="1gVkn0">
             <node concept="3fqX7Q" id="4LTxumxZu2$" role="1eOMHV">
               <node concept="2OqwBi" id="4LTxumxZviX" role="3fr31v">
-                <node concept="37vLTw" id="4LTxumxZviW" role="2Oq$k0">
-                  <ref role="3cqZAo" to=":^" resolve="testNodeWrapper" />
+                <node concept="37vLTw" id="5h_g2qilG$i" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4LTxumxZu2o" resolve="testNodeWrapper" />
                 </node>
                 <node concept="liA8E" id="4LTxumxZviY" role="2OqNvi">
-                  <ref role="37wK5l" to=":^" resolve="isTestCase" />
+                  <ref role="37wK5l" to="sfqd:56tRMpP_ejg" resolve="isTestCase" />
                 </node>
               </node>
             </node>
@@ -20648,11 +20648,11 @@
       <node concept="3clFbS" id="4LTxumxZu2M" role="3clF47">
         <node concept="3cpWs6" id="4LTxumxZu2N" role="3cqZAp">
           <node concept="2OqwBi" id="4LTxumxZvqS" role="3cqZAk">
-            <node concept="37vLTw" id="4LTxumxZvqR" role="2Oq$k0">
-              <ref role="3cqZAo" to=":^" resolve="myTestNodeWrapper" />
+            <node concept="37vLTw" id="5h_g2qilGPW" role="2Oq$k0">
+              <ref role="3cqZAo" node="4LTxumxZu2h" resolve="myTestNodeWrapper" />
             </node>
-            <node concept="liA8E" id="4LTxumxZvqT" role="2OqNvi">
-              <ref role="37wK5l" to=":^" resolve="getName" />
+            <node concept="liA8E" id="5h_g2qilGYy" role="2OqNvi">
+              <ref role="37wK5l" to="sfqd:56tRMpP_ejv" resolve="getName" />
             </node>
           </node>
         </node>
@@ -20674,11 +20674,11 @@
       <node concept="3clFbS" id="4LTxumxZu2U" role="3clF47">
         <node concept="3cpWs6" id="4LTxumxZu2V" role="3cqZAp">
           <node concept="2OqwBi" id="4LTxumxZvlW" role="3cqZAk">
-            <node concept="37vLTw" id="4LTxumxZvlV" role="2Oq$k0">
-              <ref role="3cqZAo" to=":^" resolve="myTestNodeWrapper" />
+            <node concept="37vLTw" id="5h_g2qilHgQ" role="2Oq$k0">
+              <ref role="3cqZAo" node="4LTxumxZu2h" resolve="myTestNodeWrapper" />
             </node>
-            <node concept="liA8E" id="4LTxumxZvlX" role="2OqNvi">
-              <ref role="37wK5l" to=":^" resolve="getFqName" />
+            <node concept="liA8E" id="5h_g2qilHkm" role="2OqNvi">
+              <ref role="37wK5l" to="sfqd:56tRMpP_ej$" resolve="getFqName" />
             </node>
           </node>
         </node>
