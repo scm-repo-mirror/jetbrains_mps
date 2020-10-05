@@ -76,18 +76,8 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
         // moduleNode could be a node for Language module, which is 'clear', but nests a Generator module
         // with 'generation required'. Could also be a module of recalculated model, shall get its status updated
         // from new status from its UI children
-        final GenStatusTreeMessage m = useRequiredFromChildren(moduleNode);
-        // inv: m != null iff it's 'required' status
-
-        // we get here, in visitModuleNode of 'parent updater' in 2 cases:
-        // - update of a model/nested module(generator in a language). in this case there'd be no subsequent visitNamespaceNode() call
-        // - top-down update that involves module node and its children (plus, likely, top NS nodes). visitNamespaceNode() would be invoked.
-        //  It's  not possible to figure out which one is here, so I assume it's better to propagate 'generation required', if any
-        //  in all cases. Indeed, it's no-op if I get to visitNamespaceNode() later, as it would remove the message and
-        //  add it again base on the same useRequiredFromChildren() logic
-        if (m != null) {
-          propagateStatusToNamespaceNodes(moduleNode, m);
-        }
+        useRequiredFromChildren(moduleNode);
+        // it's ProjectPaneTreeHighlighter that's responsible to visit ancestor nodes to get them updated with this visitor
       }
 
       @Override
@@ -96,7 +86,7 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
         useRequiredFromChildren(node);
       }
 
-      private GenStatusTreeMessage useRequiredFromChildren(MPSTreeNode node) {
+      private void useRequiredFromChildren(MPSTreeNode node) {
         final GenStatusTreeMessage childMessage = childrenMessages(node).filter(GenStatusTreeMessage::required).findAny().orElse(null);
         if (childMessage != null) {
           // see if I can reuse tree messages, they are immutable, after all. As long as messages are kept per
@@ -107,7 +97,6 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
           node.addTreeMessage(childMessage);
           addUpdate(node, null);
         }
-        return childMessage;
       }
 
     };

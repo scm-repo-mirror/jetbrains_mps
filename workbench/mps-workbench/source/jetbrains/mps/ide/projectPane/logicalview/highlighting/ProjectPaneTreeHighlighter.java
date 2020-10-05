@@ -34,6 +34,7 @@ import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;
 
+import javax.swing.tree.TreeNode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -229,6 +230,13 @@ public class ProjectPaneTreeHighlighter {
       final TreeElement[] parents2update = parentsOfUpdated.toArray(new TreeElement[parentsOfUpdated.size()]);
       for (int i = parents2update.length - 1; i >=0; i--) {
         parents2update[i].accept(parentVisitor);
+        // propagate the changes up the tree, unless grandParent get a chance for its own update
+        // I assume number of parentsOfUpdated would be really small in most cases, and this ancestor walk would happen just few times.
+        TreeNode grandParent = ((TreeNode) parents2update[i]).getParent();
+        while(grandParent instanceof TreeElement && !parentsOfUpdated.contains(grandParent)) {
+          ((TreeElement) grandParent).accept(parentVisitor);
+          grandParent = grandParent.getParent();
+        }
       }
     });
   }
