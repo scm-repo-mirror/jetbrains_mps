@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
-import com.intellij.openapi.application.ApplicationManager;
 import java.util.Hashtable;
 import javax.swing.JLabel;
 import java.awt.Dimension;
@@ -31,15 +30,15 @@ import javax.swing.JComponent;
 
 @GeneratedClass(node = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)/3719390199793466714", model = "r:5754bb7d-f802-4a0f-bd3d-0764f0d71413(jetbrains.mps.ide.modelchecker.platform.actions)")
 public class ModelCheckerPreferencesPage implements SearchableConfigurable {
-  private JPanel myPage;
-  private JSlider myCheckingLevelSlider = new JSlider(JSlider.VERTICAL, 0, ModelCheckerSettings.CheckingLevel.values().length - 1, 0);
-  private JCheckBox myCheckStubsCheckBox = new JCheckBox("Check stub models");
-  private JCheckBox myCheckSpecificCheckBox = new JCheckBox("Perform additional checks");
-  private ModelCheckerSettings myModelCheckerSettings;
-  private JTextArea myDescriptionText = new JTextArea();
+  private final JPanel myPage;
+  private final JSlider myCheckingLevelSlider = new JSlider(JSlider.VERTICAL, 0, ModelCheckerSettings.CheckingLevel.values().length - 1, 0);
+  private final JCheckBox myCheckStubsCheckBox = new JCheckBox("Check stub models");
+  private final JCheckBox myCheckSpecificCheckBox = new JCheckBox("Perform additional checks");
+  private final ModelCheckerSettings myModelCheckerSettings;
+  private final JTextArea myDescriptionText = new JTextArea();
 
   public ModelCheckerPreferencesPage() {
-    myModelCheckerSettings = ApplicationManager.getApplication().getComponent(ModelCheckerSettings.class);
+    myModelCheckerSettings = ModelCheckerSettings.getInstance();
 
     Hashtable t = new Hashtable();
     for (ModelCheckerSettings.CheckingLevel level : ModelCheckerSettings.CheckingLevel.values()) {
