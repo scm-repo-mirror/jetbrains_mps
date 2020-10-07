@@ -164,9 +164,9 @@
     <action id="EditSourceInNewWindow" class="com.intellij.ide.actions.EditSourceInNewWindowAction"/>
     MPS Patch End -->
     <action id="OpenElementInNewWindow" class="com.intellij.ide.actions.OpenElementInNewWindowAction" />
-    <!-- MPS Patch start
     <action id="SearchEverywhere" class="com.intellij.ide.actions.SearchEverywhereAction" icon="AllIcons.Actions.Find"/>
 
+    <!-- MPS Patch start
     <action id="RunAnything" icon="AllIcons.Actions.Run_anything" class="com.intellij.ide.actions.runAnything.RunAnythingAction"/>
 
     <action id="SmartSelect" class="com.intellij.ide.actions.SmartSelect" use-shortcut-of="EditorSelectWord"/>
@@ -652,10 +652,10 @@
       <group id="GoToMenu" popup="true">
         <action id="Back" class="com.intellij.ide.actions.BackAction" icon="AllIcons.Actions.Back"/>
         <action id="Forward" class="com.intellij.ide.actions.ForwardAction" icon="AllIcons.Actions.Forward"/>
-        <!-- MPS unsuported actions
         <separator/>
         <reference ref="SearchEverywhere"/>
         <separator/>
+        <!-- MPS unsuported actions
         <action id="GotoLine" class="com.intellij.ide.actions.GotoLineAction">
           <override-text place="MainMenu"/>
           <override-text place="EditorPopup" use-text-of-place="MainMenu"/>
@@ -855,8 +855,8 @@
       <separator/>
       <!-- MPS Patch
       <reference ref="RunAnything"/>
-      <reference ref="SearchEverywhere"/>
       -->
+      <reference ref="SearchEverywhere"/>
     </group>
 
     <group id="NavBarVcsGroup"/>
