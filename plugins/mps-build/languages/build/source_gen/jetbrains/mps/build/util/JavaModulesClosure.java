@@ -14,7 +14,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -114,7 +113,7 @@ public class JavaModulesClosure {
       }
     }).concat(SetSequence.fromSet(externalJars)).toListSequence();
   }
-  public Collection<Tuples._2<SNode, String>> getExternalJarsInFolder() {
+  public Iterable<Tuples._2<SNode, String>> getExternalJarsInFolder() {
     return externalJarsInFolder;
   }
   public SNode getInitial() {

@@ -44,10 +44,10 @@ import jetbrains.mps.build.behavior.BuildSourceArchiveRelativePath__BehaviorDesc
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.build.behavior.BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor;
+import jetbrains.mps.build.util.JavaModulesClosure;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
-import jetbrains.mps.build.util.JavaModulesClosure;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import java.util.Map;
@@ -1160,7 +1160,52 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.BuildLayout_Container$vv) && BuildLayout_Container__BehaviorDescriptor.getAssembleSubTaskId_id450ejGzh8bO.invoke(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.BuildLayout_Container$vv)) != null;
   }
   public static boolean ifMacro_Condition_0_50(final IfMacroContext _context) {
-    return new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false)).requiresFetch(_context.getOriginalCopiedInputNode(_context.getNode()));
+    // based on JavaExportUtil.requireModule logic and BuildSource_JavaDependencyXXX implementations of  
+    // BuildExternalDependency.fetchDependencies(), namely _JDExtJar, _JDExtJarInFolder, _JDLibrary and _JDModule 
+    // I don't quite get the reason to have fetchDependencies() in all BS_JavaDependency individually, not 
+    // on BS_JavaModule itself, though. 
+    //  
+    // There was inconsistencies, e.g. _JDExtJarInFolder didn't set needsFetch() for a module. However, if there's another module  
+    // with dependency to the former (even in the same project, see JEU.requireModule) which access this dependency  
+    // transitively (through JavaModulesClosure), then needsFetch() is triggered) 
+    // Generally, I don't feel having few more 'fetchDependencies' would hurt. In fact, I don't mind to have this 
+    // dependency unconditional - generally, fetchDependencies is empty anyway. 
+    final SNode ownerProject = SNodeOperations.getContainingRoot(_context.getNode());
+    // JFTR, JavaModulesClosure works without translating nodes to 'original' model, we are fine to use == here 
+    if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getModules()).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return SNodeOperations.getContainingRoot(it) != ownerProject;
+      }
+    })) {
+      // module from another project, assume it's part of layout of that project.  
+      // JEU.requireModule used to also check artifacts.findArtifact() != null; I don't care. 
+      return true;
+    }
+    if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getExternalJars()).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return SNodeOperations.getContainingRoot(it) != ownerProject;
+      }
+    })) {
+      return true;
+    }
+    if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getExternalJarsInFolder()).any(new IWhereFilter<Tuples._2<SNode, String>>() {
+      public boolean accept(Tuples._2<SNode, String> it) {
+        return SNodeOperations.getContainingRoot(it._0()) != ownerProject;
+      }
+    })) {
+      return true;
+    }
+    if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getLibraries()).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return SNodeOperations.getContainingRoot(it) != ownerProject;
+      }
+    })) {
+      // JEU.requireLibrary also checks canExportByParts() or presence of layout node (the only one being possible 
+      // afaik BuildLayout_ExportAsJavaLibrary, mostly unused), I decided it' just too much - as long as library comes 
+      // from a different project, I don't see a reason why I can't say 'fetchDependencies' first 
+      return true;
+    }
+    return false;
   }
   public static boolean ifMacro_Condition_0_51(final IfMacroContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(((SNode) _context.getVariable("var:javaOpts")), LINKS.resourceSelectors$RxsW)).isEmpty();

@@ -14,7 +14,6 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -67,7 +66,6 @@ public class JavaExportUtil {
       }
 
       if (ListSequence.fromList(result).isNotEmpty()) {
-        builder.needsFetch(contextNode);
         for (Tuples._2<SNode, Boolean> pair : ListSequence.fromList(result)) {
           if ((boolean) pair._1()) {
             builder.addWithContent(pair._0());
@@ -81,7 +79,6 @@ public class JavaExportUtil {
 
     SNode artifact = SNodeOperations.as(artifacts.findArtifact(library), CONCEPTS.BuildLayout_Node$Rb);
     if (artifact != null) {
-      builder.needsFetch(contextNode);
       if (SNodeOperations.isInstanceOf(artifact, CONCEPTS.BuildLayout_ExportAsJavaLibrary$KO)) {
         ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(artifact, CONCEPTS.BuildLayout_ExportAsJavaLibrary$KO), LINKS.children$aMRO)).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
@@ -111,7 +108,6 @@ public class JavaExportUtil {
         return SLinkOperations.getTarget(it, LINKS.path$M9si);
       }
     })).concat(Sequence.fromIterable(Sequence.<SNode>singleton(target)));
-    boolean hasDependencies = false;
     for (SNode n : Sequence.fromIterable(required)) {
       if (SNodeOperations.getContainingRoot(n) == SNodeOperations.getContainingRoot(contextNode)) {
         continue;
@@ -120,7 +116,6 @@ public class JavaExportUtil {
       SNode artifact = SNodeOperations.as(artifacts.findArtifact(n), CONCEPTS.BuildLayout_Node$Rb);
       if (artifact != null) {
         builder.add(artifact);
-        hasDependencies = true;
       }
     }
 
@@ -144,11 +139,10 @@ public class JavaExportUtil {
         } else {
           builder.add(jarImport._0());
         }
-        hasDependencies = true;
       }
     }
 
-    for (Tuples._2<SNode, String> extJarInFolder : CollectionSequence.fromCollection(closure.getExternalJarsInFolder())) {
+    for (Tuples._2<SNode, String> extJarInFolder : Sequence.fromIterable(closure.getExternalJarsInFolder())) {
       if (SNodeOperations.getContainingRoot(extJarInFolder._0()) == SNodeOperations.getContainingRoot(contextNode)) {
         continue;
       }
@@ -156,12 +150,7 @@ public class JavaExportUtil {
       SNode folderNode = requireJarFolder(artifacts, extJarInFolder._0());
       if (folderNode != null) {
         builder.addWithContent(folderNode);
-        hasDependencies = true;
       }
-    }
-
-    if (hasDependencies) {
-      builder.needsFetch(contextNode);
     }
   }
   @Nullable
