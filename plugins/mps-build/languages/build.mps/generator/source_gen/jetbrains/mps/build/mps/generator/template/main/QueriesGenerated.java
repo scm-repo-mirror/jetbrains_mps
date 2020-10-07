@@ -282,20 +282,20 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) BuildMpsLayout_ModuleJars__BehaviorDescriptor.getSourceModuleJarName_id6v5CVv8csP9.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_4_0(final PropertyMacroContext _context) {
-    SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
+    SNode project = SNodeOperations.getNodeAncestor(((SNode) _context.getVariable("owner")), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
-      _context.showErrorMessage(_context.getNode(), "no context project defined");
+      _context.showErrorMessage(((SNode) _context.getVariable("owner")), "no context project defined");
       return "???";
     }
     DependenciesHelper helper = new DependenciesHelper(_context, project);
-    SNode layoutNode = helper.getArtifact(((SNode) _context.getVariable("dependency")));
+    SNode layoutNode = helper.getArtifact(_context.getNode());
     if (layoutNode == null) {
-      _context.showErrorMessage(_context.getNode(), "mps module " + SPropertyOperations.getString(((SNode) _context.getVariable("dependency")), PROPS.name$MnvL) + " was not found in the layout");
+      _context.showErrorMessage(((SNode) _context.getVariable("owner")), "mps module " + SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + " was not found in the layout");
       return "???";
     }
-    String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, ((SNode) _context.getVariable("dependency")));
+    String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, _context.getNode());
     if (val == null) {
-      _context.showErrorMessage(_context.getNode(), "no location for the mps module " + SPropertyOperations.getString(((SNode) _context.getVariable("dependency")), PROPS.name$MnvL));
+      _context.showErrorMessage(((SNode) _context.getVariable("owner")), "no location for the mps module " + SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL));
       return "???";
     }
     return val;
@@ -730,11 +730,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT);
   }
   public static Object referenceMacro_GetReferent_4_0(final ReferenceMacroContext _context) {
-    SNode result = _context.getOutputNodeByInputNodeAndMappingLabel(((SNode) _context.getVariable("dependency")), "javaModule");
-    if (result == null) {
-      _context.showErrorMessage(_context.getNode(), "cannot get mps output for " + ((SNode) _context.getVariable("dependency")));
-    }
-    return result;
+    return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "javaModule");
   }
   public static Object referenceMacro_GetReferent_7_0(final ReferenceMacroContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT);
@@ -805,7 +801,7 @@ public class QueriesGenerated extends QueryProviderBase {
     // are plain BuildSource_JavaModule references. 
     // OTOH, if we move towards partial model regeneration, we might need to reconsider assumptions like 'same model/root' and always rely on x-model 
     // reference restore mechanism (i.e. go on with BS_JavaModule and let generator restore the reference). 
-    return SNodeOperations.getContainingRoot(_context.getNode()) == SNodeOperations.getContainingRoot(((SNode) _context.getVariable("dependency")));
+    return SNodeOperations.getContainingRoot(_context.getNode()) == SNodeOperations.getContainingRoot(((SNode) _context.getVariable("owner")));
   }
   public static boolean ifMacro_Condition_7_0(final IfMacroContext _context) {
     return SPropertyOperations.getBoolean(_context.getNode(), PROPS.customContent$2inR) && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.deployedJar$Npdx), LINKS.children$aMRO)).isNotEmpty();
@@ -1026,9 +1022,6 @@ public class QueriesGenerated extends QueryProviderBase {
   public static SNode sourceNodeQuery_0_2(final SourceSubstituteMacroNodeContext _context) {
     return ((MPSModulesClosure) _context.getVariable("var:mdeps")).getInitial();
   }
-  public static SNode sourceNodeQuery_0_3(final SourceSubstituteMacroNodeContext _context) {
-    return ((MPSModulesClosure) _context.getVariable("var:mdeps")).getInitial();
-  }
   public static SNode sourceNodeQuery_2_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.module$zG3S), LINKS.path$iYKB);
   }
@@ -1102,7 +1095,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.element$PGip), CONCEPTS.BuildMps_Branding$M0);
   }
   public static Object templateArgumentQuery_0_0(final TemplateArgumentContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.targetModule$IF8S);
+    return ((MPSModulesClosure) _context.getVariable("var:mdeps")).getInitial();
   }
   public static Object templateArgumentQuery_0_1(final TemplateArgumentContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.targetPath$MMCS);
@@ -1159,8 +1152,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getNode(), LINKS.sources$mT1j), CONCEPTS.BuildMps_ModuleTestSource$tl);
   }
   public static Iterable<SNode> sourceNodesQuery_0_2(final SourceSubstituteMacroNodesContext _context) {
-    List<SNode> result = new ArrayList<SNode>();
-    for (SNode mod : Sequence.fromIterable(((MPSModulesClosure) _context.getVariable("var:mdeps")).getModules()).where(new IWhereFilter<SNode>() {
+    return Sequence.fromIterable(((MPSModulesClosure) _context.getVariable("var:mdeps")).getModules()).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (boolean) BuildMps_Module__BehaviorDescriptor.isCompilable_id6tOCIA6_7jg.invoke(it);
       }
@@ -1168,12 +1160,7 @@ public class QueriesGenerated extends QueryProviderBase {
       public String select(SNode it) {
         return SPropertyOperations.getString(it, PROPS.name$MnvL);
       }
-    }, true)) {
-      SNode loopnode = SModelOperations.createNewNode(_context.getOutputModel(), null, CONCEPTS.GeneratorInternal_BuildMps_Module$pL);
-      SLinkOperations.setTarget(loopnode, LINKS.targetModule$IF8S, mod);
-      ListSequence.fromList(result).addElement(loopnode);
-    }
-    return result;
+    }, true);
   }
   public static Iterable<SNode> sourceNodesQuery_0_3(final SourceSubstituteMacroNodesContext _context) {
     MPSModulesClosure.RequiredJavaModules requiredAndReexp = ((MPSModulesClosure) _context.getVariable("var:mdeps")).getRequiredJava();
@@ -1224,11 +1211,7 @@ public class QueriesGenerated extends QueryProviderBase {
         return SPropertyOperations.getString(it, PROPS.name$MnvL);
       }
     }, true)) {
-      ListSequence.fromList(result).addSequence(Sequence.fromIterable(SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).select(new ISelector<SNode, SNode>() {
-        public SNode select(SNode it) {
-          return (SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_ExtractedModuleDependency$e8) ? SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildMps_ExtractedModuleDependency$e8), LINKS.dependency$u_ko) : it);
-        }
-      }), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(Sequence.fromIterable(SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return (SLinkOperations.getTarget(it, LINKS.customLocation$e43G) == null);
         }
@@ -1249,11 +1232,7 @@ public class QueriesGenerated extends QueryProviderBase {
         return SPropertyOperations.getString(it, PROPS.name$MnvL);
       }
     }, true)) {
-      ListSequence.fromList(result).addSequence(Sequence.fromIterable(SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).select(new ISelector<SNode, SNode>() {
-        public SNode select(SNode it) {
-          return (SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_ExtractedModuleDependency$e8) ? SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildMps_ExtractedModuleDependency$e8), LINKS.dependency$u_ko) : it);
-        }
-      }), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(Sequence.fromIterable(SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return (SLinkOperations.getTarget(it, LINKS.customLocation$e43G) != null);
         }
@@ -1405,7 +1384,7 @@ public class QueriesGenerated extends QueryProviderBase {
     //      however, would need a node to hold 2 string values at a time 
     return Sequence.fromIterable(Sequence.fromArray(((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPluginPaths())).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return createGeneratorInternal_String_x583g4_a0a0a0c0fm(it);
+        return createGeneratorInternal_String_x583g4_a0a0a0c0em(it);
       }
     });
   }
@@ -1453,7 +1432,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_10_5(final SourceSubstituteMacroNodesContext _context) {
     return Sequence.fromIterable(Sequence.fromArray(((String[]) _context.getVariable("var:requiredPlugins")))).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return createGeneratorInternal_String_x583g4_a0a0a0a0km(it);
+        return createGeneratorInternal_String_x583g4_a0a0a0a0jm(it);
       }
     });
   }
@@ -1798,7 +1777,7 @@ public class QueriesGenerated extends QueryProviderBase {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
     return ListSequence.fromList(dependencies).select(new ISelector<Tuples._2<SNode, String>, SNode>() {
       public SNode select(Tuples._2<SNode, String> it) {
-        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a753(it._1(), it._0());
+        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a653(it._1(), it._0());
       }
     }).toListSequence();
   }
@@ -1976,7 +1955,6 @@ public class QueriesGenerated extends QueryProviderBase {
     int i = 0;
     snqMethods.put("2303926226081111358", new SNQ(i++));
     snqMethods.put("1065091787225169766", new SNQ(i++));
-    snqMethods.put("8252715012761560260", new SNQ(i++));
     snqMethods.put("6859736767834858755", new SNQ(i++));
     snqMethods.put("8369506495128850710", new SNQ(i++));
     snqMethods.put("8654221991637263395", new SNQ(i++));
@@ -2025,50 +2003,48 @@ public class QueriesGenerated extends QueryProviderBase {
         case 2:
           return QueriesGenerated.sourceNodeQuery_0_2(ctx);
         case 3:
-          return QueriesGenerated.sourceNodeQuery_0_3(ctx);
-        case 4:
           return QueriesGenerated.sourceNodeQuery_2_0(ctx);
-        case 5:
+        case 4:
           return QueriesGenerated.sourceNodeQuery_2_1(ctx);
-        case 6:
+        case 5:
           return QueriesGenerated.sourceNodeQuery_3_0(ctx);
-        case 7:
+        case 6:
           return QueriesGenerated.sourceNodeQuery_6_0(ctx);
-        case 8:
+        case 7:
           return QueriesGenerated.sourceNodeQuery_7_0(ctx);
-        case 9:
+        case 8:
           return QueriesGenerated.sourceNodeQuery_7_1(ctx);
-        case 10:
+        case 9:
           return QueriesGenerated.sourceNodeQuery_7_2(ctx);
-        case 11:
+        case 10:
           return QueriesGenerated.sourceNodeQuery_7_3(ctx);
-        case 12:
+        case 11:
           return QueriesGenerated.sourceNodeQuery_8_0(ctx);
-        case 13:
+        case 12:
           return QueriesGenerated.sourceNodeQuery_8_1(ctx);
-        case 14:
+        case 13:
           return QueriesGenerated.sourceNodeQuery_8_2(ctx);
-        case 15:
+        case 14:
           return QueriesGenerated.sourceNodeQuery_8_3(ctx);
-        case 16:
+        case 15:
           return QueriesGenerated.sourceNodeQuery_8_4(ctx);
-        case 17:
+        case 16:
           return QueriesGenerated.sourceNodeQuery_8_5(ctx);
-        case 18:
+        case 17:
           return QueriesGenerated.sourceNodeQuery_8_6(ctx);
-        case 19:
+        case 18:
           return QueriesGenerated.sourceNodeQuery_8_7(ctx);
-        case 20:
+        case 19:
           return QueriesGenerated.sourceNodeQuery_8_8(ctx);
-        case 21:
+        case 20:
           return QueriesGenerated.sourceNodeQuery_8_9(ctx);
-        case 22:
+        case 21:
           return QueriesGenerated.sourceNodeQuery_9_0(ctx);
-        case 23:
+        case 22:
           return QueriesGenerated.sourceNodeQuery_15_0(ctx);
-        case 24:
+        case 23:
           return QueriesGenerated.sourceNodeQuery_15_1(ctx);
-        case 25:
+        case 24:
           return QueriesGenerated.sourceNodeQuery_16_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -3155,7 +3131,7 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, CallArgumentQuery> caqMethods = new HashMap<String, CallArgumentQuery>();
   {
     caqMethods.put("7753544965996903194", new CAQ(0));
-    caqMethods.put("4964617264469340744", new CAQ(1));
+    caqMethods.put("8252715012761560463", new CAQ(1));
     caqMethods.put("4964617264469629189", new CAQ(2));
     caqMethods.put("763829979706275425", new CAQ(3));
     caqMethods.put("1241280061045711831", new CAQ(4));
@@ -3259,17 +3235,17 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createGeneratorInternal_String_x583g4_a0a0a0c0fm(String p0) {
+  private static SNode createGeneratorInternal_String_x583g4_a0a0a0c0em(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_String$CC);
     n0.setProperty(PROPS.path$oN2q, p0);
     return n0.getResult();
   }
-  private static SNode createGeneratorInternal_String_x583g4_a0a0a0a0km(String p0) {
+  private static SNode createGeneratorInternal_String_x583g4_a0a0a0a0jm(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_String$CC);
     n0.setProperty(PROPS.path$oN2q, p0);
     return n0.getResult();
   }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a753(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a653(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);
@@ -3298,10 +3274,8 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept BuildMps_TipsMps$y5 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a2289999L, "jetbrains.mps.build.mps.structure.BuildMps_TipsMps");
     /*package*/ static final SConcept BuildMps_TipsSolution$5K = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a233b3c4L, "jetbrains.mps.build.mps.structure.BuildMps_TipsSolution");
     /*package*/ static final SConcept BuildMps_ModuleTestSource$tl = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x21286cd3b0f27758L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleTestSource");
-    /*package*/ static final SConcept GeneratorInternal_BuildMps_Module$pL = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x44e5dd192e7771cfL, "jetbrains.mps.build.mps.structure.GeneratorInternal_BuildMps_Module");
     /*package*/ static final SConcept GeneratorInternal_BuildSource_JavaModule$pC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x44e5dd192e7c0c18L, "jetbrains.mps.build.structure.GeneratorInternal_BuildSource_JavaModule");
     /*package*/ static final SConcept BuildMps_ModuleDependencyJar$Rm = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyJar");
-    /*package*/ static final SConcept BuildMps_ExtractedModuleDependency$e8 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency");
     /*package*/ static final SConcept GeneratorInternal_BuildSourcePath$CL = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x44e5dd192e77725eL, "jetbrains.mps.build.mps.structure.GeneratorInternal_BuildSourcePath");
     /*package*/ static final SConcept GeneratorInternal_BuildSource_SingleFile$ra = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x44e5dd192e7c0d4aL, "jetbrains.mps.build.structure.GeneratorInternal_BuildSource_SingleFile");
     /*package*/ static final SConcept BuildMps_ModuleDependencyOnJavaModule$MK = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnJavaModule");
@@ -3414,13 +3388,11 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SContainmentLink dir$e6r$ = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92245a4L, 0x48d5d03db92245a6L, "dir");
     /*package*/ static final SContainmentLink containerName$xQbG = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4def2c96L, "containerName");
     /*package*/ static final SContainmentLink files$uRjo = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xa99ab51d1ecc306L, 0xa99ab51d1ecc307L, "files");
-    /*package*/ static final SReferenceLink targetModule$IF8S = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x44e5dd192e7771cfL, 0x44e5dd192e7771d0L, "targetModule");
     /*package*/ static final SReferenceLink targetPath$MMCS = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x44e5dd192e77725eL, 0x44e5dd192e77725fL, "targetPath");
     /*package*/ static final SContainmentLink jarLocations$YX2i = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x3c765492deb27a75L, "jarLocations");
     /*package*/ static final SContainmentLink dependencies$j8Lj = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies");
     /*package*/ static final SContainmentLink customLocation$e43G = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, 0x26d578f4b6e3757fL, "customLocation");
     /*package*/ static final SContainmentLink path$yTVo = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, 0x3b60c4a45c197e1aL, "path");
-    /*package*/ static final SContainmentLink dependency$u_ko = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, 0x64bd442e1cf7aaefL, "dependency");
     /*package*/ static final SReferenceLink jar$JLD3 = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar");
     /*package*/ static final SContainmentLink modules$JlQo = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x14d3fb6fb843ebddL, 0x14d3fb6fb843ebdeL, "modules");
     /*package*/ static final SContainmentLink javaLibLocation$cmtb = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x65b9b06022080842L, "javaLibLocation");
