@@ -35,7 +35,6 @@ public class InsertOnTextualElement {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-
         SNode p = SNodeOperations.getNodeAncestor(node, CONCEPTS.Paragraph$XF, false, false);
         final Wrappers._T<SNode> next = new Wrappers._T<SNode>();
         if (SNodeOperations.getContainingLink(p).isMultiple()) {

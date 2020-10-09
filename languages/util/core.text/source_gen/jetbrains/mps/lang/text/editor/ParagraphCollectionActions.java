@@ -16,6 +16,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.text.behavior.TextualElement__BehaviorDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.CellAction;
@@ -23,6 +25,7 @@ import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ParagraphCollectionActions {
@@ -260,10 +263,22 @@ public class ParagraphCollectionActions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode prev = SNodeOperations.insertNewPrevSiblingChild(node, MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph"));
+        SNode prev;
+        if (SNodeOperations.getContainingLink(node).isMultiple()) {
+          prev = SNodeOperations.insertNewPrevSiblingChild(node, MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph"));
+        } else {
+          SNode holder = SNodeOperations.getNodeAncestor(node, CONCEPTS.IHoldParagraphs$eh, false, false);
+          SNode copy = SNodeOperations.insertPrevSiblingChild(holder, SNodeOperations.copyNode(holder));
+          prev = ListSequence.fromList(IHoldParagraphs__BehaviorDescriptor.getParagraphs_id2MpFNjy3tMn.invoke(copy)).first();
+          ListSequence.fromList(SLinkOperations.getChildren(prev, LINKS.letters$rNyA)).clear();
+          ListSequence.fromList(SNodeOperations.getAllSiblings(prev, false)).visitAll(new IVisitor<SNode>() {
+            public void visit(SNode it) {
+              SNodeOperations.deleteNode(it);
+            }
+          });
+        }
         Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(prev);
         SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.FIRST_CELL, 0);
-
       }
 
     };
@@ -376,6 +391,7 @@ public class ParagraphCollectionActions {
   private static final class CONCEPTS {
     /*package*/ static final SConcept TextualElement$9C = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20d9cfbL, "jetbrains.mps.lang.text.structure.TextualElement");
     /*package*/ static final SConcept Paragraph$XF = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph");
+    /*package*/ static final SInterfaceConcept IHoldParagraphs$eh = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20dd8a1L, "jetbrains.mps.lang.text.structure.IHoldParagraphs");
   }
 
   private static final class LINKS {

@@ -38,11 +38,19 @@ public abstract class Comments {
       if (SNodeOperations.isInstanceOf(el, CONCEPTS.Letter$kd)) {
         SNode l = SNodeOperations.cast(el, CONCEPTS.Letter$kd);
         tgs.append(SPropertyOperations.getString(l, PROPS.value$X7Tp));
-      }
-      if (SNodeOperations.isInstanceOf(el, CONCEPTS.NodeWrapperTextualElement$vh)) {
-        tgs.append(" ");
-        tgs.append("<node>");
-        tgs.append(" ");
+      } else {
+        if (SNodeOperations.isInstanceOf(el, CONCEPTS.NodeWrapperTextualElement$vh)) {
+          tgs.append(" ");
+          tgs.append("<node>");
+        } else if (SNodeOperations.isInstanceOf(el, CONCEPTS.UrlTextualElement$cU)) {
+          tgs.append(" ");
+          tgs.append(SPropertyOperations.getString(SNodeOperations.as(el, CONCEPTS.UrlTextualElement$cU), PROPS.text$M$I6));
+        } else {
+          tgs.append(" Unknown textual element");
+        }
+        if ((SNodeOperations.getNextSibling(el) != null) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(el), CONCEPTS.Letter$kd)) {
+          tgs.append(" ");
+        }
       }
     }
   }
@@ -55,12 +63,14 @@ public abstract class Comments {
     /*package*/ static final SConcept NodeWrapperElement$c8 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2b7b49e536031fe9L, "jetbrains.mps.lang.text.structure.NodeWrapperElement");
     /*package*/ static final SConcept Letter$kd = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, "jetbrains.mps.lang.text.structure.Letter");
     /*package*/ static final SConcept NodeWrapperTextualElement$vh = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20dcb4fL, "jetbrains.mps.lang.text.structure.NodeWrapperTextualElement");
+    /*package*/ static final SConcept UrlTextualElement$cU = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x739f6249ff2c0691L, "jetbrains.mps.lang.text.structure.UrlTextualElement");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty value$zQr_ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
     /*package*/ static final SProperty url$SIrt = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url");
     /*package*/ static final SProperty value$X7Tp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, 0x7ee31bf598f4ad9eL, "value");
+    /*package*/ static final SProperty text$M$I6 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x739f6249ff2c0691L, 0x739f6249ff2c0dd6L, "text");
   }
 
   private static final class LINKS {

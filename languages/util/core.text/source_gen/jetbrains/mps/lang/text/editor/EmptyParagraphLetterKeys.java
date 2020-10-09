@@ -48,11 +48,14 @@ public class EmptyParagraphLetterKeys extends KeyMapImpl {
       if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.EmptyParagraphLetter$W6))) {
         return false;
       }
-      return true;
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
     }
     public void execute(final EditorContext editorContext) {
       EditorCell contextCell = editorContext.getContextCell();
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      return !(SNodeOperations.getContainingLink(SNodeOperations.getNodeAncestor(node, CONCEPTS.Paragraph$XF, false, false)).isMultiple());
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       SNode holder = SNodeOperations.getNodeAncestor(node, CONCEPTS.IHoldParagraphs$eh, false, false);
@@ -75,6 +78,7 @@ public class EmptyParagraphLetterKeys extends KeyMapImpl {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept EmptyParagraphLetter$W6 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x17c01c7f100e844bL, "jetbrains.mps.lang.text.structure.EmptyParagraphLetter");
+    /*package*/ static final SConcept Paragraph$XF = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph");
     /*package*/ static final SInterfaceConcept IHoldParagraphs$eh = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20dd8a1L, "jetbrains.mps.lang.text.structure.IHoldParagraphs");
   }
 
