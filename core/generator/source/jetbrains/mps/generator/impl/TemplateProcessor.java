@@ -75,13 +75,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class TemplateProcessor implements ITemplateProcessor {
   private final TemplateGenerator myGenerator;
-  private final SModel myOutputModel;
   private final MacroImplFactory myImplFactory;
   private final Map<SNode, TemplateNode> myTemplateRuntimeMap = new ConcurrentHashMap<>();
 
   public TemplateProcessor(@NotNull TemplateGenerator generator) {
     myGenerator = generator;
-    myOutputModel = myGenerator.getOutputModel();
     myImplFactory = new MacroImplFactory(this);
   }
 
@@ -185,6 +183,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
       macroImplMap.put(RuleUtil.concept_IfMacro, 8);
       macroImplMap.put(RuleUtil.concept_MapSrcNodeMacro, 9);
       macroImplMap.put(RuleUtil.concept_MapSrcListMacro, 10);
+      macroImplMap.put(RuleUtil.concept_InsertCallSiteMacro, 11);
       macroImplMap.put(RuleUtil.concept_TemplateSwitchMacro, 12);
       macroImplMap.put(RuleUtil.concept_TemplateCallMacro, 14);
       macroImplMap.put(RuleUtil.concept_TraceMacro, 15);
@@ -196,6 +195,8 @@ public final class TemplateProcessor implements ITemplateProcessor {
       if (k == null) {
         return new NoMacro(macro, templateNode, next, myTemplateProcessor);
       }
+      // FIXME Shall I explicitly pass null for next for macros that are terminating and don't expect further macros (like INSERT)?
+
       switch(k) {
         case 0 : return new NoMacro(macro, templateNode, next, myTemplateProcessor);
         case 1 : return new LoopMacro(macro, templateNode, next, myTemplateProcessor);
@@ -208,6 +209,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
         case 8 : return new IfMacro(macro, templateNode, next, myTemplateProcessor);
         case 9 : return new MapSrcMacros(macro, templateNode, next, myTemplateProcessor, true);
         case 10 : return new MapSrcMacros(macro, templateNode, next, myTemplateProcessor, false);
+        case 11 : return new InsertCallSiteMacro(macro, templateNode, next, myTemplateProcessor);
         case 12 : return new SwitchMacro(macro, templateNode, next, myTemplateProcessor);
         case 14 : return new CallMacro(macro, templateNode, next, myTemplateProcessor);
         case 15 : return new TraceMacro(macro, templateNode, next, myTemplateProcessor);
@@ -426,7 +428,8 @@ public final class TemplateProcessor implements ITemplateProcessor {
       SNode child = getNodeToInsert(templateContext);
       if (child != null) {
         child = templateContext.getEnvironment().insertNode(child, getMacroNodeRef(), templateContext);
-        // XXX TEEI.insertNode doesn't register ML, perhaps shall behave the same as this code? Or it's done in generated code?
+        // XXX TEEI.insertNode doesn't register ML, perhaps shall behave the same as this code?
+        //     It's enerated code that registers the label, why don't we move the code into TEEE.inseertNode?
         // label
         myTemplateProcessor.getGenerator().registerMappingLabel(templateContext.getInput(), templateContext.getInputName(), child);
         return Collections.singletonList(child);
@@ -434,6 +437,22 @@ public final class TemplateProcessor implements ITemplateProcessor {
       return Collections.emptyList();
     }
   }
+
+  // $CALL-SITE
+  private static class InsertCallSiteMacro extends MacroImpl {
+
+    protected InsertCallSiteMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor) {
+      super(macro, templateNode, next, templateProcessor);
+    }
+
+    @NotNull
+    @Override
+    public List<SNode> apply(@NotNull TemplateContext templateContext) throws GenerationFailureException, GenerationCanceledException {
+      final SNode cs = templateContext.getEnvironment().insertCallSiteNode(getMacroNodeRef(), templateContext);
+      return Collections.singletonList(cs);
+    }
+  }
+
 
   // $WEAVE$
   private static class WeaveMacro extends MacroWithInput implements WeavingWithAnchor {
@@ -691,7 +710,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
       return RuleUtil.getTemplateSwitchMacro_TemplateSwitch(macro);
     }
 
-    protected TemplateContext prepareContext(TemplateContext templateContext) throws GenerationFailureException {
+    private TemplateCall callProcessor(TemplateContext templateContext) {
       TemplateCall tc = myCallProcessor;
       if (tc == null) {
         tc = new TemplateCall(macro);
@@ -701,7 +720,11 @@ public final class TemplateProcessor implements ITemplateProcessor {
         }
         myCallProcessor = tc;
       }
-      return tc.prepareCallContext(templateContext);
+      return tc;
+    }
+
+    protected TemplateContext prepareContext(TemplateContext templateContext) throws GenerationFailureException {
+      return callProcessor(templateContext).prepareCallContext(templateContext);
     }
 
     @NotNull
@@ -712,6 +735,14 @@ public final class TemplateProcessor implements ITemplateProcessor {
       if (templateSwitch == null) {
         throw new TemplateProcessingFailureException(macro, "error processing $SWITCH$ - bad TemplateSwitch reference",
             GeneratorUtil.describeInput(templateContext));
+      }
+      if (callProcessor(templateContext).needCallSite()) {
+        final List<SNode> callSiteNodes = nextMacro(templateContext);
+        if (callSiteNodes.size() == 1) {
+          templateContext = templateContext.withCallSiteNode(callSiteNodes.get(0));
+        } else {
+          getLogger().error(getMacroNodeRef(), "Invoked template needs exactly 1 node for call site", GeneratorUtil.describeInput(templateContext));
+        }
       }
       final SNodeReference switchPtr = templateSwitch.getReference();
       SNode newInputNode = getNewInputNode(templateContext);

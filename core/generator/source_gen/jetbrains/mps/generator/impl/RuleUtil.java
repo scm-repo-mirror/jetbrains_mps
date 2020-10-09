@@ -42,6 +42,7 @@ public final class RuleUtil {
   public static final SConcept concept_TemplateSwitchMacro = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xda3dc6e51747593L, "jetbrains.mps.lang.generator.structure.TemplateSwitchMacro");
   public static final SConcept concept_PropertyMacro = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47e9f6f0L, "jetbrains.mps.lang.generator.structure.PropertyMacro");
   public static final SConcept concept_ReferenceMacro = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  public static final SConcept concept_InsertCallSiteMacro = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x49e55fc88ed9c395L, "jetbrains.mps.lang.generator.structure.InsertCallSiteMacro");
 
   public static final SConcept concept_Reduction_MappingRule = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fca296532L, "jetbrains.mps.lang.generator.structure.Reduction_MappingRule");
   public static final SConcept concept_Root_MappingRule = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, "jetbrains.mps.lang.generator.structure.Root_MappingRule");
@@ -104,6 +105,7 @@ public final class RuleUtil {
     NodeMacroConcepts.add(concept_TraceMacro);
     NodeMacroConcepts.add(concept_VarMacro2);
     NodeMacroConcepts.add(concept_WeaveMacro);
+    NodeMacroConcepts.add(concept_InsertCallSiteMacro);
     NodeMacroConcepts.add(concept_NodeMacro);
   }
   /**
@@ -322,14 +324,6 @@ public final class RuleUtil {
   public static SNode getTemplateFragmentByAnnotatedNode(SNode node) {
     return new IAttributeDescriptor.NodeAttribute(CONCEPTS.TemplateFragment$eq).get(node);
   }
-  /**
-   * 
-   * @deprecated use getTemplateCall_Template instead
-   */
-  @Deprecated
-  public static SNode getTemplateDeclarationReference_Template(SNode ref) {
-    return SNodeOperations.cast(SLinkOperations.getTarget(ref, LINKS.template$6_6), CONCEPTS.TemplateDeclaration$5G);
-  }
   public static SNode getInlineTemplate_templateNode(SNode ruleConsequence) {
     return SLinkOperations.getTarget(ruleConsequence, LINKS.templateNode$1Rss);
   }
@@ -404,6 +398,9 @@ public final class RuleUtil {
   public static SNode getTemplateCall_Template(SNode templateCall) {
     return SLinkOperations.getTarget(templateCall, LINKS.template$6_6);
   }
+  public static boolean getTemplateCall_TemplateNeedCallSite(SNode templateCall) {
+    return SPropertyOperations.getBoolean(SLinkOperations.getTarget(templateCall, LINKS.template$6_6), PROPS.needCallSite$fSr_);
+  }
   public static SNode getTemplateArgumentQueryExpression_Query(SNode expr) {
     return SLinkOperations.getTarget(expr, LINKS.query$31w3);
   }
@@ -459,6 +456,7 @@ public final class RuleUtil {
     /*package*/ static final SProperty applyToSubConcepts$wZzZ = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x67b585b44f4d943bL, 0x1507ca8da7f37f1eL, "applyToSubConcepts");
     /*package*/ static final SProperty keepSourceRoot$OcNj = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, 0x11243d5018aL, "keepSourceRoot");
     /*package*/ static final SProperty topPriorityGroup$RJ4F = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x113e48b50faL, "topPriorityGroup");
+    /*package*/ static final SProperty needCallSite$fSr_ = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0xda3dc6e5137e9b1L, 0x18ecef336962ae09L, "needCallSite");
     /*package*/ static final SProperty scriptKind$6esh = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, 0x1165f0cf1aaL, "scriptKind");
     /*package*/ static final SProperty modifiesModel$x_1B = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, 0x1165f0d3f2fL, "modifiesModel");
     /*package*/ static final SProperty counterVarName$YOXn = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047ce009c3L, 0x671e792f3d97a344L, "counterVarName");

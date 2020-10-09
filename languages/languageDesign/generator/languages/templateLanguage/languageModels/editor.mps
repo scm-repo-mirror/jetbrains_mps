@@ -7556,5 +7556,45 @@
     </node>
     <node concept="2VfDsV" id="47y0FrqhJri" role="3ft7WO" />
   </node>
+  <node concept="24kQdi" id="4B_nWyeQseM">
+    <property role="3GE5qa" value="macro" />
+    <ref role="1XX52x" to="tpf8:4B_nWyeQsel" resolve="InsertCallSiteMacro" />
+    <node concept="3EZMnI" id="4B_nWyeQseO" role="2wV5jI">
+      <node concept="3F0ifn" id="4B_nWyeQseP" role="3EZMnx">
+        <property role="3F0ifm" value="$CALL-SITE$" />
+        <property role="1cu_pB" value="gtgu$YJ/1" />
+        <ref role="1ERwB7" node="gZDQqLq" resolve="MacroSymbol_Actions" />
+        <ref role="1k5W1q" node="hG2hEjs" resolve="macroStart" />
+        <node concept="A1WHu" id="4B_nWyeQseQ" role="3vIgyS">
+          <ref role="A1WHt" node="6GI$fc4bPsN" resolve="ReplaceNodeMacro" />
+        </node>
+      </node>
+      <node concept="2SsqMj" id="4B_nWyeQsIA" role="3EZMnx">
+        <ref role="1k5W1q" node="hG2jgB4" resolve="nodeUnderMacro" />
+      </node>
+      <node concept="2iRfu4" id="4B_nWyeQseS" role="2iSdaV" />
+    </node>
+    <node concept="3EZMnI" id="4B_nWyeQsHQ" role="6VMZX">
+      <node concept="3F0ifn" id="4B_nWyeQsHW" role="3EZMnx">
+        <property role="3F0ifm" value="insert a node template has been invoked at" />
+        <node concept="VPM3Z" id="4B_nWyeQsHX" role="3F10Kt">
+          <property role="VOm3f" value="false" />
+        </node>
+        <node concept="VechU" id="4B_nWyeQsHY" role="3F10Kt">
+          <property role="Vb096" value="g1_eI4o/DARK_BLUE" />
+        </node>
+        <node concept="30gYXW" id="4B_nWyeQsHZ" role="3F10Kt">
+          <property role="Vb096" value="fLJRk5A/lightGray" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="4B_nWyeQsI0" role="3EZMnx">
+        <node concept="VPM3Z" id="4B_nWyeQsI1" role="3F10Kt">
+          <property role="VOm3f" value="false" />
+        </node>
+      </node>
+      <node concept="2iRkQZ" id="4B_nWyeQsHR" role="2iSdaV" />
+      <node concept="VPM3Z" id="4B_nWyeQsHU" role="3F10Kt" />
+    </node>
+  </node>
 </model>
 

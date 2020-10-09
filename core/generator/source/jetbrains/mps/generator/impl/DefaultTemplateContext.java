@@ -232,6 +232,16 @@ public class DefaultTemplateContext implements TemplateContext {
   }
 
   @Override
+  public TemplateContext withCallSiteNode(SNode callSiteNode) {
+    return withVariable("callsite", callSiteNode);
+  }
+
+  @Override
+  public SNode getCallSiteNode() {
+    return (SNode) getVariable("callsite");
+  }
+
+  @Override
   public TemplateContext subContext(GeneratedMatchingPattern pattern) {
     return new DefaultTemplateContext(this, null, getInput(), pattern, null);
   }

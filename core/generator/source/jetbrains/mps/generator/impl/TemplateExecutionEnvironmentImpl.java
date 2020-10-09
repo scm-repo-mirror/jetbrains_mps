@@ -182,6 +182,13 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   }
 
   @Override
+  public SNode insertCallSiteNode(SNodeReference templateNode, TemplateContext templateContext) throws GenerationCanceledException, GenerationFailureException {
+    // assume call site node has been produced by a regular template transcription process, and we don't need to check/adopt the call site node
+    return templateContext.getCallSiteNode();
+//    getTrace().trace(null, rv, templateNode);
+  }
+
+  @Override
   public void nullInputSwitch(SNodeReference _switch) throws GenerationCanceledException, GenerationFailureException {
     final TemplateSwitchMapping templateSwitch = generator.getSwitch(_switch);
     if (templateSwitch != null) {

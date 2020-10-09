@@ -32,7 +32,7 @@
       <unit at="26,0,98,0" name="jetbrains.mps.lang.generator.editor.DropRootRule_SubstituteMenu" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="20,0,302,0" name="jetbrains.mps.lang.generator.editor.EditorAspectDescriptorImpl" />
+      <unit at="20,0,304,0" name="jetbrains.mps.lang.generator.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="GeneratorDebug_NodeRef_SubstituteMenu.java">
       <unit at="90,0,93,0" name="jetbrains.mps.lang.generator.editor.GeneratorDebug_NodeRef_SubstituteMenu$CONCEPTS" />
@@ -10514,8 +10514,8 @@
       <unit id="1167328078404" at="51,0,329,0" name="jetbrains.mps.lang.generator.editor.BaseMappingRule_premise_ComponentBuilder_a" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="1167328078404" at="160,79,161,102" concept="9" />
-      <scope id="1167328078404" at="160,79,161,102" />
+      <node id="1167328078404" at="162,79,163,102" concept="9" />
+      <scope id="1167328078404" at="162,79,163,102" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/1167328252970">
@@ -13042,8 +13042,8 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/1184864447477">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="1184864447477" at="188,73,189,96" concept="9" />
-      <scope id="1184864447477" at="188,73,189,96" />
+      <node id="1184864447477" at="190,73,191,96" concept="9" />
+      <scope id="1184864447477" at="190,73,191,96" />
     </file>
     <file name="NodeMacro_postfix.java">
       <node id="1184864447477" at="15,47,16,35" concept="9" />
@@ -18055,8 +18055,8 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/2238065674975615585">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="2238065674975615585" at="186,81,187,104" concept="9" />
-      <scope id="2238065674975615585" at="186,81,187,104" />
+      <node id="2238065674975615585" at="188,81,189,104" concept="9" />
+      <scope id="2238065674975615585" at="188,81,189,104" />
     </file>
     <file name="NodeMacro_label_inspector.java">
       <node id="2238065674975615585" at="15,47,16,35" concept="9" />
@@ -20265,8 +20265,8 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/4747359941571311309">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="4747359941571311309" at="284,98,285,107" concept="9" />
-      <scope id="4747359941571311309" at="284,98,285,107" />
+      <node id="4747359941571311309" at="286,98,287,107" concept="9" />
+      <scope id="4747359941571311309" at="286,98,287,107" />
     </file>
     <file name="GeneratorParameterReference_SmartReference.java">
       <node id="4747359941571311309" at="31,118,32,140" concept="8" />
@@ -21554,6 +21554,155 @@
       <unit id="5133195082121477320" at="19,0,91,0" name="jetbrains.mps.lang.generator.editor.LabelMacro_InspectorBuilder_a" />
     </file>
   </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/5324767449430213554">
+    <file name="InsertCallSiteMacro_Editor.java">
+      <node id="5324767449430213554" at="11,79,12,85" concept="9" />
+      <node id="5324767449430213554" at="14,82,15,88" concept="9" />
+      <node id="5324767449430213554" at="11,0,14,0" concept="7" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213554" at="14,0,17,0" concept="7" trace="createInspectedCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5324767449430213554" at="11,79,12,85" />
+      <scope id="5324767449430213554" at="14,82,15,88" />
+      <scope id="5324767449430213554" at="11,0,14,0">
+        <var name="editorContext" id="5324767449430213554" />
+        <var name="node" id="5324767449430213554" />
+      </scope>
+      <scope id="5324767449430213554" at="14,0,17,0">
+        <var name="editorContext" id="5324767449430213554" />
+        <var name="node" id="5324767449430213554" />
+      </scope>
+      <unit id="5324767449430213554" at="10,0,18,0" name="jetbrains.mps.lang.generator.editor.InsertCallSiteMacro_Editor" />
+    </file>
+    <file name="InsertCallSiteMacro_EditorBuilder_a.java">
+      <node id="5324767449430213554" at="31,99,32,19" concept="14" />
+      <node id="5324767449430213554" at="32,19,33,18" concept="3" />
+      <node id="5324767449430213554" at="38,26,39,18" concept="9" />
+      <node id="5324767449430213554" at="42,39,43,32" concept="9" />
+      <node id="5324767449430213554" at="46,43,47,122" concept="8" />
+      <node id="5324767449430213554" at="47,122,48,48" concept="3" />
+      <node id="5324767449430213554" at="48,48,49,28" concept="3" />
+      <node id="5324767449430213554" at="49,28,50,31" concept="3" />
+      <node id="5324767449430213557" at="50,31,51,49" concept="3" />
+      <node id="5324767449430215590" at="51,49,52,59" concept="3" />
+      <node id="5324767449430213554" at="52,59,53,22" concept="9" />
+      <node id="5324767449430213557" at="55,41,56,104" concept="8" />
+      <node id="5324767449430213557" at="56,104,57,47" concept="3" />
+      <node id="5324767449430213557" at="57,47,58,34" concept="8" />
+      <node id="5324767449430213557" at="58,34,59,85" concept="3" />
+      <node id="5324767449430213557" at="59,85,60,40" concept="3" />
+      <node id="5324767449430213557" at="61,15,62,90" concept="3" />
+      <node id="5324767449430213557" at="63,5,64,79" concept="3" />
+      <node id="5324767449430213557" at="64,79,65,223" concept="3" />
+      <node id="5324767449430213557" at="65,223,66,34" concept="3" />
+      <node id="5324767449430213557" at="66,34,67,71" concept="3" />
+      <node id="5324767449430213557" at="67,71,68,22" concept="9" />
+      <node id="5324767449430215590" at="70,51,71,85" concept="8" />
+      <node id="5324767449430215590" at="71,85,72,93" concept="8" />
+      <node id="5324767449430215590" at="72,93,73,34" concept="8" />
+      <node id="5324767449430215590" at="73,34,74,89" concept="3" />
+      <node id="5324767449430215590" at="74,89,75,40" concept="3" />
+      <node id="5324767449430215590" at="75,40,76,22" concept="9" />
+      <node id="5324767449430213554" at="80,0,81,0" concept="12" trace="NodeMacro$qU" />
+      <node id="5324767449430213554" at="28,0,30,0" concept="4" trace="myNode" />
+      <node id="5324767449430213554" at="42,0,45,0" concept="7" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213557" at="60,40,63,5" concept="6" />
+      <node id="5324767449430213554" at="31,0,35,0" concept="2" trace="InsertCallSiteMacro_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5324767449430213554" at="36,0,41,0" concept="7" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5324767449430215590" at="70,0,78,0" concept="7" trace="createAttributedNodeCell_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213554" at="46,0,55,0" concept="7" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213557" at="55,0,70,0" concept="7" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5324767449430213554" at="38,26,39,18" />
+      <scope id="5324767449430213554" at="42,39,43,32" />
+      <scope id="5324767449430213557" at="61,15,62,90" />
+      <scope id="5324767449430213554" at="31,99,33,18" />
+      <scope id="5324767449430213554" at="42,0,45,0" />
+      <scope id="5324767449430213554" at="31,0,35,0">
+        <var name="context" id="5324767449430213554" />
+        <var name="node" id="5324767449430213554" />
+      </scope>
+      <scope id="5324767449430213554" at="36,0,41,0" />
+      <scope id="5324767449430215590" at="70,51,76,22">
+        <var name="editorCell" id="5324767449430215590" />
+        <var name="manager" id="5324767449430215590" />
+        <var name="style" id="5324767449430215590" />
+      </scope>
+      <scope id="5324767449430213554" at="46,43,53,22">
+        <var name="editorCell" id="5324767449430213554" />
+      </scope>
+      <scope id="5324767449430215590" at="70,0,78,0" />
+      <scope id="5324767449430213554" at="46,0,55,0" />
+      <scope id="5324767449430213557" at="55,41,68,22">
+        <var name="editorCell" id="5324767449430213557" />
+        <var name="style" id="5324767449430213557" />
+      </scope>
+      <scope id="5324767449430213557" at="55,0,70,0" />
+      <unit id="5324767449430213554" at="79,0,82,0" name="jetbrains.mps.lang.generator.editor.InsertCallSiteMacro_EditorBuilder_a$CONCEPTS" />
+      <unit id="5324767449430213554" at="27,0,83,0" name="jetbrains.mps.lang.generator.editor.InsertCallSiteMacro_EditorBuilder_a" />
+    </file>
+    <file name="InsertCallSiteMacro_InspectorBuilder_a.java">
+      <node id="5324767449430213554" at="23,102,24,19" concept="14" />
+      <node id="5324767449430213554" at="24,19,25,18" concept="3" />
+      <node id="5324767449430213554" at="30,26,31,18" concept="9" />
+      <node id="5324767449430213554" at="34,39,35,32" concept="9" />
+      <node id="5324767449430213554" at="38,43,39,120" concept="8" />
+      <node id="5324767449430213554" at="39,120,40,48" concept="3" />
+      <node id="5324767449430213554" at="40,48,41,28" concept="3" />
+      <node id="5324767449430213554" at="41,28,42,31" concept="3" />
+      <node id="5324767449430213554" at="42,31,43,34" concept="8" />
+      <node id="5324767449430215546" at="43,34,44,49" concept="3" />
+      <node id="5324767449430213554" at="44,49,45,40" concept="3" />
+      <node id="5324767449430215548" at="45,40,46,49" concept="3" />
+      <node id="5324767449430215552" at="46,49,47,49" concept="3" />
+      <node id="5324767449430213554" at="47,49,48,22" concept="9" />
+      <node id="5324767449430215548" at="50,41,51,135" concept="8" />
+      <node id="5324767449430215548" at="51,135,52,46" concept="3" />
+      <node id="5324767449430215548" at="52,46,53,34" concept="8" />
+      <node id="5324767449430215549" at="53,34,54,49" concept="3" />
+      <node id="5324767449430215550" at="54,49,55,172" concept="3" />
+      <node id="5324767449430215551" at="55,172,56,118" concept="3" />
+      <node id="5324767449430215548" at="56,118,57,40" concept="3" />
+      <node id="5324767449430215548" at="57,40,58,34" concept="3" />
+      <node id="5324767449430215548" at="58,34,59,22" concept="9" />
+      <node id="5324767449430215552" at="61,41,62,93" concept="8" />
+      <node id="5324767449430215552" at="62,93,63,46" concept="3" />
+      <node id="5324767449430215552" at="63,46,64,34" concept="8" />
+      <node id="5324767449430215553" at="64,34,65,49" concept="3" />
+      <node id="5324767449430215552" at="65,49,66,40" concept="3" />
+      <node id="5324767449430215552" at="66,40,67,34" concept="3" />
+      <node id="5324767449430215552" at="67,34,68,22" concept="9" />
+      <node id="5324767449430213554" at="20,0,22,0" concept="4" trace="myNode" />
+      <node id="5324767449430213554" at="34,0,37,0" concept="7" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213554" at="23,0,27,0" concept="2" trace="InsertCallSiteMacro_InspectorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="5324767449430213554" at="28,0,33,0" concept="7" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5324767449430215552" at="61,0,70,0" concept="7" trace="createConstant_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430215548" at="50,0,61,0" concept="7" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="5324767449430213554" at="38,0,50,0" concept="7" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="5324767449430213554" at="30,26,31,18" />
+      <scope id="5324767449430213554" at="34,39,35,32" />
+      <scope id="5324767449430213554" at="23,102,25,18" />
+      <scope id="5324767449430213554" at="34,0,37,0" />
+      <scope id="5324767449430213554" at="23,0,27,0">
+        <var name="context" id="5324767449430213554" />
+        <var name="node" id="5324767449430213554" />
+      </scope>
+      <scope id="5324767449430213554" at="28,0,33,0" />
+      <scope id="5324767449430215552" at="61,41,68,22">
+        <var name="editorCell" id="5324767449430215552" />
+        <var name="style" id="5324767449430215552" />
+      </scope>
+      <scope id="5324767449430215548" at="50,41,59,22">
+        <var name="editorCell" id="5324767449430215548" />
+        <var name="style" id="5324767449430215548" />
+      </scope>
+      <scope id="5324767449430215552" at="61,0,70,0" />
+      <scope id="5324767449430213554" at="38,43,48,22">
+        <var name="editorCell" id="5324767449430213554" />
+        <var name="style" id="5324767449430213554" />
+      </scope>
+      <scope id="5324767449430215548" at="50,0,61,0" />
+      <scope id="5324767449430213554" at="38,0,50,0" />
+      <unit id="5324767449430213554" at="19,0,71,0" name="jetbrains.mps.lang.generator.editor.InsertCallSiteMacro_InspectorBuilder_a" />
+    </file>
+  </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/5808518347809748947">
     <file name="GeneratorDebug_InputNode_Editor.java">
       <node id="5808518347809748947" at="11,79,12,90" concept="9" />
@@ -22406,8 +22555,8 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/7723269784408643379">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="7723269784408643379" at="208,72,209,85" concept="9" />
-      <scope id="7723269784408643379" at="208,72,209,85" />
+      <node id="7723269784408643379" at="210,72,211,85" concept="9" />
+      <scope id="7723269784408643379" at="210,72,211,85" />
     </file>
     <file name="ReplaceNodeMacro.java">
       <node id="7723269784408643379" at="45,0,46,0" concept="4" trace="myLocations" />
@@ -22730,8 +22879,8 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)/7898029224686240839">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="7898029224686240839" at="162,79,163,102" concept="9" />
-      <scope id="7898029224686240839" at="162,79,163,102" />
+      <node id="7898029224686240839" at="164,79,165,102" concept="9" />
+      <scope id="7898029224686240839" at="164,79,165,102" />
     </file>
     <file name="MappingRuleCommonFields.java">
       <node id="7898029224686240839" at="15,47,16,35" concept="9" />

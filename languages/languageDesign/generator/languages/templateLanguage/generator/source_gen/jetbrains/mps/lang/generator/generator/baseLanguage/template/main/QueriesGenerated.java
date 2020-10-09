@@ -973,6 +973,9 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object propertyMacro_GetValue_89_0(final PropertyMacroContext _context) {
     return (String) VarDeclaration__BehaviorDescriptor.getImplName_idUesZ_nZXee.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG));
   }
+  public static Object propertyMacro_GetValue_91_0(final PropertyMacroContext _context) {
+    return GenUtil.saveNodeVar(_context, _context.getNode(), ++((int[]) _context.getVariable("varindex"))[0], true);
+  }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), CONCEPTS.PatternReduction_MappingRule$VL), LINKS.conditionFunction$8$Ic), "QG.templateQuery");
   }
@@ -4987,6 +4990,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("1048903277987990182", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), ""));
     pvqMethods.put("1048903277987961268", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), ""));
     pvqMethods.put("1048903277989311132", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), ""));
+    pvqMethods.put("5324767449430225605", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "result"));
   }
   @NotNull
   @Override
@@ -5500,6 +5504,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.propertyMacro_GetValue_88_4(ctx);
         case 246:
           return QueriesGenerated.propertyMacro_GetValue_89_0(ctx);
+        case 247:
+          return QueriesGenerated.propertyMacro_GetValue_91_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

@@ -108,7 +108,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SReference" />
   </dependency>
   <dependency className="jetbrains.mps.generator.impl.RuleUtil">
-    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.HashSet" />

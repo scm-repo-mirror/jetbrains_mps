@@ -1629,6 +1629,11 @@
     <property role="3GE5qa" value="template" />
     <property role="TrG5h" value="IParameterizedTemplate" />
     <property role="EcuMT" value="982871510064032177" />
+    <node concept="1TJgyi" id="1zGVNdDoES9" role="1TKVEl">
+      <property role="IQ2nx" value="1796073355504430601" />
+      <property role="TrG5h" value="needCallSite" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
     <node concept="1TJgyj" id="QzR6ThdYDm" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="parameter" />
@@ -2155,6 +2160,15 @@
       <property role="3tVfz5" value="1195595382324" />
       <ref role="2wpffI" node="hpv2rSO" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="4B_nWyeQsel">
+    <property role="EcuMT" value="5324767449430213525" />
+    <property role="3GE5qa" value="macro" />
+    <property role="TrG5h" value="InsertCallSiteMacro" />
+    <property role="34LRSv" value="$CALL-SITE$" />
+    <property role="R4oN_" value="insert call site node" />
+    <ref role="1TJDcQ" node="fP7Vmt2" resolve="NodeMacro" />
+    <node concept="M6xJ_" id="4B_nWyeQsem" role="lGtFl" />
   </node>
 </model>
 

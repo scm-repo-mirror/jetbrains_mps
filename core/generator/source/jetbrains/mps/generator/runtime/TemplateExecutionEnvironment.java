@@ -107,6 +107,14 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
   SNode insertNode(SNode node, SNodeReference templateNode, TemplateContext templateContext) throws GenerationCanceledException, GenerationFailureException;
 
   /**
+   * Support for $CALL-SITE$ macro, insert a node that has been produced by template processor earlier.
+   * XXX Not sure I need this, could get the value right from TC, but generally a level of indirection doesn't hurt
+   * FIXME why do I stick to SNodeReference to identify template location, just for the sake of navigation? Can I use smth like TemplateDeclarationKey instead?
+   * @since 2020.3
+   */
+  SNode insertCallSiteNode(SNodeReference templateNode, TemplateContext templateContext) throws GenerationCanceledException, GenerationFailureException;
+
+  /**
    * FIXME provisional API just to get rid of TemplateGenerator:getGenerator exposure. Would be great to use smth like TemplateDeclarationKey, just the name is unfortunate
    *       Perhaps, shall go with SwitchCallSite right away?
    *       Intentionally no TemplateContext argument as (a) it's null input case (b) message is a plain text
