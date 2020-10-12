@@ -5,16 +5,14 @@ package jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.mai
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.runtime.TemplateDeclarationBase;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import java.util.Collection;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.runtime.TemplateContext;
+import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.GenerationException;
+import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
-import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -32,11 +30,14 @@ public class Template_map_RootConcept extends TemplateDeclarationBase {
   public SNodeReference getTemplateNode() {
     return template_m9apof_a0a3;
   }
-  public Collection<SNode> apply(@NotNull final TemplateExecutionEnvironment environment, @NotNull final TemplateContext context) throws GenerationException {
+
+  @Override
+  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
+    final TemplateExecutionEnvironment environment = context.getEnvironment();
     final SNode tnode1 = environment.createOutputNode(myConcepts[0]);
     {
       environment.nodeCopied(context, tnode1, "tpl/r:592e27b6-d258-4bf2-9e32-25019862e1f1/6186432342008490321");
-      SNodeAccessUtil.setPropertyValue(tnode1, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_0(new PropertyMacroContext(context, "map_RootConcept", propertyMacro_m9apof_c0a2a1a1a4)));
+      SNodeAccessUtil.setPropertyValue(tnode1, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_0(new PropertyMacroContext(context, "map_RootConcept", propertyMacro_m9apof_c0a2a1a2a5)));
       TemplateContext context1 = context.subContext();
       {
         final SNode tnode2 = environment.createOutputNode(myConcepts[1]);
@@ -67,16 +68,7 @@ public class Template_map_RootConcept extends TemplateDeclarationBase {
         // TODO validate child 
       }
     }
-    return TemplateUtil.singletonList(tnode1);
-  }
-
-  @Override
-  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
-    Collection<SNode> rv = apply(context.getEnvironment(), context);
-    if (rv == null) {
-      return;
-    }
-    sink.add(null, rv);
+    sink.add(null, TemplateUtil.singletonList(tnode1));
   }
 
   /*package*/ static final class MO implements MetaObjectContainer {
@@ -110,5 +102,5 @@ public class Template_map_RootConcept extends TemplateDeclarationBase {
     }
   }
   private static final SNodePointer template_m9apof_a0a3 = new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008490321");
-  private static final SNodePointer propertyMacro_m9apof_c0a2a1a1a4 = new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008490328");
+  private static final SNodePointer propertyMacro_m9apof_c0a2a1a2a5 = new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008490328");
 }

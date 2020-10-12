@@ -24,6 +24,7 @@ import jetbrains.mps.generator.runtime.TemplateRuleWithCondition;
 import jetbrains.mps.generator.template.ReductionRuleQueryContext;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.generator.impl.DismissTopMappingRuleException;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.MapRootRuleBase;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
@@ -111,7 +112,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = null;
+      Collection<SNode> tlist1 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_0_0(new IfMacroContext(context, ifMacroRef_ief6mt_b0a0c0c9))) {
         final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
         tlist1 = TemplateUtil.singletonList(tnode2);

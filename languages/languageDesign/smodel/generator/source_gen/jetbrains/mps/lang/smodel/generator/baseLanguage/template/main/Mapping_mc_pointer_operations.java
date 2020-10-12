@@ -68,9 +68,7 @@ public class Mapping_mc_pointer_operations extends MapConfigBase implements Temp
           tlist1 = environment.trySwitch(templateSwitchNode_bhg3pv_a0a0c0a1a2a2d, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }

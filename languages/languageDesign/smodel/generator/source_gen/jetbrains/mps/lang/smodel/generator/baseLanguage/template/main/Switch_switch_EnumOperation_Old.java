@@ -18,6 +18,7 @@ import jetbrains.mps.generator.impl.DismissTopMappingRuleException;
 import jetbrains.mps.generator.runtime.ReductionRuleBase;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.template.IfMacroContext;
@@ -71,6 +72,8 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
           context2 = context1.subContext(null, callInputNode2);
           if (callInputNode2 != null) {
             tlist2 = environment.callSite(new Template_reduce_EnumDeclaration_indentityValueSequence(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2733396919553278886")).apply(context2);
+          } else {
+            tlist2 = Collections.emptyList();
           }
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(myAggregationLinks[0], child3);
@@ -84,7 +87,7 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist5 = null;
+          Collection<SNode> tlist5 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_117_0(new IfMacroContext(context1, ifMacroRef_vmdyp3_b0a0b0f0c0b6))) {
             final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
             SNodeAccessUtil.setPropertyValue(tnode6, myProperties[1], QueriesGenerated.propertyMacro_GetValue_117_1(new PropertyMacroContext(context1, "v", propertyMacro_vmdyp3_c0a2a0a1a1a5a2a1g)));
@@ -126,6 +129,8 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
           context2 = context1.subContext(null, callInputNode2);
           if (callInputNode2 != null) {
             tlist2 = environment.callSite(new Template_reduce_EnumDeclaration_indentityValueSequence(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5171076324157703563")).apply(context2);
+          } else {
+            tlist2 = Collections.emptyList();
           }
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(myAggregationLinks[0], child3);
@@ -164,6 +169,8 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
             tlist4 = environment.callSite(new Template_reduce_EnumDeclaration_indentityValueSequence(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2733396919553280585")).apply(context2);
+          } else {
+            tlist4 = Collections.emptyList();
           }
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[0], child5);
@@ -187,7 +194,7 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
         environment.associate(tnode1, myAssociationLinks[1], "r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)", "1101499704720825413");
         TemplateContext context1 = context.subContext();
         {
-          Collection<SNode> tlist2 = null;
+          Collection<SNode> tlist2 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_117_1(new IfMacroContext(context1, ifMacroRef_vmdyp3_b0a0b0d0c0b9))) {
             final SNode tnode3 = environment.createOutputNode(myConcepts[4]);
             {
@@ -227,6 +234,8 @@ public class Switch_switch_EnumOperation_Old extends TemplateSwitchBase implemen
           context3 = context1.subContext(null, callInputNode9);
           if (callInputNode9 != null) {
             tlist9 = environment.callSite(new Template_reduce_EnumDeclaration_indentityValueSequence(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2733396919553281070")).apply(context3);
+          } else {
+            tlist9 = Collections.emptyList();
           }
           for (SNode child10 : TemplateUtil.asNotNull(tlist9)) {
             tnode1.addChild(myAggregationLinks[0], child10);

@@ -5,15 +5,14 @@ package jetbrains.mps.transformation.test.inputLang.generator.outputLang.templat
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.runtime.TemplateDeclarationBase;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import java.util.Collection;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.runtime.TemplateContext;
+import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.GenerationException;
+import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
+import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
-import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -31,7 +30,10 @@ public class Template_OutputRoot extends TemplateDeclarationBase {
   public SNodeReference getTemplateNode() {
     return template_38z9ys_a0a3;
   }
-  public Collection<SNode> apply(@NotNull final TemplateExecutionEnvironment environment, @NotNull final TemplateContext context) throws GenerationException {
+
+  @Override
+  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
+    final TemplateExecutionEnvironment environment = context.getEnvironment();
     final SNode tnode1 = environment.createOutputNode(myConcepts[0]);
     {
       environment.nodeCopied(context, tnode1, "tpl/r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691/3893401255414086886");
@@ -40,24 +42,15 @@ public class Template_OutputRoot extends TemplateDeclarationBase {
       TemplateContext context1 = context.subContext();
       {
         Collection<SNode> tlist2 = null;
-        final Iterable<SNode> copyListInput2 = QueriesGenerated.sourceNodesQuery_1_0(new SourceSubstituteMacroNodesContext(context1, copySrcListMacro_38z9ys_b0a0a1a4a1a4));
-        tlist2 = environment.copyNodes(copyListInput2, copySrcListMacro_38z9ys_b0a0a1a4a1a4, "tpl/r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691/3893401255414086888", context1);
+        final Iterable<SNode> copyListInput2 = QueriesGenerated.sourceNodesQuery_1_0(new SourceSubstituteMacroNodesContext(context1, copySrcListMacro_38z9ys_b0a0a1a4a2a5));
+        tlist2 = environment.copyNodes(copyListInput2, copySrcListMacro_38z9ys_b0a0a1a4a2a5, "tpl/r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691/3893401255414086888", context1);
         for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child3);
         }
         // TODO validate child 
       }
     }
-    return TemplateUtil.singletonList(tnode1);
-  }
-
-  @Override
-  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
-    Collection<SNode> rv = apply(context.getEnvironment(), context);
-    if (rv == null) {
-      return;
-    }
-    sink.add(null, rv);
+    sink.add(null, TemplateUtil.singletonList(tnode1));
   }
 
   /*package*/ static final class MO implements MetaObjectContainer {
@@ -85,5 +78,5 @@ public class Template_OutputRoot extends TemplateDeclarationBase {
     }
   }
   private static final SNodePointer template_38z9ys_a0a3 = new SNodePointer("r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceOneToMany@generator)", "3893401255414086886");
-  private static final SNodePointer copySrcListMacro_38z9ys_b0a0a1a4a1a4 = new SNodePointer("r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceOneToMany@generator)", "3893401255414086893");
+  private static final SNodePointer copySrcListMacro_38z9ys_b0a0a1a4a2a5 = new SNodePointer("r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceOneToMany@generator)", "3893401255414086893");
 }

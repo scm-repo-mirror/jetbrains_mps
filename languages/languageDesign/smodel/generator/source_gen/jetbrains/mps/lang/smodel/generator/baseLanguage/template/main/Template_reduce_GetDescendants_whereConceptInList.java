@@ -18,6 +18,7 @@ import jetbrains.mps.generator.runtime.TemplateUtil;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
+import java.util.Collections;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.runtime.ApplySink;
@@ -84,10 +85,10 @@ public class Template_reduce_GetDescendants_whereConceptInList extends TemplateD
                   context5 = context4.subContext(null, callInputNode8);
                   if (callInputNode8 != null) {
                     tlist8 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145298")).apply(context5);
+                  } else {
+                    tlist8 = Collections.emptyList();
                   }
-                  if (tlist8 != null) {
-                    tlist7.addAll(tlist8);
-                  }
+                  tlist7.addAll(tlist8);
                 }
                 for (SNode child9 : TemplateUtil.asNotNull(tlist7)) {
                   tnode5.addChild(myAggregationLinks[2], child9);
@@ -136,10 +137,10 @@ public class Template_reduce_GetDescendants_whereConceptInList extends TemplateD
                   context9 = context8.subContext(null, callInputNode15);
                   if (callInputNode15 != null) {
                     tlist15 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145299")).apply(context9);
+                  } else {
+                    tlist15 = Collections.emptyList();
                   }
-                  if (tlist15 != null) {
-                    tlist14.addAll(tlist15);
-                  }
+                  tlist14.addAll(tlist15);
                 }
                 for (SNode child16 : TemplateUtil.asNotNull(tlist14)) {
                   tnode12.addChild(myAggregationLinks[2], child16);

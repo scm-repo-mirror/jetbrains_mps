@@ -216,9 +216,7 @@ public class Switch_switch_DataTypeDeclaration_deserialize extends TemplateSwitc
           tlist1 = environment.trySwitch(templateSwitchNode_s05n17_a0a0c0a1a2a1l, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[3]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }

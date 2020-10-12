@@ -13,6 +13,7 @@ import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
@@ -39,7 +40,7 @@ public class Template_reduce_LinkDeclaration_Bootstrap_SLink extends TemplateDec
 
   protected FragmentResult applyPart0(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
-    Collection<SNode> tlist1 = null;
+    Collection<SNode> tlist1 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_74_0(new IfMacroContext(context, ifMacroRef_42w1o4_b0a0c0g))) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       {

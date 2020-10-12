@@ -13,6 +13,7 @@ import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
@@ -44,7 +45,7 @@ public class Template_reduce_ConceptSwitch_SubconceptCases extends TemplateDecla
 
   protected FragmentResult applyPart0(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
-    Collection<SNode> tlist1 = null;
+    Collection<SNode> tlist1 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_106_0(new IfMacroContext(context, ifMacroRef_nyxx76_b0a0c0g))) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       {
@@ -167,6 +168,8 @@ public class Template_reduce_ConceptSwitch_SubconceptCases extends TemplateDecla
                   context8 = context7.subContext(null, callInputNode14);
                   if (callInputNode14 != null) {
                     tlist14 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145332")).apply(context8);
+                  } else {
+                    tlist14 = Collections.emptyList();
                   }
                   for (SNode child15 : TemplateUtil.asNotNull(tlist14)) {
                     tnode12.addChild(myAggregationLinks[9], child15);
@@ -182,18 +185,16 @@ public class Template_reduce_ConceptSwitch_SubconceptCases extends TemplateDecla
           // TODO validate child 
         }
       }
-      if (tnode2 != null) {
-        tlist1.add(tnode2);
-      }
+      tlist1.add(tnode2);
     }
     FragmentResult rv = listFragment(3, tlist1);
     return rv;
   }
   protected FragmentResult applyPart2(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
-    Collection<SNode> tlist1 = null;
+    Collection<SNode> tlist1 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_106_1(new IfMacroContext(context, ifMacroRef_nyxx76_b0a0c0i))) {
-      Collection<SNode> tlist2 = null;
+      Collection<SNode> tlist2 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_106_2(new IfMacroContext(context, ifMacroRef_nyxx76_b0a0b0c0i))) {
         final SNode tnode3 = environment.createOutputNode(myConcepts[4]);
         {

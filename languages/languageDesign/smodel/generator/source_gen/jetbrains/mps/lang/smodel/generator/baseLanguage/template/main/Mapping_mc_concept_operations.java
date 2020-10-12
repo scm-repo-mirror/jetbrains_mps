@@ -82,9 +82,7 @@ public class Mapping_mc_concept_operations extends MapConfigBase implements Temp
               tlist5 = environment.trySwitch(templateSwitchNode_y3pd1p_a0a0c0a1a1a4a2a1d, switchContext5);
               if (tlist5 == null) {
                 final SNode tnode6 = environment.createOutputNode(myConcepts[1]);
-                if (tnode6 != null) {
-                  tlist5 = TemplateUtil.singletonList(tnode6);
-                }
+                tlist5 = TemplateUtil.singletonList(tnode6);
               }
             }
           }
@@ -140,9 +138,7 @@ public class Mapping_mc_concept_operations extends MapConfigBase implements Temp
               tlist5 = environment.trySwitch(templateSwitchNode_y3pd1p_a0a0c0a1a1a4a2a1e, switchContext5);
               if (tlist5 == null) {
                 final SNode tnode6 = environment.createOutputNode(myConcepts[1]);
-                if (tnode6 != null) {
-                  tlist5 = TemplateUtil.singletonList(tnode6);
-                }
+                tlist5 = TemplateUtil.singletonList(tnode6);
               }
             }
           }
@@ -198,9 +194,7 @@ public class Mapping_mc_concept_operations extends MapConfigBase implements Temp
               tlist5 = environment.trySwitch(templateSwitchNode_y3pd1p_a0a0c0a1a1a4a2a1f, switchContext5);
               if (tlist5 == null) {
                 final SNode tnode6 = environment.createOutputNode(myConcepts[1]);
-                if (tnode6 != null) {
-                  tlist5 = TemplateUtil.singletonList(tnode6);
-                }
+                tlist5 = TemplateUtil.singletonList(tnode6);
               }
             }
           }

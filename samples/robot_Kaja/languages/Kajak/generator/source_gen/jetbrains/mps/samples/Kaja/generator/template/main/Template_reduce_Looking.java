@@ -53,9 +53,7 @@ public class Template_reduce_Looking extends TemplateDeclarationBase {
             tlist2 = environment.trySwitch(templateSwitchNode_yqxv9z_a0a0c0a1a1a2a2a6, switchContext2);
             if (tlist2 == null) {
               final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
-              if (tnode3 != null) {
-                tlist2 = TemplateUtil.singletonList(tnode3);
-              }
+              tlist2 = TemplateUtil.singletonList(tnode3);
             }
           }
         }

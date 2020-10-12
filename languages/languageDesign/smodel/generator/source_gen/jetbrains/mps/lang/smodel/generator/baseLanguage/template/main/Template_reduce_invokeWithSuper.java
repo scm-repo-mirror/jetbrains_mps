@@ -16,6 +16,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.TemplateVarContext;
 import jetbrains.mps.generator.impl.reference.RefResolver;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
@@ -66,6 +67,8 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
             context4 = context3.subContext(null, callInputNode4);
             if (callInputNode4 != null) {
               tlist4 = environment.callSite(new Template_NodeOrConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3099391750892189215")).apply(context4);
+            } else {
+              tlist4 = Collections.emptyList();
             }
             for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
               tnode3.addChild(myAggregationLinks[0], child5);
@@ -73,7 +76,7 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
             // TODO validate child 
           }
           {
-            Collection<SNode> tlist6 = null;
+            Collection<SNode> tlist6 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_113_0(new IfMacroContext(context3, ifMacroRef_6fy3ro_b0a0b0d0b0b0f0g))) {
               final SNode tnode7 = environment.createOutputNode(myConcepts[2]);
               environment.resolve(new RefResolver(tnode7, myAssociationLinks[1], context3, new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "7804432302138738197"), "BaseConcept") {

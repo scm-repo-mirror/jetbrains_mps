@@ -116,9 +116,7 @@ public class Template_weave_ConceptSwitchMap extends TemplateDeclarationBase {
                         }
                       }
                       tlist9 = TemplateUtil.singletonList(tnode10);
-                      if (tlist9 != null) {
-                        tlist8.addAll(tlist9);
-                      }
+                      tlist8.addAll(tlist9);
                     }
                     for (SNode child14 : TemplateUtil.asNotNull(tlist8)) {
                       tnode7.addChild(myAggregationLinks[3], child14);

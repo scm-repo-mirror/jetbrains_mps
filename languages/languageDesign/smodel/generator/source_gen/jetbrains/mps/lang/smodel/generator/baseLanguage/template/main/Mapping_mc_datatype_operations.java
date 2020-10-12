@@ -60,9 +60,7 @@ public class Mapping_mc_datatype_operations extends MapConfigBase implements Tem
           tlist1 = environment.trySwitch(templateSwitchNode_tk1ivr_a0a0c0a1a2a1d, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }
@@ -93,9 +91,7 @@ public class Mapping_mc_datatype_operations extends MapConfigBase implements Tem
           tlist1 = environment.trySwitch(templateSwitchNode_tk1ivr_a0a0c0a1a2a1e, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }

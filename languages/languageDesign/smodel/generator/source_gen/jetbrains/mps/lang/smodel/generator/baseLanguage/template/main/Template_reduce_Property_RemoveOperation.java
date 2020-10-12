@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -57,6 +58,8 @@ public class Template_reduce_Property_RemoveOperation extends TemplateDeclaratio
         context2 = context1.subContext(null, callInputNode4);
         if (callInputNode4 != null) {
           tlist4 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1189519421088887439")).apply(context2);
+        } else {
+          tlist4 = Collections.emptyList();
         }
         for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
           tnode1.addChild(myAggregationLinks[0], child5);

@@ -16,6 +16,7 @@ import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.impl.reference.RefResolver;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -76,6 +77,8 @@ public class Template_reduce_SPropertyAccess extends TemplateDeclarationBase {
             context3 = context2.subContext(null, callInputNode7);
             if (callInputNode7 != null) {
               tlist7 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145280")).apply(context3);
+            } else {
+              tlist7 = Collections.emptyList();
             }
             for (SNode child8 : TemplateUtil.asNotNull(tlist7)) {
               tnode4.addChild(myAggregationLinks[1], child8);
@@ -113,6 +116,8 @@ public class Template_reduce_SPropertyAccess extends TemplateDeclarationBase {
             context5 = context4.subContext(null, callInputNode12);
             if (callInputNode12 != null) {
               tlist12 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5834820604012871007")).apply(context5);
+            } else {
+              tlist12 = Collections.emptyList();
             }
             for (SNode child13 : TemplateUtil.asNotNull(tlist12)) {
               tnode9.addChild(myAggregationLinks[1], child13);
@@ -150,6 +155,8 @@ public class Template_reduce_SPropertyAccess extends TemplateDeclarationBase {
             context7 = context6.subContext(null, callInputNode17);
             if (callInputNode17 != null) {
               tlist17 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5834820604012874889")).apply(context7);
+            } else {
+              tlist17 = Collections.emptyList();
             }
             for (SNode child18 : TemplateUtil.asNotNull(tlist17)) {
               tnode14.addChild(myAggregationLinks[1], child18);

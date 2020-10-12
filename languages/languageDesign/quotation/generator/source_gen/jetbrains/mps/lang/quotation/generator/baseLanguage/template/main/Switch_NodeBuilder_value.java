@@ -21,10 +21,10 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.template.ReductionRuleQueryContext;
 import jetbrains.mps.generator.impl.reference.RefResolver;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.template.IfMacroContext;
-import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
@@ -103,6 +103,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   context4 = context3.subContext(null, callInputNode5);
                   if (callInputNode5 != null) {
                     tlist5 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319117922", "reduce_PropertyDeclaration_SProperty"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144947")).apply(context4);
+                  } else {
+                    tlist5 = Collections.emptyList();
                   }
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
@@ -187,6 +189,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   context4 = context3.subContext(null, callInputNode5);
                   if (callInputNode5 != null) {
                     tlist5 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319117922", "reduce_PropertyDeclaration_SProperty"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144949")).apply(context4);
+                  } else {
+                    tlist5 = Collections.emptyList();
                   }
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
@@ -269,6 +273,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   context4 = context3.subContext(null, callInputNode5);
                   if (callInputNode5 != null) {
                     tlist5 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144950")).apply(context4);
+                  } else {
+                    tlist5 = Collections.emptyList();
                   }
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
@@ -421,6 +427,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   context4 = context3.subContext(null, callInputNode5);
                   if (callInputNode5 != null) {
                     tlist5 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144952")).apply(context4);
+                  } else {
+                    tlist5 = Collections.emptyList();
                   }
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
@@ -491,6 +499,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   context4 = context3.subContext(null, callInputNode5);
                   if (callInputNode5 != null) {
                     tlist5 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "3883255117205035064")).apply(context4);
+                  } else {
+                    tlist5 = Collections.emptyList();
                   }
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
@@ -563,6 +573,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       context5 = context4.subContext(null, callInputNode6);
                       if (callInputNode6 != null) {
                         tlist6 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "717006777115815978")).apply(context5);
+                      } else {
+                        tlist6 = Collections.emptyList();
                       }
                       for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                         tnode5.addChild(myAggregationLinks[1], child7);
@@ -602,7 +614,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = null;
+      Collection<SNode> tlist1 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_4_0(new IfMacroContext(context, ifMacroRef_zg3v4g_b0a0c0c21))) {
         final SNode tnode2 = environment.createOutputNode(myConcepts[10]);
         {
@@ -650,9 +662,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                           // TODO validate child 
                         }
                       }
-                      if (tnode5 != null) {
-                        tlist4 = TemplateUtil.singletonList(tnode5);
-                      }
+                      tlist4 = TemplateUtil.singletonList(tnode5);
                     }
                   }
                 }
@@ -706,9 +716,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   // TODO validate child 
                 }
               }
-              if (tnode10 != null) {
-                tlist9 = TemplateUtil.singletonList(tnode10);
-              }
+              tlist9 = TemplateUtil.singletonList(tnode10);
             }
           }
         }
@@ -762,6 +770,8 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       context5 = context4.subContext(null, callInputNode6);
                       if (callInputNode6 != null) {
                         tlist6 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144953")).apply(context5);
+                      } else {
+                        tlist6 = Collections.emptyList();
                       }
                       for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                         tnode5.addChild(myAggregationLinks[1], child7);
@@ -872,9 +882,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                         // TODO validate child 
                       }
                     }
-                    if (tnode4 != null) {
-                      tlist3 = TemplateUtil.singletonList(tnode4);
-                    }
+                    tlist3 = TemplateUtil.singletonList(tnode4);
                   }
                 }
               }
@@ -927,15 +935,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                         // TODO validate child 
                       }
                     }
-                    if (tnode11 != null) {
-                      tlist10 = TemplateUtil.singletonList(tnode11);
-                    }
+                    tlist10 = TemplateUtil.singletonList(tnode11);
                   }
                 } finally {
                 }
-                if (tlist10 != null) {
-                  tlist9.addAll(tlist10);
-                }
+                tlist9.addAll(tlist10);
               }
               tlist8 = tlist9;
               for (SNode child14 : TemplateUtil.asNotNull(tlist8)) {

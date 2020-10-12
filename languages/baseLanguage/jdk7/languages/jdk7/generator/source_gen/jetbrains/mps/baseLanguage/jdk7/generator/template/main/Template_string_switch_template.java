@@ -72,9 +72,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
               // TODO validate child 
             }
           }
-          if (tnode3 != null) {
-            tlist2.add(tnode3);
-          }
+          tlist2.add(tnode3);
         }
         for (SNode child7 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[2], child7);

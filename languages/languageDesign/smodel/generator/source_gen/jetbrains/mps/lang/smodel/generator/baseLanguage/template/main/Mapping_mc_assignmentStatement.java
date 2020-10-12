@@ -70,6 +70,8 @@ public class Mapping_mc_assignmentStatement extends MapConfigBase implements Tem
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
             tlist4 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5834820604013333958")).apply(context2);
+          } else {
+            tlist4 = Collections.emptyList();
           }
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[0], child5);
@@ -127,9 +129,7 @@ public class Mapping_mc_assignmentStatement extends MapConfigBase implements Tem
               if (tlist4 == null) {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
                 tnode5.setProperty(myProperties[0], "role");
-                if (tnode5 != null) {
-                  tlist4 = TemplateUtil.singletonList(tnode5);
-                }
+                tlist4 = TemplateUtil.singletonList(tnode5);
               }
             }
           }

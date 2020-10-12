@@ -72,6 +72,7 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.generator.impl.GenerationFailureException" />
     <classNode dependClassName="jetbrains.mps.generator.impl.MapSrcProcessor" />
@@ -102,7 +103,6 @@
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.ArrayList" />
-    <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.generator.impl.GenerationFailureException" />
     <classNode dependClassName="jetbrains.mps.generator.impl.MapSrcProcessor" />

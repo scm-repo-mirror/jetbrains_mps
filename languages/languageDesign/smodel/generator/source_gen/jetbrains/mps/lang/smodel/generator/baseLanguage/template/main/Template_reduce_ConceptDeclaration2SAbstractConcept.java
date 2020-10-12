@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import java.util.Collection;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.runtime.ApplySink;
@@ -45,7 +46,7 @@ public class Template_reduce_ConceptDeclaration2SAbstractConcept extends Templat
       SNodeAccessUtil.setPropertyValue(tnode1, myProperties[1], QueriesGenerated.propertyMacro_GetValue_65_8(new PropertyMacroContext(context, "CONCEPT", propertyMacro_ohq67j_c0a2a1a2a6)));
       TemplateContext context1 = context.subContext();
       {
-        Collection<SNode> tlist2 = null;
+        Collection<SNode> tlist2 = Collections.emptyList();
         if (QueriesGenerated.ifMacro_Condition_65_0(new IfMacroContext(context1, ifMacroRef_ohq67j_b0a0b0d0c0g))) {
           final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
           {

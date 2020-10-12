@@ -22,6 +22,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.impl.DismissTopMappingRuleException;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -78,6 +79,8 @@ public class Mapping_mc_implicitSelect extends MapConfigBase implements Template
             context2 = context1.subContext(null, callInputNode5);
             if (callInputNode5 != null) {
               tlist5 = environment.callSite(new Template_reduce_LinkDeclaration_SLink(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "4877343046905176267")).apply(context2);
+            } else {
+              tlist5 = Collections.emptyList();
             }
             for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
               tnode2.addChild(myAggregationLinks[0], child6);
@@ -108,6 +111,8 @@ public class Mapping_mc_implicitSelect extends MapConfigBase implements Template
             context4 = context3.subContext(null, callInputNode10);
             if (callInputNode10 != null) {
               tlist10 = environment.callSite(new Template_reduce_LinkDeclaration_SLink(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "4877343046905225317")).apply(context4);
+            } else {
+              tlist10 = Collections.emptyList();
             }
             for (SNode child11 : TemplateUtil.asNotNull(tlist10)) {
               tnode7.addChild(myAggregationLinks[0], child11);
@@ -138,6 +143,8 @@ public class Mapping_mc_implicitSelect extends MapConfigBase implements Template
             context6 = context5.subContext(null, callInputNode15);
             if (callInputNode15 != null) {
               tlist15 = environment.callSite(new Template_reduce_LinkDeclaration_SLink(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "4877343046905241422")).apply(context6);
+            } else {
+              tlist15 = Collections.emptyList();
             }
             for (SNode child16 : TemplateUtil.asNotNull(tlist15)) {
               tnode12.addChild(myAggregationLinks[0], child16);

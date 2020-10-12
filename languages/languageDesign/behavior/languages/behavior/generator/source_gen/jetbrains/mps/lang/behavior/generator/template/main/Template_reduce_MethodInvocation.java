@@ -14,6 +14,7 @@ import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.impl.reference.RefResolver;
 import java.util.Collection;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import java.util.List;
@@ -54,7 +55,7 @@ public class Template_reduce_MethodInvocation extends TemplateDeclarationBase {
       });
       TemplateContext context1 = context.subContext();
       {
-        Collection<SNode> tlist2 = null;
+        Collection<SNode> tlist2 = Collections.emptyList();
         if (QueriesGenerated.ifMacro_Condition_8_0(new IfMacroContext(context1, ifMacroRef_xgjiki_b0a0b0c0c0g))) {
           final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
           environment.resolveInTemplateLater(tnode3, myAssociationLinks[1], templateNode_xgjiki_c0a0a1a1a2a2a6, "tpl/r:229ce18d-2bb0-4d5b-a7cd-cec65841e459/4547736967710446796", "node", context1);
@@ -79,7 +80,7 @@ public class Template_reduce_MethodInvocation extends TemplateDeclarationBase {
           }
           TemplateContext context2 = context1.subContext(itnode6);
           context2 = context2.withVariable("cv:parameterCounter", loopIndex_parameterCounter_6++);
-          Collection<SNode> tlist7 = null;
+          Collection<SNode> tlist7 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_8_1(new IfMacroContext(context2, ifMacroRef_xgjiki_b0a0e0d0d0c0g))) {
             final SNode tnode8 = environment.createOutputNode(myConcepts[2]);
             {
@@ -176,9 +177,7 @@ public class Template_reduce_MethodInvocation extends TemplateDeclarationBase {
             }
             tlist7 = TemplateUtil.singletonList(tnode18);
           }
-          if (tlist7 != null) {
-            tlist6.addAll(tlist7);
-          }
+          tlist6.addAll(tlist7);
         }
         for (SNode child24 : TemplateUtil.asNotNull(tlist6)) {
           tnode1.addChild(myAggregationLinks[0], child24);

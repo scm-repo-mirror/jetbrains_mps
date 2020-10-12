@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateRuleWithCondition;
 import jetbrains.mps.generator.template.ReductionRuleQueryContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -259,6 +260,8 @@ public class Switch_switch_EnumMemberOperation extends TemplateSwitchBase implem
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
             tlist4 = environment.callSite(new Template_reduce_EnumMember2Id(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1144794804654544672")).apply(context2);
+          } else {
+            tlist4 = Collections.emptyList();
           }
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[0], child5);

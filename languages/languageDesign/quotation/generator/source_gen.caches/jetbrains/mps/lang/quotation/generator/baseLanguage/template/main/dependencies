@@ -142,6 +142,7 @@
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.HashMap" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="java.util.Map" />
@@ -184,6 +185,7 @@
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="jetbrains.mps.generator.impl.DismissTopMappingRuleException" />
     <classNode dependClassName="jetbrains.mps.generator.impl.reference.RefResolver" />
     <classNode dependClassName="jetbrains.mps.generator.runtime.Generated" />
@@ -329,6 +331,7 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.generator.impl.reference.RefResolver" />
     <classNode dependClassName="jetbrains.mps.generator.runtime.ApplySink" />

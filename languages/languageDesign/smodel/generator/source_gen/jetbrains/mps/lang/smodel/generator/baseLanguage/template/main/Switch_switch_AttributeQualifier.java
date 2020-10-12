@@ -96,6 +96,8 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
               context3 = context2.subContext(null, callInputNode3);
               if (callInputNode3 != null) {
                 tlist3 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2213306337134414333")).apply(context3);
+              } else {
+                tlist3 = Collections.emptyList();
               }
               for (SNode child4 : TemplateUtil.asNotNull(tlist3)) {
                 tnode2.addChild(myAggregationLinks[1], child4);
@@ -132,6 +134,8 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
               context3 = context2.subContext(null, callInputNode3);
               if (callInputNode3 != null) {
                 tlist3 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2213306337134414345")).apply(context3);
+              } else {
+                tlist3 = Collections.emptyList();
               }
               for (SNode child4 : TemplateUtil.asNotNull(tlist3)) {
                 tnode2.addChild(myAggregationLinks[1], child4);
@@ -150,9 +154,7 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
                   tlist5 = environment.trySwitch(templateSwitchNode_cadkmf_a0a0c0a1a1a3a1a1a2a1i, switchContext5);
                   if (tlist5 == null) {
                     final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
-                    if (tnode6 != null) {
-                      tlist5 = TemplateUtil.singletonList(tnode6);
-                    }
+                    tlist5 = TemplateUtil.singletonList(tnode6);
                   }
                 }
               }
@@ -191,6 +193,8 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
               context3 = context2.subContext(null, callInputNode3);
               if (callInputNode3 != null) {
                 tlist3 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2213306337134414365")).apply(context3);
+              } else {
+                tlist3 = Collections.emptyList();
               }
               for (SNode child4 : TemplateUtil.asNotNull(tlist3)) {
                 tnode2.addChild(myAggregationLinks[1], child4);
@@ -209,9 +213,7 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
                   tlist5 = environment.trySwitch(templateSwitchNode_cadkmf_a0a0c0a1a1a3a1a1a2a1j, switchContext5);
                   if (tlist5 == null) {
                     final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
-                    if (tnode6 != null) {
-                      tlist5 = TemplateUtil.singletonList(tnode6);
-                    }
+                    tlist5 = TemplateUtil.singletonList(tnode6);
                   }
                 }
               }
@@ -250,6 +252,8 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
               context3 = context2.subContext(null, callInputNode3);
               if (callInputNode3 != null) {
                 tlist3 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2213306337134414385")).apply(context3);
+              } else {
+                tlist3 = Collections.emptyList();
               }
               for (SNode child4 : TemplateUtil.asNotNull(tlist3)) {
                 tnode2.addChild(myAggregationLinks[1], child4);
@@ -268,9 +272,7 @@ public class Switch_switch_AttributeQualifier extends TemplateSwitchBase impleme
                   tlist5 = environment.trySwitch(templateSwitchNode_cadkmf_a0a0c0a1a1a3a1a1a2a1k, switchContext5);
                   if (tlist5 == null) {
                     final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
-                    if (tnode6 != null) {
-                      tlist5 = TemplateUtil.singletonList(tnode6);
-                    }
+                    tlist5 = TemplateUtil.singletonList(tnode6);
                   }
                 }
               }

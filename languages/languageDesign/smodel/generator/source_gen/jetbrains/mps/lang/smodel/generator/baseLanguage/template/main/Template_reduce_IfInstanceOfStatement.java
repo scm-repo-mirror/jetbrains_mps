@@ -17,6 +17,7 @@ import jetbrains.mps.generator.template.PropertyMacroContext;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -103,6 +104,8 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                     context7 = context6.subContext(null, callInputNode11);
                     if (callInputNode11 != null) {
                       tlist11 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145316")).apply(context7);
+                    } else {
+                      tlist11 = Collections.emptyList();
                     }
                     for (SNode child12 : TemplateUtil.asNotNull(tlist11)) {
                       tnode9.addChild(myAggregationLinks[4], child12);

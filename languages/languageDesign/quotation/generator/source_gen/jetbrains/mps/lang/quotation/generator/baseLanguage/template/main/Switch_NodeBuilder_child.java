@@ -23,6 +23,7 @@ import jetbrains.mps.generator.template.TemplateVarContext;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.impl.reference.RefResolver;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import java.util.Map;
@@ -97,9 +98,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                 if (tlist5 == null) {
                   final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
                   environment.associate(tnode6, myAssociationLinks[0], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.builder(MPS.Core/)", "~AbstractNodeBuilder");
-                  if (tnode6 != null) {
-                    tlist5 = TemplateUtil.singletonList(tnode6);
-                  }
+                  tlist5 = TemplateUtil.singletonList(tnode6);
                 }
               } finally {
               }
@@ -128,7 +127,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                       // TODO validate child 
                     }
                     {
-                      Collection<SNode> tlist11 = null;
+                      Collection<SNode> tlist11 = Collections.emptyList();
                       if (QueriesGenerated.ifMacro_Condition_5_0(new IfMacroContext(context6, ifMacroRef_zay0px_b0a0b0c0b0b0b0e0d0b0f0c6))) {
                         final SNode tnode12 = environment.createOutputNode(myConcepts[5]);
                         {
@@ -141,6 +140,8 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                             context8 = context7.subContext(null, callInputNode13);
                             if (callInputNode13 != null) {
                               tlist13 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144955")).apply(context8);
+                            } else {
+                              tlist13 = Collections.emptyList();
                             }
                             for (SNode child14 : TemplateUtil.asNotNull(tlist13)) {
                               tnode12.addChild(myAggregationLinks[2], child14);
@@ -186,9 +187,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                           // TODO validate child 
                         }
                       }
-                      if (tnode18 != null) {
-                        tlist17 = TemplateUtil.singletonList(tnode18);
-                      }
+                      tlist17 = TemplateUtil.singletonList(tnode18);
                     }
                   } finally {
                   }
@@ -203,7 +202,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
             }
           }
           tlist3 = TemplateUtil.singletonList(tnode4);
-          environment.registerLabel(context2.getInput(), tnode4, "nodeVariableL");
+          environment.registerLabel(context2.getInput(), tlist3, "nodeVariableL");
           for (SNode child21 : TemplateUtil.asNotNull(tlist3)) {
             tnode2.addChild(myAggregationLinks[5], child21);
           }
@@ -247,15 +246,11 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                 // TODO validate child 
               }
             }
-            if (tnode24 != null) {
-              tlist23 = TemplateUtil.singletonList(tnode24);
-            }
+            tlist23 = TemplateUtil.singletonList(tnode24);
           }
         } finally {
         }
-        if (tlist23 != null) {
-          tlist22.addAll(tlist23);
-        }
+        tlist22.addAll(tlist23);
       }
       Collection<SNode> tlist27 = TemplateUtil.asList(tlist1, tlist22);
       return tlist27;
@@ -298,9 +293,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                       // TODO validate child 
                     }
                   }
-                  if (tnode4 != null) {
-                    tlist3 = TemplateUtil.singletonList(tnode4);
-                  }
+                  tlist3 = TemplateUtil.singletonList(tnode4);
                 }
               } finally {
               }
@@ -325,7 +318,7 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                   // TODO validate child 
                 }
                 {
-                  Collection<SNode> tlist9 = null;
+                  Collection<SNode> tlist9 = Collections.emptyList();
                   if (QueriesGenerated.ifMacro_Condition_5_1(new IfMacroContext(context4, ifMacroRef_zay0px_b0a0b0c0b0c0b0b0c0b7))) {
                     final SNode tnode10 = environment.createOutputNode(myConcepts[5]);
                     {
@@ -338,6 +331,8 @@ public class Switch_NodeBuilder_child extends TemplateSwitchBase implements Temp
                         context6 = context5.subContext(null, callInputNode11);
                         if (callInputNode11 != null) {
                           tlist11 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "8642609567143532161")).apply(context6);
+                        } else {
+                          tlist11 = Collections.emptyList();
                         }
                         for (SNode child12 : TemplateUtil.asNotNull(tlist11)) {
                           tnode10.addChild(myAggregationLinks[2], child12);

@@ -13,6 +13,7 @@ import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
@@ -37,7 +38,7 @@ public class Template_NodeOrConceptCommon extends TemplateDeclarationBase {
 
   protected FragmentResult applyPart0(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
-    Collection<SNode> tlist1 = null;
+    Collection<SNode> tlist1 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_115_0(new IfMacroContext(context, ifMacroRef_um8mvo_b0a0c0g))) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       {

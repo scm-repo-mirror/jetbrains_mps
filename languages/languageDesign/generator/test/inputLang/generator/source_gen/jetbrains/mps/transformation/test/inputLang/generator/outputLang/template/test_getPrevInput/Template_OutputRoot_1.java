@@ -17,6 +17,7 @@ import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.impl.MapSrcProcessor;
@@ -74,7 +75,7 @@ public class Template_OutputRoot_1 extends TemplateDeclarationBase {
               // TODO validate child 
             }
             {
-              Collection<SNode> tlist7 = null;
+              Collection<SNode> tlist7 = Collections.emptyList();
               if (QueriesGenerated.ifMacro_Condition_1_0(new IfMacroContext(context4, ifMacroRef_wvaolp_b0a0b0d0e0e0e0d0e))) {
                 final SNode tnode8 = environment.createOutputNode(myConcepts[0]);
                 SNodeAccessUtil.setPropertyValue(tnode8, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_1(new PropertyMacroContext(context4, "_level_1_was_", propertyMacro_wvaolp_c0a2a0a1a1a3a4a4a4a3a4)));
@@ -92,40 +93,35 @@ public class Template_OutputRoot_1 extends TemplateDeclarationBase {
               // TODO validate child 
             }
           }
-          if (tnode5 != null) {
-            tlist4.add(tnode5);
-            environment.postProcess(new MapSrcProcessor(new SNodePointer("r:00000000-0000-4000-0000-011c895905f7(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_getPrevInput@generator)", "1202337434278"), tnode5, context3) {
-              @Override
-              public void postProcess(@NotNull SNode outputNode) throws GenerationFailureException {
-                QueriesGenerated.mapSrcMacro_post_1_1(new MapSrcMacroPostProcContext(getTemplateContext(), outputNode, getTemplateNode()));
-              }
-            });
-          }
-          if (tlist4 != null) {
-            tlist3.addAll(tlist4);
-          }
-        }
-        if (tlist3 != null) {
-          environment.registerLabel(itnode2, tlist3, "LEVEL 2");
-          tlist2.addAll(tlist3);
-        }
-      }
-      if (tlist2 != null) {
-        tlist1.addAll(tlist2);
-        environment.registerLabel(itnode1, tlist2, "LEVEL 1");
-        for (SNode mapSrcOutput11 : tlist2) {
-          environment.postProcess(new MapSrcProcessor(new SNodePointer("r:00000000-0000-4000-0000-011c895905f7(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_getPrevInput@generator)", "1233603475877"), mapSrcOutput11, context1) {
+          tlist4.add(tnode5);
+          environment.postProcess(new MapSrcProcessor(new SNodePointer("r:00000000-0000-4000-0000-011c895905f7(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_getPrevInput@generator)", "1202337434278"), tnode5, context3) {
             @Override
-            public void postProcess(@NotNull SNode node) throws GenerationFailureException {
-              QueriesGenerated.mapSrcMacro_post_1_0(new MapSrcMacroPostProcContext(getTemplateContext(), node, getTemplateNode()));
+            public void postProcess(@NotNull SNode outputNode) throws GenerationFailureException {
+              QueriesGenerated.mapSrcMacro_post_1_1(new MapSrcMacroPostProcContext(getTemplateContext(), outputNode, getTemplateNode()));
             }
           });
+          tlist3.addAll(tlist4);
         }
+        environment.registerLabel(itnode2, tlist3, "LEVEL 2");
+        tlist2.addAll(tlist3);
+      }
+      tlist1.addAll(tlist2);
+      environment.registerLabel(itnode1, tlist2, "LEVEL 1");
+      for (SNode mapSrcOutput11 : tlist2) {
+        environment.postProcess(new MapSrcProcessor(new SNodePointer("r:00000000-0000-4000-0000-011c895905f7(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_getPrevInput@generator)", "1233603475877"), mapSrcOutput11, context1) {
+          @Override
+          public void postProcess(@NotNull SNode node) throws GenerationFailureException {
+            QueriesGenerated.mapSrcMacro_post_1_0(new MapSrcMacroPostProcContext(getTemplateContext(), node, getTemplateNode()));
+          }
+        });
       }
     }
     return tlist1;
   }
-  public Collection<SNode> apply(@NotNull final TemplateExecutionEnvironment environment, @NotNull final TemplateContext context) throws GenerationException {
+
+  @Override
+  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
+    final TemplateExecutionEnvironment environment = context.getEnvironment();
     final SNode tnode1 = environment.createOutputNode(myConcepts[1]);
     {
       environment.nodeCopied(context, tnode1, "tpl/r:00000000-0000-4000-0000-011c895905f7/1202255620269");
@@ -140,16 +136,7 @@ public class Template_OutputRoot_1 extends TemplateDeclarationBase {
         // TODO validate child 
       }
     }
-    return TemplateUtil.singletonList(tnode1);
-  }
-
-  @Override
-  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
-    Collection<SNode> rv = apply(context.getEnvironment(), context);
-    if (rv == null) {
-      return;
-    }
-    sink.add(null, rv);
+    sink.add(null, TemplateUtil.singletonList(tnode1));
   }
 
   /*package*/ static final class MO implements MetaObjectContainer {

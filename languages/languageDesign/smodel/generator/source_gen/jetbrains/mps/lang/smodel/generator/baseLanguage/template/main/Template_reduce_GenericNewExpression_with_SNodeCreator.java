@@ -14,6 +14,7 @@ import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
@@ -51,6 +52,8 @@ public class Template_reduce_GenericNewExpression_with_SNodeCreator extends Temp
         context2 = context1.subContext(null, callInputNode2);
         if (callInputNode2 != null) {
           tlist2 = environment.callSite(new Template_reduce_ConceptDeclaration2SConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145302")).apply(context2);
+        } else {
+          tlist2 = Collections.emptyList();
         }
         for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child3);

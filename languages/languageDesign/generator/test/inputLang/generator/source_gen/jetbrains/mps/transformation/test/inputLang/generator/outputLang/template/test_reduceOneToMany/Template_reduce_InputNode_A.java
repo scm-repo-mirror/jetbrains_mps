@@ -47,9 +47,7 @@ public class Template_reduce_InputNode_A extends TemplateDeclarationBase {
       TemplateContext context1 = context.subContext(itnode1);
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       tnode2.setProperty(myProperties[0], "child #1");
-      if (tnode2 != null) {
-        tlist1.add(tnode2);
-      }
+      tlist1.add(tnode2);
     }
     FragmentResult rv = listFragment(0, tlist1);
     return rv;
@@ -77,9 +75,7 @@ public class Template_reduce_InputNode_A extends TemplateDeclarationBase {
       tlist1 = environment.trySwitch(templateSwitchNodeNoInput_vff4zh_a0a0c0c0j, switchContext1);
       if (tlist1 == null) {
         final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-        if (tnode2 != null) {
-          tlist1 = TemplateUtil.singletonList(tnode2);
-        }
+        tlist1 = TemplateUtil.singletonList(tnode2);
       }
     } finally {
     }

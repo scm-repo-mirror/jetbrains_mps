@@ -73,7 +73,7 @@ public class Template_reduce_RoutineDefinition extends TemplateDeclarationBase {
       }
     }
     tlist1 = TemplateUtil.singletonList(tnode2);
-    environment.registerLabel(context.getInput(), tnode2, "routines");
+    environment.registerLabel(context.getInput(), tlist1, "routines");
     FragmentResult rv = listFragment(4, tlist1);
     return rv;
   }

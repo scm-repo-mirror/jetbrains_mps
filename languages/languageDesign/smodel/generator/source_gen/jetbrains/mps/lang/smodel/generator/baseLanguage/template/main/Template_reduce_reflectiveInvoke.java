@@ -17,6 +17,7 @@ import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.impl.reference.RefResolver;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
 import jetbrains.mps.generator.runtime.ApplySink;
@@ -78,7 +79,7 @@ public class Template_reduce_reflectiveInvoke extends TemplateDeclarationBase {
             // TODO validate child 
           }
           {
-            Collection<SNode> tlist7 = null;
+            Collection<SNode> tlist7 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_110_0(new IfMacroContext(context2, ifMacroRef_x96ipf_b0a0b0e0b0f0c0g))) {
               final SNode tnode8 = environment.createOutputNode(myConcepts[1]);
               environment.resolve(new RefResolver(tnode8, myAssociationLinks[2], context2, new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "7939541470171862503"), "BaseConcept") {

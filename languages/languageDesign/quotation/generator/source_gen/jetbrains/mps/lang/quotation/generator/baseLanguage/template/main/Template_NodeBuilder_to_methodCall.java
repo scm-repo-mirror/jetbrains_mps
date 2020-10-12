@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import java.util.Collection;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import java.util.List;
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ import java.util.HashMap;
 import java.util.Optional;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
-import java.util.Collections;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -60,7 +60,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
           SNodeAccessUtil.setPropertyValue(tnode2, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_1(new PropertyMacroContext(context1, "createNode", propertyMacro_synbg_c0a2a1a1a1a2a6)));
           TemplateContext context2 = context1.subContext();
           {
-            Collection<SNode> tlist3 = null;
+            Collection<SNode> tlist3 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_3_0(new IfMacroContext(context2, ifMacroRef_synbg_b0a0b0d0b0b0c0g))) {
               final List<SNode> tlist4 = new ArrayList<SNode>();
               final SNode sourceNode4 = QueriesGenerated.sourceNodeQuery_3_0(new SourceSubstituteMacroNodeContext(context2, mapsrcMacroRef_synbg_b0a0a1a1a3a1a1a2a6));
@@ -78,10 +78,8 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                     // TODO validate child 
                   }
                 }
-                if (tnode5 != null) {
-                  tlist4.add(tnode5);
-                  environment.registerLabel(context3.getInput(), tnode5, "parametersFromExpressionsL");
-                }
+                tlist4.add(tnode5);
+                environment.registerLabel(context3.getInput(), tnode5, "parametersFromExpressionsL");
               }
               tlist3 = tlist4;
             }
@@ -91,7 +89,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             // TODO validate child 
           }
           {
-            Collection<SNode> tlist8 = null;
+            Collection<SNode> tlist8 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_3_1(new IfMacroContext(context2, ifMacroRef_synbg_b0a0b0e0b0b0c0g))) {
               final List<SNode> tlist9 = new ArrayList<SNode>();
               final SNode sourceNode9 = QueriesGenerated.sourceNodeQuery_3_1(new SourceSubstituteMacroNodeContext(context2, mapsrcMacroRef_synbg_b0a0a1a1a4a1a1a2a6));
@@ -109,10 +107,8 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                     // TODO validate child 
                   }
                 }
-                if (tnode10 != null) {
-                  tlist9.add(tnode10);
-                  environment.registerLabel(context5.getInput(), tnode10, "parametersFromExpressionsL");
-                }
+                tlist9.add(tnode10);
+                environment.registerLabel(context5.getInput(), tnode10, "parametersFromExpressionsL");
               }
               tlist8 = tlist9;
             }
@@ -136,7 +132,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             {
               TemplateContext context7 = context2.subContext();
               {
-                Collection<SNode> tlist16 = null;
+                Collection<SNode> tlist16 = Collections.emptyList();
                 if (QueriesGenerated.ifMacro_Condition_3_2(new IfMacroContext(context7, ifMacroRef_synbg_b0a0b0b0b0h0b0b0c0g))) {
                   final SNode tnode17 = environment.createOutputNode(myConcepts[7]);
                   {
@@ -210,7 +206,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                     environment.associate(tnode30, myAssociationLinks[1], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.builder(MPS.Core/)", "~SNodeBuilder.<init>(org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId)");
                                     TemplateContext context17 = context16.subContext();
                                     {
-                                      Collection<SNode> tlist31 = null;
+                                      Collection<SNode> tlist31 = Collections.emptyList();
                                       if (QueriesGenerated.ifMacro_Condition_3_3(new IfMacroContext(context17, ifMacroRef_synbg_b0a0b0c0b0b0b0b0b0e0d0d0b0e0c0b0h0b0b0c0g))) {
                                         final SNode tnode32 = environment.createOutputNode(myConcepts[13]);
                                         environment.resolve(new RefResolver(tnode32, myAssociationLinks[3], context17, new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "78629976128307317"), "modelToCreate") {
@@ -227,7 +223,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                       // TODO validate child 
                                     }
                                     {
-                                      Collection<SNode> tlist34 = null;
+                                      Collection<SNode> tlist34 = Collections.emptyList();
                                       if (QueriesGenerated.ifMacro_Condition_3_4(new IfMacroContext(context17, ifMacroRef_synbg_b0a0b0d0b0b0b0b0b0e0d0d0b0e0c0b0h0b0b0c0g))) {
                                         final SNode tnode35 = environment.createOutputNode(myConcepts[13]);
                                         environment.resolve(new RefResolver(tnode35, myAssociationLinks[3], context17, new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "78629976128307368"), "nodeId") {
@@ -274,9 +270,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                       // TODO validate child 
                                     }
                                   }
-                                  if (tnode38 != null) {
-                                    tlist37 = TemplateUtil.singletonList(tnode38);
-                                  }
+                                  tlist37 = TemplateUtil.singletonList(tnode38);
                                 }
                               } finally {
                               }
@@ -291,10 +285,8 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                         }
                       }
                       tlist25 = TemplateUtil.singletonList(tnode26);
-                      environment.registerLabel(context12.getInput(), tnode26, "nodeVariableL");
-                      if (tlist25 != null) {
-                        tlist24.addAll(tlist25);
-                      }
+                      environment.registerLabel(context12.getInput(), tlist25, "nodeVariableL");
+                      tlist24.addAll(tlist25);
                     }
                     for (SNode child41 : TemplateUtil.asNotNull(tlist24)) {
                       tnode23.addChild(myAggregationLinks[5], child41);
@@ -345,15 +337,11 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                           // TODO validate child 
                         }
                       }
-                      if (tnode45 != null) {
-                        tlist44 = TemplateUtil.singletonList(tnode45);
-                      }
+                      tlist44 = TemplateUtil.singletonList(tnode45);
                     }
                   } finally {
                   }
-                  if (tlist44 != null) {
-                    tlist43.addAll(tlist44);
-                  }
+                  tlist43.addAll(tlist44);
                 }
                 for (SNode child48 : TemplateUtil.asNotNull(tlist43)) {
                   tnode15.addChild(myAggregationLinks[6], child48);
@@ -424,9 +412,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                       if (tlist55 == null) {
                         final SNode tnode56 = environment.createOutputNode(myConcepts[3]);
                         environment.associate(tnode56, myAssociationLinks[0], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");
-                        if (tnode56 != null) {
-                          tlist55 = TemplateUtil.singletonList(tnode56);
-                        }
+                        tlist55 = TemplateUtil.singletonList(tnode56);
                       }
                     }
                   }
@@ -436,10 +422,8 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                   // TODO validate child 
                 }
               }
-              if (tnode54 != null) {
-                environment.registerLabel(itnode53, tnode54, "parametersFromExpressionsL");
-                tlist53.add(tnode54);
-              }
+              environment.registerLabel(itnode53, tnode54, "parametersFromExpressionsL");
+              tlist53.add(tnode54);
             }
             for (SNode child58 : TemplateUtil.asNotNull(tlist53)) {
               tnode2.addChild(myAggregationLinks[1], child58);
@@ -456,7 +440,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
           environment.resolveInTemplateLater(tnode59, myAssociationLinks[1], templateNode_synbg_c0a0a1a2a2a6, "tpl/r:00000000-0000-4000-0000-011c8959034c/429601079676709245", "createNode", context1);
           TemplateContext context26 = context1.subContext();
           {
-            Collection<SNode> tlist60 = null;
+            Collection<SNode> tlist60 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_3_5(new IfMacroContext(context26, ifMacroRef_synbg_b0a0b0c0b0c0c0g))) {
               Collection<SNode> tlist61 = null;
               final SNode copySrcInput61 = QueriesGenerated.sourceNodeQuery_3_4(new SourceSubstituteMacroNodeContext(context26, copySrcMacro_synbg_b0a0c0b0c0b0c0c0g));
@@ -469,7 +453,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             // TODO validate child 
           }
           {
-            Collection<SNode> tlist63 = null;
+            Collection<SNode> tlist63 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_3_6(new IfMacroContext(context26, ifMacroRef_synbg_b0a0b0d0b0c0c0g))) {
               Collection<SNode> tlist64 = null;
               final SNode copySrcInput64 = QueriesGenerated.sourceNodeQuery_3_5(new SourceSubstituteMacroNodeContext(context26, copySrcMacro_synbg_b0a0c0b0d0b0c0c0g));
@@ -492,9 +476,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
               Collection<SNode> tlist67 = null;
               final SNode copySrcInput67 = context27.getInput();
               tlist67 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput67), copySrcMacro_synbg_b0a0e0c0e0b0c0c0g, "tpl/r:00000000-0000-4000-0000-011c8959034c/291641273397109128", context27);
-              if (tlist67 != null) {
-                tlist66.addAll(tlist67);
-              }
+              tlist66.addAll(tlist67);
             }
             for (SNode child68 : TemplateUtil.asNotNull(tlist66)) {
               tnode59.addChild(myAggregationLinks[7], child68);

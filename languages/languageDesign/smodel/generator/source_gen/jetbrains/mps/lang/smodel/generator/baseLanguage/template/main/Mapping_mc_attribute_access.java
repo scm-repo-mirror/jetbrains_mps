@@ -78,9 +78,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                       // TODO validate child 
                     }
                   }
-                  if (tnode4 != null) {
-                    tlist3 = TemplateUtil.singletonList(tnode4);
-                  }
+                  tlist3 = TemplateUtil.singletonList(tnode4);
                 }
               }
             }
@@ -134,9 +132,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                       // TODO validate child 
                     }
                   }
-                  if (tnode12 != null) {
-                    tlist11 = TemplateUtil.singletonList(tnode12);
-                  }
+                  tlist11 = TemplateUtil.singletonList(tnode12);
                 }
               }
             }
@@ -204,9 +200,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                     // TODO validate child 
                   }
                 }
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }
@@ -281,9 +275,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                     // TODO validate child 
                   }
                 }
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }
@@ -358,9 +350,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                     // TODO validate child 
                   }
                 }
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }
@@ -384,7 +374,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
               // TODO validate child 
             }
             {
-              Collection<SNode> tlist9 = null;
+              Collection<SNode> tlist9 = Collections.emptyList();
               if (QueriesGenerated.ifMacro_Condition_56_0(new IfMacroContext(context3, ifMacroRef_szb33j_b0a0b0d0b0c0c0c7))) {
                 Collection<SNode> tlist10 = null;
                 SNode callInputNode10 = QueriesGenerated.sourceNodeQuery_56_12(new SourceSubstituteMacroNodeContext(context3, callMacro_szb33j_b0a0a1a1a3a1a2a2a2h));
@@ -392,6 +382,8 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                 context4 = context3.subContext(null, callInputNode10);
                 if (callInputNode10 != null) {
                   tlist10 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2213306337134427371")).apply(context4);
+                } else {
+                  tlist10 = Collections.emptyList();
                 }
                 tlist9 = tlist10;
               }
@@ -443,9 +435,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                     // TODO validate child 
                   }
                 }
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }
@@ -469,7 +459,7 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
               // TODO validate child 
             }
             {
-              Collection<SNode> tlist9 = null;
+              Collection<SNode> tlist9 = Collections.emptyList();
               if (QueriesGenerated.ifMacro_Condition_56_1(new IfMacroContext(context3, ifMacroRef_szb33j_b0a0b0d0b0c0c0c8))) {
                 Collection<SNode> tlist10 = null;
                 SNode callInputNode10 = QueriesGenerated.sourceNodeQuery_56_15(new SourceSubstituteMacroNodeContext(context3, callMacro_szb33j_b0a0a1a1a3a1a2a2a2i));
@@ -477,6 +467,8 @@ public class Mapping_mc_attribute_access extends MapConfigBase implements Templa
                 context4 = context3.subContext(null, callInputNode10);
                 if (callInputNode10 != null) {
                   tlist10 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145322")).apply(context4);
+                } else {
+                  tlist10 = Collections.emptyList();
                 }
                 tlist9 = tlist10;
               }

@@ -58,9 +58,7 @@ public class Template_reduce_ConceptId_SInterfaceConcept extends TemplateDeclara
             tlist2 = environment.trySwitch(templateSwitchNode_acp5hl_a0a0c0a1a1a3a2a6, switchContext2);
             if (tlist2 == null) {
               final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
-              if (tnode3 != null) {
-                tlist2 = TemplateUtil.singletonList(tnode3);
-              }
+              tlist2 = TemplateUtil.singletonList(tnode3);
             }
           }
         }

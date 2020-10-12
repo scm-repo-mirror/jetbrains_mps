@@ -78,9 +78,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           tlist1 = environment.trySwitch(templateSwitchNode_3ivvp5_a0a0c0a1a2a1e, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }
@@ -115,9 +113,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           tlist1 = environment.trySwitch(templateSwitchNode_3ivvp5_a0a0c0a1a2a2f, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }
@@ -152,9 +148,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           tlist1 = environment.trySwitch(templateSwitchNode_3ivvp5_a0a0c0a1a2a2g, switchContext1);
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }
@@ -257,10 +251,8 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
                 // TODO validate child 
               }
             }
-            if (tnode3 != null) {
-              tlist2.add(tnode3);
-              environment.registerLabel(context2.getInput(), tnode3, "EnumSwitchExpression_LVD");
-            }
+            tlist2.add(tnode3);
+            environment.registerLabel(context2.getInput(), tnode3, "EnumSwitchExpression_LVD");
           }
           for (SNode child6 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(myAggregationLinks[1], child6);
@@ -320,7 +312,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
                   // TODO validate child 
                 }
                 {
-                  Collection<SNode> tlist6 = null;
+                  Collection<SNode> tlist6 = Collections.emptyList();
                   if (QueriesGenerated.ifMacro_Condition_48_0(new IfMacroContext(context3, ifMacroRef_3ivvp5_b0a0b0c0b0b0b0b0c0b31))) {
                     final SNode tnode7 = environment.createOutputNode(myConcepts[5]);
                     {
@@ -360,7 +352,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
                   // TODO validate child 
                 }
                 {
-                  Collection<SNode> tlist14 = null;
+                  Collection<SNode> tlist14 = Collections.emptyList();
                   if (QueriesGenerated.ifMacro_Condition_48_1(new IfMacroContext(context3, ifMacroRef_3ivvp5_b0a0b0d0b0b0b0b0c0b31))) {
                     final SNode tnode15 = environment.createOutputNode(myConcepts[5]);
                     {
@@ -402,7 +394,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
                   // TODO validate child 
                 }
                 {
-                  Collection<SNode> tlist21 = null;
+                  Collection<SNode> tlist21 = Collections.emptyList();
                   if (QueriesGenerated.ifMacro_Condition_48_2(new IfMacroContext(context3, ifMacroRef_3ivvp5_b0a0b0e0b0b0b0b0c0b31))) {
                     final SNode tnode22 = environment.createOutputNode(myConcepts[8]);
                     tlist21 = TemplateUtil.singletonList(tnode22);
@@ -413,7 +405,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
                   // TODO validate child 
                 }
                 {
-                  Collection<SNode> tlist24 = null;
+                  Collection<SNode> tlist24 = Collections.emptyList();
                   if (QueriesGenerated.ifMacro_Condition_48_3(new IfMacroContext(context3, ifMacroRef_3ivvp5_b0a0b0f0b0b0b0b0c0b31))) {
                     final SNode tnode25 = environment.createOutputNode(myConcepts[9]);
                     {
@@ -458,7 +450,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
       {
         TemplateContext context1 = context.subContext();
         {
-          Collection<SNode> tlist2 = null;
+          Collection<SNode> tlist2 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_48_4(new IfMacroContext(context1, ifMacroRef_3ivvp5_b0a0b0b0c0b41))) {
             final SNode tnode3 = environment.createOutputNode(myConcepts[5]);
             {
@@ -481,7 +473,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist7 = null;
+          Collection<SNode> tlist7 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_48_5(new IfMacroContext(context1, ifMacroRef_3ivvp5_b0a0b0c0c0b41))) {
             final SNode tnode8 = environment.createOutputNode(myConcepts[5]);
             {
@@ -521,7 +513,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist15 = null;
+          Collection<SNode> tlist15 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_48_6(new IfMacroContext(context1, ifMacroRef_3ivvp5_b0a0b0d0c0b41))) {
             final SNode tnode16 = environment.createOutputNode(myConcepts[5]);
             {
@@ -563,7 +555,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist22 = null;
+          Collection<SNode> tlist22 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_48_7(new IfMacroContext(context1, ifMacroRef_3ivvp5_b0a0b0e0c0b41))) {
             final SNode tnode23 = environment.createOutputNode(myConcepts[8]);
             tlist22 = TemplateUtil.singletonList(tnode23);
@@ -574,7 +566,7 @@ public class Mapping_mc_enum_operations extends MapConfigBase implements Templat
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist25 = null;
+          Collection<SNode> tlist25 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_48_8(new IfMacroContext(context1, ifMacroRef_3ivvp5_b0a0b0f0c0b41))) {
             final SNode tnode26 = environment.createOutputNode(myConcepts[9]);
             {

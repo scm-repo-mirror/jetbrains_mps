@@ -21,6 +21,7 @@ import jetbrains.mps.generator.template.ReductionRuleQueryContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -70,7 +71,7 @@ public class Mapping_mc_concept_method_call extends MapConfigBase implements Tem
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = null;
+      Collection<SNode> tlist1 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_59_0(new IfMacroContext(context, ifMacroRef_ihzv2u_b0a0c0c5))) {
         final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
         {

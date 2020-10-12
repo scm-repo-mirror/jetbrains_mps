@@ -80,9 +80,7 @@ public class Mapping_mc_sequence_operations extends MapConfigBase implements Tem
               tlist4 = environment.trySwitch(templateSwitchNode_jil9eh_a0a0c0a1a1a4a2a2e, switchContext4);
               if (tlist4 == null) {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
-                if (tnode5 != null) {
-                  tlist4 = TemplateUtil.singletonList(tnode5);
-                }
+                tlist4 = TemplateUtil.singletonList(tnode5);
               }
             }
           }

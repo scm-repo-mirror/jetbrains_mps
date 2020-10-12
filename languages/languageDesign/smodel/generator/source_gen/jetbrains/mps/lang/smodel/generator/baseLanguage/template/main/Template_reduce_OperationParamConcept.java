@@ -14,9 +14,9 @@ import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.TemplateVarContext;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
-import java.util.Collections;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
@@ -41,7 +41,7 @@ public class Template_reduce_OperationParamConcept extends TemplateDeclarationBa
     Collection<SNode> tlist1 = null;
     TemplateContext context1 = context;
     context1 = context1.withVariable("var:conceptArg", QueriesGenerated.varMacro_Value_62_0(new TemplateVarContext(context, new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2409421742521904783"))));
-    Collection<SNode> tlist2 = null;
+    Collection<SNode> tlist2 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_62_0(new IfMacroContext(context1, ifMacroRef_t65l13_b0a0f0g))) {
       Collection<SNode> tlist3 = null;
       {
@@ -54,9 +54,7 @@ public class Template_reduce_OperationParamConcept extends TemplateDeclarationBa
           tlist3 = environment.trySwitch(templateSwitchNode_t65l13_a0a0c0a1a1a5a6, switchContext3);
           if (tlist3 == null) {
             final SNode tnode4 = environment.createOutputNode(myConcepts[0]);
-            if (tnode4 != null) {
-              tlist3 = TemplateUtil.singletonList(tnode4);
-            }
+            tlist3 = TemplateUtil.singletonList(tnode4);
           }
         }
       }

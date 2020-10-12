@@ -23,6 +23,7 @@ import jetbrains.mps.generator.impl.reference.RefResolver;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -163,6 +164,8 @@ public class Switch_NodeBuilder_childInit extends TemplateSwitchBase implements 
           context2 = context1.subContext(null, callInputNode2);
           if (callInputNode2 != null) {
             tlist2 = environment.callSite(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319308637", "reduce_ConceptDeclaration2SAbstractConcept"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "8642609567145033367")).apply(context2);
+          } else {
+            tlist2 = Collections.emptyList();
           }
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(myAggregationLinks[0], child3);

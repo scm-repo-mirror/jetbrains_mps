@@ -63,9 +63,7 @@ public class Template_reduce_GetChildrenOperation_whereLinkQualifier extends Tem
             tlist4 = environment.trySwitch(templateSwitchNode_hixxyp_a0a0c0a1a1a4a2a6, switchContext4);
             if (tlist4 == null) {
               final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
-              if (tnode5 != null) {
-                tlist4 = TemplateUtil.singletonList(tnode5);
-              }
+              tlist4 = TemplateUtil.singletonList(tnode5);
             }
           }
         }

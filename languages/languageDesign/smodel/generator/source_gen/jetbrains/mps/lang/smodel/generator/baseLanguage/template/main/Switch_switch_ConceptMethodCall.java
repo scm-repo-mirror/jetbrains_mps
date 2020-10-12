@@ -15,6 +15,7 @@ import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.ReductionRuleBase;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
@@ -45,6 +46,8 @@ public class Switch_switch_ConceptMethodCall extends TemplateSwitchBase implemen
     context1 = context.subContext(null, callInputNode1);
     if (callInputNode1 != null) {
       tlist1 = environment.callSite(new Template_reduce_ConceptMethodCallCommon(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6862765979525743283")).apply(context1);
+    } else {
+      tlist1 = Collections.emptyList();
     }
     return tlist1;
   }
@@ -61,6 +64,8 @@ public class Switch_switch_ConceptMethodCall extends TemplateSwitchBase implemen
       context1 = context.subContext(null, callInputNode1);
       if (callInputNode1 != null) {
         tlist1 = environment.callSite(new Template_reduce_ConceptMethodCallWithThis(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6862765979525741554")).apply(context1);
+      } else {
+        tlist1 = Collections.emptyList();
       }
       return tlist1;
     }
@@ -78,6 +83,8 @@ public class Switch_switch_ConceptMethodCall extends TemplateSwitchBase implemen
       context1 = context.subContext(null, callInputNode1);
       if (callInputNode1 != null) {
         tlist1 = environment.callSite(new Template_reduce_ConceptMethodCallWithThis(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2926695023080033605")).apply(context1);
+      } else {
+        tlist1 = Collections.emptyList();
       }
       return tlist1;
     }
@@ -95,6 +102,8 @@ public class Switch_switch_ConceptMethodCall extends TemplateSwitchBase implemen
       context1 = context.subContext(null, callInputNode1);
       if (callInputNode1 != null) {
         tlist1 = environment.callSite(new Template_reduce_ConceptMethodCallWithSuper(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6862765979525743045")).apply(context1);
+      } else {
+        tlist1 = Collections.emptyList();
       }
       return tlist1;
     }
@@ -112,6 +121,8 @@ public class Switch_switch_ConceptMethodCall extends TemplateSwitchBase implemen
       context1 = context.subContext(null, callInputNode1);
       if (callInputNode1 != null) {
         tlist1 = environment.callSite(new Template_reduce_ConceptMethodCallWithSuper(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2926695023080034666")).apply(context1);
+      } else {
+        tlist1 = Collections.emptyList();
       }
       return tlist1;
     }

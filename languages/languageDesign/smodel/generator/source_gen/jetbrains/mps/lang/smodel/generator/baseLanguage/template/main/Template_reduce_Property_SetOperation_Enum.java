@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Collections;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.runtime.ApplySink;
@@ -60,6 +61,8 @@ public class Template_reduce_Property_SetOperation_Enum extends TemplateDeclarat
         context2 = context1.subContext(null, callInputNode4);
         if (callInputNode4 != null) {
           tlist4 = environment.callSite(new Template_reduce_PropertyDeclaration_SProperty(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6202631021711153849")).apply(context2);
+        } else {
+          tlist4 = Collections.emptyList();
         }
         for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
           tnode1.addChild(myAggregationLinks[0], child5);
@@ -73,6 +76,8 @@ public class Template_reduce_Property_SetOperation_Enum extends TemplateDeclarat
         context3 = context1.subContext(null, callInputNode6);
         if (callInputNode6 != null) {
           tlist6 = environment.callSite(new Template_reduce_EnumMember2Id(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8540066610856020057")).apply(context3);
+        } else {
+          tlist6 = Collections.emptyList();
         }
         for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
           tnode1.addChild(myAggregationLinks[0], child7);

@@ -15,6 +15,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
@@ -52,7 +53,7 @@ public class Template_reduce_Model_CreateNewNode extends TemplateDeclarationBase
         // TODO validate child 
       }
       {
-        Collection<SNode> tlist4 = null;
+        Collection<SNode> tlist4 = Collections.emptyList();
         if (QueriesGenerated.ifMacro_Condition_11_0(new IfMacroContext(context1, ifMacroRef_tot7xa_b0a0b0e0c0g))) {
           final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
           tlist4 = TemplateUtil.singletonList(tnode5);
@@ -74,6 +75,8 @@ public class Template_reduce_Model_CreateNewNode extends TemplateDeclarationBase
         context2 = context1.subContext(null, callInputNode8);
         if (callInputNode8 != null) {
           tlist8 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145285")).apply(context2);
+        } else {
+          tlist8 = Collections.emptyList();
         }
         for (SNode child9 : TemplateUtil.asNotNull(tlist8)) {
           tnode1.addChild(myAggregationLinks[0], child9);

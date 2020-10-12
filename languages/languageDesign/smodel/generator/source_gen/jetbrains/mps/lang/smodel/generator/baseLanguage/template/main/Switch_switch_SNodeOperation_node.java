@@ -320,9 +320,7 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
               tlist4 = environment.trySwitch(templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1w, switchContext4);
               if (tlist4 == null) {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
-                if (tnode5 != null) {
-                  tlist4 = TemplateUtil.singletonList(tnode5);
-                }
+                tlist4 = TemplateUtil.singletonList(tnode5);
               }
             }
           }
@@ -655,9 +653,7 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
               tlist4 = environment.trySwitch(templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1sb, switchContext4);
               if (tlist4 == null) {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
-                if (tnode5 != null) {
-                  tlist4 = TemplateUtil.singletonList(tnode5);
-                }
+                tlist4 = TemplateUtil.singletonList(tnode5);
               }
             }
           }
@@ -781,6 +777,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
             tlist4 = environment.callSite(new Template_reduce_NodeIdentity_SNodeReference(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763994850")).apply(context2);
+          } else {
+            tlist4 = Collections.emptyList();
           }
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[0], child5);

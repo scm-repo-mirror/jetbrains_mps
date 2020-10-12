@@ -500,9 +500,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
         tlist1 = environment.trySwitch(templateSwitchNodeNoInput_ief6mt_a0a0c0f0b91, switchContext1);
         if (tlist1 == null) {
           final SNode tnode2 = environment.createOutputNode(myConcepts[15]);
-          if (tnode2 != null) {
-            tlist1 = TemplateUtil.singletonList(tnode2);
-          }
+          tlist1 = TemplateUtil.singletonList(tnode2);
         }
       } finally {
       }

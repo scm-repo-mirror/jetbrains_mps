@@ -17,6 +17,7 @@ import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import java.util.List;
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
           }
         }
         tlist2 = TemplateUtil.singletonList(tnode3);
-        environment.registerLabel(context1.getInput(), tnode3, "switchVar");
+        environment.registerLabel(context1.getInput(), tlist2, "switchVar");
         for (SNode child7 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[2], child7);
         }
@@ -84,7 +85,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
   }
   protected FragmentResult applyPart1(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
-    Collection<SNode> tlist1 = null;
+    Collection<SNode> tlist1 = Collections.emptyList();
     if (QueriesGenerated.ifMacro_Condition_99_1(new IfMacroContext(context, ifMacroRef_j8e1z8_b0a0c0h))) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[3]);
       {
@@ -129,7 +130,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                 {
                   TemplateContext context5 = context4.subContext();
                   {
-                    Collection<SNode> tlist10 = null;
+                    Collection<SNode> tlist10 = Collections.emptyList();
                     if (QueriesGenerated.ifMacro_Condition_99_0(new IfMacroContext(context5, ifMacroRef_j8e1z8_b0a0b0b0b0c0e0d0c0b0c0h))) {
                       Collection<SNode> tlist11 = null;
                       final Iterable<SNode> copyListInput11 = QueriesGenerated.sourceNodesQuery_99_0(new SourceSubstituteMacroNodesContext(context5, copySrcListMacro_j8e1z8_b0a0a1a1a1a1a2a4a3a2a1a2a7));
@@ -149,9 +150,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                 // TODO validate child 
               }
             }
-            if (tnode7 != null) {
-              tlist6.add(tnode7);
-            }
+            tlist6.add(tnode7);
           }
           for (SNode child14 : TemplateUtil.asNotNull(tlist6)) {
             tnode2.addChild(myAggregationLinks[7], child14);

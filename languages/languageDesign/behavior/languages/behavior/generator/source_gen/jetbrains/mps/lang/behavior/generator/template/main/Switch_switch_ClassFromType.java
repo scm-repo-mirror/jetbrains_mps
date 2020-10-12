@@ -156,9 +156,7 @@ public class Switch_switch_ClassFromType extends TemplateSwitchBase implements T
           if (tlist1 == null) {
             final SNode tnode2 = environment.createOutputNode(myConcepts[2]);
             environment.associate(tnode2, myAssociationLinks[0], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");
-            if (tnode2 != null) {
-              tlist1 = TemplateUtil.singletonList(tnode2);
-            }
+            tlist1 = TemplateUtil.singletonList(tnode2);
           }
         }
       }

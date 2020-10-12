@@ -15,8 +15,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
-import jetbrains.mps.generator.template.IfMacroContext;
 import java.util.Collections;
+import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -53,7 +53,7 @@ public class Template_reduce_Model_NodesOperation_new extends TemplateDeclaratio
         // TODO validate child 
       }
       {
-        Collection<SNode> tlist4 = null;
+        Collection<SNode> tlist4 = Collections.emptyList();
         if (QueriesGenerated.ifMacro_Condition_27_0(new IfMacroContext(context1, ifMacroRef_68un6o_b0a0b0e0c0g))) {
           Collection<SNode> tlist5 = null;
           {
@@ -66,9 +66,7 @@ public class Template_reduce_Model_NodesOperation_new extends TemplateDeclaratio
               tlist5 = environment.trySwitch(templateSwitchNode_68un6o_a0a0c0a1a1a1a4a2a6, switchContext5);
               if (tlist5 == null) {
                 final SNode tnode6 = environment.createOutputNode(myConcepts[1]);
-                if (tnode6 != null) {
-                  tlist5 = TemplateUtil.singletonList(tnode6);
-                }
+                tlist5 = TemplateUtil.singletonList(tnode6);
               }
             }
           }

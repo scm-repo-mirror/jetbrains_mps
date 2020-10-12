@@ -20,6 +20,7 @@ import jetbrains.mps.generator.template.PropertyMacroContext;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -98,10 +99,10 @@ public class Template_reduce_GetDescendants_noConceptsList extends TemplateDecla
                   context5 = context4.subContext(null, callInputNode11);
                   if (callInputNode11 != null) {
                     tlist11 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145294")).apply(context5);
+                  } else {
+                    tlist11 = Collections.emptyList();
                   }
-                  if (tlist11 != null) {
-                    tlist10.addAll(tlist11);
-                  }
+                  tlist10.addAll(tlist11);
                 }
                 for (SNode child12 : TemplateUtil.asNotNull(tlist10)) {
                   tnode8.addChild(myAggregationLinks[2], child12);

@@ -17,9 +17,9 @@ import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
+import java.util.Collections;
 import jetbrains.mps.generator.runtime.TemplateRuleWithCondition;
 import jetbrains.mps.generator.template.ReductionRuleQueryContext;
-import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -66,6 +66,8 @@ public class Mapping_mc_linklist_operations extends MapConfigBase implements Tem
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
             tlist4 = environment.callSite(new Template_reduce_LinkDeclaration_SLink(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145292")).apply(context2);
+          } else {
+            tlist4 = Collections.emptyList();
           }
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[0], child5);
@@ -113,9 +115,7 @@ public class Mapping_mc_linklist_operations extends MapConfigBase implements Tem
               tlist4 = environment.trySwitch(templateSwitchNode_mvfyrh_a0a0c0a1a1a4a2a2e, switchContext4);
               if (tlist4 == null) {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[1]);
-                if (tnode5 != null) {
-                  tlist4 = TemplateUtil.singletonList(tnode5);
-                }
+                tlist4 = TemplateUtil.singletonList(tnode5);
               }
             }
           }
@@ -125,7 +125,7 @@ public class Mapping_mc_linklist_operations extends MapConfigBase implements Tem
           // TODO validate child 
         }
         {
-          Collection<SNode> tlist7 = null;
+          Collection<SNode> tlist7 = Collections.emptyList();
           if (QueriesGenerated.ifMacro_Condition_21_0(new IfMacroContext(context1, ifMacroRef_mvfyrh_b0a0b0f0c0c4))) {
             Collection<SNode> tlist8 = null;
             SNode callInputNode8 = QueriesGenerated.sourceNodeQuery_21_4(new SourceSubstituteMacroNodeContext(context1, callMacro_mvfyrh_b0a0a1a1a5a2a2e));
@@ -133,6 +133,8 @@ public class Mapping_mc_linklist_operations extends MapConfigBase implements Tem
             context2 = context1.subContext(null, callInputNode8);
             if (callInputNode8 != null) {
               tlist8 = environment.callSite(new Template_reduce_ConceptDeclaration2SAbstractConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "633481135935145293")).apply(context2);
+            } else {
+              tlist8 = Collections.emptyList();
             }
             tlist7 = tlist8;
           } else {

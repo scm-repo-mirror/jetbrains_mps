@@ -5,15 +5,14 @@ package jetbrains.mps.transformation.test.inputLang.generator.outputLang.templat
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.runtime.TemplateDeclarationBase;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import java.util.Collection;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.runtime.TemplateContext;
+import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.GenerationException;
+import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
+import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collection;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
-import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.MetaObjectContainer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -31,7 +30,10 @@ public class Template_out_class extends TemplateDeclarationBase {
   public SNodeReference getTemplateNode() {
     return template_lrc73l_a0a3;
   }
-  public Collection<SNode> apply(@NotNull final TemplateExecutionEnvironment environment, @NotNull final TemplateContext context) throws GenerationException {
+
+  @Override
+  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
+    final TemplateExecutionEnvironment environment = context.getEnvironment();
     final SNode tnode1 = environment.createOutputNode(myConcepts[0]);
     {
       environment.nodeCopied(context, tnode1, "tpl/r:00000000-0000-4000-0000-011c895905f8/1209150125542");
@@ -59,8 +61,8 @@ public class Template_out_class extends TemplateDeclarationBase {
           }
           {
             Collection<SNode> tlist6 = null;
-            final SNode copySrcInput6 = QueriesGenerated.sourceNodeQuery_1_0(new SourceSubstituteMacroNodeContext(context2, copySrcMacro_lrc73l_b0a0c0e0b0e0b0e));
-            tlist6 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput6), copySrcMacro_lrc73l_b0a0c0e0b0e0b0e, "tpl/r:00000000-0000-4000-0000-011c895905f8/1209150155199", context2);
+            final SNode copySrcInput6 = QueriesGenerated.sourceNodeQuery_1_0(new SourceSubstituteMacroNodeContext(context2, copySrcMacro_lrc73l_b0a0c0e0b0e0c0f));
+            tlist6 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput6), copySrcMacro_lrc73l_b0a0c0e0b0e0c0f, "tpl/r:00000000-0000-4000-0000-011c895905f8/1209150155199", context2);
             for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
               tnode3.addChild(myAggregationLinks[2], child7);
             }
@@ -71,16 +73,7 @@ public class Template_out_class extends TemplateDeclarationBase {
         // TODO validate child 
       }
     }
-    return TemplateUtil.singletonList(tnode1);
-  }
-
-  @Override
-  public void apply(TemplateContext context, ApplySink sink) throws GenerationException {
-    Collection<SNode> rv = apply(context.getEnvironment(), context);
-    if (rv == null) {
-      return;
-    }
-    sink.add(null, rv);
+    sink.add(null, TemplateUtil.singletonList(tnode1));
   }
 
   /*package*/ static final class MO implements MetaObjectContainer {
@@ -113,5 +106,5 @@ public class Template_out_class extends TemplateDeclarationBase {
     }
   }
   private static final SNodePointer template_lrc73l_a0a3 = new SNodePointer("r:00000000-0000-4000-0000-011c895905f8(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement@generator)", "1209150125542");
-  private static final SNodePointer copySrcMacro_lrc73l_b0a0c0e0b0e0b0e = new SNodePointer("r:00000000-0000-4000-0000-011c895905f8(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement@generator)", "1209150187920");
+  private static final SNodePointer copySrcMacro_lrc73l_b0a0c0e0b0e0c0f = new SNodePointer("r:00000000-0000-4000-0000-011c895905f8(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement@generator)", "1209150187920");
 }

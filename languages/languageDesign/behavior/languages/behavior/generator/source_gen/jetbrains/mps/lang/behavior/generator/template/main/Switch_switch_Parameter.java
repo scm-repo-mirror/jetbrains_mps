@@ -71,9 +71,7 @@ public class Switch_switch_Parameter extends TemplateSwitchBase implements Templ
               if (tlist2 == null) {
                 final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
                 environment.associate(tnode3, myAssociationLinks[2], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }
@@ -116,9 +114,7 @@ public class Switch_switch_Parameter extends TemplateSwitchBase implements Templ
               if (tlist2 == null) {
                 final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
                 environment.associate(tnode3, myAssociationLinks[2], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");
-                if (tnode3 != null) {
-                  tlist2 = TemplateUtil.singletonList(tnode3);
-                }
+                tlist2 = TemplateUtil.singletonList(tnode3);
               }
             }
           }

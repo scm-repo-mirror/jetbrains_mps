@@ -16,6 +16,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.ArrayList;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import java.util.Collection;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.runtime.TemplateUtil;
@@ -51,7 +52,7 @@ public class Template_reduce_Parameters extends TemplateDeclarationBase {
       }
       TemplateContext context1 = context.subContext(itnode1);
       context1 = context1.withVariable("cv:argCounter", loopIndex_argCounter_1++);
-      Collection<SNode> tlist2 = null;
+      Collection<SNode> tlist2 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_86_0(new IfMacroContext(context1, ifMacroRef_f8m1hr_b0a0e0e0h))) {
         Collection<SNode> tlist3 = null;
         final SNode copySrcInput3 = QueriesGenerated.sourceNodeQuery_86_2(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_f8m1hr_b0a0c0e0e0h));
@@ -90,9 +91,7 @@ public class Template_reduce_Parameters extends TemplateDeclarationBase {
         }
         tlist2 = TemplateUtil.singletonList(tnode4);
       }
-      if (tlist2 != null) {
-        tlist1.addAll(tlist2);
-      }
+      tlist1.addAll(tlist2);
     }
     FragmentResult rv = listFragment(3, tlist1);
     return rv;

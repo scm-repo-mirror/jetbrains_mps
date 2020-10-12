@@ -14,6 +14,7 @@ import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.TemplateVarContext;
+import java.util.Collections;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.impl.reference.RefResolver;
 import jetbrains.mps.generator.runtime.TemplateUtil;
@@ -57,7 +58,7 @@ public class Template_reduce_LocalBehaviorMethodCall extends TemplateDeclaration
           environment.associate(tnode3, myAssociationLinks[0], "d936855b-48da-4812-a8a0-2bfddd633ac5/java:jetbrains.mps.core.aspects.behaviour.api(jetbrains.mps.lang.behavior.api/)", "~SMethod.invoke(org.jetbrains.mps.openapi.model.SNode,java.lang.Object...)");
           TemplateContext context3 = context2.subContext();
           {
-            Collection<SNode> tlist4 = null;
+            Collection<SNode> tlist4 = Collections.emptyList();
             if (QueriesGenerated.ifMacro_Condition_4_0(new IfMacroContext(context3, ifMacroRef_p4fqpg_b0a0b0c0b0b0f0g))) {
               final SNode tnode5 = environment.createOutputNode(myConcepts[2]);
               environment.resolve(new RefResolver(tnode5, myAssociationLinks[1], context3, new SNodePointer("r:229ce18d-2bb0-4d5b-a7cd-cec65841e459(jetbrains.mps.lang.behavior.generator.template.main@generator)", "8228699960984014811"), "thisNode") {
@@ -68,7 +69,7 @@ public class Template_reduce_LocalBehaviorMethodCall extends TemplateDeclaration
               });
               tlist4 = TemplateUtil.singletonList(tnode5);
             } else {
-              Collection<SNode> tlist6 = null;
+              Collection<SNode> tlist6 = Collections.emptyList();
               if (QueriesGenerated.ifMacro_Condition_4_1(new IfMacroContext(context3, ifMacroRef_p4fqpg_b0a0b0a1a2a1a1a5a6))) {
                 final SNode tnode7 = environment.createOutputNode(myConcepts[2]);
                 environment.resolve(new RefResolver(tnode7, myAssociationLinks[1], context3, new SNodePointer("r:229ce18d-2bb0-4d5b-a7cd-cec65841e459(jetbrains.mps.lang.behavior.generator.template.main@generator)", "6862765979525357275"), "thisConcept") {
@@ -119,7 +120,7 @@ public class Template_reduce_LocalBehaviorMethodCall extends TemplateDeclaration
               }
               TemplateContext context5 = context3.subContext(itnode12);
               context5 = context5.withVariable("cv:argCounter", loopIndex_argCounter_12++);
-              Collection<SNode> tlist13 = null;
+              Collection<SNode> tlist13 = Collections.emptyList();
               if (QueriesGenerated.ifMacro_Condition_4_2(new IfMacroContext(context5, ifMacroRef_p4fqpg_b0a0e0d0d0b0b0f0g))) {
                 Collection<SNode> tlist14 = null;
                 final SNode copySrcInput14 = QueriesGenerated.sourceNodeQuery_4_2(new SourceSubstituteMacroNodeContext(context5, copySrcMacro_p4fqpg_b0a0c0e0d0d0b0b0f0g));
@@ -158,9 +159,7 @@ public class Template_reduce_LocalBehaviorMethodCall extends TemplateDeclaration
                 }
                 tlist13 = TemplateUtil.singletonList(tnode15);
               }
-              if (tlist13 != null) {
-                tlist12.addAll(tlist13);
-              }
+              tlist12.addAll(tlist13);
             }
             for (SNode child21 : TemplateUtil.asNotNull(tlist12)) {
               tnode3.addChild(myAggregationLinks[2], child21);
