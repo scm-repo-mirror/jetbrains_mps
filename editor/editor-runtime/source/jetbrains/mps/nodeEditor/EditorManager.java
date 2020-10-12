@@ -46,6 +46,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -54,7 +55,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Stack;
 
 public class EditorManager {
   private static final Logger LOG = Logger.wrap(LogManager.getLogger(EditorManager.class));
@@ -65,7 +65,9 @@ public class EditorManager {
 
   private final EditorContext myEditorContext;
 
-  private Deque<Map<ReferencedNodeContext, EditorCell>> myContextToOldCellMap = new LinkedList<>();
+  private final Deque<Map<ReferencedNodeContext, EditorCell>> myContextToOldCellMap = new ArrayDeque<>();
+  private final Deque<SNode> myAttributeStack = new ArrayDeque<>();
+
   private boolean myCreatingInspectedCell = false;
 
   private Stack<SNode> myAttributesStack = new Stack<>();
