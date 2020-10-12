@@ -196,7 +196,8 @@ public class DefaultCellInfo implements CellInfo {
 
   @Override
   public int hashCode() {
-    return isIdMode() ? Objects.hash(myCellId, myNodeReference) : Objects.hash(myParentInfo, myCellNumber);
+    return isIdMode() ? Objects.hash(myCellId, myNodeReference)
+                      : Objects.hash(myParentInfo) * 37 + myCellNumber;
   }
 
   @Override
@@ -213,7 +214,8 @@ public class DefaultCellInfo implements CellInfo {
     }
 
     if (isIdMode()) {
-      return Objects.equals(myCellId, that.myCellId) && Objects.equals(myNodeReference, that.myNodeReference);
+      return Objects.equals(myCellId, that.myCellId)
+             && Objects.equals(myNodeReference, that.myNodeReference);
     }
     return myCellNumber == that.myCellNumber && Objects.equals(myParentInfo, that.myParentInfo);
   }

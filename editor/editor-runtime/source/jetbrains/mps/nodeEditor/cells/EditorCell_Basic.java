@@ -911,9 +911,9 @@ public abstract class EditorCell_Basic implements EditorCell, Entry<jetbrains.mp
     }
   }
 
-  // Following methods are used from layout algorythms
+  // Following methods are used from layout algorithms
   @Override
-  public boolean wasRelayoutRequested() {
+  public final boolean wasRelayoutRequested() {
     return myIsNeedRelayout;
   }
 

@@ -70,8 +70,6 @@ public class EditorManager {
 
   private boolean myCreatingInspectedCell = false;
 
-  private Stack<SNode> myAttributesStack = new Stack<>();
-
   @Nullable
   public static EditorManager getInstanceFromContext(EditorContext editorContext) {
     // TODO: Create API interface for EditorManager & use this method always here
@@ -206,12 +204,12 @@ public class EditorManager {
           assert attribute != null;
           // processing each attribute of current node just one time
           // (creating cell tree for attributes & node recursively)
-          if (!myAttributesStack.contains(attribute)) {
-            myAttributesStack.push(attribute);
+          if (!myAttributeStack.contains(attribute)) {
+            myAttributeStack.push(attribute);
 
             EditorCell nodeCell = createEditorCell(modifications, refContext);
 
-            SNode poppedAttribute = myAttributesStack.pop();
+            SNode poppedAttribute = myAttributeStack.pop();
             LOG.assertLog(poppedAttribute == attribute, "Assertion failed.");
             return createNodeRoleAttributeCell(attribute, AttributeKind.NODE, nodeCell);
           }
