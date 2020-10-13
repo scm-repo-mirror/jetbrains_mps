@@ -730,16 +730,11 @@ public final class TemplateProcessor implements ITemplateProcessor {
     protected final TemplateContext prepareArguments(TemplateContext templateContext, @Nullable List<SNode> callSiteOutputNodes) throws GenerationFailureException {
       // XXX would be great to hide call site node processing here, or even inside TemplateCall processor (as it knows about needCallSite() in the first place)
       final TemplateCall callProcessor = callProcessor();
+      // XXX JFTR, here we first evaluate arguments, then assign call site; the same order is in generated templates.
+      //     However, not sure if it should not be vice versa, or if it makes any difference at all.
       final TemplateContext withArgs = callProcessor.prepareCallContext(templateContext);
-      // null indicated we didn't attempt to calculate these
       if (callProcessor.needCallSite()) {
-        // in fact, callSiteOutputNodes shall never be null provided caller follows proper needCallSite->nextMacro routine. However, don't want assert or NPE here
-        if (callSiteOutputNodes != null && callSiteOutputNodes.size() == 1) {
-          return withArgs.withCallSiteNode(callSiteOutputNodes.get(0));
-        } else {
-          getLogger().error(getMacroNodeRef(), "Invoked template needs exactly 1 node for call site", GeneratorUtil.describeInput(templateContext));
-          return withArgs.withCallSiteNode(null);
-        }
+        return templateContext.getEnvironment().withCallSiteNode(getMacroNodeRef(), templateContext, callSiteOutputNodes);
       } else {
         if (templateContext.getCallSiteNode() != null) {
           // just hide the one available in the current context
@@ -857,7 +852,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
         callSiteOutputNodes = null;
       }
       // XXX this code is similar to SwitchMacro, can I refactor to avoid duplication?
-      TemplateContext tcInput = prepareArguments(templateContext, callSiteOutputNodes).subContext(newInputNode);
+      final TemplateContext tcInput = prepareArguments(templateContext, callSiteOutputNodes).subContext(newInputNode);
 
       try {
         return asList(myTemplateRT.apply(tcInput));

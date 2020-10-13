@@ -120,6 +120,18 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
   Collection<SNode> callSiteNode(SNodeReference templateNode, TemplateContext templateContext) throws GenerationCanceledException, GenerationFailureException;
 
   /**
+   * Support for $CALL-SITE$ macro, installs a node from template call site into a {@link TemplateContext} for later use from
+   * within a {@code IParameterizedTemplate} with {@code needCallSite == true}.
+   * Invoke only when target template does need call site.
+   *
+   * @param templateNode identifies template invocation (CALL/SWITCH) location, not null
+   * @param templateContext context to argument, not null
+   * @param callSiteNode call site nodes, not null
+   * @return context that has call site node recorded (or cleared, if no call site node could be recovered from the argument)
+   */
+  TemplateContext withCallSiteNode(SNodeReference templateNode, TemplateContext templateContext, Collection<SNode> callSiteNode);
+
+  /**
    * FIXME provisional API just to get rid of TemplateGenerator:getGenerator exposure. Would be great to use smth like TemplateDeclarationKey, just the name is unfortunate
    *       Perhaps, shall go with SwitchCallSite right away?
    *       Intentionally no TemplateContext argument as (a) it's null input case (b) message is a plain text

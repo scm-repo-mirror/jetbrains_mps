@@ -201,6 +201,18 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   }
 
   @Override
+  public TemplateContext withCallSiteNode(SNodeReference templateNode, TemplateContext templateContext, Collection<SNode> callSiteNodes) {
+    // in fact, callSiteNodes shall never be null provided TP caller follows proper needCallSite->nextMacro routine (or reduce_Node doesn't produce
+    // null result in generated templates). However, don't want assert or NPE here
+    if (callSiteNodes != null && callSiteNodes.size() == 1) {
+      return templateContext.withCallSiteNode(callSiteNodes.iterator().next());
+    } else {
+      getLogger().error(templateNode, "Invoked template needs exactly 1 node for call site", GeneratorUtil.describeInput(templateContext));
+      return templateContext.withCallSiteNode(null);
+    }
+  }
+
+  @Override
   public void nullInputSwitch(SNodeReference _switch) throws GenerationCanceledException, GenerationFailureException {
     final TemplateSwitchMapping templateSwitch = generator.getSwitch(_switch);
     if (templateSwitch != null) {
