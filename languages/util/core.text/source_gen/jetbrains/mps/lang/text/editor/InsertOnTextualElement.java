@@ -99,6 +99,7 @@ public class InsertOnTextualElement {
 
   public static void setDefinedCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     // set cell actions from all imported action maps 
+    DeleteNonLetter.setDefinedCellActions(editorCell, node, context);
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
@@ -107,6 +108,7 @@ public class InsertOnTextualElement {
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
 
     // set cell action(s) of the given type from imported action maps 
+    DeleteNonLetter.setDefinedCellActionsOfType(editorCell, node, context, actionType);
 
     // set cell action of the given type defined directly in this action map 
     if (Objects.equals(actionType, CellActionType.INSERT)) {

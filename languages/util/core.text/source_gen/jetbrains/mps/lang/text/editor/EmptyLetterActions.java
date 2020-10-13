@@ -110,6 +110,18 @@ public class EmptyLetterActions {
 
     };
   }
+  /*package*/ static AbstractCellAction createAction_PASTE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        PasteHandler.paste(editorContext, node, false);
+        SNodeOperations.deleteNode(node);
+      }
+
+    };
+  }
 
   public static void setCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     CellAction originalDelete = editorCell.getAction(CellActionType.DELETE);
@@ -145,6 +157,7 @@ public class EmptyLetterActions {
     editorCell.setAction(CellActionType.LOCAL_END, createAction_LOCAL_END(node));
     editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
+    editorCell.setAction(CellActionType.PASTE, createAction_PASTE(node));
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -167,6 +180,9 @@ public class EmptyLetterActions {
     }
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
+    }
+    if (Objects.equals(actionType, CellActionType.PASTE)) {
+      editorCell.setAction(actionType, createAction_PASTE(node));
     }
   }
 

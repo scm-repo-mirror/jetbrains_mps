@@ -47,6 +47,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setCellId("Collection_vo8xft_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
+    DeleteNonLetter.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createRefNode_0());
     editorCell.addEditorCell(createConstant_1());
@@ -55,6 +56,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "{{");
     editorCell.setCellId("Constant_vo8xft_a0");
+    DeleteNonLetter.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.TextualElement$9C));
     editorCell.setDefaultText("");
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));

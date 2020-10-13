@@ -187,13 +187,6 @@ public class LetterActions {
           SNodeOperations.deleteNode(node);
         }
       }
-      @Override
-      public boolean canExecute(EditorContext editorContext) {
-        return this.canExecute_internal(editorContext, node);
-      }
-      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return true;
-      }
 
     };
   }
