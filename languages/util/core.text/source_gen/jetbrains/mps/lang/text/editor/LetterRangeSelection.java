@@ -241,7 +241,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
   }
 
   private List<SNode> wrapSelectedNodesInNewParagraphs() {
-    SNode artificialParent = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x61a4317ad7d0a36dL, "jetbrains.mps.lang.text.structure.Chapter"));
+    SNode artificialParent = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, "jetbrains.mps.lang.text.structure.Text"));
 
     final List<SNode> selectedNodes = getSelectedNodes();
     List<SNode> lines = new ArrayList<SNode>();
@@ -264,7 +264,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
         }
       }));
       ListSequence.fromList(copiesOfLines).addElement(lc);
-      ListSequence.fromList(SLinkOperations.getChildren(artificialParent, LINKS.paragraphs$4Q5d)).addElement(lc);
+      ListSequence.fromList(SLinkOperations.getChildren(artificialParent, LINKS.paragraphs$ZAOz)).addElement(lc);
     }
     return copiesOfLines;
   }
@@ -682,7 +682,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink letters$rNyA = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, 0x7ee31bf598f4eddfL, "letters");
-    /*package*/ static final SContainmentLink paragraphs$4Q5d = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x61a4317ad7d0a36dL, 0x61a4317ad7d0a52eL, "paragraphs");
+    /*package*/ static final SContainmentLink paragraphs$ZAOz = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, 0x7ee31bf598f6d778L, "paragraphs");
   }
 
   private static final class PROPS {

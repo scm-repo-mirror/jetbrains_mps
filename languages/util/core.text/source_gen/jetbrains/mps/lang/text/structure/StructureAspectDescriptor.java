@@ -19,7 +19,6 @@ import jetbrains.mps.smodel.runtime.ConceptKind;
 import jetbrains.mps.smodel.runtime.StaticScope;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
-  /*package*/ final ConceptDescriptor myConceptChapter = createDescriptorForChapter();
   /*package*/ final ConceptDescriptor myConceptEmptyParagraphLetter = createDescriptorForEmptyParagraphLetter();
   /*package*/ final ConceptDescriptor myConceptIHoldLines = createDescriptorForIHoldLines();
   /*package*/ final ConceptDescriptor myConceptIHoldParagraphs = createDescriptorForIHoldParagraphs();
@@ -49,15 +48,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptChapter, myConceptEmptyParagraphLetter, myConceptIHoldLines, myConceptIHoldParagraphs, myConceptLetter, myConceptLine, myConceptNodeWrapperElement, myConceptNodeWrapperTextualElement, myConceptParagraph, myConceptText, myConceptTextElement, myConceptTextualElement, myConceptUrlTextualElement, myConceptWord);
+    return Arrays.asList(myConceptEmptyParagraphLetter, myConceptIHoldLines, myConceptIHoldParagraphs, myConceptLetter, myConceptLine, myConceptNodeWrapperElement, myConceptNodeWrapperTextualElement, myConceptParagraph, myConceptText, myConceptTextElement, myConceptTextualElement, myConceptUrlTextualElement, myConceptWord);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
-      case LanguageConceptSwitch.Chapter:
-        return myConceptChapter;
       case LanguageConceptSwitch.EmptyParagraphLetter:
         return myConceptEmptyParagraphLetter;
       case LanguageConceptSwitch.IHoldLines:
@@ -98,16 +95,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
-  private static ConceptDescriptor createDescriptorForChapter() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.text", "Chapter", 0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x61a4317ad7d0a36dL);
-    b.class_(false, false, false);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
-    b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/7035802921536103277");
-    b.version(2);
-    b.aggregate("paragraphs", 0x61a4317ad7d0a52eL).target(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL).optional(true).ordered(true).multiple(true).origin("7035802921536103726").done();
-    b.alias("chapter");
-    return b.create();
-  }
   private static ConceptDescriptor createDescriptorForEmptyParagraphLetter() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.text", "EmptyParagraphLetter", 0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x17c01c7f100e844bL);
     b.class_(false, false, false);

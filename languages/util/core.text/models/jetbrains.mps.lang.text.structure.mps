@@ -178,23 +178,6 @@
     <property role="FLfZY" value="." />
     <property role="3GE5qa" value="textual" />
   </node>
-  <node concept="1TIwiD" id="66$cnFnOadH">
-    <property role="EcuMT" value="7035802921536103277" />
-    <property role="3GE5qa" value="textual" />
-    <property role="TrG5h" value="Chapter" />
-    <property role="34LRSv" value="chapter" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="1TJgyj" id="66$cnFnOakI" role="1TKVEi">
-      <property role="IQ2ns" value="7035802921536103726" />
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="paragraphs" />
-      <property role="20lbJX" value="fLJekj5/_0__n" />
-      <ref role="20lvS9" node="7Vz6ZmoXeMu" resolve="Paragraph" />
-    </node>
-    <node concept="PrWs8" id="66$cnFnOazm" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="2MpFNjy3sHf">
     <property role="EcuMT" value="3213792450771274575" />
     <property role="TrG5h" value="NodeWrapperTextualElement" />
