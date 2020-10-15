@@ -45,15 +45,15 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
   /*package*/ static void unpack_id6IqTD4bJTWZ(@NotNull SNode __thisNode__, UnpackHelper helper) {
     SNode parent = helper.parent(__thisNode__);
     String parentLocation = helper.getContentLocation(parent);
-    String languageLocation = parentLocation + "/" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), PROPS.name$MnvL) + ".jar";
-    helper.putLocation(__thisNode__, languageLocation);
+    String moduleLocation = parentLocation + "/" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), PROPS.name$MnvL) + ".jar";
+    helper.putLocation(__thisNode__, moduleLocation);
     // XXX next is location() implementation moved to a proper moment of time, for the reason see BuildMpsLayout_Plugin_Behavior#unpack 
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), CONCEPTS.BuildMps_Language$RA)) {
-      languageLocation = languageLocation.substring(0, languageLocation.length() - ".jar".length());
+      moduleLocation = moduleLocation.substring(0, moduleLocation.length() - ".jar".length());
       int i = 0;
       for (SNode gm : Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), CONCEPTS.BuildMps_Language$RA), LINKS.managedGenerators$Hbof), LINKS.generator$98gH))) {
         // see property macro for module-generator.jar name in reduce_BuildMpsLayout_ModuleJars 
-        helper.putLayoutRelativePath(__thisNode__, gm, languageLocation + ((i > 0 ? String.format("-%d-generator.jar", i) : "-generator.jar")));
+        helper.putLayoutRelativePath(__thisNode__, gm, moduleLocation + ((i > 0 ? String.format("-%d-generator.jar", i) : "-generator.jar")));
         i++;
       }
     }
@@ -61,9 +61,13 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
   /*package*/ static String location_id6b4RkXS8sT2(@NotNull SNode __thisNode__, DependenciesHelper helper, Object artifactId) {
     if (artifactId instanceof SNode) {
       SNode node = (SNode) artifactId;
-      String languageLocation = helper.getLocation(__thisNode__);
+      String moduleLocation = helper.getLocation(__thisNode__);
 
-      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$RQ)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$RQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), CONCEPTS.BuildMps_Language$RA)) {
+        // I have to check this.module.isInstanceOf(BM_Language) not to give  
+        // location for arbitrary standalone generator modules. However, I assume this method  
+        // is invoked for 'module' that told 'exports(BM_Generator)' true, and therefore we've already checked generator is managed  
+        // and is part of this layout module, therefore I don't check isManagedBy() once again. 
         // XXX utilize values calculated above in unpack() 
         // try pre-calculated location 
         String layoutRelativePath = helper.getLayoutRelativePath(__thisNode__, node);
@@ -71,10 +75,12 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
           return layoutRelativePath;
         }
         // fallback to default path calculation, which doesn't respect multiple generators per language, by the way. 
-        return languageLocation.substring(0, languageLocation.length() - ".jar".length()) + "-generator.jar";
+        // FIXME btw, this is the way regular Generator modules get their path I believe (in unpack, only 'managedGenerators' get 
+        //   layoutRelativePath assigned, while the one in .generator does not. Would be great to get some consistency here. 
+        return moduleLocation.substring(0, moduleLocation.length() - ".jar".length()) + "-generator.jar";
       }
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_AbstractModule$FZ)) {
-        return languageLocation;
+        return moduleLocation;
       }
     }
     return ((String) BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invokeSuper(__thisNode__, CONCEPTS.BuildMpsLayout_ModuleJars$MZ, helper, artifactId));
@@ -82,11 +88,14 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object object) {
     if (object instanceof SNode) {
       SNode node = (SNode) object;
-      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$RQ)) {
-        return SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT) == BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(SNodeOperations.cast(node, CONCEPTS.BuildMps_Generator$RQ));
+      if (SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT) == node) {
+        return true;
       }
-      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_AbstractModule$FZ)) {
-        return SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT) == node;
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$RQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT), CONCEPTS.BuildMps_Language$RA)) {
+        // layout 'module' for a language exports managed generators for the language (those that share mpl). 
+        SNode generator = SNodeOperations.cast(node, CONCEPTS.BuildMps_Generator$RQ);
+        SNode sourceLanguage = BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(generator);
+        return SLinkOperations.getTarget(__thisNode__, LINKS.module$iRYT) == sourceLanguage && (boolean) BuildMps_Generator__BehaviorDescriptor.isManagedBy_idtxX2LHveIs.invoke(generator, sourceLanguage);
       }
     }
     return false;
