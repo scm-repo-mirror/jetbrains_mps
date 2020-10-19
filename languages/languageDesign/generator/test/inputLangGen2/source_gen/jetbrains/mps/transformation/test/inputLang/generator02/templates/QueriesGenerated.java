@@ -9,9 +9,9 @@ import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -52,8 +52,7 @@ public class QueriesGenerated {
     return _context.getOutputNodeByInputNodeAndMappingLabel(((SNode) _context.getVariable("var:METH")), "TRACE");
   }
   public static SNode sourceNodeQuery_4_0(final SourceSubstituteMacroNodeContext _context) {
-    // FIXME type calculation for macros inside CALL doesn't work 
-    return SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), CONCEPTS.RefTestParamRef$2I), LINKS.declaration$YvWB);
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.declaration$YvWB);
   }
   public static Object templateArgumentQuery_4_0(final TemplateArgumentContext _context) {
     return ((Integer) _context.getVariable("cv:n"));

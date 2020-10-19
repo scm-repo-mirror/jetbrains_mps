@@ -986,7 +986,9 @@
         <node concept="3cpWs8" id="h9Wp731" role="3cqZAp">
           <node concept="3cpWsn" id="h9Wp732" role="3cpWs9">
             <property role="TrG5h" value="applicableConcept" />
-            <node concept="3THzug" id="h9Wp733" role="1tU5fm" />
+            <node concept="3Tqbb2" id="5Bf6l8_oVMH" role="1tU5fm">
+              <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
+            </node>
             <node concept="2YIFZM" id="h9Wp734" role="33vP2m">
               <ref role="1Pybhc" to="75ov:6DGMsbSrHyP" resolve="QueriesUtil" />
               <ref role="37wK5l" to="75ov:h9IdQSx" resolve="getApplicableConcept_fromEnvironment" />
@@ -1247,33 +1249,19 @@
               <property role="1BlNFB" value="true" />
               <node concept="2OqwBi" id="56bBCaWR8n_" role="1m5AlR">
                 <node concept="2OqwBi" id="56bBCaWPyGq" role="2Oq$k0">
-                  <node concept="37vLTw" id="Dv6a8BsG_M" role="2Oq$k0">
-                    <ref role="3cqZAo" node="h9I2oFT" resolve="attributes" />
+                  <node concept="2OqwBi" id="5Bf6l8_oMQe" role="2Oq$k0">
+                    <node concept="37vLTw" id="Dv6a8BsG_M" role="2Oq$k0">
+                      <ref role="3cqZAo" node="h9I2oFT" resolve="attributes" />
+                    </node>
+                    <node concept="v3k3i" id="5Bf6l8_oO5W" role="2OqNvi">
+                      <node concept="chp4Y" id="5Bf6l8_oOg3" role="v3oSu">
+                        <ref role="cht4Q" to="tpf8:gZJkJnJ" resolve="SourceSubstituteMacro" />
+                      </node>
+                    </node>
                   </node>
                   <node concept="3zZkjj" id="56bBCaWP$er" role="2OqNvi">
                     <node concept="1bVj0M" id="56bBCaWP$et" role="23t8la">
                       <node concept="3clFbS" id="56bBCaWP$eu" role="1bW5cS">
-                        <node concept="3clFbJ" id="4qYevLpT877" role="3cqZAp">
-                          <node concept="3clFbS" id="4qYevLpT87a" role="3clFbx">
-                            <node concept="3cpWs6" id="4qYevLpTdap" role="3cqZAp">
-                              <node concept="3clFbT" id="4qYevLpTeG7" role="3cqZAk">
-                                <property role="3clFbU" value="false" />
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3fqX7Q" id="4qYevLpTcF1" role="3clFbw">
-                            <node concept="2OqwBi" id="4qYevLpTcF3" role="3fr31v">
-                              <node concept="37vLTw" id="4qYevLpTcF4" role="2Oq$k0">
-                                <ref role="3cqZAo" node="56bBCaWP$ev" resolve="it" />
-                              </node>
-                              <node concept="1mIQ4w" id="4qYevLpTcF5" role="2OqNvi">
-                                <node concept="chp4Y" id="4qYevLpTcF6" role="cj9EA">
-                                  <ref role="cht4Q" to="tpf8:gZJkJnJ" resolve="SourceSubstituteMacro" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
                         <node concept="3SKdUt" id="Dv6a8BtOvk" role="3cqZAp">
                           <node concept="1PaTwC" id="ATZLwXnVEo" role="1aUNEU">
                             <node concept="3oM_SD" id="ATZLwXnVEp" role="1PaTwD">
@@ -1393,6 +1381,41 @@
                               <node concept="1mIQ4w" id="56bBCaWQJmw" role="2OqNvi">
                                 <node concept="chp4Y" id="56bBCaWQKke" role="cj9EA">
                                   <ref role="cht4Q" to="tpf8:QzR6Tht7mj" resolve="TemplateSwitchMacro" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbJ" id="5Bf6l8_oLcO" role="3cqZAp">
+                          <node concept="3clFbS" id="5Bf6l8_oLcQ" role="3clFbx">
+                            <node concept="3cpWs6" id="5Bf6l8_oSD3" role="3cqZAp">
+                              <node concept="3clFbT" id="5Bf6l8_oSDL" role="3cqZAk" />
+                            </node>
+                          </node>
+                          <node concept="1Wc70l" id="5Bf6l8_oP2j" role="3clFbw">
+                            <node concept="2OqwBi" id="5Bf6l8_oRjo" role="3uHU7w">
+                              <node concept="2OqwBi" id="5Bf6l8_oQbs" role="2Oq$k0">
+                                <node concept="1PxgMI" id="5Bf6l8_oPH_" role="2Oq$k0">
+                                  <node concept="chp4Y" id="5Bf6l8_oPQQ" role="3oSUPX">
+                                    <ref role="cht4Q" to="tpf8:1jRYachIf5f" resolve="TemplateCallMacro" />
+                                  </node>
+                                  <node concept="37vLTw" id="5Bf6l8_oPpU" role="1m5AlR">
+                                    <ref role="3cqZAo" node="56bBCaWP$ev" resolve="it" />
+                                  </node>
+                                </node>
+                                <node concept="3TrEf2" id="5Bf6l8_oQVv" role="2OqNvi">
+                                  <ref role="3Tt5mk" to="tpf8:1jRYachIjWP" resolve="sourceNodeQuery" />
+                                </node>
+                              </node>
+                              <node concept="3w_OXm" id="5Bf6l8_oSyD" role="2OqNvi" />
+                            </node>
+                            <node concept="2OqwBi" id="5Bf6l8_oLwF" role="3uHU7B">
+                              <node concept="37vLTw" id="5Bf6l8_oLjB" role="2Oq$k0">
+                                <ref role="3cqZAo" node="56bBCaWP$ev" resolve="it" />
+                              </node>
+                              <node concept="1mIQ4w" id="5Bf6l8_oLSu" role="2OqNvi">
+                                <node concept="chp4Y" id="5Bf6l8_oO$A" role="cj9EA">
+                                  <ref role="cht4Q" to="tpf8:1jRYachIf5f" resolve="TemplateCallMacro" />
                                 </node>
                               </node>
                             </node>

@@ -198,14 +198,9 @@
       <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
         <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
       </concept>
-      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
-        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
-        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
-      </concept>
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
       </concept>
-      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
       <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
         <reference id="1138056395725" name="property" index="3TsBF5" />
       </concept>
@@ -543,45 +538,9 @@
                 <property role="34cw8o" value="here we pass site node with template reference to get restored" />
                 <node concept="3NFfHV" id="2k$Qx00M52e" role="31$UT">
                   <node concept="3clFbS" id="2k$Qx00M52f" role="2VODD2">
-                    <node concept="3SKdUt" id="2k$Qx00M66i" role="3cqZAp">
-                      <node concept="1PaTwC" id="2k$Qx00M66j" role="1aUNEU">
-                        <node concept="3oM_SD" id="2k$Qx00M66k" role="1PaTwD">
-                          <property role="3oM_SC" value="FIXME" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M67s" role="1PaTwD">
-                          <property role="3oM_SC" value="type" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M68s" role="1PaTwD">
-                          <property role="3oM_SC" value="calculation" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M6aO" role="1PaTwD">
-                          <property role="3oM_SC" value="for" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M6aY" role="1PaTwD">
-                          <property role="3oM_SC" value="macros" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M68P" role="1PaTwD">
-                          <property role="3oM_SC" value="inside" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M69f" role="1PaTwD">
-                          <property role="3oM_SC" value="CALL" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M69V" role="1PaTwD">
-                          <property role="3oM_SC" value="doesn't" />
-                        </node>
-                        <node concept="3oM_SD" id="2k$Qx00M6an" role="1PaTwD">
-                          <property role="3oM_SC" value="work" />
-                        </node>
-                      </node>
-                    </node>
                     <node concept="3clFbF" id="2k$Qx00M54_" role="3cqZAp">
                       <node concept="2OqwBi" id="2k$Qx00M5QJ" role="3clFbG">
-                        <node concept="1PxgMI" id="2k$Qx00M5DT" role="2Oq$k0">
-                          <node concept="chp4Y" id="2k$Qx00M5Gi" role="3oSUPX">
-                            <ref role="cht4Q" to="tpm0:2S48fJgAlS7" resolve="RefTestParamRef" />
-                          </node>
-                          <node concept="30H73N" id="2k$Qx00M54$" role="1m5AlR" />
-                        </node>
+                        <node concept="30H73N" id="2k$Qx00M54$" role="2Oq$k0" />
                         <node concept="3TrEf2" id="2k$Qx00M61p" role="2OqNvi">
                           <ref role="3Tt5mk" to="tpm0:2S48fJgAlS8" resolve="declaration" />
                         </node>

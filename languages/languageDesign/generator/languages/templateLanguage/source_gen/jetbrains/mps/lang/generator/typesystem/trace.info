@@ -285,10 +285,10 @@
       <node id="3600239310300087322" at="86,32,87,50" concept="5" />
       <node id="5048439575369901229" at="88,14,89,20" concept="12" />
       <node id="1178667158264" at="91,5,92,163" concept="11" />
-      <node id="5097575584232690329" at="95,85,96,23" concept="12" />
-      <node id="747343147892688852" at="97,9,98,100" concept="13" />
-      <node id="5875964423186323995" at="99,198,100,23" concept="12" />
-      <node id="5875964423186430879" at="102,206,103,23" concept="12" />
+      <node id="747343147892688852" at="94,39,95,100" concept="13" />
+      <node id="5875964423186323995" at="96,198,97,23" concept="12" />
+      <node id="5875964423186430879" at="99,206,100,23" concept="12" />
+      <node id="6471419030159985219" at="102,202,103,23" concept="12" />
       <node id="5875964423186225557" at="104,9,105,20" concept="12" />
       <node id="7376433222636453541" at="107,50,108,16" concept="13" />
       <node id="1178667656177" at="109,28,110,23" concept="12" />
@@ -395,23 +395,25 @@
       <node id="1178666070052" at="287,0,288,0" concept="15" trace="IfMacro$Xy" />
       <node id="1178666070052" at="288,0,289,0" concept="15" trace="SourceSubstituteMacro$Uv" />
       <node id="1178666070052" at="289,0,290,0" concept="15" trace="TemplateSwitchMacro$3G" />
-      <node id="1178666070052" at="290,0,291,0" concept="15" trace="TemplateFragment$eq" />
-      <node id="1178666070052" at="291,0,292,0" concept="15" trace="SNodeListType$Qe" />
-      <node id="1178666070052" at="292,0,293,0" concept="15" trace="SNodeType$hR" />
-      <node id="1178666070052" at="293,0,294,0" concept="15" trace="SequenceType$_s" />
-      <node id="1178666070052" at="297,0,298,0" concept="15" trace="sourceNodeQuery$n0M9" />
-      <node id="1178666070052" at="298,0,299,0" concept="15" trace="sourceNodesQuery$Em90" />
-      <node id="1178666070052" at="299,0,300,0" concept="15" trace="alternativeConsequence$5VBt" />
-      <node id="1178666070052" at="300,0,301,0" concept="15" trace="sourceNodeQuery$eJXb" />
-      <node id="1178666070052" at="301,0,302,0" concept="15" trace="elementConcept$hlru" />
-      <node id="1178666070052" at="302,0,303,0" concept="15" trace="elementType$KpjL" />
+      <node id="1178666070052" at="290,0,291,0" concept="15" trace="TemplateCallMacro$qa" />
+      <node id="1178666070052" at="291,0,292,0" concept="15" trace="TemplateFragment$eq" />
+      <node id="1178666070052" at="292,0,293,0" concept="15" trace="SNodeListType$Qe" />
+      <node id="1178666070052" at="293,0,294,0" concept="15" trace="SNodeType$hR" />
+      <node id="1178666070052" at="294,0,295,0" concept="15" trace="SequenceType$_s" />
+      <node id="1178666070052" at="298,0,299,0" concept="15" trace="sourceNodeQuery$n0M9" />
+      <node id="1178666070052" at="299,0,300,0" concept="15" trace="sourceNodesQuery$Em90" />
+      <node id="1178666070052" at="300,0,301,0" concept="15" trace="alternativeConsequence$5VBt" />
+      <node id="1178666070052" at="301,0,302,0" concept="15" trace="sourceNodeQuery$eJXb" />
+      <node id="1178666070052" at="302,0,303,0" concept="15" trace="sourceNodeQuery$r9Sk" />
+      <node id="1178666070052" at="303,0,304,0" concept="15" trace="elementConcept$hlru" />
+      <node id="1178666070052" at="304,0,305,0" concept="15" trace="elementType$KpjL" />
       <node id="2659827026790876290" at="31,0,33,0" concept="3" trace="QueriesUtil#()V" />
       <node id="5048439575369901191" at="88,12,90,7" concept="1" />
       <node id="1178667729634" at="74,91,77,5" concept="9" />
       <node id="5220804608733395788" at="79,53,82,7" concept="9" />
-      <node id="5097575584232669639" at="94,39,97,9" concept="9" />
-      <node id="5875964423186042686" at="98,100,101,9" concept="9" />
-      <node id="5875964423186331846" at="101,9,104,9" concept="9" />
+      <node id="5875964423186042686" at="95,100,98,9" concept="9" />
+      <node id="5875964423186331846" at="98,9,101,9" concept="9" />
+      <node id="6471419030159954740" at="101,9,104,9" concept="9" />
       <node id="1178667637097" at="108,16,111,5" concept="9" />
       <node id="1226663292707" at="196,70,199,5" concept="9" />
       <node id="1226663373830" at="211,118,214,11" concept="9" />
@@ -463,9 +465,9 @@
       <scope id="1178667729635" at="75,23,76,18" />
       <scope id="5220804608733395789" at="80,93,81,20" />
       <scope id="5048439575369901192" at="88,14,89,20" />
-      <scope id="5097575584232669642" at="95,85,96,23" />
-      <scope id="5875964423186042687" at="99,198,100,23" />
-      <scope id="5875964423186331849" at="102,206,103,23" />
+      <scope id="5875964423186042687" at="96,198,97,23" />
+      <scope id="5875964423186331849" at="99,206,100,23" />
+      <scope id="6471419030159954742" at="102,202,103,23" />
       <scope id="1178667637098" at="109,28,110,23" />
       <scope id="1225935546112" at="158,27,159,57" />
       <scope id="1225935546088" at="160,28,161,37" />
@@ -630,13 +632,13 @@
       <scope id="1225934547830" at="114,0,174,0">
         <var name="node" id="1225934589038" />
       </scope>
-      <unit id="1178666070052" at="296,0,304,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$LINKS" />
-      <unit id="5875964423186039709" at="93,85,107,5" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$1" />
-      <unit id="1178666070052" at="277,0,295,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$CONCEPTS" />
+      <unit id="1178666070052" at="297,0,306,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$LINKS" />
+      <unit id="5875964423186039709" at="93,147,107,5" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$1" />
+      <unit id="1178666070052" at="277,0,296,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$CONCEPTS" />
       <unit id="1225935546088" at="120,23,167,13" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$2$1$1" />
       <unit id="1225935546088" at="118,19,169,9" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$2$1" />
       <unit id="1225935546088" at="116,114,171,5" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil$2" />
-      <unit id="1178666070052" at="30,0,305,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil" />
+      <unit id="1178666070052" at="30,0,307,0" name="jetbrains.mps.lang.generator.typesystem.QueriesUtil" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)/1195601047105">
