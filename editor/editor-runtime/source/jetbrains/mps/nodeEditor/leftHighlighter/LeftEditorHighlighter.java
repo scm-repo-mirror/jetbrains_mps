@@ -80,7 +80,7 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
   public static final String ICON_AREA = "LeftEditorHighlighterIconArea";
 
   private static final int MIN_LEFT_TEXT_WIDTH = 0;
-  private static final int MIN_LEFT_FOLDING_AREA_WIDTH = 7;
+  private static final int MIN_LEFT_FOLDING_AREA_WIDTH = 10;
   private static final int MIN_RIGHT_FOLDING_AREA_WIDTH = 4;
   private static final int FOLDING_LINE_WIDTH = 1;
   private static final Comparator<AbstractHighlighterPainter> PAINTERS_COMPARATOR = (painter1, painter2) -> {

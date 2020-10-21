@@ -50,6 +50,7 @@
     <classNode dependClassName="com.intellij.openapi.editor.colors.EditorColors" />
     <classNode dependClassName="com.intellij.openapi.editor.colors.EditorColorsManager" />
     <classNode dependClassName="com.intellij.openapi.editor.colors.EditorColorsScheme" />
+    <classNode dependClassName="com.intellij.openapi.editor.colors.TextAttributesKey" />
     <classNode dependClassName="com.intellij.openapi.vcs.FileStatus" />
     <classNode dependClassName="java.awt.Color" />
     <classNode dependClassName="java.util.EnumMap" />

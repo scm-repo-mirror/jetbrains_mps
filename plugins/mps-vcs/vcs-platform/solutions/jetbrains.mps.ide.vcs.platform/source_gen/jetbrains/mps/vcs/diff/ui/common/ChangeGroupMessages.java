@@ -71,7 +71,7 @@ public class ChangeGroupMessages {
     }
     @Override
     public Color getColor() {
-      return ChangeColors.getInstance().getDiffColor(myChangeGroup.getChangeType());
+      return ChangeColors.getInstance().getErrorStripeColor(myChangeGroup.getChangeType());
     }
     @Override
     public String getMessage() {

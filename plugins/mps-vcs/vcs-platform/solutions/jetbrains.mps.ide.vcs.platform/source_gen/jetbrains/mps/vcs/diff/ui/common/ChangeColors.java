@@ -17,12 +17,14 @@ import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import com.intellij.openapi.editor.colors.EditorColors;
+import com.intellij.openapi.editor.colors.TextAttributesKey;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748335554", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public class ChangeColors {
   private final Map<ChangeType, Color> myDiffColors = new EnumMap<ChangeType, Color>(ChangeType.class);
   private final Map<ChangeType, Color> myTreeColors = new EnumMap<ChangeType, Color>(ChangeType.class);
   private final Map<ChangeType, Color> myGutterColors = new EnumMap<ChangeType, Color>(ChangeType.class);
+  private final Map<ChangeType, Color> myErrorStripeColors = new EnumMap<ChangeType, Color>(ChangeType.class);
 
 
   private ChangeColors() {
@@ -43,6 +45,10 @@ public class ChangeColors {
 
   public Color getGutterColor(@NotNull ChangeType changeType) {
     return MapSequence.fromMap(myGutterColors).get(changeType);
+  }
+
+  public Color getErrorStripeColor(@NotNull ChangeType changeType) {
+    return MapSequence.fromMap(myErrorStripeColors).get(changeType);
   }
 
   @NotNull
@@ -72,5 +78,10 @@ public class ChangeColors {
     MapSequence.fromMap(myGutterColors).put(ChangeType.DELETE, scheme.getColor(EditorColors.DELETED_LINES_COLOR));
 
     MapSequence.fromMap(myGutterColors).put(ChangeType.CHANGE, scheme.getColor(EditorColors.MODIFIED_LINES_COLOR));
+
+    MapSequence.fromMap(myErrorStripeColors).put(ChangeType.ADD, scheme.getAttributes(TextAttributesKey.createTextAttributesKey("DIFF_INSERTED")).getErrorStripeColor());
+    MapSequence.fromMap(myErrorStripeColors).put(ChangeType.DELETE, scheme.getAttributes(TextAttributesKey.createTextAttributesKey("DIFF_DELETED")).getErrorStripeColor());
+    MapSequence.fromMap(myErrorStripeColors).put(ChangeType.CHANGE, scheme.getAttributes(TextAttributesKey.createTextAttributesKey("DIFF_MODIFIED")).getErrorStripeColor());
+
   }
 }

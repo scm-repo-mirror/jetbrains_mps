@@ -395,66 +395,78 @@
   </root>
   <root nodeRef="r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748335554">
     <file name="ChangeColors.java">
-      <node id="4118552866282037253" at="23,0,24,0" concept="7" trace="myDiffColors" />
-      <node id="4118552866282039716" at="24,0,25,0" concept="7" trace="myTreeColors" />
-      <node id="4118552866282042263" at="25,0,26,0" concept="7" trace="myGutterColors" />
-      <node id="6907471409115096436" at="28,26,29,76" concept="6" />
-      <node id="4652592318748335612" at="29,76,30,87" concept="6" />
-      <node id="4652592318748335625" at="30,87,31,92" concept="6" />
-      <node id="4652592318748335638" at="31,92,32,93" concept="6" />
-      <node id="4652592318748335651" at="32,93,33,110" concept="6" />
-      <node id="4118552866281746225" at="36,44,37,78" concept="13" />
-      <node id="4118552866281740945" at="40,61,41,61" concept="13" />
-      <node id="4118552866281768251" at="44,63,45,63" concept="13" />
-      <node id="4118552866281967156" at="49,61,50,61" concept="13" />
-      <node id="4118552866282023641" at="53,76,54,0" concept="15" />
-      <node id="4118552866282023646" at="56,56,57,15" concept="13" />
-      <node id="4118552866282023650" at="58,7,59,67" concept="6" />
-      <node id="4118552866282023659" at="60,5,61,0" concept="15" />
-      <node id="4118552866282023660" at="61,0,62,156" concept="6" />
-      <node id="4118552866282023672" at="62,156,63,0" concept="15" />
-      <node id="4118552866282023673" at="63,0,64,158" concept="6" />
-      <node id="4118552866282023685" at="64,158,65,0" concept="15" />
-      <node id="4118552866282023686" at="65,0,66,159" concept="6" />
-      <node id="4118552866282023698" at="66,159,67,0" concept="15" />
-      <node id="4118552866282023699" at="67,0,68,163" concept="6" />
-      <node id="4118552866282023711" at="68,163,69,0" concept="15" />
-      <node id="4118552866282023712" at="69,0,70,109" concept="6" />
-      <node id="4118552866282023721" at="70,109,71,0" concept="15" />
-      <node id="4118552866282023722" at="71,0,72,114" concept="6" />
-      <node id="4118552866282023731" at="72,114,73,0" concept="15" />
-      <node id="4118552866282023732" at="73,0,74,115" concept="6" />
-      <node id="4118552866281753010" at="36,0,39,0" concept="17" trace="getInstance#()Ljetbrains/mps/vcs/diff/ui/common/ChangeColors;" />
-      <node id="4118552866281731026" at="40,0,43,0" concept="11" trace="getDiffColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
-      <node id="4118552866281768245" at="44,0,47,0" concept="11" trace="getGutterColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
-      <node id="4118552866282023644" at="55,25,58,7" concept="10" />
-      <node id="4118552866281967148" at="48,0,52,0" concept="11" trace="getTreeColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
-      <node id="4118552866282023642" at="54,0,60,5" concept="10" />
-      <node id="4652592318748335600" at="28,0,35,0" concept="3" trace="ChangeColors#()V" />
-      <node id="4118552866282023638" at="53,0,76,0" concept="11" trace="updateEditorColors#(Lcom/intellij/openapi/editor/colors/EditorColorsScheme;)V" />
-      <scope id="4118552866281753013" at="36,44,37,78" />
-      <scope id="4118552866281731030" at="40,61,41,61" />
-      <scope id="4118552866281768250" at="44,63,45,63" />
-      <scope id="4118552866281967155" at="49,61,50,61" />
-      <scope id="4118552866282023645" at="56,56,57,15" />
-      <scope id="4118552866281753010" at="36,0,39,0" />
-      <scope id="4118552866281731026" at="40,0,43,0">
+      <node id="4118552866282037253" at="24,0,25,0" concept="7" trace="myDiffColors" />
+      <node id="4118552866282039716" at="25,0,26,0" concept="7" trace="myTreeColors" />
+      <node id="4118552866282042263" at="26,0,27,0" concept="7" trace="myGutterColors" />
+      <node id="2742736951774500017" at="27,0,28,0" concept="7" trace="myErrorStripeColors" />
+      <node id="6907471409115096436" at="30,26,31,76" concept="6" />
+      <node id="4652592318748335612" at="31,76,32,87" concept="6" />
+      <node id="4652592318748335625" at="32,87,33,92" concept="6" />
+      <node id="4652592318748335638" at="33,92,34,93" concept="6" />
+      <node id="4652592318748335651" at="34,93,35,110" concept="6" />
+      <node id="4118552866281746225" at="38,44,39,78" concept="13" />
+      <node id="4118552866281740945" at="42,61,43,61" concept="13" />
+      <node id="4118552866281768251" at="46,63,47,63" concept="13" />
+      <node id="2742736951774611332" at="50,68,51,68" concept="13" />
+      <node id="4118552866281967156" at="55,61,56,61" concept="13" />
+      <node id="4118552866282023641" at="59,76,60,0" concept="15" />
+      <node id="4118552866282023646" at="62,56,63,15" concept="13" />
+      <node id="4118552866282023650" at="64,7,65,67" concept="6" />
+      <node id="4118552866282023659" at="66,5,67,0" concept="15" />
+      <node id="4118552866282023660" at="67,0,68,156" concept="6" />
+      <node id="4118552866282023672" at="68,156,69,0" concept="15" />
+      <node id="4118552866282023673" at="69,0,70,158" concept="6" />
+      <node id="4118552866282023685" at="70,158,71,0" concept="15" />
+      <node id="4118552866282023686" at="71,0,72,159" concept="6" />
+      <node id="4118552866282023698" at="72,159,73,0" concept="15" />
+      <node id="4118552866282023699" at="73,0,74,163" concept="6" />
+      <node id="4118552866282023711" at="74,163,75,0" concept="15" />
+      <node id="4118552866282023712" at="75,0,76,109" concept="6" />
+      <node id="4118552866282023721" at="76,109,77,0" concept="15" />
+      <node id="4118552866282023722" at="77,0,78,114" concept="6" />
+      <node id="4118552866282023731" at="78,114,79,0" concept="15" />
+      <node id="4118552866282023732" at="79,0,80,115" concept="6" />
+      <node id="2742736951774569550" at="80,115,81,0" concept="15" />
+      <node id="2742736951774570817" at="81,0,82,169" concept="6" />
+      <node id="2742736951774570808" at="82,169,83,171" concept="6" />
+      <node id="2742736951774570799" at="83,171,84,172" concept="6" />
+      <node id="2742736951774569650" at="84,172,85,0" concept="15" />
+      <node id="4118552866281753010" at="38,0,41,0" concept="17" trace="getInstance#()Ljetbrains/mps/vcs/diff/ui/common/ChangeColors;" />
+      <node id="4118552866281731026" at="42,0,45,0" concept="11" trace="getDiffColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="4118552866281768245" at="46,0,49,0" concept="11" trace="getGutterColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="2742736951774611330" at="50,0,53,0" concept="11" trace="getErrorStripeColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="4118552866282023644" at="61,25,64,7" concept="10" />
+      <node id="4118552866281967148" at="54,0,58,0" concept="11" trace="getTreeColor#(Ljetbrains/mps/vcs/diff/changes/ChangeType;)Ljava/awt/Color;" />
+      <node id="4118552866282023642" at="60,0,66,5" concept="10" />
+      <node id="4652592318748335600" at="30,0,37,0" concept="3" trace="ChangeColors#()V" />
+      <node id="4118552866282023638" at="59,0,87,0" concept="11" trace="updateEditorColors#(Lcom/intellij/openapi/editor/colors/EditorColorsScheme;)V" />
+      <scope id="4118552866281753013" at="38,44,39,78" />
+      <scope id="4118552866281731030" at="42,61,43,61" />
+      <scope id="4118552866281768250" at="46,63,47,63" />
+      <scope id="2742736951774611331" at="50,68,51,68" />
+      <scope id="4118552866281967155" at="55,61,56,61" />
+      <scope id="4118552866282023645" at="62,56,63,15" />
+      <scope id="4118552866281753010" at="38,0,41,0" />
+      <scope id="4118552866281731026" at="42,0,45,0">
         <var name="changeType" id="4118552866281739424" />
       </scope>
-      <scope id="4118552866281768245" at="44,0,47,0">
+      <scope id="4118552866281768245" at="46,0,49,0">
         <var name="changeType" id="4118552866281768247" />
       </scope>
-      <scope id="4118552866281967148" at="48,0,52,0">
+      <scope id="2742736951774611330" at="50,0,53,0">
+        <var name="changeType" id="2742736951774611337" />
+      </scope>
+      <scope id="4118552866281967148" at="54,0,58,0">
         <var name="changeType" id="4118552866281967152" />
       </scope>
-      <scope id="4118552866282023643" at="55,25,59,67" />
-      <scope id="4652592318748335603" at="28,26,33,110" />
-      <scope id="4652592318748335600" at="28,0,35,0" />
-      <scope id="4118552866282023640" at="53,76,74,115" />
-      <scope id="4118552866282023638" at="53,0,76,0">
+      <scope id="4118552866282023643" at="61,25,65,67" />
+      <scope id="4652592318748335603" at="30,26,35,110" />
+      <scope id="4652592318748335600" at="30,0,37,0" />
+      <scope id="4118552866282023640" at="59,76,85,0" />
+      <scope id="4118552866282023638" at="59,0,87,0">
         <var name="scheme" id="4118552866282023742" />
       </scope>
-      <unit id="4652592318748335554" at="21,0,77,0" name="jetbrains.mps.vcs.diff.ui.common.ChangeColors" />
+      <unit id="4652592318748335554" at="22,0,88,0" name="jetbrains.mps.vcs.diff.ui.common.ChangeColors" />
     </file>
   </root>
   <root nodeRef="r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748335691">
@@ -3797,7 +3809,7 @@
       <node id="739457190729183550" at="64,0,65,0" concept="7" trace="myChangeGroup" />
       <node id="739457190729183561" at="65,59,66,34" concept="6" />
       <node id="3477558405266190225" at="69,42,70,42" concept="13" />
-      <node id="739457190729183572" at="73,29,74,84" concept="13" />
+      <node id="739457190729183572" at="73,29,74,91" concept="13" />
       <node id="8729212764665833751" at="77,32,78,16" concept="13" />
       <node id="739457190729183599" at="81,81,82,59" concept="13" />
       <node id="739457190729183586" at="85,82,86,54" concept="13" />
@@ -3833,7 +3845,7 @@
       <scope id="739457190729183619" at="54,41,55,51" />
       <scope id="739457190729183558" at="65,59,66,34" />
       <scope id="739457190729183523" at="69,42,70,42" />
-      <scope id="739457190729183527" at="73,29,74,84" />
+      <scope id="739457190729183527" at="73,29,74,91" />
       <scope id="739457190729183531" at="77,32,78,16" />
       <scope id="739457190729183543" at="81,81,82,59" />
       <scope id="739457190729183537" at="85,82,86,54" />
