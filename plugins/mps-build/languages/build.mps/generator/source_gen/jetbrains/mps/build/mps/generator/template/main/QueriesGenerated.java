@@ -1684,7 +1684,7 @@ public class QueriesGenerated extends QueryProviderBase {
     String artifact = "ant-mps";
     SNode jmAntJar = helper.getArtifact(artifact);
     if ((jmAntJar != null)) {
-      return BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(jmAntJar, helper, artifact);
+      return helper.getLocation(jmAntJar);
     }
     if (!(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.macros$r8_A)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -1700,7 +1700,7 @@ public class QueriesGenerated extends QueryProviderBase {
     String artifact = "jdom";
     SNode jar = helper.getArtifact(artifact);
     if ((jar != null)) {
-      return BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(jar, helper, artifact);
+      return helper.getLocation(jar);
     }
     if (!(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.macros$r8_A)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -1716,7 +1716,7 @@ public class QueriesGenerated extends QueryProviderBase {
     String artifact = "log4j";
     SNode jar = helper.getArtifact(artifact);
     if ((jar != null)) {
-      return BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(jar, helper, artifact);
+      return helper.getLocation(jar);
     }
     if (!(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.macros$r8_A)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {

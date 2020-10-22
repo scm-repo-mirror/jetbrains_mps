@@ -1242,6 +1242,55 @@
                     </node>
                   </node>
                 </node>
+                <node concept="3SKdUt" id="7anWVWZAvFI" role="3cqZAp">
+                  <node concept="1PaTwC" id="7anWVWZAvFJ" role="1aUNEU">
+                    <node concept="3oM_SD" id="7anWVWZAvFK" role="1PaTwD">
+                      <property role="3oM_SC" value="XXX" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvIQ" role="1PaTwD">
+                      <property role="3oM_SC" value="seems" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJ1" role="1PaTwD">
+                      <property role="3oM_SC" value="that" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJ5" role="1PaTwD">
+                      <property role="3oM_SC" value="there's" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJa" role="1PaTwD">
+                      <property role="3oM_SC" value="no" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJg" role="1PaTwD">
+                      <property role="3oM_SC" value="use" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJv" role="1PaTwD">
+                      <property role="3oM_SC" value="for" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvJJ" role="1PaTwD">
+                      <property role="3oM_SC" value="artifact" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvK8" role="1PaTwD">
+                      <property role="3oM_SC" value="labeled" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvKq" role="1PaTwD">
+                      <property role="3oM_SC" value="'mps-test'" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvL5" role="1PaTwD">
+                      <property role="3oM_SC" value="any" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvLp" role="1PaTwD">
+                      <property role="3oM_SC" value="more," />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvLA" role="1PaTwD">
+                      <property role="3oM_SC" value="reduce_TestModules" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvMG" role="1PaTwD">
+                      <property role="3oM_SC" value="uses" />
+                    </node>
+                    <node concept="3oM_SD" id="7anWVWZAvMV" role="1PaTwD">
+                      <property role="3oM_SC" value="mps-test-folder" />
+                    </node>
+                  </node>
+                </node>
                 <node concept="3clFbF" id="akLgX4sVOP" role="3cqZAp">
                   <node concept="2OqwBi" id="akLgX4sVOR" role="3clFbG">
                     <node concept="37vLTw" id="3GM_nagT$nY" role="2Oq$k0">

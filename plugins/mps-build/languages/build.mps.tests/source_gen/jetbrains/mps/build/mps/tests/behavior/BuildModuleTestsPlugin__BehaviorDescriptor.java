@@ -58,6 +58,7 @@ public final class BuildModuleTestsPlugin__BehaviorDescriptor extends BaseBHDesc
       if ((mpsTestJar != null)) {
         // specify explicitly what we need maybe? 
         helper.putArtifact("mps-test-folder", SNodeOperations.as(SNodeOperations.getParent(mpsTestJar), CONCEPTS.BuildLayout_Folder$AH));
+        // XXX seems that there's no use for artifact labeled 'mps-test' any more, reduce_TestModules uses mps-test-folder 
         helper.putArtifact("mps-test", mpsTestJar);
         builder.add(mpsTestJar);
       }

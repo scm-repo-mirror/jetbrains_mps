@@ -9,7 +9,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.build.util.DependenciesHelper;
-import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.build.util.MacroHelper;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
@@ -72,9 +71,9 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     DependenciesHelper helper = new DependenciesHelper(_context, project);
     String artifact = "mps-test-folder";
-    SNode mpsTestJar = helper.getArtifact(artifact);
-    if ((mpsTestJar != null)) {
-      return BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(mpsTestJar, helper, artifact);
+    SNode mpsTestJarFolder = helper.getArtifact(artifact);
+    if ((mpsTestJarFolder != null)) {
+      return helper.getLocation(mpsTestJarFolder);
     }
     return _context.getTemplateValue();
   }

@@ -110,6 +110,8 @@ public class DependenciesHelper {
   }
 
   public SNode getArtifact(String id) {
+    // it seems that the only use of this method is to access our own 'labeled' jars (those we record in fetchDependencies of mps/mps-testing build plugins). 
+    // these 'labeled' dependencies are in fact just 'implicit' dependencies that are not present in a build project but are necessary for its parts to function 
     return SNodeOperations.as(idToArtifactMap.get(id), CONCEPTS.BuildLayout_Node$Rb);
   }
 

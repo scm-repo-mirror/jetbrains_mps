@@ -812,9 +812,9 @@
                             </node>
                             <node concept="3cpWs8" id="2TqXzNe_cV$" role="3cqZAp">
                               <node concept="3cpWsn" id="2TqXzNe_cV_" role="3cpWs9">
-                                <property role="TrG5h" value="mpsTestJar" />
+                                <property role="TrG5h" value="mpsTestJarFolder" />
                                 <node concept="3Tqbb2" id="2TqXzNe_cVA" role="1tU5fm">
-                                  <ref role="ehGHo" to="3ior:6bGbH3Svq63" resolve="BuildLayout_PathElement" />
+                                  <ref role="ehGHo" to="3ior:6qcrfIJF4M5" resolve="BuildLayout_Node" />
                                 </node>
                                 <node concept="2OqwBi" id="2TqXzNe_cVB" role="33vP2m">
                                   <node concept="37vLTw" id="3GM_nagTAJ$" role="2Oq$k0">
@@ -832,17 +832,14 @@
                             <node concept="3clFbJ" id="2TqXzNe_cVH" role="3cqZAp">
                               <node concept="3clFbS" id="2TqXzNe_cVI" role="3clFbx">
                                 <node concept="3cpWs6" id="2TqXzNe_cWQ" role="3cqZAp">
-                                  <node concept="2OqwBi" id="2TqXzNe_cVM" role="3cqZAk">
-                                    <node concept="37vLTw" id="3GM_nagTzqG" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="2TqXzNe_cV_" resolve="mpsTestJar" />
+                                  <node concept="2OqwBi" id="7anWVWZAqg9" role="3cqZAk">
+                                    <node concept="37vLTw" id="7anWVWZApZY" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="2TqXzNe_cVq" resolve="helper" />
                                     </node>
-                                    <node concept="2qgKlT" id="2TqXzNe_cVO" role="2OqNvi">
-                                      <ref role="37wK5l" to="vbkb:6b4RkXS8sT2" resolve="location" />
-                                      <node concept="37vLTw" id="3GM_nagTrMr" role="37wK5m">
-                                        <ref role="3cqZAo" node="2TqXzNe_cVq" resolve="helper" />
-                                      </node>
-                                      <node concept="37vLTw" id="3GM_nagTx3M" role="37wK5m">
-                                        <ref role="3cqZAo" node="2TqXzNe_cVx" resolve="artifact" />
+                                    <node concept="liA8E" id="7anWVWZAqGy" role="2OqNvi">
+                                      <ref role="37wK5l" to="o3n2:4g7NqzBtxkQ" resolve="getLocation" />
+                                      <node concept="37vLTw" id="7anWVWZAqPQ" role="37wK5m">
+                                        <ref role="3cqZAo" node="2TqXzNe_cV_" resolve="mpsTestJarFolder" />
                                       </node>
                                     </node>
                                   </node>
@@ -850,7 +847,7 @@
                               </node>
                               <node concept="2OqwBi" id="2TqXzNe_cWg" role="3clFbw">
                                 <node concept="37vLTw" id="3GM_nagTsL$" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="2TqXzNe_cV_" resolve="mpsTestJar" />
+                                  <ref role="3cqZAo" node="2TqXzNe_cV_" resolve="mpsTestJarFolder" />
                                 </node>
                                 <node concept="3x8VRR" id="2TqXzNe_cWi" role="2OqNvi" />
                               </node>
