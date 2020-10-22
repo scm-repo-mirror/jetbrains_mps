@@ -34,9 +34,8 @@ public final class BuildLayout_NamedContainer__BehaviorDescriptor extends BaseBH
   public static final SMethod<String> getOutputPath_WithMacro_idfzIHCHip1Q = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOutputPath_WithMacro").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("fzIHCHip1Q").build(SMethodBuilder.createJavaParameter(Context.class, ""));
   public static final SMethod<String> getApproximateName_id4RsV8qJH_Br = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getApproximateName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4RsV8qJH_Br").build();
   public static final SMethod<Boolean> isValidPart_id7XQqoCTkVIS = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isValidPart").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7XQqoCTkVIS").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
-  public static final SMethod<Boolean> hasInputDir_id1653mnvAgqQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasInputDir").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgqQ").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(appendName_id1bWeed$ownT, getChildrenOutputDir_WithMacro_id450ejGzh8bb, getOutputPath_WithMacro_idfzIHCHip1Q, getApproximateName_id4RsV8qJH_Br, isValidPart_id7XQqoCTkVIS, hasInputDir_id1653mnvAgqQ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(appendName_id1bWeed$ownT, getChildrenOutputDir_WithMacro_id450ejGzh8bb, getOutputPath_WithMacro_idfzIHCHip1Q, getApproximateName_id4RsV8qJH_Br, isValidPart_id7XQqoCTkVIS);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -63,9 +62,6 @@ public final class BuildLayout_NamedContainer__BehaviorDescriptor extends BaseBH
   }
   /*package*/ static boolean isValidPart_id7XQqoCTkVIS(@NotNull SNode __thisNode__, String propertyValue, SContainmentLink role) {
     return !((propertyValue.contains("$") || propertyValue.contains("/") || propertyValue.contains("\\")));
-  }
-  /*package*/ static boolean hasInputDir_id1653mnvAgqQ(@NotNull SAbstractConcept __thisConcept__) {
-    return false;
   }
 
   /*package*/ BuildLayout_NamedContainer__BehaviorDescriptor() {
@@ -106,8 +102,6 @@ public final class BuildLayout_NamedContainer__BehaviorDescriptor extends BaseBH
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 5:
-        return (T) ((Boolean) hasInputDir_id1653mnvAgqQ(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
