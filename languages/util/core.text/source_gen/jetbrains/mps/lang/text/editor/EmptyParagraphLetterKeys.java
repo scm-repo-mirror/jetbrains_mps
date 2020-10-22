@@ -69,7 +69,7 @@ public class EmptyParagraphLetterKeys extends KeyMapImpl {
       ListSequence.fromList(SLinkOperations.getChildren(f, LINKS.letters$rNyA)).clear();
       Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(f);
       SNodeOperations.insertNextSiblingChild(holder, copy);
-      SelectionUtil.selectCell(editorContext, copy, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL);
+      SelectionUtil.selectCell(editorContext, ListSequence.fromList(SLinkOperations.getChildren(f, LINKS.letters$rNyA)).first(), SelectionManager.LAST_CELL);
     }
     public String getKeyStroke() {
       return "ctrl ENTER";

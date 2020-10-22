@@ -13,6 +13,11 @@ import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.editor.runtime.style.Padding;
 import jetbrains.mps.editor.runtime.style.Measure;
+import jetbrains.mps.lang.editor.menus.transformation.DefaultTransformationMenuLookup;
+import jetbrains.mps.smodel.language.LanguageRegistry;
+import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class EmptyParagraphLetter_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -40,13 +45,19 @@ import jetbrains.mps.editor.runtime.style.Measure;
     setCellContext(editorCell);
     Style style = new StyleImpl();
     style.set(StyleAttributes.PADDING_LEFT, new Padding(0, Measure.SPACES));
-    style.set(StyleAttributes.EDITABLE, true);
+    style.set(StyleAttributes.EDITABLE, false);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.FIRST_POSITION_ALLOWED, true);
     editorCell.getStyle().putAll(style);
     EmptyLetterActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addKeyMap(new EmptyParagraphLetterKeys());
+    editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.EmptyParagraphLetter$W6));
     editorCell.setDefaultText("");
+    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EmptyParagraphLetter$W6 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x17c01c7f100e844bL, "jetbrains.mps.lang.text.structure.EmptyParagraphLetter");
   }
 }

@@ -10,14 +10,14 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
-import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -45,6 +45,7 @@ public class InsertOnTextualElement {
             SAbstractConcept targetConcept = SNodeOperations.getContainingLink(holder).getTargetConcept();
             SNode newInstance = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(targetConcept));
             SNodeOperations.insertNextSiblingChild(holder, newInstance);
+            SelectionUtil.selectCell(editorContext, newInstance, SelectionManager.FIRST_EDITABLE_CELL);
             return;
           }
           SNode copy = SNodeOperations.insertNextSiblingChild(holder, SNodeOperations.copyNode(holder));
@@ -66,7 +67,7 @@ public class InsertOnTextualElement {
         if (nextLetter != null) {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, nextLetter, SelectionManager.FIRST_CELL, 0);
         } else {
-          SelectionUtil.selectCell(editorContext, next.value, SelectionManager.FIRST_EDITABLE_CELL);
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, ListSequence.fromList(SLinkOperations.getChildren(next.value, LINKS.letters$rNyA)).first(), SelectionManager.FIRST_CELL, 0);
         }
       }
 

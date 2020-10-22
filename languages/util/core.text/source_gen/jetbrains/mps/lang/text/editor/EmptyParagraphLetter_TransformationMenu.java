@@ -20,12 +20,12 @@ import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
 import org.apache.log4j.Logger;
 import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
-import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
+import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -34,14 +34,12 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTransformationMenuPart;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuBase {
-  private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
+  private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
   @Override
   public boolean isApplicableToLocation(@NotNull String location) {
     return SetSequence.fromSet(myLocations).contains(location);
@@ -63,9 +61,8 @@ public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuB
   @NotNull
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
-    if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.SUBSTITUTE).contains(_context.getMenuLocation())) {
+    if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
       result.add(new TMP_Action_mm7vrk_a0());
-      result.add(new TMP_IncludeSM_mm7vrk_b0());
     }
     return result;
   }
@@ -83,7 +80,7 @@ public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuB
       }
       context.getEditorMenuTrace().pushTraceInfo();
       try {
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)", "4949381856255299099")));
+        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)", "3254004994132216456")));
         item.setTraceInfo(context.getEditorMenuTrace().getTraceInfo());
       } finally {
         context.getEditorMenuTrace().popTraceInfo();
@@ -91,7 +88,7 @@ public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuB
       return item;
     }
 
-    private class Item extends ActionItemBase implements SubstituteCompletionActionItem {
+    private class Item extends ActionItemBase implements SideTransformCompletionActionItem {
       private final TransformationMenuContext _context;
       private EditorMenuTraceInfo myEditorMenuTraceInfo;
       private Item(TransformationMenuContext context) {
@@ -112,10 +109,10 @@ public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuB
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode p = SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.Paragraph$XF);
-        SNodeOperations.deleteNode(_context.getNode());
-        SNode l = SLinkOperations.addNewChild(p, LINKS.letters$rNyA, CONCEPTS.Letter$kd);
+        SNode l = SNodeFactoryOperations.createNewNode(CONCEPTS.Letter$kd, _context.getNode());
         SPropertyOperations.assign(l, PROPS.value$X7Tp, pattern);
+        SNodeOperations.insertPrevSiblingChild(_context.getNode(), l);
+        SNodeOperations.deleteNode(_context.getNode());
       }
 
 
@@ -137,30 +134,9 @@ public class EmptyParagraphLetter_TransformationMenu extends TransformationMenuB
     }
 
   }
-  public class TMP_IncludeSM_mm7vrk_b0 extends IncludeSubstituteMenuTransformationMenuPart {
-    @NotNull
-    @Override
-    public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      try {
-        SAbstractConcept targetConcept = getTargetConcept(context);
-        String name = (targetConcept == null ? "" : targetConcept.getName());
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include substitute menu for the link target concept: " + name, new SNodePointer("r:ad87c166-8161-4e40-b79b-3d7ba4070d9e(jetbrains.mps.lang.text.editor)", "7051734917637028968")));
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
-    }
-
-  }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept Paragraph$XF = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph");
     /*package*/ static final SConcept Letter$kd = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, "jetbrains.mps.lang.text.structure.Letter");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink letters$rNyA = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, 0x7ee31bf598f4eddfL, "letters");
   }
 
   private static final class PROPS {
