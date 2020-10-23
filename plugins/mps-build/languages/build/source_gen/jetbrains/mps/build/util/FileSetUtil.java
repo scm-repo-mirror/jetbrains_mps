@@ -9,9 +9,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.build.behavior.BuildLayout_FileSet__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.build.behavior.BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor;
 import java.util.Stack;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
+import jetbrains.mps.build.behavior.BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -62,6 +62,7 @@ public class FileSetUtil {
       }
     });
   }
+
   public static SNode getFilesetLayoutContainer(SNode contextContainer) {
     if (SNodeOperations.isInstanceOf(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ)) {
       return SNodeOperations.cast(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ);
@@ -69,7 +70,7 @@ public class FileSetUtil {
     while (SNodeOperations.isInstanceOf(contextContainer, CONCEPTS.BuildLayout_Folder$AH) || SNodeOperations.isInstanceOf(contextContainer, CONCEPTS.BuildLayout_Filemode$sx)) {
       contextContainer = SNodeOperations.as(SNodeOperations.getParent(contextContainer), CONCEPTS.BuildLayout_Node$Rb);
     }
-    if (SNodeOperations.isInstanceOf(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ) && (boolean) BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.hasPrefixAttribute_id5zIo$W4pFU0.invoke(SNodeOperations.cast(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ))) {
+    if (SNodeOperations.isInstanceOf(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ)) {
       return SNodeOperations.cast(contextContainer, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$KQ);
     }
     return null;
@@ -123,6 +124,7 @@ public class FileSetUtil {
     }
     return null;
   }
+
   public static boolean isExplicit(SNode fileset) {
     return getFilesetLayoutContainer(SNodeOperations.as(SNodeOperations.getParent(fileset), CONCEPTS.BuildLayout_Node$Rb)) == null || !((boolean) BuildLayout_FileSet__BehaviorDescriptor.isImplicit_id19QsrPuCW11.invoke(fileset));
   }
