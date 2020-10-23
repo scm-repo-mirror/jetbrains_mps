@@ -8778,6 +8778,7 @@
       <node concept="3F0ifn" id="gVKbw4B" role="3EZMnx">
         <property role="3F0ifm" value="case" />
         <ref role="1k5W1q" node="hgVS8CF" resolve="KeyWord" />
+        <ref role="1ERwB7" node="4KXXs_wPyWj" resolve="NoInsertForExtensionCases" />
       </node>
       <node concept="3F1sOY" id="gVKbx38" role="3EZMnx">
         <property role="1cu_pB" value="gtgu$YJ/attractsFocus" />
@@ -8785,12 +8786,18 @@
       </node>
       <node concept="3F0ifn" id="gVKb$vP" role="3EZMnx">
         <property role="3F0ifm" value=":" />
+        <ref role="1ERwB7" node="4KXXs_wPyWj" resolve="NoInsertForExtensionCases" />
         <node concept="A1WHu" id="7rQge4j3a6Q" role="3vIgyS">
           <ref role="A1WHt" node="7rQge4j35iy" resolve="addSwitchCaseExtension" />
+        </node>
+        <node concept="11L4FC" id="4KXXs_wL9xE" role="3F10Kt">
+          <property role="VOm3f" value="true" />
         </node>
       </node>
       <node concept="3F2HdR" id="6PiVsHHQyte" role="3EZMnx">
         <ref role="1NtTu8" to="tpee:6PiVsHHQyqV" resolve="switchCaseExtensions" />
+        <ref role="APP_o" node="4KXXs_wPyWj" resolve="NoInsertForExtensionCases" />
+        <ref role="1ERwB7" node="4KXXs_wPyWj" resolve="NoInsertForExtensionCases" />
         <node concept="l2Vlx" id="6PiVsHHQytg" role="2czzBx" />
         <node concept="pkWqt" id="6PiVsHHQytO" role="pqm2j">
           <node concept="3clFbS" id="6PiVsHHQytP" role="2VODD2">
@@ -69410,6 +69417,9 @@
       <node concept="3F0ifn" id="6PiVsHHQfRo" role="3EZMnx">
         <property role="3F0ifm" value=":" />
         <ref role="1ERwB7" node="6PiVsHI4j3G" resolve="DeleteSwitchCaseExtension" />
+        <node concept="11L4FC" id="4KXXs_wL9xH" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="l2Vlx" id="6PiVsHHQfRk" role="2iSdaV" />
     </node>
@@ -69418,6 +69428,19 @@
     <property role="3GE5qa" value="control_flow.if_switch" />
     <property role="TrG5h" value="DeleteSwitchCaseExtension" />
     <ref role="1h_SK9" to="tpee:6PiVsHHQfRc" resolve="SwitchCaseExtension" />
+    <node concept="1hA7zw" id="72zI6F8LM3q" role="1h_SK8">
+      <property role="1hAc7j" value="13S4mXuSN7V/insert_action_id" />
+      <node concept="1hAIg9" id="72zI6F8LM3r" role="1hA7z_">
+        <node concept="3clFbS" id="72zI6F8LM3s" role="2VODD2" />
+      </node>
+      <node concept="jK8Ss" id="72zI6F8LM6B" role="jK8aL">
+        <node concept="3clFbS" id="72zI6F8LM6C" role="2VODD2">
+          <node concept="3clFbF" id="72zI6F8LM7u" role="3cqZAp">
+            <node concept="3clFbT" id="72zI6F8LM7t" role="3clFbG" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="1hA7zw" id="6PiVsHI4j8m" role="1h_SK8">
       <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
       <node concept="1hAIg9" id="6PiVsHI4j8n" role="1hA7z_">
@@ -69571,6 +69594,24 @@
     </node>
     <node concept="22hDWg" id="7rQge4j35iY" role="22hAXT">
       <property role="TrG5h" value="addSwitchCaseExtension" />
+    </node>
+  </node>
+  <node concept="1h_SRR" id="4KXXs_wPyWj">
+    <property role="3GE5qa" value="control_flow.if_switch" />
+    <property role="TrG5h" value="NoInsertForExtensionCases" />
+    <ref role="1h_SK9" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1hA7zw" id="4KXXs_wPz1o" role="1h_SK8">
+      <property role="1hAc7j" value="13S4mXuSN7V/insert_action_id" />
+      <node concept="1hAIg9" id="4KXXs_wPz1p" role="1hA7z_">
+        <node concept="3clFbS" id="4KXXs_wPz1q" role="2VODD2" />
+      </node>
+      <node concept="jK8Ss" id="4KXXs_wPz2s" role="jK8aL">
+        <node concept="3clFbS" id="4KXXs_wPz2t" role="2VODD2">
+          <node concept="3clFbF" id="4KXXs_wPz6Q" role="3cqZAp">
+            <node concept="3clFbT" id="4KXXs_wPz6P" role="3clFbG" />
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

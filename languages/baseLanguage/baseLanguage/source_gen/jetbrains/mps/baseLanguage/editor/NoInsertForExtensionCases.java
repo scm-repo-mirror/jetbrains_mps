@@ -5,22 +5,13 @@ package jetbrains.mps.baseLanguage.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
-import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public class DeleteSwitchCaseExtension {
+public class NoInsertForExtensionCases {
 
   /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
     return new AbstractCellAction() {
@@ -35,28 +26,6 @@ public class DeleteSwitchCaseExtension {
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
         return false;
-      }
-
-    };
-  }
-  /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-        if (DeletionApproverUtil.approve(editorContext, node)) {
-          return;
-        }
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.SwitchCase$7o), LINKS.expression$QQk6), SelectionManager.LAST_CELL, -1);
-        SNodeOperations.deleteNode(node);
-      }
-      @Override
-      public boolean canExecute(EditorContext editorContext) {
-        return this.canExecute_internal(editorContext, node);
-      }
-      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return ListSequence.fromList(SNodeOperations.getAllSiblings(node, false)).isEmpty();
       }
 
     };
@@ -91,7 +60,6 @@ public class DeleteSwitchCaseExtension {
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
-    editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -102,16 +70,5 @@ public class DeleteSwitchCaseExtension {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
-    if (Objects.equals(actionType, CellActionType.DELETE)) {
-      editorCell.setAction(actionType, createAction_DELETE(node));
-    }
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept SwitchCase$7o = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, "jetbrains.mps.baseLanguage.structure.SwitchCase");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink expression$QQk6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d67cfL, "expression");
   }
 }
