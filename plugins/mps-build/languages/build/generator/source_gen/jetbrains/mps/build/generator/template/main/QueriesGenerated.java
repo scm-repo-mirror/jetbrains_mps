@@ -592,34 +592,31 @@ public class QueriesGenerated extends QueryProviderBase {
     return "${" + ((MacroHelper) _context.getVariable("var:macroHelper")).getImportName(_context.getNode()) + "}";
   }
   public static Object propertyMacro_GetValue_1_10(final PropertyMacroContext _context) {
+    // XXX BuildLayout got no subconcepts, the value is hardcoded in behavior method; I'd rather have it hardcoded here, 
+    //    as 'location macro build.layout' is defined here in this template few lines above 
+    //    However, need to keep the value inside BL_Container anyway for code that still builds paths programmatically 
     return (String) BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.layout$r7bw), Context.defaultContext(_context));
   }
   public static Object propertyMacro_GetValue_1_11(final PropertyMacroContext _context) {
     return (String) BuildLayout_Container__BehaviorDescriptor.getPrepareSubTaskId_id450ejGzh8bD.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.layout$r7bw));
   }
   public static Object propertyMacro_GetValue_1_12(final PropertyMacroContext _context) {
-    return "${build.layout}/build.properties";
-  }
-  public static Object propertyMacro_GetValue_1_13(final PropertyMacroContext _context) {
     return IterableUtils.join(Sequence.fromIterable(((Iterable<SNode>) ((MacroHelper) _context.getVariable("var:macroHelper")).getMacrosToExport())).select(new ISelector<SNode, String>() {
       public String select(SNode it) {
         return ((MacroHelper) _context.getVariable("var:macroHelper")).getExportName(it) + "=${" + ((MacroHelper) _context.getVariable("var:macroHelper")).getName(it) + "}";
       }
     }), "${line.separator}");
   }
-  public static Object propertyMacro_GetValue_1_14(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_13(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.path$URGX);
   }
-  public static Object propertyMacro_GetValue_1_15(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_14(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
-  public static Object propertyMacro_GetValue_1_16(final PropertyMacroContext _context) {
-    return "${build.tmp}";
-  }
-  public static Object propertyMacro_GetValue_1_17(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_15(final PropertyMacroContext _context) {
     return (String) BuildProject__BehaviorDescriptor.getBasePathRelativeToScriptsPath_id4vrYmjR0nBP.invoke(_context.getNode(), Context.defaultContext(_context));
   }
-  public static Object propertyMacro_GetValue_1_18(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_16(final PropertyMacroContext _context) {
     String scriptsPath = BuildProject__BehaviorDescriptor.getScriptsPath_id4ahc858UcHk.invoke(_context.getNode(), Context.defaultContext(_context));
     if (scriptsPath != null && scriptsPath.endsWith("/")) {
       scriptsPath = scriptsPath.substring(0, scriptsPath.length() - 1);
@@ -1881,7 +1878,7 @@ public class QueriesGenerated extends QueryProviderBase {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
     return ListSequence.fromList(dependencies).select(new ISelector<Tuples._2<SNode, String>, SNode>() {
       public SNode select(Tuples._2<SNode, String> it) {
-        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a624(it._1(), it._0());
+        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a424(it._1(), it._0());
       }
     }).toListSequence();
   }
@@ -2559,11 +2556,9 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("6520682027041001063", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5fb388b43aa25d48L, 0x5fb388b43aa25d4aL, "defaultValue"), "imported.value"));
     pvqMethods.put("9126048691954996124", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "folder"));
     pvqMethods.put("9126048691954994111", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "mkdir.artifacts"));
-    pvqMethods.put("5662391463398094396", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "${build.dir}/artifacts/"));
     pvqMethods.put("5662391463398078668", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value"), "var=${value}"));
     pvqMethods.put("6520682027041196885", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "build.xml"));
     pvqMethods.put("3595702787188242918", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "build"));
-    pvqMethods.put("5096397858823409283", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x667edfe41720f53eL, "temporaryFolder"), "${build.tmp}"));
     pvqMethods.put("5178006408628664058", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x47dbf964f7011e8eL, "baseDirectory"), "."));
     pvqMethods.put("361130699823726269", new PVQ(i++, MetaAdapterFactory.getProperty(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, 0x10f9f9812b8fca94L, "location"), "scriptLoc"));
     pvqMethods.put("1117643560963351183", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "dir"));
@@ -2901,114 +2896,110 @@ public class QueriesGenerated extends QueryProviderBase {
         case 130:
           return QueriesGenerated.propertyMacro_GetValue_1_16(ctx);
         case 131:
-          return QueriesGenerated.propertyMacro_GetValue_1_17(ctx);
-        case 132:
-          return QueriesGenerated.propertyMacro_GetValue_1_18(ctx);
-        case 133:
           return QueriesGenerated.propertyMacro_GetValue_2_0(ctx);
-        case 134:
+        case 132:
           return QueriesGenerated.propertyMacro_GetValue_2_1(ctx);
-        case 135:
+        case 133:
           return QueriesGenerated.propertyMacro_GetValue_2_2(ctx);
-        case 136:
+        case 134:
           return QueriesGenerated.propertyMacro_GetValue_2_3(ctx);
-        case 137:
+        case 135:
           return QueriesGenerated.propertyMacro_GetValue_2_4(ctx);
-        case 138:
+        case 136:
           return QueriesGenerated.propertyMacro_GetValue_2_5(ctx);
-        case 139:
+        case 137:
           return QueriesGenerated.propertyMacro_GetValue_2_6(ctx);
-        case 140:
+        case 138:
           return QueriesGenerated.propertyMacro_GetValue_2_7(ctx);
-        case 141:
+        case 139:
           return QueriesGenerated.propertyMacro_GetValue_2_8(ctx);
-        case 142:
+        case 140:
           return QueriesGenerated.propertyMacro_GetValue_2_9(ctx);
-        case 143:
+        case 141:
           return QueriesGenerated.propertyMacro_GetValue_2_10(ctx);
-        case 144:
+        case 142:
           return QueriesGenerated.propertyMacro_GetValue_2_11(ctx);
-        case 145:
+        case 143:
           return QueriesGenerated.propertyMacro_GetValue_2_12(ctx);
-        case 146:
+        case 144:
           return QueriesGenerated.propertyMacro_GetValue_2_13(ctx);
-        case 147:
+        case 145:
           return QueriesGenerated.propertyMacro_GetValue_2_14(ctx);
-        case 148:
+        case 146:
           return QueriesGenerated.propertyMacro_GetValue_2_15(ctx);
-        case 149:
+        case 147:
           return QueriesGenerated.propertyMacro_GetValue_2_16(ctx);
-        case 150:
+        case 148:
           return QueriesGenerated.propertyMacro_GetValue_2_17(ctx);
-        case 151:
+        case 149:
           return QueriesGenerated.propertyMacro_GetValue_2_18(ctx);
-        case 152:
+        case 150:
           return QueriesGenerated.propertyMacro_GetValue_2_19(ctx);
-        case 153:
+        case 151:
           return QueriesGenerated.propertyMacro_GetValue_2_20(ctx);
-        case 154:
+        case 152:
           return QueriesGenerated.propertyMacro_GetValue_2_21(ctx);
-        case 155:
+        case 153:
           return QueriesGenerated.propertyMacro_GetValue_2_22(ctx);
-        case 156:
+        case 154:
           return QueriesGenerated.propertyMacro_GetValue_2_23(ctx);
-        case 157:
+        case 155:
           return QueriesGenerated.propertyMacro_GetValue_2_24(ctx);
-        case 158:
+        case 156:
           return QueriesGenerated.propertyMacro_GetValue_2_25(ctx);
-        case 159:
+        case 157:
           return QueriesGenerated.propertyMacro_GetValue_2_26(ctx);
-        case 160:
+        case 158:
           return QueriesGenerated.propertyMacro_GetValue_2_27(ctx);
-        case 161:
+        case 159:
           return QueriesGenerated.propertyMacro_GetValue_2_28(ctx);
-        case 162:
+        case 160:
           return QueriesGenerated.propertyMacro_GetValue_2_29(ctx);
-        case 163:
+        case 161:
           return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
-        case 164:
+        case 162:
           return QueriesGenerated.propertyMacro_GetValue_8_0(ctx);
-        case 165:
+        case 163:
           return QueriesGenerated.propertyMacro_GetValue_9_0(ctx);
-        case 166:
+        case 164:
           return QueriesGenerated.propertyMacro_GetValue_10_0(ctx);
-        case 167:
+        case 165:
           return QueriesGenerated.propertyMacro_GetValue_12_0(ctx);
-        case 168:
+        case 166:
           return QueriesGenerated.propertyMacro_GetValue_12_1(ctx);
-        case 169:
+        case 167:
           return QueriesGenerated.propertyMacro_GetValue_13_0(ctx);
-        case 170:
+        case 168:
           return QueriesGenerated.propertyMacro_GetValue_16_0(ctx);
-        case 171:
+        case 169:
           return QueriesGenerated.propertyMacro_GetValue_16_1(ctx);
-        case 172:
+        case 170:
           return QueriesGenerated.propertyMacro_GetValue_16_2(ctx);
-        case 173:
+        case 171:
           return QueriesGenerated.propertyMacro_GetValue_16_3(ctx);
-        case 174:
+        case 172:
           return QueriesGenerated.propertyMacro_GetValue_16_4(ctx);
-        case 175:
+        case 173:
           return QueriesGenerated.propertyMacro_GetValue_16_5(ctx);
-        case 176:
+        case 174:
           return QueriesGenerated.propertyMacro_GetValue_17_0(ctx);
-        case 177:
+        case 175:
           return QueriesGenerated.propertyMacro_GetValue_17_1(ctx);
-        case 178:
+        case 176:
           return QueriesGenerated.propertyMacro_GetValue_17_2(ctx);
-        case 179:
+        case 177:
           return QueriesGenerated.propertyMacro_GetValue_17_3(ctx);
-        case 180:
+        case 178:
           return QueriesGenerated.propertyMacro_GetValue_17_4(ctx);
-        case 181:
+        case 179:
           return QueriesGenerated.propertyMacro_GetValue_17_5(ctx);
-        case 182:
+        case 180:
           return QueriesGenerated.propertyMacro_GetValue_17_6(ctx);
-        case 183:
+        case 181:
           return QueriesGenerated.propertyMacro_GetValue_17_7(ctx);
-        case 184:
+        case 182:
           return QueriesGenerated.propertyMacro_GetValue_17_8(ctx);
-        case 185:
+        case 183:
           return QueriesGenerated.propertyMacro_GetValue_17_9(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -3651,7 +3642,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a624(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a424(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);
