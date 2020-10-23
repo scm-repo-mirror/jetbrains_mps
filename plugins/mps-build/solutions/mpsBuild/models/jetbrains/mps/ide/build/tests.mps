@@ -57,6 +57,10 @@
         <property id="2059109515400425365" name="compiler" index="3fwGa$" />
         <child id="927724900262033863" name="resourceSelectors" index="2_Ic$A" />
       </concept>
+      <concept id="2750015747481074431" name="jetbrains.mps.build.structure.BuildLayout_Files" flags="ng" index="2HvfSZ">
+        <child id="2750015747481074432" name="path" index="2HvfZ0" />
+        <child id="2750015747481074433" name="parameters" index="2HvfZ1" />
+      </concept>
       <concept id="4380385936562003279" name="jetbrains.mps.build.structure.BuildString" flags="ng" index="NbPM2">
         <child id="4903714810883783243" name="parts" index="3MwsjC" />
       </concept>
@@ -71,9 +75,6 @@
       <concept id="7181125477683417252" name="jetbrains.mps.build.structure.BuildExternalLayoutDependency" flags="ng" index="13uUGR">
         <reference id="7181125477683417255" name="layout" index="13uUGO" />
         <child id="7181125477683417254" name="artifacts" index="13uUGP" />
-      </concept>
-      <concept id="9184644532456496017" name="jetbrains.mps.build.structure.BuildLayout_AbstractCopy" flags="ng" index="16eZ8r">
-        <child id="5248329904287857082" name="fileset" index="3LXIA7" />
       </concept>
       <concept id="7389400916848050074" name="jetbrains.mps.build.structure.BuildLayout_Jar" flags="ng" index="3981dx" />
       <concept id="7389400916848050060" name="jetbrains.mps.build.structure.BuildLayout_NamedContainer" flags="ng" index="3981dR">
@@ -108,7 +109,6 @@
       <concept id="5248329904288051100" name="jetbrains.mps.build.structure.BuildFileIncludeSelector" flags="ng" index="3LWZYx">
         <property id="5248329904288051101" name="pattern" index="3LWZYw" />
       </concept>
-      <concept id="5248329904287857081" name="jetbrains.mps.build.structure.BuildLayout_Copy" flags="ng" index="3LXIA4" />
       <concept id="5248329904287794596" name="jetbrains.mps.build.structure.BuildInputFiles" flags="ng" index="3LXTmp">
         <child id="5248329904287794598" name="dir" index="3LXTmr" />
         <child id="5248329904287794679" name="selectors" index="3LXTna" />
@@ -5741,28 +5741,26 @@
                 <property role="3MwjfP" value="module" />
               </node>
             </node>
-            <node concept="3LXIA4" id="2d0qgmCd0rC" role="39821P">
-              <node concept="3LXTmp" id="2d0qgmCd0rD" role="3LXIA7">
-                <node concept="55IIr" id="EpEP7hk8Sy" role="3LXTmr">
-                  <node concept="2Ry0Ak" id="3EvxwykF4ZG" role="iGT6I">
-                    <property role="2Ry0Am" value="plugins" />
-                    <node concept="2Ry0Ak" id="3EvxwykF4ZL" role="2Ry0An">
-                      <property role="2Ry0Am" value="mps-java" />
-                      <node concept="2Ry0Ak" id="3EvxwykF4ZQ" role="2Ry0An">
-                        <property role="2Ry0Am" value="workbench" />
-                        <node concept="2Ry0Ak" id="3EvxwykF4ZV" role="2Ry0An">
-                          <property role="2Ry0Am" value="tests" />
-                          <node concept="2Ry0Ak" id="3EvxwykF500" role="2Ry0An">
-                            <property role="2Ry0Am" value="jetbrains.mps.ide.java.testMaterial" />
-                          </node>
+            <node concept="2HvfSZ" id="2Wk1xJ4gDSu" role="39821P">
+              <node concept="55IIr" id="EpEP7hk8Sy" role="2HvfZ0">
+                <node concept="2Ry0Ak" id="3EvxwykF4ZG" role="iGT6I">
+                  <property role="2Ry0Am" value="plugins" />
+                  <node concept="2Ry0Ak" id="3EvxwykF4ZL" role="2Ry0An">
+                    <property role="2Ry0Am" value="mps-java" />
+                    <node concept="2Ry0Ak" id="3EvxwykF4ZQ" role="2Ry0An">
+                      <property role="2Ry0Am" value="workbench" />
+                      <node concept="2Ry0Ak" id="3EvxwykF4ZV" role="2Ry0An">
+                        <property role="2Ry0Am" value="tests" />
+                        <node concept="2Ry0Ak" id="3EvxwykF500" role="2Ry0An">
+                          <property role="2Ry0Am" value="jetbrains.mps.ide.java.testMaterial" />
                         </node>
                       </node>
                     </node>
                   </node>
                 </node>
-                <node concept="3LWZYx" id="3EvxwykHSOt" role="3LXTna">
-                  <property role="3LWZYw" value="resources/" />
-                </node>
+              </node>
+              <node concept="3LWZYx" id="3EvxwykHSOt" role="2HvfZ1">
+                <property role="3LWZYw" value="resources/" />
               </node>
             </node>
           </node>
