@@ -14,13 +14,19 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import com.intellij.openapi.ui.Messages;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.module.ModelAccess;
+import jetbrains.mps.project.StandaloneMPSProject;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.project.StandaloneMPSProject;
+import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.EditableSModel;
+import org.jetbrains.mps.openapi.model.SModelName;
+import jetbrains.mps.extapi.persistence.FileDataSource;
+import jetbrains.mps.refactoring.Renamer;
 import jetbrains.mps.ide.projectPane.ProjectPane;
+import org.jetbrains.annotations.Nullable;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/142393105344666009", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class RenameVirtualFolder_Action extends BaseAction {
@@ -37,7 +43,7 @@ public class RenameVirtualFolder_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return ((TreeNode) MapSequence.fromMap(_params).get("treeNode")) instanceof NamespaceTextNode && RenameVirtualFolder_Action.this.getProjectPane(_params) != null && !(((NamespaceTextNode) ((TreeNode) MapSequence.fromMap(_params).get("treeNode"))).isFinalName());
+    return ((TreeNode) MapSequence.fromMap(_params).get("treeNode")) instanceof NamespaceTextNode && RenameVirtualFolder_Action.this.getProjectPane(_params) != null && !(((NamespaceTextNode) ((TreeNode) MapSequence.fromMap(_params).get("treeNode"))).isFinalName()) && (((NamespaceTextNode) ((TreeNode) MapSequence.fromMap(_params).get("treeNode"))).hasModulesUnder() || ((NamespaceTextNode) ((TreeNode) MapSequence.fromMap(_params).get("treeNode"))).hasModelsUnder());
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -74,24 +80,58 @@ public class RenameVirtualFolder_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final NamespaceTextNode node = ((NamespaceTextNode) ((TreeNode) MapSequence.fromMap(_params).get("treeNode")));
-    final Wrappers._T<String> newFolder = new Wrappers._T<String>(Messages.showInputDialog(((Project) MapSequence.fromMap(_params).get("ideaProject")), "Rename virtual folder", "Rename", null, node.getNamespace(), null));
-    if (newFolder.value == null) {
+    final String originalVFolder = node.getNamespace();
+    final String modifiedVFolder = Messages.showInputDialog(((Project) MapSequence.fromMap(_params).get("ideaProject")), "Rename virtual folder (leave empty to remove)", "Rename", null, originalVFolder, null);
+    // Allow passing of an empty string which will result in virtual folder removal 
+    if (modifiedVFolder == null || Objects.equals(originalVFolder, modifiedVFolder)) {
       return;
     }
-    if (newFolder.value.equals("")) {
-      newFolder.value = null;
-    }
+
     ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess();
     modelAccess.executeCommandInEDT(new Runnable() {
       public void run() {
-        for (SModule module : ListSequence.fromList(node.getModulesUnder())) {
-          ((StandaloneMPSProject) ((MPSProject) MapSequence.fromMap(_params).get("project"))).setFolderFor(module, newFolder.value);
+        String modifiedVirtualFolder = modifiedVFolder.trim();
+        if (node.hasModulesUnder()) {
+          final StandaloneMPSProject mpsProject = (StandaloneMPSProject) ((MPSProject) MapSequence.fromMap(_params).get("project"));
+          for (SModule module : ListSequence.fromList(node.getModulesUnder())) {
+            mpsProject.setFolderFor(module, RenameVirtualFolder_Action.this.replacePrefix(mpsProject.getFolderFor(module), originalVFolder, modifiedVirtualFolder, _params));
+          }
+          RenameVirtualFolder_Action.this.getProjectPane(_params).rebuild();
+        } else if (node.hasModelsUnder()) {
+          ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().saveAll();
+          for (SModel model : ListSequence.fromList(node.getModelsUnder())) {
+            if (model instanceof EditableSModel) {
+              SModelName originalModelName = model.getName();
+              SModelName modifiedModelName = new SModelName(RenameVirtualFolder_Action.this.replacePrefix(originalModelName.getNamespace(), originalVFolder, modifiedVirtualFolder, _params), originalModelName.getSimpleName(), originalModelName.getStereotype());
+              ((EditableSModel) model).rename(modifiedModelName.getValue(), model.getSource() instanceof FileDataSource);
+            }
+          }
+          Renamer.updateModelAndModuleReferences(((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository());
+          ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().saveAll();
         }
-        RenameVirtualFolder_Action.this.getProjectPane(_params).rebuild();
       }
     });
   }
   private ProjectPane getProjectPane(final Map<String, Object> _params) {
     return ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("project")));
+  }
+  @Nullable
+  private String replacePrefix(@NotNull final String str, @NotNull final String originalPrefix, @Nullable String modifiedPrefix, final Map<String, Object> _params) {
+    final boolean strMatchPrefix = str.equals(originalPrefix);
+    final boolean removePrefix = modifiedPrefix == null || modifiedPrefix.isBlank();
+
+    if (strMatchPrefix && removePrefix) {
+      return null;
+    }
+
+    if (strMatchPrefix) {
+      return modifiedPrefix;
+    }
+
+    if (!(removePrefix)) {
+      return modifiedPrefix + str.substring(originalPrefix.length());
+    }
+
+    return str.substring(originalPrefix.length() + 1);
   }
 }
