@@ -39,6 +39,7 @@ public class Launcher {
     }
     System.setProperty("idea.additional.classpath", getAdditionalMPSClasspathString());
     System.setProperty("idea.platform.prefix", "Idea");
+    System.setProperty("ide.new.project.model", "false"); // Temporary disable new project model in all places
     Main.main(args);
   }
 

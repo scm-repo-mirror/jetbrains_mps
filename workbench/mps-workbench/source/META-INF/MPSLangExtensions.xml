@@ -342,7 +342,6 @@
     <projectService serviceInterface="com.intellij.psi.search.ProjectScopeBuilder"
                     serviceImplementation="com.intellij.psi.search.ProjectScopeBuilderImpl"/>
 
-    <!--
     <projectService serviceInterface="com.intellij.facet.ProjectWideFacetListenersRegistry"
                     serviceImplementation="com.intellij.facet.impl.ProjectWideFacetListenersRegistryImpl"/>
 
@@ -356,7 +355,6 @@
     <projectService serviceInterface="com.intellij.openapi.module.ProjectLoadingErrorsNotifier"
                     serviceImplementation="com.intellij.openapi.module.impl.ProjectLoadingErrorsNotifierImpl"
                     testServiceImplementation="com.intellij.openapi.module.impl.ProjectLoadingErrorsHeadlessNotifier"/>
-    -->
 
     <applicationService serviceInterface="com.intellij.openapi.module.ModuleTypeManager"
                         serviceImplementation="com.intellij.openapi.module.impl.ModuleTypeManagerImpl"/>
@@ -836,11 +834,11 @@
 
     <syntaxHighlighter factoryClass="com.intellij.ide.highlighter.custom.impl.CustomFileTypeHighlighterProvider"/>
     <fileTypeRegistrar implementation="com.intellij.ide.highlighter.custom.impl.StandardFileTypeRegistrar"/>
+    -->
 
     <directoryProjectConfigurator implementation="com.intellij.platform.PlatformProjectConfigurator" order="first"
                                   id="PlatformProjectConfigurator"/>
     <directoryProjectConfigurator implementation="com.intellij.platform.PlatformProjectViewOpener"/>
-    -->
 
     <fileIconProvider implementation="com.intellij.openapi.updateSettings.impl.WhatsNewFileIconProvider"/>
     <!--
