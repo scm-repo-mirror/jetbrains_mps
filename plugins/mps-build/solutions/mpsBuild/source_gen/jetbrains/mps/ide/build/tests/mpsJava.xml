@@ -500,8 +500,8 @@
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
-      <pathelement location="${build.layout}/jetbrains.mps.ide.java.testMaterial.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.ide.java.tests.jar" />
+      <pathelement location="${build.layout}/jetbrains.mps.ide.java.testMaterial.jar" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.tests.path.string" refid="mps.tests.path" />
     <patternset id="plugin.deployed.jars">

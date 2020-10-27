@@ -737,9 +737,9 @@
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
-      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.testLanguage.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.tests.jar" />
       <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.figures.sandbox.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.tests.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.testLanguage.jar" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.tests.path.string" refid="mps.tests.path" />
     <patternset id="plugin.deployed.jars">

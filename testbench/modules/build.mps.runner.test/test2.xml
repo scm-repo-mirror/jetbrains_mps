@@ -348,8 +348,8 @@
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.project.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.refactoring.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.runtime.jar" />
-      <library file="${build.layout}/jetbrains.mps.build.mps.runner.test.test1.jar" />
       <library file="${build.layout}/jetbrains.mps.build.mps.runner.test.test2.jar" />
+      <library file="${build.layout}/jetbrains.mps.build.mps.runner.test.test1.jar" />
       <macro name="mps_home" path="${mps_home}" />
       
       <jvmargs>

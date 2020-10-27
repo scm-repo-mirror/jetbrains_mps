@@ -2769,25 +2769,25 @@
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.contextAssistant.testExtendingLanguage.jar" />
       <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.extras.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.style.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.substitute.testExtendingLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.substitute.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testExtendingLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testMetaLanguage-generator.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testMetaLanguage.jar" />
-      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testUnusedExtendingLanguage.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.editor.contextActionsTool.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.contextAssistant.testExtendingLanguage.jar" />
       <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.contextAssistant.tests.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.extras.tests.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.sideTransform.tests.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.style.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.substitute.testLanguage.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.substitute.testExtendingLanguage.jar" />
       <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.substitute.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.sideTransform.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.style.testLanguage.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.style.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testMetaLanguage.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testMetaLanguage-generator.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testLanguage.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testExtendingLanguage.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.testUnusedExtendingLanguage.jar" />
       <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.tests.jar" />
+      <pathelement location="${build.layout}/languages/jetbrains.mps.lang.editor.menus.extras.testLanguage.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.lang.editor.menus.extras.tests.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.editor.contextActionsTool.tests.jar" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.tests.path.string" refid="mps.tests.path" />
     <patternset id="plugin.deployed.jars">

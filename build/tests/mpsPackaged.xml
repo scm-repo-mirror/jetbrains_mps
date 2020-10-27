@@ -573,6 +573,7 @@
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
+      <pathelement location="${build.layout}/testPackagedLanguage.test.jar" />
       <pathelement location="${build.layout}/testPackagedLanguage.jar" />
       <pathelement location="${build.layout}/testPackagedLanguage.test.jar" />
     </path>
