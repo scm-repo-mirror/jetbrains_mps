@@ -374,6 +374,7 @@
                 <property role="2pNNFO" value="runMPS" />
                 <node concept="2pNNFK" id="3pzPpUGinth" role="3o6s8t">
                   <property role="2pNNFO" value="plugin" />
+                  <property role="qg3DV" value="true" />
                   <node concept="2pNUuL" id="3pzPpUGinFr" role="2pNNFR">
                     <property role="2pNUuO" value="path" />
                     <node concept="2pMdtt" id="3pzPpUGisrx" role="2pMdts">
@@ -822,6 +823,7 @@
                 </node>
                 <node concept="2pNNFK" id="3pzPpUGimXY" role="3o6s8t">
                   <property role="2pNNFO" value="macro" />
+                  <property role="qg3DV" value="true" />
                   <node concept="2pNUuL" id="3pzPpUGimXZ" role="2pNNFR">
                     <property role="2pNUuO" value="name" />
                     <node concept="2pMdtt" id="3pzPpUGimY0" role="2pMdts">
@@ -909,6 +911,7 @@
                   <property role="qg3DV" value="false" />
                   <node concept="2pNNFK" id="o7F7WgLNWE" role="3o6s8t">
                     <property role="2pNNFO" value="arg" />
+                    <property role="qg3DV" value="true" />
                     <node concept="2pNUuL" id="o7F7WgLNWF" role="2pNNFR">
                       <property role="2pNUuO" value="value" />
                       <node concept="2pMdtt" id="o7F7WgLNWG" role="2pMdts">
@@ -918,6 +921,7 @@
                   </node>
                   <node concept="2pNNFK" id="o7F7WgLM_B" role="3o6s8t">
                     <property role="2pNNFO" value="arg" />
+                    <property role="qg3DV" value="true" />
                     <node concept="2pNUuL" id="o7F7WgLMD1" role="2pNNFR">
                       <property role="2pNUuO" value="value" />
                       <node concept="2pMdtt" id="o7F7WgLMD3" role="2pMdts">
@@ -927,6 +931,7 @@
                   </node>
                   <node concept="2pNNFK" id="oY$DTc6Q1K" role="3o6s8t">
                     <property role="2pNNFO" value="arg" />
+                    <property role="qg3DV" value="true" />
                     <node concept="2pNUuL" id="oY$DTc6Q1L" role="2pNNFR">
                       <property role="2pNUuO" value="value" />
                       <node concept="2pMdtt" id="oY$DTc6Q1M" role="2pMdts">

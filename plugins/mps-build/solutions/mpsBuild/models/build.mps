@@ -30838,6 +30838,11 @@
               <ref role="3bR37D" node="7pdFgzxlDoP" resolve="jetbrains.mps.build.mps" />
             </node>
           </node>
+          <node concept="1SiIV0" id="3vNUe1zz0c9" role="3bR37C">
+            <node concept="3bR9La" id="3vNUe1zz0cj" role="1SiIV1">
+              <ref role="3bR37D" node="7pdFgzxlDoA" resolve="jetbrains.mps.build" />
+            </node>
+          </node>
           <node concept="1SiIV0" id="41_NtKZM4rg" role="3bR37C">
             <node concept="3bR9La" id="41_NtKZM4rf" role="1SiIV1">
               <ref role="3bR37D" node="7YI57w6KjVv" resolve="jetbrains.mps.build#3595702787188034882" />
