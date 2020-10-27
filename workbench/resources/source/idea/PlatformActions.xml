@@ -1,3 +1,4 @@
+<!--Copy of PlatformActions.xml-->
 <!--
   ~ Copyright 2000-2013 JetBrains s.r.o.
   ~
@@ -158,22 +159,18 @@
 
     <action id="TextComponent.ClearAction" class="com.intellij.ui.ClearTextAction"/>
     <action id="Switcher" class="com.intellij.ide.actions.Switcher"/>
-    <!-- MPS Patch start
     <action id="QuickDocCopy" class="com.intellij.codeInsight.documentation.actions.CopyQuickDocAction"
             use-shortcut-of="$Copy"/>
-    MPS Patch End -->
     <action id="EditSourceInNewWindow" class="com.intellij.ide.actions.EditSourceInNewWindowAction">
       <override-text place="EditorTabPopup"/>
     </action>
     <action id="OpenElementInNewWindow" class="com.intellij.ide.actions.OpenElementInNewWindowAction" />
     <action id="SearchEverywhere" class="com.intellij.ide.actions.SearchEverywhereAction" icon="AllIcons.Actions.Find"/>
 
-    <!-- MPS Patch start
     <action id="RunAnything" icon="AllIcons.Actions.Run_anything" class="com.intellij.ide.actions.runAnything.RunAnythingAction"/>
 
     <action id="SmartSelect" class="com.intellij.ide.actions.SmartSelect" use-shortcut-of="EditorSelectWord"/>
     <action id="SmartUnSelect" class="com.intellij.ide.actions.SmartUnSelect" use-shortcut-of="EditorUnSelectWord"/>
-    MPS Patch End -->
 
     <group id="EditorActions">
       <action id="EditorPageUp" class="com.intellij.openapi.editor.actions.PageUpAction"/>
@@ -217,7 +214,6 @@
       <action id="EditorMoveDownAndScroll" class="com.intellij.openapi.editor.actions.MoveDownAndScrollAction"/>
       <action id="EditorMoveUpAndScrollWithSelection" class="com.intellij.openapi.editor.actions.MoveUpWithSelectionAndScrollAction"/>
       <action id="EditorMoveDownAndScrollWithSelection" class="com.intellij.openapi.editor.actions.MoveDownWithSelectionAndScrollAction"/>
-      <!-- MPS
       <action id="EditorAddOrRemoveCaret" class="com.intellij.openapi.editor.actions.AddOrRemoveCaretDummyAction"/>
       <action id="EditorCreateRectangularSelection" class="com.intellij.openapi.editor.actions.CreateRectangularSelectionAction"/>
       <action id="EditorAddRectangularSelectionOnMouseDrag"
@@ -226,25 +222,20 @@
               class="com.intellij.openapi.editor.actions.CreateRectangularSelectionOnMouseDragAction"/>
       <action id="EditorCloneCaretBelow" class="com.intellij.openapi.editor.actions.CloneCaretBelow"/>
       <action id="EditorCloneCaretAbove" class="com.intellij.openapi.editor.actions.CloneCaretAbove"/>
-      -->
       <action id="EditorToggleStickySelection" class="com.intellij.openapi.editor.actions.ToggleStickySelectionModeAction"/>
       <action id="EditorSwapSelectionBoundaries" class="com.intellij.openapi.editor.actions.SwapSelectionBoundariesAction"/>
       <action id="EditorLineStart" class="com.intellij.openapi.editor.actions.LineStartAction"/>
       <action id="EditorLineEnd" class="com.intellij.openapi.editor.actions.LineEndAction"/>
       <action id="EditorCutLineBackward" class="com.intellij.openapi.editor.actions.CutLineBackwardAction"/>
       <action id="EditorCutLineEnd" class="com.intellij.openapi.editor.actions.CutLineEndAction"/>
-      <!-- MPS
       <action id="EditorDeleteToLineStart" class="com.intellij.openapi.editor.actions.DeleteToLineStartAction"/>
-      -->
       <action id="EditorDeleteToLineEnd" class="com.intellij.openapi.editor.actions.DeleteToLineEndAction"/>
       <action id="EditorTextStart" class="com.intellij.openapi.editor.actions.TextStartAction"/>
       <action id="EditorTextEnd" class="com.intellij.openapi.editor.actions.TextEndAction"/>
-      <!-- MPS
       <action id="EditorForwardParagraph" class="com.intellij.openapi.editor.actions.ForwardParagraphAction"/>
       <action id="EditorBackwardParagraph" class="com.intellij.openapi.editor.actions.BackwardParagraphAction"/>
       <action id="EditorForwardParagraphWithSelection" class="com.intellij.openapi.editor.actions.ForwardParagraphWithSelectionAction"/>
       <action id="EditorBackwardParagraphWithSelection" class="com.intellij.openapi.editor.actions.BackwardParagraphWithSelectionAction"/>
-      -->
       <action id="EditorLineStartWithSelection" class="com.intellij.openapi.editor.actions.LineStartWithSelectionAction"/>
       <action id="EditorLineEndWithSelection" class="com.intellij.openapi.editor.actions.LineEndWithSelectionAction"/>
       <action id="EditorTextStartWithSelection" class="com.intellij.openapi.editor.actions.TextStartWithSelectionAction"/>
@@ -295,10 +286,8 @@
       <action id="EditorDelete" class="com.intellij.openapi.editor.actions.DeleteAction" use-shortcut-of="$Delete"/>
       <action id="EditorBackSpace" class="com.intellij.openapi.editor.actions.BackspaceAction"/>
 
-      <!--
       <action id="EditorFocusGutter" class="com.intellij.openapi.editor.actions.FocusGutterAction"/>
       <action id="EditorShowGutterIconTooltip" class="com.intellij.openapi.editor.actions.ShowGutterIconTooltipAction"/>
-      -->
     </group>
 
     <action id="ExpandAll" class="com.intellij.ide.actions.ExpandAllAction" icon="AllIcons.Actions.Expandall"/>
@@ -316,9 +305,7 @@
     <group id="Diff.KeymapGroup">
       <action id="Diff.ShowDiff" class="com.intellij.diff.actions.ShowDiffAction"
               icon="AllIcons.Actions.Diff"/> <!-- CommonShortcuts.getDiff() -->
-      <!-- MPS Patch to avoid collision with Duplicate Node action TODO: find way to avoid this!!!
       <action id="CompareTwoFiles" class="com.intellij.diff.actions.CompareFilesAction" icon="AllIcons.Actions.Diff"/>
-      -->
       <action id="CompareFileWithEditor" class="com.intellij.diff.actions.CompareFileWithEditorAction"/>
       <action id="CompareClipboardWithSelection" class="com.intellij.diff.actions.CompareClipboardWithSelectionAction"
               icon="AllIcons.Actions.DiffWithClipboard"/>
@@ -379,9 +366,7 @@
                 icon="AllIcons.Diff.Compare4RightBottom"/>
       </group>
 
-      <!-- MPS Patch to avoid collision with Duplicate Node action TODO: find way to avoid this!!!
       <action id="CompareDirs" class="com.intellij.diff.actions.CompareFilesAction" use-shortcut-of="CompareTwoFiles"/>
-      -->
 
       <separator/>
       <add-to-group group-id="Vcs.KeymapGroup"/>
@@ -424,19 +409,15 @@
           <action id="ShowSettings" class="com.intellij.ide.actions.ShowSettingsAction"/>
         </group>
         <group id="FilePropertiesGroup" popup="true">
-          <!-- MPS Patch
           <action id="ChangeFileEncodingAction" class="com.intellij.openapi.vfs.encoding.ChangeFileEncodingAction"/>
-          -->
           <action id="AssociateWithFileType" class="com.intellij.ide.actions.AssociateFileTypeAction"/>
           <action id="ToggleReadOnlyAttribute" class="com.intellij.ide.actions.ToggleReadOnlyAttributeAction"/>
 
-          <!-- MPS Patch
           <group id="ChangeLineSeparators" popup="true" class="com.intellij.ide.actions.NonTrivialActionGroup">
             <action id="ConvertToWindowsLineSeparators" class="com.intellij.codeStyle.ConvertToWindowsLineSeparatorsAction"/>
             <action id="ConvertToUnixLineSeparators" class="com.intellij.codeStyle.ConvertToUnixLineSeparatorsAction"/>
             <action id="ConvertToMacLineSeparators" class="com.intellij.codeStyle.ConvertToMacLineSeparatorsAction"/>
           </group>
-          -->
 
         </group>
         <separator/>
@@ -459,16 +440,11 @@
         <group id="PrintExportGroup">
           <separator/>
           <group id="FileExportGroup" popup="true">
-            <!-- See MPS-26514: hide actions from Main menu (but leave active) -->
-            <!--
             <action id="ExportToHTML" class="com.intellij.codeEditor.printing.ExportToHTMLAction">
               <override-text place="MainMenu"/>
             </action>
-            -->
           </group>
-          <!--
           <action id="Print" class="com.intellij.codeEditor.printing.PrintAction" icon="AllIcons.General.Print"/>
-          -->
         </group>
         <group id="PowerSaveGroup">
           <separator/>
@@ -484,10 +460,9 @@
         <action id="$Redo" class="com.intellij.ide.actions.RedoAction" icon="AllIcons.Actions.Redo"/>
         <separator/>
         <group id="CutCopyPasteGroup">
-          <!--MPS Patch Start: our classes-->
-          <action id="$Cut" class="jetbrains.mps.workbench.actions.MPSCutAction" icon="AllIcons.Actions.MenuCut"/>
+          <action id="$Cut" class="com.intellij.ide.actions.CutAction" icon="AllIcons.Actions.MenuCut"/>
           <group id="CopyGroup" popup="true" class="com.intellij.ide.actions.SmartPopupActionGroup">
-            <action id="$Copy" class="jetbrains.mps.workbench.actions.MPSCopyAction" icon="AllIcons.Actions.Copy"/>
+            <action id="$Copy" class="com.intellij.ide.actions.CopyAction" icon="AllIcons.Actions.Copy"/>
             <action id="CopyPaths" class="com.intellij.ide.actions.CopyPathsAction"/>
             <action id="CopyAbsolutePath" class="com.intellij.ide.actions.CopyAbsolutePathProvider" />
             <action id="CopyFileName" class="com.intellij.ide.actions.CopyFileNameProvider"/>
@@ -497,8 +472,7 @@
             <action id="CopyTBXReference" class="com.intellij.ide.actions.CopyTBXReferenceProvider" icon="AllIcons.Nodes.Toolbox"/>
           </group>
           <group id="PasteGroup" popup="true" class="com.intellij.ide.actions.PopupInMainMenuActionGroup">
-            <action id="$Paste" class="jetbrains.mps.workbench.actions.MPSPasteAction" icon="AllIcons.Actions.MenuPaste"/>
-            <!--MPS Patch End-->
+            <action id="$Paste" class="com.intellij.ide.actions.PasteAction" icon="AllIcons.Actions.MenuPaste"/>
             <action id="PasteMultiple" class="com.intellij.openapi.editor.actions.MultiplePasteAction"/>
             <reference ref="EditorPasteSimple"/>
           </group>
@@ -508,7 +482,6 @@
         </group>
         <separator/>
         <group id="FindMenuGroup" popup="true">
-          <!--
           <action id="Find" class="com.intellij.openapi.editor.actions.IncrementalFindAction" icon="AllIcons.Actions.Find"/>
           <action id="Replace" class="com.intellij.openapi.editor.actions.ReplaceAction" icon="AllIcons.Actions.Replace"/>
           <action id="FindNext" class="com.intellij.ide.actions.SearchAgainAction">
@@ -517,13 +490,11 @@
           <action id="FindPrevious" class="com.intellij.ide.actions.SearchBackAction">
             <override-text place="MainMenu"/>
           </action>
-          -->
           <action id="SelectAllOccurrences" class="com.intellij.openapi.editor.actions.SelectAllOccurrencesAction"/>
           <reference ref="SelectNextOccurrence"/>
           <action id="UnselectPreviousOccurrence" class="com.intellij.openapi.editor.actions.UnselectPreviousOccurrenceAction"/>
           <action id="ToggleFindInSelection" class="com.intellij.find.editorHeaderActions.ToggleSelectionOnlyAction"/>
           <separator/>
-          <!--
           <action id="FindWordAtCaret" class="com.intellij.openapi.editor.actions.FindWordAtCaretAction"/>
           <separator/>
           <action id="FindInPath" class="com.intellij.find.actions.FindInPathAction">
@@ -532,18 +503,14 @@
           <action id="ReplaceInPath" class="com.intellij.find.actions.ReplaceInPathAction">
             <synonym key="action.ReplaceInPath.synonym1"/>
           </action>
-          -->
         </group>
         <separator/>
         <reference ref="EditorToggleColumnMode"/>
         <group id="EditSelectGroup">
           <action id="$SelectAll" class="com.intellij.ide.actions.SelectAllAction"/>
-          <!--
           <action id="EditorAddCaretPerSelectedLine" class="com.intellij.openapi.editor.actions.AddCaretPerSelectedLineAction"/>
-          -->
         </group>
         <separator/>
-        <!-- MPS Patch
         <group id="EditSmartGroup">
           <reference ref="EditorToggleCase"/>
           <reference ref="EditorJoinLines"/>
@@ -573,7 +540,6 @@
         </group>
         <separator/>
         <action id="EmojiAndSymbols" class="com.intellij.ide.actions.MacEmojiAndSymbolsInputAction"/>
-        -->
       </group>
 
       <!-- View -->
@@ -637,9 +603,7 @@
         <separator/>
         <group id="CompareActions">
           <group id="PairFileActions">
-            <!--
             <reference ref="CompareTwoFiles"/>
-            -->
             <reference ref="CompareFileWithEditor"/>
           </group>
           <reference ref="CompareClipboardWithSelection"/>
@@ -657,7 +621,7 @@
         </group>
 
         <action id="ToggleFocusMode" class="com.intellij.ide.actions.ToggleFocusViewModeAction" internal="true"/>
-        <!-- MPS disable
+
         <separator/>
         <group id="EditorBidiTextDirection" popup="true">
           <action id="EditorSetContentBasedBidiTextDirection"
@@ -666,7 +630,6 @@
           <action id="EditorSetRtlBidiTextDirection" class="com.intellij.openapi.editor.actions.SetEditorBidiTextDirectionAction$Rtl"/>
         </group>
         <separator/>
-        -->
       </group>
 
       <!-- Go to -->
@@ -676,13 +639,11 @@
         <separator/>
         <reference ref="SearchEverywhere"/>
         <separator/>
-        <!-- MPS unsuported actions
         <action id="GotoLine" class="com.intellij.ide.actions.GotoLineAction">
           <override-text place="MainMenu"/>
           <override-text place="EditorPopup" use-text-of-place="MainMenu"/>
         </action>
         <separator/>
-        -->
 
         <group id="GoToErrorGroup">
           <action id="GotoNextError" class="com.intellij.codeInsight.daemon.impl.actions.GotoNextErrorAction"/>
@@ -693,36 +654,28 @@
         <separator/>
 
         <group id="NavigateInFileGroup" popup="true">
-          <!--
           <action id="MethodDown" class="com.intellij.codeInsight.navigation.actions.MethodDownAction"/>
           <action id="MethodUp" class="com.intellij.codeInsight.navigation.actions.MethodUpAction"/>
           <separator/>
-          -->
           <group id="TemplateParametersNavigation">
-            <!--
             <action id="NextTemplateParameter" class="com.intellij.codeInsight.completion.NextPrevParameterAction$Next">
               <keyboard-shortcut first-keystroke="TAB" keymap="$default"/>
             </action>
             <action id="PrevTemplateParameter" class="com.intellij.codeInsight.completion.NextPrevParameterAction$Prev">
               <keyboard-shortcut first-keystroke="shift TAB" keymap="$default"/>
             </action>
-            -->
           </group>
-          <!--
           <action id="GotoCustomRegion" class="com.intellij.lang.customFolding.GotoCustomRegionAction"/>
-          -->
         </group>
-        <action id="PreviousOccurence" class="jetbrains.mps.ide.findusages.view.InspectorRespectingPreviousOccurrenceAction" icon="AllIcons.Actions.PreviousOccurence"/>
-        <action id="NextOccurence" class="jetbrains.mps.ide.findusages.view.InspectorRespectingNextOccurrenceAction" icon="AllIcons.Actions.NextOccurence"/>
+        <action id="PreviousOccurence" class="com.intellij.ide.actions.PreviousOccurenceAction" icon="AllIcons.Actions.PreviousOccurence"/>
+        <action id="NextOccurence" class="com.intellij.ide.actions.NextOccurenceAction" icon="AllIcons.Actions.NextOccurence"/>
         <separator/>
       </group>
 
       <!-- Tools -->
       <group id="ToolsMenu" popup="true" compact="true" class="com.intellij.ide.IdeDependentActionGroup">
-        <!-- MPS Patch
         <action id="PsiViewer" class="com.intellij.internal.psiView.PsiViewerAction"/>
         <action id="PsiViewerForContext" class="com.intellij.internal.psiView.PsiViewerAction$ForContext"/>
-       -->
         <separator/>
         <action id="CreateLauncherScript" class="com.intellij.ide.actions.CreateLauncherScriptAction"/>
         <action id="CreateDesktopEntry" class="com.intellij.ide.actions.CreateDesktopEntryAction"/>
@@ -855,18 +808,6 @@
       <group id="OtherMenu" class="com.intellij.ide.actions.NonEmptyActionGroup"/>
     </group>
 
-    <!-- MPS patch: This action extracted from Main menu, because they are required, but should not be visible there-->
-    <action id="Find" class="com.intellij.openapi.editor.actions.IncrementalFindAction" icon="AllIcons.Actions.Find"/>
-    <action id="Replace" class="com.intellij.openapi.editor.actions.ReplaceAction" icon="AllIcons.Actions.Replace"/>
-    <action id="FindNext" class="com.intellij.ide.actions.SearchAgainAction"/>
-    <action id="FindPrevious" class="com.intellij.ide.actions.SearchBackAction"/>
-    <action id="FindWordAtCaret" class="com.intellij.openapi.editor.actions.FindWordAtCaretAction"/>
-    <!-- See MPS-26514: hide actions from Main menu (but leave active) -->
-    <action id="ExportToHTML" class="com.intellij.codeEditor.printing.ExportToHTMLAction">
-      <override-text place="MainMenu"/>
-    </action>
-    <action id="Print" class="com.intellij.codeEditor.printing.PrintAction" icon="AllIcons.General.Print"/>
-
     <group id="MainToolBar">
       <reference ref="OpenFile"/>
       <reference ref="SaveAll"/>
@@ -879,9 +820,7 @@
         <reference ref="ShowSettings"/>
       </group>
       <separator/>
-      <!-- MPS Patch
       <reference ref="RunAnything"/>
-      -->
       <reference ref="SearchEverywhere"/>
     </group>
 
@@ -1029,11 +968,6 @@
               icon="AllIcons.Nodes.Desktop"/>
       <action id="FileChooser.GotoProject" class="com.intellij.openapi.fileChooser.actions.GotoProjectDirectory"
               icon="AllIcons.Actions.ProjectDirectory"/>
-      <!-- MPS Patch Start-->
-      <action id="FileChooser.GotoMPSModule"
-              class="jetbrains.mps.ide.ui.filechoosers.treefilechooser.GotoModuleDirectory"
-              icon="/nodes/ideaModule.png"/>
-      <!--MPS Patch End-->
       <separator/>
       <action id="FileChooser.NewFile" class="com.intellij.openapi.fileChooser.actions.NewFileAction"
               icon="AllIcons.Actions.New"/>

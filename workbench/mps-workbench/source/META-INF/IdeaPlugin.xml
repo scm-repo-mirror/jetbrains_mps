@@ -142,4 +142,19 @@
                     serviceImplementation="jetbrains.mps.EmptyPsiTodoSearchHelper" overrides="true"/>
   </extensions>
 
+  <actions>
+    <!--MPS Patch to avoid collision with Duplicate Node action TODO: find way to avoid this!!!-->
+    <action id="CompareTwoFiles" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
+    <action id="CompareDirs" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
+    <action id="$Cut" class="jetbrains.mps.workbench.actions.MPSCutAction" icon="AllIcons.Actions.MenuCut" overrides="true"/>
+    <action id="$Copy" class="jetbrains.mps.workbench.actions.MPSCopyAction" icon="AllIcons.Actions.Copy" overrides="true"/>
+    <action id="$Paste" class="jetbrains.mps.workbench.actions.MPSPasteAction" icon="AllIcons.Actions.MenuPaste" overrides="true"/>
+    <group id="FileChooserToolbar.MPS">
+      <action id="FileChooser.GotoMPSModule"
+              class="jetbrains.mps.ide.ui.filechoosers.treefilechooser.GotoModuleDirectory"
+              icon="/nodes/ideaModule.png"/>
+      <add-to-group group-id="FileChooserToolbar" anchor="after" relative-to-action="FileChooser.GotoProject"/>
+    </group>
+  </actions>
+
 </idea-plugin>
