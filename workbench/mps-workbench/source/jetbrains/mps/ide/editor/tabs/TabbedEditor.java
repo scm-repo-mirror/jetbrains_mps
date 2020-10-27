@@ -66,7 +66,10 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
@@ -105,6 +108,7 @@ public class TabbedEditor extends BaseNodeEditor {
   private final MPSNodeVirtualFile myVirtualFile;
   private boolean myDisposed;
   private final Disposable myDisposable = Disposer.newDisposable(TabbedEditor.class.getName());
+  private TabbedEditorState state = new TabbedEditorState();
 
   public static final Topic<TabChangedListener> TAB_CHANGES = new Topic<>(TabChangedListener.class);
   private final TabChangedListener myEventPublisher;
@@ -237,15 +241,23 @@ public class TabbedEditor extends BaseNodeEditor {
     }
 
     SModel md = node.getModel();
-    SModule module = md.getModule();
-    assert module != null : md.getReference().toString() + "; node is disposed = " + !org.jetbrains.mps.openapi.model.SNodeUtil.isAccessible(node,
-        myProject.getRepository());
-    SNodeReference selection = nodeRef;
-    if (myTabsComponent.getCurrentTabAspect() != null) {
-      Collection<SNodeReference> a = myTabsComponent.getSelectionFor(myTabsComponent.getCurrentTabAspect(), nodeRef);
-      selection = a.isEmpty() ? selection : a.iterator().next();
+    saveCurrentState();
+    EditorState newState = state.loadState(nodeRef);
+
+    if (newState != null) {
+      editNode(nodeRef, null);
+      super.loadState(newState);
+    } else {
+      SModule module = md.getModule();
+      assert module != null : md.getReference().toString() + "; node is disposed = " + !org.jetbrains.mps.openapi.model.SNodeUtil.isAccessible(node,
+          myProject.getRepository());
+      SNodeReference selection = nodeRef;
+      if (myTabsComponent.getCurrentTabAspect() != null) {
+        Collection<SNodeReference> a = myTabsComponent.getSelectionFor(myTabsComponent.getCurrentTabAspect(), nodeRef);
+        selection = a.isEmpty() ? selection : a.iterator().next();
+      }
+      editNode(nodeRef, selection);
     }
-    editNode(nodeRef, selection);
 
     myNameListener.attach(md);
 
@@ -324,26 +336,25 @@ public class TabbedEditor extends BaseNodeEditor {
     }
   }
 
-  @Override
-  public EditorState saveState() {
-    TabbedEditorState state = new TabbedEditorState();
-    saveState(state);
-    return state;
-  }
-
-  @Override
-  protected void saveState(BaseEditorState state) {
-    super.saveState(state);
-    if (state instanceof TabbedEditorState) {
-      ((TabbedEditorState) state).setNode(getCurrentlyEditedNode());
+  private void saveCurrentState() {
+    SNodeReference currentlyEditedNode = getCurrentlyEditedNode();
+    if (currentlyEditedNode != null) {
+      state.saveState(currentlyEditedNode, super.saveState());
     }
   }
 
   @Override
-  public void loadState(@NotNull final EditorState state) {
+  public EditorState saveState() {
+    saveCurrentState();
+    return state;
+  }
+
+  @Override
+  public void loadState(@NotNull final EditorState newState) {
     myProject.getModelAccess().runReadAction(() -> {
       if (state instanceof TabbedEditorState) {
-        SNodeReference nodePointer = ((TabbedEditorState) state).getNode();
+        state = (TabbedEditorState) newState;
+        SNodeReference nodePointer = state.getNode();
         SNode node = nodePointer == null ? null : nodePointer.resolve(myProject.getRepository());
         if (node != null) {
           showNode(node, false);
@@ -353,27 +364,47 @@ public class TabbedEditor extends BaseNodeEditor {
         showNode(myBaseNode.resolve(myProject.getRepository()), false);
       }
     });
-    super.loadState(state);
   }
 
-  public final static class TabbedEditorState extends BaseEditorState implements EditorState {
+  public static final class TabbedEditorState implements EditorState {
+    private static final String TABS = "tabs";
+    private static final String EDITOR_TAB = "editor-tab";
     private static final String NODE = "node";
     private static final String NODE_REF = "node_ref";
 
     private SNodeReference myCurrentNode;
+    private final Map<SNodeReference, EditorState> myStates = new HashMap<>();
 
-    /*package*/ void setNode(@Nullable SNodeReference ref) {
+    private void saveState(@Nullable SNodeReference ref, EditorState editorState) {
       myCurrentNode = ref;
+      myStates.put(ref, editorState);
     }
 
     @Nullable
-    /*package*/ SNodeReference getNode() {
+    private SNodeReference getNode() {
       return myCurrentNode;
     }
 
     @Override
+    public void clearSessionState() {
+      for (EditorState value : myStates.values()) {
+        value.clearSessionState();
+      }
+    }
+
+    @Override
     public void save(Element e) {
-      super.save(e);
+      e.removeChild(TABS);
+      Element tabs = new Element(TABS);
+      e.addContent(tabs);
+      for (Entry<SNodeReference, EditorState> entry : myStates.entrySet()) {
+        SNodeReference nodeReference = entry.getKey();
+        EditorState editorState = entry.getValue();
+        Element tabElement = new Element(EDITOR_TAB);
+        tabElement.setAttribute(NODE_REF, jetbrains.mps.smodel.SNodePointer.serialize(nodeReference));
+        editorState.save(tabElement);
+        tabs.addContent(tabElement);
+      }
       boolean createNewElement = (e.getChild(NODE) == null);
       Element node = createNewElement ? new Element(NODE) : e.getChild(NODE);
       if (myCurrentNode != null) {
@@ -386,20 +417,41 @@ public class TabbedEditor extends BaseNodeEditor {
 
     @Override
     public void load(Element e) {
-      super.load(e);
       Element nodeElem = e.getChild(NODE);
       String val = nodeElem.getAttributeValue(NODE_REF);
       if (val != null) {
         myCurrentNode = jetbrains.mps.smodel.SNodePointer.deserialize(val);
       }
+      Element tabs = e.getChild(TABS);
+      if (tabs == null) {
+        if (myCurrentNode != null) {
+          BaseEditorState bes = new BaseEditorState();
+          bes.load(e);
+          myStates.put(myCurrentNode, bes);
+        }
+      } else {
+        for (Element tabElement : tabs.getChildren(EDITOR_TAB)) {
+          BaseEditorState bes = new BaseEditorState();
+          bes.load(tabElement);
+          myStates.put(jetbrains.mps.smodel.SNodePointer.deserialize(tabElement.getAttributeValue(NODE_REF)), bes);
+        }
+      }
     }
 
     public int hashCode() {
-      return super.hashCode() * 13 + (myCurrentNode == null ? 0 : myCurrentNode.hashCode());
+      return myStates.hashCode() * 13 + (myCurrentNode == null ? 0 : myCurrentNode.hashCode());
     }
 
     public boolean equals(Object obj) {
-      return obj instanceof TabbedEditorState && super.equals(obj) && Objects.equals(((TabbedEditorState) obj).myCurrentNode, myCurrentNode);
+      if (!(obj instanceof TabbedEditorState)) {
+        return false;
+      }
+      TabbedEditorState other = (TabbedEditorState) obj;
+      return Objects.equals(other.myCurrentNode, myCurrentNode) && myStates.equals(other.myStates);
+    }
+
+    public EditorState loadState(SNodeReference currentlyEditedNode) {
+      return myStates.get(currentlyEditedNode);
     }
   }
 
