@@ -20,7 +20,6 @@ import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.build.mps.util.ModuleFinder;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.build.util.VisibleArtifacts;
@@ -39,7 +38,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -105,11 +103,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }).toListSequence();
     modulePlugins.collect(allModules, additionalPlugins);
-    return ListSequence.fromList(modulePlugins.getPlugins(_context)).select(new ISelector<Tuples._2<String, String>, SNode>() {
-      public SNode select(Tuples._2<String, String> it) {
-        return createGeneratorInternal_PluginExpanded_x583g4_a0a0a0e0n(it._0(), it._1());
-      }
-    });
+    return modulePlugins.getPlugins(_context, true);
 
   }
   public static Iterable<SNode> sourceNodesQuery_1_1(final SourceSubstituteMacroNodesContext _context) {
@@ -276,12 +270,6 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createGeneratorInternal_PluginExpanded_x583g4_a0a0a0e0n(String p0, String p1) {
-    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_PluginExpanded$$Z);
-    n0.setProperty(PROPS.path$4PFd, p0);
-    n0.setProperty(PROPS.id$4PUe, p1);
-    return n0.getResult();
-  }
   private static boolean isNotEmptyString(String str) {
     return str != null && str.length() > 0;
   }
@@ -307,6 +295,5 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept BuildProject$ae = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
     /*package*/ static final SConcept BuildLayout_Jar$bd = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f9aL, "jetbrains.mps.build.structure.BuildLayout_Jar");
     /*package*/ static final SConcept BuildFolderMacro$mR = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
-    /*package*/ static final SConcept GeneratorInternal_PluginExpanded$$Z = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, "jetbrains.mps.build.mps.structure.GeneratorInternal_PluginExpanded");
   }
 }
