@@ -10676,5 +10676,39 @@
       <node concept="3clFbS" id="3AMbuf0qvy3" role="2VODD2" />
     </node>
   </node>
+  <node concept="13h7C7" id="3vNUe1zajk1">
+    <property role="3GE5qa" value="Layout" />
+    <ref role="13h7C2" to="kdzh:6CY5wCYZA9O" resolve="BuildMpsLayout_ModuleXml" />
+    <node concept="13hLZK" id="3vNUe1zajk2" role="13h7CW">
+      <node concept="3clFbS" id="3vNUe1zajk3" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="3vNUe1zajkc" role="13h7CS">
+      <property role="TrG5h" value="reexportsFromJar" />
+      <ref role="13i0hy" to="vbkb:5bqm540K$Gb" resolve="reexportsFromJar" />
+      <node concept="3Tm1VV" id="3vNUe1zajkd" role="1B3o_S" />
+      <node concept="3clFbS" id="3vNUe1zajki" role="3clF47">
+        <node concept="3clFbF" id="3vNUe1zajkP" role="3cqZAp">
+          <node concept="3clFbC" id="3vNUe1zajpl" role="3clFbG">
+            <node concept="2OqwBi" id="3vNUe1zajDV" role="3uHU7w">
+              <node concept="13iPFW" id="3vNUe1zajuG" role="2Oq$k0" />
+              <node concept="3TrEf2" id="3vNUe1zajUr" role="2OqNvi">
+                <ref role="3Tt5mk" to="kdzh:6CY5wCYZA9P" resolve="module" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="3vNUe1zajkM" role="3uHU7B">
+              <ref role="3cqZAo" node="3vNUe1zajkj" resolve="o" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="3vNUe1zajkj" role="3clF46">
+        <property role="TrG5h" value="o" />
+        <node concept="3uibUv" id="3vNUe1zajkk" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+        </node>
+      </node>
+      <node concept="10P_77" id="3vNUe1zajkl" role="3clF45" />
+    </node>
+  </node>
 </model>
 

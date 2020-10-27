@@ -17,7 +17,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1164991038168:jetbrains.mps.baseLanguage.structure.ThrowStatement" />
   <root>
     <file name="BehaviorAspectDescriptor.java">
-      <unit at="14,0,89,0" name="jetbrains.mps.build.mps.behavior.BehaviorAspectDescriptor" />
+      <unit at="14,0,92,0" name="jetbrains.mps.build.mps.behavior.BehaviorAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)/1224588814561889092">
@@ -1268,6 +1268,81 @@
       <unit id="2569834391839790363" at="244,0,251,0" name="jetbrains.mps.build.mps.behavior.BuildMps_Module__BehaviorDescriptor$CONCEPTS" />
       <unit id="2569834391839790363" at="234,0,243,0" name="jetbrains.mps.build.mps.behavior.BuildMps_Module__BehaviorDescriptor$LINKS" />
       <unit id="2569834391839790363" at="36,0,252,0" name="jetbrains.mps.build.mps.behavior.BuildMps_Module__BehaviorDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)/4031822141860689153">
+    <file name="BuildMpsLayout_ModuleXml__BehaviorDescriptor.java">
+      <node id="4031822141860689153" at="24,0,25,0" concept="11" trace="CONCEPT" />
+      <node id="4031822141860689153" at="26,0,27,0" concept="11" trace="reexportsFromJar_id5bqm540K$Gb" />
+      <node id="4031822141860689153" at="28,0,29,0" concept="11" trace="BH_METHODS" />
+      <node id="4031822141860689205" at="33,100,34,75" concept="8" />
+      <node id="4031822141860689153" at="41,114,42,21" concept="3" />
+      <node id="4031822141860689153" at="46,114,47,49" concept="7" />
+      <node id="4031822141860689153" at="48,26,49,56" concept="14" />
+      <node id="4031822141860689153" at="52,13,53,92" concept="8" />
+      <node id="4031822141860689153" at="54,14,55,58" concept="14" />
+      <node id="4031822141860689153" at="60,128,61,49" concept="7" />
+      <node id="4031822141860689153" at="62,26,63,56" concept="14" />
+      <node id="4031822141860689153" at="66,14,67,58" concept="14" />
+      <node id="4031822141860689153" at="73,48,74,22" concept="8" />
+      <node id="4031822141860689153" at="79,40,80,19" concept="8" />
+      <node id="4031822141860689153" at="84,0,85,0" concept="11" trace="module$yKRo" />
+      <node id="4031822141860689153" at="30,0,32,0" concept="12" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="4031822141860689153" at="37,0,39,0" concept="2" trace="BuildMpsLayout_ModuleXml__BehaviorDescriptor#()V" />
+      <node id="4031822141860689153" at="33,0,36,0" concept="12" trace="reexportsFromJar_id5bqm540K$Gb#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;)Z" />
+      <node id="4031822141860689153" at="47,49,50,5" concept="5" />
+      <node id="4031822141860689153" at="61,49,64,5" concept="5" />
+      <node id="4031822141860689153" at="40,0,44,0" concept="6" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
+      <node id="4031822141860689153" at="64,5,68,5" concept="13" />
+      <node id="4031822141860689153" at="71,0,76,0" concept="6" trace="getDeclaredMethods#()Ljava/util/List;" />
+      <node id="4031822141860689153" at="77,0,82,0" concept="6" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="4031822141860689153" at="50,5,56,5" concept="13" />
+      <node id="4031822141860689153" at="59,0,70,0" concept="6" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <node id="4031822141860689153" at="45,0,58,0" concept="6" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
+      <scope id="4031822141860689153" at="30,63,30,63" />
+      <scope id="4031822141860689153" at="37,62,37,62" />
+      <scope id="4031822141860689170" at="33,100,34,75" />
+      <scope id="4031822141860689153" at="41,114,42,21" />
+      <scope id="4031822141860689153" at="48,26,49,56" />
+      <scope id="4031822141860689153" at="52,13,53,92" />
+      <scope id="4031822141860689153" at="54,14,55,58" />
+      <scope id="4031822141860689153" at="62,26,63,56" />
+      <scope id="4031822141860689153" at="66,14,67,58" />
+      <scope id="4031822141860689153" at="73,48,74,22" />
+      <scope id="4031822141860689153" at="79,40,80,19" />
+      <scope id="4031822141860689153" at="30,0,32,0">
+        <var name="__thisNode__" id="4031822141860689153" />
+      </scope>
+      <scope id="4031822141860689153" at="37,0,39,0" />
+      <scope id="4031822141860689153" at="33,0,36,0">
+        <var name="__thisNode__" id="4031822141860689153" />
+        <var name="o" id="4031822141860689171" />
+      </scope>
+      <scope id="4031822141860689153" at="40,0,44,0">
+        <var name="constructor" id="4031822141860689153" />
+        <var name="node" id="4031822141860689153" />
+        <var name="parameters" id="4031822141860689153" />
+      </scope>
+      <scope id="4031822141860689153" at="71,0,76,0" />
+      <scope id="4031822141860689153" at="77,0,82,0" />
+      <scope id="4031822141860689153" at="60,128,68,5">
+        <var name="methodIndex" id="4031822141860689153" />
+      </scope>
+      <scope id="4031822141860689153" at="46,114,56,5">
+        <var name="methodIndex" id="4031822141860689153" />
+      </scope>
+      <scope id="4031822141860689153" at="59,0,70,0">
+        <var name="concept" id="4031822141860689153" />
+        <var name="method" id="4031822141860689153" />
+        <var name="parameters" id="4031822141860689153" />
+      </scope>
+      <scope id="4031822141860689153" at="45,0,58,0">
+        <var name="method" id="4031822141860689153" />
+        <var name="node" id="4031822141860689153" />
+        <var name="parameters" id="4031822141860689153" />
+      </scope>
+      <unit id="4031822141860689153" at="83,0,86,0" name="jetbrains.mps.build.mps.behavior.BuildMpsLayout_ModuleXml__BehaviorDescriptor$LINKS" />
+      <unit id="4031822141860689153" at="23,0,87,0" name="jetbrains.mps.build.mps.behavior.BuildMpsLayout_ModuleXml__BehaviorDescriptor" />
     </file>
   </root>
   <root nodeRef="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)/4157435862225385601">

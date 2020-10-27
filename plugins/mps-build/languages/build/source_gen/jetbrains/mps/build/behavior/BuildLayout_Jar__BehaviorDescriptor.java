@@ -65,6 +65,10 @@ public final class BuildLayout_Jar__BehaviorDescriptor extends BaseBHDescriptor 
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object object) {
     if (object instanceof SNode) {
       final SNode node = (SNode) object;
+      // FIXME if I replace BS_JavaModule with BS_CompilablePart (which is target of BL_CompileOutputOf.module we compare against), 
+      //      build for MPS modules fails to find certain BM_Module (like MPS.IDEA or j.m.typesystemEngine). I don't think this is 
+      //      right, though not yet sure whether to address this by BL_CompileOutputOf being BL_InJarMode or by union of scanInJarNodes  
+      //      with this custom handling of BL_COO. 
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildSource_JavaModule$NC)) {
         List<SNode> children = SLinkOperations.getChildren(__thisNode__, LINKS.children$aMRO);
         // XXX BL_ImportContent is the one I need at the moment, though likely need to respect BL_Import, too. 

@@ -684,6 +684,9 @@
       <property role="IQ2ns" value="7655580649838764661" />
       <ref role="20lvS9" node="hS0KzPONfF" resolve="BuildMps_AbstractModule" />
     </node>
+    <node concept="PrWs8" id="3vNUe1zaaZA" role="PzmwI">
+      <ref role="PrY4T" to="3ior:5bqm540K$G7" resolve="BuildLayout_InJarNode" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3LQl9buGqe4">
     <property role="TrG5h" value="BuildMpsLayout_ModuleXml_CustomJarLocation" />
