@@ -28241,7 +28241,7 @@
                       <node concept="3clFbH" id="4ykJ8Y8kqFx" role="3cqZAp" />
                       <node concept="2Gpval" id="6FrFfBz1swC" role="3cqZAp">
                         <node concept="2GrKxI" id="6FrFfBz1swE" role="2Gsz3X">
-                          <property role="TrG5h" value="swicthCase" />
+                          <property role="TrG5h" value="switchCase" />
                         </node>
                         <node concept="2OqwBi" id="6FrFfBz1toj" role="2GsD0m">
                           <node concept="2GrUjf" id="4ykJ8Y8kh22" role="2Oq$k0">
@@ -28265,7 +28265,7 @@
                               <node concept="1rXfSq" id="2IXrFxMsZdL" role="33vP2m">
                                 <ref role="37wK5l" node="4ykJ8Y8i9LI" resolve="transformUnqualifedEnumUnderSwitch" />
                                 <node concept="2GrUjf" id="2IXrFxMt1NF" role="37wK5m">
-                                  <ref role="2Gs0qQ" node="6FrFfBz1swE" resolve="swicthCase" />
+                                  <ref role="2Gs0qQ" node="6FrFfBz1swE" resolve="switchCase" />
                                 </node>
                               </node>
                             </node>
@@ -28293,7 +28293,7 @@
                                   </node>
                                   <node concept="2OqwBi" id="2IXrFxMtT7W" role="1m5AlR">
                                     <node concept="2GrUjf" id="6FrFfBz6W9W" role="2Oq$k0">
-                                      <ref role="2Gs0qQ" node="6FrFfBz1swE" resolve="swicthCase" />
+                                      <ref role="2Gs0qQ" node="6FrFfBz1swE" resolve="switchCase" />
                                     </node>
                                     <node concept="3TrEf2" id="2IXrFxMtUbn" role="2OqNvi">
                                       <ref role="3Tt5mk" to="tpee:gVKbmvf" resolve="expression" />

@@ -2413,15 +2413,15 @@
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
-      <pathelement location="${build.layout}/tests/CloneModule.test.jar" />
-      <pathelement location="${build.layout}/tests/JavaCompilationXmlConflict.test.jar" />
-      <pathelement location="${build.layout}/tests/jetbrains.mps.baseLanguage.closures.test.jar" />
-      <pathelement location="${build.layout}/tests/mps.test.findusages.jar" />
-      <pathelement location="${build.layout}/tests/refactoring.test.jar" />
       <pathelement location="${build.layout}/tests/testSubstituteType.jar" />
       <pathelement location="${build.layout}/tests/testSubtypingTest.jar" />
+      <pathelement location="${build.layout}/tests/jetbrains.mps.baseLanguage.closures.test.jar" />
       <pathelement location="${build.layout}/tests/tests.testDepViewer.jar" />
       <pathelement location="${build.layout}/tests/tests.testPersistence.jar" />
+      <pathelement location="${build.layout}/tests/CloneModule.test.jar" />
+      <pathelement location="${build.layout}/tests/JavaCompilationXmlConflict.test.jar" />
+      <pathelement location="${build.layout}/tests/refactoring.test.jar" />
+      <pathelement location="${build.layout}/tests/mps.test.findusages.jar" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.tests.path.string" refid="mps.tests.path" />
     <patternset id="plugin.deployed.jars">

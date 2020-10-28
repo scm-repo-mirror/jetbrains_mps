@@ -29,6 +29,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.awt.Color;
+import java.util.Objects;
 import jetbrains.mps.nodeEditor.AbstractAdditionalPainter;
 import jetbrains.mps.nodeEditor.AdditionalPainter;
 import java.awt.Graphics;
@@ -268,6 +269,18 @@ public class DiffEditor implements EditorMessageOwner {
       this.color = color;
       this.tooltipText = tooltipText;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (!((obj instanceof ColoredStripWithTooltip))) {
+        return false;
+      }
+      if (obj == this) {
+        return true;
+      }
+      ColoredStripWithTooltip strip = (ColoredStripWithTooltip) obj;
+      return strip.y == y && strip.height == height && Objects.equals(strip.color, color) && Objects.equals(strip.tooltipText, tooltipText);
+    }
   }
 
   private class MyEditorComponentPainter extends AbstractAdditionalPainter {
@@ -363,13 +376,13 @@ public class DiffEditor implements EditorMessageOwner {
     return (text == null ? null : text.replace("\n", "<br>"));
   }
 
-  private Iterable<ColoredStripWithTooltip> getColoredStripsUnderMouse(MouseEvent e, boolean inspector) {
+  private List<ColoredStripWithTooltip> getColoredStripsUnderMouse(MouseEvent e, boolean inspector) {
     final Point p = e.getPoint();
     return ListSequence.fromList(getAllColoredStrips(inspector)).where(new IWhereFilter<ColoredStripWithTooltip>() {
       public boolean accept(ColoredStripWithTooltip strip) {
         return p.y >= strip.y && p.y <= strip.y + strip.height;
       }
-    });
+    }).toListSequence();
   }
 
   private Collection<ColoredStripWithTooltip> getColoredStrips(DiffChangeGroupLayout layout, boolean isLeftEditor) {
@@ -408,6 +421,7 @@ public class DiffEditor implements EditorMessageOwner {
   private static boolean isFoldingAction(CellActionType type) {
     return type == CellActionType.FOLD_RECURSIVELY || type == CellActionType.FOLD_ALL || type == CellActionType.FOLD || type == CellActionType.UNFOLD || type == CellActionType.UNFOLD_RECURSIVELY || type == CellActionType.UNFOLD_ALL;
   }
+
 
   public class MyInspectorEditorComponent extends InspectorEditorComponent {
 
@@ -452,14 +466,14 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    public String getToolTipText(MouseEvent event) {
-      String text = super.getToolTipText(event);
-      return (text != null ? text : getToolTipTextFromColoredStrips(getColoredStripsUnderMouse(event, false)));
+    protected JScrollPane createScrollPane() {
+      return ScrollPaneFactory.createScrollPane(null, true);
     }
 
     @Override
-    protected JScrollPane createScrollPane() {
-      return ScrollPaneFactory.createScrollPane(null, true);
+    public String getToolTipText(MouseEvent event) {
+      String text = super.getToolTipText(event);
+      return (text != null ? text : getToolTipTextFromColoredStrips(getColoredStripsUnderMouse(event, false)));
     }
 
     @Override

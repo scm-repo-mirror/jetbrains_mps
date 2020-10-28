@@ -130,6 +130,7 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
         }
         mouseExitedFoldingArea(e);
         mouseExitedIconsArea(e);
+        mouseExitedTextArea(e);
       }
 
       @Override
@@ -154,12 +155,14 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
         }
         if (isInFoldingArea(e)) {
           mouseExitedIconsArea(e);
+          mouseExitedTextArea(e);
           mouseMovedInFoldingArea(e);
         } else if (isInTextArea(e)) {
           mouseExitedFoldingArea(e);
           mouseExitedIconsArea(e);
           mouseMovedInTextArea(e);
         } else {
+          mouseExitedTextArea(e);
           mouseExitedFoldingArea(e);
           mouseMovedInIconsArea(e);
         }
@@ -169,9 +172,8 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
       @Override
       public void editorUpdated(jetbrains.mps.openapi.editor.EditorComponent editorComponent) {
         assert SwingUtilities.isEventDispatchThread() : "LeftEditorHighlighter$RebuildListener should be called in eventDispatchThread";
-        for (AbstractFoldingAreaPainter painter : myFoldingAreaPainters) {
-          painter.editorRebuilt();
-        }
+        myFoldingAreaPainters.forEach(AbstractFoldingAreaPainter::editorRebuilt);
+        myLeftColumns.forEach(AbstractLeftColumn::editorRebuilt);
         relayout(true);
       }
     });
@@ -709,6 +711,11 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
     }
   }
 
+  private void mouseExitedTextArea(MouseEvent e) {
+    setCursor(null);
+    myLeftColumns.forEach(AbstractLeftColumn::mouseExited);
+  }
+
   private void mouseExitedIconsArea(MouseEvent e) {
     if (!myMouseIsInFoldingArea && myRendererUnderMouse != null && !isInTextArea(e)) {
       setCursor(null);
@@ -733,6 +740,14 @@ public final class LeftEditorHighlighter extends JComponent implements TooltipCo
       setCursor(textColumn.getCursor(e));
     } else {
       setCursor(null);
+    }
+    int x = e.getX();
+    for (AbstractLeftColumn leftColumn : myLeftColumns) {
+      if (x >= leftColumn.getX() && x < leftColumn.getX() + leftColumn.getWidth()) {
+        leftColumn.mouseMoved(e);
+      } else {
+        leftColumn.mouseExited();
+      }
     }
   }
 

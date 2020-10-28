@@ -98,6 +98,7 @@ import jetbrains.mps.nodeEditor.highlighter.EditorHighlighter;
 import jetbrains.mps.nodeEditor.keymaps.AWTKeymapHandler;
 import jetbrains.mps.nodeEditor.keymaps.KeymapHandler;
 import jetbrains.mps.nodeEditor.leftHighlighter.LeftEditorHighlighter;
+import jetbrains.mps.nodeEditor.messageTargets.EditorMessageWithTarget;
 import jetbrains.mps.nodeEditor.selection.SelectionInternal;
 import jetbrains.mps.nodeEditor.selection.SelectionManagerImpl;
 import jetbrains.mps.nodeEditor.sidetransform.EditorCell_STHint;
@@ -1001,12 +1002,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public String getMessagesTextFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {
-    List<HighlighterMessage> messages = getHighlighterMessagesFor(cell);
+    List<EditorMessageWithTarget> messages = getEditorMessagesFor(cell);
     if (messages.isEmpty()) {
       return null;
     }
     StringBuilder result = new StringBuilder();
-    for (ListIterator<HighlighterMessage> it = messages.listIterator(messages.size()); it.hasPrevious(); ) {
+    for (ListIterator<EditorMessageWithTarget> it = messages.listIterator(messages.size()); it.hasPrevious(); ) {
       SimpleEditorMessage message = it.previous();
       if (result.length() != 0) {
         result.append('\n');
@@ -1017,20 +1018,25 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   @NotNull
-  private List<HighlighterMessage> getHighlighterMessagesFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {
+  private List<EditorMessageWithTarget> getEditorMessagesFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {
     jetbrains.mps.openapi.editor.cells.EditorCell parent = cell;
     while (parent != null) {
       if (cell.getBottom() < parent.getBottom() && parent.getSNode() != cell.getSNode()) {
         return Collections.emptyList();
       }
-      List<HighlighterMessage> messages = CellMessagesUtil.getMessages(parent, HighlighterMessage.class);
+      List<EditorMessageWithTarget> messages = CellMessagesUtil.getMessages(parent, EditorMessageWithTarget.class);
       if (!messages.isEmpty()) {
         return messages;
       }
       parent = parent.getParent();
     }
-
     return Collections.emptyList();
+  }
+
+  @NotNull
+  private List<HighlighterMessage> getHighlighterMessagesFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {
+    return getEditorMessagesFor(cell).stream().filter(message -> message instanceof HighlighterMessage).map(message -> (HighlighterMessage) message).collect(
+            Collectors.toList());
   }
 
   private HighlighterMessage getHighlighterMessageFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {

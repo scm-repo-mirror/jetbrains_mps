@@ -33,7 +33,7 @@ public class DeleteSwitchDefaultTwoStep_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("5758795789000843961", "5758795789000854726");
+      initEditorComponent("5758795789000843961", "4201047791462362235");
       EditorTestUtil.runWithTwoStepDeletion(new EditorTestUtil.EditorTestRunnable() {
         public void run() throws Exception {
           invokeAction("jetbrains.mps.ide.editor.actions.Delete_Action");

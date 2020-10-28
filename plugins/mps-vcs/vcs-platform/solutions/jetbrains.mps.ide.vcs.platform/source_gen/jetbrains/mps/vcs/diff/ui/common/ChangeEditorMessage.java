@@ -54,10 +54,16 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   private ConflictChecker myConflictsChecker;
   private boolean myHighlighted;
   protected ChangeEditorMessage(SNode node, MessageTarget target, EditorMessageOwner owner, ModelChange change, ConflictChecker conflictChecker, boolean highlighted) {
-    super(node, MessageStatus.OK, target, null, "", owner);
+    super(node, MessageStatus.OK, target, null, change.getDescription(), owner);
     myChange = change;
     myConflictsChecker = conflictChecker;
     myHighlighted = highlighted;
+  }
+  protected ChangeEditorMessage(ChangeEditorMessage editorMessage, String textMessage) {
+    super(editorMessage.getNode(), editorMessage.getStatus(), editorMessage.myMessageTarget, null, textMessage, editorMessage.getOwner());
+    myChange = editorMessage.myChange;
+    myConflictsChecker = editorMessage.myConflictsChecker;
+    myHighlighted = editorMessage.myHighlighted;
   }
   public boolean isConflicted() {
     return myConflictsChecker != null && myConflictsChecker.isChangeConflicted(myChange);
@@ -116,12 +122,21 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
           drawDeletedChild(graphics, (EditorCell_Collection) cell, dmt.getNextChildIndex());
         }
       } else {
-        Rectangle bounds = (isIndirectRoot(editor) ? getFirstPseudoLineBounds(editor) : GeometryUtil.getBounds(cell));
-        graphics.setColor(ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : ChangeType.CHANGE)));
-        graphics.drawRect(bounds.x + 1, bounds.y + 1, bounds.width - 2, bounds.height - 2);
+        paintIndirectCell(graphics, editor, cell);
       }
     }
   }
+
+  protected Rectangle getIndirectCellRectangle(EditorComponent editor, EditorCell cell) {
+    return (isIndirectRoot(editor) ? getFirstPseudoLineBounds(editor) : GeometryUtil.getBounds(cell));
+  }
+
+  protected void paintIndirectCell(Graphics graphics, EditorComponent editor, EditorCell cell) {
+    Rectangle bounds = getIndirectCellRectangle(editor, cell);
+    graphics.setColor(ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : ChangeType.CHANGE)));
+    graphics.drawRect(bounds.x + 1, bounds.y + 1, bounds.width - 2, bounds.height - 2);
+  }
+
   @Override
   @Nullable
   public EditorCell getCell(final EditorComponent editor) {
@@ -151,7 +166,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     return false;
   }
   private static boolean isNameCell(EditorCell cell) {
-    return Objects.equals(check_myu41h_a0a0r(check_myu41h_a0a0a71(check_myu41h_a0a0a0r(cell.getCellContext()))), NAME_PROPERTY);
+    return Objects.equals(check_myu41h_a0a0x(check_myu41h_a0a0a32(check_myu41h_a0a0a0x(cell.getCellContext()))), NAME_PROPERTY);
   }
   private void repaintConflictedMessages(Graphics graphics, EditorCell cell) {
     // This is a workaround for case when any change message is going to be painted over 
@@ -213,7 +228,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     graphics.drawPolygon(new int[]{x, x - 3, x + 3}, new int[]{y2 + 2, y2 + 5, y2 + 5}, 3);
   }
 
-  private boolean isIndirectRoot(final jetbrains.mps.openapi.editor.EditorComponent editor) {
+  protected boolean isIndirectRoot(final jetbrains.mps.openapi.editor.EditorComponent editor) {
     // XXX [artem] no idea yet what does 'indirect root' mean 
     if (editor instanceof InspectorEditorComponent) {
       return false;
@@ -221,7 +236,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     ModelAccessHelper mah = new ModelAccessHelper(editor.getEditorContext().getRepository());
     return mah.runReadAction(new Computable<Boolean>() {
       public Boolean compute() {
-        return check_myu41h_a0a0a0a0d0x(getNode(), ChangeEditorMessage.this) == null && !(isDirectCell(getCell((EditorComponent) editor)));
+        return check_myu41h_a0a0a0a0d0db(getNode(), ChangeEditorMessage.this) == null && !(isDirectCell(getCell((EditorComponent) editor)));
       }
     });
   }
@@ -252,13 +267,13 @@ __switch__:
                       this.__CP__ = 6;
                       break;
                     case 7:
-                      this._7__yield_myu41h_a0a0a0a0a0a52_it = Sequence.fromIterable(invoke(_4_child)).iterator();
+                      this._7__yield_myu41h_a0a0a0a0a0a13_it = Sequence.fromIterable(invoke(_4_child)).iterator();
                     case 8:
-                      if (!(this._7__yield_myu41h_a0a0a0a0a0a52_it.hasNext())) {
+                      if (!(this._7__yield_myu41h_a0a0a0a0a0a13_it.hasNext())) {
                         this.__CP__ = 5;
                         break;
                       }
-                      this._7__yield_myu41h_a0a0a0a0a0a52 = this._7__yield_myu41h_a0a0a0a0a0a52_it.next();
+                      this._7__yield_myu41h_a0a0a0a0a0a13 = this._7__yield_myu41h_a0a0a0a0a0a13_it.next();
                       this.__CP__ = 9;
                       break;
                     case 2:
@@ -270,7 +285,7 @@ __switch__:
                       break;
                     case 10:
                       this.__CP__ = 8;
-                      this.yield(_7__yield_myu41h_a0a0a0a0a0a52);
+                      this.yield(_7__yield_myu41h_a0a0a0a0a0a13);
                       return true;
                     case 12:
                       this.__CP__ = 1;
@@ -299,8 +314,8 @@ __switch__:
               }
               private EditorCell _4_child;
               private Iterator<EditorCell> _4_child_it;
-              private EditorCell _7__yield_myu41h_a0a0a0a0a0a52;
-              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a52_it;
+              private EditorCell _7__yield_myu41h_a0a0a0a0a0a13;
+              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a13_it;
             };
           }
         };
@@ -384,7 +399,7 @@ __switch__:
     myHighlighted = highlighted;
   }
 
-  private static boolean hasChildrenWithDifferentNode(EditorCell cell) {
+  protected static boolean hasChildrenWithDifferentNode(EditorCell cell) {
     if (cell instanceof EditorCell_Collection) {
       final EditorCell_Collection collectionCell = (EditorCell_Collection) cell;
       return Sequence.fromIterable(((Iterable<EditorCell>) collectionCell)).any(new IWhereFilter<EditorCell>() {
@@ -396,10 +411,10 @@ __switch__:
       return false;
     }
   }
-  private static boolean isVertical(EditorCell cell) {
+  protected static boolean isVertical(EditorCell cell) {
     return cell instanceof EditorCell_Collection && (((EditorCell_Collection) cell).getCellLayout() instanceof CellLayout_Vertical || cell.getStyle().get(StyleAttributes.INDENT_LAYOUT_CHILDREN_NEWLINE));
   }
-  private static EditorCell getChildCell(@NotNull EditorCell_Collection collectionCell, int nodeIndex) {
+  protected static EditorCell getChildCell(@NotNull EditorCell_Collection collectionCell, int nodeIndex) {
     if (nodeIndex == -1) {
       return null;
     }
@@ -424,25 +439,25 @@ __switch__:
   public interface ConflictChecker {
     boolean isChangeConflicted(ModelChange change);
   }
-  private static String check_myu41h_a0a0r(SProperty checkedDotOperand) {
+  private static String check_myu41h_a0a0x(SProperty checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getName();
     }
     return null;
   }
-  private static SProperty check_myu41h_a0a0a71(SPropertyInfo checkedDotOperand) {
+  private static SProperty check_myu41h_a0a0a32(SPropertyInfo checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getProperty();
     }
     return null;
   }
-  private static SPropertyInfo check_myu41h_a0a0a0r(EditorCellContext checkedDotOperand) {
+  private static SPropertyInfo check_myu41h_a0a0a0x(EditorCellContext checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getPropertyInfo();
     }
     return null;
   }
-  private static SNode check_myu41h_a0a0a0a0d0x(SNode checkedDotOperand, ChangeEditorMessage checkedDotThisExpression) {
+  private static SNode check_myu41h_a0a0a0a0d0db(SNode checkedDotOperand, ChangeEditorMessage checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getParent();
     }
