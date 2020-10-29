@@ -115,8 +115,8 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   @Deprecated
   @ToRemove(version = 3.5)
   protected FileBasedModelRoot(String[] supportedFileKinds) {
-    mySupportedFileKinds = supportedFileKinds != null ?
-                           unmodifiableList(asList(supportedFileKinds)) : emptyList();
+    mySupportedFileKinds = supportedFileKinds != null ? List.of(supportedFileKinds)
+                                                      : emptyList();
     mySourcePathStorage = new SourcePaths((sourceRootKind) -> getSupportedFileKinds1().contains(sourceRootKind));
   }
 
@@ -239,10 +239,10 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   @Deprecated
   public final Collection<String> getFiles(@NotNull String kind) {
     List<SourceRoot> roots = getSourceRoots(resolveKindByName(kind));
-    return unmodifiableList(roots.stream()
-                                 .map(SourceRoot::getAbsolutePath) // unfortunately I am sure that plenty clients rely on the absolute path here.
-                                 .map(IFile::getPath)
-                                 .collect(Collectors.toList()));
+    return roots.stream()
+                .map(SourceRoot::getAbsolutePath) // unfortunately I am sure that plenty clients rely on the absolute path here.
+                .map(IFile::getPath)
+                .collect(Collectors.toUnmodifiableList());
   }
 
   @Override
@@ -305,16 +305,18 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   }
 
   private void attachPathListenerForEachSourceRoot() { // fixme extract class
-    getSupportedFileKinds1().stream().filter(kind -> !kind.isExcluded()).forEach(kind -> {
-      for (SourceRoot sourceRoot : getSourceRoots(kind)) {
-        IFile file = sourceRoot.getAbsolutePath();
-        PathListener listener = new PathListener(file);
-        myListeners.add(listener);
-        if (myFileSystem instanceof CachingFileSystem) {
-          ((CachingFileSystem) myFileSystem).addListener(listener);
-        }
-      }
-    });
+    getSupportedFileKinds1().stream()
+                            .filter(kind -> !kind.isExcluded())
+                            .forEach(kind -> {
+                              for (SourceRoot sourceRoot : getSourceRoots(kind)) {
+                                IFile file = sourceRoot.getAbsolutePath();
+                                PathListener listener = new PathListener(file);
+                                myListeners.add(listener);
+                                if (myFileSystem instanceof CachingFileSystem) {
+                                  ((CachingFileSystem) myFileSystem).addListener(listener);
+                                }
+                              }
+                            });
   }
 
   @Override
@@ -335,7 +337,6 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
       return;
     }
     if (!event.getCreated().isEmpty() || !event.getRemoved().isEmpty()) {
-      assert isRegistered();
       // indeed, it's not nice to have distinct model writes for each model root, still it's better
       // than global model write in a reload manager (which is not even FS aware, let alone FS-Model relation aware.
       getRepository().getModelAccess().runWriteAction(this::update);

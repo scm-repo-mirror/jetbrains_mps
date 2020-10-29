@@ -191,8 +191,6 @@ public abstract class ModelRootBase implements ModelRoot {
    * Strangely enough this logic is not in API (not added to the API #loadModels implementation) so
    * the client of this class (and its subclasses) has to cast his <code>ModelRoot</code> to <code>ModelRootBase</code>
    * every time he wants to reload the models from their data sources.
-   *
-   * TODO the right thing
    */
   public void update() {
     assertCanChange();
