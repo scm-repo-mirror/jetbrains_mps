@@ -134,6 +134,22 @@ public class QueriesGenerated extends QueryProviderBase {
     return false;
   }
   public static boolean rule_Condition_0_4(final BaseMappingRuleContext _context) {
+    if (_context.getNode().getUserObject("LABELED") != null) {
+      return false;
+    }
+    Iterable<SNode> f = SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getNode(), LINKS.children$aMRO), CONCEPTS.BuildLayout_Folder$AH);
+    Iterable<SNode> ff = Sequence.fromIterable(f).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "modules");
+      }
+    });
+    if (Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(ff, LINKS.children$aMRO), CONCEPTS.BuildMpsLayout_FolderWithSources$mg)).isNotEmpty()) {
+      _context.getNode().putUserObject("LABELED", "LABELED");
+      return true;
+    }
+    return false;
+  }
+  public static boolean rule_Condition_0_5(final BaseMappingRuleContext _context) {
     return !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$ZarS), PROPS.pluginXmlProvided$f2I));
   }
   public static boolean rule_Condition_7_0(final BaseMappingRuleContext _context) {
@@ -1415,7 +1431,7 @@ public class QueriesGenerated extends QueryProviderBase {
     //    which is to be reduced to path value later. 
     return Sequence.fromIterable(Sequence.fromArray(((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPluginPaths(_context))).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return createGeneratorInternal_String_x583g4_a0a0a0e0km(it);
+        return createGeneratorInternal_String_x583g4_a0a0a0e0lm(it);
       }
     });
   }
@@ -1463,7 +1479,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_10_5(final SourceSubstituteMacroNodesContext _context) {
     return Sequence.fromIterable(Sequence.fromArray(((String[]) _context.getVariable("var:requiredPlugins")))).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return createGeneratorInternal_String_x583g4_a0a0a0a0pm(it);
+        return createGeneratorInternal_String_x583g4_a0a0a0a0qm(it);
       }
     });
   }
@@ -1573,6 +1589,17 @@ public class QueriesGenerated extends QueryProviderBase {
     _context.registerMappingLabel(SLinkOperations.getTarget(md, LINKS.module$yKRo), "MODULE2LAYOUT", _context.getOutputNode());
   }
   public static void mapSrcMacro_post_0_1(final MapSrcMacroPostProcContext _context) {
+    Iterable<SNode> f = SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getNode(), LINKS.children$aMRO), CONCEPTS.BuildLayout_Folder$AH);
+    Iterable<SNode> ff = Sequence.fromIterable(f).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "modules");
+      }
+    });
+    for (SNode fws : Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(ff, LINKS.children$aMRO), CONCEPTS.BuildMpsLayout_FolderWithSources$mg))) {
+      _context.registerMappingLabel(SLinkOperations.getTarget(fws, LINKS.module$zG3S), "MODULE2LAYOUT", _context.getOutputNode());
+    }
+  }
+  public static void mapSrcMacro_post_0_2(final MapSrcMacroPostProcContext _context) {
     new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false)).preserveLocations(_context.getNode(), _context.getOutputNode());
   }
   public static void mapSrcMacro_post_7_0(final MapSrcMacroPostProcContext _context) {
@@ -1821,7 +1848,7 @@ public class QueriesGenerated extends QueryProviderBase {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
     return ListSequence.fromList(dependencies).select(new ISelector<Tuples._2<SNode, String>, SNode>() {
       public SNode select(Tuples._2<SNode, String> it) {
-        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a463(it._1(), it._0());
+        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a663(it._1(), it._0());
       }
     }).toListSequence();
   }
@@ -1862,6 +1889,7 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     rrcMethods.put("687702229766529098", new RRC(i++));
+    rrcMethods.put("687702229768099918", new RRC(i++));
     rrcMethods.put("7753544965996882283", new RRC(i++));
     rrcMethods.put("4031822141866244864", new RRC(i++));
     rrcMethods.put("4031822141866291778", new RRC(i++));
@@ -1887,12 +1915,14 @@ public class QueriesGenerated extends QueryProviderBase {
         case 0:
           return QueriesGenerated.rule_Condition_0_3(ctx);
         case 1:
-          return QueriesGenerated.rule_Condition_7_2(ctx);
+          return QueriesGenerated.rule_Condition_0_4(ctx);
         case 2:
-          return QueriesGenerated.rule_Condition_7_3(ctx);
+          return QueriesGenerated.rule_Condition_7_2(ctx);
         case 3:
-          return QueriesGenerated.rule_Condition_7_4(ctx);
+          return QueriesGenerated.rule_Condition_7_3(ctx);
         case 4:
+          return QueriesGenerated.rule_Condition_7_4(ctx);
+        case 5:
           return QueriesGenerated.rule_Condition_0_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -3006,7 +3036,7 @@ public class QueriesGenerated extends QueryProviderBase {
         case 0:
           return QueriesGenerated.rule_Condition_0_2(ctx);
         case 1:
-          return QueriesGenerated.rule_Condition_0_4(ctx);
+          return QueriesGenerated.rule_Condition_0_5(ctx);
         case 2:
           return QueriesGenerated.rule_Condition_7_0(ctx);
         case 3:
@@ -3272,8 +3302,9 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, MapPostProcessor> mppMethods = new HashMap<String, MapPostProcessor>();
   {
     mppMethods.put("687702229766712927", new PPQ(0));
-    mppMethods.put("3747750384908358182", new PPQ(1));
-    mppMethods.put("4031822141866335512", new PPQ(2));
+    mppMethods.put("687702229768150158", new PPQ(1));
+    mppMethods.put("3747750384908358182", new PPQ(2));
+    mppMethods.put("4031822141866335512", new PPQ(3));
   }
   @NotNull
   @Override
@@ -3298,6 +3329,9 @@ public class QueriesGenerated extends QueryProviderBase {
           QueriesGenerated.mapSrcMacro_post_0_1(ctx);
           return;
         case 2:
+          QueriesGenerated.mapSrcMacro_post_0_2(ctx);
+          return;
+        case 3:
           QueriesGenerated.mapSrcMacro_post_7_0(ctx);
           return;
         default:
@@ -3305,17 +3339,17 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode createGeneratorInternal_String_x583g4_a0a0a0e0km(String p0) {
+  private static SNode createGeneratorInternal_String_x583g4_a0a0a0e0lm(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_String$CC);
     n0.setProperty(PROPS.path$oN2q, p0);
     return n0.getResult();
   }
-  private static SNode createGeneratorInternal_String_x583g4_a0a0a0a0pm(String p0) {
+  private static SNode createGeneratorInternal_String_x583g4_a0a0a0a0qm(String p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_String$CC);
     n0.setProperty(PROPS.path$oN2q, p0);
     return n0.getResult();
   }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a463(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a663(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);
@@ -3449,6 +3483,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept BuildMps_Module$JW = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
     /*package*/ static final SConcept BuildLayout_Folder$AH = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c78L, "jetbrains.mps.build.structure.BuildLayout_Folder");
     /*package*/ static final SConcept BuildMpsLayout_ModuleXml$_e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml");
+    /*package*/ static final SConcept BuildMpsLayout_FolderWithSources$mg = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x1d38569c566c8c91L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_FolderWithSources");
     /*package*/ static final SConcept BuildMps_Solution$R7 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
     /*package*/ static final SConcept BuildMps_ModuleJavaSource$M6 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334bdeaL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleJavaSource");
     /*package*/ static final SConcept BuildMps_DevKit$jc = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, "jetbrains.mps.build.mps.structure.BuildMps_DevKit");

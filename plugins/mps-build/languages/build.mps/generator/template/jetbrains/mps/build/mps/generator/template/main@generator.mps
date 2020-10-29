@@ -4176,23 +4176,23 @@
                 </node>
               </node>
             </node>
-            <node concept="2OqwBi" id="Abdozcv6oG" role="3clFbw">
-              <node concept="2OqwBi" id="AbdozcuW7Y" role="2Oq$k0">
-                <node concept="2OqwBi" id="Abdozcv2Hn" role="2Oq$k0">
-                  <node concept="37vLTw" id="Abdozcv6Sx" role="2Oq$k0">
+            <node concept="2OqwBi" id="Abdozc$NRU" role="3clFbw">
+              <node concept="2OqwBi" id="Abdozc$NRV" role="2Oq$k0">
+                <node concept="2OqwBi" id="Abdozc$NRW" role="2Oq$k0">
+                  <node concept="37vLTw" id="Abdozc$NRX" role="2Oq$k0">
                     <ref role="3cqZAo" node="Abdozcv6Se" resolve="ff" />
                   </node>
-                  <node concept="13MTOL" id="Abdozcv3a2" role="2OqNvi">
+                  <node concept="13MTOL" id="Abdozc$NRY" role="2OqNvi">
                     <ref role="13MTZf" to="3ior:6qcrfIJF4Me" resolve="children" />
                   </node>
                 </node>
-                <node concept="v3k3i" id="Abdozcv3BN" role="2OqNvi">
-                  <node concept="chp4Y" id="Abdozcv3JT" role="v3oSu">
+                <node concept="v3k3i" id="Abdozc$NRZ" role="2OqNvi">
+                  <node concept="chp4Y" id="Abdozc$NS0" role="v3oSu">
                     <ref role="cht4Q" to="kdzh:6CY5wCYZA9O" resolve="BuildMpsLayout_ModuleXml" />
                   </node>
                 </node>
               </node>
-              <node concept="3GX2aA" id="Abdozcv6Dz" role="2OqNvi" />
+              <node concept="3GX2aA" id="Abdozc$NS1" role="2OqNvi" />
             </node>
           </node>
           <node concept="3cpWs6" id="AbdozcuUUa" role="3cqZAp">
@@ -4317,6 +4317,259 @@
           </node>
           <node concept="29HgVG" id="AbdozcviOR" role="lGtFl">
             <property role="34cw8o" value="just make a copy to get output node recorded with a label" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="Abdozc$_xe" role="3acgRq">
+      <ref role="30HIoZ" to="3ior:6qcrfIJF7Yq" resolve="BuildLayout_Jar" />
+      <node concept="gft3U" id="Abdozc$LMb" role="1lVwrX">
+        <node concept="3981dx" id="Abdozc$LMc" role="gfFT$">
+          <node concept="3_J27D" id="Abdozc$LMd" role="Nbhlr" />
+          <node concept="1pdMLZ" id="Abdozc$LMe" role="lGtFl">
+            <node concept="15lBmy" id="Abdozc$LMf" role="15mYut">
+              <node concept="3clFbS" id="Abdozc$LMg" role="2VODD2">
+                <node concept="3cpWs8" id="Abdozc$LMh" role="3cqZAp">
+                  <node concept="3cpWsn" id="Abdozc$LMi" role="3cpWs9">
+                    <property role="TrG5h" value="f" />
+                    <node concept="A3Dl8" id="Abdozc$LMj" role="1tU5fm">
+                      <node concept="3Tqbb2" id="Abdozc$LMk" role="A3Ik2">
+                        <ref role="ehGHo" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="Abdozc$LMl" role="33vP2m">
+                      <node concept="2OqwBi" id="Abdozc$LMm" role="2Oq$k0">
+                        <node concept="30H73N" id="Abdozc$LMn" role="2Oq$k0" />
+                        <node concept="3Tsc0h" id="Abdozc$LMo" role="2OqNvi">
+                          <ref role="3TtcxE" to="3ior:6qcrfIJF4Me" resolve="children" />
+                        </node>
+                      </node>
+                      <node concept="v3k3i" id="Abdozc$LMp" role="2OqNvi">
+                        <node concept="chp4Y" id="Abdozc$LMq" role="v3oSu">
+                          <ref role="cht4Q" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs8" id="Abdozc$RuJ" role="3cqZAp">
+                  <node concept="3cpWsn" id="Abdozc$RuK" role="3cpWs9">
+                    <property role="TrG5h" value="ff" />
+                    <node concept="A3Dl8" id="Abdozc$RuL" role="1tU5fm">
+                      <node concept="3Tqbb2" id="Abdozc$RuM" role="A3Ik2">
+                        <ref role="ehGHo" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="Abdozc$RuN" role="33vP2m">
+                      <node concept="37vLTw" id="Abdozc$RuO" role="2Oq$k0">
+                        <ref role="3cqZAo" node="Abdozc$LMi" resolve="f" />
+                      </node>
+                      <node concept="3zZkjj" id="Abdozc$RuP" role="2OqNvi">
+                        <node concept="1bVj0M" id="Abdozc$RuQ" role="23t8la">
+                          <node concept="3clFbS" id="Abdozc$RuR" role="1bW5cS">
+                            <node concept="3clFbF" id="Abdozc$RuS" role="3cqZAp">
+                              <node concept="17R0WA" id="Abdozc$RuT" role="3clFbG">
+                                <node concept="Xl_RD" id="Abdozc$RuU" role="3uHU7w">
+                                  <property role="Xl_RC" value="modules" />
+                                </node>
+                                <node concept="2OqwBi" id="Abdozc$RuV" role="3uHU7B">
+                                  <node concept="37vLTw" id="Abdozc$RuW" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="Abdozc$RuY" resolve="it" />
+                                  </node>
+                                  <node concept="3TrcHB" id="Abdozc$RuX" role="2OqNvi">
+                                    <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="Rh6nW" id="Abdozc$RuY" role="1bW2Oz">
+                            <property role="TrG5h" value="it" />
+                            <node concept="2jxLKc" id="Abdozc$RuZ" role="1tU5fm" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="2Gpval" id="Abdozc$Spj" role="3cqZAp">
+                  <node concept="2GrKxI" id="Abdozc$Spl" role="2Gsz3X">
+                    <property role="TrG5h" value="fws" />
+                  </node>
+                  <node concept="3clFbS" id="Abdozc$Spp" role="2LFqv$">
+                    <node concept="3clFbF" id="Abdozc$LMR" role="3cqZAp">
+                      <node concept="2OqwBi" id="Abdozc$LMS" role="3clFbG">
+                        <node concept="1iwH7S" id="Abdozc$LMT" role="2Oq$k0" />
+                        <node concept="703nC" id="Abdozc$LMU" role="2OqNvi">
+                          <ref role="707pR" node="Abdozcp6If" resolve="MODULE2LAYOUT" />
+                          <node concept="3l3mFP" id="Abdozc$LMV" role="707Dt" />
+                          <node concept="2OqwBi" id="Abdozc$T08" role="707Db">
+                            <node concept="2GrUjf" id="Abdozc$SMx" role="2Oq$k0">
+                              <ref role="2Gs0qQ" node="Abdozc$Spl" resolve="fws" />
+                            </node>
+                            <node concept="3TrEf2" id="Abdozc$Tha" role="2OqNvi">
+                              <ref role="3Tt5mk" to="kdzh:1tWbYFNhzsh" resolve="module" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="Abdozc$LMK" role="2GsD0m">
+                    <node concept="2OqwBi" id="Abdozc$LML" role="2Oq$k0">
+                      <node concept="37vLTw" id="Abdozc$S4w" role="2Oq$k0">
+                        <ref role="3cqZAo" node="Abdozc$RuK" resolve="ff" />
+                      </node>
+                      <node concept="13MTOL" id="Abdozc$LMN" role="2OqNvi">
+                        <ref role="13MTZf" to="3ior:6qcrfIJF4Me" resolve="children" />
+                      </node>
+                    </node>
+                    <node concept="v3k3i" id="Abdozc$LMO" role="2OqNvi">
+                      <node concept="chp4Y" id="Abdozc$S8_" role="v3oSu">
+                        <ref role="cht4Q" to="kdzh:1OSlDLmr8Mh" resolve="BuildMpsLayout_FolderWithSources" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="29HgVG" id="Abdozc$LMZ" role="lGtFl">
+            <property role="34cw8o" value="just make a copy to get output node recorded with a label" />
+          </node>
+        </node>
+      </node>
+      <node concept="30G5F_" id="Abdozc$MbJ" role="30HLyM">
+        <node concept="3clFbS" id="Abdozc$MbK" role="2VODD2">
+          <node concept="3clFbJ" id="Abdozc$Mh4" role="3cqZAp">
+            <node concept="3clFbS" id="Abdozc$Mh5" role="3clFbx">
+              <node concept="3cpWs6" id="Abdozc$Mh6" role="3cqZAp">
+                <node concept="3clFbT" id="Abdozc$Mh7" role="3cqZAk" />
+              </node>
+            </node>
+            <node concept="3y3z36" id="Abdozc$Mh8" role="3clFbw">
+              <node concept="10Nm6u" id="Abdozc$Mh9" role="3uHU7w" />
+              <node concept="2OqwBi" id="Abdozc$Mha" role="3uHU7B">
+                <node concept="2JrnkZ" id="Abdozc$Mhb" role="2Oq$k0">
+                  <node concept="30H73N" id="Abdozc$Mhc" role="2JrQYb" />
+                </node>
+                <node concept="liA8E" id="Abdozc$Mhd" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getUserObject(java.lang.Object)" resolve="getUserObject" />
+                  <node concept="Xl_RD" id="Abdozc$Mhe" role="37wK5m">
+                    <property role="Xl_RC" value="LABELED" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs8" id="Abdozc$Mhf" role="3cqZAp">
+            <node concept="3cpWsn" id="Abdozc$Mhg" role="3cpWs9">
+              <property role="TrG5h" value="f" />
+              <node concept="A3Dl8" id="Abdozc$Mhh" role="1tU5fm">
+                <node concept="3Tqbb2" id="Abdozc$Mhi" role="A3Ik2">
+                  <ref role="ehGHo" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="Abdozc$Mhj" role="33vP2m">
+                <node concept="2OqwBi" id="Abdozc$Mhk" role="2Oq$k0">
+                  <node concept="30H73N" id="Abdozc$Mhl" role="2Oq$k0" />
+                  <node concept="3Tsc0h" id="Abdozc$Mhm" role="2OqNvi">
+                    <ref role="3TtcxE" to="3ior:6qcrfIJF4Me" resolve="children" />
+                  </node>
+                </node>
+                <node concept="v3k3i" id="Abdozc$Mhn" role="2OqNvi">
+                  <node concept="chp4Y" id="Abdozc$Mho" role="v3oSu">
+                    <ref role="cht4Q" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs8" id="Abdozc$Mhp" role="3cqZAp">
+            <node concept="3cpWsn" id="Abdozc$Mhq" role="3cpWs9">
+              <property role="TrG5h" value="ff" />
+              <node concept="A3Dl8" id="Abdozc$Mhr" role="1tU5fm">
+                <node concept="3Tqbb2" id="Abdozc$Mhs" role="A3Ik2">
+                  <ref role="ehGHo" to="3ior:6qcrfIJF4LS" resolve="BuildLayout_Folder" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="Abdozc$Mht" role="33vP2m">
+                <node concept="37vLTw" id="Abdozc$Mhu" role="2Oq$k0">
+                  <ref role="3cqZAo" node="Abdozc$Mhg" resolve="f" />
+                </node>
+                <node concept="3zZkjj" id="Abdozc$Mhv" role="2OqNvi">
+                  <node concept="1bVj0M" id="Abdozc$Mhw" role="23t8la">
+                    <node concept="3clFbS" id="Abdozc$Mhx" role="1bW5cS">
+                      <node concept="3clFbF" id="Abdozc$Mhy" role="3cqZAp">
+                        <node concept="17R0WA" id="Abdozc$Mhz" role="3clFbG">
+                          <node concept="Xl_RD" id="Abdozc$Mh$" role="3uHU7w">
+                            <property role="Xl_RC" value="modules" />
+                          </node>
+                          <node concept="2OqwBi" id="Abdozc$Mh_" role="3uHU7B">
+                            <node concept="37vLTw" id="Abdozc$MhA" role="2Oq$k0">
+                              <ref role="3cqZAo" node="Abdozc$MhC" resolve="it" />
+                            </node>
+                            <node concept="3TrcHB" id="Abdozc$MhB" role="2OqNvi">
+                              <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="Rh6nW" id="Abdozc$MhC" role="1bW2Oz">
+                      <property role="TrG5h" value="it" />
+                      <node concept="2jxLKc" id="Abdozc$MhD" role="1tU5fm" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="Abdozc$Mij" role="3cqZAp">
+            <node concept="3clFbS" id="Abdozc$Mik" role="3clFbx">
+              <node concept="3clFbF" id="Abdozc$Mil" role="3cqZAp">
+                <node concept="2OqwBi" id="Abdozc$Mim" role="3clFbG">
+                  <node concept="2JrnkZ" id="Abdozc$Min" role="2Oq$k0">
+                    <node concept="30H73N" id="Abdozc$Mio" role="2JrQYb" />
+                  </node>
+                  <node concept="liA8E" id="Abdozc$Mip" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SNode.putUserObject(java.lang.Object,java.lang.Object)" resolve="putUserObject" />
+                    <node concept="Xl_RD" id="Abdozc$Miq" role="37wK5m">
+                      <property role="Xl_RC" value="LABELED" />
+                    </node>
+                    <node concept="Xl_RD" id="Abdozc$Mir" role="37wK5m">
+                      <property role="Xl_RC" value="LABELED" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3cpWs6" id="Abdozc$Mis" role="3cqZAp">
+                <node concept="3clFbT" id="Abdozc$Mit" role="3cqZAk">
+                  <property role="3clFbU" value="true" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="Abdozc$Mi7" role="3clFbw">
+              <node concept="2OqwBi" id="Abdozc$Mi8" role="2Oq$k0">
+                <node concept="2OqwBi" id="Abdozc$Mi9" role="2Oq$k0">
+                  <node concept="37vLTw" id="Abdozc$Pl6" role="2Oq$k0">
+                    <ref role="3cqZAo" node="Abdozc$Mhq" resolve="ff" />
+                  </node>
+                  <node concept="13MTOL" id="Abdozc$Mib" role="2OqNvi">
+                    <ref role="13MTZf" to="3ior:6qcrfIJF4Me" resolve="children" />
+                  </node>
+                </node>
+                <node concept="v3k3i" id="Abdozc$Mic" role="2OqNvi">
+                  <node concept="chp4Y" id="Abdozc$Mid" role="v3oSu">
+                    <ref role="cht4Q" to="kdzh:1OSlDLmr8Mh" resolve="BuildMpsLayout_FolderWithSources" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3GX2aA" id="Abdozc$QKv" role="2OqNvi" />
+            </node>
+          </node>
+          <node concept="3cpWs6" id="Abdozc$Miv" role="3cqZAp">
+            <node concept="3clFbT" id="Abdozc$Miw" role="3cqZAk" />
           </node>
         </node>
       </node>
