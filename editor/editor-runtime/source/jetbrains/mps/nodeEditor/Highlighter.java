@@ -25,6 +25,7 @@ import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.DumbService;
 import com.intellij.openapi.project.IndexNotReadyException;
 import com.intellij.openapi.project.Project;
+import com.intellij.util.ConcurrencyUtil;
 import com.intellij.util.concurrency.EdtExecutorService;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.RuntimeFlags;
@@ -273,11 +274,10 @@ public class Highlighter implements IHighlighter, ProjectComponent {
 
   private void startUpdater() {
     if (myBackgroundExecutor != null && !myBackgroundExecutor.isShutdown()) {
-      LOG.error("trying to initialize a Highlighter being already initialized", new Throwable());
+      LOG.error("Highlighter is already initialized", new Throwable());
       return;
     }
-    // XXX why not app pool threads (e.g. with IDEA's JobScheduler)?
-    myBackgroundExecutor = Executors.newSingleThreadScheduledExecutor(runnable -> new Thread(runnable, "Highlighter"));
+    myBackgroundExecutor = ConcurrencyUtil.newSingleScheduledThreadExecutor("Highlighter");
     myScheduleHighlighterUpdate = new ScheduleHighlighterUpdate(EdtExecutorService.getScheduledExecutorInstance(), DumbService.getInstance(myProject));
     if (!RuntimeFlags.isTestMode()) {
       myScheduleHighlighterUpdate.scheduleNext();
