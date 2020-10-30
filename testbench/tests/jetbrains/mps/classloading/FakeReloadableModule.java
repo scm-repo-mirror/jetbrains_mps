@@ -87,6 +87,7 @@ public class FakeReloadableModule implements ReloadableModule {
     return DeploymentStatuses.DEPLOYED;
   }
 
+  @NotNull
   @Override
   public SModuleId getModuleId() {
     return myModuleReference.getModuleId();
