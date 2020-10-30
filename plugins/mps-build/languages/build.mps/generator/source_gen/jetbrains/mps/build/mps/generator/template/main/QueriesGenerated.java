@@ -66,6 +66,7 @@ import jetbrains.mps.messages.IMessage;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.build.mps.util.ModuleChecker;
+import jetbrains.mps.build.util.FetchDependenciesProcessor;
 import jetbrains.mps.generator.template.TemplateVarContext;
 import jetbrains.mps.build.util.LocalSourcePathArtifact;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -330,7 +331,7 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(((SNode) _context.getVariable("owner")), "no context project defined");
       return "???";
     }
-    DependenciesHelper helper = new DependenciesHelper(_context, project);
+    DependenciesHelper helper = DependenciesHelper.get(_context, project, "build.mps");
     SNode layoutNode = helper.getArtifact(_context.getNode());
     if (layoutNode == null) {
       _context.showErrorMessage(((SNode) _context.getVariable("owner")), "mps module " + SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL) + " was not found in the layout");
@@ -659,7 +660,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((String) _context.getVariable("jarPath"));
   }
   public static Object propertyMacro_GetValue_13_1(final PropertyMacroContext _context) {
-    return new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(((SNode) _context.getVariable("currentModule")), CONCEPTS.BuildProject$ae, false, false)).getContentLocation(_context.getNode());
+    return DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(((SNode) _context.getVariable("currentModule")), CONCEPTS.BuildProject$ae, false, false), "build.mps").getContentLocation(_context.getNode());
   }
   public static Object propertyMacro_GetValue_13_2(final PropertyMacroContext _context) {
     return ((String) _context.getVariable("jarPath"));
@@ -1600,10 +1601,11 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
   public static void mapSrcMacro_post_0_2(final MapSrcMacroPostProcContext _context) {
-    new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false)).preserveLocations(_context.getNode(), _context.getOutputNode());
+    // not sure there's need for preserveLocations when we have distinct DH for build.mps and mps.build steps 
+    DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "build.mps").preserveLocations(_context.getNode(), _context.getOutputNode());
   }
   public static void mapSrcMacro_post_7_0(final MapSrcMacroPostProcContext _context) {
-    new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false)).preserveLocations(_context.getNode(), _context.getOutputNode());
+    DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "build.mps").preserveLocations(_context.getNode(), _context.getOutputNode());
   }
   public static SNode weavingRule_ContextQuery_0_0(final WeavingMappingRuleContext _context) {
     return _context.getCopiedOutputNodeForInputNode(_context.getNode());
@@ -1654,6 +1656,10 @@ public class QueriesGenerated extends QueryProviderBase {
           ListSequence.fromList(SLinkOperations.getChildren(lang, LINKS.managedGenerators$Hbof)).insertElement(0, generatorRef);
         }
       }
+    }
+
+    for (SNode root : SModelOperations.roots(_context.getModel(), CONCEPTS.BuildProject$ae)) {
+      new FetchDependenciesProcessor(root, _context).alternativeProcess("build.mps");
     }
   }
   public static Object varMacro_Value_0_0(final TemplateVarContext _context) {
@@ -1708,7 +1714,7 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(_context.getNode(), "no context project defined");
       return null;
     }
-    DependenciesHelper helper = new DependenciesHelper(_context, project);
+    DependenciesHelper helper = DependenciesHelper.get(_context, project, "build.mps");
     SNode layoutNode = helper.getArtifact(((SNode) _context.getVariable("remotePath")));
 
     SNode path = ((SNode) _context.getVariable("remotePath"));
@@ -1751,7 +1757,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object varMacro_Value_10_0(final TemplateVarContext _context) {
     // with ant-mps residing in mpsTrueBootstrap project, its artifact is registered by BuildMPSPlugin.fetchDependencies()) and is available by regular means (helper.getArtifact("ant-mps"), below)  
-    DependenciesHelper helper = new DependenciesHelper(_context, _context.getNode());
+    DependenciesHelper helper = DependenciesHelper.get(_context, _context.getNode(), "build.mps");
     String artifact = "ant-mps";
     SNode jmAntJar = helper.getArtifact(artifact);
     if ((jmAntJar != null)) {
@@ -1767,7 +1773,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return null;
   }
   public static Object varMacro_Value_10_1(final TemplateVarContext _context) {
-    DependenciesHelper helper = new DependenciesHelper(_context, _context.getNode());
+    DependenciesHelper helper = DependenciesHelper.get(_context, _context.getNode(), "build.mps");
     String artifact = "jdom";
     SNode jar = helper.getArtifact(artifact);
     if ((jar != null)) {
@@ -1783,7 +1789,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return null;
   }
   public static Object varMacro_Value_10_2(final TemplateVarContext _context) {
-    DependenciesHelper helper = new DependenciesHelper(_context, _context.getNode());
+    DependenciesHelper helper = DependenciesHelper.get(_context, _context.getNode(), "build.mps");
     String artifact = "log4j";
     SNode jar = helper.getArtifact(artifact);
     if ((jar != null)) {

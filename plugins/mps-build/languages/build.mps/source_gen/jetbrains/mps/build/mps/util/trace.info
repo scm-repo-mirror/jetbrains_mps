@@ -1067,7 +1067,7 @@
       <node id="2887318893675885989" at="24,26,25,70" concept="5" />
       <node id="2887318893675885993" at="25,70,26,59" concept="12" />
       <node id="2887318893675598968" at="27,5,28,0" concept="14" />
-      <node id="6984624797025347740" at="28,0,29,82" concept="11" />
+      <node id="6984624797025347740" at="28,0,29,95" concept="11" />
       <node id="318758733551359641" at="31,42,32,87" concept="13" />
       <node id="6984624797025347788" at="32,87,33,54" concept="11" />
       <node id="6984624797025347822" at="34,33,35,218" concept="5" />
@@ -1092,7 +1092,7 @@
       <node id="6984624797025347853" at="38,123,42,9" concept="9" />
       <node id="6984624797025347754" at="55,0,60,0" concept="16" trace="createGeneratorInternal_String_8pqt49_a0a0a0e0a#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="6984624797025347779" at="31,0,45,0" concept="10" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="2887318893675599483" at="29,82,53,7" concept="12" />
+      <node id="2887318893675599483" at="29,95,53,7" concept="12" />
       <node id="2887318893681862312" at="22,0,55,0" concept="16" trace="findModules#(Ljava/lang/Iterable;Ljetbrains/mps/generator/template/TemplateQueryContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
       <scope id="2887318893676484799" at="46,39,47,18" />
       <scope id="2887318893676526564" at="50,38,51,67" />
@@ -1182,8 +1182,8 @@
       <node id="4031822141864243980" at="119,64,120,65" concept="13" />
       <node id="4031822141864241646" at="122,38,123,66" concept="12" />
       <node id="4438567763349369230" at="132,51,133,30" concept="12" />
-      <node id="3639941018581373296" at="136,105,137,88" concept="11" />
-      <node id="4031822141864335084" at="137,88,138,33" concept="11" />
+      <node id="3639941018581373296" at="136,105,137,101" concept="11" />
+      <node id="4031822141864335084" at="137,101,138,33" concept="11" />
       <node id="4031822141864327933" at="139,31,140,100" concept="13" />
       <node id="4031822141864328289" at="140,100,141,117" concept="13" />
       <node id="4031822141864328863" at="141,117,142,111" concept="13" />

@@ -134,7 +134,7 @@ public class ModulePlugins {
   }
 
   public List<SNode> getPlugins(final TemplateQueryContext context, final boolean allowFromSameProject) {
-    final DependenciesHelper helper = new DependenciesHelper(context, myInitialProject);
+    final DependenciesHelper helper = DependenciesHelper.get(context, myInitialProject, "build.mps");
     final VisibleArtifacts local;
     if (allowFromSameProject) {
       // generally, BP deals with artifacts available through dependencies from other BuildProjects 

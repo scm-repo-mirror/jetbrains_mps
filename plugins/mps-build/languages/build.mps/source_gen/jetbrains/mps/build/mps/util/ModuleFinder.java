@@ -26,7 +26,7 @@ public class ModuleFinder {
       return ListSequence.fromList(new ArrayList<SNode>());
     }
 
-    final DependenciesHelper helper = new DependenciesHelper(genContext, project);
+    final DependenciesHelper helper = DependenciesHelper.get(genContext, project, "build.mps");
     return Sequence.fromIterable(modules).select(new ISelector<SNode, String>() {
       public String select(SNode module) {
         // similar code is in BuildMps_Module.fetchDependencies() behavior (at least). 

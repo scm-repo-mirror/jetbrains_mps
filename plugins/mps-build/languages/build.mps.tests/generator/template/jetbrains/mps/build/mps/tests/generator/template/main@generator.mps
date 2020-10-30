@@ -1634,13 +1634,15 @@
                                 <node concept="3uibUv" id="2TqXzNe_cVr" role="1tU5fm">
                                   <ref role="3uigEE" to="o3n2:41__iZjkZ0W" resolve="DependenciesHelper" />
                                 </node>
-                                <node concept="2ShNRf" id="2TqXzNe_cVs" role="33vP2m">
-                                  <node concept="1pGfFk" id="2TqXzNe_cVt" role="2ShVmc">
-                                    <ref role="37wK5l" to="o3n2:41__iZjkZ0Y" resolve="DependenciesHelper" />
-                                    <node concept="1iwH7S" id="2TqXzNe_cVu" role="37wK5m" />
-                                    <node concept="37vLTw" id="akLgX4mP8t" role="37wK5m">
-                                      <ref role="3cqZAo" node="63InNWG5ay7" resolve="project" />
-                                    </node>
+                                <node concept="2YIFZM" id="7Fhemu9Xns$" role="33vP2m">
+                                  <ref role="37wK5l" to="o3n2:7Fhemu9SE$N" resolve="get" />
+                                  <ref role="1Pybhc" to="o3n2:41__iZjkZ0W" resolve="DependenciesHelper" />
+                                  <node concept="1iwH7S" id="7Fhemu9XnLJ" role="37wK5m" />
+                                  <node concept="37vLTw" id="7Fhemu9XnRL" role="37wK5m">
+                                    <ref role="3cqZAo" node="63InNWG5ay7" resolve="project" />
+                                  </node>
+                                  <node concept="Xl_RD" id="7Fhemu9VKNg" role="37wK5m">
+                                    <property role="Xl_RC" value="build.mps" />
                                   </node>
                                 </node>
                               </node>

@@ -70,7 +70,7 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(project, "Context project is null");
       return _context.getTemplateValue();
     }
-    DependenciesHelper helper = new DependenciesHelper(_context, project);
+    DependenciesHelper helper = DependenciesHelper.get(_context, project, "build.mps");
     String artifact = "mps-test-folder";
     SNode mpsTestJarFolder = helper.getArtifact(artifact);
     if ((mpsTestJarFolder != null)) {
