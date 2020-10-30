@@ -64,7 +64,6 @@ import jetbrains.mps.build.behavior.IWorkflowParticipant__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.generator.util.JavaExternalLibraryHelper;
-import jetbrains.mps.generator.template.MapSrcMacroPostProcContext;
 import jetbrains.mps.generator.template.WeavingMappingRuleContext;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.template.MappingScriptContext;
@@ -98,7 +97,6 @@ import jetbrains.mps.generator.template.InlineSwitchCaseContext;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
 import jetbrains.mps.generator.impl.query.CallArgumentQuery;
-import jetbrains.mps.generator.impl.query.MapPostProcessor;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -159,20 +157,20 @@ public class QueriesGenerated extends QueryProviderBase {
   public static boolean rule_Condition_2_2(final BaseMappingRuleContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.handlers$AdkY)).isNotEmpty();
   }
-  public static boolean rule_Condition_12_0(final BaseMappingRuleContext _context) {
+  public static boolean rule_Condition_10_0(final BaseMappingRuleContext _context) {
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_Container$vv) && (boolean) BuildLayout_Node__BehaviorDescriptor.isFolder_id1bWeed$oPYW.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4));
   }
-  public static boolean rule_Condition_12_1(final BaseMappingRuleContext _context) {
+  public static boolean rule_Condition_10_1(final BaseMappingRuleContext _context) {
     return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.filemode$Xiae)) && (boolean) BuildLayout_File__BehaviorDescriptor.canHaveFilemode_id7UAfeVQUccL.invoke(_context.getNode());
   }
-  public static boolean rule_Condition_12_2(final BaseMappingRuleContext _context) {
+  public static boolean rule_Condition_10_2(final BaseMappingRuleContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$xu7T)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
       }
     });
   }
-  public static boolean rule_Condition_12_3(final BaseMappingRuleContext _context) {
+  public static boolean rule_Condition_10_3(final BaseMappingRuleContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$WlG4)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
@@ -699,7 +697,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object propertyMacro_GetValue_2_29(final PropertyMacroContext _context) {
     return (((String) _context.getVariable("_pathPrefix")) == null && (((Pair<String, String>) _context.getVariable("_filemode")) == null || ((Pair<String, String>) _context.getVariable("_filemode")).o2 == null) ? "fileset" : BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.getFileSetExtension_id5zIo$W4pFTK.invoke(((SNode) _context.getVariable("_archive"))));
   }
-  public static Object propertyMacro_GetValue_6_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_5_0(final PropertyMacroContext _context) {
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
       _context.showErrorMessage(_context.getNode(), "no context project defined");
@@ -722,7 +720,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val;
   }
-  public static Object propertyMacro_GetValue_8_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_6_0(final PropertyMacroContext _context) {
     if (SNodeOperations.getContainingRoot(((SNode) _context.getVariable("jar"))) == SNodeOperations.getContainingRoot(_context.getNode())) {
       return BuildSourcePath__BehaviorDescriptor.getAntPath_id7ro1ZztyOh5.invoke(SLinkOperations.getTarget(((SNode) _context.getVariable("jar")), LINKS.path$M9si), Context.defaultContext(_context));
     }
@@ -744,7 +742,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val;
   }
-  public static Object propertyMacro_GetValue_9_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_7_0(final PropertyMacroContext _context) {
     // XXX in fact, targetFile is not necessarily BuildSource_SingleFile. It could be 
     // BuildLayout_Copy at generation time due to syntax sugar(?) processing in aliases MC. 
     SNode targetFile = ((SNode) _context.getVariable("jar"));
@@ -772,7 +770,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val;
   }
-  public static Object propertyMacro_GetValue_10_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_8_0(final PropertyMacroContext _context) {
     SNode targetFolder = ((SNode) _context.getVariable("jarFolder"));
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
@@ -798,14 +796,28 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val;
   }
-  public static Object propertyMacro_GetValue_12_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_10_0(final PropertyMacroContext _context) {
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
       _context.showErrorMessage(_context.getNode(), "no context project defined");
       return "";
     }
-    DependenciesHelper helper = new DependenciesHelper(_context, project);
-    String val = helper.getLocation(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4));
+    // Here used to be DH.getLocation(node.target).lastSegmentAfterSlash  
+    // but with DH initialization moved to pre-processing script of main (which goes after aliases), 
+    // can't use DH here.  
+    // However, it's only BL_Folder or BML_Plugin that answer isFolder() == true 
+    Context cc = Context.defaultContext(_context);
+    // as long as BL_Folder shares BL_NamedContainer.getOutputPath_WithMacro() impl, use BL_NC 
+    // FIXME In fact, I think BML_Plugin has to be BL_NamedContainer, that would simplify my life here 
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_NamedContainer$Ug)) {
+      // Could use BL_NamedContainer.getOutputPath_WithMacro(), but don't care to cut last segment 
+      return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_NamedContainer$Ug), LINKS.containerName$ES_Y), cc.getMacros(project));
+    }
+    // for BML_Plugin, use the fact its BL_Container.getChildrenOutputDir_WithMacro == getOutputPath_WithMacro 
+    // which gives full path, with last segment containing value that we need. 
+    // FWIW, I assume node.target is from external model (not the one being transformed) if I get here. 
+    // Yet I believe BL_Import.target = plugin is a rare case. 
+    String val = BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_Container$vv), cc);
     if (val == null) {
       _context.showErrorMessage(_context.getNode(), "no location for " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4)));
       return "";
@@ -817,10 +829,10 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val.substring(lastSlash + 1);
   }
-  public static Object propertyMacro_GetValue_12_1(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_10_1(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.filemode$Xiae);
   }
-  public static Object propertyMacro_GetValue_13_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_11_0(final PropertyMacroContext _context) {
     SNode targetFolder = ((SNode) _context.getVariable("folder"));
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
@@ -846,19 +858,19 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return val + "/" + ((String) _context.getVariable("suffix"));
   }
-  public static Object propertyMacro_GetValue_16_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_0(final PropertyMacroContext _context) {
     return _context.createUniqueName("prepare.archive", null);
   }
-  public static Object propertyMacro_GetValue_16_1(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_1(final PropertyMacroContext _context) {
     return (String) BuildCompositePath__BehaviorDescriptor.getPath_id7usrAn05okK.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.compositePart$blMW));
   }
-  public static Object propertyMacro_GetValue_16_2(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_2(final PropertyMacroContext _context) {
     return (String) BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.archivePath$ic$p));
   }
-  public static Object propertyMacro_GetValue_16_3(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_3(final PropertyMacroContext _context) {
     return (String) BuildSourceArchiveRelativePath__BehaviorDescriptor.getUnpackPath_id7ro1Zzt$ck7.invoke(_context.getNode(), Context.defaultContext(_context));
   }
-  public static Object propertyMacro_GetValue_16_4(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_4(final PropertyMacroContext _context) {
     String archiveName = BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.archivePath$ic$p));
     if (archiveName.endsWith(".tar.gz")) {
       return "gzip";
@@ -868,7 +880,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return "none";
   }
-  public static Object propertyMacro_GetValue_16_5(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_14_5(final PropertyMacroContext _context) {
     String archiveName = BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.archivePath$ic$p));
     if (archiveName.endsWith(".jar")) {
       return "unjar";
@@ -879,52 +891,52 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return "unzip";
   }
-  public static Object propertyMacro_GetValue_17_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_0(final PropertyMacroContext _context) {
     // XXX what if BL_Zip is part of ExternalLayout, accessed through BuildExternalLayoutDependency? 
     //    There's no BuildProject ancestor then, what would be the path? 
     //    This logic has been extracted from BL_Zip.unpack() 
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_1(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_1(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_2(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_2(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_3(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_3(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_4(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_4(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_5(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_5(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_6(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_6(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_7(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_7(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_8(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_8(final PropertyMacroContext _context) {
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_17_9(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_15_9(final PropertyMacroContext _context) {
     return SEnumOperations.getMemberName0(SPropertyOperations.getEnum(_context.getNode(), PROPS.compression$pmvv));
   }
-  public static Object propertyMacro_GetValue_18_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_16_0(final PropertyMacroContext _context) {
     return (String) BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(_context.getNode(), Context.defaultContext(_context));
   }
-  public static Object propertyMacro_GetValue_18_1(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_16_1(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.filemode$nJ9V);
   }
-  public static Object propertyMacro_GetValue_18_2(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_16_2(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.dirmode$nJoW);
   }
-  public static Object propertyMacro_GetValue_18_3(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_16_3(final PropertyMacroContext _context) {
     return ((String) _context.getVariable("var:prefix"));
   }
-  public static Object propertyMacro_GetValue_18_4(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_16_4(final PropertyMacroContext _context) {
     return (String) BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.getFileSetExtension_id5zIo$W4pFTK.invoke(((SNode) _context.getVariable("var:templateInput")));
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
@@ -1008,16 +1020,16 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.for$UmSz);
   }
-  public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_4_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(((SNode) _context.getVariable("library")), "javalibrary");
   }
-  public static Object referenceMacro_GetReferent_6_0(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(((SNode) _context.getVariable("dependency")), "javamodule");
   }
-  public static Object referenceMacro_GetReferent_12_0(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_10_0(final ReferenceMacroContext _context) {
     return SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_Container$vv);
   }
-  public static Object referenceMacro_GetReferent_16_0(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_14_0(final ReferenceMacroContext _context) {
     return (String) BuildLayout_Container__BehaviorDescriptor.getPrepareSubTaskId_id450ejGzh8bD.invoke(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildLayout_Container$vv, false, false));
   }
   public static boolean ifMacro_Condition_0_0(final IfMacroContext _context) {
@@ -1308,38 +1320,38 @@ public class QueriesGenerated extends QueryProviderBase {
   public static boolean ifMacro_Condition_2_16(final IfMacroContext _context) {
     return ((Pair<String, String>) _context.getVariable("_filemode")) != null && ((Pair<String, String>) _context.getVariable("_filemode")).o2 != null;
   }
-  public static boolean ifMacro_Condition_5_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_4_0(final IfMacroContext _context) {
     return SNodeOperations.getContainingRoot(_context.getNode()) != SNodeOperations.getContainingRoot(((SNode) _context.getVariable("library")));
   }
-  public static boolean ifMacro_Condition_6_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_5_0(final IfMacroContext _context) {
     return SNodeOperations.getContainingRoot(_context.getNode()) == SNodeOperations.getContainingRoot(((SNode) _context.getVariable("dependency")));
   }
-  public static boolean ifMacro_Condition_10_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_8_0(final IfMacroContext _context) {
     return SPropertyOperations.getBoolean(_context.getNode(), PROPS.includeRecursively$d4V7);
   }
-  public static boolean ifMacro_Condition_12_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_10_0(final IfMacroContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$xu7T)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
       }
     });
   }
-  public static boolean ifMacro_Condition_16_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_14_0(final IfMacroContext _context) {
     String archiveName = BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.archivePath$ic$p));
     return archiveName.endsWith(".tar.gz") || archiveName.endsWith(".tar.bz");
   }
-  public static boolean ifMacro_Condition_16_1(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_14_1(final IfMacroContext _context) {
     //  rest of templates use node.parent, but as long as BSARP is part of BL_Copy, parent 
     SNode blContainer = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildLayout_Container$vv, false, false);
     return SNodeOperations.isInstanceOf(blContainer, CONCEPTS.BuildLayout_Container$vv) && BuildLayout_Container__BehaviorDescriptor.getPrepareSubTaskId_id450ejGzh8bD.invoke(SNodeOperations.cast(blContainer, CONCEPTS.BuildLayout_Container$vv)) != null;
   }
-  public static boolean ifMacro_Condition_18_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_16_0(final IfMacroContext _context) {
     return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.filemode$nJ9V));
   }
-  public static boolean ifMacro_Condition_18_1(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_16_1(final IfMacroContext _context) {
     return isNotEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.dirmode$nJoW));
   }
-  public static boolean ifMacro_Condition_18_2(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_16_2(final IfMacroContext _context) {
     return isNotEmptyString(((String) _context.getVariable("var:prefix")));
   }
   public static SNode sourceNodeQuery_0_0(final SourceSubstituteMacroNodeContext _context) {
@@ -1391,22 +1403,22 @@ public class QueriesGenerated extends QueryProviderBase {
   public static SNode sourceNodeQuery_2_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.fileset$tUzn);
   }
-  public static SNode sourceNodeQuery_12_0(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$xmoo);
   }
-  public static SNode sourceNodeQuery_12_1(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$xmoo);
   }
-  public static SNode sourceNodeQuery_12_2(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_2(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$xmoo);
   }
-  public static SNode sourceNodeQuery_12_3(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_3(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$xmoo);
   }
-  public static SNode sourceNodeQuery_12_4(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_4(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$Wlt3);
   }
-  public static SNode sourceNodeQuery_12_5(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_10_5(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.path$Wlt3);
   }
   public static Object templateArgumentQuery_0_0(final TemplateArgumentContext _context) {
@@ -1712,10 +1724,10 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_5_0(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_4_0(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.attrs$62ss);
   }
-  public static Iterable<SNode> sourceNodesQuery_5_1(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_4_1(final SourceSubstituteMacroNodesContext _context) {
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
       _context.showErrorMessage(_context.getNode(), "no context project defined");
@@ -1724,53 +1736,43 @@ public class QueriesGenerated extends QueryProviderBase {
     DependenciesHelper helper = DependenciesHelper.get(_context, project, "j.m.build");
     return new JavaExternalLibraryHelper(helper, ((SNode) _context.getVariable("library")), _context).artifacts();
   }
-  public static Iterable<SNode> sourceNodesQuery_12_0(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_10_0(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$xu7T)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_12_1(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_10_1(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$xu7T)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_12_2(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_10_2(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$WlG4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9);
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_12_3(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_10_3(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$WlG4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9));
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_12_4(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_10_4(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.parameters$WlG4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.isInstanceOf(it, CONCEPTS.BuildLayout_CopyHandler$W9));
       }
     });
   }
-  public static Iterable<SNode> sourceNodesQuery_18_0(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_16_0(final SourceSubstituteMacroNodesContext _context) {
     return FileSetUtil.getExplicitFilemodeRoots(_context.getNode());
-  }
-  public static void mapSrcMacro_post_12_0(final MapSrcMacroPostProcContext _context) {
-    // HACK. At the moment, DependenciesHelper is populated with locations, with 
-    // inputNode (BuildLayout_File) serving as a key. Here, the file gets replaced with 
-    // BuildLayout_Copy, and incoming references (like BuildLayout_Import in another project) 
-    // get re-routed to this node. However, once that import is processed, there's nothing in DH.locations() 
-    // that match its target (it's outputNode, BL_Copy at the time). To workaround, I record original location 
-    // key here with the new target node, and use it from main.BuildLayout_Import template. 
-    // Prior to the removal of transient models this used to work as every lookup was done using origin node. 
-    new DependenciesHelper(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false)).preserveLocations(_context.getNode(), _context.getOutputNode());
   }
   public static SNode weavingRule_ContextQuery_0_0(final WeavingMappingRuleContext _context) {
     return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getOutputNodeByInputNodeAndMappingLabel(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "buildProjectToBwfProject"), LINKS.parts$$VTL), CONCEPTS.BwfTaskPart$sR)).findFirst(new IWhereFilter<SNode>() {
@@ -1779,12 +1781,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     });
   }
-  public static void mappingScript_CodeBlock_4(final MappingScriptContext _context) {
-    for (SNode root : SModelOperations.roots(_context.getModel(), CONCEPTS.BuildProject$ae)) {
-      new FetchDependenciesProcessor(root, _context).process();
-    }
-  }
-  public static void mappingScript_CodeBlock_19(final MappingScriptContext _context) {
+  public static void mappingScript_CodeBlock_17(final MappingScriptContext _context) {
     for (SNode root : SModelOperations.roots(_context.getModel(), CONCEPTS.BuildProject$ae)) {
       new FetchDependenciesProcessor(root, _context).alternativeProcess("j.m.build");
     }
@@ -1870,7 +1867,7 @@ public class QueriesGenerated extends QueryProviderBase {
     List<Tuples._2<SNode, String>> dependencies = new ProjectDependency(_context, _context.getNode()).collectDependencies().getDependencies();
     return ListSequence.fromList(dependencies).select(new ISelector<Tuples._2<SNode, String>, SNode>() {
       public SNode select(Tuples._2<SNode, String> it) {
-        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a914(it._1(), it._0());
+        return createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a714(it._1(), it._0());
       }
     }).toListSequence();
   }
@@ -1935,7 +1932,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return MultiTuple.<String,String,String,String>from(fsetExt, prefix, (filemode != null ? filemode.o1 : null), (filemode != null ? filemode.o2 : null));
   }
-  public static Object varMacro_Value_18_0(final TemplateVarContext _context) {
+  public static Object varMacro_Value_16_0(final TemplateVarContext _context) {
     // despite the name getExplicitFilemodeRoots() in LOOP, the sequence gives all BL_Filemode elements under an archive that  
     // got 'explicit' fileset, hence can not calculate prefix once and for all.  
     //  
@@ -1947,7 +1944,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     return FileSetUtil.getContainerPrefix(_context.getNode(), Context.defaultContext(_context).getMacros(_context.getNode()));
   }
-  public static Object varMacro_Value_18_1(final TemplateVarContext _context) {
+  public static Object varMacro_Value_16_1(final TemplateVarContext _context) {
     // FIXME desperately need a way to address template input in a way like reduce_FilemodeRootFileset.input 
     return _context.getNode();
   }
@@ -1983,7 +1980,7 @@ public class QueriesGenerated extends QueryProviderBase {
         case 2:
           return QueriesGenerated.rule_Condition_2_1(ctx);
         case 3:
-          return QueriesGenerated.rule_Condition_12_0(ctx);
+          return QueriesGenerated.rule_Condition_10_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -2059,7 +2056,6 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, ScriptCodeBlock> mscbMethods = new HashMap<String, ScriptCodeBlock>();
   {
     int i = 0;
-    mscbMethods.put("841011766566205059", new SCB(i++));
     mscbMethods.put("8849917859626659110", new SCB(i++));
   }
   @Override
@@ -2080,10 +2076,7 @@ public class QueriesGenerated extends QueryProviderBase {
     public void invoke(MappingScriptContext ctx) throws GenerationFailureException {
       switch (methodKey) {
         case 0:
-          QueriesGenerated.mappingScript_CodeBlock_4(ctx);
-          return;
-        case 1:
-          QueriesGenerated.mappingScript_CodeBlock_19(ctx);
+          QueriesGenerated.mappingScript_CodeBlock_17(ctx);
           return;
         default:
           throw new GenerationFailureException(String.format("There's no code block with method index %d ", methodKey));
@@ -2166,17 +2159,17 @@ public class QueriesGenerated extends QueryProviderBase {
         case 15:
           return QueriesGenerated.sourceNodeQuery_2_1(ctx);
         case 16:
-          return QueriesGenerated.sourceNodeQuery_12_0(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_0(ctx);
         case 17:
-          return QueriesGenerated.sourceNodeQuery_12_1(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_1(ctx);
         case 18:
-          return QueriesGenerated.sourceNodeQuery_12_2(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_2(ctx);
         case 19:
-          return QueriesGenerated.sourceNodeQuery_12_3(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_3(ctx);
         case 20:
-          return QueriesGenerated.sourceNodeQuery_12_4(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_4(ctx);
         case 21:
-          return QueriesGenerated.sourceNodeQuery_12_5(ctx);
+          return QueriesGenerated.sourceNodeQuery_10_5(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -2365,21 +2358,21 @@ public class QueriesGenerated extends QueryProviderBase {
         case 50:
           return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_2_3(ctx));
         case 51:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_5_0(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_4_0(ctx));
         case 52:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_5_1(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_4_1(ctx));
         case 53:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_12_0(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_10_0(ctx));
         case 54:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_12_1(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_10_1(ctx));
         case 55:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_12_2(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_10_2(ctx));
         case 56:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_12_3(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_10_3(ctx));
         case 57:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_12_4(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_10_4(ctx));
         case 58:
-          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_18_0(ctx));
+          return IterableUtil.asCollection(QueriesGenerated.sourceNodesQuery_16_0(ctx));
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -2886,61 +2879,61 @@ public class QueriesGenerated extends QueryProviderBase {
         case 149:
           return QueriesGenerated.propertyMacro_GetValue_2_29(ctx);
         case 150:
-          return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_5_0(ctx);
         case 151:
-          return QueriesGenerated.propertyMacro_GetValue_8_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
         case 152:
-          return QueriesGenerated.propertyMacro_GetValue_9_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_7_0(ctx);
         case 153:
-          return QueriesGenerated.propertyMacro_GetValue_10_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_8_0(ctx);
         case 154:
-          return QueriesGenerated.propertyMacro_GetValue_12_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_10_0(ctx);
         case 155:
-          return QueriesGenerated.propertyMacro_GetValue_12_1(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_10_1(ctx);
         case 156:
-          return QueriesGenerated.propertyMacro_GetValue_13_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_11_0(ctx);
         case 157:
-          return QueriesGenerated.propertyMacro_GetValue_16_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_0(ctx);
         case 158:
-          return QueriesGenerated.propertyMacro_GetValue_16_1(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_1(ctx);
         case 159:
-          return QueriesGenerated.propertyMacro_GetValue_16_2(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_2(ctx);
         case 160:
-          return QueriesGenerated.propertyMacro_GetValue_16_3(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_3(ctx);
         case 161:
-          return QueriesGenerated.propertyMacro_GetValue_16_4(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_4(ctx);
         case 162:
-          return QueriesGenerated.propertyMacro_GetValue_16_5(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_14_5(ctx);
         case 163:
-          return QueriesGenerated.propertyMacro_GetValue_17_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_0(ctx);
         case 164:
-          return QueriesGenerated.propertyMacro_GetValue_17_1(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_1(ctx);
         case 165:
-          return QueriesGenerated.propertyMacro_GetValue_17_2(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_2(ctx);
         case 166:
-          return QueriesGenerated.propertyMacro_GetValue_17_3(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_3(ctx);
         case 167:
-          return QueriesGenerated.propertyMacro_GetValue_17_4(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_4(ctx);
         case 168:
-          return QueriesGenerated.propertyMacro_GetValue_17_5(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_5(ctx);
         case 169:
-          return QueriesGenerated.propertyMacro_GetValue_17_6(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_6(ctx);
         case 170:
-          return QueriesGenerated.propertyMacro_GetValue_17_7(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_7(ctx);
         case 171:
-          return QueriesGenerated.propertyMacro_GetValue_17_8(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_8(ctx);
         case 172:
-          return QueriesGenerated.propertyMacro_GetValue_17_9(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_15_9(ctx);
         case 173:
-          return QueriesGenerated.propertyMacro_GetValue_18_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_16_0(ctx);
         case 174:
-          return QueriesGenerated.propertyMacro_GetValue_18_1(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_16_1(ctx);
         case 175:
-          return QueriesGenerated.propertyMacro_GetValue_18_2(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_16_2(ctx);
         case 176:
-          return QueriesGenerated.propertyMacro_GetValue_18_3(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_16_3(ctx);
         case 177:
-          return QueriesGenerated.propertyMacro_GetValue_18_4(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_16_4(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -3181,23 +3174,23 @@ public class QueriesGenerated extends QueryProviderBase {
         case 67:
           return QueriesGenerated.ifMacro_Condition_2_16(ctx);
         case 68:
-          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_4_0(ctx);
         case 69:
-          return QueriesGenerated.ifMacro_Condition_6_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_5_0(ctx);
         case 70:
-          return QueriesGenerated.ifMacro_Condition_10_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_8_0(ctx);
         case 71:
-          return QueriesGenerated.ifMacro_Condition_12_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_10_0(ctx);
         case 72:
-          return QueriesGenerated.ifMacro_Condition_16_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_14_0(ctx);
         case 73:
-          return QueriesGenerated.ifMacro_Condition_16_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_14_1(ctx);
         case 74:
-          return QueriesGenerated.ifMacro_Condition_18_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_16_0(ctx);
         case 75:
-          return QueriesGenerated.ifMacro_Condition_18_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_16_1(ctx);
         case 76:
-          return QueriesGenerated.ifMacro_Condition_18_2(ctx);
+          return QueriesGenerated.ifMacro_Condition_16_2(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for if macro %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -3246,11 +3239,11 @@ public class QueriesGenerated extends QueryProviderBase {
         case 5:
           return QueriesGenerated.rule_Condition_2_2(ctx);
         case 6:
-          return QueriesGenerated.rule_Condition_12_1(ctx);
+          return QueriesGenerated.rule_Condition_10_1(ctx);
         case 7:
-          return QueriesGenerated.rule_Condition_12_2(ctx);
+          return QueriesGenerated.rule_Condition_10_2(ctx);
         case 8:
-          return QueriesGenerated.rule_Condition_12_3(ctx);
+          return QueriesGenerated.rule_Condition_10_3(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for inline switch's case %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -3363,13 +3356,13 @@ public class QueriesGenerated extends QueryProviderBase {
         case 26:
           return QueriesGenerated.referenceMacro_GetReferent_1_0(ctx);
         case 27:
-          return QueriesGenerated.referenceMacro_GetReferent_5_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
         case 28:
-          return QueriesGenerated.referenceMacro_GetReferent_6_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_5_0(ctx);
         case 29:
-          return QueriesGenerated.referenceMacro_GetReferent_12_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_10_0(ctx);
         case 30:
-          return QueriesGenerated.referenceMacro_GetReferent_16_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_14_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -3458,9 +3451,9 @@ public class QueriesGenerated extends QueryProviderBase {
         case 19:
           return QueriesGenerated.varMacro_Value_2_4(ctx);
         case 20:
-          return QueriesGenerated.varMacro_Value_18_0(ctx);
+          return QueriesGenerated.varMacro_Value_16_0(ctx);
         case 21:
-          return QueriesGenerated.varMacro_Value_18_1(ctx);
+          return QueriesGenerated.varMacro_Value_16_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -3554,35 +3547,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private final Map<String, MapPostProcessor> mppMethods = new HashMap<String, MapPostProcessor>();
-  {
-    mppMethods.put("7476146282362435825", new PPQ(0));
-  }
-  @NotNull
-  @Override
-  public MapPostProcessor getMapPostProcessor(@NotNull QueryKey queryKey) {
-    final String id = queryKey.getTemplateNode().getNodeId().toString();
-    if (!(mppMethods.containsKey(id))) {
-      return super.getMapPostProcessor(queryKey);
-    }
-    return mppMethods.get(id);
-  }
-  private static class PPQ implements MapPostProcessor {
-    private final int methodKey;
-    /*package*/ PPQ(int methodKey) {
-      this.methodKey = methodKey;
-    }
-    public void invoke(@NotNull MapSrcMacroPostProcContext ctx) throws GenerationFailureException {
-      switch (methodKey) {
-        case 0:
-          QueriesGenerated.mapSrcMacro_post_12_0(ctx);
-          return;
-        default:
-          throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
-      }
-    }
-  }
-  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a914(String p0, SNode p1) {
+  private static SNode createGeneratorInternal_ProjectDependency_x583g4_a0a0a0a1a714(String p0, SNode p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GeneratorInternal_ProjectDependency$bb);
     n0.setProperty(PROPS.path$URGX, p0);
     n0.setReferenceTarget(LINKS.project$ciHu, p1);
@@ -3667,6 +3632,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SReferenceLink layout$GC7_ = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, 0x63a87b9320d3d0a7L, "layout");
     /*package*/ static final SContainmentLink artifacts$GBS$ = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, 0x63a87b9320d3d0a6L, "artifacts");
     /*package*/ static final SContainmentLink layout$r7bw = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
+    /*package*/ static final SContainmentLink containerName$ES_Y = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName");
     /*package*/ static final SContainmentLink compositePart$blMW = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart");
     /*package*/ static final SContainmentLink archivePath$ic$p = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x233d92f9e348d768L, 0x233d92f9e34a784cL, "archivePath");
     /*package*/ static final SReferenceLink for$UmSz = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x5f1f0652f6049405L, 0x5f1f0652f6049406L, "for");
