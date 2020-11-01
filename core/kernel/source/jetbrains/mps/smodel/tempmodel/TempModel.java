@@ -74,7 +74,7 @@ class TempModel extends EditableModelDescriptor implements EditableSModel {
   }
 
   @Override
-  public void rename(String newModelName, boolean changeFile) {
+  public void rename(@NotNull String newModelName, boolean changeFile) {
     throw new UnsupportedOperationException();
   }
 

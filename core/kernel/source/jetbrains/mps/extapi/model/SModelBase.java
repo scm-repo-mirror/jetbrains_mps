@@ -397,6 +397,9 @@ public abstract class SModelBase extends SModelDescriptorStub implements SModel 
     myModelEventDispatch.modelSaved(this);
   }
 
+  /**
+   * why is it here if and not in EditableSModel? what is conflict?
+   */
   protected void fireConflictDetected() {
     myModelEventDispatch.conflictDetected(this);
   }

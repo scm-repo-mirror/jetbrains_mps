@@ -27,6 +27,7 @@ import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.model.SaveOptions;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
@@ -137,43 +138,30 @@ public class SModelRepository {
     return IterableUtil.asList(module.getModels());
   }
 
-  //----------------------------stuff-----------------------------
-
-
   private List<EditableSModel> getModelsToSave() {
-    List<EditableSModel> modelsToSave = new ArrayList<>();
+    var modelsToSave = new ArrayList<EditableSModel>();
     for (SModel md : getModelDescriptors()) {
-      if (!(md instanceof EditableSModel)) continue;
-
-      EditableSModel emd = ((EditableSModel) md);
-      // HOTFIX MPS-13326
-      if (emd.isChanged() && !emd.isReadOnly()) {
-        modelsToSave.add(emd);
+      if (md instanceof EditableSModel) {
+        EditableSModel emd = ((EditableSModel) md);
+        if (emd.isChanged() && !emd.isReadOnly()) {
+          modelsToSave.add(emd);
+        }
       }
     }
     return modelsToSave;
   }
 
-  /**
-   * Requires write access to model
-   */
   public void saveAll() {
-    List<EditableSModel> modelsToRefresh;
     synchronized (myModelsLock) {
-      modelsToRefresh = getModelsToSave();
-    }
-
-    for (EditableSModel emd : modelsToRefresh) {
-      DataSource source = emd.getSource();
-      if (source instanceof DataSourceBase) {
-        ((DataSourceBase) source).refresh();
-      }
-    }
-
-    synchronized (myModelsLock) {
+      var modelsToRefresh = getModelsToSave();
       for (EditableSModel emd : modelsToRefresh) {
         try {
-          emd.save();
+          emd.save(new SaveOptions() {
+            @Override
+            public boolean refreshDataSource() {
+              return true;
+            }
+          });
         } catch (Throwable t) {
           LOG.error(t);
         }
