@@ -129,11 +129,11 @@ public abstract class ProjectBase extends Project {
       LOG.warn(module + " is already in " + this);
       return false;
     }
-    associateWithProjectRepo(module);
-    if (module instanceof Generator && !((Generator) module).getModuleDescriptor().isStandaloneModule()) {
-      return false;
+    if (false == module instanceof Generator || ((Generator) module).getModuleDescriptor().isStandaloneModule()) {
+      // project repository listeners may consult project.isProjectModule(moduleAdded), treat module being added as one from the project
+      myModuleToPathMap.put(module.getModuleReference(), path);
     }
-    myModuleToPathMap.put(module.getModuleReference(), path);
+    associateWithProjectRepo(module);
     return true;
   }
 
