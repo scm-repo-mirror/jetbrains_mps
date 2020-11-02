@@ -86,13 +86,13 @@ public class SRepositoryContentAdapter extends SModuleListenerBase implements
    * Subclasses that wish to get model/node change/access events, shall add appropriate listeners here. These listeners
    * are implemented by this class only for convenience, events are not dispatched unless proper listener is explicitly attached.
    */
-  protected void startListening(SModel model) {
+  protected void startListening(@NotNull SModel model) {
   }
 
   /**
    * no-op by default
    */
-  protected void stopListening(SModel model) {
+  protected void stopListening(@NotNull SModel model) {
   }
 
   /**

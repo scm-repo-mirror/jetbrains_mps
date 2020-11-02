@@ -427,7 +427,7 @@ public class TransientModelsModule extends AbstractModule implements TransientSM
     }
 
     @Override
-    public void rename(String newModelName, boolean changeFile) {
+    public void rename(@NotNull String newModelName, boolean changeFile) {
       throw new UnsupportedOperationException();
     }
 

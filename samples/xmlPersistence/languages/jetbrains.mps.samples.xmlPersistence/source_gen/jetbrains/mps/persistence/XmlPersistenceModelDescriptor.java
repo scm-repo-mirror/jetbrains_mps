@@ -52,8 +52,7 @@ public class XmlPersistenceModelDescriptor extends EditableModelDescriptor {
   @NotNull
   @Override
   protected ModelLoadResult<SModel> createModel() {
-    // TODO why the test for timestamp==-1? It The test for file existence should be perhaps extracted into the API. 
-    if (!(this.getSource().isReadOnly()) && this.getSource().getTimestamp() == -1) {
+    if (!(this.getSource().isReadOnly()) && this.getSource().isAlive()) {
       return new ModelLoadResult(new SModel(this.getReference()), ModelLoadingState.FULLY_LOADED);
     } else {
       try {
@@ -140,7 +139,7 @@ public class XmlPersistenceModelDescriptor extends EditableModelDescriptor {
    * TODO the method below should not be needed
    */
   @Override
-  public void rename(String string, boolean b) {
+  public void rename(@NotNull String string, boolean b) {
   }
 
   @Override

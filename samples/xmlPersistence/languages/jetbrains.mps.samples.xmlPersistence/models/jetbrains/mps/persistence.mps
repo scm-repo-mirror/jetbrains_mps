@@ -1308,67 +1308,6 @@
         </node>
       </node>
       <node concept="3clFbS" id="1nLyZqZ54hq" role="3clF47">
-        <node concept="3SKdUt" id="7xPDzzsS2zy" role="3cqZAp">
-          <node concept="1PaTwC" id="7xPDzzsS2zz" role="1aUNEU">
-            <node concept="3oM_SD" id="7xPDzzsS2z_" role="1PaTwD">
-              <property role="3oM_SC" value="TODO" />
-            </node>
-            <node concept="3oM_SD" id="7xPDzzsS3P8" role="1PaTwD">
-              <property role="3oM_SC" value="why" />
-            </node>
-            <node concept="3oM_SD" id="7xPDzzsSdro" role="1PaTwD">
-              <property role="3oM_SC" value="the" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPh_" role="1PaTwD">
-              <property role="3oM_SC" value="test" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPhM" role="1PaTwD">
-              <property role="3oM_SC" value="for" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPi0" role="1PaTwD">
-              <property role="3oM_SC" value="timestamp==-1?" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPif" role="1PaTwD">
-              <property role="3oM_SC" value="It" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPiv" role="1PaTwD">
-              <property role="3oM_SC" value="The" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPkN" role="1PaTwD">
-              <property role="3oM_SC" value="test" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPlb" role="1PaTwD">
-              <property role="3oM_SC" value="for" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPl$" role="1PaTwD">
-              <property role="3oM_SC" value="file" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPlY" role="1PaTwD">
-              <property role="3oM_SC" value="existence" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPmT" role="1PaTwD">
-              <property role="3oM_SC" value="should" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPiC" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPiM" role="1PaTwD">
-              <property role="3oM_SC" value="perhaps" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPjd" role="1PaTwD">
-              <property role="3oM_SC" value="extracted" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPjD" role="1PaTwD">
-              <property role="3oM_SC" value="into" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPjY" role="1PaTwD">
-              <property role="3oM_SC" value="the" />
-            </node>
-            <node concept="3oM_SD" id="k0ukKcyPkk" role="1PaTwD">
-              <property role="3oM_SC" value="API." />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbJ" id="7xPDzzsROUX" role="3cqZAp">
           <node concept="3clFbS" id="7xPDzzsROUZ" role="3clFbx">
             <node concept="3cpWs6" id="1nLyZqZ54hz" role="3cqZAp">
@@ -1395,20 +1334,15 @@
             </node>
           </node>
           <node concept="1Wc70l" id="7xPDzzsS7hQ" role="3clFbw">
-            <node concept="3clFbC" id="7xPDzzsSc6E" role="3uHU7w">
-              <node concept="3cmrfG" id="7xPDzzsSd3u" role="3uHU7w">
-                <property role="3cmrfH" value="-1" />
+            <node concept="2OqwBi" id="7xPDzzsSaLK" role="3uHU7w">
+              <node concept="2OqwBi" id="7xPDzzsS9yJ" role="2Oq$k0">
+                <node concept="Xjq3P" id="7xPDzzsS90R" role="2Oq$k0" />
+                <node concept="liA8E" id="7xPDzzsSa6U" role="2OqNvi">
+                  <ref role="37wK5l" to="g3l6:~SModelBase.getSource()" resolve="getSource" />
+                </node>
               </node>
-              <node concept="2OqwBi" id="7xPDzzsSaLK" role="3uHU7B">
-                <node concept="2OqwBi" id="7xPDzzsS9yJ" role="2Oq$k0">
-                  <node concept="Xjq3P" id="7xPDzzsS90R" role="2Oq$k0" />
-                  <node concept="liA8E" id="7xPDzzsSa6U" role="2OqNvi">
-                    <ref role="37wK5l" to="g3l6:~SModelBase.getSource()" resolve="getSource" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="7xPDzzsSbtL" role="2OqNvi">
-                  <ref role="37wK5l" to="dush:~DataSource.getTimestamp()" resolve="getTimestamp" />
-                </node>
+              <node concept="liA8E" id="24jUNjHjiz3" role="2OqNvi">
+                <ref role="37wK5l" to="dush:~DataSource.isAlive()" resolve="isAlive" />
               </node>
             </node>
             <node concept="3fqX7Q" id="7xPDzzsS5KN" role="3uHU7B">
@@ -2391,6 +2325,9 @@
         <property role="TrG5h" value="string" />
         <node concept="3uibUv" id="1nLyZqZ6eTz" role="1tU5fm">
           <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+        </node>
+        <node concept="2AHcQZ" id="24jUNjHjiAu" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
       <node concept="37vLTG" id="1nLyZqZ6eT$" role="3clF46">
