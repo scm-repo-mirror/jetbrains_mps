@@ -72,6 +72,16 @@ public interface ModelAccess {
    */
   void runWriteAction(Runnable r);
 
+  default <T> T computeWriteAction(Supplier<T> s) {
+    var aux = new Object() {
+      T result = null;
+    };
+    runWriteAction(() -> {
+      aux.result = s.get();
+    });
+    return aux.result;
+  }
+
   /**
    * Modifications to models can only be performed from within managed actions, which hold the appropriate write lock.
    * The method obtains such a lock and executes the provided action <em>asynchronously</em> on the EDT UI thread.

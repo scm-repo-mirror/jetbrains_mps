@@ -141,7 +141,7 @@ public abstract class ProjectBase extends Project {
     SRepositoryExt repository = (SRepositoryExt) getRepository();
     // generally, module is already registered with a repo, as the primary mechanism to create a module instance, ModuleRepositoryFacade#instantiateModule,
     // automatically registers a module as well.
-    repository.getModelAccess().runWriteAction(() -> repository.registerModule(module, this));
+    repository.getModelAccess().computeWriteAction(() -> repository.registerModule(module, this));
   }
 
   /**
