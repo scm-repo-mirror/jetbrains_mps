@@ -16,51 +16,46 @@
 package jetbrains.mps.vfs.tracking;
 
 import com.intellij.openapi.Disposable;
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.ide.platform.watching.ReloadManagerComponent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.VFSManager;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.TestOnly;
 
 /**
  * todo module tracking
  */
 public final class ModelTracking implements Disposable {
-  private /*final*/ volatile ModelStorageProblemsListener myResolver;
+  private final ModelStorageConflictsListener myConflictsListener;
+  private final ModelStorageProblemsListener myProblemsListener;
   private final MPSProject myProject;
 
   public ModelTracking(@NotNull MPSProject project, @NotNull MPSCoreComponents coreComponents) {
-    myResolver = new ModelStorageProblemsListener(project,
-                                                  coreComponents.getPersistenceFacade(),
-                                                  coreComponents.getPlatform().findComponent(VFSManager.class));
+    myConflictsListener = new ModelStorageConflictsListener(project,
+                                                            coreComponents.getPersistenceFacade(),
+                                                            coreComponents.getPlatform().findComponent(VFSManager.class));
+    myProblemsListener = new ModelStorageProblemsListener(project);
     myProject = project;
-    attachListener();
+    attachListeners();
   }
 
   private void runRead(Runnable runnable) {
     myProject.getRepository().getModelAccess().runReadAction(runnable);
   }
 
-  @TestOnly
-  @NotNull
-  /*package*/ ModelStorageProblemsListener replaceListener(@NotNull ModelStorageProblemsListener listener) {
-    detachListener();
-    ModelStorageProblemsListener old = myResolver;
-    myResolver = listener;
-    attachListener();
-    return old;
-  }
-
   @Override
   public void dispose() {
-    detachListener();
+    detachListeners();
   }
 
-  private void attachListener() {
-    runRead(() -> myProject.getRepository().addRepositoryListener(myResolver));
+  private void attachListeners() {
+    runRead(() -> myProject.getRepository().addRepositoryListener(myProblemsListener));
+    runRead(() -> myProject.getRepository().addRepositoryListener(myConflictsListener));
   }
 
-  private void detachListener() {
-    runRead(() -> myProject.getRepository().removeRepositoryListener(myResolver));
+  private void detachListeners() {
+    runRead(() -> myProject.getRepository().removeRepositoryListener(myConflictsListener));
+    runRead(() -> myProject.getRepository().removeRepositoryListener(myProblemsListener));
   }
 }
