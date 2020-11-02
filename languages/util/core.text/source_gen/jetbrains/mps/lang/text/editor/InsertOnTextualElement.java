@@ -14,9 +14,9 @@ import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -51,7 +51,7 @@ public class InsertOnTextualElement {
           }
           SNode copy = SNodeOperations.insertNextSiblingChild(holder, SNodeOperations.copyNode(holder));
           next.value = ListSequence.fromList(IHoldParagraphs__BehaviorDescriptor.getParagraphs_id2MpFNjy3tMn.invoke(copy)).first();
-          ListSequence.fromList(SLinkOperations.getChildren(next.value, LINKS.letters$rNyA)).clear();
+          Paragraph__BehaviorDescriptor.clearTextualElements_id1uSfHaoOxlA.invoke(next.value);
           ListSequence.fromList(SNodeOperations.getAllSiblings(next.value, false)).visitAll(new IVisitor<SNode>() {
             public void visit(SNode it) {
               SNodeOperations.deleteNode(it);
@@ -61,7 +61,7 @@ public class InsertOnTextualElement {
         SNode nextLetter = SNodeOperations.getNextSibling(node);
         Sequence.fromIterable((SNodeOperations.ofConcept(SNodeOperations.getNextSiblings(node, false), CONCEPTS.Letter$kd))).visitAll(new IVisitor<SNode>() {
           public void visit(SNode it) {
-            ListSequence.fromList(SLinkOperations.getChildren(next.value, LINKS.letters$rNyA)).addElement(it);
+            Paragraph__BehaviorDescriptor.addTextualElement_id1uSfHaoOOLl.invoke(next.value, it);
           }
         });
         Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(next.value);

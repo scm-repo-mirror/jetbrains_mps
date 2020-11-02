@@ -14,9 +14,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.references.BLOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -178,8 +178,7 @@ public class LetterKeys extends KeyMapImpl {
           SNodeOperations.deleteNode(it);
         }
       });
-      ListSequence.fromList(SLinkOperations.getChildren(f, LINKS.letters$rNyA)).clear();
-      Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(f);
+      Paragraph__BehaviorDescriptor.clearTextualElements_id1uSfHaoOxlA.invoke(f);
       SNodeOperations.insertNextSiblingChild(holder, copy);
       SelectionUtil.selectCell(editorContext, ListSequence.fromList(SLinkOperations.getChildren(f, LINKS.letters$rNyA)).first(), SelectionManager.LAST_CELL);
     }

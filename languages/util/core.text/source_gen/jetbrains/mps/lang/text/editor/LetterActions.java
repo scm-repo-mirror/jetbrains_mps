@@ -124,7 +124,7 @@ public class LetterActions {
           SNode myParagraph = SNodeOperations.as(SNodeOperations.getParent(currentNode), CONCEPTS.Paragraph$XF);
           SNode prevParagraph = SNodeOperations.as(SNodeOperations.getPrevSibling(SNodeOperations.getParent(currentNode)), CONCEPTS.Paragraph$XF);
           if (prevParagraph != null) {
-            ListSequence.fromList(SLinkOperations.getChildren(prevParagraph, LINKS.letters$rNyA)).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getAllSiblings(currentNode, true), CONCEPTS.TextualElement$9C)).where(new IWhereFilter<SNode>() {
+            Paragraph__BehaviorDescriptor.addAllTextualElements_id1uSfHaoPgT1.invoke(prevParagraph, Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getAllSiblings(currentNode, true), CONCEPTS.TextualElement$9C)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !(SNodeOperations.isInstanceOf(it, CONCEPTS.EmptyParagraphLetter$W6));
               }
@@ -164,7 +164,7 @@ public class LetterActions {
           SNode myParagraph = SNodeOperations.as(SNodeOperations.getParent(currentNode), CONCEPTS.Paragraph$XF);
           SNode nextParagraph = SNodeOperations.as(SNodeOperations.getNextSibling(SNodeOperations.getParent(currentNode)), CONCEPTS.Paragraph$XF);
           if (nextParagraph != null) {
-            ListSequence.fromList(SLinkOperations.getChildren(myParagraph, LINKS.letters$rNyA)).addSequence(Sequence.fromIterable(Paragraph__BehaviorDescriptor.nonEmptyLetters_id7r4EKYUyqfh.invoke(nextParagraph)));
+            Paragraph__BehaviorDescriptor.addAllTextualElements_id1uSfHaoPgT1.invoke(myParagraph, Paragraph__BehaviorDescriptor.nonEmptyLetters_id7r4EKYUyqfh.invoke(nextParagraph));
             SNodeOperations.deleteNode(nextParagraph);
           }
         }
