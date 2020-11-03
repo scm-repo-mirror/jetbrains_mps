@@ -18,9 +18,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.text.behavior.TextualElement__BehaviorDescriptor;
+import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
 import jetbrains.mps.lang.text.behavior.IHoldLines__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.text.behavior.TextElement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -43,11 +43,7 @@ public final class IComment__BehaviorDescriptor extends BaseBHDescriptor {
     if (ListSequence.fromList(IHoldParagraphs__BehaviorDescriptor.getParagraphs_id2MpFNjy3tMn.invoke(__thisNode__)).isNotEmpty()) {
       return IterableUtils.join(ListSequence.fromList(IHoldParagraphs__BehaviorDescriptor.getParagraphs_id2MpFNjy3tMn.invoke(__thisNode__)).select(new ISelector<SNode, String>() {
         public String select(SNode p) {
-          return IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(p, LINKS.letters$rNyA)).select(new ISelector<SNode, String>() {
-            public String select(SNode l) {
-              return (String) TextualElement__BehaviorDescriptor.getTextualRepresentation_id69wk_bF5sg9.invoke(l);
-            }
-          }), " ");
+          return (String) Paragraph__BehaviorDescriptor.representAsText_id1iNeTGeVhLf.invoke(p);
         }
       }), "\n");
     } else {
@@ -119,7 +115,6 @@ public final class IComment__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink letters$rNyA = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, 0x7ee31bf598f4eddfL, "letters");
     /*package*/ static final SContainmentLink elements$_j45 = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
   }
 }
