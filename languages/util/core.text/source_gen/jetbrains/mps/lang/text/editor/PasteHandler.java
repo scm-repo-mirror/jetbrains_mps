@@ -54,7 +54,7 @@ public class PasteHandler {
               public void visit(SNode paragraph) {
                 if (firstLine.value) {
                   firstLine.value = false;
-                  TextEditorHelper.insertParagraphIntoParagraph(currentParagraph.value, _currentNode.value, SNodeOperations.copyNode(paragraph));
+                  currentParagraph.value = TextEditorHelper.insertParagraphIntoParagraph(currentParagraph.value, _currentNode.value, SNodeOperations.copyNode(paragraph));
                 } else {
                   currentParagraph.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentParagraph.value, SNodeOperations.copyNode(paragraph)), CONCEPTS.Paragraph$XF);
                 }
@@ -81,7 +81,7 @@ public class PasteHandler {
           SNode pastedParagraph = (SNodeOperations.isInstanceOf(n, CONCEPTS.IHoldParagraphs$eh) ? SNodeOperations.copyNode(ListSequence.fromList(IHoldParagraphs__BehaviorDescriptor.getParagraphs_id2MpFNjy3tMn.invoke(SNodeOperations.as(n, CONCEPTS.IHoldParagraphs$eh))).getElement(0)) : SNodeOperations.copyNode(SNodeOperations.as(n, CONCEPTS.Paragraph$XF)));
           if (copyMultipleLinesToMultipleLines) {
             if (Objects.equals(n, data.get(0)) && !(_firstPositionOnLine.value)) {
-              TextEditorHelper.insertParagraphIntoParagraph(currentParagraph.value, _currentNode.value, pastedParagraph);
+              currentParagraph.value = TextEditorHelper.insertParagraphIntoParagraph(currentParagraph.value, _currentNode.value, pastedParagraph);
             } else if (_firstPositionOnLine.value) {
               SNodeOperations.insertPrevSiblingChild(currentParagraph.value, pastedParagraph);
             } else {

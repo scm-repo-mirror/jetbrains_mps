@@ -272,9 +272,25 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
 
   private String buildTextualRepresentationOfSelectedCells() {
     StringBuilder builder = new StringBuilder();
+    SNode currentParagraph = null;
+    StringBuilder currentParagraphBuilder = new StringBuilder();
     for (EditorCell cell : getSelectedCells()) {
-      builder.append(cell.renderText().getText());
-      builder.append((cell.getNextSibling() == null ? "\n" : " "));
+      SNode n = cell.getSNode();
+      SNode p = SNodeOperations.getNodeAncestor(n, CONCEPTS.Paragraph$XF, false, false);
+      if (p != null && !(Objects.equals(p, currentParagraph))) {
+        if (currentParagraph != null) {
+          builder.append(Paragraph__BehaviorDescriptor.wrapTextForClipboard_idfcFkhVLuVF.invoke(currentParagraph, currentParagraphBuilder.toString()));
+        }
+        currentParagraph = p;
+        currentParagraphBuilder = new StringBuilder();
+      }
+      currentParagraphBuilder.append(cell.renderText().getText());
+      if (cell.getNextSibling() == null) {
+        currentParagraphBuilder.append("\n");
+      }
+    }
+    if (currentParagraph != null) {
+      builder.append(Paragraph__BehaviorDescriptor.wrapTextForClipboard_idfcFkhVLuVF.invoke(currentParagraph, currentParagraphBuilder.toString()));
     }
     return builder.toString();
   }

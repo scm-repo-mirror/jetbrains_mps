@@ -35,8 +35,9 @@ public final class NumberedPoint__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> shouldRemoveNumberPoint_id10ljsgmIK7I = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("shouldRemoveNumberPoint").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("10ljsgmIK7I").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> canBeTurnedToNumberedPoint_id10ljsgmITo7 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeTurnedToNumberedPoint").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("10ljsgmITo7").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> startsWithNumberSpace_id10ljsgmJ2Al = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("startsWithNumberSpace").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("10ljsgmJ2Al").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<String> wrapTextForClipboard_idfcFkhVLuVF = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("wrapTextForClipboard").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("fcFkhVLuVF").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(calculatePosition_id5QuCpoxy5xM, shouldRemoveNumberPoint_id10ljsgmIK7I, canBeTurnedToNumberedPoint_id10ljsgmITo7, startsWithNumberSpace_id10ljsgmJ2Al);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(calculatePosition_id5QuCpoxy5xM, shouldRemoveNumberPoint_id10ljsgmIK7I, canBeTurnedToNumberedPoint_id10ljsgmITo7, startsWithNumberSpace_id10ljsgmJ2Al, wrapTextForClipboard_idfcFkhVLuVF);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -80,6 +81,9 @@ public final class NumberedPoint__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return SPropertyOperations.getString(f, PROPS.value$X7Tp).matches("[0-9]") && Objects.equals(SPropertyOperations.getString(s, PROPS.value$X7Tp), ".");
   }
+  /*package*/ static String wrapTextForClipboard_idfcFkhVLuVF(@NotNull SNode __thisNode__, String text) {
+    return IndentedPoint__BehaviorDescriptor.getIndentString_idfcFkhVQ0er.invoke(__thisNode__) + ((int) NumberedPoint__BehaviorDescriptor.calculatePosition_id5QuCpoxy5xM.invoke(__thisNode__)) + ". " + text;
+  }
 
   /*package*/ NumberedPoint__BehaviorDescriptor() {
   }
@@ -98,6 +102,8 @@ public final class NumberedPoint__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((Integer) calculatePosition_id5QuCpoxy5xM(node));
+      case 4:
+        return (T) ((String) wrapTextForClipboard_idfcFkhVLuVF(node, (String) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

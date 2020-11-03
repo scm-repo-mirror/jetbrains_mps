@@ -33,8 +33,9 @@ public final class BulletPoint__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> canBeTurnedToBullet_id4ruP0NLgI8Q = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeTurnedToBullet").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4ruP0NLgI8Q").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> shouldRemoveBullet_id4ruP0NLisxF = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("shouldRemoveBullet").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4ruP0NLisxF").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> startsWithBulletSpace_id4ruP0NLgL0C = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("startsWithBulletSpace").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4ruP0NLgL0C").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<String> wrapTextForClipboard_idfcFkhVLuVF = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("wrapTextForClipboard").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("fcFkhVLuVF").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(canBeTurnedToBullet_id4ruP0NLgI8Q, shouldRemoveBullet_id4ruP0NLisxF, startsWithBulletSpace_id4ruP0NLgL0C);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(canBeTurnedToBullet_id4ruP0NLgI8Q, shouldRemoveBullet_id4ruP0NLisxF, startsWithBulletSpace_id4ruP0NLgL0C, wrapTextForClipboard_idfcFkhVLuVF);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -56,6 +57,9 @@ public final class BulletPoint__BehaviorDescriptor extends BaseBHDescriptor {
     }
     return SPropertyOperations.getString(f, PROPS.value$X7Tp).matches("[*|-]") && Objects.equals(SPropertyOperations.getString(s, PROPS.value$X7Tp), " ");
   }
+  /*package*/ static String wrapTextForClipboard_idfcFkhVLuVF(@NotNull SNode __thisNode__, String text) {
+    return IndentedPoint__BehaviorDescriptor.getIndentString_idfcFkhVQ0er.invoke(__thisNode__) + "* " + text;
+  }
 
   /*package*/ BulletPoint__BehaviorDescriptor() {
   }
@@ -72,6 +76,8 @@ public final class BulletPoint__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 3:
+        return (T) ((String) wrapTextForClipboard_idfcFkhVLuVF(node, (String) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

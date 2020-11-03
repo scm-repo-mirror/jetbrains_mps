@@ -58,15 +58,17 @@ public class TextEditorHelper {
     Line__BehaviorDescriptor.merge_id1YnOZxALrLu.invoke(currentLine, lineToInsert);
   }
 
-  public static void insertParagraphIntoParagraph(SNode currentParagraph, SNode currentNode, SNode lineToInsert) {
+  public static SNode insertParagraphIntoParagraph(SNode currentParagraph, SNode currentNode, SNode lineToInsert) {
     SNode restOfParagraph = Paragraph__BehaviorDescriptor.split_id4HqBHuN_RSC.invoke(currentParagraph, SNodeOperations.as(currentNode, CONCEPTS.TextualElement$9C));
     if ((restOfParagraph != null) && !((boolean) Paragraph__BehaviorDescriptor.isEmptyParagraph_id7r4EKYUymRW.invoke(restOfParagraph))) {
       SNodeOperations.insertNextSiblingChild(currentParagraph, restOfParagraph);
     }
     if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(lineToInsert)), CONCEPTS.Paragraph$XF)) {
       Paragraph__BehaviorDescriptor.merge_id4HqBHuNzqyw.invoke(currentParagraph, lineToInsert);
+      return currentParagraph;
     } else {
       SNodeOperations.insertNextSiblingChild(currentParagraph, lineToInsert);
+      return lineToInsert;
     }
   }
 
