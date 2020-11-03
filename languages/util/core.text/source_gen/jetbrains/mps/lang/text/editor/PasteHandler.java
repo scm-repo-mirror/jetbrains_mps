@@ -158,6 +158,10 @@ public class PasteHandler {
     if ((boolean) Paragraph__BehaviorDescriptor.isEmptyParagraph_id7r4EKYUymRW.invoke(paragraphToAdd)) {
       return ListSequence.fromList(SLinkOperations.getChildren(currentParagraph, LINKS.letters$rNyA)).last();
     }
+    // No need for a space, there is no following paragraph
+    if (SNodeOperations.getContainingLink(currentParagraph).isMultiple()) {
+      return ListSequence.fromList(SLinkOperations.getChildren(paragraphToAdd, LINKS.letters$rNyA)).last();
+    }
     SNode l = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, "jetbrains.mps.lang.text.structure.Letter"));
     SPropertyOperations.assign(l, PROPS.value$X7Tp, " ");
     ListSequence.fromList(SLinkOperations.getChildren(paragraphToAdd, LINKS.letters$rNyA)).addElement(l);

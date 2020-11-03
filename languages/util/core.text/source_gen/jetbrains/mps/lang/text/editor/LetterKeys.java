@@ -291,7 +291,7 @@ public class LetterKeys extends KeyMapImpl {
         SPropertyOperations.assign(l, PROPS.value$X7Tp, " ");
         currentNode = l;
       }
-      SelectionUtil.selectNode(editorContext, currentNode);
+      SelectionUtil.selectLabelCellAnSetCaret(editorContext, currentNode, SelectionManager.LAST_CELL, -1);
     }
     public String getKeyStroke() {
       return "none TAB";

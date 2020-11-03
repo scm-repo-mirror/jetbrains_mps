@@ -110,6 +110,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
       if (Objects.equals(l, lastNode)) {
         lastNode = firstNode;
         firstNode = l;
+        growingForward = !(growingForward);
         break;
       }
     }
@@ -320,7 +321,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (!(myGrowingForward) && !(Objects.equals(myFirstParentNode, myLastParentNode))) {
+        if (!(myGrowingForward)) {
           SNode nodeBelowFirst = findNodeBelow(myFirstNode, getFirstCell());
           if (nodeBelowFirst == null) {
             selectionManager.pushSelection(new LetterRangeSelection(getEditorComponent(), myLastNode, myLastNode, false));
@@ -343,7 +344,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (myGrowingForward && !(Objects.equals(myFirstParentNode, myLastParentNode))) {
+        if (myGrowingForward) {
           SNode nodeAboveLast = findNodeAbove(myLastNode, getLastCell());
           if (nodeAboveLast == null) {
             selectionManager.pushSelection(new LetterRangeSelection(getEditorComponent(), myFirstNode, myFirstNode, true));

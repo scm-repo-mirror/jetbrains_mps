@@ -51,6 +51,9 @@ public final class BulletPoint__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static boolean startsWithBulletSpace_id4ruP0NLgL0C(@NotNull SAbstractConcept __thisConcept__, SNode p) {
     SNode f = SNodeOperations.as(ListSequence.fromList(SLinkOperations.getChildren(p, LINKS.letters$rNyA)).first(), CONCEPTS.Letter$kd);
     SNode s = SNodeOperations.as(SNodeOperations.getNextSibling(f), CONCEPTS.Letter$kd);
+    if ((f == null)) {
+      return false;
+    }
     return SPropertyOperations.getString(f, PROPS.value$X7Tp).matches("[*|-]") && Objects.equals(SPropertyOperations.getString(s, PROPS.value$X7Tp), " ");
   }
 

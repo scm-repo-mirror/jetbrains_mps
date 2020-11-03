@@ -20,7 +20,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public class EmptyLetterActions {
+public class EmptyParagraphLetterActions {
 
   /*package*/ static AbstractCellAction createAction_COMMENT(final SNode node) {
     return new AbstractCellAction() {

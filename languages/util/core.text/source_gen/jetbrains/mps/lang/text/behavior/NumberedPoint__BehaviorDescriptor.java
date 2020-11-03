@@ -75,6 +75,9 @@ public final class NumberedPoint__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static boolean startsWithNumberSpace_id10ljsgmJ2Al(@NotNull SAbstractConcept __thisConcept__, SNode p) {
     SNode f = SNodeOperations.as(ListSequence.fromList(SLinkOperations.getChildren(p, LINKS.letters$rNyA)).first(), CONCEPTS.Letter$kd);
     SNode s = SNodeOperations.as(SNodeOperations.getNextSibling(f), CONCEPTS.Letter$kd);
+    if ((f == null)) {
+      return false;
+    }
     return SPropertyOperations.getString(f, PROPS.value$X7Tp).matches("[0-9]") && Objects.equals(SPropertyOperations.getString(s, PROPS.value$X7Tp), ".");
   }
 

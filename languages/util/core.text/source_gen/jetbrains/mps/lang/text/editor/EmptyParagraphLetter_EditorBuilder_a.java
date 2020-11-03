@@ -49,7 +49,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.FIRST_POSITION_ALLOWED, true);
     editorCell.getStyle().putAll(style);
-    EmptyLetterActions.setCellActions(editorCell, myNode, getEditorContext());
+    EmptyParagraphLetterActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addKeyMap(new EmptyParagraphLetterKeys());
     editorCell.setTransformationMenuLookup(new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.EmptyParagraphLetter$W6));
     editorCell.setDefaultText("");

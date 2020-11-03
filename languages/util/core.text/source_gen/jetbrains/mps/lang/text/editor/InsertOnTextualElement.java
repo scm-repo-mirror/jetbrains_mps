@@ -15,6 +15,7 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.text.behavior.IHoldParagraphs__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -58,14 +59,16 @@ public class InsertOnTextualElement {
             }
           });
         }
-        SNode nextLetter = SNodeOperations.getNextSibling(node);
-        Sequence.fromIterable((SNodeOperations.ofConcept(SNodeOperations.getNextSiblings(node, false), CONCEPTS.Letter$kd))).visitAll(new IVisitor<SNode>() {
+        int pos = ((EditorCell_Label) editorContext.getSelectedCell()).getCaretPosition();
+        SNode nextLetter = (pos != 0 ? SNodeOperations.getNextSibling(node) : node);
+        Sequence.fromIterable((SNodeOperations.ofConcept(SNodeOperations.getNextSiblings(nextLetter, true), CONCEPTS.Letter$kd))).visitAll(new IVisitor<SNode>() {
           public void visit(SNode it) {
             Paragraph__BehaviorDescriptor.addTextualElement_id1uSfHaoOOLl.invoke(next.value, it);
           }
         });
         Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(next.value);
-        if (nextLetter != null) {
+        Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(p);
+        if (nextLetter != null && pos != 0) {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, nextLetter, SelectionManager.FIRST_CELL, 0);
         } else {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, ListSequence.fromList(SLinkOperations.getChildren(next.value, LINKS.letters$rNyA)).first(), SelectionManager.FIRST_CELL, 0);

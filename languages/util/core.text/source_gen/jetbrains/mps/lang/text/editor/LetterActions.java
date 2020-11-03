@@ -11,16 +11,16 @@ import jetbrains.mps.lang.text.behavior.TextualElement__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
-import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -113,13 +113,14 @@ public class LetterActions {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         SNode currentNode = editorContext.getSelectedNode();
+        int pos = ((EditorCell_Label) editorContext.getSelectedCell()).getCaretPosition();
         SNode p = SNodeOperations.as(SNodeOperations.getParent(currentNode), CONCEPTS.Paragraph$XF);
         SNode prev = SNodeOperations.getPrevSibling(currentNode);
         if (prev != null) {
           SNodeOperations.deleteNode(currentNode);
           Paragraph__BehaviorDescriptor.initialize_id1v077Wg2A59.invoke(p);
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, prev, SelectionManager.LAST_CELL, -1);
-        } else if (!(Objects.equals(currentNode, node))) {
+        } else if (pos == 0) {
           // node is the last node on the previous line, currentNode is the first node on the current line 
           SNode myParagraph = SNodeOperations.as(SNodeOperations.getParent(currentNode), CONCEPTS.Paragraph$XF);
           SNode prevParagraph = SNodeOperations.as(SNodeOperations.getPrevSibling(SNodeOperations.getParent(currentNode)), CONCEPTS.Paragraph$XF);
@@ -134,7 +135,7 @@ public class LetterActions {
             if ((prevLetter != null)) {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, prevLetter, SelectionManager.LAST_CELL, -1);
             } else {
-              SelectionUtil.selectNode(editorContext, currentNode);
+              SelectionUtil.selectLabelCellAnSetCaret(editorContext, currentNode, SelectionManager.LAST_CELL, 0);
             }
           }
         } else {
