@@ -119,6 +119,10 @@ public class EnvironmentConfig {
     return addDistributedPlugin("mps-java", "jetbrains.mps.ide.java");
   }
 
+  public EnvironmentConfig withDebuggerPlugin() {
+    return addDistributedPlugin("debugger-api", "jetbrains.mps.debugger.api").addDistributedPlugin("debugger-java", "jetbrains.mps.debugger.java");
+  }
+
   public EnvironmentConfig withMigrationPlugin() {
     // migration plugin depends on modelchecker, add both 
     return addDistributedPlugin("mps-modelchecker", "jetbrains.mps.ide.modelchecker").addDistributedPlugin("mps-migration", "jetbrains.mps.ide.migration.workbench").addDistributedPlugin("mps-project-migrations", "jetbrains.mps.ide.mpsmigration");

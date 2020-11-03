@@ -1261,6 +1261,42 @@
         <ref role="3uigEE" node="6rx4kZDk5A9" resolve="EnvironmentConfig" />
       </node>
     </node>
+    <node concept="2tJIrI" id="1CvX25dz887" role="jymVt" />
+    <node concept="3clFb_" id="1CvX25dz6g2" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="withDebuggerPlugin" />
+      <node concept="3clFbS" id="1CvX25dz6g3" role="3clF47">
+        <node concept="3cpWs6" id="1CvX25dz6g4" role="3cqZAp">
+          <node concept="2OqwBi" id="1CvX25dznAc" role="3cqZAk">
+            <node concept="1rXfSq" id="1CvX25dz6g5" role="2Oq$k0">
+              <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+              <node concept="Xl_RD" id="1CvX25dz6g6" role="37wK5m">
+                <property role="Xl_RC" value="debugger-api" />
+              </node>
+              <node concept="Xl_RD" id="1CvX25dz6g7" role="37wK5m">
+                <property role="Xl_RC" value="jetbrains.mps.debugger.api" />
+              </node>
+            </node>
+            <node concept="liA8E" id="1CvX25dzoTL" role="2OqNvi">
+              <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+              <node concept="Xl_RD" id="1CvX25dzpVL" role="37wK5m">
+                <property role="Xl_RC" value="debugger-java" />
+              </node>
+              <node concept="Xl_RD" id="1CvX25dzs8j" role="37wK5m">
+                <property role="Xl_RC" value="jetbrains.mps.debugger.java" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="1CvX25dz6g8" role="1B3o_S" />
+      <node concept="3uibUv" id="1CvX25dz6g9" role="3clF45">
+        <ref role="3uigEE" node="6rx4kZDk5A9" resolve="EnvironmentConfig" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="4asrSzSFlSi" role="jymVt" />
     <node concept="3clFb_" id="4asrSzSFl5Q" role="jymVt">
       <property role="TrG5h" value="withMigrationPlugin" />
