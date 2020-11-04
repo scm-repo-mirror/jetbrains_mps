@@ -59,4 +59,12 @@
     <mps.projectGroupTemplateEP implementation="jetbrains.mps.workbench.dialogs.project.newproject.OtherProjectsGroup"/>
     <mps.otherProjectTemplateEP implementation="jetbrains.mps.workbench.dialogs.project.newproject.EmptyProjectTemplate"/>
   </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <registryKey key="mps.ProjectPane.messages.use.underline" defaultValue="true" description="Underline tree elements with errors or warnings" restartRequired="false"/>
+    <registryKey key="mps.ProjectPane.messages.use.indicator" defaultValue="true" description="Show dedicated control for a tree elements with errors or warnings" restartRequired="false"/>
+    <registryKey key="mps.ProjectPane.messages.error.only" defaultValue="false" description="Do not show warning and informational messages in the project tree" restartRequired="false"/>
+    <registryKey key="mps.ProjectPane.show.descriptor.generator" defaultValue="false" description="Show @descriptor model in Generator modules" restartRequired="false"/>
+    <registryKey key="mps.ProjectPane.show.descriptor.solution" defaultValue="false" description="Show @descriptor model in Solution modules" restartRequired="false"/>
+  </extensions>
 </components>

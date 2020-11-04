@@ -27,11 +27,17 @@ import java.util.Objects;
 public final class TreeErrorMessage extends TreeMessage {
   private final ErrorState myErrorState;
   private final String myMessage;
+  private final boolean myDerived;
 
   public TreeErrorMessage(ErrorState errorState, @NotNull String message, TreeMessageOwner owner) {
+    this(errorState, message, owner, false);
+  }
+
+  public TreeErrorMessage(ErrorState errorState, @NotNull String message, TreeMessageOwner owner, boolean derived) {
     super(owner);
     myErrorState = errorState;
     myMessage = message;
+    myDerived = derived;
   }
 
   public ErrorState getErrorState() {
@@ -40,6 +46,13 @@ public final class TreeErrorMessage extends TreeMessage {
 
   public String getMessage() {
     return myMessage;
+  }
+
+  /**
+   * @return {@code true} if this error is not an 'original' one reported but rather a state 'derived' from a descendant
+   */
+  public boolean isDerivedFromDescendant() {
+    return myDerived;
   }
 
   public boolean same(TreeErrorMessage other) {

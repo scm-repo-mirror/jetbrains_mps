@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.projectPane;
 
+import com.intellij.ide.IdeTooltipManager;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
 import com.intellij.openapi.actionSystem.ActionGroup;
@@ -27,7 +28,7 @@ import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.Balloon.Position;
 import com.intellij.openapi.ui.popup.BalloonBuilder;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.ui.JBColor;
+import com.intellij.ui.HintHint;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.util.ArrayUtil;
 import com.intellij.util.messages.MessageBusConnection;
@@ -62,13 +63,14 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.util.Pair;
+import jetbrains.mps.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
-import javax.swing.JLabel;
+import javax.swing.JEditorPane;
 import javax.swing.tree.TreePath;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -122,7 +124,7 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
     super(ProjectHelper.fromIdeaProject(project));
     myProjectPane = projectPane;
 
-    myCellRenderer = new ProjectTreeCellRenderer();
+    myCellRenderer = new ProjectTreeCellRenderer(projectPane.errorIndicatorVisible(), projectPane.underlineErrorNodes(), projectPane.showErrorsOnly());
     setCellRenderer(myCellRenderer);
 
     final MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
@@ -166,7 +168,6 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
 
   @Override
   public void rebuildNow() {
-    myCellRenderer.errorComponentVisible(myProjectPane.isErrorIndicatorVisible());
     super.rebuildNow();
     // FIXME do it through PPTH or any other way, but don't add dumbUpdate ro runRebuildAction() which is in use for refresh
     //       of a single tree node.
@@ -222,39 +223,45 @@ public class ProjectPaneTree extends ProjectTree implements NodeChildrenProvider
     MPSTreeNode tn;
     if (myCellRenderer.isErrorStateComponentEvent(e) && (tn = getNodeFromPath(getClosestPathForLocation(e.getX(), e.getY()))) != null) {
       e.consume();
-      final Collection<TreeErrorMessage> messages = tn.findMessages(TreeErrorMessage.class);
-      if (messages.isEmpty()) {
-        return;
-      }
-      String title;
-      final List<TreeErrorMessage> errors = messages.stream().filter(m -> m.getErrorState() == ErrorState.ERROR).collect(Collectors.toList());
-      final List<TreeErrorMessage> warnings = messages.stream().filter(m -> m.getErrorState() == ErrorState.WARNING).collect(Collectors.toList());
-      final StringBuilder sb = new StringBuilder();
-      sb.append("<html><ul>");
-      if (!errors.isEmpty()) {
-        title = "Errors";
-        errors.forEach(m -> sb.append("<li>").append(m.getMessage()));
-        if (!warnings.isEmpty()) {
-          sb.append(String.format("<p> and %d warnings...</p>", warnings.size()));
-        }
-      } else if (!warnings.isEmpty()) {
-        title = "Warnings";
-        warnings.forEach(m -> sb.append("<li>").append(m.getMessage()));
-      } else {
-        title = null;
-        messages.forEach(m -> sb.append("<li>").append(m.getMessage()));
-      }
-      sb.append("</ul></html>");
-
-      final BalloonBuilder bb = JBPopupFactory.getInstance().createBalloonBuilder(new JLabel(sb.toString()));
-      bb.setDisposable(this);
-      if (title != null) {
-        bb.setTitle(title);
-      }
-      bb.setFillColor(JBColor.lightGray).setFadeoutTime(10000);
-      final Balloon b = bb.setHideOnClickOutside(true).setHideOnKeyOutside(true).setShowCallout(true).createBalloon();
-      b.show(new RelativePoint(e), Position.below);
+      showErrorMessagesHint(tn, e);
     }
+  }
+
+  private void showErrorMessagesHint(MPSTreeNode tn, MouseEvent e) {
+    final Collection<TreeErrorMessage> messages = tn.findMessages(TreeErrorMessage.class);
+    if (messages.isEmpty()) {
+      return;
+    }
+    String title = null;
+    final List<TreeErrorMessage> errors = messages.stream().filter(m -> m.getErrorState() == ErrorState.ERROR).collect(Collectors.toList());
+    final List<TreeErrorMessage> warnings = messages.stream().filter(m -> m.getErrorState() == ErrorState.WARNING).collect(Collectors.toList());
+    final StringBuilder sb = new StringBuilder();
+    sb.append("<html><ul>");
+    if (!errors.isEmpty()) {
+      errors.forEach(m -> sb.append("<li>").append(StringUtil.escapeXml(m.getMessage())));
+      if (!warnings.isEmpty()) {
+        sb.append(String.format("<p> and %d warnings...</p>", warnings.size()));
+      }
+    } else if (!warnings.isEmpty()) {
+      warnings.forEach(m -> sb.append("<li>").append(StringUtil.escapeXml(m.getMessage())));
+    } else {
+      title = null;
+      messages.forEach(m -> sb.append("<li>").append(StringUtil.escapeXml(m.getMessage())));
+    }
+    sb.append("</ul></html>");
+
+    // using awtTooltip just because I found similar code elsewhere in MPS, no idea what it means
+    final HintHint hintHint = new HintHint(e).setAwtTooltip(true).setForcePopup(true);
+    final JEditorPane content = IdeTooltipManager.initPane(sb.toString(), hintHint, null);
+    final BalloonBuilder bb = JBPopupFactory.getInstance().createBalloonBuilder(content);
+    bb.setDisposable(this);
+    if (title != null) {
+      bb.setTitle(title);
+    }
+    // BalloonPopupBuilderImpl cons set default fill color, have to override even though content has proper background color
+    bb.setFadeoutTime(10000).setFillColor(hintHint.getTextBackground());
+    final Balloon b = bb.setHideOnClickOutside(true).setShowCallout(false).setHideOnKeyOutside(true).createBalloon();
+    b.show(new RelativePoint(e), Position.below);
   }
 
   @Override

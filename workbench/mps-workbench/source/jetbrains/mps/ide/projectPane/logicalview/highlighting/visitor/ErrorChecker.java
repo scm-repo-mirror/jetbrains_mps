@@ -71,12 +71,11 @@ public class ErrorChecker extends TreeUpdateVisitor implements TreeMessageOwner 
         for (MPSTreeNode c : node.getChildren()) {
           final Collection<TreeErrorMessage> childMessages = c.findMessages(TreeErrorMessage.class);
           if (childMessages.stream().anyMatch(TreeErrorMessage::isError)) {
-            // XXX perhaps, worth to have slightly different message for 'derived' error status so that
-            //     we can tell derived status from truly calculated when presenting an indication to user (e.g. don't
-            //     show error indicator/balloon for derived messages
-            addUpdate(node, new ErrorStateNodeUpdate(ErrorChecker.this, newError("Descendants with errors")));
+            // Indicate 'derived' error status so that one can tell derived status from truly calculated when
+            // presenting an indication to user (e.g. don't show error indicator/balloon for derived messages)
+            addUpdate(node, new ErrorStateNodeUpdate(ErrorChecker.this, msg(ErrorState.ERROR, "Descendants with errors", false)));
           } else if (childMessages.stream().anyMatch(TreeErrorMessage::isWarning)) {
-            addUpdate(node, new ErrorStateNodeUpdate(ErrorChecker.this, newWarning("Descendants with warnings")));
+            addUpdate(node, new ErrorStateNodeUpdate(ErrorChecker.this, msg(ErrorState.WARNING, "Descendants with warnings", false)));
           }
         }
       }
@@ -117,16 +116,20 @@ public class ErrorChecker extends TreeUpdateVisitor implements TreeMessageOwner 
     final ArrayList<TreeErrorMessage> msg = new ArrayList<>();
     messages.getErrors().stream().map(this::newError).forEach(msg::add);
     messages.getWarnings().stream().map(this::newWarning).forEach(msg::add);
-    messages.getInfos().stream().map(s -> new TreeErrorMessage(ErrorState.NONE, s, this)).forEach(msg::add);
+    messages.getInfos().stream().map(s -> msg(ErrorState.NONE, s, true)).forEach(msg::add);
     return new ErrorStateNodeUpdate(this, msg);
   }
 
+  private TreeErrorMessage msg(ErrorState errorState, String msg, boolean original) {
+    return new TreeErrorMessage(errorState, msg, this, !original);
+  }
+
   private TreeErrorMessage newError(String msg) {
-    return new TreeErrorMessage(ErrorState.ERROR, msg, this);
+    return msg(ErrorState.ERROR, msg, true);
   }
 
   private TreeErrorMessage newWarning(String msg) {
-    return new TreeErrorMessage(ErrorState.WARNING, msg, this);
+    return msg(ErrorState.WARNING, msg, true);
   }
 
   @Override

@@ -26,34 +26,45 @@ import javax.swing.Box;
 import javax.swing.tree.TreePath;
 import java.awt.Component;
 import java.awt.FontMetrics;
-import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
- * Augments cell renderer of {@code MPSTree} with a component to represent error state
+ * Augments cell renderer of {@code MPSTree} with a component to represent error state.
+ * Configures cell renderer with settings specific for project pane.
  * @author Artem Tikhomirov
+ * @since 2020.3
  */
 /*package*/ class ProjectTreeCellRenderer extends NewMPSTreeCellRenderer {
-  private boolean myEnabled;
+  private boolean myEnabled = false;
   private final ErrorStateComponent myIndicator;
+  private final Supplier<Boolean> myUseErrorComponent;
+  private final Supplier<Boolean> myUnderlineErrorNodes;
+  private final Supplier<Boolean> myShowErrorsOnly;
 
-  ProjectTreeCellRenderer() {
+  ProjectTreeCellRenderer(Supplier<Boolean> useErrorComponent, Supplier<Boolean> underlineErrorNodes, Supplier<Boolean> showErrorsOnly) {
+    myUseErrorComponent = useErrorComponent;
+    myUnderlineErrorNodes = underlineErrorNodes;
+    myShowErrorsOnly = showErrorsOnly;
     myIndicator = new ErrorStateComponent();
     getPanel().add(Box.createHorizontalGlue());
-//    getPanel().add(myIndicator);
-    // XXX perhaps, shall take a condition to figure out indicator visibility. Instead of explicit #errorComponentVisible(boolean)
-    //    could get 'rebuild()' notification (along with some caching strategy for cell renderer if it proves worth it).
-    //    otherwise default value here shall match that in ProjectPane
-    myEnabled = false;
   }
 
   /*package*/ void resetColors() {
     myColors.reset();
   }
 
-  void errorComponentVisible(boolean enableErrorComponent) {
+  @Override
+  public void rebuildStarted() {
+    errorComponentVisible(myUseErrorComponent.get());
+    underlineMainLabel(myUnderlineErrorNodes.get());
+    underlineErrorsOnly(myShowErrorsOnly.get());
+    super.rebuildStarted();
+  }
+
+  private void errorComponentVisible(boolean enableErrorComponent) {
     if (myEnabled == enableErrorComponent) {
       return;
     }
@@ -74,13 +85,21 @@ import java.util.Collection;
       return;
     }
     final Collection<TreeErrorMessage> messages = treeNode.findMessages(TreeErrorMessage.class);
-    if (messages.stream().anyMatch(m -> m.getErrorState() == ErrorState.ERROR)) {
+    if (messages.stream().anyMatch(ProjectTreeCellRenderer::isOriginalError)) {
       myIndicator.setState(ErrorState.ERROR, mainLabelFont);
-    } else if (messages.stream().anyMatch(m -> m.getErrorState() == ErrorState.WARNING)) {
+    } else if (!errorsOnly() && messages.stream().anyMatch(ProjectTreeCellRenderer::isOriginalWarning)) {
       myIndicator.setState(ErrorState.WARNING, mainLabelFont);
     } else {
       myIndicator.setState(ErrorState.NONE, mainLabelFont);
     }
+  }
+
+  static boolean isOriginalError(TreeErrorMessage m) {
+    return !m.isDerivedFromDescendant() && m.getErrorState() == ErrorState.ERROR;
+  }
+
+  static boolean isOriginalWarning(TreeErrorMessage m) {
+    return !m.isDerivedFromDescendant() && m.getErrorState() == ErrorState.WARNING;
   }
 
   /*package*/ boolean isErrorStateComponentEvent(MouseEvent e) {
@@ -103,15 +122,11 @@ import java.util.Collection;
     final int rowForPath = tree.getRowForPath(pathForLocation); // XXX we don't care about row in the renderer, can pass 0
     final Rectangle viewArea = tree.getVisibleRect();
     final Component crc = getTreeCellRendererComponent(tree, nodeFromPath, false, false, false, rowForPath, false);
-//    crc.setBounds(pathBounds.x, pathBounds.y, tree.getWidth() - pathBounds.x - insets.right, pathBounds.height);
-//    crc.setBounds(pathBounds);
     crc.setBounds(pathBounds.x, pathBounds.y, viewArea.width + viewArea.x - pathBounds.x, pathBounds.height);
-    crc.doLayout();
-//    System.out.printf("renderer bounds: %s; indicator bounds: %s;  click@[%d,%d], tree (X:%d Width:%d)\n", crc.getBounds(), myIndicator.getBounds(), e.getX(), e.getY(), tree.getX(), tree.getWidth());
+    crc.doLayout(); // the longest part of the whole check, 400-500 us for me; other operations can be disregarded.
     final int eventX = e.getX() - crc.getX();
     final int eventY = e.getY() - crc.getY();
     final Component componentAt = crc.getComponentAt(eventX, eventY);
-//    System.out.println(componentAt);
     return componentAt == myIndicator;
   }
 }

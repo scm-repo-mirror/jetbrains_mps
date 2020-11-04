@@ -957,6 +957,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+      // FIXME what's the reason for this code, why do we care to control initial delay for a tree?
       myTooltipManagerRecentInitialDelay = ToolTipManager.sharedInstance().getInitialDelay();
       ToolTipManager.sharedInstance().setInitialDelay(10);
     }

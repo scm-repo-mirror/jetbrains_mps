@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package jetbrains.mps.ide.ui.tree;
 
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBPanel;
-import jetbrains.mps.ide.util.ColorAndGraphicsUtil;
+import jetbrains.mps.ide.ui.WaveBorder;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -33,42 +33,26 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.util.Collection;
 
 
 public class NewMPSTreeCellRenderer implements TreeCellRenderer, RebuildAwareTreeCellRenderer {
   private final JPanel myPanel;
   private final JLabel myMainTextLabel;
+  private final WaveBorder myLabelBorder;
   private final JLabel myAdditionalTextLabel;
-  private Color myWaveColor;
   protected final TreeRendererColors myColors;
+  private boolean myErrorOnly = false;
 
   public NewMPSTreeCellRenderer() {
     myColors = new TreeRendererColors();
-    myPanel = new JBPanel() {
-      @Override
-      public void paintBorder(Graphics g) {
-        super.paintBorder(g);
-
-        int imageOffset;
-        Icon icon = myMainTextLabel.getIcon();
-        if (icon != null) {
-          imageOffset = icon.getIconWidth() + Math.max(0, myMainTextLabel.getIconTextGap() - 1);
-        } else {
-          imageOffset = 0;
-        }
-
-        if (myWaveColor != null) {
-          g.setColor(myWaveColor);
-          ColorAndGraphicsUtil.drawWave(g, imageOffset, myMainTextLabel.getWidth(), getHeight() - ColorAndGraphicsUtil.WAVE_HEIGHT - 1);
-        }
-      }
-    };
+    myPanel = new JBPanel<>().andTransparent();
     myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.X_AXIS));
-    myPanel.setOpaque(false);
 
     myMainTextLabel = new JBLabel();
+    myLabelBorder = new WaveBorder();
+    // unless explicitly turned off, label get underline for errors
+    myMainTextLabel.setBorder(myLabelBorder);
     myPanel.add(myMainTextLabel);
 
     myPanel.add(Box.createRigidArea(new Dimension(5, 0)));
@@ -98,18 +82,20 @@ public class NewMPSTreeCellRenderer implements TreeCellRenderer, RebuildAwareTre
       myAdditionalTextLabel.setFont(treeFont);
 
       nodeColor = treeNode.getColor();
-      final Collection<TreeErrorMessage> messages = treeNode.findMessages(TreeErrorMessage.class);
-      if (messages.stream().anyMatch(TreeErrorMessage::isError)) {
-        myWaveColor = myColors.getErrorStripeColor();
-      } else if (messages.stream().anyMatch(TreeErrorMessage::isWarning)) {
-        myWaveColor = myColors.getWarningStripeColor();
-      } else {
-        myWaveColor = null;
+      if (checkTreeMessages()) {
+        final Collection<TreeErrorMessage> messages = treeNode.findMessages(TreeErrorMessage.class);
+        if (messages.stream().anyMatch(TreeErrorMessage::isError)) {
+          myLabelBorder.setWaveColor(myColors.getErrorStripeColor());
+        } else if (!errorsOnly() && messages.stream().anyMatch(TreeErrorMessage::isWarning)) {
+          myLabelBorder.setWaveColor(myColors.getWarningStripeColor());
+        } else {
+          myLabelBorder.setWaveColor(null);
+        }
       }
     } else {
       myMainTextLabel.setFont(treeFont);
       myAdditionalTextLabel.setFont(treeFont);
-      myWaveColor = null;
+      myLabelBorder.setWaveColor(null);
     }
 
     final boolean focused = tree.hasFocus();
@@ -132,6 +118,11 @@ public class NewMPSTreeCellRenderer implements TreeCellRenderer, RebuildAwareTre
       }
     }
     myMainTextLabel.setIcon(icon);
+    if (icon != null) {
+      myLabelBorder.setOffset(icon.getIconWidth() + Math.max(0, myMainTextLabel.getIconTextGap() - 1));
+    } else {
+      myLabelBorder.setOffset(0);
+    }
 
     return myPanel;
   }
@@ -139,6 +130,28 @@ public class NewMPSTreeCellRenderer implements TreeCellRenderer, RebuildAwareTre
   @Override
   public void rebuildStarted() {
     myColors.reset();
+  }
+
+  public final void underlineMainLabel(boolean needLine) {
+    if (needLine && myMainTextLabel.getBorder() != myLabelBorder) {
+      myMainTextLabel.setBorder(myLabelBorder);
+    } else if (!needLine && myMainTextLabel.getBorder() != null) {
+      // XXX border with different insets means invalidation, is it ok?
+      myMainTextLabel.setBorder(null);
+    }
+  }
+
+  protected final boolean checkTreeMessages() {
+    return myMainTextLabel.getBorder() != null;
+  }
+
+  // doesn't affect underlineMainLabel state
+  public final void underlineErrorsOnly(boolean errorOnly) {
+    myErrorOnly = errorOnly;
+  }
+
+  protected final boolean errorsOnly() {
+    return myErrorOnly;
   }
 
   protected void configureAuxComponents(MPSTreeNode treeNode, FontMetrics mainLabelFont) {

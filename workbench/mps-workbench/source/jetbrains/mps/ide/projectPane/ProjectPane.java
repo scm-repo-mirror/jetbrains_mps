@@ -31,6 +31,9 @@ import com.intellij.openapi.util.ActionCallback;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.WriteExternalException;
+import com.intellij.openapi.util.registry.Registry;
+import com.intellij.openapi.util.registry.RegistryValue;
+import com.intellij.openapi.util.registry.RegistryValueListener;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowId;
@@ -82,6 +85,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectViewPaneOverride {
   private static final Logger LOG = LogManager.getLogger(ProjectPane.class);
@@ -135,7 +139,8 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   private MessageBusConnection myConnection;
   private final ToggleAndRebuildAction myShowDescriptorModelsAction;
   private final ToggleAndRebuildAction myShowErrorComponent;
-  private final MessageBusConnection myMessageBus;
+  private final ToggleAndRebuildAction myShowUnderline;
+  private final ToggleAndRebuildAction myShowErrorsOnly;
 
   public ProjectPane(final Project project) {
     super(project);
@@ -151,14 +156,13 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
       }
     };
     ApplicationManager.getApplication().getComponent(ReloadManager.class).addReloadListener(myReloadListener);
-    myShowDescriptorModelsAction = new ToggleAndRebuildAction(this, "@descriptor models in Generators", "showGeneratorDescriptor");
-    myShowErrorComponent = new ToggleAndRebuildAction(this, "Error Stripe", "showErrorComponent");
-    myMessageBus = myProject.getMessageBus().connect(this);
-    myMessageBus.subscribe(TabbedEditor.TAB_CHANGES, nodeRef -> {
-      if (getProjectView().isAutoscrollFromSource(ID)) {
-        selectNodeWithoutExpansion(nodeRef);
-      }
-    });
+    // I'm using RegistryValues, not regular PersistentStateComponent properties to keep settings as I'd like to see statistics if anyone modifies
+    // these settings, and, if yes, how.
+    myShowDescriptorModelsAction = new ToggleAndRebuildAction(this, "@descriptor models in Generators", "mps.ProjectPane.show.descriptor.generator");
+    myShowErrorComponent = new ToggleAndRebuildAction(this, "Show Indicator", "mps.ProjectPane.messages.use.indicator");
+    myShowUnderline = new ToggleAndRebuildAction(this, "Underline Nodes", "mps.ProjectPane.messages.use.underline");
+    myShowErrorsOnly = new ToggleAndRebuildAction(this, "Errors Only", "mps.ProjectPane.messages.error.only");
+
   }
 
   @Override
@@ -181,6 +185,11 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     super.addListeners();
     assert myConnection == null; // double initialization
     myConnection = getProject().getMessageBus().connect();
+    myConnection.subscribe(TabbedEditor.TAB_CHANGES, nodeRef -> {
+      if (getProjectView().isAutoscrollFromSource(ID)) {
+        selectNodeWithoutExpansion(nodeRef);
+      }
+    });
     myConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, myEditorListener);
     getMPSProject().getRepository().addRepositoryListener(myRepositoryListener);
   }
@@ -279,6 +288,9 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     tree.orderChildrenWith(new LogicalViewChildOrder(this, new ProjectTreeChildOrder(treeNodeWithRootGrouping)));
     myTree = tree;
 
+    // FIXME ScrollPaneFactory.createScrollPane(myTree), no apparent reason for MyScrollPane class
+    //       dates back to 4c6e8388, where JPanel with delegation was replaced with ScrollPane with delegation
+    //       although they represent different containment relations.
     myScrollPane = new MyScrollPane(getTree());
     addListeners();
     if (!RuntimeFlags.isTestMode()) {
@@ -320,7 +332,12 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   public void addToolbarActions(DefaultActionGroup group) {
     super.addToolbarActions(group);
     group.addAction(myShowDescriptorModelsAction).setAsSecondary(true);
-    group.addAction(myShowErrorComponent).setAsSecondary(true);
+    DefaultActionGroup g = new DefaultActionGroup("Error && Warnings", true);
+    g.addAction(myShowErrorComponent).setAsSecondary(true);
+    g.addAction(myShowUnderline).setAsSecondary(true);
+    g.addSeparator();
+    g.addAction(myShowErrorsOnly).setAsSecondary(true);
+    group.addAction(g).setAsSecondary(true);
   }
 
   @Override
@@ -364,8 +381,6 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
 
     writePaths(subPane, myExpandedPathsRaw, "PATH");
     writePaths(subPane, mySelectedPathsRaw, "SELECTED");
-    myShowDescriptorModelsAction.writeTo(subPane);
-    myShowErrorComponent.writeTo(subPane);
 
     element.addContent(subPane);
   }
@@ -404,8 +419,6 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     for (Element subPane : subPanes) {
       myExpandedPathsRaw = readPaths(subPane, "PATH");
       mySelectedPathsRaw = readPaths(subPane, "SELECTED");
-      myShowDescriptorModelsAction.readFrom(subPane);
-      myShowErrorComponent.readFrom(subPane);
     }
   }
 
@@ -541,11 +554,19 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   }
 
   /*package*/ boolean isDescriptorModelInSolutionVisible() {
-    return Boolean.getBoolean("mps.module.rt");
+    return Registry.is("mps.ProjectPane.show.descriptor.solution");
   }
 
-  /*package*/ boolean isErrorIndicatorVisible() {
-    return myShowErrorComponent.isSelected();
+  /*package*/ Supplier<Boolean> errorIndicatorVisible() {
+    return myShowErrorComponent;
+  }
+
+  /*package*/ Supplier<Boolean> underlineErrorNodes() {
+    return myShowUnderline;
+  }
+
+  /*package*/ Supplier<Boolean> showErrorsOnly() {
+    return myShowErrorsOnly;
   }
 
   @NotNull
@@ -679,29 +700,23 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     }
   }
 
-  private static class ToggleAndRebuildAction extends ToggleAction {
+  // Action associated with a boolean Registry key; facilitates value modification through UI and tracks value state
+  // is anyone changes it through Registry (i.e. RVL is not only to trigger rebuild from UI change, but to
+  // trigger rebuild for any possible change cause)
+  private static class ToggleAndRebuildAction extends ToggleAction implements Supplier<Boolean>, RegistryValueListener {
     private final ProjectPane myProjectPane;
-    private final String mySettingsKey;
-    private boolean myState = false;
+    private final RegistryValue myState;
 
     ToggleAndRebuildAction(ProjectPane projectPane, @NotNull String title, @NotNull String key) {
       super(title);
-      mySettingsKey = key;
+      myState = Registry.get(key);
       myProjectPane = projectPane;
+      myState.addListener(this, projectPane);
     }
 
     public boolean isSelected() {
-      return myState;
+      return myState.asBoolean();
     }
-
-    /*package*/ boolean isDefaultState() {
-      return !isSelected();
-    }
-
-    /*package*/ void setState(boolean selected) {
-      myState = selected;
-    }
-
 
     @Override
     public boolean isSelected(AnActionEvent e) {
@@ -709,25 +724,21 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
     }
 
     @Override
+    public Boolean get() {
+      return isSelected();
+    }
+
+    @Override
     public void setSelected(AnActionEvent e, boolean state) {
-      myState = state;
+      if (isSelected() != state) {
+        myState.setValue(state);
+        // expect afterValueChanged to come and trigger rebuild
+      }
+    }
+
+    @Override
+    public void afterValueChanged(@NotNull RegistryValue value) {
       myProjectPane.rebuild();
-    }
-
-    /*package*/ void writeTo(Element element) {
-      if (isDefaultState()) {
-        return;
-      }
-      Element option1 = new Element(mySettingsKey);
-      option1.setAttribute("value", Boolean.toString(isSelected()));
-      element.addContent(option1);
-    }
-
-    /*package*/ void readFrom(Element element) {
-      Element option = element.getChild(mySettingsKey);
-      if (option != null) {
-        setState(Boolean.parseBoolean(option.getAttributeValue("value")));
-      }
     }
   }
 }

@@ -15,6 +15,10 @@
  */
 package jetbrains.mps.ide.ui.tree;
 
+import com.intellij.icons.AllIcons;
+import jetbrains.mps.icons.MPSIcons;
+
+import javax.swing.Icon;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -27,14 +31,14 @@ import java.awt.Polygon;
  */
 public class ErrorStateComponent extends Component {
   private ErrorState myState;
-  private final Color[] myStateToColor;
+  private final Icon[] myStateToIcon;
 
   public ErrorStateComponent() {
     myState = ErrorState.NONE;
-    myStateToColor = new Color[ErrorState.values().length];
-    myStateToColor[ErrorState.ERROR.ordinal()] = Color.RED;
-    myStateToColor[ErrorState.WARNING.ordinal()] = Color.YELLOW;
-    myStateToColor[ErrorState.NONE.ordinal()] = Color.BLACK;
+    myStateToIcon = new Icon[ErrorState.values().length];
+    myStateToIcon[ErrorState.ERROR.ordinal()] = MPSIcons.Small.Error;
+    myStateToIcon[ErrorState.WARNING.ordinal()] = AllIcons.General.BalloonWarning12;
+    myStateToIcon[ErrorState.NONE.ordinal()] = AllIcons.Toolwindows.InfoEvents;
   }
 
   public void setState(ErrorState s, FontMetrics fm) {
@@ -55,13 +59,17 @@ public class ErrorStateComponent extends Component {
     if (myState ==  ErrorState.NONE) {
       return;
     }
-    Color c = myStateToColor[myState.ordinal()];
-    g.setColor(c);
-    int d = getWidth() / 4;
-    final Polygon p = new Polygon(new int[]{d, 3 * d, getWidth(), getWidth()}, new int[]{0, 0, d, getHeight() - d}, 4);
-    g.fillPolygon(p);
-    g.setColor(c.darker());
-    g.drawPolygon(p);
+    final Icon icon = myStateToIcon[myState.ordinal()];
+    int y = (getHeight() - icon.getIconHeight())/2;
+    icon.paintIcon(this, g, 0, y);
+//    Color c = myStateToColor[myState.ordinal()];
+//    g.setColor(c);
+//    int d = getWidth() / 4;
+//    final Polygon p = new Polygon(new int[]{d, 3 * d, getWidth(), getWidth()}, new int[]{0, 0, d, getHeight() - d}, 4);
+//    g.fillPolygon(p);
+//    g.setColor(c.darker());
+//    g.drawPolygon(p);
+    //
 //    int d = getHeight() / 2;
 //    int y = (getHeight() - d)/2;
 //    int x = y;
