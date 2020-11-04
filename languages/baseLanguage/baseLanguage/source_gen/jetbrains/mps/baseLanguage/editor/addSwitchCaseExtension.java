@@ -109,7 +109,6 @@ public class addSwitchCaseExtension extends TransformationMenuBase {
       public void execute(@NotNull String pattern) {
         SNode n = SNodeOperations.insertNextSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.SwitchCase$7o, null));
         SLinkOperations.setTarget(n, LINKS.body$5LhG, SLinkOperations.getTarget(_context.getNode(), LINKS.body$5LhG));
-        SLinkOperations.setTarget(_context.getNode(), LINKS.body$5LhG, SNodeFactoryOperations.createNewNode(CONCEPTS.StatementList$m_, null));
         SelectionUtil.selectCell(_context.getEditorContext(), n, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL);
       }
 
@@ -135,7 +134,6 @@ public class addSwitchCaseExtension extends TransformationMenuBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept SwitchCase$7o = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, "jetbrains.mps.baseLanguage.structure.SwitchCase");
-    /*package*/ static final SConcept StatementList$m_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
   }
 
   private static final class LINKS {

@@ -64,7 +64,7 @@ public final class SwitchStatement__BehaviorDescriptor extends BaseBHDescriptor 
 
       List<SNode> variables = new ArrayList<SNode>();
       for (SNode caseNode : SLinkOperations.getChildren(__thisNode__, LINKS.case$8PWE)) {
-        if (caseNode == childStatement) {
+        if (caseNode == childStatement || (SLinkOperations.getTarget(caseNode, LINKS.body$5LhG) == null)) {
           break;
         }
         ListSequence.fromList(variables).addSequence(ListSequence.fromList(StatementList__BehaviorDescriptor.getLocalVariableDeclarations_id3tkxRydYUUs.invoke(SLinkOperations.getTarget(caseNode, LINKS.body$5LhG), null)));

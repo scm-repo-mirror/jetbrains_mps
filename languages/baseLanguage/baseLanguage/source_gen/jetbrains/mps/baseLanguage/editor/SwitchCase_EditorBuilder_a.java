@@ -71,7 +71,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myNode, LINKS.body$5LhG), LINKS.statement$53DE)).isNotEmpty() || (SNodeOperations.getNextSibling(myNode) == null);
   }
   private boolean nodeCondition_shllfo_a4a() {
-    return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myNode, LINKS.body$5LhG), LINKS.statement$53DE)).isNotEmpty() || (SNodeOperations.getNextSibling(myNode) == null);
+    return (SLinkOperations.getTarget(myNode, LINKS.body$5LhG) != null);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "case");

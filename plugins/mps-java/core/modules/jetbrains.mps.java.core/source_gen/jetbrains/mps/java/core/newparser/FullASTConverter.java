@@ -46,6 +46,7 @@ import org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.eclipse.jdt.internal.compiler.ast.SwitchStatement;
 import org.eclipse.jdt.internal.compiler.ast.CaseStatement;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.eclipse.jdt.internal.compiler.ast.Argument;
@@ -288,6 +289,13 @@ public class FullASTConverter extends ASTConverterWithExpressions {
         getBlock(currentSwitchCase).setEndPos(x.sourceEnd);
       }
     }
+    ListSequence.fromList(SLinkOperations.getChildren(result, LINKS.case$8PWE)).visitAll(new IVisitor<SNode>() {
+      public void visit(SNode it) {
+        if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(it, LINKS.body$5LhG), LINKS.statement$53DE)).isEmpty()) {
+          SLinkOperations.setTarget(it, LINKS.body$5LhG, null);
+        }
+      }
+    });
     return result;
   }
   /*package*/ SNode convertCaseStatement(CaseStatement x) throws JavaParseException {
