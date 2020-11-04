@@ -45,6 +45,13 @@ public class LetterActions {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
       }
+      @Override
+      public boolean canExecute(EditorContext editorContext) {
+        return this.canExecute_internal(editorContext, node);
+      }
+      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
+        return false;
+      }
 
     };
   }

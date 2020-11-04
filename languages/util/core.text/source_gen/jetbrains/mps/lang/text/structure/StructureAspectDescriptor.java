@@ -252,11 +252,11 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.text", "UrlTextualElement", 0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x739f6249ff2c0691L);
     b.class_(false, false, false);
     b.super_("jetbrains.mps.lang.text.structure.TextualElement", 0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20d9cfbL);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x50ef06e32fec9043L);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x1ec383e5b4bdca56L);
+    b.parent(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2c99af34e20dd8a1L);
     b.origin("r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)/8331485905611916945");
     b.version(2);
-    b.property("text", 0x739f6249ff2c0dd6L).type(PrimitiveTypeId.STRING).origin("8331485905611918806").done();
+    b.property("address", 0x739f6249ff2c0dd6L).type(PrimitiveTypeId.STRING).origin("8331485905611918806").done();
+    b.aggregate("text", 0x14b33b9b0effaf9dL).target(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL).optional(false).ordered(true).multiple(false).origin("1491601438747373469").done();
     b.alias("url");
     return b.create();
   }

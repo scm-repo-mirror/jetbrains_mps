@@ -261,16 +261,20 @@
     <property role="34LRSv" value="url" />
     <property role="R4oN_" value="element that holds a url" />
     <ref role="1TJDcQ" node="2MpFNjy3pNV" resolve="TextualElement" />
+    <node concept="1TJgyj" id="1iNeTGeZUYt" role="1TKVEi">
+      <property role="IQ2ns" value="1491601438747373469" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="text" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="7Vz6ZmoXeMu" resolve="Paragraph" />
+    </node>
     <node concept="1TJgyi" id="7evo$BZb0Rm" role="1TKVEl">
       <property role="IQ2nx" value="8331485905611918806" />
-      <property role="TrG5h" value="text" />
+      <property role="TrG5h" value="address" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
-    <node concept="PrWs8" id="7evo$BZb0Ai" role="PzmwI">
-      <ref role="PrY4T" to="tpck:53J1IcJV913" resolve="ISkipConstraintsChecking" />
-    </node>
-    <node concept="PrWs8" id="7evo$BZb0Aj" role="PzmwI">
-      <ref role="PrY4T" to="tpck:1V3wYmOJsDm" resolve="IDontApplyTypesystemRules" />
+    <node concept="PrWs8" id="1iNeTGeZV0B" role="PzmwI">
+      <ref role="PrY4T" node="2MpFNjy3tyx" resolve="IHoldParagraphs" />
     </node>
   </node>
   <node concept="1TIwiD" id="2HIX00NsA33">

@@ -11,4 +11,7 @@ public class UrlTextualElement_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
     return new UrlTextualElement_EditorBuilder_a(editorContext, node).createCell();
   }
+  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
+    return new UrlTextualElement_InspectorBuilder_a(editorContext, node).createCell();
+  }
 }
