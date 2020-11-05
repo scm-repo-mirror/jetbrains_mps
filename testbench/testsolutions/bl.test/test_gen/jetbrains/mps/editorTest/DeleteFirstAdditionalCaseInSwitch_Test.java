@@ -34,7 +34,6 @@ public class DeleteFirstAdditionalCaseInSwitch_Test extends BaseTransformationTe
     public void testMethodImpl() throws Exception {
       initEditorComponent("6427750727968670353", "4710857371590990839");
       invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
-      invokeAction("jetbrains.mps.ide.editor.actions.Backspace_Action");
     }
   }
 }
