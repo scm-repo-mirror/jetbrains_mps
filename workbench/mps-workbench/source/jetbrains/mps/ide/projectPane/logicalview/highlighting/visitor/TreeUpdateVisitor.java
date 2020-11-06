@@ -27,19 +27,6 @@ import org.jetbrains.annotations.Nullable;
 public abstract class TreeUpdateVisitor implements TreeNodeVisitor {
   private TreeNodeUpdater myUpdater;
 
-  // just triggers treeNode.updateNodePresentationInTree() by TreeNodeUpdater
-  private final NodeUpdate myBlankNodeUpdate = new NodeUpdate() {
-    @Override
-    public boolean needed(MPSTreeNode node) {
-      return true;
-    }
-
-    @Override
-    public void update(MPSTreeNode node) {
-    }
-  };
-
-
   @SuppressWarnings("WeakerAccess")
   protected TreeUpdateVisitor() {
   }
@@ -55,12 +42,26 @@ public abstract class TreeUpdateVisitor implements TreeNodeVisitor {
     return null;
   }
 
+  /**
+   * request UI refresh of a tree node. Presumably, tree node got all relevant settings (e.g. with tree messages) and
+   * just need to reflect the state in its UI presentation ({@link MPSTreeNode#renewPresentation()}
+   */
+  protected final void requestTreeRefresh(MPSTreeNode node) {
+    final TreeNodeUpdater u = myUpdater;
+    if (u != null) {
+      u.addUpdate(node);
+    }
+  }
 
   @SuppressWarnings("WeakerAccess")
   protected void addUpdate(MPSTreeNode node, @Nullable NodeUpdate r) {
     final TreeNodeUpdater u = myUpdater;
     if (u != null) {
-      u.addUpdate(node, r == null ? myBlankNodeUpdate : r);
+      if (r == null) {
+        u.addUpdate(node);
+      } else {
+        u.addUpdate(node, r);
+      }
     }
   }
   public TreeUpdateVisitor setUpdater(TreeNodeUpdater updater) {

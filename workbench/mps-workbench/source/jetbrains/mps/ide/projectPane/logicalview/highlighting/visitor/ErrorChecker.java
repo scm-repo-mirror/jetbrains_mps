@@ -148,6 +148,6 @@ public class ErrorChecker extends TreeUpdateVisitor implements TreeMessageOwner 
   @Override
   protected void addUpdate(MPSTreeNode node, NodeUpdate r) {
     r.update(node);
-    super.addUpdate(node, null);
+    requestTreeRefresh(node);
   }
 }

@@ -48,14 +48,19 @@ import java.util.stream.Stream;
 public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOwner {
   private final ModelGenerationStatusManager myGenerationStatusManager;
   private final MakeServiceComponent myMakeComponent;
-  private final GenStatusTreeMessage myUpdatingMessage;
+  private final GenStatusTreeMessage[] myMessages;
   private final Project myProject;
 
   public GenStatusUpdater(Project mpsProject) {
     myGenerationStatusManager = mpsProject.getComponent(ModelGenerationStatusManager.class);
     myProject = mpsProject;
     myMakeComponent = mpsProject.getComponent(MakeServiceComponent.class);
-    myUpdatingMessage = new GenStatusTreeMessage(this, GenerationStatus.UPDATING);
+    myMessages = new GenStatusTreeMessage[GenerationStatus.values().length];
+    myMessages[GenerationStatus.DO_NOT_GENERATE.ordinal()] = new GenStatusTreeMessage(this, GenerationStatus.DO_NOT_GENERATE);
+    myMessages[GenerationStatus.REQUIRED.ordinal()] = new GenStatusTreeMessage(this, GenerationStatus.REQUIRED);
+    myMessages[GenerationStatus.UPDATING.ordinal()] = new GenStatusTreeMessage(this, GenerationStatus.UPDATING);
+    myMessages[GenerationStatus.READONLY.ordinal()] = new GenStatusTreeMessage(this, GenerationStatus.READONLY);
+    myMessages[GenerationStatus.NOT_REQUIRED.ordinal()] = null;
   }
 
   @Nullable
@@ -95,7 +100,7 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
           // is safe to reuse one here, the only question would be removal of the message with the right owner
           // so that we don't get them added forever)
           node.addTreeMessage(childMessage);
-          addUpdate(node, null);
+          requestTreeRefresh(node);
         }
       }
 
@@ -126,7 +131,7 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
   @Override
   public void visitNamespaceNode(@NotNull NamespaceTextNode node) {
     if (node.removeTreeMessages(GenStatusUpdater.this).isEmpty()) {
-      addUpdate(node, null);
+      requestTreeRefresh(node);
       // we don't visit just NS nodes, child module node would calculate update
       // and post-process for this NS node (as module's parent) would get it in place
     }
@@ -140,16 +145,16 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
       return;
     }
     if (node.getModule().isReadOnly()) {
-      new StatusUpdate(node).update(GenStatusTreeMessage.GenerationStatus.READONLY);
+      update(node, GenStatusTreeMessage.GenerationStatus.READONLY);
       return;
     }
     final com.intellij.openapi.project.Project project = ProjectHelper.toIdeaProject(myProject);
     if (project != null && DumbService.getInstance(project).isDumb()) {
       // see visitModelNode for explanation
-      propagateStatusToNamespaceNodes(node, myUpdatingMessage);
+      propagateStatusToNamespaceNodes(node, myMessages[GenerationStatus.UPDATING.ordinal()]);
       return;
     }
-    new StatusUpdate(node).update();
+    update(node, getGenerationStatus(node.getModule()));
 
   }
 
@@ -182,11 +187,11 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
       // however, as long as we use index for hashes, seems reasonable to wait for end of dumb mode
       // and to update status again then (PPTH.dumbUpdate does that).
       // Here, I don't care to set status of individual models and modules - status for a group seems to be enough
-      propagateStatusToNamespaceNodes(moduleNode, myUpdatingMessage);
+      propagateStatusToNamespaceNodes(moduleNode, myMessages[GenerationStatus.UPDATING.ordinal()]);
       return;
     }
 
-    new StatusUpdate(modelNode).update();
+    update(modelNode, getGenerationStatus(md));
   }
 
   private void propagateStatusToNamespaceNodes(ProjectModuleTreeNode node, GenStatusTreeMessage statusMessage) {
@@ -195,7 +200,7 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
         final NamespaceTextNode nn = (NamespaceTextNode) n;
         if (nn.findMessages(GenStatusTreeMessage.class).isEmpty()) {
           nn.addTreeMessage(statusMessage);
-          addUpdate(nn, null);
+          requestTreeRefresh(nn);
         }
       }
     }
@@ -205,54 +210,16 @@ public class GenStatusUpdater extends TreeUpdateVisitor implements TreeMessageOw
     return myGenerationStatusManager;
   }
 
-  private class StatusUpdate {
-    private final SModelTreeNode myModelNode;
-    private final ProjectModuleTreeNode myModuleNode;
-
-    StatusUpdate(ProjectModuleTreeNode moduleNode) {
-      myModuleNode = moduleNode;
-      myModelNode = null;
+  private  void update(MPSTreeNode treeNode, GenerationStatus status) {
+    if (treeNode == null) {
+      return;
     }
-    StatusUpdate(SModelTreeNode modelNode) {
-      myModuleNode = null;
-      myModelNode = modelNode;
+    treeNode.removeTreeMessages(GenStatusUpdater.this);
+    final GenStatusTreeMessage message = myMessages[status.ordinal()];
+    if (message != null) {
+      treeNode.addTreeMessage(message);
     }
-    public GenerationStatus update() {
-      if (myModuleNode == null && myModelNode == null) {
-        return null;
-      }
-      GenerationStatus status = compute();
-      update(status);
-      return status;
-    }
-    public void update(GenerationStatus status) {
-      if (myModelNode != null) {
-        myModelNode.removeTreeMessages(GenStatusUpdater.this);
-        if (status != GenerationStatus.NOT_REQUIRED) {
-          // FIXME can reuse GenStatusMessage instances (create fixed set, one for each GenerationStatus)
-          myModelNode.addTreeMessage(new GenStatusTreeMessage(GenStatusUpdater.this, status));
-        }
-        addUpdate(myModelNode, null);
-      }
-      if (myModuleNode != null) {
-        myModuleNode.removeTreeMessages(GenStatusUpdater.this);
-        if (status != GenerationStatus.NOT_REQUIRED) {
-          myModuleNode.addTreeMessage(new GenStatusTreeMessage(GenStatusUpdater.this, status));
-        }
-        addUpdate(myModuleNode, null);
-      }
-    }
-
-    // FIXME could be lambda
-    private GenerationStatus compute() {
-      if (myModelNode != null) {
-        return getGenerationStatus(myModelNode.getModel());
-      }
-      if (myModuleNode != null) {
-        return getGenerationStatus(myModuleNode.getModule());
-      }
-      throw new IllegalStateException();
-    }
+    requestTreeRefresh(treeNode);
   }
 
   private boolean generationRequired(SModule module) {

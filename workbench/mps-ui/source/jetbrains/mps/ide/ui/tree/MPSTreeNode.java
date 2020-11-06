@@ -348,23 +348,6 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
   }
 
   /**
-   * @deprecated odd and unclear contract (e.g. {@link #update()} and {@link #updateSubTree()} imply structure refresh, while this one does not),
-   * parameters that merely control invocation of other public methods.
-   * Use respective methods directly, instead.
-   */
-  @Deprecated
-  public void updatePresentation(final boolean reloadSubTree, final boolean updateAncestors) {
-    renewPresentation();
-    if (reloadSubTree) {
-      updateSubTree();
-    }
-
-    if (updateAncestors) {
-      updateAncestorsPresentationInTree();
-    }
-  }
-
-  /**
    * Attach an extra message to a node. Messages are identified by their {@link jetbrains.mps.ide.ui.tree.TreeMessageOwner owner}.
    * This method may be invoked from any thread, and doesn't trigger UI update, use {@link #renewPresentation()} from correct (EDT/UI) thread
    * if needed (e.g. if messages are attached the moment tree is being constructed, there's no reason to renew each node individually,

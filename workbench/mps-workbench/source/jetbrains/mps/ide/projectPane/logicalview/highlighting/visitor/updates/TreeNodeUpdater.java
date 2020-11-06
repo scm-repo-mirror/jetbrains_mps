@@ -21,9 +21,12 @@ import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.CancellableReadAction;
 import jetbrains.mps.util.Pair;
+import jetbrains.mps.util.containers.ConcurrentHashSet;
 
 import java.util.ArrayDeque;
+import java.util.Iterator;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
@@ -34,7 +37,8 @@ public final class TreeNodeUpdater {
   private final Project myProject;
   private final Semaphore myGuard = new Semaphore(1);
   private final AtomicBoolean myOperationScheduled = new AtomicBoolean();
-  private Queue<Pair<MPSTreeNode, NodeUpdate>> myUpdates = new ConcurrentLinkedQueue<>();
+  private final Queue<Pair<MPSTreeNode, NodeUpdate>> myUpdates = new ConcurrentLinkedQueue<>();
+  private final Set<MPSTreeNode> myElements2Refresh = new ConcurrentHashSet<>(200);
 
   public TreeNodeUpdater(Project mpsProject) {
     myProject = mpsProject;
@@ -62,9 +66,9 @@ public final class TreeNodeUpdater {
           batchLeft--;
         }
         final int count = updates.size();
-        if (count > 0) {
+        if (count > 0 || !myElements2Refresh.isEmpty()) {
           CountDownLatch batchOver = new CountDownLatch(1);
-          myProject.getModelAccess().runReadInEDT(new RefreshBatch(updates, batchOver));
+          myProject.getModelAccess().runReadInEDT(new RefreshBatch(updates, myElements2Refresh, batchOver));
           // FIXME runReadInEDT returns immediately, perhaps, can refactor this code for the Runnable  to
           // poll myUpdates directly as long as there's no cancel request rather than fire multiple short reads?
           //
@@ -75,7 +79,7 @@ public final class TreeNodeUpdater {
           // queue size to decide whether to re-schedule or to try again
           batchOver.await(1000, TimeUnit.MILLISECONDS);
           // RefreshBatch could get cancelled, keep what's left in updates for another try
-          if (updates.size() != 0) {
+          if (updates.size() != 0 || !myElements2Refresh.isEmpty()) {
             // if not precessed completely, or was cancelled right away, without even trying to process,
             // (likely, there's pending write that cancels reads) - take some rest, don't push reads &
             // just re-schedule another process()
@@ -83,11 +87,17 @@ public final class TreeNodeUpdater {
             return;
           }
         }
-      } while (!updates.isEmpty() || !myUpdates.isEmpty());
+      } while (!updates.isEmpty() || !myUpdates.isEmpty() || !myElements2Refresh.isEmpty());
     } catch (InterruptedException ex) {
       scheduleProcess();
     } finally {
       myGuard.release();
+    }
+  }
+
+  public void addUpdate(MPSTreeNode node) {
+    if (myElements2Refresh.add(node)) {
+      scheduleProcess();
     }
   }
 
@@ -118,16 +128,20 @@ public final class TreeNodeUpdater {
   // runs in EDT with model read; modifies deque supplied as an argument
   private static class RefreshBatch extends CancellableReadAction {
     private final ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> myQueue;
+    private final Set<MPSTreeNode> myElements2Refresh;
     private final CountDownLatch myBatchOver;
 
-    RefreshBatch(ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> updates, CountDownLatch batchOver) {
+    RefreshBatch(ArrayDeque<Pair<MPSTreeNode, NodeUpdate>> updates, Set<MPSTreeNode> elements2Refresh,
+                 CountDownLatch batchOver) {
       myQueue = updates;
+      myElements2Refresh = elements2Refresh;
       myBatchOver = batchOver;
     }
 
     @Override
     protected void execute() {
       Pair<MPSTreeNode, NodeUpdate> u;
+      boolean cancel = false;
       while ((u = myQueue.pollFirst()) != null) {
         final MPSTreeNode treeNode = u.o1;
         if (treeNode.getTree() == null) {
@@ -135,11 +149,27 @@ public final class TreeNodeUpdater {
           continue;
         }
         if (isCancelRequested()) {
+          cancel = true;
           confirmCancel();
           break;
         }
         u.o2.update(treeNode);
         treeNode.updateNodePresentationInTree();
+      }
+      if (!cancel) {
+        for (Iterator<MPSTreeNode> itn = myElements2Refresh.iterator(); itn.hasNext(); ) {
+          MPSTreeNode tn = itn.next();
+          itn.remove();
+          if (tn.getTree() == null) {
+            continue;
+          }
+          if (isCancelRequested()) {
+//            cancel = true;
+            confirmCancel();
+            break;
+          }
+          tn.renewPresentation();
+        }
       }
       myBatchOver.countDown();
     }
