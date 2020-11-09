@@ -30,13 +30,43 @@ import org.jetbrains.mps.annotations.Immutable;
  */
 @Immutable
 public final class SModelName {
+  private static final char AT_SIGN = '@';
+  private static final char DOT = '.';
+
+  /**
+   * Holds full name of the model including namespace, simple name and stereotype in correct validated format.
+   * <br>
+   * Used alongside with other fields to provide name parts.
+   */
+  @NotNull
   private final String myValue;
+  /**
+   * Index of the '@' in model name before '@' stereotype.
+   * This is a point where model name is separated between a long name and a stereotype.
+   * <br>
+   * Can be -1 if there is no '@'(stereotype) in model name.
+   */
+  private final int myAtIndex;
+  /**
+   * Index of the last '.' in model long name before '@' stereotype.
+   * This is a point where model long name is separated between a namespace and a simple name.
+   * <br>
+   * Can be -1 if there is no '.'(namespace) in model long name.
+   */
+  private final int mySimpleNameBeforeIndex;
 
   /**
    * @throws IllegalArgumentException if name contains illegal characters
    */
   public SModelName(@NotNull String qualifiedCompleteName) {
-    myValue = checkIllegalChars(qualifiedCompleteName);
+    final String trimmed = qualifiedCompleteName.trim();
+    String validate = checkModelName(trimmed);
+    if (validate != null) {
+      throw new IllegalArgumentException(validate);
+    }
+    myValue = trimmed;
+    myAtIndex = myValue.lastIndexOf(AT_SIGN);
+    mySimpleNameBeforeIndex = myValue.lastIndexOf(DOT, myAtIndex == -1 ? myValue.length() : myAtIndex);
   }
 
   /**
@@ -44,32 +74,31 @@ public final class SModelName {
    */
   public SModelName(@Nullable CharSequence namespace, @NotNull CharSequence simpleName, @Nullable CharSequence stereotype) {
     StringBuilder sb = new StringBuilder();
-    if (namespace != null && namespace.length() > 0) {
-      sb.append(namespace);
-      sb.append('.');
-      assert namespace.toString().indexOf('@') == -1;
+    String validate = checkModelName(namespace, simpleName, stereotype, sb);
+    if (validate != null) {
+      throw new IllegalArgumentException(validate);
     }
-    sb.append(simpleName);
-    assert simpleName.toString().indexOf('.') == -1;
-    assert simpleName.toString().indexOf('@') == -1;
-    if (stereotype != null && stereotype.length() > 0) {
-      assert simpleName.length() > 0;
-      sb.append('@');
-      sb.append(stereotype);
-    }
-    myValue = checkIllegalChars(sb.toString());
+    myValue = sb.toString();
+    myAtIndex = myValue.lastIndexOf(AT_SIGN);
+    mySimpleNameBeforeIndex = myValue.lastIndexOf(DOT, myAtIndex == -1 ? myValue.length() : myAtIndex);
   }
 
   /**
    * @throws IllegalArgumentException if any component of a model name contains illegal characters
    */
   public SModelName(@NotNull CharSequence qualifiedName, @Nullable CharSequence stereotype) {
-    if (stereotype != null && stereotype.length() > 0) {
-      assert stereotype.toString().indexOf('@') == -1;
-      myValue = checkIllegalChars(String.valueOf(qualifiedName) + '@' + stereotype);
-    } else {
-      myValue = checkIllegalChars(qualifiedName.toString());
+    StringBuilder sb = new StringBuilder();
+    int simpleNameBeforeIndex = qualifiedName.toString().lastIndexOf(DOT);
+    String validate = checkModelName(
+        simpleNameBeforeIndex == -1 ? "" : qualifiedName.toString().substring(0, simpleNameBeforeIndex),
+        qualifiedName.toString().substring(simpleNameBeforeIndex + 1),
+        stereotype, sb);
+    if (validate != null) {
+      throw new IllegalArgumentException(validate);
     }
+    myValue = sb.toString();
+    myAtIndex = myValue.lastIndexOf(AT_SIGN);
+    mySimpleNameBeforeIndex = myValue.lastIndexOf(DOT, myAtIndex == -1 ? myValue.length() : myAtIndex);
   }
 
   /**
@@ -94,8 +123,8 @@ public final class SModelName {
    */
   @NotNull
   public String getLongName() {
-    int atIndex = myValue.lastIndexOf('@');
-    return atIndex != -1 ? myValue.substring(0, atIndex) : myValue;
+    // will return myValue for endIndex == myValue.length()
+    return myValue.substring(0, hasStereotype() ? myAtIndex : myValue.length());
   }
 
   // XXX perhaps, worth to add getCompactLongName/getCompactValue() that acts like NameUtil.compactNamespace
@@ -105,9 +134,8 @@ public final class SModelName {
    */
   @NotNull
   public String getSimpleName() {
-    String qualifiedName = getLongName();
-    int nsSeparator = qualifiedName.lastIndexOf('.');
-    return nsSeparator == -1 ? qualifiedName : qualifiedName.substring(nsSeparator + 1);
+    // will return myValue for beginIndex == 0 && endIndex == myValue.length()
+    return myValue.substring(mySimpleNameBeforeIndex + 1, hasStereotype() ? myAtIndex : myValue.length());
   }
 
   /**
@@ -116,24 +144,20 @@ public final class SModelName {
    */
   @NotNull
   public String getShortNameWithStereotype() {
-    final int stereotypeIndex = myValue.lastIndexOf('@');
-    // assume there could be a dot in a stereotype
-    int nsSeparator = myValue.lastIndexOf('.', stereotypeIndex > 0 ? stereotypeIndex : myValue.length() - 1);
-    return nsSeparator == -1 ? myValue : myValue.substring(nsSeparator + 1);
+    // will return myValue for beginIndex == 0
+    return myValue.substring(mySimpleNameBeforeIndex + 1);
   }
 
   @NotNull
   public String getNamespace() {
-    String qualifiedName = getLongName();
-    int nsSeparator = qualifiedName.lastIndexOf('.');
-    return nsSeparator == -1 ? "" : qualifiedName.substring(0, nsSeparator);
+    return mySimpleNameBeforeIndex == -1 ? "" : myValue.substring(0, mySimpleNameBeforeIndex);
   }
 
   /**
    * @return <code>true</code> iff {@link #getStereotype()} would return non-empty value
    */
   public boolean hasStereotype() {
-    return myValue.lastIndexOf('@') > 0;
+    return myAtIndex != -1;
   }
 
   /**
@@ -142,16 +166,27 @@ public final class SModelName {
    * @since 2018.3
    */
   public boolean hasStereotype(@Nullable CharSequence stereotype) {
+    // Both are null
     if (stereotype == null || stereotype.length() == 0) {
       return !hasStereotype();
     }
+
+    // Input stereotype is not empty so our should not be
+    if (!hasStereotype()) {
+      return false;
+    }
+
+    // If stereotypes have different length there is no need to calculate stereotype to check
+    if (stereotype.length() != myValue.length() - myAtIndex - 1) {
+      return false;
+    }
+
     return getStereotype().contentEquals(stereotype);
   }
 
   @NotNull
   public String getStereotype() {
-    int atIndex = myValue.lastIndexOf('@');
-    return atIndex != -1 ? myValue.substring(atIndex+1) : "";
+    return hasStereotype() ? myValue.substring(myAtIndex + 1) : "";
   }
 
   /**
@@ -163,8 +198,8 @@ public final class SModelName {
    */
   @NotNull
   public SModelName withStereotype(@Nullable CharSequence newStereotype) {
-    if (newStereotype == null) {
-      return withoutStereotype();
+    if (hasStereotype(newStereotype)) {
+      return this;
     }
     return new SModelName(getLongName(), newStereotype);
   }
@@ -176,8 +211,7 @@ public final class SModelName {
    */
   @NotNull
   public SModelName withoutStereotype() {
-    int atIndex = myValue.lastIndexOf('@');
-    return atIndex == -1 ? this : new SModelName(myValue.substring(0, atIndex)); // superfluous check for illegal chars, but no private cons.
+    return hasStereotype() ? new SModelName(myValue.substring(0, myAtIndex)) : this;  // superfluous check for illegal chars, but no private cons.
   }
 
   @Override
@@ -187,7 +221,23 @@ public final class SModelName {
 
   @Override
   public boolean equals(Object obj) {
-    return obj.getClass() == SModelName.class && myValue.equals(((SModelName) obj).myValue);
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+
+    // Despite the fact that myValue is enough to check equality,
+    // there is no reason not to utilise precalculated indices
+    SModelName that = (SModelName) obj;
+    if (myAtIndex != that.myAtIndex) {
+      return false;
+    }
+    if (mySimpleNameBeforeIndex != that.mySimpleNameBeforeIndex) {
+      return false;
+    }
+    return myValue.equals(that.myValue);
   }
 
   @Override
@@ -195,19 +245,62 @@ public final class SModelName {
     return myValue.hashCode();
   }
 
-  private static String checkIllegalChars(String qualifiedCompleteName) throws IllegalArgumentException {
-    qualifiedCompleteName = qualifiedCompleteName.trim();
+  private static String checkModelName(final String qualifiedCompleteName) {
     if (qualifiedCompleteName.isEmpty()) {
-      return qualifiedCompleteName;
+      return null;
     }
-    int atIndex = qualifiedCompleteName.lastIndexOf('@');
+    if (qualifiedCompleteName.indexOf(' ') != -1) {
+      return "Name of the model should not contain space characters";
+    }
+    int atIndex = qualifiedCompleteName.lastIndexOf(AT_SIGN);
     if (atIndex == 0 || atIndex == qualifiedCompleteName.length() - 1) {
-      throw new IllegalArgumentException(String.format("Stereotype separator '@' shall not appear at the position %d in '%s'", atIndex, qualifiedCompleteName));
+      return String.format("Stereotype separator '@' shall not appear at the position %d in '%s'", atIndex, qualifiedCompleteName);
     }
     int nameLastChar = atIndex > 0 ? atIndex - 1 : qualifiedCompleteName.length() - 1;
-    if (qualifiedCompleteName.charAt(nameLastChar) == '.') {
-      throw new IllegalArgumentException("Name of the model shall not end with '.'");
+    if (qualifiedCompleteName.charAt(nameLastChar) == DOT) {
+      return "Name of the model shall not end with '.'";
     }
-    return qualifiedCompleteName;
+    return null;
+  }
+
+  private static String checkModelName(@Nullable CharSequence namespace, @NotNull CharSequence simpleName, @Nullable CharSequence stereotype,
+                                       @NotNull final StringBuilder sb) {
+    if (namespace != null && namespace.length() > 0) {
+      sb.append(namespace);
+      sb.append(DOT);
+      if (namespace.toString().indexOf(AT_SIGN) != -1) {
+        return "Namespace of the model should not contain '@' character";
+      }
+    }
+    sb.append(simpleName);
+    if (simpleName.toString().indexOf(DOT) != -1) {
+      return "Simple name of the model should not contain '.' character";
+    }
+    if (simpleName.toString().indexOf(AT_SIGN) != -1) {
+      return "Simple name of the model should not contain '@' character";
+    }
+    if (stereotype != null && stereotype.length() > 0) {
+      if (simpleName.length() <= 0) {
+        return "Simple name of the model should not be empty";
+      }
+      if (stereotype.toString().indexOf(AT_SIGN) != -1) {
+        return "Stereotype of the model should not contain '@' character";
+      }
+      sb.append(AT_SIGN);
+      sb.append(stereotype);
+    }
+    return checkModelName(sb.toString());
+  }
+
+  public static String checkModelName(@Nullable CharSequence namespace, @NotNull CharSequence simpleName, @Nullable CharSequence stereotype) {
+    return checkModelName(namespace, simpleName, stereotype, new StringBuilder());
+  }
+
+  public static String checkModelName(@NotNull CharSequence fullName, @Nullable CharSequence stereotype) {
+    int simpleNameBeforeIndex = fullName.toString().lastIndexOf(DOT);
+    return checkModelName(
+        simpleNameBeforeIndex == -1 ? "" : fullName.toString().substring(0, simpleNameBeforeIndex),
+        fullName.toString().substring(simpleNameBeforeIndex + 1),
+        stereotype, new StringBuilder());
   }
 }
