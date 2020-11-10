@@ -21,8 +21,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModelName;
-import jetbrains.mps.ide.IdeBundle;
-import javax.lang.model.SourceVersion;
 import com.intellij.openapi.ui.Messages;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.project.StandaloneMPSProject;
@@ -110,23 +108,11 @@ public class RenameVirtualFolder_Action extends BaseAction {
         for (SModel model : ListSequence.fromList(node.getModelsUnder())) {
           if (model instanceof EditableSModel) {
             SModelName originalModelName = model.getName();
-            try {
-              String namespace = RenameVirtualFolder_Action.this.replacePrefix(originalModelName.getNamespace(), originalVFolder, input.trim(), _params);
+            String namespace = RenameVirtualFolder_Action.this.replacePrefix(originalModelName.getNamespace(), originalVFolder, input, _params);
 
-              // This is required due to assert in SModelName#SModelName(CharSequence, CharSequence, CharSequence) constructor.  
-              // TODO: replace assertions in SModelName with IllegalArgumentException 
-              if (namespace != null && namespace.indexOf('@') != -1) {
-                myError = IdeBundle.message("dialogs.model.new.error.invalid.namespace");
-                break;
-              }
-
-              SModelName modifiedModelName = new SModelName(namespace, originalModelName.getSimpleName(), originalModelName.getStereotype());
-              if (!(SourceVersion.isName(modifiedModelName.getLongName()))) {
-                myError = IdeBundle.message("dialogs.model.new.error.invalid.package");
-                break;
-              }
-            } catch (IllegalArgumentException exception) {
-              myError = exception.getMessage();
+            SModelName.SModelNameCheck check = SModelName.checkModelName(namespace, originalModelName.getSimpleName(), originalModelName.getStereotype());
+            if (check != SModelName.SModelNameCheck.Pass) {
+              myError = check.getProblemDescription();
               break;
             }
           }
@@ -144,11 +130,10 @@ public class RenameVirtualFolder_Action extends BaseAction {
     final ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess();
     modelAccess.executeCommandInEDT(new Runnable() {
       public void run() {
-        String modifiedVirtualFolder = modifiedVFolder.trim();
         if (node.hasModulesUnder()) {
           final StandaloneMPSProject mpsProject = (StandaloneMPSProject) ((MPSProject) MapSequence.fromMap(_params).get("project"));
           for (SModule module : ListSequence.fromList(node.getModulesUnder())) {
-            mpsProject.setFolderFor(module, RenameVirtualFolder_Action.this.replacePrefix(mpsProject.getFolderFor(module), originalVFolder, modifiedVirtualFolder, _params));
+            mpsProject.setFolderFor(module, RenameVirtualFolder_Action.this.replacePrefix(mpsProject.getFolderFor(module), originalVFolder, modifiedVFolder, _params));
           }
           RenameVirtualFolder_Action.this.getProjectPane(_params).rebuild();
         } else if (node.hasModelsUnder()) {
@@ -156,7 +141,7 @@ public class RenameVirtualFolder_Action extends BaseAction {
           for (SModel model : ListSequence.fromList(node.getModelsUnder())) {
             if (model instanceof EditableSModel) {
               SModelName originalModelName = model.getName();
-              SModelName modifiedModelName = new SModelName(RenameVirtualFolder_Action.this.replacePrefix(originalModelName.getNamespace(), originalVFolder, modifiedVirtualFolder, _params), originalModelName.getSimpleName(), originalModelName.getStereotype());
+              SModelName modifiedModelName = new SModelName(RenameVirtualFolder_Action.this.replacePrefix(originalModelName.getNamespace(), originalVFolder, modifiedVFolder, _params), originalModelName.getSimpleName(), originalModelName.getStereotype());
               ((EditableSModel) model).rename(modifiedModelName.getValue(), model.getSource() instanceof FileDataSource);
             }
           }
