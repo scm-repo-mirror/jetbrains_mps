@@ -3839,7 +3839,7 @@
     <ref role="1TJDcQ" node="fJuHJVf" resolve="BinaryOperation" />
   </node>
   <node concept="1TIwiD" id="fJeOVwE">
-    <property role="R4oN_" value="less then operation" />
+    <property role="R4oN_" value="less than operation" />
     <property role="TrG5h" value="LessThanExpression" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <property role="3GE5qa" value="expressions" />
@@ -3848,7 +3848,7 @@
     <ref role="1TJDcQ" node="i2kUDXX" resolve="BinaryCompareOperation" />
   </node>
   <node concept="1TIwiD" id="gMdkU$l">
-    <property role="R4oN_" value="less then or equals operation" />
+    <property role="R4oN_" value="less than or equals operation" />
     <property role="TrG5h" value="LessThanOrEqualsExpression" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <property role="3GE5qa" value="expressions" />

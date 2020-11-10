@@ -1519,7 +1519,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.LessThanExpression:
         if (props_LessThanExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.shortDesc("less then operation");
+          cpb.shortDesc("less than operation");
           cpb.rawPresentation("<");
           props_LessThanExpression = cpb.create();
         }
@@ -1527,7 +1527,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.LessThanOrEqualsExpression:
         if (props_LessThanOrEqualsExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.shortDesc("less then or equals operation");
+          cpb.shortDesc("less than or equals operation");
           cpb.rawPresentation("<=");
           props_LessThanOrEqualsExpression = cpb.create();
         }
