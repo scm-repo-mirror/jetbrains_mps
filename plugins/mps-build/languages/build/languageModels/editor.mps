@@ -414,7 +414,7 @@
         <property id="1179360856892" name="value" index="2noCCI" />
       </concept>
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
-        <child id="8118189177080264854" name="classes" index="nSUat" />
+        <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
       <concept id="1076505808687" name="jetbrains.mps.baseLanguage.structure.WhileStatement" flags="nn" index="2$JKZl">
         <child id="1076505808688" name="condition" index="2$JKZa" />

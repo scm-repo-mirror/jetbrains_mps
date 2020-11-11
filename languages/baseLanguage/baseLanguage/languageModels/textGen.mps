@@ -4562,7 +4562,7 @@
           <node concept="3clFbS" id="1X7GQqyQ92t" role="3clFbx">
             <node concept="lc7rE" id="3z9AKIuZ1vm" role="3cqZAp">
               <node concept="1bDJIP" id="3z9AKIuZ1vp" role="lcghm">
-                <ref role="1rvKf6" node="hXZP8nY" />
+                <ref role="1rvKf6" node="hXZP8nY" resolve="visibilityWithIndent" />
                 <node concept="2OqwBi" id="3z9AKIuZ1vq" role="1ryhcI">
                   <node concept="117lpO" id="3z9AKIuZ1vr" role="2Oq$k0" />
                   <node concept="3TrEf2" id="3z9AKIuZ1vs" role="2OqNvi">
