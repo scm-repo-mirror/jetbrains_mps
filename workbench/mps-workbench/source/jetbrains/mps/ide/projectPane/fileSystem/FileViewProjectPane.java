@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,8 @@ import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.DataProvider;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.fileEditor.FileEditorManager;
-import com.intellij.openapi.fileEditor.FileEditorManagerAdapter;
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.openapi.fileEditor.ex.IdeDocumentHistory;
@@ -36,23 +34,19 @@ import com.intellij.openapi.util.ActionCallback;
 import com.intellij.openapi.vcs.FileStatusListener;
 import com.intellij.openapi.vcs.FileStatusManager;
 import com.intellij.openapi.vcs.ProjectLevelVcsManager;
-import com.intellij.openapi.vcs.VcsListener;
 import com.intellij.openapi.vcs.changes.ChangeListAdapter;
 import com.intellij.openapi.vcs.changes.ChangeListListener;
 import com.intellij.openapi.vcs.changes.ChangeListManager;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileAdapter;
-import com.intellij.openapi.vfs.VirtualFileCopyEvent;
-import com.intellij.openapi.vfs.VirtualFileEvent;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.VirtualFileManagerListener;
-import com.intellij.openapi.vfs.VirtualFileMoveEvent;
+import com.intellij.openapi.vfs.newvfs.BulkFileListener;
+import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.ScrollPaneFactory;
-import com.intellij.util.messages.MessageBus;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.ide.ThreadUtils;
@@ -104,31 +98,14 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
   public static final String ID = "FileSystem";
   public static final String TITLE = "File System";
 
-  private final MessageBus myBus;
-  private final IdeDocumentHistory myIdeDocumentHistory;
-  private final ProjectView myProjectView;
-  private final FileEditorManager myEditorManager;
-
   private ChangeListListener myChangeListListener;
   private MessageBusConnection myMessageBusConnection;
   private FileStatusListener myFileStatusListener;
-  private VirtualFileAdapter myFileListener;
   private VirtualFileManagerListener myVirtualFileManagerListener;
   private JScrollPane myScrollPane;
 
-  @Override
-  public void addToolbarActions(DefaultActionGroup actionGroup) {
-    super.addToolbarActions(actionGroup);
-  }
-
-  protected FileViewProjectPane(final Project project, final ProjectView projectView, final MessageBus bus, @NotNull IdeDocumentHistory ideDocumentHistory,
-      @NotNull FileEditorManager fileEditorManager) {
+  public FileViewProjectPane(final Project project) {
     super(project);
-
-    myProjectView = projectView;
-    myBus = bus;
-    myIdeDocumentHistory = ideDocumentHistory;
-    myEditorManager = fileEditorManager;
   }
 
   @Override
@@ -152,11 +129,13 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     getTree().rebuildLater();
   }
 
+  @NotNull
   @Override
   public Icon getIcon() {
     return Actions.ShowAsTree;
   }
 
+  @NotNull
   @Override
   public JComponent createComponent() {
     if (isInitialized()) {
@@ -214,23 +193,23 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
   }
 
   private void installListeners() {
-    FileStatusManager.getInstance(myProject).addFileStatusListener(myFileStatusListener = new FileStatusChangeListener());
-    VirtualFileManager.getInstance().addVirtualFileListener(myFileListener = new FileChangesListener());
+    FileStatusManager.getInstance(myProject).addFileStatusListener(myFileStatusListener = new FileStatusChangeListener(), this);
     VirtualFileManager.getInstance().addVirtualFileManagerListener(myVirtualFileManagerListener = new RefreshListener());
     ChangeListManager.getInstance(myProject).addChangeListListener(myChangeListListener = new ChangeListUpdateListener());
-    myMessageBusConnection = myBus.connect(this);
-    myMessageBusConnection.subscribe(ProjectLevelVcsManager.VCS_CONFIGURATION_CHANGED, () -> rebuildTreeLater());
-    myMessageBusConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerAdapter() {
+    myMessageBusConnection = myProject.getMessageBus().connect(this);
+    myMessageBusConnection.subscribe(VirtualFileManager.VFS_CHANGES, new FileChangesListener());
+    myMessageBusConnection.subscribe(ProjectLevelVcsManager.VCS_CONFIGURATION_CHANGED, this::rebuildTreeLater);
+    myMessageBusConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       @Override
       public void fileOpened(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
-        if (myProjectView.isAutoscrollFromSource(getId())) {
+        if (isAutoscrollFromSource()) {
           selectNode(file, false);
         }
       }
 
       @Override
       public void selectionChanged(@NotNull FileEditorManagerEvent event) {
-        if (myProjectView.isAutoscrollFromSource(getId())) {
+        if (isAutoscrollFromSource()) {
           VirtualFile newFile = event.getNewFile();
           if (newFile != null) {
             selectNode(newFile, false);
@@ -242,7 +221,6 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
 
   private void disposeListeners() {
     FileStatusManager.getInstance(myProject).removeFileStatusListener(myFileStatusListener);
-    VirtualFileManager.getInstance().removeVirtualFileListener(myFileListener);
     VirtualFileManager.getInstance().removeVirtualFileManagerListener(myVirtualFileManagerListener);
     ChangeListManager.getInstance(myProject).removeChangeListListener(myChangeListListener);
     myMessageBusConnection.disconnect();
@@ -265,7 +243,7 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
   }
 
   @Override
-  public Object getData(String dataId) {
+  public Object getData(@NotNull String dataId) {
     if (PlatformDataKeys.VIRTUAL_FILE_ARRAY.getName().equals(dataId)) {
       List<VirtualFile> files = new LinkedList<>();
       TreePath[] treePaths = getSelectionPaths();
@@ -328,8 +306,8 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     // assertion was added for http://youtrack.jetbrains.net/issue/MPS-7762
     assert fileTreeNode.getFile().isValid() : "Underlying file is not valid";
     com.intellij.openapi.command.CommandProcessor.getInstance().executeCommand(myProject, () -> {
-      myIdeDocumentHistory.includeCurrentCommandAsNavigation();
-      myEditorManager.openFile(fileTreeNode.getFile(), true, true);
+      IdeDocumentHistory.getInstance(myProject).includeCurrentCommandAsNavigation();
+      FileEditorManager.getInstance(myProject).openFile(fileTreeNode.getFile(), true, true);
     }, "navigate", "");
   }
 
@@ -349,7 +327,7 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
       }
     };
     if (changeView) {
-      projectViewToolWindow.activate(() -> myProjectView.changeViewCB(getId(), null)
+      projectViewToolWindow.activate(() -> ProjectView.getInstance(myProject).changeViewCB(getId(), null)
                                                         .doWhenDone(selectionRunnable), true);
     } else {
       selectionRunnable.run();
@@ -392,10 +370,16 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     return null;
   }
 
+  /*package*/ boolean isAutoscrollFromSource() {
+    // FIXME how it's related to AbstractProjectViewPane.isAutoScrollEnabledFor(VirtualFile)?
+    return ProjectView.getInstance(myProject).isAutoscrollFromSource(getId());
+  }
+
+  @NotNull
   @Override
   public SelectInTarget createSelectInTarget() {
     return new AbstractProjectViewSelectInTarget(myProject, getId(), getWeight(), getTitle()) {
-      public VirtualFile myFile;
+      /*package*/ VirtualFile myFile;
 
       @Override
       public boolean canSelect(SelectInContext context) {
@@ -437,6 +421,7 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     };
   }
 
+  @NotNull
   @Override
   public String getTitle() {
     return TITLE;
@@ -467,24 +452,9 @@ public class FileViewProjectPane extends AbstractProjectViewPane implements Data
     }
   }
 
-  private class FileChangesListener extends VirtualFileAdapter {
+  private class FileChangesListener implements BulkFileListener {
     @Override
-    public void fileCreated(@NotNull VirtualFileEvent event) {
-      rebuildTreeLater();
-    }
-
-    @Override
-    public void fileDeleted(@NotNull VirtualFileEvent event) {
-      rebuildTreeLater();
-    }
-
-    @Override
-    public void fileMoved(@NotNull VirtualFileMoveEvent event) {
-      rebuildTreeLater();
-    }
-
-    @Override
-    public void fileCopied(@NotNull VirtualFileCopyEvent event) {
+    public void after(@NotNull List<? extends VFileEvent> events) {
       rebuildTreeLater();
     }
   }
