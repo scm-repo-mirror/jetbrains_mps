@@ -639,71 +639,82 @@
       <node id="6976752752550739628" at="27,129,28,34" concept="4" />
       <node id="1993277906484028418" at="28,34,29,159" concept="12" />
       <node id="1993277906484056181" at="29,159,30,111" concept="12" />
-      <node id="8932910012466116475" at="35,31,36,31" concept="4" />
-      <node id="6100916785563666248" at="36,31,37,129" concept="12" />
-      <node id="6100916785563548553" at="37,129,38,30" concept="4" />
-      <node id="391123256063776833" at="41,51,42,39" concept="10" />
-      <node id="391123256063776853" at="43,38,44,90" concept="4" />
-      <node id="285677603355154261" at="45,44,46,83" concept="4" />
-      <node id="6426754448685243974" at="47,55,48,82" concept="4" />
-      <node id="391123256063776828" at="50,30,51,25" concept="4" />
-      <node id="8541476815201199792" at="58,106,59,110" concept="11" />
-      <node id="200115155569777445" at="65,142,66,131" concept="11" />
-      <node id="391123256063776859" at="49,5,52,5" concept="8" />
-      <node id="8541476815201097941" at="58,0,61,0" concept="9" trace="instantiateHighlighter#(Ljetbrains/mps/ide/ui/tree/MPSTree;Ljetbrains/mps/vcs/changesmanager/tree/TreeNodeFeatureExtractor;)Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighter;" />
-      <node id="200115155569777437" at="65,0,68,0" concept="9" trace="instantiateHighlighter#(Ljetbrains/mps/ide/ui/tree/MPSTree;Ljetbrains/mps/vcs/changesmanager/tree/TreeNodeFeatureExtractor;Z)Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighter;" />
-      <node id="1993277906481153504" at="34,0,40,0" concept="9" trace="projectClosed#()V" />
-      <node id="391123256063762064" at="42,39,49,5" concept="8" />
+      <node id="4822248762180316387" at="33,73,34,66" concept="11" />
+      <node id="8932910012466116475" at="38,31,39,31" concept="4" />
+      <node id="6100916785563666248" at="39,31,40,129" concept="12" />
+      <node id="6100916785563548553" at="40,129,41,30" concept="4" />
+      <node id="391123256063776833" at="44,51,45,39" concept="10" />
+      <node id="391123256063776853" at="46,38,47,90" concept="4" />
+      <node id="285677603355154261" at="48,44,49,83" concept="4" />
+      <node id="6426754448685243974" at="50,55,51,82" concept="4" />
+      <node id="391123256063776828" at="53,30,54,25" concept="4" />
+      <node id="8541476815201199792" at="61,106,62,110" concept="11" />
+      <node id="200115155569777445" at="68,142,69,131" concept="11" />
+      <node id="4822248762180312804" at="33,0,36,0" concept="15" trace="getInstance#(Lcom/intellij/openapi/project/Project;)Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighterFactory;" />
+      <node id="391123256063776859" at="52,5,55,5" concept="8" />
+      <node id="8541476815201097941" at="61,0,64,0" concept="9" trace="instantiateHighlighter#(Ljetbrains/mps/ide/ui/tree/MPSTree;Ljetbrains/mps/vcs/changesmanager/tree/TreeNodeFeatureExtractor;)Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighter;" />
+      <node id="200115155569777437" at="68,0,71,0" concept="9" trace="instantiateHighlighter#(Ljetbrains/mps/ide/ui/tree/MPSTree;Ljetbrains/mps/vcs/changesmanager/tree/TreeNodeFeatureExtractor;Z)Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighter;" />
+      <node id="1993277906481153504" at="37,0,43,0" concept="9" trace="projectClosed#()V" />
+      <node id="391123256063762064" at="45,39,52,5" concept="8" />
       <node id="4106919528499268087" at="23,0,32,0" concept="3" trace="TreeHighlighterFactory#(Lcom/intellij/openapi/project/Project;Ljetbrains/mps/vcs/changesmanager/CurrentDifferenceRegistry;Ljetbrains/mps/vcs/changesmanager/tree/FeatureForestMapSupport;)V" />
-      <node id="391123256063746407" at="41,0,54,0" concept="9" trace="highlightTreeIfNeeded#(Ljetbrains/mps/ide/ui/tree/MPSTree;)V" />
-      <scope id="391123256063762066" at="43,38,44,90" />
-      <scope id="285677603355153489" at="45,44,46,83" />
-      <scope id="6426754448685223791" at="47,55,48,82" />
-      <scope id="391123256063776860" at="50,30,51,25" />
-      <scope id="8541476815201097945" at="58,106,59,110" />
-      <scope id="200115155569777444" at="65,142,66,131" />
-      <scope id="1993277906481153509" at="35,31,38,30" />
-      <scope id="8541476815201097941" at="58,0,61,0">
+      <node id="391123256063746407" at="44,0,57,0" concept="9" trace="highlightTreeIfNeeded#(Ljetbrains/mps/ide/ui/tree/MPSTree;)V" />
+      <scope id="4822248762180312807" at="33,73,34,66" />
+      <scope id="391123256063762066" at="46,38,47,90" />
+      <scope id="285677603355153489" at="48,44,49,83" />
+      <scope id="6426754448685223791" at="50,55,51,82" />
+      <scope id="391123256063776860" at="53,30,54,25" />
+      <scope id="8541476815201097945" at="61,106,62,110" />
+      <scope id="200115155569777444" at="68,142,69,131" />
+      <scope id="4822248762180312804" at="33,0,36,0">
+        <var name="ideaProject" id="4822248762180316127" />
+      </scope>
+      <scope id="1993277906481153509" at="38,31,41,30" />
+      <scope id="8541476815201097941" at="61,0,64,0">
         <var name="featureExtractor" id="8541476815201110925" />
         <var name="tree" id="8541476815201109723" />
       </scope>
-      <scope id="200115155569777437" at="65,0,68,0">
+      <scope id="200115155569777437" at="68,0,71,0">
         <var name="featureExtractor" id="200115155569777440" />
         <var name="removeNodesOnModelDisposal" id="200115155569775200" />
         <var name="tree" id="200115155569777438" />
       </scope>
-      <scope id="1993277906481153504" at="34,0,40,0" />
+      <scope id="1993277906481153504" at="37,0,43,0" />
       <scope id="4106919528499268090" at="23,162,30,111" />
       <scope id="4106919528499268087" at="23,0,32,0">
         <var name="featureForestMapSupport" id="4106919528499289305" />
         <var name="project" id="4106919528499268092" />
         <var name="registry" id="4106919528499268094" />
       </scope>
-      <scope id="391123256063746410" at="41,51,52,5">
+      <scope id="391123256063746410" at="44,51,55,5">
         <var name="highlighter" id="391123256063776834" />
       </scope>
-      <scope id="391123256063746407" at="41,0,54,0">
+      <scope id="391123256063746407" at="44,0,57,0">
         <var name="tree" id="391123256063762062" />
       </scope>
-      <unit id="4106919528499268085" at="17,0,69,0" name="jetbrains.mps.vcs.changesmanager.tree.TreeHighlighterFactory" />
+      <unit id="4106919528499268085" at="17,0,72,0" name="jetbrains.mps.vcs.changesmanager.tree.TreeHighlighterFactory" />
     </file>
   </root>
   <root nodeRef="r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)/4225526609875760407">
     <file name="ChangesTreeCreationHandler.java">
-      <node id="4225526609875774710" at="14,0,15,0" concept="5" trace="myTreesHighlighter" />
-      <node id="391123256063776964" at="15,78,16,42" concept="4" />
-      <node id="391123256063776971" at="20,39,21,51" concept="4" />
-      <node id="391123256063776957" at="15,0,18,0" concept="3" trace="ChangesTreeCreationHandler#(Ljetbrains/mps/vcs/changesmanager/tree/TreeHighlighterFactory;)V" />
-      <node id="3499818918522499385" at="19,0,23,0" concept="9" trace="attach#(Ljetbrains/mps/ide/ui/tree/MPSTree;)V" />
-      <scope id="391123256063776961" at="15,78,16,42" />
-      <scope id="3499818918522499391" at="20,39,21,51" />
-      <scope id="391123256063776957" at="15,0,18,0">
-        <var name="treesHighlighter" id="391123256063776962" />
+      <node id="4225526609875774710" at="15,0,16,0" concept="5" trace="myProject" />
+      <node id="391123256063776964" at="16,58,17,28" concept="4" />
+      <node id="4822248762180327520" at="21,39,22,79" concept="10" />
+      <node id="391123256063776971" at="23,22,24,38" concept="4" />
+      <node id="391123256063776957" at="16,0,19,0" concept="3" trace="ChangesTreeCreationHandler#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="4822248762180327776" at="22,79,25,5" concept="8" />
+      <node id="3499818918522499385" at="20,0,27,0" concept="9" trace="attach#(Ljetbrains/mps/ide/ui/tree/MPSTree;)V" />
+      <scope id="391123256063776961" at="16,58,17,28" />
+      <scope id="4822248762180327778" at="23,22,24,38" />
+      <scope id="391123256063776957" at="16,0,19,0">
+        <var name="ideaProject" id="391123256063776962" />
       </scope>
-      <scope id="3499818918522499385" at="19,0,23,0">
+      <scope id="3499818918522499391" at="21,39,25,5">
+        <var name="thf" id="4822248762180327521" />
+      </scope>
+      <scope id="3499818918522499385" at="20,0,27,0">
         <var name="tree" id="3499818918522499389" />
       </scope>
-      <unit id="4225526609875760407" at="12,0,24,0" name="jetbrains.mps.vcs.changesmanager.tree.ChangesTreeCreationHandler" />
+      <unit id="4225526609875760407" at="13,0,28,0" name="jetbrains.mps.vcs.changesmanager.tree.ChangesTreeCreationHandler" />
     </file>
   </root>
   <root nodeRef="r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)/5166120419668914497">

@@ -30,6 +30,9 @@ public class TreeHighlighterFactory implements ProjectComponent {
     // leaving MUQ instances not disposed (didn't show up unless MUQ ceased to be EDT, see Alarm.create logic) 
   }
 
+  public static TreeHighlighterFactory getInstance(Project ideaProject) {
+    return ideaProject.getComponent(TreeHighlighterFactory.class);
+  }
 
   @Override
   public void projectClosed() {

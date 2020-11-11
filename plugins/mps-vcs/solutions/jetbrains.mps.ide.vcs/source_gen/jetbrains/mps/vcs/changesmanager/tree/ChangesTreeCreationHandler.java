@@ -4,6 +4,7 @@ package jetbrains.mps.vcs.changesmanager.tree;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.ide.ui.tree.TreeHighlighterExtension;
+import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.ui.tree.MPSTree;
 
 /**
@@ -11,13 +12,16 @@ import jetbrains.mps.ide.ui.tree.MPSTree;
  */
 @GeneratedClass(node = "r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)/4225526609875760407", model = "r:0fdcfe58-6a3e-4b7d-bea2-685e5d104fd0(jetbrains.mps.vcs.changesmanager.tree)")
 public class ChangesTreeCreationHandler extends TreeHighlighterExtension {
-  private TreeHighlighterFactory myTreesHighlighter;
-  public ChangesTreeCreationHandler(TreeHighlighterFactory treesHighlighter) {
-    myTreesHighlighter = treesHighlighter;
+  private final Project myProject;
+  public ChangesTreeCreationHandler(Project ideaProject) {
+    myProject = ideaProject;
   }
 
   @Override
   protected void attach(MPSTree tree) {
-    myTreesHighlighter.highlightTreeIfNeeded(tree);
+    TreeHighlighterFactory thf = TreeHighlighterFactory.getInstance(myProject);
+    if (thf != null) {
+      thf.highlightTreeIfNeeded(tree);
+    }
   }
 }
