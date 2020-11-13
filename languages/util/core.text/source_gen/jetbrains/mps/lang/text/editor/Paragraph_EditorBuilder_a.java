@@ -17,7 +17,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
@@ -82,7 +81,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
     style.set(StyleAttributes.SELECTABLE, false);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
-    style.set(StyleAttributes.DRAW_BORDER, true);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
@@ -90,27 +88,32 @@ import org.jetbrains.mps.openapi.language.SProperty;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
       public String getText() {
-        if (ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).isEmpty()) {
+        if (ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).count() <= 10) {
           return "";
         }
-        EditorCell initialSpaceCell = getEditorContext().getEditorComponent().findNodeCell(ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).first());
-        if (initialSpaceCell != null) {
-          SNode nb = LetterRangeSelection.findNodeBelow(initialSpaceCell);
-          if (nb != null && Objects.equals(SNodeOperations.getParent(nb), myNode)) {
-            return "    ";
-          }
+
+        EditorCell firstLetterCell = getEditorContext().getEditorComponent().findNodeCell(ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).first());
+        if (firstLetterCell == null) {
+          firstLetterCell = getEditorContext().getEditorComponent().findNodeCell(SNodeOperations.getNextSibling(ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).first()));
         }
-        return "";
+        EditorCell lastLetterCell = getEditorContext().getEditorComponent().findNodeCell(ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).last());
+        if (lastLetterCell == null) {
+          lastLetterCell = getEditorContext().getEditorComponent().findNodeCell(SNodeOperations.getPrevSibling(ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.letters$rNyA)).last()));
+        }
+        if (firstLetterCell != null && lastLetterCell != null && firstLetterCell.getY() != lastLetterCell.getY()) {
+          return "    ";
+        } else {
+          return "";
+        }
       }
     }, myNode);
     editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());
     editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
-    editorCell.setCellId("Initial_Paragraph_Space");
+    editorCell.setCellId("ReadOnlyModelAccessor_mjy4lr_b0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.SELECTABLE, false);
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
-    style.set(StyleAttributes.DRAW_BORDER, true);
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     return editorCell;
@@ -118,10 +121,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
   private EditorCell createRefNodeList_0() {
     AbstractCellListHandler handler = new lettersListHandler_mjy4lr_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("Initial_Paragraph_Space");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.DRAW_BORDER, true);
-    editorCell.getStyle().putAll(style);
+    editorCell.setCellId("refNodeList_letters");
     ParagraphCollectionActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
