@@ -633,6 +633,9 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
     }
     if (foundLeaf != null) {
       SNode foundNode = foundLeaf.getSNode();
+      while (foundNode != null && !(ListSequence.fromList(paragraphSiblings).contains(foundNode)) && !(ListSequence.fromList(paragraphSiblings).contains(SNodeOperations.getParent(foundNode)))) {
+        foundNode = SNodeOperations.getParent(foundNode);
+      }
       if (SNodeOperations.isInstanceOf(foundNode, CONCEPTS.Paragraph$XF)) {
         foundNode = (Objects.equals(foundLeaf.getCellId(), "Initial_Paragraph_Space") ? Sequence.fromIterable(Paragraph__BehaviorDescriptor.getTextualElements_id250QDwq2ueg.invoke(SNodeOperations.as(foundNode, CONCEPTS.Paragraph$XF))).first() : Sequence.fromIterable(Paragraph__BehaviorDescriptor.getTextualElements_id250QDwq2ueg.invoke(SNodeOperations.as(foundNode, CONCEPTS.Paragraph$XF))).last());
       }

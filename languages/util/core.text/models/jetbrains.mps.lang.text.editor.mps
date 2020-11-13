@@ -23365,14 +23365,17 @@
               <ref role="3uigEE" to="f4zo:~EditorCell" resolve="EditorCell" />
             </node>
             <node concept="2OqwBi" id="1k_3li3bwbI" role="33vP2m">
+              <node concept="37vLTw" id="3VvFAa_KVry" role="2Oq$k0">
+                <ref role="3cqZAo" node="3VvFAa_KOHe" resolve="paragraphWrappingCell" />
+              </node>
               <node concept="liA8E" id="1k_3li3bwbK" role="2OqNvi">
                 <ref role="37wK5l" to="f4zo:~EditorCell.findLeaf(int,int)" resolve="findLeaf" />
                 <node concept="2OqwBi" id="1k_3li3bwbL" role="37wK5m">
-                  <node concept="liA8E" id="1k_3li3bwbN" role="2OqNvi">
-                    <ref role="37wK5l" to="f4zo:~EditorCell.getX()" resolve="getX" />
-                  </node>
                   <node concept="37vLTw" id="3VvFAa_KIAe" role="2Oq$k0">
                     <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
+                  </node>
+                  <node concept="liA8E" id="1k_3li3bwbN" role="2OqNvi">
+                    <ref role="37wK5l" to="f4zo:~EditorCell.getX()" resolve="getX" />
                   </node>
                 </node>
                 <node concept="3K4zz7" id="1k_3li3bLoT" role="37wK5m">
@@ -23381,44 +23384,41 @@
                   </node>
                   <node concept="3cpWsd" id="1k_3li3bO2t" role="3K4E3e">
                     <node concept="2OqwBi" id="1k_3li3bwbP" role="3uHU7B">
-                      <node concept="liA8E" id="1k_3li3bwbR" role="2OqNvi">
-                        <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
-                      </node>
                       <node concept="37vLTw" id="3VvFAa_KJtE" role="2Oq$k0">
                         <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
                       </node>
+                      <node concept="liA8E" id="1k_3li3bwbR" role="2OqNvi">
+                        <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
+                      </node>
                     </node>
                     <node concept="2OqwBi" id="1k_3li3bwbS" role="3uHU7w">
-                      <node concept="liA8E" id="1k_3li3bwbU" role="2OqNvi">
-                        <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
-                      </node>
                       <node concept="37vLTw" id="3VvFAa_KJWg" role="2Oq$k0">
                         <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
+                      </node>
+                      <node concept="liA8E" id="1k_3li3bwbU" role="2OqNvi">
+                        <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
                       </node>
                     </node>
                   </node>
                   <node concept="3cpWs3" id="1k_3li3bN6c" role="3K4GZi">
                     <node concept="2OqwBi" id="1k_3li3bN6d" role="3uHU7B">
-                      <node concept="liA8E" id="1k_3li3bN6f" role="2OqNvi">
-                        <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
-                      </node>
                       <node concept="37vLTw" id="3VvFAa_KKqQ" role="2Oq$k0">
                         <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
                       </node>
+                      <node concept="liA8E" id="1k_3li3bN6f" role="2OqNvi">
+                        <ref role="37wK5l" to="f4zo:~EditorCell.getY()" resolve="getY" />
+                      </node>
                     </node>
                     <node concept="2OqwBi" id="1k_3li3bN6g" role="3uHU7w">
-                      <node concept="liA8E" id="1k_3li3bN6i" role="2OqNvi">
-                        <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
-                      </node>
                       <node concept="37vLTw" id="3VvFAa_KKTf" role="2Oq$k0">
                         <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
+                      </node>
+                      <node concept="liA8E" id="1k_3li3bN6i" role="2OqNvi">
+                        <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
                       </node>
                     </node>
                   </node>
                 </node>
-              </node>
-              <node concept="37vLTw" id="3VvFAa_KVry" role="2Oq$k0">
-                <ref role="3cqZAo" node="3VvFAa_KOHe" resolve="paragraphWrappingCell" />
               </node>
             </node>
           </node>
@@ -23457,6 +23457,9 @@
                   <ref role="3cqZAo" node="1k_3li3bwbG" resolve="foundLeaf" />
                 </node>
                 <node concept="2OqwBi" id="1k_3li3bwcx" role="37vLTx">
+                  <node concept="37vLTw" id="3VvFAa_KWph" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3VvFAa_KOHe" resolve="paragraphWrappingCell" />
+                  </node>
                   <node concept="liA8E" id="1k_3li3bwcz" role="2OqNvi">
                     <ref role="37wK5l" to="f4zo:~EditorCell.findLeaf(int,int)" resolve="findLeaf" />
                     <node concept="2OqwBi" id="1k_3li3bwc$" role="37wK5m">
@@ -23481,11 +23484,11 @@
                           </node>
                         </node>
                         <node concept="2OqwBi" id="1k_3li3bOWW" role="3uHU7w">
-                          <node concept="liA8E" id="1k_3li3bOWY" role="2OqNvi">
-                            <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
-                          </node>
                           <node concept="37vLTw" id="3VvFAa_LJbB" role="2Oq$k0">
                             <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
+                          </node>
+                          <node concept="liA8E" id="1k_3li3bOWY" role="2OqNvi">
+                            <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
                           </node>
                         </node>
                       </node>
@@ -23499,18 +23502,15 @@
                           </node>
                         </node>
                         <node concept="2OqwBi" id="1k_3li3bOX3" role="3uHU7w">
-                          <node concept="liA8E" id="1k_3li3bOX5" role="2OqNvi">
-                            <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
-                          </node>
                           <node concept="37vLTw" id="3VvFAa_LJE8" role="2Oq$k0">
                             <ref role="3cqZAo" node="1k_3li3bwbu" resolve="cell" />
+                          </node>
+                          <node concept="liA8E" id="1k_3li3bOX5" role="2OqNvi">
+                            <ref role="37wK5l" to="f4zo:~EditorCell.getHeight()" resolve="getHeight" />
                           </node>
                         </node>
                       </node>
                     </node>
-                  </node>
-                  <node concept="37vLTw" id="3VvFAa_KWph" role="2Oq$k0">
-                    <ref role="3cqZAo" node="3VvFAa_KOHe" resolve="paragraphWrappingCell" />
                   </node>
                 </node>
               </node>
@@ -23663,6 +23663,60 @@
                   </node>
                   <node concept="liA8E" id="1k_3li3bwcT" role="2OqNvi">
                     <ref role="37wK5l" to="f4zo:~EditorCell.getSNode()" resolve="getSNode" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="2$JKZl" id="4sPVtaHxBa6" role="3cqZAp">
+              <node concept="3clFbS" id="4sPVtaHxBa8" role="2LFqv$">
+                <node concept="3clFbF" id="4sPVtaHxEeq" role="3cqZAp">
+                  <node concept="37vLTI" id="4sPVtaHxEng" role="3clFbG">
+                    <node concept="2OqwBi" id="4sPVtaHxEvT" role="37vLTx">
+                      <node concept="37vLTw" id="4sPVtaHxEov" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1k_3li3bwcP" resolve="foundNode" />
+                      </node>
+                      <node concept="1mfA1w" id="4sPVtaHxEEd" role="2OqNvi" />
+                    </node>
+                    <node concept="37vLTw" id="4sPVtaHxEep" role="37vLTJ">
+                      <ref role="3cqZAo" node="1k_3li3bwcP" resolve="foundNode" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="1Wc70l" id="4sPVtaHxCn_" role="2$JKZa">
+                <node concept="1Wc70l" id="4sPVtaHxCW6" role="3uHU7B">
+                  <node concept="3y3z36" id="4sPVtaHxE5l" role="3uHU7B">
+                    <node concept="10Nm6u" id="4sPVtaHxE7o" role="3uHU7w" />
+                    <node concept="37vLTw" id="4sPVtaHxEbh" role="3uHU7B">
+                      <ref role="3cqZAo" node="1k_3li3bwcP" resolve="foundNode" />
+                    </node>
+                  </node>
+                  <node concept="3fqX7Q" id="4sPVtaHx_IY" role="3uHU7w">
+                    <node concept="2OqwBi" id="4sPVtaHx_J0" role="3fr31v">
+                      <node concept="37vLTw" id="4sPVtaHx_J1" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3VvFAa_EIG5" resolve="paragraphSiblings" />
+                      </node>
+                      <node concept="3JPx81" id="4sPVtaHx_J2" role="2OqNvi">
+                        <node concept="37vLTw" id="4sPVtaHx_J3" role="25WWJ7">
+                          <ref role="3cqZAo" node="1k_3li3bwcP" resolve="foundNode" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3fqX7Q" id="4sPVtaHxCAJ" role="3uHU7w">
+                  <node concept="2OqwBi" id="4sPVtaHxCAK" role="3fr31v">
+                    <node concept="37vLTw" id="4sPVtaHxCAL" role="2Oq$k0">
+                      <ref role="3cqZAo" node="3VvFAa_EIG5" resolve="paragraphSiblings" />
+                    </node>
+                    <node concept="3JPx81" id="4sPVtaHxCAM" role="2OqNvi">
+                      <node concept="2OqwBi" id="4sPVtaHxCK5" role="25WWJ7">
+                        <node concept="37vLTw" id="4sPVtaHxCAN" role="2Oq$k0">
+                          <ref role="3cqZAo" node="1k_3li3bwcP" resolve="foundNode" />
+                        </node>
+                        <node concept="1mfA1w" id="4sPVtaHxCTP" role="2OqNvi" />
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
