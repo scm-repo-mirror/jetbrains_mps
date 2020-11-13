@@ -172,10 +172,6 @@
     <applicationConfigurable groupId="build" groupWeight="120" instance="jetbrains.mps.library.LibraryManagerConfigurable"
                              id="preferences.libraryManager"/>
 
-    <!-- Use MPS Project View Implementation-->
-    <toolWindow id="Project" anchor="left" icon="AllIcons.Toolwindows.ToolWindowProject"
-                factoryClass="jetbrains.mps.ide.projectPane.MPSProjectViewToolWindowFactory"/>
-
     <projectService serviceInterface="com.intellij.openapi.roots.FileIndexFacade"
                     serviceImplementation="com.intellij.mock.MockFileIndexFacade" overrides="true"/>
 
