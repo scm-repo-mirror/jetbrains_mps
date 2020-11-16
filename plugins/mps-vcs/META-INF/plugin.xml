@@ -29,16 +29,11 @@
 
   <project-components>
     <component>
-      <implementation-class>jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry</implementation-class>
-      <skipForDefaultProject/>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.vcs.MPSVcsManager</implementation-class>
     </component>
     <component>
       <interface-class>jetbrains.mps.vcs.changesmanager.NodeFileStatusMapping</interface-class>
       <implementation-class>jetbrains.mps.vcs.changesmanager.roots.NodeFileStatusMappingExt</implementation-class>
-      <skipForDefaultProject/>
     </component>
     <component>
       <implementation-class>jetbrains.mps.vcs.integration.GeneratedFileConflictResolving</implementation-class>
@@ -46,7 +41,10 @@
   </project-components>
 
   <applicationListeners>
-    <listener class="jetbrains.mps.vcs.diff.ui.common.EditorSettingsEditorColorsListener" topic="com.intellij.openapi.editor.colors.EditorColorsListener"/>
+    <listener class="jetbrains.mps.vcs.diff.ui.common.EditorSettingsEditorColorsListener"
+              topic="com.intellij.openapi.editor.colors.EditorColorsListener"/>
+    <listener class="jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry$MyProjectListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
   </applicationListeners>
 
   <projectListeners>
@@ -79,6 +77,7 @@
                     serviceImplementation="jetbrains.mps.vcs.integration.ModuleVcsPathPresenter"
                     overrides="true"/>
 
+    <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry" />
     <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.tree.TreeHighlighterFactory" />
     <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.tree.FeatureForestMapSupport" />
     <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory" />

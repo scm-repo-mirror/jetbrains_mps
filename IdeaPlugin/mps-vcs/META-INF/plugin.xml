@@ -29,13 +29,6 @@
 
   <xi:include href="MPSVcs.xml" xpointer="xpointer(/components/*)"/>
 
-  <project-components>
-    <component>
-      <implementation-class>jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry</implementation-class>
-      <skipForDefaultProject/>
-    </component>
-  </project-components>
-
   <extensions defaultExtensionNs="com.intellij">
     <diff.DiffTool implementation="jetbrains.mps.vcs.platform.integration.ModelDiffTool"/>
     <diff.merge.MergeTool implementation="jetbrains.mps.vcs.platform.integration.ModelMergeTool"/>
@@ -61,9 +54,15 @@
 
     <applicationService serviceInterface="jetbrains.mps.vcs.platform.mergedriver.MergeDriverPacker"
                         serviceImplementation="jetbrains.mps.vcs.MergeDriverPackerImpl" />
-    <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory" />
 
+    <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry" />
+    <projectService serviceImplementation="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory"/>
   </extensions>
+
+  <applicationListeners>
+    <listener class="jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry$MyProjectListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
 
   <projectListeners>
     <listener class="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory$MyEditorComponentCreateListener"
