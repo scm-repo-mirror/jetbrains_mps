@@ -9,6 +9,7 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import java.util.ArrayList;
+import org.jetbrains.annotations.Nullable;
 
 @GeneratedClass(node = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)/3896109655413979709", model = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)")
 public class ClassifierSuccessors implements CoreComponent {
@@ -29,11 +30,20 @@ public class ClassifierSuccessors implements CoreComponent {
   }
 
   public boolean isIndexReady(Project project) {
-    return (myFastFinder != null ? myFastFinder.isIndexReady(project) : false);
+    return myFastFinder != null && myFastFinder.isIndexReady(project);
   }
 
+  /**
+   * 
+   * @deprecated until we refactor our model indexer not to rely on IDEA's FileBasedIndex (which forces us to stick to their contract of VF and Project), use alternative that takes Project instance
+   */
+  @Deprecated(forRemoval = true)
   public List<SNode> getDerivedClassifiers(SNode classifier, SearchScope scope) {
-    return (myFastFinder != null ? myFastFinder.getDerivedClassifiers(classifier, scope) : new ArrayList<SNode>());
+    return getDerivedClassifiers(null, classifier, scope);
+  }
+
+  public List<SNode> getDerivedClassifiers(Project project, SNode classifier, SearchScope scope) {
+    return (myFastFinder != null ? myFastFinder.getDerivedClassifiers(project, classifier, scope) : new ArrayList<SNode>());
   }
 
   public void setFinder(Finder finder) {
@@ -45,7 +55,7 @@ public class ClassifierSuccessors implements CoreComponent {
   }
 
   public interface Finder {
-    List<SNode> getDerivedClassifiers(SNode classifier, SearchScope scope);
+    List<SNode> getDerivedClassifiers(@Nullable Project project, SNode classifier, SearchScope scope);
     boolean isIndexReady(Project project);
   }
 }

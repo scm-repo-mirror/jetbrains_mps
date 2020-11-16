@@ -24,6 +24,7 @@ import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import com.intellij.openapi.project.ProjectLocator;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
@@ -56,7 +57,9 @@ public class ClassifierSuccessorsFinder implements ClassifierSuccessors.Finder, 
   }
 
   @Override
-  public List<SNode> getDerivedClassifiers(SNode classifier, org.jetbrains.mps.openapi.module.SearchScope scope) {
+  public List<SNode> getDerivedClassifiers(Project project, SNode classifier, org.jetbrains.mps.openapi.module.SearchScope scope) {
+    com.intellij.openapi.project.Project ideaProject = (project == null ? null : ProjectHelper.toIdeaProject(project));
+
     Set<VirtualFile> unModifiedModelFiles = SetSequence.fromSet(new HashSet<VirtualFile>());
     List<SNode> modifiedClasses = ListSequence.fromList(new ArrayList<SNode>());
     List<SNode> modifiedInterfaces = ListSequence.fromList(new ArrayList<SNode>());
@@ -74,7 +77,22 @@ public class ClassifierSuccessorsFinder implements ClassifierSuccessors.Finder, 
         ListSequence.fromList(modifiedClasses).addSequence(ListSequence.fromList(SModelOperations.nodes(md, CONCEPTS.ClassConcept$bK)));
         ListSequence.fromList(modifiedInterfaces).addSequence(ListSequence.fromList(SModelOperations.nodes(md, CONCEPTS.Interface$db)));
       } else {
-        SetSequence.fromSet(unModifiedModelFiles).addElement(VirtualFileUtils.getOrCreateVirtualFile(modelFile));
+        VirtualFile vf = VirtualFileUtils.getOrCreateVirtualFile(modelFile);
+        SetSequence.fromSet(unModifiedModelFiles).addElement(vf);
+        if (ideaProject == null) {
+          // FIXME this is just a hack. There are uses of ClassifierSuccessors from IDEA-agnostic code 
+          // (e.g. findUsages aspect), and we can not pass Project there, have to guess it from files. 
+          // Indeed, we get ourselves exposed to all kind of troubles here (e.g. long story around IDEA-241738) 
+          // And yes, we don't care if VFs come from different projects, first one != null is good enough for us to satisfy 
+          // IDEA.  
+          // FIXME In fact, I don't see any reason to pass VFs into indexing at all. The idea of the index, as I see 
+          //      it, is not to keep per-file key-value Map, but to answer 'key' queries fast without the need 
+          //      to pass specific files. We should do it other way round, get all possible values for a key, 
+          //      and then filter out those matching MPS search scope, rather than constructing IDEA's 
+          //      scope with VFs and Project we don't have anyway. 
+          //      However, it's a bigger activity and I can not afford addressing this right now. 
+          ideaProject = ProjectLocator.getInstance().guessProjectForFile(vf);
+        }
       }
     }
     List<SNode> result = new ArrayList<SNode>();
@@ -82,7 +100,7 @@ public class ClassifierSuccessorsFinder implements ClassifierSuccessors.Finder, 
     QueueSequence.fromQueue(queue).addLastElement(classifier);
     ValueProcessor valueProcessor = new ValueProcessor(result, queue, SNodeOperations.getModel(classifier).getRepository());
     ModifiedSuccessorFinder modifiedSuccessorFinder = new ModifiedSuccessorFinder(modifiedClasses, modifiedInterfaces, result, queue);
-    SearchScope unModifiedFilesSearchScope = new SearchScope(unModifiedModelFiles);
+    SearchScope unModifiedFilesSearchScope = new SearchScope(ideaProject, unModifiedModelFiles);
     while (!(QueueSequence.fromQueue(queue).isEmpty())) {
       SNode nextClassifier = QueueSequence.fromQueue(queue).removeFirstElement();
       ClassifierSuccessorsIndexer.processValues(nextClassifier, valueProcessor, unModifiedFilesSearchScope);
@@ -212,8 +230,8 @@ public class ClassifierSuccessorsFinder implements ClassifierSuccessors.Finder, 
   private static class SearchScope extends GlobalSearchScope {
     private Set<VirtualFile> myFilesInScope;
 
-    /*package*/ SearchScope(Set<VirtualFile> notModifiedModelFiles) {
-      super(null);
+    /*package*/ SearchScope(com.intellij.openapi.project.Project ideaProject, Set<VirtualFile> notModifiedModelFiles) {
+      super(ideaProject);
       myFilesInScope = notModifiedModelFiles;
     }
 

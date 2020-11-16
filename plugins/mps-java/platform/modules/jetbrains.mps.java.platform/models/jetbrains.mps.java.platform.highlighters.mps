@@ -1208,7 +1208,10 @@
                 <ref role="1Pybhc" to="5h2r:3ohKLrgURCX" resolve="ClassifierSuccessors" />
               </node>
               <node concept="liA8E" id="7k6J8c3timC" role="2OqNvi">
-                <ref role="37wK5l" to="5h2r:3ohKLrgUTXS" resolve="getDerivedClassifiers" />
+                <ref role="37wK5l" to="5h2r:7fMiRhdrqGO" resolve="getDerivedClassifiers" />
+                <node concept="37vLTw" id="2iTZ7f9HC4G" role="37wK5m">
+                  <ref role="3cqZAo" node="13$TqNLKC7t" resolve="myProject" />
+                </node>
                 <node concept="37vLTw" id="2BHiRxglBu7" role="37wK5m">
                   <ref role="3cqZAo" node="7k6J8c3tims" resolve="container" />
                 </node>

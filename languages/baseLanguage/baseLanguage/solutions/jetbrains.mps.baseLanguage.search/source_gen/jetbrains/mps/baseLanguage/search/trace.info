@@ -166,53 +166,62 @@
   </root>
   <root nodeRef="r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)/3896109655413979709">
     <file name="ClassifierSuccessors.java">
-      <node id="3896109655413989216" at="15,0,16,0" concept="11" trace="INSTANCE" />
-      <node id="8118629307786932848" at="16,0,17,0" concept="3" trace="myFastFinder" />
-      <node id="3896109655413989226" at="22,25,23,20" concept="2" />
-      <node id="3896109655413989220" at="27,22,28,20" concept="2" />
-      <node id="7094481760054611762" at="31,48,32,79" concept="8" />
-      <node id="7094481760054611778" at="35,81,36,115" concept="8" />
-      <node id="8118629307786932862" at="39,40,40,26" concept="2" />
-      <node id="3896109655413997571" at="43,52,44,20" concept="8" />
-      <node id="8118629307786932838" at="48,0,49,0" concept="6" trace="getDerivedClassifiers#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/List;" />
-      <node id="8118629307786920925" at="49,0,50,0" concept="6" trace="isIndexReady#(Ljetbrains/mps/project/Project;)Z" />
-      <node id="3896109655413979711" at="18,0,20,0" concept="1" trace="ClassifierSuccessors#()V" />
-      <node id="3896109655413989232" at="31,0,34,0" concept="6" trace="isIndexReady#(Ljetbrains/mps/project/Project;)Z" />
-      <node id="3896109655413989240" at="35,0,38,0" concept="6" trace="getDerivedClassifiers#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/List;" />
-      <node id="8118629307786932856" at="39,0,42,0" concept="6" trace="setFinder#(Ljetbrains/mps/baseLanguage/search/ClassifierSuccessors/Finder;)V" />
-      <node id="3896109655413997566" at="43,0,46,0" concept="12" trace="getInstance#()Ljetbrains/mps/baseLanguage/search/ClassifierSuccessors;" />
-      <node id="3896109655413989208" at="21,0,25,0" concept="6" trace="dispose#()V" />
-      <node id="3896109655413989212" at="26,0,30,0" concept="6" trace="init#()V" />
-      <scope id="3896109655413979714" at="18,33,18,33" />
-      <scope id="3896109655413989211" at="22,25,23,20" />
-      <scope id="3896109655413989215" at="27,22,28,20" />
-      <scope id="3896109655413989235" at="31,48,32,79" />
-      <scope id="3896109655413989243" at="35,81,36,115" />
-      <scope id="8118629307786932859" at="39,40,40,26" />
-      <scope id="3896109655413997569" at="43,52,44,20" />
-      <scope id="8118629307786932838" at="48,0,49,0">
+      <node id="3896109655413989216" at="16,0,17,0" concept="11" trace="INSTANCE" />
+      <node id="8118629307786932848" at="17,0,18,0" concept="3" trace="myFastFinder" />
+      <node id="3896109655413989226" at="23,25,24,20" concept="2" />
+      <node id="3896109655413989220" at="28,22,29,20" concept="2" />
+      <node id="8354823221613018902" at="32,48,33,70" concept="8" />
+      <node id="8354823221613024570" at="41,81,42,58" concept="8" />
+      <node id="7094481760054611778" at="45,98,46,124" concept="8" />
+      <node id="8118629307786932862" at="49,40,50,26" concept="2" />
+      <node id="3896109655413997571" at="53,52,54,20" concept="8" />
+      <node id="8118629307786932838" at="58,0,59,0" concept="6" trace="getDerivedClassifiers#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/List;" />
+      <node id="8118629307786920925" at="59,0,60,0" concept="6" trace="isIndexReady#(Ljetbrains/mps/project/Project;)Z" />
+      <node id="3896109655413979711" at="19,0,21,0" concept="1" trace="ClassifierSuccessors#()V" />
+      <node id="3896109655413989232" at="32,0,35,0" concept="6" trace="isIndexReady#(Ljetbrains/mps/project/Project;)Z" />
+      <node id="8354823221613013812" at="45,0,48,0" concept="6" trace="getDerivedClassifiers#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/List;" />
+      <node id="8118629307786932856" at="49,0,52,0" concept="6" trace="setFinder#(Ljetbrains/mps/baseLanguage/search/ClassifierSuccessors/Finder;)V" />
+      <node id="3896109655413997566" at="53,0,56,0" concept="12" trace="getInstance#()Ljetbrains/mps/baseLanguage/search/ClassifierSuccessors;" />
+      <node id="3896109655413989208" at="22,0,26,0" concept="6" trace="dispose#()V" />
+      <node id="3896109655413989212" at="27,0,31,0" concept="6" trace="init#()V" />
+      <node id="3896109655413989240" at="40,0,44,0" concept="6" trace="getDerivedClassifiers#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Ljava/util/List;" />
+      <scope id="3896109655413979714" at="19,33,19,33" />
+      <scope id="3896109655413989211" at="23,25,24,20" />
+      <scope id="3896109655413989215" at="28,22,29,20" />
+      <scope id="3896109655413989235" at="32,48,33,70" />
+      <scope id="3896109655413989243" at="41,81,42,58" />
+      <scope id="8354823221613013816" at="45,98,46,124" />
+      <scope id="8118629307786932859" at="49,40,50,26" />
+      <scope id="3896109655413997569" at="53,52,54,20" />
+      <scope id="8118629307786932838" at="58,0,59,0">
         <var name="classifier" id="8118629307786932843" />
+        <var name="project" id="8354823221613028867" />
         <var name="scope" id="8118629307786932845" />
       </scope>
-      <scope id="8118629307786920925" at="49,0,50,0">
+      <scope id="8118629307786920925" at="59,0,60,0">
         <var name="project" id="8118629307786932834" />
       </scope>
-      <scope id="3896109655413979711" at="18,0,20,0" />
-      <scope id="3896109655413989232" at="31,0,34,0">
+      <scope id="3896109655413979711" at="19,0,21,0" />
+      <scope id="3896109655413989232" at="32,0,35,0">
         <var name="project" id="4575917870415846151" />
       </scope>
-      <scope id="3896109655413989240" at="35,0,38,0">
+      <scope id="8354823221613013812" at="45,0,48,0">
+        <var name="classifier" id="8354823221613017322" />
+        <var name="project" id="8354823221613016897" />
+        <var name="scope" id="8354823221613017324" />
+      </scope>
+      <scope id="8118629307786932856" at="49,0,52,0">
+        <var name="finder" id="8118629307786932860" />
+      </scope>
+      <scope id="3896109655413997566" at="53,0,56,0" />
+      <scope id="3896109655413989208" at="22,0,26,0" />
+      <scope id="3896109655413989212" at="27,0,31,0" />
+      <scope id="3896109655413989240" at="40,0,44,0">
         <var name="classifier" id="4575917870415846164" />
         <var name="scope" id="4575917870415846166" />
       </scope>
-      <scope id="8118629307786932856" at="39,0,42,0">
-        <var name="finder" id="8118629307786932860" />
-      </scope>
-      <scope id="3896109655413997566" at="43,0,46,0" />
-      <scope id="3896109655413989208" at="21,0,25,0" />
-      <scope id="3896109655413989212" at="26,0,30,0" />
-      <unit id="8118629307786920923" at="47,0,51,0" name="jetbrains.mps.baseLanguage.search.ClassifierSuccessors$Finder" />
-      <unit id="3896109655413979709" at="13,0,52,0" name="jetbrains.mps.baseLanguage.search.ClassifierSuccessors" />
+      <unit id="8118629307786920923" at="57,0,61,0" name="jetbrains.mps.baseLanguage.search.ClassifierSuccessors$Finder" />
+      <unit id="3896109655413979709" at="14,0,62,0" name="jetbrains.mps.baseLanguage.search.ClassifierSuccessors" />
     </file>
   </root>
   <root nodeRef="r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)/6192102952330246943">

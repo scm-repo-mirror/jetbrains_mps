@@ -3,6 +3,8 @@
   <dependency className="jetbrains.mps.java.platform.index.ClassifierSuccessorsFinder">
     <classNode dependClassName="com.intellij.openapi.module.Module" />
     <classNode dependClassName="com.intellij.openapi.project.DumbService" />
+    <classNode dependClassName="com.intellij.openapi.project.Project" />
+    <classNode dependClassName="com.intellij.openapi.project.ProjectLocator" />
     <classNode dependClassName="com.intellij.openapi.vfs.VirtualFile" />
     <classNode dependClassName="com.intellij.psi.search.GlobalSearchScope" />
     <classNode dependClassName="com.intellij.util.indexing.FileBasedIndex" />
