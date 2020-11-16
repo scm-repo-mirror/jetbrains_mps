@@ -33006,6 +33006,9 @@
     <node concept="2JRCWP" id="2bueJxWah9L" role="2JRCWR">
       <ref role="2JRCWa" node="1AwcMxRXXaC" resolve="FindTextInProject" />
     </node>
+    <node concept="2JRCWP" id="3yByQOhJWPQ" role="2JRCWR">
+      <ref role="2JRCWa" node="hGAEUdQ" resolve="ShowInLogicalView" />
+    </node>
   </node>
   <node concept="sE7Ow" id="7BBQIYkR4kU">
     <property role="TrG5h" value="SafeDelete" />

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,11 +55,17 @@ public final class ProjectTreeFindHelper {
     myProjectTree = projectTree;
   }
 
+  @Nullable
   public ProjectModuleTreeNode findMostSuitableModuleTreeNode(final @NotNull SModule module) {
     ProjectModuleTreeNode result = findModuleTreeNodeInProject(module);
-    if (result != null) return result;
+    if (result != null) {
+      return result;
+    }
 
     ProjectModulesPoolTreeNode modulesPoolNode = getTree().getModulesPoolNode();
+    if (modulesPoolNode == null) {
+      return null;
+    }
     if (!modulesPoolNode.isInitialized()) {
       modulesPoolNode.init();
     }
