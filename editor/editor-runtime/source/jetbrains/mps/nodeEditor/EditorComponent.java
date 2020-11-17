@@ -2428,18 +2428,17 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   /**
-   * @deprecated editor component does not always correspond to a project!
+   * nb: just something to think about editor component does not always correspond to a project!
    */
   @Nullable
-  @Deprecated
-  @ToRemove(version = 3.5)
   protected final jetbrains.mps.project.Project getCurrentProject() {
     // It is safer to get IntelliJ project and convert to MPS one:
     // There are different DataManager implementations for normal/test mode with several possible DataProvider classes.
     // Such providers behavior with custom MPSCommonDataKeys can be different, but more stable with platform CommonDataKeys.
     //
     // There's no need in a concrete MPSProject project implementation, there's just no method for generic MPS project in ProjectHelper.
-    final MPSProject p = ProjectHelper.fromIdeaProject(CommonDataKeys.PROJECT.getData(DataManager.getInstance().getDataContext(this)));
+    DataContext dataContext = DataManager.getInstance().getDataContext(this);
+    final MPSProject p = ProjectHelper.fromIdeaProject(CommonDataKeys.PROJECT.getData(dataContext));
     return p != null ? p : ProjectHelper.getProject(myRepository);
   }
 
@@ -2602,7 +2601,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   @Override
   @Nullable
-  public Object getData(@NonNls String dataId) {
+  public Object getData(@NotNull @NonNls String dataId) {
     if (isDisposed()) {
       return null;
     }
@@ -2650,6 +2649,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
     if (dataId.equals(MPSCommonDataKeys.PLACE.getName())) {
       return ActionPlace.EDITOR;
+    }
+    if (dataId.equals(MPSCommonDataKeys.PROJECT)) {
+      return getCurrentProject();
     }
 
 

@@ -964,7 +964,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object propertyMacro_GetValue_89_0(final PropertyMacroContext _context) {
     return (String) VarDeclaration__BehaviorDescriptor.getImplName_idUesZ_nZXee.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG));
   }
-  public static Object propertyMacro_GetValue_91_0(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_92_0(final PropertyMacroContext _context) {
     return GenUtil.saveListVar(_context, _context.getNode(), ++((int[]) _context.getVariable("varindex"))[0]);
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
@@ -1548,10 +1548,10 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object referenceMacro_GetReferent_90_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "templateDeclNoArgCons");
   }
-  public static Object referenceMacro_GetReferent_92_0(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_91_0(final ReferenceMacroContext _context) {
     return ((String) _context.getVariable("varname"));
   }
-  public static Object referenceMacro_GetReferent_92_1(final ReferenceMacroContext _context) {
+  public static Object referenceMacro_GetReferent_91_1(final ReferenceMacroContext _context) {
     return ((String) _context.getVariable("varname"));
   }
   public static boolean ifMacro_Condition_0_0(final IfMacroContext _context) {
@@ -2256,7 +2256,7 @@ public class QueriesGenerated extends QueryProviderBase {
     // FIXME However, we are inside transient model now, I'm not sure what does model.getModule() gives here 
     return SNodeOperations.getModel(((SNode) _context.getVariable("callSite"))).getModule() == SNodeOperations.getModel(_context.getNode()).getModule();
   }
-  public static boolean ifMacro_Condition_92_0(final IfMacroContext _context) {
+  public static boolean ifMacro_Condition_91_0(final IfMacroContext _context) {
     return ((String) _context.getVariable("varname")) != null && ((String) _context.getVariable("varname")).startsWith("tnode");
   }
   public static SNode sourceNodeQuery_0_0(final SourceSubstituteMacroNodeContext _context) {
@@ -5476,7 +5476,7 @@ public class QueriesGenerated extends QueryProviderBase {
         case 243:
           return QueriesGenerated.propertyMacro_GetValue_89_0(ctx);
         case 244:
-          return QueriesGenerated.propertyMacro_GetValue_91_0(ctx);
+          return QueriesGenerated.propertyMacro_GetValue_92_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -6129,7 +6129,7 @@ public class QueriesGenerated extends QueryProviderBase {
         case 207:
           return QueriesGenerated.ifMacro_Condition_90_0(ctx);
         case 208:
-          return QueriesGenerated.ifMacro_Condition_92_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_91_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for if macro %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -6717,9 +6717,9 @@ public class QueriesGenerated extends QueryProviderBase {
         case 185:
           return QueriesGenerated.referenceMacro_GetReferent_90_0(ctx);
         case 186:
-          return QueriesGenerated.referenceMacro_GetReferent_92_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_91_0(ctx);
         case 187:
-          return QueriesGenerated.referenceMacro_GetReferent_92_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_91_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
