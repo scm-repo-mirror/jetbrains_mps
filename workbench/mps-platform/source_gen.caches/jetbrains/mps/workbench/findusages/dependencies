@@ -108,6 +108,7 @@
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.extapi.persistence.FolderSetDataSource" />
     <classNode dependClassName="jetbrains.mps.findUsages.FindUsagesUtil" />
+    <classNode dependClassName="jetbrains.mps.findUsages.InstanceFinder" />
     <classNode dependClassName="jetbrains.mps.findUsages.NodeUsageFinder" />
     <classNode dependClassName="jetbrains.mps.ide.MPSCoreComponents" />
     <classNode dependClassName="jetbrains.mps.ide.project.ProjectHelper" />

@@ -25,6 +25,7 @@ import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.findUsages.FindUsagesUtil;
+import jetbrains.mps.findUsages.InstanceFinder;
 import jetbrains.mps.findUsages.NodeUsageFinder;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -61,7 +62,6 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Function;
@@ -115,11 +115,12 @@ public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposab
     MultiMap<SModel, SNode> candidates = findCandidates(scope, nodes, processedConsumer, key -> new NodeUse(key.getNodeId()), monitor.subTask(1));
     ProgressMonitor pmCandidates = monitor.subTask(1);
     pmCandidates.start("", candidates.size());
-    for (Entry<SModel, Collection<SNode>> candidate : candidates.entrySet()) {
+    final NodeUsageFinder nuf = new NodeUsageFinder(nodes, consumer);
+    for (SModel candidate : candidates.keySet()) {
       if (monitor.isCanceled()) {
         break;
       }
-      new NodeUsageFinder(candidate.getValue(), consumer).collectUsages(candidate.getKey(), pmCandidates.subTask(1));
+      nuf.collectUsages(candidate, pmCandidates.subTask(1));
     }
     monitor.done();
   }
@@ -143,11 +144,12 @@ public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposab
                                                                    monitor.subTask(1));
     ProgressMonitor pmCandidates = monitor.subTask(1);
     pmCandidates.start("", candidates.size());
-    for (Entry<SModel, Collection<SAbstractConcept>> candidate : candidates.entrySet()) {
+    final InstanceFinder nif = new InstanceFinder(concepts, consumer);
+    for (SModel candidate : candidates.keySet()) {
       if (monitor.isCanceled()) {
         break;
       }
-      FindUsagesUtil.collectInstances(candidate.getKey(), candidate.getValue(), consumer, pmCandidates.subTask(1));
+      nif.collectInstances(candidate, pmCandidates.subTask(1));
     }
     monitor.done();
   }

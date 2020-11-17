@@ -37,9 +37,10 @@ import jetbrains.mps.findUsages.NodeUsageFinder;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.findUsages.FindUsagesUtil;
+import jetbrains.mps.findUsages.InstanceFinder;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.smodel.SModelStereotype;
+import jetbrains.mps.findUsages.FindUsagesUtil;
 import jetbrains.mps.util.containers.SetBasedMultiMap;
 import jetbrains.mps.persistence.java.library.JavaClassStubModelDescriptor;
 import jetbrains.mps.util.containers.ManyToManyMap;
@@ -132,6 +133,7 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
     }
 
     final SLanguage bl = MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
+    // XXX odd filtering by concept language. What about subconcepts of BL concepts in languages that extend BL?  
     concepts = SetSequence.fromSetWithValues(new HashSet<SAbstractConcept>(), SetSequence.fromSet(concepts).where(new IWhereFilter<SAbstractConcept>() {
       public boolean accept(SAbstractConcept it) {
         return bl.equals(it.getLanguage());
@@ -139,9 +141,15 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
     }));
 
     MultiMap<SModel, SAbstractConcept> candidates = findCandidates(models, concepts, processedConsumer, null);
-    for (Map.Entry<SModel, Collection<SAbstractConcept>> e : candidates.entrySet()) {
-      FindUsagesUtil.collectInstances(e.getKey(), e.getValue(), consumer, monitor);
+    monitor.start("", candidates.keySet().size());
+    InstanceFinder nif = new InstanceFinder(concepts, consumer);
+    for (SModel e : candidates.keySet()) {
+      if (monitor.isCanceled()) {
+        break;
+      }
+      nif.collectInstances(e, monitor.subTask(1));
     }
+    monitor.done();
   }
 
   @Override

@@ -40,14 +40,27 @@
     <classNode extendsClassName="org.jetbrains.mps.openapi.module.FindUsagesFacade" />
   </dependency>
   <dependency className="jetbrains.mps.findUsages.FindUsagesUtil">
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.smodel.FastNodeFinderManager" />
+    <classNode dependClassName="jetbrains.mps.findUsages.InstanceFinder" />
     <classNode dependClassName="jetbrains.mps.smodel.SModelOperations" />
+    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModelReference" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
+  </dependency>
+  <dependency className="jetbrains.mps.findUsages.InstanceFinder">
+    <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.smodel.FastNodeFinderManager" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
@@ -59,7 +72,7 @@
     <classNode dependClassName="java.util.LinkedHashSet" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.findUsages.FindUsagesUtil" />
+    <classNode dependClassName="jetbrains.mps.findUsages.InstanceFinder" />
     <classNode dependClassName="jetbrains.mps.smodel.ConceptDescendantsCache" />
     <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />

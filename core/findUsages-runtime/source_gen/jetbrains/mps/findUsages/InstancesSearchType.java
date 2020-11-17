@@ -63,13 +63,13 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
       subMonitor.start("", current.size() + simpleSearch.size());
       showNoFastFindTipIfNeeded(current);
       current.addAll(simpleSearch);
+      final InstanceFinder nif = new InstanceFinder(queryConcepts, consumer);
       for (SModel m : current) {
         subMonitor.step(m.getName().getSimpleName());
-        FindUsagesUtil.collectInstances(m, queryConcepts, consumer, monitor);
-        if (monitor.isCanceled()) {
+        nif.collectInstances(m, subMonitor.subTask(1));
+        if (subMonitor.isCanceled()) {
           break;
         }
-        subMonitor.advance(1);
       }
       subMonitor.done();
     } finally {

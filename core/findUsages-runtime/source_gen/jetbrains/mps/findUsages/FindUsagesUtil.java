@@ -7,16 +7,19 @@ import org.jetbrains.mps.openapi.model.SModel;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.smodel.SModelOperations;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import jetbrains.mps.smodel.FastNodeFinderManager;
 
 /**
  * evgeny, 4/22/13
+ * 
+ * @deprecated use replacement classes
  */
+@Deprecated
 @GeneratedClass(node = "r:54a768d9-9f11-4443-98d8-70ab3a783c52(jetbrains.mps.findUsages)/8568892084424439838", model = "r:54a768d9-9f11-4443-98d8-70ab3a783c52(jetbrains.mps.findUsages)")
 public class FindUsagesUtil {
   public static boolean hasModelUsages(SModel m, Collection<SModelReference> models) {
@@ -32,16 +35,14 @@ public class FindUsagesUtil {
   }
   /**
    * Finds exact instances of the provided concepts in the model.
+   * 
    * FIXME refactor into {@code NodeInstanceFinder} similar to {@link NodeUsageFinder}.
+   * 
+   * @deprecated Use {@link jetbrains.mps.findUsages.InstanceFinder } instead
    */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2020.3)
   public static void collectInstances(SModel model, Collection<SAbstractConcept> concepts, Consumer<SNode> consumer, @NotNull ProgressMonitor monitor) {
-    for (SAbstractConcept concept : concepts) {
-      if (monitor.isCanceled()) {
-        return;
-      }
-      for (SNode instance : FastNodeFinderManager.get(model).getNodes(concept, false)) {
-        consumer.consume(instance);
-      }
-    }
+    new InstanceFinder(concepts, consumer).collectInstances(model, monitor);
   }
 }
