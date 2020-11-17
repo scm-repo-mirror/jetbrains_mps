@@ -24,8 +24,8 @@ import com.intellij.openapi.startup.StartupActivity;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.findUsages.FindUsagesUtil;
 import jetbrains.mps.findUsages.InstanceFinder;
+import jetbrains.mps.findUsages.ModelImportLookup;
 import jetbrains.mps.findUsages.NodeUsageFinder;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -169,17 +169,7 @@ public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposab
     }
     monitor.advance(1);
     Set<SModel> candidates = findCandidates(scope, modelReferences, processedConsumer, ModelUse::new, monitor.subTask(1));
-    ProgressMonitor pmCandidates = monitor.subTask(1);
-    pmCandidates.start("", candidates.size());
-    for (SModel candidate : candidates) {
-      if (monitor.isCanceled()) {
-        break;
-      }
-      if (FindUsagesUtil.hasModelUsages(candidate, modelReferences)) {
-        consumer.consume(candidate);
-      }
-      pmCandidates.advance(1);
-    }
+    new ModelImportLookup(modelReferences, consumer).withImports(candidates, monitor.subTask(1));
     monitor.done();
   }
 

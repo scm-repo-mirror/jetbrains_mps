@@ -39,7 +39,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.findUsages.InstanceFinder;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.findUsages.FindUsagesUtil;
+import jetbrains.mps.findUsages.ModelImportLookup;
 import jetbrains.mps.persistence.java.library.JavaClassStubModelDescriptor;
 import java.util.Collections;
 import jetbrains.mps.util.containers.ManyToManyMap;
@@ -181,11 +181,8 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
         return key.getModelName();
       }
     });
-    for (SModel e : candidates) {
-      if (FindUsagesUtil.hasModelUsages(e, modelReferences)) {
-        consumer.consume(e);
-      }
-    }
+    ModelImportLookup mil = new ModelImportLookup(modelReferences, consumer);
+    mil.withImports(candidates, new EmptyProgressMonitor());
   }
 
   private <T> Set<SModel> findCandidates(Collection<SModel> models, Set<T> elems, Consumer<SModel> processedConsumer, Function<T, String> id) {

@@ -41,18 +41,8 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
         monitor.advance(1);
       }
       ProgressMonitor subMonitor = monitor.subTask(4, SubProgressKind.DEFAULT);
-      subMonitor.start("", current.size());
-      for (SModel m : current) {
-        subMonitor.step(m.getName().getSimpleName());
-        if (FindUsagesUtil.hasModelUsages(m, models)) {
-          consumer.consume(m);
-        }
-        if (monitor.isCanceled()) {
-          break;
-        }
-        subMonitor.advance(1);
-      }
-      subMonitor.done();
+      ModelImportLookup mil = new ModelImportLookup(models, consumer);
+      mil.withImports(current, subMonitor);
     } finally {
       monitor.done();
     }
