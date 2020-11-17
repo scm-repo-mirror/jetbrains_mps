@@ -51,29 +51,34 @@ public class BackgroundWithFoldingLinePainter extends AbstractHighlighterPainter
   }
 
   protected void paint(Graphics g, int y, int height, Color editorAreaColor, Color highlighterAreaColor) {
+    int foldingLineX = getLeftHighlighter().getFoldingLineX();
+    int foldingLineWidth = getLeftHighlighter().getFoldingLineWidth();
+    Color leftAreaColor = myRightToLeft ? editorAreaColor : highlighterAreaColor;
+    Color rightAreaColor = myRightToLeft ? highlighterAreaColor : editorAreaColor;
+    fillTwoAreasSeparatedByDottedLine(g, y, height, foldingLineX, foldingLineWidth, leftAreaColor, rightAreaColor, getDottedLineFgLineColor());
+  }
+
+  public static void fillTwoAreasSeparatedByDottedLine(Graphics g, int y, int height, int lineX, int lineWidth, Color leftAreaColor,
+                                                       Color rightAreaColor, Color lineFgColor) {
 
     Rectangle clipBounds = g.getClipBounds();
 
     if (height <= 0 || !g.hitClip(clipBounds.x, y, clipBounds.width, height)) {
       return;
     }
-    int foldingLineX = getLeftHighlighter().getFoldingLineX();
-    int foldingLineWidth = getLeftHighlighter().getFoldingLineWidth();
 
     int leftAreaX = clipBounds.x;
-    int leftAreaWidth = foldingLineX - leftAreaX;
-    int rightAreaX = foldingLineX + foldingLineWidth;
+    int leftAreaWidth = lineX - leftAreaX;
+    int rightAreaX = lineX + lineWidth;
     int rightAreaWidth = leftAreaX + clipBounds.width - rightAreaX;
-    Color leftAreaColor = myRightToLeft ? editorAreaColor : highlighterAreaColor;
-    Color rightAreaColor = myRightToLeft ? highlighterAreaColor : editorAreaColor;
 
     g.setColor(leftAreaColor);
     g.fillRect(leftAreaX, y, leftAreaWidth, height);
     g.setColor(rightAreaColor);
     g.fillRect(rightAreaX, y, rightAreaWidth, height);
 
-    g.setColor(getDottedLineFgLineColor());
-    LinePainter2D.paint((Graphics2D) g, foldingLineX, y, foldingLineX, y + height - 1);
+    g.setColor(lineFgColor);
+    LinePainter2D.paint((Graphics2D) g, lineX, y, lineX, y + height - 1);
   }
 
 

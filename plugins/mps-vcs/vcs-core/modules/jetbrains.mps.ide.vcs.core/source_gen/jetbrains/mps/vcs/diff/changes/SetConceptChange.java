@@ -7,8 +7,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.diff.ChangeSet;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SReference;
@@ -33,20 +33,23 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/4133404009533074929", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
 public class SetConceptChange extends NodeChange {
-  private SConcept myNewConcept;
 
-  public SetConceptChange(@NotNull ChangeSet changeSet, @NotNull SNodeId nodeId, SConcept newValue) {
-    super(changeSet, nodeId);
+  private SConcept myOldConcept;
+  private SConcept myNewConcept;
+  private String myDescription;
+
+
+  public SetConceptChange(@NotNull ChangeSet changeSet, @NotNull SNodeId nodeId, SConcept oldValue, SConcept newValue) {
+    super(changeSet, nodeId, nodeId);
     myNewConcept = newValue;
+    myOldConcept = oldValue;
+    myDescription = createDescription();
   }
+
   public SConcept getNewValue() {
     return myNewConcept;
   }
-  private SConcept getOldConcept() {
-    SNode node = getChangeSet().getOldModel().getNode(getAffectedNodeId(false));
-    assert node != null;
-    return node.getConcept();
-  }
+
   @Override
   public void apply(@NotNull SModel model, @NotNull NodeCopier nodeCopier) {
     final SNode node = model.getNode(getAffectedNodeId());
@@ -94,19 +97,27 @@ public class SetConceptChange extends NodeChange {
 
     SNodeOperations.replaceWithAnother(node, newNode);
   }
+
   @NotNull
   @Override
   protected ModelChange createOppositeChange() {
-    return new SetConceptChange(getChangeSet().getOppositeChangeSet(), getAffectedNodeId(true), getOldConcept());
+    return new SetConceptChange(getChangeSet().getOppositeChangeSet(), getAffectedNodeId(true), myNewConcept, myOldConcept);
   }
+
   @Override
   public String toString() {
-    return String.format("Set concept %s to %s in node %s", getOldConcept(), myNewConcept, getAffectedNodeId(false));
+    return String.format("Set concept %s to %s in node %s", myOldConcept, myNewConcept, getAffectedNodeId(false));
   }
-  @Override
-  public String getDescription() {
+
+  private String createDescription() {
     return String.format("Changed concept of #%s from\n'%s'\nto\n'%s'", getAffectedNodeId(false), getChangeSet().getOldModel().getNode(getAffectedNodeId(false)).getConcept(), getChangeSet().getNewModel().getNode(getAffectedNodeId(true)).getConcept());
   }
+
+  @Override
+  public String getDescription() {
+    return myDescription;
+  }
+
   @Override
   public List<Tuples._2<SNodeId, MessageTarget>> createMessageTargetsWithIds(boolean isNewModel) {
     return LinkedListSequence.fromListAndArrayNew(new LinkedList<Tuples._2<SNodeId, MessageTarget>>(), MultiTuple.<SNodeId,MessageTarget>from(getAffectedNodeId(isNewModel), ((MessageTarget) new NodeMessageTarget())));

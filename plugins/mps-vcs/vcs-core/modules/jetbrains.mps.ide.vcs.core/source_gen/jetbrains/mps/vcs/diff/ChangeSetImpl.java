@@ -20,10 +20,10 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Objects;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.vcs.diff.changes.NodeChange;
@@ -31,6 +31,7 @@ import jetbrains.mps.vcs.diff.changes.AddRootChange;
 import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import jetbrains.mps.vcs.diff.changes.NodeGroupChange;
 import jetbrains.mps.vcs.diff.changes.NodeIdChange;
+import jetbrains.mps.vcs.diff.changes.AbstractNodeGroupChange;
 
 @GeneratedClass(node = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)/7082523601896740167", model = "r:5744ed46-c83f-47cd-94ce-f24d1f92d6a1(jetbrains.mps.vcs.diff)")
 public class ChangeSetImpl implements ModelChangeSet {
@@ -126,6 +127,10 @@ public class ChangeSetImpl implements ModelChangeSet {
   @Override
   public Iterable<ModelChange> getChangesForNode(@Nullable final SNodeId nodeId) {
 
+    if (MapSequence.fromMap(myRootToChanges).containsKey(nodeId)) {
+      return MapSequence.fromMap(myRootToChanges).get(nodeId);
+    }
+
     SNode oldNode = getOldModel().getNode(nodeId);
     SNode newNode = getNewModel().getNode(nodeId);
 
@@ -133,10 +138,24 @@ public class ChangeSetImpl implements ModelChangeSet {
       return Sequence.fromIterable(Collections.<ModelChange>emptyList());
     }
 
-    SNodeId rootId = (((oldNode == null) ? newNode : oldNode)).getContainingRoot().getNodeId();
-    Iterable<ModelChange> changesForRoot = getChangesForRoot(rootId);
-    if (Objects.equals(rootId, nodeId)) {
-      return changesForRoot;
+    SNodeId oldRootId = (oldNode == null ? null : oldNode.getContainingRoot().getNodeId());
+    SNodeId newRootId = (newNode == null ? null : newNode.getContainingRoot().getNodeId());
+
+    Set<ModelChange> changesForRoot = SetSequence.fromSet(new HashSet<ModelChange>());
+
+    if (oldRootId != null) {
+      Iterable<ModelChange> changes = getChangesForRoot(oldRootId);
+      if (Objects.equals(oldRootId, nodeId)) {
+        return changes;
+      }
+      SetSequence.fromSet(changesForRoot).addSequence(Sequence.fromIterable(changes));
+    }
+    if (newRootId != null && !(Objects.equals(newRootId, oldRootId))) {
+      Iterable<ModelChange> changes = getChangesForRoot(newRootId);
+      if (Objects.equals(newRootId, nodeId)) {
+        return changes;
+      }
+      SetSequence.fromSet(changesForRoot).addSequence(Sequence.fromIterable(changes));
     }
 
     final Set<SNodeId> ids = SetSequence.fromSet(new HashSet<SNodeId>());
@@ -154,7 +173,7 @@ public class ChangeSetImpl implements ModelChangeSet {
         }
       }));
     }
-    return Sequence.fromIterable(changesForRoot).where(new IWhereFilter<ModelChange>() {
+    return SetSequence.fromSet(changesForRoot).where(new IWhereFilter<ModelChange>() {
       public boolean accept(ModelChange change) {
         if (change instanceof NodeChange) {
           return SetSequence.fromSet(ids).contains(((NodeChange) change).getAffectedNodeId());
@@ -170,6 +189,20 @@ public class ChangeSetImpl implements ModelChangeSet {
         }
         if (change instanceof NodeIdChange) {
           return SetSequence.fromSet(ids).contains(((NodeIdChange) change).getNodeId(false));
+        }
+        if (change instanceof AbstractNodeGroupChange) {
+          AbstractNodeGroupChange ngc = (AbstractNodeGroupChange) change;
+          for (SNodeId chId : ngc.getIds(false)) {
+            if (SetSequence.fromSet(ids).contains(chId)) {
+              return true;
+            }
+          }
+          for (SNodeId chId : ngc.getIds(true)) {
+            if (SetSequence.fromSet(ids).contains(chId)) {
+              return true;
+            }
+          }
+          return false;
         }
         return false;
       }

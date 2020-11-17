@@ -44,6 +44,9 @@ public class NodeGroupChange extends StructureChange {
   private final int myResultEnd;
   private List<SNodeId> myPreparedIdsToDelete = null;
   private SNodeId myBeforeAnchorId = null;
+  private String myDescription;
+  private String myShortDescription;
+  private String myInternalDescription;
 
 
   public NodeGroupChange(@NotNull ChangeSet changeSet, @NotNull SNodeId oldParentNodeId, @NotNull SNodeId newParentNodeId, @NotNull SContainmentLink role, int begin, int end, int resultBegin, int resultEnd) {
@@ -55,6 +58,9 @@ public class NodeGroupChange extends StructureChange {
     myEnd = end;
     myResultBegin = resultBegin;
     myResultEnd = resultEnd;
+    myDescription = createDescription(true);
+    myShortDescription = createDescription(false);
+    myInternalDescription = createInternalDescription();
   }
 
   @NotNull
@@ -135,7 +141,7 @@ public class NodeGroupChange extends StructureChange {
   }
 
   public final List<SNode> getChangedCollection(boolean isNewModel) {
-    return check_yjf6x2_a0a93(check_yjf6x2_a0a0nb(getParent(isNewModel), myRole, this), this);
+    return check_yjf6x2_a0a24(check_yjf6x2_a0a0qb(getParent(isNewModel), myRole, this), this);
   }
 
 
@@ -168,7 +174,7 @@ public class NodeGroupChange extends StructureChange {
   private void deleteOldNodes(@NotNull final SModel model) {
     ListSequence.fromList(myPreparedIdsToDelete).visitAll(new IVisitor<SNodeId>() {
       public void visit(SNodeId id) {
-        check_yjf6x2_a0a0a0a0ub(model.getNode(id));
+        check_yjf6x2_a0a0a0a0xb(model.getNode(id));
       }
     });
     myPreparedIdsToDelete = null;
@@ -221,8 +227,7 @@ public class NodeGroupChange extends StructureChange {
     return ChangeType.CHANGE;
   }
 
-  @Override
-  public String toString() {
+  private String createInternalDescription() {
     if (myEnd == myBegin) {
       return String.format("Insert %s into position #%d in role %s of node %s", nodeRange(myResultBegin, myResultEnd), myBegin, myRole, myOldParentNodeId);
     }
@@ -230,6 +235,11 @@ public class NodeGroupChange extends StructureChange {
       return String.format("Delete %s in role %s of node %s", nodeRange(myBegin, myEnd), myRole, myOldParentNodeId);
     }
     return String.format("Replace %s with nodes %s in role %s of node %s", nodeRange(myBegin, myEnd), nodeRange(myResultBegin, myResultEnd), myRole, myOldParentNodeId);
+  }
+
+  @Override
+  public String toString() {
+    return myInternalDescription;
   }
 
   @Override
@@ -303,7 +313,7 @@ public class NodeGroupChange extends StructureChange {
     }
   }
 
-  public String getDescription(boolean verbose) {
+  private String createDescription(boolean verbose) {
     if (myResultBegin == myResultEnd) {
       return getRemovedDescription(verbose);
     } else if (myBegin == myEnd) {
@@ -311,6 +321,10 @@ public class NodeGroupChange extends StructureChange {
     } else {
       return getReplacedDescription(verbose);
     }
+  }
+
+  public String getDescription(boolean verbose) {
+    return (verbose ? myDescription : myShortDescription);
   }
 
   @NotNull
@@ -348,19 +362,19 @@ public class NodeGroupChange extends StructureChange {
     }
     return result;
   }
-  private static List<SNode> check_yjf6x2_a0a93(Iterable<SNode> checkedDotOperand, NodeGroupChange checkedDotThisExpression) {
+  private static List<SNode> check_yjf6x2_a0a24(Iterable<SNode> checkedDotOperand, NodeGroupChange checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return Sequence.fromIterable(checkedDotOperand).toListSequence();
     }
     return null;
   }
-  private static Iterable<SNode> check_yjf6x2_a0a0nb(SNode checkedDotOperand, SContainmentLink myRole, NodeGroupChange checkedDotThisExpression) {
+  private static Iterable<SNode> check_yjf6x2_a0a0qb(SNode checkedDotOperand, SContainmentLink myRole, NodeGroupChange checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return AttributeOperations.getChildNodesAndAttributes(checkedDotOperand, myRole);
     }
     return null;
   }
-  private static void check_yjf6x2_a0a0a0a0ub(SNode checkedDotOperand) {
+  private static void check_yjf6x2_a0a0a0a0xb(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.delete();
     }

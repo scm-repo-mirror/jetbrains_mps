@@ -12,6 +12,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
+import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.ide.icons.IdeIcons;
 import java.util.Arrays;
 import jetbrains.mps.vcs.diff.ui.common.DiffEditor;
@@ -32,13 +33,21 @@ public class DiffButtonsPainter extends ButtonsPainter {
         return c.getType() == ChangeType.ADD;
       }
     });
+    boolean allMove = ListSequence.fromList(changeGroup.getChanges()).all(new IWhereFilter<ModelChange>() {
+      public boolean accept(ModelChange c) {
+        return c instanceof NodeGroupMoveChange;
+      }
+    });
     if (isHighlightLeft()) {
-      if (!(allInsert)) {
+      if (!(allInsert) && !(allMove)) {
         button = new MyButton(changeGroup, getX(0), y, "Replace", IdeIcons.APPLY_RIGHT);
       }
     } else {
       if (allInsert) {
         button = new MyButton(changeGroup, getX(0), y, "Remove", IdeIcons.EXCLUDE);
+      }
+      if (allMove) {
+        button = new MyButton(changeGroup, getX(0), y, "Move back", IdeIcons.EXCLUDE);
       }
     }
     if (button != null) {

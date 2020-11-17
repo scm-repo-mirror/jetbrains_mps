@@ -9,6 +9,7 @@ import jetbrains.mps.nodeEditor.EditorComponent;
 import java.awt.Graphics;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
@@ -66,10 +67,23 @@ public abstract class ButtonsPainter extends AbstractFoldingAreaPainter {
       myButtons = ListSequence.fromList(new ArrayList<FoldingAreaButton>());
 
       int previousStart = Integer.MIN_VALUE;
-      for (ChangeGroup cg : ListSequence.fromList(myChangeGroupLayout.getChangeGroups())) {
+      List<ChangeGroup> changeGroups = (myHighlightLeft ? ListSequence.fromList(myChangeGroupLayout.getChangeGroups()).sort(new ISelector<ChangeGroup, Integer>() {
+        public Integer select(ChangeGroup g) {
+          return (int) g.getLeftBounds().start();
+        }
+      }, true).toListSequence() : ListSequence.fromList(myChangeGroupLayout.getChangeGroups()).sort(new ISelector<ChangeGroup, Integer>() {
+        public Integer select(ChangeGroup g) {
+          return (int) g.getRightBounds().start();
+        }
+      }, true).toListSequence());
+
+      for (ChangeGroup cg : ListSequence.fromList(changeGroups)) {
         int y = Math.max((int) cg.getBounds(myHighlightLeft).start() + 1, previousStart + GAP + ICON_SIZE);
-        ListSequence.fromList(myButtons).addSequence(Sequence.fromIterable(createButtonsForChangeGroup(cg, y)));
-        previousStart = y;
+        Iterable<FoldingAreaButton> buttons = createButtonsForChangeGroup(cg, y);
+        if (buttons != null && Sequence.fromIterable(buttons).isNotEmpty()) {
+          ListSequence.fromList(myButtons).addSequence(Sequence.fromIterable(createButtonsForChangeGroup(cg, y)));
+          previousStart = y;
+        }
       }
     }
   }

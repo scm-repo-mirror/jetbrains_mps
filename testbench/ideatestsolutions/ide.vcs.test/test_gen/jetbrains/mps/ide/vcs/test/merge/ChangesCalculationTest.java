@@ -19,9 +19,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.junit.Assert;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
-import org.junit.Test;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
+import org.junit.Test;
 import jetbrains.mps.vcs.diff.changes.AddRootChange;
 import jetbrains.mps.vcs.diff.changes.SetPropertyChange;
 import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
@@ -34,15 +34,27 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.vcs.diff.changes.NodeIdChange;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.vcs.diff.changes.NodeGroupChange;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
+import jetbrains.mps.vcs.diff.ChangeSet;
 import java.util.List;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
+import jetbrains.mps.vcs.diff.ChangeSetBuilder;
+import jetbrains.mps.vcs.diff.changes.NodeGroupPresenceChange;
+import jetbrains.mps.vcs.diff.changes.ModifiedNodesGroup;
+import java.util.Arrays;
+import jetbrains.mps.vcs.diff.changes.ModifiedNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.impl.cellActions.CommentUtil;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.vcs.diff.changes.NodeGroupWrapChange;
+import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.vcs.diff.ChangeSetImpl;
+import java.util.Set;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.vcs.diff.ModelChangeSet;
-import jetbrains.mps.vcs.diff.ChangeSetBuilder;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -88,62 +100,97 @@ public class ChangesCalculationTest extends ChangesTestBase {
     Assert.assertEquals("[sanity]", new SNodePointer("r:296ba97d-4b26-4d06-be61-297d86180cce(jetbrains.mps.ide.vcs.test.testModel)", "5876208808348821705").getNodeId(), myRootNodeId);
   }
 
-  @Test
-  public void testRemoveRoot() {
+  private void testRemoveRoot(boolean trackMovedNodes) {
     testDiffCorrectness(new Runnable() {
       public void run() {
         SNodeOperations.deleteNode(myRootNode);
       }
-    }, new DeleteRootChange(createFakeChangeSet(), myRootNodeId));
+    }, trackMovedNodes, new DeleteRootChange(createFakeChangeSet(), myRootNodeId));
   }
 
   @Test
-  public void testAddRoot() {
+  public void testRemovedRoot() {
+    testRemoveRoot(false);
+  }
+
+  @Test
+  public void testRemovedRootTrackMovedNodes() {
+    testRemoveRoot(true);
+  }
+
+  private void testAddRoot(boolean trackMovedNodes) {
     final SNodeId id = new jetbrains.mps.smodel.SNodeId.Regular(1);
     testDiffCorrectness(new Runnable() {
       public void run() {
-        SNode newRoot = createClassConcept_7w1430_a0a0a0b0k();
+        SNode newRoot = createClassConcept_7w1430_a0a0a0b0o();
         ((jetbrains.mps.smodel.SNode) newRoot).setId(id);
         SModelOperations.addRootNode(myTestModel, newRoot);
         assert newRoot.getNodeId().equals(id) : "this can't happen in universe's lifetime";
       }
-    }, new AddRootChange(createFakeChangeSet(), id));
+    }, trackMovedNodes, new AddRootChange(createFakeChangeSet(), id));
   }
 
   @Test
-  public void testPropertyChange() {
+  public void testAddRoot() {
+    testAddRoot(false);
+  }
+
+  @Test
+  public void testAddRootTrackMovedNodes() {
+    testAddRoot(true);
+  }
+
+  private void testPropertyChange(boolean trackMovedNodes) {
     testDiffCorrectness(new Runnable() {
       public void run() {
         SPropertyOperations.assign(myRootNode, PROPS.name$MnvL, "RenamedRoot");
       }
-    }, new SetPropertyChange(createFakeChangeSet(), myRootNodeId, PROPS.name$MnvL, "RenamedRoot"));
+    }, trackMovedNodes, new SetPropertyChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, PROPS.name$MnvL, "RenamedRoot"));
   }
 
   @Test
-  public void changeReference() {
+  public void testPropertyChange() {
+    testPropertyChange(false);
+  }
+
+  @Test
+  public void testPropertyChangeTrackMovedNodes() {
+    testPropertyChange(true);
+  }
+
+  private void changeReference(boolean trackMovedNodes) {
     SetReferenceChange change;
     final SNode method1 = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "method1");
       }
     }).first();
-    change = new SetReferenceChange(createFakeChangeSet(), SLinkOperations.getTarget(method1, LINKS.returnType$5xoi).getNodeId(), LINKS.classifier$cxMr, myTestModel.getReference(), myRootNodeId, "Root");
+    change = new SetReferenceChange(createFakeChangeSet(), SLinkOperations.getTarget(method1, LINKS.returnType$5xoi).getNodeId(), SLinkOperations.getTarget(method1, LINKS.returnType$5xoi).getNodeId(), LINKS.classifier$cxMr, myTestModel.getReference(), myRootNodeId, "Root");
     testDiffCorrectness(new Runnable() {
       public void run() {
         SLinkOperations.setTarget(SNodeOperations.cast(SLinkOperations.getTarget(method1, LINKS.returnType$5xoi), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr, myRootNode);
       }
-    }, change);
+    }, trackMovedNodes, change);
   }
 
   @Test
-  public void testIdChange() {
+  public void changeReference() {
+    changeReference(false);
+  }
+
+  @Test
+  public void changeReferenceTrackMovedNodes() {
+    changeReference(true);
+  }
+
+  private void testIdChange(boolean trackMovedNodes) {
     final SNode method1Body = SLinkOperations.getTarget(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "method1");
       }
     }).first(), LINKS.body$5xQk);
-    final SNode newReturnStmt = createReturnStatement_7w1430_a0b0q();
-    final SNode newNull = createNullLiteral_7w1430_a0c0q();
+    final SNode newReturnStmt = createReturnStatement_7w1430_a0b0gb();
+    final SNode newNull = createNullLiteral_7w1430_a0c0gb();
     final SNode oldReturnStmt = SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(method1Body)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.ReturnStatement$lt);
@@ -156,46 +203,97 @@ public class ChangesCalculationTest extends ChangesTestBase {
         SNodeOperations.deleteNode(oldReturnStmt);
         method1Body.insertChildBefore(LINKS.statement$53DE, newReturnStmt, null);
       }
-    }, new NodeIdChange(createFakeChangeSet(), method1Body.getNodeId(), method1Body.getNodeId(), LINKS.statement$53DE, oldReturnStmt.getNodeId(), newReturnStmt.getNodeId()), new NodeIdChange(createFakeChangeSet(), oldReturnStmt.getNodeId(), newReturnStmt.getNodeId(), LINKS.expression$eJ92, oldNull.getNodeId(), newNull.getNodeId()));
+    }, trackMovedNodes, new NodeIdChange(createFakeChangeSet(), method1Body.getNodeId(), method1Body.getNodeId(), LINKS.statement$53DE, oldReturnStmt.getNodeId(), newReturnStmt.getNodeId()), new NodeIdChange(createFakeChangeSet(), oldReturnStmt.getNodeId(), newReturnStmt.getNodeId(), LINKS.expression$eJ92, oldNull.getNodeId(), newNull.getNodeId()));
+  }
 
+  @Test
+  public void testIdChange() {
+    testIdChange(false);
+  }
+
+  @Test
+  public void testIdChangeTrackMovedNodes() {
+    testIdChange(true);
   }
 
   @Test
   public void addChild() {
     testDiffCorrectness(new _Adapters._return_P0_E0_to_Runnable_adapter(new _FunctionTypes._return_P0_E0<SNode>() {
       public SNode invoke() {
-        return SLinkOperations.setTarget(myRootNode, LINKS.superclass$Mp9$, _quotation_createNode_7w1430_a0a0a0a0s());
+        return SLinkOperations.setTarget(myRootNode, LINKS.superclass$Mp9$, _quotation_createNode_7w1430_a0a0a0a0mb());
       }
-    }), new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.superclass$Mp9$, 0, 0, 0, 1));
+    }), false, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.superclass$Mp9$, 0, 0, 0, 1));
+  }
+
+  @Test
+  public void addChildTrackMovedNodes() {
+    final SNode superClass = _quotation_createNode_7w1430_a0a0ob();
+    ChangeSet changeSet = createFakeChangeSet();
+    ourProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        SLinkOperations.setTarget(myRootNode, LINKS.superclass$Mp9$, superClass);
+      }
+    });
+    List<ModelChange> realChanges = ChangeSetBuilder.buildChangeSetWithMovedNodes(myReferenceModel, myTestModel).getModelChanges();
+    ModelChange[] expectedChanges = {new NodeGroupPresenceChange(changeSet, new ModifiedNodesGroup(changeSet.getOldModel(), null, myRootNode.getNodeId(), LINKS.superclass$Mp9$, false), new ModifiedNodesGroup(changeSet.getNewModel(), Arrays.asList(new ModifiedNode(changeSet, superClass, ModifiedNode.Kind.PRESENCE, true)), null))};
+    testDiffCorrectness(realChanges, expectedChanges);
+  }
+
+  private void addSameRoleChildren(boolean trackMovedNodes) {
+    testDiffCorrectness(new _Adapters._return_P0_E0_to_Runnable_adapter(new _FunctionTypes._return_P0_E0<SNode>() {
+      public SNode invoke() {
+        ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a0a0a0a24());
+        ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a1a0a0a24());
+        return ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a2a0a0a24());
+      }
+    }), trackMovedNodes, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.implementedInterface$rujG, 0, 0, 0, 3));
   }
 
   @Test
   public void addSameRoleChildren() {
-    testDiffCorrectness(new _Adapters._return_P0_E0_to_Runnable_adapter(new _FunctionTypes._return_P0_E0<SNode>() {
-      public SNode invoke() {
-        ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a0a0a0a02());
-        ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a1a0a0a02());
-        return ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.implementedInterface$rujG)).addElement(_quotation_createNode_7w1430_a0a2a0a0a02());
-      }
-    }), new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.implementedInterface$rujG, 0, 0, 0, 3));
+    addSameRoleChildren(false);
   }
 
   @Test
-  public void addNodeAttribute() {
+  public void addSameRoleChildrenTrackMovedNodes() {
+    addSameRoleChildren(true);
+  }
+
+  private void addNodeAttribute(boolean trackMovedNodes) {
     testDiffCorrectness(new Runnable() {
       public void run() {
         new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$8u).setNew(myRootNode);
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.smodelAttribute$KJ43, 0, 0, 0, 1));
+    }, trackMovedNodes, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.smodelAttribute$KJ43, 0, 0, 0, 1));
   }
+
   @Test
-  public void addChildAttribute() {
+  public void addNodeAttribute() {
+    addNodeAttribute(false);
+  }
+
+  @Test
+  public void addNodeAttributeTrackMovedNodes() {
+    addNodeAttribute(true);
+  }
+
+  private void addChildAttribute(boolean trackMovedNodes) {
     testDiffCorrectness(new Runnable() {
       public void run() {
         ChangesTestUtil.addCommentedMethod(myRootNode, ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.member$L_2d)).last());
 
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 3, 3, 3, 4));
+    }, trackMovedNodes, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 3, 3, 3, 4));
+  }
+
+  @Test
+  public void addChildAttribute() {
+    addChildAttribute(false);
+  }
+
+  @Test
+  public void addChildAttributeTrackMovedNodes() {
+    addChildAttribute(true);
   }
 
   @Test
@@ -204,8 +302,18 @@ public class ChangesCalculationTest extends ChangesTestBase {
       public void run() {
         ChangesTestUtil.addCommentedMethod(myRootNode, ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.member$L_2d)).last());
       }
-    });
+    }, false);
     junit.framework.Assert.assertTrue(ListSequence.fromList(changes).count() == 1 && ListSequence.fromList(changes).first() instanceof NodeGroupChange && ((NodeGroupChange) ListSequence.fromList(changes).first()).isAbout(LINKS.member$L_2d));
+  }
+
+  @Test
+  public void addChildAttributeAndCheckItIsAboutRoleTrackMovedNodes() {
+    List<ModelChange> changes = applyAndDiff(new Runnable() {
+      public void run() {
+        ChangesTestUtil.addCommentedMethod(myRootNode, ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.member$L_2d)).last());
+      }
+    }, true);
+    junit.framework.Assert.assertTrue(ListSequence.fromList(changes).count() == 1 && ListSequence.fromList(changes).first() instanceof NodeGroupPresenceChange && ((NodeGroupPresenceChange) ListSequence.fromList(changes).first()).isAbout(LINKS.member$L_2d));
   }
 
   @Test
@@ -219,11 +327,27 @@ public class ChangesCalculationTest extends ChangesTestBase {
       public void run() {
         SNodeOperations.deleteNode(method1);
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 0));
+    }, false, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 0));
   }
 
   @Test
-  public void removeChildAttribute() {
+  public void removeChildTrackMovedNodes() {
+    final SNode method1 = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "method1");
+      }
+    }).first();
+    ChangeSet changeSet = createFakeChangeSet();
+    ourProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        SNodeOperations.deleteNode(method1);
+      }
+    });
+    List<ModelChange> realChanges = ChangeSetBuilder.buildChangeSetWithMovedNodes(myReferenceModel, myTestModel).getModelChanges();
+    testDiffCorrectness(realChanges, new NodeGroupPresenceChange(changeSet, new ModifiedNodesGroup(changeSet.getOldModel(), Arrays.asList(new ModifiedNode(changeSet, changeSet.getOldModel().getNode(method1.getNodeId()), ModifiedNode.Kind.PRESENCE, false)), check_7w1430_c0b0b0e0oc(method1.getNextSibling())), new ModifiedNodesGroup(changeSet.getNewModel(), check_7w1430_b0c0b0e0oc(method1.getNextSibling()), check_7w1430_c0c0b0e0oc(method1.getParent()), LINKS.member$L_2d, true)));
+  }
+
+  private void removeChildAttribute(boolean trackMovedNodes) {
     final SNode commented = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(new IAttributeDescriptor.ChildAttribute(CONCEPTS.BaseCommentAttribute$nv, LINKS.member$L_2d).list(myRootNode), LINKS.commentedNode$MYvG), CONCEPTS.InstanceMethodDeclaration$39)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "commented");
@@ -233,11 +357,20 @@ public class ChangesCalculationTest extends ChangesTestBase {
       public void run() {
         SNodeOperations.deleteNode(SNodeOperations.cast(SNodeOperations.getParent(commented), CONCEPTS.BaseCommentAttribute$nv));
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 1, 2, 1, 1));
+    }, trackMovedNodes, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 1, 2, 1, 1));
   }
 
   @Test
-  public void replaceChild() {
+  public void removeChildAttribute() {
+    removeChildAttribute(false);
+  }
+
+  @Test
+  public void removeChildAttributeTrackMovedNodes() {
+    removeChildAttribute(true);
+  }
+
+  private void replaceChild(boolean trackMovedNodes) {
     final SNode method1 = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "method1");
@@ -248,8 +381,19 @@ public class ChangesCalculationTest extends ChangesTestBase {
         SNodeOperations.deleteNode(method1);
         ListSequence.fromList(SLinkOperations.getChildren(myRootNode, LINKS.member$L_2d)).insertElement(0, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1458378889e6d166L, "jetbrains.mps.baseLanguage.structure.PlaceholderMember")));
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 1));
+    }, trackMovedNodes, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 1));
   }
+
+  @Test
+  public void replaceChild() {
+    replaceChild(false);
+  }
+
+  @Test
+  public void replaceChildTrackMovedNodes() {
+    replaceChild(true);
+  }
+
   @Test
   public void commentChild() {
     final SNode method1 = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
@@ -261,15 +405,65 @@ public class ChangesCalculationTest extends ChangesTestBase {
       public void run() {
         CommentUtil.commentOut(method1);
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 1));
+    }, false, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 0, 1, 0, 1));
   }
+
+  @Test
+  public void commentChildTrackMovedNodes() {
+
+    final SNode commentedNode = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(myRootNode, CONCEPTS.Classifier$Ix, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$Ix, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$MnvL), "method1");
+      }
+    }).first();
+
+    final Wrappers._T<SNode> commentNode = new Wrappers._T<SNode>();
+    ourProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        commentNode.value = CommentUtil.commentOut(commentedNode);
+      }
+    });
+    List<ModelChange> realChanges = ChangeSetBuilder.buildChangeSetWithMovedNodes(myReferenceModel, myTestModel).getModelChanges();
+
+    ChangeSet changeSet = createFakeChangeSet();
+    SNode uncommentedNode = changeSet.getOldModel().getNode(commentedNode.getNodeId());
+    SNodeId uncommentedNodeNextId = check_7w1430_a0j0ed(uncommentedNode.getNextSibling());
+    SNodeId commentedNodeNextId = check_7w1430_a0k0ed(commentedNode.getNextSibling());
+    SNodeId commentNodeNextId = check_7w1430_a0l0ed(commentNode.value.getNextSibling());
+
+    testDiffCorrectness(realChanges, new NodeGroupWrapChange(changeSet, new ModifiedNodesGroup(changeSet.getOldModel(), Arrays.asList(new ModifiedNode(changeSet, uncommentedNode, ModifiedNode.Kind.MOVE, false)), uncommentedNodeNextId), new ModifiedNodesGroup(changeSet.getNewModel(), Arrays.asList(new ModifiedNode(changeSet, commentedNode, ModifiedNode.Kind.MOVE, true)), commentedNodeNextId), new ModifiedNodesGroup(changeSet.getNewModel(), Arrays.asList(new ModifiedNode(changeSet, commentNode.value, ModifiedNode.Kind.PRESENCE, true)), commentNodeNextId), true));
+  }
+
   @Test
   public void uncommentChild() {
     testDiffCorrectness(new Runnable() {
       public void run() {
         ChangesTestUtil.uncommentFirstCommentedMethod(myRootNode);
       }
-    }, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 1, 2, 1, 2));
+    }, false, new NodeGroupChange(createFakeChangeSet(), myRootNodeId, myRootNodeId, LINKS.member$L_2d, 1, 2, 1, 2));
+  }
+
+  @Test
+  public void uncommentChildTrackMovedNodes() {
+
+    final Wrappers._T<SNode> uncommentedNode = new Wrappers._T<SNode>();
+    final SNode commentNodeToDelete = ListSequence.fromList(new IAttributeDescriptor.ChildAttribute(CONCEPTS.BaseCommentAttribute$nv, LINKS.member$L_2d).list(myRootNode)).first();
+    ourProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        uncommentedNode.value = CommentUtil.uncomment(commentNodeToDelete);
+      }
+    });
+
+    List<ModelChange> realChanges = ChangeSetBuilder.buildChangeSetWithMovedNodes(myReferenceModel, myTestModel).getModelChanges();
+
+    ChangeSet changeSet = createFakeChangeSet();
+    SNode commentedNode = changeSet.getOldModel().getNode(uncommentedNode.value.getNodeId());
+    SNode commentNode = changeSet.getOldModel().getNode(commentNodeToDelete.getNodeId());
+    SNodeId commentedNodeNextId = check_7w1430_a0k0id(commentedNode.getNextSibling());
+    SNodeId uncommentedNodeNextId = check_7w1430_a0l0id(uncommentedNode.value.getNextSibling());
+    SNodeId commentNodeNextId = check_7w1430_a0m0id(commentNode.getNextSibling());
+
+    testDiffCorrectness(realChanges, new NodeGroupMoveChange(changeSet, new ModifiedNodesGroup(changeSet.getOldModel(), Arrays.asList(new ModifiedNode(changeSet, commentedNode, ModifiedNode.Kind.MOVE, false)), commentedNodeNextId), new ModifiedNodesGroup(changeSet.getNewModel(), Arrays.asList(new ModifiedNode(changeSet, uncommentedNode.value, ModifiedNode.Kind.MOVE, true)), uncommentedNodeNextId), LINKS.commentedNode$MYvG, LINKS.member$L_2d), new NodeGroupPresenceChange(changeSet, new ModifiedNodesGroup(changeSet.getOldModel(), Arrays.asList(new ModifiedNode(changeSet, commentNode, ModifiedNode.Kind.PRESENCE, false)), commentNodeNextId), new ModifiedNodesGroup(changeSet.getNewModel(), commentedNodeNextId, check_7w1430_c0c0c0o0id(uncommentedNode.value.getParent()), LINKS.member$L_2d, false)));
   }
 
   @Test
@@ -281,64 +475,154 @@ public class ChangesCalculationTest extends ChangesTestBase {
     return new ChangeSetImpl(myReferenceModel, myTestModel);
   }
 
-  private void testDiffCorrectness(Runnable todo, ModelChange... expectedChanges) {
-    List<ModelChange> realChanges = applyAndDiff(todo);
-    Assert.assertEquals(expectedChanges.length, ListSequence.fromList(realChanges).count());
-    for (int i = 0; i < expectedChanges.length; i++) {
-      ModelChange real = ListSequence.fromList(realChanges).getElement(i);
-      ModelChange expected = expectedChanges[i];
-      Assert.assertEquals(real.toString(), expected.toString());
-    }
+  private void testDiffCorrectness(List<ModelChange> realChanges, ModelChange... expectedChanges) {
+    Set<String> actualStrings = SetSequence.fromSetWithValues(new HashSet<String>(), ListSequence.fromList(realChanges).select(new ISelector<ModelChange, String>() {
+      public String select(ModelChange it) {
+        return it.toString();
+      }
+    }));
+    Set<String> expectedStrings = SetSequence.fromSetWithValues(new HashSet<String>(), Sequence.fromIterable(Sequence.fromArray(expectedChanges)).select(new ISelector<ModelChange, String>() {
+      public String select(ModelChange it) {
+        return it.toString();
+      }
+    }));
+    Assert.assertEquals(expectedStrings, actualStrings);
   }
 
-  private List<ModelChange> applyAndDiff(Runnable todo) {
+
+  private void testDiffCorrectness(Runnable todo, boolean trackMovedNodes, ModelChange... expectedChanges) {
+    List<ModelChange> realChanges = applyAndDiff(todo, trackMovedNodes);
+    Set<String> actualStrings = SetSequence.fromSetWithValues(new HashSet<String>(), ListSequence.fromList(realChanges).select(new ISelector<ModelChange, String>() {
+      public String select(ModelChange it) {
+        return it.toString();
+      }
+    }));
+    Set<String> expectedStrings = SetSequence.fromSetWithValues(new HashSet<String>(), Sequence.fromIterable(Sequence.fromArray(expectedChanges)).select(new ISelector<ModelChange, String>() {
+      public String select(ModelChange it) {
+        return it.toString();
+      }
+    }));
+    Assert.assertEquals(expectedStrings, actualStrings);
+  }
+
+  private List<ModelChange> applyAndDiff(Runnable todo, boolean trackMovedNodes) {
     // the reason we have to modify detached model inside a model read is that some tests touch references, and our Root sample 
     // has references pointing outside. We'd rather fix this sample to be self-contained 
     ourProject.getModelAccess().runReadAction(todo);
     // diff of detached models shall not require model read 
+    if (trackMovedNodes) {
+      return ChangeSetBuilder.buildChangeSetWithMovedNodes(myReferenceModel, myTestModel).getModelChanges();
+    }
     ModelChangeSet diff = ChangeSetBuilder.buildChangeSet(myReferenceModel, myTestModel);
     return diff.getModelChanges();
   }
-  private static SNode createClassConcept_7w1430_a0a0a0b0k() {
+  private static SNode createClassConcept_7w1430_a0a0a0b0o() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassConcept$bK);
     n0.setProperty(PROPS.name$MnvL, "NewRoot");
     return n0.getResult();
   }
-  private static SNode createReturnStatement_7w1430_a0b0q() {
+  private static SNode createReturnStatement_7w1430_a0b0gb() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReturnStatement$lt);
     return n0.getResult();
   }
-  private static SNode createNullLiteral_7w1430_a0c0q() {
+  private static SNode createNullLiteral_7w1430_a0c0gb() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.NullLiteral$QQ);
     return n0.getResult();
   }
-  private static SNode _quotation_createNode_7w1430_a0a0a0a0s() {
+  private static SNode _quotation_createNode_7w1430_a0a0a0a0mb() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_7w1430_a0a0a0a0a02() {
+  private static SNode _quotation_createNode_7w1430_a0a0ob() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_1 = null;
+    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
+    quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    return quotedNode_1;
+  }
+  private static SNode _quotation_createNode_7w1430_a0a0a0a0a24() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Runnable")));
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_7w1430_a0a1a0a0a02() {
+  private static SNode _quotation_createNode_7w1430_a0a1a0a0a24() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Readable")));
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_7w1430_a0a2a0a0a02() {
+  private static SNode _quotation_createNode_7w1430_a0a2a0a0a24() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Iterable")));
     return quotedNode_1;
+  }
+  private static SNodeId check_7w1430_c0b0b0e0oc(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_b0c0b0e0oc(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_c0c0b0e0oc(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0j0ed(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0k0ed(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0l0ed(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0k0id(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0l0id(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_a0m0id(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
+  }
+  private static SNodeId check_7w1430_c0c0c0o0id(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
   }
 
   private static final class CONCEPTS {

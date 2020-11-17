@@ -172,7 +172,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
     }
     getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        List<ModelChange> changes = ChangeSetBuilder.buildChangeSetForNode(prevModel, model, myRootId, false).getModelChanges();
+        List<ModelChange> changes = ChangeSetBuilder.buildChangeSetForNode(prevModel, model, myRootId, false, true).getModelChanges();
         if (ListSequence.fromList(changes).isEmpty()) {
           return;
         }

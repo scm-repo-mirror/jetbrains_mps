@@ -73,11 +73,15 @@ public class ChangeColors {
 
     MapSequence.fromMap(myDiffColors).put(ChangeType.CONFLICTED, StyleRegistry.getInstance().getStyle("DIFF_CONFLICT").get(StyleAttributes.TEXT_BACKGROUND_COLOR));
 
+    MapSequence.fromMap(myDiffColors).put(ChangeType.MOVE, new Color(255, 255, 224));
+
     MapSequence.fromMap(myGutterColors).put(ChangeType.ADD, scheme.getColor(EditorColors.ADDED_LINES_COLOR));
 
     MapSequence.fromMap(myGutterColors).put(ChangeType.DELETE, scheme.getColor(EditorColors.DELETED_LINES_COLOR));
 
     MapSequence.fromMap(myGutterColors).put(ChangeType.CHANGE, scheme.getColor(EditorColors.MODIFIED_LINES_COLOR));
+
+    MapSequence.fromMap(myGutterColors).put(ChangeType.MOVE, new Color(255, 255, 224));
 
     MapSequence.fromMap(myErrorStripeColors).put(ChangeType.ADD, scheme.getAttributes(TextAttributesKey.createTextAttributesKey("DIFF_INSERTED")).getErrorStripeColor());
     MapSequence.fromMap(myErrorStripeColors).put(ChangeType.DELETE, scheme.getAttributes(TextAttributesKey.createTextAttributesKey("DIFF_DELETED")).getErrorStripeColor());

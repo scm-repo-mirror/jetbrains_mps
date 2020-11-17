@@ -34,4 +34,10 @@ public class Bounds extends MultiTuple._2<Integer, Integer> {
   public boolean contains(int value) {
     return (int) this.start() <= value && value < (int) this.end();
   }
+  public boolean contains(Bounds that) {
+    return (int) this.start() <= (int) that.start() && (int) that.end() <= (int) this.end();
+  }
+  public boolean containsPart(Bounds that) {
+    return contains((int) that.start()) || contains((int) that.end() - 1);
+  }
 }

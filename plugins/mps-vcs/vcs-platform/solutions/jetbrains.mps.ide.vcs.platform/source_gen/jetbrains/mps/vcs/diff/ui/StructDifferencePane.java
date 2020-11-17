@@ -17,6 +17,7 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser;
 import jetbrains.mps.vcs.changesmanager.CurrentDifferenceRegistry;
+import jetbrains.mps.vcs.diff.ui.common.TripleChangeGroupLayout;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.EditableSModel;
@@ -34,23 +35,12 @@ import com.intellij.openapi.actionSystem.ToggleAction;
 import jetbrains.mps.ide.icons.IdeIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.diff.tools.util.DiffSplitter;
-import com.intellij.diff.util.DiffDividerDrawUtil;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import com.intellij.diff.util.DiffDrawUtil;
-import java.awt.Color;
-import com.intellij.openapi.ui.GraphicsConfig;
-import com.intellij.util.ui.GraphicsUtil;
-import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
-import jetbrains.mps.internal.collections.runtime.IMapping;
-import jetbrains.mps.vcs.diff.ui.common.ChangeGroup;
-import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
-import jetbrains.mps.vcs.diff.ui.common.Bounds;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import javax.swing.JPanel;
+import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
 import jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages;
 import jetbrains.mps.smodel.SModelOperations;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -79,6 +69,10 @@ public class StructDifferencePane implements PropertyChangeListener {
 
   private final CurrentDifferenceRegistry myDiffRegistry;
   private MyDifferenceListener myDifferenceListener = new MyDifferenceListener();
+
+  private TripleChangeGroupLayout myMainLayout;
+  private TripleChangeGroupLayout myInspectorLayout;
+
 
 
   public StructDifferencePane(Project project, final StructChangeSet changeSet, String[] titles) {
@@ -138,7 +132,7 @@ public class StructDifferencePane implements PropertyChangeListener {
     }
 
     private void rehighlightWithRebuild() {
-      check_n8nr2l_a0a5x(ProjectHelper.getModelAccess(myProject), this);
+      check_n8nr2l_a0a5bb(ProjectHelper.getModelAccess(myProject), this);
     }
     private void doRehighlight() {
       rehighlight();
@@ -195,96 +189,19 @@ public class StructDifferencePane implements PropertyChangeListener {
     });
   }
 
-  private class MyDividerPainter implements DiffSplitter.Painter, DiffDividerDrawUtil.DividerPaintable {
-
-    private boolean myInspector;
+  private class MyDividerPainter implements DiffSplitter.Painter {
 
     @Override
     public void paint(@NotNull Graphics g, @NotNull JComponent divider) {
-      paintMainEditorDivider(g, divider);
+      paintDividerPart(g, divider, false);
       if (isInspectorShown) {
-        paintInspectorDivider(g, divider);
+        paintDividerPart(g, divider, true);
       }
     }
 
-    protected void paintMainEditorDivider(@NotNull Graphics g, @NotNull JComponent divider) {
-      myInspector = false;
-      paintDividerPart(g, divider);
-    }
-
-    protected void paintInspectorDivider(@NotNull Graphics g, @NotNull JComponent divider) {
-      myInspector = true;
-      paintDividerPart(g, divider);
-    }
-
-    private void paintDividerPart(@NotNull Graphics g, @NotNull JComponent divider) {
-
-      Graphics2D gg = DiffDividerDrawUtil.getDividerGraphics(g, divider, myOldEditor.getComponent(myInspector));
-
-      gg.setColor(DiffDrawUtil.getDividerColor());
-      gg.fill(gg.getClipBounds());
-
-      final List<DiffDividerDrawUtil.DividerPolygon> polygons = new ArrayList<DiffDividerDrawUtil.DividerPolygon>();
-
-      int width = divider.getWidth();
-
-      process(new DiffDividerDrawUtil.DividerPaintable.Handler() {
-        @Override
-        public boolean process(int startLine1, int endLine1, int startLine2, int endLine2, @Nullable Color fillColor, @Nullable Color borderColor, boolean dottedBorder) {
-          return polygons.add(new DiffDividerDrawUtil.DividerPolygon(startLine1, startLine2, endLine1, endLine2, fillColor, borderColor, dottedBorder));
-        }
-      });
-
-      GraphicsConfig config = GraphicsUtil.setupAAPainting(gg);
-      for (DiffDividerDrawUtil.DividerPolygon dividerPolygon : ListSequence.fromList(polygons)) {
-        dividerPolygon.paint(gg, width, true);
-      }
-      config.restore();
-
-      gg.dispose();
-    }
-
-    @Override
-    public void process(@NotNull DiffDividerDrawUtil.DividerPaintable.Handler handler) {
-
-      DiffChangeGroupLayout changeGroupLayout = ((DiffChangeGroupLayout) ((myInspector ? ListSequence.fromList(myChangeGroupLayouts).getElement(1) : ListSequence.fromList(myChangeGroupLayouts).getElement(0))));
-      processChangeGroupLayout(handler, changeGroupLayout);
-    }
-
-    public void processChangeGroupLayout(@NotNull DiffDividerDrawUtil.DividerPaintable.Handler handler, DiffChangeGroupLayout layout) {
-      int prevLeftEnd = -1;
-      int prevRightEnd = -1;
-      int leftOffset = myOldEditor.getMessagesPanelOffset(myInspector);
-      int rightOffset = myNewEditor.getMessagesPanelOffset(myInspector);
-      for (IMapping<ChangeGroup, Tuples._2<Bounds, Bounds>> groupWithBounds : MapSequence.fromMap(layout.getGroupsWithBounds())) {
-        Bounds left = groupWithBounds.value()._0();
-        Bounds right = groupWithBounds.value()._1();
-        int leftStart = (int) left.start() + leftOffset;
-        int leftEnd = (int) left.end() + leftOffset;
-        int rightStart = (int) right.start() + rightOffset;
-        int rightEnd = (int) right.end() + rightOffset;
-        Color color = ChangeColors.getInstance().getDiffColor(groupWithBounds.key().getChangeType());
-        // separate changes close to each other 
-        if (leftStart == prevLeftEnd) {
-          leftStart++;
-          if (leftEnd - leftStart == 0) {
-            leftStart++;
-            leftEnd++;
-          }
-        }
-        if (rightStart == prevRightEnd) {
-          rightStart++;
-          if (rightEnd - rightStart == 0) {
-            rightStart++;
-            rightEnd++;
-          }
-        }
-        prevLeftEnd = leftEnd;
-        prevRightEnd = rightEnd;
-        if (!(handler.process(leftStart, leftEnd, rightStart, rightEnd, color, null, false))) {
-          return;
-        }
-      }
+    private void paintDividerPart(@NotNull Graphics g, @NotNull JComponent divider, boolean inspector) {
+      TripleChangeGroupLayout layout = (inspector ? myInspectorLayout : myMainLayout);
+      layout.paintPolygons(g, divider, inspector, myOldEditor, myNewEditor);
     }
   }
 
@@ -326,7 +243,16 @@ public class StructDifferencePane implements PropertyChangeListener {
   }
 
   private void linkEditors(TwosideContentPanel panel, boolean inspector) {
-    DiffChangeGroupLayout layout = new DiffChangeGroupLayout(null, ProjectHelper.getProjectRepository(myProject), myChangeSet, myOldEditor, myNewEditor, getSplitterRepainter(panel), inspector);
+    DiffChangeGroupLayout layout = new DiffChangeGroupLayout(null, myChangeSet, myOldEditor, myNewEditor, getSplitterRepainter(panel), inspector);
+    if (inspector) {
+      myInspectorLayout = new TripleChangeGroupLayout(layout, null, true);
+      myOldEditor.setLayout(myInspectorLayout, true);
+      myNewEditor.setLayout(myInspectorLayout, true);
+    } else {
+      myMainLayout = new TripleChangeGroupLayout(layout, null, false);
+      myOldEditor.setLayout(myMainLayout, false);
+      myNewEditor.setLayout(myMainLayout, false);
+    }
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
     if (!(SModelOperations.isReadOnly(myChangeSet.getNewModel()))) {
@@ -404,8 +330,7 @@ public class StructDifferencePane implements PropertyChangeListener {
     myOldEditor = null;
     myNewEditor = null;
   }
-
-  private static void check_n8nr2l_a0a5x(ModelAccess checkedDotOperand, final MyDifferenceListener checkedDotThisExpression) {
+  private static void check_n8nr2l_a0a5bb(ModelAccess checkedDotOperand, final MyDifferenceListener checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       checkedDotOperand.runReadInEDT(new Runnable() {
         public void run() {

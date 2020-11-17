@@ -13,14 +13,17 @@ import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.IMapping;
+import java.util.Objects;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.smodel.references.UnregisteredNodes;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.internal.collections.runtime.IMapping;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/7082523601896465910", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
 public class NodeCopier {
@@ -54,6 +57,26 @@ public class NodeCopier {
       }
     }
     return copy;
+  }
+
+  public void deleteNode(SNode nodeToDelete) {
+    for (final SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(nodeToDelete, null, true, new SAbstractConcept[]{}))) {
+      List<SNodeId> sourceIds = MapSequence.fromMap(myIdReplacementCache).where(new IWhereFilter<IMapping<SNodeId, SNodeId>>() {
+        public boolean accept(IMapping<SNodeId, SNodeId> it) {
+          return Objects.equals(it.value(), node.getNodeId());
+        }
+      }).select(new ISelector<IMapping<SNodeId, SNodeId>, SNodeId>() {
+        public SNodeId select(IMapping<SNodeId, SNodeId> it) {
+          return it.key();
+        }
+      }).toListSequence();
+      ListSequence.fromList(sourceIds).visitAll(new IVisitor<SNodeId>() {
+        public void visit(SNodeId id) {
+          MapSequence.fromMap(myIdReplacementCache).removeKey(id);
+        }
+      });
+    }
+    SNodeOperations.deleteNode(nodeToDelete);
   }
 
   public void replaceNodeId(SNode node, SNodeId newNodeId) {

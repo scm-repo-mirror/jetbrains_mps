@@ -65,6 +65,7 @@ import jetbrains.mps.internal.collections.runtime.LinkedListSequence;
 import java.util.LinkedList;
 import jetbrains.mps.vcs.diff.changes.NodeChange;
 import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
+import jetbrains.mps.vcs.diff.changes.AbstractNodeGroupChange;
 import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
 import java.util.Map;
 import java.util.HashMap;
@@ -504,6 +505,8 @@ public class ChangesTracking {
       return ((NodeGroupChange) change).getOldParentNodeId();
     } else if (change instanceof NodeIdChange) {
       return ((NodeIdChange) change).getParentNodeId(false);
+    } else if (change instanceof AbstractNodeGroupChange) {
+      return ((AbstractNodeGroupChange) change).getParentId(false);
     }
     return null;
   }

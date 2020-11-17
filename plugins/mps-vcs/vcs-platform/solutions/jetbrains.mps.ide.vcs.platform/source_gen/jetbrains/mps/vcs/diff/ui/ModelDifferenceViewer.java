@@ -23,6 +23,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.util.SNodeOperations;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.vcs.diff.ui.common.DiffModelUtil;
+import com.intellij.ide.util.PropertiesComponent;
 import jetbrains.mps.vcs.diff.ChangeSetBuilder;
 import org.apache.log4j.Level;
 import org.jetbrains.annotations.Nullable;
@@ -112,10 +113,11 @@ public class ModelDifferenceViewer implements DataProvider {
           if (!(myOldRegistered)) {
             DiffModelUtil.renameModelAndRegister(oldModel, "old", fixReferences);
           }
+          boolean trackMovedNodes = PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false);
           if (rootId == null) {
-            myChangeSet = ChangeSetBuilder.buildChangeSet(oldModel, newModel, true);
+            myChangeSet = ChangeSetBuilder.buildChangeSet(oldModel, newModel, true, trackMovedNodes);
           } else {
-            myChangeSet = ChangeSetBuilder.buildChangeSetForNode(oldModel, newModel, rootId, true);
+            myChangeSet = ChangeSetBuilder.buildChangeSetForNode(oldModel, newModel, rootId, true, trackMovedNodes);
           }
           SModel newMetaModel = MetadataUtil.createMetadataModel(newModel, "metadata_new", myEditable);
           SModel oldMetaModel = MetadataUtil.createMetadataModel(oldModel, "metadata_old", false);
@@ -165,8 +167,8 @@ public class ModelDifferenceViewer implements DataProvider {
   }
 
   /*package*/ void rebuildChangeSets() {
-    ChangeSetBuilder.rebuildChangeSet(myChangeSet);
-    ChangeSetBuilder.rebuildChangeSet(myMetadataChangeSet);
+    ChangeSetBuilder.rebuildChangeSet(myChangeSet, PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false));
+    ChangeSetBuilder.rebuildChangeSet(myMetadataChangeSet, false);
     if (myTree != null) {
       myTree.rebuildLater();
     }

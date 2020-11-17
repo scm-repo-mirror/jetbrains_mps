@@ -51,12 +51,6 @@ public class NodeIdChange extends StructureChange {
     return (isNewModel ? myNewNodeId : myOldNodeId);
   }
 
-
-  @NotNull
-  public SContainmentLink getRoleLink() {
-    return myRole;
-  }
-
   public boolean isAbout(SContainmentLink link) {
     return myRole.equals(link);
   }

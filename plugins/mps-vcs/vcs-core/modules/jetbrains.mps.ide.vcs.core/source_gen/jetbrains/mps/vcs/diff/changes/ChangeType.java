@@ -9,7 +9,8 @@ public enum ChangeType {
   ADD(),
   DELETE(),
   CHANGE(),
-  CONFLICTED();
+  CONFLICTED(),
+  MOVE();
 
   private ChangeType() {
   }

@@ -15,6 +15,7 @@ import jetbrains.mps.vcs.diff.changes.ChangeType;
 import java.awt.Graphics;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import jetbrains.mps.vcs.diff.changes.ModifiedNode;
 import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import java.awt.Rectangle;
@@ -51,7 +52,6 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   public boolean showInGutter() {
     return false;
   }
-
   @Override
   public Color getColor() {
     return ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : getChangeType()));
@@ -86,7 +86,8 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       return;
     }
     if (EditorCellMessageUtil.isDirectCell(cell, myMessageTarget, getNode())) {
-      ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, getColor(), false);
+      Color c = ((myChange instanceof ModifiedNode && ((ModifiedNode) myChange).isMove()) ? editor.getBackground() : getColor());
+      ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, c, false);
       repaintConflictedMessages(graphics, cell);
     } else {
       if (myMessageTarget instanceof DeletedNodeMessageTarget) {
@@ -151,7 +152,6 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       }
     }
   }
-
   private static void drawHorizontalLine(Graphics graphics, EditorCell_Collection collectionCell, EditorCell childCell) {
     int y;
     if (childCell != null) {
@@ -210,13 +210,13 @@ __switch__:
                       this.__CP__ = 6;
                       break;
                     case 7:
-                      this._7__yield_myu41h_a0a0a0a0a0a73_it = Sequence.fromIterable(invoke(_4_child)).iterator();
+                      this._7__yield_myu41h_a0a0a0a0a0a53_it = Sequence.fromIterable(invoke(_4_child)).iterator();
                     case 8:
-                      if (!(this._7__yield_myu41h_a0a0a0a0a0a73_it.hasNext())) {
+                      if (!(this._7__yield_myu41h_a0a0a0a0a0a53_it.hasNext())) {
                         this.__CP__ = 5;
                         break;
                       }
-                      this._7__yield_myu41h_a0a0a0a0a0a73 = this._7__yield_myu41h_a0a0a0a0a0a73_it.next();
+                      this._7__yield_myu41h_a0a0a0a0a0a53 = this._7__yield_myu41h_a0a0a0a0a0a53_it.next();
                       this.__CP__ = 9;
                       break;
                     case 2:
@@ -228,7 +228,7 @@ __switch__:
                       break;
                     case 10:
                       this.__CP__ = 8;
-                      this.yield(_7__yield_myu41h_a0a0a0a0a0a73);
+                      this.yield(_7__yield_myu41h_a0a0a0a0a0a53);
                       return true;
                     case 12:
                       this.__CP__ = 1;
@@ -257,8 +257,8 @@ __switch__:
               }
               private EditorCell _4_child;
               private Iterator<EditorCell> _4_child_it;
-              private EditorCell _7__yield_myu41h_a0a0a0a0a0a73;
-              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a73_it;
+              private EditorCell _7__yield_myu41h_a0a0a0a0a0a53;
+              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a53_it;
             };
           }
         };
@@ -294,7 +294,15 @@ __switch__:
         if (EditorCellMessageUtil.cellHasChildrenWithDifferentNode(cell)) {
           return getBoundsForChild((EditorCell_Collection) cell, dmt.getNextChildIndex());
         } else {
-          return getBoundsSuper(editor);
+          Bounds bounds = getBoundsSuper(editor);
+          if (bounds.length() > 0) {
+            return bounds;
+          }
+          while (cell.getParent() != null && bounds.length() == 0) {
+            cell = cell.getParent();
+            bounds = new Bounds(cell.getY(), cell.getY() + cell.getHeight());
+          }
+          return bounds;
         }
       } else {
         int y = cell.getY();

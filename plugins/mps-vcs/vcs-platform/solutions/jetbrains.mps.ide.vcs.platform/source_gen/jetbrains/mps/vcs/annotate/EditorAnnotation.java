@@ -489,8 +489,8 @@ public class EditorAnnotation implements EditorMessageOwner, AnnotationOptions.U
     myUpdateQueue.dispose();
   }
 
-  private Iterable<RevisionNodeChange> getCellChanges(EditorCell cell, final VcsFileRevision revision) {
-    return ListSequence.fromList(MapSequence.fromMap(myCellNodeChangesMap).get(cell)).where(new IWhereFilter<RevisionNodeChange>() {
+  private static Iterable<RevisionNodeChange> getChangesWithRevision(List<RevisionNodeChange> revisionNodeChanges, final VcsFileRevision revision) {
+    return ListSequence.fromList(revisionNodeChanges).where(new IWhereFilter<RevisionNodeChange>() {
       public boolean accept(RevisionNodeChange it) {
         return it.getRevision().getRevisionDate().compareTo(revision.getRevisionDate()) == 0;
       }
@@ -521,7 +521,7 @@ public class EditorAnnotation implements EditorMessageOwner, AnnotationOptions.U
           if (color == null) {
             color = myEditorComponent.getBackground();
           }
-          String tooltipText = IterableUtils.join(Sequence.fromIterable(getCellChanges(leaf, revision)).select(new ISelector<RevisionNodeChange, String>() {
+          String tooltipText = IterableUtils.join(Sequence.fromIterable(getChangesWithRevision(it.value(), revision)).select(new ISelector<RevisionNodeChange, String>() {
             public String select(RevisionNodeChange it) {
               return it.getMessage();
             }
@@ -558,7 +558,7 @@ public class EditorAnnotation implements EditorMessageOwner, AnnotationOptions.U
             return;
           }
           EditorCell leaf = it.key();
-          Iterable<RevisionNodeChange> changes = getCellChanges(leaf, revision);
+          Iterable<RevisionNodeChange> changes = getChangesWithRevision(it.value(), revision);
           if (Sequence.fromIterable(changes).isEmpty()) {
             return;
           }

@@ -57,8 +57,8 @@ public class ChangesTestUtil {
     clazz.insertChildAfter(LINKS.smodelAttribute$KJ43, createCommentedMethod(), anchor);
   }
 
-  public static void uncommentFirstCommentedMethod(SNode clazz) {
-    CommentUtil.uncomment(ListSequence.fromList(new IAttributeDescriptor.ChildAttribute(CONCEPTS.BaseCommentAttribute$nv, LINKS.member$L_2d).list(clazz)).first());
+  public static SNode uncommentFirstCommentedMethod(SNode clazz) {
+    return CommentUtil.uncomment(ListSequence.fromList(new IAttributeDescriptor.ChildAttribute(CONCEPTS.BaseCommentAttribute$nv, LINKS.member$L_2d).list(clazz)).first());
   }
   private static SNode _quotation_createNode_l1u5rv_a0c0a() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
