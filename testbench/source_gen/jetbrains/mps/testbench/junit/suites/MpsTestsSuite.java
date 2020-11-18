@@ -9,6 +9,7 @@ import jetbrains.mps.project.Project;
 import jetbrains.mps.tool.environment.Environment;
 import java.util.List;
 import org.junit.runner.Runner;
+import com.intellij.openapi.Disposable;
 import org.junit.runners.model.RunnerBuilder;
 import org.junit.runners.model.InitializationError;
 import java.util.Collections;
@@ -19,6 +20,8 @@ import jetbrains.mps.internal.collections.runtime.IMapping;
 import java.io.File;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
+import com.intellij.openapi.util.Disposer;
+import com.intellij.openapi.application.ApplicationManager;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
@@ -57,6 +60,11 @@ public class MpsTestsSuite extends BaseMpsSuite {
   private final Project myContextProject;
   private final Environment myEnvironment;
   private final List<Runner> myChildren;
+  private final Disposable myDisposable = new Disposable() {
+    @Override
+    public void dispose() {
+    }
+  };
 
   public MpsTestsSuite(Class<?> klass, RunnerBuilder builder) throws InitializationError {
     super(klass, Collections.<Runner>emptyList());
@@ -69,7 +77,7 @@ public class MpsTestsSuite extends BaseMpsSuite {
 
   public Environment initIdeaEnvironment() {
     EnvironmentConfig config = EnvironmentConfig.defaultConfig();
-    for (String lib : loadLibraries()) {
+    for (String lib : loadLibraries(myDisposable)) {
       config = config.addLib(lib);
     }
     for (IMapping<String, File> macro : MapSequence.fromMap(loadMacros())) {
@@ -78,17 +86,18 @@ public class MpsTestsSuite extends BaseMpsSuite {
     config = config.withTestModeOn();
     IdeaEnvironment rv = new IdeaEnvironment(config);
     rv.init();
+    Disposer.register(ApplicationManager.getApplication(), myDisposable);
     return rv;
   }
 
-  private static Set<String> loadLibraries() {
+  private static Set<String> loadLibraries(Disposable disposable) {
     Set<String> result = SetSequence.fromSet(new LinkedHashSet<String>());
     String librariesString = System.getProperty(MpsTestsSuite.PROPERTY_LIBRARY);
     if ((librariesString == null || librariesString.length() == 0)) {
       return result;
     }
     String[] libraries = librariesString.split(File.pathSeparator);
-    TestRootAccessInsight.allowTestRootAccessForModuleFolders(libraries);
+    TestRootAccessInsight.allowTestRootAccessForModuleFolders(disposable, libraries);
     for (String lib : libraries) {
       File libFile = new File(lib);
       if (!(libFile.exists())) {

@@ -35,6 +35,7 @@
     <classNode extendsClassName="jetbrains.mps.tool.environment.ProjectStrategyBase" />
   </dependency>
   <dependency className="jetbrains.mps.testbench.junit.runners.FromModulesListProjectStrategy">
+    <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="java.io.File" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
@@ -166,6 +167,7 @@
     <classNode extendsClassName="jetbrains.mps.testbench.junit.runners.BaseMpsRunner" />
   </dependency>
   <dependency className="jetbrains.mps.testbench.junit.runners.TestRootAccessInsight">
+    <classNode dependClassName="com.intellij.openapi.Disposable" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.impl.VfsRootAccess" />
     <classNode dependClassName="java.io.File" />
     <classNode dependClassName="java.lang.Override" />

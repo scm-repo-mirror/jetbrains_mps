@@ -194,6 +194,9 @@
     <classNode extendsClassName="jetbrains.mps.testbench.junit.suites.AuditTypeSystem" />
   </dependency>
   <dependency className="jetbrains.mps.testbench.junit.suites.MpsTestsSuite">
+    <classNode dependClassName="com.intellij.openapi.Disposable" />
+    <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
+    <classNode dependClassName="com.intellij.openapi.util.Disposer" />
     <classNode dependClassName="java.io.File" />
     <classNode dependClassName="java.lang.Class" />
     <classNode dependClassName="java.lang.ClassLoader" />

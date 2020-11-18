@@ -37,6 +37,8 @@
     <import index="456n" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit.internal.builders(JUnit/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="keqv" ref="r:c7bbaee3-030a-4940-995f-2174babaf670(jetbrains.mps.project.io)" />
+    <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
+    <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1498,6 +1500,10 @@
           <node concept="2YIFZM" id="6Jk_680D_7l" role="3clFbG">
             <ref role="37wK5l" node="6Jk_680Dqkj" resolve="allowTestRootAccessForModuleFolders" />
             <ref role="1Pybhc" node="6Jk_680D_wT" resolve="TestRootAccessInsight" />
+            <node concept="2YIFZM" id="MHQRQBFU14" role="37wK5m">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
             <node concept="37vLTw" id="6Jk_680D_7m" role="37wK5m">
               <ref role="3cqZAo" node="7fR23Zqm3E1" resolve="modules" />
             </node>
@@ -5220,28 +5226,31 @@
           </node>
         </node>
         <node concept="3clFbF" id="6Jk_680Dg86" role="3cqZAp">
-          <node concept="2YIFZM" id="6Jk_680Dg87" role="3clFbG">
-            <ref role="37wK5l" to="ab4o:~VfsRootAccess.allowRootAccess(java.lang.String...)" resolve="allowRootAccess" />
+          <node concept="2YIFZM" id="MHQRQBFSGK" role="3clFbG">
+            <ref role="37wK5l" to="ab4o:~VfsRootAccess.allowRootAccess(com.intellij.openapi.Disposable,java.lang.String...)" resolve="allowRootAccess" />
             <ref role="1Pybhc" to="ab4o:~VfsRootAccess" resolve="VfsRootAccess" />
-            <node concept="2OqwBi" id="6Jk_680Dg88" role="37wK5m">
-              <node concept="37vLTw" id="6Jk_680Dg89" role="2Oq$k0">
+            <node concept="37vLTw" id="MHQRQBFSGL" role="37wK5m">
+              <ref role="3cqZAo" node="MHQRQBFRvI" resolve="disposable" />
+            </node>
+            <node concept="2OqwBi" id="MHQRQBFSGM" role="37wK5m">
+              <node concept="37vLTw" id="MHQRQBFSGN" role="2Oq$k0">
                 <ref role="3cqZAo" node="6Jk_680Dg77" resolve="moduleFolders" />
               </node>
-              <node concept="liA8E" id="6Jk_680Dg8a" role="2OqNvi">
+              <node concept="liA8E" id="MHQRQBFSGO" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~List.toArray(java.lang.Object[])" resolve="toArray" />
-                <node concept="2ShNRf" id="6Jk_680Dg8b" role="37wK5m">
-                  <node concept="3$_iS1" id="6Jk_680Dg8c" role="2ShVmc">
-                    <node concept="3$GHV9" id="6Jk_680Dg8d" role="3$GQph">
-                      <node concept="2OqwBi" id="6Jk_680Dg8e" role="3$I4v7">
-                        <node concept="37vLTw" id="6Jk_680Dg8f" role="2Oq$k0">
+                <node concept="2ShNRf" id="MHQRQBFSGP" role="37wK5m">
+                  <node concept="3$_iS1" id="MHQRQBFSGQ" role="2ShVmc">
+                    <node concept="3$GHV9" id="MHQRQBFSGR" role="3$GQph">
+                      <node concept="2OqwBi" id="MHQRQBFSGS" role="3$I4v7">
+                        <node concept="37vLTw" id="MHQRQBFSGT" role="2Oq$k0">
                           <ref role="3cqZAo" node="6Jk_680Dg77" resolve="moduleFolders" />
                         </node>
-                        <node concept="liA8E" id="6Jk_680Dg8g" role="2OqNvi">
+                        <node concept="liA8E" id="MHQRQBFSGU" role="2OqNvi">
                           <ref role="37wK5l" to="33ny:~List.size()" resolve="size" />
                         </node>
                       </node>
                     </node>
-                    <node concept="3uibUv" id="6Jk_680Dg8h" role="3$_nBY">
+                    <node concept="3uibUv" id="MHQRQBFSGV" role="3$_nBY">
                       <ref role="3uigEE" to="wyt6:~String" resolve="String" />
                     </node>
                   </node>
@@ -5249,6 +5258,12 @@
               </node>
             </node>
           </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="MHQRQBFRvI" role="3clF46">
+        <property role="TrG5h" value="disposable" />
+        <node concept="3uibUv" id="MHQRQBFRvP" role="1tU5fm">
+          <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
         </node>
       </node>
       <node concept="37vLTG" id="6Jk_680Dg8i" role="3clF46">

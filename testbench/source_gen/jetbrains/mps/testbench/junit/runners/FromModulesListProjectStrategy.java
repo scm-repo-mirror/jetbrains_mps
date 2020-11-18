@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.components.ComponentHost;
 import java.io.File;
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.library.ModulesMiner;
@@ -34,7 +35,7 @@ public class FromModulesListProjectStrategy extends ProjectStrategyBase {
   @Override
   public Project construct(@NotNull ComponentHost mpsPlatform, @NotNull Project emptyProject) {
     final String[] modules = myModulesPath.split(File.pathSeparator);
-    TestRootAccessInsight.allowTestRootAccessForModuleFolders(modules);
+    TestRootAccessInsight.allowTestRootAccessForModuleFolders(ApplicationManager.getApplication(), modules);
     IFileSystem localFS = mpsPlatform.findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS);
     ModulesMiner mm = new ModulesMiner(mpsPlatform);
     for (String modulePath : modules) {

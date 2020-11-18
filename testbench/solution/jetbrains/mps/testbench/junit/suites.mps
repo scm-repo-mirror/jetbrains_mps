@@ -59,6 +59,9 @@
     <import index="9xw8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:io.netty.handler.codec.http(MPS.IDEA/)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
+    <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
+    <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
+    <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -2401,6 +2404,33 @@
         </node>
       </node>
     </node>
+    <node concept="312cEg" id="6RBKLDLoNvJ" role="jymVt">
+      <property role="TrG5h" value="myDisposable" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="6RBKLDLoNfq" role="1B3o_S" />
+      <node concept="3uibUv" id="6RBKLDLoNvH" role="1tU5fm">
+        <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
+      </node>
+      <node concept="2ShNRf" id="6RBKLDLoNDG" role="33vP2m">
+        <node concept="YeOm9" id="6RBKLDLoOv4" role="2ShVmc">
+          <node concept="1Y3b0j" id="6RBKLDLoOv7" role="YeSDq">
+            <property role="2bfB8j" value="true" />
+            <ref role="1Y3XeK" to="v23q:~Disposable" resolve="Disposable" />
+            <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+            <node concept="3Tm1VV" id="6RBKLDLoOv8" role="1B3o_S" />
+            <node concept="3clFb_" id="6RBKLDLoOvd" role="jymVt">
+              <property role="TrG5h" value="dispose" />
+              <node concept="3Tm1VV" id="6RBKLDLoOve" role="1B3o_S" />
+              <node concept="3cqZAl" id="6RBKLDLoOvg" role="3clF45" />
+              <node concept="3clFbS" id="6RBKLDLoOvh" role="3clF47" />
+              <node concept="2AHcQZ" id="6RBKLDLoOvj" role="2AJF6D">
+                <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="1CBc8rDqeH3" role="jymVt" />
     <node concept="3clFbW" id="1CBc8rDnd6T" role="jymVt">
       <node concept="3Tm1VV" id="1CBc8rDnd6U" role="1B3o_S" />
@@ -2559,6 +2589,9 @@
         <node concept="2Gpval" id="5A5jZryZYva" role="3cqZAp">
           <node concept="1rXfSq" id="5A5jZryZYvb" role="2GsD0m">
             <ref role="37wK5l" node="34zjD3InRZY" resolve="loadLibraries" />
+            <node concept="37vLTw" id="6RBKLDLpaQL" role="37wK5m">
+              <ref role="3cqZAo" node="6RBKLDLoNvJ" resolve="myDisposable" />
+            </node>
           </node>
           <node concept="2GrKxI" id="5A5jZryZYvc" role="2Gsz3X">
             <property role="TrG5h" value="lib" />
@@ -2662,6 +2695,19 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="6RBKLDLoPiD" role="3cqZAp">
+          <node concept="2YIFZM" id="6RBKLDLoQ6F" role="3clFbG">
+            <ref role="37wK5l" to="zn9m:~Disposer.register(com.intellij.openapi.Disposable,com.intellij.openapi.Disposable)" resolve="register" />
+            <ref role="1Pybhc" to="zn9m:~Disposer" resolve="Disposer" />
+            <node concept="2YIFZM" id="6RBKLDLoQlL" role="37wK5m">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
+            <node concept="37vLTw" id="6RBKLDLp7LQ" role="37wK5m">
+              <ref role="3cqZAo" node="6RBKLDLoNvJ" resolve="myDisposable" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="5A5jZryZZdn" role="3cqZAp">
           <node concept="37vLTw" id="nUYGvAYrGf" role="3cqZAk">
             <ref role="3cqZAo" node="nUYGvAYmF4" resolve="rv" />
@@ -2748,6 +2794,9 @@
           <node concept="2YIFZM" id="6Jk_680DPhC" role="3clFbG">
             <ref role="37wK5l" to="oh7r:6Jk_680Dqkj" resolve="allowTestRootAccessForModuleFolders" />
             <ref role="1Pybhc" to="oh7r:6Jk_680D_wT" resolve="TestRootAccessInsight" />
+            <node concept="37vLTw" id="6RBKLDLp8Lf" role="37wK5m">
+              <ref role="3cqZAo" node="6RBKLDLp7Yq" resolve="disposable" />
+            </node>
             <node concept="37vLTw" id="6Jk_680DPtC" role="37wK5m">
               <ref role="3cqZAo" node="6yiPRtqk1ci" resolve="libraries" />
             </node>
@@ -3069,6 +3118,12 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="34zjD3InRXK" role="1B3o_S" />
+      <node concept="37vLTG" id="6RBKLDLp7Yq" role="3clF46">
+        <property role="TrG5h" value="disposable" />
+        <node concept="3uibUv" id="6RBKLDLp7Yp" role="1tU5fm">
+          <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="5sV3JxOT6a3" role="jymVt" />
     <node concept="2YIFZL" id="8knae4MBhW" role="jymVt">
