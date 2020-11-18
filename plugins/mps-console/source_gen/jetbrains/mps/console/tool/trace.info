@@ -901,7 +901,7 @@
       <node id="773462683487697955" at="129,0,132,0" concept="10" trace="getEditorComponent#()Ljetbrains/mps/nodeEditor/EditorComponent;" />
       <node id="773462683488968419" at="133,0,136,0" concept="10" trace="getRoot#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="3362819150777780943" at="137,0,140,0" concept="10" trace="getConsoleTool#()Ljetbrains/mps/console/tool/ConsoleTool;" />
-      <node id="8501841415479379039" at="155,49,158,9" concept="9" />
+      <node id="8501841415479379039" at="155,58,158,9" concept="9" />
       <node id="7538089231777682229" at="158,9,161,9" concept="9" />
       <node id="6027934482452449868" at="173,43,176,13" concept="9" />
       <node id="3818729150937313361" at="193,26,196,7" concept="9" />
@@ -1256,7 +1256,7 @@
       <scope id="7538089231784120885" at="418,0,427,0" />
       <scope id="1019533896406625863" at="527,0,536,0" />
       <scope id="8162894946400607263" at="236,0,246,0" />
-      <scope id="7538089231777682228" at="155,49,166,34" />
+      <scope id="7538089231777682228" at="155,58,166,34" />
       <scope id="7538089231777683538" at="386,162,397,127">
         <var name="paster" id="7538089231777683553" />
         <var name="refContainer" id="7538089231777683540" />

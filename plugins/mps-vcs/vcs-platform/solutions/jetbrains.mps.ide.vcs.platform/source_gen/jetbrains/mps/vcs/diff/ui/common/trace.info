@@ -1645,7 +1645,7 @@
       <node id="401415880416119312" at="421,0,424,0" concept="17" trace="isFoldingAction#(Ljetbrains/mps/openapi/editor/cells/CellActionType;)Z" />
       <node id="401415880416189399" at="442,63,445,7" concept="10" />
       <node id="401415880415753392" at="480,63,483,7" concept="10" />
-      <node id="4578905056600821094" at="493,50,496,7" concept="10" />
+      <node id="4578905056600821094" at="493,59,496,7" concept="10" />
       <node id="1547603040233301801" at="505,0,508,0" concept="11" trace="getVirtualFile#()Ljetbrains/mps/nodefs/MPSNodeVirtualFile;" />
       <node id="6132599322919577801" at="134,0,138,0" concept="11" trace="updateTitleComponent#()V" />
       <node id="5277200897193743037" at="147,0,151,0" concept="11" trace="editRoot#(Lorg/jetbrains/mps/openapi/model/SNodeId;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
@@ -1878,7 +1878,7 @@
       <scope id="7561474607379498545" at="468,0,472,0" />
       <scope id="401415880415707183" at="480,63,484,44" />
       <scope id="4008989919132916544" at="487,0,491,0" />
-      <scope id="4578905056600669989" at="493,50,497,35" />
+      <scope id="4578905056600669989" at="493,59,497,35" />
       <scope id="1547603040232992280" at="500,0,504,0" />
       <scope id="7461519972922701586" at="110,43,115,69" />
       <scope id="6132599322919293515" at="126,41,131,27" />

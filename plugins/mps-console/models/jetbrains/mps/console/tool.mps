@@ -4802,6 +4802,9 @@
                       <node concept="2AHcQZ" id="6ysF3v1j_cM" role="2AJF6D">
                         <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
                       </node>
+                      <node concept="2AHcQZ" id="MHQRQBEP6u" role="2AJF6D">
+                        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+                      </node>
                     </node>
                     <node concept="2AHcQZ" id="6ysF3v1j_cN" role="2AJF6D">
                       <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />

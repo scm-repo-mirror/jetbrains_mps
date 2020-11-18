@@ -19,6 +19,7 @@ import jetbrains.mps.project.Project;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import javax.swing.JScrollBar;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.ide.PasteProvider;
 import jetbrains.mps.nodeEditor.commands.CommandContextImpl;
@@ -52,7 +53,6 @@ import java.awt.event.KeyEvent;
 import com.intellij.openapi.actionSystem.MouseShortcut;
 import java.awt.event.MouseEvent;
 import com.intellij.openapi.actionSystem.ShortcutSet;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.workbench.MPSDataKeys;
@@ -152,7 +152,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     this.myEditor = new UIEditorComponent(myProject.getRepository(), null) {
       @Nullable
       @Override
-      public Object getData(@NotNull @NonNls String key) {
+      public Object getData(@NonNls @NotNull String key) {
         if (MPSConsoleDataKeys.CONSOLE_TAB.is(key)) {
           return BaseConsoleTab.this;
         }

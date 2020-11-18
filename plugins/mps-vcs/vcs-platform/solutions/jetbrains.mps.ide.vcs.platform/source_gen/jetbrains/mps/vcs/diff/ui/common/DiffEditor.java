@@ -490,7 +490,7 @@ public class DiffEditor implements EditorMessageOwner {
     }
 
     @Override
-    public Object getData(@NotNull @NonNls String dataId) {
+    public Object getData(@NonNls @NotNull String dataId) {
       if (PlatformDataKeys.FILE_EDITOR.is(dataId)) {
         return myDiffFileEditor;
       }
