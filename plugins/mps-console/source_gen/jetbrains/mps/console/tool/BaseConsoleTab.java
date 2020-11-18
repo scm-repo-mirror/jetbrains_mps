@@ -152,7 +152,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     this.myEditor = new UIEditorComponent(myProject.getRepository(), null) {
       @Nullable
       @Override
-      public Object getData(@NonNls String key) {
+      public Object getData(@NotNull @NonNls String key) {
         if (MPSConsoleDataKeys.CONSOLE_TAB.is(key)) {
           return BaseConsoleTab.this;
         }

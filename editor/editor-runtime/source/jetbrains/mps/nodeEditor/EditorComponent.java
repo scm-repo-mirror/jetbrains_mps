@@ -2435,9 +2435,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     // It is safer to get IntelliJ project and convert to MPS one:
     // There are different DataManager implementations for normal/test mode with several possible DataProvider classes.
     // Such providers behavior with custom MPSCommonDataKeys can be different, but more stable with platform CommonDataKeys.
-    //
-    // There's no need in a concrete MPSProject project implementation, there's just no method for generic MPS project in ProjectHelper.
-    DataContext dataContext = DataManager.getInstance().getDataContext(this);
+    DataContext dataContext = DataManager.getInstance().getDataContext(this.getParent());
+    // fixme this is a hack to avoid some assertEDT exception in IdeaPlugin tests, see e6fc5f7de189683ae0f39e6bb2a2a08733f9a70f
+    //       no reason to use IJ project aside from that
+    // fixme use carefully this potentially leads to a SOE if used in #getData because our BaseNodeEditor#MyPanel#getData delegates to descendant#getData (this class)
+    //       I just hack there for the project key (there is project there btw) but this complex system is no good
     final MPSProject p = ProjectHelper.fromIdeaProject(CommonDataKeys.PROJECT.getData(dataContext));
     return p != null ? p : ProjectHelper.getProject(myRepository);
   }
@@ -2650,10 +2652,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     if (dataId.equals(MPSCommonDataKeys.PLACE.getName())) {
       return ActionPlace.EDITOR;
     }
-    if (dataId.equals(MPSCommonDataKeys.PROJECT)) {
-      return getCurrentProject();
-    }
-
 
     //PDK
     if (dataId.equals(PlatformDataKeys.CUT_PROVIDER.getName())) {

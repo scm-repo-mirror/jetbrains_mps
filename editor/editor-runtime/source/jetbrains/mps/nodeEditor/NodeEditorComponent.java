@@ -34,6 +34,7 @@ import jetbrains.mps.openapi.editor.selection.SingularSelection;
 import jetbrains.mps.project.Project;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -178,7 +179,7 @@ public class NodeEditorComponent extends EditorComponent {
 
   @Nullable
   @Override
-  public Object getData(@NonNls String dataId) {
+  public Object getData(@NotNull @NonNls String dataId) {
     if (dataId.equals(PlatformDataKeys.VIRTUAL_FILE_ARRAY.getName())) {
       return getVirtualFile() != null ? new VirtualFile[]{getVirtualFile()} : new VirtualFile[0];
     }

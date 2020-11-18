@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.editor;
 
+import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.Document;
@@ -22,6 +23,8 @@ import com.intellij.openapi.wm.IdeFocusManager;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.util.ui.JBUI;
 import jetbrains.mps.ide.ThreadUtils;
+import jetbrains.mps.ide.actions.MPSCommonDataKeys;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.nodeEditor.EditorPanelManagerImpl;
 import jetbrains.mps.nodeEditor.InspectorTool;
@@ -148,14 +151,23 @@ public abstract class BaseNodeEditor implements Editor {
 
     @Override
     @Nullable
-    public Object getData(@NonNls String dataId) {
-      if (dataId.equals(MPSEditorDataKeys.MPS_EDITOR.getName())) {
+    public Object getData(@NotNull @NonNls String dataId) {
+      if (MPSEditorDataKeys.MPS_EDITOR.is(dataId)) {
         return BaseNodeEditor.this;
+      }
+      if (MPSCommonDataKeys.MPS_PROJECT.is(dataId)) {
+        // we need this much, LocationRule & MPSProjectRule works due to this + delegation
+        return myProject;
+      }
+      if (CommonDataKeys.PROJECT.is(dataId)) {
+        // we do not need this much but why not
+        return ProjectHelper.toIdeaProject(myProject);
       }
       Object data = BaseNodeEditor.this.getData(dataId);
       if (data != null) {
         return data;
       }
+      // fixme kind of strange to delegate to descendant in this framework though I am scared to remove this
       NodeEditorComponent editorComponent = getCurrentEditorComponent();
       return editorComponent == null ? null : editorComponent.getData(dataId);
     }

@@ -82,5 +82,4 @@ public class LocationRule implements GetDataRule {
       return new MPSLocation(mpsProject, new MPSPsiElement(mpsProject));
     });
   }
-
 }
