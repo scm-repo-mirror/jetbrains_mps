@@ -5,7 +5,7 @@ package jetbrains.mps.findUsages;
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.mps.openapi.util.Consumer;
+import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
@@ -20,28 +20,30 @@ import org.jetbrains.mps.openapi.model.SNodeUtil;
  * @author Artem Tikhomirov
  */
 @GeneratedClass(node = "r:54a768d9-9f11-4443-98d8-70ab3a783c52(jetbrains.mps.findUsages)/8568892084424435270", model = "r:54a768d9-9f11-4443-98d8-70ab3a783c52(jetbrains.mps.findUsages)")
-public class NodeUsageFinder {
+public final class NodeUsageLookup {
   private final Set<SNodeReference> myNodesToFind;
   private final Consumer<SReference> myOutcomeConsumer;
-  public NodeUsageFinder(@NotNull Collection<SNode> nodesToFind, @NotNull Consumer<SReference> outcomeConsumer) {
+
+  public NodeUsageLookup(@NotNull Collection<SNode> nodesToFind, @NotNull org.jetbrains.mps.openapi.util.Consumer<SReference> outcomeConsumer) {
     myNodesToFind = new HashSet<SNodeReference>();
     for (SNode n : nodesToFind) {
       myNodesToFind.add(n.getReference());
     }
     myOutcomeConsumer = outcomeConsumer;
   }
-  public void collectUsages(SModel model, ProgressMonitor monitor) {
+  public void collectUsages(@NotNull SModel model, @NotNull ProgressMonitor monitor) {
     for (SNode node : SNodeUtil.getDescendants(model)) {
       if (monitor.isCanceled()) {
         return;
       }
       collectUsages(node);
     }
+    monitor.done();
   }
   private void collectUsages(SNode current) {
     for (SReference ref : current.getReferences()) {
       if (myNodesToFind.contains(ref.getTargetNodeReference())) {
-        myOutcomeConsumer.consume(ref);
+        myOutcomeConsumer.accept(ref);
       }
     }
   }

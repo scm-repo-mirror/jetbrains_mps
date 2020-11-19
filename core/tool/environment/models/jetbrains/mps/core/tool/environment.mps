@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="11" />
@@ -1112,22 +1113,27 @@
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="6BLo1MgrCpg" role="3clF47">
         <node concept="3cpWs6" id="6BLo1MgrCph" role="3cqZAp">
-          <node concept="2OqwBi" id="7bICyy6eOIc" role="3cqZAk">
-            <node concept="2OqwBi" id="5Ks7c$vfHVI" role="2Oq$k0">
-              <node concept="1rXfSq" id="6BLo1MgrCpi" role="2Oq$k0">
-                <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
-                <node concept="Xl_RD" id="6BLo1MgrCpj" role="37wK5m">
-                  <property role="Xl_RC" value="mps-vcs" />
-                </node>
-                <node concept="Xl_RD" id="6BLo1MgrCpk" role="37wK5m">
-                  <property role="Xl_RC" value="jetbrains.mps.vcs" />
-                </node>
+          <node concept="2OqwBi" id="3l54ejtXnRV" role="3cqZAk">
+            <node concept="2OqwBi" id="7ZTspgD769p" role="2Oq$k0">
+              <node concept="liA8E" id="7ZTspgD77w6" role="2OqNvi">
+                <ref role="37wK5l" node="7ZTspgD72Ha" resolve="withSubversionPlugin" />
               </node>
-              <node concept="liA8E" id="5Ks7c$vfImO" role="2OqNvi">
-                <ref role="37wK5l" node="6BLo1MgrGos" resolve="withGit4IdeaPlugin" />
+              <node concept="2OqwBi" id="5Ks7c$vfHVI" role="2Oq$k0">
+                <node concept="1rXfSq" id="6BLo1MgrCpi" role="2Oq$k0">
+                  <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+                  <node concept="Xl_RD" id="6BLo1MgrCpj" role="37wK5m">
+                    <property role="Xl_RC" value="mps-vcs" />
+                  </node>
+                  <node concept="Xl_RD" id="6BLo1MgrCpk" role="37wK5m">
+                    <property role="Xl_RC" value="jetbrains.mps.vcs" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="5Ks7c$vfImO" role="2OqNvi">
+                  <ref role="37wK5l" node="6BLo1MgrGos" resolve="withGit4IdeaPlugin" />
+                </node>
               </node>
             </node>
-            <node concept="liA8E" id="7bICyy6eOTV" role="2OqNvi">
+            <node concept="liA8E" id="3l54ejtXqRm" role="2OqNvi">
               <ref role="37wK5l" node="245jbU$BLCn" resolve="withGit4IdeaStubsPlugin" />
             </node>
           </node>
@@ -1135,6 +1141,27 @@
       </node>
       <node concept="3Tm1VV" id="6BLo1MgrCpl" role="1B3o_S" />
       <node concept="3uibUv" id="6BLo1MgrCpm" role="3clF45">
+        <ref role="3uigEE" node="6rx4kZDk5A9" resolve="EnvironmentConfig" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="7ZTspgD70wj" role="jymVt" />
+    <node concept="3clFb_" id="7ZTspgD72Ha" role="jymVt">
+      <property role="TrG5h" value="withSubversionPlugin" />
+      <node concept="3clFbS" id="7ZTspgD72Hb" role="3clF47">
+        <node concept="3cpWs6" id="7ZTspgD72Hc" role="3cqZAp">
+          <node concept="1rXfSq" id="7ZTspgD72Hd" role="3cqZAk">
+            <ref role="37wK5l" node="5avE1b7v6tC" resolve="addDistributedPlugin" />
+            <node concept="Xl_RD" id="7ZTspgD72He" role="37wK5m">
+              <property role="Xl_RC" value="svn4idea" />
+            </node>
+            <node concept="Xl_RD" id="7ZTspgD72Hf" role="37wK5m">
+              <property role="Xl_RC" value="Subversion" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="7ZTspgD72Hg" role="1B3o_S" />
+      <node concept="3uibUv" id="7ZTspgD72Hh" role="3clF45">
         <ref role="3uigEE" node="6rx4kZDk5A9" resolve="EnvironmentConfig" />
       </node>
     </node>
@@ -5067,29 +5094,6 @@
   <node concept="312cEu" id="5A5jZrz5bMd">
     <property role="TrG5h" value="Log4jInitializer" />
     <property role="1EXbeo" value="true" />
-    <node concept="3Tm1VV" id="5A5jZrz5bMe" role="1B3o_S" />
-    <node concept="3UR2Jj" id="5A5jZrz5bM_" role="lGtFl">
-      <node concept="TZ5HA" id="5A5jZrz5bMA" role="TZ5H$">
-        <node concept="1dT_AC" id="5A5jZrz5bMB" role="1dT_Ay">
-          <property role="1dT_AB" value="need this class to read log.xml configuration file even when there is no idea platform" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="3i9yw2VvEjU" role="TZ5H$">
-        <node concept="1dT_AC" id="3i9yw2VvEjV" role="1dT_Ay">
-          <property role="1dT_AB" value="I want everything to be consistent." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="3i9yw2VvEls" role="TZ5H$">
-        <node concept="1dT_AC" id="3i9yw2VvElt" role="1dT_Ay">
-          <property role="1dT_AB" value="Ideally though we have many different ways of running MPS, we could have only one way of customizing the logging" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="3i9yw2VvEn0" role="TZ5H$">
-        <node concept="1dT_AC" id="3i9yw2VvEn1" role="1dT_Ay">
-          <property role="1dT_AB" value="this stuff is copied from IJ since we are unable to extend IJ in a proper way" />
-        </node>
-      </node>
-    </node>
     <node concept="Wx3nA" id="2519QBqd1ng" role="jymVt">
       <property role="TrG5h" value="SYSTEM_MACRO" />
       <property role="3TUv4t" value="true" />
@@ -5124,6 +5128,29 @@
       <node concept="3Tm6S6" id="2519QBqd1nr" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="2519QBqd2lN" role="jymVt" />
+    <node concept="3Tm1VV" id="5A5jZrz5bMe" role="1B3o_S" />
+    <node concept="3UR2Jj" id="5A5jZrz5bM_" role="lGtFl">
+      <node concept="TZ5HA" id="5A5jZrz5bMA" role="TZ5H$">
+        <node concept="1dT_AC" id="5A5jZrz5bMB" role="1dT_Ay">
+          <property role="1dT_AB" value="need this class to read log.xml configuration file even when there is no idea platform" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3i9yw2VvEjU" role="TZ5H$">
+        <node concept="1dT_AC" id="3i9yw2VvEjV" role="1dT_Ay">
+          <property role="1dT_AB" value="I want everything to be consistent." />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3i9yw2VvEls" role="TZ5H$">
+        <node concept="1dT_AC" id="3i9yw2VvElt" role="1dT_Ay">
+          <property role="1dT_AB" value="Ideally though we have many different ways of running MPS, we could have only one way of customizing the logging" />
+        </node>
+      </node>
+      <node concept="TZ5HA" id="3i9yw2VvEn0" role="TZ5H$">
+        <node concept="1dT_AC" id="3i9yw2VvEn1" role="1dT_Ay">
+          <property role="1dT_AB" value="this stuff is copied from IJ since we are unable to extend IJ in a proper way" />
+        </node>
+      </node>
+    </node>
     <node concept="3clFbW" id="2519QBqd1ns" role="jymVt">
       <node concept="3cqZAl" id="2519QBqd1nt" role="3clF45" />
       <node concept="3clFbS" id="2519QBqd1nu" role="3clF47" />
@@ -9356,6 +9383,12 @@
           <ref role="3uigEE" to="guwi:~File" resolve="File" />
         </node>
       </node>
+      <node concept="37vLTG" id="3QoXtOXTjzJ" role="3clF46">
+        <property role="TrG5h" value="pluginXmlContent" />
+        <node concept="3uibUv" id="3QoXtOXTlEK" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~CharSequence" resolve="CharSequence" />
+        </node>
+      </node>
       <node concept="3clFbS" id="1ROuiHV9hT" role="3clF47">
         <node concept="3cpWs8" id="1ROuiHV9FE" role="3cqZAp">
           <node concept="3cpWsn" id="1ROuiHV9FK" role="3cpWs9">
@@ -9758,10 +9791,10 @@
               <node concept="Xl_RD" id="1ROuiHVbvl" role="3g7hyw">
                 <property role="Xl_RC" value="solution" />
               </node>
-              <node concept="17QB3L" id="1ROuiHVcvb" role="3g7fb8" />
               <node concept="Xl_RD" id="3QoXtOXTmxg" role="3g7hyw">
                 <property role="Xl_RC" value="lang" />
               </node>
+              <node concept="17QB3L" id="1ROuiHVcvb" role="3g7fb8" />
             </node>
           </node>
         </node>
@@ -9793,12 +9826,6 @@
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3uibUv" id="1ROuiHV9dX" role="11_B2D">
           <ref role="3uigEE" to="guwi:~File" resolve="File" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="3QoXtOXTjzJ" role="3clF46">
-        <property role="TrG5h" value="pluginXmlContent" />
-        <node concept="3uibUv" id="3QoXtOXTlEK" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~CharSequence" resolve="CharSequence" />
         </node>
       </node>
     </node>

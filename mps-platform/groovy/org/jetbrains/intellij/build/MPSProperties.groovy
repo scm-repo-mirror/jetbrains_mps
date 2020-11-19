@@ -30,7 +30,6 @@ class MPSProperties extends JetBrainsProductProperties {
                 "intellij.platform.externalSystem.impl"
         ]
 
-        productLayout.additionalPlatformJars.put("resources.jar", "intellij.java.ide.resources")
         productLayout.additionalPlatformJars.
                 putAll("javac2.jar", ["intellij.java.compiler.antTasks", "intellij.java.guiForms.compiler", "intellij.java.guiForms.rt", "intellij.java.compiler.instrumentationUtil", "intellij.java.compiler.instrumentationUtil.java8"])
         productLayout.additionalPlatformJars.put("forms_rt.jar", "intellij.java.guiForms.compiler")
@@ -72,15 +71,6 @@ class MPSProperties extends JetBrainsProductProperties {
                 withProjectLibrary("pty4j") // for terminal plugin
                 withoutProjectLibrary("Ant")
                 withoutProjectLibrary("Gradle")
-                excludeFromModule("intellij.platform.resources", "META-INF/LangExtensions.xml")
-                excludeFromModule("intellij.platform.resources", "META-INF/PlatformLangPlugin.xml")
-                excludeFromModule("intellij.platform.resources", "META-INF/PlatformLangXmlPlugin.xml")
-                excludeFromModule("intellij.platform.resources", "META-INF/XmlPlugin.xml")
-                excludeFromModule("intellij.platform.resources", "META-INF/XmlActions.xml")
-                excludeFromModule("intellij.platform.resources", "idea/PlatformActions.xml")
-                excludeFromModule("intellij.platform.ide", "messages/FeatureStatisticsBundle.properties")
-                //Removing Idea Tips & Tricks
-                excludeFromModule("intellij.java.ide.resources", "ProductivityFeaturesRegistry.xml")
             }
         } as Consumer<PlatformLayout>
 
