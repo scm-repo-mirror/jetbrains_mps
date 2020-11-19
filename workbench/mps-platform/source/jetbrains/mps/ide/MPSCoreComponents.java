@@ -17,7 +17,9 @@ package jetbrains.mps.ide;
 
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.newvfs.ManagingFS;
+import com.intellij.openapi.vfs.newvfs.persistent.PersistentFSImpl;
 import jetbrains.mps.baseLanguage.search.MPSBaseLanguage;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.core.platform.Platform;
@@ -44,8 +46,8 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
  * would cease to depend from [mps-core] as well.
  */
 public class MPSCoreComponents implements Disposable {
-  private MPSBaseLanguage myBaseLanguage;
-  private Platform myPlatform;
+  private final MPSBaseLanguage myBaseLanguage;
+  private final Platform myPlatform;
 
   public MPSCoreComponents() {
     @NotNull ManagingFS fs = ManagingFS.getInstance();
@@ -53,6 +55,9 @@ public class MPSCoreComponents implements Disposable {
     myPlatform = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
     myBaseLanguage = new MPSBaseLanguage();
     myBaseLanguage.init();
+
+    // Required to maintain correct dispose order between PersistenceFacade and FileBasedIndexImpl.
+    Disposer.register(this, (PersistentFSImpl) fs);
   }
 
   @Override
