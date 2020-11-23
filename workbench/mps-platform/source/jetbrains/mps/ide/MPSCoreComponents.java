@@ -46,8 +46,8 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
  * would cease to depend from [mps-core] as well.
  */
 public class MPSCoreComponents implements Disposable {
-  private MPSBaseLanguage myBaseLanguage;
-  private Platform myPlatform;
+  private final MPSBaseLanguage myBaseLanguage;
+  private final Platform myPlatform;
 
   public MPSCoreComponents() {
     @NotNull ManagingFS fs = ManagingFS.getInstance();
