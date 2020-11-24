@@ -10,6 +10,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.AbstractCellProvider;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Error;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.cells.BigCellUtil;
 
 /*package*/ class AbstractOperation_EditorBuilder_a extends AbstractEditorBuilder {
@@ -37,7 +38,7 @@ import jetbrains.mps.editor.runtime.cells.BigCellUtil;
         return new AbstractCellProvider(myNode) {
           @Override
           public EditorCell createEditorCell(EditorContext context) {
-            return new EditorCell_Error(context, myNode, "<" + myNode.getRoleInParent() + ">");
+            return new EditorCell_Error(context, myNode, "<" + SNodeOperations.getContainingLink(myNode).getName() + ">");
           }
         };
       }

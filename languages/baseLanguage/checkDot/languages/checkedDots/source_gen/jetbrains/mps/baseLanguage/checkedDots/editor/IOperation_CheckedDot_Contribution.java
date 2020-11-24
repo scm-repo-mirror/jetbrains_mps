@@ -31,6 +31,7 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
@@ -120,9 +121,13 @@ public class IOperation_CheckedDot_Contribution extends TransformationMenuBase {
         SNode checkedDot = SNodeFactoryOperations.replaceWithNewChild(dot, CONCEPTS.CheckedDotExpression$Du);
         SLinkOperations.setTarget(checkedDot, LINKS.operand$w6IR, SLinkOperations.getTarget(dot, LINKS.operand$w6IR));
         SLinkOperations.setTarget(checkedDot, LINKS.operation$gs9E, SLinkOperations.getTarget(dot, LINKS.operation$gs9E));
-        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), checkedDot, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(checkedDot, LINKS.operation$gs9E), SelectionManager.FIRST_CELL, 0);
       }
 
+      @Override
+      public boolean canExecute(@NotNull String pattern) {
+        return !(SNodeOperations.isInstanceOf(IOperation__BehaviorDescriptor.getDotExpression_idhO_4GYO.invoke(_context.getNode()), CONCEPTS.CheckedDotExpression$Du));
+      }
 
       @Nullable
       @Override

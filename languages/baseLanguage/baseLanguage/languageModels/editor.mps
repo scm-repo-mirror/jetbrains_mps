@@ -14432,6 +14432,7 @@
       <node concept="3F0ifn" id="hqOrY5O" role="3EZMnx">
         <property role="3F0ifm" value="." />
         <ref role="1k5W1q" node="hFDnyG9" resolve="Dot" />
+        <ref role="1ERwB7" node="2aapKyReUhY" resolve="Dot_Actions_Delete" />
         <node concept="2SqB2G" id="4nKzUZ7_JYo" role="2SqHTX">
           <property role="TrG5h" value="dot" />
         </node>
@@ -15360,12 +15361,13 @@
                                 <node concept="Xl_RD" id="h_B$R9W" role="3uHU7B">
                                   <property role="Xl_RC" value="&lt;" />
                                 </node>
-                                <node concept="2OqwBi" id="6lZ8OoRvh2M" role="3uHU7w">
-                                  <node concept="2JrnkZ" id="6lZ8OoRvh2N" role="2Oq$k0">
-                                    <node concept="pncrf" id="6lZ8OoRvh2O" role="2JrQYb" />
+                                <node concept="2OqwBi" id="2aapKyR9uTZ" role="3uHU7w">
+                                  <node concept="2OqwBi" id="2aapKyR9tS3" role="2Oq$k0">
+                                    <node concept="pncrf" id="6lZ8OoRvh2O" role="2Oq$k0" />
+                                    <node concept="2NL2c5" id="2aapKyR9urh" role="2OqNvi" />
                                   </node>
-                                  <node concept="liA8E" id="6lZ8OoRvh2P" role="2OqNvi">
-                                    <ref role="37wK5l" to="mhbf:~SNode.getRoleInParent()" resolve="getRoleInParent" />
+                                  <node concept="liA8E" id="2aapKyR9vJr" role="2OqNvi">
+                                    <ref role="37wK5l" to="c17a:~SNamedElement.getName()" resolve="getName" />
                                   </node>
                                 </node>
                               </node>
@@ -70131,6 +70133,46 @@
                   </node>
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1h_SRR" id="2aapKyReUhY">
+    <property role="3GE5qa" value="classifiers" />
+    <property role="TrG5h" value="Dot_Actions_Delete" />
+    <ref role="1h_SK9" to="tpee:hqOqwz4" resolve="DotExpression" />
+    <node concept="1hA7zw" id="2aapKyReUhZ" role="1h_SK8">
+      <property role="1hAc7j" value="g_hAxAO/delete_action_id" />
+      <node concept="1hAIg9" id="2aapKyReUi0" role="1hA7z_">
+        <node concept="3clFbS" id="2aapKyReUi1" role="2VODD2">
+          <node concept="3clFbF" id="2aapKyReUii" role="3cqZAp">
+            <node concept="2OqwBi" id="2aapKyReUqS" role="3clFbG">
+              <node concept="0IXxy" id="2aapKyReUih" role="2Oq$k0" />
+              <node concept="1P9Npp" id="2aapKyReUM5" role="2OqNvi">
+                <node concept="2OqwBi" id="2aapKyReUX5" role="1P9ThW">
+                  <node concept="0IXxy" id="2aapKyReUOk" role="2Oq$k0" />
+                  <node concept="3TrEf2" id="2aapKyReUZQ" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpee:hqOq$gm" resolve="operand" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="jK8Ss" id="2aapKyReVV0" role="jK8aL">
+        <node concept="3clFbS" id="2aapKyReVV1" role="2VODD2">
+          <node concept="3clFbF" id="2aapKyReVZz" role="3cqZAp">
+            <node concept="2OqwBi" id="2aapKyReVZ_" role="3clFbG">
+              <node concept="2OqwBi" id="2aapKyReVZA" role="2Oq$k0">
+                <node concept="0IXxy" id="2aapKyReVZB" role="2Oq$k0" />
+                <node concept="3TrEf2" id="2aapKyReVZC" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpee:hqOq$gm" resolve="operand" />
+                </node>
+              </node>
+              <node concept="3x8VRR" id="2aapKyReVZD" role="2OqNvi" />
             </node>
           </node>
         </node>
