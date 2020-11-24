@@ -18,6 +18,9 @@
   </xi:include>
 
   <!-- Customizations to platform -->
+  <xi:include href="/META-INF/DisabledPlatformActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/DisabledLangActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/DisabledXmlPluginActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
   <actions>
     <!-- File -->
     <action id="NewElement" class="com.intellij.ide.actions.NewElementAction"/>
