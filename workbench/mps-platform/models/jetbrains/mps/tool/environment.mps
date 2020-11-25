@@ -1078,7 +1078,7 @@
                             </node>
                           </node>
                           <node concept="liA8E" id="p1QPGogrVK" role="2OqNvi">
-                            <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
+                            <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="Xl_RD" id="p1QPGogrVL" role="37wK5m">
                               <property role="Xl_RC" value="git4idea" />
                             </node>
@@ -1094,7 +1094,7 @@
                             </node>
                           </node>
                           <node concept="liA8E" id="p1QPGogrVO" role="2OqNvi">
-                            <ref role="37wK5l" to="wyt6:~String.contains(java.lang.CharSequence)" resolve="contains" />
+                            <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                             <node concept="Xl_RD" id="p1QPGogrVP" role="37wK5m">
                               <property role="Xl_RC" value="svn4idea" />
                             </node>
