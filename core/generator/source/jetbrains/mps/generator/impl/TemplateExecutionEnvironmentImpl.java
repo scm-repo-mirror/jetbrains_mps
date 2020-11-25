@@ -338,6 +338,11 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   }
 
   @Override
+  public void registerCompositeLabel(Object key1, Object key2, Iterable<SNode> outputNode, String mappingLabel) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
   public void registerLabel(SNode inputNode, Iterable<SNode> outputNodes, String mappingLabel) {
     for (SNode outputNode : outputNodes) {
       generator.registerMappingLabel(inputNode, mappingLabel, outputNode);

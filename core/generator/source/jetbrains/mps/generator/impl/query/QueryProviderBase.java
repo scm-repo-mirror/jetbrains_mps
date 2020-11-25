@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -202,6 +202,12 @@ public abstract class QueryProviderBase implements GeneratorQueryProvider {
     return new Missing(identity);
   }
 
+  @NotNull
+  @Override
+  public LabelInputQuery getLabelInputQuery(@NotNull QueryKey identity) {
+    return new Defaults();
+  }
+
   /**
    * Reasonable default values for all conditions and queries.
    * Note, these default values represent the case when no condition/query was specified.
@@ -209,7 +215,7 @@ public abstract class QueryProviderBase implements GeneratorQueryProvider {
    */
   public static class Defaults implements CreateRootCondition, MapRootRuleCondition, ReductionRuleCondition, PatternRuleQuery,
       DropRuleCondition, WeaveRuleCondition, WeaveRuleQuery, ScriptCodeBlock, MapConfigurationCondition, SourceNodeQuery, SourceNodesQuery,
-      WeaveAnchorQuery, DropAttributeRuleCondition {
+      WeaveAnchorQuery, DropAttributeRuleCondition, LabelInputQuery {
 
     @Override
     public boolean check(@NotNull CreateRootRuleContext ctx) {
@@ -277,6 +283,12 @@ public abstract class QueryProviderBase implements GeneratorQueryProvider {
     public SNode anchorNode(WeavingAnchorContext ctx) {
       // null is legitimate value, indicates 'just append'
       return null;
+    }
+
+    @Nullable
+    @Override
+    public Object evaluate(@NotNull TemplateQueryContext context) throws GenerationFailureException {
+      return context.getInputNode();
     }
   }
 

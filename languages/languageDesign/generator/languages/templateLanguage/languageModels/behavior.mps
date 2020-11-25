@@ -7077,5 +7077,86 @@
       <node concept="3clFbS" id="UesZ_nZXe5" role="2VODD2" />
     </node>
   </node>
+  <node concept="13h7C7" id="34_HLrTt9wX">
+    <property role="3GE5qa" value="macro" />
+    <ref role="13h7C2" to="tpf8:34_HLrTt9vK" resolve="LabelMacroInputQuery" />
+    <node concept="13hLZK" id="34_HLrTt9wY" role="13h7CW">
+      <node concept="3clFbS" id="34_HLrTt9wZ" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="34_HLrTtar8" role="13h7CS">
+      <property role="TrG5h" value="getParameterConcepts" />
+      <ref role="13i0hy" to="tpek:2xELmDxyi2v" resolve="getParameterConcepts" />
+      <node concept="3Tm1VV" id="34_HLrTtarg" role="1B3o_S" />
+      <node concept="3clFbS" id="34_HLrTtarh" role="3clF47">
+        <node concept="3cpWs8" id="34_HLrTtaxE" role="3cqZAp">
+          <node concept="3cpWsn" id="34_HLrTtaxF" role="3cpWs9">
+            <property role="TrG5h" value="result" />
+            <node concept="_YKpA" id="34_HLrTtaxG" role="1tU5fm">
+              <node concept="3bZ5Sz" id="34_HLrTtaxH" role="_ZDj9">
+                <ref role="3bZ5Sy" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="34_HLrTtaxI" role="33vP2m">
+              <node concept="13iAh5" id="34_HLrTtaxJ" role="2Oq$k0">
+                <ref role="3eA5LN" to="tpf8:hHd3awK" resolve="TemplateQueryBase" />
+              </node>
+              <node concept="2qgKlT" id="34_HLrTtaxK" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:2xELmDxyi2v" resolve="getParameterConcepts" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="34_HLrTtaxL" role="3cqZAp">
+          <node concept="2OqwBi" id="34_HLrTtaxM" role="3clFbG">
+            <node concept="37vLTw" id="34_HLrTtaxN" role="2Oq$k0">
+              <ref role="3cqZAo" node="34_HLrTtaxF" resolve="result" />
+            </node>
+            <node concept="TSZUe" id="34_HLrTtaxO" role="2OqNvi">
+              <node concept="35c_gC" id="34_HLrTtaxP" role="25WWJ7">
+                <ref role="35c_gD" to="tpf3:hHiwH3z" resolve="TemplateFunctionParameter_generationContext" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="34_HLrTtaxQ" role="3cqZAp">
+          <node concept="2OqwBi" id="34_HLrTtaxR" role="3clFbG">
+            <node concept="37vLTw" id="34_HLrTtaxS" role="2Oq$k0">
+              <ref role="3cqZAo" node="34_HLrTtaxF" resolve="result" />
+            </node>
+            <node concept="TSZUe" id="34_HLrTtaxT" role="2OqNvi">
+              <node concept="35c_gC" id="34_HLrTtaxU" role="25WWJ7">
+                <ref role="35c_gD" to="tpf8:gZ0H77W" resolve="TemplateFunctionParameter_sourceNode" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="34_HLrTtaxV" role="3cqZAp">
+          <node concept="37vLTw" id="34_HLrTtaxW" role="3cqZAk">
+            <ref role="3cqZAo" node="34_HLrTtaxF" resolve="result" />
+          </node>
+        </node>
+      </node>
+      <node concept="_YKpA" id="34_HLrTtari" role="3clF45">
+        <node concept="3bZ5Sz" id="34_HLrTtarj" role="_ZDj9">
+          <ref role="3bZ5Sy" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
+        </node>
+      </node>
+    </node>
+    <node concept="13i0hz" id="34_HLrTtdZ4" role="13h7CS">
+      <property role="TrG5h" value="getExpectedReturnType" />
+      <ref role="13i0hy" to="tpek:hEwIGRD" resolve="getExpectedReturnType" />
+      <node concept="3Tm1VV" id="34_HLrTtdZ8" role="1B3o_S" />
+      <node concept="3clFbS" id="34_HLrTtdZa" role="3clF47">
+        <node concept="3cpWs6" id="34_HLrTte9D" role="3cqZAp">
+          <node concept="2pJPEk" id="34_HLrTteau" role="3cqZAk">
+            <node concept="2pJPED" id="34_HLrTteat" role="2pJPEn">
+              <ref role="2pJxaS" to="tp25:gzTqbfa" resolve="SNodeType" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tqbb2" id="34_HLrTtdZb" role="3clF45" />
+    </node>
+  </node>
 </model>
 

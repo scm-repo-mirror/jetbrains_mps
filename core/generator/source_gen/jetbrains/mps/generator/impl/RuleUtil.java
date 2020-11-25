@@ -179,6 +179,11 @@ public final class RuleUtil {
   public static String getBaseRuleLabel(SNode rule) {
     return getMappingLabelName(SLinkOperations.getTarget(rule, LINKS.labelDeclaration$4kKU));
   }
+  public static boolean labelNeedsTwoInputs(SNode macro) {
+    // though mappingLable comes from NodeMacro, it's only LabelMacro that supports 2 inputs 
+    return (SLinkOperations.getTarget(SLinkOperations.getTarget(macro, LINKS.mappingLabel$jbOO), LINKS.sourceConcept2$sSLi) != null);
+  }
+
   public static SNode getBaseRuleApplicableConcept(SNode rule) {
     return SLinkOperations.getTarget(rule, LINKS.applicableConcept$Hpnk);
   }
@@ -436,6 +441,12 @@ public final class RuleUtil {
     return SLinkOperations.getTarget(varDecl, LINKS.value$EuM$);
   }
 
+  public static SNode getLabelQuery1(SNode macro) {
+    return SLinkOperations.getTarget(macro, LINKS.input1$vf2_);
+  }
+  public static SNode getLabelQuery2(SNode macro) {
+    return SLinkOperations.getTarget(macro, LINKS.input2$vkrW);
+  }
 
   public static SNode getDismissTopRule_message(SNode dismissTopRuleConsequence) {
     return SLinkOperations.getTarget(dismissTopRuleConsequence, LINKS.generatorMessage$yHHk);
@@ -468,6 +479,7 @@ public final class RuleUtil {
     /*package*/ static final SReferenceLink mappingLabel$jbOO = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, 0x1179bf24befL, "mappingLabel");
     /*package*/ static final SReferenceLink labelDeclaration$8_Th = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x190d31fe6a12ebb4L, 0x190d31fe6a12ebbaL, "labelDeclaration");
     /*package*/ static final SReferenceLink labelDeclaration$4kKU = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x1179c430cc8L, "labelDeclaration");
+    /*package*/ static final SReferenceLink sourceConcept2$sSLi = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1179be47606L, 0x3125b716f9750c56L, "sourceConcept2");
     /*package*/ static final SReferenceLink applicableConcept$Hpnk = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept");
     /*package*/ static final SContainmentLink conditionFunction$wXQT = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b719bdL, "conditionFunction");
     /*package*/ static final SContainmentLink conditionFunction$vPeH = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fbbd5854aL, 0x10fbbd5854cL, "conditionFunction");
@@ -530,6 +542,8 @@ public final class RuleUtil {
     /*package*/ static final SContainmentLink condition$2Y_U = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x6cab949e66d5b3bbL, "condition");
     /*package*/ static final SContainmentLink variables$Eqmf = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f957fc2b7eL, 0xe8e73f957fc2b8dL, "variables");
     /*package*/ static final SContainmentLink value$EuM$ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f957fc2b86L, 0xe8e73f957fc2b8aL, "value");
+    /*package*/ static final SContainmentLink input1$vf2_ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x473cc5baf8a1e7a4L, 0x3125b716f974e30bL, "input1");
+    /*package*/ static final SContainmentLink input2$vkrW = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x473cc5baf8a1e7a4L, 0x3125b716f974e30dL, "input2");
     /*package*/ static final SContainmentLink generatorMessage$yHHk = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013931abdL, 0x11055b6dd7bL, "generatorMessage");
   }
 

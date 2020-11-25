@@ -26,8 +26,10 @@ import jetbrains.mps.generator.impl.interpreted.TemplateCall;
 import jetbrains.mps.generator.impl.query.GeneratorQueryProvider;
 import jetbrains.mps.generator.impl.query.IfMacroCondition;
 import jetbrains.mps.generator.impl.query.InsertMacroQuery;
+import jetbrains.mps.generator.impl.query.LabelInputQuery;
 import jetbrains.mps.generator.impl.query.MapNodeQuery;
 import jetbrains.mps.generator.impl.query.MapPostProcessor;
+import jetbrains.mps.generator.impl.query.QueryKey;
 import jetbrains.mps.generator.impl.query.QueryKeyImpl;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.impl.query.SourceNodeQuery;
@@ -46,6 +48,7 @@ import jetbrains.mps.generator.template.InsertMacroContext;
 import jetbrains.mps.generator.template.QueryExecutionContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
+import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.generator.template.TemplateVarContext;
 import jetbrains.mps.generator.template.WeavingAnchorContext;
 import jetbrains.mps.smodel.SNodePointer;
@@ -64,6 +67,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Applies template to input node.
@@ -563,15 +567,80 @@ public final class TemplateProcessor implements ITemplateProcessor {
 
   // $LABEL$
   private static class LabelMacro extends MacroImpl {
+    private final boolean needsTwoInputs;
+    // AtomicReference serves just as 'initialized' indicator
+    private AtomicReference<LabelInputQuery> myQuery1;
+    private LabelInputQuery myQuery2;
+
     protected LabelMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor) {
       super(macro, templateNode, next, templateProcessor);
+      needsTwoInputs = RuleUtil.labelNeedsTwoInputs(macro);
+    }
+
+    private LabelInputQuery getQuery1(TemplateExecutionEnvironment env) {
+      if (myQuery1 == null) {
+        final SNode labelQuery1 = RuleUtil.getLabelQuery1(macro);
+        if (labelQuery1 == null) {
+          myQuery1 = new AtomicReference<>(null);
+          return null;
+        }
+        QueryKey key = new QueryKeyImpl(getMacroNodeRef(), labelQuery1.getNodeId());
+        myQuery1.set(env.getQueryProvider(getMacroNodeRef()).getLabelInputQuery(key));
+        // fall-through
+      }
+      return myQuery1.get();
+    }
+
+    public LabelInputQuery getQuery2(TemplateExecutionEnvironment env) {
+      if (myQuery2 != null) {
+        return myQuery2;
+      }
+      final SNode labelQuery2 = RuleUtil.getLabelQuery2(macro);
+      if (labelQuery2 == null) {
+        assert needsTwoInputs;
+        env.getLogger().warning(getMacroNodeRef(), "Label needs two inputs but doesn't specify query to get the second key");
+        // keep TEE.registerCompositeLabel as only place to decide what to do when there's null second key.
+        myQuery2 = context -> null;
+      } else {
+        QueryKey key = new QueryKeyImpl(getMacroNodeRef(), labelQuery2.getNodeId());
+        myQuery2 = env.getQueryProvider(getMacroNodeRef()).getLabelInputQuery(key);
+      }
+      return myQuery2;
     }
 
     @NotNull
     @Override
     public List<SNode> apply(@NotNull TemplateContext templateContext) throws DismissTopMappingRuleException, GenerationFailureException,
         GenerationCanceledException {
-      return nextMacro(templateContext);
+      // when we get here, templateContext bears LM name but hasn't mapped anything yet. Label assignment happens
+      // when there's output node and context still has LM name in it.
+      final TemplateExecutionEnvironment env = templateContext.getEnvironment();
+      if (templateContext.getInputName() != null && (needsTwoInputs || getQuery1(env) != null)) {
+        // there is custom logic to associate ML, clean the actual one to record it later
+        assert templateContext.getInputName().equals(getMappingLabel()); // would like to know immediately if this ever happens
+        final String originalML = templateContext.getInputName();
+        final List<SNode> output = nextMacro(templateContext.subContext());
+        final Object k1 = getQuery1(env).evaluate(queryContext(templateContext));
+        if (needsTwoInputs) {
+          // FIXME I invoke query here directly, not through QueryExecutor. Not that I don't want trace for these
+          //       queries, just feel it's time for QE to get replaced with proper QueryProvider that would wrap individual
+          //       queries
+          final Object k2 = getQuery2(env).evaluate(queryContext(templateContext));
+          env.registerCompositeLabel(k1, k2, output, originalML);
+        } else {
+          env.registerLabel((SNode) k1, output, originalML);
+        }
+        return output;
+      } else {
+        return nextMacro(templateContext);
+      }
+    }
+
+    private TemplateQueryContext queryContext(TemplateContext templateContext) {
+      // FIXME not sure whether it's reasonable to follow TQC patter of a distinct subclass for each query
+      // Don't care to clear inputName in TC here as the query unlikely to use it anyway, and it doesn't create any node.
+      return new TemplateQueryContext(getMacroNodeRef(), templateContext) {
+      };
     }
   }
 

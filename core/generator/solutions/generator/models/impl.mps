@@ -3392,6 +3392,78 @@
         </node>
       </node>
     </node>
+    <node concept="2YIFZL" id="532t3RszTMZ" role="jymVt">
+      <property role="TrG5h" value="labelNeedsTwoInputs" />
+      <node concept="10P_77" id="532t3RszYlq" role="3clF45" />
+      <node concept="3Tm1VV" id="532t3RszTN2" role="1B3o_S" />
+      <node concept="3clFbS" id="532t3RszTN3" role="3clF47">
+        <node concept="3SKdUt" id="532t3Rs$Y85" role="3cqZAp">
+          <node concept="1PaTwC" id="532t3Rs$Y86" role="1aUNEU">
+            <node concept="3oM_SD" id="532t3Rs$Y87" role="1PaTwD">
+              <property role="3oM_SC" value="though" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs$YdU" role="1PaTwD">
+              <property role="3oM_SC" value="mappingLable" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1l6" role="1PaTwD">
+              <property role="3oM_SC" value="comes" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1li" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1lB" role="1PaTwD">
+              <property role="3oM_SC" value="NodeMacro," />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1m5" role="1PaTwD">
+              <property role="3oM_SC" value="it's" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1mk" role="1PaTwD">
+              <property role="3oM_SC" value="only" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1ms" role="1PaTwD">
+              <property role="3oM_SC" value="LabelMacro" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1mP" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1n7" role="1PaTwD">
+              <property role="3oM_SC" value="supports" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1nq" role="1PaTwD">
+              <property role="3oM_SC" value="2" />
+            </node>
+            <node concept="3oM_SD" id="532t3Rs_1nI" role="1PaTwD">
+              <property role="3oM_SC" value="inputs" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="532t3Rs$zrZ" role="3cqZAp">
+          <node concept="2OqwBi" id="532t3Rs$SWp" role="3cqZAk">
+            <node concept="2OqwBi" id="532t3Rs$JxP" role="2Oq$k0">
+              <node concept="2OqwBi" id="532t3Rs$Ab7" role="2Oq$k0">
+                <node concept="37vLTw" id="532t3Rs$_TR" role="2Oq$k0">
+                  <ref role="3cqZAo" node="532t3Rs$qfg" resolve="macro" />
+                </node>
+                <node concept="3TrEf2" id="532t3Rs$DsX" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpf8:hurW$JJ" resolve="mappingLabel" />
+                </node>
+              </node>
+              <node concept="3TrEf2" id="532t3Rs$PqU" role="2OqNvi">
+                <ref role="3Tt5mk" to="tpf8:34_HLrTtgLm" resolve="sourceConcept2" />
+              </node>
+            </node>
+            <node concept="3x8VRR" id="532t3Rs$UPo" role="2OqNvi" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="532t3Rs$qfg" role="3clF46">
+        <property role="TrG5h" value="macro" />
+        <node concept="3Tqbb2" id="532t3Rs$qff" role="1tU5fm">
+          <ref role="ehGHo" to="tpf8:4sWLrFSCuu$" resolve="LabelMacro" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="532t3RszKP9" role="jymVt" />
     <node concept="2YIFZL" id="3Ic$I9I8GM6" role="jymVt">
       <property role="TrG5h" value="getBaseRuleApplicableConcept" />
       <node concept="3Tqbb2" id="3Ic$I9I8GMb" role="3clF45">
@@ -5532,6 +5604,56 @@
       </node>
     </node>
     <node concept="2tJIrI" id="UesZ_o04sf" role="jymVt" />
+    <node concept="2YIFZL" id="532t3RsyFv4" role="jymVt">
+      <property role="TrG5h" value="getLabelQuery1" />
+      <node concept="3Tqbb2" id="532t3RsyJTi" role="3clF45">
+        <ref role="ehGHo" to="tpf8:34_HLrTt9vK" resolve="LabelMacroInputQuery" />
+      </node>
+      <node concept="3Tm1VV" id="532t3RsyFv7" role="1B3o_S" />
+      <node concept="3clFbS" id="532t3RsyFv8" role="3clF47">
+        <node concept="3clFbF" id="532t3RszdgT" role="3cqZAp">
+          <node concept="2OqwBi" id="532t3RszelU" role="3clFbG">
+            <node concept="37vLTw" id="532t3RszdgS" role="2Oq$k0">
+              <ref role="3cqZAo" node="532t3Rsz4mb" resolve="macro" />
+            </node>
+            <node concept="3TrEf2" id="532t3Rszhwr" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpf8:34_HLrTtecb" resolve="input1" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="532t3Rsz4mb" role="3clF46">
+        <property role="TrG5h" value="macro" />
+        <node concept="3Tqbb2" id="532t3Rsz4ma" role="1tU5fm">
+          <ref role="ehGHo" to="tpf8:4sWLrFSCuu$" resolve="LabelMacro" />
+        </node>
+      </node>
+    </node>
+    <node concept="2YIFZL" id="532t3Rszhzi" role="jymVt">
+      <property role="TrG5h" value="getLabelQuery2" />
+      <node concept="3Tqbb2" id="532t3Rszhzj" role="3clF45">
+        <ref role="ehGHo" to="tpf8:34_HLrTt9vK" resolve="LabelMacroInputQuery" />
+      </node>
+      <node concept="3Tm1VV" id="532t3Rszhzk" role="1B3o_S" />
+      <node concept="3clFbS" id="532t3Rszhzl" role="3clF47">
+        <node concept="3clFbF" id="532t3Rszhzm" role="3cqZAp">
+          <node concept="2OqwBi" id="532t3Rszhzn" role="3clFbG">
+            <node concept="37vLTw" id="532t3Rszhzo" role="2Oq$k0">
+              <ref role="3cqZAo" node="532t3Rszhzq" resolve="macro" />
+            </node>
+            <node concept="3TrEf2" id="532t3Rszmlr" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpf8:34_HLrTtecd" resolve="input2" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="532t3Rszhzq" role="3clF46">
+        <property role="TrG5h" value="macro" />
+        <node concept="3Tqbb2" id="532t3Rszhzr" role="1tU5fm">
+          <ref role="ehGHo" to="tpf8:4sWLrFSCuu$" resolve="LabelMacro" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="UesZ_o00RX" role="jymVt" />
     <node concept="2YIFZL" id="7MOJ0cN$oB7" role="jymVt">
       <property role="TrG5h" value="getDismissTopRule_message" />

@@ -197,6 +197,13 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
 
   void registerLabel(SNode inputNode, SNode outputNode, String mappingLabel);
 
+  /**
+   * Map output nodes to a composite key.
+   * FIXME unclear if I shall allow for null key2, and, if yes, treat that as regular registerLabel then?
+   * @since 2020.3
+   */
+  void registerCompositeLabel(/*NotNull*/Object key1, /*???*/ Object key2, /*NotNull*/ Iterable<SNode> outputNode, /*NotNull*/ String mappingLabel);
+
   void registerLabel(SNode inputNode, Iterable<SNode> outputNodes, String mappingLabel);
 
   /**

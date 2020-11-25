@@ -1158,6 +1158,14 @@
       <property role="IQ2ns" value="1200911342686" />
       <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
     </node>
+    <node concept="1TJgyj" id="34_HLrTtgLm" role="1TKVEi">
+      <property role="20kJfa" value="sourceConcept2" />
+      <property role="IQ2ns" value="3541437991299124310" />
+      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
+      <node concept="t5JxF" id="34_HLrTtgLq" role="lGtFl">
+        <property role="t5JxN" value="XXX would prefer IType to facilitate second key other than concept, but have troubles combining both concept and arbitrary classifier types." />
+      </node>
+    </node>
     <node concept="1TJgyj" id="hurZzxA" role="1TKVEi">
       <property role="20kJfa" value="targetConcept" />
       <property role="IQ2ns" value="1200913004646" />
@@ -1507,6 +1515,18 @@
     <property role="34LRSv" value="$LABEL$" />
     <property role="EcuMT" value="5133195082121471908" />
     <ref role="1TJDcQ" node="fP7Vmt2" resolve="NodeMacro" />
+    <node concept="1TJgyj" id="34_HLrTtecb" role="1TKVEi">
+      <property role="IQ2ns" value="3541437991299113739" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="input1" />
+      <ref role="20lvS9" node="34_HLrTt9vK" resolve="LabelMacroInputQuery" />
+    </node>
+    <node concept="1TJgyj" id="34_HLrTtecd" role="1TKVEi">
+      <property role="IQ2ns" value="3541437991299113741" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="input2" />
+      <ref role="20lvS9" node="34_HLrTt9vK" resolve="LabelMacroInputQuery" />
+    </node>
     <node concept="M6xJ_" id="6_gUeuqOeQ0" role="lGtFl">
       <property role="Hh88m" value="" />
     </node>
@@ -2169,6 +2189,13 @@
     <property role="R4oN_" value="insert call site node" />
     <ref role="1TJDcQ" node="fP7Vmt2" resolve="NodeMacro" />
     <node concept="M6xJ_" id="4B_nWyeQsem" role="lGtFl" />
+  </node>
+  <node concept="1TIwiD" id="34_HLrTt9vK">
+    <property role="EcuMT" value="3541437991299094512" />
+    <property role="3GE5qa" value="macro" />
+    <property role="TrG5h" value="LabelMacroInputQuery" />
+    <property role="34LRSv" value="query" />
+    <ref role="1TJDcQ" node="hHd3awK" resolve="TemplateQueryBase" />
   </node>
 </model>
 
