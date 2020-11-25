@@ -32,7 +32,7 @@ public class AnonymousClassTest_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("1230058635634", "1230058635650");
+      initEditorComponent("1230058635634", "3420708394445453730");
       typeString("<");
     }
   }

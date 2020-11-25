@@ -634,8 +634,8 @@
       <node id="1230058635633" at="18,36,19,25" concept="11" />
       <node id="1230058635633" at="23,58,24,36" concept="2" />
       <node id="1230058635633" at="29,52,30,19" concept="11" />
-      <node id="1230058635633" at="34,51,35,60" concept="2" />
-      <node id="1230058635668" at="35,60,36,22" concept="2" />
+      <node id="1230058635633" at="34,51,35,66" concept="2" />
+      <node id="1230058635668" at="35,66,36,22" concept="2" />
       <node id="1230058635633" at="15,0,17,0" concept="9" trace="ourParamCache" />
       <node id="1230058635633" at="18,0,21,0" concept="1" trace="AnonymousClassTest_Test#()V" />
       <node id="1230058635633" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
