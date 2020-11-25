@@ -43,6 +43,7 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.IdeGlassPane;
@@ -148,6 +149,7 @@ import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.workbench.action.ActionUtils;
 import jetbrains.mps.workbench.action.BaseAction;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NonNls;
@@ -927,7 +929,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
           return;
         }
         String text = getMessagesTextFor(cell);
-        text = text == null ? text : text.replace("\n", "<br>");
+        if (text != null) {
+          text = StringEscapeUtils.escapeHtml(text.replace("\n", "<br>"));
+        }
         rv.set(text);
       }
     });
