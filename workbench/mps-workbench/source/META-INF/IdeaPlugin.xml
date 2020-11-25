@@ -17,6 +17,10 @@
     <xi:fallback/>
   </xi:include>
 
+  <projectListeners>
+    <listener class="jetbrains.mps.intellij.integration.MPSToolWindowManagerListener"
+              topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+  </projectListeners>
   <!-- Customizations to platform -->
   <xi:include href="/META-INF/DisabledPlatformActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
   <xi:include href="/META-INF/DisabledLangActions.xml" xpointer="xpointer(/idea-plugin/*)"/>

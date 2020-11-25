@@ -129,5 +129,6 @@
     <action id="PsiViewerForContext" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <!--    </group>-->
 
+    <action id="ActivateFindToolWindow" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
   </actions>
 </idea-plugin>
