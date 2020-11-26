@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,14 @@
  */
 package jetbrains.mps.generator.impl.query;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+
+import java.util.Map;
 
 /**
  * At the moment, some generated methods use QueryKey.getTemplateNode().getNodeId() to identify methods,
@@ -46,7 +49,19 @@ public final class QueryKeyImpl implements QueryKey {
     return myTemplateNode;
   }
 
+  /**
+   * @deprecated uses in generated code for non-compiled templates source node/nodes query.
+   *             leave here for at least a year to facilitate graceful transition
+   */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2020.3)
   public SNodeId getQueryNodeId() {
     return myFunctionNodeId;
+  }
+
+  @Override
+  public <T> T forFunctionNode(Map<?, T> map) {
+    return map.get(myFunctionNodeId.toString());
+
   }
 }

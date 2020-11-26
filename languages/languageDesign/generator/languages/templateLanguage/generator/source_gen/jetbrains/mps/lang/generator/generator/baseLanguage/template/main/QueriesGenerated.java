@@ -29,6 +29,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.pattern.behavior.PatternVarsUtil;
+import jetbrains.mps.generator.impl.query.QueryKey;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -75,7 +76,6 @@ import java.util.Map;
 import jetbrains.mps.generator.impl.query.ReductionRuleCondition;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.generator.impl.query.QueryKey;
 import jetbrains.mps.generator.template.ReductionRuleQueryContext;
 import jetbrains.mps.generator.impl.GenerationFailureException;
 import jetbrains.mps.generator.impl.query.MapRootRuleCondition;
@@ -84,7 +84,6 @@ import jetbrains.mps.generator.impl.query.DropRuleCondition;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
 import jetbrains.mps.generator.impl.query.MapConfigurationCondition;
 import jetbrains.mps.generator.impl.query.SourceNodeQuery;
-import jetbrains.mps.generator.impl.query.QueryKeyImpl;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
 import java.util.Collection;
@@ -711,40 +710,40 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), LINKS.mappingLabel$jbOO), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_57_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_57_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_58_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_58_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_59_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_59_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_60_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_60_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_61_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_61_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_62_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_62_1(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_62_2(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -753,16 +752,16 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c")) + ListSequence.fromList(((List<SNode>) _context.getVariable("rulesWithCondition"))).count();
   }
   public static Object propertyMacro_GetValue_63_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_63_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_64_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_64_1(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_64_2(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -777,19 +776,19 @@ public class QueriesGenerated extends QueryProviderBase {
     return ListSequence.fromList(((List<SNode>) _context.getVariable("rules"))).count() + ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_65_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_65_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_66_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_66_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_67_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_67_1(final PropertyMacroContext _context) {
     long msb = MetaIdHelper.getProperty(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(_context.getNode())).getConceptId().getLanguageId().getIdValue().getMostSignificantBits();
@@ -818,13 +817,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_68_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_68_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_69_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_69_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -836,7 +835,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((String) _context.getVariable("className"));
   }
   public static Object propertyMacro_GetValue_74_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_74_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -848,7 +847,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (templateTarget == null ? "null" : templateTarget.getName());
   }
   public static Object propertyMacro_GetValue_74_3(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_74_4(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c")) + ListSequence.fromList(((List<SNode>) _context.getVariable("macros"))).count();
@@ -860,7 +859,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c")) + ListSequence.fromList(((List<SNode>) _context.getVariable("macros"))).count();
   }
   public static Object propertyMacro_GetValue_75_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_75_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -869,7 +868,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_76_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_76_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -878,7 +877,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_77_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_77_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -888,7 +887,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_78_0(final PropertyMacroContext _context) {
     // use macro's id, not the one of the query to match QueryKey.getTemplateNode() 
-    return SNodeOperations.getParent(_context.getNode()).getNodeId().toString();
+    return QueryKey.valueOf(SNodeOperations.getParent(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_78_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -898,7 +897,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_79_0(final PropertyMacroContext _context) {
     // use macro's id, not the one of the post-processing block to match QueryKey.getTemplateNode() 
-    return SNodeOperations.getParent(_context.getNode()).getNodeId().toString();
+    return QueryKey.valueOf(SNodeOperations.getParent(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_79_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -931,7 +930,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Integer) _context.getVariable("cv:c"));
   }
   public static Object propertyMacro_GetValue_84_0(final PropertyMacroContext _context) {
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_84_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -973,7 +972,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_93_0(final PropertyMacroContext _context) {
     // LABEL macro got 2 LMIQ queries, can't use macro itself to map LIQ impl 
-    return _context.getNode().getNodeId().toString();
+    return QueryKey.valueOf(_context.getNode());
   }
   public static Object propertyMacro_GetValue_93_1(final PropertyMacroContext _context) {
     return ((Integer) _context.getVariable("cv:c"));
@@ -3906,11 +3905,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @Override
   @NotNull
   public ReductionRuleCondition getReductionRuleCondition(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(rrcMethods.containsKey(id))) {
-      return super.getReductionRuleCondition(identity);
-    }
-    return rrcMethods.get(id);
+    ReductionRuleCondition query = identity.forTemplateNode(rrcMethods);
+    return (query != null ? query : super.getReductionRuleCondition(identity));
   }
   private static class RRC implements ReductionRuleCondition {
     private final int methodKey;
@@ -3935,11 +3931,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @Override
   @NotNull
   public MapRootRuleCondition getMapRootRuleCondition(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(mrrcMethods.containsKey(id))) {
-      return super.getMapRootRuleCondition(identity);
-    }
-    return mrrcMethods.get(id);
+    MapRootRuleCondition query = identity.forTemplateNode(mrrcMethods);
+    return (query != null ? query : super.getMapRootRuleCondition(identity));
   }
   private static class MRRC implements MapRootRuleCondition {
     private final int methodKey;
@@ -3964,11 +3957,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @Override
   @NotNull
   public DropRuleCondition getDropRuleCondition(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(drcMethods.containsKey(id))) {
-      return super.getDropRuleCondition(identity);
-    }
-    return drcMethods.get(id);
+    DropRuleCondition query = identity.forTemplateNode(drcMethods);
+    return (query != null ? query : super.getDropRuleCondition(identity));
   }
   private static class DRC implements DropRuleCondition {
     private final int methodKey;
@@ -3997,11 +3987,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @Override
   @NotNull
   public ScriptCodeBlock getScriptCodeBlock(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(mscbMethods.containsKey(id))) {
-      return super.getScriptCodeBlock(identity);
-    }
-    return mscbMethods.get(id);
+    ScriptCodeBlock query = identity.forTemplateNode(mscbMethods);
+    return (query != null ? query : super.getScriptCodeBlock(identity));
   }
   private static class SCB implements ScriptCodeBlock {
     private final int methodKey;
@@ -4040,11 +4027,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @Override
   @NotNull
   public MapConfigurationCondition getMapConfigurationCondition(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(mccMethods.containsKey(id))) {
-      return super.getMapConfigurationCondition(identity);
-    }
-    return mccMethods.get(id);
+    MapConfigurationCondition query = identity.forTemplateNode(mccMethods);
+    return (query != null ? query : super.getMapConfigurationCondition(identity));
   }
   private static class MCC implements MapConfigurationCondition {
     private final int methodKey;
@@ -4170,11 +4154,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public SourceNodeQuery getSourceNodeQuery(@NotNull QueryKey identity) {
-    final String id = ((QueryKeyImpl) identity).getQueryNodeId().toString();
-    if (!(snqMethods.containsKey(id))) {
-      return super.getSourceNodeQuery(identity);
-    }
-    return snqMethods.get(id);
+    SourceNodeQuery query = identity.forFunctionNode(snqMethods);
+    return (query != null ? query : super.getSourceNodeQuery(identity));
   }
   private static class SNQ implements SourceNodeQuery {
     private final int methodKey;
@@ -4518,11 +4499,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public SourceNodesQuery getSourceNodesQuery(@NotNull QueryKey identity) {
-    final String id = ((QueryKeyImpl) identity).getQueryNodeId().toString();
-    if (!(snsqMethods.containsKey(id))) {
-      return super.getSourceNodesQuery(identity);
-    }
-    return snsqMethods.get(id);
+    SourceNodesQuery query = identity.forFunctionNode(snsqMethods);
+    return (query != null ? query : super.getSourceNodesQuery(identity));
   }
   private static class SNsQ implements SourceNodesQuery {
     private final int methodKey;
@@ -5037,11 +5015,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public PropertyValueQuery getPropertyValueQuery(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(pvqMethods.containsKey(id))) {
-      return super.getPropertyValueQuery(identity);
-    }
-    return pvqMethods.get(id);
+    PropertyValueQuery query = identity.forTemplateNode(pvqMethods);
+    return (query != null ? query : super.getPropertyValueQuery(identity));
   }
   private static class PVQ extends PropertyValueQuery.Base {
     private final int methodKey;
@@ -5772,11 +5747,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public IfMacroCondition getIfMacroCondition(@NotNull QueryKey identity) {
-    final String id = identity.getTemplateNode().getNodeId().toString();
-    if (!(imcMethods.containsKey(id))) {
-      return super.getIfMacroCondition(identity);
-    }
-    return imcMethods.get(id);
+    IfMacroCondition query = identity.forTemplateNode(imcMethods);
+    return (query != null ? query : super.getIfMacroCondition(identity));
   }
   private static class IfMC implements IfMacroCondition {
     private final int methodKey;
@@ -6407,11 +6379,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public ReferenceTargetQuery getReferenceTargetQuery(@NotNull QueryKey queryKey) {
-    final String id = queryKey.getTemplateNode().getNodeId().toString();
-    if (!(rtqMethods.containsKey(id))) {
-      return super.getReferenceTargetQuery(queryKey);
-    }
-    return rtqMethods.get(id);
+    ReferenceTargetQuery query = queryKey.forTemplateNode(rtqMethods);
+    return (query != null ? query : super.getReferenceTargetQuery(queryKey));
   }
   private static class RTQ extends ReferenceTargetQuery.Base {
     private final int methodKey;
@@ -6856,11 +6825,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public VariableValueQuery getVariableValueQuery(@NotNull QueryKey queryKey) {
-    final String id = queryKey.getTemplateNode().getNodeId().toString();
-    if (!(vvqMethods.containsKey(id))) {
-      return super.getVariableValueQuery(queryKey);
-    }
-    return vvqMethods.get(id);
+    VariableValueQuery query = queryKey.forTemplateNode(vvqMethods);
+    return (query != null ? query : super.getVariableValueQuery(queryKey));
   }
   private static class VVQ implements VariableValueQuery {
     private final int methodKey;
@@ -7043,11 +7009,8 @@ public class QueriesGenerated extends QueryProviderBase {
   @NotNull
   @Override
   public CallArgumentQuery getTemplateCallArgumentQuery(@NotNull QueryKey queryKey) {
-    final String id = queryKey.getTemplateNode().getNodeId().toString();
-    if (!(caqMethods.containsKey(id))) {
-      return super.getTemplateCallArgumentQuery(queryKey);
-    }
-    return caqMethods.get(id);
+    CallArgumentQuery query = queryKey.forTemplateNode(caqMethods);
+    return (query != null ? query : super.getTemplateCallArgumentQuery(queryKey));
   }
   private static class CAQ implements CallArgumentQuery {
     private final int methodKey;
