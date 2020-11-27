@@ -108,10 +108,10 @@
                         serviceImplementation="jetbrains.mps.ide.ui.fileEditor.MPSEditorEmptyTextPainter"
                         overrides="true"/>
 
-    <!-- Same as in community/java/ide-customization/resources/META-INF/plugin.xml -->
+    <!-- Similar to community/java/ide-customization/resources/META-INF/plugin.xml -->
     <!-- preload because in any case will be requested to reopen last projects -->
     <applicationService serviceInterface="com.intellij.ide.RecentProjectsManager"
-                        serviceImplementation="com.intellij.ide.RecentProjectsManagerBase"
+                        serviceImplementation="jetbrains.mps.intellij.integration.MPSRecentProjectsManagerBase"
                         overrides="true" preload="notHeadless"/>
 
     <!-- Start of same registrations as in JavaPlugin.xml TODO: check applicability in MPS -->
