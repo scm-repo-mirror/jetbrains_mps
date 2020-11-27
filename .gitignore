@@ -51,13 +51,22 @@ teamcity-info.xml
 # (in the same order as in the MPSProperties.groovy to simplify maintaining)
 /plugins/java
 /plugins/java-ide-customization
+/plugins/copyright
+/plugins/properties
+/plugins/properties-resource-bundle-editor
 /plugins/terminal
+/plugins/emojipicker
 /plugins/settings-repository
 /plugins/tasks
 /plugins/git4idea
 /plugins/svn4idea
 /plugins/github
+/plugins/ant
+/plugins/sh
 /plugins/vcs-changeReminder
+/plugins/markdown
+/plugins/grazie
+# some default plugins (not mentioned in MPSProperties.groovy)
 /plugins/platform-images
 /plugins/laf-macos
 /plugins/laf-win10
