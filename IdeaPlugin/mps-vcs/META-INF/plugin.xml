@@ -25,7 +25,7 @@
   <depends>jetbrains.mps.core</depends>
 
   <depends optional="true">Subversion</depends>
-  <depends optional="true">Git4Idea</depends>
+  <depends optional="true" config-file="MPSVcsGit.xml">Git4Idea</depends>
 
   <xi:include href="MPSVcs.xml" xpointer="xpointer(/components/*)"/>
 

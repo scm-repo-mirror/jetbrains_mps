@@ -2990,9 +2990,6 @@
       <node concept="2zDL_x" id="341WClvYU0P" role="2zDL_s">
         <ref role="2zDL_u" node="341WClvYTW8" resolve="MPSGlobalVcsGroup" />
       </node>
-      <node concept="2zDL_x" id="5UImJs756Se" role="2zDL_s">
-        <ref role="2zDL_u" node="7yFo2E9ZaLd" resolve="MPSGitFileActions" />
-      </node>
       <node concept="2zDL_x" id="3WCIgQv3c8f" role="2zDL_s">
         <ref role="2zDL_u" node="3WCIgQv3c8a" resolve="AnnotateGroup" />
       </node>
@@ -5142,6 +5139,15 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="yhzZL" id="7P7YAtPMDqq">
+    <property role="TrG5h" value="MPSVcsGit" />
+    <property role="BHXKe" value="${module}/../META-INF/" />
+    <node concept="2zDL_w" id="7P7YAtPMDqr" role="yhzZR">
+      <node concept="2zDL_x" id="7P7YAtPNblB" role="2zDL_s">
+        <ref role="2zDL_u" node="7yFo2E9ZaLd" resolve="MPSGitFileActions" />
       </node>
     </node>
   </node>

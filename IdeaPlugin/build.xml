@@ -109,6 +109,7 @@
     </copy>
     <copy todir="${base_dir}/IdeaPlugin/mps-vcs/META-INF">
       <file file="${base_dir}/IdeaPlugin/build/artifacts/mpsIdeaVcs/mps-vcs/META-INF/MPSVcs.xml"/>
+      <file file="${base_dir}/IdeaPlugin/build/artifacts/mpsIdeaVcs/mps-vcs/META-INF/MPSVcsGit.xml"/>
     </copy>
     <mkdir dir="${base_dir}/IdeaPlugin/mps-vcs/languages"/>
     <copy todir="${base_dir}/IdeaPlugin/mps-vcs/languages">
@@ -170,6 +171,7 @@
     <delete dir="${base_dir}/IdeaPlugin/mps-java/META-INF/platform"/>
     <delete dir="${base_dir}/IdeaPlugin/mps-java/lib"/>
     <delete file="${base_dir}/IdeaPlugin/mps-vcs/META-INF/MPSVcs.xml"/>
+    <delete file="${base_dir}/IdeaPlugin/mps-vcs/META-INF/MPSVcsGit.xml"/>
     <delete dir="${base_dir}/IdeaPlugin/mps-vcs/languages"/>
     <delete dir="${base_dir}/IdeaPlugin/mps-vcs/lib"/>
     <delete includeemptydirs="true">

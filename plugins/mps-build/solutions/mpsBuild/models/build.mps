@@ -29128,23 +29128,23 @@
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUA" role="3bR37C">
         <node concept="3bR9La" id="4IP11oWmBUB" role="1SiIV1">
-          <ref role="3bR37D" node="mXGwHwhVPj" />
+          <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
         </node>
       </node>
       <node concept="1SiIV0" id="4IP11oWmBU$" role="3bR37C">
         <node concept="3bR9La" id="4IP11oWmBU_" role="1SiIV1">
-          <ref role="3bR37D" node="44LXwdzyvTi" />
+          <ref role="3bR37D" node="44LXwdzyvTi" resolve="Annotations" />
         </node>
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUw" role="3bR37C">
         <node concept="3bR9La" id="4IP11oWmBUx" role="1SiIV1">
-          <ref role="3bR37D" node="1H905DlDUSw" />
+          <ref role="3bR37D" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
         </node>
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUK" role="3bR37C">
         <node concept="3bR9La" id="4IP11oWmBUL" role="1SiIV1">
           <property role="3bR36h" value="true" />
-          <ref role="3bR37D" node="1TaHNgiIbIQ" />
+          <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
         </node>
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUk" role="3bR37C">
@@ -29160,7 +29160,7 @@
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUI" role="3bR37C">
         <node concept="3bR9La" id="4IP11oWmBUJ" role="1SiIV1">
-          <ref role="3bR37D" node="7Kfy9QB6LfQ" />
+          <ref role="3bR37D" node="7Kfy9QB6LfQ" resolve="jetbrains.mps.kernel" />
         </node>
       </node>
       <node concept="1SiIV0" id="4IP11oWmBUu" role="3bR37C">
@@ -31945,6 +31945,23 @@
                     <property role="2Ry0Am" value="META-INF" />
                     <node concept="2Ry0Ak" id="3SChJ9XyqVQ" role="2Ry0An">
                       <property role="2Ry0Am" value="MPSVcs.xml" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="28jJK3" id="7P7YAtPO7D8" role="39821P">
+            <node concept="398BVA" id="7P7YAtPO7D9" role="28jJRO">
+              <ref role="398BVh" node="1lMM4owFq61" resolve="mps_home" />
+              <node concept="2Ry0Ak" id="7P7YAtPO7Da" role="iGT6I">
+                <property role="2Ry0Am" value="plugins" />
+                <node concept="2Ry0Ak" id="7P7YAtPO7Db" role="2Ry0An">
+                  <property role="2Ry0Am" value="mps-vcs" />
+                  <node concept="2Ry0Ak" id="7P7YAtPO7Dc" role="2Ry0An">
+                    <property role="2Ry0Am" value="META-INF" />
+                    <node concept="2Ry0Ak" id="7P7YAtPO7Dd" role="2Ry0An">
+                      <property role="2Ry0Am" value="MPSVcsGit.xml" />
                     </node>
                   </node>
                 </node>

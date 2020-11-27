@@ -1213,7 +1213,7 @@
   </root>
   <root nodeRef="r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)/8230098746512809427">
     <file name="MPSVcs.xml">
-      <unit id="8230098746512809427" at="1,0,50,13" name="jetbrains.mps.vcs.platform.actions.MPSVcs" />
+      <unit id="8230098746512809427" at="1,0,41,13" name="jetbrains.mps.vcs.platform.actions.MPSVcs" />
     </file>
   </root>
   <root nodeRef="r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)/8695149241388806063">
@@ -1287,6 +1287,11 @@
         <var name="event" id="8695149241388806063" />
       </scope>
       <unit id="8695149241388806063" at="24,0,76,0" name="jetbrains.mps.vcs.platform.actions.ResolveNonconflictingChanges_Action" />
+    </file>
+  </root>
+  <root nodeRef="r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)/9027459300352235162">
+    <file name="MPSVcsGit.xml">
+      <unit id="9027459300352235162" at="1,0,13,13" name="jetbrains.mps.vcs.platform.actions.MPSVcsGit" />
     </file>
   </root>
 </debug-info>
