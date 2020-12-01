@@ -28,6 +28,7 @@ import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.editor.colors.FontPreferences;
 import com.intellij.openapi.editor.colors.ModifiableFontPreferences;
 import com.intellij.openapi.editor.colors.impl.AppEditorFontOptions;
+import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
 import com.intellij.openapi.editor.ex.util.EditorUtil;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.ui.JBColor;
@@ -309,10 +310,14 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
     myState.showContextAssistant = showContextAssistant;
   }
 
+  @ScheduledForRemoval(inVersion = "2021.1")
+  @Deprecated(since = "2020.3", forRemoval = true)
   public int getCaretBlinkPeriod() {
     return myState.caretBlinkPeriod;
   }
 
+  @ScheduledForRemoval(inVersion = "2021.1")
+  @Deprecated(since = "2020.3", forRemoval = true)
   public void setCaretBlinkPeriod(int rate) {
     myState.caretBlinkPeriod = rate;
   }
@@ -392,6 +397,7 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
     // then old state returned on first getState call and Font & AA settings are set to default values.
     // This makes platform re-save state with reset Font and AA so next load will ignore this settings.
     if (firstGetStateCall) {
+      migrateCaretSettings();
       firstGetStateCall = false;
       if (oldSettingsImported) {
         final MyState stateWOFontAndAA = new MyState();
@@ -400,9 +406,19 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
         myState = stateWOFontAndAA; // use reset state
         return oldState;
       }
+    } else {
+      myState.caretBlinkPeriod = DEFAULT_CARET_BLINK_PERIOD;
     }
 
     return myState;
+  }
+
+  private void migrateCaretSettings() {
+    if (myState.caretBlinkPeriod != DEFAULT_CARET_BLINK_PERIOD) {
+      EditorSettingsExternalizable settings = EditorSettingsExternalizable.getInstance();
+      settings.setBlinkPeriod(myState.caretBlinkPeriod);
+      settings.setBlinkCaret(true);
+    }
   }
 
   @Override
@@ -480,6 +496,7 @@ public class EditorSettings implements PersistentStateComponent<MyState> {
     public boolean show = true;
 
     public boolean showContextAssistant = true;
+    @Deprecated
     public int caretBlinkPeriod = DEFAULT_CARET_BLINK_PERIOD;
     public boolean reflectiveEditorReadonly = false;
 

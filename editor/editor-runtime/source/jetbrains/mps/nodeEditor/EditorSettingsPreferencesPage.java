@@ -20,7 +20,6 @@ import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.ui.ContextHelpLabel;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.components.JBRadioButton;
-import com.intellij.ui.components.panels.HorizontalLayout;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.util.ui.JBInsets;
@@ -61,14 +60,14 @@ class EditorSettingsPreferencesPage implements Disposable {
   private final JCheckBox myHighlightNodeUnderCursor;
   private final JCheckBox myDisableImmediateQuickFix;
   private final JCheckBox myShowContextAssistant;
-  private final JSpinner myCaretBlinkPeriod;
   private final JBRadioButton myDontShow;
   private final JBRadioButton myTabPerAspect;
   private final JBRadioButton myTabPerNode;
   private final JBRadioButton myAllTabs;
   private JBRadioButton myFirstSelection;
 
-  public EditorSettingsPreferencesPage() {
+  @SuppressWarnings("UnusedAssignment")
+  EditorSettingsPreferencesPage() {
     final int gap = 5;
     final JBInsets insets = new JBInsets(gap, gap, gap, gap);
     int mainPanelRowCount = 0;
@@ -141,17 +140,6 @@ class EditorSettingsPreferencesPage implements Disposable {
 
     panel.add(checkboxes, getConstraint(mainPanelRowCount++, 0));
 
-    JPanel caretBlinkingPanel = new JPanel(new HorizontalLayout(gap));
-    caretBlinkingPanel.add(new JLabel(EditorSettingsBundle.message("label.caret.blinking")));
-    myCaretBlinkPeriod =
-        new JSpinner(
-            new SpinnerNumberModel(EditorSettings.getInstance().getCaretBlinkPeriod(), EditorSettings.MIN_CARET_BLINK_PERIOD,
-                                   EditorSettings.MAX_CARET_BLINK_PERIOD,
-                                   100));
-    caretBlinkingPanel.add(myCaretBlinkPeriod);
-
-    panel.add(caretBlinkingPanel, getConstraint(mainPanelRowCount, 0));
-
     myEditorSettingsPanel = new JPanel(new BorderLayout());
     myEditorSettingsPanel.add(panel, BorderLayout.NORTH);
   }
@@ -182,8 +170,6 @@ class EditorSettingsPreferencesPage implements Disposable {
     editorSettings.setVerticalBound((Integer) myRightMargin.getModel().getValue());
 
     editorSettings.setIndentSize((Integer) myIndentSize.getModel().getValue());
-
-    editorSettings.setCaretBlinkPeriod((Integer) myCaretBlinkPeriod.getModel().getValue());
 
     editorSettings.setUseBraces(myUseBraces.isSelected());
     editorSettings.setShowContextAssistant(myShowContextAssistant.isSelected());
@@ -230,7 +216,6 @@ class EditorSettingsPreferencesPage implements Disposable {
     boolean sameDisableImmediateQuickFix = myDisableImmediateQuickFix.isSelected() == editorSettings.isDisableImmediateQuickFix();
     boolean sameAutoQuickFix = myAutoQuickFixCheckBox.isSelected() == editorSettings.isAutoQuickFix();
     boolean sameCompletionStyling = myCompletionStylingCheckBox.isSelected() == editorSettings.isCompletionStyling();
-    boolean sameBlinkingRate = myCaretBlinkPeriod.getModel().getValue().equals(editorSettings.getCaretBlinkPeriod());
     boolean sameTabs = myFirstSelection.isSelected();
     boolean sameUseContextAssistant = myShowContextAssistant.isSelected() == editorSettings.isShowContextAssistant();
 
@@ -239,7 +224,7 @@ class EditorSettingsPreferencesPage implements Disposable {
              sameTypeOverExistingText && sameAutoQuickFix &&
              sameDisableImmediateQuickFix &&
              sameHighlightNodeUnderCursor &&
-             sameCompletionStyling && sameBlinkingRate &&
+             sameCompletionStyling &&
              sameTabs && sameUseContextAssistant);
   }
 
@@ -255,7 +240,6 @@ class EditorSettingsPreferencesPage implements Disposable {
     myAutoQuickFixCheckBox.setSelected(editorSettings.isAutoQuickFix());
     myCompletionStylingCheckBox.setSelected(editorSettings.isCompletionStyling());
     myShowContextAssistant.setSelected(editorSettings.isShowContextAssistant());
-    myCaretBlinkPeriod.setValue(editorSettings.getCaretBlinkPeriod());
     applyState();
     myFirstSelection.setSelected(true);
   }

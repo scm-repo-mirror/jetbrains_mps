@@ -17,7 +17,7 @@ package jetbrains.mps.ide.editor;
 
 import com.intellij.concurrency.JobScheduler;
 import com.intellij.openapi.components.ApplicationComponent;
-import jetbrains.mps.nodeEditor.EditorSettings;
+import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
 import jetbrains.mps.nodeEditor.EditorSettingsListener;
 import jetbrains.mps.nodeEditor.caret.CaretManager;
 import org.jetbrains.annotations.NotNull;
@@ -30,16 +30,10 @@ import java.util.concurrent.TimeUnit;
  * Date: 29/07/16
  */
 public class IdeaCaretManager extends CaretManager implements ApplicationComponent, EditorSettingsListener {
-  private final EditorSettings mySettings;
-
-  public IdeaCaretManager(EditorSettings editorSettings) {
-    mySettings = editorSettings;
-  }
 
   @Override
   public void initComponent() {
     CaretManager.ourInstance = this;
-    mySettings.addEditorSettingsListener(this);
   }
 
   @Override
@@ -54,7 +48,13 @@ public class IdeaCaretManager extends CaretManager implements ApplicationCompone
 
   @Override
   protected ScheduledFuture<?> start() {
-    return JobScheduler.getScheduler().scheduleWithFixedDelay(new Blink(), mySettings.getCaretBlinkPeriod(), mySettings.getCaretBlinkPeriod(),
+    EditorSettingsExternalizable settingsExternalizable = EditorSettingsExternalizable.getInstance();
+    boolean blinkCaret = settingsExternalizable.isBlinkCaret();
+    if (!blinkCaret) {
+      return null;
+    }
+    int blinkPeriod = settingsExternalizable.getBlinkPeriod();
+    return JobScheduler.getScheduler().scheduleWithFixedDelay(new Blink(), blinkPeriod, blinkPeriod,
         TimeUnit.MILLISECONDS);
   }
 
