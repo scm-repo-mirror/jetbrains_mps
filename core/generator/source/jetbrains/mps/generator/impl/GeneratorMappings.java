@@ -39,6 +39,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -84,10 +85,11 @@ public final class GeneratorMappings {
     // (e.g. multipleLoopVarDecl rmt -> rmt_var) more than once - e.g. typesystem makes a copy of some rules
     // to generate two methods, and if there's an MultiForLoop in the original code, we get two almost identical
     // ML entries (presentation of output and key's original nodes are the same, see comparator in #getSortedMappingKeys(),
-    // below. Therefore, for nodes that are 'equal' that way, would like to keep an order they were registered at
-    // It used to be LinkedHashMap. Now, with output nodes coming ordered now from LMCollector (at least
-    // within the same root), we don't care about ordering here any more - imagine (LM, I, O1) and (LM, I, O2). When the
-    // second one comes, there's already NodeMapRecord for I, and O2 just goes
+    // below. Therefore, for nodes that are 'equal' that way, we need to keep an order they were registered at, and
+    // ut used to be LinkedHashMap here. Now, with output nodes coming from LMCollector in uncontrolled order (there's hash by SNode),
+    // I've introduced an extra condition into key comparator, that treats nodes with id matching one of their origin as preceding those with
+    // completely arbitrary node id. Indeed, this works only in scenarios when master node is not far from original model and still keeps its id.
+    // I don't think it's a drawback as I'd rather avoid template code that duplicates fragments of input models during transformation at all.
   }
 
   void fillFrom(Collection<LMCollector> lmCollectors) {
@@ -295,9 +297,25 @@ public final class GeneratorMappings {
           // input node is the same (or indistinguishable), have to respect values to keep order consistent.
           // E.g. a pattern in a typesystem rule is copied to to different methods, there are two output classes
           // Pattern_nn7be_a0a0a0b0d and Pattern_nn7be_a0a0a0c, and label entry order is inconsistent
-          return String.valueOf(o1.value()).compareTo(String.valueOf(o2.value()));
+          v = String.valueOf(o1.value()).compareTo(String.valueOf(o2.value()));
+          if (v == 0) {
+            // last resort, address scenario when input nodes were copied, and processed individually. Treat the one
+            // that served as a master one 'first', its copies 'subsequent'. Guess the master by node id matching the one
+            // of the original node.
+            final boolean b1 = nodeIdSameAsOriginal(o1.key());
+            final boolean b2 = nodeIdSameAsOriginal(o2.key());
+            if (b1 ^ b2) {
+              v = b1 ? -1 : 1;
+            }
+            // fall-through
+          }
         }
         return v;
+      }
+
+      private boolean nodeIdSameAsOriginal(SNode n) {
+        final SNodeReference original = TracingUtil.getInput(n);
+        return original != null && Objects.equals(original.getNodeId(), n.getNodeId());
       }
 
       private int compareKeys(SNode n1, SNode n2) {
