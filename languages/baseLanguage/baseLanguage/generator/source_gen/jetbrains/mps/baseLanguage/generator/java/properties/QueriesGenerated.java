@@ -87,6 +87,12 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object referenceMacro_GetReferent_4_0(final ReferenceMacroContext _context) {
     return (String) Property__BehaviorDescriptor.getBackingVarName_id1tRxQXfvLw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.owningProperty$4Lzk));
   }
+  public static boolean ifMacro_Condition_2_0(final IfMacroContext _context) {
+    return (boolean) Property__BehaviorDescriptor.hasSetter_idhEwIJ0S.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.property$n7$M));
+  }
+  public static boolean ifMacro_Condition_2_1(final IfMacroContext _context) {
+    return (boolean) Property__BehaviorDescriptor.hasSetter_idhEwIJ0S.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.property$n7$M));
+  }
   public static boolean ifMacro_Condition_3_0(final IfMacroContext _context) {
     return (boolean) Property__BehaviorDescriptor.isDefaultImplementation_idhEwIIZu.invoke(_context.getNode()) || (boolean) Property__BehaviorDescriptor.isCustomSetterOnlyImplementation_id2hzApTi_Lsg.invoke(_context.getNode()) || ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.PropertyValueReference$iy, false, new SAbstractConcept[]{})).isNotEmpty();
   }
@@ -370,6 +376,8 @@ public class QueriesGenerated extends QueryProviderBase {
   private final Map<String, IfMacroCondition> imcMethods = new HashMap<String, IfMacroCondition>();
   {
     int i = 0;
+    imcMethods.put("7734802635927120153", new IfMC(i++));
+    imcMethods.put("7734802635927131295", new IfMC(i++));
     imcMethods.put("1201570983174", new IfMC(i++));
     imcMethods.put("1201570447831", new IfMC(i++));
     imcMethods.put("5351366134229435235", new IfMC(i++));
@@ -394,20 +402,24 @@ public class QueriesGenerated extends QueryProviderBase {
     public boolean check(@NotNull IfMacroContext ctx) throws GenerationFailureException {
       switch (methodKey) {
         case 0:
-          return QueriesGenerated.ifMacro_Condition_3_0(ctx);
+          return QueriesGenerated.ifMacro_Condition_2_0(ctx);
         case 1:
-          return QueriesGenerated.ifMacro_Condition_3_1(ctx);
+          return QueriesGenerated.ifMacro_Condition_2_1(ctx);
         case 2:
-          return QueriesGenerated.ifMacro_Condition_3_2(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_0(ctx);
         case 3:
-          return QueriesGenerated.ifMacro_Condition_3_3(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_1(ctx);
         case 4:
-          return QueriesGenerated.ifMacro_Condition_3_4(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_2(ctx);
         case 5:
-          return QueriesGenerated.ifMacro_Condition_3_5(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_3(ctx);
         case 6:
-          return QueriesGenerated.ifMacro_Condition_3_6(ctx);
+          return QueriesGenerated.ifMacro_Condition_3_4(ctx);
         case 7:
+          return QueriesGenerated.ifMacro_Condition_3_5(ctx);
+        case 8:
+          return QueriesGenerated.ifMacro_Condition_3_6(ctx);
+        case 9:
           return QueriesGenerated.ifMacro_Condition_3_7(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for if macro %s (key: #%d)", ctx.getTemplateReference(), methodKey));
