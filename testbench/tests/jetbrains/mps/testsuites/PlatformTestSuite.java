@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ import org.junit.runners.model.RunnerBuilder;
     jetbrains.mps.smodel.EDTExecutorInternalTest.class,
     jetbrains.mps.environment.IdeaEnvironmentTest.class,
     jetbrains.mps.classloading.DeploymentConcurrencyTest.class,
-    jetbrains.mps.workbench.ProjectCreationTest.class,
     jetbrains.mps.vfs.tracking.DiskMemoryConflictTest.class,
     jetbrains.mps.ide.vcs.test.merge.ChangesCalculationTest.class,
     jetbrains.mps.ide.vcs.test.merge.StructuredChangesCalculationTest.class,
@@ -52,6 +51,7 @@ import org.junit.runners.model.RunnerBuilder;
     jetbrains.mps.ide.ModuleIDETests2.class,
     jetbrains.mps.ide.FSTests.class,
     jetbrains.mps.migration.MigrationsTest.class,
+    jetbrains.mps.workbench.ProjectCreationTest.class,
 })
 public class PlatformTestSuite extends OutputWatchingTestSuite {
   private static IdeaEnvironment ourEnvironment;
