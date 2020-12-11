@@ -20,7 +20,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="DataFlowAspectDescriptorImpl.java">
-      <unit at="17,0,178,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
+      <unit at="17,0,180,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206454554507">
@@ -2105,6 +2105,24 @@
       <scope id="2394615668041444410" at="35,0,47,0" />
       <scope id="2394615668041444416" at="47,0,59,0" />
       <unit id="5730083271929368106" at="15,0,60,0" name="jetbrains.mps.baseLanguage.dataFlow.RuleAssertNotNull" />
+    </file>
+  </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/5763944538902841234">
+    <file name="StaticMethodCallOperation_DataFlow.java">
+      <node id="5763944538902841262" at="14,98,15,47" concept="4" />
+      <node id="5763944538902841234" at="20,0,21,0" concept="13" trace="actualArgument$pzdx" />
+      <node id="5763944538902841255" at="13,60,16,5" concept="6" />
+      <node id="5763944538902841234" at="13,0,18,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="5763944538902841261" at="14,98,15,47" />
+      <scope id="5763944538902841236" at="13,60,16,5" />
+      <scope id="5763944538902841255" at="13,60,16,5">
+        <var name="arg" id="5763944538902841259" />
+      </scope>
+      <scope id="5763944538902841234" at="13,0,18,0">
+        <var name="_context" id="5763944538902841234" />
+      </scope>
+      <unit id="5763944538902841234" at="19,0,22,0" name="jetbrains.mps.baseLanguage.dataFlow.StaticMethodCallOperation_DataFlow$LINKS" />
+      <unit id="5763944538902841234" at="12,0,23,0" name="jetbrains.mps.baseLanguage.dataFlow.StaticMethodCallOperation_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/6023428257643051553">

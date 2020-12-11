@@ -272,6 +272,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new StaticInitializer_TextGen();
       case LanguageConceptSwitch.StaticMethodCall:
         return new StaticMethodCall_TextGen();
+      case LanguageConceptSwitch.StaticMethodCallOperation:
+        return new StaticMethodCallOperation_TextGen();
       case LanguageConceptSwitch.StaticMethodDeclaration:
         return new StaticMethodDeclaration_TextGen();
       case LanguageConceptSwitch.StringLiteral:

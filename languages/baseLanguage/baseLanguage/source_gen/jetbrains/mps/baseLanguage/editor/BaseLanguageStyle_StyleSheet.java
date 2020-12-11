@@ -949,7 +949,7 @@ public class BaseLanguageStyle_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_the604_a1ib() {
-      return SNodeOperations.isInstanceOf(getNode(), CONCEPTS.StaticMethodDeclaration$FJ);
+      return SNodeOperations.isInstanceOf(getNode(), CONCEPTS.StaticMethodDeclaration$FJ) || SNodeOperations.isInstanceOf(getNode(), CONCEPTS.StaticMethodCallOperation$Uo);
     }
   }
   public static class VariableNameStyleClass extends AbstractStyleClass {
@@ -1164,6 +1164,7 @@ public class BaseLanguageStyle_StyleSheet {
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IComment$KY = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3e70d51ff33226dL, "jetbrains.mps.baseLanguage.structure.IComment");
     /*package*/ static final SConcept TextCommentPart$LX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+    /*package*/ static final SConcept StaticMethodCallOperation$Uo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4ffda504fa5847fcL, "jetbrains.mps.baseLanguage.structure.StaticMethodCallOperation");
     /*package*/ static final SConcept StaticMethodDeclaration$FJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
     /*package*/ static final SInterfaceConcept ClassifierMember$At = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
     /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");

@@ -4789,5 +4789,24 @@
       <ref role="20lvS9" node="fz3vP1J" resolve="Expression" />
     </node>
   </node>
+  <node concept="1TIwiD" id="4ZXDgjUm4vW">
+    <property role="EcuMT" value="5763944538902644732" />
+    <property role="3GE5qa" value="classifiers.refs" />
+    <property role="TrG5h" value="StaticMethodCallOperation" />
+    <property role="R4oN_" value="static method call on an instance" />
+    <node concept="1TJgyj" id="4ZXDgjUm4AJ" role="1TKVEi">
+      <property role="20kJfa" value="staticMethodDeclaration" />
+      <property role="20lbJX" value="fLJekj4/1" />
+      <property role="IQ2ns" value="5763944538902645167" />
+      <ref role="20lvS9" node="fIYIFWa" resolve="StaticMethodDeclaration" />
+      <ref role="20ksaX" node="fz7wK6H" resolve="baseMethodDeclaration" />
+    </node>
+    <node concept="PrWs8" id="6382hnZshgQ" role="PzmwI">
+      <ref role="PrY4T" node="hqOqG0K" resolve="IOperation" />
+    </node>
+    <node concept="PrWs8" id="6382hnZshhl" role="PzmwI">
+      <ref role="PrY4T" node="hxndl_i" resolve="IMethodCall" />
+    </node>
+  </node>
 </model>
 

@@ -15500,5 +15500,19 @@
       </node>
     </node>
   </node>
+  <node concept="WtQ9Q" id="4ZXDgjUmLmO">
+    <property role="3GE5qa" value="classifiers.refs" />
+    <ref role="WuzLi" to="tpee:4ZXDgjUm4vW" resolve="StaticMethodCallOperation" />
+    <node concept="11bSqf" id="4ZXDgjUmLmP" role="11c4hB">
+      <node concept="3clFbS" id="4ZXDgjUmLmQ" role="2VODD2">
+        <node concept="lc7rE" id="4ZXDgjUmLSZ" role="3cqZAp">
+          <node concept="1bDJIP" id="4ZXDgjUmLTj" role="lcghm">
+            <ref role="1rvKf6" node="hYHLMDp" resolve="methodCall" />
+            <node concept="117lpO" id="4ZXDgjUmLTA" role="1ryhcI" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

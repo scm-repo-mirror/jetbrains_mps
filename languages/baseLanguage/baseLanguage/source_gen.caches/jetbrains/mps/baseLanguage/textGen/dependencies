@@ -1466,6 +1466,13 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
+  <dependency className="jetbrains.mps.baseLanguage.textGen.StaticMethodCallOperation_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.BaseLanguageTextGen" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
   <dependency className="jetbrains.mps.baseLanguage.textGen.StaticMethodCall_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.BaseLanguageTextGen" />
@@ -1726,6 +1733,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticFieldDeclaration_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticFieldReference_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticInitializer_TextGen" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticMethodCallOperation_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticMethodCall_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StaticMethodDeclaration_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.StringLiteral_TextGen" />

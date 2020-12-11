@@ -13532,13 +13532,23 @@
         <node concept="3nzxsE" id="6H7j4iMM5GM" role="1uO$qD">
           <node concept="3clFbS" id="6H7j4iMM5GN" role="2VODD2">
             <node concept="3cpWs6" id="6H7j4iMM5GO" role="3cqZAp">
-              <node concept="2OqwBi" id="6H7j4iMM5GP" role="3cqZAk">
-                <node concept="1mIQ4w" id="6H7j4iMM5GQ" role="2OqNvi">
-                  <node concept="chp4Y" id="6H7j4iMM5GR" role="cj9EA">
-                    <ref role="cht4Q" to="tpee:fIYIFWa" resolve="StaticMethodDeclaration" />
+              <node concept="22lmx$" id="4dFVsTLgFbN" role="3cqZAk">
+                <node concept="2OqwBi" id="4dFVsTLgOje" role="3uHU7w">
+                  <node concept="pncrf" id="4dFVsTLgO3K" role="2Oq$k0" />
+                  <node concept="1mIQ4w" id="4dFVsTLgOB5" role="2OqNvi">
+                    <node concept="chp4Y" id="4dFVsTLgOKu" role="cj9EA">
+                      <ref role="cht4Q" to="tpee:4ZXDgjUm4vW" resolve="StaticMethodCallOperation" />
+                    </node>
                   </node>
                 </node>
-                <node concept="pncrf" id="6H7j4iMM5GS" role="2Oq$k0" />
+                <node concept="2OqwBi" id="6H7j4iMM5GP" role="3uHU7B">
+                  <node concept="1mIQ4w" id="6H7j4iMM5GQ" role="2OqNvi">
+                    <node concept="chp4Y" id="6H7j4iMM5GR" role="cj9EA">
+                      <ref role="cht4Q" to="tpee:fIYIFWa" resolve="StaticMethodDeclaration" />
+                    </node>
+                  </node>
+                  <node concept="pncrf" id="6H7j4iMM5GS" role="2Oq$k0" />
+                </node>
               </node>
               <node concept="15s5l7" id="6H7j4iMM5GT" role="lGtFl" />
             </node>
@@ -70311,6 +70321,86 @@
           </node>
         </node>
       </node>
+    </node>
+  </node>
+  <node concept="24kQdi" id="4ZXDgjUm4Hf">
+    <property role="3GE5qa" value="classifiers.refs" />
+    <ref role="1XX52x" to="tpee:4ZXDgjUm4vW" resolve="StaticMethodCallOperation" />
+    <node concept="3EZMnI" id="4ZXDgjUm4Hh" role="2wV5jI">
+      <node concept="PMmxH" id="4ZXDgjUm4Hi" role="3EZMnx">
+        <ref role="PMmxG" node="4k0WLUKaCd7" resolve="IMethodCall_typeArguments" />
+        <node concept="VPM3Z" id="4ZXDgjUm4Hj" role="3F10Kt">
+          <property role="VOm3f" value="false" />
+        </node>
+        <node concept="pkWqt" id="4ZXDgjUm4Hk" role="pqm2j">
+          <node concept="3clFbS" id="4ZXDgjUm4Hl" role="2VODD2">
+            <node concept="3clFbF" id="4ZXDgjUm4Hm" role="3cqZAp">
+              <node concept="2OqwBi" id="4ZXDgjUm4Hn" role="3clFbG">
+                <node concept="2OqwBi" id="4ZXDgjUm4Ho" role="2Oq$k0">
+                  <node concept="pncrf" id="4ZXDgjUm4Hp" role="2Oq$k0" />
+                  <node concept="Bykcj" id="4ZXDgjUm4Hq" role="2OqNvi">
+                    <node concept="1aIX9F" id="4ZXDgjUm4Hr" role="1xVPHs">
+                      <node concept="26LbJo" id="4ZXDgjUm4Hs" role="1aIX9E">
+                        <ref role="26LbJp" to="tpee:4k0WLUKaBu8" resolve="typeArgument" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3GX2aA" id="4ZXDgjUm4Ht" role="2OqNvi" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1iCGBv" id="4ZXDgjUmd6d" role="3EZMnx">
+        <ref role="1NtTu8" to="tpee:4ZXDgjUm4AJ" resolve="staticMethodDeclaration" />
+        <node concept="1sVBvm" id="4ZXDgjUmd6f" role="1sWHZn">
+          <node concept="3F0A7n" id="4ZXDgjUmd7g" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+            <ref role="1k5W1q" node="6H7j4iMM5Cm" resolve="MPSMethodCall" />
+          </node>
+        </node>
+        <node concept="A1WHu" id="6382hnZjgEg" role="3vIgyS">
+          <ref role="A1WHt" node="6382hnZjfGq" resolve="StaticMethodCallOperation_ApplySideTransforms" />
+        </node>
+      </node>
+      <node concept="PMmxH" id="4ZXDgjUm4Hy" role="3EZMnx">
+        <ref role="PMmxG" node="h5njIub" resolve="IMethodCall_actualArguments" />
+        <node concept="11L4FC" id="4ZXDgjUm4Hz" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="l2Vlx" id="4ZXDgjUm4H$" role="2iSdaV" />
+      <node concept="2$oqgb" id="4ZXDgjUm4H_" role="3F10Kt">
+        <ref role="Bvoe9" node="47XGxT8xUGh" resolve="BaseMethodParameterInformationQuery" />
+      </node>
+    </node>
+  </node>
+  <node concept="3ICUPy" id="6382hnZjfGq">
+    <ref role="aqKnT" to="tpee:4ZXDgjUm4vW" resolve="StaticMethodCallOperation" />
+    <node concept="1Qtc8_" id="6382hnZjfGr" role="IW6Ez">
+      <node concept="3cWJ9i" id="6382hnZjfGs" role="1Qtc8$">
+        <node concept="CtIbL" id="6382hnZjfGt" role="CtIbM">
+          <property role="CtIbK" value="LEFT" />
+        </node>
+        <node concept="CtIbL" id="6382hnZjfGu" role="CtIbM">
+          <property role="CtIbK" value="RIGHT" />
+        </node>
+      </node>
+      <node concept="mvV$s" id="6382hnZjfGv" role="1Qtc8A">
+        <node concept="A1WHr" id="6382hnZjfGw" role="A14EM">
+          <ref role="2ZyFGn" to="tpee:hxndl_i" resolve="IMethodCall" />
+        </node>
+      </node>
+      <node concept="mvV$s" id="6382hnZjfGx" role="1Qtc8A">
+        <node concept="A1WHu" id="6382hnZjfGy" role="A14EM">
+          <ref role="A1WHt" node="1wEcoXjIEhJ" resolve="AddMethodCallTypeArgument" />
+        </node>
+      </node>
+    </node>
+    <node concept="22hDWg" id="6382hnZjfGz" role="22hAXT">
+      <property role="TrG5h" value="StaticMethodCallOperation_ApplySideTransforms" />
     </node>
   </node>
 </model>

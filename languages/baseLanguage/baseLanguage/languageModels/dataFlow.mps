@@ -8054,5 +8054,34 @@
       </node>
     </node>
   </node>
+  <node concept="3_zdsH" id="4ZXDgjUmOui">
+    <property role="3GE5qa" value="classifiers.refs" />
+    <ref role="3_znuS" to="tpee:4ZXDgjUm4vW" resolve="StaticMethodCallOperation" />
+    <node concept="3__wT9" id="4ZXDgjUmOuj" role="3_A6iZ">
+      <node concept="3clFbS" id="4ZXDgjUmOuk" role="2VODD2">
+        <node concept="1DcWWT" id="4ZXDgjUmOuB" role="3cqZAp">
+          <node concept="2OqwBi" id="4ZXDgjUmOuC" role="1DdaDG">
+            <node concept="3__QtB" id="4ZXDgjUmOuD" role="2Oq$k0" />
+            <node concept="3Tsc0h" id="4ZXDgjUmOuE" role="2OqNvi">
+              <ref role="3TtcxE" to="tpee:fz7wK6I" resolve="actualArgument" />
+            </node>
+          </node>
+          <node concept="3cpWsn" id="4ZXDgjUmOuF" role="1Duv9x">
+            <property role="TrG5h" value="arg" />
+            <node concept="3Tqbb2" id="4ZXDgjUmOuG" role="1tU5fm">
+              <ref role="ehGHo" to="tpee:fz3vP1J" resolve="Expression" />
+            </node>
+          </node>
+          <node concept="3clFbS" id="4ZXDgjUmOuH" role="2LFqv$">
+            <node concept="3AgYrR" id="4ZXDgjUmOuI" role="3cqZAp">
+              <node concept="37vLTw" id="4ZXDgjUmOuJ" role="3Ah4Yx">
+                <ref role="3cqZAo" node="4ZXDgjUmOuF" resolve="arg" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
