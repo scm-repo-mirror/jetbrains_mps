@@ -11,10 +11,6 @@
   </imports>
   <registry>
     <language id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator">
-      <concept id="9032177546941580387" name="jetbrains.mps.lang.generator.structure.TrivialNodeId" flags="nn" index="2$VJBW">
-        <property id="9032177546941580392" name="nodeId" index="2$VJBR" />
-        <child id="8557539026538618631" name="cncpt" index="3iCydw" />
-      </concept>
       <concept id="5808518347809715508" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_InputNode" flags="nn" index="385nmt">
         <property id="5808518347809748738" name="presentation" index="385vuF" />
         <child id="5808518347809747118" name="node" index="385v07" />
@@ -34,6 +30,9 @@
       <concept id="3864140621129713362" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef" flags="nn" index="39e2AT">
         <reference id="3864140621129713363" name="node" index="39e2AS" />
       </concept>
+      <concept id="3637169702552512264" name="jetbrains.mps.lang.generator.structure.ElementaryNodeId" flags="ng" index="3u3nmq">
+        <property id="3637169702552512269" name="nodeId" index="3u3nmv" />
+      </concept>
     </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
@@ -49,17 +48,6 @@
       <concept id="1071489288299" name="jetbrains.mps.lang.structure.structure.PropertyDeclaration" flags="ig" index="1TJgyi">
         <property id="241647608299431129" name="propertyId" index="IQ2nx" />
         <reference id="1082985295845" name="dataType" index="AX2Wp" />
-      </concept>
-    </language>
-    <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
-        <property id="6911370362349122519" name="conceptName" index="2x4mPI" />
-        <property id="6911370362349121516" name="conceptId" index="2x4n5l" />
-        <child id="6911370362349121514" name="languageIdentity" index="2x4n5j" />
-      </concept>
-      <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
-        <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
-        <property id="3542851458883439832" name="languageId" index="2V$B1T" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -96,16 +84,8 @@
         <ref role="39e2AK" to="icbr:3hIFiK8PUoo" resolve="Car" />
         <node concept="385nmt" id="7" role="385vvn">
           <property role="385vuF" value="Car" />
-          <node concept="2$VJBW" id="9" role="385v07">
-            <property role="2$VJBR" value="3778147542048941592" />
-            <node concept="2x4n5u" id="a" role="3iCydw">
-              <property role="2x4mPI" value="SimpleConceptDeclaration" />
-              <property role="2x4n5l" value="12crsp10i3dq4" />
-              <node concept="2V$Bhx" id="b" role="2x4n5j">
-                <property role="2V$B1T" value="baa9238b-36da-4ccb-a76b-8ad70e222183" />
-                <property role="2V$B1Q" value="jetbrains.mps.samples.highlevel.simpleStructure" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="9" role="385v07">
+            <property role="3u3nmv" value="3778147542048941592" />
           </node>
         </node>
         <node concept="39e2AT" id="8" role="39e2AY">
@@ -114,27 +94,19 @@
       </node>
       <node concept="39e2AG" id="6" role="39e3Y0">
         <ref role="39e2AK" to="icbr:3hIFiK8PUoh" resolve="Person" />
-        <node concept="385nmt" id="c" role="385vvn">
+        <node concept="385nmt" id="a" role="385vvn">
           <property role="385vuF" value="Person" />
-          <node concept="2$VJBW" id="e" role="385v07">
-            <property role="2$VJBR" value="3778147542048941585" />
-            <node concept="2x4n5u" id="f" role="3iCydw">
-              <property role="2x4mPI" value="SimpleConceptDeclaration" />
-              <property role="2x4n5l" value="12crsp10i3dq4" />
-              <node concept="2V$Bhx" id="g" role="2x4n5j">
-                <property role="2V$B1T" value="baa9238b-36da-4ccb-a76b-8ad70e222183" />
-                <property role="2V$B1Q" value="jetbrains.mps.samples.highlevel.simpleStructure" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="c" role="385v07">
+            <property role="3u3nmv" value="3778147542048941585" />
           </node>
         </node>
-        <node concept="39e2AT" id="d" role="39e2AY">
-          <ref role="39e2AS" node="h" resolve="Person" />
+        <node concept="39e2AT" id="b" role="39e2AY">
+          <ref role="39e2AS" node="d" resolve="Person" />
         </node>
       </node>
     </node>
   </node>
-  <node concept="1TIwiD" id="h">
+  <node concept="1TIwiD" id="d">
     <property role="19KtqR" value="true" />
     <property role="2eQzMB" value="99aa3e0f-a162-4dc1-bcff-2def4d654205" />
     <property role="TrG5h" value="Person" />
@@ -142,13 +114,13 @@
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <ref role="2aqHeF" to="icbr:3hIFiK8PUoh" resolve="Person" />
     <uo k="s:originTrace" v="n:3778147542048941585" />
-    <node concept="1TJgyi" id="i" role="1TKVEl">
+    <node concept="1TJgyi" id="e" role="1TKVEl">
       <property role="TrG5h" value="name" />
       <property role="IQ2nx" value="3778147542048941587" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
       <uo k="s:originTrace" v="n:3778147542048941585" />
     </node>
-    <node concept="1TJgyi" id="j" role="1TKVEl">
+    <node concept="1TJgyi" id="f" role="1TKVEl">
       <property role="TrG5h" value="age" />
       <property role="IQ2nx" value="3778147542048941589" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />

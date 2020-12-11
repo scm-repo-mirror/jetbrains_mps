@@ -106,10 +106,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
     <language id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator">
-      <concept id="9032177546941580387" name="jetbrains.mps.lang.generator.structure.TrivialNodeId" flags="nn" index="2$VJBW">
-        <property id="9032177546941580392" name="nodeId" index="2$VJBR" />
-        <child id="8557539026538618631" name="cncpt" index="3iCydw" />
-      </concept>
       <concept id="5808518347809715508" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_InputNode" flags="nn" index="385nmt">
         <property id="5808518347809748738" name="presentation" index="385vuF" />
         <child id="5808518347809747118" name="node" index="385v07" />
@@ -130,6 +126,9 @@
       <concept id="3864140621129713362" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef" flags="nn" index="39e2AT">
         <reference id="3864140621129713363" name="node" index="39e2AS" />
       </concept>
+      <concept id="3637169702552512264" name="jetbrains.mps.lang.generator.structure.ElementaryNodeId" flags="ng" index="3u3nmq">
+        <property id="3637169702552512269" name="nodeId" index="3u3nmv" />
+      </concept>
     </language>
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
       <concept id="1174294166120" name="jetbrains.mps.baseLanguageInternal.structure.InternalPartialInstanceMethodCall" flags="nn" index="1DoJHT">
@@ -139,15 +138,6 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
-        <property id="6911370362349122519" name="conceptName" index="2x4mPI" />
-        <property id="6911370362349121516" name="conceptId" index="2x4n5l" />
-        <child id="6911370362349121514" name="languageIdentity" index="2x4n5j" />
-      </concept>
-      <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
-        <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
-        <property id="3542851458883439832" name="languageId" index="2V$B1T" />
-      </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
       <concept id="1154546950173" name="jetbrains.mps.lang.smodel.structure.ConceptReference" flags="ng" index="3gn64h">
         <reference id="1154546997487" name="concept" index="3gnhBz" />
@@ -545,16 +535,8 @@
         <ref role="39e2AK" to="tp5r:hFJvtWr" resolve="AssertMatch_DataFlow" />
         <node concept="385nmt" id="20" role="385vvn">
           <property role="385vuF" value="AssertMatch_DataFlow" />
-          <node concept="2$VJBW" id="22" role="385v07">
-            <property role="2$VJBR" value="1215198781211" />
-            <node concept="2x4n5u" id="23" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="24" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="22" role="385v07">
+            <property role="3u3nmv" value="1215198781211" />
           </node>
         </node>
         <node concept="39e2AT" id="21" role="39e2AY">
@@ -563,50 +545,34 @@
       </node>
       <node concept="39e2AG" id="1Y" role="39e3Y0">
         <ref role="39e2AK" to="tp5r:hTDLFnd" resolve="EditorOperation_DataFlow" />
-        <node concept="385nmt" id="25" role="385vvn">
+        <node concept="385nmt" id="23" role="385vvn">
           <property role="385vuF" value="EditorOperation_DataFlow" />
-          <node concept="2$VJBW" id="27" role="385v07">
-            <property role="2$VJBR" value="1230135277005" />
-            <node concept="2x4n5u" id="28" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="29" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="25" role="385v07">
+            <property role="3u3nmv" value="1230135277005" />
           </node>
         </node>
-        <node concept="39e2AT" id="26" role="39e2AY">
+        <node concept="39e2AT" id="24" role="39e2AY">
           <ref role="39e2AS" node="1r" resolve="EditorOperation_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="1Z" role="39e3Y0">
         <ref role="39e2AK" to="tp5r:4EkEWVrdJWx" resolve="ExpressionContainer_DataFlow" />
-        <node concept="385nmt" id="2a" role="385vvn">
+        <node concept="385nmt" id="26" role="385vvn">
           <property role="385vuF" value="ExpressionContainer_DataFlow" />
-          <node concept="2$VJBW" id="2c" role="385v07">
-            <property role="2$VJBR" value="5374109160289271585" />
-            <node concept="2x4n5u" id="2d" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="2e" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="28" role="385v07">
+            <property role="3u3nmv" value="5374109160289271585" />
           </node>
         </node>
-        <node concept="39e2AT" id="2b" role="39e2AY">
+        <node concept="39e2AT" id="27" role="39e2AY">
           <ref role="39e2AS" node="1$" resolve="ExpressionContainer_DataFlow" />
         </node>
       </node>
     </node>
     <node concept="39e2AJ" id="1W" role="39e2AI">
       <property role="39e3Y2" value="aspectDescriptorClass" />
-      <node concept="39e2AG" id="2f" role="39e3Y0">
+      <node concept="39e2AG" id="29" role="39e3Y0">
         <property role="2mV_xN" value="true" />
-        <node concept="39e2AT" id="2g" role="39e2AY">
+        <node concept="39e2AT" id="2a" role="39e2AY">
           <ref role="39e2AS" node="H" resolve="DataFlowAspectDescriptorImpl" />
         </node>
       </node>

@@ -96,10 +96,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
     <language id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator">
-      <concept id="9032177546941580387" name="jetbrains.mps.lang.generator.structure.TrivialNodeId" flags="nn" index="2$VJBW">
-        <property id="9032177546941580392" name="nodeId" index="2$VJBR" />
-        <child id="8557539026538618631" name="cncpt" index="3iCydw" />
-      </concept>
       <concept id="5808518347809715508" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_InputNode" flags="nn" index="385nmt">
         <property id="5808518347809748738" name="presentation" index="385vuF" />
         <child id="5808518347809747118" name="node" index="385v07" />
@@ -120,6 +116,9 @@
       <concept id="3864140621129713362" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef" flags="nn" index="39e2AT">
         <reference id="3864140621129713363" name="node" index="39e2AS" />
       </concept>
+      <concept id="3637169702552512264" name="jetbrains.mps.lang.generator.structure.ElementaryNodeId" flags="ng" index="3u3nmq">
+        <property id="3637169702552512269" name="nodeId" index="3u3nmv" />
+      </concept>
     </language>
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
       <concept id="1174294166120" name="jetbrains.mps.baseLanguageInternal.structure.InternalPartialInstanceMethodCall" flags="nn" index="1DoJHT">
@@ -129,15 +128,6 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
-        <property id="6911370362349122519" name="conceptName" index="2x4mPI" />
-        <property id="6911370362349121516" name="conceptId" index="2x4n5l" />
-        <child id="6911370362349121514" name="languageIdentity" index="2x4n5j" />
-      </concept>
-      <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
-        <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
-        <property id="3542851458883439832" name="languageId" index="2V$B1T" />
-      </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
       <concept id="1154546950173" name="jetbrains.mps.lang.smodel.structure.ConceptReference" flags="ng" index="3gn64h">
         <reference id="1154546997487" name="concept" index="3gnhBz" />
@@ -1142,16 +1132,8 @@
         <ref role="39e2AK" to="tpf7:11UMvNigQFM" resolve="GenerationContextOp_CreateIndexedName_DataFlow" />
         <node concept="385nmt" id="5n" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_CreateIndexedName_DataFlow" />
-          <node concept="2$VJBW" id="5p" role="385v07">
-            <property role="2$VJBR" value="1187483539462122226" />
-            <node concept="2x4n5u" id="5q" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5r" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5p" role="385v07">
+            <property role="3u3nmv" value="1187483539462122226" />
           </node>
         </node>
         <node concept="39e2AT" id="5o" role="39e2AY">
@@ -1160,170 +1142,106 @@
       </node>
       <node concept="39e2AG" id="5f" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hIpk2Cu" resolve="GenerationContextOp_CreateUniqueName_DataFlow" />
-        <node concept="385nmt" id="5s" role="385vvn">
+        <node concept="385nmt" id="5q" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_CreateUniqueName_DataFlow" />
-          <node concept="2$VJBW" id="5u" role="385v07">
-            <property role="2$VJBR" value="1218047912478" />
-            <node concept="2x4n5u" id="5v" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5w" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5s" role="385v07">
+            <property role="3u3nmv" value="1218047912478" />
           </node>
         </node>
-        <node concept="39e2AT" id="5t" role="39e2AY">
+        <node concept="39e2AT" id="5r" role="39e2AY">
           <ref role="39e2AS" node="21" resolve="GenerationContextOp_CreateUniqueName_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5g" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hIfLLHO" resolve="GenerationContextOp_GetCopiedOutputByInput_DataFlow" />
-        <node concept="385nmt" id="5x" role="385vvn">
+        <node concept="385nmt" id="5t" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_GetCopiedOutputByInput_DataFlow" />
-          <node concept="2$VJBW" id="5z" role="385v07">
-            <property role="2$VJBR" value="1217887935348" />
-            <node concept="2x4n5u" id="5$" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5_" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5v" role="385v07">
+            <property role="3u3nmv" value="1217887935348" />
           </node>
         </node>
-        <node concept="39e2AT" id="5y" role="39e2AY">
+        <node concept="39e2AT" id="5u" role="39e2AY">
           <ref role="39e2AS" node="2$" resolve="GenerationContextOp_GetCopiedOutputByInput_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5h" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hT2BgwP" resolve="GenerationContextOp_GetOriginalCopiedInputByOutput_DataFlow" />
-        <node concept="385nmt" id="5A" role="385vvn">
+        <node concept="385nmt" id="5w" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_GetOriginalCopiedInputByOutput_DataFlow" />
-          <node concept="2$VJBW" id="5C" role="385v07">
-            <property role="2$VJBR" value="1229478234165" />
-            <node concept="2x4n5u" id="5D" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5E" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5y" role="385v07">
+            <property role="3u3nmv" value="1229478234165" />
           </node>
         </node>
-        <node concept="39e2AT" id="5B" role="39e2AY">
+        <node concept="39e2AT" id="5x" role="39e2AY">
           <ref role="39e2AS" node="2U" resolve="GenerationContextOp_GetOriginalCopiedInputByOutput_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5i" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hLmnSYU" resolve="GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope_DataFlow" />
-        <node concept="385nmt" id="5F" role="385vvn">
+        <node concept="385nmt" id="5z" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope_DataFlow" />
-          <node concept="2$VJBW" id="5H" role="385v07">
-            <property role="2$VJBR" value="1221219815354" />
-            <node concept="2x4n5u" id="5I" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5J" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5_" role="385v07">
+            <property role="3u3nmv" value="1221219815354" />
           </node>
         </node>
-        <node concept="39e2AT" id="5G" role="39e2AY">
+        <node concept="39e2AT" id="5$" role="39e2AY">
           <ref role="39e2AS" node="3g" resolve="GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5j" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hHm96nS" resolve="GenerationContextOp_GetOutputByLabelAndInput_DataFlow" />
-        <node concept="385nmt" id="5K" role="385vvn">
+        <node concept="385nmt" id="5A" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_GetOutputByLabelAndInput_DataFlow" />
-          <node concept="2$VJBW" id="5M" role="385v07">
-            <property role="2$VJBR" value="1216920970744" />
-            <node concept="2x4n5u" id="5N" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5O" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5C" role="385v07">
+            <property role="3u3nmv" value="1216920970744" />
           </node>
         </node>
-        <node concept="39e2AT" id="5L" role="39e2AY">
+        <node concept="39e2AT" id="5B" role="39e2AY">
           <ref role="39e2AS" node="3A" resolve="GenerationContextOp_GetOutputByLabelAndInput_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5k" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hLiETuY" resolve="GenerationContextOp_GetOutputListByLabelAndInput_DataFlow" />
-        <node concept="385nmt" id="5P" role="385vvn">
+        <node concept="385nmt" id="5D" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_GetOutputListByLabelAndInput_DataFlow" />
-          <node concept="2$VJBW" id="5R" role="385v07">
-            <property role="2$VJBR" value="1221157689278" />
-            <node concept="2x4n5u" id="5S" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5T" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5F" role="385v07">
+            <property role="3u3nmv" value="1221157689278" />
           </node>
         </node>
-        <node concept="39e2AT" id="5Q" role="39e2AY">
+        <node concept="39e2AT" id="5E" role="39e2AY">
           <ref role="39e2AS" node="3W" resolve="GenerationContextOp_GetOutputListByLabelAndInput_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5l" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hIk7rxl" resolve="GenerationContextOp_ShowMessageBase_DataFlow" />
-        <node concept="385nmt" id="5U" role="385vvn">
+        <node concept="385nmt" id="5G" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_ShowMessageBase_DataFlow" />
-          <node concept="2$VJBW" id="5W" role="385v07">
-            <property role="2$VJBR" value="1217960720469" />
-            <node concept="2x4n5u" id="5X" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="5Y" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5I" role="385v07">
+            <property role="3u3nmv" value="1217960720469" />
           </node>
         </node>
-        <node concept="39e2AT" id="5V" role="39e2AY">
+        <node concept="39e2AT" id="5H" role="39e2AY">
           <ref role="39e2AS" node="4i" resolve="GenerationContextOp_ShowMessageBase_DataFlow" />
         </node>
       </node>
       <node concept="39e2AG" id="5m" role="39e3Y0">
         <ref role="39e2AK" to="tpf7:hIfYsnY" resolve="GenerationContextOp_UserObjectAccessBase_DataFlow" />
-        <node concept="385nmt" id="5Z" role="385vvn">
+        <node concept="385nmt" id="5J" role="385vvn">
           <property role="385vuF" value="GenerationContextOp_UserObjectAccessBase_DataFlow" />
-          <node concept="2$VJBW" id="61" role="385v07">
-            <property role="2$VJBR" value="1217891255806" />
-            <node concept="2x4n5u" id="62" role="3iCydw">
-              <property role="2x4mPI" value="DataFlowBuilderDeclaration" />
-              <property role="2x4n5l" value="fe8cg7jp" />
-              <node concept="2V$Bhx" id="63" role="2x4n5j">
-                <property role="2V$B1T" value="7fa12e9c-b949-4976-b4fa-19accbc320b4" />
-                <property role="2V$B1Q" value="jetbrains.mps.lang.dataFlow" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="5L" role="385v07">
+            <property role="3u3nmv" value="1217891255806" />
           </node>
         </node>
-        <node concept="39e2AT" id="60" role="39e2AY">
+        <node concept="39e2AT" id="5K" role="39e2AY">
           <ref role="39e2AS" node="4P" resolve="GenerationContextOp_UserObjectAccessBase_DataFlow" />
         </node>
       </node>
     </node>
     <node concept="39e2AJ" id="5d" role="39e2AI">
       <property role="39e3Y2" value="aspectDescriptorClass" />
-      <node concept="39e2AG" id="64" role="39e3Y0">
+      <node concept="39e2AG" id="5M" role="39e3Y0">
         <property role="2mV_xN" value="true" />
-        <node concept="39e2AT" id="65" role="39e2AY">
+        <node concept="39e2AT" id="5N" role="39e2AY">
           <ref role="39e2AS" node="0" resolve="DataFlowAspectDescriptorImpl" />
         </node>
       </node>

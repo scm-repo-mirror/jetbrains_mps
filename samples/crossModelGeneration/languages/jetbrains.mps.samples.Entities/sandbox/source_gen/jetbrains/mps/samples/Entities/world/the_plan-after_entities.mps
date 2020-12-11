@@ -49,10 +49,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
     <language id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator">
-      <concept id="9032177546941580387" name="jetbrains.mps.lang.generator.structure.TrivialNodeId" flags="nn" index="2$VJBW">
-        <property id="9032177546941580392" name="nodeId" index="2$VJBR" />
-        <child id="8557539026538618631" name="cncpt" index="3iCydw" />
-      </concept>
       <concept id="5808518347809715508" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_InputNode" flags="nn" index="385nmt">
         <property id="5808518347809748738" name="presentation" index="385vuF" />
         <child id="5808518347809747118" name="node" index="385v07" />
@@ -72,16 +68,8 @@
       <concept id="3864140621129713362" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef" flags="nn" index="39e2AT">
         <reference id="3864140621129713363" name="node" index="39e2AS" />
       </concept>
-    </language>
-    <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
-        <property id="6911370362349122519" name="conceptName" index="2x4mPI" />
-        <property id="6911370362349121516" name="conceptId" index="2x4n5l" />
-        <child id="6911370362349121514" name="languageIdentity" index="2x4n5j" />
-      </concept>
-      <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
-        <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
-        <property id="3542851458883439832" name="languageId" index="2V$B1T" />
+      <concept id="3637169702552512264" name="jetbrains.mps.lang.generator.structure.ElementaryNodeId" flags="ng" index="3u3nmq">
+        <property id="3637169702552512269" name="nodeId" index="3u3nmv" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -115,13 +103,13 @@
         <uo k="s:originTrace" v="n:4053600266038343136" />
       </node>
       <node concept="3uibUv" id="8" role="1tU5fm">
-        <ref role="3uigEE" to="azh3:k" resolve="Harry" />
+        <ref role="3uigEE" to="azh3:e" resolve="Harry" />
         <uo k="s:originTrace" v="n:4053600266038343136" />
       </node>
       <node concept="2ShNRf" id="9" role="33vP2m">
         <uo k="s:originTrace" v="n:4053600266038343136" />
         <node concept="1pGfFk" id="a" role="2ShVmc">
-          <ref role="37wK5l" to="azh3:l" resolve="Harry" />
+          <ref role="37wK5l" to="azh3:f" resolve="Harry" />
           <uo k="s:originTrace" v="n:4053600266038343136" />
         </node>
       </node>
@@ -137,16 +125,8 @@
         <ref role="39e2AK" to="wp8d:3x1hZseDfnw" resolve="Fan" />
         <node concept="385nmt" id="e" role="385vvn">
           <property role="385vuF" value="Fan" />
-          <node concept="2$VJBW" id="g" role="385v07">
-            <property role="2$VJBR" value="4053600266038343136" />
-            <node concept="2x4n5u" id="h" role="3iCydw">
-              <property role="2x4mPI" value="Entity" />
-              <property role="2x4n5l" value="uspdda9xsgqb" />
-              <node concept="2V$Bhx" id="i" role="2x4n5j">
-                <property role="2V$B1T" value="7917ee54-129c-42c6-8b53-ba6a5e718e32" />
-                <property role="2V$B1Q" value="jetbrains.mps.samples.Entities" />
-              </node>
-            </node>
+          <node concept="3u3nmq" id="g" role="385v07">
+            <property role="3u3nmv" value="4053600266038343136" />
           </node>
         </node>
         <node concept="39e2AT" id="f" role="39e2AY">
