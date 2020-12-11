@@ -322,6 +322,25 @@
       <property role="3tVfz5" value="1202242822699" />
     </node>
   </node>
+  <node concept="1TIwiD" id="5UJTmNZv3St">
+    <property role="EcuMT" value="6822924216795151901" />
+    <property role="TrG5h" value="InputNamedList" />
+    <property role="19KtqR" value="true" />
+    <property role="3GE5qa" value="LoopNamespaceTest" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="5UJTmNZv3Sx" role="1TKVEl">
+      <property role="IQ2nx" value="6822924216795151905" />
+      <property role="TrG5h" value="listName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="5UJTmNZv3Sz" role="1TKVEi">
+      <property role="IQ2ns" value="6822924216795151907" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="values" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="tpee:fzcmrck" resolve="IntegerConstant" />
+    </node>
+  </node>
   <node concept="1TIwiD" id="6saosjUTKVX">
     <property role="EcuMT" value="7424854434324614909" />
     <property role="3GE5qa" value="RefTest" />

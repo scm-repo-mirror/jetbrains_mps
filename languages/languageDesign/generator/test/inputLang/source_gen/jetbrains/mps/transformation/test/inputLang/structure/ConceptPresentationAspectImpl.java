@@ -11,6 +11,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ClassExport;
   private ConceptPresentation props_ExpressionToReduceToStatement;
+  private ConceptPresentation props_InputNamedList;
   private ConceptPresentation props_InputNode;
   private ConceptPresentation props_InputNode_A;
   private ConceptPresentation props_InputNode_B;
@@ -44,6 +45,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExpressionToReduceToStatement = cpb.create();
         }
         return props_ExpressionToReduceToStatement;
+      case LanguageConceptSwitch.InputNamedList:
+        if (props_InputNamedList == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("InputNamedList");
+          props_InputNamedList = cpb.create();
+        }
+        return props_InputNamedList;
       case LanguageConceptSwitch.InputNode:
         if (props_InputNode == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

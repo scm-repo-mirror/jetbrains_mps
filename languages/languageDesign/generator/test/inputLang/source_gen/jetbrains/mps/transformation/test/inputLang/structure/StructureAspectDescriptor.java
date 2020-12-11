@@ -20,6 +20,7 @@ import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptClassExport = createDescriptorForClassExport();
   /*package*/ final ConceptDescriptor myConceptExpressionToReduceToStatement = createDescriptorForExpressionToReduceToStatement();
+  /*package*/ final ConceptDescriptor myConceptInputNamedList = createDescriptorForInputNamedList();
   /*package*/ final ConceptDescriptor myConceptInputNode = createDescriptorForInputNode();
   /*package*/ final ConceptDescriptor myConceptInputNode_A = createDescriptorForInputNode_A();
   /*package*/ final ConceptDescriptor myConceptInputNode_B = createDescriptorForInputNode_B();
@@ -50,7 +51,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptClassExport, myConceptExpressionToReduceToStatement, myConceptInputNode, myConceptInputNode_A, myConceptInputNode_B, myConceptInputNode_C, myConceptInputRoot, myConceptInputRootWithStatementList, myConceptRefTestClass, myConceptRefTestExpression, myConceptRefTestMethod, myConceptRefTestMethodCall, myConceptRefTestParam, myConceptRefTestParamRef);
+    return Arrays.asList(myConceptClassExport, myConceptExpressionToReduceToStatement, myConceptInputNamedList, myConceptInputNode, myConceptInputNode_A, myConceptInputNode_B, myConceptInputNode_C, myConceptInputRoot, myConceptInputRootWithStatementList, myConceptRefTestClass, myConceptRefTestExpression, myConceptRefTestMethod, myConceptRefTestMethodCall, myConceptRefTestParam, myConceptRefTestParamRef);
   }
 
   @Override
@@ -61,6 +62,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptClassExport;
       case LanguageConceptSwitch.ExpressionToReduceToStatement:
         return myConceptExpressionToReduceToStatement;
+      case LanguageConceptSwitch.InputNamedList:
+        return myConceptInputNamedList;
       case LanguageConceptSwitch.InputNode:
         return myConceptInputNode;
       case LanguageConceptSwitch.InputNode_A:
@@ -117,6 +120,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("expression to reduce to statement");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForInputNamedList() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.transformation.test.inputLang", "InputNamedList", 0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x5eafe56cff7c3e1dL);
+    b.class_(false, false, true);
+    b.origin("r:00000000-0000-4000-0000-011c895905f4(jetbrains.mps.transformation.test.inputLang.structure)/6822924216795151901");
+    b.version(2);
+    b.property("listName", 0x5eafe56cff7c3e21L).type(PrimitiveTypeId.STRING).origin("6822924216795151905").done();
+    b.aggregate("values", 0x5eafe56cff7c3e23L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L).optional(true).ordered(true).multiple(true).origin("6822924216795151907").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForInputNode() {

@@ -4300,6 +4300,11 @@
               <ref role="3bR37D" node="txX2LH5iBd" resolve="jetbrains.mps.transformation.test.outputLang" />
             </node>
           </node>
+          <node concept="1SiIV0" id="6PT59Za5TiR" role="3bR37C">
+            <node concept="3bR9La" id="6PT59Za5TiS" role="1SiIV1">
+              <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+            </node>
+          </node>
         </node>
       </node>
       <node concept="1yeLz9" id="txX2LH5inW" role="2G$12L">
@@ -4485,6 +4490,194 @@
               </node>
             </node>
             <node concept="3qWCbU" id="6saosjUVYLP" role="3LXTna">
+              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1yeLz9" id="6PT59Za5TB9" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.transformation.test.inputLang.generator05" />
+        <property role="3LESm3" value="273843fe-40bc-4b62-bb23-5190701dce0b" />
+        <ref role="hH5Ss" node="txX2LH5il6" resolve="jetbrains.mps.transformation.test.inputLang" />
+        <node concept="55IIr" id="6PT59Za5TBa" role="3LF7KH">
+          <node concept="2Ry0Ak" id="6PT59Za5TBb" role="iGT6I">
+            <property role="2Ry0Am" value="languages" />
+            <node concept="2Ry0Ak" id="6PT59Za5TBc" role="2Ry0An">
+              <property role="2Ry0Am" value="languageDesign" />
+              <node concept="2Ry0Ak" id="6PT59Za5TBd" role="2Ry0An">
+                <property role="2Ry0Am" value="generator" />
+                <node concept="2Ry0Ak" id="6PT59Za5TBe" role="2Ry0An">
+                  <property role="2Ry0Am" value="test" />
+                  <node concept="2Ry0Ak" id="6PT59Za5TBf" role="2Ry0An">
+                    <property role="2Ry0Am" value="inputLangGen5" />
+                    <node concept="2Ry0Ak" id="6PT59Za5TBg" role="2Ry0An">
+                      <property role="2Ry0Am" value="jetbrains.mps.transformation.test.inputLang.generator05.mpst" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6PT59Za5TBh" role="3bR37C">
+          <node concept="3bR9La" id="6PT59Za5TBi" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6PT59Za5TBj" role="3bR37C">
+          <node concept="3bR9La" id="6PT59Za5TBk" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6KYb" resolve="jetbrains.mps.baseLanguage" />
+          </node>
+        </node>
+        <node concept="1BupzO" id="6PT59Za5TBl" role="3bR31x">
+          <property role="3ZfqAx" value="templates" />
+          <property role="1Hdu6h" value="true" />
+          <property role="1HemKv" value="true" />
+          <node concept="3LXTmp" id="6PT59Za5TBm" role="1HemKq">
+            <node concept="55IIr" id="6PT59Za5TBn" role="3LXTmr">
+              <node concept="2Ry0Ak" id="6PT59Za5TBo" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="6PT59Za5TBp" role="2Ry0An">
+                  <property role="2Ry0Am" value="languageDesign" />
+                  <node concept="2Ry0Ak" id="6PT59Za5TBq" role="2Ry0An">
+                    <property role="2Ry0Am" value="generator" />
+                    <node concept="2Ry0Ak" id="6PT59Za5TBr" role="2Ry0An">
+                      <property role="2Ry0Am" value="test" />
+                      <node concept="2Ry0Ak" id="6PT59Za5TBs" role="2Ry0An">
+                        <property role="2Ry0Am" value="inputLang" />
+                        <node concept="2Ry0Ak" id="6PT59Za5TBt" role="2Ry0An">
+                          <property role="2Ry0Am" value="inputLangGen3" />
+                          <node concept="2Ry0Ak" id="6PT59Za5TBu" role="2Ry0An">
+                            <property role="2Ry0Am" value="templates" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="6PT59Za5TBv" role="3LXTna">
+              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
+          <node concept="3LXTmp" id="6PT59Za5TKa" role="1HemKq">
+            <node concept="55IIr" id="6PT59Za5TK3" role="3LXTmr">
+              <node concept="2Ry0Ak" id="6PT59Za5TK4" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="6PT59Za5TK5" role="2Ry0An">
+                  <property role="2Ry0Am" value="languageDesign" />
+                  <node concept="2Ry0Ak" id="6PT59Za5TK6" role="2Ry0An">
+                    <property role="2Ry0Am" value="generator" />
+                    <node concept="2Ry0Ak" id="6PT59Za5TK7" role="2Ry0An">
+                      <property role="2Ry0Am" value="test" />
+                      <node concept="2Ry0Ak" id="6PT59Za5TK8" role="2Ry0An">
+                        <property role="2Ry0Am" value="inputLangGen3" />
+                        <node concept="2Ry0Ak" id="6PT59Za5TK9" role="2Ry0An">
+                          <property role="2Ry0Am" value="templates" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="6PT59Za5TKb" role="3LXTna">
+              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1yeLz9" id="6PT59Za5Too" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.transformation.test.inputLang.generator04" />
+        <property role="3LESm3" value="6e3ea6c0-1613-4430-8c64-995c8351a1bf" />
+        <ref role="hH5Ss" node="txX2LH5il6" resolve="jetbrains.mps.transformation.test.inputLang" />
+        <node concept="55IIr" id="6PT59Za5TrY" role="3LF7KH">
+          <node concept="2Ry0Ak" id="6PT59Za5TrZ" role="iGT6I">
+            <property role="2Ry0Am" value="languages" />
+            <node concept="2Ry0Ak" id="6PT59Za5Ts0" role="2Ry0An">
+              <property role="2Ry0Am" value="languageDesign" />
+              <node concept="2Ry0Ak" id="6PT59Za5Ts1" role="2Ry0An">
+                <property role="2Ry0Am" value="generator" />
+                <node concept="2Ry0Ak" id="6PT59Za5Tsc" role="2Ry0An">
+                  <property role="2Ry0Am" value="test" />
+                  <node concept="2Ry0Ak" id="6PT59Za5TAV" role="2Ry0An">
+                    <property role="2Ry0Am" value="inputLangGen4" />
+                    <node concept="2Ry0Ak" id="6PT59Za5TJn" role="2Ry0An">
+                      <property role="2Ry0Am" value="jetbrains.mps.transformation.test.inputLang.generator04.mpst" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6PT59Za5Tt7" role="3bR37C">
+          <node concept="3bR9La" id="6PT59Za5Tt8" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="6PT59Za5Tt9" role="3bR37C">
+          <node concept="3bR9La" id="6PT59Za5Tta" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6KYb" resolve="jetbrains.mps.baseLanguage" />
+          </node>
+        </node>
+        <node concept="1BupzO" id="6PT59Za5Ttj" role="3bR31x">
+          <property role="3ZfqAx" value="templates" />
+          <property role="1Hdu6h" value="true" />
+          <property role="1HemKv" value="true" />
+          <node concept="3LXTmp" id="6PT59Za5Ttk" role="1HemKq">
+            <node concept="55IIr" id="6PT59Za5Ttb" role="3LXTmr">
+              <node concept="2Ry0Ak" id="6PT59Za5Ttc" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="6PT59Za5Ttd" role="2Ry0An">
+                  <property role="2Ry0Am" value="languageDesign" />
+                  <node concept="2Ry0Ak" id="6PT59Za5Tte" role="2Ry0An">
+                    <property role="2Ry0Am" value="generator" />
+                    <node concept="2Ry0Ak" id="6PT59Za5Ttf" role="2Ry0An">
+                      <property role="2Ry0Am" value="test" />
+                      <node concept="2Ry0Ak" id="6PT59Za5Ttg" role="2Ry0An">
+                        <property role="2Ry0Am" value="inputLang" />
+                        <node concept="2Ry0Ak" id="6PT59Za5Tth" role="2Ry0An">
+                          <property role="2Ry0Am" value="inputLangGen3" />
+                          <node concept="2Ry0Ak" id="6PT59Za5Tti" role="2Ry0An">
+                            <property role="2Ry0Am" value="templates" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="6PT59Za5Ttl" role="3LXTna">
+              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
+          <node concept="3LXTmp" id="6PT59Za5TKj" role="1HemKq">
+            <node concept="55IIr" id="6PT59Za5TKc" role="3LXTmr">
+              <node concept="2Ry0Ak" id="6PT59Za5TKd" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="6PT59Za5TKe" role="2Ry0An">
+                  <property role="2Ry0Am" value="languageDesign" />
+                  <node concept="2Ry0Ak" id="6PT59Za5TKf" role="2Ry0An">
+                    <property role="2Ry0Am" value="generator" />
+                    <node concept="2Ry0Ak" id="6PT59Za5TKg" role="2Ry0An">
+                      <property role="2Ry0Am" value="test" />
+                      <node concept="2Ry0Ak" id="6PT59Za5TKh" role="2Ry0An">
+                        <property role="2Ry0Am" value="inputLangGen4" />
+                        <node concept="2Ry0Ak" id="6PT59Za5TKi" role="2Ry0An">
+                          <property role="2Ry0Am" value="templates" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="6PT59Za5TKk" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
           </node>
@@ -5427,11 +5620,17 @@
         <node concept="L2wRC" id="txX2LH5nM_" role="39821P">
           <ref role="L2wRA" node="txX2LH5inW" resolve="jetbrains.mps.transformation.test.inputLang.generator01" />
         </node>
-        <node concept="L2wRC" id="txX2LH5nMN" role="39821P">
+        <node concept="L2wRC" id="6PT59Za5TMG" role="39821P">
           <ref role="L2wRA" node="txX2LH5it2" resolve="jetbrains.mps.transformation.test.inputLang.generator02" />
         </node>
         <node concept="L2wRC" id="4rYoPp$0rYE" role="39821P">
           <ref role="L2wRA" node="6saosjUVYH7" resolve="jetbrains.mps.transformation.test.inputLang.generator03" />
+        </node>
+        <node concept="L2wRC" id="6PT59Za5TMU" role="39821P">
+          <ref role="L2wRA" node="6PT59Za5Too" resolve="jetbrains.mps.transformation.test.inputLang.generator04" />
+        </node>
+        <node concept="L2wRC" id="6GXnkCJW89l" role="39821P">
+          <ref role="L2wRA" node="6PT59Za5TB9" resolve="jetbrains.mps.transformation.test.inputLang.generator05" />
         </node>
       </node>
       <node concept="398223" id="3yaq6Y8lnSw" role="39821P">
