@@ -22,6 +22,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAbstractMacro = createDescriptorForAbstractMacro();
   /*package*/ final ConceptDescriptor myConceptBaseMappingRule = createDescriptorForBaseMappingRule();
   /*package*/ final ConceptDescriptor myConceptBaseMappingRule_Condition = createDescriptorForBaseMappingRule_Condition();
+  /*package*/ final ConceptDescriptor myConceptCP_InputKey = createDescriptorForCP_InputKey();
+  /*package*/ final ConceptDescriptor myConceptCP_InputNode = createDescriptorForCP_InputNode();
+  /*package*/ final ConceptDescriptor myConceptCP_LabelRecord = createDescriptorForCP_LabelRecord();
   /*package*/ final ConceptDescriptor myConceptContextVariableDeclaration = createDescriptorForContextVariableDeclaration();
   /*package*/ final ConceptDescriptor myConceptContextVariableProvider = createDescriptorForContextVariableProvider();
   /*package*/ final ConceptDescriptor myConceptCopySrcListMacro = createDescriptorForCopySrcListMacro();
@@ -142,7 +145,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbandonInput_RuleConsequence, myConceptAbstractMacro, myConceptBaseMappingRule, myConceptBaseMappingRule_Condition, myConceptContextVariableDeclaration, myConceptContextVariableProvider, myConceptCopySrcListMacro, myConceptCopySrcNodeMacro, myConceptCreateRootRule, myConceptCreateRootRule_Condition, myConceptDismissTopMappingRule, myConceptDropAttributeRule, myConceptDropAttributeRule_Condition, myConceptDropRootRule, myConceptDropRootRule_Condition, myConceptElementaryNodeId, myConceptGeneratorDebug_InputNode, myConceptGeneratorDebug_LabelEntry, myConceptGeneratorDebug_Mappings, myConceptGeneratorDebug_NodeMapEntry, myConceptGeneratorDebug_NodeRef, myConceptGeneratorInternal_AbstractReferenceDescriptor, myConceptGeneratorInternal_InternalReferenceDescriptor, myConceptGeneratorInternal_PropertyDescriptor, myConceptGeneratorInternal_ReferenceDescriptor, myConceptGeneratorMessage, myConceptGeneratorParameterReference, myConceptIGeneratorParameter, myConceptIParameterizedTemplate, myConceptITemplateCall, myConceptIfMacro, myConceptIfMacro_Condition, myConceptInlineSwitch_Case, myConceptInlineSwitch_RuleConsequence, myConceptInlineTemplateWithContext_RuleConsequence, myConceptInlineTemplate_RuleConsequence, myConceptInsertCallSiteMacro, myConceptInsertMacro, myConceptInsertMacro_CreateNodeQuery, myConceptLabelMacro, myConceptLabelMacroInputQuery, myConceptLoopMacro, myConceptMapSrcListMacro, myConceptMapSrcMacro_MapperFunction, myConceptMapSrcMacro_PostMapperFunction, myConceptMapSrcNodeMacro, myConceptMappingConfiguration, myConceptMappingConfiguration_Condition, myConceptMappingLabelDeclaration, myConceptMappingScript, myConceptMappingScriptReference, myConceptMappingScript_CodeBlock, myConceptNodeIdentity, myConceptNodeMacro, myConceptOriginTrace, myConceptPatternReduction_MappingRule, myConceptPropertyMacro, myConceptPropertyMacro_GetPropertyValue, myConceptReductionRule, myConceptReduction_MappingRule, myConceptReferenceMacro, myConceptReferenceMacro_GetReferent, myConceptReferenceReductionRule, myConceptRootTemplateAnnotation, myConceptRoot_MappingRule, myConceptRuleConsequence, myConceptSourceSubstituteMacro, myConceptSourceSubstituteMacro_SourceNodeQuery, myConceptSourceSubstituteMacro_SourceNodesQuery, myConceptTemplateArgumentLinkPatternRefExpression, myConceptTemplateArgumentParameterExpression, myConceptTemplateArgumentPatternRef, myConceptTemplateArgumentPatternVarRefExpression, myConceptTemplateArgumentPropertyPatternRefExpression, myConceptTemplateArgumentQuery, myConceptTemplateArgumentQueryExpression, myConceptTemplateArgumentVarRefExpression2, myConceptTemplateCall, myConceptTemplateCallMacro, myConceptTemplateDeclaration, myConceptTemplateDeclarationReference, myConceptTemplateFragment, myConceptTemplateFunctionParameter_mainContextNode, myConceptTemplateFunctionParameter_outputNode, myConceptTemplateFunctionParameter_parentOutputNode, myConceptTemplateFunctionParameter_sourceNode, myConceptTemplateFunctionParameter_templatePropertyValue, myConceptTemplateFunctionParameter_templateReferent, myConceptTemplateParameterDeclaration, myConceptTemplateQueryBase, myConceptTemplateSwitch, myConceptTemplateSwitchMacro, myConceptTemplateSwitchReference, myConceptTraceMacro, myConceptTrivialNodeId, myConceptVarDeclaration, myConceptVarMacro2, myConceptVarMacro_ValueQuery, myConceptWeaveEach_RuleConsequence, myConceptWeaveMacro, myConceptWeavingAnchorQuery, myConceptWeaving_MappingRule, myConceptWeaving_MappingRule_ContextNodeQuery);
+    return Arrays.asList(myConceptAbandonInput_RuleConsequence, myConceptAbstractMacro, myConceptBaseMappingRule, myConceptBaseMappingRule_Condition, myConceptCP_InputKey, myConceptCP_InputNode, myConceptCP_LabelRecord, myConceptContextVariableDeclaration, myConceptContextVariableProvider, myConceptCopySrcListMacro, myConceptCopySrcNodeMacro, myConceptCreateRootRule, myConceptCreateRootRule_Condition, myConceptDismissTopMappingRule, myConceptDropAttributeRule, myConceptDropAttributeRule_Condition, myConceptDropRootRule, myConceptDropRootRule_Condition, myConceptElementaryNodeId, myConceptGeneratorDebug_InputNode, myConceptGeneratorDebug_LabelEntry, myConceptGeneratorDebug_Mappings, myConceptGeneratorDebug_NodeMapEntry, myConceptGeneratorDebug_NodeRef, myConceptGeneratorInternal_AbstractReferenceDescriptor, myConceptGeneratorInternal_InternalReferenceDescriptor, myConceptGeneratorInternal_PropertyDescriptor, myConceptGeneratorInternal_ReferenceDescriptor, myConceptGeneratorMessage, myConceptGeneratorParameterReference, myConceptIGeneratorParameter, myConceptIParameterizedTemplate, myConceptITemplateCall, myConceptIfMacro, myConceptIfMacro_Condition, myConceptInlineSwitch_Case, myConceptInlineSwitch_RuleConsequence, myConceptInlineTemplateWithContext_RuleConsequence, myConceptInlineTemplate_RuleConsequence, myConceptInsertCallSiteMacro, myConceptInsertMacro, myConceptInsertMacro_CreateNodeQuery, myConceptLabelMacro, myConceptLabelMacroInputQuery, myConceptLoopMacro, myConceptMapSrcListMacro, myConceptMapSrcMacro_MapperFunction, myConceptMapSrcMacro_PostMapperFunction, myConceptMapSrcNodeMacro, myConceptMappingConfiguration, myConceptMappingConfiguration_Condition, myConceptMappingLabelDeclaration, myConceptMappingScript, myConceptMappingScriptReference, myConceptMappingScript_CodeBlock, myConceptNodeIdentity, myConceptNodeMacro, myConceptOriginTrace, myConceptPatternReduction_MappingRule, myConceptPropertyMacro, myConceptPropertyMacro_GetPropertyValue, myConceptReductionRule, myConceptReduction_MappingRule, myConceptReferenceMacro, myConceptReferenceMacro_GetReferent, myConceptReferenceReductionRule, myConceptRootTemplateAnnotation, myConceptRoot_MappingRule, myConceptRuleConsequence, myConceptSourceSubstituteMacro, myConceptSourceSubstituteMacro_SourceNodeQuery, myConceptSourceSubstituteMacro_SourceNodesQuery, myConceptTemplateArgumentLinkPatternRefExpression, myConceptTemplateArgumentParameterExpression, myConceptTemplateArgumentPatternRef, myConceptTemplateArgumentPatternVarRefExpression, myConceptTemplateArgumentPropertyPatternRefExpression, myConceptTemplateArgumentQuery, myConceptTemplateArgumentQueryExpression, myConceptTemplateArgumentVarRefExpression2, myConceptTemplateCall, myConceptTemplateCallMacro, myConceptTemplateDeclaration, myConceptTemplateDeclarationReference, myConceptTemplateFragment, myConceptTemplateFunctionParameter_mainContextNode, myConceptTemplateFunctionParameter_outputNode, myConceptTemplateFunctionParameter_parentOutputNode, myConceptTemplateFunctionParameter_sourceNode, myConceptTemplateFunctionParameter_templatePropertyValue, myConceptTemplateFunctionParameter_templateReferent, myConceptTemplateParameterDeclaration, myConceptTemplateQueryBase, myConceptTemplateSwitch, myConceptTemplateSwitchMacro, myConceptTemplateSwitchReference, myConceptTraceMacro, myConceptTrivialNodeId, myConceptVarDeclaration, myConceptVarMacro2, myConceptVarMacro_ValueQuery, myConceptWeaveEach_RuleConsequence, myConceptWeaveMacro, myConceptWeavingAnchorQuery, myConceptWeaving_MappingRule, myConceptWeaving_MappingRule_ContextNodeQuery);
   }
 
   @Override
@@ -157,6 +160,12 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptBaseMappingRule;
       case LanguageConceptSwitch.BaseMappingRule_Condition:
         return myConceptBaseMappingRule_Condition;
+      case LanguageConceptSwitch.CP_InputKey:
+        return myConceptCP_InputKey;
+      case LanguageConceptSwitch.CP_InputNode:
+        return myConceptCP_InputNode;
+      case LanguageConceptSwitch.CP_LabelRecord:
+        return myConceptCP_LabelRecord;
       case LanguageConceptSwitch.ContextVariableDeclaration:
         return myConceptContextVariableDeclaration;
       case LanguageConceptSwitch.ContextVariableProvider:
@@ -410,6 +419,38 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("condition");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForCP_InputKey() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.generator", "CP_InputKey", 0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffbL);
+    b.interface_();
+    b.origin("r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/2471977144750333947");
+    b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForCP_InputNode() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.generator", "CP_InputNode", 0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL);
+    b.class_(false, false, false);
+    b.parent(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffbL);
+    b.origin("r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/2471977144750333948");
+    b.version(2);
+    b.property("nodeId", 0x224e3a1db5bbf950L).type(PrimitiveTypeId.STRING).origin("2471977144750438736").done();
+    b.property("presentation", 0x224e3a1db5bb3a1fL).type(PrimitiveTypeId.STRING).origin("2471977144750389791").done();
+    b.property("modelName", 0x224e3a1db5bb3a20L).type(PrimitiveTypeId.STRING).origin("2471977144750389792").done();
+    b.associate("nodePtr", 0x224e3a1db5bb3a2aL).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(true).origin("2471977144750389802").done();
+    b.associate("inputOrigin", 0x224e3a1db5ba5ff5L).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(true).origin("2471977144750333941").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForCP_LabelRecord() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.generator", "CP_LabelRecord", 0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L);
+    b.class_(false, false, false);
+    b.origin("r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/2471977144750333938");
+    b.version(2);
+    b.property("label", 0x224e3a1db5ba5ff3L).type(PrimitiveTypeId.STRING).origin("2471977144750333939").done();
+    b.property("isNewRoot", 0x224e3a1db5ba600cL).type(PrimitiveTypeId.BOOLEAN).origin("2471977144750333964").done();
+    b.aggregate("input1", 0x224e3a1db5ba6005L).target(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffbL).optional(true).ordered(true).multiple(false).origin("2471977144750333957").done();
+    b.aggregate("input2", 0x224e3a1db5ba6008L).target(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffbL).optional(true).ordered(true).multiple(false).origin("2471977144750333960").done();
+    b.aggregate("output", 0x224e3a1db5ba5ff7L).target(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L).optional(true).ordered(true).multiple(true).origin("2471977144750333943").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForContextVariableDeclaration() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.generator", "ContextVariableDeclaration", 0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d94989fL);
     b.class_(false, false, false);
@@ -561,6 +602,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/3864140621129707969");
     b.version(2);
     b.aggregate("labels", 0x35a02f6bfc9806c5L).target(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c4L).optional(true).ordered(true).multiple(true).origin("3864140621129713349").done();
+    b.aggregate("records", 0x224e3a1db5baeb0aL).target(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L).optional(true).ordered(true).multiple(true).origin("2471977144750369546").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }

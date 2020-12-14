@@ -16,23 +16,28 @@
 package jetbrains.mps.generator.impl;
 
 import jetbrains.mps.generator.impl.LMCollector.OneOrMany;
-import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- *
+ * FIXME Made public just for the sake of MappingsMemento from .cache package, need to re-arrange all the classes
+ *       (perhaps, stop using MM and introduce a new class))
  * @author Artem Tikhomirov
  * @since 2020.3
  */
-/*package*/ final class LabelRecord extends LabelRecordBase<SNode, SNode> {
-  final boolean composite;
+/*package*/ public class LabelRecordBase<K,V> {
+  final String label;
+  final K key1;
+  final K key2;
+  // out/values are kept by reference, I assume they don't get modified, just accessed.
+  final OneOrMany<V> values;
 
-  LabelRecord(/*NotNull*/ String label, SNode in, /*NotNull*/ OneOrMany<SNode> out) {
-    super(label, in, null, out);
-    composite = false;
+  /*package*/ public LabelRecordBase(String label, K in1, K in2, OneOrMany<V> out) {
+    this.label = label;
+    this.key1 = in1;
+    this.key2 = in2;
+    this.values = out;
   }
 
-  LabelRecord(/*NotNull*/ String label, SNode in1, SNode in2, /*NotNull*/ OneOrMany<SNode> out) {
-    super(label, in1, in2, out);
-    composite = true;
+  /*package*/ public LabelRecordBase(String label, K in1, K in2, V out) {
+    this(label, in1, in2, new OneOrMany<>(out));
   }
 }

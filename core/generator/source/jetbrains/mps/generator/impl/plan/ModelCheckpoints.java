@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.generator.impl.plan;
 
 import jetbrains.mps.generator.ModelGenerationPlan.Checkpoint;
+import jetbrains.mps.generator.impl.LMLookup;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.util.CollectionUtil;
@@ -202,6 +203,13 @@ public class ModelCheckpoints {
     }
     return output;
   }
+
+  public LMLookup getLookup(CheckpointIdentity identity, String label) {
+    // FIXME implement custom LMLookup to walk CP states as in findTransformedNode
+    final CheckpointState state = find(identity);
+    return state.getLookup(label);
+  }
+
 
   /*package*/ List<CheckpointIdentity> getKnownCheckpoints() {
     return StreamSupport.stream(myStates.spliterator(), false).map(CheckpointState::getCheckpoint).collect(Collectors.toList());

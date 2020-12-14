@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.generator.impl.plan;
 
+import jetbrains.mps.generator.impl.LMLookup;
 import jetbrains.mps.generator.impl.MappingLabelExtractor;
 import jetbrains.mps.generator.impl.ModelTransitions;
 import jetbrains.mps.generator.impl.TransitionTrace;
@@ -157,6 +158,10 @@ public class CheckpointState {
   @NotNull
   public List<SNode> getOutputWithoutInput(String mappingLabel) {
     return resolve(myState.getNewOutputNodes(mappingLabel));
+  }
+
+  public LMLookup getLookup(String label) {
+    return myState.getCompositeLabelsLookup(label);
   }
 
   private List<SNode> resolve(Collection<SNodeId> output) {

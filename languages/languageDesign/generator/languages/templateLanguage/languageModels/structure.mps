@@ -1772,7 +1772,7 @@
   <node concept="1TIwiD" id="3mwbQJW_Z71">
     <property role="TrG5h" value="GeneratorDebug_Mappings" />
     <property role="R4oN_" value="Container for generator mappings produced during transformation step" />
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <property role="EcuMT" value="3864140621129707969" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
@@ -1783,9 +1783,16 @@
       <property role="IQ2ns" value="3864140621129713349" />
       <ref role="20lvS9" node="3mwbQJWA0r4" resolve="GeneratorDebug_LabelEntry" />
     </node>
+    <node concept="1TJgyj" id="29eexQPIIGa" role="1TKVEi">
+      <property role="IQ2ns" value="2471977144750369546" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="records" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="29eexQPI_ZM" resolve="CP_LabelRecord" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3mwbQJWA0r4">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <property role="TrG5h" value="GeneratorDebug_LabelEntry" />
     <property role="R4oN_" value="Entry for MappingLabel" />
     <property role="EcuMT" value="3864140621129713348" />
@@ -1805,7 +1812,7 @@
     </node>
   </node>
   <node concept="1TIwiD" id="3mwbQJWA0r7">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <property role="TrG5h" value="GeneratorDebug_NodeMapEntry" />
     <property role="R4oN_" value="Records input node to output mapping, with origin of the input node (if any)." />
     <property role="EcuMT" value="3864140621129713351" />
@@ -1836,7 +1843,7 @@
     </node>
   </node>
   <node concept="1TIwiD" id="3mwbQJWA0ri">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <property role="TrG5h" value="GeneratorDebug_NodeRef" />
     <property role="R4oN_" value="Need multiple references to node&lt;&gt;, this is how they do it with MPS" />
     <property role="EcuMT" value="3864140621129713362" />
@@ -1883,7 +1890,7 @@
   </node>
   <node concept="1TIwiD" id="52s0aAoynkO">
     <property role="EcuMT" value="5808518347809715508" />
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <property role="TrG5h" value="GeneratorDebug_InputNode" />
     <property role="R4oN_" value="input nodes generally come from transient model, we can't keep direct reference to BaseConcept, hence this descriptor" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
@@ -1958,10 +1965,10 @@
     <node concept="1TJgyj" id="7r2v6u$o5W7" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="cncpt" />
+      <property role="20lbJX" value="fLJekj4/1" />
       <property role="IQ2ns" value="8557539026538618631" />
-      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="tp25:5ZE7FBYYOp2" resolve="ConceptIdentity" />
-      <node concept="t5JxF" id="$$Ni30W7Ix" role="lGtFl">
+      <node concept="t5JxF" id="39TODbGt7Bz" role="lGtFl">
         <property role="t5JxN" value="XXX shall use modelapi conterpart" />
       </node>
     </node>
@@ -2199,6 +2206,83 @@
     <property role="TrG5h" value="LabelMacroInputQuery" />
     <property role="34LRSv" value="query" />
     <ref role="1TJDcQ" node="hHd3awK" resolve="TemplateQueryBase" />
+  </node>
+  <node concept="1TIwiD" id="29eexQPI_ZM">
+    <property role="EcuMT" value="2471977144750333938" />
+    <property role="3GE5qa" value="checkpoint" />
+    <property role="TrG5h" value="CP_LabelRecord" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="29eexQPIA05" role="1TKVEi">
+      <property role="IQ2ns" value="2471977144750333957" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="input1" />
+      <ref role="20lvS9" node="29eexQPI_ZV" resolve="CP_InputKey" />
+    </node>
+    <node concept="1TJgyj" id="29eexQPIA08" role="1TKVEi">
+      <property role="IQ2ns" value="2471977144750333960" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="input2" />
+      <ref role="20lvS9" node="29eexQPI_ZV" resolve="CP_InputKey" />
+    </node>
+    <node concept="1TJgyj" id="29eexQPI_ZR" role="1TKVEi">
+      <property role="IQ2ns" value="2471977144750333943" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="output" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" node="3mwbQJWA0ri" resolve="GeneratorDebug_NodeRef" />
+    </node>
+    <node concept="1TJgyi" id="29eexQPI_ZN" role="1TKVEl">
+      <property role="IQ2nx" value="2471977144750333939" />
+      <property role="TrG5h" value="label" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="29eexQPIA0c" role="1TKVEl">
+      <property role="IQ2nx" value="2471977144750333964" />
+      <property role="TrG5h" value="isNewRoot" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="29eexQPI_ZV">
+    <property role="EcuMT" value="2471977144750333947" />
+    <property role="3GE5qa" value="checkpoint" />
+    <property role="TrG5h" value="CP_InputKey" />
+  </node>
+  <node concept="1TIwiD" id="29eexQPI_ZW">
+    <property role="EcuMT" value="2471977144750333948" />
+    <property role="3GE5qa" value="checkpoint" />
+    <property role="TrG5h" value="CP_InputNode" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="29eexQPIZ_g" role="1TKVEl">
+      <property role="IQ2nx" value="2471977144750438736" />
+      <property role="TrG5h" value="nodeId" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+      <node concept="t5JxF" id="29eexQPIZ_m" role="lGtFl">
+        <property role="t5JxN" value="Decided to go with straightforward value here rather than introduce one more level with NodeIdentity. In case I ever need anything but nodeId, I can introduce another CP_InputKey subconcept" />
+      </node>
+    </node>
+    <node concept="1TJgyi" id="29eexQPINCv" role="1TKVEl">
+      <property role="IQ2nx" value="2471977144750389791" />
+      <property role="TrG5h" value="presentation" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="29eexQPINCw" role="1TKVEl">
+      <property role="IQ2nx" value="2471977144750389792" />
+      <property role="TrG5h" value="modelName" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="29eexQPINCE" role="1TKVEi">
+      <property role="IQ2ns" value="2471977144750389802" />
+      <property role="20kJfa" value="nodePtr" />
+      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    </node>
+    <node concept="1TJgyj" id="29eexQPI_ZP" role="1TKVEi">
+      <property role="20kJfa" value="inputOrigin" />
+      <property role="IQ2ns" value="2471977144750333941" />
+      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    </node>
+    <node concept="PrWs8" id="29eexQPI_ZX" role="PzmwI">
+      <ref role="PrY4T" node="29eexQPI_ZV" resolve="CP_InputKey" />
+    </node>
   </node>
 </model>
 

@@ -452,9 +452,9 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
       warnCompositeLabelKeys(key1, key2, label);
       return null;
     }
-    SNode rv = myLabels.compositeKeyValues(label, (SNode) key1, (SNode) key2).findFirst().orElse(null);
+    SNode rv = myLabels.getLookup(label).findOutputRecordSingle((SNode) key1, (SNode) key2);
     if (rv == null) {
-      rv = generator.getMappings().findOutputRecordSingle(label, (SNode) key1, (SNode) key2);
+      rv = generator.getLabelMapLookup(label).findOutputRecordSingle((SNode) key1, (SNode) key2);
     }
     return rv;
   }

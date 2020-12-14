@@ -100,7 +100,46 @@ public class DebugMappingsBuilder {
         ListSequence.fromList(SLinkOperations.getChildren(entry, LINKS.outputNode$JC9e)).addElement(r);
       }
     }
+    for (LabelRecord lr : ListSequence.fromList(mappings.getOrderedRecords())) {
+      final SNode rn = SLinkOperations.addNewChild(rv, LINKS.records$1M3v, null);
+      SPropertyOperations.assign(rn, PROPS.label$dc7G, lr.label);
+      if (lr.key1 != null) {
+        SNode n = SModelOperations.createNewNode(checkpointModel, null, CONCEPTS.CP_InputNode$p_);
+        fill(lr.key1, n);
+        SLinkOperations.setTarget(rn, LINKS.input1$dqcC, n);
+      }
+      if (lr.key2 != null) {
+        SNode n = SModelOperations.createNewNode(checkpointModel, null, CONCEPTS.CP_InputNode$p_);
+        fill(lr.key2, n);
+        SLinkOperations.setTarget(rn, LINKS.input2$dvP0, n);
+      }
+      lr.values.forEach(new Consumer<SNode>() {
+        public void accept(SNode o) {
+          SNode r = SModelOperations.createNewNode(checkpointModel, null, CONCEPTS.GeneratorDebug_NodeRef$2a);
+          SLinkOperations.setTarget(r, LINKS.node$JBUG, substituteOutputNode(checkpointModel, o));
+          ListSequence.fromList(SLinkOperations.getChildren(rn, LINKS.output$dhZ5)).addElement(r);
+        }
+      });
+    }
     return rv;
+  }
+
+  private void fill(SNode input, SNode presentation) {
+    // XXX copied from similar code for GeneratorDebug_InputNode, above 
+    SNodeId inputNodeId = (myOriginTrace.hasOrigin(input) ? myOriginTrace.getOrigin(input) : input.getNodeId());
+    SPropertyOperations.assign(presentation, PROPS.nodeId$wvdy, inputNodeId.toString());
+    SPropertyOperations.assign(presentation, PROPS.presentation$PQVs, input.getPresentation());
+    SModel inputNodeModel = input.getModel();
+    if (inputNodeModel != null && (isCheckpointModel(inputNodeModel) || !(inputNodeModel instanceof TransientSModel))) {
+      // no reason to save reference to a model that would be disposed and eventually break the reference 
+      SPropertyOperations.assign(presentation, PROPS.modelName$PRat, inputNodeModel.getName().getValue());
+      // The problem with direct reference is that I need to respect change in model reference for persisted CP model if it changes 
+      SLinkOperations.setTarget(presentation, LINKS.nodePtr$Snb7, input);
+    }
+    SNodeReference origin = TracingUtil.getInput(input);
+    if (origin != null) {
+      SLinkOperations.setPointer(presentation, LINKS.inputOrigin$dhK4, origin);
+    }
   }
 
   /**
@@ -135,6 +174,7 @@ public class DebugMappingsBuilder {
     /*package*/ static final SConcept GeneratorDebug_NodeMapEntry$ME = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, "jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeMapEntry");
     /*package*/ static final SConcept ElementaryNodeId$Yd = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, "jetbrains.mps.lang.generator.structure.ElementaryNodeId");
     /*package*/ static final SConcept GeneratorDebug_NodeRef$2a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, "jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef");
+    /*package*/ static final SConcept CP_InputNode$p_ = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, "jetbrains.mps.lang.generator.structure.CP_InputNode");
   }
 
   private static final class PROPS {
@@ -143,6 +183,10 @@ public class DebugMappingsBuilder {
     /*package*/ static final SProperty presentation$FmHa = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f702L, "presentation");
     /*package*/ static final SProperty modelName$F5oU = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a9989481dbL, "modelName");
     /*package*/ static final SProperty isNewRoot$pwOY = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x511a0d44c7f45537L, "isNewRoot");
+    /*package*/ static final SProperty label$dc7G = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L, 0x224e3a1db5ba5ff3L, "label");
+    /*package*/ static final SProperty nodeId$wvdy = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, 0x224e3a1db5bbf950L, "nodeId");
+    /*package*/ static final SProperty presentation$PQVs = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, 0x224e3a1db5bb3a1fL, "presentation");
+    /*package*/ static final SProperty modelName$PRat = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, 0x224e3a1db5bb3a20L, "modelName");
   }
 
   private static final class LINKS {
@@ -154,5 +198,11 @@ public class DebugMappingsBuilder {
     /*package*/ static final SReferenceLink inputOrigin$JIuD = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806dbL, "inputOrigin");
     /*package*/ static final SReferenceLink node$JBUG = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, 0x35a02f6bfc9806d3L, "node");
     /*package*/ static final SContainmentLink outputNode$JC9e = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode");
+    /*package*/ static final SContainmentLink records$1M3v = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc97f1c1L, 0x224e3a1db5baeb0aL, "records");
+    /*package*/ static final SContainmentLink input1$dqcC = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L, 0x224e3a1db5ba6005L, "input1");
+    /*package*/ static final SContainmentLink input2$dvP0 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L, 0x224e3a1db5ba6008L, "input2");
+    /*package*/ static final SContainmentLink output$dhZ5 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ff2L, 0x224e3a1db5ba5ff7L, "output");
+    /*package*/ static final SReferenceLink nodePtr$Snb7 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, 0x224e3a1db5bb3a2aL, "nodePtr");
+    /*package*/ static final SReferenceLink inputOrigin$dhK4 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x224e3a1db5ba5ffcL, 0x224e3a1db5ba5ff5L, "inputOrigin");
   }
 }

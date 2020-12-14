@@ -6639,7 +6639,7 @@
     </node>
   </node>
   <node concept="13h7C7" id="3mwbQJWA145">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="13h7C2" to="tpf8:3mwbQJWA0r4" resolve="GeneratorDebug_LabelEntry" />
     <node concept="13hLZK" id="3mwbQJWA146" role="13h7CW">
       <node concept="3clFbS" id="3mwbQJWA147" role="2VODD2" />
@@ -6669,7 +6669,7 @@
     </node>
   </node>
   <node concept="13h7C7" id="3mwbQJWA1Hl">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="13h7C2" to="tpf8:3mwbQJWA0r7" resolve="GeneratorDebug_NodeMapEntry" />
     <node concept="13hLZK" id="3mwbQJWA1Hm" role="13h7CW">
       <node concept="3clFbS" id="3mwbQJWA1Hn" role="2VODD2" />

@@ -14,6 +14,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_AbstractMacro;
   private ConceptPresentation props_BaseMappingRule;
   private ConceptPresentation props_BaseMappingRule_Condition;
+  private ConceptPresentation props_CP_InputKey;
+  private ConceptPresentation props_CP_InputNode;
+  private ConceptPresentation props_CP_LabelRecord;
   private ConceptPresentation props_ContextVariableDeclaration;
   private ConceptPresentation props_ContextVariableProvider;
   private ConceptPresentation props_CopySrcListMacro;
@@ -145,6 +148,26 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_BaseMappingRule_Condition = cpb.create();
         }
         return props_BaseMappingRule_Condition;
+      case LanguageConceptSwitch.CP_InputKey:
+        if (props_CP_InputKey == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_CP_InputKey = cpb.create();
+        }
+        return props_CP_InputKey;
+      case LanguageConceptSwitch.CP_InputNode:
+        if (props_CP_InputNode == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("CP_InputNode");
+          props_CP_InputNode = cpb.create();
+        }
+        return props_CP_InputNode;
+      case LanguageConceptSwitch.CP_LabelRecord:
+        if (props_CP_LabelRecord == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("CP_LabelRecord");
+          props_CP_LabelRecord = cpb.create();
+        }
+        return props_CP_LabelRecord;
       case LanguageConceptSwitch.ContextVariableDeclaration:
         if (props_ContextVariableDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -452,8 +475,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_MappingConfiguration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a64b0ae);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a64b0ae);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a94b0de);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a94b0de);
           props_MappingConfiguration = cpb.create();
         }
         return props_MappingConfiguration;
@@ -476,7 +499,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_MappingScript == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a94b0ae);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a25b0de);
           props_MappingScript = cpb.create();
         }
         return props_MappingScript;
@@ -684,7 +707,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_TemplateDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a97b0ae);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a28b0de);
           props_TemplateDeclaration = cpb.create();
         }
         return props_TemplateDeclaration;
@@ -762,7 +785,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_TemplateSwitch == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a09b0ae);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a39b0de);
           props_TemplateSwitch = cpb.create();
         }
         return props_TemplateSwitch;
@@ -859,5 +882,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL_lpa09p_a0a2a0a64b0ae = URLFunction_HelpCenterDocUrl.getUrl() + "mps-generator.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a94b0de = URLFunction_HelpCenterDocUrl.getUrl() + "mps-generator.html";
 }

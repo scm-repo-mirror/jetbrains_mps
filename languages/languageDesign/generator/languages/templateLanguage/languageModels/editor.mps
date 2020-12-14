@@ -6632,7 +6632,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="3mwbQJWA0rR">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="1XX52x" to="tpf8:3mwbQJW_Z71" resolve="GeneratorDebug_Mappings" />
     <node concept="3F2HdR" id="3mwbQJWA0rT" role="2wV5jI">
       <ref role="1NtTu8" to="tpf8:3mwbQJWA0r5" resolve="labels" />
@@ -6643,7 +6643,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="3mwbQJWA1Fe">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="1XX52x" to="tpf8:3mwbQJWA0r4" resolve="GeneratorDebug_LabelEntry" />
     <node concept="3EZMnI" id="2LhwpWcGWU8" role="2wV5jI">
       <node concept="3F0A7n" id="2LhwpWcGWUk" role="3EZMnx">
@@ -6657,7 +6657,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="3mwbQJWA1GV">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="1XX52x" to="tpf8:3mwbQJWA0r7" resolve="GeneratorDebug_NodeMapEntry" />
     <node concept="3EZMnI" id="3mwbQJWA4aW" role="2wV5jI">
       <node concept="3EZMnI" id="Hduj2adaAe" role="3EZMnx">
@@ -6692,7 +6692,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="Hduj2adtVr">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="1XX52x" to="tpf8:3mwbQJWA0ri" resolve="GeneratorDebug_NodeRef" />
     <node concept="1iCGBv" id="Hduj2adtVt" role="2wV5jI">
       <ref role="1NtTu8" to="tpf8:3mwbQJWA0rj" resolve="node" />
@@ -6765,7 +6765,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="52s0aAoyvvj">
-    <property role="3GE5qa" value="debug" />
+    <property role="3GE5qa" value="checkpoint" />
     <ref role="1XX52x" to="tpf8:52s0aAoynkO" resolve="GeneratorDebug_InputNode" />
     <node concept="3EZMnI" id="52s0aAoyvvl" role="2wV5jI">
       <node concept="3F0A7n" id="52s0aAoyvvv" role="3EZMnx">

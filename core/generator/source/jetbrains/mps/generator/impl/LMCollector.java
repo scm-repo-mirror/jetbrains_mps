@@ -136,9 +136,28 @@ import java.util.stream.StreamSupport;
     return rv.build();
   }
 
+  public LMLookup getLookup(final String label) {
+    return new LMLookup() {
+      @Override
+      public Stream<SNode> compositeLMValues(SNode k1, SNode k2) {
+        return compositeKeyValues(label, k1, k2);
+      }
+    };
+  }
+
   public Stream<SNode> compositeKeyValues(String label, SNode i1, SNode i2) {
     final OneOrMany<SNode> rv = myCompositeLabels.get(new KK(label, i1, i2));
     return rv == null ? Stream.empty() : rv.valueStream();
+  }
+
+  public LabelRecord[] compositeLabelsToArray() {
+    LabelRecord[] rv = new LabelRecord[myCompositeLabels.size()];
+    int i = 0;
+    for (Entry<KK, OneOrMany<SNode>> e : myCompositeLabels.entrySet()) {
+      final KK k = e.getKey();
+      rv[i++] = new LabelRecord(k.label, k.k1, k.k2, e.getValue());
+    }
+    return rv;
   }
 
 

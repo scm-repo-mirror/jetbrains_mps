@@ -29,7 +29,6 @@ import jetbrains.mps.generator.impl.FastRuleFinder.BlockedReductionsData;
 import jetbrains.mps.generator.impl.RoleValidation.RoleValidator;
 import jetbrains.mps.generator.impl.RoleValidation.Status;
 import jetbrains.mps.generator.impl.plan.CheckpointState;
-import jetbrains.mps.generator.impl.plan.CrossModelEnvironment;
 import jetbrains.mps.generator.impl.plan.ModelCheckpoints;
 import jetbrains.mps.generator.impl.query.GeneratorQueryProvider;
 import jetbrains.mps.generator.impl.reference.DynamicReferenceUpdate;
@@ -90,6 +89,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 /**
  * Created by: Sergey Dmitriev
@@ -573,8 +573,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       return null;
     }
 //    CheckpointState cp = findMatchingStateFor(inputNodeModel);
-    CrossModelEnvironment env = getGeneratorSessionContext().getCrossModelEnvironment();
-    ModelCheckpoints modelCheckpoints = env.getState(inputNodeModel);
+    ModelCheckpoints modelCheckpoints = getModelHistory(inputNodeModel);
     if (modelCheckpoints == null) {
       return null;
     }
@@ -625,8 +624,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       return null;
     }
 //    CheckpointState cp = findMatchingStateFor(inputNodeModel);
-    CrossModelEnvironment env = getGeneratorSessionContext().getCrossModelEnvironment();
-    ModelCheckpoints modelCheckpoints = env.getState(inputNodeModel);
+    ModelCheckpoints modelCheckpoints = getModelHistory(inputNodeModel);
     if (modelCheckpoints == null) {
       return null;
     }
@@ -644,8 +642,12 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     return output;
   }
 
+  @Nullable
+  private ModelCheckpoints getModelHistory(/*non-null*/SModel model) {
+    return getGeneratorSessionContext().getCrossModelEnvironment().getState(model);
+  }
+
   private CheckpointState findMatchingStateFor(/*non-null*/SModel model) {
-    CrossModelEnvironment env = getGeneratorSessionContext().getCrossModelEnvironment();
     // last and next are not necessarily in immediately adjacent generation steps, i.e. cpLast, transfStep1, transfStep2, activeTransformStep, transfStep3, cpNext
     Checkpoint lastPoint = myPlanStep.getLastCheckpoint();
     // XXX alternatively, we can extract active checkpoint from TransitionTrace. Do we need both ways to get the value I don't care to use?
@@ -657,7 +659,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     }
     // Note, myPlanStep.getPlanIdentity() points to the plan in action; while we need that of target model
     // which could be generated against different plan (although with a shared CP).
-    ModelCheckpoints modelHistory = env.getState(model);
+    ModelCheckpoints modelHistory = getModelHistory(model);
     if (modelHistory == null) {
       return null;
     }
@@ -683,6 +685,46 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       return null;
     }
     return rv.get(0);
+  }
+
+  /*package*/ LMLookup getLabelMapLookup(final String label) {
+    // first, check those known in this generator session
+    final LMLookup first = getMappings().getCompositeLabelsLookup(label);
+    final Checkpoint targetPoint = myPlanStep.getNextCheckpoint();
+    if (targetPoint == null) {
+      return first;
+    }
+    // resort to those we can discover in checkpoints
+    final LMLookup second = new LMLookup() {
+      @Override
+      public Stream<SNode> compositeLMValues(SNode k1, SNode k2) {
+        if (k1 == null || k1.getModel() == null) {
+          return Stream.empty();
+        }
+        final ModelCheckpoints modelHistory = getModelHistory(k1.getModel());
+        if (modelHistory == null) {
+          return Stream.empty();
+        }
+        return modelHistory.getLookup(targetPoint.getIdentity(), label).compositeLMValues(k1, k2);
+      }
+    };
+    return new LMLookup() {
+      @Override
+      public SNode findOutputRecordSingle(SNode k1, SNode k2) {
+        final SNode rv = first.findOutputRecordSingle(k1, k2);
+        if (rv != null) {
+          return rv;
+        }
+        return second.findOutputRecordSingle(k1, k2);
+      }
+
+      @Override
+      public Stream<SNode> compositeLMValues(SNode k1, SNode k2) {
+        // XXX don't like this method, do I care to provide combined stream at all? Perhaps, the method could be
+        //     protected so that I can have better chaining impl
+        return Stream.concat(first.compositeLMValues(k1, k2), second.compositeLMValues(k1, k2));
+      }
+    };
   }
 
   // in fact, it's reasonable to keep this method in TEEI (in ReductionTrack, actually), to reflect narrowing scope of

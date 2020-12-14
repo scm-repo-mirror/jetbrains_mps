@@ -37,7 +37,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -275,12 +274,6 @@ public final class GeneratorMappings {
     return rv.get();
   }
 
-  // FIXME please, no Object, no Map<SNode,Object>. PLEASE!!!
-  @Deprecated
-  /*package*/Map<SNode,Object> getMappings(String label) {
-    final NodeMap map = getMappingsForLabel(label);
-    return map == null ? null : map.toLegacyMap();
-  }
   /*package*/List<SNode> getSortedMappingKeys(final String label) {
     ArrayList<NodeMapRecord> l = new ArrayList<>();
     CollectConsumer<NodeMapRecord> cc = new CollectConsumer<>(l);
@@ -290,11 +283,11 @@ public final class GeneratorMappings {
       }
     });
     l.sort(new Comparator<>() {
-      private final ToStringComparator myToStringComparator = new ToStringComparator();
+      private final SNodeComparator myNodeComparator = new SNodeComparator();
 
       @Override
       public int compare(NodeMapRecord o1, NodeMapRecord o2) {
-        int v = compareKeys(o1.key(), o2.key());
+        int v = myNodeComparator.compare(o1.key(), o2.key());
         if (v == 0) {
           // input node is the same (or indistinguishable), have to respect values to keep order consistent.
           // E.g. a pattern in a typesystem rule is copied to to different methods, there are two output classes
@@ -304,8 +297,8 @@ public final class GeneratorMappings {
             // last resort, address scenario when input nodes were copied, and processed individually. Treat the one
             // that served as a master one 'first', its copies 'subsequent'. Guess the master by node id matching the one
             // of the original node.
-            final boolean b1 = nodeIdSameAsOriginal(o1.key());
-            final boolean b2 = nodeIdSameAsOriginal(o2.key());
+            final boolean b1 = SNodeComparator.nodeIdSameAsOriginal(o1.key());
+            final boolean b2 = SNodeComparator.nodeIdSameAsOriginal(o2.key());
             if (b1 ^ b2) {
               v = b1 ? -1 : 1;
             }
@@ -315,38 +308,44 @@ public final class GeneratorMappings {
         return v;
       }
 
-      private boolean nodeIdSameAsOriginal(SNode n) {
-        final SNodeReference original = TracingUtil.getInput(n);
-        return original != null && Objects.equals(original.getNodeId(), n.getNodeId());
-      }
-
-      private int compareKeys(SNode n1, SNode n2) {
-        int v = n1.getPresentation().compareTo(n2.getPresentation());
-        if (v == 0) {
-          // just in case presentation is the same (e.g. enumeration literals with the same name in different enums)
-          // Hope, there could be no two nodes with the same presentation and same node id.
-          SNodeReference o1, o2;
-          do {
-            o1 = TracingUtil.getInput(n1);
-            o2 = TracingUtil.getInput(n2);
-            n1 = n1.getParent();
-            n2 = n2.getParent();
-            // original input node is recorded for a top template node only, if a child template node serves as a ML key, we can't
-            // find its input here unless traverse to parent.
-            // highlevel sample: 'Car' is transformed with map_EditorDeclaration to ConceptEditorDeclaration with child CellModel_Collection, that
-            // later serves as a key for 'cellFactory.factoryMethod' ML. Presentation for any CellModel_Collection is 'collection', and as long as it's
-            // child template node of map_EditorDeclaration template, it doesn't get original input value (map_EditorDeclaration does).
-          } while (o1 == null && o2 == null && n1 != null && n2 != null);
-
-          if (o1 != null && o2 != null) {
-            // use original input, if possible - actual input is from transient model
-            v = myToStringComparator.compare(o1.getNodeId(), o2.getNodeId());
-          }
-        }
-        return v;
-      }
     });
     return l.stream().map(NodeMapRecord::key).collect(Collectors.toList());
+  }
+
+  private static class SNodeComparator implements Comparator<SNode> {
+    private final ToStringComparator myToStringComparator = new ToStringComparator();
+
+    @Override
+    public int compare(SNode n1, SNode n2) {
+      int v = n1.getPresentation().compareTo(n2.getPresentation());
+      if (v == 0) {
+        // just in case presentation is the same (e.g. enumeration literals with the same name in different enums)
+        // Hope, there could be no two nodes with the same presentation and same node id.
+        SNodeReference o1, o2;
+        do {
+          o1 = TracingUtil.getInput(n1);
+          o2 = TracingUtil.getInput(n2);
+          n1 = n1.getParent();
+          n2 = n2.getParent();
+          // original input node is recorded for a top template node only, if a child template node serves as a ML key, we can't
+          // find its input here unless traverse to parent.
+          // highlevel sample: 'Car' is transformed with map_EditorDeclaration to ConceptEditorDeclaration with child CellModel_Collection, that
+          // later serves as a key for 'cellFactory.factoryMethod' ML. Presentation for any CellModel_Collection is 'collection', and as long as it's
+          // child template node of map_EditorDeclaration template, it doesn't get original input value (map_EditorDeclaration does).
+        } while (o1 == null && o2 == null && n1 != null && n2 != null);
+
+        if (o1 != null && o2 != null) {
+          // use original input, if possible - actual input is from transient model
+          v = myToStringComparator.compare(o1.getNodeId(), o2.getNodeId());
+        }
+      }
+      return v;
+    }
+
+    /*package*/ static boolean nodeIdSameAsOriginal(SNode n) {
+      final SNodeReference original = TracingUtil.getInput(n);
+      return original != null && Objects.equals(original.getNodeId(), n.getNodeId());
+    }
   }
 
   /*package*/Set<String> getConditionalRootLabels() {
@@ -356,6 +355,33 @@ public final class GeneratorMappings {
   }
   /*package*/List<SNode> getConditionalRoots(String label) {
     return myLabeledMappings.streamNoInput(label).collect(Collectors.toList());
+  }
+
+  // for the time being, just mappings with composite keys
+  // TODO transition all MLs to LabelRecord
+  /*package*/ List<LabelRecord> getOrderedRecords() {
+    LabelRecord[] a = myLabeledMappings.compositeLabelsToArray();
+    Arrays.sort(a, new Comparator<LabelRecord>() {
+      private final SNodeComparator myNodeComparator = new SNodeComparator();
+      @Override
+      public int compare(LabelRecord o1, LabelRecord o2) {
+        int v = o1.label.compareTo(o2.label);
+        if (v == 0) {
+          v = myNodeComparator.compare(o1.key1, o2.key1);
+          if (v == 0) {
+            v = myNodeComparator.compare(o1.key2, o2.key2);
+            // I don't care to compare outputs as I do for regular MLs, I'd like to notice
+            // duplicating key pairs ASAP.
+          }
+        }
+        return v;
+      }
+    });
+    return Arrays.asList(a);
+  }
+
+  /*package*/ LMLookup getCompositeLabelsLookup(final String label) {
+    return myLabeledMappings.getLookup(label);
   }
 
   // serialization
@@ -386,10 +412,6 @@ public final class GeneratorMappings {
       });
     });
     myLabeledMappings.forEachNoInput(cp::record);
-  }
-
-  /*package*/ SNode findOutputRecordSingle(String label, SNode key1, SNode key2) {
-    return myLabeledMappings.compositeKeyValues(label, key1, key2).findFirst().orElse(null);
   }
 
   private static final class TagNodeList {
