@@ -133,6 +133,7 @@
     <classNode dependClassName="jetbrains.mps.vcs.annotate.CommitNumberSubcolumn" />
     <classNode dependClassName="jetbrains.mps.vcs.annotate.DateAspectSubcolumn" />
     <classNode dependClassName="jetbrains.mps.vcs.annotate.EditorAnnotation" />
+    <classNode dependClassName="jetbrains.mps.vcs.annotate.GitShowCommitInLogAction" />
     <classNode dependClassName="jetbrains.mps.vcs.annotate.HighlightRevisionSubcolumn" />
     <classNode dependClassName="jetbrains.mps.vcs.annotate.LineAnnotation" />
     <classNode dependClassName="jetbrains.mps.vcs.annotate.RevisionAspectSubcolumn" />
@@ -301,6 +302,39 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.ModelAccess" />
     <classNode extendsClassName="jetbrains.mps.openapi.editor.message.EditorMessageOwner" />
     <classNode extendsClassName="jetbrains.mps.vcs.annotate.AnnotationOptions" />
+  </dependency>
+  <dependency className="jetbrains.mps.vcs.annotate.GitShowCommitInLogAction">
+    <classNode dependClassName="com.intellij.openapi.actionSystem.AnActionEvent" />
+    <classNode dependClassName="com.intellij.openapi.progress.PerformInBackgroundOption" />
+    <classNode dependClassName="com.intellij.openapi.progress.ProgressIndicator" />
+    <classNode dependClassName="com.intellij.openapi.progress.ProgressManager" />
+    <classNode dependClassName="com.intellij.openapi.progress.Task" />
+    <classNode dependClassName="com.intellij.openapi.project.Project" />
+    <classNode dependClassName="com.intellij.openapi.vcs.history.VcsFileRevision" />
+    <classNode dependClassName="com.intellij.util.Consumer" />
+    <classNode dependClassName="com.intellij.vcs.log.Hash" />
+    <classNode dependClassName="com.intellij.vcs.log.impl.HashImpl" />
+    <classNode dependClassName="com.intellij.vcs.log.impl.VcsLogContentUtil" />
+    <classNode dependClassName="com.intellij.vcs.log.ui.MainVcsLogUi" />
+    <classNode dependClassName="com.intellij.vcs.log.ui.VcsLogUiEx" />
+    <classNode dependClassName="git4idea.i18n.GitBundle" />
+    <classNode dependClassName="java.lang.Boolean" />
+    <classNode dependClassName="java.lang.Exception" />
+    <classNode dependClassName="java.lang.InterruptedException" />
+    <classNode dependClassName="java.lang.Object" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="java.util.concurrent.CancellationException" />
+    <classNode dependClassName="java.util.concurrent.ExecutionException" />
+    <classNode dependClassName="java.util.concurrent.Future" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="org.apache.log4j.Level" />
+    <classNode dependClassName="org.apache.log4j.LogManager" />
+    <classNode dependClassName="org.apache.log4j.Logger" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode extendsClassName="jetbrains.mps.workbench.action.BaseAction" />
   </dependency>
   <dependency className="jetbrains.mps.vcs.annotate.HighlightRevisionSubcolumn">
     <classNode dependClassName="com.intellij.openapi.vcs.history.VcsFileRevision" />

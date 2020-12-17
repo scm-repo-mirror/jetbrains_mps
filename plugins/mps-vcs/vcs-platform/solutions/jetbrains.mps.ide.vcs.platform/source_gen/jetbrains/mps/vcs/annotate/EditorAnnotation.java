@@ -48,13 +48,13 @@ import java.util.Collections;
 import jetbrains.mps.vcs.diff.ui.common.EditorCellMessageUtil;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.model.SModel;
+import git4idea.GitVcs;
 import com.intellij.openapi.vcs.history.VcsFileRevisionEx;
 import java.util.Date;
 import java.util.Comparator;
 import com.intellij.util.containers.ContainerUtil;
 import java.util.NavigableSet;
 import com.intellij.openapi.util.Couple;
-import git4idea.GitVcs;
 import com.intellij.openapi.vcs.annotate.FileAnnotation;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -488,6 +488,14 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
 
   public CurrentRevision getLocalRevision() {
     return myLocalRevision;
+  }
+
+  public boolean isGit() {
+    return myVcs instanceof GitVcs;
+  }
+
+  public Project getProject() {
+    return myProject;
   }
 
   public void dispose() {

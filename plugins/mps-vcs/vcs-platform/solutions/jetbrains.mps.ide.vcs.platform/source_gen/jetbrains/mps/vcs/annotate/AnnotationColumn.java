@@ -308,6 +308,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
   public JPopupMenu getPopupMenu(MouseEvent event) {
     List<AnAction> actions = ListSequence.fromList(new ArrayList<AnAction>());
     VcsFileRevision revision = getLineAnnotation(event.getY()).getRevision();
+    boolean isLocalRevision = revision == myEditorAnnotation.getLocalRevision();
     VcsFileRevision prevRevision = getLineAnnotation(event.getY()).getPrevRevision();
     ListSequence.fromList(actions).addElement(new BaseAction("Close Annotations") {
       @Override
@@ -316,19 +317,21 @@ public final class AnnotationColumn extends AbstractLeftColumn {
       }
     });
     ListSequence.fromList(actions).addElement(Separator.getInstance());
-    if (revision != myEditorAnnotation.getLocalRevision()) {
+    if (!(isLocalRevision)) {
       ListSequence.fromList(actions).addElement(myEditorAnnotation.createDiffAction(revision, prevRevision));
     }
     ListSequence.fromList(actions).addElement(myViewActionGroup);
-    if (revision != myEditorAnnotation.getLocalRevision()) {
+    if (!(isLocalRevision)) {
       ListSequence.fromList(actions).addElement(createCopyRevisionNumberAction(revision));
     }
-    ListSequence.fromList(actions).addElement(Separator.getInstance());
-
-    if (!(isEditorHighlighted())) {
-      ListSequence.fromList(actions).addElement(createColumnMouseHoverOptionsGroup());
-      ListSequence.fromList(actions).addElement(Separator.getInstance());
+    if (!(isLocalRevision) && myEditorAnnotation.isGit()) {
+      ListSequence.fromList(actions).addElement(new GitShowCommitInLogAction(revision, myEditorAnnotation.getProject()));
     }
+    if (!(isEditorHighlighted())) {
+      ListSequence.fromList(actions).addElement(Separator.getInstance());
+      ListSequence.fromList(actions).addElement(createColumnMouseHoverOptionsGroup());
+    }
+    ListSequence.fromList(actions).addElement(Separator.getInstance());
     ListSequence.fromList(actions).addElement(createHighlightEditorAction());
     return ActionManager.getInstance().createActionPopupMenu(ActionPlaces.UNKNOWN, ActionUtils.groupFromActions(ListSequence.fromList(actions).toGenericArray(AnAction.class))).getComponent();
   }
