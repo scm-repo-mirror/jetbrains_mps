@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012 JetBrains s.r.o.
+ * Copyright 2003-2018 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
-@Deprecated
-//todo [MM]: switch to MacroProcessor. There's no difference between these two, except MacroProcessor is a part of vfs package and module
+import java.util.regex.Pattern;
+
 public interface MacroHelper extends MacroProcessor {
+  Pattern MACRO_PATTERN = MacroProcessor.MACRO_PATTERN;
+
   String expandPath(@Nullable String path);
   String shrinkPath(@Nullable String absolutePath);
 

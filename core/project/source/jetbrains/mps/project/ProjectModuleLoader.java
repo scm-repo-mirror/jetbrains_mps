@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.smodel.ModuleInstanceFactory;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
+import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.vfs.FileSystems;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.MacroProcessor;
 import jetbrains.mps.vfs.util.PathFormatChecker.PathFormatException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -122,7 +122,7 @@ import java.util.regex.Matcher;
           fireModuleNotFound(modulePath);
         }
       } catch (PathFormatException e) {
-        Matcher matcher = MacroProcessor.MACRO_PATTERN.matcher(e.getProblemPath());
+        Matcher matcher = MacroHelper.MACRO_PATTERN.matcher(e.getProblemPath());
         if (matcher.find()) {
           LOG.warn("Some paths might contain unknown macros, please define them in 'Path variables' and reopen the project");
         } else {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.vfs;
 
+import jetbrains.mps.util.MacroHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
@@ -61,12 +62,12 @@ public final class QualifiedPath {
   }
 
   @NotNull
-  public String serialize(@Nullable MacroProcessor mp) {
+  public String serialize(@Nullable MacroHelper mp) {
     return myFsId + FS_DELIM + (mp == null ? myPath : mp.shrinkPath(myPath));
   }
 
   @NotNull
-  public static QualifiedPath deserialize(@NotNull String s, @Nullable MacroProcessor mp) {
+  public static QualifiedPath deserialize(@NotNull String s, @Nullable MacroHelper mp) {
     int index = s.indexOf(FS_DELIM);
     if (index <= 0) {
       throw new IllegalStateException("Wrong format:" + s);

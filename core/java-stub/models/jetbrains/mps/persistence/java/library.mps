@@ -5018,7 +5018,7 @@
                       <node concept="3clFbF" id="21LLI_ShH2" role="3cqZAp">
                         <node concept="2YIFZM" id="21LLI_ShH3" role="3clFbG">
                           <ref role="1Pybhc" to="3ju5:~QualifiedPath" resolve="QualifiedPath" />
-                          <ref role="37wK5l" to="3ju5:~QualifiedPath.deserialize(java.lang.String,jetbrains.mps.vfs.MacroProcessor)" resolve="deserialize" />
+                          <ref role="37wK5l" to="3ju5:~QualifiedPath.deserialize(java.lang.String,jetbrains.mps.util.MacroHelper)" resolve="deserialize" />
                           <node concept="2OqwBi" id="21LLI_ShH4" role="37wK5m">
                             <node concept="37vLTw" id="21LLI_ShH5" role="2Oq$k0">
                               <ref role="3cqZAo" node="21LLI_ShHa" resolve="it" />

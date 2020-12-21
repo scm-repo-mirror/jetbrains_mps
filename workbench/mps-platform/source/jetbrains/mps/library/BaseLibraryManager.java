@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.library.BaseLibraryManager.LibraryState;
 import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.library.contributor.LibraryContributor;
+import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.MacroProcessor;
 import jetbrains.mps.vfs.util.PathFormatChecker.PathFormatException;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
@@ -80,7 +80,7 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
           result.add(new LibDescriptor(file));
         } catch (PathFormatException e) {
           // fixme Michael Muhin
-          Matcher matcher = MacroProcessor.MACRO_PATTERN.matcher(e.getProblemPath());
+          Matcher matcher = MacroHelper.MACRO_PATTERN.matcher(e.getProblemPath());
           if (matcher.find()) {
             LogManager.getLogger(BaseLibraryManager.class).warn("Some paths might contain unknown macros, please define them in 'Path variables'");
           } else {
