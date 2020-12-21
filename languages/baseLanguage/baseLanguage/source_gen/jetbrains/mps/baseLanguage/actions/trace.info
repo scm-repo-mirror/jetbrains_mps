@@ -2714,76 +2714,87 @@
       <node id="8029744757020496242" at="56,0,57,61" concept="11" />
       <node id="8029744757020496244" at="57,61,58,67" concept="9" />
       <node id="8029744757020496252" at="59,244,60,73" concept="4" />
-      <node id="8029744757020496275" at="61,9,62,0" concept="12" />
-      <node id="5358449023585068346" at="65,45,66,92" concept="10" />
-      <node id="8029744757020496283" at="69,54,70,95" concept="4" />
-      <node id="8029744757020496299" at="71,99,72,83" concept="4" />
-      <node id="8029744757020496305" at="73,13,74,18" concept="2" />
-      <node id="5948027493683148075" at="82,0,83,0" concept="13" trace="ThisExpression$$o" />
-      <node id="5948027493683148075" at="83,0,84,0" concept="13" trace="ClassifierMember$At" />
-      <node id="5948027493683148075" at="84,0,85,0" concept="13" trace="ClassConcept$bK" />
-      <node id="5948027493683148075" at="85,0,86,0" concept="13" trace="FieldReferenceOperation$fU" />
-      <node id="5948027493683148075" at="86,0,87,0" concept="13" trace="DotExpression$yW" />
-      <node id="5948027493683148075" at="90,0,91,0" concept="13" trace="operation$gs9E" />
-      <node id="5948027493683148075" at="91,0,92,0" concept="13" trace="fieldDeclaration$H7Ag" />
-      <node id="5948027493683148075" at="92,0,93,0" concept="13" trace="classConcept$zzjZ" />
-      <node id="5948027493683148075" at="96,0,97,0" concept="13" trace="name$MnvL" />
+      <node id="587918190017811731" at="61,9,62,0" concept="12" />
+      <node id="587918190017866038" at="63,209,64,138" concept="11" />
+      <node id="587918190017866989" at="64,138,65,139" concept="11" />
+      <node id="587918190017867860" at="65,139,66,82" concept="11" />
+      <node id="5470993842125218772" at="67,98,68,133" concept="11" />
+      <node id="5470993842125215858" at="68,133,69,81" concept="4" />
+      <node id="587918190017866014" at="70,11,71,17" concept="10" />
+      <node id="8029744757020496275" at="72,9,73,0" concept="12" />
+      <node id="5358449023585068346" at="76,45,77,92" concept="10" />
+      <node id="8029744757020496283" at="80,54,81,95" concept="4" />
+      <node id="8029744757020496299" at="82,99,83,83" concept="4" />
+      <node id="8029744757020496305" at="84,13,85,18" concept="2" />
+      <node id="5948027493683148075" at="93,0,94,0" concept="13" trace="ThisExpression$$o" />
+      <node id="5948027493683148075" at="94,0,95,0" concept="13" trace="ClassifierMember$At" />
+      <node id="5948027493683148075" at="95,0,96,0" concept="13" trace="ClassConcept$bK" />
+      <node id="5948027493683148075" at="96,0,97,0" concept="13" trace="FieldReferenceOperation$fU" />
+      <node id="5948027493683148075" at="97,0,98,0" concept="13" trace="DotExpression$yW" />
+      <node id="5948027493683148075" at="101,0,102,0" concept="13" trace="operation$gs9E" />
+      <node id="5948027493683148075" at="102,0,103,0" concept="13" trace="fieldDeclaration$H7Ag" />
+      <node id="5948027493683148075" at="103,0,104,0" concept="13" trace="classConcept$zzjZ" />
+      <node id="5948027493683148075" at="107,0,108,0" concept="13" trace="name$MnvL" />
       <node id="8029744757020228986" at="37,0,40,0" concept="8" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="8029744757020229015" at="43,112,46,5" concept="7" />
       <node id="8029744757020496250" at="58,67,61,9" concept="5" />
-      <node id="8029744757020496323" at="65,0,68,0" concept="8" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="8029744757020496323" at="76,0,79,0" concept="8" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="5948027493683148075" at="29,0,33,0" concept="8" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="8029744757020496281" at="68,28,73,13" concept="7" />
+      <node id="5470993842125211552" at="66,82,70,11" concept="7" />
+      <node id="8029744757020496281" at="79,28,84,13" concept="7" />
       <node id="8029744757020228974" at="35,0,42,5" concept="7" />
-      <node id="8029744757020496279" at="63,85,75,11" concept="7" />
-      <node id="8029744757020496276" at="62,0,76,9" concept="6" />
-      <node id="5948027493683152343" at="49,80,77,7" concept="7" />
-      <node id="5948027493683152333" at="47,0,78,5" concept="7" />
-      <node id="5948027493683148075" at="33,0,80,0" concept="8" trace="postProcessNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="587918190017813917" at="62,0,72,9" concept="7" />
+      <node id="8029744757020496279" at="74,85,86,11" concept="7" />
+      <node id="8029744757020496276" at="73,0,87,9" concept="6" />
+      <node id="5948027493683152343" at="49,80,88,7" concept="7" />
+      <node id="5948027493683152333" at="47,0,89,5" concept="7" />
+      <node id="5948027493683148075" at="33,0,91,0" concept="8" trace="postProcessNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <scope id="5948027493683148075" at="30,50,31,38" />
       <scope id="8029744757020228987" at="37,39,38,99" />
       <scope id="8029744757020228975" at="40,19,41,13" />
       <scope id="8029744757020229016" at="44,34,45,13" />
       <scope id="8029744757020496251" at="59,244,60,73" />
-      <scope id="8029744757020496324" at="65,45,66,92" />
-      <scope id="8029744757020496282" at="69,54,70,95" />
-      <scope id="8029744757020496298" at="71,99,72,83" />
+      <scope id="8029744757020496324" at="76,45,77,92" />
+      <scope id="8029744757020496282" at="80,54,81,95" />
+      <scope id="8029744757020496298" at="82,99,83,83" />
+      <scope id="5470993842125211554" at="67,98,69,81" />
       <scope id="8029744757020228986" at="37,0,40,0">
         <var name="it" id="8029744757020228986" />
       </scope>
       <scope id="8029744757020496250" at="58,67,61,9">
         <var name="clazz" id="8029744757020496257" />
       </scope>
-      <scope id="8029744757020496323" at="65,0,68,0">
+      <scope id="8029744757020496323" at="76,0,79,0">
         <var name="it" id="8029744757020496323" />
       </scope>
       <scope id="5948027493683148075" at="29,0,33,0" />
-      <scope id="8029744757020496280" at="68,28,74,18" />
-      <scope id="8029744757020496278" at="63,85,75,11" />
-      <scope id="8029744757020496276" at="62,0,76,9">
+      <scope id="8029744757020496280" at="79,28,85,18" />
+      <scope id="587918190017813919" at="63,209,71,17" />
+      <scope id="8029744757020496278" at="74,85,86,11" />
+      <scope id="8029744757020496276" at="73,0,87,9">
         <var name="nextClassConcept" id="8029744757020496277" />
       </scope>
-      <scope id="5948027493683152344" at="50,148,76,9">
+      <scope id="5948027493683152344" at="50,148,87,9">
         <var name="fieldDeclarationReference" id="5948027493683152354" />
         <var name="fieldReferenceOperation" id="5948027493683152346" />
         <var name="possibleClassConcepts" id="8029744757020496245" />
         <var name="resolveInfo" id="8029744757020496236" />
       </scope>
-      <scope id="5948027493683152334" at="48,105,77,7">
+      <scope id="5948027493683152334" at="48,105,88,7">
         <var name="parentDotExpression" id="5948027493683152336" />
       </scope>
-      <scope id="5948027493683148077" at="34,49,78,5">
+      <scope id="5948027493683148077" at="34,49,89,5">
         <var name="containingClass" id="8029744757020229008" />
       </scope>
-      <scope id="5948027493683148075" at="33,0,80,0">
+      <scope id="5948027493683148075" at="33,0,91,0">
         <var name="pastedNode" id="5948027493683148075" />
       </scope>
-      <unit id="5948027493683148075" at="95,0,98,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$PROPS" />
+      <unit id="5948027493683148075" at="106,0,109,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$PROPS" />
       <unit id="8029744757020228986" at="36,123,40,5" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$1" />
-      <unit id="8029744757020496323" at="64,173,68,11" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$2" />
-      <unit id="5948027493683148075" at="89,0,94,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$LINKS" />
-      <unit id="5948027493683148075" at="81,0,88,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$CONCEPTS" />
-      <unit id="5948027493683148075" at="28,0,99,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1" />
+      <unit id="8029744757020496323" at="75,173,79,11" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$2" />
+      <unit id="5948027493683148075" at="100,0,105,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$LINKS" />
+      <unit id="5948027493683148075" at="92,0,99,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1$CONCEPTS" />
+      <unit id="5948027493683148075" at="28,0,110,0" name="jetbrains.mps.baseLanguage.actions.BL_CopyPasteHandlers_PastePostProcessor_1" />
     </file>
   </root>
 </debug-info>

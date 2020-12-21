@@ -60,6 +60,17 @@ public final class BL_CopyPasteHandlers_PastePostProcessor_1 implements PastePos
           ListSequence.fromList(possibleClassConcepts).addElement(clazz);
         }
 
+        if (SNodeOperations.getReference(pastedNode, LINKS.classConcept$zzjZ) != null && ListSequence.fromList(possibleClassConcepts).contains(SLinkOperations.getTarget(pastedNode, LINKS.classConcept$zzjZ))) {
+          // if we paste qualified this, don't care to check if any other class than the referenced one got a field that matches the name 
+          // E.g. if we got classes A and B, both with field f, and anonymous B subclass inside A has A.this.f copied and pasted, it's odd 
+          // to replace it with simply this.f as it's completely different field. 
+          if (SLinkOperations.getTarget(pastedNode, LINKS.classConcept$zzjZ) == containingClass) {
+            // we still have to clear qualification when we paste qualified reference right into the class with access to the field. 
+            SLinkOperations.setTarget(pastedNode, LINKS.classConcept$zzjZ, null);
+          }
+          return;
+        }
+
         for (SNode nextClassConcept : ListSequence.fromList(possibleClassConcepts)) {
           if (Sequence.fromIterable(Members.visibleInstanceFields(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(nextClassConcept), pastedNode)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
