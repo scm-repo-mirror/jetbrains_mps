@@ -77,7 +77,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   private final Collection<ModelRootDescriptor> myModelRoots = new LinkedHashSet<>();
   private final Collection<ModuleFacetDescriptor> myFacets = new LinkedHashSet<>();
   private final Collection<Dependency> myDependencies = new LinkedHashSet<>();
-  private final Collection<SModuleReference> myUsedLanguages = new LinkedHashSet<>();
   private final Collection<SModuleReference> myUsedDevkits = new LinkedHashSet<>();
   private final Map<SLanguage, Integer> myLanguageVersions = new LinkedHashMap<>();
   private final Map<SModuleReference, Integer> myDependencyVersions = new LinkedHashMap<>();
@@ -220,20 +219,13 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     return myUsedDevkits;
   }
 
+
   /**
    * Paths to extra jar files needed to compile and run given module, generally empty unless a module has some peculiar dependencies on existing java libraries.
    * As of today, these come from {@code <stubModelEntry path=""/>} in a module descriptor.
-   * according to {@code LanguageDescriptorPersistence}, legacy entries were {@code classPath} and {@code runtimeClassPath}
+   * according to {@code LanguageDescriptorPersistence}, legacy entries were {@code classPath} and {@code runtimeClassPath}.
+   * This method is just a better name for what used to be {@code getAdditionalJavaStubPaths()}.
    * FIXME WHY DOES IT USE String for File location, which FS shall I use to resolve these locations?
-   */
-  @Deprecated
-  @ToRemove(version = 2019.2)
-  public final Collection<String> getAdditionalJavaStubPaths() {
-    return getJavaLibs();
-  }
-
-  /**
-   * This method is just a better named #getAdditionalJavaStubPaths, so it has all its weaknesses
    * todo: move to java facet
    */
   public final Collection<String> getJavaLibs() {
@@ -267,7 +259,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   public boolean updateModuleRefs(SRepository repository) {
     RefUpdateUtil uu = new RefUpdateUtil(repository);
     return RefUpdateUtil.composeUpdates(
-      uu.updateModuleRefs(myUsedLanguages),
       uu.updateModuleRefs(myUsedDevkits),
       uu.updateModuleRefs(myDependencyVersions),
       uu.updateDependencies(myDependencies)
@@ -315,11 +306,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
       dep.save(stream);
     }
 
-    stream.writeInt(myUsedLanguages.size());
-    for (SModuleReference ref : myUsedLanguages) {
-      stream.writeModuleReference(ref);
-    }
-
     stream.writeInt(myUsedDevkits.size());
     for (SModuleReference ref : myUsedDevkits) {
       stream.writeModuleReference(ref);
@@ -360,11 +346,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
       Dependency dep = new Dependency();
       dep.load(stream);
       myDependencies.add(dep);
-    }
-
-    myUsedLanguages.clear();
-    for (int size = stream.readInt(); size > 0; size--) {
-      myUsedLanguages.add(stream.readModuleReference());
     }
 
     myUsedDevkits.clear();

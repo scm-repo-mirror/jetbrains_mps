@@ -455,7 +455,7 @@ public final class ModulesMiner {
         result.setDeploymentDescriptor(deploymentDescriptor);
         ArrayList<IFile> deploymentLibraries = new ArrayList<>(4);
         // fix extra classpath libraries:
-        // META-INF/module.xml contains info about model libs, while clients generally look at MD.getAdditionalJavaStubPaths() which were not
+        // META-INF/module.xml contains info about model libs, while clients generally look at MD.getJavaLibs() which were not
         // updated by build language at deployment time and still points to design-time lib location.
         // In fact, code shall resort to libraries of DD if present (e.g. JavaModuleFacetImpl shall do it), but it doesn't hurt to have source
         // module updated anyway.

@@ -112,7 +112,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     // add additional java stub paths
     ModuleDescriptor moduleDescriptor = getAbstractModule().getModuleDescriptor();
     if (moduleDescriptor != null) {
-      // XXX for deployed modules, we could use DD.getLibraries here. But as long as MM updates getAdditionalJavaStubPaths of a source module
+      // XXX for deployed modules, we could use DD.getLibraries here. But as long as MM updates MD.getJavaLibs() of a source module
       //     and source module is always present, enjoy.
       libraryClassPath.addAll(moduleDescriptor.getJavaLibs());
     }
