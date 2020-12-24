@@ -109,7 +109,6 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     }
   };
 
-
   private MigrationNotificationsSupport myNotifications;
 
   private volatile boolean myMigrationRunning = false;
@@ -322,7 +321,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                               public void run() {
                                 myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
                                   public void run() {
-                                    myProject.getComponent(MigrationProblemHandler.class).showProblems(Sequence.fromIterable(problems).toListSequence());
+                                    myProject.getService(MigrationProblemHandler.class).showProblems(Sequence.fromIterable(problems).toListSequence());
                                   }
                                 });
                               }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.migration.idea;
 
-import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -33,9 +32,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
-public class PluginMigrationProblemHandler extends AbstractProjectComponent implements MigrationProblemHandler, com.intellij.openapi.components.ApplicationComponent {
+public class PluginMigrationProblemHandler implements MigrationProblemHandler {
+  private final Project myProject;
+
   public PluginMigrationProblemHandler(Project p) {
-    super(p);
+    myProject = p;
   }
 
   @Override
@@ -64,12 +65,6 @@ public class PluginMigrationProblemHandler extends AbstractProjectComponent impl
     }
 
     ToolWindowManager.getInstance(myProject).getToolWindow(ToolWindowId.MESSAGES_WINDOW).activate(null);
-  }
-
-  @NotNull
-  @Override
-  public String getComponentName() {
-    return getClass().getSimpleName();
   }
 
   @NotNull

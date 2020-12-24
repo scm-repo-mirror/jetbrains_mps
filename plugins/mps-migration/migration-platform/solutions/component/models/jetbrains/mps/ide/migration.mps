@@ -804,7 +804,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="7q2KVq0THpl" role="jymVt" />
     <node concept="2tJIrI" id="53d0N_LgLcy" role="jymVt" />
     <node concept="312cEg" id="2i74bFCeL7q" role="jymVt">
       <property role="TrG5h" value="myNotifications" />
@@ -2553,7 +2552,7 @@
                                                                                             <ref role="3cqZAo" to="xygl:~Task.myProject" resolve="myProject" />
                                                                                           </node>
                                                                                           <node concept="liA8E" id="3_S1WmRLgYy" role="2OqNvi">
-                                                                                            <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                                                                                            <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                                                                                             <node concept="3VsKOn" id="3_S1WmRLhV$" role="37wK5m">
                                                                                               <ref role="3VsUkX" to="bdll:~MigrationProblemHandler" resolve="MigrationProblemHandler" />
                                                                                             </node>

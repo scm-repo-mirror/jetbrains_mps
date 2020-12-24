@@ -1,17 +1,16 @@
 <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
   <id>jetbrains.mps.ide.migration.idea</id>
-  <name>MPS Migration Support for Idea</name>
-  <description>MPS Migration Support for Idea Plugin</description>
+  <name>MPS Migration Support for IDEA</name>
+  <description>Adds support to migrate MPS models in MPS IDEA plugin</description>
   <version>2020.3</version>
   <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
   <idea-version since-build="203.1" until-build="211.1"/>
 
   <xi:include href="pluginBase.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
-  <project-components>
-    <component>
-      <interface-class>jetbrains.mps.migration.global.MigrationProblemHandler</interface-class>
-      <implementation-class>jetbrains.mps.migration.idea.PluginMigrationProblemHandler</implementation-class>
-    </component>
-  </project-components>
+  <extensions defaultExtensionNs="com.intellij">
+    <projectService
+            serviceInterface="jetbrains.mps.migration.global.MigrationProblemHandler"
+            serviceImplementation="jetbrains.mps.migration.idea.PluginMigrationProblemHandler" />
+  </extensions>
 </idea-plugin>

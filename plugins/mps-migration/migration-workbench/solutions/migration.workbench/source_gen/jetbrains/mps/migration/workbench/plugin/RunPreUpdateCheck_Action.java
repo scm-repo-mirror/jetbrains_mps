@@ -181,7 +181,7 @@ __switch__:
     } else {
       event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().runReadAction(new Runnable() {
         public void run() {
-          event.getData(CommonDataKeys.PROJECT).getComponent(MigrationProblemHandler.class).showProblems(problems);
+          event.getData(CommonDataKeys.PROJECT).getService(MigrationProblemHandler.class).showProblems(problems);
         }
       });
     }

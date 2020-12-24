@@ -15,15 +15,11 @@
     </group>
   </actions>
 
-  <project-components>
-  <component>
-    <interface-class>jetbrains.mps.migration.global.MigrationProblemHandler</interface-class>
-    <implementation-class>jetbrains.mps.migration.workbench.components.WorkbenchMigrationProblemHandler</implementation-class>
-    <headless-implementation-class>jetbrains.mps.migration.workbench.components.HeadlessMigrationProblemHandler</headless-implementation-class>
-  </component>
-  </project-components>
-
   <extensions defaultExtensionNs="com.intellij">
     <mps.PluginComponentContributor application="jetbrains.mps.migration.workbench.plugin.Workbench_ApplicationPlugin" />
+    <projectService
+            serviceInterface="jetbrains.mps.migration.global.MigrationProblemHandler"
+            serviceImplementation="jetbrains.mps.migration.workbench.components.WorkbenchMigrationProblemHandler"
+            headlessImplementation="jetbrains.mps.migration.workbench.components.HeadlessMigrationProblemHandler" />
   </extensions>
 </idea-plugin>

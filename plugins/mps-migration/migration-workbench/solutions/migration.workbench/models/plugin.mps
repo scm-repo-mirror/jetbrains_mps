@@ -5891,7 +5891,7 @@
                       <node concept="2OqwBi" id="3_S1WmRLtNr" role="3clFbG">
                         <node concept="2OqwBi" id="3_S1WmRLfXF" role="2Oq$k0">
                           <node concept="liA8E" id="3_S1WmRLgYy" role="2OqNvi">
-                            <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
+                            <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
                             <node concept="3VsKOn" id="3_S1WmRLhV$" role="37wK5m">
                               <ref role="3VsUkX" to="bdll:~MigrationProblemHandler" resolve="MigrationProblemHandler" />
                             </node>
