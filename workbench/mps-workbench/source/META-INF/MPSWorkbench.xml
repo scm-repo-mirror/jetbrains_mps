@@ -33,6 +33,7 @@
 
   <applicationListeners>
     <listener class="jetbrains.mps.repository.FSNotificationsCleaner" topic="com.intellij.ide.AppLifecycleListener"/>
+    <listener class="jetbrains.mps.ide.blame.IntelliJReporterReplacer" topic="com.intellij.ide.AppLifecycleListener"/>
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
