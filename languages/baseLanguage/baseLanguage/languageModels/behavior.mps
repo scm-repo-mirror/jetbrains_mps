@@ -9954,39 +9954,97 @@
         <ref role="2I9WkF" to="tpee:g7pOWCK" resolve="Classifier" />
       </node>
       <node concept="3clFbS" id="2qKFNTWlEOp" role="3clF47">
+        <node concept="3cpWs8" id="lg1rlOOY$E" role="3cqZAp">
+          <node concept="3cpWsn" id="lg1rlOOY$F" role="3cpWs9">
+            <property role="TrG5h" value="nestedNewAncestor" />
+            <node concept="3Tqbb2" id="lg1rlOOR_Q" role="1tU5fm">
+              <ref role="ehGHo" to="tpee:6kfBYRWHrp$" resolve="NestedNewExpression" />
+            </node>
+            <node concept="2OqwBi" id="lg1rlOOY$G" role="33vP2m">
+              <node concept="37vLTw" id="lg1rlOOY$H" role="2Oq$k0">
+                <ref role="3cqZAo" node="2qKFNTWm8u2" resolve="context" />
+              </node>
+              <node concept="2Xjw5R" id="lg1rlOOY$I" role="2OqNvi">
+                <node concept="1xMEDy" id="lg1rlOOY$J" role="1xVPHs">
+                  <node concept="chp4Y" id="lg1rlOOY$K" role="ri$Ld">
+                    <ref role="cht4Q" to="tpee:6kfBYRWHrp$" resolve="NestedNewExpression" />
+                  </node>
+                </node>
+                <node concept="1xIGOp" id="lg1rlOOY$L" role="1xVPHs" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="74rMrxn2NpX" role="3cqZAp">
           <node concept="3clFbS" id="74rMrxn2NpY" role="3clFbx">
-            <node concept="3cpWs6" id="74rMrxn2NpZ" role="3cqZAp">
-              <node concept="2ShNRf" id="74rMrxn2Nq0" role="3cqZAk">
-                <node concept="Tc6Ow" id="74rMrxn2Nq1" role="2ShVmc">
-                  <node concept="3Tqbb2" id="74rMrxn2Nq2" role="HW$YZ">
-                    <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
+            <node concept="3cpWs8" id="lg1rlOPaIP" role="3cqZAp">
+              <node concept="3cpWsn" id="lg1rlOPaIQ" role="3cpWs9">
+                <property role="TrG5h" value="targetClassifier" />
+                <node concept="3Tqbb2" id="lg1rlOPaGg" role="1tU5fm">
+                  <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
+                </node>
+                <node concept="2OqwBi" id="lg1rlOPaIR" role="33vP2m">
+                  <node concept="1PxgMI" id="lg1rlOPaIS" role="2Oq$k0">
+                    <property role="1BlNFB" value="true" />
+                    <node concept="chp4Y" id="lg1rlOPaIT" role="3oSUPX">
+                      <ref role="cht4Q" to="tpee:g7uibYu" resolve="ClassifierType" />
+                    </node>
+                    <node concept="2OqwBi" id="lg1rlOPaIU" role="1m5AlR">
+                      <node concept="2OqwBi" id="lg1rlOPaIV" role="2Oq$k0">
+                        <node concept="1PxgMI" id="lg1rlOPaIW" role="2Oq$k0">
+                          <property role="1BlNFB" value="true" />
+                          <node concept="chp4Y" id="lg1rlOPaIX" role="3oSUPX">
+                            <ref role="cht4Q" to="tpee:hqOqwz4" resolve="DotExpression" />
+                          </node>
+                          <node concept="2OqwBi" id="lg1rlOPaIY" role="1m5AlR">
+                            <node concept="37vLTw" id="lg1rlOPaIZ" role="2Oq$k0">
+                              <ref role="3cqZAo" node="lg1rlOOY$F" resolve="nestedNewAncestor" />
+                            </node>
+                            <node concept="1mfA1w" id="lg1rlOPaJ0" role="2OqNvi" />
+                          </node>
+                        </node>
+                        <node concept="3TrEf2" id="lg1rlOPaJ1" role="2OqNvi">
+                          <ref role="3Tt5mk" to="tpee:hqOq$gm" resolve="operand" />
+                        </node>
+                      </node>
+                      <node concept="3JvlWi" id="lg1rlOPaJ2" role="2OqNvi" />
+                    </node>
                   </node>
+                  <node concept="3TrEf2" id="lg1rlOPaJ3" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpee:g7uigIF" resolve="classifier" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="lg1rlOPQfu" role="3cqZAp">
+              <node concept="3clFbS" id="lg1rlOPQfw" role="3clFbx">
+                <node concept="3clFbF" id="lg1rlOQ14U" role="3cqZAp">
+                  <node concept="37vLTI" id="lg1rlOQ1vV" role="3clFbG">
+                    <node concept="37vLTw" id="lg1rlOQ6cc" role="37vLTx">
+                      <ref role="3cqZAo" node="lg1rlOPaIQ" resolve="targetClassifier" />
+                    </node>
+                    <node concept="37vLTw" id="lg1rlOQ14S" role="37vLTJ">
+                      <ref role="3cqZAo" node="2qKFNTWm8u2" resolve="context" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3y3z36" id="lg1rlOPY02" role="3clFbw">
+                <node concept="10Nm6u" id="lg1rlOQ13W" role="3uHU7w" />
+                <node concept="37vLTw" id="lg1rlOQaTk" role="3uHU7B">
+                  <ref role="3cqZAo" node="lg1rlOPaIQ" resolve="targetClassifier" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="2OqwBi" id="74rMrxn2Nq9" role="3clFbw">
-            <node concept="1eOMI4" id="74rMrxn3i1W" role="2Oq$k0">
-              <node concept="2OqwBi" id="74rMrxn3i1Q" role="1eOMHV">
-                <node concept="37vLTw" id="74rMrxn3i1R" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2qKFNTWm8u2" resolve="context" />
-                </node>
-                <node concept="2Xjw5R" id="74rMrxn3i1S" role="2OqNvi">
-                  <node concept="1xMEDy" id="74rMrxn3i1T" role="1xVPHs">
-                    <node concept="chp4Y" id="74rMrxn3i1U" role="ri$Ld">
-                      <ref role="cht4Q" to="tpee:6kfBYRWHrp$" resolve="NestedNewExpression" />
-                    </node>
-                  </node>
-                  <node concept="1xIGOp" id="74rMrxn3i1V" role="1xVPHs" />
-                </node>
-              </node>
+            <node concept="37vLTw" id="lg1rlOOY$M" role="2Oq$k0">
+              <ref role="3cqZAo" node="lg1rlOOY$F" resolve="nestedNewAncestor" />
             </node>
             <node concept="3x8VRR" id="74rMrxn2Nqg" role="2OqNvi" />
           </node>
         </node>
-        <node concept="3clFbH" id="74rMrxn1oqb" role="3cqZAp" />
-        <node concept="3clFbH" id="74rMrxn1sFy" role="3cqZAp" />
+        <node concept="3clFbH" id="lg1rlOQ1$5" role="3cqZAp" />
         <node concept="3cpWs8" id="7q4lzBFjvFf" role="3cqZAp">
           <node concept="3cpWsn" id="7q4lzBFjvFg" role="3cpWs9">
             <property role="TrG5h" value="targetContainers" />

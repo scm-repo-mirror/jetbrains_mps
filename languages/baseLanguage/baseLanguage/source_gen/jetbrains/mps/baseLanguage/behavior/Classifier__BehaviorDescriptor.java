@@ -43,8 +43,8 @@ import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
 import java.util.Objects;
-import jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.baseLanguage.scopes.ClassifierResolveUtils;
@@ -389,10 +389,13 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     return contextContainers;
   }
   /*package*/ static List<SNode> getClassifierPathDistinctFromContext_id2qKFNTWlEOm(@NotNull SNode __thisNode__, SNode context) {
-    if (((SNodeOperations.getNodeAncestor(context, CONCEPTS.NestedNewExpression$zV, true, false)) != null)) {
-      return ListSequence.fromList(new ArrayList<SNode>());
+    SNode nestedNewAncestor = SNodeOperations.getNodeAncestor(context, CONCEPTS.NestedNewExpression$zV, true, false);
+    if ((nestedNewAncestor != null)) {
+      SNode targetClassifier = SLinkOperations.getTarget(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(nestedNewAncestor), CONCEPTS.DotExpression$yW), LINKS.operand$w6IR)), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr);
+      if (targetClassifier != null) {
+        context = targetClassifier;
+      }
     }
-
 
     List<SNode> targetContainers = ListSequence.fromList(SNodeOperations.getNodeAncestors(__thisNode__, CONCEPTS.Classifier$Ix, true)).reversedList();
     int index = -1;
@@ -944,6 +947,7 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink implementedInterface$rujG = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
     /*package*/ static final SContainmentLink extendedInterface$PDVO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface");
     /*package*/ static final SContainmentLink annotation$K49I = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SContainmentLink operand$w6IR = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
     /*package*/ static final SReferenceLink typeVariableDeclaration$Lz1I = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration");
     /*package*/ static final SContainmentLink parameter$oqG$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
     /*package*/ static final SContainmentLink typeVariableDeclaration$Lipp = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
@@ -978,6 +982,7 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept AnnotationInstance$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
     /*package*/ static final SConcept TypeVariableDeclaration$4Y = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
     /*package*/ static final SConcept NestedNewExpression$zV = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x650f9fedfcb5b664L, "jetbrains.mps.baseLanguage.structure.NestedNewExpression");
+    /*package*/ static final SConcept DotExpression$yW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
     /*package*/ static final SConcept TypeVariableReference$WL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
     /*package*/ static final SInterfaceConcept ClassifierMember$At = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
     /*package*/ static final SConcept JavaImports$b_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
