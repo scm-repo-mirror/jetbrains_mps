@@ -17,8 +17,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.scopes.VisibleClassConstructorsScope;
 import jetbrains.mps.scope.FilteringScope;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.ClassCreator__BehaviorDescriptor;
@@ -28,7 +28,6 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClassCreator_Constraints extends BaseConstraintsDescriptor {
   public ClassCreator_Constraints() {
@@ -59,7 +58,7 @@ public class ClassCreator_Constraints extends BaseConstraintsDescriptor {
                 public boolean isExcluded(SNode node) {
                   SNode clazz = SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$bK, false, false);
                   SNode wrapperClazz = SNodeOperations.getNodeAncestor(clazz, CONCEPTS.ClassConcept$bK, false, false);
-                  return (wrapperClazz != null) && !(SPropertyOperations.getBoolean(clazz, PROPS.isStatic$3WAz)) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), CONCEPTS.ClassConcept$bK, false)).contains(wrapperClazz));
+                  return !(ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), CONCEPTS.ClassConcept$bK, false)).contains(wrapperClazz)) && !((boolean) ClassConcept__BehaviorDescriptor.canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk.invoke(clazz, _context.getContextNode()));
                 }
               };
             }
@@ -93,9 +92,5 @@ public class ClassCreator_Constraints extends BaseConstraintsDescriptor {
   private static final class LINKS {
     /*package*/ static final SReferenceLink baseMethodDeclaration$pyYw = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
     /*package*/ static final SContainmentLink operand$w6IR = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isStatic$3WAz = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x451f9e9f920b7f7dL, "isStatic");
   }
 }

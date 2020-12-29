@@ -18,15 +18,12 @@ import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import jetbrains.mps.scope.FilteringScope;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Objects;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClassifierType_Constraints extends BaseConstraintsDescriptor {
   public ClassifierType_Constraints() {
@@ -59,7 +56,7 @@ public class ClassifierType_Constraints extends BaseConstraintsDescriptor {
               return new FilteringScope(scope) {
                 @Override
                 public boolean isExcluded(SNode node) {
-                  return Objects.equals(node, SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.Classifier$Ix, true, false)) || (isExtends && (SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$bK, false, false) != null) && ListSequence.fromList(Classifier__BehaviorDescriptor.getAllSuperClassifiers_id59G_UM6ah0X.invoke(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.ClassConcept$bK, true, false))).contains(SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$bK, false, false)) && !(SPropertyOperations.getBoolean(SNodeOperations.as(node, CONCEPTS.ClassConcept$bK), PROPS.isStatic$3WAz)));
+                  return Objects.equals(node, SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.Classifier$Ix, true, false)) || (isExtends && !((boolean) ClassConcept__BehaviorDescriptor.canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk.invoke(SNodeOperations.as(node, CONCEPTS.ClassConcept$bK), SNodeOperations.getParent(_context.getContextNode()))));
                 }
               };
             }
@@ -85,9 +82,5 @@ public class ClassifierType_Constraints extends BaseConstraintsDescriptor {
     /*package*/ static final SContainmentLink superclass$Mp9$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
     /*package*/ static final SContainmentLink implementedInterface$rujG = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
     /*package*/ static final SContainmentLink extendedInterface$PDVO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isStatic$3WAz = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x451f9e9f920b7f7dL, "isStatic");
   }
 }

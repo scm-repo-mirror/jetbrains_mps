@@ -24,8 +24,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
 import org.apache.log4j.Logger;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
@@ -36,6 +35,7 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
+import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -156,7 +156,7 @@ public class ClassifierType_SubstituteMenu extends SubstituteMenuBase {
         protected Iterable<? extends SNode> getParameters(final SubstituteMenuContext _context) {
           return (List<SNode>) Sequence.fromIterable(ClassifierScopes.getVisibleClassesScope(_context.getParentNode()).getAvailableElements(null)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return !(SPropertyOperations.getBoolean(SNodeOperations.cast(it, CONCEPTS.ClassConcept$bK), PROPS.isFinal$f7C_)) && !(Objects.equals(it, _context.getParentNode())) && (SNodeOperations.getNodeAncestor(it, CONCEPTS.ClassConcept$bK, false, false) == null || ListSequence.fromList(Classifier__BehaviorDescriptor.getAllSuperClassifiers_id59G_UM6ah0X.invoke(SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ClassConcept$bK, true, false))).contains(SNodeOperations.getNodeAncestor(it, CONCEPTS.ClassConcept$bK, false, false)) || SPropertyOperations.getBoolean(SNodeOperations.cast(it, CONCEPTS.ClassConcept$bK), PROPS.isStatic$3WAz));
+              return !(SPropertyOperations.getBoolean(SNodeOperations.cast(it, CONCEPTS.ClassConcept$bK), PROPS.isFinal$f7C_)) && !(Objects.equals(it, _context.getParentNode())) && (boolean) ClassConcept__BehaviorDescriptor.canBeExtendedOrInstantiatedAt_id2YFkRQdLLqk.invoke(SNodeOperations.as(it, CONCEPTS.ClassConcept$bK), _context.getParentNode());
             }
           }).toListSequence();
         }
@@ -583,7 +583,6 @@ public class ClassifierType_SubstituteMenu extends SubstituteMenuBase {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty isStatic$3WAz = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x451f9e9f920b7f7dL, "isStatic");
     /*package*/ static final SProperty isFinal$f7C_ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
   }
 }
