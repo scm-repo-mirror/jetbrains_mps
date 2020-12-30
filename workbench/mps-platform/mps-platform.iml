@@ -14,7 +14,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="kernel" exported="" />
-    <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="collections-runtime" />
     <orderEntry type="module" module-name="editor-api" />
     <orderEntry type="module" module-name="baseLanguage-util" />
@@ -39,9 +38,9 @@
     <orderEntry type="module" module-name="migrations-runtime" />
     <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="resources_en" />
-    <orderEntry type="module" module-name="actions-runtime" />
-    <orderEntry type="library" scope="TEST" name="JUnit4" level="project" />
     <orderEntry type="module" module-name="ant-mps-common" />
     <orderEntry type="module" module-name="make-facets" />
+    <orderEntry type="module" module-name="editing-runtime" />
+    <orderEntry type="library" scope="TEST" name="JUnit4" level="project" />
   </component>
 </module>
