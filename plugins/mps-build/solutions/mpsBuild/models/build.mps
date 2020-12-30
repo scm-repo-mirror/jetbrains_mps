@@ -1231,10 +1231,6 @@
           <property role="nFU4j" value="source_gen" />
           <property role="3LZaj6" value="source" />
         </node>
-        <node concept="nFU4i" id="50$ZrJq1lBT" role="nFU4p">
-          <property role="3LZaj6" value="source" />
-          <property role="nFU4j" value="source" />
-        </node>
       </node>
     </node>
     <node concept="398b33" id="3cAdGiIRUkj" role="3989C9">
@@ -1584,6 +1580,24 @@
         </node>
         <node concept="nFU4i" id="4X1d9kMORye" role="nFU4p">
           <property role="nFU4j" value="source_gen" />
+          <property role="3LZaj6" value="source" />
+        </node>
+      </node>
+      <node concept="398b2D" id="3sAUyYjeWKp" role="398b2p">
+        <node concept="398BVA" id="3sAUyYjeWKq" role="398b2C">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="3sAUyYjeWKr" role="iGT6I">
+            <property role="2Ry0Am" value="workbench" />
+            <node concept="2Ry0Ak" id="3sAUyYjeWKs" role="2Ry0An">
+              <property role="2Ry0Am" value="mps-platform" />
+              <node concept="2Ry0Ak" id="3sAUyYjeWYa" role="2Ry0An">
+                <property role="2Ry0Am" value="migration" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="nFU4i" id="3sAUyYjeWKu" role="nFU4p">
+          <property role="nFU4j" value="source" />
           <property role="3LZaj6" value="source" />
         </node>
       </node>
