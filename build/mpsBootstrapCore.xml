@@ -17289,7 +17289,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.mps-platform" depends="java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.mps-editor-api, java.compile.mps-editing, java.compile.mps-icons, java.compile.platform, java.compile.mps-environment, java.compile.mps-migration, java.compile.dataflow-rt, java.compile.mps-typesystem, java.compile.pattern-runtime, java.compile.aux-runtimes, fetchDependencies">
+  <target name="java.compile.mps-platform" depends="java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.idea-platform, java.compile.mps-editor-api, java.compile.mps-editing, java.compile.mps-icons, java.compile.platform, java.compile.mps-environment, java.compile.dataflow-rt, java.compile.mps-typesystem, java.compile.pattern-runtime, java.compile.aux-runtimes, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-platform" />
     <javac2 destdir="${build.tmp}/java/out/mps-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
@@ -17331,7 +17331,6 @@
         <pathelement path="${build.tmp}/java/out/mps-icons" />
         <pathelement path="${build.tmp}/java/out/platform" />
         <pathelement path="${build.tmp}/java/out/mps-environment" />
-        <pathelement path="${build.tmp}/java/out/mps-migration" />
         <pathelement path="${build.tmp}/java/out/dataflow-rt" />
         <pathelement path="${build.tmp}/java/out/mps-typesystem" />
         <pathelement path="${build.tmp}/java/out/pattern-runtime" />

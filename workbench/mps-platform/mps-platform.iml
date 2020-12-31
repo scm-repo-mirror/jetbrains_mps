@@ -35,7 +35,6 @@
     <orderEntry type="module" module-name="persistence" />
     <orderEntry type="module" module-name="tuples-runtime" />
     <orderEntry type="module" module-name="generator-engine" />
-    <orderEntry type="module" module-name="migrations-runtime" />
     <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="resources_en" />
     <orderEntry type="module" module-name="ant-mps-common" />
