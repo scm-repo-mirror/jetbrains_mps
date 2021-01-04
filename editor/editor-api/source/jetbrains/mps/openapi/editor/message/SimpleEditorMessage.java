@@ -28,6 +28,7 @@ public interface SimpleEditorMessage {
 
   int getHeight(EditorComponent editorComponent);
 
+  @Nullable
   String getMessage();
 
   /**
@@ -46,7 +47,9 @@ public interface SimpleEditorMessage {
    *          null if #getMessage is null
    */
   @Nullable
-  String getFormattedMessage();
+  default String getFormattedMessage() {
+    return getMessage();
+  }
 
   Color getColor();
 
