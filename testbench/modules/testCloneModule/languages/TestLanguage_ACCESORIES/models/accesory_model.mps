@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:aa217b70-4a8f-4766-a0c6-11cbab70f915(TestLanguage_ACCESORIES.accesory_model)" doNotGenerate="true">
+<model ref="r:aa217b70-4a8f-4766-a0c6-11cbab70f915(TestLanguage_ACCESORIES.accesory_model)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="true" />
   <languages>
     <devkit ref="2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)" />
   </languages>
