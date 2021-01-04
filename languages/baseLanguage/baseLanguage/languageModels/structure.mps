@@ -691,7 +691,7 @@
     </node>
   </node>
   <node concept="1TIwiD" id="f_0M0x6">
-    <property role="R4oN_" value="reference to static field declaration" />
+    <property role="R4oN_" value="reference to a static field declaration" />
     <property role="TrG5h" value="StaticFieldReference" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <property role="3GE5qa" value="classifiers.refs" />
@@ -4806,6 +4806,23 @@
     </node>
     <node concept="PrWs8" id="6382hnZshhl" role="PzmwI">
       <ref role="PrY4T" node="hxndl_i" resolve="IMethodCall" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="3mPoTkdZzdR">
+    <property role="EcuMT" value="3870108946630849399" />
+    <property role="3GE5qa" value="classifiers.refs" />
+    <property role="TrG5h" value="StaticFieldReferenceOperation" />
+    <property role="R4oN_" value="static field reference" />
+    <ref role="1TJDcQ" node="fz7vLUo" resolve="VariableReference" />
+    <node concept="PrWs8" id="3mPoTkdZzdS" role="PzmwI">
+      <ref role="PrY4T" node="hqOqG0K" resolve="IOperation" />
+    </node>
+    <node concept="1TJgyj" id="3mPoTkdZzrB" role="1TKVEi">
+      <property role="IQ2ns" value="3870108946630850279" />
+      <property role="20kJfa" value="staticFieldDeclaration" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="f$Wx3kv" resolve="StaticFieldDeclaration" />
+      <ref role="20ksaX" node="fzcqZ_w" resolve="variableDeclaration" />
     </node>
   </node>
 </model>

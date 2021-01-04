@@ -15514,5 +15514,33 @@
       </node>
     </node>
   </node>
+  <node concept="WtQ9Q" id="3mPoTke0tMQ">
+    <property role="3GE5qa" value="classifiers.refs" />
+    <ref role="WuzLi" to="tpee:3mPoTkdZzdR" resolve="StaticFieldReferenceOperation" />
+    <node concept="11bSqf" id="3mPoTke0tMR" role="11c4hB">
+      <node concept="3clFbS" id="3mPoTke0tMS" role="2VODD2">
+        <node concept="lc7rE" id="3mPoTke0tNa" role="3cqZAp">
+          <node concept="1bDJIP" id="3mPoTke0tNi" role="lcghm">
+            <ref role="1rvKf6" node="4Y2pJ9JAj0A" resolve="referenceToShortName" />
+            <node concept="2OqwBi" id="3mPoTke0tNj" role="1ryhcI">
+              <node concept="1PxgMI" id="3mPoTke0tNk" role="2Oq$k0">
+                <node concept="117lpO" id="3mPoTke0tNl" role="1m5AlR" />
+                <node concept="chp4Y" id="3mPoTke0tNm" role="3oSUPX">
+                  <ref role="cht4Q" to="tpee:fz7vLUo" resolve="VariableReference" />
+                </node>
+              </node>
+              <node concept="37Cfm0" id="3mPoTke0tNn" role="2OqNvi">
+                <node concept="1aIX9F" id="3mPoTke0tNo" role="37CeNk">
+                  <node concept="26LbJo" id="3mPoTke0tNp" role="1aIX9E">
+                    <ref role="26LbJp" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

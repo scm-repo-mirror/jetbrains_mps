@@ -70420,5 +70420,27 @@
       <property role="TrG5h" value="StaticMethodCallOperation_ApplySideTransforms" />
     </node>
   </node>
+  <node concept="24kQdi" id="3mPoTkdZzHq">
+    <property role="3GE5qa" value="classifiers.refs" />
+    <ref role="1XX52x" to="tpee:3mPoTkdZzdR" resolve="StaticFieldReferenceOperation" />
+    <node concept="1iCGBv" id="3mPoTkdZzHu" role="2wV5jI">
+      <property role="1$x2rV" value="&lt;no static member&gt;" />
+      <ref role="1NtTu8" to="tpee:3mPoTkdZzrB" resolve="staticFieldDeclaration" />
+      <node concept="1sVBvm" id="3mPoTkdZzHv" role="1sWHZn">
+        <node concept="3F0A7n" id="3mPoTkdZzHw" role="2wV5jI">
+          <property role="1Intyy" value="true" />
+          <property role="1cu_pB" value="1" />
+          <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          <ref role="1k5W1q" node="hrRWGGt" resolve="StaticField" />
+          <node concept="VPRnO" id="3mPoTkdZzHx" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+          <node concept="A1WHr" id="1U0U1G1AF2_" role="3vIgyS">
+            <ref role="2ZyFGn" to="tpee:hqOqG0K" resolve="IOperation" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
