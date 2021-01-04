@@ -270,6 +270,7 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
+      <concept id="3870108946630849399" name="jetbrains.mps.baseLanguage.structure.StaticFieldReferenceOperation" flags="ng" index="SiP3y" />
       <concept id="1045393269083384056" name="jetbrains.mps.baseLanguage.structure.OctalIntegerLiteral" flags="nn" index="2SNldr">
         <property id="1179360856892" name="value" index="2noCCI" />
       </concept>
@@ -83907,6 +83908,250 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="7MIX1bValkm">
+    <property role="3GE5qa" value="staticFieldReference" />
+    <property role="TrG5h" value="StaticFieldReferenceOperationNew" />
+    <node concept="1qefOq" id="7MIX1bValkn" role="25YQCW">
+      <node concept="9aQIb" id="7MIX1bValko" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bValkp" role="9aQI4">
+          <node concept="3clFbF" id="7MIX1bValkq" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bValkr" role="3clFbG">
+              <node concept="2ShNRf" id="7MIX1bValks" role="2Oq$k0">
+                <node concept="HV5vD" id="7MIX1bValkt" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+              <node concept="1B$H19" id="7MIX1bValku" role="2OqNvi">
+                <node concept="LIFWc" id="7MIX1bValnb" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="0" />
+                  <property role="p6zMs" value="0" />
+                  <property role="LIFWd" value="Custom_13zen7_a" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7MIX1bValkw" role="25YQFr">
+      <node concept="9aQIb" id="7MIX1bValkx" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bValky" role="9aQI4">
+          <node concept="3clFbF" id="7MIX1bValkz" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bValk$" role="3clFbG">
+              <node concept="2ShNRf" id="7MIX1bValk_" role="2Oq$k0">
+                <node concept="HV5vD" id="7MIX1bValkA" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+              <node concept="SiP3y" id="7MIX1bValw0" role="2OqNvi">
+                <ref role="3cqZAo" node="7mvMFqc9X7l" resolve="field" />
+                <node concept="LIFWc" id="7MIX1bValHA" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="5" />
+                  <property role="p6zMs" value="5" />
+                  <property role="LIFWd" value="property_name" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="7MIX1bValkD" role="LjaKd">
+      <node concept="2TK7Tu" id="7MIX1bValkE" role="3cqZAp">
+        <property role="2TTd_B" value="field" />
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="7MIX1bValLZ">
+    <property role="3GE5qa" value="staticFieldReference" />
+    <property role="TrG5h" value="StaticFieldReferenceOperationVar" />
+    <node concept="1qefOq" id="7MIX1bValM0" role="25YQCW">
+      <node concept="9aQIb" id="7MIX1bValM1" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bValM2" role="9aQI4">
+          <node concept="3cpWs8" id="7MIX1bValOf" role="3cqZAp">
+            <node concept="3cpWsn" id="7MIX1bValOg" role="3cpWs9">
+              <property role="TrG5h" value="var" />
+              <node concept="3uibUv" id="7MIX1bValM_" role="1tU5fm">
+                <ref role="3uigEE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+              </node>
+              <node concept="2ShNRf" id="7MIX1bValOh" role="33vP2m">
+                <node concept="HV5vD" id="7MIX1bValOi" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="7MIX1bValM3" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bVgbHV" role="3clFbG">
+              <node concept="37vLTw" id="7MIX1bValOj" role="2Oq$k0">
+                <ref role="3cqZAo" node="7MIX1bValOg" resolve="var" />
+                <node concept="LIFWc" id="7MIX1bVgbY3" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="3" />
+                  <property role="p6zMs" value="3" />
+                  <property role="LIFWd" value="property_name" />
+                </node>
+              </node>
+              <node concept="SiP3y" id="7MIX1bVgbKv" role="2OqNvi">
+                <ref role="3cqZAo" node="7mvMFqc9X7l" resolve="field" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7MIX1bValM9" role="25YQFr">
+      <node concept="9aQIb" id="7MIX1bValMa" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bValMb" role="9aQI4">
+          <node concept="3cpWs8" id="7MIX1bValP6" role="3cqZAp">
+            <node concept="3cpWsn" id="7MIX1bValP7" role="3cpWs9">
+              <property role="TrG5h" value="var" />
+              <node concept="3uibUv" id="7MIX1bValMy" role="1tU5fm">
+                <ref role="3uigEE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+              </node>
+              <node concept="2ShNRf" id="7MIX1bValP8" role="33vP2m">
+                <node concept="HV5vD" id="7MIX1bValP9" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="7MIX1bValMc" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bValMd" role="3clFbG">
+              <node concept="SiP3y" id="7MIX1bVaSuV" role="2OqNvi">
+                <ref role="3cqZAo" node="7mvMFqc9X7l" resolve="field" />
+              </node>
+              <node concept="39w1OS" id="7MIX1bVgbZ1" role="2Oq$k0">
+                <ref role="39w2Dt" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                <node concept="LIFWc" id="7MIX1bVgccr" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="20" />
+                  <property role="p6zMs" value="20" />
+                  <property role="LIFWd" value="ReferencePresentation_jmj636_a0a0" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="7MIX1bValMi" role="LjaKd">
+      <node concept="2HxZob" id="7MIX1bVgcfl" role="3cqZAp">
+        <node concept="1iFQzN" id="7MIX1bVgcfm" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:7HPyHg86S0x" resolve="Backspace" />
+        </node>
+      </node>
+      <node concept="2HxZob" id="7MIX1bVgcfn" role="3cqZAp">
+        <node concept="1iFQzN" id="7MIX1bVgcfo" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:7HPyHg86S0x" resolve="Backspace" />
+        </node>
+      </node>
+      <node concept="2HxZob" id="7MIX1bVgcfp" role="3cqZAp">
+        <node concept="1iFQzN" id="7MIX1bVgcfq" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:7HPyHg86S0x" resolve="Backspace" />
+        </node>
+      </node>
+      <node concept="2TK7Tu" id="7MIX1bVgcft" role="3cqZAp">
+        <property role="2TTd_B" value="TestStaticMethodCall" />
+      </node>
+      <node concept="2HxZob" id="7MIX1bVgcfu" role="3cqZAp">
+        <node concept="1iFQzN" id="7MIX1bVgcfv" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:2XByp9s_j7f" resolve="Complete" />
+        </node>
+      </node>
+      <node concept="yd1bK" id="7MIX1bVgcfw" role="3cqZAp">
+        <node concept="pLAjd" id="7MIX1bVgcfx" role="yd6KS">
+          <property role="pLAjf" value="VK_ENTER" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="7MIX1bVgbCJ">
+    <property role="3GE5qa" value="staticFieldReference" />
+    <property role="TrG5h" value="StaticFieldReferenceOperationToStaticFieldReference" />
+    <node concept="1qefOq" id="7MIX1bVgbCK" role="25YQCW">
+      <node concept="9aQIb" id="7MIX1bVgbCL" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bVgbCM" role="9aQI4">
+          <node concept="3cpWs8" id="7MIX1bVgbCN" role="3cqZAp">
+            <node concept="3cpWsn" id="7MIX1bVgbCO" role="3cpWs9">
+              <property role="TrG5h" value="var" />
+              <node concept="3uibUv" id="7MIX1bVgbCP" role="1tU5fm">
+                <ref role="3uigEE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+              </node>
+              <node concept="2ShNRf" id="7MIX1bVgbCQ" role="33vP2m">
+                <node concept="HV5vD" id="7MIX1bVgbCR" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="7MIX1bVgbCS" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bVgbCT" role="3clFbG">
+              <node concept="37vLTw" id="7MIX1bVgbCU" role="2Oq$k0">
+                <ref role="3cqZAo" node="7MIX1bVgbCO" resolve="var" />
+              </node>
+              <node concept="1B$H19" id="7MIX1bVgbCV" role="2OqNvi">
+                <node concept="LIFWc" id="7MIX1bVgbCW" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="0" />
+                  <property role="p6zMs" value="0" />
+                  <property role="LIFWd" value="Custom_13zen7_a" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7MIX1bVgbCX" role="25YQFr">
+      <node concept="9aQIb" id="7MIX1bVgbCY" role="1qenE9">
+        <node concept="3clFbS" id="7MIX1bVgbCZ" role="9aQI4">
+          <node concept="3cpWs8" id="7MIX1bVgbD0" role="3cqZAp">
+            <node concept="3cpWsn" id="7MIX1bVgbD1" role="3cpWs9">
+              <property role="TrG5h" value="var" />
+              <node concept="3uibUv" id="7MIX1bVgbD2" role="1tU5fm">
+                <ref role="3uigEE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+              </node>
+              <node concept="2ShNRf" id="7MIX1bVgbD3" role="33vP2m">
+                <node concept="HV5vD" id="7MIX1bVgbD4" role="2ShVmc">
+                  <ref role="HV5vE" node="7mvMFqc9Hw$" resolve="TestStaticMethodCall" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="7MIX1bVgbD5" role="3cqZAp">
+            <node concept="2OqwBi" id="7MIX1bVgbD6" role="3clFbG">
+              <node concept="37vLTw" id="7MIX1bVgbD7" role="2Oq$k0">
+                <ref role="3cqZAo" node="7MIX1bVgbD1" resolve="var" />
+              </node>
+              <node concept="SiP3y" id="7MIX1bVgbD8" role="2OqNvi">
+                <ref role="3cqZAo" node="7mvMFqc9X7l" resolve="field" />
+                <node concept="LIFWc" id="7MIX1bVgbD9" role="lGtFl">
+                  <property role="ZRATv" value="true" />
+                  <property role="OXtK3" value="true" />
+                  <property role="p6zMq" value="5" />
+                  <property role="p6zMs" value="5" />
+                  <property role="LIFWd" value="property_name" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="7MIX1bVgbDa" role="LjaKd">
+      <node concept="2TK7Tu" id="7MIX1bVgbDb" role="3cqZAp">
+        <property role="2TTd_B" value="field" />
       </node>
     </node>
   </node>

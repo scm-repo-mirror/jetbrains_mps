@@ -28126,6 +28126,89 @@
       <unit id="8979250711606155104" at="16,0,49,0" name="jetbrains.mps.editorTest.DeleteReturnStatementExpressionTwoStep_Test" />
     </file>
   </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8984386669011096854">
+    <file name="StaticFieldReferenceOperationNew_Test.java">
+      <node id="8984386669011096854" at="18,50,19,25" concept="11" />
+      <node id="8984386669011096854" at="23,72,24,36" concept="2" />
+      <node id="8984386669011096854" at="29,52,30,19" concept="11" />
+      <node id="8984386669011096854" at="34,51,35,72" concept="2" />
+      <node id="8984386669011096874" at="35,72,36,26" concept="2" />
+      <node id="8984386669011096854" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8984386669011096854" at="18,0,21,0" concept="1" trace="StaticFieldReferenceOperationNew_Test#()V" />
+      <node id="8984386669011096854" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8984386669011096854" at="22,0,26,0" concept="5" trace="test_StaticFieldReferenceOperationNew#()V" />
+      <node id="8984386669011096854" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8984386669011096854" at="18,50,19,25" />
+      <scope id="8984386669011096854" at="23,72,24,36" />
+      <scope id="8984386669011096854" at="29,52,30,19" />
+      <scope id="8984386669011096854" at="34,51,36,26" />
+      <scope id="8984386669011096854" at="18,0,21,0" />
+      <scope id="8984386669011096854" at="29,0,32,0">
+        <var name="owner" id="8984386669011096854" />
+      </scope>
+      <scope id="8984386669011096854" at="22,0,26,0" />
+      <scope id="8984386669011096854" at="33,0,38,0" />
+      <unit id="8984386669011096854" at="27,0,39,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationNew_Test$TestBody" />
+      <unit id="8984386669011096854" at="13,0,40,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationNew_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8984386669011098751">
+    <file name="StaticFieldReferenceOperationVar_Test.java">
+      <node id="8984386669011098751" at="20,50,21,25" concept="11" />
+      <node id="8984386669011098751" at="25,72,26,36" concept="2" />
+      <node id="8984386669011098751" at="31,52,32,19" concept="11" />
+      <node id="8984386669011098751" at="36,51,37,72" concept="2" />
+      <node id="8984386669012632533" at="37,72,38,72" concept="2" />
+      <node id="8984386669012632535" at="38,72,39,72" concept="2" />
+      <node id="8984386669012632537" at="39,72,40,72" concept="2" />
+      <node id="8984386669012632541" at="40,72,41,41" concept="2" />
+      <node id="8984386669012632542" at="41,41,42,71" concept="2" />
+      <node id="8984386669012632544" at="42,71,43,82" concept="2" />
+      <node id="8984386669011098751" at="17,0,19,0" concept="9" trace="ourParamCache" />
+      <node id="8984386669011098751" at="20,0,23,0" concept="1" trace="StaticFieldReferenceOperationVar_Test#()V" />
+      <node id="8984386669011098751" at="31,0,34,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8984386669011098751" at="24,0,28,0" concept="5" trace="test_StaticFieldReferenceOperationVar#()V" />
+      <node id="8984386669011098751" at="35,0,45,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8984386669011098751" at="20,50,21,25" />
+      <scope id="8984386669011098751" at="25,72,26,36" />
+      <scope id="8984386669011098751" at="31,52,32,19" />
+      <scope id="8984386669011098751" at="20,0,23,0" />
+      <scope id="8984386669011098751" at="31,0,34,0">
+        <var name="owner" id="8984386669011098751" />
+      </scope>
+      <scope id="8984386669011098751" at="24,0,28,0" />
+      <scope id="8984386669011098751" at="36,51,43,82" />
+      <scope id="8984386669011098751" at="35,0,45,0" />
+      <unit id="8984386669011098751" at="29,0,46,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationVar_Test$TestBody" />
+      <unit id="8984386669011098751" at="15,0,47,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationVar_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8984386669012630063">
+    <file name="StaticFieldReferenceOperationToStaticFieldReference_Test.java">
+      <node id="8984386669012630063" at="18,69,19,25" concept="11" />
+      <node id="8984386669012630063" at="23,91,24,36" concept="2" />
+      <node id="8984386669012630063" at="29,52,30,19" concept="11" />
+      <node id="8984386669012630063" at="34,51,35,72" concept="2" />
+      <node id="8984386669012630091" at="35,72,36,26" concept="2" />
+      <node id="8984386669012630063" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8984386669012630063" at="18,0,21,0" concept="1" trace="StaticFieldReferenceOperationToStaticFieldReference_Test#()V" />
+      <node id="8984386669012630063" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8984386669012630063" at="22,0,26,0" concept="5" trace="test_StaticFieldReferenceOperationToStaticFieldReference#()V" />
+      <node id="8984386669012630063" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8984386669012630063" at="18,69,19,25" />
+      <scope id="8984386669012630063" at="23,91,24,36" />
+      <scope id="8984386669012630063" at="29,52,30,19" />
+      <scope id="8984386669012630063" at="34,51,36,26" />
+      <scope id="8984386669012630063" at="18,0,21,0" />
+      <scope id="8984386669012630063" at="29,0,32,0">
+        <var name="owner" id="8984386669012630063" />
+      </scope>
+      <scope id="8984386669012630063" at="22,0,26,0" />
+      <scope id="8984386669012630063" at="33,0,38,0" />
+      <unit id="8984386669012630063" at="27,0,39,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationToStaticFieldReference_Test$TestBody" />
+      <unit id="8984386669012630063" at="13,0,40,0" name="jetbrains.mps.editorTest.StaticFieldReferenceOperationToStaticFieldReference_Test" />
+    </file>
+  </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/9002759989422694402">
     <file name="BackspaceToUnwrapArrayTypeInLocalVariable2_Test.java">
       <node id="9002759989422694402" at="18,60,19,25" concept="11" />
