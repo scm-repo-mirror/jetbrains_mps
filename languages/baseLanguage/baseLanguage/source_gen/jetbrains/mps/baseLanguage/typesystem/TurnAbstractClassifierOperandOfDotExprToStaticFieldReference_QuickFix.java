@@ -22,14 +22,14 @@ public class TurnAbstractClassifierOperandOfDotExprToStaticFieldReference_QuickF
   }
   public void execute(SNode node) {
     SNode ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference"));
-    SLinkOperations.setTarget(ref, LINKS.classConcept$M5BC, SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(node, CONCEPTS.AbstractClassifierReference$Wh), LINKS.classifier$ndCQ), CONCEPTS.ClassConcept$bK));
+    SLinkOperations.setTarget(ref, LINKS.classifier$BPY8, SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(node, CONCEPTS.AbstractClassifierReference$Wh), LINKS.classifier$ndCQ), CONCEPTS.ClassConcept$bK));
     SNode stOperation = SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.DotExpression$yW), LINKS.operation$gs9E), CONCEPTS.StaticFieldReferenceOperation$nE);
     SLinkOperations.setTarget(ref, LINKS.variableDeclaration$N1XG, SLinkOperations.getTarget(stOperation, LINKS.variableDeclaration$N1XG));
     SNodeOperations.replaceWithAnother(SNodeOperations.getParent(node), ref);
   }
 
   private static final class LINKS {
-    /*package*/ static final SReferenceLink classConcept$M5BC = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept");
+    /*package*/ static final SReferenceLink classifier$BPY8 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier");
     /*package*/ static final SReferenceLink classifier$ndCQ = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, 0x6c6c91efa5ecbbb2L, "classifier");
     /*package*/ static final SContainmentLink operation$gs9E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
     /*package*/ static final SReferenceLink variableDeclaration$N1XG = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
