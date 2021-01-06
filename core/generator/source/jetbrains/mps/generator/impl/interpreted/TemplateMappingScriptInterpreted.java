@@ -20,8 +20,8 @@ import jetbrains.mps.generator.impl.RuleUtil;
 import jetbrains.mps.generator.impl.query.QueryKey;
 import jetbrains.mps.generator.impl.query.QueryKeyImpl;
 import jetbrains.mps.generator.impl.query.ScriptCodeBlock;
+import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.runtime.TemplateMappingScript;
-import jetbrains.mps.generator.template.ITemplateGenerator;
 import jetbrains.mps.generator.template.MappingScriptContext;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -61,17 +61,17 @@ public class TemplateMappingScriptInterpreted implements TemplateMappingScript {
   }
 
   @Override
-  public void apply(SModel model, ITemplateGenerator generator) throws GenerationFailureException {
+  public void apply(SModel model, TemplateExecutionEnvironment env) throws GenerationFailureException {
     if (myMissingCodeBlock) {
-      generator.getLogger().warning(getScriptNode(), String.format("cannot run script '%s' : no code-block", scriptNode.getName()));
+      env.getLogger().warning(getScriptNode(), String.format("cannot run script '%s' : no code-block", scriptNode.getName()));
       return;
     }
     if (myCodeBlock == null) {
       SNode codeBlock = RuleUtil.getMappingScript_CodeBlock(scriptNode);
       QueryKey identity = codeBlock == null ? QueryKeyImpl.invalid() : new QueryKeyImpl(getScriptNode(), codeBlock.getNodeId());
-      myCodeBlock = generator.getQueryProvider(getScriptNode()).getScriptCodeBlock(identity);
+      myCodeBlock = env.getQueryProvider(getScriptNode()).getScriptCodeBlock(identity);
     }
-    myCodeBlock.invoke(new MappingScriptContext(model, getScriptNode(), generator));
+    myCodeBlock.invoke(new MappingScriptContext(model, getScriptNode(), env));
   }
 
   @Override

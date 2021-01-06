@@ -55,5 +55,5 @@ public interface QueryExecutionContext extends QueryExecutor {
 
   SNode getContextNode(TemplateWeavingRule rule, TemplateContext context) throws GenerationFailureException;
 
-  void executeScript(TemplateMappingScript mappingScript, SModel model) throws GenerationFailureException;
+  void executeScript(TemplateMappingScript mappingScript, SModel model, TemplateExecutionEnvironment env) throws GenerationFailureException;
 }

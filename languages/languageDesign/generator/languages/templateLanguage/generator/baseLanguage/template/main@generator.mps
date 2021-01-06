@@ -29027,9 +29027,9 @@
         </node>
       </node>
       <node concept="37vLTG" id="7YwkI8ddSF3" role="3clF46">
-        <property role="TrG5h" value="generator" />
-        <node concept="3uibUv" id="7YwkI8ddSF4" role="1tU5fm">
-          <ref role="3uigEE" to="q1l7:~ITemplateGenerator" resolve="ITemplateGenerator" />
+        <property role="TrG5h" value="env" />
+        <node concept="3uibUv" id="4V_$HCgirfv" role="1tU5fm">
+          <ref role="3uigEE" to="r99j:~TemplateExecutionEnvironment" resolve="TemplateExecutionEnvironment" />
         </node>
       </node>
       <node concept="3clFbS" id="7YwkI8ddSF5" role="3clF47">
@@ -29077,7 +29077,7 @@
             </node>
             <node concept="2ShNRf" id="6yDJ0qeN7Ve" role="37wK5m">
               <node concept="1pGfFk" id="6yDJ0qeN7Vg" role="2ShVmc">
-                <ref role="37wK5l" to="q1l7:~MappingScriptContext.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeReference,jetbrains.mps.generator.template.ITemplateGenerator)" resolve="MappingScriptContext" />
+                <ref role="37wK5l" to="q1l7:~MappingScriptContext.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeReference,jetbrains.mps.generator.runtime.TemplateExecutionEnvironment)" resolve="MappingScriptContext" />
                 <node concept="37vLTw" id="2BHiRxglnTz" role="37wK5m">
                   <ref role="3cqZAo" node="7YwkI8ddSF1" resolve="model" />
                 </node>
@@ -29085,7 +29085,7 @@
                   <ref role="37wK5l" node="7YwkI8ddSFe" resolve="getScriptNode" />
                 </node>
                 <node concept="37vLTw" id="2BHiRxgmzqH" role="37wK5m">
-                  <ref role="3cqZAo" node="7YwkI8ddSF3" resolve="generator" />
+                  <ref role="3cqZAo" node="7YwkI8ddSF3" resolve="env" />
                 </node>
               </node>
             </node>

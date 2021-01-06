@@ -18,6 +18,7 @@ package jetbrains.mps.generator.template;
 import jetbrains.mps.generator.impl.GeneratorUtil;
 import jetbrains.mps.generator.impl.TemplateExecutionEnvironmentImpl;
 import jetbrains.mps.generator.runtime.TemplateContext;
+import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.textgen.trace.TracingUtil;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
@@ -36,9 +37,15 @@ import java.util.List;
  * Jul 21, 2008
  */
 public class TemplateQueryContext {
-
+  // not null
   private final SNodeReference myTemplateNode;
+  // not null if myContext != null, may be null otherwise in case of test/legacy cons (legacy use gonna cease with 2021.1)
+  @Nullable
+  private final TemplateExecutionEnvironment myEnv;
+  @Nullable
   protected TemplateContext myContext;
+  // the only field != null when myContext && myEnv == null, for use by MC condition and MappingScript (latter in compiled templates prior to 2021.1 only)
+  @Nullable
   private final ITemplateGenerator myGenerator;
 
   /**
@@ -49,21 +56,31 @@ public class TemplateQueryContext {
     myTemplateNode = templateNode;
     myContext = null;
     myGenerator = generator;
+    myEnv = null;
   }
 
   protected TemplateQueryContext(@NotNull SNodeReference templateNode, @NotNull TemplateContext context) {
     myContext = context;
     myTemplateNode = templateNode;
+    myEnv = context.getEnvironment();
     myGenerator = context.getEnvironment().getGenerator();
   }
 
-  /**
-   * Cons for internal/tests use, generally subclasses shall not call it.
-   */
+  protected TemplateQueryContext(@NotNull SNodeReference templateNode, @NotNull TemplateExecutionEnvironment env) {
+    myContext = null;
+    myTemplateNode = templateNode;
+    myEnv = env;
+    myGenerator = myEnv.getGenerator();
+  }
+
+    /**
+     * Cons for internal/tests use, generally subclasses shall not call it.
+     */
   protected TemplateQueryContext() {
     myContext = null;
     myTemplateNode = null;
     myGenerator = null;
+    myEnv = null;
   }
 
   /**
@@ -139,8 +156,8 @@ public class TemplateQueryContext {
     if (!myGenerator.areMappingsAvailable()) {
       myGenerator.getLogger().error(getTemplateNodeRef(), "'get output by input and label' cannot be used here");
     }
-    if (myContext != null) {
-      final SNode localRecord = ((TemplateExecutionEnvironmentImpl) myContext.getEnvironment()).findLocalOutputRecordSingle(label, key1, key2);
+    if (myEnv != null) {
+      final SNode localRecord = ((TemplateExecutionEnvironmentImpl) myEnv).findLocalOutputRecordSingle(label, key1, key2);
       if (localRecord != null) {
         return localRecord;
       }
@@ -161,11 +178,12 @@ public class TemplateQueryContext {
     // technically, we could do myGenerator.isStrict() && myGenerator.areMappingsAvailable() -> fail "no more labels once transformation is over"
     // but this would expose knowledge that areMappingsAvailable is meaningful only in strict mode.
     // Since we do not restrict registration of mapping labels e.g. in TEEImpl, I decided not to keep a check here
-    if (myContext == null) {
-      // FIXME use TEE for scripts, avoid direct ITemplateGenerator.
+    if (myEnv == null) {
+      // FIXME now that we use TEE for scripts, we can avoid direct ITemplateGenerator,
+      //       left this code until compiled templates switch to TEE (once 2021.1 is out)
       myGenerator.registerMappingLabel(inputNode, mappingName, outputNode);
     } else {
-      myContext.getEnvironment().registerLabel(inputNode, outputNode, mappingName);
+      myEnv.registerLabel(inputNode, outputNode, mappingName);
     }
   }
 

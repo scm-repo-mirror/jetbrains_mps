@@ -398,27 +398,27 @@
       <node id="1195509228077" at="20,31,21,146" concept="8" />
       <node id="1195509228077" at="23,34,24,16" concept="8" />
       <node id="1195509228077" at="26,24,27,22" concept="8" />
-      <node id="1195509228077" at="29,65,30,108" concept="2" />
+      <node id="1195509228077" at="29,69,30,102" concept="2" />
       <node id="1195509228077" at="32,0,33,0" concept="10" trace="mappingScriptNode" />
       <node id="1195509228077" at="15,0,17,0" concept="1" trace="Script_test_preMappingScript#()V" />
       <node id="1195509228077" at="17,0,20,0" concept="6" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="1195509228077" at="20,0,23,0" concept="6" trace="getLongName#()Ljava/lang/String;" />
       <node id="1195509228077" at="23,0,26,0" concept="6" trace="modifiesModel#()Z" />
       <node id="1195509228077" at="26,0,29,0" concept="6" trace="getKind#()I" />
-      <node id="1195509228077" at="29,0,32,0" concept="6" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/generator/template/ITemplateGenerator;)V" />
+      <node id="1195509228077" at="29,0,32,0" concept="6" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;)V" />
       <scope id="1195509228077" at="15,41,15,41" />
       <scope id="1195509228077" at="17,41,18,29" />
       <scope id="1195509228077" at="20,31,21,146" />
       <scope id="1195509228077" at="23,34,24,16" />
       <scope id="1195509228077" at="26,24,27,22" />
-      <scope id="1195509228077" at="29,65,30,108" />
+      <scope id="1195509228077" at="29,69,30,102" />
       <scope id="1195509228077" at="15,0,17,0" />
       <scope id="1195509228077" at="17,0,20,0" />
       <scope id="1195509228077" at="20,0,23,0" />
       <scope id="1195509228077" at="23,0,26,0" />
       <scope id="1195509228077" at="26,0,29,0" />
       <scope id="1195509228077" at="29,0,32,0">
-        <var name="generator" id="1195509228077" />
+        <var name="env" id="1195509228077" />
         <var name="model" id="1195509228077" />
       </scope>
       <unit id="1195509228077" at="13,0,34,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_generationScripts.Script_test_preMappingScript" />
@@ -448,27 +448,27 @@
       <node id="1195510384868" at="20,31,21,147" concept="8" />
       <node id="1195510384868" at="23,34,24,17" concept="8" />
       <node id="1195510384868" at="26,24,27,23" concept="8" />
-      <node id="1195510384868" at="29,65,30,108" concept="2" />
+      <node id="1195510384868" at="29,69,30,102" concept="2" />
       <node id="1195510384868" at="32,0,33,0" concept="10" trace="mappingScriptNode" />
       <node id="1195510384868" at="15,0,17,0" concept="1" trace="Script_test_postMappingScript#()V" />
       <node id="1195510384868" at="17,0,20,0" concept="6" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
       <node id="1195510384868" at="20,0,23,0" concept="6" trace="getLongName#()Ljava/lang/String;" />
       <node id="1195510384868" at="23,0,26,0" concept="6" trace="modifiesModel#()Z" />
       <node id="1195510384868" at="26,0,29,0" concept="6" trace="getKind#()I" />
-      <node id="1195510384868" at="29,0,32,0" concept="6" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/generator/template/ITemplateGenerator;)V" />
+      <node id="1195510384868" at="29,0,32,0" concept="6" trace="apply#(Lorg/jetbrains/mps/openapi/model/SModel;Ljetbrains/mps/generator/runtime/TemplateExecutionEnvironment;)V" />
       <scope id="1195510384868" at="15,42,15,42" />
       <scope id="1195510384868" at="17,41,18,29" />
       <scope id="1195510384868" at="20,31,21,147" />
       <scope id="1195510384868" at="23,34,24,17" />
       <scope id="1195510384868" at="26,24,27,23" />
-      <scope id="1195510384868" at="29,65,30,108" />
+      <scope id="1195510384868" at="29,69,30,102" />
       <scope id="1195510384868" at="15,0,17,0" />
       <scope id="1195510384868" at="17,0,20,0" />
       <scope id="1195510384868" at="20,0,23,0" />
       <scope id="1195510384868" at="23,0,26,0" />
       <scope id="1195510384868" at="26,0,29,0" />
       <scope id="1195510384868" at="29,0,32,0">
-        <var name="generator" id="1195510384868" />
+        <var name="env" id="1195510384868" />
         <var name="model" id="1195510384868" />
       </scope>
       <unit id="1195510384868" at="13,0,34,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_generationScripts.Script_test_postMappingScript" />

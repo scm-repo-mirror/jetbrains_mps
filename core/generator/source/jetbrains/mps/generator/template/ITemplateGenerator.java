@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.generator.template;
 import jetbrains.mps.generator.GenerationSessionContext;
 import jetbrains.mps.generator.IGeneratorLogger;
 import jetbrains.mps.generator.impl.query.GeneratorQueryProvider;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -40,10 +41,12 @@ public interface ITemplateGenerator extends GeneratorQueryProvider.Source {
   boolean areMappingsAvailable();
 
   /**
-   * Use {@link jetbrains.mps.generator.runtime.TemplateExecutionEnvironment#registerLabel(SNode, SNode, String)} instead when
+   * @deprecated Use {@link jetbrains.mps.generator.runtime.TemplateExecutionEnvironment#registerLabel(SNode, SNode, String)} instead when
    *   possible. This method is left solely for scenarios of LM registration from inside scripts (through genContext/TemplateQueryContext operations) when
    *   TEE is not available.
    */
+  @ToRemove(version = 2021.1)
+  @Deprecated
   void registerMappingLabel(SNode inputNode, String mappingName, SNode outputNode);
 
   /**

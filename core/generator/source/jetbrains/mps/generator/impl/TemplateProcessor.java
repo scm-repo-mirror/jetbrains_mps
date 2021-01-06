@@ -80,6 +80,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
   private final Map<SNode, TemplateNode> myTemplateRuntimeMap = new ConcurrentHashMap<>();
 
   public TemplateProcessor(@NotNull TemplateGenerator generator) {
+    // FIXME do I truly need TemplateGenerator access here
     myGenerator = generator;
     myImplFactory = new MacroImplFactory(this);
   }

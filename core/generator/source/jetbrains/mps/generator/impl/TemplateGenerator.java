@@ -116,7 +116,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
   private DeltaBuilder myDeltaBuilder;
   private boolean myInplaceModelChange = false; // indicates transformation was in-place (even after deltaBuilder was disposed). cries for better approach
   private WeavingProcessor myWeavingProcessor;
-  private TemplateProcessor myTemplateProcessor;
+  private final TemplateProcessor myTemplateProcessor;
   private final PostponedReferenceUpdate myPostponedRefs;
   private final DynamicReferenceUpdate myDynamicRefs;
   private final GenerationTrace myNewTrace;
@@ -152,7 +152,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     myIsStrict = options.isStrictMode();
     myDelayedChanges = new DelayedChanges();
     myOutputRoots = new ArrayList<>();
-    DefaultQueryExecutionContext ctx = new DefaultQueryExecutionContext(this);
+    DefaultQueryExecutionContext ctx = new DefaultQueryExecutionContext();
     myPerformanceTrace = stepArgs.performanceTrace;
     myExecutionContext = options.getTracingMode() >= GenerationOptions.TRACE_LANGS
       ? new QueryExecutionContextWithTracing(ctx, stepArgs.performanceTrace)
@@ -161,6 +161,9 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     myDynamicRefs = new DynamicReferenceUpdate(this);
     myNewTrace = stepArgs.genTrace;
     myTransitionTrace = stepArgs.transitionTrace;
+    // any newExecutionEnvironment() use needs myTemplateProcessor field at the moment
+    //     even though it's not gonna use it (see MappingScript and WeavingProcessor.prepareWeavingRules
+    myTemplateProcessor = new TemplateProcessor(this);
   }
 
   public boolean apply(@NotNull ProgressMonitor progressMonitor, boolean isPrimary) throws GenerationFailureException, GenerationCanceledException {
@@ -168,12 +171,11 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     checkMonitorCanceled();
     final IPerformanceTracer ttrace = getPerformanceTracer();
     myAreMappingsReady = false;
-    // WeavingProcessor.prepareWeavingRules needs myTemplateProcessor to be initialized. Guess, we could have had it as a final field?
-    myTemplateProcessor = new TemplateProcessor(this);
 
     // prepare weaving
     ttrace.push("weavings");
     myWeavingProcessor = new WeavingProcessor(this);
+    // JFTR, WeavingProcessor.prepareWeavingRules needs myTemplateProcessor to be initialized.
     myWeavingProcessor.prepareWeavingRules(getInputModel());
     ttrace.pop();
 
@@ -284,7 +286,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
   }
 
   public void executeScript(TemplateMappingScript script) throws GenerationFailureException {
-    getDefaultExecutionContext().executeScript(script, myInputModel);
+    getDefaultExecutionContext().executeScript(script, myInputModel, newExecutionEnvironment(getDefaultExecutionContext()));
     getMappings().fillFrom(Collections.singletonList(myLabeledMappings));
   }
 
@@ -534,6 +536,9 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
    * @return never null
    */
   protected final TemplateExecutionEnvironmentImpl newExecutionEnvironment(QueryExecutionContext queryExecutor) {
+    // FIXME revisit need to QueryExecutionContext, likely don't need one if switch to per-query tracing/wrapping
+    // FIXME revisit use of template processor there, it's only necessary for interpreted templates, can I avoid exposing it
+    //       from TEE?
     return teeTracksLabels(new TemplateExecutionEnvironmentImpl(myTemplateProcessor, queryExecutor, new ReductionTrack(getBlockedReductionsData())));
   }
 

@@ -261,10 +261,10 @@ public class QueryExecutionContextWithTracing implements QueryExecutionContext {
   }
 
   @Override
-  public void executeScript(TemplateMappingScript mappingScript, SModel model) throws GenerationFailureException {
+  public void executeScript(TemplateMappingScript mappingScript, SModel model, TemplateExecutionEnvironment env) throws GenerationFailureException {
     try {
       tracer.push(taskName(String.format("mapping script (%s)", mappingScript.getLongName()), mappingScript.getScriptNode()));
-      wrapped.executeScript(mappingScript, model);
+      wrapped.executeScript(mappingScript, model, env);
     } finally {
       tracer.pop();
     }

@@ -56,11 +56,7 @@ import java.util.Collection;
  * Evgeny Gryaznov, Feb 10, 2010
  */
 public class DefaultQueryExecutionContext implements QueryExecutionContext {
-  private final ITemplateGenerator myGenerator;
-
-  // FIXME refactor TemplateMappingScript to take TEE instead of generator
-  public DefaultQueryExecutionContext(@NotNull ITemplateGenerator generator) {
-    myGenerator = generator;
+  public DefaultQueryExecutionContext() {
   }
 
   @Override
@@ -298,9 +294,9 @@ public class DefaultQueryExecutionContext implements QueryExecutionContext {
   }
 
   @Override
-  public void executeScript(TemplateMappingScript mappingScript, SModel model) throws GenerationFailureException {
+  public void executeScript(TemplateMappingScript mappingScript, SModel model, TemplateExecutionEnvironment env) throws GenerationFailureException {
     try {
-      mappingScript.apply(model, myGenerator);
+      mappingScript.apply(model, env);
     } catch (GenerationFailureException ex) {
       throw ex;
     } catch (Throwable t) {
