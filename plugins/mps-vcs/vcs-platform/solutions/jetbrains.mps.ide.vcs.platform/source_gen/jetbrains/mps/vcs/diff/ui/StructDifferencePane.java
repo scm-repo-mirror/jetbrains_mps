@@ -158,8 +158,8 @@ public class StructDifferencePane implements PropertyChangeListener {
     myOldEditor.getPanel().addPropertyChangeListener(Splitter.PROP_PROPORTION, this);
     myNewEditor.getPanel().addPropertyChangeListener(Splitter.PROP_PROPORTION, this);
     panel.setTitles(createTitles());
-    linkEditors(panel, false);
-    linkEditors(panel, true);
+    myMainLayout = createLayout(panel, false);
+    myInspectorLayout = createLayout(panel, true);
     panel.setPainter(new MyDividerPainter());
     return panel;
   }
@@ -201,7 +201,7 @@ public class StructDifferencePane implements PropertyChangeListener {
 
     private void paintDividerPart(@NotNull Graphics g, @NotNull JComponent divider, boolean inspector) {
       TripleChangeGroupLayout layout = (inspector ? myInspectorLayout : myMainLayout);
-      layout.paintPolygons(g, divider, inspector, myOldEditor, myNewEditor);
+      layout.paintPolygons(g, divider, myOldEditor, myNewEditor);
     }
   }
 
@@ -242,23 +242,16 @@ public class StructDifferencePane implements PropertyChangeListener {
     myNewEditor.showInspector(show);
   }
 
-  private void linkEditors(TwosideContentPanel panel, boolean inspector) {
+  private TripleChangeGroupLayout createLayout(TwosideContentPanel panel, boolean inspector) {
     DiffChangeGroupLayout layout = new DiffChangeGroupLayout(null, myChangeSet, myOldEditor, myNewEditor, getSplitterRepainter(panel), inspector);
-    if (inspector) {
-      myInspectorLayout = new TripleChangeGroupLayout(layout, null, true);
-      myOldEditor.setLayout(myInspectorLayout, true);
-      myNewEditor.setLayout(myInspectorLayout, true);
-    } else {
-      myMainLayout = new TripleChangeGroupLayout(layout, null, false);
-      myOldEditor.setLayout(myMainLayout, false);
-      myNewEditor.setLayout(myMainLayout, false);
-    }
+    TripleChangeGroupLayout tripleLayout = new TripleChangeGroupLayout(layout, null, inspector);
     ChangeGroupMessages.startMaintaining(layout);
     ListSequence.fromList(myChangeGroupLayouts).addElement(layout);
     if (!(SModelOperations.isReadOnly(myChangeSet.getNewModel()))) {
       StructDiffButtonsPainter.addTo(myOldEditor, layout, inspector);
       StructDiffButtonsPainter.addTo(myNewEditor, layout, inspector);
     }
+    return tripleLayout;
   }
 
   private DiffChangeGroupLayout.SplitterRepainter getSplitterRepainter(final TwosideContentPanel panel) {
@@ -326,6 +319,8 @@ public class StructDifferencePane implements PropertyChangeListener {
     });
     myActionGroup.removeAll();
     myActionGroup = null;
+    myMainLayout.dispose();
+    myInspectorLayout.dispose();
     myDiffEditorsGroup.dispose();
     myOldEditor = null;
     myNewEditor = null;

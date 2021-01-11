@@ -27,6 +27,11 @@ import java.awt.event.MouseEvent;
 import java.awt.Point;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 
+/**
+ * 
+ * @deprecated this class is not used anymore.
+ */
+@Deprecated
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748337778", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public class DiffEditorSeparator extends JComponent implements TooltipComponent {
   private static final int WIDTH = 30;
@@ -36,6 +41,7 @@ public class DiffEditorSeparator extends JComponent implements TooltipComponent 
   private final SRepository myRepoWithChanges;
   private final MouseAdapter myMouseAdapter = new MouseAdapter() {};
 
+  @Deprecated
   public DiffEditorSeparator(SRepository repoWithChanges, ChangeGroupLayout changeGroupLayout) {
     myChangeGroupLayout = changeGroupLayout;
     // FIXME It seems that changes in ChangeGroupLayout may be tied to live models in a repository, therfore, access to model 

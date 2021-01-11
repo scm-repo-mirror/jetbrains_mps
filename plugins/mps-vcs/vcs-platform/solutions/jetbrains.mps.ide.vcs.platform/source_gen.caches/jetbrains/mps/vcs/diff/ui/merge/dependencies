@@ -193,7 +193,6 @@
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.ChangeGroupMessages" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.DiffEditor" />
-    <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.DiffEditorSeparator" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.DiffEditorsGroup" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.TripleChangeGroupLayout" />

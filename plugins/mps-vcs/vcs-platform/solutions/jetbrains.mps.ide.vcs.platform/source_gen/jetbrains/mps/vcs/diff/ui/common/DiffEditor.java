@@ -6,7 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import com.intellij.ui.JBSplitter;
 import javax.swing.JComponent;
-import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import java.util.Map;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import java.util.List;
@@ -25,19 +24,10 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.nodeEditor.AbstractAdditionalPainter;
-import jetbrains.mps.nodeEditor.AdditionalPainter;
-import java.awt.Graphics;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.nodeEditor.leftHighlighter.BackgroundWithFoldingLinePainter;
-import jetbrains.mps.nodeEditor.leftHighlighter.LeftEditorHighlighter;
-import java.awt.event.MouseEvent;
-import java.awt.Color;
-import jetbrains.mps.internal.collections.runtime.IterableUtils;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import java.awt.Point;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import java.awt.event.MouseEvent;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import jetbrains.mps.openapi.editor.cells.CellAction;
@@ -49,7 +39,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import java.util.function.Predicate;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
-import java.awt.event.MouseAdapter;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import org.jetbrains.annotations.NonNls;
@@ -61,21 +50,17 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748338308", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public class DiffEditor implements EditorMessageOwner {
-  private JBSplitter myPanel = new JBSplitter(true, 0.75f);
+  private final JBSplitter myPanel = new JBSplitter(true, 0.75f);
   private boolean myIsInspectorShown;
-  private final boolean myRightToLeft;
-  private MainEditorComponent myMainEditorComponent;
+  private final MainEditorComponent myMainEditorComponent;
+  private final MyInspectorEditorComponent myInspectorComponent;
   private String myTitle;
-  private JComponent myTitleComponent;
-  private InspectorEditorComponent myInspectorComponent;
-  private Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
-  private TripleChangeGroupLayout myMainLayout;
-  private TripleChangeGroupLayout myInspectorLayout;
+  private final JComponent myTitleComponent;
+  private final Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
 
 
   public DiffEditor(final MPSProject project, SNode node, String contentTitle, boolean rightToLeft, boolean isInspectorShown) {
     myIsInspectorShown = isInspectorShown;
-    myRightToLeft = rightToLeft;
     myTitle = contentTitle;
     myMainEditorComponent = new MainEditorComponent(project.getRepository(), rightToLeft);
     myInspectorComponent = new MyInspectorEditorComponent(project.getRepository(), rightToLeft);
@@ -111,18 +96,6 @@ public class DiffEditor implements EditorMessageOwner {
     }
     myIsInspectorShown = show;
     myPanel.setSecondComponent((show ? getBottomComponent() : null));
-  }
-
-  public void setLayout(TripleChangeGroupLayout layout, boolean inspector) {
-    if (inspector) {
-      myInspectorLayout = layout;
-    } else {
-      myMainLayout = layout;
-    }
-  }
-
-  private TripleChangeGroupLayout getLayout(boolean inspector) {
-    return (inspector ? myInspectorLayout : myMainLayout);
   }
 
   public void setTitle(String newTitle) {
@@ -162,7 +135,6 @@ public class DiffEditor implements EditorMessageOwner {
     boolean needToEdit = myInspectorComponent.getUpdater().setInitialEditorHints(initialEditorHints);
     if (needToEdit || myInspectorComponent.getEditedNode() != node) {
       myInspectorComponent.editNode(node);
-      myInspectorLayout.repaintEditorsAndSplitters();
     }
   }
 
@@ -222,6 +194,7 @@ public class DiffEditor implements EditorMessageOwner {
   public List<ChangeEditorMessage> getMessagesForChange(ModelChange change) {
     return MapSequence.fromMap(myChangeToMessages).get(change);
   }
+
   public void unhighlightAllChanges() {
     Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
       public void visit(EditorComponent ec) {
@@ -240,186 +213,34 @@ public class DiffEditor implements EditorMessageOwner {
     return Sequence.fromArray(new EditorComponent[]{myMainEditorComponent, myInspectorComponent});
   }
 
-  private class MyEditorComponentPainter extends AbstractAdditionalPainter {
-
-    private final boolean myInspector;
-
-    public MyEditorComponentPainter(boolean inspector) {
-      myInspector = inspector;
-    }
-    @Override
-    public boolean paintsBackground() {
-      return true;
-    }
-    @Override
-    public boolean paintsAbove() {
-      return false;
-    }
-    @Override
-    public boolean isAbove(AdditionalPainter additionalPainter, EditorComponent editorComponent) {
-      return false;
-    }
-    @Override
-    public void paint(Graphics graphics, EditorComponent component) {
-    }
-    @Override
-    public Object getItem() {
-      return null;
-    }
-
-    @Override
-    public void paintBackground(final Graphics g, final EditorComponent editor) {
-      ListSequence.fromList(getLayers(myInspector)).visitAll(new IVisitor<ChangeLayer>() {
-        public void visit(ChangeLayer layer) {
-          layer.paintRectangle(g, editor.getWidth(), editor.getBackground());
-        }
-      });
-    }
-  }
-
-  private class MyBordersPainter extends AbstractAdditionalPainter {
-
-    private final boolean myInspector;
-
-    public MyBordersPainter(boolean inspector) {
-      myInspector = inspector;
-    }
-    @Override
-    public boolean paintsBackground() {
-      return false;
-    }
-    @Override
-    public boolean paintsAbove() {
-      return true;
-    }
-    @Override
-    public boolean isAbove(AdditionalPainter additionalPainter, EditorComponent editorComponent) {
-      return false;
-    }
-    @Override
-    public void paint(final Graphics g, final EditorComponent editor) {
-      ListSequence.fromList(getLayers(myInspector)).visitAll(new IVisitor<ChangeLayer>() {
-        public void visit(ChangeLayer layer) {
-          layer.paintRectangleBorders(g, editor.getWidth(), editor.getBackground());
-        }
-      });
-      ListSequence.fromList(getLayers(myInspector)).where(new IWhereFilter<ChangeLayer>() {
-        public boolean accept(ChangeLayer layer) {
-          return layer.isSelected();
-        }
-      }).visitAll(new IVisitor<ChangeLayer>() {
-        public void visit(ChangeLayer it) {
-          it.paintSelectedRectangle(g, editor.getWidth(), editor.getBackground());
-        }
-      });
-    }
-    @Override
-    public Object getItem() {
-      return null;
-    }
-
-    @Override
-    public void paintBackground(Graphics g, EditorComponent component) {
-    }
-  }
-
-
-  private class MyLeftHighlighterPainter extends BackgroundWithFoldingLinePainter {
-
-    private final boolean myInspector;
-
-    public MyLeftHighlighterPainter(LeftEditorHighlighter leftEditorHighlighter, boolean inspector) {
-      super(leftEditorHighlighter, myRightToLeft);
-      myInspector = inspector;
-    }
-
-    @Override
-    public int getWeight() {
-      return 2;
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-      myMainLayout.selectLayers(getLayersUnderMouse(e, false));
-      myMainLayout.repaintEditorsAndSplitters();
-    }
-
-    @Override
-    public String getToolTipText() {
-      return getToolTipTextFromSelectedLayers(myInspector);
-    }
-
-    @Override
-    public void paint(final Graphics g) {
-      final int x = getLeftHighlighter().getX();
-      final int width = getLeftHighlighter().getWidth();
-      final int foldingLineX = getLeftHighlighter().getFoldingLineX();
-      final int foldingLineWidth = getLeftHighlighter().getFoldingLineWidth();
-      final Color editorColor = getEditorComponent().getBackground();
-      final Color lineColor = getDottedLineFgLineColor();
-      ListSequence.fromList(getLayers(myInspector)).visitAll(new IVisitor<ChangeLayer>() {
-        public void visit(ChangeLayer layer) {
-          layer.paintHighlighter(g, x, width, foldingLineX, foldingLineWidth, editorColor, lineColor, myRightToLeft);
-        }
-      });
-      ListSequence.fromList(getLayers(myInspector)).where(new IWhereFilter<ChangeLayer>() {
-        public boolean accept(ChangeLayer layer) {
-          return layer.isSelected();
-        }
-      }).visitAll(new IVisitor<ChangeLayer>() {
-        public void visit(ChangeLayer layer) {
-          layer.paintHighlighterBorders(g, x, width, foldingLineX, foldingLineWidth, lineColor);
-        }
-      });
-    }
-  }
-
-  private String getToolTipTextFromSelectedLayers(boolean isInspector) {
-    return IterableUtils.join(ListSequence.fromList(getLayers(isInspector)).where(new IWhereFilter<ChangeLayer>() {
-      public boolean accept(ChangeLayer it) {
-        return it.isSelected();
-      }
-    }).select(new ISelector<ChangeLayer, String>() {
-      public String select(ChangeLayer it) {
-        return it.getDescription().replace("\n", "<br>");
-      }
-    }), "<br><br>");
-  }
-
-  private List<ChangeLayer> getLayersUnderMouse(MouseEvent e, boolean inspector) {
-    final Point p = e.getPoint();
-    return ListSequence.fromList(ListSequence.fromList(getLayers(inspector)).where(new IWhereFilter<ChangeLayer>() {
-      public boolean accept(ChangeLayer layer) {
-        return p.y >= layer.getY() && p.y <= layer.getY() + layer.getHeight();
-      }
-    }).toListSequence()).reversedList();
-  }
-
-  private List<ChangeLayer> getLayers(boolean inspector) {
-    return getLayout(inspector).getChangeLayers(this);
-  }
-
   private static boolean isFoldingAction(CellActionType type) {
     return type == CellActionType.FOLD_RECURSIVELY || type == CellActionType.FOLD_ALL || type == CellActionType.FOLD || type == CellActionType.UNFOLD || type == CellActionType.UNFOLD_RECURSIVELY || type == CellActionType.UNFOLD_ALL;
   }
 
-  public class MyInspectorEditorComponent extends InspectorEditorComponent {
+  /*package*/ interface TooltipProvider {
+    String getTooltipText(MouseEvent mouseEvent);
+  }
+
+  /*package*/ interface TooltipConsumer {
+    void setTooltipProvider(TooltipProvider tooltipProvider);
+  }
+
+  public class MyInspectorEditorComponent extends InspectorEditorComponent implements TooltipConsumer {
+
+    @Nullable
+    private TooltipProvider myTooltipProvider;
 
     public MyInspectorEditorComponent(@NotNull SRepository repository, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().rightToLeft(rightToLeft).showSelectionLine(false).build());
-      addAdditionalPainter(new MyEditorComponentPainter(true));
-      LeftEditorHighlighter leftHighlighter = getLeftEditorHighlighter();
-      leftHighlighter.addBackgroundPainter(new MyLeftHighlighterPainter(leftHighlighter, true));
     }
 
     @Override
     public String getToolTipText(MouseEvent event) {
       String text = super.getToolTipText(event);
-      return (text != null && (text != null && text.length() > 0) ? text : getToolTipTextFromSelectedLayers(true));
+      if (text != null && (text != null && text.length() > 0)) {
+        return text;
+      }
+      return (myTooltipProvider != null ? myTooltipProvider.getTooltipText(event) : null);
     }
 
     @Override
@@ -434,31 +255,27 @@ public class DiffEditor implements EditorMessageOwner {
     protected JScrollPane createScrollPane() {
       return ScrollPaneFactory.createScrollPane(null, true);
     }
+
+    @Override
+    public void setTooltipProvider(TooltipProvider tooltipProvider) {
+      myTooltipProvider = tooltipProvider;
+    }
   }
 
-  public class MainEditorComponent extends EditorComponent {
+  public class MainEditorComponent extends EditorComponent implements TooltipConsumer {
     private DiffFileEditor myDiffFileEditor;
     private CommandContextWithVF myCommandContext;
+    @Nullable
+    private TooltipProvider myTooltipProvider;
+
 
     public MainEditorComponent(SRepository repository, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().showErrorsGutter(true).showSelectionLine(false).rightToLeft(rightToLeft).build());
       myDiffFileEditor = new DiffFileEditor(this);
       setDefaultPopupGroupId(((String) BHReflection.invoke0(SNodeOperations.getNode("r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)", "426251916200108583"), CONCEPTS.ActionGroupDeclaration$VO, SMethodTrimmedId.create("getGeneratedClassFQName", CONCEPTS.ActionGroupDeclaration$VO, "hEwJa8g"))));
-      addAdditionalPainter(new MyEditorComponentPainter(false));
-      addAdditionalPainter(new MyBordersPainter(false));
-      LeftEditorHighlighter leftHighlighter = getLeftEditorHighlighter();
-      leftHighlighter.addBackgroundPainter(new MyLeftHighlighterPainter(leftHighlighter, false));
       getMessagesGutter().setMessageThicknessProvider(new Predicate<SimpleEditorMessage>() {
         public boolean test(SimpleEditorMessage m) {
           return false;
-        }
-      });
-      addMouseMotionListener(new MouseAdapter() {
-        @Override
-        public void mouseMoved(MouseEvent e) {
-          super.mouseMoved(e);
-          myMainLayout.selectLayers(getLayersUnderMouse(e, false));
-          myMainLayout.repaintEditorsAndSplitters();
         }
       });
     }
@@ -471,7 +288,10 @@ public class DiffEditor implements EditorMessageOwner {
     @Override
     public String getToolTipText(MouseEvent event) {
       String text = super.getToolTipText(event);
-      return (text != null && (text != null && text.length() > 0) ? text : getToolTipTextFromSelectedLayers(false));
+      if (text != null && (text != null && text.length() > 0)) {
+        return text;
+      }
+      return (myTooltipProvider != null ? myTooltipProvider.getTooltipText(event) : null);
     }
 
     @Override
@@ -502,6 +322,11 @@ public class DiffEditor implements EditorMessageOwner {
 
     public MPSNodeVirtualFile getVirtualFile() {
       return myCommandContext.getContextVirtualFile();
+    }
+
+    @Override
+    public void setTooltipProvider(TooltipProvider tooltipProvider) {
+      myTooltipProvider = tooltipProvider;
     }
   }
 

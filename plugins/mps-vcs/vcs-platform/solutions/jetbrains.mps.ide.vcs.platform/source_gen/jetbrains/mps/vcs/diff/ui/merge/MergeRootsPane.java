@@ -20,7 +20,6 @@ import java.util.Map;
 import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
-import jetbrains.mps.vcs.diff.ui.common.DiffEditorSeparator;
 import jetbrains.mps.vcs.diff.ui.common.DiffEditorsGroup;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import jetbrains.mps.vcs.diff.ui.common.NextPreviousTraverser;
@@ -79,7 +78,6 @@ public class MergeRootsPane implements PropertyChangeListener {
 
   private List<ChangeGroupLayout> myChangeGroupLayouts = ListSequence.fromList(new ArrayList<ChangeGroupLayout>());
   private Map<DiffChangeGroupLayout, Boolean> myDiffLayoutPart = MapSequence.fromMap(new HashMap<DiffChangeGroupLayout, Boolean>());
-  private List<DiffEditorSeparator> myEdtiorSeparators = ListSequence.fromList(new ArrayList<DiffEditorSeparator>());
   private DiffEditorsGroup myDiffEditorsGroup = new DiffEditorsGroup();
 
   private DefaultActionGroup myActionGroup;
@@ -149,7 +147,7 @@ public class MergeRootsPane implements PropertyChangeListener {
     }
 
     private void rehighlightWithRebuild() {
-      check_lifo0_a0a5kb(ProjectHelper.getModelAccess(myProject), this);
+      check_lifo0_a0a5jb(ProjectHelper.getModelAccess(myProject), this);
     }
     private void doRehighlight() {
       rehighlight();
@@ -191,15 +189,9 @@ public class MergeRootsPane implements PropertyChangeListener {
     linkEditors(panel, true, false);
     linkEditors(panel, false, false);
     myMainLayout = new TripleChangeGroupLayout((DiffChangeGroupLayout) ListSequence.fromList(myChangeGroupLayouts).getElement(0), (DiffChangeGroupLayout) ListSequence.fromList(myChangeGroupLayouts).getElement(1), false);
-    myMineEditor.setLayout(myMainLayout, false);
-    myResultEditor.setLayout(myMainLayout, false);
-    myRepositoryEditor.setLayout(myMainLayout, false);
     linkEditors(panel, true, true);
     linkEditors(panel, false, true);
     myInspectorLayout = new TripleChangeGroupLayout((DiffChangeGroupLayout) ListSequence.fromList(myChangeGroupLayouts).getElement(2), (DiffChangeGroupLayout) ListSequence.fromList(myChangeGroupLayouts).getElement(3), true);
-    myMineEditor.setLayout(myInspectorLayout, true);
-    myResultEditor.setLayout(myInspectorLayout, true);
-    myRepositoryEditor.setLayout(myInspectorLayout, true);
 
     panel.setPainter(new MyDividerPainter(true), Side.LEFT);
     panel.setPainter(new MyDividerPainter(false), Side.RIGHT);
@@ -248,7 +240,7 @@ public class MergeRootsPane implements PropertyChangeListener {
       TripleChangeGroupLayout layout = (inspector ? myInspectorLayout : myMainLayout);
       DiffEditor leftEditor = (mine ? myMineEditor : myResultEditor);
       DiffEditor rightEditor = (mine ? myResultEditor : myRepositoryEditor);
-      layout.paintPolygons(g, divider, inspector, leftEditor, rightEditor);
+      layout.paintPolygons(g, divider, leftEditor, rightEditor);
     }
   }
 
@@ -424,16 +416,12 @@ public class MergeRootsPane implements PropertyChangeListener {
         myActionGroup.removeAll();
       }
       myActionGroup = null;
+      myMainLayout.dispose();
+      myInspectorLayout.dispose();
       myDiffEditorsGroup.dispose();
       myMineEditor = null;
       myResultEditor = null;
       myRepositoryEditor = null;
-      ListSequence.fromList(myEdtiorSeparators).visitAll(new IVisitor<DiffEditorSeparator>() {
-        public void visit(DiffEditorSeparator s) {
-          s.dispose();
-        }
-      });
-      ListSequence.fromList(myEdtiorSeparators).clear();
       myInvalidationHandler.dispose();
       myMergeSession.setChangesInvalidateHandler(null);
       myDisposed = true;
@@ -478,7 +466,7 @@ public class MergeRootsPane implements PropertyChangeListener {
       }
     }
   }
-  private static void check_lifo0_a0a5kb(ModelAccess checkedDotOperand, final MyDifferenceListener checkedDotThisExpression) {
+  private static void check_lifo0_a0a5jb(ModelAccess checkedDotOperand, final MyDifferenceListener checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       checkedDotOperand.runReadInEDT(new Runnable() {
         public void run() {

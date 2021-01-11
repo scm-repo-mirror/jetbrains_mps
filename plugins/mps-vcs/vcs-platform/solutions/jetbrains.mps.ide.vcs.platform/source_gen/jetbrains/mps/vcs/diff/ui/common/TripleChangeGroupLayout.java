@@ -7,24 +7,30 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.util.ui.update.MergingUpdateQueue;
 import java.util.Map;
-import java.util.List;
+import jetbrains.mps.nodeEditor.AbstractAdditionalPainter;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import jetbrains.mps.nodeEditor.leftHighlighter.BackgroundWithFoldingLinePainter;
+import java.awt.event.MouseAdapter;
+import javax.swing.event.ChangeListener;
 import java.util.concurrent.atomic.AtomicInteger;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.internal.collections.runtime.IMapping;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 import jetbrains.mps.nodeEditor.EditorComponent;
-import com.intellij.util.ui.update.Update;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import com.intellij.ide.util.PropertiesComponent;
-import java.util.Objects;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.internal.collections.runtime.ISelector;
+import java.awt.event.MouseEvent;
+import javax.swing.event.ChangeEvent;
 import java.awt.Graphics;
+import jetbrains.mps.nodeEditor.AdditionalPainter;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import java.awt.Color;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import com.intellij.util.ui.update.Update;
+import java.util.List;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import com.intellij.ide.util.PropertiesComponent;
 import javax.swing.JComponent;
 import java.awt.Graphics2D;
 import com.intellij.diff.util.DiffDividerDrawUtil;
@@ -32,197 +38,377 @@ import com.intellij.diff.util.DiffDrawUtil;
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.util.ui.GraphicsUtil;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import java.util.Collections;
+import java.util.Objects;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/1801212291202741470", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
-public class TripleChangeGroupLayout implements ChangeGroupInvalidateListener {
+public final class TripleChangeGroupLayout {
 
   @NotNull
   private final DiffChangeGroupLayout myLeftLayout;
   @Nullable
   private final DiffChangeGroupLayout myRightLayout;
-  private MergingUpdateQueue myUpdateQueue;
-  private Object myUpdateIdentity = new Object();
+  private final MergingUpdateQueue myUpdateQueue;
+  private final Object myUpdateIdentity = new Object();
   private final boolean myIsInspector;
-  private Map<DiffEditor, List<ChangeLayer>> myEditorToLayersMap = MapSequence.fromMap(new HashMap<DiffEditor, List<ChangeLayer>>());
-  private Map<DiffEditor, AtomicInteger> myEditorToOffsetMap = MapSequence.fromMap(new HashMap<DiffEditor, AtomicInteger>());
+  private final ChangeGroupInvalidateListener myGroupInvalidateListener;
+  private final Map<DiffEditor, AbstractAdditionalPainter> myBackgroundPainters = MapSequence.fromMap(new HashMap<DiffEditor, AbstractAdditionalPainter>());
+  private final Map<DiffEditor, AbstractAdditionalPainter> myBordersPainters = MapSequence.fromMap(new HashMap<DiffEditor, AbstractAdditionalPainter>());
+  private final Map<DiffEditor, BackgroundWithFoldingLinePainter> myHighlighterPainters = MapSequence.fromMap(new HashMap<DiffEditor, BackgroundWithFoldingLinePainter>());
+  private final Map<DiffEditor, MouseAdapter> myMouseListeners = MapSequence.fromMap(new HashMap<DiffEditor, MouseAdapter>());
+  private final Map<DiffEditor, ChangeListener> myViewportListeners = MapSequence.fromMap(new HashMap<DiffEditor, ChangeListener>());
+  private final Map<DiffEditor, AtomicInteger> myOffsets = MapSequence.fromMap(new HashMap<DiffEditor, AtomicInteger>());
+  private final Map<DiffEditor, DiffEditorLayersHolder> myLayersHolders = MapSequence.fromMap(new HashMap<DiffEditor, DiffEditorLayersHolder>());
 
 
   public TripleChangeGroupLayout(@NotNull DiffChangeGroupLayout leftLayout, @Nullable DiffChangeGroupLayout rightLayout, boolean isInspector) {
     myLeftLayout = leftLayout;
     myRightLayout = rightLayout;
     myIsInspector = isInspector;
-    MapSequence.fromMap(myEditorToLayersMap).put(myLeftLayout.getDiffEditor(true), ListSequence.fromList(new ArrayList<ChangeLayer>()));
-    MapSequence.fromMap(myEditorToLayersMap).put(myLeftLayout.getDiffEditor(false), ListSequence.fromList(new ArrayList<ChangeLayer>()));
-    MapSequence.fromMap(myEditorToOffsetMap).put(myLeftLayout.getDiffEditor(true), new AtomicInteger());
-    MapSequence.fromMap(myEditorToOffsetMap).put(myLeftLayout.getDiffEditor(false), new AtomicInteger());
-    if (myRightLayout != null) {
-      MapSequence.fromMap(myEditorToLayersMap).put(myRightLayout.getDiffEditor(false), ListSequence.fromList(new ArrayList<ChangeLayer>()));
-      MapSequence.fromMap(myEditorToOffsetMap).put(myRightLayout.getDiffEditor(false), new AtomicInteger());
-    }
     myUpdateQueue = new MergingUpdateQueue("TripleChangeGroupLayout", 100, true, null, null, null, false);
-    check_fgmqy5_a9a01(myLeftLayout, this);
-    check_fgmqy5_a01a01(myRightLayout, this);
-    MapSequence.fromMap(myEditorToOffsetMap).visitAll(new IVisitor<IMapping<DiffEditor, AtomicInteger>>() {
-      public void visit(final IMapping<DiffEditor, AtomicInteger> it) {
-        getComponent(it.key()).getViewport().addChangeListener(new ChangeListener() {
-          public void stateChanged(ChangeEvent e) {
-            viewportChanged(it.key());
+    myGroupInvalidateListener = createLayoutInvalidateListener();
+    check_fgmqy5_a5a61(myLeftLayout, myGroupInvalidateListener);
+    check_fgmqy5_a6a61(myRightLayout, myGroupInvalidateListener);
+    ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
+      public void visit(DiffEditor it) {
+        initEditor(it);
+      }
+    });
+  }
+
+  private void initEditor(DiffEditor diffEditor) {
+    EditorComponent editorComponent = diffEditor.getEditorComponent(myIsInspector);
+    AbstractAdditionalPainter backgroundPainter = createBackgroundPainter(diffEditor);
+    MapSequence.fromMap(myBackgroundPainters).put(diffEditor, backgroundPainter);
+    editorComponent.addAdditionalPainter(backgroundPainter);
+    AbstractAdditionalPainter bordersPainter = createBordersPainter(diffEditor);
+    MapSequence.fromMap(myBordersPainters).put(diffEditor, bordersPainter);
+    editorComponent.addAdditionalPainter(bordersPainter);
+    BackgroundWithFoldingLinePainter highlighterPainter = createHighlighterPainter(diffEditor, diffEditor == myLeftLayout.getDiffEditor(true));
+    MapSequence.fromMap(myHighlighterPainters).put(diffEditor, highlighterPainter);
+    editorComponent.getLeftEditorHighlighter().addBackgroundPainter(highlighterPainter);
+    MouseAdapter mouseListener = createMouseListener(diffEditor);
+    MapSequence.fromMap(myMouseListeners).put(diffEditor, mouseListener);
+    editorComponent.addMouseListener(mouseListener);
+    editorComponent.addMouseMotionListener(mouseListener);
+    ChangeListener viewportListener = createViewportListener(diffEditor);
+    MapSequence.fromMap(myViewportListeners).put(diffEditor, viewportListener);
+    editorComponent.getViewport().addChangeListener(viewportListener);
+    if (editorComponent instanceof DiffEditor.TooltipConsumer) {
+      ((DiffEditor.TooltipConsumer) editorComponent).setTooltipProvider(createTooltipProvider(diffEditor));
+    }
+  }
+
+  private DiffEditor.TooltipProvider createTooltipProvider(final DiffEditor diffEditor) {
+    return new DiffEditor.TooltipProvider() {
+      public String getTooltipText(MouseEvent mouseEvent) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        return (layersHolder == null ? null : layersHolder.getToolTipTextFromSelectedLayers());
+      }
+    };
+  }
+
+  private void disposeEditor(DiffEditor diffEditor) {
+    EditorComponent editorComponent = diffEditor.getEditorComponent(myIsInspector);
+    editorComponent.removeAdditionalPainter(MapSequence.fromMap(myBackgroundPainters).get(diffEditor));
+    editorComponent.removeAdditionalPainter(MapSequence.fromMap(myBordersPainters).get(diffEditor));
+    editorComponent.getLeftEditorHighlighter().removeBackgroundAreaPainter(MapSequence.fromMap(myHighlighterPainters).get(diffEditor));
+    MouseAdapter mouseListener = MapSequence.fromMap(myMouseListeners).get(diffEditor);
+    editorComponent.removeMouseListener(mouseListener);
+    editorComponent.removeMouseMotionListener(mouseListener);
+    editorComponent.getViewport().removeChangeListener(MapSequence.fromMap(myViewportListeners).get(diffEditor));
+  }
+
+  private ChangeListener createViewportListener(final DiffEditor diffEditor) {
+    MapSequence.fromMap(myOffsets).put(diffEditor, new AtomicInteger());
+    final EditorComponent editorComponent = diffEditor.getEditorComponent(myIsInspector);
+    return new ChangeListener() {
+      @Override
+      public void stateChanged(ChangeEvent e) {
+        MapSequence.fromMap(myOffsets).get(diffEditor).set(-editorComponent.getViewport().getViewPosition().y);
+        if (myLeftLayout.getDiffEditor(false) == diffEditor || myLeftLayout.getDiffEditor(true) == diffEditor) {
+          myLeftLayout.repaintSplitter();
+        }
+        if (myRightLayout != null && (myRightLayout.getDiffEditor(false) == diffEditor || myRightLayout.getDiffEditor(true) == diffEditor)) {
+          myRightLayout.repaintSplitter();
+        }
+      }
+    };
+  }
+
+  @NotNull
+  private AbstractAdditionalPainter createBackgroundPainter(final DiffEditor diffEditor) {
+    return new AbstractAdditionalPainter<Object>() {
+      @Override
+      public boolean paintsAbove() {
+        return false;
+      }
+
+      @Override
+      public void paint(Graphics p1, EditorComponent p2) {
+      }
+
+      @Override
+      public boolean paintsBackground() {
+        return true;
+      }
+
+      @Override
+      public boolean isAbove(AdditionalPainter additionalPainter, EditorComponent editorComponent) {
+        return false;
+      }
+
+      @Override
+      public void paintBackground(final Graphics g, final EditorComponent editor) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        if (layersHolder == null) {
+          return;
+        }
+        ListSequence.fromList(layersHolder.getLayers()).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer layer) {
+            layer.paintRectangle(g, editor.getWidth(), editor.getBackground());
           }
         });
       }
-    });
+
+      @Override
+      public Object getItem() {
+        return null;
+      }
+    };
   }
 
-  private EditorComponent getComponent(DiffEditor editor) {
-    return editor.getEditorComponent(myIsInspector);
+  @NotNull
+  private AbstractAdditionalPainter createBordersPainter(final DiffEditor diffEditor) {
+    return new AbstractAdditionalPainter<Object>() {
+      @Override
+      public boolean paintsAbove() {
+        return true;
+      }
+
+      @Override
+      public void paint(final Graphics g, final EditorComponent editor) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        if (layersHolder == null) {
+          return;
+        }
+        ListSequence.fromList(layersHolder.getLayers()).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer layer) {
+            layer.paintRectangleBorders(g, editor.getWidth(), editor.getBackground());
+          }
+        });
+        ListSequence.fromList(layersHolder.getLayers()).where(new IWhereFilter<DiffEditorChangeLayer>() {
+          public boolean accept(DiffEditorChangeLayer layer) {
+            return layer.isSelected();
+          }
+        }).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer it) {
+            it.paintSelectedRectangle(g, editor.getWidth(), editor.getBackground());
+          }
+        });
+      }
+
+      @Override
+      public boolean paintsBackground() {
+        return false;
+      }
+
+
+      @Override
+      public boolean isAbove(AdditionalPainter additionalPainter, EditorComponent editorComponent) {
+        return false;
+      }
+
+      @Override
+      public void paintBackground(Graphics p1, EditorComponent p2) {
+      }
+
+      @Override
+      public Object getItem() {
+        return null;
+      }
+    };
   }
 
-  private void viewportChanged(DiffEditor editor) {
-    MapSequence.fromMap(myEditorToOffsetMap).get(editor).set(-getComponent(editor).getViewport().getViewPosition().y);
-    if (myLeftLayout.getDiffEditor(false) == editor || myLeftLayout.getDiffEditor(true) == editor) {
-      myLeftLayout.repaintSplitter();
-    }
-    if (myRightLayout != null && (myRightLayout.getDiffEditor(false) == editor || myRightLayout.getDiffEditor(true) == editor)) {
-      myRightLayout.repaintSplitter();
-    }
-  }
+  @NotNull
+  private BackgroundWithFoldingLinePainter createHighlighterPainter(final DiffEditor diffEditor, final boolean rightToLeft) {
+    final EditorComponent editorComponent = diffEditor.getEditorComponent(myIsInspector);
 
-  @Override
-  public void changeGroupsInvalidated() {
-    myUpdateQueue.queue(new Update(myUpdateIdentity) {
-      public void run() {
-        updateChangeLayers();
+    return new BackgroundWithFoldingLinePainter(editorComponent.getLeftEditorHighlighter(), myIsInspector) {
+      @Override
+      public int getWeight() {
+        return 2;
+      }
+
+      @Override
+      public void mouseExited(MouseEvent e) {
+      }
+
+      @Override
+      public void mouseMoved(MouseEvent e) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        if (layersHolder == null) {
+          return;
+        }
+        selectLayers(layersHolder.getLayersUnderMouse(e));
         repaintEditorsAndSplitters();
       }
-    });
+
+      @Override
+      public String getToolTipText() {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        return (layersHolder == null ? null : layersHolder.getToolTipTextFromSelectedLayers());
+      }
+
+      @Override
+      public void paint(final Graphics g) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        if (layersHolder == null) {
+          return;
+        }
+        final int x = getLeftHighlighter().getX();
+        final int width = getLeftHighlighter().getWidth();
+        final int foldingLineX = getLeftHighlighter().getFoldingLineX();
+        final int foldingLineWidth = getLeftHighlighter().getFoldingLineWidth();
+        final Color editorColor = getEditorComponent().getBackground();
+        final Color lineColor = getDottedLineFgLineColor();
+        ListSequence.fromList(layersHolder.getLayers()).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer layer) {
+            layer.paintHighlighter(g, x, width, foldingLineX, foldingLineWidth, editorColor, lineColor, rightToLeft);
+          }
+        });
+        ListSequence.fromList(layersHolder.getLayers()).where(new IWhereFilter<DiffEditorChangeLayer>() {
+          public boolean accept(DiffEditorChangeLayer layer) {
+            return layer.isSelected();
+          }
+        }).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer layer) {
+            layer.paintHighlighterBorders(g, x, width, foldingLineX, foldingLineWidth, lineColor);
+          }
+        });
+      }
+    };
   }
 
-  public synchronized void updateChangeLayers() {
-    Sequence.fromIterable(MapSequence.fromMap(myEditorToLayersMap).values()).visitAll(new IVisitor<List<ChangeLayer>>() {
-      public void visit(List<ChangeLayer> it) {
-        ListSequence.fromList(it).clear();
+
+  @NotNull
+  private MouseAdapter createMouseListener(final DiffEditor diffEditor) {
+    return new MouseAdapter() {
+      @Override
+      public void mouseMoved(MouseEvent e) {
+        DiffEditorLayersHolder layersHolder = MapSequence.fromMap(myLayersHolders).get(diffEditor);
+        if (layersHolder == null) {
+          return;
+        }
+        selectLayers(layersHolder.getLayersUnderMouse(e));
+        repaintEditorsAndSplitters();
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+        selectLayers(Sequence.fromIterable(Collections.emptyList()));
+        repaintEditorsAndSplitters();
+      }
+    };
+  }
+
+  private ChangeGroupInvalidateListener createLayoutInvalidateListener() {
+    return new ChangeGroupInvalidateListener() {
+      public void changeGroupsInvalidated() {
+        myUpdateQueue.queue(new Update(myUpdateIdentity) {
+          public void run() {
+            updateChangeLayers();
+            repaintEditorsAndSplitters();
+          }
+        });
+      }
+    };
+  }
+
+  public void dispose() {
+    ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
+      public void visit(DiffEditor it) {
+        disposeEditor(it);
       }
     });
+    check_fgmqy5_a1a73(myLeftLayout, myGroupInvalidateListener);
+    check_fgmqy5_a2a73(myRightLayout, myGroupInvalidateListener);
+  }
+
+  private synchronized void updateChangeLayers() {
+    MapSequence.fromMap(myLayersHolders).clear();
     if (myLeftLayout.isValid()) {
       createLayers(myLeftLayout);
     }
     if (myRightLayout != null && myRightLayout.isValid()) {
       createLayers(myRightLayout);
     }
-    Sequence.fromIterable(MapSequence.fromMap(myEditorToLayersMap).values()).visitAll(new IVisitor<List<ChangeLayer>>() {
-      public void visit(List<ChangeLayer> layers) {
-        buildLayersHierarchy(layers);
+    ListSequence.fromList(getDiffLayersHolders()).visitAll(new IVisitor<DiffEditorLayersHolder>() {
+      public void visit(DiffEditorLayersHolder it) {
+        it.buildLayersHierarchy();
       }
     });
-    Sequence.fromIterable(MapSequence.fromMap(myEditorToLayersMap).values()).visitAll(new IVisitor<List<ChangeLayer>>() {
-      public void visit(List<ChangeLayer> layers) {
-        sortLayers(layers);
+    ListSequence.fromList(getDiffLayersHolders()).visitAll(new IVisitor<DiffEditorLayersHolder>() {
+      public void visit(DiffEditorLayersHolder it) {
+        it.sortLayers();
       }
     });
-    Sequence.fromIterable(MapSequence.fromMap(myEditorToLayersMap).values()).visitAll(new IVisitor<List<ChangeLayer>>() {
-      public void visit(List<ChangeLayer> layers) {
-        calculateLayersCoordinates(layers);
+    ListSequence.fromList(getDiffLayersHolders()).visitAll(new IVisitor<DiffEditorLayersHolder>() {
+      public void visit(DiffEditorLayersHolder it) {
+        it.calculateLayersCoordinates();
       }
     });
   }
 
-  private void createLayers(DiffChangeGroupLayout layout) {
+  private List<DiffEditor> getEditors() {
+    List<DiffEditor> result = ListSequence.fromList(new ArrayList<DiffEditor>());
+    if (myLeftLayout.isValid()) {
+      ListSequence.fromList(result).addElement(myLeftLayout.getDiffEditor(true));
+      ListSequence.fromList(result).addElement(myLeftLayout.getDiffEditor(false));
+    }
+    if (myRightLayout != null && myRightLayout.isValid()) {
+      ListSequence.fromList(result).addElement(myRightLayout.getDiffEditor(false));
+    }
+    return result;
+  }
 
-    final List<ChangeLayer> leftLayers = ListSequence.fromList(new ArrayList<ChangeLayer>());
-    final List<ChangeLayer> rightLayers = ListSequence.fromList(new ArrayList<ChangeLayer>());
+  private List<DiffEditorLayersHolder> getDiffLayersHolders() {
+    return ListSequence.fromList(getEditors()).select(new ISelector<DiffEditor, DiffEditorLayersHolder>() {
+      public DiffEditorLayersHolder select(DiffEditor it) {
+        return MapSequence.fromMap(myLayersHolders).get(it);
+      }
+    }).where(new NotNullWhereFilter<DiffEditorLayersHolder>()).toListSequence();
+  }
+
+  private void createLayers(DiffChangeGroupLayout layout) {
+    DiffEditor leftEditor = layout.getDiffEditor(true);
+    DiffEditor rightEditor = layout.getDiffEditor(false);
     final boolean trackMovedNodes = PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false);
+    final List<DiffEditorChangeLayer> leftLayers = ListSequence.fromList(new ArrayList<DiffEditorChangeLayer>());
+    final List<DiffEditorChangeLayer> rightLayers = ListSequence.fromList(new ArrayList<DiffEditorChangeLayer>());
     ListSequence.fromList(layout.getChangeGroups()).visitAll(new IVisitor<ChangeGroup>() {
-      public void visit(ChangeGroup it) {
-        ChangeLayer leftLayer = new ChangeLayer(it, true, trackMovedNodes);
-        ChangeLayer rightLayer = new ChangeLayer(it, false, trackMovedNodes);
+      public void visit(ChangeGroup group) {
+        DiffEditorChangeLayer leftLayer = new DiffEditorChangeLayer(group, true, trackMovedNodes);
+        DiffEditorChangeLayer rightLayer = new DiffEditorChangeLayer(group, false, trackMovedNodes);
         leftLayer.setOppositeLayer(rightLayer);
         rightLayer.setOppositeLayer(leftLayer);
         ListSequence.fromList(leftLayers).addElement(leftLayer);
         ListSequence.fromList(rightLayers).addElement(rightLayer);
       }
     });
-    ListSequence.fromList(MapSequence.fromMap(myEditorToLayersMap).get(layout.getDiffEditor(true))).addSequence(ListSequence.fromList(leftLayers));
-    ListSequence.fromList(MapSequence.fromMap(myEditorToLayersMap).get(layout.getDiffEditor(false))).addSequence(ListSequence.fromList(rightLayers));
+    saveLayers(leftEditor, leftLayers);
+    saveLayers(rightEditor, rightLayers);
   }
 
-  private static void buildLayersHierarchy(List<ChangeLayer> layers) {
-    for (int i = 0; i < ListSequence.fromList(layers).count(); i++) {
-      ChangeLayer l1 = ListSequence.fromList(layers).getElement(i);
-      Bounds b1 = l1.getGroupBounds();
-      for (int j = i + 1; j < ListSequence.fromList(layers).count(); j++) {
-        ChangeLayer l2 = ListSequence.fromList(layers).getElement(j);
-        Bounds b2 = l2.getGroupBounds();
-        if (!(Objects.equals(b1, b2))) {
-          if (b2.contains(b1)) {
-            l2.addChild(l1);
-          }
-          if (b1.contains(b2)) {
-            l1.addChild(l2);
-          }
-        }
-      }
+  private void saveLayers(DiffEditor diffEditor, List<DiffEditorChangeLayer> layers) {
+    if (MapSequence.fromMap(myLayersHolders).containsKey(diffEditor)) {
+      ListSequence.fromList(layers).addSequence(ListSequence.fromList(MapSequence.fromMap(myLayersHolders).get(diffEditor).getLayers()));
     }
-    ListSequence.fromList(layers).where(new IWhereFilter<ChangeLayer>() {
-      public boolean accept(ChangeLayer it) {
-        return !(it.hasParent());
-      }
-    }).visitAll(new IVisitor<ChangeLayer>() {
-      public void visit(ChangeLayer it) {
-        it.setRankAndParent(0, null);
-      }
-    });
+    MapSequence.fromMap(myLayersHolders).put(diffEditor, new DiffEditorLayersHolder(layers));
   }
 
-  private static void sortLayers(List<ChangeLayer> layers) {
-    List<ChangeLayer> sortedLayers = ListSequence.fromList(layers).sort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
-        return it.getRank();
-      }
-    }, true).alsoSort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
-        return getNeighbourRank(it, false);
-      }
-    }, true).alsoSort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
-        return getNeighbourRank(it, true);
-      }
-    }, true).toListSequence();
-    ListSequence.fromList(layers).clear();
-    ListSequence.fromList(layers).addSequence(ListSequence.fromList(sortedLayers));
-  }
-
-  private static int getNeighbourRank(ChangeLayer layer, boolean right) {
-    if (layer.isLeft() != right) {
-      return 0;
-    }
-    return layer.getOppositeLayer().getRank();
-  }
-
-  private static void calculateLayersCoordinates(final List<ChangeLayer> layers) {
-    ListSequence.fromList(layers).sort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
-        return it.getGroupBounds()._0();
-      }
-    }, true).alsoSort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
-        return it.getGroupBounds()._1();
-      }
-    }, true).visitAll(new IVisitor<ChangeLayer>() {
-      public void visit(final ChangeLayer layer) {
-        layer.calculateCoordinates(ListSequence.fromList(layers).where(new IWhereFilter<ChangeLayer>() {
-          public boolean accept(ChangeLayer it) {
-            return it != layer;
-          }
-        }));
-      }
-    });
-  }
-
-  public synchronized void paintPolygons(@NotNull Graphics g, @NotNull JComponent divider, boolean inspector, DiffEditor leftEditor, DiffEditor rightEditor) {
-    Graphics2D gg = DiffDividerDrawUtil.getDividerGraphics(g, divider, leftEditor.getComponent(inspector));
+  public synchronized void paintPolygons(@NotNull Graphics g, @NotNull JComponent divider, DiffEditor leftEditor, DiffEditor rightEditor) {
+    Graphics2D gg = DiffDividerDrawUtil.getDividerGraphics(g, divider, leftEditor.getComponent(myIsInspector));
     paintDividerBackground(gg);
-    paintPolygons(gg, divider.getWidth(), leftEditor, rightEditor, inspector);
+    paintPolygons(gg, divider.getWidth(), leftEditor, rightEditor);
     gg.dispose();
   }
 
@@ -231,44 +417,104 @@ public class TripleChangeGroupLayout implements ChangeGroupInvalidateListener {
     gg.fill(gg.getClipBounds());
   }
 
-  private void paintPolygons(final Graphics2D gg, final int width, DiffEditor leftEditor, DiffEditor rightEditor, boolean inspector) {
+  private void paintPolygons(final Graphics2D gg, final int dividerWidth, DiffEditor leftEditor, DiffEditor rightEditor) {
     GraphicsConfig config = GraphicsUtil.setupAAPainting(gg);
-    final Wrappers._int leftOffset = new Wrappers._int(MapSequence.fromMap(myEditorToOffsetMap).get(leftEditor).get());
-    leftOffset.value += leftEditor.getMessagesPanelOffset(inspector);
-    final Wrappers._int rightOffset = new Wrappers._int(MapSequence.fromMap(myEditorToOffsetMap).get(rightEditor).get());
-    rightOffset.value += rightEditor.getMessagesPanelOffset(inspector);
+    final Wrappers._int leftOffset = new Wrappers._int(check_fgmqy5_a0b0bc(MapSequence.fromMap(myOffsets).get(leftEditor)));
+    leftOffset.value += leftEditor.getMessagesPanelOffset(myIsInspector);
+    final Wrappers._int rightOffset = new Wrappers._int(check_fgmqy5_a0d0bc(MapSequence.fromMap(myOffsets).get(rightEditor)));
+    rightOffset.value += rightEditor.getMessagesPanelOffset(myIsInspector);
 
-    ListSequence.fromList(MapSequence.fromMap(myEditorToLayersMap).get(leftEditor)).visitAll(new IVisitor<ChangeLayer>() {
-      public void visit(ChangeLayer layer) {
-        layer.paintPolygon(gg, leftOffset.value, rightOffset.value, width);
+    DiffEditorLayersHolder leftHolder = MapSequence.fromMap(myLayersHolders).get(leftEditor);
+    DiffEditorLayersHolder rightHolder = MapSequence.fromMap(myLayersHolders).get(rightEditor);
+
+    if (leftHolder == null || rightHolder == null) {
+      return;
+    }
+
+    List<DiffEditorChangeLayer> leftLayers = leftHolder.getLayers();
+    final List<DiffEditorChangeLayer> rightLayers = rightHolder.getLayers();
+
+    List<LayerPolygonsPainter> painters = ListSequence.fromList(leftLayers).where(new IWhereFilter<DiffEditorChangeLayer>() {
+      public boolean accept(DiffEditorChangeLayer leftLayer) {
+        return ListSequence.fromList(rightLayers).contains(leftLayer.getOppositeLayer());
+      }
+    }).select(new ISelector<DiffEditorChangeLayer, LayerPolygonsPainter>() {
+      public LayerPolygonsPainter select(DiffEditorChangeLayer leftLayer) {
+        return new LayerPolygonsPainter(leftLayer, leftLayer.getOppositeLayer(), leftOffset.value, rightOffset.value);
+      }
+    }).toListSequence();
+
+    ListSequence.fromList(painters).visitAll(new IVisitor<LayerPolygonsPainter>() {
+      public void visit(LayerPolygonsPainter it) {
+        it.fillPolygon(gg, dividerWidth);
       }
     });
-    ListSequence.fromList(MapSequence.fromMap(myEditorToLayersMap).get(leftEditor)).where(new IWhereFilter<ChangeLayer>() {
-      public boolean accept(ChangeLayer it) {
-        return it.isSelected();
+    ListSequence.fromList(painters).where(new IWhereFilter<LayerPolygonsPainter>() {
+      public boolean accept(LayerPolygonsPainter it) {
+        return it.drawsBorders();
       }
-    }).visitAll(new IVisitor<ChangeLayer>() {
-      public void visit(ChangeLayer it) {
-        it.paintSelectedPolygon(gg, leftOffset.value, rightOffset.value, width);
+    }).visitAll(new IVisitor<LayerPolygonsPainter>() {
+      public void visit(LayerPolygonsPainter it) {
+        it.drawBorders(gg, dividerWidth);
       }
     });
     config.restore();
   }
 
-  @NotNull
-  public List<ChangeLayer> getChangeLayers(DiffEditor editor) {
-    List<ChangeLayer> layers = MapSequence.fromMap(myEditorToLayersMap).get(editor);
-    if (layers == null) {
-      return Collections.emptyList();
+  private static class LayerPolygonsPainter {
+
+    private final int myLeftStart;
+    private final int myLeftEnd;
+    private final int myRightStart;
+    private final int myRightEnd;
+    private final Color myFillColor;
+    private final Color myBorderColor;
+    private final boolean myHasBorders;
+    private final boolean myHasShadow;
+    private final boolean myisSelected;
+
+
+    public LayerPolygonsPainter(@NotNull DiffEditorChangeLayer leftLayer, @NotNull DiffEditorChangeLayer rightLayer, int leftOffset, int rightOffset) {
+      myLeftStart = leftLayer.getY() + leftOffset;
+      myLeftEnd = leftLayer.getEndY() + leftOffset;
+      myRightStart = rightLayer.getY() + rightOffset;
+      myRightEnd = rightLayer.getEndY() + rightOffset;
+      assert Objects.equals(leftLayer.getColor(), rightLayer.getColor());
+      myFillColor = leftLayer.getColor();
+      assert Objects.equals(leftLayer.getBorderColor(), rightLayer.getBorderColor());
+      myHasBorders = leftLayer.hasBorders() || rightLayer.hasBorders();
+      myHasShadow = leftLayer.hasShadow() || rightLayer.hasShadow();
+      myBorderColor = (myHasBorders ? leftLayer.getBorderColor() : null);
+      myisSelected = leftLayer.isSelected() || rightLayer.isSelected();
     }
-    return layers;
+
+    public boolean drawsBorders() {
+      return myisSelected && myHasBorders;
+    }
+
+    public void fillPolygon(@NotNull Graphics2D gg, int dividerWidth) {
+      if (myHasBorders && myHasShadow) {
+        paintPolygon(gg, myLeftStart, myRightStart, myLeftEnd + 2, myRightEnd + 2, DiffEditorChangeLayer.SHADOW_2, DiffEditorChangeLayer.SHADOW_2, dividerWidth);
+        paintPolygon(gg, myLeftStart, myRightStart, myLeftEnd + 1, myRightEnd + 1, DiffEditorChangeLayer.SHADOW_1, DiffEditorChangeLayer.SHADOW_1, dividerWidth);
+      }
+      paintPolygon(gg, myLeftStart, myRightStart, myLeftEnd, myRightEnd, myFillColor, myBorderColor, dividerWidth);
+    }
+
+    public void drawBorders(@NotNull Graphics2D gg, int dividerWidth) {
+      paintPolygon(gg, myLeftStart - 1, myRightStart - 1, myLeftEnd + 1, myRightEnd + 1, null, DiffEditorChangeLayer.SELECTED_LAYER_BORDER_COLOR, dividerWidth);
+      paintPolygon(gg, myLeftStart, myRightStart, myLeftEnd, myRightEnd, null, DiffEditorChangeLayer.SELECTED_LAYER_BORDER_COLOR, dividerWidth);
+    }
+
+    private void paintPolygon(@NotNull Graphics2D gg, int leftStart, int rightStart, int leftEnd, int rightEnd, Color fillColor, Color borderColor, int dividerWidth) {
+      new DiffDividerDrawUtil.DividerPolygon(leftStart, rightStart, leftEnd, rightEnd, fillColor, borderColor, false).paint(gg, dividerWidth, true);
+    }
   }
 
-  public synchronized void selectLayers(Iterable<ChangeLayer> layers) {
-    Sequence.fromIterable(MapSequence.fromMap(myEditorToLayersMap).values()).visitAll(new IVisitor<List<ChangeLayer>>() {
-      public void visit(List<ChangeLayer> layers) {
-        ListSequence.fromList(layers).visitAll(new IVisitor<ChangeLayer>() {
-          public void visit(ChangeLayer layer) {
+  /*package*/ synchronized void selectLayers(Iterable<DiffEditorChangeLayer> layers) {
+    ListSequence.fromList(getDiffLayersHolders()).visitAll(new IVisitor<DiffEditorLayersHolder>() {
+      public void visit(DiffEditorLayersHolder it) {
+        ListSequence.fromList(it.getLayers()).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+          public void visit(DiffEditorChangeLayer layer) {
             layer.setSelected(false);
           }
         });
@@ -277,55 +523,69 @@ public class TripleChangeGroupLayout implements ChangeGroupInvalidateListener {
     if (Sequence.fromIterable(layers).isEmpty()) {
       return;
     }
-    final int maxRank = Sequence.fromIterable(layers).sort(new ISelector<ChangeLayer, Integer>() {
-      public Integer select(ChangeLayer it) {
+    final int maxRank = Sequence.fromIterable(layers).sort(new ISelector<DiffEditorChangeLayer, Integer>() {
+      public Integer select(DiffEditorChangeLayer it) {
         return it.getRank();
       }
     }, true).last().getRank();
-    Sequence.fromIterable(layers).where(new IWhereFilter<ChangeLayer>() {
-      public boolean accept(ChangeLayer it) {
+    Sequence.fromIterable(layers).where(new IWhereFilter<DiffEditorChangeLayer>() {
+      public boolean accept(DiffEditorChangeLayer it) {
         return it.getRank() == maxRank;
       }
-    }).visitAll(new IVisitor<ChangeLayer>() {
-      public void visit(ChangeLayer it) {
+    }).visitAll(new IVisitor<DiffEditorChangeLayer>() {
+      public void visit(DiffEditorChangeLayer it) {
         it.setSelected(true);
         it.getOppositeLayer().setSelected(true);
       }
     });
   }
 
-  public void repaintEditorsAndSplitters() {
-    myLeftLayout.getDiffEditor(true).repaintAndRebuildEditorMessages();
-    myLeftLayout.getDiffEditor(false).repaintAndRebuildEditorMessages();
+  /*package*/ void repaintEditorsAndSplitters() {
+    ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
+      public void visit(DiffEditor it) {
+        it.repaintAndRebuildEditorMessages();
+      }
+    });
     myLeftLayout.repaintSplitter();
-    check_fgmqy5_a3a04(check_fgmqy5_a0d0ob(myRightLayout));
-    check_fgmqy5_a4a04(myRightLayout);
+    check_fgmqy5_a2a95(myRightLayout);
   }
-  private static void check_fgmqy5_a9a01(DiffChangeGroupLayout checkedDotOperand, TripleChangeGroupLayout checkedDotThisExpression) {
+  private static void check_fgmqy5_a5a61(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
-      checkedDotOperand.addInvalidateListener(checkedDotThisExpression);
+      checkedDotOperand.addInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static void check_fgmqy5_a01a01(DiffChangeGroupLayout checkedDotOperand, TripleChangeGroupLayout checkedDotThisExpression) {
+  private static void check_fgmqy5_a6a61(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
-      checkedDotOperand.addInvalidateListener(checkedDotThisExpression);
+      checkedDotOperand.addInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static void check_fgmqy5_a3a04(DiffEditor checkedDotOperand) {
+  private static void check_fgmqy5_a1a73(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
-      checkedDotOperand.repaintAndRebuildEditorMessages();
+      checkedDotOperand.removeInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static DiffEditor check_fgmqy5_a0d0ob(DiffChangeGroupLayout checkedDotOperand) {
+  private static void check_fgmqy5_a2a73(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
-      return checkedDotOperand.getDiffEditor(false);
+      checkedDotOperand.removeInvalidateListener(myGroupInvalidateListener);
     }
-    return null;
+
   }
-  private static void check_fgmqy5_a4a04(DiffChangeGroupLayout checkedDotOperand) {
+  private static int check_fgmqy5_a0b0bc(AtomicInteger checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.get();
+    }
+    return 0;
+  }
+  private static int check_fgmqy5_a0d0bc(AtomicInteger checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.get();
+    }
+    return 0;
+  }
+  private static void check_fgmqy5_a2a95(DiffChangeGroupLayout checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.repaintSplitter();
     }
