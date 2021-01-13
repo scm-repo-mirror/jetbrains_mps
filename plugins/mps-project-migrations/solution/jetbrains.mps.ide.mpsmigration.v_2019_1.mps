@@ -11,12 +11,11 @@
   </languages>
   <imports>
     <import index="bdll" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.migration.global(MPS.Platform/)" />
-    <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
-    <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
+    <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -31,9 +30,6 @@
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
-        <child id="1154032183016" name="body" index="2LFqv$" />
       </concept>
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
@@ -56,19 +52,11 @@
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
-      <concept id="1070534760951" name="jetbrains.mps.baseLanguage.structure.ArrayType" flags="in" index="10Q1$e">
-        <child id="1070534760952" name="componentType" index="10Q1$1" />
-      </concept>
       <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
         <child id="1070534934091" name="type" index="10QFUM" />
         <child id="1070534934092" name="expression" index="10QFUP" />
       </concept>
-      <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg">
-        <property id="8606350594693632173" name="isTransient" index="eg7rD" />
-        <property id="1240249534625" name="isVolatile" index="34CwA1" />
-      </concept>
       <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu">
-        <child id="1095933932569" name="implementedInterface" index="EKbjA" />
         <child id="1165602531693" name="superclass" index="1zkMxy" />
       </concept>
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
@@ -79,7 +67,6 @@
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
-      <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -123,10 +110,6 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1154542696413" name="jetbrains.mps.baseLanguage.structure.ArrayCreatorWithInitializer" flags="nn" index="3g6Rrh">
-        <child id="1154542793668" name="componentType" index="3g7fb8" />
-        <child id="1154542803372" name="initValue" index="3g7hyw" />
-      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -137,6 +120,7 @@
       </concept>
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
+        <child id="1109201940907" name="parameter" index="11_B2D" />
       </concept>
       <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
@@ -149,12 +133,6 @@
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
-      <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
-        <child id="1144226360166" name="iterable" index="1DdaDG" />
-      </concept>
-      <concept id="1144230876926" name="jetbrains.mps.baseLanguage.structure.AbstractForStatement" flags="nn" index="1DupvO">
-        <child id="1144230900587" name="variable" index="1Duv9x" />
-      </concept>
       <concept id="5351203823916750322" name="jetbrains.mps.baseLanguage.structure.TryUniversalStatement" flags="nn" index="3J1_TO">
         <child id="8276990574886367510" name="catchClause" index="1zxBo5" />
         <child id="8276990574886367508" name="body" index="1zxBo7" />
@@ -163,7 +141,6 @@
         <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
-      <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
@@ -223,147 +200,56 @@
   </registry>
   <node concept="312cEu" id="6MHXMmJyBt2">
     <property role="TrG5h" value="Migrations_2019_1" />
-    <node concept="312cEg" id="25gV4Ls$Naf" role="jymVt">
-      <property role="34CwA1" value="false" />
-      <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="myMigrations" />
-      <property role="3TUv4t" value="true" />
-      <node concept="10Q1$e" id="25gV4Ls$Nai" role="1tU5fm">
-        <node concept="3uibUv" id="25gV4Ls$Nah" role="10Q1$1">
-          <ref role="3uigEE" to="bdll:~ProjectMigration" resolve="ProjectMigration" />
+    <node concept="3clFb_" id="30LZLzbjFYo" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="offerInto" />
+      <property role="DiZV1" value="false" />
+      <property role="od$2w" value="false" />
+      <node concept="3Tm1VV" id="30LZLzbjFYp" role="1B3o_S" />
+      <node concept="3cqZAl" id="30LZLzbjFYq" role="3clF45" />
+      <node concept="3clFbS" id="30LZLzbjFYr" role="3clF47">
+        <node concept="3clFbF" id="30LZLzbjBjI" role="3cqZAp">
+          <node concept="2OqwBi" id="30LZLzbjB$j" role="3clFbG">
+            <node concept="37vLTw" id="30LZLzbjBjH" role="2Oq$k0">
+              <ref role="3cqZAo" node="30LZLzbjBhu" resolve="migrations" />
+            </node>
+            <node concept="liA8E" id="30LZLzbjC3c" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~Deque.push(java.lang.Object)" resolve="push" />
+              <node concept="2ShNRf" id="5nAbEdOhzZt" role="37wK5m">
+                <node concept="1pGfFk" id="4SW3WgM5TNm" role="2ShVmc">
+                  <ref role="37wK5l" node="3dvEHZam2V0" resolve="UpdateJavaStubMethodRefs" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="30LZLzbjGvM" role="3cqZAp">
+          <node concept="2OqwBi" id="30LZLzbjGvN" role="3clFbG">
+            <node concept="37vLTw" id="30LZLzbjGvO" role="2Oq$k0">
+              <ref role="3cqZAo" node="30LZLzbjBhu" resolve="migrations" />
+            </node>
+            <node concept="liA8E" id="30LZLzbjGvP" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~Deque.push(java.lang.Object)" resolve="push" />
+              <node concept="2ShNRf" id="6xZP_SSXbII" role="37wK5m">
+                <node concept="1pGfFk" id="6xZP_SSXbIJ" role="2ShVmc">
+                  <ref role="37wK5l" node="6xZP_SSXgx6" resolve="SaveAllJavaStubMethodRefsToShortForeignFormat" />
+                </node>
+              </node>
+            </node>
+          </node>
         </node>
       </node>
-      <node concept="2ShNRf" id="25gV4Ls$Nan" role="33vP2m">
-        <node concept="3g6Rrh" id="25gV4Ls$Nam" role="2ShVmc">
-          <node concept="3uibUv" id="25gV4Ls$Naj" role="3g7fb8">
+      <node concept="37vLTG" id="30LZLzbjBhu" role="3clF46">
+        <property role="TrG5h" value="migrations" />
+        <node concept="3uibUv" id="30LZLzbjBht" role="1tU5fm">
+          <ref role="3uigEE" to="33ny:~Deque" resolve="Deque" />
+          <node concept="3uibUv" id="30LZLzbjBil" role="11_B2D">
             <ref role="3uigEE" to="bdll:~ProjectMigration" resolve="ProjectMigration" />
           </node>
-          <node concept="2ShNRf" id="5nAbEdOhzZt" role="3g7hyw">
-            <node concept="1pGfFk" id="4SW3WgM5TNm" role="2ShVmc">
-              <ref role="37wK5l" node="3dvEHZam2V0" resolve="UpdateJavaStubMethodRefs" />
-            </node>
-          </node>
-          <node concept="2ShNRf" id="6xZP_SSXbII" role="3g7hyw">
-            <node concept="1pGfFk" id="6xZP_SSXbIJ" role="2ShVmc">
-              <ref role="37wK5l" node="6xZP_SSXgx6" resolve="SaveAllJavaStubMethodRefsToShortForeignFormat" />
-            </node>
-          </node>
         </node>
       </node>
-      <node concept="3Tm6S6" id="25gV4Ls$Nao" role="1B3o_S" />
     </node>
-    <node concept="2tJIrI" id="6MHXMmJyBDl" role="jymVt" />
     <node concept="3Tm1VV" id="6MHXMmJyBt3" role="1B3o_S" />
-    <node concept="3clFb_" id="6MHXMmJyBuZ" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="initComponent" />
-      <property role="DiZV1" value="false" />
-      <property role="od$2w" value="false" />
-      <node concept="3Tm1VV" id="6MHXMmJyBv0" role="1B3o_S" />
-      <node concept="3cqZAl" id="6MHXMmJyBv2" role="3clF45" />
-      <node concept="3clFbS" id="6MHXMmJyBv4" role="3clF47">
-        <node concept="1DcWWT" id="25gV4Ls$Nas" role="3cqZAp">
-          <node concept="37vLTw" id="25gV4Ls$NaB" role="1DdaDG">
-            <ref role="3cqZAo" node="25gV4Ls$Naf" resolve="myMigrations" />
-          </node>
-          <node concept="3cpWsn" id="25gV4Ls$Na$" role="1Duv9x">
-            <property role="3TUv4t" value="false" />
-            <property role="TrG5h" value="pm" />
-            <node concept="3uibUv" id="25gV4Ls$NaA" role="1tU5fm">
-              <ref role="3uigEE" to="bdll:~ProjectMigration" resolve="ProjectMigration" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="25gV4Ls$Nau" role="2LFqv$">
-            <node concept="3clFbF" id="25gV4Ls$Nav" role="3cqZAp">
-              <node concept="2OqwBi" id="25gV4Ls$Naw" role="3clFbG">
-                <node concept="2YIFZM" id="25gV4Ls$Pfo" role="2Oq$k0">
-                  <ref role="1Pybhc" to="bdll:~ProjectMigrationsRegistry" resolve="ProjectMigrationsRegistry" />
-                  <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.getInstance()" resolve="getInstance" />
-                </node>
-                <node concept="liA8E" id="25gV4Ls$Nay" role="2OqNvi">
-                  <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.addProjectMigration(jetbrains.mps.migration.global.ProjectMigration)" resolve="addProjectMigration" />
-                  <node concept="37vLTw" id="25gV4Ls$Naz" role="37wK5m">
-                    <ref role="3cqZAo" node="25gV4Ls$Na$" resolve="pm" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="6MHXMmJyBv5" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2PoksLtldbV" role="jymVt" />
-    <node concept="3clFb_" id="6MHXMmJyBv6" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="disposeComponent" />
-      <property role="DiZV1" value="false" />
-      <property role="od$2w" value="false" />
-      <node concept="3Tm1VV" id="6MHXMmJyBv7" role="1B3o_S" />
-      <node concept="3cqZAl" id="6MHXMmJyBv9" role="3clF45" />
-      <node concept="3clFbS" id="6MHXMmJyBvb" role="3clF47">
-        <node concept="1DcWWT" id="25gV4Ls$NaH" role="3cqZAp">
-          <node concept="37vLTw" id="25gV4Ls$NaS" role="1DdaDG">
-            <ref role="3cqZAo" node="25gV4Ls$Naf" resolve="myMigrations" />
-          </node>
-          <node concept="3cpWsn" id="25gV4Ls$NaP" role="1Duv9x">
-            <property role="3TUv4t" value="false" />
-            <property role="TrG5h" value="pm" />
-            <node concept="3uibUv" id="25gV4Ls$NaR" role="1tU5fm">
-              <ref role="3uigEE" to="bdll:~ProjectMigration" resolve="ProjectMigration" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="25gV4Ls$NaJ" role="2LFqv$">
-            <node concept="3clFbF" id="25gV4Ls$NaK" role="3cqZAp">
-              <node concept="2OqwBi" id="25gV4Ls$NaL" role="3clFbG">
-                <node concept="2YIFZM" id="25gV4Ls$Pfq" role="2Oq$k0">
-                  <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.getInstance()" resolve="getInstance" />
-                  <ref role="1Pybhc" to="bdll:~ProjectMigrationsRegistry" resolve="ProjectMigrationsRegistry" />
-                </node>
-                <node concept="liA8E" id="25gV4Ls$NaN" role="2OqNvi">
-                  <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.removeProjectMigration(jetbrains.mps.migration.global.ProjectMigration)" resolve="removeProjectMigration" />
-                  <node concept="37vLTw" id="25gV4Ls$NaO" role="37wK5m">
-                    <ref role="3cqZAo" node="25gV4Ls$NaP" resolve="pm" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="6MHXMmJyBvc" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="6MHXMmJyBvd" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getComponentName" />
-      <property role="DiZV1" value="false" />
-      <property role="od$2w" value="false" />
-      <node concept="3Tm1VV" id="6MHXMmJyBve" role="1B3o_S" />
-      <node concept="2AHcQZ" id="6MHXMmJyBvg" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
-      </node>
-      <node concept="2AHcQZ" id="6MHXMmJyBvh" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="17QB3L" id="5nAbEdOh_IO" role="3clF45" />
-      <node concept="3clFbS" id="6MHXMmJyBvl" role="3clF47">
-        <node concept="3clFbF" id="6MHXMmJyBvo" role="3cqZAp">
-          <node concept="Xl_RD" id="6MHXMmJyBBF" role="3clFbG">
-            <property role="Xl_RC" value="Migrations_2019_1" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="6MHXMmJyBvm" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3uibUv" id="2PoksLtlcUh" role="EKbjA">
-      <ref role="3uigEE" to="1m72:~BaseComponent" resolve="BaseComponent" />
-    </node>
   </node>
   <node concept="312cEu" id="3dvEHZam2UZ">
     <property role="TrG5h" value="UpdateJavaStubMethodRefs" />

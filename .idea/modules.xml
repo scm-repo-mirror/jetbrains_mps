@@ -73,7 +73,6 @@
       <module fileurl="file://$PROJECT_DIR$/plugins/mps-modelchecker/mps-modelchecker.iml" filepath="$PROJECT_DIR$/plugins/mps-modelchecker/mps-modelchecker.iml" group="plugins" />
       <module fileurl="file://$PROJECT_DIR$/workbench/mps-platform/mps-platform.iml" filepath="$PROJECT_DIR$/workbench/mps-platform/mps-platform.iml" group="workbench" />
       <module fileurl="file://$PROJECT_DIR$/mps-project-excludes.iml" filepath="$PROJECT_DIR$/mps-project-excludes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/plugins/mps-project-migrations/mps-project-migrations.iml" filepath="$PROJECT_DIR$/plugins/mps-project-migrations/mps-project-migrations.iml" group="workbench" />
       <module fileurl="file://$PROJECT_DIR$/plugins/mps-samples/mps-samples.iml" filepath="$PROJECT_DIR$/plugins/mps-samples/mps-samples.iml" group="plugins" />
       <module fileurl="file://$PROJECT_DIR$/plugins/mps-testing/mps-testing.iml" filepath="$PROJECT_DIR$/plugins/mps-testing/mps-testing.iml" group="plugins" />
       <module fileurl="file://$PROJECT_DIR$/workbench/mps-tips/mps-tips.iml" filepath="$PROJECT_DIR$/workbench/mps-tips/mps-tips.iml" group="workbench" />
