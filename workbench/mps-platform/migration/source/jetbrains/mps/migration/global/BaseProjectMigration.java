@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.migration.global;
 
+import com.intellij.openapi.util.BuildNumber;
 import jetbrains.mps.project.Project;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,9 +25,25 @@ import org.jetbrains.annotations.NotNull;
 public abstract class BaseProjectMigration implements ProjectMigration {
   public static final String EXECUTED_VALUE = "executed";
   public final String migrationId;
+  private final int myBaselineVersion;
 
-  public BaseProjectMigration(String migrationId) {
+  protected BaseProjectMigration(@NotNull String migrationId) {
+    this(migrationId, Integer.MAX_VALUE);
+  }
+
+  /**
+   * @param migrationId identifies migration, generally just an fqn of implementing class
+   * @param baselineVersion integer value that corresponds to {@link BuildNumber#getBaselineVersion()},
+   *                        indicating MPS platform release when migration has been introduced.
+   *                        Migrations from earlier releases are generally not applied to newer projects.
+   *                        Use {@code Integer.MAX_VALUE} if you'd like to bypass baseline version check.
+   *                        Note, MPS RCP applications/custom IDE carry same baseline version number as
+   *                        the MPS itself, though can have application version completely different, see
+   *                        {@link #getBaselineVersion()} for details.
+   */
+  protected BaseProjectMigration(@NotNull String migrationId, int baselineVersion) {
     this.migrationId = migrationId;
+    myBaselineVersion = baselineVersion;
   }
 
   @Override
@@ -59,6 +76,11 @@ public abstract class BaseProjectMigration implements ProjectMigration {
   @Override
   public void applyToCreatedProject(Project p) {
     setExecuted(p);
+  }
+
+  @Override
+  public int getBaselineVersion() {
+    return myBaselineVersion;
   }
 
   @Override

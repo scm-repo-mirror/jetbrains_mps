@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,6 @@ import com.intellij.openapi.startup.StartupManager;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.projectPane.ProjectPane;
-import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSExtentions;
@@ -137,9 +136,7 @@ public class ProjectFactory {
     if (myCreatedProject == null) {
       return;
     }
-    for (ProjectMigration m : ProjectMigrationsRegistry.getInstance().getMigrations()) {
-      m.applyToCreatedProject(ProjectHelper.toMPSProject(myCreatedProject));
-    }
+    ProjectMigrationsRegistry.getInstance().applyMigrationsToNewProject(ProjectHelper.fromIdeaProject(myCreatedProject));
 
     ProjectManagerEx projectManager = ProjectManagerEx.getInstanceEx();
     boolean opened = projectManager.openProject(myCreatedProject);

@@ -9,7 +9,6 @@
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="java.util.Set" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
@@ -32,7 +31,6 @@
   </dependency>
   <dependency className="jetbrains.mps.ide.mpsmigration.v_2017_2.Migrations_2017_2">
     <classNode dependClassName="java.util.Deque" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.ide.mpsmigration.v_2017_2.JUnitLibsRepackaging" />
     <classNode dependClassName="jetbrains.mps.migration.global.ProjectMigration" />
   </dependency>

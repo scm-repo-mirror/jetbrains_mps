@@ -182,9 +182,12 @@
       <node concept="3Tm1VV" id="5nAbEdOhoyk" role="1B3o_S" />
       <node concept="3clFbS" id="5nAbEdOhoyl" role="3clF47">
         <node concept="XkiVB" id="7ctwrlp326" role="3cqZAp">
-          <ref role="37wK5l" to="bdll:~BaseProjectMigration.&lt;init&gt;(java.lang.String)" resolve="BaseProjectMigration" />
+          <ref role="37wK5l" to="bdll:~BaseProjectMigration.&lt;init&gt;(java.lang.String,int)" resolve="BaseProjectMigration" />
           <node concept="Xl_RD" id="1HQi3LGmBkH" role="37wK5m">
             <property role="Xl_RC" value="jetbrains.mps.ide.mpsmigration.v182.ReapplyPatternMigration" />
+          </node>
+          <node concept="3cmrfG" id="69i1WhuU1xn" role="37wK5m">
+            <property role="3cmrfH" value="182" />
           </node>
         </node>
       </node>
@@ -412,7 +415,7 @@
               <ref role="3cqZAo" node="30LZLzbjBhu" resolve="migrations" />
             </node>
             <node concept="liA8E" id="30LZLzbjC3c" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Deque.push(java.lang.Object)" resolve="push" />
+              <ref role="37wK5l" to="33ny:~Deque.offer(java.lang.Object)" resolve="offer" />
               <node concept="2ShNRf" id="5nAbEdOhzZt" role="37wK5m">
                 <node concept="1pGfFk" id="5nAbEdOh_py" role="2ShVmc">
                   <ref role="37wK5l" node="5nAbEdOhoyh" resolve="ReapplyPatternMigration" />

@@ -356,16 +356,33 @@
         </node>
         <node concept="3SKdUt" id="30LZLzbk6ap" role="3cqZAp">
           <node concept="1PaTwC" id="30LZLzbk6aq" role="1aUNEU">
-            <node concept="3oM_SD" id="30LZLzbk6ar" role="1PaTwD" />
+            <node concept="3oM_SD" id="30LZLzbk6ar" role="1PaTwD">
+              <property role="3oM_SC" value="assume" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVifR" role="1PaTwD">
+              <property role="3oM_SC" value="myMigrations" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVig1" role="1PaTwD">
+              <property role="3oM_SC" value="are" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVig6" role="1PaTwD">
+              <property role="3oM_SC" value="ordered" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVigi" role="1PaTwD">
+              <property role="3oM_SC" value="from" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVigr" role="1PaTwD">
+              <property role="3oM_SC" value="older" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVig_" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVigK" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
           </node>
         </node>
         <node concept="1DcWWT" id="25gV4Ls$Nas" role="3cqZAp">
-          <node concept="2OqwBi" id="30LZLzbjpFL" role="1DdaDG">
-            <node concept="2WthIp" id="30LZLzbjpFO" role="2Oq$k0" />
-            <node concept="2BZ7hE" id="30LZLzbjpFQ" role="2OqNvi">
-              <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
-            </node>
-          </node>
           <node concept="3cpWsn" id="25gV4Ls$Na$" role="1Duv9x">
             <property role="3TUv4t" value="false" />
             <property role="TrG5h" value="pm" />
@@ -391,11 +408,42 @@
               </node>
             </node>
           </node>
+          <node concept="2OqwBi" id="69i1WhuVe3D" role="1DdaDG">
+            <node concept="2WthIp" id="69i1WhuVe3G" role="2Oq$k0" />
+            <node concept="2BZ7hE" id="69i1WhuVe3I" role="2OqNvi">
+              <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
+            </node>
+          </node>
         </node>
       </node>
     </node>
     <node concept="2uRRBI" id="30LZLzbjgj1" role="2uRRBF">
       <node concept="3clFbS" id="30LZLzbjgj2" role="2VODD2">
+        <node concept="3SKdUt" id="69i1WhuVlqT" role="3cqZAp">
+          <node concept="1PaTwC" id="69i1WhuVlqU" role="1aUNEU">
+            <node concept="3oM_SD" id="69i1WhuVlqV" role="1PaTwD">
+              <property role="3oM_SC" value="unregister" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlvS" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlw0" role="1PaTwD">
+              <property role="3oM_SC" value="reverse" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlwd" role="1PaTwD">
+              <property role="3oM_SC" value="order," />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlwn" role="1PaTwD">
+              <property role="3oM_SC" value="just" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlwy" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="69i1WhuVlwE" role="1PaTwD">
+              <property role="3oM_SC" value="fun" />
+            </node>
+          </node>
+        </node>
         <node concept="2$JKZl" id="30LZLzbjxw0" role="3cqZAp">
           <node concept="3clFbS" id="30LZLzbjxw2" role="2LFqv$">
             <node concept="3clFbF" id="30LZLzbjzFj" role="3cqZAp">
@@ -415,8 +463,8 @@
                         <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
                       </node>
                     </node>
-                    <node concept="liA8E" id="30LZLzbj$Y9" role="2OqNvi">
-                      <ref role="37wK5l" to="33ny:~ArrayDeque.pop()" resolve="pop" />
+                    <node concept="liA8E" id="69i1WhuVkVR" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~ArrayDeque.removeLast()" resolve="removeLast" />
                     </node>
                   </node>
                 </node>

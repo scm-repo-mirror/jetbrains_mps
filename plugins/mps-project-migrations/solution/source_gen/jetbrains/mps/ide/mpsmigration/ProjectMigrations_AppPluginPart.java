@@ -27,15 +27,16 @@ public class ProjectMigrations_AppPluginPart extends ApplicationPluginPart {
     new Migrations_2018_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2019_1().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2019_3().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    //  
+    // assume myMigrations are ordered from older to new 
     for (ProjectMigration pm : ProjectMigrations_AppPluginPart.this.myMigrations) {
       ProjectMigrations_AppPluginPart.this.myRegistry.addProjectMigration(pm);
     }
   }
   @Override
   public void dispose() {
+    // unregister in reverse order, just for fun 
     while (!(ProjectMigrations_AppPluginPart.this.myMigrations.isEmpty())) {
-      ProjectMigrations_AppPluginPart.this.myRegistry.removeProjectMigration(ProjectMigrations_AppPluginPart.this.myMigrations.pop());
+      ProjectMigrations_AppPluginPart.this.myRegistry.removeProjectMigration(ProjectMigrations_AppPluginPart.this.myMigrations.removeLast());
     }
     ProjectMigrations_AppPluginPart.this.myRegistry = null;
   }

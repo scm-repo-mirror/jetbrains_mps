@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,4 +27,21 @@ public interface ProjectMigration {
   boolean isRerunnable();
 
   void execute(Project p);
+
+  /**
+   * Override if project migration makes sense up to (and including) any specific MPS baseline version, leave
+   * default implementation if you'd like to have your migration executed for any project.
+   * <p>
+   * Baseline version is build number part bound to MPS platform and therefore shared between MPS IDE and all
+   * derived RCP applications/IDEs regardless of their own version numbering scheme. For example,
+   * application may bear {@code "3.18"} for app version, {@code 193} for baseline version, and
+   * {@code 193.4565.3.18} as a build number.
+   * </p>
+   * @since 2021.1
+   */
+  default int getBaselineVersion() {
+    // alternatively, can introduce #isApplicable(int baselineVer), just feel isApplicable is bit less flexible
+    // (e.g. can not use it to depict PM's version in UI, if I'd like to)
+    return Integer.MAX_VALUE;
+  }
 }

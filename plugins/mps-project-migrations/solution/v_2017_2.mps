@@ -93,6 +93,9 @@
         <property id="1068580123138" name="value" index="3clFbU" />
       </concept>
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
+      <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
+        <property id="1068580320021" name="value" index="3cmrfH" />
+      </concept>
       <concept id="1068581242875" name="jetbrains.mps.baseLanguage.structure.PlusExpression" flags="nn" index="3cpWs3" />
       <concept id="1068581242878" name="jetbrains.mps.baseLanguage.structure.ReturnStatement" flags="nn" index="3cpWs6">
         <child id="1068581517676" name="expression" index="3cqZAk" />
@@ -218,7 +221,7 @@
               <ref role="3cqZAo" node="30LZLzbjBhu" resolve="migrations" />
             </node>
             <node concept="liA8E" id="30LZLzbjC3c" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Deque.push(java.lang.Object)" resolve="push" />
+              <ref role="37wK5l" to="33ny:~Deque.offer(java.lang.Object)" resolve="offer" />
               <node concept="2ShNRf" id="5nAbEdOhzZt" role="37wK5m">
                 <node concept="1pGfFk" id="5nAbEdOh_py" role="2ShVmc">
                   <ref role="37wK5l" node="5nAbEdOhoyh" resolve="JUnitLibsRepackaging" />
@@ -248,7 +251,7 @@
       <node concept="3Tm1VV" id="5nAbEdOhoyk" role="1B3o_S" />
       <node concept="3clFbS" id="5nAbEdOhoyl" role="3clF47">
         <node concept="XkiVB" id="7ctwrlp326" role="3cqZAp">
-          <ref role="37wK5l" to="bdll:~BaseProjectMigration.&lt;init&gt;(java.lang.String)" resolve="BaseProjectMigration" />
+          <ref role="37wK5l" to="bdll:~BaseProjectMigration.&lt;init&gt;(java.lang.String,int)" resolve="BaseProjectMigration" />
           <node concept="3cpWs3" id="1HQi3LGmBd1" role="37wK5m">
             <node concept="Xl_RD" id="1HQi3LGmBkH" role="3uHU7B">
               <property role="Xl_RC" value="jetbrains.mps.ide.mpsmigration.v172." />
@@ -261,6 +264,9 @@
                 <ref role="37wK5l" to="wyt6:~Class.getSimpleName()" resolve="getSimpleName" />
               </node>
             </node>
+          </node>
+          <node concept="3cmrfG" id="69i1WhuU4y4" role="37wK5m">
+            <property role="3cmrfH" value="172" />
           </node>
         </node>
       </node>

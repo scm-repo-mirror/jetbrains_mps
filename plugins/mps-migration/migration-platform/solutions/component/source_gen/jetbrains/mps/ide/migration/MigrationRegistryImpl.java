@@ -46,7 +46,7 @@ public class MigrationRegistryImpl implements MigrationRegistry {
     final Wrappers._T<List<ProjectMigration>> res = new Wrappers._T<List<ProjectMigration>>();
     myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        res.value = ProjectMigrationsRegistry.getInstance().getMigrations();
+        res.value = ProjectMigrationsRegistry.getInstance().getMigrations(myMpsProject);
         res.value = ListSequence.fromList(res.value).where(new IWhereFilter<ProjectMigration>() {
           public boolean accept(ProjectMigration it) {
             return it.shouldBeExecuted(myMpsProject);

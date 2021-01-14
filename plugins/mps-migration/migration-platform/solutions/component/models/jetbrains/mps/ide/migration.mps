@@ -4859,7 +4859,10 @@
                       <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.getInstance()" resolve="getInstance" />
                     </node>
                     <node concept="liA8E" id="4biA4YBvIPY" role="2OqNvi">
-                      <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.getMigrations()" resolve="getMigrations" />
+                      <ref role="37wK5l" to="bdll:~ProjectMigrationsRegistry.getMigrations(jetbrains.mps.project.Project)" resolve="getMigrations" />
+                      <node concept="37vLTw" id="7MJNFFxnMYR" role="37wK5m">
+                        <ref role="3cqZAo" node="36$CdjYd4mG" resolve="myMpsProject" />
+                      </node>
                     </node>
                   </node>
                 </node>
