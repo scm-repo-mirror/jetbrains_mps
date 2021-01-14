@@ -4,9 +4,7 @@ package jetbrains.mps.migration.workbench.components;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.migration.global.MigrationProblemHandler;
-import com.intellij.openapi.Disposable;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.ide.migration.IStartupMigrationExecutor;
 import java.util.Collection;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.ide.findusages.model.SearchResult;
@@ -19,39 +17,13 @@ import jetbrains.mps.ide.modelchecker.platform.actions.ModelCheckerViewer;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import com.intellij.icons.AllIcons;
-import java.util.function.Consumer;
-import org.jetbrains.mps.openapi.module.SModuleReference;
-import org.jetbrains.mps.openapi.module.SRepository;
-import java.util.List;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import org.jetbrains.mps.openapi.module.SModule;
-import java.util.Collections;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.Generator;
-import jetbrains.mps.generator.GenerationFacade;
-import jetbrains.mps.generator.ModelGenerationStatusManager;
-import com.intellij.openapi.application.ApplicationManager;
-import jetbrains.mps.ide.save.SaveRepositoryCommand;
-import jetbrains.mps.make.MakeSession;
-import jetbrains.mps.ide.make.DefaultMakeMessageHandler;
-import jetbrains.mps.make.IMakeService;
-import jetbrains.mps.make.MakeServiceComponent;
-import jetbrains.mps.make.resources.IResource;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import jetbrains.mps.smodel.resources.MResource;
 
 @GeneratedClass(node = "r:1f98243e-778e-4688-8b37-94002e0884e9(jetbrains.mps.migration.workbench.components)/6423044698582254379", model = "r:1f98243e-778e-4688-8b37-94002e0884e9(jetbrains.mps.migration.workbench.components)")
-public class WorkbenchMigrationProblemHandler implements MigrationProblemHandler, Disposable {
+public class WorkbenchMigrationProblemHandler implements MigrationProblemHandler {
   private final MPSProject myMpsProject;
 
   public WorkbenchMigrationProblemHandler(MPSProject project) {
     myMpsProject = project;
-    IStartupMigrationExecutor mt = myMpsProject.getProject().getComponent(IStartupMigrationExecutor.class);
-    if (mt != null) {
-      attach(mt);
-    }
   }
 
   @Override
@@ -87,91 +59,5 @@ public class WorkbenchMigrationProblemHandler implements MigrationProblemHandler
     });
     v.setSearchResults(result);
     mcTool.showTabWithResults(v, "Migration issues", AllIcons.Nodes.ModuleGroup);
-  }
-
-
-  @Override
-  public void dispose() {
-    IStartupMigrationExecutor mt = myMpsProject.getProject().getComponent(IStartupMigrationExecutor.class);
-    if (mt != null) {
-      detach(mt);
-    }
-  }
-
-  private void attach(IStartupMigrationExecutor migrationTrigger) {
-    migrationTrigger.setRebuildHandler(new Consumer<Iterable<SModuleReference>>() {
-      public void accept(final Iterable<SModuleReference> modules) {
-        final SRepository repo = myMpsProject.getRepository();
-        repo.getModelAccess().runWriteAction(new Runnable() {
-          public void run() {
-            final List<SModel> modelsToClean = Sequence.fromIterable(modules).translate(new ITranslator2<SModuleReference, SModel>() {
-              public Iterable<SModel> translate(SModuleReference it) {
-                SModule module = it.resolve(repo);
-                if (module == null) {
-                  return Collections.<SModel>emptyList();
-                }
-
-                if (!(module instanceof Language)) {
-                  return module.getModels();
-                }
-
-                // this code is only to fix some UI problems, see MPS-30636 for details 
-                Iterable<Generator> generators = ((Language) module).getGenerators();
-                return Sequence.fromIterable(generators).translate(new ITranslator2<Generator, SModel>() {
-                  public Iterable<SModel> translate(Generator it) {
-                    return it.getModels();
-                  }
-                }).concat(Sequence.fromIterable(module.getModels()));
-              }
-            }).where(new IWhereFilter<SModel>() {
-              public boolean accept(SModel it) {
-                return GenerationFacade.canGenerate(it);
-              }
-            }).toListSequence();
-            myMpsProject.getComponent(ModelGenerationStatusManager.class).discard(modelsToClean);
-
-            // todo the following is copied from MakeActionImpl, it's better to make MAI to be compilied in Idea 
-            // todo (and contributed by xml); this code should use idea-compiled class then 
-            ApplicationManager.getApplication().invokeLater(new Runnable() {
-              public void run() {
-                // save all before launching make 
-                new SaveRepositoryCommand(myMpsProject.getRepository()).execute();
-                MakeSession session = new MakeSession(myMpsProject, new DefaultMakeMessageHandler(myMpsProject), false);
-                final IMakeService makeService = myMpsProject.getComponent(MakeServiceComponent.class).get();
-                if (makeService.openNewSession(session)) {
-                  final List<IResource> inputRes = ListSequence.fromList(new ArrayList<IResource>());
-                  repo.getModelAccess().runReadAction(new Runnable() {
-                    public void run() {
-                      ListSequence.fromList(inputRes).addSequence(ListSequence.fromList(modelsToClean).select(new ISelector<SModel, SModule>() {
-                        public SModule select(SModel it) {
-                          return it.getModule();
-                        }
-                      }).distinct().select(new ISelector<SModule, MResource>() {
-                        public MResource select(final SModule module) {
-                          return new MResource(module, ListSequence.fromList(modelsToClean).where(new IWhereFilter<SModel>() {
-                            public boolean accept(SModel model) {
-                              return model.getModule() == module;
-                            }
-                          }));
-                        }
-                      }));
-                    }
-                  });
-                  if (inputRes != null) {
-                    makeService.make(session, (Iterable<? extends IResource>) (Iterable<IResource>) inputRes);
-                  } else {
-                    makeService.closeSession(session);
-                  }
-                }
-              }
-            });
-          }
-        });
-      }
-    });
-  }
-
-  private void detach(IStartupMigrationExecutor migrationTrigger) {
-    migrationTrigger.setRebuildHandler(null);
   }
 }

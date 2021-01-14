@@ -10,6 +10,6 @@
   
   
   <extensions defaultExtensionNs="com.intellij">
-    <mps.PluginComponentContributor application="jetbrains.mps.migration.workbench.plugin.Workbench_ApplicationPlugin" />
+    <mps.PluginComponentContributor application="jetbrains.mps.migration.workbench.plugin.Workbench_ApplicationPlugin" project="jetbrains.mps.migration.workbench.plugin.Workbench_ProjectPlugin" />
   </extensions>
 </idea-plugin>
