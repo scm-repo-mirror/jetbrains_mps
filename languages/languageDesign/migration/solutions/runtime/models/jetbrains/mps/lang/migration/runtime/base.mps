@@ -6935,33 +6935,145 @@
             </node>
           </node>
         </node>
-        <node concept="1gVbGN" id="16MtQqZb7j4" role="3cqZAp">
-          <node concept="3clFbC" id="16MtQqZbctA" role="1gVkn0">
-            <node concept="2OqwBi" id="KWNNZSfBF6" role="3uHU7B">
-              <node concept="37vLTw" id="KWNNZSfArK" role="2Oq$k0">
+        <node concept="3clFbH" id="7XP_KYiBlbJ" role="3cqZAp" />
+        <node concept="3clFbJ" id="7XP_KYiBoNb" role="3cqZAp">
+          <node concept="3clFbS" id="7XP_KYiBoNd" role="3clFbx">
+            <node concept="3SKdUt" id="7XP_KYiBOt$" role="3cqZAp">
+              <node concept="1PaTwC" id="7XP_KYiBOt_" role="1aUNEU">
+                <node concept="3oM_SD" id="7XP_KYiBOtA" role="1PaTwD">
+                  <property role="3oM_SC" value="MigrationRegistryImpl" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBU_9" role="1PaTwD">
+                  <property role="3oM_SC" value="checks" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBU_D" role="1PaTwD">
+                  <property role="3oM_SC" value="load" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBU_R" role="1PaTwD">
+                  <property role="3oM_SC" value="exception" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBU_W" role="1PaTwD">
+                  <property role="3oM_SC" value="in" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBUAj" role="1PaTwD">
+                  <property role="3oM_SC" value="doUpdateImportVersions()," />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBWS8" role="1PaTwD">
+                  <property role="3oM_SC" value="but" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBWT1" role="1PaTwD">
+                  <property role="3oM_SC" value="is" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBWU4" role="1PaTwD">
+                  <property role="3oM_SC" value="careless" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBWUo" role="1PaTwD">
+                  <property role="3oM_SC" value="in" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiBWUJ" role="1PaTwD">
+                  <property role="3oM_SC" value="importVersionsUpdateRequired()" />
+                </node>
+              </node>
+            </node>
+            <node concept="3SKdUt" id="7XP_KYiBYGv" role="3cqZAp">
+              <node concept="1PaTwC" id="7XP_KYiBYGw" role="1aUNEU">
+                <node concept="3oM_SD" id="7XP_KYiC1uN" role="1PaTwD">
+                  <property role="3oM_SC" value="I" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1uX" role="1PaTwD">
+                  <property role="3oM_SC" value="don't" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1vq" role="1PaTwD">
+                  <property role="3oM_SC" value="see" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1vu" role="1PaTwD">
+                  <property role="3oM_SC" value="a" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1vR" role="1PaTwD">
+                  <property role="3oM_SC" value="reason" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1vX" role="1PaTwD">
+                  <property role="3oM_SC" value="to" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1w4" role="1PaTwD">
+                  <property role="3oM_SC" value="fail" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1wO" role="1PaTwD">
+                  <property role="3oM_SC" value="with" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1wX" role="1PaTwD">
+                  <property role="3oM_SC" value="assertion" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1x_" role="1PaTwD">
+                  <property role="3oM_SC" value="when" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1y4" role="1PaTwD">
+                  <property role="3oM_SC" value="it's" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1yq" role="1PaTwD">
+                  <property role="3oM_SC" value="dryRun" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1B0" role="1PaTwD">
+                  <property role="3oM_SC" value="anyway," />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1zf" role="1PaTwD">
+                  <property role="3oM_SC" value="that's" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1zt" role="1PaTwD">
+                  <property role="3oM_SC" value="why" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1zG" role="1PaTwD">
+                  <property role="3oM_SC" value="I" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1$6" role="1PaTwD">
+                  <property role="3oM_SC" value="did" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1$F" role="1PaTwD">
+                  <property role="3oM_SC" value="not" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1BO" role="1PaTwD">
+                  <property role="3oM_SC" value="fix" />
+                </node>
+                <node concept="3oM_SD" id="7XP_KYiC1Ad" role="1PaTwD">
+                  <property role="3oM_SC" value="importVersionsUpdateRequired()." />
+                </node>
+              </node>
+            </node>
+            <node concept="1gVbGN" id="16MtQqZb7j4" role="3cqZAp">
+              <node concept="37vLTw" id="7XP_KYiBJy9" role="1gVkn0">
+                <ref role="3cqZAo" node="7_8SJV8F$c0" resolve="dryRun" />
+              </node>
+              <node concept="3cpWs3" id="16MtQqZbg2L" role="1gVpfI">
+                <node concept="Xl_RD" id="16MtQqZbhaK" role="3uHU7w">
+                  <property role="Xl_RC" value=" with load exceptions" />
+                </node>
+                <node concept="3cpWs3" id="16MtQqZbeI_" role="3uHU7B">
+                  <node concept="Xl_RD" id="16MtQqZbduE" role="3uHU7B">
+                    <property role="Xl_RC" value="Asked to update import versions in module " />
+                  </node>
+                  <node concept="2OqwBi" id="16MtQqZbfG$" role="3uHU7w">
+                    <node concept="37vLTw" id="16MtQqZbfG_" role="2Oq$k0">
+                      <ref role="3cqZAo" node="5gIiJF05sx6" resolve="myModule" />
+                    </node>
+                    <node concept="liA8E" id="16MtQqZbfGA" role="2OqNvi">
+                      <ref role="37wK5l" to="lui2:~SModule.getModuleName()" resolve="getModuleName" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="7XP_KYiBwUe" role="3cqZAp">
+              <node concept="3clFbT" id="7XP_KYiB$7I" role="3cqZAk" />
+            </node>
+          </node>
+          <node concept="3y3z36" id="7XP_KYiBvDI" role="3clFbw">
+            <node concept="10Nm6u" id="7XP_KYiBwTd" role="3uHU7w" />
+            <node concept="2OqwBi" id="7XP_KYiBu1B" role="3uHU7B">
+              <node concept="37vLTw" id="7XP_KYiBu1C" role="2Oq$k0">
                 <ref role="3cqZAo" node="2V3ml1v4qrN" resolve="md" />
               </node>
-              <node concept="liA8E" id="KWNNZSfDrK" role="2OqNvi">
+              <node concept="liA8E" id="7XP_KYiBu1D" role="2OqNvi">
                 <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getLoadException()" resolve="getLoadException" />
-              </node>
-            </node>
-            <node concept="10Nm6u" id="KWNNZSfEPK" role="3uHU7w" />
-          </node>
-          <node concept="3cpWs3" id="16MtQqZbg2L" role="1gVpfI">
-            <node concept="Xl_RD" id="16MtQqZbhaK" role="3uHU7w">
-              <property role="Xl_RC" value=" with load exceptions" />
-            </node>
-            <node concept="3cpWs3" id="16MtQqZbeI_" role="3uHU7B">
-              <node concept="Xl_RD" id="16MtQqZbduE" role="3uHU7B">
-                <property role="Xl_RC" value="Asked to update import versions in module " />
-              </node>
-              <node concept="2OqwBi" id="16MtQqZbfG$" role="3uHU7w">
-                <node concept="37vLTw" id="16MtQqZbfG_" role="2Oq$k0">
-                  <ref role="3cqZAo" node="5gIiJF05sx6" resolve="myModule" />
-                </node>
-                <node concept="liA8E" id="16MtQqZbfGA" role="2OqNvi">
-                  <ref role="37wK5l" to="lui2:~SModule.getModuleName()" resolve="getModuleName" />
-                </node>
               </node>
             </node>
           </node>
@@ -7766,7 +7878,7 @@
               <property role="3oM_SC" value="[MM]" />
             </node>
             <node concept="3oM_SD" id="ATZLwXo7zm" role="1PaTwD">
-              <property role="3oM_SC" value="beter" />
+              <property role="3oM_SC" value="better" />
             </node>
             <node concept="3oM_SD" id="ATZLwXo7zn" role="1PaTwD">
               <property role="3oM_SC" value="to" />
@@ -7794,6 +7906,143 @@
             </node>
             <node concept="3oM_SD" id="ATZLwXo7zv" role="1PaTwD">
               <property role="3oM_SC" value="inheritors" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7XP_KYiBbt5" role="3cqZAp">
+          <node concept="1PaTwC" id="7XP_KYiBbt6" role="1aUNEU">
+            <node concept="3oM_SD" id="7XP_KYiBeiF" role="1PaTwD">
+              <property role="3oM_SC" value="[artem]" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeiP" role="1PaTwD">
+              <property role="3oM_SC" value="I" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeiS" role="1PaTwD">
+              <property role="3oM_SC" value="doubt" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBejc" role="1PaTwD">
+              <property role="3oM_SC" value="it's" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBelx" role="1PaTwD">
+              <property role="3oM_SC" value="better" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBelN" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBelY" role="1PaTwD">
+              <property role="3oM_SC" value="keep" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBemi" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBemv" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBemH" role="1PaTwD">
+              <property role="3oM_SC" value="AbstractModule," />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBek4" role="1PaTwD">
+              <property role="3oM_SC" value="although" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBekj" role="1PaTwD">
+              <property role="3oM_SC" value="out" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBekz" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBekW" role="1PaTwD">
+              <property role="3oM_SC" value="VersionFixed" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeod" role="1PaTwD">
+              <property role="3oM_SC" value="might" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeot" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeoQ" role="1PaTwD">
+              <property role="3oM_SC" value="nto" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBepg" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBepz" role="1PaTwD">
+              <property role="3oM_SC" value="bad" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBeq7" role="1PaTwD">
+              <property role="3oM_SC" value="idea" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="7XP_KYiBi7u" role="3cqZAp">
+          <node concept="1PaTwC" id="7XP_KYiBi7v" role="1aUNEU">
+            <node concept="3oM_SD" id="7XP_KYiBi7w" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBjN8" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBjNb" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBjNf" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBjNk" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBjNq" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl5R" role="1PaTwD">
+              <property role="3oM_SC" value="Personally," />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl67" role="1PaTwD">
+              <property role="3oM_SC" value="I'd" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl6g" role="1PaTwD">
+              <property role="3oM_SC" value="just" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl6y" role="1PaTwD">
+              <property role="3oM_SC" value="refactor" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl6X" role="1PaTwD">
+              <property role="3oM_SC" value="this" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl7h" role="1PaTwD">
+              <property role="3oM_SC" value="class" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl7A" role="1PaTwD">
+              <property role="3oM_SC" value="and" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl7O" role="1PaTwD">
+              <property role="3oM_SC" value="move" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl8j" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl8z" role="1PaTwD">
+              <property role="3oM_SC" value="into" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl8W" role="1PaTwD">
+              <property role="3oM_SC" value="core," />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl9A" role="1PaTwD">
+              <property role="3oM_SC" value="as" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBl9T" role="1PaTwD">
+              <property role="3oM_SC" value="it's" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBlad" role="1PaTwD">
+              <property role="3oM_SC" value="not" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBlay" role="1PaTwD">
+              <property role="3oM_SC" value="specific" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBlaS" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="7XP_KYiBlbf" role="1PaTwD">
+              <property role="3oM_SC" value="migrations" />
             </node>
           </node>
         </node>

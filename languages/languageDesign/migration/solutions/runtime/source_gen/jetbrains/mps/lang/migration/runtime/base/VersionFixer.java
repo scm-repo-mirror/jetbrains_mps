@@ -69,7 +69,13 @@ public class VersionFixer {
     final ModuleDescriptor md = abstractModule.getModuleDescriptor();
 
     assert md != null : "Module descriptor is null for module " + myModule.getModuleName();
-    assert md.getLoadException() == null : "Asked to update import versions in module " + myModule.getModuleName() + " with load exceptions";
+
+    if (md.getLoadException() != null) {
+      // MigrationRegistryImpl checks load exception in doUpdateImportVersions(), but is careless in importVersionsUpdateRequired() 
+      // I don't see a reason to fail with assertion when it's dryRun anyway, that's why I did not fix importVersionsUpdateRequired(). 
+      assert dryRun : "Asked to update import versions in module " + myModule.getModuleName() + " with load exceptions";
+      return false;
+    }
 
     if (myRemoveOddImports) {
       // myRemoveOddImports is used on language+sandbox_solution creation since laguage is not valid yet 
@@ -148,7 +154,9 @@ public class VersionFixer {
   }
 
   private boolean areDepsSatisfied(SModule module) {
-    // [MM] beter to move this logic to AbstractModule and its inheritors 
+    // [MM] better to move this logic to AbstractModule and its inheritors 
+    // [artem] I doubt it's better to keep this in AbstractModule, although out of VersionFixed might be nto a bad idea 
+    //       Personally, I'd just refactor this class and move it into core, as it's not specific to migrations 
     Set<SLanguage> usedLanguages = module.getUsedLanguages();
     if (SetSequence.fromSet(usedLanguages).any(new IWhereFilter<SLanguage>() {
       public boolean accept(SLanguage it) {
