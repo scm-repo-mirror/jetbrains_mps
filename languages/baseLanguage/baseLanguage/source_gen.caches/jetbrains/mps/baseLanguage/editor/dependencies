@@ -4698,8 +4698,8 @@
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.menus.substitute.IncludeSubstituteMenuSubstituteMenuPart" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.substitute.IncludeSubstituteMenuSubstituteMenuPart" />
     <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.completion.CompletionItemInformation" />
@@ -5031,8 +5031,8 @@
     <classNode dependClassName="jetbrains.mps.smodel.language.LanguageRegistry" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.style.StyleImpl" />
     <classNode dependClassName="jetbrains.mps.lang.editor.menus.transformation.DefaultTransformationMenuLookup" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentation" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.cells.BigCellUtil" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.BasicCellContext" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
@@ -5043,8 +5043,8 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.KeyWordStyleClass" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_ReplaceNode_CustomNodeConcept" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo" />
+    <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.editor.ConceptFunctionParameter_SubstituteMenu">
