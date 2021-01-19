@@ -22,6 +22,8 @@ import com.intellij.openapi.vfs.newvfs.ManagingFS;
 import com.intellij.openapi.vfs.newvfs.persistent.PersistentFSImpl;
 import jetbrains.mps.baseLanguage.search.MPSBaseLanguage;
 import jetbrains.mps.classloading.ClassLoaderManager;
+import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.core.platform.PlatformFactory;
 import jetbrains.mps.core.platform.PlatformOptionsBuilder;
@@ -30,6 +32,7 @@ import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
@@ -52,7 +55,9 @@ public class MPSCoreComponents implements Disposable {
   public MPSCoreComponents() {
     @NotNull ManagingFS fs = ManagingFS.getInstance();
     @NotNull ModelAccess access = ApplicationManager.getApplication().getComponent(ModelAccess.class);
-    myPlatform = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
+    myPlatform = new BLPlatform();
+    PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
+
     myBaseLanguage = new MPSBaseLanguage();
     myBaseLanguage.init();
 
@@ -62,7 +67,6 @@ public class MPSCoreComponents implements Disposable {
 
   @Override
   public void dispose() {
-    myBaseLanguage.dispose();
     myPlatform.dispose();
   }
 
@@ -105,5 +109,27 @@ public class MPSCoreComponents implements Disposable {
   public static MPSCoreComponents getInstance() {
     // With IDEA's "service" approach, I don't have other option but to follow platform's approach at least for few elements like MPSCoreComponents
     return ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
+  }
+
+  @NotNull
+  public ComponentHost getMPSBaseLanguage() {
+    return myBaseLanguage;
+  }
+
+  private class BLPlatform implements Platform {
+    @Nullable
+    @Override
+    public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
+      var c = myPlatform.findComponent(componentClass);
+      if (c != null) {
+        return c;
+      }
+      return myBaseLanguage.findComponent(componentClass);
+    }
+
+    @Override
+    public void dispose() {
+      myPlatform.dispose();
+    }
   }
 }
