@@ -2545,7 +2545,7 @@
       <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.migration.pluginSolution.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-devkit/languages/languageDesign/jetbrains.mps.lang.structure.pluginSolution.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-make/languages/jetbrains.mps.ide.make.jar" />
-      <pathelement location="${artifacts.mps}/plugins/mps-migration/src/jetbrains.mps.migration.component.jar" />
+      <pathelement location="${artifacts.mps}/plugins/mps-migration/solutions/jetbrains.mps.migration.component.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />

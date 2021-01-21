@@ -313,7 +313,7 @@
       <modulePath path="$PROJECT_DIR$/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.tests/jetbrains.mps.ide.java.tests.msd" folder="platform.mpsjava.test" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-make/jetbrains.mps.ide.make.msd" folder="platform" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-migration/migration-platform/solutions/component/jetbrains.mps.migration.component.msd" folder="platform.migration" />
-      <modulePath path="$PROJECT_DIR$/plugins/mps-migration/migration-workbench/solutions/migration.workbench/jetbrains.mps.migration.workbench.msd" folder="platform.migration" />
+      <modulePath path="$PROJECT_DIR$/plugins/mps-migration/solutions/migration.workbench/jetbrains.mps.migration.workbench.msd" folder="platform.migration" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-modelchecker/platform/jetbrains.mps.ide.modelchecker.platform.msd" folder="platform.modelchecker" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-modelchecker/solution/jetbrains.mps.ide.modelchecker.msd" folder="platform.modelchecker" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-project-migrations/solution/jetbrains.mps.ide.mpsmigration.msd" folder="platform.migration" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.migration.workbench" uuid="bb7342e3-b8a8-461d-bdb1-ee8503e365e7" moduleVersion="0" compileInMPS="false">
+<solution name="jetbrains.mps.migration.workbench" uuid="bb7342e3-b8a8-461d-bdb1-ee8503e365e7" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${module}" type="default">
@@ -7,7 +7,6 @@
     </modelRoot>
   </models>
   <facets>
-    <facet type="ideaPlugin" pluginId="jetbrains.mps.ide.migration.workbench" />
     <facet type="java">
       <classes generated="true" />
     </facet>
