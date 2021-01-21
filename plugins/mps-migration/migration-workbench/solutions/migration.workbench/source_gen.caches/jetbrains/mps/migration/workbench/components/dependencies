@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="jetbrains.mps.migration.workbench.components.HeadlessMigrationProblemHandler">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
-    <classNode extendsClassName="jetbrains.mps.migration.global.MigrationProblemHandler" />
-  </dependency>
   <dependency className="jetbrains.mps.migration.workbench.components.WorkbenchMigrationProblemHandler">
     <classNode dependClassName="com.intellij.icons.AllIcons" />
     <classNode dependClassName="java.lang.Iterable" />
@@ -24,7 +17,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
-    <classNode extendsClassName="jetbrains.mps.migration.global.MigrationProblemHandler" />
+    <classNode extendsClassName="jetbrains.mps.ide.migration.MigrationProblemHandler" />
   </dependency>
 </dependenciesRoot>
 

@@ -9,8 +9,6 @@
   <xi:include href="pluginBase.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
   <extensions defaultExtensionNs="com.intellij">
-    <projectService
-            serviceInterface="jetbrains.mps.migration.global.MigrationProblemHandler"
-            serviceImplementation="jetbrains.mps.migration.idea.PluginMigrationProblemHandler" />
+    <postStartupActivity implementation="jetbrains.mps.migration.idea.PluginMigrationProblemHandler$Plug" />
   </extensions>
 </idea-plugin>

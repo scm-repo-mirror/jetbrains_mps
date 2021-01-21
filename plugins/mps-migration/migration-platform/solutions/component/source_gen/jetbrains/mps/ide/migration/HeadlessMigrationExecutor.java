@@ -10,14 +10,18 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/5351393548967765630", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public class HeadlessMigrationExecutor extends AbstractProjectComponent implements IStartupMigrationExecutor {
-  private MigrationRegistry myMigrationManager;
-  public HeadlessMigrationExecutor(Project project, MigrationRegistry migrationManager) {
+
+  public HeadlessMigrationExecutor(Project project) {
     super(project);
-    myMigrationManager = migrationManager;
   }
 
   @Override
   public void projectOpened() {
+  }
+
+
+  @Override
+  public void setProblemHandler(MigrationProblemHandler problemHandler) {
   }
 
   public void setRebuildHandler(Consumer<Iterable<SModuleReference>> rebuildHandler) {

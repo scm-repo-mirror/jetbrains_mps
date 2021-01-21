@@ -155,6 +155,14 @@
     <classNode dependClassName="org.jetbrains.mps.util.Condition" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
+  <dependency className="jetbrains.mps.migration.workbench.plugin.MigrationIssueHandler_ProjectPluginPart">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.ide.migration.IStartupMigrationExecutor" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.components.WorkbenchMigrationProblemHandler" />
+    <classNode dependClassName="jetbrains.mps.project.MPSProject" />
+    <classNode extendsClassName="jetbrains.mps.plugins.part.ProjectPluginPart" />
+  </dependency>
   <dependency className="jetbrains.mps.migration.workbench.plugin.MigrationTestConfigDialog">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.intellij.openapi.ui.VerticalFlowLayout" />
@@ -482,6 +490,7 @@
   <dependency className="jetbrains.mps.migration.workbench.plugin.Workbench_ProjectPlugin">
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.plugin.MigrationIssueHandler_ProjectPluginPart" />
     <classNode dependClassName="jetbrains.mps.migration.workbench.plugin.RebuildHandler_ProjectPluginPart" />
     <classNode dependClassName="jetbrains.mps.plugins.part.ProjectPluginPart" />
     <classNode extendsClassName="jetbrains.mps.plugins.projectplugins.BaseProjectPlugin" />

@@ -12,6 +12,7 @@ public class Workbench_ProjectPlugin extends BaseProjectPlugin {
   public Workbench_ProjectPlugin() {
   }
   public void fillCustomParts(List<ProjectPluginPart> parts) {
+    parts.add(new MigrationIssueHandler_ProjectPluginPart());
     parts.add(new RebuildHandler_ProjectPluginPart());
   }
 }

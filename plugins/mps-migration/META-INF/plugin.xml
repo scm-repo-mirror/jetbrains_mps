@@ -17,9 +17,5 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <mps.PluginComponentContributor application="jetbrains.mps.migration.workbench.plugin.Workbench_ApplicationPlugin" project="jetbrains.mps.migration.workbench.plugin.Workbench_ProjectPlugin" />
-    <projectService
-            serviceInterface="jetbrains.mps.migration.global.MigrationProblemHandler"
-            serviceImplementation="jetbrains.mps.migration.workbench.components.WorkbenchMigrationProblemHandler"
-            headlessImplementation="jetbrains.mps.migration.workbench.components.HeadlessMigrationProblemHandler" />
   </extensions>
 </idea-plugin>

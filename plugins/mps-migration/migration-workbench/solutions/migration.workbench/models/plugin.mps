@@ -60,6 +60,7 @@
     <import index="hlw7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.save(MPS.Platform/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="fn29" ref="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)" />
+    <import index="6xcv" ref="r:1f98243e-778e-4688-8b37-94002e0884e9(jetbrains.mps.migration.workbench.components)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -10268,6 +10269,115 @@
               <node concept="2WthIp" id="5FAP3BJUekZ" role="2Oq$k0" />
               <node concept="2BZ7hE" id="5FAP3BJUel1" role="2OqNvi">
                 <ref role="2WH_rO" node="5FAP3BJU80e" resolve="migrationTrigger" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2uRRBy" id="6E3ZNOq4qj3">
+    <property role="TrG5h" value="MigrationIssueHandler" />
+    <node concept="2BZ0e9" id="6E3ZNOq4qrs" role="2uRRBA">
+      <property role="TrG5h" value="migrationTrigger" />
+      <node concept="3Tm6S6" id="6E3ZNOq4qrt" role="1B3o_S" />
+      <node concept="3uibUv" id="6E3ZNOq4qru" role="1tU5fm">
+        <ref role="3uigEE" to="bim2:4D3Y1hNxTJF" resolve="IStartupMigrationExecutor" />
+      </node>
+    </node>
+    <node concept="2uRRBT" id="6E3ZNOq4qj4" role="2uRRB$">
+      <node concept="3clFbS" id="6E3ZNOq4qj5" role="2VODD2">
+        <node concept="3clFbF" id="6E3ZNOq4qzK" role="3cqZAp">
+          <node concept="37vLTI" id="6E3ZNOq4qzL" role="3clFbG">
+            <node concept="2OqwBi" id="6E3ZNOq4qzM" role="37vLTx">
+              <node concept="1KvdUw" id="6E3ZNOq4qzN" role="2Oq$k0" />
+              <node concept="liA8E" id="6E3ZNOq4qzO" role="2OqNvi">
+                <ref role="37wK5l" to="z1c3:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                <node concept="3VsKOn" id="6E3ZNOq4qzP" role="37wK5m">
+                  <ref role="3VsUkX" to="bim2:4D3Y1hNxTJF" resolve="IStartupMigrationExecutor" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="6E3ZNOq4qzQ" role="37vLTJ">
+              <node concept="2WthIp" id="6E3ZNOq4qzR" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4qzS" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="6E3ZNOq4qzT" role="3cqZAp">
+          <node concept="3clFbS" id="6E3ZNOq4qzU" role="3clFbx">
+            <node concept="3cpWs6" id="6E3ZNOq4qzV" role="3cqZAp" />
+          </node>
+          <node concept="3clFbC" id="6E3ZNOq4qzW" role="3clFbw">
+            <node concept="10Nm6u" id="6E3ZNOq4qzX" role="3uHU7w" />
+            <node concept="2OqwBi" id="6E3ZNOq4qzY" role="3uHU7B">
+              <node concept="2WthIp" id="6E3ZNOq4qzZ" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4q$0" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="6E3ZNOq4qJw" role="3cqZAp">
+          <node concept="2OqwBi" id="6E3ZNOq4qYs" role="3clFbG">
+            <node concept="2OqwBi" id="6E3ZNOq4qJq" role="2Oq$k0">
+              <node concept="2WthIp" id="6E3ZNOq4qJt" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4qJv" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
+              </node>
+            </node>
+            <node concept="liA8E" id="6E3ZNOq4r6Y" role="2OqNvi">
+              <ref role="37wK5l" to="bim2:6E3ZNOq3j1z" resolve="setProblemHandler" />
+              <node concept="2ShNRf" id="6E3ZNOq4r7G" role="37wK5m">
+                <node concept="1pGfFk" id="6E3ZNOq4Blb" role="2ShVmc">
+                  <ref role="37wK5l" to="6xcv:3_S1WmRGoQi" resolve="WorkbenchMigrationProblemHandler" />
+                  <node concept="1KvdUw" id="6E3ZNOq4Bmy" role="37wK5m" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2uRRBN" id="6E3ZNOq4qjo" role="2uRRB_">
+      <node concept="3clFbS" id="6E3ZNOq4qjp" role="2VODD2">
+        <node concept="3clFbJ" id="6E3ZNOq4BxI" role="3cqZAp">
+          <node concept="3clFbS" id="6E3ZNOq4BxJ" role="3clFbx">
+            <node concept="3cpWs6" id="6E3ZNOq4BxK" role="3cqZAp" />
+          </node>
+          <node concept="3clFbC" id="6E3ZNOq4BxL" role="3clFbw">
+            <node concept="10Nm6u" id="6E3ZNOq4BxM" role="3uHU7w" />
+            <node concept="2OqwBi" id="6E3ZNOq4BxN" role="3uHU7B">
+              <node concept="2WthIp" id="6E3ZNOq4BxO" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4BxP" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="6E3ZNOq4BxQ" role="3cqZAp">
+          <node concept="2OqwBi" id="6E3ZNOq4BxR" role="3clFbG">
+            <node concept="2OqwBi" id="6E3ZNOq4BxS" role="2Oq$k0">
+              <node concept="2WthIp" id="6E3ZNOq4BxT" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4BxU" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
+              </node>
+            </node>
+            <node concept="liA8E" id="6E3ZNOq4BxV" role="2OqNvi">
+              <ref role="37wK5l" to="bim2:xb$P2Bh9Hu" resolve="setRebuildHandler" />
+              <node concept="10Nm6u" id="6E3ZNOq4BxW" role="37wK5m" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="6E3ZNOq4BxX" role="3cqZAp">
+          <node concept="37vLTI" id="6E3ZNOq4BxY" role="3clFbG">
+            <node concept="10Nm6u" id="6E3ZNOq4BxZ" role="37vLTx" />
+            <node concept="2OqwBi" id="6E3ZNOq4By0" role="37vLTJ">
+              <node concept="2WthIp" id="6E3ZNOq4By1" role="2Oq$k0" />
+              <node concept="2BZ7hE" id="6E3ZNOq4By2" role="2OqNvi">
+                <ref role="2WH_rO" node="6E3ZNOq4qrs" resolve="migrationTrigger" />
               </node>
             </node>
           </node>

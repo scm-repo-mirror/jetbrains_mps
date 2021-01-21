@@ -63,7 +63,6 @@ import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
-import jetbrains.mps.migration.global.MigrationProblemHandler;
 import jetbrains.mps.ide.migration.wizard.MigrationWizard;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -121,6 +120,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   };
 
   private MigrationNotificationsSupport myNotifications;
+  private MigrationProblemHandler myIssueReporter = new HeadlessMigrationProblemHandler();
 
   private volatile boolean myMigrationRunning = false;
 
@@ -160,6 +160,12 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
         myMigrationRegistry.doUpdateImportVersions(module);
       }
     };
+  }
+
+
+  @Override
+  public void setProblemHandler(MigrationProblemHandler problemHandler) {
+    myIssueReporter = (problemHandler != null ? problemHandler : new HeadlessMigrationProblemHandler());
   }
 
   public void setRebuildHandler(Consumer<Iterable<SModuleReference>> rebuildHandler) {
@@ -474,7 +480,7 @@ __switch__:
       public void run() {
         myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
           public void run() {
-            myProject.getService(MigrationProblemHandler.class).showProblems(problems);
+            myIssueReporter.showProblems(problems);
           }
         });
       }
