@@ -8,7 +8,7 @@
   </models>
   <facets>
     <facet type="java">
-      <classes generated="true" />
+      <classes generated="true" path="${module}/classes_gen"  />
     </facet>
   </facets>
   <sourcePath />

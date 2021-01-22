@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.util.ModuleNameUtil;
-import jetbrains.mps.vfs.openapi.FileSystem;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.openapi.FileSystem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -63,31 +63,41 @@ public class ModulePluginContributor extends PluginContributor {
   @Override
   public BaseApplicationPlugin createApplicationPlugin() {
     String pluginClassName;
+    boolean nameByConvention = false;
     Properties cfg = getComponentStartupConfiguration();
     if (cfg == null || (pluginClassName = cfg.getProperty("init.application")) == null) {
       // fallback to legacy, name convention approach
       pluginClassName = getApplicationPluginClassName(myModule);
+      nameByConvention = true;
     }
-    return pluginClassName == null ? null : createPlugin(BaseApplicationPlugin.class, pluginClassName);
+    return pluginClassName == null ? null : createPlugin(BaseApplicationPlugin.class, pluginClassName, nameByConvention);
   }
 
   @Override
   public BaseProjectPlugin createProjectPlugin() {
     String pluginClassName;
+    boolean nameByConvention = false;
     Properties cfg = getComponentStartupConfiguration();
     if (cfg == null || (pluginClassName = cfg.getProperty("init.project")) == null) {
       // fallback to legacy, name convention approach
       pluginClassName = getProjectPluginClassName(myModule);
+      nameByConvention = true;
     }
-    return pluginClassName == null ? null : createPlugin(BaseProjectPlugin.class, pluginClassName);
+    return pluginClassName == null ? null : createPlugin(BaseProjectPlugin.class, pluginClassName, nameByConvention);
   }
 
   @Nullable
-  private <T> T createPlugin(Class<T> expectedClass, String className) {
+  private <T> T createPlugin(Class<T> expectedClass, String className, boolean justGuess) {
     try {
       Class<?> pluginClass = myModule.getOwnClass(className);
       return  pluginClass.asSubclass(expectedClass).newInstance();
     } catch (ClassNotFoundException e) {
+      if (!justGuess) {
+        // we try almost any Solution, and all Language modules (see PluginLoaderRegistry.isPluginModule),
+        // and we might end up with a lot of CNFE for modules that don't even consider being pluginSolution.
+        // However, when class name is explicitly specified, someone may be wondering why nothing is loaded, report.
+        LOG.warn(String.format("Missing %s contributed by %s: %s", className, myModule.getModuleName(), e.getMessage()));
+      }
       return null;
     } catch (Throwable t) {
       LOG.error("Failed to instantiate plugin component activator", t);
