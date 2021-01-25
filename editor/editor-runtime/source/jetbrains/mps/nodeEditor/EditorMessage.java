@@ -18,7 +18,7 @@ package jetbrains.mps.nodeEditor;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.message.FormattingOptions;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,7 +58,7 @@ public interface EditorMessage extends SimpleEditorMessage {
     if (formattingOptions == FormattingOptions.BODY_OF_HTML) {
       return rawText;
     } else if (formattingOptions == FormattingOptions.PLAIN_TEXT) {
-      return StringEscapeUtils.escapeHtml(rawText).replace("\n", "<br>");
+      return StringEscapeUtils.escapeHtml4(rawText).replace("\n", "<br>");
     }
     return rawText;
   }
