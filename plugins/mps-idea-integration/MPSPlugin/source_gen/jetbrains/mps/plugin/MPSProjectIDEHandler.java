@@ -79,7 +79,7 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
 
   static {
     // has to be called before instantiation of MPSProjectIDEHandler to make the instance available only at localhost 
-    RemoteServer.setupRMI();
+    RemoteServer.setupRMI(true);
   }
 
   public MPSProjectIDEHandler(Project project) throws RemoteException {
