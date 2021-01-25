@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,12 @@ import com.intellij.openapi.startup.StartupManager;
 import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.ide.ui.dialogs.modules.NewLanguageSettings;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.workbench.DocumentationHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -79,9 +80,11 @@ public class DefaultLanguageProjectTemplate implements LanguageProjectTemplate {
         if (myLanguageSettings.isRuntimeSolutionNeeded()) {
           Solution runtimeSolution = NewModuleUtil.createRuntimeSolution(language, myLanguageSettings.getModuleLocation(), project);
           language.getModuleDescriptor().getRuntimeModules().add(runtimeSolution.getModuleReference());
-          new VersionFixer(project, language, false).updateImportVersions();
+          final ModuleDependencyVersions mv = new ModuleDependencyVersions(project.getComponent(LanguageRegistry.class), project.getRepository());
+          mv.update(language);
+          // XXX again, do I care to update standalone generators, see NewLanguageDialog
           for (Generator gen : language.getGenerators()) {
-            new VersionFixer(project, gen, false).updateImportVersions();
+            mv.update(gen);
           }
           language.save();
         }

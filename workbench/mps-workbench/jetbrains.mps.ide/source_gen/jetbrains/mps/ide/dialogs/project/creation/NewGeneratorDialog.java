@@ -36,7 +36,8 @@ import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 
 @GeneratedClass(node = "r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)/1613125646032872003", model = "r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)")
 public class NewGeneratorDialog extends DialogWrapper {
@@ -228,7 +229,7 @@ public class NewGeneratorDialog extends DialogWrapper {
       if (myVirtualFolder != null && myProject instanceof StandaloneMPSProject) {
         ((StandaloneMPSProject) myProject).setFolderFor(gm, myVirtualFolder);
       }
-      new VersionFixer(myProject, gm, false).updateImportVersions();
+      new ModuleDependencyVersions(myProject.getComponent(LanguageRegistry.class), myProject.getRepository()).update(gm);
       gm.save();
       return gm;
     }

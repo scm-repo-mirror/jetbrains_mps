@@ -31,8 +31,9 @@ import jetbrains.mps.workbench.choose.ModulesPresentation;
 import com.intellij.ide.util.gotoByName.ChooseByNamePopup;
 import jetbrains.mps.workbench.goTo.ui.MpsPopupFactory;
 import com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.Generator;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import com.intellij.openapi.application.ModalityState;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/640843604926244916", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
@@ -115,9 +116,11 @@ public class NewRuntimeModule_Action extends BaseAction {
         repo.getModelAccess().runWriteInEDT(new Runnable() {
           public void run() {
             language.getModuleDescriptor().getRuntimeModules().add((SModuleReference) p0);
-            // next code has been copied from ModulePropertiesConfigurable.RuntimeTableModel#apply() 
+            // next code has been inspired by ModulePropertiesConfigurable.RuntimeTableModel#apply() 
+            // which has been abandoned since (e748150fb6017dd56e477b8aa5897cea5fd72af8), not sure what's the proper way 
+            ModuleDependencyVersions mdv = new ModuleDependencyVersions(((MPSProject) MapSequence.fromMap(_params).get("project")).getComponent(LanguageRegistry.class), repo);
             for (Generator g : language.getOwnedGenerators()) {
-              new VersionFixer(((MPSProject) MapSequence.fromMap(_params).get("project")), g, true).updateImportVersions();
+              mdv.update(g);
             }
             language.save();
             mpsTree.rebuildLater();

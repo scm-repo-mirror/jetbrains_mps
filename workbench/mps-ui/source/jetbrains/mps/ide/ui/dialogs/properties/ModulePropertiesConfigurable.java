@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,7 +87,6 @@ import jetbrains.mps.ide.ui.finders.LanguageModelImportFinder;
 import jetbrains.mps.ide.ui.finders.LanguageUsagesFinder;
 import jetbrains.mps.ide.ui.finders.ModelUsagesFinder;
 import jetbrains.mps.ide.ui.finders.ModuleUsagesFinder;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
@@ -112,6 +111,8 @@ import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelReadRunnable;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.ConditionalIterable;
@@ -253,12 +254,13 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
     }
 
     if (myModule instanceof Language) {
+      final ModuleDependencyVersions mv = new ModuleDependencyVersions(myMPSProject.getComponent(LanguageRegistry.class), myModuleRepository);
+      mv.resetVersions();
       for (Generator generator : ((Language) myModule).getOwnedGenerators()) {
-        VersionFixer fixer = new VersionFixer(myMPSProject, generator, true);
-        if (!fixer.areDepsSatisfied()) {
+        if (!mv.dependenciesPresent(generator)) {
           continue; //can't update module versions for a module with broken dep
         }
-        fixer.updateImportVersions();
+        mv.update(generator);
       }
     }
 

@@ -39,9 +39,10 @@
     <import index="kxvg" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.ui.tree.module(MPS.Platform/)" />
     <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
     <import index="qqrq" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.components(MPS.IDEA/)" />
-    <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
     <import index="z1c5" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.project(MPS.Workbench/)" />
     <import index="o2jy" ref="r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)" />
+    <import index="cttk" ref="r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)" />
+    <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -3188,20 +3189,33 @@
                 <node concept="2OqwBi" id="5pK7k4tcGJR" role="3clFbG">
                   <node concept="2ShNRf" id="5pK7k4tcGJS" role="2Oq$k0">
                     <node concept="1pGfFk" id="5pK7k4tcGJT" role="2ShVmc">
-                      <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
-                      <node concept="37vLTw" id="4bjG1FhI5WA" role="37wK5m">
-                        <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                      <ref role="37wK5l" to="cttk:5qGXSHdtS66" resolve="ModuleDependencyVersions" />
+                      <node concept="2OqwBi" id="5qGXSHd$ZvB" role="37wK5m">
+                        <node concept="37vLTw" id="4bjG1FhI5WA" role="2Oq$k0">
+                          <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                        </node>
+                        <node concept="liA8E" id="5qGXSHd$ZJG" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                          <node concept="3VsKOn" id="5qGXSHd$ZV3" role="37wK5m">
+                            <ref role="3VsUkX" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                          </node>
+                        </node>
                       </node>
-                      <node concept="37vLTw" id="4bjG1FhI62Z" role="37wK5m">
-                        <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
-                      </node>
-                      <node concept="3clFbT" id="4yPMgAVkFmi" role="37wK5m">
-                        <property role="3clFbU" value="false" />
+                      <node concept="2OqwBi" id="5qGXSHd_0qx" role="37wK5m">
+                        <node concept="37vLTw" id="5qGXSHd_02b" role="2Oq$k0">
+                          <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                        </node>
+                        <node concept="liA8E" id="5qGXSHd_0Ll" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                        </node>
                       </node>
                     </node>
                   </node>
-                  <node concept="liA8E" id="5pK7k4tcGJY" role="2OqNvi">
-                    <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
+                  <node concept="liA8E" id="5qGXSHd_0Vl" role="2OqNvi">
+                    <ref role="37wK5l" to="cttk:5qGXSHduhsJ" resolve="update" />
+                    <node concept="37vLTw" id="5qGXSHd_0Xm" role="37wK5m">
+                      <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
+                    </node>
                   </node>
                 </node>
               </node>

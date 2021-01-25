@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,18 +22,18 @@ import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.Module;
-import com.intellij.openapi.util.registry.Registry;
 import jetbrains.mps.extapi.module.SRepositoryExt;
 import jetbrains.mps.ide.messages.MessagesViewTool;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.idea.core.project.SolutionIdea;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -79,7 +79,7 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
 
       myMpsProject.addModule(mySolution = solution);
 
-      new VersionFixer(myMpsProject, mySolution, false).updateImportVersions();
+      new ModuleDependencyVersions(myMpsProject.getComponent(LanguageRegistry.class), myMpsProject.getRepository()).update(mySolution);
       mySolution.save();
 
       LOG.info(MPSBundle.message("facet.module.loaded", MPSFacet.this.mySolution.getModuleName()));

@@ -12,7 +12,8 @@ import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.ide.ui.dialogs.modules.NewLanguageSettings;
 import jetbrains.mps.project.Solution;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.io.IOException;
@@ -42,9 +43,11 @@ public class NewLanguageDialog extends AbstractModuleCreationDialog<Language> {
         Solution runtimeSolution = NewModuleUtil.createRuntimeSolution(language, mySettings.getModuleLocation(), (MPSProject) myProject);
         ((StandaloneMPSProject) myProject).setFolderFor(runtimeSolution, myVirtualFolder);
         language.getModuleDescriptor().getRuntimeModules().add(runtimeSolution.getModuleReference());
-        new VersionFixer(myProject, language, false).updateImportVersions();
+        ModuleDependencyVersions mv = new ModuleDependencyVersions(myProject.getComponent(LanguageRegistry.class), myProject.getRepository());
+        mv.update(language);
+        // XXX Do I care to update standalone versions here. And, if yes, don't I need to save them? 
         for (Generator gen : CollectionSequence.fromCollection(language.getGenerators())) {
-          new VersionFixer(myProject, gen, false).updateImportVersions();
+          mv.update(gen);
         }
         language.save();
       }

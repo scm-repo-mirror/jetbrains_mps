@@ -10,10 +10,12 @@ import jetbrains.mps.project.MPSProject;
 import java.io.IOException;
 import java.io.File;
 import org.jetbrains.mps.openapi.model.EditableSModel;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.SModelInternal;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.vfs.IFile;
@@ -69,7 +71,7 @@ public class NewModuleUtil {
     EditableSModel runtimeModel = createModel(runtime, namespace);
     runtimeModel.save();
 
-    new VersionFixer(project, runtime, false).updateImportVersions();
+    new ModuleDependencyVersions(project.getComponent(LanguageRegistry.class), project.getRepository()).update(runtime);
     runtime.save();
     return runtime;
   }
@@ -95,7 +97,7 @@ public class NewModuleUtil {
         fixer.addJustCreatedLanguageVersion(extSLang, (extSLang.isValid() ? extSLang.getLanguageVersion() : extLang_var.getLanguageVersion()));
       }
     }
-    fixer.updateImportVersions();
+    new ModuleDependencyVersions(project.getComponent(LanguageRegistry.class), project.getRepository()).update(sandbox);
 
     sandbox.save();
     return sandbox;
@@ -110,7 +112,7 @@ public class NewModuleUtil {
     SolutionDescriptor descriptor = createNewSolutionDescriptor(namespace, descriptorFile);
     Solution module = (Solution) new GeneralModuleFactory().instantiate(descriptor, descriptorFile);
     project.addModule(module);
-    new VersionFixer(project, module, false).updateImportVersions();
+    new ModuleDependencyVersions(project.getComponent(LanguageRegistry.class), project.getRepository());
     module.save();
     return module;
   }
@@ -147,8 +149,10 @@ public class NewModuleUtil {
 
     createTemplateModelIfNoneYet(generator);
 
-    new VersionFixer(project, language, false).updateImportVersions();
-    new VersionFixer(project, generator, false).updateImportVersions();
+    ModuleDependencyVersions mv = new ModuleDependencyVersions(project.getComponent(LanguageRegistry.class), project.getRepository());
+    mv.update(language);
+    mv.update(generator);
+
     language.save();
     generator.save();
     if (saveProject) {

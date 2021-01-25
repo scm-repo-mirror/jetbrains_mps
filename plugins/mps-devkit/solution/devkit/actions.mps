@@ -21,7 +21,6 @@
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="tpf8" ref="r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
-    <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="wpmh" ref="r:80bd416f-3ae2-40ea-8a6b-f0c4572f9ff8(jetbrains.mps.ide.actions.nodes)" />
     <import index="yrws" ref="r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)" />
     <import index="5wna" ref="r:3decc57d-6015-4d6c-ad86-7f2134c013b6(jetbrains.mps.ide.findusages.findalgorithm.finders.specific)" />
@@ -135,7 +134,6 @@
     <import index="1l1f" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.util.gotoByName(MPS.IDEA/)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
     <import index="yha4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.choose(MPS.Platform/)" />
-    <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
     <import index="mqj2" ref="r:1d4f6f82-1219-47a2-a4fa-ac3ba14c9fd5(jetbrains.mps.lang.constraints.rules.skeleton.structure)" />
     <import index="m5dg" ref="r:cc9efe31-86c5-4ceb-80d1-8a8efeb255e0(jetbrains.mps.lang.feedback.skeleton.plugin)" />
     <import index="zce0" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.smodel.action(MPS.Editor/)" />
@@ -145,6 +143,7 @@
     <import index="w1kd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.smodel(MPS.Platform/)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
     <import index="dp1x" ref="r:84719e1a-99f6-4297-90ba-8ad2a947fa4a(jetbrains.mps.ide.datatransfer)" />
+    <import index="cttk" ref="r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)" />
     <import index="ov6m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui.messages(MPS.IDEA/)" implicit="true" />
     <import index="wff5" ref="r:2ac18004-8536-478a-bf05-03a0f407633f(jetbrains.mps.lang.feedback.skeleton.structure)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
@@ -15282,45 +15281,104 @@
                                       <node concept="3oM_SD" id="ATZLwXogu8" role="1PaTwD">
                                         <property role="3oM_SC" value="has" />
                                       </node>
-                                      <node concept="3oM_SD" id="ATZLwXogu9" role="1PaTwD">
+                                      <node concept="3oM_SD" id="5qGXSHdzy1n" role="1PaTwD">
                                         <property role="3oM_SC" value="been" />
                                       </node>
-                                      <node concept="3oM_SD" id="ATZLwXogua" role="1PaTwD">
-                                        <property role="3oM_SC" value="copied" />
+                                      <node concept="3oM_SD" id="5qGXSHdzyHK" role="1PaTwD">
+                                        <property role="3oM_SC" value="inspired" />
                                       </node>
-                                      <node concept="3oM_SD" id="ATZLwXogub" role="1PaTwD">
-                                        <property role="3oM_SC" value="from" />
+                                      <node concept="3oM_SD" id="5qGXSHdzzhW" role="1PaTwD">
+                                        <property role="3oM_SC" value="by" />
                                       </node>
-                                      <node concept="3oM_SD" id="ATZLwXoguc" role="1PaTwD">
+                                      <node concept="3oM_SD" id="5qGXSHdzz$h" role="1PaTwD">
                                         <property role="3oM_SC" value="ModulePropertiesConfigurable.RuntimeTableModel#apply()" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3SKdUt" id="5qGXSHdzCV9" role="3cqZAp">
+                                    <node concept="1PaTwC" id="5qGXSHdzCVa" role="1aUNEU">
+                                      <node concept="3oM_SD" id="5qGXSHdzCVb" role="1PaTwD">
+                                        <property role="3oM_SC" value="which" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzDmC" role="1PaTwD">
+                                        <property role="3oM_SC" value="has" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzDmG" role="1PaTwD">
+                                        <property role="3oM_SC" value="been" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzEzu" role="1PaTwD">
+                                        <property role="3oM_SC" value="abandoned" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzFsC" role="1PaTwD">
+                                        <property role="3oM_SC" value="since" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzHcP" role="1PaTwD">
+                                        <property role="3oM_SC" value="(e748150fb6017dd56e477b8aa5897cea5fd72af8)," />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzHuZ" role="1PaTwD">
+                                        <property role="3oM_SC" value="not" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzHLa" role="1PaTwD">
+                                        <property role="3oM_SC" value="sure" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzIa6" role="1PaTwD">
+                                        <property role="3oM_SC" value="what's" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzIah" role="1PaTwD">
+                                        <property role="3oM_SC" value="the" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzIat" role="1PaTwD">
+                                        <property role="3oM_SC" value="proper" />
+                                      </node>
+                                      <node concept="3oM_SD" id="5qGXSHdzIuu" role="1PaTwD">
+                                        <property role="3oM_SC" value="way" />
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3cpWs8" id="5qGXSHd$aQ2" role="3cqZAp">
+                                    <node concept="3cpWsn" id="5qGXSHd$aQ3" role="3cpWs9">
+                                      <property role="TrG5h" value="mdv" />
+                                      <node concept="3uibUv" id="5qGXSHd$aEQ" role="1tU5fm">
+                                        <ref role="3uigEE" to="cttk:5qGXSHdtRTn" resolve="ModuleDependencyVersions" />
+                                      </node>
+                                      <node concept="2ShNRf" id="5qGXSHd$aQ4" role="33vP2m">
+                                        <node concept="1pGfFk" id="5qGXSHd$aQ5" role="2ShVmc">
+                                          <ref role="37wK5l" to="cttk:5qGXSHdtS66" resolve="ModuleDependencyVersions" />
+                                          <node concept="2OqwBi" id="5qGXSHd$aQ6" role="37wK5m">
+                                            <node concept="2OqwBi" id="5qGXSHd$aQ7" role="2Oq$k0">
+                                              <node concept="2WthIp" id="5qGXSHd$aQ8" role="2Oq$k0">
+                                                <ref role="32nkFo" node="z$IXO4dqwO" resolve="NewRuntimeModule" />
+                                              </node>
+                                              <node concept="1DTwFV" id="5qGXSHd$aQ9" role="2OqNvi">
+                                                <ref role="2WH_rO" node="4oi2Bf2pHLP" resolve="project" />
+                                              </node>
+                                            </node>
+                                            <node concept="liA8E" id="5qGXSHd$aQa" role="2OqNvi">
+                                              <ref role="37wK5l" to="z1c5:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                                              <node concept="3VsKOn" id="5qGXSHd$aQb" role="37wK5m">
+                                                <ref role="3VsUkX" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                                              </node>
+                                            </node>
+                                          </node>
+                                          <node concept="37vLTw" id="5qGXSHd$aQc" role="37wK5m">
+                                            <ref role="3cqZAo" node="3JyrSD6h3ak" resolve="repo" />
+                                          </node>
+                                        </node>
                                       </node>
                                     </node>
                                   </node>
                                   <node concept="1DcWWT" id="5Iq6O6631XC" role="3cqZAp">
                                     <node concept="3clFbS" id="5Iq6O6631XF" role="2LFqv$">
-                                      <node concept="3clFbF" id="5Iq6O6632Gi" role="3cqZAp">
-                                        <node concept="2OqwBi" id="5Iq6O663syO" role="3clFbG">
-                                          <node concept="2ShNRf" id="5Iq6O6632Gg" role="2Oq$k0">
-                                            <node concept="1pGfFk" id="5Iq6O663pzy" role="2ShVmc">
-                                              <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
-                                              <node concept="2OqwBi" id="5Iq6O663pYB" role="37wK5m">
-                                                <node concept="2WthIp" id="5Iq6O663pYE" role="2Oq$k0">
-                                                  <ref role="32nkFo" node="z$IXO4dqwO" resolve="NewRuntimeModule" />
-                                                </node>
-                                                <node concept="1DTwFV" id="5Iq6O663pYG" role="2OqNvi">
-                                                  <ref role="2WH_rO" node="4oi2Bf2pHLP" resolve="project" />
-                                                </node>
-                                              </node>
-                                              <node concept="37vLTw" id="5Iq6O663qMW" role="37wK5m">
-                                                <ref role="3cqZAo" node="5Iq6O6631XG" resolve="g" />
-                                              </node>
-                                              <node concept="3clFbT" id="5Iq6O663rhj" role="37wK5m">
-                                                <property role="3clFbU" value="true" />
-                                              </node>
-                                            </node>
+                                      <node concept="3clFbF" id="5qGXSHd$dnd" role="3cqZAp">
+                                        <node concept="2OqwBi" id="5qGXSHd$efP" role="3clFbG">
+                                          <node concept="37vLTw" id="5qGXSHd$dnb" role="2Oq$k0">
+                                            <ref role="3cqZAo" node="5qGXSHd$aQ3" resolve="mdv" />
                                           </node>
-                                          <node concept="liA8E" id="5Iq6O663tw0" role="2OqNvi">
-                                            <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
+                                          <node concept="liA8E" id="5qGXSHd$eW9" role="2OqNvi">
+                                            <ref role="37wK5l" to="cttk:5qGXSHduhsJ" resolve="update" />
+                                            <node concept="37vLTw" id="5qGXSHd$fYC" role="37wK5m">
+                                              <ref role="3cqZAo" node="5Iq6O6631XG" resolve="g" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -16181,20 +16239,33 @@
           <node concept="2OqwBi" id="5pK7k4tcGJR" role="3clFbG">
             <node concept="2ShNRf" id="5pK7k4tcGJS" role="2Oq$k0">
               <node concept="1pGfFk" id="5pK7k4tcGJT" role="2ShVmc">
-                <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
-                <node concept="37vLTw" id="DmFJ5GCXdr" role="37wK5m">
-                  <ref role="3cqZAo" node="DmFJ5GCU$X" resolve="myProject" />
+                <ref role="37wK5l" to="cttk:5qGXSHdtS66" resolve="ModuleDependencyVersions" />
+                <node concept="2OqwBi" id="5qGXSHd$kmu" role="37wK5m">
+                  <node concept="37vLTw" id="5qGXSHd$jVn" role="2Oq$k0">
+                    <ref role="3cqZAo" node="DmFJ5GCU$X" resolve="myProject" />
+                  </node>
+                  <node concept="liA8E" id="5qGXSHd$l0n" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c5:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                    <node concept="3VsKOn" id="5qGXSHd$l39" role="37wK5m">
+                      <ref role="3VsUkX" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                    </node>
+                  </node>
                 </node>
-                <node concept="37vLTw" id="4bjG1FhI62Z" role="37wK5m">
-                  <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
-                </node>
-                <node concept="3clFbT" id="4yPMgAVkFmi" role="37wK5m">
-                  <property role="3clFbU" value="false" />
+                <node concept="2OqwBi" id="5qGXSHd$lkG" role="37wK5m">
+                  <node concept="37vLTw" id="5qGXSHd$laF" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4bjG1FhHvQX" resolve="repoFacade" />
+                  </node>
+                  <node concept="liA8E" id="5qGXSHd$lAC" role="2OqNvi">
+                    <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.getRepository()" resolve="getRepository" />
+                  </node>
                 </node>
               </node>
             </node>
-            <node concept="liA8E" id="5pK7k4tcGJY" role="2OqNvi">
-              <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
+            <node concept="liA8E" id="5qGXSHd$lND" role="2OqNvi">
+              <ref role="37wK5l" to="cttk:5qGXSHduhsJ" resolve="update" />
+              <node concept="37vLTw" id="5qGXSHd$lP$" role="37wK5m">
+                <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
+              </node>
             </node>
           </node>
         </node>

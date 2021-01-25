@@ -20,7 +20,8 @@ import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
+import jetbrains.mps.smodel.ModuleDependencyVersions;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/744975140309088547", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
 public class PullGeneratorUpFromLanguage_Action extends BaseAction {
@@ -97,7 +98,7 @@ public class PullGeneratorUpFromLanguage_Action extends BaseAction {
     IFile moduleFile = generatorModuleLocation.findChild(md.getNamespace().replace("#", "") + MPSExtentions.DOT_GENERATOR);
     SModule gm = repoFacade.instantiate(md, moduleFile);
     myProject.addModule(gm);
-    new VersionFixer(myProject, gm, false).updateImportVersions();
+    new ModuleDependencyVersions(myProject.getComponent(LanguageRegistry.class), repoFacade.getRepository()).update(gm);
     sourceLanguage.save();
     ((Generator) gm).save();
     if (virtualFolder != null && myProject instanceof StandaloneMPSProject) {
