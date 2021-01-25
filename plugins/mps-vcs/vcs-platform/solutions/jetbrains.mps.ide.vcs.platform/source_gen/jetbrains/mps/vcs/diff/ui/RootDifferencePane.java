@@ -362,6 +362,9 @@ public class RootDifferencePane implements IHighlighter, PropertyChangeListener 
   }
   @Override
   public void rehighlight(boolean rebuildChangeSet) {
+    if (myDisposed) {
+      return;
+    }
     if (rebuildChangeSet) {
       ChangeSetBuilder.rebuildChangeSet(myChangeSet, PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false));
     }
@@ -394,5 +397,7 @@ public class RootDifferencePane implements IHighlighter, PropertyChangeListener 
     myDiffEditorsGroup.dispose();
     myOldEditor = null;
     myNewEditor = null;
+    myDisposed = true;
   }
+  private boolean myDisposed = false;
 }
