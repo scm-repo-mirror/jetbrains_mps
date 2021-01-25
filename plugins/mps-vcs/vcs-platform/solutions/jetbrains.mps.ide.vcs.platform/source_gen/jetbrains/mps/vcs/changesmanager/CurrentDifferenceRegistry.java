@@ -273,6 +273,10 @@ public class CurrentDifferenceRegistry {
     }
   }
 
+  /**
+   * used in some plugin.xml
+   */
+  @SuppressWarnings("unused")
   private static final class MyProjectListener implements ProjectManagerListener {
 
     @Override
