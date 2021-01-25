@@ -206,7 +206,7 @@ public class CurrentDifferenceRegistry {
     }
 
     @Override
-    protected void startListening(SModel model) {
+    protected void startListening(@NotNull SModel model) {
       if (isIncluded(model)) {
         // we care about modelReplaced event 
         model.addModelListener(this);

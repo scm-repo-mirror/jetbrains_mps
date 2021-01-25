@@ -54,7 +54,7 @@ public class CurrentDifference {
     }
   }
 
-  /*package*/ void setChangeSet(@NotNull ChangeSetImpl changeSetImpl) {
+  /*package*/ void setChangeSet(ChangeSetImpl changeSetImpl) {
     myCommandQueue.assertSoftlyIsCommandThread();
     removeChangeSet();
     myBroadcaster.changeUpdateStarted();
