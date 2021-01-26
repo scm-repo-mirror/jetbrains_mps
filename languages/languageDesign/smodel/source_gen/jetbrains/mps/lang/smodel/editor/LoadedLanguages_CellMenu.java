@@ -36,8 +36,7 @@ public class LoadedLanguages_CellMenu extends AbstractCellMenuComponent {
     protected boolean isCustomCreateChildNode() {
       return true;
     }
-    protected SNode customCreateChildNode(Object _parameterObject, SNode node, SNode currentChild, SAbstractConcept defaultChildConcept, SModel model, EditorContext editorContext) {
-      SLanguage parameterObject = (SLanguage) _parameterObject;
+    protected SNode customCreateChildNode(Object parameterObject, SNode node, SNode currentChild, SAbstractConcept defaultChildConcept, SModel model, EditorContext editorContext) {
       SNode lid = SModelOperations.createNewNode(model, null, CONCEPTS.LanguageId$UR);
       LanguageIdentity__BehaviorDescriptor.setLanguage_id34EJa6aIcyw.invoke(lid, parameterObject);
       return lid;
