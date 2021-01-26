@@ -36,9 +36,13 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> merge_id1YnOZxALrLu = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("merge").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1YnOZxALrLu").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> merge_id1YnOZxAMHtO = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("merge").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1YnOZxAMHtO").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> split_id1YnOZxANc9P = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("split").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1YnOZxANc9P").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addTextElement_idWJz9iAYdP6 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addTextElement").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("WJz9iAYdP6").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> addAllTextElements_idWJz9iAYdPl = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addAllTextElements").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("WJz9iAYdPl").build(SMethodBuilder.createJavaParameter((Class<Iterable<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isEmptyLine_id1YnOZxAO76B = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isEmptyLine").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1YnOZxAO76B").build();
+  public static final SMethod<Iterable<SNode>> getTextElements_idWJz9iATjyN = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getTextElements").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("WJz9iATjyN").build();
+  public static final SMethod<Void> removeTextElementAt_idWJz9iAXbMU = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("removeTextElementAt").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("WJz9iAXbMU").build(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(merge_id1YnOZxALrLu, merge_id1YnOZxAMHtO, split_id1YnOZxANc9P, isEmptyLine_id1YnOZxAO76B);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(merge_id1YnOZxALrLu, merge_id1YnOZxAMHtO, split_id1YnOZxANc9P, addTextElement_idWJz9iAYdP6, addAllTextElements_idWJz9iAYdPl, isEmptyLine_id1YnOZxAO76B, getTextElements_idWJz9iATjyN, removeTextElementAt_idWJz9iAXbMU);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -57,7 +61,7 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
         currentPosition.value = SNodeOperations.insertNextSiblingChild(currentPosition.value, element);
       }
     });
-    if (ListSequence.fromList(SLinkOperations.getChildren(other, LINKS.elements$_j45)).isNotEmpty() && isEmptyString(trim_chdj22_a0a0e0m(SPropertyOperations.getString(SNodeOperations.as(position, CONCEPTS.Word$Dn), PROPS.value$zQr_)))) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(other, LINKS.elements$_j45)).isNotEmpty() && isEmptyString(trim_chdj22_a0a0e0q(SPropertyOperations.getString(SNodeOperations.as(position, CONCEPTS.Word$Dn), PROPS.value$zQr_)))) {
       SNodeOperations.deleteNode(position);
     }
   }
@@ -71,12 +75,24 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
     ListSequence.fromList(SLinkOperations.getChildren(result, LINKS.elements$_j45)).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNextSiblings(afterPosition, false), CONCEPTS.TextElement$WN)));
     return result;
   }
+  /*package*/ static void addTextElement_idWJz9iAYdP6(@NotNull SNode __thisNode__, SNode element) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45)).addElement(element);
+  }
+  /*package*/ static void addAllTextElements_idWJz9iAYdPl(@NotNull SNode __thisNode__, Iterable<SNode> elements) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45)).addSequence(Sequence.fromIterable(elements));
+  }
   /*package*/ static boolean isEmptyLine_id1YnOZxAO76B(@NotNull SNode __thisNode__) {
     return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45)).isEmpty() || ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45)).all(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.Word$Dn) && isEmptyString(SPropertyOperations.getString(SNodeOperations.as(it, CONCEPTS.Word$Dn), PROPS.value$zQr_));
       }
     });
+  }
+  /*package*/ static Iterable<SNode> getTextElements_idWJz9iATjyN(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45);
+  }
+  /*package*/ static void removeTextElementAt_idWJz9iAXbMU(@NotNull SNode __thisNode__, int index) {
+    SLinkOperations.getChildren(__thisNode__, LINKS.elements$_j45).remove(index);
   }
 
   /*package*/ Line__BehaviorDescriptor() {
@@ -103,7 +119,18 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
       case 2:
         return (T) ((SNode) split_id1YnOZxANc9P(node, (SNode) parameters[0]));
       case 3:
+        addTextElement_idWJz9iAYdP6(node, (SNode) parameters[0]);
+        return null;
+      case 4:
+        addAllTextElements_idWJz9iAYdPl(node, (Iterable<SNode>) parameters[0]);
+        return null;
+      case 5:
         return (T) ((Boolean) isEmptyLine_id1YnOZxAO76B(node));
+      case 6:
+        return (T) ((Iterable<SNode>) getTextElements_idWJz9iATjyN(node));
+      case 7:
+        removeTextElementAt_idWJz9iAXbMU(node, ((int) (Integer) parameters[0]));
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -135,7 +162,7 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
   }
-  public static String trim_chdj22_a0a0e0m(String str) {
+  public static String trim_chdj22_a0a0e0q(String str) {
     return (str == null ? null : str.trim());
   }
 

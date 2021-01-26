@@ -9,26 +9,29 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
-  public static final int BulletPoint = 0;
-  public static final int EmptyParagraphLetter = 1;
-  public static final int IHoldLines = 2;
-  public static final int IHoldParagraphs = 3;
-  public static final int IParagraph = 4;
-  public static final int IndentedPoint = 5;
-  public static final int Letter = 6;
-  public static final int Line = 7;
-  public static final int NodeWrapperElement = 8;
-  public static final int NodeWrapperTextualElement = 9;
-  public static final int NumberedPoint = 10;
-  public static final int Paragraph = 11;
-  public static final int Text = 12;
-  public static final int TextElement = 13;
-  public static final int TextualElement = 14;
-  public static final int UrlTextualElement = 15;
-  public static final int Word = 16;
+  public static final int BulletLine = 0;
+  public static final int BulletPoint = 1;
+  public static final int EmptyParagraphLetter = 2;
+  public static final int IHoldLines = 3;
+  public static final int IHoldParagraphs = 4;
+  public static final int IParagraph = 5;
+  public static final int IndentedPoint = 6;
+  public static final int Letter = 7;
+  public static final int Line = 8;
+  public static final int NodeWrapperElement = 9;
+  public static final int NodeWrapperTextualElement = 10;
+  public static final int NumberedLine = 11;
+  public static final int NumberedPoint = 12;
+  public static final int Paragraph = 13;
+  public static final int Text = 14;
+  public static final int TextElement = 15;
+  public static final int TextualElement = 16;
+  public static final int UrlTextualElement = 17;
+  public static final int Word = 18;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L);
+    builder.put(0xf2f8c94a6f2a8faL, BulletLine);
     builder.put(0x2b6ef400337260c3L, BulletPoint);
     builder.put(0x17c01c7f100e844bL, EmptyParagraphLetter);
     builder.put(0x6b2f47401707d876L, IHoldLines);
@@ -39,6 +42,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x2331694e561af166L, Line);
     builder.put(0x2b7b49e536031fe9L, NodeWrapperElement);
     builder.put(0x2c99af34e20dcb4fL, NodeWrapperTextualElement);
+    builder.put(0x603abc0b9c5e5042L, NumberedLine);
     builder.put(0x5d9ea196218822ebL, NumberedPoint);
     builder.put(0x7ee31bf598f4ec9eL, Paragraph);
     builder.put(0x2331694e5619f411L, Text);

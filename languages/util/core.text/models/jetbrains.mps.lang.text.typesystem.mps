@@ -641,9 +641,9 @@
       <node concept="3clFbJ" id="4ruP0NLizVN" role="3cqZAp">
         <node concept="3clFbS" id="4ruP0NLizVO" role="3clFbx">
           <node concept="Dpp1Q" id="4ruP0NLizVP" role="3cqZAp">
-            <node concept="3Cnw8n" id="4ruP0NLiArr" role="1urrFz">
+            <node concept="3Cnw8n" id="60UJ0Iso7rj" role="1urrFz">
               <property role="ARO6o" value="true" />
-              <ref role="QpYPw" node="4ruP0NLi$Vq" resolve="RemovePoint" />
+              <ref role="QpYPw" node="WJz9iAXdZ_" resolve="RemoveLine" />
             </node>
             <node concept="Xl_RD" id="4ruP0NLizVR" role="Dpw9R">
               <property role="Xl_RC" value="The bullet should be removed" />
@@ -735,7 +735,7 @@
   </node>
   <node concept="Q5z_Y" id="10ljsgmINOM">
     <property role="3GE5qa" value="textual" />
-    <property role="TrG5h" value="TurnIntoNumberPoint" />
+    <property role="TrG5h" value="TurnIntoNumberedPoint" />
     <node concept="Q5ZZ6" id="10ljsgmINON" role="Q6x$H">
       <node concept="3clFbS" id="10ljsgmINOO" role="2VODD2">
         <node concept="3cpWs8" id="10ljsgmINOP" role="3cqZAp">
@@ -865,7 +865,7 @@
           <node concept="Dpp1Q" id="10ljsgmIOop" role="3cqZAp">
             <node concept="3Cnw8n" id="10ljsgmIUNG" role="1urrFz">
               <property role="ARO6o" value="true" />
-              <ref role="QpYPw" node="10ljsgmINOM" resolve="TurnIntoNumberPoint" />
+              <ref role="QpYPw" node="10ljsgmINOM" resolve="TurnIntoNumberedPoint" />
             </node>
             <node concept="Xl_RD" id="10ljsgmIOor" role="Dpw9R">
               <property role="Xl_RC" value="Can be turned into a numbered point" />
@@ -891,6 +891,270 @@
     <node concept="1YaCAy" id="10ljsgmIOox" role="1YuTPh">
       <property role="TrG5h" value="paragraph" />
       <ref role="1YaFvo" to="zqge:7Vz6ZmoXeMu" resolve="Paragraph" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="WJz9iAWFW8">
+    <property role="TrG5h" value="check_Line_Can_Be_Bullet" />
+    <property role="3GE5qa" value="" />
+    <node concept="3clFbS" id="WJz9iAWFW9" role="18ibNy">
+      <node concept="3clFbJ" id="WJz9iAWFWa" role="3cqZAp">
+        <node concept="3clFbS" id="WJz9iAWFWb" role="3clFbx">
+          <node concept="Dpp1Q" id="WJz9iAWFWc" role="3cqZAp">
+            <node concept="3Cnw8n" id="WJz9iAXcJ3" role="1urrFz">
+              <property role="ARO6o" value="true" />
+              <ref role="QpYPw" node="WJz9iAX8T_" resolve="TurnIntoBulletLine" />
+            </node>
+            <node concept="Xl_RD" id="WJz9iAWFWe" role="Dpw9R">
+              <property role="Xl_RC" value="Can be turned into a bullet point" />
+            </node>
+            <node concept="1YBJjd" id="WJz9iAWFWf" role="1urrMF">
+              <ref role="1YBMHb" node="WJz9iAWFWk" resolve="line" />
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="WJz9iAWFWg" role="3clFbw">
+          <node concept="35c_gC" id="WJz9iAWFWh" role="2Oq$k0">
+            <ref role="35c_gD" to="zqge:WJz9iAWEzU" resolve="BulletLine" />
+          </node>
+          <node concept="2qgKlT" id="WJz9iAWFWi" role="2OqNvi">
+            <ref role="37wK5l" to="vdrq:WJz9iAWPfE" resolve="canBeTurnedToBullet" />
+            <node concept="1YBJjd" id="WJz9iAWFWj" role="37wK5m">
+              <ref role="1YBMHb" node="WJz9iAWFWk" resolve="line" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="WJz9iAWFWk" role="1YuTPh">
+      <property role="TrG5h" value="line" />
+      <ref role="1YaFvo" to="zqge:2cLqkTm6J5A" resolve="Line" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="WJz9iAX8T_">
+    <property role="3GE5qa" value="" />
+    <property role="TrG5h" value="TurnIntoBulletLine" />
+    <node concept="Q5ZZ6" id="WJz9iAX8TA" role="Q6x$H">
+      <node concept="3clFbS" id="WJz9iAX8TB" role="2VODD2">
+        <node concept="3cpWs8" id="WJz9iAX8TC" role="3cqZAp">
+          <node concept="3cpWsn" id="WJz9iAX8TD" role="3cpWs9">
+            <property role="TrG5h" value="l" />
+            <node concept="3Tqbb2" id="WJz9iAX8TE" role="1tU5fm">
+              <ref role="ehGHo" to="zqge:2cLqkTm6J5A" resolve="Line" />
+            </node>
+            <node concept="1PxgMI" id="WJz9iAX8TF" role="33vP2m">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="WJz9iAX91z" role="3oSUPX">
+                <ref role="cht4Q" to="zqge:2cLqkTm6J5A" resolve="Line" />
+              </node>
+              <node concept="Q6c8r" id="WJz9iAX8TH" role="1m5AlR" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="WJz9iAX8TI" role="3cqZAp">
+          <node concept="2OqwBi" id="WJz9iAX8TJ" role="3clFbG">
+            <node concept="37vLTw" id="WJz9iAX8TK" role="2Oq$k0">
+              <ref role="3cqZAo" node="WJz9iAX8TD" resolve="l" />
+            </node>
+            <node concept="2qgKlT" id="WJz9iAX8TL" role="2OqNvi">
+              <ref role="37wK5l" to="vdrq:WJz9iAXbMU" resolve="removeTextElementAt" />
+              <node concept="3cmrfG" id="WJz9iAX8TM" role="37wK5m">
+                <property role="3cmrfH" value="0" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="WJz9iAYMmC" role="3cqZAp">
+          <node concept="2OqwBi" id="WJz9iAYE9p" role="3clFbG">
+            <node concept="37vLTw" id="WJz9iAYE9q" role="2Oq$k0">
+              <ref role="3cqZAo" node="WJz9iAX8TD" resolve="l" />
+            </node>
+            <node concept="2DeJnW" id="WJz9iAYE9r" role="2OqNvi">
+              <ref role="1_rbq0" to="zqge:WJz9iAWEzU" resolve="BulletLine" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="18kY7G" id="WJz9iAXdtM">
+    <property role="TrG5h" value="check_BulletLine" />
+    <property role="3GE5qa" value="" />
+    <node concept="3clFbS" id="WJz9iAXdtN" role="18ibNy">
+      <node concept="3clFbJ" id="WJz9iAXdtO" role="3cqZAp">
+        <node concept="3clFbS" id="WJz9iAXdtP" role="3clFbx">
+          <node concept="Dpp1Q" id="WJz9iAXdtQ" role="3cqZAp">
+            <node concept="3Cnw8n" id="WJz9iAXe4p" role="1urrFz">
+              <property role="ARO6o" value="true" />
+              <ref role="QpYPw" node="WJz9iAXdZ_" resolve="RemoveLine" />
+            </node>
+            <node concept="Xl_RD" id="WJz9iAXdtS" role="Dpw9R">
+              <property role="Xl_RC" value="The bullet should be removed" />
+            </node>
+            <node concept="1YBJjd" id="WJz9iAXdtT" role="1urrMF">
+              <ref role="1YBMHb" node="WJz9iAXdtY" resolve="bulletLine" />
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="WJz9iAXdtU" role="3clFbw">
+          <node concept="35c_gC" id="WJz9iAXdtV" role="2Oq$k0">
+            <ref role="35c_gD" to="zqge:WJz9iAWEzU" resolve="BulletLine" />
+          </node>
+          <node concept="2qgKlT" id="WJz9iAXdtW" role="2OqNvi">
+            <ref role="37wK5l" to="vdrq:WJz9iAWPgs" resolve="shouldRemoveBullet" />
+            <node concept="1YBJjd" id="WJz9iAXdtX" role="37wK5m">
+              <ref role="1YBMHb" node="WJz9iAXdtY" resolve="bulletLine" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="WJz9iAXdtY" role="1YuTPh">
+      <property role="TrG5h" value="bulletLine" />
+      <ref role="1YaFvo" to="zqge:WJz9iAWEzU" resolve="BulletLine" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="WJz9iAXdZ_">
+    <property role="3GE5qa" value="" />
+    <property role="TrG5h" value="RemoveLine" />
+    <node concept="Q5ZZ6" id="WJz9iAXdZA" role="Q6x$H">
+      <node concept="3clFbS" id="WJz9iAXdZB" role="2VODD2">
+        <node concept="3clFbF" id="WJz9iAXdZC" role="3cqZAp">
+          <node concept="2OqwBi" id="WJz9iAXdZD" role="3clFbG">
+            <node concept="2OqwBi" id="WJz9iAXdZE" role="2Oq$k0">
+              <node concept="Q6c8r" id="WJz9iAXdZF" role="2Oq$k0" />
+              <node concept="YBYNd" id="WJz9iAXdZG" role="2OqNvi" />
+            </node>
+            <node concept="3YRAZt" id="WJz9iAXdZH" role="2OqNvi" />
+          </node>
+        </node>
+        <node concept="3clFbF" id="WJz9iAXdZI" role="3cqZAp">
+          <node concept="2OqwBi" id="WJz9iAXdZJ" role="3clFbG">
+            <node concept="Q6c8r" id="WJz9iAXdZK" role="2Oq$k0" />
+            <node concept="2DeJnW" id="WJz9iAXdZL" role="2OqNvi">
+              <ref role="1_rbq0" to="zqge:2cLqkTm6J5A" resolve="Line" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="18kY7G" id="60UJ0Iso5M9">
+    <property role="TrG5h" value="check_NumberedLine" />
+    <property role="3GE5qa" value="" />
+    <node concept="3clFbS" id="60UJ0Iso5Ma" role="18ibNy">
+      <node concept="3clFbJ" id="60UJ0Iso5Mb" role="3cqZAp">
+        <node concept="3clFbS" id="60UJ0Iso5Mc" role="3clFbx">
+          <node concept="Dpp1Q" id="60UJ0Iso5Md" role="3cqZAp">
+            <node concept="3Cnw8n" id="60UJ0Iso5Me" role="1urrFz">
+              <property role="ARO6o" value="true" />
+              <ref role="QpYPw" node="4ruP0NLi$Vq" resolve="RemovePoint" />
+            </node>
+            <node concept="Xl_RD" id="60UJ0Iso5Mf" role="Dpw9R">
+              <property role="Xl_RC" value="The bullet should be removed" />
+            </node>
+            <node concept="1YBJjd" id="60UJ0Iso5Mg" role="1urrMF">
+              <ref role="1YBMHb" node="60UJ0Iso5Ml" resolve="numberedLine" />
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="60UJ0Iso5Mh" role="3clFbw">
+          <node concept="35c_gC" id="60UJ0Iso5Mi" role="2Oq$k0">
+            <ref role="35c_gD" to="zqge:60UJ0Isn_12" resolve="NumberedLine" />
+          </node>
+          <node concept="2qgKlT" id="60UJ0Iso5Mj" role="2OqNvi">
+            <ref role="37wK5l" to="vdrq:4ruP0NLisxF" resolve="shouldRemoveBullet" />
+            <node concept="1YBJjd" id="60UJ0Iso5Mk" role="37wK5m">
+              <ref role="1YBMHb" node="60UJ0Iso5Ml" resolve="numberedLine" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="60UJ0Iso5Ml" role="1YuTPh">
+      <property role="TrG5h" value="numberedLine" />
+      <ref role="1YaFvo" to="zqge:60UJ0Isn_12" resolve="NumberedLine" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="60UJ0Iso7yf">
+    <property role="TrG5h" value="check_Line_Can_Be_Numbered" />
+    <property role="3GE5qa" value="" />
+    <node concept="3clFbS" id="60UJ0Iso7yg" role="18ibNy">
+      <node concept="3clFbJ" id="60UJ0Iso7yh" role="3cqZAp">
+        <node concept="3clFbS" id="60UJ0Iso7yi" role="3clFbx">
+          <node concept="Dpp1Q" id="60UJ0Iso7yj" role="3cqZAp">
+            <node concept="3Cnw8n" id="60UJ0Iso8P$" role="1urrFz">
+              <property role="ARO6o" value="true" />
+              <ref role="QpYPw" node="60UJ0Iso7X6" resolve="TurnIntoNumberedLine" />
+            </node>
+            <node concept="Xl_RD" id="60UJ0Iso7yl" role="Dpw9R">
+              <property role="Xl_RC" value="Can be turned into a bullet point" />
+            </node>
+            <node concept="1YBJjd" id="60UJ0Iso7ym" role="1urrMF">
+              <ref role="1YBMHb" node="60UJ0Iso7yr" resolve="line" />
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="60UJ0Iso7yn" role="3clFbw">
+          <node concept="35c_gC" id="60UJ0Iso7yo" role="2Oq$k0">
+            <ref role="35c_gD" to="zqge:60UJ0Isn_12" resolve="NumberedLine" />
+          </node>
+          <node concept="2qgKlT" id="60UJ0Iso7yp" role="2OqNvi">
+            <ref role="37wK5l" to="vdrq:60UJ0Iso0yR" resolve="canBeTurnedToBullet" />
+            <node concept="1YBJjd" id="60UJ0Iso7yq" role="37wK5m">
+              <ref role="1YBMHb" node="60UJ0Iso7yr" resolve="line" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="60UJ0Iso7yr" role="1YuTPh">
+      <property role="TrG5h" value="line" />
+      <ref role="1YaFvo" to="zqge:2cLqkTm6J5A" resolve="Line" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="60UJ0Iso7X6">
+    <property role="TrG5h" value="TurnIntoNumberedLine" />
+    <node concept="Q5ZZ6" id="60UJ0Iso7X7" role="Q6x$H">
+      <node concept="3clFbS" id="60UJ0Iso7X8" role="2VODD2">
+        <node concept="3cpWs8" id="60UJ0Iso7X9" role="3cqZAp">
+          <node concept="3cpWsn" id="60UJ0Iso7Xa" role="3cpWs9">
+            <property role="TrG5h" value="p" />
+            <node concept="3Tqbb2" id="60UJ0Iso7Xb" role="1tU5fm">
+              <ref role="ehGHo" to="zqge:2cLqkTm6J5A" resolve="Line" />
+            </node>
+            <node concept="1PxgMI" id="60UJ0Iso7Xc" role="33vP2m">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="60UJ0Iso8CQ" role="3oSUPX">
+                <ref role="cht4Q" to="zqge:2cLqkTm6J5A" resolve="Line" />
+              </node>
+              <node concept="Q6c8r" id="60UJ0Iso7Xe" role="1m5AlR" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="60UJ0Iso7Xf" role="3cqZAp">
+          <node concept="2OqwBi" id="60UJ0Iso7Xg" role="3clFbG">
+            <node concept="37vLTw" id="60UJ0Iso7Xh" role="2Oq$k0">
+              <ref role="3cqZAo" node="60UJ0Iso7Xa" resolve="p" />
+            </node>
+            <node concept="2qgKlT" id="60UJ0Iso7Xi" role="2OqNvi">
+              <ref role="37wK5l" to="vdrq:WJz9iAXbMU" resolve="removeTextElementAt" />
+              <node concept="3cmrfG" id="60UJ0Iso7Xj" role="37wK5m">
+                <property role="3cmrfH" value="0" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="60UJ0Iso7XO" role="3cqZAp">
+          <node concept="2OqwBi" id="60UJ0Iso7XP" role="3clFbG">
+            <node concept="37vLTw" id="60UJ0Iso7XQ" role="2Oq$k0">
+              <ref role="3cqZAo" node="60UJ0Iso7Xa" resolve="p" />
+            </node>
+            <node concept="2DeJnW" id="60UJ0Iso7XR" role="2OqNvi">
+              <ref role="1_rbq0" to="zqge:60UJ0Isn_12" resolve="NumberedLine" />
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

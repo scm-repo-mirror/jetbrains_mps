@@ -59,7 +59,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
     editorCell.setCellId("Collection_uagdkf_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    ParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createReadOnlyModelAccessor_0());
     editorCell.addEditorCell(createConstant_1());

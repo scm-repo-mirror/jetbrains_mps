@@ -17,23 +17,23 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class check_BulletPoint_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
-  public check_BulletPoint_NonTypesystemRule() {
+public class check_NumberedLine_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
+  public check_NumberedLine_NonTypesystemRule() {
   }
-  public void applyRule(final SNode bulletPoint, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((boolean) BulletPoint__BehaviorDescriptor.shouldRemoveBullet_id4ruP0NLisxF.invoke(SNodeOperations.asSConcept(CONCEPTS.BulletPoint$FS), bulletPoint)) {
+  public void applyRule(final SNode numberedLine, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if ((boolean) BulletPoint__BehaviorDescriptor.shouldRemoveBullet_id4ruP0NLisxF.invoke(SNodeOperations.asSConcept(CONCEPTS.NumberedLine$k0), numberedLine)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(bulletPoint, "The bullet should be removed", "r:d1be8bd3-dfc7-4e90-8b90-965089cd0937(jetbrains.mps.lang.text.typesystem)", "5106752179537592053", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(numberedLine, "The bullet should be removed", "r:d1be8bd3-dfc7-4e90-8b90-965089cd0937(jetbrains.mps.lang.text.typesystem)", "6934061334344522893", null, errorTarget);
         {
-          BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.text.typesystem.RemoveLine_QuickFix", "6934061334344529619", true);
+          BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.text.typesystem.RemovePoint_QuickFix", "6934061334344522894", true);
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return CONCEPTS.BulletPoint$FS;
+    return CONCEPTS.NumberedLine$k0;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,6 +43,6 @@ public class check_BulletPoint_NonTypesystemRule extends AbstractNonTypesystemRu
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept BulletPoint$FS = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2b6ef400337260c3L, "jetbrains.mps.lang.text.structure.BulletPoint");
+    /*package*/ static final SConcept NumberedLine$k0 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x603abc0b9c5e5042L, "jetbrains.mps.lang.text.structure.NumberedLine");
   }
 }

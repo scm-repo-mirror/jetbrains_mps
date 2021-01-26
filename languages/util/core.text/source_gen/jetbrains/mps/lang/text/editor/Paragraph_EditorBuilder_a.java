@@ -66,7 +66,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT_ANCHOR, true);
     style.set(StyleAttributes.INDENT_LAYOUT_NO_WRAP, false);
     editorCell.getStyle().putAll(style);
-    ParagraphActions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createReadOnlyModelAccessor_0());
     editorCell.addEditorCell(createRefNodeList_0());

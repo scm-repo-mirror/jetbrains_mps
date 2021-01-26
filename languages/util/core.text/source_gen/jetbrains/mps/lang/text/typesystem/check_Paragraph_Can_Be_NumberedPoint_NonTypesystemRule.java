@@ -26,7 +26,7 @@ public class check_Paragraph_Can_Be_NumberedPoint_NonTypesystemRule extends Abst
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(paragraph, "Can be turned into a numbered point", "r:d1be8bd3-dfc7-4e90-8b90-965089cd0937(jetbrains.mps.lang.text.typesystem)", "1158917983708071449", null, errorTarget);
         {
-          BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.text.typesystem.TurnIntoNumberPoint_QuickFix", "1158917983708097772", true);
+          BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.text.typesystem.TurnIntoNumberedPoint_QuickFix", "1158917983708097772", true);
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }

@@ -9,6 +9,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_BulletLine;
   private ConceptPresentation props_BulletPoint;
   private ConceptPresentation props_EmptyParagraphLetter;
   private ConceptPresentation props_IHoldLines;
@@ -19,6 +20,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Line;
   private ConceptPresentation props_NodeWrapperElement;
   private ConceptPresentation props_NodeWrapperTextualElement;
+  private ConceptPresentation props_NumberedLine;
   private ConceptPresentation props_NumberedPoint;
   private ConceptPresentation props_Paragraph;
   private ConceptPresentation props_Text;
@@ -32,6 +34,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.BulletLine:
+        if (props_BulletLine == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("bullet line");
+          props_BulletLine = cpb.create();
+        }
+        return props_BulletLine;
       case LanguageConceptSwitch.BulletPoint:
         if (props_BulletPoint == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -101,6 +110,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NodeWrapperTextualElement = cpb.create();
         }
         return props_NodeWrapperTextualElement;
+      case LanguageConceptSwitch.NumberedLine:
+        if (props_NumberedLine == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("numbered line");
+          props_NumberedLine = cpb.create();
+        }
+        return props_NumberedLine;
       case LanguageConceptSwitch.NumberedPoint:
         if (props_NumberedPoint == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

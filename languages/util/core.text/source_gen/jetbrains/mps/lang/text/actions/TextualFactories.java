@@ -8,6 +8,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.text.behavior.Paragraph__BehaviorDescriptor;
+import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -37,6 +38,16 @@ public class TextualFactories {
       }
     }
   }
+  public static class NodeFactory_1094247804558658408 implements NodeFactory {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+      {
+        final SNode l = sampleNode;
+        if (SNodeOperations.isInstanceOf(l, CONCEPTS.Line$yC)) {
+          Line__BehaviorDescriptor.addAllTextElements_idWJz9iAYdPl.invoke(newNode, Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(l));
+        }
+      }
+    }
+  }
   public static class NodeFactory_6746006958027564752 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
@@ -51,6 +62,7 @@ public class TextualFactories {
   private static final class CONCEPTS {
     /*package*/ static final SConcept Letter$kd = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ac1dL, "jetbrains.mps.lang.text.structure.Letter");
     /*package*/ static final SConcept Paragraph$XF = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph");
+    /*package*/ static final SConcept Line$yC = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
     /*package*/ static final SInterfaceConcept IndentedPoint$BF = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x46ded40cf13ae6c4L, "jetbrains.mps.lang.text.structure.IndentedPoint");
   }
 

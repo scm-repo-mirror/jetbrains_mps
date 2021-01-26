@@ -179,6 +179,16 @@ public class Word_ActionMap {
 
     };
   }
+  /*package*/ static AbstractCellAction createAction_COMMENT(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+      }
+
+    };
+  }
 
   public static void setCellActions(EditorCell editorCell, SNode node, EditorContext context) {
     CellAction originalDelete = editorCell.getAction(CellActionType.DELETE);
@@ -213,6 +223,7 @@ public class Word_ActionMap {
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
     editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
     editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
+    editorCell.setAction(CellActionType.COMMENT, createAction_COMMENT(node));
   }
 
   public static void setDefinedCellActionsOfType(EditorCell editorCell, SNode node, EditorContext context, CellActionType actionType) {
@@ -234,6 +245,9 @@ public class Word_ActionMap {
     }
     if (Objects.equals(actionType, CellActionType.INSERT_BEFORE)) {
       editorCell.setAction(actionType, createAction_INSERT_BEFORE(node));
+    }
+    if (Objects.equals(actionType, CellActionType.COMMENT)) {
+      editorCell.setAction(actionType, createAction_COMMENT(node));
     }
   }
   private static boolean isNotEmptyString(String str) {

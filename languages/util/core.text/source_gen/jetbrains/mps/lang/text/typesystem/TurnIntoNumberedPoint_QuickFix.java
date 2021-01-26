@@ -15,8 +15,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 
-public class TurnIntoNumberPoint_QuickFix extends QuickFix_Runtime {
-  public TurnIntoNumberPoint_QuickFix() {
+public class TurnIntoNumberedPoint_QuickFix extends QuickFix_Runtime {
+  public TurnIntoNumberedPoint_QuickFix() {
     super(new SNodePointer("r:d1be8bd3-dfc7-4e90-8b90-965089cd0937(jetbrains.mps.lang.text.typesystem)", "1158917983708069170"));
   }
   public void execute(SNode node) {

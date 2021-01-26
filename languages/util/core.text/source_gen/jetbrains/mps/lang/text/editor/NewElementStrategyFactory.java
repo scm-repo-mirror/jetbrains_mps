@@ -6,14 +6,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.selection.Selection;
 import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -61,7 +61,8 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
       // Test if a new Line following the current Line should be created 
       if (currentSibling != null || myIncludeCurrentElement || currentLine == lineContainer || isNotEmptyString(SPropertyOperations.getString(SNodeOperations.as(newElement, CONCEPTS.Word$Dn), PROPS.value$zQr_))) {
-        SNode newLine = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line"));
+        SNode newLine = SNodeFactoryOperations.createNewNode(SNodeOperations.getConcept(currentLine), currentLine);
+        ListSequence.fromList(SLinkOperations.getChildren(newLine, LINKS.elements$_j45)).clear();
         ListSequence.fromList(SLinkOperations.getChildren(newLine, LINKS.elements$_j45)).addElement(newElement);
         while (currentSibling != null) {
           SNode next = SNodeOperations.cast(SNodeOperations.getNextSibling(currentSibling), CONCEPTS.TextElement$WN);
