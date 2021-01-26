@@ -4,7 +4,7 @@
   <models>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
       <sourceRoot location="jaxb-api-2.3.1.jar" />
-      <sourceRoot location="jaxb-runtime-2.3.1.jar" />
+      <sourceRoot location="jaxb-runtime.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -15,7 +15,7 @@
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${platform_lib}/jaxb-api-2.3.1.jar" />
-    <stubModelEntry path="${platform_lib}/jaxb-runtime-2.3.1.jar" />
+    <stubModelEntry path="${platform_lib}/jaxb-runtime.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>
