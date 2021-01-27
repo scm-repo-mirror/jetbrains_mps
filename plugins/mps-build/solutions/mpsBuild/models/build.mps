@@ -36297,11 +36297,6 @@
             <ref role="3bR37D" node="7pdFgzxlDoP" resolve="jetbrains.mps.build.mps" />
           </node>
         </node>
-        <node concept="1SiIV0" id="1zSQW5U0B0x" role="3bR37C">
-          <node concept="3bR9La" id="1zSQW5U0B0y" role="1SiIV1">
-            <ref role="3bR37D" node="5xa9wY2vhb7" resolve="jetbrains.mps.execution.configurations.implementation.plugin" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="kelsBo18zY" role="3bR37C">
           <node concept="3bR9La" id="kelsBo18zZ" role="1SiIV1">
             <ref role="3bR37D" node="7pdFgzxlDoA" resolve="jetbrains.mps.build" />

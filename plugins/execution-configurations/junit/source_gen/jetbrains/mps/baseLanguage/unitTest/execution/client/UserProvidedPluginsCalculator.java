@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.unitTest.execution.client;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.tool.common.PluginData;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitTests_Configuration;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -16,6 +15,8 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.internal.collections.runtime.IListSequence;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.build.mps.util.RequiredPlugins;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -36,20 +37,19 @@ public class UserProvidedPluginsCalculator {
 
   @NotNull
   public List<PluginData> calculate() {
-    JUnitTests_Configuration configuration = mySettings.myConfiguration;
     final SRepository repo = mySettings.myRepo;
-    if (configuration == null) {
+    if (mySettings.myUserPlugins == null || ListSequence.fromList(mySettings.myUserPlugins.getPluginsToDeploy()).isEmpty()) {
       return ListSequence.fromList(new ArrayList<PluginData>());
     }
-    final File pluginsPath = mySettings.myConfiguration.getJUnitSettings().getPluginsPath();
-    final List<SNodeReference> pluginList = configuration.getDeploySettings().getPluginsListToDeploy();
+    final File pluginsPath = mySettings.myUserPlugins.getPluginPath();
+    final List<SNodeReference> pluginList = mySettings.myUserPlugins.getPluginsToDeploy();
     return new ModelAccessHelper(repo).runReadAction(new Computable<IListSequence<PluginData>>() {
       public IListSequence<PluginData> compute() {
         List<SNode> list = ListSequence.fromList(pluginList).select(new ISelector<SNodeReference, SNode>() {
           public SNode select(SNodeReference it) {
-            return it.resolve(repo);
+            return SPointerOperations.resolveNode(it, repo);
           }
-        }).ofType(SNode.class).select(new ISelector<SNode, SNode>() {
+        }).where(new NotNullWhereFilter<SNode>()).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
             return SLinkOperations.getTarget(it, LINKS.plugin$9ewC);
           }

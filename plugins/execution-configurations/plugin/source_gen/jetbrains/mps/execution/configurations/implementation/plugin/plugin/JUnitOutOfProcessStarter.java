@@ -12,6 +12,9 @@ import com.intellij.execution.ExecutionException;
 import org.jetbrains.annotations.TestOnly;
 import jetbrains.mps.debug.api.EmptyDebuggerSettings;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.UserProvidedPluginsConfiguration;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.JUnit_Command;
 import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
@@ -51,7 +54,15 @@ public class JUnitOutOfProcessStarter implements JUnitProcessStarter {
 
     public ProcessHandler execute() throws ExecutionException {
       final boolean dirLock = RunCachesManager.acquireLock(myJUnitRC.getJUnitSettings().getCachesPath());
-      ProcessHandler commandProcess = new JUnit_Command().setDebuggerSettings_String(myDebuggerSettings.getCommandLine(true)).createProcess(myProject, myTestNodes, myJUnitRC);
+
+      final UserProvidedPluginsConfiguration up;
+      List<SNodeReference> plugins2deploy = (List<SNodeReference>) myJUnitRC.getDeploySettings().getPluginsListToDeploy();
+      if (ListSequence.fromList(plugins2deploy).isEmpty()) {
+        up = null;
+      } else {
+        up = new UserProvidedPluginsConfiguration(myJUnitRC.getJUnitSettings().getPluginsPath(), plugins2deploy);
+      }
+      ProcessHandler commandProcess = new JUnit_Command().setUserPlugins_UserProvidedPluginsConfiguration(up).setDebuggerSettings_String(myDebuggerSettings.getCommandLine(true)).createProcess(myProject, myTestNodes, myJUnitRC.getJavaRunParameters(), myJUnitRC.getJUnitSettings());
       commandProcess.addProcessListener(new ProcessAdapter() {
         @Override
         public void processTerminated(ProcessEvent p0) {
