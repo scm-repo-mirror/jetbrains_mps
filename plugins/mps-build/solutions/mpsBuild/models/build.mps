@@ -29949,9 +29949,6 @@
     <property role="turDy" value="mpsBuild.xml" />
     <property role="3GE5qa" value="common" />
     <property role="2DA0ip" value="../../../../" />
-    <node concept="2igEWh" id="5peYeZGpcRs" role="1hWBAP">
-      <property role="2igJW4" value="true" />
-    </node>
     <node concept="m$_wf" id="5HVSRHdVm9a" role="3989C9">
       <property role="m$_wk" value="jetbrains.mps.build" />
       <node concept="m$f5U" id="1Z_UwmPeEXg" role="m$_yh">
