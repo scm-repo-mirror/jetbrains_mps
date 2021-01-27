@@ -296,8 +296,6 @@
           <module ref="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" kind="rt" />
           <module ref="2af156ab-65c1-4a62-bd0d-ea734f71eab6(jetbrains.mps.dataFlow.runtime)" kind="rt" />
           <module ref="34e84b8f-afa8-4364-abcd-a279fddddbe7(jetbrains.mps.editor.runtime)" kind="rt" />
-          <module ref="36c11d2d-1875-4a95-8bdb-70ea1ac63222(jetbrains.mps.execution.api)" kind="rt" />
-          <module ref="365fb593-3c1a-40a0-a7d7-c98144281283(jetbrains.mps.execution.impl)" kind="rt" />
           <module ref="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" kind="rt" />
           <module ref="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt" />
           <module ref="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
@@ -345,8 +343,6 @@
           <language id="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" />
           <language id="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
           <language id="l:f3347d8a-0e79-4f35-8ac9-1574f25c986f:jetbrains.mps.execution.commands" />
-          <language id="l:22e72e4c-0f69-46ce-8403-6750153aa615:jetbrains.mps.execution.configurations" />
-          <language id="l:756e911c-3f1f-4a48-bdf5-a2ceb91b723c:jetbrains.mps.execution.settings" />
           <language id="l:aee9cad2-acd4-4608-aef2-0004f6a1cdbd:jetbrains.mps.lang.actions" />
           <language id="l:af65afd8-f0dd-4942-87d9-63a55f2a9db1:jetbrains.mps.lang.behavior" />
           <language id="l:3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1:jetbrains.mps.lang.constraints" />
@@ -1185,16 +1181,16 @@
         <module file="${mps_home}/plugins/execution-languages/languages/plugin/jetbrains.mps.execution.languages.msd" />
         <module file="${mps_home}/plugins/execution-languages/languages/library/jetbrains.mps.execution.library.msd" />
       </chunk>
-      <chunk bootstrap="true">
+      <chunk>
         <module file="${basedir}/plugins/execution-configurations/ant.cmd/jetbrains.mps.ant.execution.msd" />
         <module file="${basedir}/plugins/execution-configurations/java.cmd/jetbrains.mps.baseLanguage.execution.util.msd" />
-        <module file="${mps_home}/plugins/execution-languages/languages/configurations/jetbrains.mps.execution.configurations.mpl" bootstrap="true" />
+        <module file="${mps_home}/plugins/execution-languages/languages/configurations/jetbrains.mps.execution.configurations.mpl" />
+        <module file="${mps_home}/plugins/execution-languages/languages/devkit/devkit.devkit" />
       </chunk>
       <chunk>
         <module file="${basedir}/plugins/execution-configurations/junit/jetbrains.mps.baseLanguage.unitTest.execution.msd" />
         <module file="${basedir}/plugins/execution-configurations/plugin/jetbrains.mps.execution.configurations.implementation.plugin.msd" />
         <module file="${mps_home}/plugins/execution-languages/languages/configurations/solutions/pluginSolution/jetbrains.mps.execution.configurations.pluginSolution.msd" />
-        <module file="${mps_home}/plugins/execution-languages/languages/devkit/devkit.devkit" />
       </chunk>
       <jvmargs>
         <arg value="-ea" />
@@ -2105,8 +2101,12 @@
     <delete dir="${mps_home}/plugins/execution-languages/languages/jetbrains.mps.execution.impl/source_gen" />
     <delete dir="${mps_home}/plugins/execution-languages/languages/plugin/source_gen" />
     <delete dir="${mps_home}/plugins/execution-languages/languages/library/source_gen" />
-    <delete dir="${mps_home}/plugins/execution-configurations/junit/source_gen" />
+    <delete dir="${mps_home}/plugins/execution-configurations/ant.cmd/source_gen" />
+    <delete dir="${mps_home}/plugins/execution-configurations/java.cmd/source_gen" />
+    <delete dir="${mps_home}/plugins/execution-languages/languages/commands/generator/source_gen" />
+    <delete dir="${mps_home}/plugins/execution-languages/languages/configurations/source_gen" />
     <delete dir="${mps_home}/plugins/execution-languages/languages/configurations/generator/source_gen" />
+    <delete dir="${mps_home}/plugins/execution-configurations/junit/source_gen" />
     <delete dir="${mps_home}/plugins/execution-configurations/plugin/source_gen" />
     <delete dir="${mps_home}/plugins/execution-languages/languages/configurations/solutions/pluginSolution/source_gen" />
   </target>

@@ -3,8 +3,6 @@
   <persistence version="9" />
   <languages>
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="-1" />
-    <use id="756e911c-3f1f-4a48-bdf5-a2ceb91b723c" name="jetbrains.mps.execution.settings" version="-1" />
-    <use id="22e72e4c-0f69-46ce-8403-6750153aa615" name="jetbrains.mps.execution.configurations" version="-1" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -120,9 +118,6 @@
       <concept id="8182547171709614739" name="jetbrains.mps.lang.quotation.structure.NodeBuilderRef" flags="nn" index="36bGnv">
         <reference id="8182547171709614741" name="target" index="36bGnp" />
       </concept>
-    </language>
-    <language id="756e911c-3f1f-4a48-bdf5-a2ceb91b723c" name="jetbrains.mps.execution.settings">
-      <concept id="946964771156066332" name="jetbrains.mps.execution.settings.structure.PersistentConfigurationType" flags="in" index="yHkHH" />
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
       <concept id="1185788614172" name="jetbrains.mps.lang.typesystem.structure.NormalTypeClause" flags="ng" index="mw_s8">
@@ -357,17 +352,19 @@
     <node concept="3clFbS" id="3aewtBM3d7J" role="18ibNy">
       <node concept="1Z5TYs" id="3aewtBM3d7P" role="3cqZAp">
         <node concept="mw_s8" id="3aewtBM3d7T" role="1ZfhKB">
-          <node concept="2c44tf" id="3aewtBM3d7U" role="mwGJk">
-            <node concept="yHkHH" id="3aewtBM3d7W" role="2c44tc">
-              <node concept="2c44tb" id="3aewtBM3d7X" role="lGtFl">
-                <property role="2qtEX8" value="persistentConfiguration" />
-                <property role="P3scX" value="756e911c-3f1f-4a48-bdf5-a2ceb91b723c/946964771156066332/946964771156066333" />
-                <node concept="2OqwBi" id="3aewtBM3d80" role="2c44t1">
-                  <node concept="1YBJjd" id="3aewtBM3d7Z" role="2Oq$k0">
-                    <ref role="1YBMHb" node="3aewtBM3d7K" resolve="creator" />
-                  </node>
-                  <node concept="3TrEf2" id="3aewtBM3d84" role="2OqNvi">
-                    <ref role="3Tt5mk" to="uhxm:3aewtBM3d7v" resolve="configuration" />
+          <node concept="2pJPEk" id="6Q7Z5lrNPZW" role="mwGJk">
+            <node concept="2pJPED" id="6Q7Z5lrNPZT" role="2pJPEn">
+              <ref role="2pJxaS" to="fb9u:O$iR4J$g0s" resolve="PersistentConfigurationType" />
+              <node concept="2pIpSj" id="6Q7Z5lrNPZU" role="2pJxcM">
+                <ref role="2pIpSl" to="fb9u:O$iR4J$g0t" resolve="persistentConfiguration" />
+                <node concept="36biLy" id="6Q7Z5lrNPZV" role="28nt2d">
+                  <node concept="2OqwBi" id="3aewtBM3d80" role="36biLW">
+                    <node concept="1YBJjd" id="3aewtBM3d7Z" role="2Oq$k0">
+                      <ref role="1YBMHb" node="3aewtBM3d7K" resolve="creator" />
+                    </node>
+                    <node concept="3TrEf2" id="3aewtBM3d84" role="2OqNvi">
+                      <ref role="3Tt5mk" to="uhxm:3aewtBM3d7v" resolve="configuration" />
+                    </node>
                   </node>
                 </node>
               </node>
