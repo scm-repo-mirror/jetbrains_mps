@@ -212,9 +212,6 @@
         <child id="3189788309731917348" name="runtime" index="1E1XAP" />
         <child id="9200313594498201639" name="generator" index="1TViLv" />
       </concept>
-      <concept id="3189788309731928315" name="jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnJavaModule" flags="ng" index="1E1SXE">
-        <reference id="3189788309731928317" name="module" index="1E1SXG" />
-      </concept>
       <concept id="3189788309731922642" name="jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage" flags="ng" index="1E1Vl3">
         <reference id="3189788309731922643" name="language" index="1E1Vl2" />
       </concept>
@@ -590,9 +587,6 @@
           <node concept="3bR9La" id="3T4oiWuYWAM" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:3fCcEmT2ZdI" resolve="jetbrains.mps.lang.test.util" />
           </node>
-        </node>
-        <node concept="1E1SXE" id="4BeY47ZQHti" role="3bR37C">
-          <ref role="1E1SXG" to="ffeo:2aRSPSKEe9G" resolve="test-util" />
         </node>
         <node concept="1SiIV0" id="5sLbmmj1rR1" role="3bR37C">
           <node concept="3bR9La" id="5sLbmmj1rR2" role="1SiIV1">

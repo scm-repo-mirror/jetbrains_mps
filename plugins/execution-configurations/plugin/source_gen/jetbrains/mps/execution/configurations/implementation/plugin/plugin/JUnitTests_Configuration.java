@@ -25,8 +25,6 @@ import com.intellij.execution.ui.ConsoleView;
 import jetbrains.mps.execution.api.configurations.ConsoleCreator;
 import jetbrains.mps.ide.actions.StandaloneMPSStackTraceFilter;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.lang.test.util.TestInProcessRunState;
-import jetbrains.mps.lang.test.util.RunStateEnum;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.openapi.project.Project;
 import com.intellij.execution.configurations.ConfigurationFactory;

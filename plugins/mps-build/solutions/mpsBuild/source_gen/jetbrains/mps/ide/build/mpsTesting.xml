@@ -32,15 +32,6 @@
     <copy todir="${build.layout}/mps-testing/META-INF">
       <fileset file="${mps_home}/plugins/mps-testing/META-INF/plugin.xml" />
     </copy>
-    <mkdir dir="${build.layout}/mps-testing/lib" />
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-solutions-jetbrains.mps.lang.test.util-models">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/models" includes="**/*.mps, **/*.mpsr, **/.model" />
-    </copyModels>
-    <jar destfile="${build.layout}/mps-testing/lib/jetbrains.mps.lang.test.util.jar" duplicate="preserve">
-      <fileset dir="${build.tmp}/java/out/test-util" />
-      <zipfileset file="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/jetbrains.mps.lang.test.util.msd" prefix="modules/jetbrains.mps.lang.test.util" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-solutions-jetbrains.mps.lang.test.util-models" prefix="modules/jetbrains.mps.lang.test.util/models" />
-    </jar>
     <mkdir dir="${build.layout}/mps-testing/languages" />
     <mkdir dir="${build.layout}/mps-testing/languages/baseLanguage" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.unitTest.jar" />
@@ -211,6 +202,7 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-baseLanguage-unitTest-languageModels" prefix="module/languageModels" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-baseLanguage-unitTest-generator-baseLanguage-template" prefix="module/generator/baseLanguage/template" />
     </jar>
+    <mkdir dir="${build.layout}/mps-testing/languages" />
     <mkdir dir="${build.layout}/mps-testing/languages/languageDesign" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.test.matcher.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.test.matcher.jar/META-INF" />
@@ -630,6 +622,7 @@
       <zipfileset file="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/jetbrains.mps.lang.smodelTests.mpl" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-smodelTests-languageModels" prefix="module/languageModels" />
     </jar>
+    <mkdir dir="${build.layout}/mps-testing/languages" />
     <mkdir dir="${build.layout}/mps-testing/languages/gentest" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.test.generator.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.lang.test.generator.jar/META-INF" />
@@ -870,7 +863,7 @@
     <delete dir="${build.layout}" />
   </target>
   
-  <target name="compileJava" depends="java.compile.test-util, java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.baseLanguage.unitTest#1171932017138, java.compile.jetbrains.mps.lang.test.generator, java.compile.jetbrains.mps.lang.test.generator#01, java.compile.jetbrains.mps.lang.test.generator.rt, java.compile.jetbrains.mps.lang.test.matcher, java.compile.java.modules.cycle.1, java.compile.jetbrains.mps.lang.test, java.compile.jetbrains.mps.lang.test#1210261198005, java.compile.jetbrains.mps.lang.test.runtime, java.compile.jetbrains.mps.lang.smodelTests" />
+  <target name="compileJava" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.baseLanguage.unitTest#1171932017138, java.compile.jetbrains.mps.lang.test.generator, java.compile.jetbrains.mps.lang.test.generator#01, java.compile.jetbrains.mps.lang.test.generator.rt, java.compile.jetbrains.mps.lang.test.matcher, java.compile.java.modules.cycle.1, java.compile.jetbrains.mps.lang.test, java.compile.jetbrains.mps.lang.test#1210261198005, java.compile.jetbrains.mps.lang.test.runtime, java.compile.jetbrains.mps.lang.smodelTests" />
   
   <target name="processResources" />
   
@@ -1015,7 +1008,6 @@
         <module file="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/jetbrains.mps.lang.smodelTests.mpl" />
         <module file="${mps_home}/plugins/mps-testing/languages/gentest.rt/jetbrains.mps.lang.test.generator.rt.msd" />
         <module file="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.matcher/jetbrains.mps.lang.test.matcher.msd" />
-        <module file="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/jetbrains.mps.lang.test.util.msd" />
       </chunk>
       <chunk bootstrap="true">
         <module file="${mps_home}/plugins/mps-testing/languages/languageDesign/test/jetbrains.mps.lang.test.mpl" bootstrap="true" />
@@ -1049,46 +1041,6 @@
       <target name="generate" />
       <target name="assemble" />
     </ant>
-  </target>
-  
-  <target name="java.compile.test-util" depends="fetchDependencies">
-    <mkdir dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/source_gen" />
-    <mkdir dir="${build.tmp}/java/out/test-util" />
-    <javac destdir="${build.tmp}/java/out/test-util" fork="false" encoding="utf8" includeantruntime="false" debug="true">
-      <compilerarg value="-Xlint:none" />
-      <src>
-        <path location="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/source_gen" />
-      </src>
-      <classpath>
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-tuples.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-references.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-api.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-runtime.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-messaging.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-context.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-platform.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
-        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
-        <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
-        <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
-        <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
-        <fileset file="${artifacts.IDEA}/lib/ecj-4.16.jar" />
-        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.16.jar" />
-        <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
-      </classpath>
-    </javac>
-    <copy todir="${build.tmp}/java/out/test-util">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, **/*.svg" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.baseLanguage.unitTest" depends="fetchDependencies">

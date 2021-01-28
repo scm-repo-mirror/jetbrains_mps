@@ -1586,7 +1586,6 @@
     <orderEntry type="module" module-name="typesystemUi" />
     <orderEntry type="library" name="JetPad" level="project" />
     <orderEntry type="module" module-name="testbench" />
-    <orderEntry type="module" module-name="mps-testing" />
     <orderEntry type="module" module-name="textgen" />
     <orderEntry type="module" module-name="typesystemIntegration" />
     <orderEntry type="module" module-name="ant-mps" />
@@ -1619,4 +1618,3 @@
     <orderEntry type="module" module-name="messages-for-structure" />
   </component>
 </module>
-
