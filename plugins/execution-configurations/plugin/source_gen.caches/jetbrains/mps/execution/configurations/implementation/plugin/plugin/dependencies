@@ -402,6 +402,7 @@
     <classNode dependClassName="com.intellij.execution.configurations.ConfigurationPerRunnerSettings" />
     <classNode dependClassName="com.intellij.execution.configurations.RunConfiguration" />
     <classNode dependClassName="com.intellij.execution.configurations.RunProfileState" />
+    <classNode dependClassName="com.intellij.execution.configurations.RuntimeConfigurationError" />
     <classNode dependClassName="com.intellij.execution.configurations.RuntimeConfigurationException" />
     <classNode dependClassName="com.intellij.execution.process.ProcessHandler" />
     <classNode dependClassName="com.intellij.execution.runners.ExecutionEnvironment" />
@@ -433,6 +434,8 @@
     <classNode dependClassName="jetbrains.mps.execution.configurations.pluginSolution.plugin.MakeNodePointers_BeforeTask" />
     <classNode dependClassName="jetbrains.mps.ide.actions.StandaloneMPSStackTraceFilter" />
     <classNode dependClassName="jetbrains.mps.ide.project.ProjectHelper" />
+    <classNode dependClassName="jetbrains.mps.lang.test.util.RunStateEnum" />
+    <classNode dependClassName="jetbrains.mps.lang.test.util.TestInProcessRunState" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
     <classNode dependClassName="org.apache.log4j.Logger" />

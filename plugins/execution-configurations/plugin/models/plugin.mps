@@ -2560,6 +2560,53 @@
         </node>
       </node>
     </node>
+    <node concept="yHkHE" id="4YEli8eHkYf" role="yHkHi">
+      <property role="TrG5h" value="checkInProcessRunIsSingle" />
+      <node concept="3cqZAl" id="4YEli8eHm07" role="3clF45" />
+      <node concept="3clFbS" id="4YEli8eHkYh" role="3clF47">
+        <node concept="3clFbJ" id="40rNy8FLQMS" role="3cqZAp">
+          <node concept="3clFbS" id="40rNy8FLQMV" role="3clFbx">
+            <node concept="yHkDM" id="40rNy8FM2gj" role="3cqZAp">
+              <node concept="Xl_RD" id="40rNy8FM2gB" role="yHkDO">
+                <property role="Xl_RC" value="There is already another instance running tests in-process. Only one instance is allowed to run in-process." />
+              </node>
+            </node>
+          </node>
+          <node concept="1Wc70l" id="40rNy8FLS0y" role="3clFbw">
+            <node concept="3y3z36" id="4YDgfhqaNU_" role="3uHU7w">
+              <node concept="2OqwBi" id="4YDgfhqaNUB" role="3uHU7B">
+                <node concept="2YIFZM" id="78MxLJAHAzb" role="2Oq$k0">
+                  <ref role="37wK5l" to="fnd7:78MxLJAHsh8" resolve="getInstance" />
+                  <ref role="1Pybhc" to="fnd7:1$FrpHy4ud$" resolve="TestInProcessRunState" />
+                </node>
+                <node concept="liA8E" id="4YDgfhqaNUD" role="2OqNvi">
+                  <ref role="37wK5l" to="fnd7:2A5UIbg69nv" resolve="get" />
+                </node>
+              </node>
+              <node concept="Rm8GO" id="4YDgfhqaNUE" role="3uHU7w">
+                <ref role="Rm8GQ" to="fnd7:1$FrpHy4ufD" resolve="IDLE" />
+                <ref role="1Px2BO" to="fnd7:1$FrpHy4ufC" resolve="RunStateEnum" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="37RZV2uof0k" role="3uHU7B">
+              <node concept="2OqwBi" id="40rNy8FLR5P" role="2Oq$k0">
+                <node concept="2WthIp" id="40rNy8FLQPn" role="2Oq$k0" />
+                <node concept="yHkDZ" id="37RZV2uoexv" role="2OqNvi">
+                  <ref role="yHkDY" node="5gyVhZ1ayaO" resolve="myJUnitSettings" />
+                </node>
+              </node>
+              <node concept="yHkDZ" id="37RZV2uofq7" role="2OqNvi">
+                <ref role="yHkDY" to="tty3:1hvQXBo5kdH" resolve="myInProcess" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="4YEli8eHlVn" role="1B3o_S" />
+      <node concept="3uibUv" id="4YEli8eH$GV" role="Sfmx6">
+        <ref role="3uigEE" to="dj99:~RuntimeConfigurationException" resolve="RuntimeConfigurationException" />
+      </node>
+    </node>
     <node concept="yHkDk" id="5gyVhZ1882n" role="yHkHj">
       <node concept="3clFbS" id="5gyVhZ1882o" role="2VODD2">
         <node concept="3clFbF" id="1X8FusBaf$Q" role="3cqZAp">
@@ -2581,6 +2628,14 @@
               <node concept="yHkDZ" id="5dZuAAfomkc" role="2OqNvi">
                 <ref role="yHkDY" node="5dZuAAfok8w" resolve="myDeploySettings" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="37RZV2uo9C9" role="3cqZAp">
+          <node concept="2OqwBi" id="37RZV2uo9C3" role="3clFbG">
+            <node concept="2WthIp" id="37RZV2uo9C6" role="2Oq$k0" />
+            <node concept="2XshWL" id="37RZV2uo9C8" role="2OqNvi">
+              <ref role="2WH_rO" node="4YEli8eHkYf" resolve="checkInProcessRunIsSingle" />
             </node>
           </node>
         </node>
