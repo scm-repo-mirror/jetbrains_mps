@@ -26,7 +26,7 @@
     <import index="rjhg" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit(JUnit/)" />
     <import index="cvlm" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit.runner(JUnit/)" />
     <import index="k76n" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit.runner.notification(JUnit/)" />
-    <import index="4k19" ref="1fd846c3-c5f9-4b9e-9ecc-e716f7149f86/java:org.hamcrest(Hamcrest/)" />
+    <import index="4k19" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.hamcrest(JUnit/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -14004,7 +14004,7 @@
                                             <node concept="3cqZAl" id="4HGj3MeUsWK" role="3clF45" />
                                             <node concept="37vLTG" id="4HGj3MeUsWL" role="3clF46">
                                               <property role="TrG5h" value="p0" />
-                                              <node concept="3uibUv" id="4HGj3MeUtUa" role="1tU5fm">
+                                              <node concept="3uibUv" id="2csC_AmLpaG" role="1tU5fm">
                                                 <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                               </node>
                                             </node>
@@ -14086,7 +14086,7 @@
                                       <node concept="3cqZAl" id="4HGj3MeUsXh" role="3clF45" />
                                       <node concept="37vLTG" id="4HGj3MeUsXi" role="3clF46">
                                         <property role="TrG5h" value="description" />
-                                        <node concept="3uibUv" id="4HGj3MeUtUc" role="1tU5fm">
+                                        <node concept="3uibUv" id="2csC_AmLmdy" role="1tU5fm">
                                           <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                         </node>
                                       </node>
@@ -14247,7 +14247,7 @@
                                           <node concept="3cqZAl" id="4HGj3MeUsYg" role="3clF45" />
                                           <node concept="37vLTG" id="4HGj3MeUsYh" role="3clF46">
                                             <property role="TrG5h" value="p0" />
-                                            <node concept="3uibUv" id="4HGj3MeUtUe" role="1tU5fm">
+                                            <node concept="3uibUv" id="2csC_AmM2AO" role="1tU5fm">
                                               <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                             </node>
                                           </node>

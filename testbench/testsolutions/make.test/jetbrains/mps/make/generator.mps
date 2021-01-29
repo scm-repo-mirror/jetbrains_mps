@@ -23,7 +23,7 @@
     <import index="mk8z" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="rjhg" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit(JUnit/)" />
     <import index="cvlm" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.junit.runner(JUnit/)" />
-    <import index="4k19" ref="1fd846c3-c5f9-4b9e-9ecc-e716f7149f86/java:org.hamcrest(Hamcrest/)" />
+    <import index="4k19" ref="49808fad-9d41-4b96-83fa-9231640f6b2b/java:org.hamcrest(JUnit/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -623,8 +623,8 @@
                                       <node concept="YeOm9" id="4TqQgK0ruvC" role="2ShVmc">
                                         <node concept="1Y3b0j" id="4TqQgK0ruvD" role="YeSDq">
                                           <property role="2bfB8j" value="true" />
-                                          <ref role="37wK5l" to="4k19:~BaseMatcher.&lt;init&gt;()" resolve="BaseMatcher" />
                                           <ref role="1Y3XeK" to="4k19:~BaseMatcher" resolve="BaseMatcher" />
+                                          <ref role="37wK5l" to="4k19:~BaseMatcher.&lt;init&gt;()" resolve="BaseMatcher" />
                                           <node concept="3Tm1VV" id="4TqQgK0ruvE" role="1B3o_S" />
                                           <node concept="3uibUv" id="4TqQgK0ruvZ" role="2Ghqu4">
                                             <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
@@ -673,7 +673,7 @@
                                             <node concept="3cqZAl" id="4TqQgK0ruvV" role="3clF45" />
                                             <node concept="37vLTG" id="4TqQgK0ruvW" role="3clF46">
                                               <property role="TrG5h" value="p0" />
-                                              <node concept="3uibUv" id="5PsZZIUA18V" role="1tU5fm">
+                                              <node concept="3uibUv" id="2csC_AmMgS_" role="1tU5fm">
                                                 <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                               </node>
                                             </node>
@@ -755,7 +755,7 @@
                                       <node concept="3cqZAl" id="4TqQgK0ruws" role="3clF45" />
                                       <node concept="37vLTG" id="4TqQgK0ruwt" role="3clF46">
                                         <property role="TrG5h" value="description" />
-                                        <node concept="3uibUv" id="5PsZZIUA0xS" role="1tU5fm">
+                                        <node concept="3uibUv" id="2csC_AmLEVt" role="1tU5fm">
                                           <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                         </node>
                                       </node>
@@ -899,8 +899,8 @@
                                     <node concept="YeOm9" id="2dB$GwFJsxv" role="2ShVmc">
                                       <node concept="1Y3b0j" id="2dB$GwFJsxw" role="YeSDq">
                                         <property role="2bfB8j" value="true" />
-                                        <ref role="37wK5l" to="4k19:~BaseMatcher.&lt;init&gt;()" resolve="BaseMatcher" />
                                         <ref role="1Y3XeK" to="4k19:~BaseMatcher" resolve="BaseMatcher" />
+                                        <ref role="37wK5l" to="4k19:~BaseMatcher.&lt;init&gt;()" resolve="BaseMatcher" />
                                         <node concept="3Tm1VV" id="2dB$GwFJsxx" role="1B3o_S" />
                                         <node concept="3uibUv" id="2dB$GwFJsxZ" role="2Ghqu4">
                                           <ref role="3uigEE" to="i9so:7n5UAVXWrRu" resolve="IQuery" />
@@ -974,7 +974,7 @@
                                           <node concept="3cqZAl" id="2dB$GwFJsxV" role="3clF45" />
                                           <node concept="37vLTG" id="2dB$GwFJsxW" role="3clF46">
                                             <property role="TrG5h" value="p0" />
-                                            <node concept="3uibUv" id="5PsZZIUA0xY" role="1tU5fm">
+                                            <node concept="3uibUv" id="2csC_AmLF3W" role="1tU5fm">
                                               <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                             </node>
                                           </node>
@@ -1045,7 +1045,7 @@
                                       <node concept="3cqZAl" id="2dB$GwFJsyn" role="3clF45" />
                                       <node concept="37vLTG" id="2dB$GwFJsyo" role="3clF46">
                                         <property role="TrG5h" value="description" />
-                                        <node concept="3uibUv" id="5PsZZIUA0xT" role="1tU5fm">
+                                        <node concept="3uibUv" id="2csC_AmMh9O" role="1tU5fm">
                                           <ref role="3uigEE" to="4k19:~Description" resolve="Description" />
                                         </node>
                                       </node>

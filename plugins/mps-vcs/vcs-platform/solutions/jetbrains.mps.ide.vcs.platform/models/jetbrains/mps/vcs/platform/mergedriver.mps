@@ -3519,7 +3519,7 @@
                             <ref role="3cqZAo" to="ejh2:~SvnUtil.USER_CONFIGURATION_PATH" resolve="USER_CONFIGURATION_PATH" />
                           </node>
                           <node concept="liA8E" id="56HkYgiPYrt" role="2OqNvi">
-                            <ref role="37wK5l" to="zn9m:~AtomicNotNullLazyValue.getValue()" resolve="getValue" />
+                            <ref role="37wK5l" to="zn9m:~NotNullLazyValue.getValue()" resolve="getValue" />
                           </node>
                         </node>
                         <node concept="liA8E" id="56HkYgiPIwQ" role="2OqNvi">
