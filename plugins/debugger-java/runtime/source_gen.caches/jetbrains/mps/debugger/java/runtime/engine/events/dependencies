@@ -49,6 +49,7 @@
     <classNode dependClassName="com.intellij.openapi.progress.util.ProgressIndicatorListenerAdapter" />
     <classNode dependClassName="com.intellij.openapi.progress.util.ProgressWindow" />
     <classNode dependClassName="com.intellij.openapi.project.Project" />
+    <classNode dependClassName="com.intellij.openapi.util.EmptyRunnable" />
     <classNode dependClassName="com.sun.jdi.AbsentInformationException" />
     <classNode dependClassName="com.sun.jdi.ThreadReference" />
     <classNode dependClassName="com.sun.jdi.VirtualMachine" />

@@ -31,7 +31,6 @@ import java.util.Arrays;
 import java.util.List;
 import com.intellij.openapi.vcs.changes.ChangeListManagerImpl;
 import com.intellij.openapi.vcs.changes.ChangeListManagerGate;
-import java.io.File;
 import com.intellij.openapi.vcs.changes.LocalChangeList;
 import org.jetbrains.annotations.Nullable;
 import java.util.Collection;

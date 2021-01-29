@@ -1067,8 +1067,11 @@
         </node>
         <node concept="3clFbF" id="2nMnFSwItms" role="3cqZAp">
           <node concept="2YIFZM" id="2nMnFSwItn0" role="3clFbG">
-            <ref role="37wK5l" to="p2by:~RemoteServer.setupRMI()" resolve="setupRMI" />
             <ref role="1Pybhc" to="p2by:~RemoteServer" resolve="RemoteServer" />
+            <ref role="37wK5l" to="p2by:~RemoteServer.setupRMI(boolean)" resolve="setupRMI" />
+            <node concept="3clFbT" id="19qkOsNCkPN" role="37wK5m">
+              <property role="3clFbU" value="true" />
+            </node>
           </node>
         </node>
       </node>

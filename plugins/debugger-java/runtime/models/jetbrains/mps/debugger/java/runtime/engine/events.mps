@@ -31,6 +31,7 @@
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="ot7" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress.util(MPS.IDEA/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
+    <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2653,7 +2654,11 @@
               <ref role="3cqZAo" node="6iKTdy44w$h" resolve="progress" />
             </node>
             <node concept="liA8E" id="6iKTdy45bwt" role="2OqNvi">
-              <ref role="37wK5l" to="ot7:~ProgressWindow.startBlocking()" resolve="startBlocking" />
+              <ref role="37wK5l" to="ot7:~ProgressWindow.startBlocking(java.lang.Runnable)" resolve="startBlocking" />
+              <node concept="2YIFZM" id="19qkOsND2rU" role="37wK5m">
+                <ref role="37wK5l" to="zn9m:~EmptyRunnable.getInstance()" resolve="getInstance" />
+                <ref role="1Pybhc" to="zn9m:~EmptyRunnable" resolve="EmptyRunnable" />
+              </node>
             </node>
           </node>
         </node>
