@@ -12435,36 +12435,6 @@
         <property role="TrG5h" value="jetbrains.mps.lang.text.test" />
         <property role="3LESm3" value="89271cfe-4a93-440d-b4ab-d21ce7349603" />
         <property role="aoJFB" value="eYcmk9QOls/tests" />
-        <node concept="3rtmxn" id="3HV74$eh7l5" role="3bR31x">
-          <node concept="3LXTmp" id="3HV74$eh7l6" role="3rtmxm">
-            <node concept="3qWCbU" id="3HV74$eh7l7" role="3LXTna">
-              <property role="3qWCbO" value="icons/**, resources/**" />
-            </node>
-            <node concept="55IIr" id="3HV74$eh7l8" role="3LXTmr">
-              <node concept="2Ry0Ak" id="3HV74$eh7l9" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="3HV74$eh7la" role="2Ry0An">
-                  <property role="2Ry0Am" value="mps-testing" />
-                  <node concept="2Ry0Ak" id="3HV74$eh7lb" role="2Ry0An">
-                    <property role="2Ry0Am" value="languages" />
-                    <node concept="2Ry0Ak" id="3HV74$eh7lc" role="2Ry0An">
-                      <property role="2Ry0Am" value="languageDesign" />
-                      <node concept="2Ry0Ak" id="3HV74$eh7ld" role="2Ry0An">
-                        <property role="2Ry0Am" value="smodelTests" />
-                        <node concept="2Ry0Ak" id="3HV74$eh7le" role="2Ry0An">
-                          <property role="2Ry0Am" value="solutions" />
-                          <node concept="2Ry0Ak" id="3HV74$eh7lf" role="2Ry0An">
-                            <property role="2Ry0Am" value="jetbrains.mps.smodel.test" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="55IIr" id="3HV74$eh7lg" role="3LF7KH">
           <node concept="2Ry0Ak" id="3HV74$eh7lh" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
@@ -12706,36 +12676,6 @@
         <property role="TrG5h" value="jetbrains.mps.lang.test.test" />
         <property role="3LESm3" value="db577327-e7eb-4dae-9c9b-12ca22523ab4" />
         <property role="aoJFB" value="eYcmk9QOls/tests" />
-        <node concept="3rtmxn" id="6IYCYtgo1p7" role="3bR31x">
-          <node concept="3LXTmp" id="6IYCYtgo1p8" role="3rtmxm">
-            <node concept="3qWCbU" id="6IYCYtgo1p9" role="3LXTna">
-              <property role="3qWCbO" value="icons/**, resources/**" />
-            </node>
-            <node concept="55IIr" id="6IYCYtgo1pa" role="3LXTmr">
-              <node concept="2Ry0Ak" id="6IYCYtgo1pb" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="6IYCYtgo1pc" role="2Ry0An">
-                  <property role="2Ry0Am" value="mps-testing" />
-                  <node concept="2Ry0Ak" id="6IYCYtgo1pd" role="2Ry0An">
-                    <property role="2Ry0Am" value="languages" />
-                    <node concept="2Ry0Ak" id="6IYCYtgo1pe" role="2Ry0An">
-                      <property role="2Ry0Am" value="languageDesign" />
-                      <node concept="2Ry0Ak" id="6IYCYtgo1pf" role="2Ry0An">
-                        <property role="2Ry0Am" value="smodelTests" />
-                        <node concept="2Ry0Ak" id="6IYCYtgo1pg" role="2Ry0An">
-                          <property role="2Ry0Am" value="solutions" />
-                          <node concept="2Ry0Ak" id="6IYCYtgo1ph" role="2Ry0An">
-                            <property role="2Ry0Am" value="jetbrains.mps.smodel.test" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="55IIr" id="6IYCYtgo1pi" role="3LF7KH">
           <node concept="2Ry0Ak" id="6IYCYtgo1pj" role="iGT6I">
             <property role="2Ry0Am" value="testbench" />
