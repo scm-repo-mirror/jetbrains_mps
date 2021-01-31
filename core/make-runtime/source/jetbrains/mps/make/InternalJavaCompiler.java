@@ -48,6 +48,7 @@ class InternalJavaCompiler {
   private final static String COPYING_RESOURCES_MSG = "Copying Resources";
   private final static String WRITING_CLASSES_MSG = "Writing Classes";
   private final static String ECLIPSE_COMPILER_MSG = "Running ECJ";
+  private final static String MODULES_CLASSPATH_STR = "Modules: %s;\nClasspath: %s\n";
 
   @NotNull private final ModulesContainer myModulesContainer;
   @Nullable private final JavaCompilerOptions myCompilerOptions;
@@ -144,7 +145,7 @@ class InternalJavaCompiler {
     tracer.start(COMPILING_JAVA_MSG, 10);
     try {
       Set<String> classPath = computeDependenciesClassPath(myModulesContainer.getModules(), tracer.subTracer(1));
-      final CompilationErrorsHandler errorsHandler = new CompilationErrorsHandler(myModulesContainer, tracer.getSender(), classPath);
+      final CompilationErrorsHandler errorsHandler = new CompilationErrorsHandler(myModulesContainer, tracer.getSender());
       final CollectingResultsListener listener = new CollectingResultsListener(errorsHandler);
 
       compiler.addCompilationResultListener(listener);
@@ -152,6 +153,9 @@ class InternalJavaCompiler {
       compiler.removeCompilationResultListener(listener);
 
       errorsHandler.handle(listener.getResults(), tracer.subTracer(1));
+      if (errorsHandler.getErrorsCount() > 0) {
+        tracer.getSender().info(String.format(MODULES_CLASSPATH_STR, myModulesContainer.getModules(), classPath));
+      }
       CompilationHandler compilationHandler = new CompilationHandler(myModulesContainer, classPath);
       Collection<SModule> changedModules = compilationHandler.process(listener.getResults(), errorsHandler.getClassesWithErrors(), tracer.subTracer(2));
 

@@ -28,7 +28,6 @@ import java.util.Set;
 
 public class CompilationErrorsHandler {
   private final static int MAX_ERRORS = 100;
-  private final static String MODULES_CLASSPATH_STR = "Modules: %s;\nClasspath: %s\n"; // FIXME: transfer
   private final static String FATAL_ERROR_MSG = "Fatal error during eclipse compilation: %s";
   private final static String ERROR_FORMAT_STRING = "%s (line: %d)";
   private final static String COMPILATION_PROBLEMS = "Compilation problems";
@@ -37,12 +36,9 @@ public class CompilationErrorsHandler {
   private final ModulesContainer myModulesContainer;
   private final MessageSender mySender;
   private final ClassesErrorsTracker myErrorTracker = new ClassesErrorsTracker();
-  private Collection<String> myClassPath;
 
-  public CompilationErrorsHandler(@NotNull ModulesContainer modulesContainer, @NotNull MessageSender sender,
-                                  Collection<String> classPath) {
+  public CompilationErrorsHandler(@NotNull ModulesContainer modulesContainer, @NotNull MessageSender sender) {
     myModulesContainer = modulesContainer;
-    myClassPath = classPath;
     mySender = new MessageSender(sender, this);
   }
 
@@ -72,7 +68,6 @@ public class CompilationErrorsHandler {
   public void handle(org.eclipse.jdt.internal.compiler.CompilationResult result) {
     if (result.getErrors().length > 0) {
       mySender.error(COMPILATION_PROBLEMS);
-      mySender.info(String.format(MODULES_CLASSPATH_STR, myModulesContainer.getModules(), myClassPath));
     }
     for (final CategorizedProblem problem : result.getErrors()) {
       String fileName = new String(problem.getOriginatingFileName());
@@ -83,7 +78,7 @@ public class CompilationErrorsHandler {
       assert containingModule != null;
       JavaFile javaFile = myModulesContainer.getSources(containingModule).getJavaFile(fqName);
 
-      String messageString = String.valueOf(problem.getOriginatingFileName()) + " : " + problem.getMessage();
+      String messageString = fileName + " : " + problem.getMessage();
       //final SNode nodeToShow = getNodeByLine(problem, fqName);
 
       Object hintObject = new FileWithPosition(javaFile.getFile(), problem.getSourceStart());
@@ -100,7 +95,6 @@ public class CompilationErrorsHandler {
 
   public void handleFatal(@NotNull String msg) {
     mySender.error(String.format(FATAL_ERROR_MSG, msg), null);
-    mySender.info(String.format(MODULES_CLASSPATH_STR, myModulesContainer.getModules(), myClassPath));
     myErrorTracker.incErrCnt();
   }
 
@@ -119,7 +113,7 @@ public class CompilationErrorsHandler {
       return myErrorsCount;
     }
 
-    public void add(@NotNull String classWithError) {
+    /*package*/ void add(@NotNull String classWithError) {
       myFqNamesWithErrors.add(classWithError);
     }
 
@@ -127,7 +121,7 @@ public class CompilationErrorsHandler {
       return myFqNamesWithErrors.contains(classFqName);
     }
 
-    public void incErrCnt() {
+    /*package*/ void incErrCnt() {
       myErrorsCount++;
     }
 
