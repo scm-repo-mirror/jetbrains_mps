@@ -21,17 +21,12 @@ import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import jetbrains.mps.project.facets.JavaModuleOperations;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.vfs.IFile;
-import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 import static jetbrains.mps.project.SModuleOperations.getJavaFacet;
@@ -147,7 +142,7 @@ class InternalJavaCompiler {
     try {
       Set<String> classPath = computeDependenciesClassPath(myModulesContainer.getModules(), tracer.subTracer(1));
       final CompilationErrorsHandler errorsHandler = new CompilationErrorsHandler(myModulesContainer, tracer.getSender());
-      final CollectingResultsListener listener = new CollectingResultsListener(errorsHandler);
+      final ECJListener listener = new ECJListener(errorsHandler);
 
       compiler.addCompilationResultListener(listener);
       doCompileJava(compiler, JavaModuleOperations.collectCompileClasspath(myModulesContainer.getModules(), true), myCompilerOptions, tracer.subTracer(6));
@@ -191,34 +186,6 @@ class InternalJavaCompiler {
       return classpath;
     } finally {
       tracer.done(1);
-    }
-  }
-
-  /**
-   * Memorizes and returns all the results (as classes to be written).
-   * Delegates errors (compilation as well as compiler fatal errors) to {@link CompilationErrorsHandler}
-   */
-  private static class CollectingResultsListener extends jetbrains.mps.compiler.CompilationResultAdapter {
-    private final CompilationErrorsHandler myErrorsHandler;
-    private final List<ClassFile> myClasses = new ArrayList<>();
-
-    CollectingResultsListener(@NotNull CompilationErrorsHandler errorsHandler) {
-      myErrorsHandler = errorsHandler;
-    }
-
-    @Override
-    public void onFatalError(@NotNull String msg) {
-      myErrorsHandler.handleFatal(msg);
-    }
-
-    @Override
-    public void onCompilationResult(CompilationResult r) {
-      myErrorsHandler.handle(r);
-      myClasses.addAll(Arrays.asList(ClassFile.from(r)));
-    }
-
-    /*package*/ List<ClassFile> getAllClasses() {
-      return Collections.unmodifiableList(myClasses);
     }
   }
 

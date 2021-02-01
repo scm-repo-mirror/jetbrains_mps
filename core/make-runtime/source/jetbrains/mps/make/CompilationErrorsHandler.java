@@ -15,14 +15,8 @@
  */
 package jetbrains.mps.make;
 
-import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.util.NameUtil;
-import org.eclipse.jdt.core.compiler.CategorizedProblem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class CompilationErrorsHandler {
   private final static int MAX_ERRORS = 100;
@@ -38,38 +32,11 @@ public class CompilationErrorsHandler {
     mySender = new MessageSender(sender, this);
   }
 
-  /**
-   * parses compilation results for errors and prints them out
-   *
-   */
-  /*package*/ void handle(org.eclipse.jdt.internal.compiler.CompilationResult result) {
-    if (!result.hasErrors()) {
-      return;
-    }
-    final CategorizedProblem[] errors = result.getErrors();
-    if (errors == null || errors.length == 0) {
-      return;
-    }
-    for (CategorizedProblem problem : errors) {
-      handle(problem);
-    }
-  }
-
-  private void handle(CategorizedProblem problem) {
-    String fileName = new String(problem.getOriginatingFileName());
-    final String fqName = NameUtil.namespaceFromPath(fileName.substring(0, fileName.length() - MPSExtentions.DOT_JAVAFILE.length()));
-
+  /*package*/ void report(String fqName, String message, int lineNumber, int offset) {
     SModule containingModule = myModulesContainer.getModuleContainingClass(fqName);
     assert containingModule != null;
     JavaFile javaFile = myModulesContainer.getSources(containingModule).getJavaFile(fqName);
 
-    String messageString = fileName + " : " + problem.getMessage();
-    //final SNode nodeToShow = getNodeByLine(problem, fqName);
-    report(fqName, messageString, javaFile, problem.getSourceLineNumber(), problem.getSourceStart());
-  }
-
-  private void report(String fqName, String message, JavaFile javaFile, int lineNumber, int offset) {
-    myErrorTracker.add(fqName);
     Object hintObject = new FileWithPosition(javaFile.getFile(), offset);
 
     String errMsg = String.format(ERROR_FORMAT_STRING, message, lineNumber );
@@ -89,23 +56,13 @@ public class CompilationErrorsHandler {
   }
 
   /**
-   * FIXME no need in add() and myFqNamesWithErrors
-   * a set of classes fqNames which contain errors and an error counter
+   * error counter
    */
-  public final static class ClassesErrorsTracker {
-    private final Set<String> myFqNamesWithErrors = new HashSet<>();
+  private final static class ClassesErrorsTracker {
     private int myErrorsCount = 0;
 
     public int getErrorsCount() {
       return myErrorsCount;
-    }
-
-    /*package*/ void add(@NotNull String classWithError) {
-      myFqNamesWithErrors.add(classWithError);
-    }
-
-    public boolean hasError(@NotNull String classFqName) {
-      return myFqNamesWithErrors.contains(classFqName);
     }
 
     /*package*/ void incErrCnt() {
