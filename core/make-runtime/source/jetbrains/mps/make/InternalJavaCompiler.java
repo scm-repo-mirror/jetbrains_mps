@@ -28,6 +28,7 @@ import org.jetbrains.mps.openapi.module.SModule;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +49,7 @@ class InternalJavaCompiler {
   private final static String WRITING_CLASSES_MSG = "Writing Classes";
   private final static String ECLIPSE_COMPILER_MSG = "Running ECJ";
   private final static String MODULES_CLASSPATH_STR = "Modules: %s;\nClasspath: %s\n";
+  private final static String COMPILATION_PROBLEMS = "Compilation problems";
 
   @NotNull private final ModulesContainer myModulesContainer;
   @Nullable private final JavaCompilerOptions myCompilerOptions;
@@ -151,12 +153,12 @@ class InternalJavaCompiler {
       doCompileJava(compiler, JavaModuleOperations.collectCompileClasspath(myModulesContainer.getModules(), true), myCompilerOptions, tracer.subTracer(6));
       compiler.removeCompilationResultListener(listener);
 
-      errorsHandler.handle(listener.getResults(), tracer.subTracer(1));
       if (errorsHandler.getErrorsCount() > 0) {
+        tracer.getSender().error(COMPILATION_PROBLEMS); // XXX used to go first, before any error, does it matter?
         tracer.getSender().info(String.format(MODULES_CLASSPATH_STR, myModulesContainer.getModules(), classPath));
       }
       CompilationHandler compilationHandler = new CompilationHandler(myModulesContainer, classPath);
-      Collection<SModule> changedModules = compilationHandler.process(errorsHandler.getAllClasses(), tracer.subTracer(2));
+      Collection<SModule> changedModules = compilationHandler.process(listener.getAllClasses(), tracer.subTracer(3));
 
       if (changedModules.isEmpty()){
         tracer.getSender().error(NO_CHANGES_AFTER_COMPILATION_ERROR);
@@ -193,11 +195,12 @@ class InternalJavaCompiler {
   }
 
   /**
-   * Memorizes and returns all the results. Also handles fatal errors
+   * Memorizes and returns all the results (as classes to be written).
+   * Delegates errors (compilation as well as compiler fatal errors) to {@link CompilationErrorsHandler}
    */
   private static class CollectingResultsListener extends jetbrains.mps.compiler.CompilationResultAdapter {
     private final CompilationErrorsHandler myErrorsHandler;
-    private final List<CompilationResult> myResults = new ArrayList<>();
+    private final List<ClassFile> myClasses = new ArrayList<>();
 
     CollectingResultsListener(@NotNull CompilationErrorsHandler errorsHandler) {
       myErrorsHandler = errorsHandler;
@@ -210,11 +213,12 @@ class InternalJavaCompiler {
 
     @Override
     public void onCompilationResult(CompilationResult r) {
-      myResults.add(r);
+      myErrorsHandler.handle(r);
+      myClasses.addAll(Arrays.asList(ClassFile.from(r)));
     }
 
-    public List<CompilationResult> getResults() {
-      return Collections.unmodifiableList(myResults);
+    /*package*/ List<ClassFile> getAllClasses() {
+      return Collections.unmodifiableList(myClasses);
     }
   }
 

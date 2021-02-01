@@ -18,63 +18,40 @@ package jetbrains.mps.make;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.util.NameUtil;
 import org.eclipse.jdt.core.compiler.CategorizedProblem;
-import org.eclipse.jdt.internal.compiler.CompilationResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class CompilationErrorsHandler {
   private final static int MAX_ERRORS = 100;
   private final static String FATAL_ERROR_MSG = "Fatal error during eclipse compilation: %s";
   private final static String ERROR_FORMAT_STRING = "%s (line: %d)";
-  private final static String COMPILATION_PROBLEMS = "Compilation problems";
-  private final static String HANDLING_ERRORS_MSG = "Handling Errors";
 
   private final ModulesContainer myModulesContainer;
   private final MessageSender mySender;
   private final ClassesErrorsTracker myErrorTracker = new ClassesErrorsTracker();
-  private final List<ClassFile> myClasses = new ArrayList<>();
 
   public CompilationErrorsHandler(@NotNull ModulesContainer modulesContainer, @NotNull MessageSender sender) {
     myModulesContainer = modulesContainer;
     mySender = new MessageSender(sender, this);
   }
 
-  /*package*/ List<ClassFile> getAllClasses() {
-    return Collections.unmodifiableList(myClasses);
-  }
-
   /**
    * parses compilation results for errors and prints them out
    *
    */
-  /*package*/ void handle(Collection<org.eclipse.jdt.internal.compiler.CompilationResult> results, CompositeTracer tracer) {
-    try {
-      tracer.start(HANDLING_ERRORS_MSG, results.size());
-      boolean cpReported = false;
-      for (CompilationResult result : results) {
-        CategorizedProblem[] errors = result.getErrors();
-        if (errors != null && errors.length > 0) {
-          if (!cpReported) {
-            mySender.error(COMPILATION_PROBLEMS);
-            cpReported = true;
-          }
-          for (CategorizedProblem problem : result.getErrors()) {
-            handle(problem);
-          }
-        }
-        myClasses.addAll(Arrays.asList(ClassFile.from(result)));
-        tracer.advance(1);
-      }
-    } finally {
-      tracer.done();
+  /*package*/ void handle(org.eclipse.jdt.internal.compiler.CompilationResult result) {
+    if (!result.hasErrors()) {
+      return;
+    }
+    final CategorizedProblem[] errors = result.getErrors();
+    if (errors == null || errors.length == 0) {
+      return;
+    }
+    for (CategorizedProblem problem : errors) {
+      handle(problem);
     }
   }
 
