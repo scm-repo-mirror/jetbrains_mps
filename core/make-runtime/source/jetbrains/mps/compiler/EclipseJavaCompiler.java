@@ -80,7 +80,7 @@ public class EclipseJavaCompiler {
       Collection<CompilationUnit> compilationUnits = myCompilationUnits.values();
       compiler.compile(compilationUnits.toArray(new CompilationUnit[0]));
     } catch (RuntimeException ex) {
-      onFatalError(ex.getMessage());
+      onFatalError(ex.getMessage() == null ? ex.toString() : ex.getMessage());
     }
   }
 
