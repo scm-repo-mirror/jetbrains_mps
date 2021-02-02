@@ -33,6 +33,7 @@ import javax.tools.JavaFileManager;
 import javax.tools.JavaFileObject;
 import javax.tools.SimpleJavaFileObject;
 import javax.tools.StandardJavaFileManager;
+import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 import java.io.ByteArrayOutputStream;
 import java.io.CharArrayWriter;
@@ -45,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -118,6 +120,23 @@ final class JdkToolCompilerFacade implements JavaCompiler {
       }
 
       @Override
+      public Iterable<JavaFileObject> list(Location location, String packageName, Set<JavaFileObject.Kind> kinds, boolean recurse) throws IOException {
+        // XXX some libraries from jetbrains.jetpad contain both .class and .java files
+        // Compiler implementation is eager to take both, see scanUserPaths( [jetpad.fqn] , true) in
+        // com.sun.tools.javac.code.ClassFinder, wantSourceFiles && !haveSourcePath branch.
+        // In jetpad scenario, both .java and .class got same timestamp, hence includeClassFile->preferredFileObject
+        // doesn't pick .class over .java. Then, an attempt to compile the .java file made, and fails due to some missing dependency.
+        // The failure is manifested as an Diagnostic error from within a jar PathFileObject and is rather confusing.
+        // I see no reason to expect nor to praise .java files in classpath, in our scenario we are pretty restrained about what
+        // we do want to get compiled, and it's definitely not the elements of classpath.
+        if (location == StandardLocation.CLASS_PATH && kinds.contains(JavaFileObject.Kind.SOURCE)) {
+          kinds.remove(JavaFileObject.Kind.SOURCE);
+          // fall-through
+        }
+        return super.list(location, packageName, kinds, recurse);
+      }
+
+      @Override
       public FileObject getFileForOutput(Location location, String packageName, String relativeName, FileObject sibling) throws IOException {
         System.out.println("getFileForOutput:" + packageName + "::" + relativeName);
         return super.getFileForOutput(location, packageName, relativeName, sibling);
@@ -144,6 +163,7 @@ final class JdkToolCompilerFacade implements JavaCompiler {
           } else {
             // it's odd, but I've seen "class com.sun.tools.javac.file.PathFileObject$JarFileObject cannot be cast
             //    to class jetbrains.mps.make.JdkToolCompilerFacade$JavaFO"
+            //    See JavaFileManager.list above for thorough explanation
             myErrorSink.fatalError(String.format("UNEXPECTED ERROR SOURCE: %s(%s); %s", source.getClass().getName(), source.getName(), d.getMessage(null)));
           }
         }
