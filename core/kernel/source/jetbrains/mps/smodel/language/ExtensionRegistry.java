@@ -39,7 +39,7 @@ import java.util.Set;
  * Registry of extensions populated by classes loaded from compiled and deployed modules
  */
 public class ExtensionRegistry extends BaseExtensionRegistry implements CoreComponent {
-  private static Logger LOG = LogManager.getLogger(ExtensionRegistry.class);
+  private static final Logger LOG = LogManager.getLogger(ExtensionRegistry.class);
 
   private static ExtensionRegistry INSTANCE;
 
@@ -155,7 +155,7 @@ public class ExtensionRegistry extends BaseExtensionRegistry implements CoreComp
       Class clazz = module.getOwnClass(className);
       return clazz.newInstance();
     } catch (Throwable e) {
-      LOG.debug("error loading class\"" + className + "\"", e);
+      LOG.trace("error loading class\"" + className + "\"", e);
     }
     return null;
   }
