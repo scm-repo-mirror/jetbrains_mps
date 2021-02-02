@@ -66,7 +66,8 @@ class InternalJavaCompiler {
     tracer.start("", 5);
     try {
       ModuleAnalyzerResult analysisResult = new ModuleAnalyzer(myModulesContainer).analyze();
-      JavaCompiler compiler = new EclipseCompilerFacade();
+//      JavaCompiler compiler = new EclipseCompilerFacade();
+      JavaCompiler compiler = new JdkToolCompilerFacade();
       tracer.push(PREPARING_TO_COMPILE_MSG);
       try {
         if (!analysisResult.hasJavaToCompile && !analysisResult.hasResourcesToUpdate) {

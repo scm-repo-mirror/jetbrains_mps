@@ -94,11 +94,8 @@ final class JdkToolCompilerFacade implements JavaCompiler {
     final StandardJavaFileManager sfm = myCompiler.getStandardFileManager(diagnostics, null, null);
     final ArrayList<ClassFile> output = new ArrayList<>();
     JavaFileManager fm = new ForwardingJavaFileManager<>(sfm) {
-      @Override
-      public JavaFileObject getJavaFileForInput(Location location, String className, JavaFileObject.Kind kind) throws IOException {
-        System.out.println("getJavaFileForInput:" + className);
-        return super.getJavaFileForInput(location, className, kind);
-      }
+      // JFTR, getJavaFileForInput() is consulted for "module-info", perhaps, shall block
+      //       this request to avoid accidental use of some arbitrary module-info file
 
       @Override
       public JavaFileObject getJavaFileForOutput(Location location, final String className, JavaFileObject.Kind kind, FileObject sibling) throws IOException {
@@ -140,9 +137,15 @@ final class JdkToolCompilerFacade implements JavaCompiler {
             continue;
           }
           final JavaFileObject source = d.getSource();
-          final String fqName = ((JavaFO) source).myJavaFile.getClassName();
-          output.add(new ClassFileImpl(fqName, null, true));
-          myErrorSink.compileError(fqName, d.getMessage(null), (int) d.getPosition(), (int) d.getLineNumber());
+          if (source instanceof JavaFO) {
+            final String fqName = ((JavaFO) source).myJavaFile.getClassName();
+            output.add(new ClassFileImpl(fqName, null, true));
+            myErrorSink.compileError(fqName, d.getMessage(null), (int) d.getPosition(), (int) d.getLineNumber());
+          } else {
+            // it's odd, but I've seen "class com.sun.tools.javac.file.PathFileObject$JarFileObject cannot be cast
+            //    to class jetbrains.mps.make.JdkToolCompilerFacade$JavaFO"
+            myErrorSink.fatalError(String.format("UNEXPECTED ERROR SOURCE: %s(%s); %s", source.getClass().getName(), source.getName(), d.getMessage(null)));
+          }
         }
       }
       // error processing may add more CF into output
