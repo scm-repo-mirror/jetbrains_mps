@@ -30,6 +30,7 @@ public final class RuntimeFlags {
   private static Boolean ourUseInterpretedLanguages = null;
   private static boolean ourMergeDriverMode = false;
   private static Boolean ourCastException = null;
+  private static Boolean ourEclipseJavaCompiler = null;
 
   private RuntimeFlags() {
   }
@@ -102,5 +103,18 @@ public final class RuntimeFlags {
       ourCastException = !Boolean.getBoolean("mps.disableNodeCastExceptions");
     }
     return ourCastException;
+  }
+
+  /**
+   * For a long time, MPS relied on ECJ to compile generated classes. In 2021.1, support
+   * for {@link javax.tools.JavaCompiler} API has been added, and it's default compilation option now.
+   * You can still resort to ECJ, if necessary, by {@code "mps.compiler.java=ecj"} system property
+   * @return true to resort to ECJ compilation
+   */
+  public static boolean useEclipseJavaCompiler() {
+    if (ourEclipseJavaCompiler == null) {
+      ourEclipseJavaCompiler = "ecj".equalsIgnoreCase(System.getProperty("mps.compiler.java"));
+    }
+    return ourEclipseJavaCompiler;
   }
 }

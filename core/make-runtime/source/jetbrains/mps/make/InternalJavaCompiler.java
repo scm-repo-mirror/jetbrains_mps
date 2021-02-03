@@ -15,9 +15,8 @@
  */
 package jetbrains.mps.make;
 
+import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.compiler.ClassFile;
-import jetbrains.mps.compiler.ErrorSink;
-import jetbrains.mps.compiler.EclipseJavaCompiler;
 import jetbrains.mps.compiler.JavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
@@ -66,8 +65,8 @@ class InternalJavaCompiler {
     tracer.start("", 5);
     try {
       ModuleAnalyzerResult analysisResult = new ModuleAnalyzer(myModulesContainer).analyze();
-//      JavaCompiler compiler = new EclipseCompilerFacade();
-      JavaCompiler compiler = new JdkToolCompilerFacade();
+      JavaCompiler compiler = RuntimeFlags.useEclipseJavaCompiler() ? new EclipseCompilerFacade() : new JdkToolCompilerFacade();
+      tracer.getSender().info(String.format("Compiler in use: %s", compiler.getClass().getSimpleName()));
       tracer.push(PREPARING_TO_COMPILE_MSG);
       try {
         if (!analysisResult.hasJavaToCompile && !analysisResult.hasResourcesToUpdate) {
