@@ -40,6 +40,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.ide.findusages.model.SearchResults;
@@ -214,6 +215,7 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
     final Map<SNodeReference, List<RefactoringParticipant.Change<NodeData<T>, NodeData<T>>>> result = MapSequence.fromMap(new HashMap<SNodeReference, List<RefactoringParticipant.Change<NodeData<T>, NodeData<T>>>>());
     for (SReference ref : CollectionSequence.fromCollection(usages)) {
       final SNodeReference containingNode = ref.getSourceNode().getReference();
+      final SModel containingModel = ref.getSourceNode().getModel();
       @Nullable final SNode movingNode = ref.getTargetNode();
       final SReferenceLink role = ref.getLink();
       final String resolveInfo = SLinkOperations.getResolveInfo(ref);
@@ -230,8 +232,9 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
             public void run() {
               if (shouldUpdateReference(selectedOptions, repository, containingNode.resolve(repository), role, movingNode, refactoringSession)) {
                 doUpdateReference(selectedOptions, repository, containingNode.resolve(repository), role, finalState, resolveInfo);
+                // here, containingNode might not get resolved (e.g. if it's pointer to StaticMethodCall node that has been replaced 
                 if (ListSequence.fromList(selectedOptions).contains(UpdateModelImports.OPTION)) {
-                  doUpdateModelImport(selectedOptions, repository, containingNode.resolve(repository), role, finalState);
+                  doUpdateModelImport(selectedOptions, repository, containingModel, finalState);
                 }
               }
             }
@@ -261,15 +264,22 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
     return true;
   }
   protected void doUpdateReference(final List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget, final String resolveInfo) {
-    doUpdateReference(repository, containingNode, role, newTarget, resolveInfo);
+    containingNode.setReference(role, jetbrains.mps.smodel.SReference.create(role, containingNode, newTarget.baseData().reference(), resolveInfo));
   }
-  @Deprecated
-  @ToRemove(version = 3.5)
-  protected void doUpdateReference(SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget, final String resolveInfo) {
-    containingNode.setReference(role, jetbrains.mps.smodel.SReference.create(role, containingNode, newTarget.baseData().reference().getModelReference(), newTarget.baseData().reference().getNodeId(), resolveInfo));
+  /**
+   * 
+   * @deprecated override {@link jetbrains.mps.lang.core.pluginSolution.plugin.UpdateReferencesParticipantBase#doUpdateModelImport(List<RefactoringParticipant.Option>, SRepository, SModel, NodeData<T>) } instead. Marked final to get overrides fixed immediately, the method no longer invoked by refactoring infrastructure
+   */
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2021.1)
+  protected final void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget) {
+    SModel model = (containingNode == null ? null : containingNode).getModel();
+    if (model != null) {
+      doUpdateModelImport(selectedOptions, repository, model, newTarget);
+    }
   }
-  protected void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget) {
-    UpdateModelImports.addModelImport(containingNode.getModel(), newTarget.baseData().reference().getModelReference().resolve(repository));
+  protected void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, SModel model2update, NodeData<T> newTarget) {
+    UpdateModelImports.addModelImport(model2update, newTarget.baseData().reference().getModelReference().resolve(repository));
   }
 
   private static final class PROPS {
