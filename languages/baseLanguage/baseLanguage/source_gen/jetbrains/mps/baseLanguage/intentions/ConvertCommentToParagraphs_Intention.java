@@ -56,7 +56,7 @@ public final class ConvertCommentToParagraphs_Intention extends AbstractIntentio
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (ListSequence.fromList(IHoldLines__BehaviorDescriptor.getLines_id6GJhO0n1Xys.invoke(node)).isNotEmpty() ? "Convert to Paragraphs 2" : "Convert to Lines 2");
+      return (ListSequence.fromList(IHoldLines__BehaviorDescriptor.getLines_id6GJhO0n1Xys.invoke(node)).isNotEmpty() ? "Convert to Paragraphs" : "Convert to Lines");
 
     }
     @Override
