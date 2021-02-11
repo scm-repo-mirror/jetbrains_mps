@@ -171,8 +171,11 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static String representAsText_id2iG$EWuTXv2(@NotNull SNode __thisNode__) {
     StringBuilder builder = new StringBuilder();
     for (SNode w : Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(__thisNode__)) {
-      builder.append(TextElement__BehaviorDescriptor.getTextualRepresentation_idfB3l81it7u.invoke(w));
-      builder.append(" ");
+      String textualRepresentation = TextElement__BehaviorDescriptor.getTextualRepresentation_idfB3l81it7u.invoke(w);
+      if ((textualRepresentation != null && textualRepresentation.length() > 0)) {
+        builder.append(textualRepresentation);
+        builder.append(" ");
+      }
     }
     return ((String) Line__BehaviorDescriptor.wrapTextForClipboard_id2iG$EWuTXuU.invoke(__thisNode__, builder.toString()));
   }
