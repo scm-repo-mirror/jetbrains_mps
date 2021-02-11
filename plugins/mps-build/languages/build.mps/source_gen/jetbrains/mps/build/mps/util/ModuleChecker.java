@@ -893,6 +893,11 @@ public final class ModuleChecker {
             });
           }
         });
+        final boolean extractedAsJavaModule = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)), relPath);
+          }
+        });
         if (type.doCheck) {
           boolean extractedJar = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyJar$Rm)).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
@@ -900,11 +905,6 @@ public final class ModuleChecker {
             }
           });
           if (!(extractedJar)) {
-            boolean extractedAsJavaModule = Sequence.fromIterable(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(module), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).any(new IWhereFilter<SNode>() {
-              public boolean accept(SNode it) {
-                return (SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb) != null) && Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.javaLibLocation$cmtb)), relPath);
-              }
-            });
             if (!(extractedAsJavaModule) && !(nonAutoDepToExportedJavaLib)) {
               report("Java library jar should be extracted into build script: " + relPath);
             }
@@ -927,13 +927,20 @@ public final class ModuleChecker {
           }
 
           if (extr == null) {
-            extr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency"));
-            SNode jar = SModelOperations.createNewNode(SNodeOperations.getModel(module), null, CONCEPTS.BuildMps_ModuleDependencyJar$Rm);
-            SLinkOperations.setTarget(jar, LINKS.path$yTVo, p);
-            SLinkOperations.setTarget(extr, LINKS.dependency$u_ko, jar);
-            ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).addElement(extr);
+            // add extracted dep only if there's no hand-crafter dependency to java module that provides classes of the jar in question 
+            if (!(extractedAsJavaModule)) {
+              extr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency"));
+              SNode jar = SModelOperations.createNewNode(SNodeOperations.getModel(module), null, CONCEPTS.BuildMps_ModuleDependencyJar$Rm);
+              SLinkOperations.setTarget(jar, LINKS.path$yTVo, p);
+              SLinkOperations.setTarget(extr, LINKS.dependency$u_ko, jar);
+              ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$j8Lj)).addElement(extr);
+            }
           } else {
-            ListSequence.fromList(previous).removeElement(extr);
+            if (!(extractedAsJavaModule)) {
+              // previous.remove() means "keep the dependency", but as long as there's hand-crafted java module dependency that manifest the jar, 
+              // not reason to keep extracted one for the same jar 
+              ListSequence.fromList(previous).removeElement(extr);
+            }
           }
         }
       } else if (path.endsWith("/classes")) {
