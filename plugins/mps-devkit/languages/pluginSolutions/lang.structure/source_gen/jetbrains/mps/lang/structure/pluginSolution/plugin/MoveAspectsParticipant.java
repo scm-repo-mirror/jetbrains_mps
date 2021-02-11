@@ -141,7 +141,7 @@ public class MoveAspectsParticipant extends RefactoringParticipantBase<SNodeRefe
               final SearchResults resultsFinal = results;
 
 
-              // todo:donotkeepnodesbutonlynodereferences
+              // todo: do not keep nodes but only node references
 
               RefactoringParticipant.Change<SNodeReference, SNodeReference> change = new MoveNodeRefactoringParticipant.ChangeBase<SNodeReference, SNodeReference>() {
                 public SearchResults getSearchResults() {

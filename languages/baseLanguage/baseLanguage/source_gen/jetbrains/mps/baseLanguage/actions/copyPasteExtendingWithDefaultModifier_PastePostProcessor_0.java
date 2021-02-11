@@ -20,8 +20,8 @@ public final class copyPasteExtendingWithDefaultModifier_PastePostProcessor_0 im
   }
   @Override
   public void postProcessNode(SNode pastedNode) {
-    // transformingthedefaultmodifierexistenceintotheisAbstractflag
-    // copyneverhasmodifiers
+    // transforming the default modifier existence into the isAbstract flag
+    // copy never has modifiers
     SNode methodParent = SNodeOperations.getParent(pastedNode);
     if (SNodeOperations.isInstanceOf(methodParent, CONCEPTS.Classifier$Ix)) {
       if (SNodeOperations.isInstanceOf(methodParent, CONCEPTS.Interface$db)) {
@@ -29,7 +29,7 @@ public final class copyPasteExtendingWithDefaultModifier_PastePostProcessor_0 im
           SNodeFactoryOperations.addNewChild(pastedNode, LINKS.modifiers$F5MM, CONCEPTS.DefaultModifier$rO);
         }
         SPropertyOperations.assign(pastedNode, PROPS.isAbstract$VtH_, false);
-        // ihavealwaysnon-abstractmethodsininterfaces
+        // i have always non-abstract methods in interfaces
       }
     }
   }

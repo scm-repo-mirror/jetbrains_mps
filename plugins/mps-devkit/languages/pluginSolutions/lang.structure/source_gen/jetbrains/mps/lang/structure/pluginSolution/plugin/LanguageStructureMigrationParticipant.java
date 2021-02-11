@@ -191,7 +191,7 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
       public List<RefactoringParticipant.Change<SNodeReference, SNodeReference>> select(final SNodeReference initialState) {
         final Language sourceModule = as_kz6lmo_a0a0a0a0a0a0d0p(check_kz6lmo_a0a0a0a0a3a51(check_kz6lmo_a0a0a0a0a0d0p(SPointerOperations.resolveNode(initialState, repository))), Language.class);
 
-        // todo:writeguardmigrationwith'executeafter'
+        // todo: write guard migration with 'execute after'
         RefactoringParticipant.Change<SNodeReference, SNodeReference> change = new MoveNodeRefactoringParticipant.ChangeBase<SNodeReference, SNodeReference>() {
           public SearchResults getSearchResults() {
             SearchResults results = new SearchResults();

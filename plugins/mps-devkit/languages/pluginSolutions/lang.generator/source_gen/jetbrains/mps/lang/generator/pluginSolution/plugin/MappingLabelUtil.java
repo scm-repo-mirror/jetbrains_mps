@@ -47,7 +47,7 @@ public class MappingLabelUtil {
         mc = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(templateNode), CONCEPTS.MappingConfiguration$7j, null);
         SPropertyOperations.assign(mc, PROPS.name$MnvL, "MappingLabels");
       }
-      // newmappinglabel
+      // new mapping label
       SNode newLabel = SNodeFactoryOperations.addNewChild(mc, LINKS.mappingLabel$Wvfj, CONCEPTS.MappingLabelDeclaration$MV);
       SPropertyOperations.assign(newLabel, PROPS.name$MnvL, labelName);
       mappingLabel = newLabel;

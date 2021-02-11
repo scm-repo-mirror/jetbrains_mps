@@ -90,7 +90,7 @@ public class SEnumOperations {
     return e.getLiterals();
   }
   public static SEnumerationLiteral getMember(long uuidHigh, long uuidLow, String languageNameHint, long enumId, String enumNameHint, long memberId, String memberValueHint) {
-    // FIXMEwedon'tsupportidentityofenumliteralsyet,resorttoliternalname
+    // FIXME we don't support identity of enum literals yet, resort to liternal name
     SEnumeration e = getEnum(uuidHigh, uuidLow, languageNameHint, enumId, enumNameHint);
     return e.getLiteral(memberValueHint);
   }
@@ -114,8 +114,8 @@ public class SEnumOperations {
     SEnumeration e = getEnum(uuidHigh, uuidLow, languageNameHint, enumId, enumNameHint);
     SEnumerationLiteral literal = SEnumerationAdapter.getEnumMemberByRawValue(e, value);
 
-    // RSWhythereisspecialcase`value==null`?Itlooksstrangethat`memberFromValue(null)`returnsadefaultmemberbut
-    // RS`memberFromValue("not-a-value")`returnsnull,and`memberForName(null)`alsoreturnsnull.See`EnumerationDatatypes`nullsafetytests
+    // RS Why there is special case `value == null`? It looks strange that `memberFromValue(null)` returns a default member but
+    // RS `memberFromValue("not-a-value")` returns null, and `memberForName(null)` also returns null. See `EnumerationDatatypes` nullsafety tests
     return (literal == null && value == null ? e.getDefault() : literal);
   }
 

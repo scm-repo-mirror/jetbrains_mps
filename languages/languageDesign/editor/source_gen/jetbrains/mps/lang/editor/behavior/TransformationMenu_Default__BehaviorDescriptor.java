@@ -29,7 +29,7 @@ public final class TransformationMenu_Default__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ static boolean canBeAppliedToNode_id7IH442d05tK(@NotNull SAbstractConcept __thisConcept__, SNode candidate) {
-    // disabledeprecatedaspect
+    //  disable deprecated aspect
     return false;
   }
 

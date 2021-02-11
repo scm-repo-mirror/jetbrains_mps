@@ -53,7 +53,7 @@ public class MergeConflictsBuilder {
   /*package*/ Map<ModelChange, List<ModelChange>> myConflictingChanges = MapSequence.fromMap(new HashMap<ModelChange, List<ModelChange>>());
   /*package*/ Map<ModelChange, List<ModelChange>> mySymmetricChanges = MapSequence.fromMap(new HashMap<ModelChange, List<ModelChange>>());
   public MergeConflictsBuilder(SModel base, SModel mine, SModel repository) {
-    // shouldbeinvokedfromreadaction
+    // should be invoked from read action
     myBaseModel = base;
     myMyModel = mine;
 
@@ -294,16 +294,16 @@ public class MergeConflictsBuilder {
       UsedLanguageChange mineChange = MapSequence.fromMap(mine).get(lang);
       UsedLanguageChange repoChange = MapSequence.fromMap(repo).get(lang);
       if (mineChange.getType() == ChangeType.DELETE && repoChange.getType() == ChangeType.DELETE) {
-        // deletethesamelanguage
+        // delete the same language
         addSymmetric(mineChange, repoChange);
       } else if (mineChange.getType() == ChangeType.DELETE || repoChange.getType() == ChangeType.DELETE) {
-        // deletevsupdate=>conflict
+        // delete vs update => conflict
         addConflict(mineChange, repoChange);
       } else if (mineChange.getVersion() == repoChange.getVersion()) {
-        // addedorupdatedwiththesameversion
+        // added or updated with the same version
         addSymmetric(mineChange, repoChange);
       } else {
-        // addedwithdifferentversionsorchangedversiondifferently
+        // added with different versions or changed version differently
         addConflict(mineChange, repoChange);
       }
     }
@@ -315,8 +315,8 @@ public class MergeConflictsBuilder {
     for (Tuples._2<SNodeId, SContainmentLink> nodeRole : SetSequence.fromSet(MapSequence.fromMap(mineGroupChanges).keySet()).intersect(SetSequence.fromSet(MapSequence.fromMap(repositoryGroupChanges).keySet()))) {
       List<NodeGroupChange> mine = MapSequence.fromMap(mineGroupChanges).get(nodeRole);
       List<NodeGroupChange> repository = MapSequence.fromMap(repositoryGroupChanges).get(nodeRole);
-      // Thisisaquadraticalgorithm,itcanbeoptimizedtolinear,
-      // butitisleftforsimplicity
+      // This is a quadratic algorithm, it can be optimized to linear,
+      // but it is left for simplicity
       for (NodeGroupChange m : ListSequence.fromList(mine)) {
         for (NodeGroupChange r : ListSequence.fromList(repository)) {
           if (m.getEnd() < r.getBegin() || m.getBegin() > r.getEnd()) {

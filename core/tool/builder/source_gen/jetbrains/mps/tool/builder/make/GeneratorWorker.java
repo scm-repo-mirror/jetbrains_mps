@@ -39,8 +39,8 @@ public class GeneratorWorker extends BaseGeneratorWorker {
         modulePaths.add(new File(modulePath));
       }
       final SRepository repo = project.getRepository();
-      // FIXMEmodulesinprocessModuleFilesareregisteredwithsomeinternalowner,whilehereweshalluseproject.addModule(SModule)insteadto
-      // getmoduleproperlyregistered
+      // FIXME modules in processModuleFiles are registered with some internal owner, while here we shall use project.addModule(SModule) instead to
+      //        get module properly registered
       Set<SModule> modules = new ModelAccessHelper(repo).runWriteAction(new Computable<Set<SModule>>() {
         public Set<SModule> compute() {
           return processModuleFiles(repo, modulePaths);
@@ -61,8 +61,8 @@ public class GeneratorWorker extends BaseGeneratorWorker {
       error("Could not find anything to generate.");
     }
 
-    // Disposing"project"modulesfirst
-    // XXXOTOH,processModuleFiledidn'tregisterthemodulesrightintotheproject,butherewesortofassumewedid.
+    // Disposing "project" modules first
+    // XXX OTOH, processModuleFile didn't register the modules right into the project, but here we sort of assume we did.
     final ModuleRepositoryFacade repositoryFacade = new ModuleRepositoryFacade(project);
     project.getModelAccess().runWriteAction(new Runnable() {
       public void run() {

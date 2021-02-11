@@ -70,7 +70,7 @@ public class Language extends LanguageRuntime {
     }
 
 
-    // AP:legacypart,mustbemigratedfromswitch:pleaseuselang.descriptormappinglabel
+    // AP: legacy part, must be migrated from switch: please use lang.descriptor mapping label
     if (aspectClass == ActionAspectDescriptor.class) {
       return aspectClass.cast(new ActionAspectDescriptorImpl());
     }

@@ -81,7 +81,7 @@ public final class ProjectProperties {
     ProjectDescriptor projectDescriptor = project.getProjectDescriptor();
     myModules.clear();
     myModules.addAll(projectDescriptor.getModulePaths());
-    // FIXMEWHYDOWECARETOSORTWITHVALIDITYCHECK????
+    // FIXME WHY DO WE CARE TO SORT WITH VALIDITY CHECK????
     Collections.sort(myModules, PATH_VALID_COMPARATOR);
   }
 

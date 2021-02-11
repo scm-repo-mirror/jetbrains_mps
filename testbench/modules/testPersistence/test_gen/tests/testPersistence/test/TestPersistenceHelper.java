@@ -43,15 +43,15 @@ import java.util.Arrays;
   private final SModelBase myTestModel;
 
   /*package*/ TestPersistenceHelper(final SRepository repo) {
-    // myTestModelisacopyofasamplemodel,detachedtoavoidmodelreadaccess.
+    // myTestModel is a copy of a sample model, detached to avoid model read access.
     myTestModel = new ModelAccessHelper(repo).runReadAction(new Computable<TrivialModelDescriptor>() {
       public TrivialModelDescriptor compute() {
         SModel testModel = PersistenceFacade.getInstance().createModelReference("r:b44bed60-e0f0-4d48-bb29-e0fdb2041a66(tests.testPersistence.testModel)").resolve(repo);
         SnapshotModelData mdClone = new SnapshotModelData(SModelOperations.getPointer(testModel));
-        // XXXinfact,duplicatesCloneUtil.cloneModelWithImports.Don'twantdependencyfromgenerator,though.
-        // Perhaps,needahigh-levelmechanismtocloneamodel?
+        // XXX in fact, duplicates CloneUtil.cloneModelWithImports. Don't want dependency from generator, though.
+        // Perhaps, need a high-level mechanism to clone a model?
         for (SNode r : SModelOperations.roots(testModel, null)) {
-          // TrivialModelDescriptordoesn'tsupportaddRootNode(),that'swhyupdateSModelDatadirectly
+          // TrivialModelDescriptor doesn't support addRootNode(), that's why update SModelData directly
           mdClone.addRootNode(CopyUtil.copyAndPreserveId(r, true));
         }
         TrivialModelDescriptor rv = new TrivialModelDescriptor(mdClone);

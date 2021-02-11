@@ -22,15 +22,15 @@ public class check_InlineTemplateWithContext_RuleConsequence_NonTypesystemRule e
   public check_InlineTemplateWithContext_RuleConsequence_NonTypesystemRule() {
   }
   public void applyRule(final SNode consequence, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // FIXMEthere'sidenticalcodeincheck_TemplateDeclaration
-    // seeTemplateContainer#checkAdjacentFragments
+    // FIXME there's identical code in check_TemplateDeclaration
+    // see TemplateContainer#checkAdjacentFragments
     SNode commonParent = null;
     SContainmentLink commonAggregationLink = null;
     for (SNode tf : SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(consequence, LINKS.contentNode$QgS3), CONCEPTS.TemplateFragment$eq, false, new SAbstractConcept[]{})) {
       SNode fragmentParent = SNodeOperations.getParent(tf);
       SContainmentLink containmentLink = fragmentParent.getContainmentLink();
       if (commonParent == null) {
-        // firstfragment-rememberitsparentandroletouseasreferencevalue
+        // first fragment - remember its parent and role to use as reference value
         commonParent = SNodeOperations.getParent(fragmentParent);
         commonAggregationLink = containmentLink;
       } else {

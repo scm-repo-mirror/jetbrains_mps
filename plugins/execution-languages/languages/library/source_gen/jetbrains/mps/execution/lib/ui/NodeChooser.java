@@ -80,7 +80,7 @@ public abstract class NodeChooser extends TextFieldWithBrowseButton.NoPathComple
         }
       }
     });
-    // wedon'tsupportenteringnameofthenodemanually
+    // we don't support entering name of the node manually
     setEditable(false);
   }
 
@@ -98,7 +98,7 @@ public abstract class NodeChooser extends TextFieldWithBrowseButton.NoPathComple
   public static String getFqName(SNode node) {
     String modelName = SModelOperations.getModelName(SNodeOperations.getModel(node));
 
-    // XXXwhynotnode.getFqNameornode/.getPresentation?
+    // XXX why not node.getFqName or node/.getPresentation?
     String nodeName;
     if (SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$Kd)) {
       nodeName = SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$Kd), PROPS.name$MnvL);

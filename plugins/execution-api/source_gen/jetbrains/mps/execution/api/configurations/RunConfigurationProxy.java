@@ -66,12 +66,12 @@ import jetbrains.mps.execution.api.settings.SettingsEditorEx;
 
   @Override
   public void readExternal(@NotNull Element element) {
-    // bothIPersistentConfigurationandsuperclass
+    // both IPersistentConfiguration and superclass
   }
 
   @Override
   public void writeExternal(Element element) {
-    // bothIPersistentConfigurationandsuperclass
+    // both IPersistentConfiguration and superclass
   }
 
   @Override

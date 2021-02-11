@@ -36,7 +36,7 @@ public final class RootAnnotation {
 
 
   public void setAnnotatedModel(@NotNull SModel annotatedModel) {
-    // annotatedModelisthelatestrevisioninVCS,theannotationisconstructedwithrespecttothisrevision.Localchangesareconsideredseparately.
+    // annotatedModel is the latest revision in VCS, the annotation is constructed with respect to this revision. Local changes are considered separately.
     myAnnotatedModel = annotatedModel;
   }
 

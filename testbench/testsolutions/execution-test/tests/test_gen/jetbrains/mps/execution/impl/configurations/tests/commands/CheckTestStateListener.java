@@ -83,7 +83,7 @@ public final class CheckTestStateListener extends TestStateAdapter {
   }
   @Override
   public void onTextAvailable(@NotNull TextTestEvent event) {
-    // thetextcomesinlines
+    // the text comes in lines
     if (event.getKey() == ProcessOutputTypes.STDERR) {
       System.out.print("test error output >>> " + event.getText());
     } else {

@@ -236,7 +236,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
       });
 
     } catch (RuntimeException rex) {
-      // abortsession
+      // abort session
       if (currentProcess.get() == null) {
         abortSession();
       }

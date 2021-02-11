@@ -26,7 +26,7 @@ public class Modelchecker_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new CheckModel_Action());
     addAction(new CheckModule_Action());
     addAction(new CheckNamespace_Action());

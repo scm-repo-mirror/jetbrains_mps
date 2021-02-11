@@ -121,7 +121,7 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
 
   @Override
   public void flush() {
-    // synchronouslycommitallpendingreloadrequests
+    // synchronously commit all pending reload requests
     ReloadSession session = myReloadSessionBroker.waitForUnemployed();
     if (session == null) {
       return;
@@ -129,13 +129,13 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
 
     saveAllOpenProjects();
 
-    // Q:alsodonormalprogressMonitor,asinrealreloadontimeout?
+    // Q: also do normal progressMonitor, as in real reload on timeout ?
     session.doReload(new EmptyProgressMonitor());
   }
 
   /*package*/ void saveAllOpenProjects() {
-    // seeMPS-18743,21760
-    // FIXMEinsteadofthisworkardound,fixthedefectinmodulereload(iftherearechangedmodelsinit,reloadleadstomodelchangesbeingdiscarded)
+    // see MPS-18743, 21760
+    // FIXME instead of this workardound, fix the defect in module reload (if there are changed models in it, reload leads to model changes being discarded)
     for (Project project : myProjectManager.getOpenProjects()) {
       SRepository projectRepo = ProjectHelper.getProjectRepository(project);
       if (projectRepo != null) {

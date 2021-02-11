@@ -8,10 +8,10 @@ public class UsageSample {
     // Declarations
     String item_l5g1mt_b0a = "bar";
     String item_l5g1mt_c0a = "baz";
-    // Readingusingthereference
+    // Reading using the reference
     String s = "" + item_l5g1mt_b0a;
     System.out.println(s);
-    // Assignmentintothedeclarationusingthereference
+    // Assignment into the declaration using the reference
     item_l5g1mt_b0a = "1";
     System.out.println(s);
   }

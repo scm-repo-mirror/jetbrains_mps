@@ -47,8 +47,8 @@ import java.awt.event.FocusEvent;
 
     if (myChangeGroup.getChangeType() != ChangeType.ADD) {
       myBaseEditor = new BaseVersionEditorComponent(myEditor.getEditorContext().getRepository(), myChangeGroup);
-      // Donotextendthiseditorwithextensions:theprojectistrickytogetfromthispoint,
-      // andthiseditordoesn'tseemtobethatimportanttoextend.
+      // Do not extend this editor with extensions: the project is tricky to get from this point,
+      // and this editor doesn't seem to be that important to extend.
       add(myBaseEditor.getScrollPane(), BorderLayout.CENTER);
     }
   }
@@ -66,7 +66,7 @@ import java.awt.event.FocusEvent;
     setSize(getPreferredSize());
     int overflow = ((int) getBounds().getMaxX()) - layeredPane.getWidth();
     if (overflow > 0) {
-      // panelistoowide,needtomoveit
+      // panel is too wide, need to move it
       setLocation(Math.max(0, getX() - overflow), getY());
     }
     layeredPane.validate();

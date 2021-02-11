@@ -81,7 +81,7 @@ import jetbrains.mps.vfs.tracking.ModelDiffContent;
     } catch (Exception ex) {
       return null;
     }
-    // ModelDiffViewerdoesn'ttoleratereusabledetachedmodels,itregistersanddisposessuchmodelssolelyonitsowndiscretion
+    // ModelDiffViewer doesn't tolerate reusable detached models, it registers and disposes such models solely on its own discretion
     return (loaded == null ? new EmptyContent() : new ModelDiffContent(loaded));
   }
 

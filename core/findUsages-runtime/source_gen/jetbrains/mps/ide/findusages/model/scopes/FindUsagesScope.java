@@ -64,12 +64,12 @@ public abstract class FindUsagesScope extends BaseScope implements SearchScope, 
   }
   @Override
   public void read(Element element, Project project) throws CantLoadSomethingException {
-    // useconstructor(Element,Project)instead!
+    // use constructor(Element, Project) instead!
     throw new UnsupportedOperationException();
   }
   @Override
   public void write(Element element, Project project) throws CantSaveSomethingException {
-    // donothingbydefault
+    // do nothing by default
   }
   public static FindUsagesScope load(Element element, Project project) throws CantLoadSomethingException {
     Element scopeXml = element.getChild(SCOPE_TAG);

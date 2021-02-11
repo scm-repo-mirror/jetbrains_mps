@@ -50,7 +50,7 @@ public class Language extends LanguageRuntime {
   protected <T extends ILanguageAspect> T createAspect(Class<T> aspectClass) {
 
 
-    // AP:legacypart,mustbemigratedfromswitch:pleaseuselang.descriptormappinglabel
+    // AP: legacy part, must be migrated from switch: please use lang.descriptor mapping label
     if (aspectClass == BehaviorAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.build.mps.tests.behavior.BehaviorAspectDescriptor());
     }

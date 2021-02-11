@@ -198,7 +198,7 @@ public class MigrationTestConfigDialog extends DialogWrapper {
       public boolean error;
 
       public PMigration(String id1, boolean hasOptions1, boolean error1) {
-        // todocleanup
+        // todo cleanup
         id = id1;
         hasOptions = hasOptions1;
         error = error1;

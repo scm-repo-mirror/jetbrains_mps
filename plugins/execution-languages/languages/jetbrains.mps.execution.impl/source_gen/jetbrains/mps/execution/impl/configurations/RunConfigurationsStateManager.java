@@ -56,7 +56,7 @@ public class RunConfigurationsStateManager implements ProjectComponent, PluginRe
 
   @Override
   public void afterPluginsLoaded(List<PluginContributor> contributors) {
-    // thiscanbeexecutedin"later",sowecheckthattheprojectisnotyetclosed
+    // this can be executed in "later", so we check that the project is not yet closed
     if (myProject.isDisposed()) {
       return;
     }
@@ -66,7 +66,7 @@ public class RunConfigurationsStateManager implements ProjectComponent, PluginRe
 
   @Override
   public void beforePluginsUnloaded(List<PluginContributor> contributors) {
-    // thecurrentcontractisthatthiscanbeexecutedin"later",butonlywhenit'snotprojectdisposal
+    // the current contract is that this can be executed in "later", but only when it's not project disposal 
     disposeRunContentDescriptors();
   }
 
@@ -89,7 +89,7 @@ public class RunConfigurationsStateManager implements ProjectComponent, PluginRe
   }
 
   private void disposeRunContentDescriptors() {
-    // weneedEDTtoaccessthedescriptors
+    // we need EDT to access the descriptors
     ThreadUtils.assertEDT();
 
     final List<RunContentDescriptor> descriptors = collectDescriptorsToDispose();

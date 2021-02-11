@@ -57,17 +57,17 @@ public class TypeVariableMatchUtil {
       return;
     }
 
-    // extracttypeof'sofargumentsoutsidethewhen_concreteblock
+    // extract typeof's of arguments outside the when_concrete block
     final List<SNode> argTypes = new ArrayList<SNode>();
     for (SNode a : ListSequence.fromList(SLinkOperations.getChildren(staticMethodCall, LINKS.actualArgument$pzdx))) {
       ListSequence.fromList(argTypes).addElement(typeCheckingContext.typeOf(a, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "5977092449933510612", true));
     }
 
     final Map<SNode, SNode> subs = MapSequence.fromMap(new HashMap<SNode, SNode>());
-    // checktheinferencecontext
+    // check the inference context
     if (!((boolean) IMethodCall__BehaviorDescriptor.isInTypeInferenceContext_id4cxv$9$kw67.invoke(staticMethodCall))) {
       for (SNode tvd : ListSequence.fromList(BaseMethodDeclaration__BehaviorDescriptor.getInferrableTypeVars_id5W9RYt5baxk.invoke(mdecl))) {
-        // assumeallunboundtypevarsoutsideaninferencecontextareObjectoritsbound
+        // assume all unbound type vars outside an inference context are Object or its bound
         MapSequence.fromMap(subs).put(tvd, ((SLinkOperations.getTarget(tvd, LINKS.bound$aZCB) == null) ? _quotation_createNode_hh0s94_a0a1a0a9a2() : SNodeOperations.copyNode(SLinkOperations.getTarget(tvd, LINKS.bound$aZCB))));
       }
     }

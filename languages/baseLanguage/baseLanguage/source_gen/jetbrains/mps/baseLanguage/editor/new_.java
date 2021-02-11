@@ -77,9 +77,9 @@ public class new_ extends SubstituteMenuBase {
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
       SNode sampleNode = _context.getCurrentTargetNode();
-      // copiedfromBL_nodeFactories
+      //  copied from BL_nodeFactories
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.Expression$mB)) {
-        // LookingfortheoriginalnodeisrequiredbecausesampleNodeisjustacopy
+        // Looking for the original node is required because sampleNode is just a copy
         SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(sampleNode, CONCEPTS.Expression$mB));
         if ((originalExpression != null)) {
           SNode expectedType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(originalExpression, CONCEPTS.Expression$mB));

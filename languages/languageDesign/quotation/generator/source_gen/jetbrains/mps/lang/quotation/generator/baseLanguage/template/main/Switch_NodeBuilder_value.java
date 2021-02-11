@@ -87,7 +87,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 }
               });
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -107,7 +107,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode7 = environment.createOutputNode(myConcepts[4]);
@@ -128,19 +128,19 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                         }
                       });
                       tnode7.addChild(myAggregationLinks[2], tnode8);
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode4.addChild(myAggregationLinks[1], tnode7);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -173,7 +173,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 }
               });
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -193,7 +193,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode7 = environment.createOutputNode(myConcepts[4]);
@@ -212,19 +212,19 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       for (SNode child9 : TemplateUtil.asNotNull(tlist8)) {
                         tnode7.addChild(myAggregationLinks[2], child9);
                       }
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode4.addChild(myAggregationLinks[1], tnode7);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -257,7 +257,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 }
               });
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -277,7 +277,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode7 = environment.createOutputNode(myConcepts[5]);
@@ -301,11 +301,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                                   final SNode tnode11 = environment.createOutputNode(myConcepts[7]);
                                   SNodeAccessUtil.setPropertyValue(tnode11, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_0(new PropertyMacroContext(context8, "targetModel", propertyMacro_zg3v4g_c0a2a0a1a2a1a1a1a2a1a1a1a3a1a2a1a1a2a2i)));
                                   tnode10.addChild(myAggregationLinks[1], tnode11);
-                                  // TODOvalidatechild
+                                  // TODO validate child
                                 }
                               }
                               tnode9.addChild(myAggregationLinks[3], tnode10);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                             {
                               final SNode tnode12 = environment.createOutputNode(myConcepts[8]);
@@ -316,15 +316,15 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                                   final SNode tnode13 = environment.createOutputNode(myConcepts[9]);
                                   environment.associate(tnode13, myAssociationLinks[3], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)", "~PersistenceFacade");
                                   tnode12.addChild(myAggregationLinks[5], tnode13);
-                                  // TODOvalidatechild
+                                  // TODO validate child
                                 }
                               }
                               tnode9.addChild(myAggregationLinks[0], tnode12);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                           }
                           tnode8.addChild(myAggregationLinks[1], tnode9);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                         {
                           final SNode tnode14 = environment.createOutputNode(myConcepts[1]);
@@ -339,11 +339,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                                   final SNode tnode16 = environment.createOutputNode(myConcepts[7]);
                                   SNodeAccessUtil.setPropertyValue(tnode16, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_1(new PropertyMacroContext(context11, "targetNodeId", propertyMacro_zg3v4g_c0a2a0a1a2a1a1a1a3a1a1a1a3a1a2a1a1a2a2i)));
                                   tnode15.addChild(myAggregationLinks[1], tnode16);
-                                  // TODOvalidatechild
+                                  // TODO validate child
                                 }
                               }
                               tnode14.addChild(myAggregationLinks[3], tnode15);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                             {
                               final SNode tnode17 = environment.createOutputNode(myConcepts[8]);
@@ -354,31 +354,31 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                                   final SNode tnode18 = environment.createOutputNode(myConcepts[9]);
                                   environment.associate(tnode18, myAssociationLinks[3], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)", "~PersistenceFacade");
                                   tnode17.addChild(myAggregationLinks[5], tnode18);
-                                  // TODOvalidatechild
+                                  // TODO validate child
                                 }
                               }
                               tnode14.addChild(myAggregationLinks[0], tnode17);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                           }
                           tnode8.addChild(myAggregationLinks[1], tnode14);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                       }
                       tnode7.addChild(myAggregationLinks[6], tnode8);
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode4.addChild(myAggregationLinks[1], tnode7);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -411,7 +411,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 }
               });
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -431,7 +431,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode7 = environment.createOutputNode(myConcepts[2]);
@@ -442,15 +442,15 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                     }
                   });
                   tnode4.addChild(myAggregationLinks[1], tnode7);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -483,7 +483,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 }
               });
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -503,7 +503,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                     tnode4.addChild(myAggregationLinks[1], child6);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   Collection<SNode> tlist7 = null;
@@ -512,15 +512,15 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                   for (SNode child8 : TemplateUtil.asNotNull(tlist7)) {
                     tnode4.addChild(myAggregationLinks[1], child8);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -557,7 +557,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                     }
                   });
                   tnode3.addChild(myAggregationLinks[0], tnode4);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode5 = environment.createOutputNode(myConcepts[3]);
@@ -577,25 +577,25 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                         tnode5.addChild(myAggregationLinks[1], child7);
                       }
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode3.addChild(myAggregationLinks[3], tnode5);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode8 = environment.createOutputNode(myConcepts[3]);
               environment.associate(tnode8, myAssociationLinks[1], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.builder(MPS.Core/)", "~AbstractNodeBuilder.initNull()");
               tnode2.addChild(myAggregationLinks[3], tnode8);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -648,11 +648,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                               final SNode tnode7 = environment.createOutputNode(myConcepts[6]);
                               environment.associate(tnode7, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~UnsupportedOperationException.<init>()");
                               tnode6.addChild(myAggregationLinks[6], tnode7);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                           }
                           tnode5.addChild(myAggregationLinks[4], tnode6);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                       }
                       tlist4 = TemplateUtil.singletonList(tnode5);
@@ -662,11 +662,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                 for (SNode child8 : TemplateUtil.asNotNull(tlist4)) {
                   tnode3.addChild(myAggregationLinks[7], child8);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[8], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tlist1 = TemplateUtil.singletonList(tnode2);
@@ -697,11 +697,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       final SNode tnode12 = environment.createOutputNode(myConcepts[6]);
                       environment.associate(tnode12, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~UnsupportedOperationException.<init>()");
                       tnode11.addChild(myAggregationLinks[6], tnode12);
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode10.addChild(myAggregationLinks[4], tnode11);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tlist9 = TemplateUtil.singletonList(tnode10);
@@ -744,7 +744,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                     }
                   });
                   tnode3.addChild(myAggregationLinks[0], tnode4);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode5 = environment.createOutputNode(myConcepts[3]);
@@ -764,15 +764,15 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                       for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                         tnode5.addChild(myAggregationLinks[1], child7);
                       }
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tnode3.addChild(myAggregationLinks[3], tnode5);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode8 = environment.createOutputNode(myConcepts[3]);
@@ -788,7 +788,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                     }
                   });
                   tnode8.addChild(myAggregationLinks[1], tnode9);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
                 {
                   final SNode tnode10 = environment.createOutputNode(myConcepts[12]);
@@ -799,15 +799,15 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                     }
                   });
                   tnode8.addChild(myAggregationLinks[1], tnode10);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode2.addChild(myAggregationLinks[3], tnode8);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[4], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);
@@ -858,11 +858,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                             final SNode tnode6 = environment.createOutputNode(myConcepts[6]);
                             environment.associate(tnode6, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~UnsupportedOperationException.<init>()");
                             tnode5.addChild(myAggregationLinks[6], tnode6);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode4.addChild(myAggregationLinks[4], tnode5);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tlist3 = TemplateUtil.singletonList(tnode4);
@@ -872,7 +872,7 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
               for (SNode child7 : TemplateUtil.asNotNull(tlist3)) {
                 tnode2.addChild(myAggregationLinks[7], child7);
               }
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               Collection<SNode> tlist8 = null;
@@ -906,11 +906,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
                             final SNode tnode13 = environment.createOutputNode(myConcepts[6]);
                             environment.associate(tnode13, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~UnsupportedOperationException.<init>()");
                             tnode12.addChild(myAggregationLinks[6], tnode13);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode11.addChild(myAggregationLinks[4], tnode12);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tlist10 = TemplateUtil.singletonList(tnode11);
@@ -923,11 +923,11 @@ public class Switch_NodeBuilder_value extends TemplateSwitchBase implements Temp
               for (SNode child14 : TemplateUtil.asNotNull(tlist8)) {
                 tnode2.addChild(myAggregationLinks[7], child14);
               }
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[8], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);

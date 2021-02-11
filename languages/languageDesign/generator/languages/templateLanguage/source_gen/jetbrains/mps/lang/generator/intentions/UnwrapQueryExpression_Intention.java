@@ -40,7 +40,7 @@ public final class UnwrapQueryExpression_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    // wedodangerousthingswithmodelimplementationhere
+    // we do dangerous things with model implementation here
     if (!(InternalFlag.isInternalMode())) {
       return false;
     }
@@ -80,9 +80,9 @@ public final class UnwrapQueryExpression_Intention extends AbstractIntentionDesc
       if (expr == null) {
         return;
       }
-      // usenodeidoftheTemplateArgumentQuerynode,toleavenameofgeneratedQG.templateArgument_xxx()methodintact
+      // use node id of the TemplateArgumentQuery node, to leave name of generated QG.templateArgument_xxx() method intact
       SNodeId taqNodeId = SLinkOperations.getTarget(node, LINKS.query$31w3).getNodeId();
-      // first,shalldetachexprnode,sothatitsidcouldgetchanged
+      // first, shall detach expr node, so that its id could get changed
       SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.query$31w3));
       if (expr instanceof jetbrains.mps.smodel.SNode) {
         ((jetbrains.mps.smodel.SNode) expr).setId(taqNodeId);

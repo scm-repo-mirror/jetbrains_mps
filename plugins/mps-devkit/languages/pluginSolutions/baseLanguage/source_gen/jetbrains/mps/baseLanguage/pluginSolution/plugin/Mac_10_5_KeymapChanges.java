@@ -10,9 +10,9 @@ import javax.swing.KeyStroke;
 public class Mac_10_5_KeymapChanges extends BaseKeymapChanges {
   public Mac_10_5_KeymapChanges() {
     // simple
-    // simplewithremove/replace
+    // simple with remove/replace
     addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.SafeDeleteConceptMethod_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("meta DELETE"), false, true));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

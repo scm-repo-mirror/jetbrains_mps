@@ -33,13 +33,13 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 public class DiffModelUtil {
   private static Map<SModel, TempModuleOptions> myRegisteredModels = MapSequence.fromMap(new HashMap<SModel, TempModuleOptions>());
   public static void renameModelAndRegister(SModel model, String version) {
-    // takesamodel,changesitsreferenceifversionisspecified,andregistersamodelwithanewlycreated
-    // modulewhichisregisteredwithaglobalrepository.
+    // takes a model, changes its reference if version is specified, and registers a model with a newly created
+    // module which is registered with a global repository.
     renameModelAndRegister(model, version, false);
   }
   public static void renameModelAndRegister(SModel model, String version, boolean fixReferences) {
-    // iffixRefeneces==true=>setlinkstohangedstaticreferencesbacktotheoriginalmodel(thatismostprobablyinrepository
-    // Thiscanhelpinperrootpersistencewhenonlyonerootisinthemodel:referencetootherrootwillpointtorepositorymodel
+    // if fixRefeneces == true => set links to hanged static references back to the original model (that is most probably in repository
+    // This can help in per root persistence when only one root is in the model: reference to other root will point to repository model
     if (version != null) {
       renameModel(model, version, fixReferences);
     }
@@ -70,7 +70,7 @@ public class DiffModelUtil {
     }
   }
   private static void resetMissedReferences(SModel model, SModelReference oldModelRef, SModelReference newModelRef) {
-    // setreferencesthatarenotinthemodelbacktooldmodel
+    // set references that are not in the model back to old model
     Set<SNodeId> nodeIds = SetSequence.fromSetWithValues(new HashSet<SNodeId>(), ListSequence.fromList(SModelOperations.nodes(model, null)).select(new ISelector<SNode, SNodeId>() {
       public SNodeId select(SNode it) {
         return it.getNodeId();
@@ -90,12 +90,12 @@ public class DiffModelUtil {
     as_5x16vn_a0a2a8(model, SModelBase.class).changeModelReference(getOriginalSModelRef(modelRef));
   }
   public static void fixModelReferences(SModel model, final SModelReference modelRef) {
-    // modelRef-generatedreferences,willbereplacedwithoriginalonethroughthemodel
+    // modelRef - generated references, will be replaced with original one through the model
     assert modelRef.getModelId() instanceof SModelId.ForeignSModelId;
     final SModelReference oldModelRef = getOriginalSModelRef(modelRef);
     for (SNode node : ListSequence.fromList(SModelOperations.nodes(model, null))) {
-      // XXXFWIW,there'ssimilarcodeinsmodel.SModel.updateExternalReferences()
-      // Wouldbegreattokeepitinasingleplace
+      // XXX FWIW, there's similar code in smodel.SModel.updateExternalReferences()
+      //     Would be great to keep it in a single place
       ListSequence.fromList(SNodeOperations.getReferences(node)).ofType(SReferenceBase.class).where(new IWhereFilter<SReferenceBase>() {
         public boolean accept(SReferenceBase it) {
           return modelRef.equals(it.getTargetSModelReference());

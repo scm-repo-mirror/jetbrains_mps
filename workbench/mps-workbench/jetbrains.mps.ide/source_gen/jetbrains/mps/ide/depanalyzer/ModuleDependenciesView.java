@@ -73,7 +73,7 @@ public class ModuleDependenciesView extends JPanel implements DataProvider {
     myLeftTree.expandRoot();
   }
   public void rebuildDependencies() {
-    // rebuildrighttreebasedonselectionintheleft
+    // rebuild right tree based on selection in the left
     myRightTree.resetDependencies();
     TreePath[] paths = myLeftTree.getSelectionPaths();
     if (paths != null) {
@@ -107,7 +107,7 @@ public class ModuleDependenciesView extends JPanel implements DataProvider {
       return getPlace();
     }
 
-    // notfound
+    // not found
     return null;
   }
   private ActionPlace getPlace() {

@@ -46,8 +46,8 @@ public class ReturnFromTry_Test extends BaseTransformationTest {
 
     public void test_ReturnFromTry() throws Exception {
       addNodeById("7209837885461546653");
-      // Checkstatementwasmovedtonodeannotation
-      // checkgetNodeById(string):node<>errormessages
+      // Check statement was moved to node annotation
+      // check getNodeById(string):node<> error messages
     }
     public void test_ErrorMessagesCheck2501421320959199550() throws Exception {
       SNode nodeToCheck = getRealNodeById("7209837885461546654");

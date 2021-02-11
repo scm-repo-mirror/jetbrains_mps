@@ -11,7 +11,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
     // simple
     addSimpleShortcut("jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action", getShortcut("ctrl shift P"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

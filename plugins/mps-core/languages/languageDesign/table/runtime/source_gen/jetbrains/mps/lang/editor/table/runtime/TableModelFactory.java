@@ -8,12 +8,12 @@ import jetbrains.mps.openapi.editor.EditorContext;
 public abstract class TableModelFactory {
   @Deprecated
   public TableModel createTableModel(SNode node, EditorContext editorContext) {
-    // TODO:notusedanymore,removeafterMPS3.5release
+    // TODO: not used anymore, remove after MPS 3.5 release
     return null;
   }
 
   public TableModel createTableModel() {
-    // TODO:makeabstractafterMPS3.5release
+    // TODO: make abstract after MPS 3.5 release
     return null;
   }
 }

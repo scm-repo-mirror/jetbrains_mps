@@ -442,13 +442,13 @@ public class QueriesGenerated extends QueryProviderBase {
     SPropertyOperations.assign(_context.getOutputNode(), PROPS.shortEmptyNotation$B8Gv, true);
   }
   public static void mapSrcMacro_post_4_0(final MapSrcMacroPostProcContext _context) {
-    // FIXMEthisisaprovisionalhacktodealwithMPS-26881,todealwithduplicationofCopyOutcome
-    // annotationwhenBwfProjectissplitintoxmlandpropertiesfile.
-    // Theproper(naybetter)wayistoattachthisannotationatxmlscript,ratherthanto
-    // BwfProject,butthisrequiresaplacetokeepthisvaluefromBuildProjecttoBwfProject.
-    // Ican'tusedropattributeruleorareductionruleasinputnodeisthesame
-    // (BwfProjectinstance),andthere'snooutputnodeinformationtotellwhen
-    // Ishallandshallnotdrop/reducetheattribute
+    // FIXME this is a provisional hack to deal with MPS-26881, to deal with duplication of CopyOutcome
+    // annotation when BwfProject is split into xml and properties file.
+    // The proper (nay better) way is to attach this annotation at xml script, rather than to
+    // BwfProject, but this requires a place to keep this value from BuildProject to BwfProject.
+    // I can't use drop attribute rule or a reduction rule as input node is the same
+    // (BwfProject instance), and there's no output node information to tell when
+    // I shall and shall not drop/reduce the attribute
     if ((new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$us).get(_context.getOutputNode()) != null)) {
       String loc = SPropertyOperations.getString(new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$us).get(_context.getOutputNode()), PROPS.location$Jy3A);
       if ((loc != null && loc.length() > 0)) {

@@ -44,7 +44,7 @@ public class MigrationWizard extends AbstractWizardEx {
   @Override
   protected void updateButtons() {
     super.updateButtons();
-    // ourstepscanprovidedifferentnext/prevbuttontexts
+    // our steps can provide different next/prev button texts
     getCancelButton().setEnabled((getStep()).canBeCancelled());
 
     String nextLabel = (getStep()).nextButtonLabel();
@@ -60,14 +60,14 @@ public class MigrationWizard extends AbstractWizardEx {
   @Override
   protected void doNextAction() {
     getStep().nextButtonAction();
-    // it'simportanttocallstep'slistenerfirstnottoaffectstateinwhichit'scalled
+    // it's important to call step's listener first not to affect state in which it's called
     super.doNextAction();
   }
 
   @Override
   public void doCancelAction() {
     getStep().cancelButtonAction();
-    // it'simportanttocallstep'slistenerfirstnottoaffectstateinwhichit'scalled
+    // it's important to call step's listener first not to affect state in which it's called
     super.doCancelAction();
   }
 

@@ -49,7 +49,7 @@ public class ModuleLoaderUtils {
 
       if (moduleSourceDir != null && path.startsWith(MacrosFactory.MODULE)) {
         String relPath = path.substring(path.indexOf('}') + 1);
-        // aftermigrationtonewFS,protocolshouldbepassedhereandthecorrespondingFSshoulddopathsimplification
+        // after migration to new FS, protocol should be passed here and the corresponding FS should do path simplification
         String fullPath = moduleSourceDir.getPath() + IFileSystem.SEPARATOR + relPath;
         return FileUtil.resolveParentDirs(fullPath);
       }
@@ -83,7 +83,7 @@ public class ModuleLoaderUtils {
 
         String relPath = path.substring(index + 1);
         String fullPath = localPath + IFileSystem.SEPARATOR + relPath;
-        // aftermigrationtonewFS,protocolshouldbepassedhereandthecorrespondingFSshoulddopathsimplification
+        // after migration to new FS, protocol should be passed here and the corresponding FS should do path simplification
         return FileUtil.resolveParentDirs(fullPath);
       }
       return path;

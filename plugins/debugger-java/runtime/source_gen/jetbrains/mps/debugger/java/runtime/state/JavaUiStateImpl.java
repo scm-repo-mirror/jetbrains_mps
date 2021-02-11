@@ -52,9 +52,9 @@ public abstract class JavaUiStateImpl extends JavaUiState {
   public abstract boolean isPausedOnBreakpoint();
   @NotNull
   /*package*/ PausedJavaUiState paused(@NotNull Context context) {
-    // changesstateonpause/resume
-    // weselectnewcontextevenifwearealreadyonsomeothercontext
-    // userprobablywantstoknowaboutnewpausedcontexts
+    //  changes state on pause/resume
+    //  we select new context even if we are already on some other context
+    //  user probably wants to know about new paused contexts
     return new PausedJavaUiState(context, myDebugSession);
   }
   @NotNull
@@ -112,7 +112,7 @@ public abstract class JavaUiStateImpl extends JavaUiState {
   }
   @Override
   protected JavaUiStateImpl selectThreadInternal(@Nullable IThread thread) {
-    // changesstateonuserselection
+    //  changes state on user selection
     int index = ListSequence.fromList(myThreads).indexOf(thread);
     if (((JavaThread) thread).getThread().isSuspended()) {
       return new PausedJavaUiState(this, myDebugSession, index);

@@ -19,7 +19,7 @@ public class Workbench_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new ExecuteRerunnableMigrations_Action());
     addAction(new FindDeprecatedCodeWithNoUsages_Action());
     addAction(new FindDeprecatedCode_Action());

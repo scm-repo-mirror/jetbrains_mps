@@ -57,13 +57,13 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
             SNode leftExpression = SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.DotExpression$yW), LINKS.operand$w6IR);
             SNode leftType = TypecheckingFacade.getFromContext().getTypeOf(leftExpression);
 
-            // anyconceptisAbstractConceptDeclaration,notmereBaseConcept
+            // any concept is AbstractConceptDeclaration, not mere BaseConcept
             SNode defaultConceptTypeValue = SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1169125787135");
             SNode defaultNodeTypeValue = SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626");
 
             SNode conceptNode = null;
             final Wrappers._boolean isStatic = new Wrappers._boolean(true);
-            // whenthere'saconcepttype,there'snonodetoinvokeinstancemethodon.
+            //  when there's a concept type, there's no node to invoke instance method on.
             SNode conceptType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.SConceptType$pb);
             if ((conceptType != null)) {
               SNode decl = SLinkOperations.getTarget(conceptType, LINKS.conceptDeclaraton$K4R0);
@@ -103,9 +103,9 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
               }
             }).toListSequence();
 
-            // toremove?(ap)
+            // to remove? (ap)
             if (SNodeOperations.isInstanceOf(leftType, CONCEPTS.ConceptNodeType$92)) {
-              // conceptNode<>issubtypeofnode<AbstractConceptDeclaration>,whycan'tIinvokemethodsofthelatter(usedtoworkaroundwithnode.conceptNode.asNode.methodCall,whichisstupid)
+              // conceptNode<> is subtype of node<AbstractConceptDeclaration>, why can't I invoke methods of the latter (used to workaround with node.conceptNode.asNode.methodCall, which is stupid)
               methods = Sequence.fromIterable(methods).concat(Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getVisibleConceptMethods_idwrIPXhfIPX.invoke(defaultConceptTypeValue, enclosingNode)).where(new IWhereFilter<SNode>() {
                 public boolean accept(SNode it) {
                   return SPropertyOperations.getBoolean(it, PROPS.isStatic$JhJe) == false;

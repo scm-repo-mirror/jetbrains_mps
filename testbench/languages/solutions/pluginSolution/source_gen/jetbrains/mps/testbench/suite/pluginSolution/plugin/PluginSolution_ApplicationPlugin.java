@@ -19,7 +19,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new CollectTests_Action());
     // groups
     addGroup(new CollectTestsGroup_ActionGroup(this));

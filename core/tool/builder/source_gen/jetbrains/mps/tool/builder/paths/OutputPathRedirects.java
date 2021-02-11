@@ -39,13 +39,13 @@ public class OutputPathRedirects implements IRedirects {
         return outputRedirect;
       }
     }
-    // usetransientfolderforcachesalways
+    // use transient folder for caches always
     IFile cachesOutputRedirect = getCachesOutputRedirect(path);
     if (cachesOutputRedirect != null) {
       return cachesOutputRedirect;
     }
 
-    // can'tconvert,returntheliteralpath
+    // can't convert, return the literal path
     return FileSystem.getInstance().getFile(path);
   }
   public IFile getOutputRedirect(String path) {

@@ -87,7 +87,7 @@ public class ShowMembers_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<String> title = new Wrappers._T<String>();
-    // modelcontainsonlySNodePointers
+    // model contains only SNodePointers
     final MemberContainerStructureModel[] model = new MemberContainerStructureModel[1];
 
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
@@ -98,7 +98,7 @@ public class ShowMembers_Action extends BaseAction {
       }
     });
 
-    // TODO:MPS-23001MakefabricforStructureView
+    // TODO: MPS-23001 Make fabric for StructureView
     StructureView structureView = new StructureView() {
       public FileEditor getFileEditor() {
         return ((FileEditor) MapSequence.fromMap(_params).get("fileEditor"));

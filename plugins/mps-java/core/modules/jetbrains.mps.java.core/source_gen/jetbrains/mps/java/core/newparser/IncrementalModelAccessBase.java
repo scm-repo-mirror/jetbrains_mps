@@ -45,7 +45,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
       public void run() {
         final List<UpdateModeSupport> modelsInUpdateMode = ListSequence.fromList(new ArrayList<UpdateModeSupport>());
         try {
-          // hereweassumethatrunnablechangesalotofmodels,soweenterupdatemodeforallofthem
+          // here we assume that runnable changes a lot of models, so we enter update mode for all of them
           Sequence.fromIterable(myModels).visitAll(new IVisitor<SModel>() {
             public void visit(SModel model) {
               SModelData modelData = ((SModelBase) model).getModelData();
@@ -53,7 +53,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
                 ((UpdateModeSupport) modelData).enterUpdateMode();
                 ListSequence.fromList(modelsInUpdateMode).addElement((UpdateModeSupport) modelData);
               } else {
-                // ignoringthemodel
+                // ignoring the model
                 myMessageHandler.handle(new Message(MessageKind.ERROR, String.format("model %s doesn't support update mode which java import relies on", SModelOperations.getModelName(model))));
               }
             }

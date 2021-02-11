@@ -44,7 +44,7 @@ public final class NodesMatcher {
     myMap = new HashMap<SNode, SNode>();
     myFirst = Collections.emptyList();
     mySecond = Collections.emptyList();
-    // FIXMErefactortouseinstancesinsteadofstaticmethod
+    // FIXME refactor to use instances instead of static method
   }
 
   /**
@@ -69,10 +69,10 @@ public final class NodesMatcher {
   }
 
   public Map<SNode, SNode> getMap() {
-    // Idon'tquiteunderstandwhat'sthemapweeitherpopulateanduse,orjustuse.
-    // whymatchNodes(node,node)goesthroughmatchNodes(list,list),createsandpopulatesmap,
-    // whilematchNodes(node,node,map)doesnotpopulatethemap
-    // OnceIunderstandwhatmapis,Icangivemethodbettername
+    // I don't quite understand what's the map we either populate and use, or just use.
+    // why matchNodes(node,node) goes through matchNodes(list,list), creates and populates map,
+    // while matchNodes(node,node,map) does not populate the map
+    // Once I understand what map is, I can give method better name
     return myMap;
   }
 
@@ -107,7 +107,7 @@ public final class NodesMatcher {
       mi.match(iteratorA.next(), iteratorB.next());
     }
     for (DifferenceItem di : mi.myDifferences) {
-      // wecan'tgetanythingbutNodeDifferenceelementsaftermi.match()executionasitreplacesanyDIitemcreatedwithanND
+      // we can't get anything but NodeDifference elements after mi.match() execution as it replaces any DI item created with an ND
       assert di instanceof NodeDifference;
       if (di instanceof NodeDifference) {
         ret.add((NodeDifference) di);
@@ -224,7 +224,7 @@ public final class NodesMatcher {
       if (after != before) {
         assert after > before;
         NodeDifference nd = new NodeDifference(a.getPresentation(), new ArrayList<DifferenceItem>(myDifferences.subList(before, after)));
-        // i>before,not>=,aswereplaceelement@beforewithndafterwards
+        // i>before, not >=, as we replace element @before with nd afterwards
         for (int i = after - 1; i > before; i--) {
           myDifferences.remove(i);
         }

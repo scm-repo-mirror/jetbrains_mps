@@ -29,7 +29,7 @@ public class Make_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new BuildAllGeneratableGenerators_Action());
     addAction(new BuildAllGenerators_Action());
     addAction(new BuildAllLanguageDescriptors_Action());

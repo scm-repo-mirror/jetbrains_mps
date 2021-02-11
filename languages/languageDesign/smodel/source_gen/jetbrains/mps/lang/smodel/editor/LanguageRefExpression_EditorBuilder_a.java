@@ -97,7 +97,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private boolean nodeCondition_9pn6lo_a2a() {
-    // todo:thishackishereduetopoorsubstitutemenulanguage,removeitwhenpossible
+    // todo: this hack is here due to poor substitute menu language, remove it when possible
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.languageId$xSH1), CONCEPTS.LanguageIdentityBySourceModule$T8);
   }
   private EditorCell createReadOnlyModelAccessor_0() {

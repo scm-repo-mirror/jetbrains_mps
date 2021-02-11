@@ -38,7 +38,7 @@ public class MergeDriverNotification {
   }
   @ToRemove(version = 2020.1)
   private static void unsetObsoleteProperty() {
-    // thispropertyremovedin2019.2,wewaitfortworeleasestillitwillbeclearedfromconfigfile
+    // this property removed in 2019.2, we wait for two releases till it will be cleared from config file
     PropertiesComponent.getInstance().unsetValue(SUPPRESSED_PROPERTY_NAME);
   }
   private void calculateCompositeState() {

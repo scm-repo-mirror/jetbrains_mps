@@ -20,7 +20,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameMethod_Action", getShortcut("shift F6"));
     addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameVariable_Action", getShortcut("shift F6"));
     addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.SafeDeleteConceptMethod_Action", getShortcut("alt DELETE"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

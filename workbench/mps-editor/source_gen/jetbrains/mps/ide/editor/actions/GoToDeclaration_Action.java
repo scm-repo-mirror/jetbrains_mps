@@ -90,7 +90,7 @@ public class GoToDeclaration_Action extends BaseAction {
               return;
             }
           }
-          // todoshownotification:can'tnavigate
+          // todo show notification: can't navigate
         }
       }
     });

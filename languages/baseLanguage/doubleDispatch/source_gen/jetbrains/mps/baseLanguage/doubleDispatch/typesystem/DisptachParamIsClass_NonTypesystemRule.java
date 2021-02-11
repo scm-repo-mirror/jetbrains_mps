@@ -31,7 +31,7 @@ public class DisptachParamIsClass_NonTypesystemRule extends AbstractNonTypesyste
     }).isEmpty()) {
       return;
     }
-    // typenotspecifiedyet
+    // type not specified yet
     if ((SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$5xBj)).first(), LINKS.type$a1UY) == null)) {
       return;
     }
@@ -45,7 +45,7 @@ public class DisptachParamIsClass_NonTypesystemRule extends AbstractNonTypesyste
 
     SNode paramType = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$5xBj)).first(), LINKS.type$a1UY);
 
-    // turneditoff,becauseunenteredyettypeisshownaserrorwhichisbad
+    // turned it off, because unentered yet type is shown as error which is bad
 
     if (!(SNodeOperations.isInstanceOf(paramType, CONCEPTS.ClassifierType$bL)) || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(paramType, CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), CONCEPTS.ClassConcept$bK))) {
       {

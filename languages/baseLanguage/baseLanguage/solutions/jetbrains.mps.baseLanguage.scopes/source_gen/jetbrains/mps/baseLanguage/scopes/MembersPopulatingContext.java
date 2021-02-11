@@ -36,7 +36,7 @@ public class MembersPopulatingContext {
   private Map<SNode, SNode> typeByTypeVariable = new HashMap<SNode, SNode>();
 
   public MembersPopulatingContext() {
-    // javacollectionsforspeed
+    // java collections for speed
   }
 
   /**
@@ -53,10 +53,10 @@ public class MembersPopulatingContext {
   public void exposeMember(SNode member, Signature signature) {
     SNode contextClassifier = foundSignatures2Classifier.get(signature);
     if (contextClassifier == null || contextClassifier == getCurrentClassifier()) {
-      // exposingallmembersusingfollowingcondition:
-      // 1.memberwasnot"masked"byamemberfromsub-classifier
-      // 2.showingallmemberswithsamesignaturesiftheyaredefinedinthesameclassifier
-      // 3.acceptmemberswithsamesignaturescomingfromindependentinterfaces(notinheritingfromoneanother)
+      // exposing all members using following condition:
+      // 1. member was not "masked" by a member from sub-classifier
+      // 2. showing all members with same signatures if they are defined in the same classifier
+      // 3. accept members with same signatures coming from independent interfaces (not inheriting from one another)
       members.add(member);
     }
   }
@@ -70,14 +70,14 @@ public class MembersPopulatingContext {
   public boolean enterClassifierInternal(SNode classifierType) {
     SNode classifier = IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifierType);
 
-    // preventrecursionandduplicatedmembersforsameclassifiersaccessedviadifferentpaths
-    // e.g.sameinterfaceimplementeddirectlyandthoughsomesuperclass
+    // prevent recursion and duplicated members for same classifiers accessed via different paths
+    // e.g. same interface implemented directly and though some superclass
     if (!(visited.add(classifier))) {
       return false;
     }
     classifiers.add(classifier);
 
-    // settypesvariables
+    // set types variables
     Iterable<SNode> typeParams = IClassifierType__BehaviorDescriptor.getTypeParameters_id6r77ob2URYe.invoke(classifierType);
     if (Sequence.fromIterable(typeParams).isNotEmpty()) {
       Iterator<SNode> typeVars = Sequence.fromIterable(IClassifier__BehaviorDescriptor.getTypeVariables_id6r77ob2URXZ.invoke(classifier)).iterator();
@@ -90,7 +90,7 @@ public class MembersPopulatingContext {
       }
     }
 
-    // recalcispackageprotectedavailable
+    // recalc is package protected available
     isPackageProtectedAvailable = true;
     String contextClassifierPackage = retrievePackageName(SNodeOperations.getModel(classifiers.get(0)));
     for (SNode inheritedClassifier : classifiers) {

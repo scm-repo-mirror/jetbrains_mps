@@ -96,10 +96,10 @@ public class MergeModelsPanel extends JPanel {
     myProject = project;
     myContentTitles = request.getContentTitles().toArray(myContentTitles);
     assert myContentTitles.length == 3;
-    // FIXMEcodebelowrequiresthoroughrefactoring.ModelsthatcomehereareIMOloadedfromdiskandarenot
-    // attachedtoanyrepository,hencethere'snoreasontograblocktodealwiththem.OTOH,there'scodethat
-    // registersandexposesmodelartifactswithatempmodule,whichispartofglobalrepositorynowandhence
-    // requiresmodellock.
+    // FIXME code below requires thorough refactoring. Models that come here are IMO loaded from disk and are not
+    // attached to any repository, hence there's no reason to grab lock to deal with them. OTOH, there's code that
+    // registers and exposes model artifacts with a temp module, which is part of global repository now and hence
+    // requires model lock.
     myProjectRepository = ProjectHelper.getProjectRepository(project);
     assert myProjectRepository != null;
     myProjectRepository.getModelAccess().runReadAction(new Runnable() {
@@ -154,9 +154,9 @@ public class MergeModelsPanel extends JPanel {
     myMergeTree = new MergeModelsTree(myProjectRepository);
     myPanel.setFirstComponent(ScrollPaneFactory.createScrollPane(myMergeTree));
     myPanel.setSecondComponent(myNoRootPanel);
-    // therebuildofthetreeshouldnothappenbeforethesecondcomponentofthepanel
-    // issettobe'noroot'panelsincethetreerebuildprocessincludesrowselection.
-    // seehttps://youtrack.jetbrains.com/issue/MPS-32897.
+    // the rebuild of the tree should not happen before the second component of the panel
+    // is set to be 'no root' panel since the tree rebuild process includes row selection. 
+    // see https://youtrack.jetbrains.com/issue/MPS-32897 . 
     myMergeTree.rebuildNow();
 
     myGoToNeighbourRootActions = new MyGoToNeighbourRootActions();
@@ -180,8 +180,8 @@ public class MergeModelsPanel extends JPanel {
     return myMergeTree;
   }
   public boolean saveResults() {
-    // true-everythingisOK
-    // false-savingwascancelled
+    // true - everything is OK
+    // false - saving was cancelled
     applyMetadataChanges();
 
     int result = MergeConfirmation.showMergeConfirmationAndTakeAction(this, myMergeSession, Sequence.fromIterable(myMergeSession.getAllChanges()).where(new IWhereFilter<ModelChange>() {
@@ -214,7 +214,7 @@ public class MergeModelsPanel extends JPanel {
   private SModel getResultModelWithFixedId() {
     SModel resultModel = new ModelAccessHelper(myProjectRepository).runReadAction(new Computable<MergeTemporaryModel>() {
       public MergeTemporaryModel compute() {
-        // copytoavoidproblemswithde-registration
+        // copy to avoid problems with de-registration
         return MergeTemporaryModel.writableCloneOf(myMergeSession.getResultModel());
       }
     });
@@ -338,7 +338,7 @@ public class MergeModelsPanel extends JPanel {
       applyUnresolvedChanges(myMetadataMergeSession, myMetadataMergeSession.getAllChanges(), mine);
       applyMetadataChanges();
     }
-    // XXXtree.rebuildNowasmodelcommand,really?
+    // XXX tree.rebuildNow as model command, really?
     myProjectRepository.getModelAccess().executeCommand(new Runnable() {
       public void run() {
         myMergeTree.rebuildNow();
@@ -350,7 +350,7 @@ public class MergeModelsPanel extends JPanel {
       public void run() {
         if (myMetadataMergeSession != null) {
           MetadataUtil.applyMetadataChanges(myMergeSession.getResultModel(), myMetadataMergeSession.getResultModel());
-          // hacktofixlanguageversionsinmergedmodels
+          // hack to fix language versions in merged models
           MetadataUtil.fixLanguageImportVersionsAfterMerge(myMergeSession.getResultModel(), myMergeSession.getMyModel(), myMergeSession.getRepositoryModel());
         }
       }

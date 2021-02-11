@@ -29,7 +29,7 @@ public final class SmartReferentUtil {
     if (SNodeOperations.isInstanceOf(referent, CONCEPTS.ISmartReferent$57)) {
       return ((String) BHReflection.invoke0((SNodeOperations.cast(referent, CONCEPTS.ISmartReferent$57)), CONCEPTS.ISmartReferent$57, SMethodTrimmedId.create("getMatchingText", null, "69Qfsw3InJX"), reference));
     }
-    // IResolveInfonowusestodistinctmatchingTextandvisibleMatchingText
+    // IResolveInfo now uses to distinct matchingText and visibleMatchingText
     if (SNodeOperations.isInstanceOf(referent, CONCEPTS.IResolveInfo$$k)) {
       return SPropertyOperations.getString((SNodeOperations.cast(referent, CONCEPTS.IResolveInfo$$k)), PROPS.resolveInfo$lW9a);
     }
@@ -55,7 +55,7 @@ public final class SmartReferentUtil {
     if (SNodeOperations.isInstanceOf(referent, CONCEPTS.ISmartReferent$57)) {
       return ((String) BHReflection.invoke0((SNodeOperations.cast(referent, CONCEPTS.ISmartReferent$57)), CONCEPTS.ISmartReferent$57, SMethodTrimmedId.create("getDescriptionText", null, "69Qfsw3IqwE"), reference));
     }
-    // compatiblitywithlegacy.after3.5->"returnnull"
+    // compatiblity with legacy. after 3.5 -> "return null"
     return SPropertyOperations.getString(referent, PROPS.shortDescription$Yd4v);
   }
 

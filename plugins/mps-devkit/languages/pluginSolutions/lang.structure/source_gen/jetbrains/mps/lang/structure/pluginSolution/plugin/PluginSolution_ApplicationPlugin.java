@@ -20,7 +20,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new CreateReferenceConcept_Action());
     addAction(new DropEnumMigrationAttribute_Action());
     addAction(new DropEnumPropertyMigrationAttribute_Action());

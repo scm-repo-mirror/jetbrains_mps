@@ -48,11 +48,11 @@ public class Template_reduce_TraceMessage extends TemplateDeclarationBase {
             final SNode tnode3 = environment.createOutputNode(myConcepts[2]);
             SNodeAccessUtil.setPropertyValue(tnode3, myProperties[0], QueriesGenerated.propertyMacro_GetValue_25_0(new PropertyMacroContext(context2, "message", propertyMacro_zb4n4r_c0a2a0a1a2a1a1a2a6)));
             tnode2.addChild(myAggregationLinks[0], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[1], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);

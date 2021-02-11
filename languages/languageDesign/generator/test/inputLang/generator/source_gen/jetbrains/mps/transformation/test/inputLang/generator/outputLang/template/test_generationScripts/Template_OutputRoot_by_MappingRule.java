@@ -49,7 +49,7 @@ public class Template_OutputRoot_by_MappingRule extends TemplateDeclarationBase 
         for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child3);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     sink.add(null, TemplateUtil.singletonList(tnode1));

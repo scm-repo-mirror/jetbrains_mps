@@ -19,14 +19,14 @@ public class ParallelForSample {
   }
 
   public static void main(String[] args) {
-    // Somethreadpoolstouse
+    // Some thread pools to use
     final ExecutorService myPool = Executors.newFixedThreadPool(3);
     final ExecutorService youPool = Executors.newFixedThreadPool(10);
 
-    // Acollectionofnumberstoplaywith
+    // A collection of numbers to play with
     final Iterable<Integer> numbers = ListSequence.fromListAndArray(new ArrayList<Integer>(), 1, 2, 3, 4, 5);
 
-    // TheoptionalreferencetoathreadpoolissetintheInspector(Alt|Command+2)
+    // The optional reference to a thread pool is set in the Inspector (Alt|Command + 2)
     {
       final CountDownLatch latch_i0d = new CountDownLatch(Sequence.fromIterable(numbers).count());
       final List<Exception> exceptions_i0d = new CopyOnWriteArrayList<Exception>();
@@ -40,7 +40,7 @@ public class ParallelForSample {
             try {
               log("Starting calculation for number " + localA + " in thread " + Thread.currentThread());
               Thread.sleep(localA * 1000);
-              // External(compiled)methodcallscanbeannotatedasthread-safetoindicatethattheyaresafetocall
+              // External (compiled) method calls can be annotated as thread-safe to indicate that they are safe to call
               log("Finished calculation for number " + localA + " in thread " + Thread.currentThread());
             } catch (RuntimeException e) {
               ListSequence.fromList(exceptions_i0d).addElement(e);
@@ -68,14 +68,14 @@ public class ParallelForSample {
     log("Done");
 
 
-    // Referencestonon-finalvariablesandparametersfromwithinparallelloopsarereportedaserrors
-    // Trymakingthefollowingvariablenon-final(Alt+Enter)
+    // References to non-final variables and parameters from within parallel loops are reported as errors
+    // Try making the following variable non-final (Alt + Enter)
     final String doNotMessupWith = "The Shared State";
 
-    // Accessingnon-thread-safeclasses,suchaslists,isreportedaswarnings
+    // Accessing non-thread-safe classes, such as lists, is reported as warnings
     final List<String> names = ListSequence.fromListAndArray(new ArrayList<String>(), "Joe", "Dave", "Alice");
 
-    // Accessingthread-safeclassesisconsideredok
+    // Accessing thread-safe classes is considered ok
     final AtomicInteger counter = new AtomicInteger(0);
 
     {
@@ -95,14 +95,14 @@ public class ParallelForSample {
               messupWithMeSinceImlocal += 10;
               log("Local variables can be used without restrictions " + messupWithMeSinceImlocal);
 
-              // Warningsinceweareaccessinganon-localnon-thread-safeobject
+              // Warning since we are accessing a non-local non-thread-safe object
               ListSequence.fromList(names).removeElement("Joe");
 
               List<String> localNames = ListSequence.fromList(new ArrayList<String>());
-              // Localreferencescanbecalledwithoutrestrictions
+              // Local references can be called without restrictions
               ListSequence.fromList(localNames).addElement("Susan");
 
-              // Thread-safeobjectsaresafetouseaswell
+              // Thread-safe objects are safe to use as well
               log("Counter: " + counter.incrementAndGet());
 
               Thread.sleep(localA);
@@ -130,8 +130,8 @@ public class ParallelForSample {
 
     }
 
-    // Iteratingoveracollectionofstrings
-    // Nothreadpoolisset(Alt|Command+2)sousingthreadsdirectly
+    // Iterating over a collection of strings
+    // No thread pool is set (Alt|Command + 2) so using threads directly
     {
       final CountDownLatch latch_ab0d = new CountDownLatch(ListSequence.fromList(names).count());
       final List<Exception> exceptions_ab0d = new CopyOnWriteArrayList<Exception>();
@@ -169,7 +169,7 @@ public class ParallelForSample {
 
     }
 
-    // Shutdownthethreadpools
+    // Shutdown the thread pools
     myPool.shutdown();
     youPool.shutdown();
   }

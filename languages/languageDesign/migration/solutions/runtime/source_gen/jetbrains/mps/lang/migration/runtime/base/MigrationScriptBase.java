@@ -179,7 +179,7 @@ public abstract class MigrationScriptBase implements MigrationScript {
     SPropertyOperations.assign(ann, PROPS.readableId$dIRD, getCaption());
     new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$8u).set(n, ann);
 
-    // wewantthisannotationtobeshownasoutermostone
+    // we want this annotation to be shown as outermost one
     SNode firstAnnot = ListSequence.fromList(new IAttributeDescriptor.AllAttributes().list(n)).first();
     if ((firstAnnot != null) && !(Objects.equals(firstAnnot, ann))) {
       SNodeOperations.insertPrevSiblingChild(firstAnnot, ann);
@@ -197,13 +197,13 @@ public abstract class MigrationScriptBase implements MigrationScript {
     }
 
     if (migrated == null) {
-      // originshouldberemoved
+      // origin should be removed
       pointer.remove();
     } else {
       if (!(ListSequence.fromList(descendants).contains(migrated)) && migrated instanceof jetbrains.mps.smodel.SNode) {
-        // returnedvalueisnewcreatednode
+        // returned value is new created node
         if (!(ListSequence.fromList(SNodeOperations.getNodeAncestors(origin, null, false)).contains(migrated))) {
-          // originisnotkeeped
+          // origin is not keeped
           ((jetbrains.mps.smodel.SNode) migrated).setId(origin.getNodeId());
         }
       }

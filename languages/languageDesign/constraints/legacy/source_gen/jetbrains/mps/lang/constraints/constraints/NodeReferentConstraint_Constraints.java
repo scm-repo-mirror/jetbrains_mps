@@ -49,7 +49,7 @@ public class NodeReferentConstraint_Constraints extends BaseConstraintsDescripto
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // linksdeclaredinspecifiedconcept
+            // links declared in specified concept
             SNode applicableConcept = NodeReferentConstraint__BehaviorDescriptor.getApplicableConcept_idhEwIMWq.invoke(_context.getReferenceNode());
             if (applicableConcept == null) {
               SNode root = SNodeOperations.getContainingRoot(_context.getContextNode());

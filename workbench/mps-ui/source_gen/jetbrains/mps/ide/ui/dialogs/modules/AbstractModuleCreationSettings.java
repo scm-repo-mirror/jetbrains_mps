@@ -101,7 +101,7 @@ public abstract class AbstractModuleCreationSettings extends JPanel {
   }
 
   public void setProjectPath(String projectPath) {
-    // Ifpathisthesame-justreturn
+    // If path is the same - just return
     if (myProjectPath != null && myProjectPath.equals(projectPath)) {
       return;
     }

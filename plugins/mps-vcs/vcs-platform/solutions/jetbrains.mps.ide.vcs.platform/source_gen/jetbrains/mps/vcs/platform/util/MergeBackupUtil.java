@@ -46,9 +46,9 @@ public class MergeBackupUtil {
     try {
       File tmp = FileUtil.createTmpDir();
       ZipUtil.extract(file, tmp, null);
-      // copymergeresult
+      //  copy merge result
       FileUtil.write(new File(tmp + File.separator + fileName + ".result"), resultContent);
-      // copylogfiles
+      //  copy logfiles
       File logsDir = new File(PathManager.getLogPath());
       File[] logfiles = logsDir.listFiles(new FilenameFilter() {
         @Override
@@ -111,10 +111,10 @@ public class MergeBackupUtil {
     return models;
   }
   public static File chooseZipFileForModelFile(String defaultFileName) {
-    // FIXMEPlease,please!Year2015,twostaticclasses,onesetstaticfieldsofanother?!
-    // FIXMEOh,no,wait!It'syear2019already,andthecodeisstillthere!?
+    // FIXME Please, please! Year 2015, two static classes, one set static fields of another?!
+    // FIXME Oh, no, wait! It's year 2019 already, and the code is still there!?
     MergeDriverBackupUtil.setMergeBackupDirPath(getMergeBackupDirPath());
-    // Whatwasthereasontoalternameofthebackupfilewithmodelname?
+    // What was the reason to alter name of the backup file with model name?
     return MergeDriverBackupUtil.chooseZipFileForModelLongName(defaultFileName, null);
   }
   public static Iterable<File> findZipFilesForModelFile(final String modelFileName) {

@@ -75,17 +75,17 @@ public class DependencyUtil {
     switch (role) {
       case OwnedGenerator:
       case None:
-        // firststep
+        // first step
         addUsedLanguagesAndDevkitsOf(module, result, true);
         for (SDependency dep : module.getDeclaredDependencies()) {
           if (dep.getScope() == SDependencyScope.DESIGN && !(myNeedRuntime)) {
-            // design-timedependenciesareofnowvalueduringexecution
+            // design-time dependencies are of now value during execution
             continue;
           }
           ListSequence.fromList(result).addElement(regularDependencyPresentation(dep));
         }
         if (module instanceof Language) {
-          // generatorsandgeneratorsdependenciesarenowalsoaddedtolanguagedependencies(MPS-15883)
+          // generators and generators dependencies are now also added to language dependencies (MPS-15883)
           for (Generator g : ((Language) module).getGenerators()) {
             ListSequence.fromList(result).addElement(new DepLink(g.getModuleReference(), Role.OwnedGenerator, LinkType.Generator));
           }
@@ -97,7 +97,7 @@ public class DependencyUtil {
         break;
 
       case UsedDevkit:
-        // explicituseofdevkit
+        // explicit use of devkit
         // fall-through
       case DependencyDevkit:
         if (!(module instanceof AbstractModule)) {
@@ -129,20 +129,20 @@ public class DependencyUtil {
       case RegularDependency:
         for (SDependency dep : module.getDeclaredDependencies()) {
           if (dep.getScope() == SDependencyScope.DESIGN) {
-            // designdependenciesofourowndependenciesareofnointerestforthemodule,wedon'tseethem
-            // andyes,regardlessofmyNeedRuntimesetting(unliketop-leveldeps).
+            // design dependencies of our own dependencies are of no interest for the module, we don't see them
+            // and yes, regardless of myNeedRuntime setting (unlike top-level deps).
             continue;
           }
-          // Weneedallmodulesfromdependenciestoloadamoduleandtoexecutecodefromit.Re-exportisforscopeandcompilecontrol
+          // We need all modules from dependencies to load a module and to execute code from it. Re-export is for scope and compile control
           if (dep.isReexport()) {
             ListSequence.fromList(result).addElement(regularDependencyPresentation(dep));
           } else if (myNeedRuntime) {
-            // notsurethere'sreasontotellregulardependencyfromruntimedependency
+            // not sure there's reason to tell regular dependency from runtime dependency
             ListSequence.fromList(result).addElement(new DepLink(dep.getTargetModule(), Role.RuntimeDependency, LinkType.Depends));
           }
         }
         if (myNeedRuntime) {
-          // atruntime,weneeddependenciesofthelanguagesourdependencieswerewrittenin
+          // at run time, we need dependencies of the languages our dependencies were written in
           addUsedLanguagesAndDevkitsOf(module, result, false);
         }
         break;
@@ -163,7 +163,7 @@ public class DependencyUtil {
         break;
 
       case SourceLanguage:
-        // dependencyfromgeneratortoitssourcelanguage
+        // dependency from generator to its source language
         addExtendedLanguages(module, Role.SourceLanguage, result);
         if (myNeedRuntime) {
           addDeps(result, as_he47wm_a0b0a0c0h3a6(module, Language.class).getRuntimeModulesReferences(), Role.RuntimeDependency, LinkType.ExportsRuntime);
@@ -204,7 +204,7 @@ public class DependencyUtil {
     assert module instanceof Language;
     for (SDependency dep : module.getDeclaredDependencies()) {
       if (dep.getScope() == SDependencyScope.EXTENDS) {
-        // Languagecannotextendanythingbutalanguage,that'swhyIdon'tcaretocheckdep'starget
+        // Language can not extend anything but a language, that's why I don't care to check dep's target
         ListSequence.fromList(result).addElement(new DepLink(dep.getTargetModule(), role, LinkType.ExtendsLanguage));
       }
     }
@@ -219,7 +219,7 @@ public class DependencyUtil {
         } else if (t instanceof Generator) {
           return new DepLink(dep.getTargetModule(), Role.RegularDependency, LinkType.ExtendsGenerator);
         } else {
-          // justincasemodulecouldnotberesolved
+          // just in case module could not be resolved
           return new DepLink(dep.getTargetModule(), Role.RegularDependency, LinkType.Depends);
         }
       case DESIGN:

@@ -53,7 +53,7 @@ public final class wrappers_PasteWrapper_12 implements PasteWrapper {
         SNodeOperations.replaceWithNewChild(it, CONCEPTS.ThisExpression$$o);
       }
     });
-    // [MM]howaboutsupers?
+    // [MM] how about supers?
 
     new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).set(method, new IAttributeDescriptor.NodeAttribute(CONCEPTS.MethodDocComment$HI).get(sourceNode));
     return SNodeOperations.cast(method, CONCEPTS.ClassifierMember$At);

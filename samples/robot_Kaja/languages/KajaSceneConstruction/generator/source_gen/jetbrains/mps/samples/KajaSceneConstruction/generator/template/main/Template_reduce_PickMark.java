@@ -64,17 +64,17 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                             final SNode tnode7 = environment.createOutputNode(myConcepts[4]);
                             SNodeAccessUtil.setPropertyValue(tnode7, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_0(new PropertyMacroContext(context6, "0", propertyMacro_mi0eld_c0a2a0a1a2a1a1a1a1a1a1a1a1a1a1a2a6)));
                             tnode6.addChild(myAggregationLinks[0], tnode7);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                           {
                             final SNode tnode8 = environment.createOutputNode(myConcepts[4]);
                             SNodeAccessUtil.setPropertyValue(tnode8, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_1(new PropertyMacroContext(context6, "0", propertyMacro_mi0eld_c0a2a0a1a3a1a1a1a1a1a1a1a1a1a1a2a6)));
                             tnode6.addChild(myAggregationLinks[0], tnode8);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[1], tnode6);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         final SNode tnode9 = environment.createOutputNode(myConcepts[1]);
@@ -93,21 +93,21 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                                     final SNode tnode12 = environment.createOutputNode(myConcepts[4]);
                                     SNodeAccessUtil.setPropertyValue(tnode12, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_2(new PropertyMacroContext(context9, "0", propertyMacro_mi0eld_c0a2a0a1a2a1a1a1a1a1a2a1a1a1a1a1a1a1a1a2a6)));
                                     tnode11.addChild(myAggregationLinks[0], tnode12);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                   {
                                     final SNode tnode13 = environment.createOutputNode(myConcepts[4]);
                                     SNodeAccessUtil.setPropertyValue(tnode13, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_3(new PropertyMacroContext(context9, "0", propertyMacro_mi0eld_c0a2a0a1a3a1a1a1a1a1a2a1a1a1a1a1a1a1a1a2a6)));
                                     tnode11.addChild(myAggregationLinks[0], tnode13);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                 }
                                 tnode10.addChild(myAggregationLinks[2], tnode11);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode9.addChild(myAggregationLinks[3], tnode10);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                           {
                             final SNode tnode14 = environment.createOutputNode(myConcepts[5]);
@@ -117,15 +117,15 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                                 final SNode tnode15 = environment.createOutputNode(myConcepts[3]);
                                 environment.associate(tnode15, myAssociationLinks[0], "r:f5e9b11f-5073-4786-8ed1-a9e42307c3f8(JavaKaja.runtime)", "3210697320273550615");
                                 tnode14.addChild(myAggregationLinks[2], tnode15);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode9.addChild(myAggregationLinks[3], tnode14);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[4], tnode9);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         final SNode tnode16 = environment.createOutputNode(myConcepts[0]);
@@ -148,36 +148,36 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                                         final SNode tnode20 = environment.createOutputNode(myConcepts[6]);
                                         tnode20.setProperty(myProperties[1], "Nothing to pick. The cell is empty.");
                                         tnode19.addChild(myAggregationLinks[0], tnode20);
-                                        // TODOvalidatechild
+                                        // TODO validate child
                                       }
                                     }
                                     tnode18.addChild(myAggregationLinks[2], tnode19);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                 }
                                 tnode17.addChild(myAggregationLinks[3], tnode18);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                               {
                                 final SNode tnode21 = environment.createOutputNode(myConcepts[7]);
                                 tnode17.addChild(myAggregationLinks[3], tnode21);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode16.addChild(myAggregationLinks[5], tnode17);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[6], tnode16);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[3], tnode5);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[4], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode22 = environment.createOutputNode(myConcepts[8]);
@@ -192,11 +192,11 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                         final SNode tnode24 = environment.createOutputNode(myConcepts[4]);
                         SNodeAccessUtil.setPropertyValue(tnode24, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_4(new PropertyMacroContext(context16, "0", propertyMacro_mi0eld_c0a2a0a1a2a1a1a1a2a1a1a1a1a2a6)));
                         tnode23.addChild(myAggregationLinks[0], tnode24);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode22.addChild(myAggregationLinks[7], tnode23);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode25 = environment.createOutputNode(myConcepts[3]);
@@ -207,15 +207,15 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                         final SNode tnode26 = environment.createOutputNode(myConcepts[4]);
                         SNodeAccessUtil.setPropertyValue(tnode26, myProperties[0], QueriesGenerated.propertyMacro_GetValue_4_5(new PropertyMacroContext(context17, "0", propertyMacro_mi0eld_c0a2a0a1a2a1a2a1a2a1a1a1a1a2a6)));
                         tnode25.addChild(myAggregationLinks[0], tnode26);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode22.addChild(myAggregationLinks[8], tnode25);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[1], tnode22);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode27 = environment.createOutputNode(myConcepts[0]);
@@ -238,36 +238,36 @@ public class Template_reduce_PickMark extends TemplateDeclarationBase {
                                 final SNode tnode31 = environment.createOutputNode(myConcepts[6]);
                                 tnode31.setProperty(myProperties[1], "Attempted to pick marks outside of the playground!");
                                 tnode30.addChild(myAggregationLinks[0], tnode31);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode29.addChild(myAggregationLinks[2], tnode30);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode28.addChild(myAggregationLinks[3], tnode29);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode27.addChild(myAggregationLinks[5], tnode28);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[6], tnode27);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[3], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode32 = environment.createOutputNode(myConcepts[9]);
             tnode2.addChild(myAggregationLinks[3], tnode32);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[5], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(3, tnode1);

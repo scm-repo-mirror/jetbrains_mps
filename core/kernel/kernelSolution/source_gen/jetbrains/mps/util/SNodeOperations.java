@@ -272,7 +272,7 @@ public class SNodeOperations {
    */
   @Deprecated
   public static String getModelLongName(SModel model) {
-    // replacedNameUtil.getModelLongNamedidn'texpectnullandreturnedaqualifiednamew/ostereotype
+    // replaced NameUtil.getModelLongName didn't expect null and returned a qualified name w/o stereotype
     return model.getName().getLongName();
   }
 
@@ -309,7 +309,7 @@ public class SNodeOperations {
    */
   @Deprecated
   public static boolean isGeneratable(SModel model) {
-    // Iwonderwhythismethoddoesn'tresideinSModelOperations
+    // I wonder why this method doesn't reside in SModelOperations
     return model instanceof GeneratableSModel && ((GeneratableSModel) model).isGeneratable();
   }
 
@@ -323,14 +323,14 @@ public class SNodeOperations {
    * ResolveInfo object. However, for transition purposes and as long as DR keeps String resolveInfo, use this method to construct RI.
    */
   public static ResolveInfo qualifiedResolveInfo(@NotNull SReferenceLink link, @Nullable SModelReference targetModel, String resolveInfo) {
-    // TheplacementofthismethodtoSNodeOperationsisbad,indeed.Ijustdidn'tfindabetterlocation,anddon'twanttodelaythewholeactivity
-    // justforthissubtle,yetimportantpart.IhopetoswitchtoRIobjectssoon,sothattherewouldbenoneedinthiscode.
+    // The placement of this method to SNodeOperations is bad, indeed. I just didn't find a better location, and don't want to delay the whole activity
+    // just for this subtle, yet important part. I hope to switch to RI objects soon, so that there would be no need in this code.
     if (targetModel == null) {
       return ResolveInfo.of(resolveInfo);
     }
     String modelName = targetModel.getName().getLongName();
     if (resolveInfo == null || modelName.isEmpty() || resolveInfo.startsWith(modelName)) {
-      // startsWithisnotsufficient,indeed(additionally,shallcheckfor'.'rightafter);thisisthewayitwasinDRcons
+      // startsWith is not sufficient, indeed (additionally, shall check for '.' right after); this is the way it was in DR cons
       return ResolveInfo.of(resolveInfo);
     }
     if (link.getTargetConcept().isSubConceptOf(SNodeUtil.concept_Classifier)) {

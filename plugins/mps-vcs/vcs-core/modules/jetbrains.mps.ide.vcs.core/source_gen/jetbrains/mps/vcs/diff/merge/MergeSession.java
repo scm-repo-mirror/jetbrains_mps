@@ -166,7 +166,7 @@ public final class MergeSession {
   }
 
   public Iterable<ModelChange> getConflictedWith(ModelChange change) {
-    // evenafterconlictresolvingwestillconsiderthechangeconflicted,soitshouldbeappliedmanually
+    // even after conlict resolving we still consider the change conflicted, so it should be applied manually
     return MapSequence.fromMap(myConflictingChanges).get(change);
   }
 
@@ -194,7 +194,7 @@ public final class MergeSession {
     });
     for (ModelChange c : Sequence.fromIterable(changes).sort(new Comparator<ModelChange>() {
       public int compare(ModelChange a, ModelChange b) {
-        // sortoutnonconflictingchangestotheendoflist,sotheywillbeignoredifotherconnectedchangesexists
+        // sort out nonconflicting changes to the end of list, so they will be ignored if other connected changes exists
         boolean aa = a.isNonConflicting();
         boolean bb = b.isNonConflicting();
         int result = (aa == bb ? 0 : (aa ? 1 : -1));
@@ -216,14 +216,14 @@ public final class MergeSession {
       return;
     }
 
-    // fornonconflictingchangewecanexecutesymmetricifitsuitsbetter
+    // for nonconflicting change we can execute symmetric if it suits better
     if (change.isNonConflicting()) {
       ModelChange symmChange = ListSequence.fromList(MapSequence.fromMap(mySymmetricChanges).get(change)).subtract(SetSequence.fromSet(myResolvedChanges)).first();
       if (symmChange != null) {
         boolean isMineChange = change.getChangeSet() == myMineChangeSet;
         MergeStrategy hint = change.getMergeHint();
         if (hint != null && ((hint == MergeStrategy.OURS) != isMineChange)) {
-          // executemoreappropriatesymmetricchange,originalchangewillbeexcluded
+          // execute more appropriate symmetric change, original change will be excluded
           change = symmChange;
         }
       }
@@ -234,7 +234,7 @@ public final class MergeSession {
       }
     }).toListSequence();
     if (change instanceof NodeGroupChange && ((NodeGroupChange) change).getRoleLink().isMultiple()) {
-      // adjustconflictingchanges:leavepossibilitytorejectorinsertthemseparately
+      // adjust conflicting changes: leave possibility to reject or insert them separately
       final NodeGroupChange ngc = (NodeGroupChange) change;
       List<NodeGroupChange> ngcConflictedChanges = ListSequence.fromList(conflictedChanges).ofType(NodeGroupChange.class).where(new IWhereFilter<NodeGroupChange>() {
         public boolean accept(NodeGroupChange ch) {
@@ -244,8 +244,8 @@ public final class MergeSession {
       int anchorIndex = ngc.getEnd();
       ngc.apply(myResultModel, myNodeCopier);
       for (NodeGroupChange ch : ListSequence.fromList(ngcConflictedChanges)) {
-        // addnewchangesonlyforinsertions,weneedChangeSetImpltomanuallyaddonechangethere
-        // originalconflictedchangeswillberesolved
+        // add new changes only for insertions, we need ChangeSetImpl to manually add one change there
+        // original conflicted changes will be resolved
         ChangeSetImpl changeSet = as_bow6nj_a0a2a5a5a74(ch.getChangeSet(), ChangeSetImpl.class);
         assert changeSet != null;
         NodeGroupChange newChange = new NodeGroupChange(changeSet, ch.getOldParentNodeId(), ch.getNewParentNodeId(), ch.getRoleLink(), anchorIndex, anchorIndex, ch.getResultBegin(), ch.getResultEnd());
@@ -253,8 +253,8 @@ public final class MergeSession {
           changeSet.add(newChange);
           ListSequence.fromList(MapSequence.fromMap(myRootToChanges).get(ch.getRootId())).addElement(newChange);
           ListSequence.fromList(MapSequence.fromMap(myNodeToChanges).get(ch.getOldParentNodeId())).addElement(newChange);
-          // thischangewiththenewinsertionchange
-          // whichisconflictedwiththeresolvedchange,soitwillberedandwillnotautoapply
+          // this change with the new insertion change
+          // which is conflicted with the resolved change, so it will be red and will not autoapply
           MapSequence.fromMap(myConflictingChanges).put(newChange, ListSequence.fromList(new ArrayList<ModelChange>()));
           ListSequence.fromList(MapSequence.fromMap(myConflictingChanges).get(newChange)).addElement(change);
         }
@@ -373,7 +373,7 @@ public final class MergeSession {
     private void beforeNodeRemovedRecursively(SNode node) {
       List<SNode> descendants = SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseConcept$gP, true, new SAbstractConcept[]{});
       for (SNode child : ListSequence.fromList(descendants)) {
-        // resolvechangesconnectedtothenode
+        // resolve changes connected to the node
         SetSequence.fromSet(myResolvedChanges).addSequence(ListSequence.fromList(MapSequence.fromMap(myNodeToChanges).get(child.getNodeId())));
       }
     }

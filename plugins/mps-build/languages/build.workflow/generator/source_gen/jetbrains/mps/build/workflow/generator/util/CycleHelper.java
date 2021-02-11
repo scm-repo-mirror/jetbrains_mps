@@ -112,7 +112,7 @@ public class CycleHelper {
         }
       }));
 
-      // buildcyclesources&dependencies;tryingtoavoidduplication(whichisnotcritical)
+      // build cycle sources & dependencies; trying to avoid duplication (which is not critical)
       Set<String> seenSources = new HashSet<String>();
       List<SNode> sources = new ArrayList<SNode>();
       Set<String> seenDependencies = new HashSet<String>();

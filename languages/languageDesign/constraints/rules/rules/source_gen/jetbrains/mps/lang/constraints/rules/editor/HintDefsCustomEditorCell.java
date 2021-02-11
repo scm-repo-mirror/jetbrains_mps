@@ -44,7 +44,7 @@ public class HintDefsCustomEditorCell extends AbstractCellProvider {
     for (EditorCell cell : Sequence.fromIterable(iterateTree)) {
       if (cell.isReferenceCell()) {
         cell.setSelectable(false);
-        // editorguys,hereIwanttopreservenavigationabilitiesbyctrl-click
+        // editor guys, here I want to preserve navigation abilities by ctrl-click
       } else {
         cell.setSelectable(false);
       }

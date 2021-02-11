@@ -109,8 +109,8 @@ import org.jetbrains.mps.openapi.model.SModel;
   private class MyRepositoryContentListener extends SRepositoryContentAdapter {
     @Override
     public void startListening(@NotNull SRepository repository) {
-      // HereweimplyMyRepoListenerisattachedtoasinglerepository.Otherwise,
-      // eachnextrepoitstartslisteningtowouldoverridemyModelListenervalue
+      // Here we imply MyRepoListener is attached to a single repository. Otherwise,
+      // each next repo it starts listening to would override myModelListener value
       assert myModelListener == null;
       myModelListener = new ModelsEventsCollector(repository.getModelAccess()) {
         @Override
@@ -143,8 +143,8 @@ import org.jetbrains.mps.openapi.model.SModel;
       if (myIsUnderMigration.invoke()) {
         return;
       }
-      // herewedonotfilteroutnon-projectmodulesbecausethismethodiscalledfrom'NewLanguage'action
-      // beforemoduleisattachedtoproject
+      // here we do not filter out non-project modules because this method is called from 'New Language' action
+      // before module is attached to project
       if (MigrationModuleUtil.isModuleMigrateable(module)) {
         triggerOnModuleChanged(module);
       }

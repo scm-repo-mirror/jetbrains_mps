@@ -51,7 +51,7 @@ public class SetPropertyChange extends NodeChange {
   @Nullable
   @Override
   public MergeStrategy getMergeHint() {
-    // get"nonconflicting"attributeinmetamodel
+    // get "nonconflicting" attribute in metamodel
     SNode n = getChangeSet().getOldModel().getNode(getAffectedNodeId(false));
     MergeStrategy hint = VCSAspectUtil.getDefaultMergeStrategy(myProperty);
     if (hint != null) {

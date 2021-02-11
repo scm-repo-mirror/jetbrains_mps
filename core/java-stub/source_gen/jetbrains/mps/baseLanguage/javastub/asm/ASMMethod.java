@@ -51,7 +51,7 @@ public class ASMMethod {
     } else {
       myGenericParameterTypes = myParameterTypes;
     }
-    // withisEmpty==trueit'saverystrangesituation,thoughthishappensasshownin
+    // with isEmpty==true it's a very strange situation, though this happens as shown in
     // http://youtrack.jetbrains.com/issue/MPS-19080
     if (isVarArg() && !(myGenericParameterTypes.isEmpty())) {
       int lastIndex = myGenericParameterTypes.size() - 1;
@@ -122,12 +122,12 @@ public class ASMMethod {
         myParameterNames.add("p" + i);
       }
       if (method.localVariables != null && myParameterTypes.size() <= method.localVariables.size()) {
-        // 'this'comesfirstforinstancemethods
+        // 'this' comes first for instance methods
         final int offset = (isStatic() ? 0 : 1);
         LocalVariableNode[] a = method.localVariables.toArray(new LocalVariableNode[0]);
-        // entriesinlocalvariabletablemaycomeinanyorder,andtheirindexnotstrictly+1.
+        // entries in local variable table may come in any order, and their index not strictly +1. 
         Arrays.sort(a, new ByOrderInStackFrame());
-        // assumefirstmyParameterType.size()elementscorrespondtomethodarguments(includingimplicit'this'incaseofinstancemethod)
+        // assume first myParameterType.size() elements correspond to method arguments (including implicit 'this' in case of instance method)
         for (int i = offset, j = 0, x = myParameterTypes.size(); i < a.length && j < x; i++, j++) {
           if (SourceVersion.isIdentifier(a[i].name)) {
             myParameterNames.set(j, a[i].name);
@@ -218,7 +218,7 @@ public class ASMMethod {
   private static class ByOrderInStackFrame implements Comparator<LocalVariableNode> {
     @Override
     public int compare(LocalVariableNode n1, LocalVariableNode n2) {
-      // see4.7.13.TheLocalVariableTableAttribute,local_variable_table[],indexfield
+      // see 4.7.13. The LocalVariableTable Attribute, local_variable_table[], index field
       return n1.index - n2.index;
     }
   }

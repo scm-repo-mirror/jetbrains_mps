@@ -68,7 +68,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     setTitle("Change Method Signature");
     this.myProject = project;
     this.myDeclaration = node;
-    // TODO:callthisconstructorinsidereadaction?
+    // TODO: call this constructor inside read action?
     myProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         ChangeMethodSignatureDialog.this.myParameters = new ChangeMethodSignatureParameters(myDeclaration);
@@ -100,7 +100,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         ChangeMethodSignatureDialog.this.myEditor = new SizedEmbeddableEditor(myProject, true, 300);
         myEditor.editNode(baseMethodDeclaration);
 
-        // Setfocusontheeditor
+        // Set focus on the editor
         if (myEditor.getEditor().getCurrentEditorComponent() instanceof JComponent) {
           parentPanel.setPreferredFocusedComponent(as_vatimf_a0a0a0n0a0a0a0b0n(myEditor.getEditor().getCurrentEditorComponent(), JComponent.class));
         }
@@ -123,7 +123,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   @Nullable
   @Override
   protected JComponent createCenterPanel() {
-    // CreatedefaultpanelfirstbecausecreateSignaturePanelbelowrequiresit
+    // Create default panel first because createSignaturePanel below requires it
     myDefaultValuePanel = new ParamDefautValueSectionPanel(myProject, this.myParameters.getDeclaration());
 
     DialogPanel panel = new DialogPanel(new GridBagLayout());
@@ -138,7 +138,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     c.weighty = 1;
     panel.add(this.createSignaturePanel(panel), c);
 
-    // Warninglabel
+    // Warning label
     myStaticWarningLabel = new JLabel("Static/non static transformation not allowed in this refactoring.", Icons.WARNING_ICON, JLabel.LEFT);
     myStaticWarningLabel.setVisible(false);
     c.fill = GridBagConstraints.HORIZONTAL;
@@ -146,7 +146,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     c.weighty = 0;
     panel.add(myStaticWarningLabel, c);
 
-    // Defaultvalues
+    // Default values
     c.fill = GridBagConstraints.HORIZONTAL;
     c.gridy = 2;
     c.weighty = 0;
@@ -179,7 +179,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     });
     ListSequence.fromList(methodsToRefactor.value).addElement(myDeclaration);
 
-    // Getdefaultvaluesfornewparameters(ifany)
+    // Get default values for new parameters (if any)
     final Wrappers._T<Map<SNode, SNode>> defaultValues = new Wrappers._T<Map<SNode, SNode>>(MapSequence.fromMap(new HashMap<SNode, SNode>()));
 
     myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
@@ -188,7 +188,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     });
 
-    // Createrefactorings
+    // Create refactorings
     myRefactorings = ListSequence.fromList(new ArrayList<ChangeMethodSignatureRefactoring>());
     for (SNode method : ListSequence.fromList(methodsToRefactor.value)) {
       ListSequence.fromList(myRefactorings).addElement(new ChangeMethodSignatureRefactoring(this.myParameters, method, defaultValues.value));
@@ -233,18 +233,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
   public void nodeRemoved(@NotNull SNodeRemoveEvent event) {
     SNode declaration = myParameters.getDeclaration();
 
-    // Ifthenodewewereeditingwasremoved
+    // If the node we were editing was removed
     if (event.getChild() == declaration) {
-      // Additback
+      // Add it back
       myTempModel.addRootNode(declaration);
 
-      // Displaywarning
+      // Display warning
       myStaticWarningLabel.setVisible(true);
       myStaticWarningLabel.revalidate();
 
     }
 
-    // Ensurethebodyisastubstatementlist
+    // Ensure the body is a stub statement list
     if ((SLinkOperations.getTarget(declaration, LINKS.body$5xQk) == null) || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(declaration, LINKS.body$5xQk), CONCEPTS.StubStatementList$v6))) {
       SLinkOperations.setTarget(declaration, LINKS.body$5xQk, createStubStatementList_vatimf_a0a0g0ab());
     }

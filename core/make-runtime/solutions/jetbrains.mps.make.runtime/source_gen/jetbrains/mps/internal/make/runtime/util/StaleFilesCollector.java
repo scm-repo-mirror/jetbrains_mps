@@ -111,7 +111,7 @@ public class StaleFilesCollector {
   }
 
   private List<IFile> knownGeneratedChildren(GenerationDependencies gd) {
-    // XXXshallreportgeneratedchildrenfromGD,butaslongasthere'snouseandtheclasslikelytocease,decidedtoleftunimplemented.
+    // XXX shall report generated children from GD, but as long as there's no use and the class likely to cease, decided to left unimplemented.
     return Collections.emptyList();
   }
 

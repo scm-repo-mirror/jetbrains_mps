@@ -30,7 +30,7 @@ public class typeOf_Link_SetTargetOperation_InferenceRule extends AbstractInfere
         typeCheckingContext.createLessThanInequality((SNode) parmType, (SNode) typeCheckingContext.getRepresentative(ExpectedType_typevar_1206101371703), false, true, _info_12389875345);
       }
     }
-    // opreturnsnodepassedinparameter
+    // op returns node passed in parameter
     {
       SNode _nodeToCheck_1029348928467 = op;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225406438063", 0, null);

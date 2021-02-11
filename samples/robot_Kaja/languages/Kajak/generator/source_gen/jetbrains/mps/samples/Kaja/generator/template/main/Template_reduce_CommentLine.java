@@ -44,29 +44,29 @@ public class Template_reduce_CommentLine extends TemplateDeclarationBase {
             final SNode tnode3 = environment.createOutputNode(myConcepts[2]);
             tnode3.setProperty(myProperties[0], "this");
             tnode2.addChild(myAggregationLinks[0], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode4 = environment.createOutputNode(myConcepts[2]);
             tnode4.setProperty(myProperties[0], "is");
             tnode2.addChild(myAggregationLinks[0], tnode4);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode5 = environment.createOutputNode(myConcepts[2]);
             tnode5.setProperty(myProperties[0], "a");
             tnode2.addChild(myAggregationLinks[0], tnode5);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
             tnode6.setProperty(myProperties[0], "comment");
             tnode2.addChild(myAggregationLinks[0], tnode6);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[1], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);

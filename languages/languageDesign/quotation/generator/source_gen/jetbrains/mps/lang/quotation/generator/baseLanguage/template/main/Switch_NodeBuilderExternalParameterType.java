@@ -81,11 +81,11 @@ public class Switch_NodeBuilderExternalParameterType extends TemplateSwitchBase 
               final SNode tnode3 = environment.createOutputNode(myConcepts[0]);
               environment.associate(tnode3, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)", "~SNode");
               tnode2.addChild(myAggregationLinks[0], tnode3);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode1.addChild(myAggregationLinks[1], tnode2);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       return TemplateUtil.singletonList(tnode1);

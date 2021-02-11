@@ -38,10 +38,10 @@ public class ExceptionBreakpoint extends JavaBreakpoint {
       requestManager.enableRequest(request);
     } catch (ClassNotPreparedException ex) {
       LOG.warn("ClassNotPreparedException: " + ex.getMessage());
-      // there'sachancetoaddabreakpointwhentheclassisprepared
+      //  there's a chance to add a breakpoint when the class is prepared
     } catch (ObjectCollectedException ex) {
       LOG.warn("ObjectCollectedException: " + ex.getMessage());
-      // there'sachancetoaddabreakpointwhentheclassisprepared
+      //  there's a chance to add a breakpoint when the class is prepared
     } catch (InternalException ex) {
       LOG.error(null, ex);
     } catch (Exception ex) {

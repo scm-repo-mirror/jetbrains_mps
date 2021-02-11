@@ -53,7 +53,7 @@ public enum FileType {
 
   @Nullable
   public static FileType get(@NotNull ModelFactoryService service, @Nullable final String filetype, File file) {
-    // trytorecognizebyfiletype
+    // try to recognize by filetype
     if (filetype != null) {
       FileType type = Sequence.fromIterable(Sequence.fromArray(FileType.values())).findFirst(new IWhereFilter<FileType>() {
         public boolean accept(FileType t) {
@@ -67,7 +67,7 @@ public enum FileType {
         return FileType.MODEL;
       }
     }
-    // trytogetfiletypefromSVNfilename
+    // try to get file type from SVN filename
     final Wrappers._T<String> fileName = new Wrappers._T<String>(file.getName());
     if (fileName.value.endsWith(SVN_BASE)) {
       fileName.value = fileName.value.substring(0, fileName.value.length() - FileType.SVN_BASE.length());
@@ -83,7 +83,7 @@ public enum FileType {
         return FileType.MODEL;
       }
     }
-    // trytogetfiletypebyfilecontent
+    // try to get file type by file content
     return getTypeByXmlRoot(file);
   }
 
@@ -98,7 +98,7 @@ public enum FileType {
     } finally {
       FileUtil.closeFileSafe(is);
     }
-    // returnnullifnoXMLrootwasfoundbyparser
+    // return null if no XML root was found by parser
     if (handler.rootName == null) {
       return null;
     }
@@ -108,7 +108,7 @@ public enum FileType {
         return t.myXmlRoot.equals(handler.rootName);
       }
     });
-    // manuallycheckper-rootpersistence
+    // manually check per-root persistence
     if (res == FileType.MODEL) {
       if ("root".equals(handler.contentAttr)) {
         res = FileType.MODEL_ROOT;

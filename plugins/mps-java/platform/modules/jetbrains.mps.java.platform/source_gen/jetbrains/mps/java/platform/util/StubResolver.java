@@ -48,12 +48,12 @@ public class StubResolver {
   private final SRepository myContextRepository;
 
   public StubResolver(SRepository contextRepo) {
-    // resolvetoanynonstubmodel
+    // resolve to any nonstub model
     myUsedModels = null;
     myContextRepository = contextRepo;
   }
   public StubResolver(SRepository contextRepo, Iterable<SModel> models) {
-    // resolveonlytomodelsfromsequence
+    // resolve only to models from sequence
     myUsedModels = SetSequence.fromSetWithValues(new HashSet<SModelReference>(), Sequence.fromIterable(models).select(new ISelector<SModel, SModelReference>() {
       public SModelReference select(SModel it) {
         return SModelOperations.getPointer(it);
@@ -63,7 +63,7 @@ public class StubResolver {
   }
 
   private List<SReference> getReferencesToResolve(SModel sourceModel, Map<SModelReference, SModelReference> models) {
-    // fillsmodelsmapwithstub->modelcorrespondance
+    // fills models map with stub -> model correspondance
     List<SReference> result = ListSequence.fromList(new ArrayList<SReference>());
     ModuleRepositoryFacade repoFacade = new ModuleRepositoryFacade(myContextRepository);
     for (SNode node : ListSequence.fromList(SModelOperations.nodes(sourceModel, null))) {
@@ -72,15 +72,15 @@ public class StubResolver {
         if (targetModelRef == null || !(JAVA_STUB.equals(targetModelRef.getName().getStereotype()))) {
           continue;
         }
-        // tryingtofindcorrespondentnonstubmodel
+        // trying to find correspondent nonstub model
         for (SModel sameNameModel : repoFacade.getModelsByName(targetModelRef.getName().withoutStereotype())) {
           SModelReference modelRef = sameNameModel.getReference();
           if (myUsedModels == null || SetSequence.fromSet(myUsedModels).contains(modelRef)) {
             MapSequence.fromMap(models).put(targetModelRef, modelRef);
             ListSequence.fromList(result).addElement(ref);
           }
-          // XXXinfact,wouldbegreattocheckifsameNameModelsuitourneeds,i.e.ifit'stheonewith
-          // correspondingtargetnode.However,notsureIcancheckitherewithsimplesameNameModel.getNode(ref.getTargetNodeId())!=null
+          // XXX in fact, would be great to check if sameNameModel suit our needs, i.e. if it's the one with
+          // corresponding target node. However, not sure I can check it here with simple sameNameModel.getNode(ref.getTargetNodeId()) != null
           break;
         }
       }

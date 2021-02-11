@@ -19,7 +19,7 @@ public class Debugger_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.debugger.api.ui.actions.StepOver_Action", getShortcut(" F8"));
     addSimpleShortcut("jetbrains.mps.debugger.api.ui.actions.ToggleBreakpoint_Action", getShortcut("ctrl F8"));
     addSimpleShortcut("jetbrains.mps.debugger.api.ui.actions.ViewBreakpoints_Action", getShortcut("ctrl shift F8"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

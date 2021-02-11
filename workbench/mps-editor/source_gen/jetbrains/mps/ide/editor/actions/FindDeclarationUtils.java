@@ -25,7 +25,7 @@ public class FindDeclarationUtils {
       return CompletionActionItemUtil.getReferentNode(item);
     }
 
-    // dirty-dirtyhackthatallowstofindstaticmembers'declarationsaswell
+    // dirty-dirty hack that allows to find static members' declarations as well
     if (selectedItem instanceof SubstituteAction) {
       SubstituteAction item = (SubstituteAction) selectedItem;
       if (item.isReferentPresentation() && item.getParameterObject() instanceof SNode) {

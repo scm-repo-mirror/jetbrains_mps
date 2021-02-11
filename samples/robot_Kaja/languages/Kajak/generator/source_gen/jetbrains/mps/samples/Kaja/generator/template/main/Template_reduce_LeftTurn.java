@@ -56,11 +56,11 @@ public class Template_reduce_LeftTurn extends TemplateDeclarationBase {
                         final SNode tnode6 = environment.createOutputNode(myConcepts[4]);
                         environment.associate(tnode6, myAssociationLinks[0], "r:f5e9b11f-5073-4786-8ed1-a9e42307c3f8(JavaKaja.runtime)", "3308300503039569996");
                         tnode5.addChild(myAggregationLinks[0], tnode6);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[1], tnode5);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode7 = environment.createOutputNode(myConcepts[3]);
@@ -70,15 +70,15 @@ public class Template_reduce_LeftTurn extends TemplateDeclarationBase {
                         final SNode tnode8 = environment.createOutputNode(myConcepts[4]);
                         environment.associate(tnode8, myAssociationLinks[0], "r:f5e9b11f-5073-4786-8ed1-a9e42307c3f8(JavaKaja.runtime)", "3308300503039570144");
                         tnode7.addChild(myAggregationLinks[0], tnode8);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[1], tnode7);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[2], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode9 = environment.createOutputNode(myConcepts[5]);
@@ -87,19 +87,19 @@ public class Template_reduce_LeftTurn extends TemplateDeclarationBase {
                   {
                     final SNode tnode10 = environment.createOutputNode(myConcepts[1]);
                     tnode9.addChild(myAggregationLinks[3], tnode10);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[4], tnode9);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[1], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[5], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(1, tnode1);

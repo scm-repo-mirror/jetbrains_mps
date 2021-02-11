@@ -537,7 +537,7 @@ __switch__:
   }
   @Test
   public void test_selectMany() throws Exception {
-    // onlytestingcompileabilityofthegeneratedcode
+    //  only testing compileability of the generated code
     Iterable<B> bs = Sequence.fromIterable(Collections.<B>emptyList());
     Sequence.fromIterable(bs).translate(new ITranslator2<B, A>() {
       public Iterable<A> translate(B it) {

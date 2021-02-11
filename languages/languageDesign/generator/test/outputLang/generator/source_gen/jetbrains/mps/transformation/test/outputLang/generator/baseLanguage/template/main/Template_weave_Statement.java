@@ -42,12 +42,12 @@ public class Template_weave_Statement extends TemplateDeclarationBase {
       {
         final SNode tnode2 = environment.createOutputNode(myConcepts[1]);
         tnode1.addChild(myAggregationLinks[0], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode3 = environment.createOutputNode(myConcepts[2]);
         tnode1.addChild(myAggregationLinks[1], tnode3);
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode4 = environment.createOutputNode(myConcepts[3]);
@@ -65,19 +65,19 @@ public class Template_weave_Statement extends TemplateDeclarationBase {
                     final SNode tnode7 = environment.createOutputNode(myConcepts[6]);
                     tnode7.setProperty(myProperties[1], "a");
                     tnode6.addChild(myAggregationLinks[2], tnode7);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode5.addChild(myAggregationLinks[3], tnode6);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode4.addChild(myAggregationLinks[4], tnode5);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[5], tnode4);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(6, tnode1);

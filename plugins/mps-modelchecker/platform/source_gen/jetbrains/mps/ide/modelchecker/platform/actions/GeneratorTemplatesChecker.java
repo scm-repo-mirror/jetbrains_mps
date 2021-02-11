@@ -68,14 +68,14 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
       SNode node = it.next();
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractMacro$bo)) {
         if (SNodeOperations.isInstanceOf(node, CONCEPTS.IfMacro$Xy) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.IfMacro$Xy), LINKS.alternativeConsequence$5VBt), CONCEPTS.InlineTemplate_RuleConsequence$u9)) {
-          // afaikIF/ELSEconsequenceistheonlyplaceweneedtotreatinadistinctway
+          // afaik IF/ELSE consequence is the only place we need to treat in a distinct way
           scanTemplateNode(results, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.IfMacro$Xy), LINKS.alternativeConsequence$5VBt), CONCEPTS.InlineTemplate_RuleConsequence$u9), LINKS.templateNode$1Rss), progressMonitor);
         }
         it.skipChildren();
         continue;
       }
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.RootTemplateAnnotation$9O) || SNodeOperations.isInstanceOf(node, CONCEPTS.TemplateFragment$eq)) {
-        // it'sunlikelytoseeTFunderroottemplate(impossible?)butdoesithurttohaveitexcludedhere?
+        // it's unlikely to see TF under root template (impossible?) but does it hurt to have it excluded here?
         it.skipChildren();
         continue;
       }
@@ -85,7 +85,7 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
 
   private void checkReferences(List<IssueKindReportItem> results, SNode node) {
     for (SReference ref : ListSequence.fromList(SNodeOperations.getReferences(node))) {
-      // there'smacrotoadjustthereference,don'tcare
+      // there's macro to adjust the reference, don't care
       if ((new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$30, ref.getLink()).get(node) != null)) {
         continue;
       }
@@ -93,12 +93,12 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
       if (target == null) {
         continue;
       }
-      // ifreferencepointstoageneratormodel...
+      // if reference points to a generator model...
       if (!(SModelStereotype.isGeneratorModel(SNodeOperations.getModel(target)))) {
         continue;
       }
       SNode root = SNodeOperations.getContainingRoot(target);
-      // andit'saroottemplateinthegeneratormodel...
+      //  and it's a root template in the generator model...
       if (new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$9O).get(root) == null) {
         continue;
       }

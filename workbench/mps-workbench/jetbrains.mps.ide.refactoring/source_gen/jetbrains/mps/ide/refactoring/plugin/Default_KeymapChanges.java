@@ -13,7 +13,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.MoveModel_Action", getShortcut(" F6"));
     addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.MoveNodes_Action", getShortcut(" F6"));
     addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.RenameNode_Action", getShortcut("shift F6"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

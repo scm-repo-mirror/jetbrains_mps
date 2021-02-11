@@ -63,7 +63,7 @@ public class MigrationExecutorImpl implements MigrationExecutor {
 
   @Override
   public void executeModuleMigration(ScriptApplied s) {
-    // todoremoveexplicitclassmention(map<ref->script>?)
+    // todo remove explicit class mention (map<ref->script>?)
     if (s.getScriptReference() instanceof MigrationScriptReference) {
       executeMigrationScript(s);
     } else if (s.getScriptReference() instanceof RefactoringScriptReference) {
@@ -138,7 +138,7 @@ public class MigrationExecutorImpl implements MigrationExecutor {
     int toVersion = rLog.getFromVersion() + 1;
     MigrationModuleUtil.setDepVersion(module, fromModule.getModuleReference(), toVersion);
 
-    // todo:versionsinmodels
+    // todo: versions in models
   }
 
   private <IP, FP> void doRun(AbstractModule module, RefactoringParticipant.PersistentRefactoringParticipant<?, ?, IP, FP> participant, RefactoringUI ui, Iterable<SNode> initialState, final Map<SNode, SNode> initialToFinal, RefactoringSession refactoringSession) {

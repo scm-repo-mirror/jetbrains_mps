@@ -38,7 +38,7 @@ public final class SimpleCommandQueue {
   }
 
   public void addTask(@NotNull Runnable task, Object key) {
-    // removestaskwiththesamekeyifany
+    // removes task with the same key if any
     synchronized (myQueue) {
       QueueElem elem = new QueueElem(task, key);
       if (key != null) {

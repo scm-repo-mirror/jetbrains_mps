@@ -109,7 +109,7 @@ public class AnonymousClass_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // falseisessentialhere:notincludeparenthierarchyintothescope(willleadtoinfiniterescursion)
+            // false is essential here: not include parent hierarchy into the scope (will lead to infinite rescursion)
             if ((SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.NestedNewExpression$zV, true, false) == null)) {
               return ClassifierScopes.getVisibleClassifiersScope(_context.getContextNode(), false);
             }

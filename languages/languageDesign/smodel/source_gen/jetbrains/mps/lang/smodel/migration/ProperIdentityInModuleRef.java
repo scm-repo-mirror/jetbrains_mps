@@ -54,7 +54,7 @@ public class ProperIdentityInModuleRef extends MigrationScriptBase {
         SNode mpNew = SModelOperations.createNewNode(SNodeOperations.getModel(mre), null, CONCEPTS.ModulePointer$7i);
         SPropertyOperations.assign(mpNew, PROPS.moduleName$RP9b, SPropertyOperations.getString(mpOld, PROPS.moduleName$QKD6));
         SPropertyOperations.assign(mpNew, PROPS.moduleId$2ksh, SPropertyOperations.getString(mpOld, PROPS.moduleId$QL78));
-        // unlike'replacewithnew(concept),replacewith(node)doesn'tcopyattributes;wearegoingtoprocessandupdateattributesmanually.
+        // unlike 'replace with new(concept), replace with(node) doesn't copy attributes; we are going to process and update attributes manually.
         SNodeOperations.replaceWithAnother(mpOld, mpNew);
         SProperty oldModuleIdPropAttr = PROPS.moduleId$QL78;
         SProperty oldModuleNamePropAttr = PROPS.moduleName$QKD6;

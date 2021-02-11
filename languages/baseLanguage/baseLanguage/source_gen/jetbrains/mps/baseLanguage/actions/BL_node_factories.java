@@ -148,7 +148,7 @@ public class BL_node_factories {
   public static class NodeFactory_1178291598889 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       SNodeFactoryOperations.setNewChild(newNode, LINKS.returnType$5xoi, CONCEPTS.VoidType$BF);
-      // elsekeeppackage(null)visibilityforconstructorsinEnums
+      // else keep package (null) visibility for constructors in Enums
       if (!(SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.EnumClass$Vk))) {
         if (enclosingNode != null && SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.IVisible$zu)) {
           SLinkOperations.setTarget(newNode, LINKS.visibility$Yyua, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.IVisible$zu), LINKS.visibility$Yyua)));
@@ -186,7 +186,7 @@ public class BL_node_factories {
   }
   public static class NodeFactory_1187945171249 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      // movedtosubstitute/expression/new
+      //  moved to substitute/expression/new
     }
   }
   public static class NodeFactory_1158938591701 implements NodeFactory {

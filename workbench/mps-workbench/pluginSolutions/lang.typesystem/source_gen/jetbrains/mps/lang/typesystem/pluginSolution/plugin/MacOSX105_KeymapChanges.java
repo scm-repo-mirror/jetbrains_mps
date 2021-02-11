@@ -10,9 +10,9 @@ import javax.swing.KeyStroke;
 public class MacOSX105_KeymapChanges extends BaseKeymapChanges {
   public MacOSX105_KeymapChanges() {
     // simple
-    // simplewithremove/replace
+    // simple with remove/replace
     addSimpleShortcut("jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl shift P"), false, true));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

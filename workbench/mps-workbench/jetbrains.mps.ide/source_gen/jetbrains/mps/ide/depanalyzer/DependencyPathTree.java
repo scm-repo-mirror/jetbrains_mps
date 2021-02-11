@@ -43,7 +43,7 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
   }
   private void buildTree(DepLink depNode, Map<Dependency, LinkFrom> visited) {
     List<DepLink> dependencyPath = ListSequence.fromList(new LinkedList<DepLink>());
-    // unwinduptosourceofdepdendencypath,effectivelyreversingit,top(sourceofdep)->bottom(targetofdep)
+    // unwind up to source of depdendency path, effectively reversing it, top (source of dep) -> bottom (target of dep)
     while (depNode != null) {
       ListSequence.fromList(dependencyPath).insertElement(0, depNode);
       depNode = depNode.parent();
@@ -55,7 +55,7 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
       Dependency key = n.getRoleModuleKey();
       LinkFrom e = MapSequence.fromMap(visited).get(key);
       if (e == null || e.parent != parent) {
-        // wedidn'tyetseethatdeplinkanywhere,orhaveseenitunderanotherbranch
+        // we didn't yet see that dep link anywhere, or have seen it under another branch
         LinkFrom f = new LinkFrom(n, parent, myProject);
         MapSequence.fromMap(visited).put(key, f);
         parent = f;
@@ -64,7 +64,7 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
       }
     }
     if (parent != null) {
-      // parentisthebottom(leaf)node,holdingthemoduleweinitiallyselected(revealDependencies())
+      // parent is the bottom (leaf) node, holding the module we initially selected (revealDependencies())
       parent.node.setDepLeaf();
     }
   }
@@ -72,11 +72,11 @@ public class DependencyPathTree extends MPSTree implements DataProvider {
   protected MPSTreeNode rebuild() {
     MPSTreeNode result = new TextTreeNode((ListSequence.fromList(myAllDependencies).isEmpty() ? "No Dependencies Selected" : "Found Dependencies:"));
     Map<Dependency, LinkFrom> deps = MapSequence.fromMap(new HashMap<Dependency, LinkFrom>());
-    // mergedependencypathsbyroleandmodule
+    // merge dependency paths by role and module
     for (DepLink dep : ListSequence.fromList(myAllDependencies)) {
       buildTree(dep, deps);
     }
-    // attachrootsofmergedpathstotopnode
+    // attach roots of merged paths to top node
     for (LinkFrom lf : Sequence.fromIterable(MapSequence.fromMap(deps).values())) {
       if (lf.parent == null) {
         result.add(lf.node);

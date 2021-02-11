@@ -63,7 +63,7 @@ public class FileDeltaCollector implements StreamHandler {
   }
 
   public void saveStream(IFile file, byte[] content) {
-    // FIXMEthisisinfactpartoffutureproperAPIforStreamHandler,onceweallowarbitrarypathforTextGenunits
+    // FIXME this is in fact part of future proper API for StreamHandler, once we allow arbitrary path for TextGen units
     if (myProcessor.saveContent(file, content)) {
       myDelta.written(file);
     } else {
@@ -73,8 +73,8 @@ public class FileDeltaCollector implements StreamHandler {
 
   @Override
   public boolean touch(String name) {
-    // TODOseemsthatwenolongerneedthismethod,removealongwithStreamHandlerrewritetouseInputStream/ISProviderinsteadofpresent
-    // approachthatkeepscopiesofallTextUnits
+    // TODO seems that we no longer need this method, remove along with StreamHandler rewrite to use InputStream/ISProvider instead of present
+    //      approach that keeps copies of all TextUnits
     IFile file = getFile(name);
     myDelta.kept(file);
     return file.exists();

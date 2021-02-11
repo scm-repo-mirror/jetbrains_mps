@@ -63,8 +63,8 @@ public class WordRangeSelection extends AbstractMultipleSelection {
 
   public WordRangeSelection(@NotNull EditorComponent editorComponent, Map<String, String> properties, CellInfo cellInfo) throws SelectionStoreException, SelectionRestoreException {
     super(editorComponent);
-    // TODO preserve and move the cursor position 
-    // TODO allow per-character selection 
+    // TODO preserve and move the cursor position
+    // TODO allow per-character selection
     if (cellInfo != null) {
       throw new SelectionStoreException("Non-null CellInfo object passed as a parameter: " + cellInfo);
     }
@@ -103,7 +103,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   }
   public WordRangeSelection(@NotNull EditorComponent editorComponent, @NotNull SNode firstNode, @NotNull SNode lastNode, boolean growingForward, String emptyCellId) {
     super(editorComponent);
-    // swap first and last letter if needed 
+    // swap first and last letter if needed
     Iterable<? extends SNode> words = WordRangeSelection.getChildIterable(SNodeOperations.as(SNodeOperations.getParent(firstNode), CONCEPTS.Line$yC));
     for (SNode l : words) {
       if (Objects.equals(l, firstNode)) {
@@ -154,7 +154,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
         break;
       }
     }
-    // asserting both first/last node was in this children collection 
+    // asserting both first/last node was in this children collection
     assert withinSelection;
     assert breakLoop;
     setSelectedCells(selectedCells);

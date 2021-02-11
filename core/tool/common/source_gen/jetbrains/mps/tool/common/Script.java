@@ -275,7 +275,7 @@ public class Script {
     } catch (IOException e) {
       e.printStackTrace();
     } finally {
-      // XXXwhyonearthdoweremovethefilehere
+      // XXX why on earth do we remove the file here
       if (!(file.delete())) {
         throw new RuntimeException("File " + file + " was not deleted.");
       }

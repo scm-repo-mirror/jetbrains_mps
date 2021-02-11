@@ -75,7 +75,7 @@ public class CreateReferenceConcept_Action extends BaseAction {
     SPropertyOperations.assign(link, PROPS.linkId$mi9g, ConceptIdHelper.generateLinkId(concept, link) + "");
     SPropertyOperations.set(concept, PROPS.virtualPackage$EkXl, SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), PROPS.virtualPackage$EkXl));
 
-    // findeditormodel
+    // find editor model
     Language language = Language.getLanguageFor(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)));
     SModel editorModel = SModuleOperations.getAspect(language, "editor");
 

@@ -281,8 +281,8 @@ import org.jetbrains.mps.openapi.language.SLanguage;
       return myLang + ": " + myVersion;
     }
     public MigrationScriptReference getReference() {
-      // todothisissuspicious
-      // todonameisusedasidhere
+      // todo this is suspicious
+      // todo name is used as id here
       final MyModuleMigration _this = this;
       return new MigrationScriptReference(myLang, 0) {
         @Override

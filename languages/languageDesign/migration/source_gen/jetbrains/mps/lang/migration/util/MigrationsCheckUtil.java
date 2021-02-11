@@ -80,7 +80,7 @@ public class MigrationsCheckUtil {
     return result;
   }
   public static Map<SNode, Collection<String>> checkMigrationsVersions(SModule module) {
-    // checkwhetherscriptsarereallymigrationsforsomelanguage
+    // check whether scripts are really migrations for some language
     if (!(module instanceof Language)) {
       return Collections.emptyMap();
     }
@@ -94,7 +94,7 @@ public class MigrationsCheckUtil {
 
     List<SNode> allScripts = SModelOperations.roots(migModel, CONCEPTS.IMigrationUnit$xq);
 
-    // scriptswithnoversionsset
+    // scripts with no versions set
     final Map<SNode, Collection<String>> result = MapSequence.fromMap(new HashMap<SNode, Collection<String>>());
     Iterable<SNode> noVersionScripts = ListSequence.fromList(allScripts).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -108,7 +108,7 @@ public class MigrationsCheckUtil {
       }
     });
 
-    // noscriptswithversions?
+    // no scripts with versions?
     if (Sequence.fromIterable(noVersionScripts).count() == ListSequence.fromList(allScripts).count()) {
       return result;
     }
@@ -141,7 +141,7 @@ public class MigrationsCheckUtil {
     }, false).first();
     final int langVersion = ((Language) module).getLanguageVersion();
 
-    // lastversion+1==versionofalanguage?
+    // last version+1 == version of a language?
     if (maxVersion != langVersion - 1) {
       Sequence.fromIterable(scriptsWithVersions).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
@@ -157,13 +157,13 @@ public class MigrationsCheckUtil {
 
     Sequence.fromIterable(scriptsWithVersions).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
-        // multiplescriptsforoneversion?
+        // multiple scripts for one version?
         if (MapSequence.fromMap(versions).get((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(it)) > 1) {
           ensureInitialized(result, it);
           CollectionSequence.fromCollection(MapSequence.fromMap(result).get(it)).addElement("Multiple scripts for version " + (int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(it) + " found");
         }
 
-        // versionwithnoscriptsforit?
+        // version with no scripts for it?
         if ((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(it) != minVersion && MapSequence.fromMap(versions).get((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(it) - 1) == null) {
           ensureInitialized(result, it);
           CollectionSequence.fromCollection(MapSequence.fromMap(result).get(it)).addElement("Missing script for version " + ((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(it) - 1));

@@ -47,8 +47,8 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
   private final SNode myWhatToEvaluate;
   public TransformatorImpl(@NotNull SNode node) {
     myModel = SNodeOperations.getModel(node);
-    // Iknowtheexactwaytoreproduceabug:
-    // writeanassertionwithacomment'thiscan'thappen'
+    // I know the exact way to reproduce a bug:
+    // write an assertion with a comment 'this can't happen'
     assert myModel != null : "This can't happen. " + node;
     myWhatToEvaluate = node;
   }
@@ -70,8 +70,8 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
     replaceLocalMemberReferences();
 
     boolean finished = false;
-    // weneedtorepeatreplacinginstance/staticmethodcalls,arrayoperations
-    // becauseoperandtheyareappliedtomightchangeandsuddenlybecomeValueProxyduringthosechanges
+    // we need to repeat replacing instance/static method calls, array operations
+    // because operand they are applied to might change and suddenly become ValueProxy during those changes
     int count = 0;
     while (!(finished)) {
 
@@ -101,21 +101,21 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
     postprocess();
   }
   private void postprocess() {
-    // cleanannotations
+    // clean annotations
     for (SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, null, false, new SAbstractConcept[]{}))) {
       if ((new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).get(node) != null)) {
         SNodeOperations.deleteNode(new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).get(node));
       }
     }
 
-    // cleanrtypesandltypes
+    // clean rtypes and ltypes
     for (SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, null, false, new SAbstractConcept[]{}))) {
       node.putUserObject(LTYPE, null);
       node.putUserObject(RTYPE, null);
       node.putUserObject(CTYPE, null);
     }
 
-    // removelow-levelvars
+    // remove low-level vars
     for (SNode var : ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(myWhatToEvaluate), CONCEPTS.LowLevelVariable$pX, false, new SAbstractConcept[]{}))) {
       SNodeOperations.deleteNode(var);
     }
@@ -132,25 +132,25 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
   }
 
   private void preprocess() {
-    // ImportbaseLanguageInternaltoproperlycomputetypesofitsconstructs(the.typeoperation)
+    // Import baseLanguageInternal to properly compute types of its constructs (the .type operation)
     addLanguageImport(myModel, MetaAdapterFactory.getLanguage(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, "jetbrains.mps.baseLanguageInternal"));
 
-    // removedowncasts
+    // remove downcasts
     for (SNode downcast : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.DownCastToLowLevel$IK, false, new SAbstractConcept[]{}))) {
       SNodeOperations.replaceWithAnother(downcast, SLinkOperations.getTarget(downcast, LINKS.expression$qpom));
     }
 
-    // weneednormalizeddotexpressionforwrappingmethodcalls
-    // i.e.weneedthestructureofadotexpressiontolooklike((().op1).op2).op3
+    // we need normalized dot expression for wrapping method calls
+    // i.e. we need the structure of a dot expression to look like ((().op1).op2).op3
     normalizeAllDotExpressions(myWhatToEvaluate);
 
-    // addunprocessedannotationstoeverything
+    // add unprocessed annotations to everything
     for (SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, null, false, new SAbstractConcept[]{}))) {
       new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).setNew(node);
     }
 
-    // herewemustcalculatetypeforallbinaryoperationsandremeberit
-    // sowhenwereplacebinaryopsweknewtowhichtypeweshouldcast
+    // here we must calculate type for all binary operations and remeber it
+    // so when we replace binary ops we knew to which type we should cast
     for (SNode binaryOperation : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.BinaryOperation$W1, false, new SAbstractConcept[]{}))) {
       SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(binaryOperation, LINKS.leftExpression$sEj));
       SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(binaryOperation, LINKS.rightExpression$nvX));
@@ -158,13 +158,13 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       binaryOperation.putUserObject(TransformatorImpl.RTYPE, TransformationUtil.getBoxedTypeIfNeeded(SNodeOperations.copyNode(rtype)));
     }
 
-    // wealsocalculatetypesforallarrayaccessoperations
+    // we also calculate types for all array access operations
     for (SNode arrayAccess : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.ArrayAccessExpression$Eu, false, new SAbstractConcept[]{}))) {
       SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(arrayAccess);
       arrayAccess.putUserObject(TransformatorImpl.LTYPE, SNodeOperations.copyNode(ltype));
     }
 
-    // andforallassignments
+    // and for all assignments
     for (SNode baseAssignment : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.BaseAssignmentExpression$PA, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.isInstanceOf(it, CONCEPTS.AssignmentExpression$SE));
@@ -174,7 +174,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       baseAssignment.putUserObject(TransformatorImpl.RTYPE, TransformationUtil.getBoxedTypeIfNeeded(SNodeOperations.copyNode(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(baseAssignment, LINKS.rValue$spNK)))));
     }
 
-    // andforallternaryoperators
+    // and for all ternary operators
     for (SNode ternaryOperator : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.TernaryOperatorExpression$aq, false, new SAbstractConcept[]{}))) {
       ternaryOperator.putUserObject(TransformatorImpl.LTYPE, TransformationUtil.getBoxedTypeIfNeeded(SNodeOperations.copyNode(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(ternaryOperator, LINKS.ifTrue$Tg0R)))));
       ternaryOperator.putUserObject(TransformatorImpl.RTYPE, TransformationUtil.getBoxedTypeIfNeeded(SNodeOperations.copyNode(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(ternaryOperator, LINKS.ifFalse$Wbma)))));
@@ -184,13 +184,13 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
   private void wrapReturn() {
 
     SNode evaluateMethod = SNodeOperations.getNodeAncestor(myWhatToEvaluate, CONCEPTS.IMethodLike$L7, true, false);
-    // findreturnstatements
+    // find return statements
     for (SNode returnStatement : ListSequence.fromList(SNodeOperations.getNodeDescendants(evaluateMethod, CONCEPTS.ReturnStatement$lt, false, new SAbstractConcept[]{}))) {
       SNode expression = SLinkOperations.getTarget(returnStatement, LINKS.expression$eJ92);
       TransformationUtil.replaceReturnedExpressionIfNeeded(expression);
     }
 
-    // laststatementmightbecomereturnstatementduringgeneration
+    // last statement might become return statement during generation
     SNode statement = ((SNode) BHReflection.invoke0(evaluateMethod, CONCEPTS.IMethodLike$L7, SMethodTrimmedId.create("getLastStatement", null, "i2fhS7A")));
     if (TransformationUtil.canMakeReturnStatement(statement)) {
       TransformationUtil.replaceReturnedExpressionIfNeeded(SLinkOperations.getTarget(SNodeOperations.cast(statement, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M));
@@ -218,7 +218,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
         } else {
           fqNameNode = TransformationUtil.createStringLiteral(SConceptOperations.conceptAlias(SNodeOperations.getConcept(componentType)));
         }
-        // todomulti-arraycal
+        // todo multi-arraycal
         SNode size = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SLinkOperations.getTarget(newExpression, LINKS.creator$BsHW), CONCEPTS.ArrayCreator$bz), LINKS.dimensionExpression$DH6N)).first(), LINKS.expression$4ICz);
 
         TransformationUtil.replaceArrayConstructor(newExpression, fqNameNode, size);
@@ -339,7 +339,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
     }
   }
   private void replaceLocalMemberReferences() {
-    // convertlocalstaticmethodcallstoqualifiedstaticmethodcalls
+    // convert local static method calls to qualified static method calls
     for (SNode localStaticMethodCall : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.LocalMethodCall$zT, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.baseMethodDeclaration$pyYw), CONCEPTS.StaticMethodDeclaration$FJ);
@@ -350,7 +350,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       }
     })) {
       SNode staticMethodCall = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall"));
-      // someconcepts,suchas:eq:extractstaticmethods
+      // some concepts, such as :eq: extract static methods
       if (ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(myWhatToEvaluate), CONCEPTS.StaticMethodDeclaration$FJ, false, new SAbstractConcept[]{})).contains(SNodeOperations.cast(SLinkOperations.getTarget(localStaticMethodCall, LINKS.baseMethodDeclaration$pyYw), CONCEPTS.StaticMethodDeclaration$FJ))) {
         continue;
       }
@@ -360,7 +360,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).setNew(staticMethodCall);
       SNodeOperations.replaceWithAnother(localStaticMethodCall, staticMethodCall);
     }
-    // convertlocalinstancemethodcallstoqualifiedinstancemethodcalls
+    // convert local instance method calls to qualified instance method calls
     for (SNode localInstanceMethodCall : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.LocalMethodCall$zT, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, LINKS.baseMethodDeclaration$pyYw), CONCEPTS.InstanceMethodDeclaration$39);
@@ -376,7 +376,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).setNew(instanceMethodCall);
       SNodeOperations.replaceWithAnother(localInstanceMethodCall, _quotation_createNode_s72qk1_a0a4a3a02(instanceMethodCall, TransformationUtil.createThisNodeReplacement()));
     }
-    // convertlocalstaticfieldreferencestostaticfieldreferences
+    // convert local static field references to static field references
     for (SNode localStaticFieldReference : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$TC), LINKS.variableDeclaration$N1XG), CONCEPTS.StaticFieldDeclaration$jR);
@@ -392,7 +392,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
       new IAttributeDescriptor.NodeAttribute(CONCEPTS.UnprocessedAnnotation$E6).setNew(staticFieldReference);
       SNodeOperations.replaceWithAnother(localStaticFieldReference, staticFieldReference);
     }
-    // convertlocalinstancefieldreferencestofiedreferenceoperations
+    // convert local instance field references to fied reference operations
     for (SNode localInstanceFieldReference : ListSequence.fromList(SNodeOperations.getNodeDescendants(myWhatToEvaluate, CONCEPTS.VariableReference$TC, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$TC), LINKS.variableDeclaration$N1XG), CONCEPTS.FieldDeclaration$ie);
@@ -539,7 +539,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
         return TransformationUtil.isUnprocessed(it);
       }
     })) {
-      // TODOwereallyprocessall(?)staticfieldreferencesnow,somightwannamovethiscodeoutofwhilecycle
+      // TODO we really process all(?) static field references now, so might wanna move this code out of while cycle
       TransformationUtil.replaceStaticFieldReference(staticFieldReference, SPropertyOperations.getString(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG), PROPS.name$MnvL), SLinkOperations.getTarget(SLinkOperations.getTarget(staticFieldReference, LINKS.variableDeclaration$N1XG), LINKS.type$a1UY), TransformationUtil.createClassFqNameNode(myModel, SNodeOperations.cast(SLinkOperations.getTarget(staticFieldReference, LINKS.classifier$BPY8), CONCEPTS.ClassConcept$bK)));
       finished = false;
     }
@@ -594,7 +594,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
         return TransformationUtil.isUnprocessed(it);
       }
     })) {
-      // TODOwhatifweareinsideofaninnerclass?
+      // TODO what if we are inside of an inner class?
       TransformationUtil.replaceStaticMethodCall(staticMethodCall, TransformationUtil.createClassFqNameNode(myModel, SLinkOperations.getTarget(staticMethodCall, LINKS.classConcept$M5BC)), SPropertyOperations.getString(SLinkOperations.getTarget(staticMethodCall, LINKS.baseMethodDeclaration$pyYw), PROPS.name$MnvL), TransformationUtil.getJniSignature(SLinkOperations.getTarget(staticMethodCall, LINKS.baseMethodDeclaration$pyYw)), SLinkOperations.getTarget(SLinkOperations.getTarget(staticMethodCall, LINKS.baseMethodDeclaration$pyYw), LINKS.returnType$5xoi), SLinkOperations.getChildren(staticMethodCall, LINKS.actualArgument$pzdx));
       finished = false;
     }
@@ -623,7 +623,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
         return TransformationUtil.isUnprocessed(it);
       }
     })) {
-      // TODOshouldwecheckforparametertypes,likewedidforstaticmethodcalls?
+      // TODO should we check for parameter types, like we did for static method calls?
       if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(methodCall, CONCEPTS.DotExpression$yW, false, false), LINKS.operand$w6IR)), _quotation_createNode_s72qk1_b0a1a1a43())) {
 
         SNode originalMethodDeclaration = SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$pyYw);
@@ -717,7 +717,7 @@ public class TransformatorImpl extends TransformatorBuilder.Transformator {
     ListSequence.fromList(order).visitAll(new IVisitor<SNode>() {
       public void visit(SNode node) {
         if (firstTime.value) {
-          // weareatthefirstnodeintheorder
+          // we are at the first node in the order
           SLinkOperations.setTarget(normalizedDotExpression.value, LINKS.operand$w6IR, SNodeOperations.cast(node, CONCEPTS.Expression$mB));
           firstTime.value = false;
         } else {

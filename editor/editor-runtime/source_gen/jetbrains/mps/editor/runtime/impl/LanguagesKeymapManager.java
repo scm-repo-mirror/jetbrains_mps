@@ -50,7 +50,7 @@ public class LanguagesKeymapManager implements ApplicationComponent {
   public List<KeyMap> getKeyMapsForLanguage(@NotNull SLanguage l) {
     SLanguageId languageId = MetaIdHelper.getLanguage(l);
     if (!(MapSequence.fromMap(myLanguagesToKeyMaps).containsKey(languageId))) {
-      // FIXMEthisisahack,untilweexposeKeyMapsaspartofeditoraspect(orstandaloneaspect),weneednamefromCellKeyMapDeclarationnode
+      // FIXME this is a hack, until we expose KeyMaps as part of editor aspect (or standalone aspect), we need name from CellKeyMapDeclaration node
       SModule sourceModule = l.getSourceModule();
       if (sourceModule == null) {
         return Collections.<KeyMap>emptyList();

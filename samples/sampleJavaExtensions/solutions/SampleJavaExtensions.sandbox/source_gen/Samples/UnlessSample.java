@@ -7,11 +7,11 @@ public class UnlessSample {
   public UnlessSample() {
   }
   public static void main(String[] args) {
-    // Type"unless"followedbyControl+Spacetocreatean"unlessstatement"
+    // Type "unless" followed by Control + Space to create an "unless statement"
 
     System.out.println("Surround me with unless (Select the line, then Control + Alt + T)");
 
-    // Checkingruleswithquick-fixes
+    // Checking rules with quick-fixes
     if (!(1 > 0)) {
       System.out.println("Remove this line and you'll get a warning about an empty unless block. Try Alt + Enter then.");
     }
@@ -21,14 +21,14 @@ public class UnlessSample {
       System.out.println("Try the intention offered after Alt + Enter when positioned on the unless keyword");
     }
 
-    // PotentialNPEreporting
+    // Potential NPE reporting
     String s = null;
     if (!(UnlessSample.condition())) {
       s = "value";
     }
     System.out.println("Dangerous reference. Note the warning issues by the dataflow engine " + s.length());
 
-    // Unreachablecodedetection
+    // Unreachable code detection
     if (!(false)) {
       System.out.println("So far so good");
     }

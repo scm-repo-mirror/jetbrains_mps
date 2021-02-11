@@ -16,8 +16,8 @@ public final class TestInProcessRunState implements Comparable<TestInProcessRunS
   private final AtomicReference<RunStateEnum> myValue;
 
   public static TestInProcessRunState getInstance(Project ideaProject) {
-    // onmodulereload,whatIrisktokeepinmemorystateisKeyandRunStateEnuminstances,thatarehopefully
-    // stillsubjecttogarbagecollection.SeemsbetterthanTestInProcessRunStateasasingleton
+    // on module reload, what I risk to keep in memory state is Key and RunStateEnum instances, that are hopefully 
+    // still subject to garbage collection. Seems better than TestInProcessRunState as a singleton
     AtomicReference<RunStateEnum> knownState = ideaProject.getUserData(STATE_KEY);
     if (knownState == null) {
       knownState = new AtomicReference<RunStateEnum>(RunStateEnum.IDLE);

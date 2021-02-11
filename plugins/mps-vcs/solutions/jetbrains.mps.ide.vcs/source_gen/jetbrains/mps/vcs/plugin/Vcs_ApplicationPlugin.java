@@ -27,7 +27,7 @@ public class Vcs_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new AddModuleToVcs_Action());
     addAction(new CompareTransientModels_Action());
     addAction(new IgnoreModuleInVcs_Action());

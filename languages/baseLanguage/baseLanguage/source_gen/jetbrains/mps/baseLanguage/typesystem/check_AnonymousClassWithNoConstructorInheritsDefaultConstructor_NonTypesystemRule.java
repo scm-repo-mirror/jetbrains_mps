@@ -37,8 +37,8 @@ public class check_AnonymousClassWithNoConstructorInheritsDefaultConstructor_Non
         }
       }
     }
-    // MethodCallsFixer_Ruleandcheck_AnonymousClassHasConstructorDeclaration
-    // takecareofnullinconstructorDeclaration
+    // MethodCallsFixer_Rule and check_AnonymousClassHasConstructorDeclaration
+    // take care of null in constructorDeclaration
   }
   public SAbstractConcept getApplicableConcept() {
     return CONCEPTS.AnonymousClass$Bt;

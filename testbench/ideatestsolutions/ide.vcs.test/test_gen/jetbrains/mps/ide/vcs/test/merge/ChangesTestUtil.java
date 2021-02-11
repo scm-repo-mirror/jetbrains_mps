@@ -52,8 +52,8 @@ public class ChangesTestUtil {
 
 
   public static void addCommentedMethod(SNode clazz, SNode anchor) {
-    // attributeshavetoresideinsmodelAttributerole,althoughtheirpositionrelativeto
-    // otherchildrenisimportanttofindoutpreciselocationofcommentedoutnode
+    // attributes have to reside in smodelAttribute role, although their position relative to
+    // other children is important to find out precise location of commented out node
     clazz.insertChildAfter(LINKS.smodelAttribute$KJ43, createCommentedMethod(), anchor);
   }
 

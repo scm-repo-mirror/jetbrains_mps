@@ -35,24 +35,24 @@ public class ConceptRef {
     SConcept exprConcept = CONCEPTS.Expression$mB;
     SConcept c1 = exprConcept;
     SConcept c2 = (SConcept) c1;
-    // ======tonode
-    // -ok-
+    // ====== to node
+    // - ok -
     SNode n1 = SNodeOperations.asNode(exprConcept);
     SNode n2 = SNodeOperations.asNode(exprConcept);
-    // --notok--
-    // ======toconcept
-    // -ok-
+    // -- not ok --
+    // ====== to concept
+    // - ok -
     SConcept exprConc = CONCEPTS.Expression$mB;
     SConcept bExprConc = SNodeOperations.castConcept(exprConc, CONCEPTS.BinaryOperation$W1);
     exprConc = bExprConc;
-    // --notok--
+    // -- not ok --
   }
 
   public void concept_hierarchy1(SAbstractConcept concept) {
     // supers
     List<SAbstractConcept> supers_all = SConceptOperations.getAllSuperConcepts(concept, false);
     List<SAbstractConcept> supers_all_inclusive = SConceptOperations.getAllSuperConcepts(concept, true);
-    // directsupers
+    // direct supers
     List<SAbstractConcept> supers_direct = SConceptOperations.getDirectSuperConcepts(concept, false);
     List<SAbstractConcept> supers_direct_inclusive = SConceptOperations.getDirectSuperConcepts(concept, true);
     // ======

@@ -142,7 +142,7 @@ public class PasteHandler {
               currentLine.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentLine.value, pastedLine), CONCEPTS.Line$yC);
             }
           } else {
-            // Add a space instead of a new line 
+            // Add a space instead of a new line
             Line__BehaviorDescriptor.merge_id1YnOZxAMHtO.invoke(currentLine.value, pastedLine, currentNode.value);
             currentNode.value = ListSequence.fromList(SLinkOperations.getChildren(pastedLine, LINKS.elements$_j45)).last();
           }

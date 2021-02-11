@@ -30,23 +30,23 @@ public class ClassifierType_NOT_subtypeOf_ClassifierType_InequationReplacementRu
   public ClassifierType_NOT_subtypeOf_ClassifierType_InequationReplacementRule() {
   }
   public boolean isApplicableCustom(SNode subtype, SNode supertype, IsApplicable2Status status) {
-    // thisruleexiststohelpreduceexhaustivesearch,soitshouldapplywhennootherrulesdo
+    // this rule exists to help reduce exhaustive search, so it should apply when no other rules do
 
     if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(subtype, LINKS.classifier$cxMr)), INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(supertype, LINKS.classifier$cxMr))) && SLinkOperations.getTarget(subtype, LINKS.classifier$cxMr) != SLinkOperations.getTarget(supertype, LINKS.classifier$cxMr)) {
-      // notapplicableifitisthesameclassifier
-      // (seeclassifierTypeWithSameClassifierrule)
+      // not applicable if it is the same classifier
+      // (see classifierTypeWithSameClassifier rule)
       return false;
     }
 
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(subtype, LINKS.classifier$cxMr), CONCEPTS.Interface$db) && SLinkOperations.hasPointer(supertype, LINKS.classifier$cxMr, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"))) {
-      // notapplicabletointerfacesubtype-ofObject(alwaystrue)
+      // not applicable to interface subtype-of Object (always true)
       return false;
     }
 
     boolean subRaw = ListSequence.fromList(SLinkOperations.getChildren(subtype, LINKS.parameter$oqG$)).isEmpty() && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(subtype, LINKS.classifier$cxMr), LINKS.typeVariableDeclaration$Lipp)).isNotEmpty();
     boolean superRaw = ListSequence.fromList(SLinkOperations.getChildren(supertype, LINKS.parameter$oqG$)).isEmpty() && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(supertype, LINKS.classifier$cxMr), LINKS.typeVariableDeclaration$Lipp)).isNotEmpty();
     if (subRaw || superRaw) {
-      // notapplicabletorawtypes
+      // not applicable to raw types
       return false;
     }
 

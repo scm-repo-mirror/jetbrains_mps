@@ -95,7 +95,7 @@ public final class EditorCellMessageUtil {
   }
 
   public static boolean isIndirectRoot(final EditorComponent editor, final MessageTarget messageTarget, final SNode node) {
-    // XXX[artem]noideayetwhatdoes'indirectroot'mean
+    // XXX [artem] no idea yet what does 'indirect root' mean
     if (editor instanceof InspectorEditorComponent) {
       return false;
     }

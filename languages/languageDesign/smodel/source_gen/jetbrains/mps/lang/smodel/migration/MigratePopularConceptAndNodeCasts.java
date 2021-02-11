@@ -568,7 +568,7 @@ public class MigratePopularConceptAndNodeCasts extends MigrationScriptBase {
         }
       });
     }
-    // sameforconceptNode
+    // same for conceptNode
     {
       final GeneratedMatchingPattern pattern = new Pattern_qvpvui_a51a6(_quotation_createNode_qvpvui_a0a51a6());
       Sequence.fromIterable(((Iterable<SModel>) m.getModels())).translate(new ITranslator2<SModel, SNode>() {

@@ -52,7 +52,7 @@ public class ReloadSession {
   }
 
   /*package*/ boolean wantsToShowProgress() {
-    // ifatleastoneparticipantwantstoshow,wesaythatallreloadsessionwants
+    // if at least one participant wants to show, we say that all reload session wants
     return Sequence.fromIterable(getParticipants()).any(new IWhereFilter<ReloadParticipant>() {
       public boolean accept(ReloadParticipant it) {
         return it.wantsToShowProgress();

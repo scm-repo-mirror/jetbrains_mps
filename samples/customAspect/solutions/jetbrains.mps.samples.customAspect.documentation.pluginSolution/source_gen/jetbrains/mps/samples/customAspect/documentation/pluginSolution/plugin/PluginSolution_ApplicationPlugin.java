@@ -18,7 +18,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new ShowDoc_Action());
     // groups
     addGroup(new CodeAddition_ActionGroup(this));

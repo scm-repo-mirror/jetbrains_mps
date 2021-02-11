@@ -20,21 +20,21 @@ public class ProjectMigrations_AppPluginPart extends ApplicationPluginPart {
   @Override
   public void init() {
     ProjectMigrations_AppPluginPart.this.myRegistry = ProjectMigrationsRegistry.getInstance();
-    // blockofmigrations.Infact,there'snoneedtousededicatedMigrations_XXXclass,
-    // it'sjustthewayitusedtobewhenindividualAppComponentsservedasaregistrationmechanism.
+    // block of migrations. In fact, there's no need to use dedicated Migrations_XXX class,
+    // it's just the way it used to be when individual AppComponents served as a registration mechanism.
     new Migrations_2017_1().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2017_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2018_2().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2019_1().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
     new Migrations_2019_3().offerInto(ProjectMigrations_AppPluginPart.this.myMigrations);
-    // assumemyMigrationsareorderedfromoldertonew
+    // assume myMigrations are ordered from older to new
     for (ProjectMigration pm : ProjectMigrations_AppPluginPart.this.myMigrations) {
       ProjectMigrations_AppPluginPart.this.myRegistry.addProjectMigration(pm);
     }
   }
   @Override
   public void dispose() {
-    // unregisterinreverseorder,justforfun
+    // unregister in reverse order, just for fun
     while (!(ProjectMigrations_AppPluginPart.this.myMigrations.isEmpty())) {
       ProjectMigrations_AppPluginPart.this.myRegistry.removeProjectMigration(ProjectMigrations_AppPluginPart.this.myMigrations.removeLast());
     }

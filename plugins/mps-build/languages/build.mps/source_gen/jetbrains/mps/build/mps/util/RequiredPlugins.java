@@ -63,7 +63,7 @@ public class RequiredPlugins {
   }
 
   public Iterable<SNode> getDependency() {
-    // UsagessuggestmyDependenciesaretocomefromoriginal(non-transient)model-theyusedtogetpassedtoDependenciesHelper.artifacts().get()directly
+    // Usages suggest myDependencies are to come from original (non-transient) model - they used to get passed to DependenciesHelper.artifacts().get() directly
     return myDependencies;
   }
 

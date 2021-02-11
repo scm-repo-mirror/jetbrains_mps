@@ -49,7 +49,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModuleOperations.isAspect(_context.getOriginalInputModel(), "documentation");
   }
   public static boolean rule_Condition_2_0(final BaseMappingRuleContext _context) {
-    // seeMPS-24613
+    // see MPS-24613
     return SModuleOperations.isAspect(((SModel) _context.getVariable("model")), "documentation");
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {

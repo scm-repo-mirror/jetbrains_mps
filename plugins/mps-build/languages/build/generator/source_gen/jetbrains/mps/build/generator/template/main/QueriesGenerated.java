@@ -111,12 +111,12 @@ public class QueriesGenerated extends QueryProviderBase {
     return FileSetUtil.getFilesetLayoutContainer(_context.getNode()) == null;
   }
   public static boolean rule_Condition_0_1(final BaseMappingRuleContext _context) {
-    // BL_Importunderanarchive(akaBL_CAFS)areprocessedinreduce_FileSetInArchive
+    // BL_Import under an archive (aka BL_CAFS) are processed in reduce_FileSetInArchive
     if (FileSetUtil.getFilesetLayoutContainer(_context.getNode()) != null) {
       return false;
     }
     if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.BuildLayout_Container$vv))) {
-      // XXXwhynotthischeckispartofsomecheckingrule?
+      // XXX why not this check is part of some checking rule?
       _context.showErrorMessage(_context.getNode(), "parent should be layout container");
       return false;
     } else {
@@ -507,8 +507,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getTemplateValue() + "." + _context.getNode().getNodeId().toString();
   }
   public static Object propertyMacro_GetValue_0_102(final PropertyMacroContext _context) {
-    // FIXMEintroduceadedicatedinterfaceforlayoutnodesthatarecapableofgetOutputPath_WithMacro
-    // andhandleithere.RightnowI'mfocusedonBM_Modulethatgettranslatedintojar,BL_NCissufficientforme.
+    // FIXME introduce a dedicated interface for layout nodes that are capable of getOutputPath_WithMacro
+    //     and handle it here. Right now I'm focused on BM_Module that get translated into jar, BL_NC is sufficient for me.
     SNode blNode = SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$L6dC), CONCEPTS.BuildLayout_NamedContainer$Ug);
     Context cc = Context.defaultContext(_context);
     return BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(blNode, cc);
@@ -543,8 +543,8 @@ public class QueriesGenerated extends QueryProviderBase {
       if (!(relative.endsWith("/"))) {
         relative += "/";
       }
-      // XXX'build'heretracesbacktoimportofcommonlibrary,which
-      // defineslocationmacrobuild.dir=build.Idon'tlikethissortofimplicitknowledge.
+      // XXX 'build' here traces back to import of common library, which
+      // defines location macro build.dir = build. I don't like this sort of implicit knowledge.
       return relative + "build/artifacts/" + SPropertyOperations.getString(script, PROPS.name$MnvL);
     } catch (RelativePathHelper.PathException ex) {
       _context.showErrorMessage(_context.getNode(), "cannot calculate relative path: " + ex.getMessage());
@@ -570,9 +570,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return "${" + ((MacroHelper) _context.getVariable("var:macroHelper")).getImportName(_context.getNode()) + "}";
   }
   public static Object propertyMacro_GetValue_1_10(final PropertyMacroContext _context) {
-    // XXXBuildLayoutgotnosubconcepts,thevalueishardcodedinbehaviormethod;I'dratherhaveithardcodedhere,
-    // as'locationmacrobuild.layout'isdefinedhereinthistemplatefewlinesabove
-    // However,needtokeepthevalueinsideBL_Containeranywayforcodethatstillbuildspathsprogrammatically
+    // XXX BuildLayout got no subconcepts, the value is hardcoded in behavior method; I'd rather have it hardcoded here,
+    //    as 'location macro build.layout' is defined here in this template few lines above
+    //    However, need to keep the value inside BL_Container anyway for code that still builds paths programmatically
     return (String) BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.layout$r7bw), Context.defaultContext(_context));
   }
   public static Object propertyMacro_GetValue_1_11(final PropertyMacroContext _context) {
@@ -669,7 +669,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Pair<String, String>) _context.getVariable("_filemode")).o1;
   }
   public static Object propertyMacro_GetValue_2_21(final PropertyMacroContext _context) {
-    // it'ssufficienttouse<fileset>unlesswespecifyanyextendedattributes
+    // it's sufficient to use <fileset> unless we specify any extended attributes
     return (((String) _context.getVariable("_pathPrefix")) == null && ((Pair<String, String>) _context.getVariable("_filemode")) == null ? "fileset" : BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.getFileSetExtension_id5zIo$W4pFTK.invoke(((SNode) _context.getVariable("_archive"))));
   }
   public static Object propertyMacro_GetValue_2_22(final PropertyMacroContext _context) {
@@ -708,10 +708,10 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(_context.getNode(), "java module dependency '" + SPropertyOperations.getString(((SNode) _context.getVariable("dependency")), PROPS.name$MnvL) + "' was not found in the layout");
       return "???";
     }
-    // it'stheonlyuseofhelper.getOriginalNodeoutsideofj.m.build.utilpackage,andissomewhatlegal,
-    // aswestillexpectartifactIdtocomefromoriginalmodel
-    // (thoughdothetranslationourselvesinDH.getArtifact())
-    // Justdon'twanttodealwiththiscoderightnow,needtoreturntoartifactIdconceptanyway.
+    // it's the only use of helper.getOriginalNode outside of j.m.build.util package, and is somewhat legal,
+    // as we still expect artifactId to come from original model
+    // (though do the translation ourselves in DH.getArtifact())
+    // Just don't want to deal with this code right now, need to return to artifactId concept anyway.
     String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, ((SNode) _context.getVariable("dependency")));
     if (val == null) {
       _context.showErrorMessage(_context.getNode(), "no location found for the java module dependency '" + SPropertyOperations.getString(((SNode) _context.getVariable("dependency")), PROPS.name$MnvL) + "'");
@@ -742,8 +742,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return val;
   }
   public static Object propertyMacro_GetValue_7_0(final PropertyMacroContext _context) {
-    // XXXinfact,targetFileisnotnecessarilyBuildSource_SingleFile.Itcouldbe
-    // BuildLayout_Copyatgenerationtimeduetosyntaxsugar(?)processinginaliasesMC.
+    // XXX in fact, targetFile is not necessarily BuildSource_SingleFile. It could be
+    // BuildLayout_Copy at generation time due to syntax sugar(?) processing in aliases MC.
     SNode targetFile = ((SNode) _context.getVariable("jar"));
     SNode project = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false);
     if (project == null) {
@@ -801,21 +801,21 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(_context.getNode(), "no context project defined");
       return "";
     }
-    // HereusedtobeDH.getLocation(node.target).lastSegmentAfterSlash
-    // butwithDHinitializationmovedtopre-processingscriptofmain(whichgoesafteraliases),
-    // can'tuseDHhere.
-    // However,it'sonlyBL_FolderorBML_PluginthatanswerisFolder()==true
+    // Here used to be DH.getLocation(node.target).lastSegmentAfterSlash 
+    // but with DH initialization moved to pre-processing script of main (which goes after aliases),
+    // can't use DH here. 
+    // However, it's only BL_Folder or BML_Plugin that answer isFolder() == true
     Context cc = Context.defaultContext(_context);
-    // aslongasBL_FoldersharesBL_NamedContainer.getOutputPath_WithMacro()impl,useBL_NC
-    // FIXMEInfact,IthinkBML_PluginhastobeBL_NamedContainer,thatwouldsimplifymylifehere
+    // as long as BL_Folder shares BL_NamedContainer.getOutputPath_WithMacro() impl, use BL_NC
+    // FIXME In fact, I think BML_Plugin has to be BL_NamedContainer, that would simplify my life here
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_NamedContainer$Ug)) {
-      // CoulduseBL_NamedContainer.getOutputPath_WithMacro(),butdon'tcaretocutlastsegment
+      // Could use BL_NamedContainer.getOutputPath_WithMacro(), but don't care to cut last segment
       return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_NamedContainer$Ug), LINKS.containerName$ES_Y), cc.getMacros(project));
     }
-    // forBML_Plugin,usethefactitsBL_Container.getChildrenOutputDir_WithMacro==getOutputPath_WithMacro
-    // whichgivesfullpath,withlastsegmentcontainingvaluethatweneed.
-    // FWIW,Iassumenode.targetisfromexternalmodel(nottheonebeingtransformed)ifIgethere.
-    // YetIbelieveBL_Import.target=pluginisararecase.
+    // for BML_Plugin, use the fact its BL_Container.getChildrenOutputDir_WithMacro == getOutputPath_WithMacro
+    // which gives full path, with last segment containing value that we need.
+    // FWIW, I assume node.target is from external model (not the one being transformed) if I get here.
+    // Yet I believe BL_Import.target = plugin is a rare case.
     String val = BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4), CONCEPTS.BuildLayout_Container$vv), cc);
     if (val == null) {
       _context.showErrorMessage(_context.getNode(), "no location for " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.target$AFU4)));
@@ -891,9 +891,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return "unzip";
   }
   public static Object propertyMacro_GetValue_15_0(final PropertyMacroContext _context) {
-    // XXXwhatifBL_ZipispartofExternalLayout,accessedthroughBuildExternalLayoutDependency?
-    // There'snoBuildProjectancestorthen,whatwouldbethepath?
-    // ThislogichasbeenextractedfromBL_Zip.unpack()
+    // XXX what if BL_Zip is part of ExternalLayout, accessed through BuildExternalLayoutDependency?
+    //    There's no BuildProject ancestor then, what would be the path?
+    //    This logic has been extracted from BL_Zip.unpack()
     return ((DependenciesHelper) _context.getVariable("depHelper")).getContentLocation(_context.getNode());
   }
   public static Object propertyMacro_GetValue_15_1(final PropertyMacroContext _context) {
@@ -1173,25 +1173,25 @@ public class QueriesGenerated extends QueryProviderBase {
     return BuildLayout_Container__BehaviorDescriptor.getAssembleSubTaskId_id450ejGzh8bO.invoke(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.BuildLayout_Container$vv)) != null;
   }
   public static boolean ifMacro_Condition_0_41(final IfMacroContext _context) {
-    // basedonJavaExportUtil.requireModulelogicandBuildSource_JavaDependencyXXXimplementationsof
-    // BuildExternalDependency.fetchDependencies(),namely_JDExtJar,_JDExtJarInFolder,_JDLibraryand_JDModule
-    // Idon'tquitegetthereasontohavefetchDependencies()inallBS_JavaDependencyindividually,not
-    // onBS_JavaModuleitself,though.
+    // based on JavaExportUtil.requireModule logic and BuildSource_JavaDependencyXXX implementations of 
+    // BuildExternalDependency.fetchDependencies(), namely _JDExtJar, _JDExtJarInFolder, _JDLibrary and _JDModule
+    // I don't quite get the reason to have fetchDependencies() in all BS_JavaDependency individually, not
+    // on BS_JavaModule itself, though.
     // 
-    // Therewasinconsistencies,e.g._JDExtJarInFolderdidn'tsetneedsFetch()foramodule.However,ifthere'sanothermodule
-    // withdependencytotheformer(eveninthesameproject,seeJEU.requireModule)whichaccessthisdependency
-    // transitively(throughJavaModulesClosure),thenneedsFetch()istriggered)
-    // Generally,Idon'tfeelhavingfewmore'fetchDependencies'wouldhurt.Infact,Idon'tmindtohavethis
-    // dependencyunconditional-generally,fetchDependenciesisemptyanyway.
+    // There was inconsistencies, e.g. _JDExtJarInFolder didn't set needsFetch() for a module. However, if there's another module 
+    // with dependency to the former (even in the same project, see JEU.requireModule) which access this dependency 
+    // transitively (through JavaModulesClosure), then needsFetch() is triggered)
+    // Generally, I don't feel having few more 'fetchDependencies' would hurt. In fact, I don't mind to have this
+    // dependency unconditional - generally, fetchDependencies is empty anyway.
     final SNode ownerProject = SNodeOperations.getContainingRoot(_context.getNode());
-    // JFTR,JavaModulesClosureworkswithouttranslatingnodesto'original'model,wearefinetouse==here
+    // JFTR, JavaModulesClosure works without translating nodes to 'original' model, we are fine to use == here
     if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getModules()).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.getContainingRoot(it) != ownerProject;
       }
     })) {
-      // modulefromanotherproject,assumeit'spartoflayoutofthatproject.
-      // JEU.requireModuleusedtoalsocheckartifacts.findArtifact()!=null;Idon'tcare.
+      // module from another project, assume it's part of layout of that project. 
+      // JEU.requireModule used to also check artifacts.findArtifact() != null; I don't care.
       return true;
     }
     if (Sequence.fromIterable(((JavaModulesClosure) _context.getVariable("var:depsClosure")).getExternalJars()).any(new IWhereFilter<SNode>() {
@@ -1213,9 +1213,9 @@ public class QueriesGenerated extends QueryProviderBase {
         return SNodeOperations.getContainingRoot(it) != ownerProject;
       }
     })) {
-      // JEU.requireLibraryalsocheckscanExportByParts()orpresenceoflayoutnode(theonlyonebeingpossible
-      // afaikBuildLayout_ExportAsJavaLibrary,mostlyunused),Idecidedit'justtoomuch-aslongaslibrarycomes
-      // fromadifferentproject,Idon'tseeareasonwhyIcan'tsay'fetchDependencies'first
+      // JEU.requireLibrary also checks canExportByParts() or presence of layout node (the only one being possible
+      // afaik BuildLayout_ExportAsJavaLibrary, mostly unused), I decided it' just too much - as long as library comes
+      // from a different project, I don't see a reason why I can't say 'fetchDependencies' first
       return true;
     }
     return false;
@@ -1246,7 +1246,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return Sequence.fromIterable(s).isNotEmpty();
   }
   public static boolean ifMacro_Condition_1_3(final IfMacroContext _context) {
-    // onlyBuildLayoyt_ImportandBuildLayout_ImportContentcaredtotellneedsFetch(BuildLayout)
+    // only BuildLayoyt_Import and BuildLayout_ImportContent cared to tell needsFetch(BuildLayout)
     List<SNode> descendants = SNodeOperations.getNodeDescendantsWhereConceptInList(SLinkOperations.getTarget(_context.getNode(), LINKS.layout$r7bw), new SAbstractConcept[]{CONCEPTS.BuildLayout_Import$wO, CONCEPTS.BuildLayout_ImportContent$wC}, false, new SAbstractConcept[]{});
     if (ListSequence.fromList(descendants).isEmpty()) {
       return false;
@@ -1340,7 +1340,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return archiveName.endsWith(".tar.gz") || archiveName.endsWith(".tar.bz");
   }
   public static boolean ifMacro_Condition_14_1(final IfMacroContext _context) {
-    // restoftemplatesusenode.parent,butaslongasBSARPispartofBL_Copy,parent
+    //  rest of templates use node.parent, but as long as BSARP is part of BL_Copy, parent
     SNode blContainer = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildLayout_Container$vv, false, false);
     return SNodeOperations.isInstanceOf(blContainer, CONCEPTS.BuildLayout_Container$vv) && BuildLayout_Container__BehaviorDescriptor.getPrepareSubTaskId_id450ejGzh8bD.invoke(SNodeOperations.cast(blContainer, CONCEPTS.BuildLayout_Container$vv)) != null;
   }
@@ -1851,7 +1851,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return basePath;
   }
   public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
-    // findalllayoutelementsthatcontainlayoutelementsforforeignprojectpartsthataredependencytargetofsomepartinthisproject
+    // find all layout elements that contain layout elements for foreign project parts that are dependency target of some part in this project
     FDP2 fdp = new FDP2(_context.getNode());
     fdp.process();
     return fdp;
@@ -1932,19 +1932,19 @@ public class QueriesGenerated extends QueryProviderBase {
     return MultiTuple.<String,String,String,String>from(fsetExt, prefix, (filemode != null ? filemode.o1 : null), (filemode != null ? filemode.o2 : null));
   }
   public static Object varMacro_Value_16_0(final TemplateVarContext _context) {
-    // despitethenamegetExplicitFilemodeRoots()inLOOP,thesequencegivesallBL_Filemodeelementsunderanarchivethat
-    // got'explicit'fileset,hencecannotcalculateprefixonceandforall.
+    // despite the name getExplicitFilemodeRoots() in LOOP, the sequence gives all BL_Filemode elements under an archive that 
+    // got 'explicit' fileset, hence can not calculate prefix once and for all. 
     // 
     if (!((boolean) BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.hasPrefixAttribute_id5zIo$W4pFU0.invoke(((SNode) _context.getVariable("var:templateInput"))))) {
-      // Anotherpeculiarmomenthereisthatweassumeinputnode<BuildLayout_ContainerAcceptingFileSet>tobeprefix-capable
-      // whichcouldbefalse,althoughallarchivesMPSsupportsatthemomentareprefix-capable,andweinvokethistemplate
-      // fromwithinreductionruleofspecificarchive,soprettymuchsurethere'snochancefortheerror.
+      // Another peculiar moment here is that we assume input node<BuildLayout_ContainerAcceptingFileSet> to be prefix-capable
+      // which could be false, although all archives MPS supports at the moment are prefix-capable, and we invoke this template
+      // from within reduction rule of specific archive, so pretty much sure there's no chance for the error.
       _context.showErrorMessage(((SNode) _context.getVariable("var:templateInput")), "Archive doesn't support path prefix specification");
     }
     return FileSetUtil.getContainerPrefix(_context.getNode(), Context.defaultContext(_context).getMacros(_context.getNode()));
   }
   public static Object varMacro_Value_16_1(final TemplateVarContext _context) {
-    // FIXMEdesperatelyneedawaytoaddresstemplateinputinawaylikereduce_FilemodeRootFileset.input
+    // FIXME desperately need a way to address template input in a way like reduce_FilemodeRootFileset.input
     return _context.getNode();
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();

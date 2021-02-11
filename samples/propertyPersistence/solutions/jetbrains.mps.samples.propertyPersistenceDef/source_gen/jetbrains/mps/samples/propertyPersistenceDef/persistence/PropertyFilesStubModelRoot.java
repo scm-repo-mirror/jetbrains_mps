@@ -35,8 +35,8 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
   private static final String PATH_KEY = "path";
 
   public PropertyFilesStubModelRoot() {
-    // TODOWhyFileBasedModelRoot,maybetheDefaultModelRootisabettercandidateforextension
-    // TODOFileBasedModelRootclaimsinitsdescriptionnottobeinagoodshape.ISitreallynotpolished?
+    // TODO Why FileBasedModelRoot, maybe the DefaultModelRoot is a better candidate for extension
+    // TODO FileBasedModelRoot claims in its description not to be in a good shape. IS it really not polished?
   }
 
   @NotNull
@@ -52,21 +52,21 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
 
   @Override
   public SModel getModel(SModelId id) {
-    // TODOwhyisthismethodempty?Whydoesitexist?Itseemsnottobeused
+    // TODO why is this method empty? Why does it exist? It seems not to be used
     return null;
   }
 
   @Override
   public void load(Memento memento) {
-    // Thismethoddocumentshowtoleveragemementos.Sincetheparentclassalreadyhandlessettingupthecontentdirectory
-    // andsourceroots,thismethodcouldinfactbedeletedfromthisclass.
+    // This method documents how to leverage mementos. Since the parent class already handles setting up the content directory
+    // and source roots, this method could in fact be deleted from this class.
     super.load(memento);
     if (memento.get(PATH_KEY) == null) {
       return;
     }
     String path = FileUtil.stripLastSlashes(memento.get(PATH_KEY));
     assert path != null;
-    // TODOAnyreplacementforthisdeprecation?
+    // TODO Any replacement for this deprecation?
     IFile file = getFileSystem().getFile(path);
     addSourceRoot(SourceRootKinds.SOURCES, new DefaultSourceRoot(file));
   }
@@ -92,15 +92,15 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
     if (dataSource.hasPropertyFiles()) {
       String pkg = dir.getName();
       if ((pkg != null && pkg.length() > 0)) {
-        // Createapath-basedid
+        // Create a path-based id
         final SModelId id = myFacade.createModelId("path:" + dataSource);
-        // Createamodelreference(internalAPI,theneedforhandlingthismanuallywillbeeliminatedeventually)
+        // Create a model reference (internal API, the need for handling this manually will be eliminated eventually)
         String name = id.getModelName();
         if (id instanceof jetbrains.mps.smodel.SModelId.RelativePathSModelId) {
           name = FileUtil.getNameWithoutExtension(((jetbrains.mps.smodel.SModelId.RelativePathSModelId) id).getFileName());
         }
 
-        // TODOthistrickisneededtogetridofthetrailing]char,whichgetFileName()doesnotremove
+        // TODO this trick is needed to get rid of the trailing ] char, which getFileName() does not remove
         if (name.charAt(name.length() - 1) == ']') {
           name = name.substring(0, name.length() - 1);
         }

@@ -73,7 +73,7 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
     return result;
   }
   /*package*/ static SAbstractConcept getQuotedNodeConcept_id4vXWNHn1_L$(@NotNull SNode __thisNode__) {
-    // conceptofthequoteed(pattern)node
+    // concept of the quoteed (pattern) node
     return SNodeOperations.getConcept(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.pattern$GuFI), LINKS.quotedNode$ip4));
   }
   /*package*/ static boolean hasVariable_id4dzCQkRGUNw(@NotNull SNode __thisNode__) {

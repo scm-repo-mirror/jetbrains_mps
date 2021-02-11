@@ -54,23 +54,23 @@ public class AttachMappingLabel_Action extends BaseAction {
     if (!((boolean) BaseConcept__BehaviorDescriptor.isInTemplates_idhEwIMij.invoke(node))) {
       return false;
     }
-    // notanelementfromgeneratorlanguage
+    //  not an element from generator language
     if (SNodeOperations.getConcept(node).getLanguage().equals(MetaAdapterFactory.getLanguage(0xb401a68083254110L, 0x8fd384331ff25befL, "jetbrains.mps.lang.generator"))) {
       return false;
     }
-    // notinsidemacro
+    //  not inside macro
     if (SNodeOperations.getNodeAncestor(node, CONCEPTS.AbstractMacro$bo, false, false) != null) {
       return false;
     }
-    // inroottemplate-ok
+    //  in root template - ok
     if (new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$9O).get(SNodeOperations.getContainingRoot(node)) != null) {
       return true;
     }
-    // inin-linetemplate-ok
+    //  in in-line template - ok
     if (SNodeOperations.getNodeAncestor(node, CONCEPTS.InlineTemplate_RuleConsequence$u9, false, false) != null) {
       return true;
     }
-    // inin-linetemplatewithcontext
+    //  in in-line template with context
     if (SNodeOperations.getNodeAncestor(node, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i, false, false) != null) {
       return ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
@@ -78,7 +78,7 @@ public class AttachMappingLabel_Action extends BaseAction {
         }
       }) != null;
     }
-    // intemplatefragment-ok
+    //  in template fragment - ok
     if (SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(node), CONCEPTS.TemplateDeclaration$5G)) {
       return ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {

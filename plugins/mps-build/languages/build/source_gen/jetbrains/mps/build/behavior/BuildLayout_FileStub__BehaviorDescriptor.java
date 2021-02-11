@@ -58,17 +58,17 @@ public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescri
     return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fileName$AZfX), null);
   }
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object artifactId) {
-    // turnoff,seeBuildSourceArchiveRelativePath#unpack
+    //  turn off, see BuildSourceArchiveRelativePath#unpack
     final boolean BuildSourceArchiveRelativePath_support = Boolean.FALSE.booleanValue();
     if (artifactId instanceof SNode && BuildSourceArchiveRelativePath_support) {
-      // copiedfromBuildLayout_File,withnarrowcast,BuildRelativePathinsteadofBuildSourcePathasIneedtomatchatailpartonly(BRP.getPathTail),withoutanymacroorproject
-      // IwouldrecievefromBuildSourcePath.getRelativePath()otherwise
+      //  copied from BuildLayout_File, with narrow cast, BuildRelativePath instead of BuildSourcePath as I need to match a tail part only (BRP.getPathTail), without any macro or project
+      //  I would recieve from BuildSourcePath.getRelativePath() otherwise
       SNode node = (SNode) artifactId;
       if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildRelativePath$Kc)) {
         StringBuilder layoutRelativeName = new StringBuilder(BuildSource_SingleFile__BehaviorDescriptor.getApproximateName_id4RsV8qJDnFm.invoke(__thisNode__));
-        // HACK.matchagainstre-constructedlayout-relativepath,respectingnamedcontainers(usually,folders)only.
+        // HACK. match against re-constructed layout-relative path, respecting named containers (usually, folders) only.
         SNode namedParent = SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.BuildLayout_NamedContainer$Ug);
-        // XXXalternatively,_AbstractContainer+BL_Node.isFolder()?JarsareNamedContainers,too.
+        // XXX alternatively, _AbstractContainer + BL_Node.isFolder()? Jars are NamedContainers, too.
         while (namedParent != null) {
           layoutRelativeName.insert(0, '/');
           layoutRelativeName.insert(0, BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(namedParent, LINKS.containerName$ES_Y), null));

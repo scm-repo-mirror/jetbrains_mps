@@ -6,8 +6,8 @@ package Samples;
 public final class DropBox<T> {
   private T storage;
   public DropBox() {
-    // UseAlt+Enterontheclassnametomarkitasthread-safeornon-thread-safe
-    // Theseetheeffectithasontheerror/warningreportingintheThreadSafeSampleclass
+    // Use Alt+Enter on the class name to mark it as thread-safe or non-thread-safe
+    // The see the effect it has on the error/warning reporting in the ThreadSafeSample class
   }
   public synchronized void store(T value) throws InterruptedException {
     while (storage != null) {

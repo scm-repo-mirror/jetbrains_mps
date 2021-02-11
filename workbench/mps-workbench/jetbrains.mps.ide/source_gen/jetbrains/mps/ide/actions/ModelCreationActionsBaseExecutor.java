@@ -91,7 +91,7 @@ public abstract class ModelCreationActionsBaseExecutor {
    */
   protected boolean canBeCreatedInModule(@NotNull SModule module) {
     if (hasModelRoots(module)) {
-      // provideadialogaskingforcreatingnewmodelroot
+      // provide a dialog asking for creating new model root
       if (Messages.showOkCancelDialog(myIdeaProject, String.format("There are no model roots in the module. It is required for model creation.%nDo you want to add one?"), "Model Root Not Found", Messages.OK_BUTTON, Messages.CANCEL_BUTTON, Messages.getQuestionIcon()) == Messages.OK) {
         MPSPropertiesConfigurable configurable = new ModulePropertiesConfigurable(module, myProject);
         final SingleConfigurableEditor configurableEditor = new SingleConfigurableEditor(myIdeaProject, configurable, "#MPSPropertiesConfigurable");
@@ -122,7 +122,7 @@ public abstract class ModelCreationActionsBaseExecutor {
    * logic has to be customised, consider to override {@link jetbrains.mps.ide.actions.ModelCreationActionsBaseExecutor#showCreatedModelnProjectView(SModel) } instead.
    */
   protected void onModelCreated(@NotNull final SModel result) {
-    // Modelcreationwillleadtoindexesupdate,navigationshouldbeperformedafterthat
+    // Model creation will lead to indexes update, navigation should be performed after that
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       public void run() {
         showCreatedModelnProjectView(result);

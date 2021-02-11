@@ -28,7 +28,7 @@ public class check_ArrayClone_NonTypesystemRule extends AbstractNonTypesystemRul
   public check_ArrayClone_NonTypesystemRule() {
   }
   public void applyRule(final SNode instanceMethodCallOperation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // FIXME:almostduplicatecodewithJavaToMpsConverter
+    // FIXME: almost duplicate code with JavaToMpsConverter
     SReference methodRef = SNodeOperations.getReference(instanceMethodCallOperation, LINKS.baseMethodDeclaration$pyYw);
     if (!((SLinkOperations.isDynamic(methodRef) && "clone".equals(SLinkOperations.getResolveInfo(methodRef))))) {
       return;
@@ -41,7 +41,7 @@ public class check_ArrayClone_NonTypesystemRule extends AbstractNonTypesystemRul
         return SLinkOperations.isDynamic(it);
       }
     })) {
-      // let'snotmesswithdynamicreferences
+      // let's not mess with dynamic references
       return;
     }
 

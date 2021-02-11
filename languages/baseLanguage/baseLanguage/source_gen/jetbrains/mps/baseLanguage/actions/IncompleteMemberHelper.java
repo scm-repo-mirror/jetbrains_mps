@@ -89,15 +89,15 @@ public class IncompleteMemberHelper {
   }
 
   public static boolean isValidCandidateMethodName(SNode member, String memberName) {
-    // Visibletypesandclassifiersshouldnotbeofferedaspotentialmembernames,
-    // ifthetypeisstillnull(userconvenience)
-    // Classifiernamesshouldbeexcluded,theyarematchedbytheconstructor
+    // Visible types and classifiers should not be offered as potential member names,
+    // if the type is still null (user convenience)
+    // Classifier names should be excluded, they are matched by the constructor
     return !(hasNameEqualToSurroundingClassifier(member, memberName)) && isValidCandidateFieldName(member, memberName);
   }
 
   public static boolean isValidCandidateFieldName(SNode member, String memberName) {
-    // Visibletypesandclassifiersshouldnotbeofferedaspotentialmembernames,
-    // ifthetypeisstillnull(userconvenience)
+    // Visible types and classifiers should not be offered as potential member names,
+    // if the type is still null (user convenience)
     return !(((SLinkOperations.getTarget(member, LINKS.type$dTtN) == null) && IncompleteMemberHelper.isKnownTypeName(member, memberName)));
   }
 

@@ -60,7 +60,7 @@ public class Template_reduce_Looking extends TemplateDeclarationBase {
         for (SNode child4 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child4);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(1, tnode1);

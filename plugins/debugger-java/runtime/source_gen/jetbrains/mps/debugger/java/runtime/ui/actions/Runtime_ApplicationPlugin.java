@@ -21,7 +21,7 @@ public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new AddWatchAction_Action());
     addAction(new CopyStackTraceToClipboard_Action());
     addAction(new CopyValueAction_Action());

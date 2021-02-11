@@ -134,13 +134,13 @@ public class MakeActionParameters {
       smds = Sequence.fromIterable(Collections.<SModel>emptyList());
     }
     if (!(myCleanBuild)) {
-      // assumeuserspecifiedexactsetofmodelsif!isClean
+      // assume user specified exact set of models if !isClean
       smds = Sequence.fromIterable(smds).translate(new ITranslator2<SModel, SModel>() {
         public Iterable<SModel> translate(SModel it) {
           return withImports(it);
         }
       }).distinct();
-      // filterdirtyonly
+      // filter dirty only
       ModelGenerationStatusManager statusManager = myProject.getComponent(ModelGenerationStatusManager.class);
       smds = statusManager.getModifiedModels(Sequence.fromIterable(smds).toListSequence());
     }
@@ -158,8 +158,8 @@ public class MakeActionParameters {
       return Sequence.<SModel>singleton(m);
     }
     Iterable<SModelReference> importedModels = new ModelImports(m).getImportedModels();
-    // importedmodelsarenotnecessarilyfromtheproject,theymaybelongtoaglobalrepository(andyetbevisiblethroughproject's),
-    // don'ttrytomakethem(MGSMdoesn'ttrack'generation'statusfortheseandmayreportthemasdirty)
+    // imported models are not necessarily from the project, they may belong to a global repository (and yet be visible through project's),
+    // don't try to make them (MGSM doesn't track 'generation' status for these and may report them as dirty)
     return Sequence.fromIterable(importedModels).select(new ISelector<SModelReference, SModel>() {
       public SModel select(SModelReference it) {
         return it.resolve(repo);

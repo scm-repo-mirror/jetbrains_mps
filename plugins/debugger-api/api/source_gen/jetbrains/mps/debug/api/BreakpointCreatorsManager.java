@@ -76,7 +76,7 @@ public class BreakpointCreatorsManager implements ApplicationComponent {
       return breakpoint;
     }
 
-    // [MM]whyarewechangingconcept,butnotnode?
+    // [MM] why are we changing concept, but not node?
     TraceablePositionInfo position = new TraceInfo().getPosition(node);
     if (position != null) {
       SAbstractConcept concept = position.getConcept();

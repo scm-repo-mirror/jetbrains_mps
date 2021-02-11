@@ -66,9 +66,9 @@ __switch__:
         };
       }
     });
-    // frominfinitesequencetakefirst10numbers,
-    // ignoreoddnumbers,
-    // mapeachevennumbertotwostrings:
+    // from infinite sequence take first 10 numbers,
+    // ignore odd numbers,
+    // map each even number to two strings:
     // "num:<n>"
     // "num:<n*100>"
     final Wrappers._int count = new Wrappers._int(0);

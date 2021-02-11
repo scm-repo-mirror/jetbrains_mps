@@ -51,7 +51,7 @@ public final class ITestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return new ArrayList<SNode>();
   }
   /*package*/ static boolean canRunInProcess_id5_jSk8paieB(@NotNull SNode __thisNode__) {
-    // methodisaproperty
+    // method is a property
     return !(SPropertyOperations.getBoolean(__thisNode__, PROPS.canNotRunInProcess$hiag));
   }
 

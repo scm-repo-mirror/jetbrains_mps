@@ -45,7 +45,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
       initModule(devkit);
       created = devkit;
     } else if (moduleDescriptor instanceof GeneratorDescriptor) {
-      // TODOonceweallowstandalonegeneratorsinBuildlanguage,havetoputreasonablecodehere
+      // TODO once we allow standalone generators in Build language, have to put reasonable code here
       if (LOG.isDebugEnabled()) {
         LOG.debug("Standalone generators are not yet implemented");
       }

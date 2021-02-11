@@ -126,13 +126,13 @@ public class EventsProcessor {
           if (terminate) {
             myVirtualMachine.exit(-1);
           } else {
-            // someVM's(likeIBMVM1.4.2bundledwithWebSpere)doesnot
-            // resumethreadsondispose()likeitshould
+            //  some VM's (like IBM VM 1.4.2 bundled with WebSpere) does not
+            //  resume threads on dispose() like it should
             myVirtualMachine.resume();
             myVirtualMachine.dispose();
           }
         } else {
-          // todoDebugProcessImpl.stopConnecting
+          //  todo DebugProcessImpl.stopConnecting
           closeProcess(true);
         }
       }
@@ -173,23 +173,23 @@ public class EventsProcessor {
   private void addNewStepRequest(StepRequestor stepRequestor, int stepType, ThreadReference threadReference, int suspendPolicy) {
     ManagerThread.assertIsMangerThread();
     StepRequest stepRequest = myRequestManager.createStepRequest(stepRequestor, stepType, threadReference, suspendPolicy);
-    // TODOrequestfiltersshouldbeconfiguredbyuser
-    // thisparticularlistwastakenfromideadebuggersettingsinordertofixMPS-8725
+    //  TODO request filters should be configured by user
+    //  this particular list was taken from idea debugger settings in order to fix MPS-8725
     stepRequest.addClassExclusionFilter("java.*");
     stepRequest.addClassExclusionFilter("javax.*");
     stepRequest.addClassExclusionFilter("org.omg.*");
     stepRequest.addClassExclusionFilter("sun.*");
     stepRequest.addClassExclusionFilter("junit.*");
     stepRequest.addClassExclusionFilter("com.sun.*");
-    // TODOalsomightwannaletusertoexcludeconstructors,classloaders,getters,
-    // syntheticmethods(whateversyntheticmethodsare).
-    // seeideadebuggersettingsforthefulllist
+    // TODO also might wanna let user to exclude constructors, classloaders, getters,
+    // synthetic methods (whatever synthetic methods are).
+    // see idea debugger settings for the full list
     myRequestManager.enableRequest(stepRequest);
   }
   private void processLocatableEvent(final EventContext context, final LocatableEvent event) {
     ManagerThread.assertIsMangerThread();
 
-    // ifinsideevaluation,resume
+    // if inside evaluation, resume
     final ThreadReference thread = event.thread();
     if (isEvaluated(thread)) {
       myContextManager.voteResume(context);
@@ -198,12 +198,12 @@ public class EventsProcessor {
 
     final LocatableEventRequestor requestor = (LocatableEventRequestor) myRequestManager.findRequestor(event.request());
 
-    // ifnorequestororsuspendnoneresume
+    // if no requestor or suspend none resume
     if (requestor == null || EventRequest.SUSPEND_NONE == requestor.getSuspendPolicy()) {
       myContextManager.voteResume(context);
     }
 
-    // requestormayevaluatesomethinginside,likeaconditionoranexpressiontoprint
+    // requestor may evaluate something inside, like a condition or an expression to print
     scheduleEvaluation(new _FunctionTypes._void_P0_E0() {
       public void invoke() {
         boolean resume = true;
@@ -215,7 +215,7 @@ public class EventsProcessor {
           } else {
             try {
               if (requestor instanceof JavaBreakpoint && ((JavaBreakpoint) requestor).isLogMessage()) {
-                // todomovetojavabreakpoint?
+                // todo move to java breakpoint?
                 myReporter.reportInformation("Breakpoint hit: " + ((JavaBreakpoint) requestor).getPresentation() + " " + event.location().sourceName() + ":" + event.location().lineNumber());
               }
             } catch (AbsentInformationException ignore) {
@@ -319,7 +319,7 @@ public class EventsProcessor {
     return myReporter;
   }
   public DebugProcessMulticaster getMulticaster() {
-    // todoreviewallthisgetters,really
+    // todo review all this getters, really
     return myMulticaster;
   }
   private synchronized void startEvaluation(@NotNull ThreadReference threadReference) {
@@ -342,7 +342,7 @@ public class EventsProcessor {
     return MapSequence.fromMap(myEvaluatedThreads).containsKey(threadReference) && MapSequence.fromMap(myEvaluatedThreads).get(threadReference) > 0;
   }
   public static boolean isOnPooledThread() {
-    // itissufficienttocheckforthistwo
+    // it is sufficient to check for this two
     return !(ManagerThread.isManagerThread()) && !(ApplicationManager.getApplication().isDispatchThread());
   }
   public class EventProcessorRunnable implements Runnable {

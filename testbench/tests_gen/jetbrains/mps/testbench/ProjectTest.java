@@ -32,7 +32,7 @@ public class ProjectTest {
   private final ModuleGenerationHolder generationHolder;
 
   public ProjectTest(SModule module, ModuleGenerationHolder generationHolder) {
-    // moduleargumentonlyfortestname
+    // module argument only for test name
     this.generationHolder = generationHolder;
   }
 
@@ -79,7 +79,7 @@ public class ProjectTest {
       Assert.assertTrue("Build errors:\n" + String.join("\n", errors), errors.isEmpty());
       List<String> warns = generationHolder.buildWarns();
       Assert.assertTrue("Build warnings:\n" + String.join("\n", warns), warns.isEmpty());
-      // sanity,ifbuildfailswithoutmessages
+      //  sanity, if build fails without messages
       Assert.fail(String.format("Make failed with %d errors and %d warnings", errors.size(), warns.size()));
     }
   }

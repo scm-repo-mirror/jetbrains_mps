@@ -22,7 +22,7 @@ public class WeaveEachConsequence extends MigrationScriptBase {
     return null;
   }
   public void doExecute(final SModule m) {
-    // NO-OP,WeaveEach_RuleConsequence.templatereferencegone
+    // NO-OP, WeaveEach_RuleConsequence.template reference gone
 
   }
   public MigrationScriptReference getDescriptor() {

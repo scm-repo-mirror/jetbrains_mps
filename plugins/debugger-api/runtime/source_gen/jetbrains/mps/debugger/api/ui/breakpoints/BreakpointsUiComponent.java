@@ -144,7 +144,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   @NotNull
   @Override
   protected List<EditorComponent> getComponentsForBreakpoint(@NotNull final ILocationBreakpoint breakpoint) {
-    // reverseoperationtogetBreakpointsForComponent
+    // reverse operation to getBreakpointsForComponent
     return new ModelAccessHelper(myMPSProject.getModelAccess()).runReadAction(new Computable<List<EditorComponent>>() {
       public List<EditorComponent> compute() {
         SNode node = breakpoint.getLocation().getNodePointer().resolve(myMPSProject.getRepository());

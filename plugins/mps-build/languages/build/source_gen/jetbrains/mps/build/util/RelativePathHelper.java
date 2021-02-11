@@ -36,9 +36,9 @@ public class RelativePathHelper {
     final String normalized = normalizePath(fullPath, false);
     if (normalized.startsWith(myBasePath)) {
       return normalized.substring(myBasePath.length());
-      // XXXshouldIcheckformyBasePath==fullPath+'/'?
+      // XXX should I check for myBasePath == fullPath + '/'?
     }
-    // Thepurposeofthecodebelowistokeepthisclasspurelystring/Path-based,withoutneedtoaccessFSorcareaboutfileexistence.
+    // The purpose of the code below is to keep this class purely string/Path-based, without need to access FS or care about file existence.
     try {
       String[] base = myBasePath.split("/");
       String[] target = normalized.split("/");
@@ -46,13 +46,13 @@ public class RelativePathHelper {
       while (commonLength < target.length && commonLength < base.length && target[commonLength].equals(base[commonLength])) {
         commonLength++;
       }
-      // XXXwhynotreturnnormalized,butexception?
+      // XXX why not return normalized, but exception?
       if (commonLength == 0) {
         throw new PathException(String.format("No common path element found for '%s' and '%s'", myBasePath, normalized));
       }
       if (base.length == target.length && target.length == commonLength) {
-        // thoughthere'sacheck,above,thatcoversequalpathsscenario,wemayfacenormalizedPaththatisthesameasbasepathbuttechnicallynot
-        // equalduetotrailingslash,e.g.RPH("base/").makeRelative("base")
+        // though there's a check, above, that covers equal paths scenario, we may face normalizedPath that is the same as base path but technically not
+        // equal due to trailing slash, e.g. RPH("base/").makeRelative("base")
         return "";
       }
 
@@ -65,7 +65,7 @@ public class RelativePathHelper {
       for (int i = commonLength; i < target.length; i++) {
         relative.append(target[i]).append('/');
       }
-      // iforiginalrequestedpathdidn'tendwithslash,keeprelativewithoutslashaswell
+      // if original requested path didn't end with slash, keep relative without slash as well
       if (normalized.charAt(normalized.length() - 1) != '/' && relative.charAt(relative.length() - 1) == '/') {
         relative.setLength(relative.length() - 1);
       }

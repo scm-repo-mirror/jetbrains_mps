@@ -56,7 +56,7 @@ public class VersionFixer {
 
   public void addJustCreatedLanguageVersion(SLanguage language, Integer version) {
     myProject.getModelAccess().checkWriteAccess();
-    // FIXMEdon'tseeareasontomovethismethodtoModuleDependencyVersions,needtodecidewhat'stheproperplace
+    // FIXME don't see a reason to move this method to ModuleDependencyVersions, need to decide what's the proper place
     AbstractModule abstractModule = (AbstractModule) myModule;
     ModuleDescriptor md = abstractModule.getModuleDescriptor();
     if (md == null) {

@@ -129,7 +129,7 @@ public class ProcessRunnerForConfigurationTests {
 
     @Override
     public synchronized void onTextAvailable(ProcessEvent event, Key key) {
-      // assumingeverythingcomesinlines
+      // assuming everything comes in lines
       String text = event.getText();
       if ((text == null || text.length() == 0)) {
         return;

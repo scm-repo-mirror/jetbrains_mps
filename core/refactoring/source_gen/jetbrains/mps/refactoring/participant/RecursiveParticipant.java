@@ -35,7 +35,7 @@ public interface RecursiveParticipant<InitialDataObject, FinalDataObject, Initia
             return Objects.equals(parent.getParticipant(), RecursiveParticipantApplied.this.getParticipant()) && ListSequence.fromList(parent.getInitialStates()).containsSequence(ListSequence.fromList(RecursiveParticipantApplied.this.getInitialStates())) && ListSequence.fromList(((List<Object>) RecursiveParticipantApplied.this.getInitialStates())).containsSequence(ListSequence.fromList(parent.getInitialStates()));
           }
         })) {
-          // todo:checkedexception
+          // todo: checked exception
           throw new IllegalStateException("infinite recursion detected");
         } else {
           return mapNotNull(getInitialStates(), new _FunctionTypes._return_P1_E0<List<List<RefactoringParticipant.Change<I, F>>>, List<I>>() {

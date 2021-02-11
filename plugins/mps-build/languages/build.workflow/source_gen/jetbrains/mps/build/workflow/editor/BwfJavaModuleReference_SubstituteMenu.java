@@ -49,7 +49,7 @@ public class BwfJavaModuleReference_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_ReferenceScope_w9a1py_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_w9a1py_a() {
-      // thatcastisneededforpreventtheusersfromhttps://youtrack.jetbrains.com/issue/MPS-29051
+      // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051
       super((SAbstractConcept) CONCEPTS.BwfJavaModuleReference$v1, LINKS.target$_Nc8);
     }
     @NotNull

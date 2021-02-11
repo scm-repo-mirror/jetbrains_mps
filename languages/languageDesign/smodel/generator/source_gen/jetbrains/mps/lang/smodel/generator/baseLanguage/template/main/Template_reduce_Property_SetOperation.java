@@ -55,7 +55,7 @@ public class Template_reduce_Property_SetOperation extends TemplateDeclarationBa
         for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child3);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         Collection<SNode> tlist4 = null;
@@ -70,7 +70,7 @@ public class Template_reduce_Property_SetOperation extends TemplateDeclarationBa
         for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
           tnode1.addChild(myAggregationLinks[0], child5);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         Collection<SNode> tlist6 = null;
@@ -79,7 +79,7 @@ public class Template_reduce_Property_SetOperation extends TemplateDeclarationBa
         for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
           tnode1.addChild(myAggregationLinks[0], child7);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(1, tnode1);

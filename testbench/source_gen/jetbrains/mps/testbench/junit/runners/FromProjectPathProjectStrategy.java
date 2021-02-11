@@ -38,7 +38,7 @@ public class FromProjectPathProjectStrategy extends ProjectStrategyBase {
 
   @NotNull
   private Project openProjectIfNotAlreadyOpened(Environment env) {
-    // Convertprojectpathtoabsolute
+    // Convert project path to absolute
     File projectFile = new File(myProjectPath).getAbsoluteFile();
     Project openedProject = ((EnvironmentBase) env).getOpenedProject(projectFile);
     if (openedProject == null) {
@@ -51,7 +51,7 @@ public class FromProjectPathProjectStrategy extends ProjectStrategyBase {
   @NotNull
   @Override
   public Project construct(@NotNull ComponentHost mpsPlatform, @NotNull Project project) {
-    // donothing
+    // do nothing
     return project;
   }
 

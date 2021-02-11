@@ -13,7 +13,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
   @Nullable
   @Override
   public Tuples._2<Integer, byte[]> mergeContents(FileContent baseContent, FileContent localContent, FileContent latestContent) {
-    // TODO:addtextmergercallforSVNcommandlinetool
+    // TODO: add text merger call for SVN command line tool
     return null;
   }
 }

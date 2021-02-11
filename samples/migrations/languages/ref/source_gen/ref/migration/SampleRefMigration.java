@@ -54,7 +54,7 @@ public class SampleRefMigration extends MigrationScriptBase {
     return null;
   }
   public void doExecute(final SModule m) {
-    // migrateeverythingexceptmigrationaspects
+    // migrate everything except migration aspects
     SearchScope searchScope = new ConditionalScope(new ModulesScope(m), null, new Condition<SModel>() {
       public boolean met(SModel it) {
         return !(SModuleOperations.isAspect(it, "migration"));
@@ -70,24 +70,24 @@ public class SampleRefMigration extends MigrationScriptBase {
         }
       };
 
-      // getalloldreferencesinallmodelsofthismodule
+      // get all old references in all models of this module
       List<SNode> references = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.OldComponentRef$jA, true)).toListSequence();
 
-      // cacheforreadingdataannotations
+      // cache for reading data annotations
       final Map<SModule, Map<String, String>> idMaps = MapSequence.fromMap(new HashMap<SModule, Map<String, String>>());
 
-      // foreachfoundoldreference
+      // for each found old reference
       ListSequence.fromList(references).visitAll(new IVisitor<SNode>() {
         public void visit(SNode oldNode) {
-          // createanewone,leavethereferencetargetempty
+          // create a new one, leave the reference target empty
           SNode newNode = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xd3d2b6e3a4b343d5L, 0xbb29420d39fa86abL, 0x6aff2c104932a6c9L, "ref.structure.NewComponentRef"));
 
-          // findthetargetoftheoldreferenceanditscontainingmodel
+          // find the target of the old reference and its containing model
           SReference oldRef = oldNode.getReference(LINKS.target$f69e);
           SModel targetModel = oldRef.getTargetSModelReference().resolve(m.getRepository());
           SModule targetModule = targetModel.getModule();
 
-          // gettheidofthecomponentthattheoldcomponenthasbeenmigratedinto
+          // get the id of the component that the old component has been migrated into
           if (MapSequence.fromMap(idMaps).get(targetModule) == null) {
             Map<String, String> idMap = MapSequence.fromMap(new HashMap<String, String>());
             for (SNode dataAnnotation : ListSequence.fromList(getDeclData(targetModule))) {
@@ -100,13 +100,13 @@ public class SampleRefMigration extends MigrationScriptBase {
             return;
           }
 
-          // getthenewcomponentinstance
+          // get the new component instance
           SNode newTarget = targetModel.getNode(PersistenceFacade.getInstance().createNodeId(newId));
 
-          // setthereferencetopointtoit
+          // set the reference to point to it
           SLinkOperations.setTarget(newNode, LINKS.target$gbwQ, (SNode) newTarget);
 
-          // replacetheoldreferenceinthemodelwiththenewlycreatedone
+          // replace the old reference in the model with the newly created one
           SNodeOperations.replaceWithAnother(oldNode, newNode);
         }
       });

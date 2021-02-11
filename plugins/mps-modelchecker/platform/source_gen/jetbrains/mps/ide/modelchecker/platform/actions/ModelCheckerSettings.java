@@ -35,7 +35,7 @@ public class ModelCheckerSettings implements PersistentStateComponent<ModelCheck
   }
 
   public static ModelCheckerSettings getInstance() {
-    // XXXaslongasclientsqueryspecificcheckersforagivenproject,shallbecomeaprojectservice,perhaps?
+    // XXX as long as clients query specific checkers for a given project, shall become a project service, perhaps?
     return ApplicationManager.getApplication().getService(ModelCheckerSettings.class);
   }
 

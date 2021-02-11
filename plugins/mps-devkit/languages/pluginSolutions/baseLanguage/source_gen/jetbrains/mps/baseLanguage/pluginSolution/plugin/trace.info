@@ -956,7 +956,7 @@
       <unit id="2370003301088191" at="29,0,115,0" name="jetbrains.mps.baseLanguage.pluginSolution.plugin.ExtractMethod_Action" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="2370003301088191" at="26,27,27,42" concept="4" />
+      <node id="2370003301088191" at="26,29,27,42" concept="4" />
     </file>
   </root>
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/2370003301088263">
@@ -3644,10 +3644,10 @@
   <root nodeRef="r:dfc27cab-2d08-4c79-ac99-e95209e18392(jetbrains.mps.baseLanguage.pluginSolution.plugin)/5300313260164424007">
     <file name="Mac_10_5_KeymapChanges.java">
       <node id="5300313260164424007" at="11,35,12,13" concept="12" />
-      <node id="5300313260164424007" at="12,13,13,31" concept="12" />
-      <node id="3505395887578881034" at="13,31,14,185" concept="4" />
-      <node id="5300313260164424007" at="14,185,15,26" concept="12" />
-      <node id="5300313260164424007" at="15,26,16,14" concept="12" />
+      <node id="5300313260164424007" at="12,13,13,33" concept="12" />
+      <node id="3505395887578881034" at="13,33,14,185" concept="4" />
+      <node id="5300313260164424007" at="14,185,15,27" concept="12" />
+      <node id="5300313260164424007" at="15,27,16,14" concept="12" />
       <node id="5300313260164424007" at="18,29,19,28" concept="11" />
       <node id="5300313260164424007" at="21,53,22,70" concept="11" />
       <node id="5300313260164424007" at="18,0,21,0" concept="9" trace="getScheme#()Ljava/lang/String;" />
@@ -3680,8 +3680,8 @@
       <node id="6573807532044006789" at="19,126,20,119" concept="4" />
       <node id="6573807532044006777" at="20,119,21,121" concept="4" />
       <node id="2738433904382592287" at="21,121,22,132" concept="4" />
-      <node id="5300313260164424437" at="22,132,23,26" concept="12" />
-      <node id="5300313260164424437" at="23,26,24,14" concept="12" />
+      <node id="5300313260164424437" at="22,132,23,27" concept="12" />
+      <node id="5300313260164424437" at="23,27,24,14" concept="12" />
       <node id="5300313260164424437" at="26,29,27,22" concept="11" />
       <node id="5300313260164424437" at="29,53,30,70" concept="11" />
       <node id="5300313260164424437" at="26,0,29,0" concept="9" trace="getScheme#()Ljava/lang/String;" />
@@ -3915,7 +3915,7 @@
     <file name="PluginSolution_ApplicationPlugin.java">
       <node id="7162597690965088109" at="15,0,16,0" concept="5" trace="myId" />
       <node id="7162597690965088109" at="21,27,22,16" concept="11" />
-      <node id="7162597690965088109" at="25,30,26,27" concept="12" />
+      <node id="7162597690965088109" at="25,30,26,29" concept="12" />
       <node id="7162597690965088109" at="39,40,40,13" concept="12" />
       <node id="7162597690965088109" at="50,48,51,92" concept="10" />
       <node id="7162597690965088109" at="53,72,54,15" concept="11" />

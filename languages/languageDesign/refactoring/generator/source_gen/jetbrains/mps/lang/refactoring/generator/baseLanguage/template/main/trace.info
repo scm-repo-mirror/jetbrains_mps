@@ -162,8 +162,8 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c8959031a(jetbrains.mps.lang.refactoring.generator.baseLanguage.template.main@generator)/3221607489886518483">
     <file name="QueriesGenerated.java">
       <node id="7356053917602964435" at="68,84,69,96" concept="4" />
-      <node id="8100708479158694804" at="147,94,148,72" concept="5" />
-      <node id="8100708479158496699" at="148,72,149,116" concept="4" />
+      <node id="8100708479158694804" at="147,94,148,78" concept="5" />
+      <node id="8100708479158496699" at="148,78,149,116" concept="4" />
       <node id="3221607489886520481" at="265,56,266,56" concept="1" />
       <node id="3221607489886520481" at="290,15,291,59" concept="4" />
       <node id="7356053917602985058" at="572,60,573,85" concept="1" />

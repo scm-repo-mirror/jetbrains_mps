@@ -92,7 +92,7 @@ public class Template_map_SquaredList extends TemplateDeclarationBase {
                             environment.associate(tnode9, myAssociationLinks[0], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~System");
                             environment.associate(tnode9, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~System.out");
                             tnode8.addChild(myAggregationLinks[0], tnode9);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                           {
                             final SNode tnode10 = environment.createOutputNode(myConcepts[6]);
@@ -115,45 +115,45 @@ public class Template_map_SquaredList extends TemplateDeclarationBase {
                                             final SNode tnode14 = environment.createOutputNode(myConcepts[8]);
                                             SNodeAccessUtil.setPropertyValue(tnode14, myProperties[1], QueriesGenerated.propertyMacro_GetValue_2_0(new PropertyMacroContext(context12, "parentName", propertyMacro_inb1mm_c0a2a0a1a1a1a1a1a1a1a2a1a2a1a1a6a11a3a1a1a2a1a3a2a5)));
                                             tnode13.addChild(myAggregationLinks[1], tnode14);
-                                            // TODOvalidatechild
+                                            // TODO validate child
                                           }
                                           {
                                             final SNode tnode15 = environment.createOutputNode(myConcepts[8]);
                                             SNodeAccessUtil.setPropertyValue(tnode15, myProperties[1], QueriesGenerated.propertyMacro_GetValue_2_1(new PropertyMacroContext(context12, "counter", propertyMacro_inb1mm_c0a2a0a1a2a1a1a1a1a1a2a1a2a1a1a6a11a3a1a1a2a1a3a2a5)));
                                             tnode13.addChild(myAggregationLinks[2], tnode15);
-                                            // TODOvalidatechild
+                                            // TODO validate child
                                           }
                                         }
                                         tnode12.addChild(myAggregationLinks[1], tnode13);
-                                        // TODOvalidatechild
+                                        // TODO validate child
                                       }
                                       {
                                         final SNode tnode16 = environment.createOutputNode(myConcepts[9]);
                                         SNodeAccessUtil.setPropertyValue(tnode16, myProperties[2], QueriesGenerated.propertyMacro_GetValue_2_2(new PropertyMacroContext(context11, "1", propertyMacro_inb1mm_c0a2a0a1a2a1a1a1a2a1a2a1a1a6a11a3a1a1a2a1a3a2a5)));
                                         tnode12.addChild(myAggregationLinks[2], tnode16);
-                                        // TODOvalidatechild
+                                        // TODO validate child
                                       }
                                     }
                                     tnode11.addChild(myAggregationLinks[1], tnode12);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                   {
                                     final SNode tnode17 = environment.createOutputNode(myConcepts[9]);
                                     SNodeAccessUtil.setPropertyValue(tnode17, myProperties[2], QueriesGenerated.propertyMacro_GetValue_2_3(new PropertyMacroContext(context10, "2", propertyMacro_inb1mm_c0a2a0a1a2a1a2a1a2a1a1a6a11a3a1a1a2a1a3a2a5)));
                                     tnode11.addChild(myAggregationLinks[2], tnode17);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                 }
                                 tnode10.addChild(myAggregationLinks[3], tnode11);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode8.addChild(myAggregationLinks[4], tnode10);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode7.addChild(myAggregationLinks[5], tnode8);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tlist6.add(tnode7);
@@ -164,30 +164,30 @@ public class Template_map_SquaredList extends TemplateDeclarationBase {
                 for (SNode child18 : TemplateUtil.asNotNull(tlist4)) {
                   tnode3.addChild(myAggregationLinks[6], child18);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[7], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode19 = environment.createOutputNode(myConcepts[10]);
             tnode2.addChild(myAggregationLinks[8], tnode19);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode20 = environment.createOutputNode(myConcepts[11]);
             tnode2.addChild(myAggregationLinks[9], tnode20);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[10], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode21 = environment.createOutputNode(myConcepts[10]);
         tnode1.addChild(myAggregationLinks[8], tnode21);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     sink.add(null, TemplateUtil.singletonList(tnode1));

@@ -22,8 +22,8 @@ public class PropEscapeUtil {
     StringBuilder outBuffer = new StringBuilder(bufLen);
     for (int x = 0; x < len; x++) {
       char aChar = text.charAt(x);
-      // Handlecommoncasefirst,selectinglargestblockthat
-      // avoidsthespecialsbelow
+      //  Handle common case first, selecting largest block that
+      //  avoids the specials below
       if ((aChar > 61) && (aChar < 127)) {
         if (aChar == '\\') {
           outBuffer.append('\\');
@@ -57,11 +57,11 @@ public class PropEscapeUtil {
           outBuffer.append('f');
           break;
         case '=':
-          // Fallthrough
+          //  Fall through
         case ':':
-          // Fallthrough
+          //  Fall through
         case '#':
-          // Fallthrough
+          //  Fall through
         case '!':
           outBuffer.append('\\');
           outBuffer.append(aChar);

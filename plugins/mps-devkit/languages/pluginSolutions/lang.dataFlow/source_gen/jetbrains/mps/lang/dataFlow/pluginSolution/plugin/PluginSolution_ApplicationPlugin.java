@@ -19,7 +19,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new PrintDFAResult_Action());
     addAction(new PrintInitializationInformation_Action());
     addAction(new PrintReachingDefinintionsInformation_Action());

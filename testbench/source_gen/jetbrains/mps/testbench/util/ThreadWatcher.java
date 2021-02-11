@@ -26,7 +26,7 @@ public class ThreadWatcher implements Output {
     static {
       final StringBuilder builder = new StringBuilder();
 
-      // ---------Javathreads-----------
+      // --------- Java threads -----------
       builder.append("(AWT\\-.*)");
       builder.append("|(Image Fetch.*)");
       builder.append("|(Finalizer.*)");
@@ -38,17 +38,17 @@ public class ThreadWatcher implements Output {
       // java.util.Timer
       builder.append("|(Timer\\-.*)");
 
-      // Java9+Cleanerthread
+      // Java 9+ Cleaner thread
       builder.append("|(Common-Cleaner)");
       // --------------------------------
 
 
-      // ----IntelliJPlatformthreads---
+      // ---- IntelliJ Platform threads ---
 
       // com.intellij.util.Alarm
       builder.append("|(Alarm Pool)");
 
-      // noideawhythisthreadhangs
+      // no idea why this thread hangs
       builder.append("|(AWT.*)");
 
       // com.intellij.openapi.vfs.newvfs.persistent.FlushingDaemon
@@ -84,7 +84,7 @@ public class ThreadWatcher implements Output {
       // --------------------------------
 
 
-      // -----------MPSthreads----------
+      // ----------- MPS threads ----------
 
       // jetbrains.mps.smodel.TryRunPlatformWriteHelper
       builder.append("|(MPS interrupting thread)");
@@ -104,23 +104,23 @@ public class ThreadWatcher implements Output {
       // jetbrains.mps.nodeEditor.Highlighter#startUpdater
       builder.append("|(Highlighter)");
 
-      // jetbrains.mps.editor.runtime#HighlightUsagesSupport
+      // jetbrains.mps.editor.runtime#HighlightUsagesSupport 
       builder.append("|(HighlightUsages)");
       // --------------------------------
 
 
-      // ------Other&unsortedthreads-----
+      // ------ Other & unsorted threads -----
 
       builder.append("|(Keep\\-Alive.*)");
       builder.append("|(AnimatorThread)");
 
-      // macOSspecificthread
+      // macOS specific thread
       builder.append("|(Poller SunPKCS11-Darwin)");
 
-      // Linuxspecificthread
+      // Linux specific thread
       builder.append("|(process reaper)");
 
-      // org.apache.batik.util.CleanerThreadfrombatik-utillibrary
+      // org.apache.batik.util.CleanerThread from batik-util library
       builder.append("|(Batik CleanerThread)");
 
       // org.jetbrains.io.BuiltInServer

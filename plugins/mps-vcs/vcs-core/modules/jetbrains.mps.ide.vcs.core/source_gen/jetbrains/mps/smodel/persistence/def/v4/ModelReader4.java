@@ -47,13 +47,13 @@ public class ModelReader4 implements IModelReader {
       String languageNamespace = element.getAttributeValue(VCSPersistenceSupport.NAMESPACE);
       new SModelLegacy(model).addLanguage(PersistenceFacade.getInstance().createModuleReference(languageNamespace));
       List<Element> aspectElements = element.getChildren(VCSPersistenceSupport.LANGUAGE_ASPECT);
-      // aspectmodelsversions
+      // aspect models versions
       readLanguageAspects(model, aspectElements);
     }
-    // additionalaspects
+    // additional aspects
     List<Element> aspectElements = rootElement.getChildren(VCSPersistenceSupport.LANGUAGE_ASPECT);
     readLanguageAspects(model, aspectElements);
-    // languagesengagedongeneration
+    // languages engaged on generation
     List languagesEOG = rootElement.getChildren(VCSPersistenceSupport.LANGUAGE_ENGAGED_ON_GENERATION);
     for (Object languageEOG : languagesEOG) {
       Element element = (Element) languageEOG;
@@ -75,7 +75,7 @@ public class ModelReader4 implements IModelReader {
       int importIndex = Integer.parseInt(indexValue);
       String importedModelUIDString = element.getAttributeValue(VCSPersistenceSupport.MODEL_UID);
       if (importedModelUIDString == null) {
-        // readinoldmanner...
+        // read in old manner...
         importedModelUIDString = getLegacyImportedModelUIDString(element);
       }
       if (importedModelUIDString == null) {
@@ -104,7 +104,7 @@ public class ModelReader4 implements IModelReader {
   }
   protected void readRefactorings(Element rootElement, DefaultSModel model) {
     rootElement.getChild("refactoringHistory");
-    // no-op,wedonotcareaboutrefactoringsinthatoldpersistenceversions
+    // no-op, we do not care about refactorings in that old persistence versions
   }
   protected void readLanguageAspects(DefaultSModel model, List<Element> aspectElements) {
     for (Element aspectElement : aspectElements) {

@@ -27,7 +27,7 @@ public class ShowInLogicalView extends AbstractVcsAction {
       return;
     }
     FileSelectInContext ctx = new FileSelectInContext(pp.getProject(), selectedFile);
-    // Iassumethisisanactionwhenuserwant'stogettothenodeinProjectPane,notjustrevealit,hencerequestFocus==true
+    // I assume this is an action when user want's to get to the node in ProjectPane, not just reveal it, hence requestFocus == true
     pp.createSelectInTarget().selectIn(ctx, true);
   }
 

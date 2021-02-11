@@ -18,16 +18,16 @@ public class TextUtil {
   public TextUtil() {
   }
   public static void fixText(SModel model) {
-    // getallstringsfromthemodel
+    // get all strings from the model
     List<SNode> strings = SModelOperations.nodes(model, CONCEPTS.StringLiteral$xu);
-    // getallMPSstrings
+    // get all MPS strings
     Iterable<SNode> mpses = ListSequence.fromList(strings).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SPropertyOperations.getString(it, PROPS.value$w7MM).startsWith("MPS");
       }
     });
     for (SNode mps : Sequence.fromIterable(mpses)) {
-      // convert"MPS"-->"JetBrainsMPS"
+      // convert "MPS" --> "JetBrains MPS"
       SPropertyOperations.assign(mps, PROPS.value$w7MM, "JetBrains " + SPropertyOperations.getString(mps, PROPS.value$w7MM));
     }
   }

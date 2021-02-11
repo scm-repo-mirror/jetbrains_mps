@@ -46,7 +46,7 @@ public class Template_reduce_RoutineCall extends TemplateDeclarationBase {
           }
         });
         tnode1.addChild(myAggregationLinks[0], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(1, tnode1);

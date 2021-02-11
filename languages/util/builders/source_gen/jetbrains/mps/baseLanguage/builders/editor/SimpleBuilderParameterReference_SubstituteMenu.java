@@ -49,7 +49,7 @@ public class SimpleBuilderParameterReference_SubstituteMenu extends SubstituteMe
   public class SMP_ReferenceScope_b5ripy_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_b5ripy_a() {
-      // thatcastisneededforpreventtheusersfromhttps://youtrack.jetbrains.com/issue/MPS-29051
+      // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051
       super((SAbstractConcept) CONCEPTS.SimpleBuilderParameterReference$6D, LINKS.parameter$k4uF);
     }
     @NotNull

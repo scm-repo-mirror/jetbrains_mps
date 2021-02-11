@@ -41,8 +41,8 @@ public class ContextClassifiersInRoot {
   }
 
   public Map<String, String> getContextClassifiers(SNode contextNode) {
-    // onlyAnonymousClasshasClassifierasreference
-    // todo:makeitclearer
+    // only AnonymousClass has Classifier as reference
+    // todo: make it clearer
     if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.IAnonymousClass$IC)) {
       contextNode = SNodeOperations.getParent(contextNode);
     }
@@ -53,7 +53,7 @@ public class ContextClassifiersInRoot {
       return Collections.emptyMap();
     }
 
-    // findfirstclassifierinpath
+    // find first classifier in path
     SContainmentLink sourceChildRole = null;
     while ((contextNode != null) && !(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Classifier$Ix))) {
       sourceChildRole = contextNode.getContainmentLink();
@@ -61,7 +61,7 @@ public class ContextClassifiersInRoot {
     }
 
     if ((contextNode == null)) {
-      // todo:impossible?
+      // todo: impossible?
       return Collections.emptyMap();
     }
 
@@ -87,7 +87,7 @@ public class ContextClassifiersInRoot {
           }
         }
 
-        // todo:isittrue?hadabugwithit.Looklikenestedclassifierhasmoreprioritythenclasswithsamename
+        // todo: is it true? had a bug with it. Look like nested classifier has more priority then class with same name
         addClassifierToBindingMap(bindings, SNodeOperations.cast(current, CONCEPTS.Classifier$Ix));
         if (processNestedClassifiers) {
           for (Map.Entry<String, String> simpleToFqName : myNestedClassifiersCache.get(SNodeOperations.cast(current, CONCEPTS.Classifier$Ix)).entrySet()) {
@@ -98,8 +98,8 @@ public class ContextClassifiersInRoot {
         }
       }
 
-      // todo:specializedlinks?
-      // shouldnotbeaproblem:superclass/extendedInterface/implementedInterfacenotspecialized
+      // todo: specialized links?
+      // should not be a problem: superclass/extendedInterface/implementedInterface not specialized
       sourceChildRole = current.getContainmentLink();
       current = SNodeOperations.getParent(current);
     }
@@ -108,10 +108,10 @@ public class ContextClassifiersInRoot {
   }
 
   private static Map<String, String> getNestedClassifiers(SNode classifier) {
-    // returnsmapfromsimpleNametofqName
+    // returns map from simpleName to fqName
     Map<String, String> nestedClassifiers = new HashMap<String, String>();
 
-    // todo:classifierswithsamenamesindifferentsupertypes?
+    // todo: classifiers with same names in different supertypes?
     for (SNode superClassifier : Classifier__BehaviorDescriptor.getAllExtendedClassifiers_id2xreLMO8jma.invoke(SNodeOperations.cast(classifier, CONCEPTS.Classifier$Ix))) {
       for (SNode nestedClassifier : Classifier__BehaviorDescriptor.nestedClassifiers_id4_LVZ3pBjGQ.invoke(superClassifier)) {
         addClassifierToBindingMap(nestedClassifiers, nestedClassifier);

@@ -68,21 +68,21 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                                 final SNode tnode8 = environment.createOutputNode(myConcepts[5]);
                                 SNodeAccessUtil.setPropertyValue(tnode8, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_0(new PropertyMacroContext(context7, "0", propertyMacro_p1d51k_c0a2a0a1a2a1a1a1a1a1a1a1a1a1a1a1a1a2a6)));
                                 tnode7.addChild(myAggregationLinks[0], tnode8);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                               {
                                 final SNode tnode9 = environment.createOutputNode(myConcepts[5]);
                                 SNodeAccessUtil.setPropertyValue(tnode9, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_1(new PropertyMacroContext(context7, "0", propertyMacro_p1d51k_c0a2a0a1a3a1a1a1a1a1a1a1a1a1a1a1a1a2a6)));
                                 tnode7.addChild(myAggregationLinks[0], tnode9);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode6.addChild(myAggregationLinks[1], tnode7);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[2], tnode6);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         final SNode tnode10 = environment.createOutputNode(myConcepts[1]);
@@ -101,21 +101,21 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                                     final SNode tnode13 = environment.createOutputNode(myConcepts[5]);
                                     SNodeAccessUtil.setPropertyValue(tnode13, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_2(new PropertyMacroContext(context10, "0", propertyMacro_p1d51k_c0a2a0a1a2a1a1a1a1a1a2a1a1a1a1a1a1a1a1a2a6)));
                                     tnode12.addChild(myAggregationLinks[0], tnode13);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                   {
                                     final SNode tnode14 = environment.createOutputNode(myConcepts[5]);
                                     SNodeAccessUtil.setPropertyValue(tnode14, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_3(new PropertyMacroContext(context10, "0", propertyMacro_p1d51k_c0a2a0a1a3a1a1a1a1a1a2a1a1a1a1a1a1a1a1a2a6)));
                                     tnode12.addChild(myAggregationLinks[0], tnode14);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                 }
                                 tnode11.addChild(myAggregationLinks[3], tnode12);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode10.addChild(myAggregationLinks[4], tnode11);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                           {
                             final SNode tnode15 = environment.createOutputNode(myConcepts[6]);
@@ -125,15 +125,15 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                                 final SNode tnode16 = environment.createOutputNode(myConcepts[4]);
                                 environment.associate(tnode16, myAssociationLinks[0], "r:f5e9b11f-5073-4786-8ed1-a9e42307c3f8(JavaKaja.runtime)", "3210697320273550615");
                                 tnode15.addChild(myAggregationLinks[3], tnode16);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode10.addChild(myAggregationLinks[4], tnode15);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[5], tnode10);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         final SNode tnode17 = environment.createOutputNode(myConcepts[0]);
@@ -156,36 +156,36 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                                         final SNode tnode21 = environment.createOutputNode(myConcepts[7]);
                                         tnode21.setProperty(myProperties[1], "Cannot drop. The cell is already full.");
                                         tnode20.addChild(myAggregationLinks[0], tnode21);
-                                        // TODOvalidatechild
+                                        // TODO validate child
                                       }
                                     }
                                     tnode19.addChild(myAggregationLinks[3], tnode20);
-                                    // TODOvalidatechild
+                                    // TODO validate child
                                   }
                                 }
                                 tnode18.addChild(myAggregationLinks[4], tnode19);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                               {
                                 final SNode tnode22 = environment.createOutputNode(myConcepts[8]);
                                 tnode18.addChild(myAggregationLinks[4], tnode22);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode17.addChild(myAggregationLinks[6], tnode18);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[7], tnode17);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[4], tnode5);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[5], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode23 = environment.createOutputNode(myConcepts[9]);
@@ -200,11 +200,11 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                         final SNode tnode25 = environment.createOutputNode(myConcepts[5]);
                         SNodeAccessUtil.setPropertyValue(tnode25, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_4(new PropertyMacroContext(context17, "0", propertyMacro_p1d51k_c0a2a0a1a2a1a1a1a2a1a1a1a1a2a6)));
                         tnode24.addChild(myAggregationLinks[0], tnode25);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode23.addChild(myAggregationLinks[8], tnode24);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode26 = environment.createOutputNode(myConcepts[4]);
@@ -215,15 +215,15 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                         final SNode tnode27 = environment.createOutputNode(myConcepts[5]);
                         SNodeAccessUtil.setPropertyValue(tnode27, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_5(new PropertyMacroContext(context18, "0", propertyMacro_p1d51k_c0a2a0a1a2a1a2a1a2a1a1a1a1a2a6)));
                         tnode26.addChild(myAggregationLinks[0], tnode27);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode23.addChild(myAggregationLinks[9], tnode26);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[2], tnode23);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode28 = environment.createOutputNode(myConcepts[0]);
@@ -246,31 +246,31 @@ public class Template_reduce_DropMark extends TemplateDeclarationBase {
                                 final SNode tnode32 = environment.createOutputNode(myConcepts[7]);
                                 tnode32.setProperty(myProperties[1], "Attempted to drop marks outside of the playground!");
                                 tnode31.addChild(myAggregationLinks[0], tnode32);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode30.addChild(myAggregationLinks[3], tnode31);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode29.addChild(myAggregationLinks[4], tnode30);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode28.addChild(myAggregationLinks[6], tnode29);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[7], tnode28);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[4], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[6], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(4, tnode1);

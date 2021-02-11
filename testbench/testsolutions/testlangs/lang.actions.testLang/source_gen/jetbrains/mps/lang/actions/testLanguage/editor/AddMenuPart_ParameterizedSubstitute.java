@@ -105,7 +105,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
       @Nullable
       @Override
       protected Iterable<? extends SConcept> getParameters(SubstituteMenuContext _context) {
-        // additionalcompilationtestforallpassedparameters
+        // additional compilation test for all passed parameters
         boolean tmpVar = _context.getParentNode() != null;
         tmpVar = tmpVar && _context.getCurrentTargetNode() != null;
         tmpVar = tmpVar && _context.getLink() != null;
@@ -162,7 +162,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -188,7 +188,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           @Nullable
           @Override
           public String getMatchingText(@NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -201,7 +201,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           @Nullable
           @Override
           public String getDescriptionText(@NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -214,7 +214,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode getType(@NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -228,7 +228,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           @Nullable
           @Override
           public IconResource getIcon(@NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -240,7 +240,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
           }
           @Override
           public void select(@NotNull SNode createdNode, @NotNull String pattern) {
-            // compilationtestforallpassedparameters
+            // compilation test for all passed parameters
             boolean tmpVar = pattern != null;
             tmpVar = tmpVar && myParameterObject != null;
             tmpVar = tmpVar && _context.getParentNode() != null;
@@ -250,7 +250,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
             tmpVar = tmpVar && _context.getEditorContext() != null;
 
             if (Objects.equals(myParameterObject, CONCEPTS.ActionTestChild2$KO)) {
-              // selectingacustomcell
+              // selecting a custom cell
               _context.getEditorContext().flushEvents();
               EditorCell createdNodeCell = _context.getEditorContext().getEditorComponent().findNodeCell(createdNode);
               if (createdNodeCell != null) {
@@ -263,7 +263,7 @@ public class AddMenuPart_ParameterizedSubstitute extends SubstituteMenuBase {
               }
             }
             if (Objects.equals(myParameterObject, CONCEPTS.ActionTestChild1$4Y)) {
-              // returningnodetoselect
+              // returning node to select
               SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(createdNode, CONCEPTS.ActionTestChild1$4Y), LINKS.child1$Qqp0)).first(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
               return;
             }

@@ -50,7 +50,7 @@ public class Union_Test extends Util_Test {
       it.next();
       Assert.fail();
     } catch (NoSuchElementException e) {
-      // expectedexception
+      // expected exception
     }
   }
 }

@@ -45,8 +45,8 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
    */
   /*package*/ void setup() throws Exception {
     if (myParamCache != null) {
-      // initializesproject/modelsforthefirsttestintheclass,reuseinitializedvaluesforsubsequenttestsfromthesameclass
-      // FIXMEitseemsIcandothispopulatefromClassRuleTestParametersCacheitself,justneedtosortoutaccesstoEnvironmentvalue
+      // initializes project/models for the first test in the class, reuse initialized values for subsequent tests from the same class
+      // FIXME it seems I can do this populate from ClassRule TestParametersCache itself, just need to sort out access to Environment value
       myParamCache.initializeOnce(this, myEnvironment);
       setProject(myParamCache.getProject());
       setModelDescriptor(myParamCache.getTestModel());
@@ -91,7 +91,7 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
     try {
       clipboard.setContents(empty, empty);
     } catch (IllegalStateException ise) {
-      // thisuglytry/catchseemstobethestandardwaytoovercomesunjdkproblemwithnotavailableclipboard
+      // this ugly try/catch seems to be the standard way to overcome sun jdk problem with not available clipboard
       if (LOG.isEnabledFor(Level.WARN)) {
         LOG.warn("Could not clear the clipboard, probably it was busy", null);
       }

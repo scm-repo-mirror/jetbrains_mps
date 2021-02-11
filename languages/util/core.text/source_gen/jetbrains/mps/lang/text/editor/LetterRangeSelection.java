@@ -102,7 +102,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
   }
   public LetterRangeSelection(@NotNull EditorComponent editorComponent, @NotNull SNode firstNode, @NotNull SNode lastNode, boolean growingForward, String emptyCellId) {
     super(editorComponent);
-    // swap first and last letter if needed 
+    // swap first and last letter if needed
     Iterable<? extends SNode> letters = getChildIterable(SNodeOperations.as(SNodeOperations.getParent(firstNode), CONCEPTS.Paragraph$XF));
     for (SNode l : letters) {
       if (Objects.equals(l, firstNode)) {
@@ -156,7 +156,7 @@ public class LetterRangeSelection extends AbstractMultipleSelection {
         break;
       }
     }
-    // asserting both first/last node was in this children collection 
+    // asserting both first/last node was in this children collection
     assert withinSelection;
     assert breakLoop;
     setSelectedCells(selectedCells);

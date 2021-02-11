@@ -49,7 +49,7 @@ public class ApplicableNodeReference_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_ReferenceScope_1r0rvb_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_1r0rvb_a() {
-      // thatcastisneededforpreventtheusersfromhttps://youtrack.jetbrains.com/issue/MPS-29051
+      // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051
       super((SAbstractConcept) CONCEPTS.ApplicableNodeReference$20, LINKS.applicableNode$wFwd);
     }
     @NotNull

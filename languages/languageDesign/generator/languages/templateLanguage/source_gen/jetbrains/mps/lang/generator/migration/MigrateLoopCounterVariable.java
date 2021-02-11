@@ -55,38 +55,38 @@ public class MigrateLoopCounterVariable extends MigrationScriptBase {
           return scope_kpkuzo_a0e_0;
         }
       };
-      // Loopmacroswithdefinedcountervariable
+      // Loop macros with defined counter variable
       Iterable<SNode> loops = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.LoopMacro$1T, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return (SNodeOperations.getParent(it) != null) && isNotEmptyString(SPropertyOperations.getString(it, PROPS.counterVarName$YOXn));
         }
       });
 
-      // Listofloopmacrowhichcountervariableshouldnotbecleared
+      // List of loop macro which counter variable should not be cleared
       final Set<SNode> toNotClear = SetSequence.fromSet(new HashSet<SNode>());
 
-      // Referencestotheparentloopvariable
+      // References to the parent loop variable
       Iterable<SNode> references = Sequence.fromIterable(loops).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(final SNode loopMacro) {
           return ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getParent(loopMacro), CONCEPTS.GenerationContextOp_ContextVarRef$4q, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              // Firstchecksifnamematches
+              // First checks if name matches
               if (!(SPropertyOperations.getString(loopMacro, PROPS.counterVarName$YOXn).equals(SPropertyOperations.getString(it, PROPS.contextVarName$KIbb)))) {
                 return false;
               }
 
-              // Enclosingloopdeclaredthevariable
+              // Enclosing loop declared the variable
               boolean isDirectlyEnclosed = AbstractNodeMacroNamespace__BehaviorDescriptor.getTargetMacroOfConceptFrom_id2vVmcK3rHVe.invoke(SNodeOperations.asSConcept(CONCEPTS.LoopMacroNamespaceAccessor$DO), CONCEPTS.LoopMacro$1T, it) == loopMacro;
 
-              // UsagethroughgenContextdirectly(otherwisemorecomplextochange)
+              // Usage through genContext directly (otherwise more complex to change)
               boolean usedThroughGenContext = SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.DotExpression$yW) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(it), CONCEPTS.DotExpression$yW), LINKS.operand$w6IR), CONCEPTS.TemplateFunctionParameter_generationContext$Yo);
 
-              // Variablenamenotredeclaredbyanothernode
+              // Variable name not redeclared by another node
               boolean isNotShadowed = GenerationContextOp_ContextVarRef__BehaviorDescriptor.getVariableProvider_id3L_saXYV65L.invoke(it) == loopMacro;
 
-              // Ifremovingthecountervariableisharmful
+              // If removing the counter variable is harmful
               if ((!(isDirectlyEnclosed) || !(usedThroughGenContext)) && isNotShadowed) {
-                // Markmacroasnottobeclearedfromitsindexvariable(usagewillremain)
+                // Mark macro as not to be cleared from its index variable (usage will remain)
                 SetSequence.fromSet(toNotClear).addElement(loopMacro);
               }
 
@@ -97,7 +97,7 @@ public class MigrateLoopCounterVariable extends MigrationScriptBase {
       });
 
 
-      // Applychanges
+      // Apply changes
       Sequence.fromIterable(references).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
           SNodeOperations.replaceWithAnother(SNodeOperations.getParent(it), createLoopMacroNamespaceAccessor_kpkuzo_a0a0a0a0l0a0g(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14d5f8229234079cL, "jetbrains.mps.lang.generator.structure.LoopMacroVariable"), 0x14d5f8229234079eL, "index")));

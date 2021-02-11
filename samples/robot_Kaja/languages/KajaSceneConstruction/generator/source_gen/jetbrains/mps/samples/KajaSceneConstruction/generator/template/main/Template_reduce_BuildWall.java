@@ -64,21 +64,21 @@ public class Template_reduce_BuildWall extends TemplateDeclarationBase {
                             final SNode tnode7 = environment.createOutputNode(myConcepts[5]);
                             SNodeAccessUtil.setPropertyValue(tnode7, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_0(new PropertyMacroContext(context6, "0", propertyMacro_n5kn6a_c0a2a0a1a2a1a1a1a1a1a1a1a1a1a1a2a6)));
                             tnode6.addChild(myAggregationLinks[0], tnode7);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                           {
                             final SNode tnode8 = environment.createOutputNode(myConcepts[5]);
                             SNodeAccessUtil.setPropertyValue(tnode8, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_1(new PropertyMacroContext(context6, "0", propertyMacro_n5kn6a_c0a2a0a1a3a1a1a1a1a1a1a1a1a1a1a2a6)));
                             tnode6.addChild(myAggregationLinks[0], tnode8);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode5.addChild(myAggregationLinks[1], tnode6);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[2], tnode5);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode9 = environment.createOutputNode(myConcepts[3]);
@@ -88,20 +88,20 @@ public class Template_reduce_BuildWall extends TemplateDeclarationBase {
                         final SNode tnode10 = environment.createOutputNode(myConcepts[4]);
                         environment.associate(tnode10, myAssociationLinks[0], "r:f5e9b11f-5073-4786-8ed1-a9e42307c3f8(JavaKaja.runtime)", "3210697320273550615");
                         tnode9.addChild(myAggregationLinks[1], tnode10);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode4.addChild(myAggregationLinks[2], tnode9);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode11 = environment.createOutputNode(myConcepts[6]);
                     tnode4.addChild(myAggregationLinks[2], tnode11);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[3], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode12 = environment.createOutputNode(myConcepts[7]);
@@ -116,11 +116,11 @@ public class Template_reduce_BuildWall extends TemplateDeclarationBase {
                         final SNode tnode14 = environment.createOutputNode(myConcepts[5]);
                         SNodeAccessUtil.setPropertyValue(tnode14, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_2(new PropertyMacroContext(context9, "0", propertyMacro_n5kn6a_c0a2a0a1a2a1a1a1a2a1a1a1a1a2a6)));
                         tnode13.addChild(myAggregationLinks[0], tnode14);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode12.addChild(myAggregationLinks[4], tnode13);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     final SNode tnode15 = environment.createOutputNode(myConcepts[4]);
@@ -131,15 +131,15 @@ public class Template_reduce_BuildWall extends TemplateDeclarationBase {
                         final SNode tnode16 = environment.createOutputNode(myConcepts[5]);
                         SNodeAccessUtil.setPropertyValue(tnode16, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_3(new PropertyMacroContext(context10, "0", propertyMacro_n5kn6a_c0a2a0a1a2a1a2a1a2a1a1a1a1a2a6)));
                         tnode15.addChild(myAggregationLinks[0], tnode16);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode12.addChild(myAggregationLinks[5], tnode15);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[6], tnode12);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode17 = environment.createOutputNode(myConcepts[0]);
@@ -162,31 +162,31 @@ public class Template_reduce_BuildWall extends TemplateDeclarationBase {
                                 final SNode tnode21 = environment.createOutputNode(myConcepts[8]);
                                 tnode21.setProperty(myProperties[1], "Attempted to build wall outside of the playground!");
                                 tnode20.addChild(myAggregationLinks[0], tnode21);
-                                // TODOvalidatechild
+                                // TODO validate child
                               }
                             }
                             tnode19.addChild(myAggregationLinks[1], tnode20);
-                            // TODOvalidatechild
+                            // TODO validate child
                           }
                         }
                         tnode18.addChild(myAggregationLinks[2], tnode19);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode17.addChild(myAggregationLinks[7], tnode18);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[8], tnode17);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[2], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[7], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);

@@ -127,8 +127,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return repository;
   }
   public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
-    // ratherwegenerateinlang.descriptorrefstoallILanguageAspectinstancesinallofthemodelsinthemodule,
-    // thenweuseweaves/reductionstousethisreferencesinordertorestorethereftothe<GeneratedAspectDescriptor>.
+    // rather we generate in lang.descriptor refs to all ILanguageAspect instances in all of the models in the module,
+    // then we use weaves/reductions to use this references in order to restore the ref to the <GeneratedAspectDescriptor>.
     // 
     return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.language$rnIG), LINKS.model$2Sf4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {

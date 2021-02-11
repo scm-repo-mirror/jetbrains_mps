@@ -56,13 +56,13 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
       addNodeById("3613779214163138347");
       ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("3613779214163202937"));
 
-      // Addparams
+      // Add params
       SNode doubleParam = _quotation_createNode_49gob3_a0f0d7();
       SNode nodeParam = _quotation_createNode_49gob3_a0g0d7();
       ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).insertElement(0, doubleParam);
       ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj)).addElement(nodeParam);
 
-      // Adddefaultvalues
+      // Add default values
       Map<SNode, SNode> defaultValues = MapSequence.fromMap(new HashMap<SNode, SNode>());
       MapSequence.fromMap(defaultValues).put(doubleParam, _quotation_createNode_49gob3_a0m0d7());
       MapSequence.fromMap(defaultValues).put(nodeParam, _quotation_createNode_49gob3_a0n0d7());
@@ -72,7 +72,7 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
       ListSequence.fromList(usages).addElement(getNodeById("3613779214163208652"));
       ListSequence.fromList(usages).addElement(getNodeById("3613779214163202948"));
 
-      // Createrefactoringandaddusages
+      // Create refactoring and add usages
       ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3613779214163202937"), defaultValues);
       ref.setUsages(usages);
 

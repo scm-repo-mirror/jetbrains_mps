@@ -28,7 +28,7 @@ public class MethodParameterMatcher {
   public MethodParameterMatcher(List<SNode> methodParameters, List<SNode> callParams) {
     myMethodParams = methodParameters;
 
-    // Gettypetosettofuturenewparameters
+    // Get type to set to future new parameters
     myCallParamTypes = ListSequence.fromList(callParams).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         SNode argType = (it != null && !(SNodeOperations.getConcept(it).isAbstract()) ? TypecheckingFacade.getFromContext().getTypeOf(it) : createClassifierType_7zrs51_a0a0a0a0a0d0d());
@@ -53,7 +53,7 @@ public class MethodParameterMatcher {
    * @return two arrays, first the index of mapped call param for each method param, then the index of mapped method param for each call param
    */
   public Tuples._2<Integer[], Integer[]> findAppropriateMatching() {
-    // Listcompatiblecallvaluesforeachmethodparameter
+    // List compatible call values for each method parameter
     Integer[][] compatiblesValues = ListSequence.fromList(myMethodParams).select(new ISelector<SNode, Integer[]>() {
       public Integer[] select(SNode param) {
         List<Integer> typesIndexes = ListSequence.fromList(new ArrayList<Integer>());
@@ -67,7 +67,7 @@ public class MethodParameterMatcher {
     }).toGenericArray(Integer[].class);
 
 
-    // Mappingsfromoriginalmethodparameterstocallparameters
+    // Mappings from original method parameters to call parameters
     Integer[] methodParamMappedTo = ListSequence.fromList(myMethodParams).select(new ISelector<SNode, Integer>() {
       public Integer select(SNode it) {
         return as_7zrs51_a0a0a0a0a0a0f0f(-1, Integer.class);
@@ -80,10 +80,10 @@ public class MethodParameterMatcher {
     }).toGenericArray(Integer.class);
 
 
-    // Initializetheflow
+    // Initialize the flow
     initFlow(compatiblesValues, methodParamMappedTo, callParamMappedFrom);
 
-    // Improvethemappingasmuchaspossible
+    // Improve the mapping as much as possible
     while (improve(compatiblesValues, methodParamMappedTo, callParamMappedFrom)) {
       continue;
     }
@@ -116,17 +116,17 @@ public class MethodParameterMatcher {
    * @param callParamMappedFrom list of indexes of the method parameter mapped to each call parameter
    */
   private void initFlow(Integer[][] compatiblesParams, Integer[] methodParamMappedTo, Integer[] callParamMappedFrom) {
-    // Naturalcompletionoftheparameters(assignthefirstcallparamavailableforeachmethodparam)
+    // Natural completion of the parameters (assign the first call param available for each method param)
     for (int sourceMethodParam = 0; sourceMethodParam < compatiblesParams.length; sourceMethodParam += 1) {
-      // Loopoverpossiblesuccessors
+      // Loop over possible successors
       for (int targetCallParam : compatiblesParams[sourceMethodParam]) {
-        // Findacompatibleparameterthatwearesurewasnotused
+        // Find a compatible parameter that we are sure was not used
         if (callParamMappedFrom[targetCallParam] == -1) {
-          // Mapbothparameters
+          // Map both parameters
           methodParamMappedTo[sourceMethodParam] = targetCallParam;
           callParamMappedFrom[targetCallParam] = sourceMethodParam;
 
-          // Breakcurrentloop
+          // Break current loop
           break;
         }
       }
@@ -147,19 +147,19 @@ public class MethodParameterMatcher {
    * @return true if an improvement has been made
    */
   private boolean improve(Integer[][] compatiblesParams, Integer[] methodParamMappedTo, Integer[] callParamMappedFrom) {
-    // Callparamvaluesarestoredaftermethodparam
+    // Call param values are stored after method param
     int callParamOffset = methodParamMappedTo.length;
 
-    // Markvisitednodes,indexabovecallParamOffsetrepresentthe(index-callParamOffset)thcallparameter
+    // Mark visited nodes, index above callParamOffset represent the (index - callParamOffset)th call parameter
     boolean[] visited = new boolean[methodParamMappedTo.length + callParamMappedFrom.length];
     int[] parents = new int[methodParamMappedTo.length + callParamMappedFrom.length];
 
-    // Nonmappedcallparameterreached
+    // Non mapped call parameter reached
     int finalNode = -1;
 
     LinkedList<Integer> queue = new LinkedList<Integer>();
 
-    // Startbyaddingeveryparameterthatarenotmappedyet
+    // Start by adding every parameter that are not mapped yet
     for (int i = 0; i < methodParamMappedTo.length; i += 1) {
       if (methodParamMappedTo[i] < 0) {
         queue.add(i);
@@ -168,13 +168,13 @@ public class MethodParameterMatcher {
       }
     }
 
-    // Processthequeue(findaimprovingpathtoanonmappedcallparameter)
+    // Process the queue (find a improving path to a non mapped call parameter)
     while (!(queue.isEmpty()) && finalNode == -1) {
       int current = queue.poll();
 
-      // Methodparameter
+      // Method parameter
       if (current < callParamOffset) {
-        // Addallnonvisitedsuccessors(callparameters)tothequeue
+        // Add all non visited successors (call parameters) to the queue
         for (int next : compatiblesParams[current]) {
           int nextIndex = next + callParamOffset;
           if (methodParamMappedTo[current] != next && !(visited[nextIndex])) {
@@ -184,32 +184,32 @@ public class MethodParameterMatcher {
           }
         }
       } else {
-        // Otherwise->callparameter
+        // Otherwise -> call parameter
         Integer mappedFrom = callParamMappedFrom[current - callParamOffset];
         if (mappedFrom >= 0 && !(visited[mappedFrom])) {
-          // Ifalreadymapped,whecantrytoreversethemapping
+          // If already mapped, whe can try to reverse the mapping
           queue.add(mappedFrom);
           visited[mappedFrom] = true;
           parents[mappedFrom] = current;
         } else if (mappedFrom < 0) {
-          // Unmappedcallparameterreached!Whecanapplythepathandstoptheloop
+          // Unmapped call parameter reached ! Whe can apply the path and stop the loop
           finalNode = current;
         }
       }
     }
 
-    // Iffinalnodefound
+    // If final node found
     if (finalNode != -1) {
       int node = finalNode;
 
-      // Applyimprovementwhileaparentisdefined
-      // AnalogtotheFord-Fulkersonmethod,-1wouldbethestartnode
+      // Apply improvement while a parent is defined
+      // Analog to the Ford-Fulkerson method, -1 would be the start node
       while (node != -1) {
         int parent = parents[node];
-        // Incasetheparentnodeisamethodparameter(method->calllink)
+        // In case the parent node is a method parameter (method -> call link)
         if (parent >= 0 && parent < callParamOffset) {
-          // Addlinkfromparent(methodparam)tonode(callparam)
-          // Thiswilloverwritepreviouslinks
+          // Add link from parent (method param) to node (call param)
+          // This will overwrite previous links
           callParamMappedFrom[node - callParamOffset] = parent;
           methodParamMappedTo[parent] = node - callParamOffset;
         }

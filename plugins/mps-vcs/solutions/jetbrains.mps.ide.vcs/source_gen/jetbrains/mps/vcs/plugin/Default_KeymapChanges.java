@@ -13,7 +13,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
     // simple
     addSimpleShortcut("jetbrains.mps.vcs.plugin.ShowNodeDifference_Action", getShortcut("ctrl D"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

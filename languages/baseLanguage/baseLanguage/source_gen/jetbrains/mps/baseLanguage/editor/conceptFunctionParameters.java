@@ -77,7 +77,7 @@ public class conceptFunctionParameters extends SubstituteMenuBase {
     @Override
     protected Iterable<? extends SConcept> getParameters(SubstituteMenuContext _context) {
       List<SNode> functions = SNodeOperations.getNodeAncestors(_context.getParentNode(), CONCEPTS.ConceptFunction$mf, false);
-      // skipClosure
+      // skip Closure
       SNode parentFunction = ListSequence.fromList(functions).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return !(SNodeOperations.isInstanceOf(it, CONCEPTS.Closure$yC));

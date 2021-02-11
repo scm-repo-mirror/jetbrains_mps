@@ -74,7 +74,7 @@ public class NodeIdChange extends StructureChange {
     SModel oldModel = changeSet.getOldModel();
     SNode node = oldModel.getNode(parentNodeId);
     if (node == null) {
-      // Idon'tfullyunderstandhowthiscanhappen
+      // I don't fully understand how this can happen
       return null;
     }
     SNode containingRoot = node.getContainingRoot();
@@ -107,7 +107,7 @@ public class NodeIdChange extends StructureChange {
 
   @Override
   public boolean isNonConflicting() {
-    // itisaquestionifweshouldusemorecomplicatedsolutionhere
+    // it is a question if we should use more complicated solution here
     return true || super.isNonConflicting();
   }
 

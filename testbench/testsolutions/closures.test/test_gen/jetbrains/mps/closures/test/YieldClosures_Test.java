@@ -142,7 +142,7 @@ __switch__:
           i--;
         }
         ListSequence.fromList(exp).addElement(i);
-        // mustnotreturnanything
+        // must not return anything
       }
     }, new _FunctionTypes._return_P0_E0<Iterable<Integer>>() {
       public Iterable<Integer> invoke() {
@@ -248,7 +248,7 @@ __switch__:
         } while (i > 0);
         i = 0;
         ListSequence.fromList(exp).addElement(i);
-        // mustnotreturnvalue
+        // must not return value
       }
     }, new _FunctionTypes._return_P0_E0<Iterable<Integer>>() {
       public Iterable<Integer> invoke() {
@@ -634,7 +634,7 @@ __switch__:
             case APPLES:
               ListSequence.fromList(exp).addElement(1);
               ListSequence.fromList(exp).addElement(2);
-              // fallthrough
+              // fall through
             case ORANGES:
               ListSequence.fromList(exp).addElement(3);
               break;
@@ -706,7 +706,7 @@ __switch__:
                       this.__CP__ = 8;
                       break;
                     case 10:
-                      // fallthrough
+                      // fall through
                       this.__CP__ = 7;
                       break;
                     case 7:
@@ -1226,7 +1226,7 @@ __switch__:
       }
     }, new _FunctionTypes._return_P0_E0<IListSequence<Integer>>() {
       public IListSequence<Integer> invoke() {
-        // somestatements
+        //  some statements
         return ListSequence.fromListAndArray(new ArrayList<Integer>(), 1, 2, 3);
       }
     });
@@ -1269,7 +1269,7 @@ __switch__:
                       this.__CP__ = 2;
                       break;
                     case 5:
-                      // laststatement
+                      //  last statement
                       this.__CP__ = 1;
                       break;
                     case 4:
@@ -1493,7 +1493,7 @@ __switch__:
   }
   @Test
   public void test_timur1() throws Exception {
-    // {1,2,3}.select{it=>yield4;yield5;}
+    //  {1, 2, 3}.select{ it => yield 4; yield 5; }
     final List<Integer> input = ListSequence.fromListAndArray(new ArrayList<Integer>(), 1, 2, 3);
     List<Iterable<Integer>> exp = ListSequence.fromListAndArray(new ArrayList<Iterable<Integer>>(), ListSequence.fromListAndArray(new ArrayList<Integer>(), 4, 5), ListSequence.fromListAndArray(new ArrayList<Integer>(), 4, 5), ListSequence.fromListAndArray(new ArrayList<Integer>(), 4, 5));
     List<Iterable<Integer>> res = ListSequence.fromList(new ArrayList<Iterable<Integer>>());
@@ -1541,7 +1541,7 @@ __switch__:
   }
   @Test
   public void test_timur2() throws Exception {
-    // {1,2,3}.select{it=>if(it==2){yield4;};}
+    //  {1, 2, 3}.select{ it => if (it == 2) {yield 4;}; }
     final List<Integer> input = ListSequence.fromListAndArray(new ArrayList<Integer>(), 1, 2, 3);
     List<Iterable<Integer>> exp = ListSequence.fromListAndArray(new ArrayList<Iterable<Integer>>(), ListSequence.fromList(new ArrayList<Integer>()), ListSequence.fromListAndArray(new ArrayList<Integer>(), 4), ListSequence.fromList(new ArrayList<Integer>()));
     List<Iterable<Integer>> res = ListSequence.fromList(new ArrayList<Iterable<Integer>>());
@@ -1821,13 +1821,13 @@ __switch__:
     Iterator<Integer> it = test.iterator();
     Assert.assertTrue(it.hasNext());
     Assert.assertSame(42, it.next());
-    // don'tcallhasNext,muststillyieldresult
+    //  don't call hasNext, must still yield result
     Assert.assertSame(24, it.next());
     try {
       it.next();
       Assert.assertTrue(false);
     } catch (NoSuchElementException e) {
-      // ok
+      //  ok
     }
     Assert.assertFalse(it.hasNext());
   }
@@ -1884,13 +1884,13 @@ __switch__:
       it.next();
       Assert.assertTrue(false);
     } catch (NoSuchElementException e) {
-      // ok
+      //  ok
     }
     try {
       Assert.assertFalse(it.hasNext());
       Assert.assertTrue(false);
     } catch (DelayedException e) {
-      // ok
+      //  ok
     }
     it = seq.iterator();
     Assert.assertSame(1, it.next());
@@ -1898,13 +1898,13 @@ __switch__:
       Assert.assertFalse(it.hasNext());
       Assert.assertTrue(false);
     } catch (DelayedException e) {
-      // ok
+      //  ok
     }
     try {
       it.next();
       Assert.assertTrue(false);
     } catch (NoSuchElementException e) {
-      // ok
+      //  ok
     }
 
   }

@@ -22,7 +22,7 @@ public class Actions_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new TurnBold_Action());
     addAction(new TurnItalics_Action());
     addAction(new TurnUnderlined_Action());

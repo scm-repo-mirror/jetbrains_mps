@@ -38,28 +38,28 @@ public class CommentRecorderParser extends Parser {
     super(problemReporter, optimizeStringLiterals);
   }
   public void checkComment() {
-    // discardobsoletecommentswhileinsidemethodsorfieldsinitializer(seebug74369)
+    // discard obsolete comments while inside methods or fields initializer (see bug 74369)
     if (!((this.diet && this.dietInt == 0)) && this.scanner.commentPtr >= 0) {
       flushCommentsDefinedPriorTo(this.endStatementPosition);
     }
     boolean deprecated = false;
     boolean checkDeprecated = false;
     int lastCommentIndex = -1;
-    // sincejdk1.2lookonlyinthelastjavadoccomment...
-    // converted:for(expr;...){}->{expr;for(;...){}}
+    // since jdk1.2 look only in the last java doc comment...
+    // converted:  for ( expr; ...) {}  ->  { expr; for ( ; ...) {} }
     lastCommentIndex = this.scanner.commentPtr;
 nextComment:
     for (; lastCommentIndex >= 0; lastCommentIndex--) {
-      // lookfor@deprecatedintothefirstjavadoccommentpreceedingthedeclaration
+      // look for @deprecated into the first javadoc comment preceeding the declaration
       int commentSourceStart = this.scanner.commentStarts[lastCommentIndex];
-      // javadoconly(nonjavadoccommenthavenegativestartand/orendpositions.)
+      // javadoc only (non javadoc comment have negative start and/or end positions.)
       if ((commentSourceStart < 0) || (this.modifiersSourceStart != -1 && this.modifiersSourceStart < commentSourceStart) || (this.scanner.commentStops[lastCommentIndex] < 0)) {
         continue nextComment;
       }
       checkDeprecated = true;
       int commentSourceEnd = this.scanner.commentStops[lastCommentIndex] - 1;
-      // stopisoneover
-      // donotreportproblembeforelastparsedcommentwhilerecoveringcode...
+      // stop is one over
+      // do not report problem before last parsed comment while recovering code...
       if (this.javadocParser.shouldReportProblems) {
         this.javadocParser.reportProblems = this.currentElement == null || commentSourceEnd > this.lastJavadocEnd;
       } else {
@@ -75,7 +75,7 @@ nextComment:
     if (deprecated) {
       checkAndSetModifiers(ClassFileConstants.AccDeprecated);
     }
-    // modifythemodifiersourcestarttopointatthefirstcomment
+    // modify the modifier source start to point at the first comment
     if (lastCommentIndex >= 0 && checkDeprecated) {
       this.modifiersSourceStart = this.scanner.commentStarts[lastCommentIndex];
       if (this.modifiersSourceStart < 0) {
@@ -124,8 +124,8 @@ nextComment:
     if (lastCommentIndex < 0) {
       return position;
     }
-    // nocomment
-    // computetheindexofthefirstobsoletecomment
+    // no comment
+    // compute the index of the first obsolete comment
     int index = lastCommentIndex;
     int validCount = 0;
     while (index >= 0) {
@@ -133,42 +133,42 @@ nextComment:
       if (commentEnd < 0) {
         commentEnd = -commentEnd;
       }
-      // negativeendpositionfornon-javadoccomments
+      // negative end position for non-javadoc comments
       if (commentEnd <= position) {
         break;
       }
       index--;
       validCount++;
     }
-    // ifthesourceat<position>isimmediatelyfollowedbyalinecomment,then
-    // flushthiscommentandshift<position>tothecommentend.
+    // if the source at <position> is immediately followed by a line comment, then
+    // flush this comment and shift <position> to the comment end.
     if (validCount > 0) {
       int immediateCommentEnd = 0;
       while (index < lastCommentIndex && (immediateCommentEnd = -this.scanner.commentStops[index + 1]) > 0) {
-        // onlytoleratingnon-javadoccomments(non-javadoccommentendpositionsarenegative)
-        // isthereanylinebreakuntiltheendoftheimmediatecomment?(thusonlytoleratinglinecomment)
+        // only tolerating non-javadoc comments (non-javadoc comment end positions are negative)
+        // is there any line break until the end of the immediate comment ? (thus only tolerating line comment)
         immediateCommentEnd--;
-        // commentendinonechartoofar
+        // comment end in one char too far
         if (Util.getLineNumber(position, this.scanner.lineEnds, 0, this.scanner.linePtr) != Util.getLineNumber(immediateCommentEnd, this.scanner.lineEnds, 0, this.scanner.linePtr)) {
           break;
         }
         position = immediateCommentEnd;
         validCount--;
-        // flushthiscomment
+        // flush this comment
         index++;
       }
     }
     if (index < 0) {
       return position;
     }
-    // noobsoletecomment
+    // no obsolete comment
     pushOnCommentsStack(0, index);
-    // storecommentbeforeflushingthem
+    // store comment before flushing them
     switch (validCount) {
       case 0:
-        // donothing
+        // do nothing
         break;
-        // movevalidcommentinfos,overridingobsoletecommentinfos
+        // move valid comment infos, overriding obsolete comment infos
       case 2:
         this.scanner.commentStarts[0] = this.scanner.commentStarts[index + 1];
         this.scanner.commentStops[0] = this.scanner.commentStops[index + 1];
@@ -235,7 +235,7 @@ nextComment:
    */
   private void pushOnCommentsStack(int start, int end) {
     for (int i = start; i <= end; i++) {
-      // Firstseeifcommenthasn'tbeenalreadystored
+      // First see if comment hasn't been already stored
       int scannerStart = (this.scanner.commentStarts[i] < 0 ? -this.scanner.commentStarts[i] : this.scanner.commentStarts[i]);
       int commentStart = (this.commentPtr == -1 ? -1 : ((this.commentStarts[this.commentPtr] < 0 ? -this.commentStarts[this.commentPtr] : this.commentStarts[this.commentPtr])));
       if (commentStart == -1 || scannerStart > commentStart) {

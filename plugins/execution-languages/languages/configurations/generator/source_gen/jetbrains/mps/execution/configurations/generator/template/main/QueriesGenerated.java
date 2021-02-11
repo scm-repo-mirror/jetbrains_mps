@@ -101,8 +101,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BeforeTaskCall$iu, false, false) != null);
   }
   public static boolean rule_Condition_0_4(final BaseMappingRuleContext _context) {
-    // FIXMERunConfigurationKinddoesn'tusethisruleanymore,andCOPY-SRCinRunConfigurationhasto
-    // bereplacedwithSWITCHswitch_FileIconalongwithexplicitfielddeclaration
+    // FIXME RunConfigurationKind doesn't use this rule any more, and COPY-SRC in RunConfiguration has to
+    //       be replaced with SWITCH switch_FileIcon along with explicit field declaration
     return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(_context.getNode()), CONCEPTS.RunConfiguration$B$) || SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(_context.getNode()), CONCEPTS.RunConfigurationKind$C3);
   }
   public static boolean rule_Condition_0_5(final BaseMappingRuleContext _context) {
@@ -196,7 +196,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SPropertyOperations.getString(_context.getNode(), PROPS.displayName$GPvP) != null ? SPropertyOperations.getString(_context.getNode(), PROPS.displayName$GPvP) : SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL));
   }
   public static Object propertyMacro_GetValue_9_2(final PropertyMacroContext _context) {
-    // I'dliketolerateemptydescriptionvalueandgenerate""inthiscase.
+    // I'd like tolerate empty description value and generate "" in this case.
     if (SPropertyOperations.getString(_context.getNode(), PROPS.description$GPXR) != null) {
       return SPropertyOperations.getString(_context.getNode(), PROPS.description$GPXR);
     }
@@ -500,7 +500,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModelOperations.roots(_context.getInputModel(), CONCEPTS.RunConfigurationKind$C3);
   }
   public static Iterable<SNode> sourceNodesQuery_9_2(final SourceSubstituteMacroNodesContext _context) {
-    // XXXinfact,withgenericaddFactoryFor(),there'snosensetodistinguish'foreign'factories,
+    // XXX in fact, with generic addFactoryFor(), there's no sense to distinguish 'foreign' factories,
     return ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), CONCEPTS.RunConfiguration$B$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (boolean) RunConfiguration__BehaviorDescriptor.isForeign_id3wpI_WC06mf.invoke(it);

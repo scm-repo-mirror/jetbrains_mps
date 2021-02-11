@@ -70,8 +70,8 @@ public class GoToRootNode_Action extends BaseAction {
       }
     });
 
-    // XXXIsupposethemomentwegettoprojectownrepo,ProjectScope.getModels/getModuleswouldresultin*project*modulesonly,
-    // whileprojectrepositorywouldgiveaccesstomodulesfromdependantrepositoriesaswell
+    // XXX I suppose the moment we get to project own repo, ProjectScope.getModels/getModules would result in *project* modules only, 
+    //      while project repository would give access to modules from dependant repositories as well
     final SearchScope globalScope = new GlobalScope(project.getRepository());
 
     gotoData.setScope(new NavigationTargetScopeIterable(localScope, project), new NavigationTargetScopeIterable(globalScope, project));

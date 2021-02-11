@@ -23,7 +23,7 @@ import com.sun.jdi.request.EventRequest;
     return EventRequest.SUSPEND_ALL;
   }
   /*package*/ void resume() {
-    // todowhenwegetsomeothersuspendpolicies,addsomecodehere
+    // todo when we get some other suspend policies, add some code here
     myEventsProcessor.getVirtualMachine().resume();
   }
 }

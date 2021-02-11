@@ -91,7 +91,7 @@ public class ModelReader7Handler extends XMLSAXHandler<ModelLoadResult> {
       current = current.createChild(myValues.peek(), qName, attributes);
     }
 
-    // checkrequired
+    // check required
     for (String attr : current.requiredAttributes()) {
       if (attributes.getValue(attr) == null) {
         throw new SAXParseException("attribute " + attr + " is absent", null);
@@ -103,7 +103,7 @@ public class ModelReader7Handler extends XMLSAXHandler<ModelLoadResult> {
       myResult = (ModelLoadResult) result;
     }
 
-    // handleattributes
+    // handle attributes
     for (int i = 0; i < attributes.getLength(); i++) {
       String name = attributes.getQName(i);
       String value = attributes.getValue(i);

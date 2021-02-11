@@ -67,7 +67,7 @@ public class SetConceptChange extends NodeChange {
     assert node != null;
     final SNode newNode = new jetbrains.mps.smodel.SNode(myNewConcept, node.getNodeId());
 
-    // copyalltheproperties,linksandmovechildren
+    // copy all the properties, links and move children
     for (SProperty prop : Sequence.fromIterable(node.getProperties())) {
       newNode.setProperty(prop, node.getProperty(prop));
     }
@@ -91,7 +91,7 @@ public class SetConceptChange extends NodeChange {
     for (SNode child : ListSequence.fromList(SNodeOperations.getChildren(node))) {
       newNode.addChild(SNodeOperations.getContainingLink(child), SNodeOperations.deleteNode(child));
     }
-    // fixreferencestothenodeitself
+    // fix references to the node itself
     ListSequence.fromList(SNodeOperations.getNodeDescendants(newNode, null, true, new SAbstractConcept[]{})).translate(new ITranslator2<SNode, SReference>() {
       public Iterable<SReference> translate(SNode n) {
         return SNodeOperations.getReferences(n);

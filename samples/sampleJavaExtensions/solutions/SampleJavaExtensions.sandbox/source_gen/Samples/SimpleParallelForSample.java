@@ -31,7 +31,7 @@ public class SimpleParallelForSample {
             try {
               Logger.log("Current value: " + localA);
 
-              // Noticethere'snoneedtodeclaretheInterruptedExceptiononthemainmethod
+              // Notice there's no need to declare the InterruptedException on the main method
               Thread.sleep(1000);
               value.length();
               Logger.log("Done with " + localA);
@@ -58,7 +58,7 @@ public class SimpleParallelForSample {
       }
 
     }
-    // Setnowaittotruetoallowthemainthreadtocontinuewithoutwaitingforthetaskstofinish
+    // Set nowait to true to allow the main thread to continue without waiting for the tasks to finish
     System.out.println("The main thread is done");
     System.getSecurityManager();
   }

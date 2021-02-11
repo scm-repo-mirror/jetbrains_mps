@@ -84,7 +84,7 @@ import jetbrains.mps.project.persistence.GeneratorDescriptorPersistence;
     @Override
     public void writeToFile(SolutionDescriptor sd, IFile file) {
       if (file.isReadOnly()) {
-        // XXXwhyonearthdowecheckforread-onlyhere?whynotinacallercode,whereonecouldhavereactedreasonably?
+        // XXX why on earth do we check for read-only here? why not in a caller code, where one could have reacted reasonably?
         if (LOG.isEnabledFor(Level.ERROR)) {
           LOG.error("Can't save " + file.getPath());
         }
@@ -152,7 +152,7 @@ import jetbrains.mps.project.persistence.GeneratorDescriptorPersistence;
         Element element = new LanguageDescriptorPersistence(macroHelper).save(ld);
         Document doc = new Document(element);
         JDOMUtil.writeDocument(doc, file);
-        // XXXisitalwaysaneedtorefreshtimestampinthedescriptor?Whatifserializeitintoacopyfile
+        // XXX is it always a need to refresh timestamp in the descriptor? What if serialize it into a copy file
         ModuleDescriptorPersistence.setTimestamp(ld, file);
       } catch (IOException ex) {
         if (LOG.isEnabledFor(Level.ERROR)) {
@@ -241,8 +241,8 @@ import jetbrains.mps.project.persistence.GeneratorDescriptorPersistence;
         Element element = new GeneratorDescriptorPersistence(macroHelper, false).save(d);
         Document doc = new Document(element);
         JDOMUtil.writeDocument(doc, file);
-        // XXXisitalwaysaneedtorefreshtimestampinthedescriptor?Whatifserializeitintoacopyfile
-        // evenifyes,whyit'snotpartofexternalcode,sharedforallDescriptorIOimplementations?
+        // XXX is it always a need to refresh timestamp in the descriptor? What if serialize it into a copy file
+        // even if yes, why it's not part of external code, shared for all DescriptorIO implementations?
         ModuleDescriptorPersistence.setTimestamp(d, file);
       } catch (IOException ex) {
         if (LOG.isEnabledFor(Level.ERROR)) {

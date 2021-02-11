@@ -29,7 +29,7 @@ public class GoToAction_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    // QuickfixforMPS-21683:usingthisactiononlyasreferencewithshortcutinMainmenu->Navigate
+    // Quick fix for MPS-21683: using this action only as reference with short cut in Main menu -> Navigate
     if (!(ActionPlaces.MAIN_MENU.equals(event.getPlace()))) {
       return false;
     }

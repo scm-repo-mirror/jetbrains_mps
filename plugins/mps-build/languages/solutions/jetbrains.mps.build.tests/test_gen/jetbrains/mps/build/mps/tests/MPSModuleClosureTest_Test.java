@@ -83,7 +83,7 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     MPSModulesClosure closure = new MPSModulesClosure(l1, new MPSModulesClosure.ModuleDependenciesOptions()).designtimeClosure();
     Iterable<SNode> designDeps = closure.getAllModules();
     Assert.assertTrue(Sequence.fromIterable(designDeps).contains(l21));
-    // nonreexport,butstillneedstobeinorderforl2languagetobefullyoperational
+    // non reexport, but still needs to be in order for l2 language to be fully operational
     Assert.assertTrue(Sequence.fromIterable(designDeps).contains(sln21));
   }
   @Test
@@ -142,14 +142,14 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     MPSModulesClosure closure = new MPSModulesClosure(sln, new MPSModulesClosure.ModuleDependenciesOptions().setTrackDevkits()).designtimeClosure();
     Iterable<SNode> designDeps = closure.getAllModules();
     Assert.assertTrue(Sequence.fromIterable(designDeps).contains(rt2));
-    // l2extendsl21,soweneeditsrtaswell
+    // l2 extends l21, so we need its rt as well
     Assert.assertTrue(Sequence.fromIterable(designDeps).contains(rt21));
   }
   @Test
   public void test_slnDesignClosureDoesNotContainNonRTDepsForUsedLang() throws Exception {
     MPSModulesClosure closure = new MPSModulesClosure(sln, new MPSModulesClosure.ModuleDependenciesOptions().setTrackDevkits()).designtimeClosure();
     Iterable<SNode> designDeps = closure.getAllModules();
-    // wedonotneedtodesignl2weonlyneedforittorun
+    // we do not need to design l2 we only need for it to run
     Assert.assertTrue(!(Sequence.fromIterable(designDeps).contains(l2)));
     Assert.assertTrue(!(Sequence.fromIterable(designDeps).contains(l21)));
     Assert.assertTrue(!(Sequence.fromIterable(designDeps).contains(l4)));
@@ -323,7 +323,7 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
   }
   @Test
   public void test_l2GenerateClosureAreEmpty() throws Exception {
-    // inthegeneratetaskcurrentlyweusertDepsClosure+genDepsClosure
+    // in the generate task currently we use rtDepsClosure + genDepsClosure
     MPSModulesClosure closure = new MPSModulesClosure(l2, new MPSModulesClosure.ModuleDependenciesOptions()).generationDependenciesClosure();
     Iterable<SNode> genDeps = closure.getAllModules();
     Assert.assertTrue(Sequence.fromIterable(genDeps).isEmpty());
@@ -400,13 +400,13 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
   }
   @Before
   public void setUp() {
-    // slnusesl1,dvkandliesintheseparateproject'project2'
-    // l1usesl2,hasrt1asruntime
-    // l2hasrt2asruntime,extendsl21anddependsonl4languageandsln4
-    // l4hasrt4asruntime
-    // sln4hasareexportdeponsln5
-    // l21hasrt21asruntime,dependsonsln21
-    // dvkexportsl3,whichhasrt3asruntime
+    // sln uses l1, dvk and lies in the separate project 'project2'
+    // l1 uses l2, has rt1 as runtime
+    // l2 has rt2 as runtime, extends l21 and depends on l4 language and sln4
+    // l4 has rt4 as runtime
+    // sln4 has a reexport dep on sln5
+    // l21 has rt21 as runtime, depends on sln21
+    // dvk exports l3, which has rt3 as runtime
     SModel auxModel = null;
     project1 = SModelOperations.createNewNode(auxModel, null, CONCEPTS.BuildProject$ae);
     BuildProjectBTestCaseHelper helper = new BuildProjectBTestCaseHelper(project1);

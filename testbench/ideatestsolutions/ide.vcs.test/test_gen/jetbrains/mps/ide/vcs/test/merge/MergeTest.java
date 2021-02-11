@@ -61,7 +61,7 @@ public class MergeTest extends ChangesTestBase {
   @Override
   public void init() {
     super.init();
-    // it'sonlytestmodelweneedreadaccessfor,then,wedealwithadetachedmodelandshallnotcareaboutmodelaccessanylonger.
+    // it's only test model we need read access for, then, we deal with a detached model and shall not care about model access any longer.
     getProject().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         myBaseModel = MergeTemporaryModel.readonlyCloneOf(getTestModel());

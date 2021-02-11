@@ -62,7 +62,7 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                     final SNode tnode5 = environment.createOutputNode(myConcepts[4]);
                     environment.associate(tnode5, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)", "~SNode");
                     tnode4.addChild(myAggregationLinks[0], tnode5);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     Collection<SNode> tlist6 = null;
@@ -71,15 +71,15 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                     for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                       tnode4.addChild(myAggregationLinks[1], child7);
                     }
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode3.addChild(myAggregationLinks[2], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[3], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode8 = environment.createOutputNode(myConcepts[5]);
@@ -95,7 +95,7 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                     final SNode tnode10 = environment.createOutputNode(myConcepts[7]);
                     environment.resolveInTemplateLater(tnode10, myAssociationLinks[3], templateNode_bb7ynt_c0a0a1a3a1a1a1a2a1a1a2a6, "tpl/r:00000000-0000-4000-0000-011c89590303/1883223317721110285", "n", context6);
                     tnode9.addChild(myAggregationLinks[4], tnode10);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                   {
                     Collection<SNode> tlist11 = null;
@@ -110,11 +110,11 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                     for (SNode child12 : TemplateUtil.asNotNull(tlist11)) {
                       tnode9.addChild(myAggregationLinks[4], child12);
                     }
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode8.addChild(myAggregationLinks[5], tnode9);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 Collection<SNode> tlist13 = null;
@@ -123,15 +123,15 @@ public class Template_reduce_IfInstanceOfStatement extends TemplateDeclarationBa
                 for (SNode child14 : TemplateUtil.asNotNull(tlist13)) {
                   tnode8.addChild(myAggregationLinks[6], child14);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[3], tnode8);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[7], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(8, tnode1);

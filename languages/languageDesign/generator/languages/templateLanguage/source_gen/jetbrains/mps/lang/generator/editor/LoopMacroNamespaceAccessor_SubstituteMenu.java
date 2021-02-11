@@ -156,7 +156,7 @@ public class LoopMacroNamespaceAccessor_SubstituteMenu extends SubstituteMenuBas
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          // NodotsotypingLOOP.insertthenamespace
+          // No dot so typing LOOP. insert the namespace
           return "LOOP " + myParameterObject.getPresentation();
         }
       }

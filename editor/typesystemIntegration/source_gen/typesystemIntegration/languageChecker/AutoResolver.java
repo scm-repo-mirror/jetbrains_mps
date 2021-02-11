@@ -77,7 +77,7 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
     }
 
     final Set<EditorMessage> messages = SetSequence.fromSet(new LinkedHashSet<EditorMessage>());
-    // TODO:usesamesettingsasinLanguageEditorChecker
+    // TODO: use same settings as in LanguageEditorChecker
     BadReferences badReferences = collectBadReferences(rootNode);
 
     final Map<IssueKindReportItem.PathObject, Collection<LanguageErrorsComponent.ApprovableError>> nodesToErrors = MapSequence.fromMap(new HashMap<IssueKindReportItem.PathObject, Collection<LanguageErrorsComponent.ApprovableError>>());
@@ -152,9 +152,9 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
             }
             EditorComponentState state = editorContext.getEditorComponentState();
 
-            // incasethisbecomesaperformancebottleneck,considerreusingtheeditor'stypecheckingcontext
+            // in case this becomes a performance bottleneck, consider reusing the editor's typechecking context
             boolean doRecheckEditor = false;
-            // Tryingtoresolveallbrokenreferencesusingscopeandthenusingsubstituteactions.
+            // Trying to resolve all broken references using scope and then using substitute actions.
             for (SReference brokenRef : SetSequence.fromSet(badReferences)) {
               boolean resolvedByScope = ResolverComponent.getInstance().resolveScopesOnly(brokenRef, editorContext.getRepository());
 
@@ -180,11 +180,11 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
                   doRecheckEditor = true;
                 }
               }
-              // excludingreferencecellwhichwassubstitutedfromthesetoferrorcells
+              // excluding reference cell which was substituted from the set of error cells
               SetSequence.fromSet(errorCells).removeElement(cellWithRole);
             }
 
-            // Tryingtosubstituteallothererrorcellsbyusingsubstituteactions.
+            // Trying to substitute all other error cells by using substitute actions.
             for (jetbrains.mps.openapi.editor.cells.EditorCell errorCell : SetSequence.fromSet(errorCells)) {
               if (!(errorCell instanceof EditorCell_Label)) {
                 continue;
@@ -201,11 +201,11 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
             }
 
             if (doRecheckEditor) {
-              // Somethinghaschangedintheeditor,restorethepreviousstatetoavoidselectionjumpifpossible
+              // Something has changed in the editor, restore the previous state to avoid selection jump if possible
               editorContext.restoreEditorComponentState(state);
 
               if (wasForceAutofix) {
-                // re-runningnextcheckerinforceautofixmode
+                // re-running next checker in force autofix mode
                 myForceAutofix = true;
               }
             }

@@ -25,7 +25,7 @@ public class NodeHierarchyChooser extends JBScrollPane {
   private MyHierarchyTree myTree;
 
   public NodeHierarchyChooser(MPSProject mpsProject, final SNode node) {
-    // XXXnoneedtoextendScrollPane,shallaggregateinstead
+    // XXX no need to extend ScrollPane, shall aggregate instead
     this.myTree = new MyHierarchyTree(mpsProject.getRepository());
     mpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {

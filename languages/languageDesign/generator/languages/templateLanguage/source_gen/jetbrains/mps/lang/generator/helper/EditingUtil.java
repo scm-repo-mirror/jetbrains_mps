@@ -35,7 +35,7 @@ public final class EditingUtil {
       return false;
     }
     // -----
-    // itcanbe'ref.cell->{name}'.inthiscasebothare'applicable'.butlinkhaspriority
+    // it can be 'ref.cell->{name}'. in this case both are 'applicable'. but link has priority
     SReferenceLink linkRole = EditingUtil.getEditedLink(cell);
     if (linkRole != null) {
       return false;
@@ -61,37 +61,37 @@ public final class EditingUtil {
     return new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$30, ref).get(referentNode) == null;
   }
   public static boolean isAnyMacroApplicable(SNode node) {
-    // notinside'roottemplateannotation'
+    // not inside 'root template annotation'
     if (SNodeOperations.getNodeAncestor(node, CONCEPTS.RootTemplateAnnotation$9O, true, false) != null) {
       return false;
     }
-    // notinsideanykindofmacro(codeshownininspector)butOKonamacronodeitself
+    //  not inside any kind of macro (code shown in inspector) but OK on a macro node itself
     SNode ancestorTemplateElement = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.NodeMacro$qU, CONCEPTS.PropertyMacro$c9, CONCEPTS.ReferenceMacro$30, CONCEPTS.InlineTemplate_RuleConsequence$u9, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i, CONCEPTS.TemplateFragment$eq}, true, false);
     if (ancestorTemplateElement != null) {
-      // exception:canbeinside'alternativeConsequence'inIF-macro
+      //  exception: can be inside 'alternativeConsequence' in IF-macro
       if (SNodeOperations.isInstanceOf(ancestorTemplateElement, CONCEPTS.InlineTemplate_RuleConsequence$u9) || SNodeOperations.isInstanceOf(ancestorTemplateElement, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i)) {
         return true;
       }
       return false;
     }
-    // inside'roottemplate'
+    // inside 'root template'
     if (new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$9O).get(SNodeOperations.getContainingRoot(node)) != null) {
       return true;
     }
-    // insidetemplatedeclaration
+    //  inside template declaration
     if (SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.TemplateDeclaration$5G, CONCEPTS.InlineTemplate_RuleConsequence$u9, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i}, false, false) != null) {
       return true;
     }
     return false;
   }
   public static SNode addNodeMacro(SNode node) {
-    // donothang$$onotherattributes
+    // do not hang $$ on other attributes
     SNode applyToNode = ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.isAttribute(it));
       }
     }).first();
-    // surroundwith<TF>ifnecessary
+    // surround with <TF> if necessary
     if (SNodeOperations.getNodeAncestorWhereConceptInList(applyToNode, new SAbstractConcept[]{CONCEPTS.TemplateDeclaration$5G, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i}, false, false) != null) {
       if (!(EditingUtil.isInsideTemplateFragment(applyToNode))) {
         EditingUtil.createTemplateFragment(applyToNode);
@@ -114,7 +114,7 @@ public final class EditingUtil {
    */
   public static SNode addPropertyMacro(SNode node, EditorCell cell) {
 
-    // surroundwith<TF>ifnecessary
+    // surround with <TF> if necessary
     if (SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.TemplateDeclaration$5G, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i}, false, false) != null) {
       if (!(EditingUtil.isInsideTemplateFragment(node))) {
         EditingUtil.createTemplateFragment(node);
@@ -127,7 +127,7 @@ public final class EditingUtil {
   }
   public static SNode addReferenceMacro(SNode node, EditorCell cell) {
     SNode referentNode = EditingUtil.getEditedLinkReferentNode(cell);
-    // surroundwith<TF>ifnecessary
+    // surround with <TF> if necessary
     if (SNodeOperations.getNodeAncestorWhereConceptInList(referentNode, new SAbstractConcept[]{CONCEPTS.TemplateDeclaration$5G, CONCEPTS.InlineTemplateWithContext_RuleConsequence$9i}, false, false) != null) {
       if (!(EditingUtil.isInsideTemplateFragment(referentNode))) {
         EditingUtil.createTemplateFragment(referentNode);
@@ -150,10 +150,10 @@ public final class EditingUtil {
   }
   public static void createTemplateFragment(final SNode node) {
     SNodeFactoryOperations.setNewAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TemplateFragment$eq), CONCEPTS.TemplateFragment$eq);
-    // removesubordinatetemplatefragments
-    // XXX(1)notquiteclearwhywegoonly1leveldeep.Whynotdescendants.Guess,TFcouldbeanywhere?
-    // (2)Whatifthere'sattribute(notNodeMacro)withTFattached?Wedon'tremoveitherethen,andmayface
-    // issueslikehttps://youtrack.jetbrains.com/issue/MPS-20691
+    // remove subordinate template fragments
+    // XXX (1) not quite clear why we go only 1 level deep. Why not descendants. Guess, TF could be anywhere?
+    // (2) What if there's attribute (not NodeMacro) with TF attached? We don't remove it here then, and may face
+    // issues like https://youtrack.jetbrains.com/issue/MPS-20691
     Iterable<SNode> children = ListSequence.fromList(SNodeOperations.getChildren(node)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.isAttribute(it));
@@ -166,7 +166,7 @@ public final class EditingUtil {
         }
       });
     }
-    // reappendallmacrostomakethemgo'after'the<TF>
+    // re append all macros to make them go 'after' the <TF>
     ListSequence.fromList(ListSequence.fromListWithValues(new ArrayList<SNode>(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeMacro$qU).list(node))).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         ListSequence.fromList(new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeMacro$qU).list(node)).addElement(it);

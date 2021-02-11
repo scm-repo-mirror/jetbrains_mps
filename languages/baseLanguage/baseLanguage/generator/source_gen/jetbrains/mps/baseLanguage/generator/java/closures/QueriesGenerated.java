@@ -100,7 +100,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.createUniqueName("zClosureContext", null);
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
-    // XXXinfact,template'sinputnodeiscontextOwner
+    // XXX in fact, template's input node is contextOwner
     SNode contextOwner = ClosuresUtil.findEnclosingClosureContextOwner(_context.getNode());
     return ClosuresUtil.getVariableNameInClosureContext(contextOwner, _context.getNode(), _context);
   }
@@ -117,13 +117,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, false);
   }
   public static Object referenceMacro_GetReferent_3_1(final ReferenceMacroContext _context) {
-    // alternatively,couldhaveusedMAP-SRCtofindEnclosingClosureContextOwnerandtemplatereference
+    //  alternatively, could have used MAP-SRC to findEnclosingClosureContextOwner and template reference
     SNode generatedClass = _context.getOutputNodeByInputNodeAndMappingLabel(ClosuresUtil.findEnclosingClosureContextOwner(_context.getNode()), "contextOwner_closureContext_class");
     if (generatedClass == null) {
       return new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");
     } else {
-      // forwhateverreason,can'tmixnode-ptr<Classifier>andnode<Classifier>forjoinreturntype,
-      // returngeneratedClass;complainswith"typej.l.Objectisnotsubtypeofnode<Classifier>",hence.pointer
+      // for whatever reason, can't mix node-ptr<Classifier> and node<Classifier> for join return type,
+      // return generatedClass; complains with "type j.l.Object is not subtype of node<Classifier>", hence .pointer
       return SNodeOperations.getPointer(generatedClass);
     }
   }
@@ -131,10 +131,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, false);
   }
   public static Object referenceMacro_GetReferent_3_3(final ReferenceMacroContext _context) {
-    // XXXWhynottypeofargumentbutcast?
+    // XXX Why not type of argument but cast?
     SNode generatedClass = _context.getOutputNodeByInputNodeAndMappingLabel(ClosuresUtil.findEnclosingClosureContextOwner(_context.getNode()), "contextOwner_closureContext_class");
     if (generatedClass != null) {
-      // seefielddeclarationforreasonsweresortto.pointerhere
+      //  see field declaration for reasons we resort to .pointer here
       return SNodeOperations.getPointer(generatedClass);
     } else {
       return new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object");

@@ -157,7 +157,7 @@ public class DebuggerToolPanel {
         myThreadsComboBoxModel.updateThreads();
         myStackFramesListModel.updateFrames();
         myFramesList.setSelectedValue(myUiState.getStackFrame(), true);
-        // TODOnotgood
+        //  TODO not good
         myVariablesTree.setUiState(myUiState);
         myVariablesTree.rebuildNow();
       }

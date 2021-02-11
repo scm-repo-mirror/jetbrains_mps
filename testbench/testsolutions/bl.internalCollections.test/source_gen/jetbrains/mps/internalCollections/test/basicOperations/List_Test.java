@@ -407,7 +407,7 @@ __switch__:
       ListSequence.fromList(uls).addElement("e");
       Assert.fail();
     } catch (UnsupportedOperationException e) {
-      // expectedexception
+      // expected exception
     }
     ListSequence.fromList(ls).removeElement("a");
     Assert.assertEquals("c d", IterableUtils.join(ListSequence.fromList(uls), " "));
@@ -415,7 +415,7 @@ __switch__:
       ListSequence.fromList(uls).removeElement("c");
       Assert.fail();
     } catch (UnsupportedOperationException e) {
-      // expectedexception
+      // expected exception
     }
   }
   @Test

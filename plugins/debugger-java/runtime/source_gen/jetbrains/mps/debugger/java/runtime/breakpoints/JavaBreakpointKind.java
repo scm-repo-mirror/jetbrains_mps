@@ -25,7 +25,7 @@ public enum JavaBreakpointKind implements IBreakpointKind<JavaBreakpoint> {
   @Override
   public String getName() {
     return LANGUAGE_PREFIX + toString();
-    // presentationsshouldbeunique
+    //  presentations should be unique
   }
   @Override
   @NonNls

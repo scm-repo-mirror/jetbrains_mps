@@ -18,10 +18,10 @@ public class Mac_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.actions.SafeDelete_Action", getShortcut("meta DELETE"));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowClassInHierarchy_Action", getShortcut("ctrl H"));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowConceptInHierarchy_Action", getShortcut("ctrl H"));
-    // simplewithremove/replace
+    // simple with remove/replace
     addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl alt shift F"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowNodeInfo_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl Q"), false, true));
-    // simpleparameterized
+    // simple parameterized
     // complex
     addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ComplexShortcutWrapper(new GoToBookmark_ShortcutChange_tqv_f(), false, true));
     addComplexShortcut("jetbrains.mps.ide.actions.SetBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ComplexShortcutWrapper(new SetBookmark_ShortcutChange_tqv_g(), false, true));

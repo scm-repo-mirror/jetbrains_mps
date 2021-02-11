@@ -44,17 +44,17 @@ public class Template_weave_StmtToCons extends TemplateDeclarationBase {
             final SNode tnode3 = environment.createOutputNode(myConcepts[2]);
             tnode3.setProperty(myProperties[0], "to");
             tnode2.addChild(myAggregationLinks[0], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode4 = environment.createOutputNode(myConcepts[2]);
             tnode4.setProperty(myProperties[0], "ctor");
             tnode2.addChild(myAggregationLinks[0], tnode4);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[1], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);

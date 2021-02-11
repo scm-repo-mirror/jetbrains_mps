@@ -25,7 +25,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 @Generated
 public class QueriesGenerated {
   public static Object propertyMacro_GetValue_4_0(final PropertyMacroContext _context) {
-    // herewedemonstrateuseofTemplateArgumentParameterExpressioninsteadofGenerationContextOp_ParameterRef
+    // here we demonstrate use of TemplateArgumentParameterExpression instead of GenerationContextOp_ParameterRef
     return ((String) _context.getVariable("text"));
   }
   public static Object templateArgumentQuery_0_0(final TemplateArgumentContext _context) {

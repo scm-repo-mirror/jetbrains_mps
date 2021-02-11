@@ -60,7 +60,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
             final SNode tnode4 = environment.createOutputNode(myConcepts[2]);
             environment.associate(tnode4, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)", "~SAbstractConcept");
             tnode3.addChild(myAggregationLinks[0], tnode4);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist5 = null;
@@ -69,7 +69,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
             for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
               tnode3.addChild(myAggregationLinks[1], child6);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tlist2 = TemplateUtil.singletonList(tnode3);
@@ -77,7 +77,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
         for (SNode child7 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[2], child7);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(3, tnode1);
@@ -100,11 +100,11 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
               for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
                 tnode3.addChild(myAggregationLinks[3], child5);
               }
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode2.addChild(myAggregationLinks[4], tnode3);
-          // TODOvalidatechild
+          // TODO validate child
         }
         {
           final List<SNode> tlist6 = new ArrayList<SNode>();
@@ -124,7 +124,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                 final SNode tnode8 = environment.createOutputNode(myConcepts[6]);
                 SNodeAccessUtil.setPropertyValue(tnode8, myProperties[1], QueriesGenerated.propertyMacro_GetValue_99_1(new PropertyMacroContext(context4, "0", propertyMacro_j8e1z8_c0a2a0a1a1a5a3a2a1a2a7)));
                 tnode7.addChild(myAggregationLinks[5], tnode8);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode9 = environment.createOutputNode(myConcepts[4]);
@@ -144,11 +144,11 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                     for (SNode child13 : TemplateUtil.asNotNull(tlist10)) {
                       tnode9.addChild(myAggregationLinks[3], child13);
                     }
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode7.addChild(myAggregationLinks[6], tnode9);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tlist6.add(tnode7);
@@ -156,7 +156,7 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
           for (SNode child14 : TemplateUtil.asNotNull(tlist6)) {
             tnode2.addChild(myAggregationLinks[7], child14);
           }
-          // TODOvalidatechild
+          // TODO validate child
         }
         {
           final SNode tnode15 = environment.createOutputNode(myConcepts[7]);
@@ -171,11 +171,11 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                   final SNode tnode17 = environment.createOutputNode(myConcepts[9]);
                   environment.resolveInTemplateLater(tnode17, myAssociationLinks[2], templateNode_j8e1z8_c0a0a1a2a1a1a1a3a1a2a7, "tpl/r:00000000-0000-4000-0000-011c89590303/6039268229364247709", "cncpt", context7);
                   tnode16.addChild(myAggregationLinks[8], tnode17);
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               tnode15.addChild(myAggregationLinks[9], tnode16);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               final SNode tnode18 = environment.createOutputNode(myConcepts[9]);
@@ -186,11 +186,11 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
                 }
               });
               tnode15.addChild(myAggregationLinks[10], tnode18);
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tnode2.addChild(myAggregationLinks[11], tnode15);
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       tlist1 = TemplateUtil.singletonList(tnode2);

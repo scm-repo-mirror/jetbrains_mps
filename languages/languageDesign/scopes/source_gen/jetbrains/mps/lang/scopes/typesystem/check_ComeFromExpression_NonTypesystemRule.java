@@ -21,7 +21,7 @@ public class check_ComeFromExpression_NonTypesystemRule extends AbstractNonTypes
   public check_ComeFromExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode expr, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // todo:dorightstuff!=(
+    // todo: do right stuff! =(
     if (!(SPropertyOperations.getString(SNodeOperations.getNodeAncestor(expr, CONCEPTS.ConceptMethodDeclaration$N0, false, false), PROPS.name$MnvL).equals("getScope"))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();

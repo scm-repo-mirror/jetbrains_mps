@@ -12,12 +12,12 @@ import javax.swing.KeyStroke;
 public class MacOSX105_KeymapChanges extends BaseKeymapChanges {
   public MacOSX105_KeymapChanges() {
     // simple
-    // simplewithremove/replace
+    // simple with remove/replace
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("alt shift S"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl I"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl O"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl X"), false, true));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

@@ -174,13 +174,13 @@ public abstract class DebuggerCellPainter<E> extends AbstractAdditionalPainter<E
       return false;
     }
     if (parent.getCellLayout() instanceof CellLayout_Horizontal) {
-      // ifimmediateparentisahorisontalcollection
+      // if immediate parent is a horisontal collection
       return true;
     }
     return CellFinderUtil.findParent(nodeCell, new Condition<EditorCell_Collection>() {
       @Override
       public boolean met(EditorCell_Collection cellCollection) {
-        // donotwantanexplicitdependencyontable.runtime
+        // do not want an explicit dependency on table.runtime
         return Objects.equals(cellCollection.getClass().getSimpleName(), "EditorCell_Table");
       }
     }) != null;

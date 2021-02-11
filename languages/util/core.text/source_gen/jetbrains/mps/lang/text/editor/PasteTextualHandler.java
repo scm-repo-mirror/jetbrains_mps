@@ -102,7 +102,7 @@ public class PasteTextualHandler {
               currentParagraph.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentParagraph.value, p), CONCEPTS.Paragraph$XF);
             }
           } else {
-            // Add a space instead of a new line 
+            // Add a space instead of a new line
             SNode futureCurrentNode = addSpaceAtParagraphEnd(currentParagraph.value, p);
             Paragraph__BehaviorDescriptor.merge_id4HqBHuNzqyK.invoke(currentParagraph.value, p, _currentNode.value, ((boolean) _firstPositionOnLine.value));
             _currentNode.value = futureCurrentNode;
@@ -152,7 +152,7 @@ public class PasteTextualHandler {
               currentParagraph.value = SNodeOperations.as(SNodeOperations.insertNextSiblingChild(currentParagraph.value, pastedParagraph), CONCEPTS.Paragraph$XF);
             }
           } else {
-            // Add a space instead of a new line 
+            // Add a space instead of a new line
             SNode futureCurrentNode = addSpaceAtParagraphEnd(currentParagraph.value, pastedParagraph);
             Paragraph__BehaviorDescriptor.merge_id4HqBHuNzqyK.invoke(currentParagraph.value, pastedParagraph, _currentNode.value, ((boolean) _firstPositionOnLine.value));
             _currentNode.value = futureCurrentNode;
@@ -221,7 +221,7 @@ public class PasteTextualHandler {
     if ((boolean) Paragraph__BehaviorDescriptor.isEmptyParagraph_id7r4EKYUymRW.invoke(paragraphToAdd)) {
       return Sequence.fromIterable(Paragraph__BehaviorDescriptor.getTextualElements_id250QDwq2ueg.invoke(currentParagraph)).last();
     }
-    // No need for a space, there is no following paragraph 
+    // No need for a space, there is no following paragraph
     if (SNodeOperations.getContainingLink(currentParagraph).isMultiple()) {
       return Sequence.fromIterable(Paragraph__BehaviorDescriptor.getTextualElements_id250QDwq2ueg.invoke(paragraphToAdd)).last();
     }

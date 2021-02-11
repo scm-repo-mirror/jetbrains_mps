@@ -66,8 +66,8 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
 
   @Override
   protected void createTool() {
-    // no-op,UIconstructedlazilyondemand
-    // FIXMErefactorsuperclassnottodemandimplementationofuselessmethods
+    // no-op, UI constructed lazily on demand
+    // FIXME refactor superclass not to demand implementation of useless methods
   }
 
   private void createToolLazy() {
@@ -193,7 +193,7 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
   }
 
   public void showItemInHierarchy(SNode node) {
-    // FIXMEShowConceptInHierarchycouldusenodePointer,aswellaslocalpopupaction,onlyShowClassInHierarchyneedsattention
+    // FIXME ShowConceptInHierarchy could use nodePointer, as well as local popup action, only ShowClassInHierarchy needs attention
     showItemInHierarchy(SNodeOperations.getPointer(node));
   }
 
@@ -202,7 +202,7 @@ public abstract class AbstractHierarchyView extends BaseProjectTool {
     mpsProject.getModelAccess().runReadInEDT(new Runnable() {
       @Override
       public void run() {
-        // makesureUIisinitialized
+        // make sure UI is initialized
         getComponent();
         Project project = getProject();
         if (project == null || project.isDisposed()) {

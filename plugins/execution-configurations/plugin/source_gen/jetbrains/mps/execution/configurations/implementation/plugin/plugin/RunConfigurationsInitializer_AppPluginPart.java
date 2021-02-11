@@ -24,7 +24,7 @@ public class RunConfigurationsInitializer_AppPluginPart extends ApplicationPlugi
   }
   @Override
   public void init() {
-    // registerkinds
+    // register kinds
     ExtensionPoint<ConfigurationType> configurationExtensionPoint = Extensions.getRootArea().getExtensionPoint(ConfigurationType.CONFIGURATION_TYPE_EP);
     {
       ConfigTypeEnvoy runConfigurationKind = new ConfigTypeEnvoy("Java Application", AllIcons.RunConfigurations.Application, "Java Application", "Java Application");
@@ -52,9 +52,9 @@ public class RunConfigurationsInitializer_AppPluginPart extends ApplicationPlugi
       configurationExtensionPoint.registerExtension(runConfigurationKind);
     }
 
-    // addforeignfactories
+    // add foreign factories
 
-    // registercreators
+    // register creators
     ExtensionPoint<RuntimeConfigurationProducer> producerExtensionPoint = Extensions.getArea(null).getExtensionPoint(RuntimeConfigurationProducer.RUNTIME_CONFIGURATION_PRODUCER);
     for (ConfigurationType ext : configurationExtensionPoint.getExtensions()) {
       if ("Java Application".equals(ext.getId())) {
@@ -81,9 +81,9 @@ public class RunConfigurationsInitializer_AppPluginPart extends ApplicationPlugi
   public void dispose() {
     ExtensionPoint<ConfigurationType> configurationExtensionPoint = Extensions.getRootArea().getExtensionPoint(ConfigurationType.CONFIGURATION_TYPE_EP);
 
-    // invalidatefactoriesfromthispluginfortypesdeclaredelsewhere(wehavenoideawhetherthatpluginswouldbereloaded/invalidatedaswell)
+    // invalidate factories from this plugin for types declared elsewhere (we have no idea whether that plugins would be reloaded/invalidated as well)
 
-    // factoriesfromthispluginwouldgetinvalidatedalongwithconfigurationtypes,noneedtodothatexplicitly(althoughitwouldn'thurteither)
+    // factories from this plugin would get invalidated along with configuration types, no need to do that explicitly (although it wouldn't hurt either)
     for (Iterator<ConfigTypeEnvoy> it = RunConfigurationsInitializer_AppPluginPart.this.myRegisteredKinds.descendingIterator(); it.hasNext();) {
       ConfigTypeEnvoy configKind = it.next();
       configKind.invalidate();

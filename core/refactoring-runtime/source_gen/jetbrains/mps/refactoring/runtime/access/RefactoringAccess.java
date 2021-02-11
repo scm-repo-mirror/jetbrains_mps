@@ -51,7 +51,7 @@ public abstract class RefactoringAccess {
     boolean oneEntity = !(refTarget.allowMultipleTargets());
     List targetList;
     if (!(oneEntity)) {
-      // FIXMEORLY?!castofanargument?CCEincasecallermadeamistake?
+      // FIXME ORLY?! cast of an argument? CCE in case caller made a mistake?
       targetList = (List) target;
     } else {
       targetList = Arrays.<Object>asList(target);

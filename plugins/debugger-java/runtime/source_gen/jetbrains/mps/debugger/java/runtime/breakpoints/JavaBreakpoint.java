@@ -33,25 +33,25 @@ public abstract class JavaBreakpoint extends AbstractBreakpoint implements Class
     super(project);
   }
   public void createClassPrepareRequest(EventsProcessor debugProcess) {
-    // thisshouldbecalledoneverybreakpointwhenDebugEventsProcessorisattached
+    // this should be called on every breakpoint when DebugEventsProcessor is attached
     ManagerThread.assertIsMangerThread();
-    // checkisthisbreakpointisenabled,vmreferenceisvalidandthere'renorequestscreatedyet
+    //  check is this breakpoint is enabled, vm reference is valid and there're no requests created yet
     if (!(myIsEnabled)) {
-      // ||!debugProcess.isAttached()||debugProcess.getRequestManager().findRequests(this).isEmpty()
+      // || !debugProcess.isAttached() || debugProcess.getRequestManager().findRequests(this).isEmpty()
       return;
     }
     if (!(isValid())) {
       return;
     }
     createOrWaitPrepare(debugProcess);
-    // updateUI();
+    //  updateUI();
   }
   public void createOrWaitPrepare(final EventsProcessor debugProcess) {
     String className = getClassNameToPrepare();
     assert (className != null && className.length() > 0);
-    // addrequestsfornotpreparedclasses
+    // add requests for not prepared classes
     debugProcess.getRequestManager().callbackOnPrepareClasses(this, className);
-    // andgetallalreadypreparedclassesforaSNode
+    // and get all already prepared classes for a SNode
     List<ReferenceType> list = debugProcess.getVirtualMachine().classesByName(className);
     for (final ReferenceType refType : list) {
       if (refType.isPrepared()) {
@@ -65,7 +65,7 @@ public abstract class JavaBreakpoint extends AbstractBreakpoint implements Class
   public abstract JavaBreakpointKind getKind();
   @Override
   public void processClassPrepare(EventsProcessor debugProcess, ReferenceType classType) {
-    // thisiscalledwhenaclassforthisClassPrepareRequestorisprepared
+    // this is called when a class for this ClassPrepareRequestor is prepared
     if (!(myIsEnabled) || !(isValid())) {
       return;
     }
@@ -108,7 +108,7 @@ public abstract class JavaBreakpoint extends AbstractBreakpoint implements Class
       ThreadReference threadReference = event.thread();
       final StackFrame stackFrame = check_e43rhl_a0b0c0q(threadReference);
       if (stackFrame == null) {
-        // mightbeifthethreadhasbeencollected
+        //  might be if the thread has been collected
         return false;
       }
     } catch (IncompatibleThreadStateException ex) {

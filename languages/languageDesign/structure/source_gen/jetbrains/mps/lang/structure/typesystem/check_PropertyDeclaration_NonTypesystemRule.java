@@ -27,15 +27,15 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
   public check_PropertyDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode prop, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // propertyoverridingisbanned
+    // property overriding is banned
     if (SPropertyOperations.getString(prop, PROPS.name$MnvL) == null) {
       return;
     }
     SNode concept = SNodeOperations.getNodeAncestor(prop, CONCEPTS.AbstractConceptDeclaration$KA, false, false);
-    // XXXthischeckisinvokedforeachpropertyvisibleinConceptDeclarationeditor.Ifittakesnoticeablylongerthanitwascompared
-    // tocachedaccesstopropertydeclarations,we'dbetterintroduceanotionofcachingcontexthereandcalculateconcepthierarchy/propertydeclarations
-    // oncepercheckingsession(thisdoesn'tseemtobeanytroubleusingTypecheckingContexttokeepcachedvaluesduringcheckingsession.
-    // CouldusesetIsNonTypesystemComputation()/resetIsNonTypesystemComputation()ofIncrementalTypecheckingContexttocleanthecache)
+    // XXX this check is invoked for each property visible in ConceptDeclaration editor. If it takes noticeably longer than it was compared
+    // to cached access to property declarations, we'd better introduce a notion of caching context here and calculate concept hierarchy/property declarations
+    // once per checking session (this doesn't seem to be any trouble using TypecheckingContext to keep cached values during checking session. 
+    // Could use setIsNonTypesystemComputation()/ resetIsNonTypesystemComputation() of IncrementalTypecheckingContext to clean the cache)
     List<SNode> otherProps = ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(concept)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return it != prop;
@@ -53,7 +53,7 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
       }
       return;
     }
-    // checkconstantnamesgeneratedinadapters
+    // check constant names generated in adapters
     final String name = NameUtil.toConstantName(SPropertyOperations.getString(prop, PROPS.name$MnvL));
     SNode node = ListSequence.fromList(otherProps).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {

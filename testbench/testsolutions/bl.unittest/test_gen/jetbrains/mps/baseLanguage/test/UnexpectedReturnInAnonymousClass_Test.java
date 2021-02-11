@@ -52,8 +52,8 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
 
     public void test_UnexpectedReturnInAnonymousClass() throws Exception {
       addNodeById("1217271586587");
-      // Checkstatementwasmovedtonodeannotation
-      // checkgetNodeById(string):node<>errormessages
+      // Check statement was moved to node annotation
+      // check getNodeById(string):node<> error messages
     }
     public void test_NodeReturnExpectedErrorCheck6923385624929494145() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230829");

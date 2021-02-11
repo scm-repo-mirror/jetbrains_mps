@@ -13,7 +13,7 @@ public class Trace_KeymapChanges extends BaseKeymapChanges {
   public Trace_KeymapChanges() {
     // simple
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowTypeSystemTrace_Action", getShortcut("ctrl shift X"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

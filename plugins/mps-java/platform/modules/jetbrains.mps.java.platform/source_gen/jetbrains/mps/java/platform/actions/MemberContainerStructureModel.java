@@ -110,7 +110,7 @@ public class MemberContainerStructureModel implements StructureViewModel {
 
     /*package*/ Presentation() {
       super(new SNodePointer(null), null, null);
-      // justafactrootelement
+      // just a fact root element
     }
 
     /*package*/ Presentation(SNode n) {

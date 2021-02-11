@@ -39,7 +39,7 @@ public class Icon2IconResourceAdapter_Deprecated extends IconResource {
       ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
       try {
         ImageIO.write(image, "png", ios);
-        // Setaflagtoindicatethatthewritewassuccessful
+        // Set a flag to indicate that the write was successful
       } finally {
         ios.close();
       }

@@ -50,137 +50,137 @@ public class Template_reduce_StmtAndRef extends TemplateDeclarationBase {
             final SNode tnode3 = environment.createOutputNode(myConcepts[2]);
             tnode3.setProperty(myProperties[0], "next");
             tnode2.addChild(myAggregationLinks[0], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode4 = environment.createOutputNode(myConcepts[2]);
             tnode4.setProperty(myProperties[0], "2");
             tnode2.addChild(myAggregationLinks[0], tnode4);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode5 = environment.createOutputNode(myConcepts[2]);
             tnode5.setProperty(myProperties[0], "lines");
             tnode2.addChild(myAggregationLinks[0], tnode5);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode6 = environment.createOutputNode(myConcepts[2]);
             tnode6.setProperty(myProperties[0], "have");
             tnode2.addChild(myAggregationLinks[0], tnode6);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode7 = environment.createOutputNode(myConcepts[2]);
             tnode7.setProperty(myProperties[0], "variable");
             tnode2.addChild(myAggregationLinks[0], tnode7);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode8 = environment.createOutputNode(myConcepts[2]);
             tnode8.setProperty(myProperties[0], "declaration");
             tnode2.addChild(myAggregationLinks[0], tnode8);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode9 = environment.createOutputNode(myConcepts[2]);
             tnode9.setProperty(myProperties[0], "and");
             tnode2.addChild(myAggregationLinks[0], tnode9);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode10 = environment.createOutputNode(myConcepts[2]);
             tnode10.setProperty(myProperties[0], "a");
             tnode2.addChild(myAggregationLinks[0], tnode10);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode11 = environment.createOutputNode(myConcepts[2]);
             tnode11.setProperty(myProperties[0], "reference.");
             tnode2.addChild(myAggregationLinks[0], tnode11);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode12 = environment.createOutputNode(myConcepts[2]);
             tnode12.setProperty(myProperties[0], "Reference");
             tnode2.addChild(myAggregationLinks[0], tnode12);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode13 = environment.createOutputNode(myConcepts[2]);
             tnode13.setProperty(myProperties[0], "has");
             tnode2.addChild(myAggregationLinks[0], tnode13);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode14 = environment.createOutputNode(myConcepts[2]);
             tnode14.setProperty(myProperties[0], "to");
             tnode2.addChild(myAggregationLinks[0], tnode14);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode15 = environment.createOutputNode(myConcepts[2]);
             tnode15.setProperty(myProperties[0], "match");
             tnode2.addChild(myAggregationLinks[0], tnode15);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode16 = environment.createOutputNode(myConcepts[2]);
             tnode16.setProperty(myProperties[0], "variable");
             tnode2.addChild(myAggregationLinks[0], tnode16);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode17 = environment.createOutputNode(myConcepts[2]);
             tnode17.setProperty(myProperties[0], "declaration");
             tnode2.addChild(myAggregationLinks[0], tnode17);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode18 = environment.createOutputNode(myConcepts[2]);
             tnode18.setProperty(myProperties[0], "from");
             tnode2.addChild(myAggregationLinks[0], tnode18);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode19 = environment.createOutputNode(myConcepts[2]);
             tnode19.setProperty(myProperties[0], "previous");
             tnode2.addChild(myAggregationLinks[0], tnode19);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode20 = environment.createOutputNode(myConcepts[2]);
             tnode20.setProperty(myProperties[0], "line,");
             tnode2.addChild(myAggregationLinks[0], tnode20);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode21 = environment.createOutputNode(myConcepts[2]);
             tnode21.setProperty(myProperties[0], "here,");
             tnode2.addChild(myAggregationLinks[0], tnode21);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode22 = environment.createOutputNode(myConcepts[2]);
             SNodeAccessUtil.setPropertyValue(tnode22, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_0(new PropertyMacroContext(context2, "varXdecl", propertyMacro_w0zo30_c0a2a0a1a02a1a1a2a7)));
             tnode2.addChild(myAggregationLinks[0], tnode22);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode23 = environment.createOutputNode(myConcepts[2]);
             tnode23.setProperty(myProperties[0], "");
             tnode2.addChild(myAggregationLinks[0], tnode23);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode24 = environment.createOutputNode(myConcepts[2]);
             tnode24.setProperty(myProperties[0], "");
             tnode2.addChild(myAggregationLinks[0], tnode24);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[1], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);
@@ -200,17 +200,17 @@ public class Template_reduce_StmtAndRef extends TemplateDeclarationBase {
           {
             final SNode tnode3 = environment.createOutputNode(myConcepts[5]);
             tnode2.addChild(myAggregationLinks[3], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode4 = environment.createOutputNode(myConcepts[6]);
             SNodeAccessUtil.setPropertyValue(tnode4, myProperties[2], QueriesGenerated.propertyMacro_GetValue_1_1(new PropertyMacroContext(context2, "1", propertyMacro_w0zo30_c0a2a0a1a4a1a1a2a8)));
             tnode2.addChild(myAggregationLinks[4], tnode4);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[5], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);
@@ -233,27 +233,27 @@ public class Template_reduce_StmtAndRef extends TemplateDeclarationBase {
                 final SNode tnode4 = environment.createOutputNode(myConcepts[6]);
                 SNodeAccessUtil.setPropertyValue(tnode4, myProperties[2], QueriesGenerated.propertyMacro_GetValue_1_3(new PropertyMacroContext(context3, "1", propertyMacro_w0zo30_c0a2a0a1a1a1a1a1a1a2a9)));
                 tnode3.addChild(myAggregationLinks[6], tnode4);
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode5 = environment.createOutputNode(myConcepts[10]);
                 environment.resolveInTemplateLater(tnode5, myAssociationLinks[0], templateNode_w0zo30_c0a0a1a2a1a1a1a1a2a9, "tpl/r:3974355c-942b-4134-9ce5-040d47bdb681/5110551451990212800", "x", context3);
                 tnode3.addChild(myAggregationLinks[7], tnode5);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[8], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode6 = environment.createOutputNode(myConcepts[10]);
             environment.resolveInTemplateLater(tnode6, myAssociationLinks[0], templateNode_w0zo30_c0a0a1a2a1a1a2a9, "tpl/r:3974355c-942b-4134-9ce5-040d47bdb681/5110551451990212800", "x", context2);
             tnode2.addChild(myAggregationLinks[9], tnode6);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[10], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(2, tnode1);

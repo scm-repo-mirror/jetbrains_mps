@@ -59,7 +59,7 @@ public class JDKStubsModelRoot extends ModelRootBase {
   @Override
   public Iterable<SModel> loadModels() {
     Map<SModelId, SModel> result = MapSequence.fromMap(new HashMap<SModelId, SModel>());
-    // tododecidewhethertouseIdeaFShere
+    // todo decide whether to use IdeaFS here
     for (IFile file : ListSequence.fromList(myJrtPaths).select(new ISelector<QualifiedPath, IFile>() {
       public IFile select(QualifiedPath it) {
         return myVfsManager.getFile(it);
@@ -98,11 +98,11 @@ public class JDKStubsModelRoot extends ModelRootBase {
   public void load(@NotNull Memento memento) {
     String provided = memento.get("provided");
     if (myStubPathProvider != null && provided != null && myStubPathProvider.supports(provided)) {
-      // generally,ifprovideraddsanythingtomemento,wedon'twantanyonetoseethatchangesortrytopersistthemafterwards
-      // however,inthiscaseweknowsave()isnoop,andthereforedon'tmakeacopylikeJavaClassStubsModelRootdoes.
+      // generally, if provider adds anything to memento, we don't want anyone to see that changes or try to persist them afterwards
+      // however, in this case we know save() is no op, and therefore don't make a copy like JavaClassStubsModelRoot does.
       myStubPathProvider.configure(provided, memento);
     }
-    // Perhaps,shallsupportmultiplescopeconfigurationsperroot
+    // Perhaps, shall support multiple scope configurations per root
     Memento packScope = memento.getChild("PackageScope");
     if (packScope != null) {
       myScopeControl = new PackageScopeControl();

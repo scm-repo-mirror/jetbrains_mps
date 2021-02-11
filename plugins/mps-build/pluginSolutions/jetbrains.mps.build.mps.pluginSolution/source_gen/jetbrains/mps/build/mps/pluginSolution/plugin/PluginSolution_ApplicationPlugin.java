@@ -19,7 +19,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new GenerateBuildForProjectAction_Action());
     addAction(new ImportAllModulesFromFolder_Action());
     // groups

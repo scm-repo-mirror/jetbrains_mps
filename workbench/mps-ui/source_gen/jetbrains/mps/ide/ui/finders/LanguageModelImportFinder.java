@@ -46,8 +46,8 @@ public class LanguageModelImportFinder implements IFinder {
           return;
         }
 
-        // XXXnextcodeoriginatesfromModuleUsagesFinder#collectUsagesInModels
-        // Idon'tunderstandreasonforisUserModelcheck,hencehaddroppedit
+        // XXX next code originates from ModuleUsagesFinder#collectUsagesInModels
+        // I don't understand reason for isUserModel check, hence had dropped it
 
         if (SModelOperations.getAllLanguageImports(model).contains(language2lookup)) {
           callback.onUsageFound(new SearchResult<SModel>(model, "model imports"));

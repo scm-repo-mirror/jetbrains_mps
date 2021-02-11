@@ -38,7 +38,7 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new AddAccessoryModel_Action());
     addAction(new CellProperties_Action());
     addAction(new CreateDefaultEditor_Action());

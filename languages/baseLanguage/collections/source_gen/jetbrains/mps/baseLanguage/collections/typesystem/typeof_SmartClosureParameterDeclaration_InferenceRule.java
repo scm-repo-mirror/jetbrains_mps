@@ -61,7 +61,7 @@ public class typeof_SmartClosureParameterDeclaration_InferenceRule extends Abstr
         }, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "2684739085678948093", false, false);
       }
     } else if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(scpd), CONCEPTS.ClosureLiteral$rp) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(scpd)), CONCEPTS.IMethodCall$M9)) {
-      // tosupportclosure'stypeinferenceinwebr-dnq
+      // to support closure's type inference in webr-dnq
       SNode mcall = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.getParent(scpd)), CONCEPTS.IMethodCall$M9);
       SNode mdecl = SLinkOperations.getTarget(mcall, LINKS.baseMethodDeclaration$pyYw);
       if (mdecl == null) {
@@ -69,10 +69,10 @@ public class typeof_SmartClosureParameterDeclaration_InferenceRule extends Abstr
       }
 
       final Map<SNode, SNode> subs = MapSequence.fromMap(new HashMap<SNode, SNode>());
-      // checktheinferencecontext
+      // check the inference context
       if (!((boolean) IMethodCall__BehaviorDescriptor.isInTypeInferenceContext_id4cxv$9$kw67.invoke(mcall))) {
         for (SNode tvd : ListSequence.fromList(BaseMethodDeclaration__BehaviorDescriptor.getInferrableTypeVars_id5W9RYt5baxk.invoke(mdecl))) {
-          // assumeallunboundtypevarsoutsideaninferencecontextareObject
+          // assume all unbound type vars outside an inference context are Object
           MapSequence.fromMap(subs).put(tvd, _quotation_createNode_5rdbtv_a0b0a0h0a0a1());
         }
       }

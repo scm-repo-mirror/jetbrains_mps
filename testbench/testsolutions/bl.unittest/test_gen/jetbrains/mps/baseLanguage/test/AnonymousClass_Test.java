@@ -64,8 +64,8 @@ public class AnonymousClass_Test extends BaseTransformationTest {
 
     public void test_AnonymousClass() throws Exception {
       addNodeById("1217271587076");
-      // Checkstatementwasmovedtonodeannotation
-      // checkgetNodeById(string):node<>errormessages
+      // Check statement was moved to node annotation
+      // check getNodeById(string):node<> error messages
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624927142051() throws Exception {
       SNode nodeToCheck = getRealNodeById("6090235207266878331");

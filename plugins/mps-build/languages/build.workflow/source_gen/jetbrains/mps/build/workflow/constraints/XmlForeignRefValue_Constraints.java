@@ -43,7 +43,7 @@ public class XmlForeignRefValue_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // limittonodesinsameroot
+            // limit to nodes in same root
             return ListScope.forResolvableElements(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(_context.getContextNode()), null, false, new SAbstractConcept[]{}));
           }
         };

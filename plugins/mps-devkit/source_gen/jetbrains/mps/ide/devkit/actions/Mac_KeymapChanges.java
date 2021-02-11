@@ -12,9 +12,9 @@ import javax.swing.KeyStroke;
 public class Mac_KeymapChanges extends BaseKeymapChanges {
   public Mac_KeymapChanges() {
     // simple
-    // simplewithremove/replace
+    // simple with remove/replace
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl X"), false, true));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

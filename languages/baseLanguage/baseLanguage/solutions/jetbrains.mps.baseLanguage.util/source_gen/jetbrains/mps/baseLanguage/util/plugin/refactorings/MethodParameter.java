@@ -128,7 +128,7 @@ public class MethodParameter extends MethodParameterModel {
       if (!(that instanceof NodeWrapper)) {
         return false;
       }
-      // ignoreattributeswhilematchingtypes
+      // ignore attributes while matching types
       return MatchingUtil.matchNodes(this.myNode, ((NodeWrapper) that).myNode, IMatchModifier.DEFAULT, false);
     }
   }

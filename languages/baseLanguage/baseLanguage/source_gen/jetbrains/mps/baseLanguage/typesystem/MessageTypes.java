@@ -12,7 +12,7 @@ public enum MessageTypes {
 
 
   MessageTypes() {
-    // todouseastringformessageformat???
+    // todo use a string for message format ???
   }
 
 }

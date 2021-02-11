@@ -79,7 +79,7 @@ public final class ModuleDependencyVersions {
     myModuleRepo.getModelAccess().checkReadAccess();
     SRepository moduleRepo = module.getRepository();
     if (moduleRepo != null) {
-      // wegonnamodifyitsimports
+      // we gonna modify its imports
       moduleRepo.getModelAccess().checkWriteAccess();
     }
     doUpdateImportVersions(module, false);
@@ -92,9 +92,9 @@ public final class ModuleDependencyVersions {
   public boolean dependenciesPresent(SModule module) {
     myModuleRepo.getModelAccess().checkReadAccess();
     Set<SLanguage> usedLanguages = module.getUsedLanguages();
-    // it'stemptingtouselr.getAllLanguages().containsAll(usedLanguages),butthere'sarraylistwhichmight
-    // gethugeandineffectiveforcontains();convertingittosetistoomuch,too.
-    // Hence,justthesameSLanguage.isValidcheckasitusedtobeinVersionFixer,justdoneright.
+    // it's tempting to use lr.getAllLanguages().containsAll(usedLanguages), but there's array list which might
+    // get huge and ineffective for contains(); converting it to set is too much, too. 
+    // Hence, just the same SLanguage.isValid check as it used to be in VersionFixer, just done right.
     if (SetSequence.fromSet(usedLanguages).any(new IWhereFilter<SLanguage>() {
       public boolean accept(SLanguage it) {
         return myLanguageRegistry.getLanguage(it) == null;
@@ -113,7 +113,7 @@ public final class ModuleDependencyVersions {
     }
 
     if (module instanceof AbstractModule) {
-      // todothisshouldberemovedwhenthere'sAPIforaccessingdevkit"references"
+      // todo this should be removed when there's API for accessing devkit "references"
       Set<SModuleReference> devkits = ((AbstractModule) module).collectLanguagesAndDevkits().devkits;
       if (SetSequence.fromSet(devkits).any(new IWhereFilter<SModuleReference>() {
         public boolean accept(SModuleReference it) {
@@ -133,22 +133,22 @@ public final class ModuleDependencyVersions {
    * @return true if the module differs from updated one
    */
   private boolean doUpdateImportVersions(SModule module, final boolean dryRun) {
-    // FIXMEIdon'tlikethismethod,butdon'twanttobotherrefactoringitnow
+    // FIXME I don't like this method, but don't want to bother refactoring it now
     AbstractModule abstractModule = (AbstractModule) module;
     final ModuleDescriptor md = abstractModule.getModuleDescriptor();
 
     assert md != null : "Module descriptor is null for module " + module.getModuleName();
 
     if (md.getLoadException() != null) {
-      // MigrationRegistryImplchecksloadexceptionindoUpdateImportVersions(),butiscarelessinimportVersionsUpdateRequired()
-      // Idon'tseeareasontofailwithassertionwhenit'sdryRunanyway,that'swhyIdidnotfiximportVersionsUpdateRequired().
+      // MigrationRegistryImpl checks load exception in doUpdateImportVersions(), but is careless in importVersionsUpdateRequired()
+      // I don't see a reason to fail with assertion when it's dryRun anyway, that's why I did not fix importVersionsUpdateRequired().
       assert dryRun : "Asked to update import versions in module " + module.getModuleName() + " with load exceptions";
       return false;
     }
 
     if (myRemoveOddImports) {
-      // myRemoveOddImportsisusedonlanguage+sandbox_solutioncreationsincelanguageisnotvalidyet
-      // inothercases,wedonotallowtoupdateimportversions(sincebrokendepsmayleadtoincorrectlyoptimization)
+      // myRemoveOddImports is used on language+sandbox_solution creation since language is not valid yet
+      // in other cases, we do not allow to update import versions (since broken deps may lead to incorrectly optimization)
       assert dependenciesPresent(module) : "Not all dependencies of module " + module.getModuleName() + " are satisfied";
     }
 
@@ -209,7 +209,7 @@ public final class ModuleDependencyVersions {
       });
     }
 
-    // TODOmovethischecksomewhereelse
+    // TODO move this check somewhere else
     checkModelVersionsAreValid(module, newLangVersions);
 
     if (changed.value && !(dryRun)) {
@@ -283,7 +283,7 @@ public final class ModuleDependencyVersions {
   }
 
   private void checkModelVersionsAreValid(SModule myModule, Map<SLanguage, Integer> langVersions) {
-    // TODO[MM]getridofthismethod,checkonmodelloadetc.
+    // TODO [MM] get rid of this method, check on model load etc.
     for (SModel m : myModule.getModels()) {
       if (SModelStereotype.isDescriptorModel(m)) {
         continue;

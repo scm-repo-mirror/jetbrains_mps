@@ -20,7 +20,7 @@ public class MergeSessionState {
   /*package*/ final Set<ModelChange> myResolvedChanges;
   /*package*/ final Map<SNodeId, SNodeId> myIdReplacementCache;
   /*package*/ MergeSessionState(MergeTemporaryModel resultModel, Set<ModelChange> resolvedChanges, Map<SNodeId, SNodeId> idReplacementCache) {
-    // XXXaslongasweknowresultModelisMTM,shallwecopyitspersistenceversionaswell(setbyMergeSession)?
+    // XXX as long as we know resultModel is MTM, shall we copy its persistence version as well (set by MergeSession)?
     myResultModel = MergeTemporaryModel.readonlyCloneOf(resultModel);
     myResolvedChanges = SetSequence.fromSetWithValues(new HashSet<ModelChange>(), resolvedChanges);
     myIdReplacementCache = MapSequence.fromMap(new HashMap<SNodeId, SNodeId>(MapSequence.fromMap(idReplacementCache).count()));

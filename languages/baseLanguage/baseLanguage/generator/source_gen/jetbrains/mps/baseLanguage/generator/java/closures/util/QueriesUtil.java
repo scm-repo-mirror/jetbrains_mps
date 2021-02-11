@@ -22,21 +22,21 @@ public class QueriesUtil {
   public static List<SNode> getTypeVars_from_Closure_enclosingClass(SNode inputClosure) {
     SNode enclosingClass = SNodeOperations.getNodeAncestor(inputClosure, CONCEPTS.ClassConcept$bK, false, false);
     if (enclosingClass == null) {
-      // closureisnotinclass
+      // closure is not in class
       enclosingClass = getJavaLangObject();
     }
     return SLinkOperations.getChildren(enclosingClass, LINKS.typeVariableDeclaration$Lipp);
   }
   public static SNode create_enclosingClassObject(SNode nodeInsideClosure) {
     // 
-    // mustbeinvokedin$COPY-SRC$becauseuserefonclassin'inputmodel'
+    // must be invoked in $COPY-SRC$ because use ref on class in 'input model'
     // 
     SNode enclosingClass = SNodeOperations.getNodeAncestor(nodeInsideClosure, CONCEPTS.ClassConcept$bK, false, false);
     if (enclosingClass == null) {
       return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral"));
     }
     SNode enclosingMethodOrClosure = SNodeOperations.getNodeAncestorWhereConceptInList(nodeInsideClosure, new SAbstractConcept[]{CONCEPTS.BaseMethodDeclaration$kD, CONCEPTS.Closure$yC}, false, false);
-    // ---inclosure
+    // --- in closure
     if (SNodeOperations.isInstanceOf(enclosingMethodOrClosure, CONCEPTS.Closure$yC)) {
       SNode fieldRef = _quotation_createNode_w9106s_a0a0h0c();
       SNode typeOfField = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
@@ -44,13 +44,13 @@ public class QueriesUtil {
       SLinkOperations.setTarget(fieldRef, LINKS.fieldType$dHXe, typeOfField);
       return fieldRef;
     }
-    // ---ininstancemethod
+    // --- in instance method
     if (SNodeOperations.isInstanceOf(enclosingMethodOrClosure, CONCEPTS.InstanceMethodDeclaration$39) || SNodeOperations.isInstanceOf(enclosingMethodOrClosure, CONCEPTS.ConstructorDeclaration$yG)) {
       SNode thisExpr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression"));
       SLinkOperations.setTarget(thisExpr, LINKS.classConcept$zzjZ, enclosingClass);
       return thisExpr;
     }
-    // ---noneofabove
+    // --- none of above
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral"));
   }
   private static SNode getJavaLangObject() {

@@ -80,7 +80,7 @@ public final class ConstraintsMigrationUtil {
           continue;
         }
       }
-      // TODOshouldbesimplifiedto<%(newParam)%.asNode>assoonassmodellangsupportslinks
+      // TODO should be simplified to <%(newParam)%.asNode> as soon as smodel lang supports links
       SNodeOperations.replaceWithAnother(param, _quotation_createNode_3gs37h_a0a5a2a5(newParam, newParam));
       migrateManually = true;
     }
@@ -88,9 +88,9 @@ public final class ConstraintsMigrationUtil {
   }
 
   public static void swapReferences(SNode oldNode, SNode newNode) {
-    // Usesinordertosettheoldnodeidentitytothenewnode
-    // toavoidthenecessityofupdatingreferencestothenewnodeinothermodules.
-    // Oldnodeidisalsochangedduetooldnodecanbeattachedtothemodulebeforethenewone.
+    // Uses in order to set the old node identity to the new node
+    // to avoid the necessity of updating references to the new node in other modules.
+    // Old node id is also changed due to old node can be attached to the module before the new one.
     jetbrains.mps.smodel.SNode lNode = (jetbrains.mps.smodel.SNode) oldNode;
     jetbrains.mps.smodel.SNode rNode = (jetbrains.mps.smodel.SNode) newNode;
     SNodeId lNodeId = lNode.getNodeId();

@@ -34,12 +34,12 @@ public class check_UnqualifiedEnumConstant_NonTypesystemRule extends AbstractNon
   public check_UnqualifiedEnumConstant_NonTypesystemRule() {
   }
   public void applyRule(final SNode varRef, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // Q:isthereabetterwayforthis?
+    // Q: is there a better way for this?
     if (!(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(varRef)), CONCEPTS.VariableReference$TC))) {
       return;
     }
 
-    // FIXME:duplicatecodewithJavaToMpsConverter
+    // FIXME: duplicate code with JavaToMpsConverter
 
     SReference ref = SNodeOperations.getReference(varRef, LINKS.variableDeclaration$N1XG);
     if (!(SLinkOperations.isDynamic(ref))) {
@@ -49,7 +49,7 @@ public class check_UnqualifiedEnumConstant_NonTypesystemRule extends AbstractNon
       return;
     }
 
-    // nowwecantrytosearch
+    // now we can try to search
     final String enumConstName = SLinkOperations.getResolveInfo(ref);
 
     for (SNode enclosingEnum : ListSequence.fromList(SNodeOperations.getNodeAncestors(varRef, CONCEPTS.EnumClass$Vk, false))) {
@@ -94,16 +94,16 @@ public class check_UnqualifiedEnumConstant_NonTypesystemRule extends AbstractNon
       String enumClassCandidateName = Tokens__BehaviorDescriptor.withoutLastToken_id5ll4uk6512$.invoke(singleNameImport);
       SNode enumClassCandidate = ResolveUnknownUtil.findClass(varRef, enumClassCandidateName);
       if ((enumClassCandidate == null)) {
-        // seemslikethereisnoneedtocontinue
-        // wehadimportoftheform:importstatic<class>.<ourName>
-        // ifwemeet<ourName>injavacodethenitmuststrictlyreferencethisimport,notanyother
+        // seems like there is no need to continue
+        // we had import of the form: import static <class>.<ourName>
+        // if we meet <ourName> in java code then it must strictly reference this import, not any other
         return;
       }
       if (!(SNodeOperations.isInstanceOf(enumClassCandidate, CONCEPTS.EnumClass$Vk))) {
         return;
       }
 
-      // Q:maybenotfindFirst,butratherfailiftherearemorethanone...
+      // Q: maybe not findFirst, but rather fail if there are more than one...
       SNode enumConst = Sequence.fromIterable(Members.visibleEnumConstants(SNodeOperations.cast(enumClassCandidate, CONCEPTS.EnumClass$Vk))).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return enumConstName.equals(SPropertyOperations.getString(it, PROPS.name$MnvL));

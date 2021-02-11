@@ -60,7 +60,7 @@ public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
 
     byte[] iconData = IconCreationUtil.drawIcon(new Consumer<IconCreationUtil.DrawContext>() {
       public void consume(IconCreationUtil.DrawContext dc) {
-        // todocopylayerediconintocore
+        // todo copy layered icon into core
         LayeredIcon res = new LayeredIcon(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$pqJD)).count());
         for (SNode layer : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$pqJD))) {
           res.setIcon(new ImageIcon(IconLayerDescription__BehaviorDescriptor.getImageForGeneration_id2p1v3tObywX.invoke(layer)), ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$pqJD)).indexOf(layer));

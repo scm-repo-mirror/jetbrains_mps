@@ -73,7 +73,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                     final SNode tnode6 = environment.createOutputNode(myConcepts[3]);
                     environment.associate(tnode6, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)", "~SModel");
                     tnode5.addChild(myAggregationLinks[0], tnode6);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tlist4.add(tnode5);
@@ -84,7 +84,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child7 : TemplateUtil.asNotNull(tlist3)) {
               tnode2.addChild(myAggregationLinks[1], child7);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist8 = Collections.emptyList();
@@ -102,7 +102,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                     final SNode tnode11 = environment.createOutputNode(myConcepts[3]);
                     environment.associate(tnode11, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)", "~SNodeId");
                     tnode10.addChild(myAggregationLinks[0], tnode11);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tlist9.add(tnode10);
@@ -113,17 +113,17 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child12 : TemplateUtil.asNotNull(tlist8)) {
               tnode2.addChild(myAggregationLinks[1], child12);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode13 = environment.createOutputNode(myConcepts[4]);
             tnode2.addChild(myAggregationLinks[2], tnode13);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode14 = environment.createOutputNode(myConcepts[5]);
             tnode2.addChild(myAggregationLinks[3], tnode14);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final SNode tnode15 = environment.createOutputNode(myConcepts[6]);
@@ -145,17 +145,17 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                           environment.associate(tnode19, myAssociationLinks[1], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)", "~PersistenceFacade.getInstance()");
                           environment.associate(tnode19, myAssociationLinks[2], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)", "~PersistenceFacade");
                           tnode18.addChild(myAggregationLinks[4], tnode19);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                         {
                           final SNode tnode20 = environment.createOutputNode(myConcepts[3]);
                           environment.associate(tnode20, myAssociationLinks[0], "8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)", "~PersistenceFacade");
                           tnode18.addChild(myAggregationLinks[0], tnode20);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                       }
                       tnode17.addChild(myAggregationLinks[5], tnode18);
-                      // TODOvalidatechild
+                      // TODO validate child
                     }
                   }
                   tlist16 = TemplateUtil.singletonList(tnode17);
@@ -163,7 +163,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                 for (SNode child21 : TemplateUtil.asNotNull(tlist16)) {
                   tnode15.addChild(myAggregationLinks[6], child21);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 Collection<SNode> tlist22 = null;
@@ -188,7 +188,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                           final SNode tnode27 = environment.createOutputNode(myConcepts[3]);
                           environment.associate(tnode27, myAssociationLinks[0], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.builder(MPS.Core/)", "~SNodeBuilder");
                           tnode26.addChild(myAggregationLinks[0], tnode27);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                         {
                           final SNode tnode28 = environment.createOutputNode(myConcepts[10]);
@@ -218,7 +218,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                       for (SNode child33 : TemplateUtil.asNotNull(tlist31)) {
                                         tnode30.addChild(myAggregationLinks[7], child33);
                                       }
-                                      // TODOvalidatechild
+                                      // TODO validate child
                                     }
                                     {
                                       Collection<SNode> tlist34 = Collections.emptyList();
@@ -235,15 +235,15 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                       for (SNode child36 : TemplateUtil.asNotNull(tlist34)) {
                                         tnode30.addChild(myAggregationLinks[7], child36);
                                       }
-                                      // TODOvalidatechild
+                                      // TODO validate child
                                     }
                                   }
                                   tnode29.addChild(myAggregationLinks[8], tnode30);
-                                  // TODOvalidatechild
+                                  // TODO validate child
                                 }
                               }
                               tnode28.addChild(myAggregationLinks[9], tnode29);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                             {
                               Collection<SNode> tlist37 = null;
@@ -260,7 +260,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                                     {
                                       final SNode tnode39 = environment.createOutputNode(myConcepts[15]);
                                       tnode38.addChild(myAggregationLinks[7], tnode39);
-                                      // TODOvalidatechild
+                                      // TODO validate child
                                     }
                                   }
                                   tlist37 = TemplateUtil.singletonList(tnode38);
@@ -270,11 +270,11 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                               for (SNode child40 : TemplateUtil.asNotNull(tlist37)) {
                                 tnode28.addChild(myAggregationLinks[10], child40);
                               }
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                           }
                           tnode26.addChild(myAggregationLinks[4], tnode28);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                       }
                       tlist25 = TemplateUtil.singletonList(tnode26);
@@ -284,14 +284,14 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                     for (SNode child41 : TemplateUtil.asNotNull(tlist24)) {
                       tnode23.addChild(myAggregationLinks[5], child41);
                     }
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tlist22 = TemplateUtil.singletonList(tnode23);
                 for (SNode child42 : TemplateUtil.asNotNull(tlist22)) {
                   tnode15.addChild(myAggregationLinks[6], child42);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final List<SNode> tlist43 = new ArrayList<SNode>();
@@ -318,11 +318,11 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                               final SNode tnode47 = environment.createOutputNode(myConcepts[12]);
                               environment.associate(tnode47, myAssociationLinks[1], "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~UnsupportedOperationException.<init>()");
                               tnode46.addChild(myAggregationLinks[8], tnode47);
-                              // TODOvalidatechild
+                              // TODO validate child
                             }
                           }
                           tnode45.addChild(myAggregationLinks[11], tnode46);
-                          // TODOvalidatechild
+                          // TODO validate child
                         }
                       }
                       tlist44 = TemplateUtil.singletonList(tnode45);
@@ -334,7 +334,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                 for (SNode child48 : TemplateUtil.asNotNull(tlist43)) {
                   tnode15.addChild(myAggregationLinks[6], child48);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 final SNode tnode49 = environment.createOutputNode(myConcepts[17]);
@@ -353,25 +353,25 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                           }
                         });
                         tnode50.addChild(myAggregationLinks[9], tnode51);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         final SNode tnode52 = environment.createOutputNode(myConcepts[14]);
                         environment.associate(tnode52, myAssociationLinks[1], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.builder(MPS.Core/)", "~SNodeBuilder.getResult()");
                         tnode50.addChild(myAggregationLinks[10], tnode52);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode49.addChild(myAggregationLinks[12], tnode50);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode15.addChild(myAggregationLinks[6], tnode49);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[13], tnode15);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final List<SNode> tlist53 = new ArrayList<SNode>();
@@ -408,7 +408,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
                   for (SNode child57 : TemplateUtil.asNotNull(tlist55)) {
                     tnode54.addChild(myAggregationLinks[0], child57);
                   }
-                  // TODOvalidatechild
+                  // TODO validate child
                 }
               }
               environment.registerLabel(itnode53, tnode54, "parametersFromExpressionsL");
@@ -417,11 +417,11 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child58 : TemplateUtil.asNotNull(tlist53)) {
               tnode2.addChild(myAggregationLinks[1], child58);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[14], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode59 = environment.createOutputNode(myConcepts[18]);
@@ -439,7 +439,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child62 : TemplateUtil.asNotNull(tlist60)) {
               tnode59.addChild(myAggregationLinks[7], child62);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist63 = Collections.emptyList();
@@ -452,7 +452,7 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child65 : TemplateUtil.asNotNull(tlist63)) {
               tnode59.addChild(myAggregationLinks[7], child65);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             final List<SNode> tlist66 = new ArrayList<SNode>();
@@ -470,11 +470,11 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
             for (SNode child68 : TemplateUtil.asNotNull(tlist66)) {
               tnode59.addChild(myAggregationLinks[7], child68);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[15], tnode59);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(16, tnode1);

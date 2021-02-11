@@ -88,11 +88,11 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
     Set<SLanguage> problems = getNotDeployedUsedLanguages();
 
     if (myLastDeployWarning != null && myLastDeployWarning.getBalloon() != null && myLastDeployWarning.myHasCleanups == hasCleanups) {
-      // migrationsalreadyblocked,warningisshowingandhassame"cleanup"status
+      // migrations already blocked, warning is showing and has same "cleanup" status
       return;
     }
 
-    // expireold,shownewtogettheballoonagain
+    // expire old, show new to get the balloon again
     if (myLastDeployWarning != null && !((myLastDeployWarning.isExpired()))) {
       myLastDeployWarning.expire();
     }
@@ -112,7 +112,7 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
         return it.getUsedLanguages();
       }
     }));
-    // removedeployedlanguages(i.e.knowntoLanguageRegistry)fromtheset
+    // remove deployed languages (i.e. known to LanguageRegistry) from the set
     myLangRegistry.withAvailableLanguages(new Consumer<LanguageRuntime>() {
       public void accept(LanguageRuntime lr) {
         SetSequence.fromSet(allUsedLanguages).removeElement(lr.getIdentity());

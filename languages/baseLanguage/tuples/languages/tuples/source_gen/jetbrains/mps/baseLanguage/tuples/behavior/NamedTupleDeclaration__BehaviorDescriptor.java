@@ -146,18 +146,18 @@ public final class NamedTupleDeclaration__BehaviorDescriptor extends BaseBHDescr
     return _quotation_createNode_ds5lpv_a1a4(__thisNode__, ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeVariableDeclaration$Lipp)).select(tvd2tvr).toListSequence());
   }
   /*package*/ static void populateMembers_id6r77ob2USUV(@NotNull SNode __thisNode__, MembersPopulatingContext context, SNode classifierType) {
-    // populateownmembers
+    // populate own members
     for (SNode method : SLinkOperations.getChildren(__thisNode__, LINKS.method$_DCK)) {
       IClassifierMember__BehaviorDescriptor.populateMember_id6r77ob2UW9O.invoke(method, context, classifierType);
     }
 
-    // populatesupertuplemembers
+    // populate super tuple members
     SNode superTuple = SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.extended$2Fzf), CONCEPTS.IClassifierType$B1);
     if ((superTuple != null)) {
       IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(superTuple, context, classifierType);
     }
 
-    // populateimplementedinterfacesmembers
+    // populate implemented interfaces members
     for (SNode implementedInterface : SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.implements$1gsv)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (it != null);

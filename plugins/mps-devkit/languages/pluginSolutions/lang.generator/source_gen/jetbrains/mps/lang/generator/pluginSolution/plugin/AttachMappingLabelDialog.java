@@ -60,7 +60,7 @@ public class AttachMappingLabelDialog extends DialogWrapper {
       textField.setSelectionStart(0);
       textField.setSelectionEnd(selectedItem.length());
     }
-    // myNameCombo.setSelectedItemabovetriggersactionPerformedevent,attachlisteneroncecomboisinitialized
+    // myNameCombo.setSelectedItem above triggers actionPerformed event, attach listener once combo is initialized
     myNameCombo.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent p0) {
@@ -115,7 +115,7 @@ public class AttachMappingLabelDialog extends DialogWrapper {
           SLinkOperations.setTarget(templateFragment, LINKS.labelDeclaration$ORJN, mappingLabel);
           return;
         }
-        // createnewLabelmacro
+        // create new Label macro
         SNode newMacro = SNodeFactoryOperations.addNewAttribute(AttachMappingLabelDialog.this.myTemplateNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeMacro$qU), CONCEPTS.LabelMacro$Lz);
         SLinkOperations.setTarget(newMacro, LINKS.mappingLabel$jbOO, mappingLabel);
       }

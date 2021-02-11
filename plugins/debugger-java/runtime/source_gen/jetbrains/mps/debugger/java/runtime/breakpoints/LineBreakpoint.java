@@ -59,17 +59,17 @@ public class LineBreakpoint extends JavaBreakpoint implements ILocationBreakpoin
           requestManager.enableRequest(request);
         }
       } else {
-        // there'snoexecutablecodeinthisclass
+        //  there's no executable code in this class
         requestManager.setInvalid(this, "no executable code found");
         String message = "No locations of type " + classType.name() + " found at line " + lineIndex;
         LOG.warn(message);
       }
     } catch (ClassNotPreparedException ex) {
       LOG.warn("ClassNotPreparedException: " + ex.getMessage());
-      // there'sachancetoaddabreakpointwhentheclassisprepared
+      //  there's a chance to add a breakpoint when the class is prepared
     } catch (ObjectCollectedException ex) {
       LOG.warn("ObjectCollectedException: " + ex.getMessage());
-      // there'sachancetoaddabreakpointwhentheclassisprepared
+      //  there's a chance to add a breakpoint when the class is prepared
     } catch (InvalidLineNumberException ex) {
       requestManager.setInvalid(this, "no executable code found");
       LOG.warn("InvalidLineNumberException: " + ex.getMessage());
@@ -84,7 +84,7 @@ public class LineBreakpoint extends JavaBreakpoint implements ILocationBreakpoin
   protected String getClassNameToPrepare() {
     String className = getLocation().getTargetUnitName();
     if (className == null) {
-      // todowhenthiscasedoesactuallyhappen?
+      //  todo when this case does actually happen?
       String fileName = getLocation().getFileName();
       if (fileName != null && fileName.endsWith(".java")) {
         fileName = fileName.substring(0, fileName.length() - ".java".length());

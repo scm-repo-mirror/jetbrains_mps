@@ -61,7 +61,7 @@ public class SNodeCompare {
       SReference aRef = a.getReference(r);
       SReference bRef = b.getReference(r);
       if (aRef == null || bRef == null) {
-        // cannotbebothnull
+        // cannot be both null
         return false;
       }
 
@@ -73,13 +73,13 @@ public class SNodeCompare {
       }
       if (aRef instanceof DynamicReference || bRef instanceof DynamicReference) {
         if (aRef instanceof DynamicReference && bRef instanceof DynamicReference) {
-          // bothdynamic,ok
+          // both dynamic, ok
         } else {
-          // dynamicandstatic
+          // dynamic and static
           return false;
         }
       } else {
-        // bothstatic
+        // both static
         if (!(Objects.equals(aRef.getTargetNodeId(), bRef.getTargetNodeId()))) {
           return false;
         }

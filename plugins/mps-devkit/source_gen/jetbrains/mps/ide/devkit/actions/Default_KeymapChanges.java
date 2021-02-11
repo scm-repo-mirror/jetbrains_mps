@@ -25,7 +25,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowEditorMenuItemTrace_Action", getShortcut("ctrl alt B"));
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", getShortcut("alt X"));
     addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowStructure_Action", getShortcut("ctrl F10"));
-    // simpleparameterized
+    // simple parameterized
     // complex
   }
   public String getScheme() {

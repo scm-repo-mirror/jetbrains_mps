@@ -73,7 +73,7 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
             for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
               tnode3.addChild(myAggregationLinks[0], child5);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist6 = Collections.emptyList();
@@ -90,7 +90,7 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
             for (SNode child8 : TemplateUtil.asNotNull(tlist6)) {
               tnode3.addChild(myAggregationLinks[0], child8);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist9 = null;
@@ -100,11 +100,11 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
             for (SNode child10 : TemplateUtil.asNotNull(tlist9)) {
               tnode3.addChild(myAggregationLinks[0], child10);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode2.addChild(myAggregationLinks[1], tnode3);
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode11 = environment.createOutputNode(myConcepts[3]);
@@ -124,15 +124,15 @@ public class Template_reduce_invokeWithSuper extends TemplateDeclarationBase {
                 for (SNode child14 : TemplateUtil.asNotNull(tlist13)) {
                   tnode12.addChild(myAggregationLinks[2], child14);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode11.addChild(myAggregationLinks[3], tnode12);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode2.addChild(myAggregationLinks[4], tnode11);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     tlist1 = TemplateUtil.singletonList(tnode2);

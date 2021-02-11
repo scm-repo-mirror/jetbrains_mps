@@ -17,7 +17,7 @@ public class LazyScope extends DelegatingScope {
   protected Scope getScope() {
     if (!(isCalculated)) {
       scope = scopePromise.invoke();
-      // todo:thinkaboutthiscase...
+      // todo: think about this case...
       if (scope == null) {
         scope = new EmptyScope();
       }

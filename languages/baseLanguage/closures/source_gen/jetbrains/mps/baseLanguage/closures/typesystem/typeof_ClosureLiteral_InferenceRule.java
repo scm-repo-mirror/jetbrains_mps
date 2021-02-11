@@ -235,7 +235,7 @@ with_allThrows:
           }
           break;
         }
-        // fallthrough
+        //  fall through
       default:
         yieldsValue = true;
         {

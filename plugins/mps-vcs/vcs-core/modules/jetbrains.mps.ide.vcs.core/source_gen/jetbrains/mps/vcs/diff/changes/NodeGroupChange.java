@@ -80,7 +80,7 @@ public class NodeGroupChange extends StructureChange {
     SModel oldModel = changeSet.getOldModel();
     SNode node = oldModel.getNode(parentNodeId);
     if (node == null) {
-      // Idon'tfullyunderstandhowthiscanhappen
+      // I don't fully understand how this can happen
       return null;
     }
     SNode containingRoot = node.getContainingRoot();
@@ -125,7 +125,7 @@ public class NodeGroupChange extends StructureChange {
   @Nullable
   @Override
   public MergeStrategy getMergeHint() {
-    // get"nonconflicting"attributeinmetamodel
+    // get "nonconflicting" attribute in metamodel
     SNode n = getParent(false);
     MergeStrategy hint = VCSAspectUtil.getDefaultMergeStrategy(myRole);
     if (hint != null) {
@@ -161,11 +161,11 @@ public class NodeGroupChange extends StructureChange {
 
   @Override
   public void apply(@NotNull SModel model, @NotNull NodeCopier nodeCopier) {
-    // deleteoldnodes
+    // delete old nodes
     prepare();
-    // somenodescanbealreadydeletedineditor(ifeditingisallowed)
+    // some nodes can be already deleted in editor (if editing is allowed)
     deleteOldNodes(model);
-    // insertnewnodes
+    // insert new nodes
     insertNewNodes(model, nodeCopier);
   }
 
@@ -263,7 +263,7 @@ public class NodeGroupChange extends StructureChange {
   private String getRemovedDescription(boolean verbose) {
     String role = myRole.getName();
     int removedSize = myEnd - myBegin;
-    // FIXMEgetridofthisdirtymagicwithrolenames"pluralization".PLEASE!!!
+    // FIXME get rid of this dirty magic with role names "pluralization". PLEASE!!!
     String removedItems = (removedSize == 1 ? role : NameUtil.formatNumericalString(removedSize, role));
     return String.format("Removed %s", removedItems);
   }
@@ -271,7 +271,7 @@ public class NodeGroupChange extends StructureChange {
   private String getAddedDescription(boolean verbose) {
     String role = myRole.getName();
     int addedSize = myResultEnd - myResultBegin;
-    // FIXMEgetridofthisdirtymagicwithrolenames"pluralization".PLEASE!!!
+    // FIXME get rid of this dirty magic with role names "pluralization". PLEASE!!!
     String addedItems = (addedSize == 1 ? role : NameUtil.formatNumericalString(addedSize, role));
     if (verbose) {
       List<SNode> newChildren = getChangedCollection(true);
@@ -286,7 +286,7 @@ public class NodeGroupChange extends StructureChange {
     String role = myRole.getName();
     int removedSize = myEnd - myBegin;
     int addedSize = myResultEnd - myResultBegin;
-    // FIXMEgetridofthisdirtymagicwithrolenames"pluralization".PLEASE!!!
+    // FIXME get rid of this dirty magic with role names "pluralization". PLEASE!!!
     String removedItems = (removedSize == 1 ? role : NameUtil.formatNumericalString(removedSize, role));
     String addedItems = (addedSize == 1 ? role : NameUtil.formatNumericalString(addedSize, role));
     addedItems = (addedSize == 1 && removedSize == 1 ? "another" : "another " + addedItems);

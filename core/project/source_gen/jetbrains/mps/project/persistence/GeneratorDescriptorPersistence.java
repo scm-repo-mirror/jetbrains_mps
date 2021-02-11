@@ -86,7 +86,7 @@ public class GeneratorDescriptorPersistence {
 
           ModuleDescriptorPersistence.loadDependencies(result_wk2vdq_a0a0a0a0h, generatorElement);
 
-          // "dependson"generators
+          // "depends on" generators
           for (Element refGenerator : Sequence.fromIterable(XmlUtil.children(XmlUtil.first(generatorElement, "external-templates"), "generator"))) {
             result_wk2vdq_a0a0a0a0h.getDepGenerators().add(PersistenceFacade.getInstance().createModuleReference(refGenerator.getAttributeValue("generatorUID")));
           }
@@ -134,7 +134,7 @@ public class GeneratorDescriptorPersistence {
     if (descriptor.getOutputPath() != null) {
       String p = myMacroHelper.shrinkPath(descriptor.getOutputPath());
       if (!(SOURCE_GEN_DEFAULT.equals(p))) {
-        // meanwhile,don'twanttopersistdefaultvalueasitrequiresre-generationofallmodules.Candoitanytimelater
+        // meanwhile, don't want to persist default value as it requires re-generation of all modules. Can do it any time later
         generator.setAttribute("generatorOutputPath", p);
       }
     }
@@ -155,7 +155,7 @@ public class GeneratorDescriptorPersistence {
       generator.addContent(facets);
     }
 
-    // "dependson"generators
+    // "depends on" generators
     Element extTemplates = new Element("external-templates");
     for (SModuleReference generatorReference : SetSequence.fromSet(descriptor.getDepGenerators())) {
       XmlUtil.tagWithAttribute(extTemplates, "generator", "generatorUID", generatorReference.toString());
@@ -164,7 +164,7 @@ public class GeneratorDescriptorPersistence {
 
     ModuleDescriptorPersistence.saveDependencies(generator, descriptor);
 
-    // mappingpriorityrules
+    // mapping priority rules
     Element mapPrio = new Element("mapping-priorities");
     for (MappingPriorityRule rule : ListSequence.fromList(descriptor.getPriorityRules())) {
       Element ruleElement = new Element("mapping-priority-rule");
@@ -208,8 +208,8 @@ public class GeneratorDescriptorPersistence {
     }
   }
   private static MappingConfig_AbstractRef loadGeneratorMappingConfigRef(final Element parentElement, final String genUID, boolean childOfGen) {
-    // FIXMEthereseemstobelittlereason(ifany)tochangeMCrefstructureduringread.ConsiderremovingchildOfGen
-    // attributealtogether
+    // FIXME there seems to be little reason (if any) to change MCref structure during read. Consider removing childOfGen
+    // attribute altogether
     if (Sequence.fromIterable(XmlUtil.children(parentElement, "all-mappings")).isNotEmpty()) {
       return new MappingConfig_RefAllGlobal();
     } else if (Sequence.fromIterable(XmlUtil.children(parentElement, "all-local-mappings")).isNotEmpty()) {
@@ -235,7 +235,7 @@ public class GeneratorDescriptorPersistence {
       }
       return mappingSet;
     } else if (XmlUtil.first(parentElement, "generator") != null) {
-      // externalreference
+      // external reference
       final Element generator = XmlUtil.first(parentElement, "generator");
       return new _FunctionTypes._return_P0_E0<MappingConfig_ExternalRef>() {
         public MappingConfig_ExternalRef invoke() {
@@ -248,7 +248,7 @@ public class GeneratorDescriptorPersistence {
         }
       }.invoke();
     } else if (XmlUtil.first(parentElement, "mapping-node") != null) {
-      // simplereference
+      // simple reference
       Element mappingNode = XmlUtil.first(parentElement, "mapping-node");
       final MappingConfig_SimpleRef mapping_SimpleRef = new MappingConfig_SimpleRef();
       MappingConfig_SimpleRef result_wk2vdq_a3a3c0m = mapping_SimpleRef;

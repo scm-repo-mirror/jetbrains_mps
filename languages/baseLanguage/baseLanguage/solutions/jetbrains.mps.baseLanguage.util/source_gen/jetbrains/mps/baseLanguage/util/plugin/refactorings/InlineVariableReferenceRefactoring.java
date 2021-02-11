@@ -52,14 +52,14 @@ public class InlineVariableReferenceRefactoring extends InlineVariableRefactorin
           return Objects.equals(SLinkOperations.getTarget(it, LINKS.variableDeclaration$N1XG), variable);
         }
       }).isNotEmpty()) {
-        // Assignmentsreferringtothevariablefromtheirrightsideshouldnotbeinlined,sincetheresultingcodewillhavedifferentsemanticsthantheoriginal
+        // Assignments referring to the variable from their right side should not be inlined, since the resulting code will have different semantics than the original
         return myReference;
       }
       nodeToSelect = SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(myAssignment, CONCEPTS.AssignmentExpression$SE), LINKS.rValue$spNK));
       SNodeOperations.replaceWithAnother(this.myReference, nodeToSelect);
       this.optimizeAssignment(SNodeOperations.cast(myAssignment, CONCEPTS.AssignmentExpression$SE), variable);
     } else {
-      // ATMwedonotinlineifthelastupdatewasthrougha++nora+=1type-ofexpressions
+      // ATM we do not inline if the last update was through a++ nor a+=1 type-of expressions
       return myReference;
     }
     InlinePrecedenceUtil.parenthesiseIfNecessary(nodeToSelect);
@@ -79,7 +79,7 @@ public class InlineVariableReferenceRefactoring extends InlineVariableRefactorin
         for (WriteInstruction instruction : SetSequence.fromSet(definitions.get(nodeInstruction))) {
           if (instruction.getVariable() == variable) {
             SNode assignmentNode = (SNode) instruction.getSource();
-            // Weneedtoavoidinliningaself-assignment
+            // We need to avoid inlining a self-assignment
             if (!(ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, false)).contains(assignmentNode))) {
               myAssignment = (assignmentNode);
             }

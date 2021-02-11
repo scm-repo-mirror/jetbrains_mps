@@ -103,7 +103,7 @@ public class TodoViewer extends JPanel {
     searchTodoAction.setRunOptions(FindUtils.makeProvider(new TodoFinder()), new SearchQuery(new GenericHolder<Project>(myProject), scope.value));
     myUsagesView.setCustomNodeRepresentator(new MyNodeRepresentator());
     DataContext dataContext = DataManager.getInstance().getDataContext(myUsagesView.getComponent());
-    // noideawhyclone(),justcopiedfromAnActionEvent.createFromAnAction()
+    // no idea why clone(), just copied from AnActionEvent.createFromAnAction()
     Presentation presentation = searchTodoAction.getTemplatePresentation().clone();
     AnActionEvent actionEvent = AnActionEvent.createFromInputEvent(null, ActionPlaces.TODO_VIEW_TOOLBAR, presentation, dataContext, false, true);
     searchTodoAction.actionPerformed(actionEvent);
@@ -140,7 +140,7 @@ public class TodoViewer extends JPanel {
     }
     @Override
     public Icon getCategoryIcon(String category) {
-      // bydefault,DEFAULT_KATEGORY_KINDgoeswith'Filter'icon
+      // by default, DEFAULT_KATEGORY_KIND goes with 'Filter' icon
       return IdeIcons.CLOSED_FOLDER;
     }
   }

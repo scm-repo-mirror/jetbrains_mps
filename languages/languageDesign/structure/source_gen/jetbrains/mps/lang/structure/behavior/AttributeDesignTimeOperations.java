@@ -26,7 +26,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AttributeDesignTimeOperations {
   public static Iterable<SNode> getApplicableAttributes(SNode accessNode, final SNode attributeType) {
-    // todo:shouldbenode<ACD>
+    // todo: should be node<ACD>
     final SNode nodeConcept = SLinkOperations.getTarget(AttributeAccess__BehaviorDescriptor.getAttributeContainerType_id62qhzb6UOqI.invoke(accessNode), LINKS.concept$OMgE);
     if ((nodeConcept == null)) {
       return null;
@@ -42,7 +42,7 @@ public class AttributeDesignTimeOperations {
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        // todo:whynotgetAttributeRole?
+        // todo: why not getAttributeRole?
         return isNotEmptyString(SPropertyOperations.getString(new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$hg).get(it), PROPS.role$vUyK)) && Sequence.fromIterable(getApplicableConcepts(it)).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return (boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(nodeConcept, it);

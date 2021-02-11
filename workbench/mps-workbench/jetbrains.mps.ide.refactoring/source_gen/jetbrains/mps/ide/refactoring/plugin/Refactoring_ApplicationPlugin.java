@@ -24,7 +24,7 @@ public class Refactoring_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new MoveModel_Action());
     addAction(new MoveNodes_Action());
     addAction(new RenameNode_Action());

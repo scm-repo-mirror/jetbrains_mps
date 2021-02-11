@@ -93,11 +93,11 @@ public class ProcessHandlerBuilder {
         continue;
       }
       if (c instanceof Collection) {
-        // ifanyonepassescollectionofwhateverelsebutstring,hastobearwithconsequences
+        // if anyone passes collection of whatever else but string, has to bear with consequences 
         append(CollectionSequence.fromCollection(((Collection<String>) c)).toListSequence());
         continue;
       }
-      // toleratenull,whatwouldbethebenefitoffailingwithexceptioninthatcase?
+      // tolerate null, what would be the benefit of failing with exception in that case?
       if (c == null) {
         continue;
       }
@@ -155,7 +155,7 @@ public class ProcessHandlerBuilder {
         continue;
       }
       if (currentChar == ' ' && !(insideQuotes)) {
-        // wordended
+        // word ended
         if (sb.length() > 0) {
           ListSequence.fromList(result).addElement(sb.toString());
           sb = new StringBuilder();
@@ -164,7 +164,7 @@ public class ProcessHandlerBuilder {
         escaped = true;
         continue;
       } else {
-        // insideword
+        // inside word
         sb.append(currentChar);
       }
       escaped = false;

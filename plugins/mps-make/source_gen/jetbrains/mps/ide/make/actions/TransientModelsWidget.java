@@ -41,7 +41,7 @@ import java.beans.PropertyChangeEvent;
 
   @Override
   public void install(@NotNull StatusBar bar) {
-    // Useapproachfromcom.intellij.openapi.wm.impl.status.ToolWindowsWidget
+    // Use approach from com.intellij.openapi.wm.impl.status.ToolWindowsWidget
     ApplicationManager.getApplication().getMessageBus().connect(this).subscribe(UISettingsListener.TOPIC, this);
     myFocusManager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
     myFocusManager.addPropertyChangeListener("focusOwner", this);
@@ -65,7 +65,7 @@ import java.beans.PropertyChangeEvent;
         if (!(e.isPopupTrigger()) && MouseEvent.BUTTON1 == e.getButton()) {
           boolean saveTransientModels = myGenerationSettings.isSaveTransientModels();
           myGenerationSettings.setSaveTransientModels(!(saveTransientModels));
-          // settingsshalldispatchchangenotificationforappropriateUIelementtogetupdated
+          // settings shall dispatch change notification for appropriate UI element to get updated
         } else if (e.isPopupTrigger() || MouseEvent.BUTTON2 == e.getButton()) {
           WidgetSettingsPanel panel = new WidgetSettingsPanel();
           Dimension dimension = panel.getPreferredSize();
@@ -92,7 +92,7 @@ import java.beans.PropertyChangeEvent;
 
   @Override
   public void dispose() {
-    // noneedtoremoveUISettingsListenerasitisregisteredwithDisposableandUISettingsremovesthelistenerondispose
+    // no need to removeUISettingsListener as it is registered with Disposable and UISettings removes the listener on dispose
     if (myFocusManager != null) {
       myFocusManager.removePropertyChangeListener("focusOwner", this);
       myFocusManager = null;
@@ -104,7 +104,7 @@ import java.beans.PropertyChangeEvent;
     if (isSaveTransientModels()) {
       return myIcon;
     }
-    // TODO:UseonlyoneIcon.Thishackhelpstoavoidtestsfails
+    // TODO: Use only one Icon. This hack helps to avoid tests fails
     return myIconDisable;
   }
 
@@ -121,8 +121,8 @@ import java.beans.PropertyChangeEvent;
   @Override
   public JComponent getComponent() {
     if (myComponent == null) {
-      // getComponent()isinvokedEARLIERthaninstall(),sothisistheonlyplacetoinstantiatepanel
-      // exceptconsofthisclass(whichisbad,becausethisgoestoTMP,whichusesite.g.togetText()onun-initializedinstance)
+      // getComponent() is invoked EARLIER than install(), so this is the only place to instantiate panel
+      // except cons of this class (which is bad, because this goes to TMP, which uses it e.g. to getText() on un-initialized instance)
       myComponent = new TransientModelsPanel(this);
     }
     return myComponent;

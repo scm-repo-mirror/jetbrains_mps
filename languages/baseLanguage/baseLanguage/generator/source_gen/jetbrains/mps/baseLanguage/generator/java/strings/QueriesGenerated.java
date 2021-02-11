@@ -97,8 +97,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getOutputNodeByInputNodeAndMappingLabel(firstOp, "IsNotEmptyExtractExpr"), LINKS.method$yoGN);
   }
   public static Object referenceMacro_GetReferent_11_0(final ReferenceMacroContext _context) {
-    // TodestinguishgeneratedisEmptyofthesamesessionindifferentclasses,needanobjectwe'vereplaced
-    // withextractstatement.Withit,cangetoutputbylabelandinput
+    // To destinguish generated isEmpty of the same session in different classes, need an object we've replaced
+    // with extract statement. With it, can get output by label and input
     SNode firstOp = (SNode) _context.getSessionObject(((String) _context.getVariable("var:methodNameKey")));
     return SLinkOperations.getTarget(_context.getOutputNodeByInputNodeAndMappingLabel(firstOp, "IsEmptyExtractExpr"), LINKS.method$yoGN);
   }
@@ -213,9 +213,9 @@ public class QueriesGenerated extends QueryProviderBase {
     }).first(), PROPS.name$MnvL) + ".IsNotEmptyStringMethod";
   }
   public static Object varMacro_Value_11_0(final TemplateVarContext _context) {
-    // ExtractStaticMethodExpressionlooksforfirstnonstaticclass
-    // andaslongasthere'snoalternativetoESME,thiscodeshall
-    // respectthewayContextUtil.getContextForMethodworks
+    // ExtractStaticMethodExpression looks for first non static class
+    // and as long as there's no alternative to ESME, this code shall
+    // respect the way ContextUtil.getContextForMethod works
     return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getNode(), CONCEPTS.ClassConcept$bK, false)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(it);

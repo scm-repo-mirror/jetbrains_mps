@@ -22,7 +22,7 @@ public class InternalAnonymousClassUsage {
     };
   }
   public void check1() {
-    // defaultanonymousclass
+    // default anonymous class
     safeRun(new Runnable() {
       @Override
       public void run() {

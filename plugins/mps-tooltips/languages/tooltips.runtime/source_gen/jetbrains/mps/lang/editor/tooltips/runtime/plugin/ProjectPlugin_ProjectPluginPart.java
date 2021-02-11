@@ -28,7 +28,7 @@ public class ProjectPlugin_ProjectPluginPart extends ProjectPluginPart {
 
       @Override
       public void install(@NotNull jetbrains.mps.openapi.editor.EditorComponent editorComponent) {
-        // makesureaTooltipManageriscreatedfortheEditorComponent
+        // make sure a TooltipManager is created for the EditorComponent
         ProjectPlugin_ProjectPluginPart.this.managersPool.computeIfAbsent((EditorComponent) editorComponent, new Function<EditorComponent, TooltipManager>() {
           public TooltipManager apply(EditorComponent key) {
             return new TooltipManager(key);

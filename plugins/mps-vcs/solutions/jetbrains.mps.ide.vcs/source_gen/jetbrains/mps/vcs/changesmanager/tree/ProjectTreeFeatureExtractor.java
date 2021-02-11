@@ -37,7 +37,7 @@ public class ProjectTreeFeatureExtractor implements TreeNodeFeatureExtractor {
     if (treeNode instanceof MPSTreeNodeEx) {
       nodePointer = ((MPSTreeNodeEx) treeNode).getNodePointer();
     } else if (treeNode.getParent() instanceof MPSTreeNodeEx) {
-      // Iwanttoknowwhywehadparenthere
+      // I want to know why we had parent here
       nodePointer = null;
     }
     if (nodePointer != null && nodePointer.getModelReference() != null) {
@@ -54,7 +54,7 @@ public class ProjectTreeFeatureExtractor implements TreeNodeFeatureExtractor {
 
     if (treeNode instanceof ReferenceTreeNode) {
       SReference ref = ((ReferenceTreeNode) treeNode).getRef();
-      // assumenode.getReferenceisnotnull/nullevenfordeletednodes
+      //  assume node.getReference is not null/null even for deleted nodes 
       if (ref.getSourceNode() != null) {
         return new ReferenceFeature(ref.getSourceNode().getReference(), ref.getLink(), null);
       }

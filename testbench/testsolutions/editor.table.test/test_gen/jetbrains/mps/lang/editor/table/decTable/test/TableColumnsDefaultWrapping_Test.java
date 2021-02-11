@@ -35,8 +35,8 @@ public class TableColumnsDefaultWrapping_Test extends BaseTransformationTest {
       initEditorComponent("7651593722933722506", "8377126844275870351");
       // ===================================================================
       // FIXME
-      // Thistestisadraft,itisnottestinganyactualfunctionality.
-      // Theeditorannotationsneedtobeequippedwithheight/widthspecification,afterthatsuchatestcanbewritten
+      // This test is a draft, it is not testing any actual functionality.
+      // The editor annotations need to be equipped with height/width specification, after that such a test can be written
       // ===================================================================
     }
   }

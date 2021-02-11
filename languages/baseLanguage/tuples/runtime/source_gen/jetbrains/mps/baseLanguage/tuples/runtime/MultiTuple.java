@@ -54,7 +54,7 @@ public class MultiTuple {
   }
   @Deprecated
   public void assign(Object... values) {
-    // stillusesintemplates(?),e.g.seeTResourcecode
+    // still uses in templates (?), e.g. see TResource code
     assignValues(values);
   }
   public MultiTuple assignValues(Object... values) {
@@ -70,7 +70,7 @@ public class MultiTuple {
   }
   @Deprecated
   public static boolean eq(Object a, Object b) {
-    // useswerereplacedwithregularObjects.equals();keepforonereleaseanddropthen
+    // uses were replaced with regular Objects.equals(); keep for one release and drop then
     return (a == b) || ((a != null ? a.equals(b) : false));
   }
 

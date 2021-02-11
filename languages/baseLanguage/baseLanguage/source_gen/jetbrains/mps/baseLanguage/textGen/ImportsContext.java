@@ -35,11 +35,11 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
     myContextClassifiers = new ContextClassifiersInRoot(rootNode);
 
-    // initnestedclassbindings
+    // init nested class bindings
     myBindings = new HashMap<String, String>();
 
-    // initpackagesimplenames(i.e.nameofclassesfromthesamepackage)
-    // indeed,therecouldbeothermodelsthatgenerateintothispackage,andwecouldhaveaconflictwitha'java.lang'classthenifthenamematches.
+    // init package simple names (i.e. name of classes from the same package)
+    // indeed, there could be other models that generate into this package, and we could have a conflict with a 'java.lang' class then if the name matches.
     myPackageSimpleNames = new HashSet<String>();
     for (SNode classifier : SModelOperations.roots(SNodeOperations.getModel(rootNode), CONCEPTS.Classifier$Ix)) {
       String fqName = INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(classifier);
@@ -50,7 +50,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
   }
 
   /*package*/ ImportEntry getClassifierRefText(SNode target, String packageName, String fqName, SNode contextNode) {
-    // maininvariant:usealwaysnestednames,importonlyrootclassifiers
+    // main invariant: use always nested names, import only root classifiers
     String nestedName = JavaNameUtil.nestedClassName(packageName, fqName);
 
     int dotIndex = nestedName.indexOf('.');
@@ -58,18 +58,18 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     String nestedPart = nestedName.substring(rootClassifierName.length());
     ImportEntry rootClassifierEntry = getRootClassifierRefText(packageName, rootClassifierName, contextNode);
     if ((nestedPart != null && nestedPart.length() > 0)) {
-      // TohandleConstructorDeclaration
+      // To handle ConstructorDeclaration
       target = SNodeOperations.getNodeAncestor(target, CONCEPTS.Classifier$Ix, true, false);
 
-      // classifiersthatprependthetargetclassifierandnotthecontextnode'slocation
+      // classifiers that prepend the target classifier and not the context node's location
       List<SNode> distinctClassifierPath = (target != null ? Classifier__BehaviorDescriptor.getClassifierPathDistinctFromContext_id2qKFNTWlEOm.invoke(target, contextNode) : ListSequence.fromList(new ArrayList<SNode>()));
 
-      // justneedtocheckwhetherIreferencetheenclosingrootclass
+      // just need to check whether I reference the enclosing root class
       String rootClassifierFqName = packageName + "." + rootClassifierName;
 
-      // Istherootofthetargetthesameastherootofthecontextnode
+      // Is the root of the target the same as the root of the context node
       if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(myRootNode), rootClassifierFqName)) {
-        // Canweuseashorterpaththanthefullpathfromtheroot
+        // Can we use a shorter path than the full path from the root
         if (ListSequence.fromList(distinctClassifierPath).count() > 0 && SNodeOperations.getParent(ListSequence.fromList(distinctClassifierPath).getElement(0)) != null && SNodeOperations.hasRole(ListSequence.fromList(distinctClassifierPath).getElement(0), LINKS.member$L_2d)) {
           return new ImportEntry(Classifier__BehaviorDescriptor.buildClassifierPath_id2qKFNTWoqtI.invoke(target, distinctClassifierPath));
         }
@@ -89,7 +89,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     String fqName = packageName + '.' + className;
     Map<String, String> nestedClassifiersBinding = myContextClassifiers.getContextClassifiers(contextNode);
 
-    // 1)checknestedclassescontext
+    // 1) check nested classes context
     if (nestedClassifiersBinding.containsKey(className)) {
       if (fqName.equals(nestedClassifiersBinding.get(className))) {
         return new ImportEntry(className);
@@ -98,7 +98,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       }
     }
 
-    // 2)checkcurrentbinding
+    // 2) check current binding
     if (myBindings.containsKey(className)) {
       if (fqName.equals(myBindings.get(className))) {
         return new ImportEntry(className);
@@ -107,17 +107,17 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       }
     }
 
-    // 3)addbinding,questionis:addexplicitimportornot?
+    // 3) add binding, question is: add explicit import or not?
     myBindings.put(className, fqName);
     boolean shouldBeImported;
 
     if (packageName.equals(myPackageName)) {
       shouldBeImported = false;
     } else if (packageName.equals("java.lang")) {
-      // java.langmodel:generatewithoutexplicitimportifcontextpackagedoesn'tcontainssamesimplename
+      // java.lang model: generate without explicit import if context package doesn't contains same simple name
       shouldBeImported = myPackageSimpleNames.contains(className);
     } else {
-      // inothercases:generateexplicitimport
+      // in other cases: generate explicit import
       shouldBeImported = true;
     }
     return new ImportEntry((shouldBeImported ? fqName : null), className);

@@ -98,10 +98,10 @@ public class VCSPersistenceSupport {
 
   @Nullable
   private static IModelPersistence getPersistence(int version) {
-    // AssertherewasreplacedwithLOG.errorbefore3.3aswe'vefoundacouple
-    // placeswherethisincompatibilitywitholderversionintroducednewbugs
-    // Actually,theseplacesmustbefixed(seee.g.MPS-22503).Still,we
-    // leaveerrorheretill3.4orlatertominimizethenumberofrealissues[MM]
+    // Assert here was replaced with LOG.error before 3.3 as we've found a couple
+    // places where this incompatibility with older version introduced new bugs
+    // Actually, these places must be fixed (see e.g. MPS-22503). Still, we
+    // leave error here till 3.4 or later to minimize the number of real issues [MM]
     if (version < 4) {
       LOG.error("unsupported version requested " + version, new Throwable());
     }
@@ -122,7 +122,7 @@ public class VCSPersistenceSupport {
       return new ModelPersistence8();
     }
 
-    // todoremovethisafterremovingusagesofVCSPersistenceSupportfromeverywhereexceptVCSPersistenceUtil
+    // todo remove this after removing usages of VCSPersistenceSupport from everywhere except VCSPersistenceUtil
     return ModelPersistence.getPersistence(version);
   }
 
@@ -144,17 +144,17 @@ public class VCSPersistenceSupport {
       throw new PersistenceVersionNotFoundException(m);
     }
 
-    // firsttrytouseSAXparser
+    // first try to use SAX parser
     XMLSAXHandler<ModelLoadResult> handler = mp.getModelReaderHandler(state, header);
     if (handler != null) {
       parseAndHandleExceptions(source, handler, "model");
       final ModelLoadResult result = handler.getResult();
-      // incasepersistenceversioncouldchangeduringIModelPersistenceactivities,mightneedtoupdateheader:
+      // in case persistence version could change during IModelPersistence activities, might need to update header:
       // header.setPersistenceVersion(mp.getVersion());
       return result;
     }
 
-    // thentrytouseDOMreader
+    // then try to use DOM reader
     if (!(mp instanceof IPersistenceWithReader)) {
       throw new PersistenceVersionNotFoundException(m);
     }
@@ -262,7 +262,7 @@ public class VCSPersistenceSupport {
     try {
       JDOMUtil.createSAXParser().parse(source, handler);
     } catch (BreakParseSAXException e) {
-      // usedtobreakSAXparsingflow
+      // used to break SAX parsing flow
     } catch (ParserConfigurationException e) {
       LOG.error(e.toString(), e);
       throw new IOException(String.format("Couldn't read %s: %s", what, e.getMessage()), e);

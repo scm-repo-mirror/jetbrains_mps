@@ -23,7 +23,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
   }
 
   public void createGroups() {
-    // actionsw/oparameters
+    // actions w/o parameters
     addAction(new ExtractMethod_Action());
     addAction(new InlineField_Action());
     addAction(new InlineLocalVariable_Action());

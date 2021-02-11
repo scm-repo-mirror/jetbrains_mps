@@ -56,8 +56,8 @@ public class UnusedAssignment_Test extends BaseTransformationTest {
 
     public void test_UnusedAssignment() throws Exception {
       addNodeById("1217271585694");
-      // Checkstatementwasmovedtonodeannotation
-      // checkgetNodeById(string):node<>errormessages
+      // Check statement was moved to node annotation
+      // check getNodeById(string):node<> error messages
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928924551() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451228055");

@@ -88,7 +88,7 @@ public class ASTConverter {
 
   protected ASTConverter(ASTConverter base) {
     myOnlyStubs = base.myOnlyStubs;
-    // FIXMEdoitmorecarefully(State?)
+    // FIXME do it more carefully (State?)
     myJavadocs = base.myJavadocs;
   }
 
@@ -99,7 +99,7 @@ public class ASTConverter {
       try {
         return convertTypeDecl(decl);
       } finally {
-        // FIXMEremoveemptyfinally
+        // FIXME remove empty finally
       }
     } else {
       throw new JavaParseException("Root is not type decl");
@@ -138,7 +138,7 @@ public class ASTConverter {
     if (!(isAnonymous)) {
       SPropertyOperations.assign(cls, PROPS.name$MnvL, new String(x.name));
       SLinkOperations.setTarget(cls, LINKS.visibility$Yyua, convertVisibility(x.modifiers));
-      // FIXMEworkaround.what'swithinterfacehere
+      // FIXME work around. what's with interface here
       if (SNodeOperations.isInstanceOf(cls, CONCEPTS.ClassConcept$bK)) {
         SPropertyOperations.assign(SNodeOperations.cast(cls, CONCEPTS.ClassConcept$bK), PROPS.isStatic$3WAz, flagSet(x.modifiers, ClassFileConstants.AccStatic));
       } else if (SNodeOperations.isInstanceOf(cls, CONCEPTS.Interface$db)) {
@@ -152,27 +152,27 @@ public class ASTConverter {
       }
     }
 
-    // handlingtypeparams
+    // handling type params
     ASTConverter childConverter = prefixedConverter;
     childConverter = childConverter.convertTypeVars(x.typeParameters, cls);
 
-    // handlingnestedclasses
+    // handling nested classes
     if (x.memberTypes != null) {
 
-      // nowactuallyprocessingthem
+      // now actually processing them
       for (TypeDeclaration innerTyp : x.memberTypes) {
         try {
           SNode nested = childConverter.convertTypeDecl(innerTyp);
           if (SNodeOperations.isInstanceOf(cls, CONCEPTS.Interface$db)) {
-            // containertypeisinterface:itmeansmembertypemustpublicstatic
+            // container type is interface: it means member type must public static
             SLinkOperations.setTarget(nested, LINKS.visibility$Yyua, createPublicVisibility_rbndtb_a0a1a1a0a2a61a01());
-            // noneedtoexplicitlysetstatic,asisStatic()handlesthisforinterfaces
+            // no need to explicitly set static, as isStatic() handles this for interfaces
           }
           SLinkOperations.getChildren(cls, LINKS.member$L_2d).add(nested);
           MapSequence.fromMap(memberStartPositions).put(nested, innerTyp.sourceStart);
         } finally {
-          // maintainingvalidstateofClassNameResolver
-          // FIXMEremoveemptyfinally
+          // maintaining valid state of ClassNameResolver
+          // FIXME remove empty finally
         }
       }
     }
@@ -182,7 +182,7 @@ public class ASTConverter {
     {
       final SNode claz = cls;
       if (SNodeOperations.isInstanceOf(claz, CONCEPTS.ClassConcept$bK)) {
-        // we'reeitherclassorenum
+        // we're either class or enum
         SLinkOperations.setTarget(claz, LINKS.superclass$Mp9$, SNodeOperations.cast(childConverter.convertTypeReference(x.superclass), CONCEPTS.ClassifierType$bL));
         if (x.superInterfaces != null) {
           for (TypeReference i : x.superInterfaces) {
@@ -221,7 +221,7 @@ public class ASTConverter {
       }
     }
 
-    // handleclassfields
+    // handle class fields
     if (x.fields != null) {
       for (FieldDeclaration f : x.fields) {
         if (isEnumConstant(f)) {
@@ -232,7 +232,7 @@ public class ASTConverter {
       }
     }
 
-    // handlingmethods
+    // handling methods
     if (x.methods != null) {
       for (AbstractMethodDeclaration method : x.methods) {
         if (method.isDefaultConstructor()) {
@@ -249,7 +249,7 @@ public class ASTConverter {
     }
 
     if (SNodeOperations.isInstanceOf(cls, CONCEPTS.Annotation$he)) {
-      // !Annotationmethodsarestoredinadeprecatedchildlist'methods'(not'members')
+      // ! Annotation methods are stored in a deprecated child list 'methods' (not 'members')
       Iterable<SNode> annoMethods = ListSequence.fromList(SLinkOperations.getChildren(cls, LINKS.member$L_2d)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return SNodeOperations.isInstanceOf(it, CONCEPTS.AnnotationMethodDeclaration$4O);
@@ -267,7 +267,7 @@ public class ASTConverter {
       });
     }
 
-    // sortclassifiermembersaccordingtotheirstartpositions
+    // sort classifier members according to their start positions
     List<SNode> sortedMembers = ListSequence.fromList(SLinkOperations.getChildren(cls, LINKS.member$L_2d)).sort(new ISelector<SNode, Integer>() {
       public Integer select(SNode it) {
         return MapSequence.fromMap(memberStartPositions).get(it);
@@ -303,7 +303,7 @@ public class ASTConverter {
     SNode fDecl;
 
     if (flagSet(f.modifiers, ClassFileConstants.AccStatic) || SNodeOperations.isInstanceOf(cls, CONCEPTS.Interface$db)) {
-      // interfacesinjavacanhavefieldsnotdeclaredasstatic,buttheyarestatic
+      // interfaces in java can have fields not declared as static, but they are static
       SNode staticDecl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration"));
       fDecl = staticDecl;
     } else {
@@ -354,13 +354,13 @@ public class ASTConverter {
   }
 
   public SNode convertInitializer(Initializer x) throws JavaParseException {
-    // don'tneeditinstubs
+    // don't need it in stubs
     return null;
   }
 
   public SNode convertMethod(AbstractMethodDeclaration x, SNode container) throws JavaParseException {
-    // false=wedon'tattachthemethodtothecontainerforexternalclients
-    // they'lldoitthemselves
+    // false = we don't attach the method to the container for external clients
+    // they'll do it themselves
     return convertMethod(container, x, false);
   }
 
@@ -445,8 +445,8 @@ public class ASTConverter {
       return this;
     }
 
-    // wehavetoconverttypevariableswithaconverterthatalreadyknowsabouttypevarnames
-    // becauseintypevarlisttherecanbeforwardreferences
+    // we have to convert type variables with a converter that already knows about type var names
+    // because in typevar list there can be forward references
     Set<String> typeVarNames = SetSequence.fromSetWithValues(new HashSet<String>(), Sequence.fromIterable(Sequence.fromArray(pars)).select(new ISelector<TypeParameter, String>() {
       public String select(TypeParameter it) {
         return new String(it.name);
@@ -459,7 +459,7 @@ public class ASTConverter {
       ListSequence.fromList(SLinkOperations.getChildren(result, LINKS.typeVariableDeclaration$Lipp)).addElement(typeVar);
     }
 
-    // returnASTConverterequippedwithtypevardeclarations
+    // return ASTConverter equipped with typevar declarations
     return this.withTypeVarDecls(SLinkOperations.getChildren(result, LINKS.typeVariableDeclaration$Lipp));
   }
 
@@ -471,9 +471,9 @@ public class ASTConverter {
     }
     if (par.bounds != null) {
       for (TypeReference b : par.bounds) {
-        // AccordingtowhatIdeadoes:resolveshouldn'tbeonlyforclasses,ratherforgeneraltyperefs
-        // i.e.Javaonlyallowsinterfacesinauxbounds,howeverthenameisresolvedinall"namespaces"
-        // (othertypevarsincluded)anderrorisreportedifit'snotaninterface
+        // According to what Idea does: resolve shouldn't be only for classes, rather for general type refs
+        // i.e. Java only allows interfaces in aux bounds, however the name is resolved in all "namespaces"
+        // (other type vars included) and error is reported if it's not an interface
         SNode typ = convertTypeReference(b);
         if (SNodeOperations.isInstanceOf(typ, CONCEPTS.ClassifierType$bL)) {
           ListSequence.fromList(SLinkOperations.getChildren(tvar, LINKS.auxBounds$jgLr)).addElement(SNodeOperations.cast(typ, CONCEPTS.ClassifierType$bL));
@@ -555,7 +555,7 @@ public class ASTConverter {
         check_rbndtb_a7a0a21a23(idBuilder, arg, this);
         check_rbndtb_a8a0a21a23(idBuilder);
       }
-      // deletethelastcomma
+      // delete the last comma
       if (x.arguments.length > 0) {
         check_rbndtb_a0a2a21a23(idBuilder, idBuilder);
       }
@@ -569,7 +569,7 @@ public class ASTConverter {
     }
 
     if (myOnlyStubs) {
-      // makeadifferentstubstatementlist'sourcecode'?
+      // make a different stub statement list 'source code' ?
       SLinkOperations.setTarget(result, LINKS.body$5xQk, _quotation_createNode_rbndtb_a0b0r0gb());
 
     } else {
@@ -586,12 +586,12 @@ public class ASTConverter {
       }
     }
 
-    // doesn'tmakesenseforconstructor,butit'showit'sdoneinbaseLanguage.structure
+    // doesn't make sense for constructor, but it's how it's done in baseLanguage.structure
     SPropertyOperations.assign(result, PROPS.isFinal$eVPk, flagSet(x.modifiers, ClassFileConstants.AccFinal));
     SPropertyOperations.assign(result, PROPS.isSynchronized$58UL, flagSet(x.modifiers, ClassFileConstants.AccSynchronized));
 
     if (x instanceof MethodDeclaration) {
-      // Notaconstructor
+      // Not a constructor
 
       MethodDeclaration mDecl = (MethodDeclaration) x;
       SLinkOperations.setTarget(result, LINKS.returnType$5xoi, childConverter.convertTypeReference(mDecl.returnType));
@@ -608,7 +608,7 @@ public class ASTConverter {
   protected SNode convertEnumConst(FieldDeclaration x) throws JavaParseException {
     SNode enm = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration"));
     SPropertyOperations.assign(enm, PROPS.name$MnvL, enumConstantName(x));
-    // TODOstateshouldhaveaflag:foreignidsneededornot
+    // TODO state should have a flag: foreign ids needed or not
     ((jetbrains.mps.smodel.SNode) enm).setId(new SNodeId.Foreign(getState().getIdPrefix() + SPropertyOperations.getString(enm, PROPS.name$MnvL)));
     Expression[] args = ((AllocationExpression) x.initialization).arguments;
     if (args != null) {
@@ -625,7 +625,7 @@ public class ASTConverter {
   }
 
   protected String enumConstantName(FieldDeclaration x) {
-    // Unsafe.supposedtobeusedafterisEnumConstant
+    // Unsafe. supposed to be used after isEnumConstant
     return new String(((AllocationExpression) x.initialization).enumConstant.name);
   }
 
@@ -671,8 +671,8 @@ public class ASTConverter {
       boolean isArray = typRef instanceof ArrayTypeReference || isParamArrayType;
 
       if (isArray) {
-        // itturnsoutthisisanarray,wrapbasetypeinarraytype
-        // (inelicpseParamSingleTypRefissubclassofArrayTypRef)
+        // it turns out this is an array, wrap base type in arraytype
+        // (in elicpse ParamSingleTypRef is subclass of ArrayTypRef)
         ArrayTypeReference arrTypeRef = (ArrayTypeReference) typRef;
         boolean vararg = flagSet(arrTypeRef.bits, ASTNode.IsVarArgs);
         return buildArrayType(typ, arrTypeRef.dimensions(), vararg);
@@ -693,19 +693,19 @@ public class ASTConverter {
   }
 
   public SNode convertUnqualifiedType(String typ, TypeReference typRef) {
-    // firstseeifit'saprimitivetype
+    // first see if it's a primitive type
     SNode primType = tryConvertPrimitiveType(typ);
     if ((primType != null)) {
       return primType;
     }
 
-    // thentrytypevarinourstate
+    // then try type var in our state
     SNode tvarDecl = getState().resolveTypeVar(typ);
     if ((tvarDecl != null)) {
       return tvarDecl;
     }
 
-    // itmustbeaclassname
+    // it must be a class name
     SNode base = buildClassifierType(typ, typRef);
     return base;
   }
@@ -734,7 +734,7 @@ public class ASTConverter {
   }
 
   public SNode convertTypeRef(Wildcard typRef) {
-    // it'sawildcardtypeoftheform?or?extends...or?super...
+    // it's a wildcard type of the form ? or ? extends ... or ? super ...
 
     switch (typRef.kind) {
       case Wildcard.UNBOUND:
@@ -804,7 +804,7 @@ public class ASTConverter {
     TypeReference[] typeArgs = null;
 
     if (typRef instanceof ParameterizedQualifiedTypeReference) {
-      // FIXMEhack:ignoringtypeargsofintermediateclasses;likeA,BinCl1.Cl2<A>.Cl3<B>.FinalClass<T>
+      // FIXME hack: ignoring type args of intermediate classes; like A,B in Cl1.Cl2<A>.Cl3<B>.FinalClass<T>
       ParameterizedQualifiedTypeReference parQRef = (ParameterizedQualifiedTypeReference) typRef;
       int last = parQRef.typeArguments.length - 1;
       typeArgs = parQRef.typeArguments[last];
@@ -882,12 +882,12 @@ public class ASTConverter {
   }
 
   protected void handleMethodBody(SNode result, AbstractMethodDeclaration method) throws JavaParseException {
-    // ignorebydefault:onlystubstructure
+    // ignore by default: only stub structure
     SLinkOperations.setTarget(result, LINKS.body$5xQk, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList")));
   }
 
   public SNode convertExpression(Expression x) throws JavaParseException {
-    // FIXMEdoexpressionsinannotationsproperly
+    // FIXME do expressions in annotations properly
     return _quotation_createNode_rbndtb_a1a97();
   }
 
@@ -1010,7 +1010,7 @@ public class ASTConverter {
   }
 
   protected State getState() {
-    // defaultstate
+    // default state
     return new State(null, SNodeId.Foreign.ID_PREFIX);
   }
   /**
@@ -1045,8 +1045,8 @@ public class ASTConverter {
       }
     }
     public String getIdPrefix() {
-      // goingupbyparentstates,andconcatenatingallidpreifixestobuildonefinalidprefix
-      // FIXMEmoveittoconstructor(sinceeverythingisimmutable)
+      // going up by parent states, and concatenating all id preifixes to build one final id prefix
+      // FIXME move it to constructor (since everything is immutable)
       StringBuilder sb = new StringBuilder();
       State s = this;
       do {
@@ -1065,16 +1065,16 @@ public class ASTConverter {
 
 
       if (myTypeVars == null || !(MapSequence.fromMap(myTypeVars).containsKey(name))) {
-        // Eithertypevarmapisnotinitialized,thismeansthatthisStateobjectwascreatedwithsomethingelse:
-        // e.g.withidprefix.
-        // Ortypevarisnotpartofthisstate
+        // Either type var map is not initialized, this means that this State object was created with something else:
+        // e.g. with id prefix.
+        // Or type var is not part of this state
         return (parentState == null ? null : parentState.resolveTypeVar(name));
 
       } else {
-        // wehavethisvarname
+        // we have this var name
         SNode typeVar = MapSequence.fromMap(myTypeVars).get(name);
         SNode typeVarRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference"));
-        // let'sseeifvarhasbeenparsedalready
+        // let's see if var has been parsed already
         if (typeVar != null) {
           SLinkOperations.setTarget(typeVarRef, LINKS.typeVariableDeclaration$Lz1I, typeVar);
         } else {

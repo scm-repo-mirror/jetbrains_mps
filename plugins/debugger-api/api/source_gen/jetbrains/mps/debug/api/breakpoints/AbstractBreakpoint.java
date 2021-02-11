@@ -72,7 +72,7 @@ public abstract class AbstractBreakpoint implements IBreakpoint {
     addToRunningSessions();
   }
   protected void fireBreakpointEnabledStateToggled(boolean enabled) {
-    // todocomeupwithbettername
+    //  todo come up with better name
     for (IBreakpointListener listener : myListeners) {
       listener.breakpointEnabledStateToggled(this, enabled);
     }

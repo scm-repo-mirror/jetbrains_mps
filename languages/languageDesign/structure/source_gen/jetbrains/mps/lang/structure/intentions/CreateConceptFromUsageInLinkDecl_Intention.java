@@ -48,7 +48,7 @@ public final class CreateConceptFromUsageInLinkDecl_Intention extends AbstractIn
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      // bettertoreplacewith3x"forConcept"
+      // better to replace with 3x"forConcept"
       CreateConceptFromUsageHelper helper = new CreateConceptFromUsageHelper(node, editorContext);
       return "Create Concept " + helper.getConceptName();
     }

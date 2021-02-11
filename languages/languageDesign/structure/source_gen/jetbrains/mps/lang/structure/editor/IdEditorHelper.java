@@ -10,7 +10,7 @@ import jetbrains.mps.smodel.Generator;
 
 public class IdEditorHelper {
   public static boolean shownInEditor(SNode node) {
-    // IDstobeshownineditoringeneratorandtransientmodels
+    // IDs to be shown in editor in generator and transient models
     SModule module = SNodeOperations.getModel(node).getModule();
     if (module instanceof TransientModelsModule || module instanceof Generator) {
       return true;

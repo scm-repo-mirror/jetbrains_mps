@@ -31,7 +31,7 @@ public class RefactoringRuntime {
 
   public static void changePropertyInstance(SNode node, final SProperty oldProp, final SProperty newProp) {
     if (node.hasProperty(newProp) && !(Objects.equals(node.getProperty(oldProp), node.getProperty(newProp))) || node.getProperty(oldProp) == null) {
-      // mergecase
+      // merge case
       return;
     }
 
@@ -53,7 +53,7 @@ public class RefactoringRuntime {
 
   public static void changeContainmentLinkInstance(SNode node, final SContainmentLink oldLink, final SContainmentLink newLink) {
     if (node.getChildren(newLink).iterator().hasNext()) {
-      // mergecase
+      // merge case
       return;
     }
 
@@ -77,7 +77,7 @@ public class RefactoringRuntime {
 
   public static void changeReferenceLinkInstances(SNode node, final SReferenceLink oldLink, final SReferenceLink newLink) {
     if (node.getReference(newLink) != null) {
-      // mergecase
+      // merge case
       return;
     }
 

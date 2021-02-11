@@ -53,7 +53,7 @@ import jetbrains.mps.vcs.core.mergedriver.MergeDriverMain;
     }
 
     List<VcsRoot> gitRoots = getGitRoots();
-    // checkifweneedsomethingtoinstall
+    // check if we need something to install
     List<AbstractInstaller.State> states = getAllStates(gitRoots);
 
     if (dryRun) {
@@ -71,9 +71,9 @@ import jetbrains.mps.vcs.core.mergedriver.MergeDriverMain;
       }) ? AbstractInstaller.State.NOT_INSTALLED : AbstractInstaller.State.OUTDATED);
     }
 
-    // copydriverfilestotheproperplace(onlyonce)
+    // copy driver files to the proper place (only once)
     MergeDriverPacker.getInstance().pack(myProject);
-    // installsettingsforeachrepository
+    // install settings for each repository
     int failed = 0;
     int installed = 0;
     String failedRoots = "";
@@ -96,7 +96,7 @@ import jetbrains.mps.vcs.core.mergedriver.MergeDriverMain;
         }
       }
     }
-    // showmessageaboutresults
+    // show message about results
     String resultMessage = "merge driver" + ((installed > 0 ? " and settings for " + NameUtil.formatNumericalString(installed, "repository") : "")) + " updated.";
     if (failed > 0) {
       resultMessage += "\n" + NameUtil.formatNumericalString(failed, "repository") + " not updated:" + failedRoots;

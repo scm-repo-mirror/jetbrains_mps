@@ -44,11 +44,11 @@ public class RulesUtil {
   @CheckingMethod
   public static void checkAppliedCorrectly_generic(final TypeCheckingContext typeCheckingContext, final SNode op) {
     if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(op)), CONCEPTS.SNodeOperation$pA)) {
-      // don'tcheck-itisredanyway
+      // don't check - it is red anyway
       return;
     }
     if (!(SNodeOperations.hasRole(op, LINKS.operation$gs9E))) {
-      // don'tcheck-ismaybequotation
+      // don't check - is may be quotation
       return;
     }
     final SNode leftExpression = SNodeOperation__BehaviorDescriptor.getLeftExpression_idhEwJdGu.invoke(op);
@@ -80,7 +80,7 @@ public class RulesUtil {
       if (linkAccess != null) {
         isGood = (boolean) ILinkAccess__BehaviorDescriptor.isSingularCardinality_id3vpu_siOTrf.invoke(linkAccess);
         if (isGood) {
-          // someofopsapplicableto'link'requireleft-exprtobeaconcept
+          // some of ops applicable to 'link' require left-expr to be a concept
           if ((boolean) SNodeOperation__BehaviorDescriptor.applicableToConcept_id1653mnvAgvQ.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(op))) && !((boolean) SNodeOperation__BehaviorDescriptor.applicableToNode_id1653mnvAgrs.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(op))))) {
             isGood = TypecheckingFacade.getFromContext().isSubtype(LeftType, _quotation_createNode_yxkngc_b0a0a0b0b0b0k0a());
           }
@@ -102,8 +102,8 @@ public class RulesUtil {
       }
     }
     // ===========
-    // hacktomakenullcheckoperationsworksforenums
-    // donotwonttointroduceenumrelatedstufftoSNodeOperationconcept,sinceitisalreadyoverwhelmed
+    // hack to make null check operations works for enums
+    // do not wont to introduce enum related stuff to SNodeOperation concept, since it is already overwhelmed
     if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(op)), CONCEPTS.Node_IsNotNullOperation$t5) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(op)), CONCEPTS.Node_IsNullOperation$A7)) {
       isGood |= TypecheckingFacade.getFromContext().isSubtype(LeftType, _quotation_createNode_yxkngc_b0a0a0t0a());
     }
@@ -114,7 +114,7 @@ public class RulesUtil {
   }
   @CheckingMethod
   public static void checkAppliedTo_LinkAccess_aggregation(final TypeCheckingContext typeCheckingContext, final SNode op) {
-    // expectaccesstoanaggregationlinkwithsingularcardinality
+    // expect access to an aggregation link with singular cardinality
     final SNode leftExpressionOp = SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(op);
     boolean isGood = false;
     if (SNodeOperations.isInstanceOf(leftExpressionOp, CONCEPTS.ILinkAccess$5g)) {
@@ -130,8 +130,8 @@ public class RulesUtil {
   }
   @CheckingMethod
   public static void checkAppliedNotTo_LinkAccess_reference(final TypeCheckingContext typeCheckingContext, SNode op) {
-    // expectaccesstoanaggregationlinkwithsingularcardinality
-    // leftexpressioncouldalsobesomethingelse(likejust'node')butnotaccesstoareferencelink
+    // expect access to an aggregation link with singular cardinality
+    // left expression could also be something else (like just 'node') but not access to a reference link
     SNode leftExpressionOp = SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(op);
     boolean isGood = true;
     if (SNodeOperations.isInstanceOf(leftExpressionOp, CONCEPTS.ILinkAccess$5g)) {
@@ -221,7 +221,7 @@ public class RulesUtil {
         conceptDeclaration = SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1169125787135");
       }
     } else if (SNodeOperations.isInstanceOf(conceptDeclaration, CONCEPTS.RuntimeTypeVariable$4a)) {
-      // todo[MM]alwaysfalse,introducedin6b8f810722d9d5733105c471d4b54f83e6462863,askedFedortoreviewthis
+      // todo [MM] always false, introduced in 6b8f810722d9d5733105c471d4b54f83e6462863, asked Fedor to review this
       conceptDeclaration = SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626");
     } else {
       SNode nodeType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.SNodeType$hR);

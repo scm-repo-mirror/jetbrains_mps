@@ -82,7 +82,7 @@ public class JavaExternalLibraryHelper {
             return Sequence.fromIterable(Collections.<SNode>emptyList());
           }
         } else {
-          // unknownchild,resettolibraryreexport
+          // unknown child, reset to library reexport
           ListSequence.fromList(artifacts).clear();
           ListSequence.fromList(jarContainers).clear();
           break;
@@ -90,7 +90,7 @@ public class JavaExternalLibraryHelper {
       }
     }
 
-    // exportasjavalibrary
+    // export as java library
     if (ListSequence.fromList(artifacts).isEmpty() && ListSequence.fromList(jarContainers).isEmpty()) {
       SNode layoutNode = helper.getArtifact(library);
       if (layoutNode == null) {

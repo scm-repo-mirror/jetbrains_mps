@@ -54,7 +54,7 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static boolean createRootRule_Condition_0_0(final CreateRootRuleContext _context) {
-    // applyruleifatleastonePlanexistsininputmodel
+    // apply rule if at least one Plan exists in input model
     List<SNode> plans = SModelOperations.roots(_context.getInputModel(), CONCEPTS.Plan$Qb);
     return ListSequence.fromList(plans).isNotEmpty();
   }

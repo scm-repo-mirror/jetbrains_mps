@@ -58,7 +58,7 @@ public class RebuildHandler_ProjectPluginPart extends ProjectPluginPart {
                   return module.getModels();
                 }
 
-                // thiscodeisonlytofixsomeUIproblems,seeMPS-30636fordetails
+                // this code is only to fix some UI problems, see MPS-30636 for details
                 Iterable<Generator> generators = ((Language) module).getGenerators();
                 return Sequence.fromIterable(generators).translate(new ITranslator2<Generator, SModel>() {
                   public Iterable<SModel> translate(Generator it) {
@@ -71,15 +71,15 @@ public class RebuildHandler_ProjectPluginPart extends ProjectPluginPart {
                 return GenerationFacade.canGenerate(it);
               }
             }).toListSequence();
-            // FIXMEIseenoreasontocleargenerationstatusformodelswearegoingtorebuildanyway
+            // FIXME I see no reason to clear generation status for models we are going to rebuild anyway
             mpsProject.getComponent(ModelGenerationStatusManager.class).discard(modelsToClean);
 
-            // todothefollowingiscopiedfromMakeActionImpl,it'sbettertomakeMAItobecompiledinIdea
-            // todo(andcontributedbyxml);thiscodeshoulduseidea-compiledclassthen
-            // FIXME[artem]No,it'sbettertomakethiscodeMPS-managedandre-useMakeActionParameters
+            // todo the following is copied from MakeActionImpl, it's better to make MAI to be compiled in Idea
+            // todo (and contributed by xml); this code should use idea-compiled class then
+            // FIXME [artem] No, it's better to make this code MPS-managed and re-use MakeActionParameters
             ApplicationManager.getApplication().invokeLater(new Runnable() {
               public void run() {
-                // saveallbeforelaunchingmake
+                // save all before launching make
                 new SaveRepositoryCommand(mpsProject.getRepository()).execute();
                 MakeSession session = new MakeSession(mpsProject, new DefaultMakeMessageHandler(mpsProject), false);
                 final IMakeService makeService = mpsProject.getComponent(MakeServiceComponent.class).get();
@@ -87,7 +87,7 @@ public class RebuildHandler_ProjectPluginPart extends ProjectPluginPart {
                   final List<IResource> inputRes = ListSequence.fromList(new ArrayList<IResource>());
                   repo.getModelAccess().runReadAction(new Runnable() {
                     public void run() {
-                      // FIXMEthisisstupidcode,werevertwhatwriteactionabovejustdidinaquitecomplicatedmanner
+                      // FIXME this is stupid code, we revert what write action above just did in a quite complicated manner
                       ListSequence.fromList(inputRes).addSequence(ListSequence.fromList(modelsToClean).select(new ISelector<SModel, SModule>() {
                         public SModule select(SModel it) {
                           return it.getModule();

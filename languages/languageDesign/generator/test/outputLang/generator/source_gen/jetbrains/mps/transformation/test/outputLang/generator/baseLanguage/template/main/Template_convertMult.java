@@ -52,7 +52,7 @@ public class Template_convertMult extends TemplateDeclarationBase {
             for (SNode child4 : TemplateUtil.asNotNull(tlist3)) {
               tnode2.addChild(myAggregationLinks[0], child4);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist5 = null;
@@ -61,11 +61,11 @@ public class Template_convertMult extends TemplateDeclarationBase {
             for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
               tnode2.addChild(myAggregationLinks[1], child6);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[2], tnode2);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(3, tnode1);

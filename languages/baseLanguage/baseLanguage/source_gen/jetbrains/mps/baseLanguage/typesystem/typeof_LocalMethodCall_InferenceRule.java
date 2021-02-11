@@ -40,7 +40,7 @@ public class typeof_LocalMethodCall_InferenceRule extends AbstractInferenceRule_
       return;
     }
 
-    // similarbutnotidenticaltotypeof_InstanceMethodCallOperation
+    // similar but not identical to typeof_InstanceMethodCallOperation
     SNode mdecl = SNodeOperations.cast(SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$pyYw), CONCEPTS.InstanceMethodDeclaration$39);
     if (mdecl == null) {
       return;
@@ -54,10 +54,10 @@ public class typeof_LocalMethodCall_InferenceRule extends AbstractInferenceRule_
     SNode thisType = Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(contextClassifier);
 
     final Map<SNode, SNode> subs = MapSequence.fromMap(new HashMap<SNode, SNode>());
-    // checktheinferencecontext
+    // check the inference context
     if (!((boolean) IMethodCall__BehaviorDescriptor.isInTypeInferenceContext_id4cxv$9$kw67.invoke(methodCall))) {
       for (SNode tvd : ListSequence.fromList(BaseMethodDeclaration__BehaviorDescriptor.getInferrableTypeVars_id5W9RYt5baxk.invoke(mdecl))) {
-        // assumeallunboundtypevarsoutsideaninferencecontextareObjectoritsbound
+        // assume all unbound type vars outside an inference context are Object or its bound
         MapSequence.fromMap(subs).put(tvd, ((SLinkOperations.getTarget(tvd, LINKS.bound$aZCB) == null) ? _quotation_createNode_v9rubd_a0a1a0a31a1() : SNodeOperations.copyNode(SLinkOperations.getTarget(tvd, LINKS.bound$aZCB))));
       }
     }

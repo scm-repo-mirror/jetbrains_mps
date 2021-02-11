@@ -133,9 +133,9 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     if (dependency == myCurrentNode) {
       return;
     }
-    // ManyToManyMapemployedherekeepsbi-directionalmapping,sothatweestablishmyCurrentNode->dependencyanddependency->myCurrentNoderelationhere
-    // Keepinmindthemappingsisnotsymmetrical,i.e.checkedNodeA->depX,checkedNodeB->depX,checkedNodeC->depXinManyToManyMap.F2S,anddepX->{A,B,C}inManyToManyMap.S2F
-    // Note,it's*dependency*ToNodes,therefore,dependencycomesfirst.
+    // ManyToManyMap employed here keeps bi-directional mapping, so that we establish myCurrentNode->dependency and dependency->myCurrentNode relation here
+    // Keep in mind the mappings is not symmetrical, i.e. checkedNodeA -> depX, checkedNodeB -> depX, checkedNodeC -> depX in ManyToManyMap.F2S, and depX -> {A, B, C} in ManyToManyMap.S2F
+    // Note, it's *dependency*ToNodes, therefore, dependency comes first.
     myDependenciesToNodesAndViceVersa.addLink(dependency, myCurrentNode);
   }
 
@@ -154,7 +154,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
       return;
     }
     if (!(SetSequence.fromSet(myListenedModels).contains(modelDescriptor))) {
-      // XXwhyaccesstomyListenedModelsisnotsynchronized?
+      // XX why access to myListenedModels is not synchronized?
       modelDescriptor.addChangeListener(myChangeListener);
       modelDescriptor.addModelListener(myUnloadListener);
       SetSequence.fromSet(myListenedModels).addElement(modelDescriptor);
@@ -175,20 +175,20 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
   }
 
   private void invalidateDependencies(Set<SNode> dependencies) {
-    // removingdependencynodefromanymappingstogetherwithallcheckednodes
-    // dependingonthisdependencynode
-    // Note,havetocollectcheckednodesforalldependenciesfirst,andclearSecondonlyoncealldependenciesareprocessed
+    // removing dependency node from any mappings together with all checked nodes
+    // depending on this dependency node
+    // Note, have to collect checked nodes for all dependencies first, and clearSecond only once all dependencies are processed
     Set<SNode> checkedNodes = SetSequence.fromSet(new HashSet<SNode>());
     for (SNode dep : dependencies) {
-      // here,wequerybydependency,utilizingthefactthemapisinfactbi-directional,themomentwerecordedcheckednode->itsdependency,we'vealsorecordeddependency->checkednode
+      // here, we query by dependency, utilizing the fact the map is in fact bi-directional, the moment we recorded checked node->its dependency, we've also recorded dependency->checked node
       SetSequence.fromSet(checkedNodes).addSequence(SetSequence.fromSet(myDependenciesToNodesAndViceVersa.getByFirst(dep)));
-      // changedpropertiesandreferencesrecordthenodetomyDependenciesToInvalidateonly,butthesecouldbechangesofacheckednodeitself
-      // perhaps,weshalldoitrightawayintherespectiveprocessEvent().Besides,notclearwhetherIshallmatchsourcenodesagainst
-      // myDependenciesToNodesAndViceVersa.getBySecondsettofilterouteventsfrom'checked'nodes
+      // changed properties and references record the node to myDependenciesToInvalidate only, but these could be changes of a checked node itself
+      // perhaps, we shall do it right away in the respective processEvent(). Besides, not clear whether I shall match source nodes against 
+      // myDependenciesToNodesAndViceVersa.getBySecond set to filter out events from 'checked' nodes
       SetSequence.fromSet(checkedNodes).addElement(dep);
     }
     for (SNode node : checkedNodes) {
-      // avoidsearchingfor_already_removed_nodelaterincheck()
+      // avoid searching for _already_removed_ node later in check()
       if (SNodeOperations.getModel(node) != null) {
         SetSequence.fromSet(myInvalidNodes).addElement(node);
       }
@@ -223,9 +223,9 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
       }
     } else {
       assert SetSequence.fromSet(myInvalidNodes).isEmpty();
-      // Visitandcheckallnodes,continuingfromlastposition,ifavailable
+      // Visit and check all nodes, continuing from last position, if available
       if (myFullCheckIterator == null) {
-        // Nevercheckedsincethelastreset,startfromthebeginning
+        // Never checked since the last reset, start from the beginning
         myFullCheckIterator = new DescendantsTreeIterator(root);
       }
 
@@ -271,7 +271,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
       }
     }
 
-    // traversedthewholeroot,allinvalidnodesshouldhavebeenremoved
+    // traversed the whole root, all invalid nodes should have been removed
     assert SetSequence.fromSet(myInvalidNodes).isEmpty();
     return true;
   }
@@ -279,7 +279,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     invalidate();
 
     if (myFullCheckIterator != null && !(SetSequence.fromSet(myInvalidNodes).isEmpty())) {
-      // Fullcheckinterruptedandsomethinginvalidated:recheckeverythingfromthebeginning
+      // Full check interrupted and something invalidated: recheck everything from the beginning
       clear();
     }
   }
@@ -293,7 +293,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     }
     try {
       myCurrentNode = node;
-      // keepaddDependency(myCurrentNode)here,it'snotaboutdependencyperse,themethodalsoaddsmodellistenertotrackchanges
+      // keep addDependency(myCurrentNode) here, it's not about dependency per se, the method also adds model listener to track changes
       addDependency(node);
       for (AbstractNodeCheckerInEditor checker : checkers) {
         checker.checkNodeInEditor(node, this, repository);
@@ -381,8 +381,8 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     }
     @Override
     public void nodeRemoved(@NotNull SNodeRemoveEvent event) {
-      // XXXoldlistenerignoredrootchangeevents(listenedtochildAdded/childRemovedonly).
-      // WhileIcanunderstandwhynotrootAdded,Idon'twhyrootRemovedwasignored-imo,therootmayappearindependenciesandweshallinvalidateithere.
+      // XXX old listener ignored root change events (listened to childAdded/childRemoved only).
+      // While I can understand why not rootAdded, I don't why rootRemoved was ignored - imo, the root may appear in dependencies and we shall invalidate it here.
       processEvent(event);
     }
     @Override

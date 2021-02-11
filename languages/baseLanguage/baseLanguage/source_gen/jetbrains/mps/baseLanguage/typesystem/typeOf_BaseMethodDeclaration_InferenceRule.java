@@ -54,7 +54,7 @@ public class typeOf_BaseMethodDeclaration_InferenceRule extends AbstractInferenc
     // =============
     Iterable<SNode> returnStatements = RulesFunctions_BaseLanguage.collectReturnStatements(SLinkOperations.getTarget(bmd, LINKS.body$5xQk));
     if (expectedRetType == null) {
-      // shouldn'treturnanyvalues
+      // shouldn't return any values
       for (SNode returnStatement : Sequence.fromIterable(returnStatements)) {
         if ((SLinkOperations.getTarget(returnStatement, LINKS.expression$eJ92) != null)) {
           {
@@ -64,7 +64,7 @@ public class typeOf_BaseMethodDeclaration_InferenceRule extends AbstractInferenc
         }
       }
     } else {
-      // shouldreturnsubtypesofthe'expectedtype'
+      // should return subtypes of the 'expected type'
       for (SNode returnStatement : Sequence.fromIterable(returnStatements)) {
         if ((SLinkOperations.getTarget(returnStatement, LINKS.expression$eJ92) == null)) {
           {
@@ -97,7 +97,7 @@ public class typeOf_BaseMethodDeclaration_InferenceRule extends AbstractInferenc
               }
             }
           } else {
-            // EnsuretheexpressionisanIntegerType
+            // Ensure the expression is an IntegerType
             if (!(typeCheckingContext.isSingleTypeComputation())) {
               {
                 SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(returnStatement, LINKS.expression$eJ92);
@@ -125,7 +125,7 @@ public class typeOf_BaseMethodDeclaration_InferenceRule extends AbstractInferenc
     }
     // =============
     if (expectedRetType != null) {
-      // lastexpressionstatementcanserveasreturnstatement
+      // last expression statement can serve as return statement
       SNode lastStatement = IMethodLike__BehaviorDescriptor.getLastStatement_idi2fhS7A.invoke(bmd);
       if (SNodeOperations.isInstanceOf(lastStatement, CONCEPTS.ExpressionStatement$O8)) {
         SNode lastExpression = SNodeOperations.cast(lastStatement, CONCEPTS.ExpressionStatement$O8);
@@ -153,7 +153,7 @@ public class typeOf_BaseMethodDeclaration_InferenceRule extends AbstractInferenc
             }
           }
         } else {
-          // EnsuretheexpressionisanIntegerType
+          // Ensure the expression is an IntegerType
           if (!(typeCheckingContext.isSingleTypeComputation())) {
             {
               SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(SNodeOperations.cast(lastStatement, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M);

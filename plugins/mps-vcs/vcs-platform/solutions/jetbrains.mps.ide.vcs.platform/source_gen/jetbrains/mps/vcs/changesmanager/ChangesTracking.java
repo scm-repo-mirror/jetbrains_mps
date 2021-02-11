@@ -306,7 +306,7 @@ public final class ChangesTracking {
 
   public boolean isTracked() {
     if (myModelDescriptor instanceof MergeTemporaryModel) {
-      // RootDiffPanebringsthisonus,fixme
+      // RootDiffPane brings this on us, fixme
       return true;
     }
     FileStatus status = getStatusOfMetaDescriptor();
@@ -552,7 +552,7 @@ public final class ChangesTracking {
       childChanged = null;
       rootsDeleted = null;
 
-      // makemodelfile[s]dirty
+      // make model file[s] dirty
       Set<IFile> affectedFiles = SetSequence.fromSet(new HashSet<IFile>());
       DataSource dataSource = myModelDescriptor.getSource();
       if (dataSource instanceof FileSystemBasedDataSource) {
@@ -580,7 +580,7 @@ public final class ChangesTracking {
       final SNodeId nodeId = node.getNodeId();
       final SProperty property = event.getProperty();
 
-      // getmoreinfofordebugging
+      // get more info for debugging
       assert node.getModel().getNode(nodeId) != null : "cannot find node " + nodeId + " in model " + node.getModel();
 
       runUpdateTask(new _FunctionTypes._void_P0_E0() {
@@ -633,7 +633,7 @@ public final class ChangesTracking {
       SNode child = event.getChild();
       final SContainmentLink childRole = (SNodeOperations.isInstanceOf(child, CONCEPTS.ChildAttribute$m8) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(child, CONCEPTS.ChildAttribute$m8), CONCEPTS.ChildAttribute$m8, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$m8, "BpxLfMirzf"))) : event.getAggregationLink());
 
-      // tryingtoavoidupdatetaskexecutionforthesamechildroletwice
+      // trying to avoid update task execution for the same child role twice
       Set<SContainmentLink> changedChildRoles = MapSequence.fromMap(childChanged).get(parent);
       if (changedChildRoles == null) {
         changedChildRoles = SetSequence.fromSet(new HashSet<SContainmentLink>());
@@ -692,8 +692,8 @@ public final class ChangesTracking {
           return;
         }
       } else {
-        // therearetwoalmostidenticalSModelRootEventgenerated:frombeforeRootRemovedandfromrootRemoved
-        // weskiponeifalreadyseendeleterooteventforthesameroot
+        // there are two almost identical SModelRootEvent generated: from beforeRootRemoved and from rootRemoved
+        //  we skip one if already seen delete root event for the same root
         if (!(rootsDeleted.add(rootId))) {
           return;
         }
@@ -717,7 +717,7 @@ public final class ChangesTracking {
                 return true;
               }
             }) == 0) {
-              // rootwasnotadded
+              // root was not added
               removeDescendantChanges(rootId);
               buildAndAddChanges(new _FunctionTypes._void_P1_E0<ChangeSetBuilder>() {
                 public void invoke(ChangeSetBuilder b) {
@@ -737,8 +737,8 @@ public final class ChangesTracking {
       final boolean deleted = !(event.isAdded());
       runUpdateTask(new _FunctionTypes._void_P0_E0() {
         public void invoke() {
-          // XXXIhavenoideawhyweskipaddingachangeobjectifwesuccessfullyremovedoneormorequeuedearlier.
-          // justkeptitthewayitisin#moduleDependencyEvent
+          // XXX I have no idea why we skip adding a change object if we successfully removed one or more queued earlier.
+          //  just kept it the way it is in #moduleDependencyEvent
           if (removeChanges(null, UsedLanguageChange.class, new _FunctionTypes._return_P1_E0<Boolean, UsedLanguageChange>() {
             public Boolean invoke(UsedLanguageChange ulc) {
               return eventLang.equals(ulc.getLanguage());

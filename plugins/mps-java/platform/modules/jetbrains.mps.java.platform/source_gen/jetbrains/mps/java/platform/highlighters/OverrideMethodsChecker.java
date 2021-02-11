@@ -87,12 +87,12 @@ public class OverrideMethodsChecker extends BaseEventProcessingEditorChecker {
 
     Set<EditorMessage> result = SetSequence.fromSet(new HashSet<EditorMessage>());
     for (SNode containedClassifier : Sequence.fromIterable(classifiers)) {
-      // eachclassifierhereisinstanceofClassConceptorInterface
+      // each classifier here is instance of ClassConcept or Interface
       try {
         collectOverriddenMethods(containedClassifier, result);
       } catch (IndexNotReadyException indexNotReady) {
-        // CatchingIndexNotReadyExceptionfornow.IngeneralsuggestionofIDEAdeveloperswastostartusing
-        // DaemonCodeAnalyzerforbackgroundhighlightingprocessesexecution
+        // Catching IndexNotReadyException for now. In general suggestion of IDEA developers was to start using
+        // DaemonCodeAnalyzer for background highlighting processes execution
         myIndexWasNotReady = true;
       }
       collectOverridingMethods(containedClassifier, result);
@@ -129,9 +129,9 @@ public class OverrideMethodsChecker extends BaseEventProcessingEditorChecker {
 
   private void collectOverriddenMethods(SNode container, Set<EditorMessage> messages) {
     List<SNode> derivedClassifiers = myProject.getComponent(ClassifierSuccessors.class).getDerivedClassifiers(myProject, container, new GlobalScope(myProject.getRepository()));
-    // fixmederivedClassifierslooksforprojectmodules(becauseClassifiersSuccessorsworksonlywithEditableSModel
-    // fixmeinthismethodwedecidewhethertoshowtheiconinthegutterfortheclassifier;inEditorMessageIconRenderer#getClickActionwedotherealsearchwhereweinvokeDerivedClassifiers/DerivedInterfacesfinder
-    // fixmethelatterworksforallmodels
+    // fixme derivedClassifiers looks for project modules (because ClassifiersSuccessors works only with EditableSModel
+    // fixme in this method we decide whether to show the icon in the gutter for the classifier; in EditorMessageIconRenderer#getClickAction we do the real search where we invoke DerivedClassifiers/DerivedInterfaces finder
+    // fixme the latter works for all models
     if (myProject.isProjectModule(SNodeOperations.getModel(container).getModule()) && ListSequence.fromList(derivedClassifiers).isEmpty()) {
       return;
     }
@@ -229,7 +229,7 @@ public class OverrideMethodsChecker extends BaseEventProcessingEditorChecker {
     if (this.myIndexWasNotReady) {
       return true;
     }
-    // TODOrewritewithoutreadaction,seedocofEditorChecker#processEvents
+    // TODO rewrite without read action, see doc of EditorChecker#processEvents
     return new ModelAccessHelper(myProject.getRepository()).runReadAction(new Computable<Boolean>() {
       public Boolean compute() {
         for (SModelEvent event : ListSequence.fromList(events)) {
@@ -241,19 +241,19 @@ public class OverrideMethodsChecker extends BaseEventProcessingEditorChecker {
             SNode child = childEvent.getChild();
             SNode parent = childEvent.getParent();
             String childRole = childEvent.getChildRole();
-            // ClassorInterfacewasadded/removed
+            // Class or Interface was added/removed
             if (SNodeOperations.isInstanceOf(child, CONCEPTS.Interface$db) || SNodeOperations.isInstanceOf(child, CONCEPTS.ClassConcept$bK) || SNodeOperations.isInstanceOf(child, CONCEPTS.AnonymousClass$Bt) || SNodeOperations.isInstanceOf(child, CONCEPTS.AnonymousClassCreator$fS)) {
               return true;
             }
-            // methodwasadded/removedfromcontainingClassifier
+            // method was added/removed from containing Classifier
             if (SNodeOperations.isInstanceOf(child, CONCEPTS.InstanceMethodDeclaration$39) && SNodeOperations.isInstanceOf(parent, CONCEPTS.Classifier$Ix)) {
               return true;
             }
-            // oneofextendedInterface/superclass/implementedInterfacechildelementswasadded/removed
+            // one of extendedInterface/superclass/implementedInterface child elements was added/removed
             if (SNodeOperations.isInstanceOf(child, CONCEPTS.ClassifierType$bL) && (LINKS.extendedInterface$PDVO.getName().equals(childRole) || LINKS.superclass$Mp9$.getName().equals(childRole) || LINKS.implementedInterface$rujG.getName().equals(childRole))) {
               return true;
             }
-            // parameterwasadded/removed
+            // parameter was added/removed
             if (SNodeOperations.isInstanceOf(child, CONCEPTS.ParameterDeclaration$RG) && LINKS.parameter$5xBj.getName().equals(childRole)) {
               return true;
             }

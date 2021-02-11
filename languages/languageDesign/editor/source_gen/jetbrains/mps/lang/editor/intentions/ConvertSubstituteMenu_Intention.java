@@ -47,7 +47,7 @@ public final class ConvertSubstituteMenu_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    // disableforlegacyconcepts
+    // disable for legacy concepts
     return Objects.equals(SNodeOperations.getConcept(node), CONCEPTS.SubstituteMenu$EF) || Objects.equals(SNodeOperations.getConcept(node), CONCEPTS.SubstituteMenu_Contribution$s3);
   }
   @Override
@@ -98,7 +98,7 @@ public final class ConvertSubstituteMenu_Intention extends AbstractIntentionDesc
       SNodeOperations.replaceWithAnother(node, newNode);
 
       if ((SNodeOperations.getParent(newNode) == null)) {
-        // Wereplacedarootnodewitharootnode,openthenewnodeintheeditor
+        // We replaced a root node with a root node, open the new node in the editor
         EditorPanelManager editorPanelManager = editorContext.getEditorPanelManager();
         if (editorPanelManager != null) {
           editorPanelManager.openEditor(newNode);

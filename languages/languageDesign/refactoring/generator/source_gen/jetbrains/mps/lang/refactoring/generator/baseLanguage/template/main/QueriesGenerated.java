@@ -145,7 +145,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.refactoring$WUC4);
   }
   public static Object referenceMacro_GetReferent_26_0(final ReferenceMacroContext _context) {
-    // TODOgenContext.getoutputRefactoringAspectDescriptorformodelmodel;
+    // TODO genContext.get output RefactoringAspectDescriptor for model model;
     return SModelOperations.getModelName(((SModel) _context.getVariable("model"))) + ".RefactoringAspectDescriptor";
   }
   public static boolean ifMacro_Condition_6_0(final IfMacroContext _context) {

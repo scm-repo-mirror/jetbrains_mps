@@ -48,7 +48,7 @@ public class UpdateJavaStubMethodRefs extends BaseProjectMigration {
                 AbstractModule module = (AbstractModule) it;
                 module.updateExternalReferences();
                 if (!((module instanceof Generator))) {
-                  // generatorsaresavedaspartofowningLanguage'ssave,noneedtodoittwice
+                  // generators are saved as part of owning Language's save, no need to do it twice
                   module.save();
                 }
               }
@@ -81,9 +81,9 @@ public class UpdateJavaStubMethodRefs extends BaseProjectMigration {
             public void visit(SModel it) {
               EditableSModel model = (EditableSModel) it;
               try {
-                // ensuremodelisloaded
+                // ensure model is loaded
                 model.load();
-                // andforcetosavemodel
+                // and force to save model
                 model.setChanged(true);
                 if (model.isChanged()) {
                   model.save();

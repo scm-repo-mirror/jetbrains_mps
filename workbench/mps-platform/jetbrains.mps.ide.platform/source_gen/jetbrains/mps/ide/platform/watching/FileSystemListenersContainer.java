@@ -208,7 +208,7 @@ public class FileSystemListenersContainer {
     }
 
     /*package*/ Node child(String part, boolean create) {
-      // wekeepchildrenlistsortedandusebinarysearch
+      // we keep children list sorted and use binary search
       int index = childIndex(part);
       if (index >= 0) {
         return myChildren.get(index);

@@ -36,21 +36,21 @@ public final class WeavingAnchorQuery__BehaviorDescriptor extends BaseBHDescript
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
     List<SConcept> rv = ListSequence.fromList(new ArrayList<SConcept>());
-    // anyqueryneedsgenContext
+    // any query needs genContext
     ListSequence.fromList(rv).addElement(CONCEPTS.TemplateFunctionParameter_generationContext$Yo);
-    // thisissourcenodefortheweaving
+    // this is source node for the weaving
     ListSequence.fromList(rv).addElement(CONCEPTS.TemplateFunctionParameter_sourceNode$hO);
-    // nodebeingweaved
+    // node being weaved
     ListSequence.fromList(rv).addElement(CONCEPTS.TemplateFunctionParameter_outputNode$Ln);
-    // Parentoftheoutputnode,theoneoutputNodeisweaved(added)into.
-    // perhaps,shallbeparentOutputNode?Eitherisinuseonlyonce,pickedmainContextNodeasit'stheoneintheweavingaspectofTF
+    // Parent of the output node, the one outputNode is weaved (added) into.
+    // perhaps, shall be parentOutputNode? Either is in use only once, picked mainContextNode as it's the one in the weaving aspect of TF
     ListSequence.fromList(rv).addElement(CONCEPTS.TemplateFunctionParameter_mainContextNode$iB);
-    // XXXperhaps,shallincludeSContainmentLinkinformationaswell?
+    // XXX perhaps, shall include SContainmentLink information as well?
     return rv;
   }
   /*package*/ static SNode getExpectedReturnType_idhEwIGRD(@NotNull SNode __thisNode__) {
-    // outputNodeisinsertedbeforetheanchorone.
-    // nullvalueindicates'addlast',andthisisbothdefaultandlegacybehavior
+    // outputNode is inserted before the anchor one.
+    // null value indicates 'add last', and this is both default and legacy behavior
     return _quotation_createNode_7jf1n2_a2a1();
   }
 

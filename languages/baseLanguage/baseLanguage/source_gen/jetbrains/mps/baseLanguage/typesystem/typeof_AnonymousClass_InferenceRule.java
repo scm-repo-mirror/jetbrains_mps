@@ -63,7 +63,7 @@ public class typeof_AnonymousClass_InferenceRule extends AbstractInferenceRule_R
     }
 
     final Map<SNode, SNode> subs = MapSequence.fromMap(new HashMap<SNode, SNode>());
-    // TODO:thisistoavoidcollectinggenericsfromexplicitlysubstitutedtypes
+    // TODO: this is to avoid collecting generics from explicitly substituted types
     List<SNode> typeParam = ListSequence.fromList(SLinkOperations.getChildren(anonymousClass, LINKS.typeParameter$F9H8)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode tp) {
         final SNode TP_typevar_5449655299304737730 = typeCheckingContext.createNewRuntimeTypesVariable();

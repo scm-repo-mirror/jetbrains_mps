@@ -12,7 +12,7 @@ public class MPSAuditConstraints extends AuditConstraints {
     super(module);
   }
   private void processExcludedModules() {
-    // donotexcludemoduleshere,useerrorsuppressing
+    // do not exclude modules here, use error suppressing
   }
   @Test
   @Override

@@ -62,10 +62,10 @@ public final class StockPriceDownloader {
                 ListSequence.fromList(prices).addElement(price);
 
               } catch (ParseException e) {
-                // dateparsingerror
+                // date parsing error
                 return null;
               } catch (IndexOutOfBoundsException e) {
-                // lineparsingerror
+                // line parsing error
                 return null;
               }
             } else {

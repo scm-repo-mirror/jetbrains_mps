@@ -144,7 +144,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       return null;
     }
     if (SNodeOperations.isInstanceOf(visibility, CONCEPTS.ProtectedVisibility$hr) && !(SNodeOperations.isInstanceOf(baseVisibility, CONCEPTS.PublicVisibility$R0))) {
-      // onlypublicisstrongerandmustcauseanerror
+      // only public is stronger and must cause an error
       return null;
     }
     ErrorReportingItem item = new ErrorReportingItem() {

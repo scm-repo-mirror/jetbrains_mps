@@ -60,7 +60,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
               final SNode tnode4 = environment.createOutputNode(myConcepts[2]);
               SNodeAccessUtil.setPropertyValue(tnode4, myProperties[0], QueriesGenerated.propertyMacro_GetValue_1_0(new PropertyMacroContext(context3, "42", propertyMacro_a36rdq_c0a2a0a1a1a3a2a1a2a6)));
               tnode3.addChild(myAggregationLinks[0], tnode4);
-              // TODOvalidatechild
+              // TODO validate child
             }
             {
               Collection<SNode> tlist5 = null;
@@ -69,7 +69,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
               for (SNode child6 : TemplateUtil.asNotNull(tlist5)) {
                 tnode3.addChild(myAggregationLinks[1], child6);
               }
-              // TODOvalidatechild
+              // TODO validate child
             }
           }
           tlist2.add(tnode3);
@@ -77,7 +77,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
         for (SNode child7 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[2], child7);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         Collection<SNode> tlist8 = null;
@@ -86,7 +86,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
         for (SNode child9 : TemplateUtil.asNotNull(tlist8)) {
           tnode1.addChild(myAggregationLinks[3], child9);
         }
-        // TODOvalidatechild
+        // TODO validate child
       }
       {
         final SNode tnode10 = environment.createOutputNode(myConcepts[3]);
@@ -111,7 +111,7 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
                       {
                         final SNode tnode14 = environment.createOutputNode(myConcepts[7]);
                         tnode13.addChild(myAggregationLinks[4], tnode14);
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                       {
                         Collection<SNode> tlist15 = null;
@@ -120,19 +120,19 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
                         for (SNode child16 : TemplateUtil.asNotNull(tlist15)) {
                           tnode13.addChild(myAggregationLinks[5], child16);
                         }
-                        // TODOvalidatechild
+                        // TODO validate child
                       }
                     }
                     tnode12.addChild(myAggregationLinks[6], tnode13);
-                    // TODOvalidatechild
+                    // TODO validate child
                   }
                 }
                 tnode11.addChild(myAggregationLinks[7], tnode12);
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode10.addChild(myAggregationLinks[8], tnode11);
-            // TODOvalidatechild
+            // TODO validate child
           }
           {
             Collection<SNode> tlist17 = null;
@@ -141,11 +141,11 @@ public class Template_string_switch_template extends TemplateDeclarationBase {
             for (SNode child18 : TemplateUtil.asNotNull(tlist17)) {
               tnode10.addChild(myAggregationLinks[8], child18);
             }
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tnode1.addChild(myAggregationLinks[9], tnode10);
-        // TODOvalidatechild
+        // TODO validate child
       }
     }
     FragmentResult rv = nodeFragment(10, tnode1);

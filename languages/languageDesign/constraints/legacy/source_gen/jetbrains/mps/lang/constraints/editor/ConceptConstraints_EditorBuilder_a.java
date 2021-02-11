@@ -225,7 +225,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.concept$EVpZ), CONCEPTS.ConceptDeclaration$gH) && SPropertyOperations.getBoolean(((SNode) SLinkOperations.getTarget(myNode, LINKS.concept$EVpZ)), PROPS.rootable$_9pz);
   }
   private boolean nodeCondition_g00aa7_a11d0() {
-    // donotshowforinterfaceconcepts
+    // do not show for interface concepts
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.concept$EVpZ), CONCEPTS.ConceptDeclaration$gH);
   }
   private EditorCell createCollection_2() {

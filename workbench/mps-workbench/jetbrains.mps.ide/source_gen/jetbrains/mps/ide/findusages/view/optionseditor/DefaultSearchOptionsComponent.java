@@ -21,7 +21,7 @@ public class DefaultSearchOptionsComponent implements PersistentStateComponent<E
 
   public DefaultSearchOptionsComponent(Project project) {
     myProject = project;
-    // XXXwhydon'twekeepMPSProjectrightinDefaultOptionsContainer?
+    // XXX why don't we keep MPSProject right in DefaultOptionsContainer?
   }
 
   public DefaultOptionsContainer getDefaultOptions() {

@@ -57,7 +57,7 @@ public abstract class ModelChange {
   public abstract ChangeType getType();
 
   public boolean isNonConflicting() {
-    // true-changecanneverconflictwithotherchangeandshouldbeignoredifconnectedchangeexists(e.g.resolveInfochange)
+    // true - change can never conflict with other change and should be ignored if connected change exists (e.g. resolveInfo change)
     return getMergeHint() != null;
   }
 

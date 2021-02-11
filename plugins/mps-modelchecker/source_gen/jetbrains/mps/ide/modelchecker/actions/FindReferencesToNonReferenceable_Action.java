@@ -54,7 +54,7 @@ public class FindReferencesToNonReferenceable_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    // todo:temporarydisabled,seeMPS-18470
+    // todo: temporary disabled, see MPS-18470
     return false;
   }
   @Override
@@ -92,7 +92,7 @@ public class FindReferencesToNonReferenceable_Action extends BaseAction {
 
     ModelCheckerTool.getInstance(((Project) MapSequence.fromMap(_params).get("project"))).checkModelsAndShowResult(modelDescriptors, new ReferenceableConceptsChecker());
 
-    // extradebug
+    // extra debug
     final Wrappers._int total = new Wrappers._int();
     final Wrappers._int referenceable = new Wrappers._int();
     final Map<String, Integer> used = MapSequence.fromMap(new HashMap<String, Integer>());

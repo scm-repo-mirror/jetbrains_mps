@@ -8,25 +8,25 @@ public class RootCustom {
   public RootCustom() {
     int i = 42;
     q = i;
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
-    // toctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
+    // to ctor
   }
   public void main() {
     {

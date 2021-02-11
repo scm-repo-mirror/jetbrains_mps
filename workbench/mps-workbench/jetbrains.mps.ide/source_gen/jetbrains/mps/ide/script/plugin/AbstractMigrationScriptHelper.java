@@ -69,7 +69,7 @@ public abstract class AbstractMigrationScriptHelper {
         return rs;
       }
     }
-    // trynamematchifnonematchedbynodereference
+    // try name match if none matched by node reference
     for (RefactoringScript rs : scriptAspect.getRefactoringScripts()) {
       if (rs.getName().equals(SPropertyOperations.getString(scriptNode, PROPS.title$6bZx))) {
         return rs;

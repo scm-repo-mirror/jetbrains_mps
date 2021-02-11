@@ -28,7 +28,7 @@ public class makeReferenceStatic_QuickFix extends QuickFix_Runtime {
     SReference staticRef = StaticReference.create(((SReferenceLink) makeReferenceStatic_QuickFix.this.getField("role")[0]), node, target);
     node.setReference(((SReferenceLink) makeReferenceStatic_QuickFix.this.getField("role")[0]), staticRef);
 
-    // addmodelimport
+    // add model import
     new ModelImports(SNodeOperations.getModel(node)).addModelImport(target.getModel().getReference());
   }
 }

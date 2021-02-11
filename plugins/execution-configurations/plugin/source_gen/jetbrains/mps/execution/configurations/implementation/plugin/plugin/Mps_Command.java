@@ -83,9 +83,9 @@ public class Mps_Command {
 
   private static CommandPart getVmParameters(String virtualMachineParameters, @Nullable String settingsPath) {
 
-    // FIXMEStartupUtildoesnotaccessibleduringbuild,reuseitoncepossible
+    // FIXME StartupUtil does not accessible during build, reuse it once possible
     if (!(System.getProperty("os.name").toLowerCase().startsWith("mac"))) {
-      // macOSreusesportssothereisnoneedtobindtoanotherport
+      // macOS reuses ports so there is no need to bind to another port
       virtualMachineParameters = "-Dide.httpsupport.internalPort=63321 " + virtualMachineParameters;
     }
 
@@ -96,7 +96,7 @@ public class Mps_Command {
       String logPath = new File(systemPath, "log").getAbsolutePath();
       return new ListCommandPart(ListSequence.fromListAndArray(new ArrayList(), new PropertyCommandPart(PathManager.PROPERTY_CONFIG_PATH, configPath), new PropertyCommandPart(PathManager.PROPERTY_SYSTEM_PATH, systemPath), new PropertyCommandPart(PathManager.PROPERTY_PLUGINS_PATH, pluginsPath), new PropertyCommandPart(PathManager.PROPERTY_LOG_PATH, logPath), virtualMachineParameters));
     } else {
-      // actuallywemustfailhereandsettingsPathmustbeNotNull
+      // actually we must fail here and settingsPath must be NotNull
       return new ListCommandPart(ListSequence.fromListAndArray(new ArrayList(), virtualMachineParameters));
     }
   }

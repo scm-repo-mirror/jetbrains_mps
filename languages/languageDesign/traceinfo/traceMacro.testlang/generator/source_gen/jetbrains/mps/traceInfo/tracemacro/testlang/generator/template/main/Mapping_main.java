@@ -59,7 +59,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(myAggregationLinks[0], child3);
           }
-          // TODOvalidatechild
+          // TODO validate child
         }
         {
           Collection<SNode> tlist4 = null;
@@ -68,24 +68,24 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(myAggregationLinks[1], child5);
           }
-          // TODOvalidatechild
+          // TODO validate child
         }
         {
           Collection<SNode> tlist6 = null;
-          // calculateinput
+          // calculate input
           final SNode copySrcInput6 = QueriesGenerated.sourceNodeQuery_0_2(new SourceSubstituteMacroNodeContext(context1, traceMacro_ief6mt_b0a0a2a3a2a1d));
-          // calculateoutput
+          // calculate output
           final SNode tnode7 = environment.createOutputNode(myConcepts[1]);
           SNodeAccessUtil.setPropertyValue(tnode7, myProperties[0], QueriesGenerated.propertyMacro_GetValue_0_0(new PropertyMacroContext(context1, "var", propertyMacro_ief6mt_c0a2a0a5a3a2a1d)));
           tlist6 = TemplateUtil.singletonList(tnode7);
-          // putinputnode
+          // put input node
           for (SNode resultNode : CollectionSequence.fromCollection(tlist6)) {
             TracingUtil.fillOriginalNode(copySrcInput6, resultNode, false);
           }
           for (SNode child8 : TemplateUtil.asNotNull(tlist6)) {
             tnode1.addChild(myAggregationLinks[2], child8);
           }
-          // TODOvalidatechild
+          // TODO validate child
         }
       }
       environment.registerLabel(context.getInput(), tnode1, "GeneratedForeach");

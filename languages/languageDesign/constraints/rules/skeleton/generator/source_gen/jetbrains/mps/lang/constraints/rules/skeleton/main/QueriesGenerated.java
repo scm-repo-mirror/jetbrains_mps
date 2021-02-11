@@ -90,8 +90,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SNode) StatementList__BehaviorDescriptor.getFirstStatement_id4GU1DgEHJ2u.invoke(SNodeOperations.cast(_context.getMainContextNode(), CONCEPTS.StatementList$m_));
   }
   public static Object varMacro_Value_3_0(final TemplateVarContext _context) {
-    // ratherwegenerateinlang.descriptorrefstoallILanguageAspectinstancesinallofthemodelsinthemodule,
-    // thenweuseweaves/reductionstousethisreferencesinordertorestorethereftothe<GeneratedAspectDescriptor>.
+    // rather we generate in lang.descriptor refs to all ILanguageAspect instances in all of the models in the module,
+    // then we use weaves/reductions to use this references in order to restore the ref to the <GeneratedAspectDescriptor>.
     // 
     final SRepository repository = _context.getOriginalInputModel().getRepository();
     SNode constraintsRef = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.language$rnIG), LINKS.model$2Sf4)).findFirst(new IWhereFilter<SNode>() {

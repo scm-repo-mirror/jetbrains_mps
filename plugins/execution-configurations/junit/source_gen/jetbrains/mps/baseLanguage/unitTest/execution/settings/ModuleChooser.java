@@ -45,7 +45,7 @@ public final class ModuleChooser extends TextFieldWithBrowseButton.NoPathComplet
   }
 
   private FindUsagesManager getFindUsagesManager() {
-    // FIXMEunfortunately,FindUsagesFacadeisnotCoreComponent,thereforehavetouseFindUsagesManager
+    // FIXME unfortunately, FindUsagesFacade is not CoreComponent, therefore have to use FindUsagesManager
     assert myMpsProject != null;
     return myMpsProject.getComponent(FindUsagesManager.class);
   }

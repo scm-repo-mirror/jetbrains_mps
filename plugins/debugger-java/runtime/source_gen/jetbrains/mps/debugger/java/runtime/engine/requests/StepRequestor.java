@@ -66,7 +66,7 @@ public class StepRequestor implements Requestor {
     return STOP;
   }
   private int nextStep(@NotNull ThreadReference thread, @NotNull StackFrame frame) {
-    // decideswhetherweneedtostepagain;dependsonwhetherourcurrentlineingeneratedjavaclasshasbeenchanged.
+    // decides whether we need to step again; depends on whether our current line in generated java class has been changed.
     if (myStepType == StepRequest.STEP_OVER || myStepType == StepRequest.STEP_INTO) {
       int frameCount = -1;
       Location location = frame.location();
@@ -79,13 +79,13 @@ public class StepRequestor implements Requestor {
       } catch (AbsentInformationException e) {
         LOG.error(null, e);
       }
-      // ifwearenotindebuggablepositionwestepagain
-      // TODOthisplacemaylead(anddoeslead)tobadperformance(seeMPS-8725)
+      //  if we are not in debuggable position we step again
+      //  TODO this place may lead (and does lead) to bad performance (see MPS-8725)
       if (!(sourceName.isEmpty()) && !(myFramesSelector.isDebuggablePosition(location.declaringType().name(), sourceName, location.lineNumber()))) {
         return myStepType;
       }
       boolean filesEqual = myDeclaringType.equals(location.declaringType().name());
-      // ifweareonthesameplaceweshouldstepagain
+      //  if we are on the same place we should step again
       if (myFramesSelector.isSamePosition(myDeclaringType, mySourceName, myLineNumber, myFrameCount, location.declaringType().name(), sourceName, location.lineNumber(), frameCount)) {
         return myStepType;
       }

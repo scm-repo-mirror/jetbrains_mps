@@ -15,7 +15,7 @@ public class ModuleDataType extends DataType {
     return myFile;
   }
   public void setFile(File file) {
-    // todoremoveduplicationhere,notetheclassloaderheredoesn'tcontainMPSFileTypeFactory[useproposedinlineConstantslanguagewhenit'simplemented]
+    // todo remove duplication here, note the classloader here doesn't contain MPSFileTypeFactory [use proposed inlineConstants language when it's implemented]
     String[] allowedExt = {"jar", "mpl", "msd", "devkit"};
     boolean extOk = true;
     for (String ext : allowedExt) {

@@ -22,7 +22,7 @@ public class ModelPlusImportedScope extends ModelsScope {
     }
     ArrayList<SModel> models = new ArrayList<SModel>();
     models.add(model);
-    // leftdeprecatedcallasthere'ssomecompatibilitycode(useofglobalrepository)
+    // left deprecated call as there's some compatibility code (use of global repository)
     models.addAll(SModelOperations.allImportedModels(model));
     return models;
   }

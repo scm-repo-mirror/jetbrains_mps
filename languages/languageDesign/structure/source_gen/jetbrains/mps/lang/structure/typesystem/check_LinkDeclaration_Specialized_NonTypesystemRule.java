@@ -41,7 +41,7 @@ public class check_LinkDeclaration_Specialized_NonTypesystemRule extends Abstrac
       }
     }
 
-    // specializedmustbeasuper-conceptofspecializing
+    // specialized must be a super-concept of specializing
     if ((SLinkOperations.getTarget(link, LINKS.target$m40F) != null) && (SLinkOperations.getTarget(specializedLink, LINKS.target$m40F) != null)) {
       if (!((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SLinkOperations.getTarget(link, LINKS.target$m40F), SLinkOperations.getTarget(specializedLink, LINKS.target$m40F)))) {
         {

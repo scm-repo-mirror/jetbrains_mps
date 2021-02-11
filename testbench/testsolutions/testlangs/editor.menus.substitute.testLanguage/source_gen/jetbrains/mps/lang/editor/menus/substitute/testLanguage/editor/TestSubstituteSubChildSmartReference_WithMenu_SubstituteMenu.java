@@ -49,7 +49,7 @@ public class TestSubstituteSubChildSmartReference_WithMenu_SubstituteMenu extend
   public class SMP_ReferenceScope_56lgov_a extends ReferenceScopeSubstituteMenuPart {
 
     public SMP_ReferenceScope_56lgov_a() {
-      // thatcastisneededforpreventtheusersfromhttps://youtrack.jetbrains.com/issue/MPS-29051
+      // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051
       super((SAbstractConcept) CONCEPTS.TestSubstituteSubChildSmartReference_WithMenu$CI, LINKS.childToReference$QW1a);
     }
     @NotNull

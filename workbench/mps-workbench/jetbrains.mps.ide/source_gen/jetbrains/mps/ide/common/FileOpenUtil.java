@@ -30,7 +30,7 @@ public class FileOpenUtil {
       if (lastDot == -1) {
         fullFileName = fileName;
       } else {
-        // thisseemstobeanoddwaytoconstructfilepathfrom"qualified.ClassName"and"ClassName.java"
+        // this seems to be an odd way to construct file path from "qualified.ClassName" and "ClassName.java"
         fullFileName = unitName.substring(0, lastDot).replace('.', '/') + '/' + fileName;
       }
     } else {
@@ -44,7 +44,7 @@ public class FileOpenUtil {
         }
       }).first();
     } catch (ProcessCanceledException ex) {
-      // ignore,cannotreportanything,pretendwedidn'tfindany
+      //  ignore, can not report anything,pretend we didn't find any
       return null;
     }
   }

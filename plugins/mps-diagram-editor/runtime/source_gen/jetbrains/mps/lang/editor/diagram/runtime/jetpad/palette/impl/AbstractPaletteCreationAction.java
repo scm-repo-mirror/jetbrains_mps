@@ -28,12 +28,12 @@ public abstract class AbstractPaletteCreationAction implements PaletteToggleActi
   protected abstract SubstituteAction createSubstituteAction(SubstituteAction action);
   protected abstract ViewTrait getTrait();
   private Icon createIcon() {
-    // todocodeisduplicatedfromthediagramcell
+    // todo code is duplicated from the diagram cell
     Icon icon;
     SNode iconNode = mySubstituteAction.getIconNode("");
     if (iconNode != null) {
-      // todoshouldpassconcepthere,notconceptnode
-      // FIXMEthemomentthere'sSConcept,notSNode,#init()downheredoesn'tneedmodelreadanymore
+      // todo should pass concept here, not concept node
+      // FIXME the moment there's SConcept, not SNode, #init() down here doesn't need model read any more
       SAbstractConcept concept = SNodeOperations.asSConcept(((SNode) iconNode));
       icon = ((SNodeOperations.isInstanceOf(iconNode, CONCEPTS.AbstractConceptDeclaration$KA) && !((mySubstituteAction.isReferentPresentation()))) ? GlobalIconManager.getInstance().getIconFor(concept) : GlobalIconManager.getInstance().getIconFor(iconNode));
     } else {

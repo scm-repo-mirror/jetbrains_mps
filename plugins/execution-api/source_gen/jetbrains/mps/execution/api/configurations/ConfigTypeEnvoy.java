@@ -65,7 +65,7 @@ public final class ConfigTypeEnvoy implements ConfigurationType {
 
   @Override
   public boolean isDumbAware() {
-    // generatedclassdidn'timplementDumbAwareinterface,thereforestateit'salwaysfalse
+    // generated class didn't implement DumbAware interface, therefore state it's always false
     return false;
   }
 
@@ -102,7 +102,7 @@ public final class ConfigTypeEnvoy implements ConfigurationType {
       if (next.getRunConfigClass() == runCfg) {
         next.invalidate();
         it.remove();
-        // intentionallydonotbreakasthere'snochecktoensurenoduplicatedaddFactoryFor(sameClass)calls.
+        // intentionally do not break as there's no check to ensure no duplicated addFactoryFor(sameClass) calls.
       }
     }
   }

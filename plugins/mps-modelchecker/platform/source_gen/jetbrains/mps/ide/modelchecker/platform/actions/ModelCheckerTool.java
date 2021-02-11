@@ -65,7 +65,7 @@ public class ModelCheckerTool extends BaseTabbedProjectTool {
   private void revealResults(ModelCheckerViewer newViewer, String title, Icon icon) {
     SearchResults<IssueKindReportItem> searchResults = newViewer.getSearchResults();
     if (searchResults == null) {
-      // Searchwascancelled,donothing
+      // Search was cancelled, do nothing
       return;
     }
     if (searchResults.getSearchResults().isEmpty()) {
@@ -101,11 +101,11 @@ public class ModelCheckerTool extends BaseTabbedProjectTool {
       String dialogMessage = "Model checker found " + errors + " errors and " + warnings + " warnings. Would you like to review them?";
       int dialogAnswer = Messages.showDialog(myProject, dialogMessage, "Model Checking", new String[]{"Review", "Commit", "Cancel"}, 0, null);
       if (dialogAnswer == 0) {
-        // reviewerrorsandwarnings,don'tcommit
+        // review errors and warnings, don't commit
         this.showTabWithResults(viewer, "Pre-commit check", IdeIcons.MODEL_ICON);
         return CheckinHandler.ReturnResult.CLOSE_WINDOW;
       } else if (dialogAnswer == 1) {
-        // ignoreerrorsandwarnings
+        // ignore errors and warnings
         return CheckinHandler.ReturnResult.COMMIT;
       } else if (dialogAnswer == 2 || dialogAnswer == -1) {
         // Cancel
@@ -115,7 +115,7 @@ public class ModelCheckerTool extends BaseTabbedProjectTool {
     return CheckinHandler.ReturnResult.COMMIT;
   }
   private ModelCheckerViewer createViewerForTab() {
-    // viewerthatknowshowtoclosetool'stab
+    // viewer that knows how to close tool's tab
     return new ModelCheckerViewer(myProject) {
       @Override
       protected void close() {

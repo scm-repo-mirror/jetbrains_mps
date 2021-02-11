@@ -50,12 +50,12 @@ public final class SingleLineComment__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static void collectUncaughtMethodThrowables_id4Gt7ANIVH8f(@NotNull SNode __thisNode__, Set<SNode> throwables, boolean ignoreMayBeThrowables) {
-    // doing nothing 
+    // doing nothing
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.LocalVariableDeclaration$41)) {
       if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.StatementList$m_)) {
-        // TODO use LazyParentScope instead 
+        // TODO use LazyParentScope instead
         return Scope.getScope(SNodeOperations.getParent(__thisNode__), ListSequence.fromList(SNodeOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.StatementList$m_))).last(), kind);
       } else {
         return null;

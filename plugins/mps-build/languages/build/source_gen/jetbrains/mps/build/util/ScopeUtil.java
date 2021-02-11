@@ -60,17 +60,17 @@ public class ScopeUtil {
   public static Iterable<Scope> imported(Iterable<SNode> importDeclarations, final SAbstractConcept concept, final SNode child) {
     return Sequence.fromIterable(importDeclarations).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        // searchingforsmartreferences
+        // searching for smart references
         return ListSequence.fromList(SNodeOperations.getReferences(it)).count() == 1 && SNodeOperations.isInstanceOf(SLinkOperations.getTargetNode(ListSequence.fromList(SNodeOperations.getReferences(it)).first()), CONCEPTS.ScopeProvider$aq);
       }
     }).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        // thatreferencesproviders
+        // that references providers
         return SNodeOperations.cast(SLinkOperations.getTargetNode(ListSequence.fromList(SNodeOperations.getReferences(it)).first()), CONCEPTS.ScopeProvider$aq);
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        // checkforcycles
+        // check for cycles
         return !(ListSequence.fromList(SNodeOperations.getNodeDescendants(it, null, false, new SAbstractConcept[]{})).contains(child));
       }
     }).select(new ISelector<SNode, Scope>() {

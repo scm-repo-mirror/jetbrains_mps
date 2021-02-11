@@ -126,8 +126,8 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
 
   public MigrationTrigger(Project ideaProject, MPSProject p, MPSCoreComponents mpsCore) {
     super(ideaProject);
-    // FIXMEdoesn'tneedtobeaprojectcomponent.Perhaps,notevenaprojectService.Shallgetactivated
-    // bylistenersattachedbyaStartupActivity
+    // FIXME doesn't need to be a project component. Perhaps, not even a project Service. Shall get activated
+    //      by listeners attached by a StartupActivity
     myMpsProject = p;
     myMigrationRegistry = ideaProject.getService(MigrationRegistry.class);
     myProperties = (ProjectMigrationProperties) ideaProject.getComponent(MigrationProperties.class);
@@ -169,7 +169,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   public void setRebuildHandler(Consumer<Iterable<SModuleReference>> rebuildHandler) {
-    // todoreplacewithanormalcomponentdependency
+    // todo replace with a normal component dependency
     myNotifications.setRebuildHandler(rebuildHandler);
   }
 
@@ -178,13 +178,13 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   public void projectOpened() {
-    // thisisahackformigrationtaskpurposes
+    // this is a hack for migration task purposes
     if (RuntimeFlags.getTestMode().isInsideTestEnvironment()) {
       return;
     }
 
-    // waituntilprojectisfullyloaded(ifnotyet)
-    // FIXMEapparently,there'snoneedforMigrationTriggertobelegacyProjectComponent,coulddowithlisteners
+    // wait until project is fully loaded (if not yet)
+    // FIXME apparently, there's no need for MigrationTrigger to be legacy ProjectComponent, could do with listeners
     StartupManager.getInstance(myProject).runWhenProjectIsInitialized(new Runnable() {
       public void run() {
         ApplicationManager.getApplication().invokeLater(new Runnable() {
@@ -243,8 +243,8 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   private void checkMigrationNeededOnLanguageReload(final List<SLanguage> addedLanguages) {
-    // ifanewlanguageisaddedtoarepo,allmodulesinprojectusingit
-    // shouldbecheckedforwhethertheirmigrationisneeded
+    // if a new language is added to a repo, all modules in project using it
+    // should be checked for whether their migration is needed
     final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
     Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll(new IVisitor<SModule>() {
       public void visit(SModule it) {
@@ -265,7 +265,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     }
 
     if (myMigrationBlock.isMigrationForbidden()) {
-      // the"notdeployed"languagescase
+      // the "not deployed" languages case
       myNotifications.showDeployWarn(CollectionSequence.fromCollection(myMigrationRegistry.getProjectMigrations()).any(new IWhereFilter<ProjectMigration>() {
         public boolean accept(ProjectMigration it) {
           return it instanceof CleanupProjectMigration;
@@ -301,10 +301,10 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     final MigrationBlock.BlockCause scheduledBlockCause = new MigrationBlock.BlockCause("migration is already scheduled");
     myMigrationBlock.blockMigrationsCheck(scheduledBlockCause);
 
-    // waituntilprojectisfullyloaded(ifnotyet)
+    // wait until project is fully loaded (if not yet)
     StartupManager.getInstance(myProject).runWhenProjectIsInitialized(new Runnable() {
       public void run() {
-        // asweuseui,postponetoEDT
+        // as we use ui, postpone to EDT
         ApplicationManager.getApplication().invokeLater(new Runnable() {
           public void run() {
             try {
@@ -384,9 +384,9 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
         progress.start("Pre-Update Check", 10);
         final List<SModule> modules = ListSequence.fromList(new ArrayList<SModule>());
         ListSequence.fromList(modules).addSequence(Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)));
-        // XXXthiscodeoriginatesfromRunPreUpdateCheckUIaction,whichexposestoomuchofmigrationinternal
-        // stufffornoreason,andnowispartofthisclass.
-        // FIXMEthere'sprettysimilarcodeinMigrationRegistryImpl.getAllSteps,perhaps,wortharefactoring!
+        // XXX this code originates from RunPreUpdateCheck UI action, which exposes too much of migration internal
+        //    stuff for no reason, and now is part of this class.
+        // FIXME there's pretty similar code in MigrationRegistryImpl.getAllSteps, perhaps, worth a refactoring!
         Iterable<ScriptApplied> checks = ListSequence.fromList(modules).translate(new ITranslator2<SModule, ScriptApplied>() {
           public Iterable<ScriptApplied> translate(final SModule module) {
             Set<SLanguage> allLanguages = new SLanguageHierarchy(myLanguageRegistry, module.getUsedLanguages()).getExtended();
@@ -502,7 +502,7 @@ __switch__:
       MigrationError errors = session.getError();
       MigrationResult state;
       if (!(finished) && errors == null) {
-        // userhaspostponedmigration
+        // user has postponed migration
         state = MigrationResult.POSTPONED;
       } else if (errors != null) {
         state = MigrationResult.FINISHED_WITH_ERRORS;
@@ -519,7 +519,7 @@ __switch__:
     final SRepository repository = myMpsProject.getRepository();
     repository.getModelAccess().runWriteAction(new Runnable() {
       public void run() {
-        // hereallthemodelsaccessiblefromproject'sreposhouldbeunloaded
+        // here all the models accessible from project's repo should be unloaded
         for (SModule module : Sequence.fromIterable(repository.getModules())) {
           for (SModel model : Sequence.fromIterable(module.getModels())) {
             model.unload();
@@ -588,8 +588,8 @@ __switch__:
 
     @Override
     public void beforeLanguagesUnloaded(Iterable<LanguageRuntime> iterable) {
-      // languagesarestillloadedwhenthisnotificationcomes,nowaywecannoticeanychangehere,thereforewedon't
-      // checkforchangedconditions,e.g.withcheckNotDeployedLanguages()
+      // languages are still loaded when this notification comes, no way we can notice any change here, therefore we don't
+      // check for changed conditions, e.g. with checkNotDeployedLanguages()
     }
   }
 }

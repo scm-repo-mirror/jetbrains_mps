@@ -87,7 +87,7 @@ public class Mapping_mc_concept_method_call extends MapConfigBase implements Tem
                 for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
                   tnode3.addChild(myAggregationLinks[0], child5);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
               {
                 Collection<SNode> tlist6 = null;
@@ -95,11 +95,11 @@ public class Mapping_mc_concept_method_call extends MapConfigBase implements Tem
                 for (SNode child7 : TemplateUtil.asNotNull(tlist6)) {
                   tnode3.addChild(myAggregationLinks[1], child7);
                 }
-                // TODOvalidatechild
+                // TODO validate child
               }
             }
             tnode2.addChild(myAggregationLinks[2], tnode3);
-            // TODOvalidatechild
+            // TODO validate child
           }
         }
         tlist1 = TemplateUtil.singletonList(tnode2);

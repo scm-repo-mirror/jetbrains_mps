@@ -9,7 +9,7 @@ public class MarkSniffer extends KajaFrame {
   public MarkSniffer() {
   }
   protected void perform() {
-    // thisisacomment
+    // this is a comment
     buildSimplePlayground_from_library_PlaygroundDefinition_routine();
     trace("Playground is ready.");
     searchForMark_routine();

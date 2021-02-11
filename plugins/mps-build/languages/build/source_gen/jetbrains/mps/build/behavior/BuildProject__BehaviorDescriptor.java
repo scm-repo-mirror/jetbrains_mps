@@ -72,14 +72,14 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static String getBasePath_id4jjtc7WZOyG(@NotNull SNode __thisNode__, Context context) {
     RelativePathHelper relativePathHelper = context.getRelativePathHelper(SNodeOperations.getModel(__thisNode__));
     if (relativePathHelper == null) {
-      // modelispackaged,i.e.nobasepathforit
+      // model is packaged, i.e. no base path for it
       return null;
     }
     if (isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.internalBaseDirectory$_8Zr))) {
       try {
         return relativePathHelper.makeAbsolute(SPropertyOperations.getString(__thisNode__, PROPS.internalBaseDirectory$_8Zr));
       } catch (RelativePathHelper.PathException ex) {
-        // noidea-usedefaultpath
+        // no idea - use default path
       }
     }
     return relativePathHelper.getBasePath();
@@ -121,8 +121,8 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
       });
     }
 
-    // NOTE:referencesinprojectstructureandlayoutshouldbeunordered,thus
-    // wedonotneedindex/childparametershere
+    // NOTE: references in project structure and layout should be unordered, thus
+    //       we do not need index/child parameters here
     if (LINKS.layout$r7bw.equals(link)) {
       if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.BuildSource_FilesetProjectPart$mK)) {
         return DescendantsScope.forNamedElements(__thisNode__, LINKS.parts$mGDj, kind);
@@ -185,7 +185,7 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
     Scope rootScope = ScopeUtil.simpleRoleScope(__thisNode__, LINKS.macros$r8_A);
     SNode containingProject = SNodeOperations.getNodeAncestor(child, CONCEPTS.BuildProject$ae, false, false);
     if (!(Objects.equals(containingProject, __thisNode__))) {
-      // weareimported=>giveawayonlypublicmacro
+      // we are imported => give away only public macro
       rootScope = ScopeUtil.where(rootScope, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
         public Boolean invoke(SNode node) {
           return (boolean) BuildMacro__BehaviorDescriptor.isPublic_id5FtnUVJQZyL.invoke(SNodeOperations.cast(node, CONCEPTS.BuildMacro$qd));
@@ -204,7 +204,7 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
         });
       }
       if ((definedMacro.value != null)) {
-        // wecanonlyseewhatwasstrictlybeforeus
+        // we can only see what was strictly before us
         rootScope = ScopeUtil.where(rootScope, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
           public Boolean invoke(SNode visibleNode) {
             return !(ListSequence.fromList(SNodeOperations.getNextSiblings(definedMacro.value, false)).contains(visibleNode)) && !((Objects.equals(definedMacro.value, visibleNode)));

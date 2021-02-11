@@ -35,10 +35,10 @@ public class ClassifiersScope extends FilteringScope {
    */
   public ClassifiersScope(SModel model, SNode clas, SAbstractConcept concept, boolean includeAncestors) {
     super(new ModelPlusImportedScope(model, false, concept));
-    // AnotherimportantaspectofincludeAncestorsisscopefordynamicreferences
-    // Imagineweneedascopefor'implements'referenceofaClassConcept.IfweincludeAncestors==true,then
-    // themomentClassifierResolveUtils.resolve()latertriestobuildancestors,itwouldendupwiththeneedtofollow
-    // 'implements'referenceoftheclassagain,andwefacealoop
+    // Another important aspect of includeAncestors is scope for dynamic references
+    // Imagine we need a scope for 'implements' reference of a ClassConcept. If we includeAncestors == true, then
+    //   the moment ClassifierResolveUtils.resolve() later tries to build ancestors, it would end up with the need to follow
+    //   'implements' reference of the class again, and we face a loop
     myIncludeAncestors = includeAncestors;
     myClassifier = clas;
   }
@@ -56,21 +56,21 @@ public class ClassifiersScope extends FilteringScope {
   public SNode resolve(SNode contextNode, @NotNull String refText) {
     SModel contextModel = SNodeOperations.getModel(contextNode);
     if (contextModel == null) {
-      // Iseenolegitimatereasontoproceedanyfurther.
-      // Generally,Idon'texpectthisguardconditiontoevertrigger,asit'soddtoaccessreferencesofadetachednode.
-      // However,withMPS,youneverknow.
+      // I see no legitimate reason to proceed any further.
+      // Generally, I don't expect this guard condition to ever trigger, as it's odd to access references of a detached node.
+      // However, with MPS, you never know.
       return null;
     }
     SNode contextClassifier = SNodeOperations.getNodeAncestor(contextNode, CONCEPTS.Classifier$Ix, true, false);
 
-    // scopeswereneveradvertisedascapableof/demandingtomulti-thread,henceregularmap.
-    // ThoughwemaycacheresolvedreferencesatReferenceScopeHelperlevel,itdoesn'tknowproper'cachingscope',likeuseofancestorClassifierhere.
+    // scopes were never advertised as capable of/demanding to multi-thread, hence regular map.
+    // Though we may cache resolved references at ReferenceScopeHelper level, it doesn't know proper 'caching scope', like use of ancestor Classifier here.
 
-    // allreferencestoclasseswithinsameclasssharecontext,hencecacheperclosestClassifierancestor,ifany
-    // However,it'snotofgreathelpnowasScopeinstancesarecachedperSReference(i.e.withitssourcenode),henceit'sunlikely
-    // wegetintosamescopeinstanceforthesamecontextClassifier.
+    // all references to classes within same class share context, hence cache per closest Classifier ancestor, if any
+    // However, it's not of great help now as Scope instances are cached per SReference (i.e. with its source node), hence it's unlikely
+    // we get into same scope instance for the same contextClassifier.
 
-    // wetoleratecontextClassifier==nulljustforthesakeofrefText.startWith([)scenario,whichI'dliketohavecachedanyway
+    // we tolerate contextClassifier == null just for the sake of refText.startWith([) scenario, which I'd like to have cached anyway
     final Pair<SNode, String> key = new Pair<SNode, String>((contextClassifier == null ? contextNode : contextClassifier), refText);
     SNode cached = myResolveCache.get(key);
     if (cached == null) {
@@ -88,15 +88,15 @@ public class ClassifiersScope extends FilteringScope {
   }
 
   private SNode resolveImpl(@NotNull SModel contextModel, @Nullable SNode contextClassifier, @NotNull String refText) {
-    // hackfor[model]nodeconstruction,removeit
+    // hack for [model]node construction, remove it
     if (refText.indexOf('[') == 0) {
       return ClassifierResolveUtils.resolveSpecialSyntax(refText, contextModel);
     }
-    // endofhack
-    // TODOMustbedonethroughScopeProvider
+    // end of hack
+    // TODO Must be done through ScopeProvider
     // 
     if ((contextClassifier == null)) {
-      // noclassoutside,justusesimpleoldlogic
+      // no class outside, just use simple old logic
       return ClassifierResolveUtils.resolveNonSpecialSyntax(refText, contextModel, (ModelPlusImportedScope) wrapped);
     }
     SNode resolved = ClassifierResolveUtils.resolve(refText, contextClassifier, myIncludeAncestors);
@@ -104,7 +104,7 @@ public class ClassifiersScope extends FilteringScope {
     if (resolved != null) {
       return resolved;
     }
-    // trytouseoldlogic
+    // try to use old logic
     return ClassifierResolveUtils.resolveNonSpecialSyntax(refText, contextModel, (ModelPlusImportedScope) wrapped);
   }
 

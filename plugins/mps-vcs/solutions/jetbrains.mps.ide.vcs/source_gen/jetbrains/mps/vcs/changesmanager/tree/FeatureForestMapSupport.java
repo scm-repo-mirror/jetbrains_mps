@@ -49,16 +49,16 @@ public class FeatureForestMapSupport implements Disposable {
     myCurrentDifferenceRegistry = CurrentDifferenceRegistry.getInstance(project);
     myMap = new FeaturesFromVcs();
     myListener = new FeatureHierarchyListener(myMap);
-    // FIXMEwhyprojectcomponentlistenstoglobaldifferences?
+    // FIXME why project component listens to global differences?
     myCurrentDifferenceRegistry.addGlobalDifferenceListener(myListener);
   }
 
   public static FeatureForestMapSupport getInstance(Project ideaProject) {
-    // XXXFFMSusedtobeprojectcomponent,thatattachedGlobalDifferenceListeneronprojectstart
-    // Iwonderifpresentapproachwithservicesdoesn'tbreakanyassumption.Ifthisservicegetinitialized
-    // muchlaterthanprojectstarts,doesitmissanychangesCurrentDifferentRegistryhasalreadydispatchedtoitslisteners?
-    // Indeed,there'slittlevalueinstantiatingFFMSifnobodywouldqueryit,thereforebeingaservicesoundsright,
-    // OTOH,expectations(whetherFFMSprovides'complete'projectstate)couldberuined,didn'tcheckthat.
+    // XXX FFMS used to be project component, that attached GlobalDifferenceListener on project start
+    //    I wonder if present approach with services doesn't break any assumption. If this service get initialized
+    //    much later than project starts, does it miss any changes CurrentDifferentRegistry has already dispatched to its listeners?
+    //    Indeed, there's little value instantiating FFMS if nobody would query it, therefore being a service sounds right,
+    //    OTOH, expectations (whether FFMS provides 'complete' project state) could be ruined, didn't check that.
     return ideaProject.getService(FeatureForestMapSupport.class);
   }
 
@@ -115,7 +115,7 @@ public class FeatureForestMapSupport implements Disposable {
       }
     } else
     if (change instanceof SetConceptChange) {
-      // todo:createnewfeature??
+      // todo: create new feature ??
       builder.accept(new NodeFeature(new SNodePointer(modelReference, ((SetConceptChange) change).getAffectedNodeId()), change.getRootId()));
     } else
     if (change instanceof ModelAttributeChange || change instanceof UsedLanguageChange || change instanceof ImportedModelChange || change instanceof EngagedLanguageChange) {

@@ -40,9 +40,9 @@ public class SearchResults<T> implements UsagesList {
   }
 
   public SearchResults(Collection<?> searchedObjects, List<SearchResult<T>> searchResults) {
-    // searchedObjectslistselementswelookedfor;elementsourresultsare'derived'from.Theyarenotnecessarilyofthesame
-    // kindasourresults,henceweuse<?>,not<T>(Idon'tfeelthere'sreasonintroduce<E>asit
-    // (a)limitswherewecanlook;(b)complicatesthecode
+    // searchedObjects lists elements we looked for; elements our results are 'derived' from. They are not necessarily of the same
+    // kind as our results, hence we use <?>, not <T> (I don't feel there's reason introduce <E> as it
+    // (a) limits where we can look; (b) complicates the code
     mySearchedObjects = new SearchedObjects(searchedObjects);
     mySearchResults = searchResults;
   }
