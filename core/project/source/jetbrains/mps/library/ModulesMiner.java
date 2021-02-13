@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -680,6 +680,10 @@ public final class ModulesMiner {
     if (sourcesJarPath.isEmpty() || sourcesJarPath.equals(".")) {
       // META-INF/module.xml/../../
       return deploymentFile.getParent().getParent().findChild(SOURCES_MODULE_DIR).getDescendant(deploymentDescriptor.getDescriptorFile());
+      // FIXME any reason to have this hardcoded 'module/' knowledge, why not specify it in dd.getDescriptorFile()?
+      //       when authoring build script, single module jar with externally compiled sources and module sources, why do I have to
+      //       bother to put 'sources of <module>' under 'folder module', to get simple name of dd.getDescriptorFile() resolved correctly.
+      //       e.g. see mpsDevKit for sample
     } else {
       // FIXME any idea why the code below mangles path instead of going up/down with regular FS getParent/getDescendant operations?
       //       I suspect it's just incomplete refactoring in 4c5b44bc9e1242d4e4399dc816e5caa01855dc00, right?
