@@ -87,10 +87,10 @@ import java.util.Stack;
     return types;
   }
   public static List<ASMFormalTypeParameter> getFormalTypeParameters(String signature) {
-    final List<ASMFormalTypeParameter> result = new ArrayList<ASMFormalTypeParameter>();
     if (signature == null) {
-      return result;
+      return Collections.emptyList();
     }
+    final List<ASMFormalTypeParameter> result = new ArrayList<ASMFormalTypeParameter>();
     SignatureReader reader = new SignatureReader(signature);
     reader.accept(new SignatureVisitorAdapter() {
       private String name = null;

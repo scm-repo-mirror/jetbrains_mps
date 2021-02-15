@@ -33,8 +33,8 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMAnnotation" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMClassType" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMField" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMFormalTypeParameter" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMMethod" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMParameterizedType" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMType" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.ASMTypeVariable" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.javastub.asm.SignatureVisitorAdapter" />
