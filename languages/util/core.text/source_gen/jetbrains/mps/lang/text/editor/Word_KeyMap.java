@@ -12,13 +12,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
-import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.references.BLOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
@@ -301,7 +300,7 @@ public class Word_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      return ((EditorCell_Label) editorContext.getSelectedCell()).getCaretPosition() == 0;
+      return true;
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.IndentedPoint$BF) && (SNodeOperations.getPrevSibling(node) == null)) {
@@ -309,11 +308,10 @@ public class Word_KeyMap extends KeyMapImpl {
       } else {
         SNode currentNode = node;
         for (int i = 0; i < 4; i++) {
-          SNode w = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word"));
-          SPropertyOperations.assign(w, PROPS.value$zQr_, " ");
-          SNodeOperations.insertPrevSiblingChild(currentNode, w);
+          NewElementStrategyFactory.createNewElementStrategy(currentNode, editorContext, false).execute();
+          currentNode = SNodeOperations.as(SNodeOperations.getNextSibling(currentNode), CONCEPTS.TextElement$WN);
         }
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, currentNode, SelectionManager.LAST_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, currentNode, SelectionManager.FIRST_CELL, 0);
       }
     }
     public String getKeyStroke() {
@@ -359,6 +357,7 @@ public class Word_KeyMap extends KeyMapImpl {
   private static final class CONCEPTS {
     /*package*/ static final SConcept Word$Dn = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
     /*package*/ static final SInterfaceConcept IndentedPoint$BF = MetaAdapterFactory.getInterfaceConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x46ded40cf13ae6c4L, "jetbrains.mps.lang.text.structure.IndentedPoint");
+    /*package*/ static final SConcept TextElement$WN = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L, "jetbrains.mps.lang.text.structure.TextElement");
   }
 
   private static final class PROPS {
@@ -366,6 +365,5 @@ public class Word_KeyMap extends KeyMapImpl {
     /*package*/ static final SProperty italic$SC$4 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
     /*package*/ static final SProperty underlined$SQS1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined");
     /*package*/ static final SProperty indentation$8ZOp = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x46ded40cf13ae6c4L, 0x46ded40cf13ae6fbL, "indentation");
-    /*package*/ static final SProperty value$zQr_ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
   }
 }
