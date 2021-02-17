@@ -7,6 +7,8 @@ import jetbrains.mps.build.ant.MpsLoadTask;
 import jetbrains.mps.tool.common.GeneratorProperties;
 import jetbrains.mps.tool.common.JavaCompilerProperties;
 import jetbrains.mps.build.ant.ModuleJarDataType;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.File;
 
 @GeneratedClass(node = "r:f80180a9-2bac-487b-83fc-3ef65f97aea3(jetbrains.mps.build.ant.generation)/4263887295358464059", model = "r:f80180a9-2bac-487b-83fc-3ef65f97aea3(jetbrains.mps.build.ant.generation)")
@@ -24,11 +26,25 @@ public class GenerateTask extends MpsLoadTask {
     myWhatToDo.addChunk(chunk.getModules(), chunk.getBootstrap());
   }
   public void addConfiguredLibrary(ModuleJarDataType jar) {
-    File file = jar.getFile();
-    if (file == null) {
-      return;
+    if (jar.getManifest() != null) {
+      // FIXME same in MpsRunnerTask; have to be xml parsing 
+      // perhaps, shall pass module manifest file right into Script, and parse there? 
+      try (BufferedReader br = new BufferedReader(new FileReader(jar.getManifest()))) {
+        String f;
+        while ((f = br.readLine()) != null) {
+          int x = f.indexOf(" file=\"");
+          if (x > 0) {
+            myWhatToDo.addLibraryJar(f.substring(x + 7, f.lastIndexOf('"')));
+          }
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
     }
-    addLibraryJar(file);
+    File file = jar.getFile();
+    if (file != null) {
+      addLibraryJar(file);
+    }
   }
   public void setStrictMode(boolean strictMode) {
     myGenProps.setStrictMode(strictMode);

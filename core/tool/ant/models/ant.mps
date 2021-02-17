@@ -6639,6 +6639,14 @@
       </node>
       <node concept="3Tm6S6" id="3ufQioQQu2S" role="1B3o_S" />
     </node>
+    <node concept="312cEg" id="34i8I8dxCus" role="jymVt">
+      <property role="TrG5h" value="myModuleManifest" />
+      <node concept="3Tm6S6" id="34i8I8dxCut" role="1B3o_S" />
+      <node concept="3uibUv" id="34i8I8dxCuv" role="1tU5fm">
+        <ref role="3uigEE" to="guwi:~File" resolve="File" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="34i8I8dxCwH" role="jymVt" />
     <node concept="3clFbW" id="3ufQioQQu2X" role="jymVt">
       <node concept="3Tm1VV" id="3ufQioQQu2Y" role="1B3o_S" />
       <node concept="3cqZAl" id="3ufQioQQu2Z" role="3clF45" />
@@ -6707,29 +6715,62 @@
         </node>
       </node>
     </node>
-    <node concept="3UR2Jj" id="1TP$JLLo7v2" role="lGtFl">
-      <node concept="TZ5HI" id="1TP$JLLo7v3" role="3nqlJM">
-        <node concept="TZ5HA" id="1TP$JLLo7v4" role="3HnX3l">
-          <node concept="1dT_AC" id="1TP$JLLo7wG" role="1dT_Ay">
-            <property role="1dT_AB" value="use " />
-          </node>
-          <node concept="2U$1Ah" id="1TP$JLLo7xH" role="1dT_Ay">
-            <property role="2U$1Ai" value="repo" />
-            <node concept="TZ5HA" id="1TP$JLLo7xI" role="2U$1Aj">
-              <node concept="2U$1Ah" id="1TP$JLLo7wQ" role="1dT_Ay">
-                <property role="2U$1Ai" value="module jar=&quot;smth&quot;" />
-                <node concept="TZ5HA" id="1TP$JLLo7wR" role="2U$1Aj" />
-              </node>
+    <node concept="2tJIrI" id="34i8I8dxCkW" role="jymVt" />
+    <node concept="3clFb_" id="34i8I8dxCqh" role="jymVt">
+      <property role="TrG5h" value="setManifest" />
+      <node concept="3clFbS" id="34i8I8dxCqk" role="3clF47">
+        <node concept="3clFbF" id="34i8I8dxCuw" role="3cqZAp">
+          <node concept="37vLTI" id="34i8I8dxCuy" role="3clFbG">
+            <node concept="37vLTw" id="34i8I8dxCu_" role="37vLTJ">
+              <ref role="3cqZAo" node="34i8I8dxCus" resolve="myModuleManifest" />
+            </node>
+            <node concept="37vLTw" id="34i8I8dxCuA" role="37vLTx">
+              <ref role="3cqZAo" node="34i8I8dxCs1" resolve="moduleManifest" />
             </node>
           </node>
-          <node concept="1dT_AC" id="1TP$JLLo7wY" role="1dT_Ay">
-            <property role="1dT_AB" value=" instead" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="34i8I8dxCnR" role="1B3o_S" />
+      <node concept="3cqZAl" id="34i8I8dxCq9" role="3clF45" />
+      <node concept="37vLTG" id="34i8I8dxCs1" role="3clF46">
+        <property role="TrG5h" value="moduleManifest" />
+        <node concept="3uibUv" id="34i8I8dxCs0" role="1tU5fm">
+          <ref role="3uigEE" to="guwi:~File" resolve="File" />
+        </node>
+      </node>
+    </node>
+    <node concept="3clFb_" id="34i8I8dxCCP" role="jymVt">
+      <property role="TrG5h" value="getManifest" />
+      <node concept="3uibUv" id="34i8I8dxCFg" role="3clF45">
+        <ref role="3uigEE" to="guwi:~File" resolve="File" />
+      </node>
+      <node concept="3Tm1VV" id="34i8I8dxCCS" role="1B3o_S" />
+      <node concept="3clFbS" id="34i8I8dxCCT" role="3clF47">
+        <node concept="3clFbF" id="34i8I8dxCMP" role="3cqZAp">
+          <node concept="37vLTw" id="34i8I8dxCMO" role="3clFbG">
+            <ref role="3cqZAo" node="34i8I8dxCus" resolve="myModuleManifest" />
           </node>
         </node>
       </node>
     </node>
-    <node concept="2AHcQZ" id="1TP$JLLo7v5" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+    <node concept="3UR2Jj" id="1TP$JLLo7v2" role="lGtFl">
+      <node concept="TZ5HA" id="34i8I8dxCkt" role="TZ5H$">
+        <node concept="1dT_AC" id="34i8I8dxCku" role="1dT_Ay">
+          <property role="1dT_AB" value="Alternatively, use " />
+        </node>
+        <node concept="2U$1Ah" id="1TP$JLLo7xH" role="1dT_Ay">
+          <property role="2U$1Ai" value="repo" />
+          <node concept="TZ5HA" id="1TP$JLLo7xI" role="2U$1Aj">
+            <node concept="2U$1Ah" id="1TP$JLLo7wQ" role="1dT_Ay">
+              <property role="2U$1Ai" value="module jar=&quot;smth&quot;" />
+              <node concept="TZ5HA" id="1TP$JLLo7wR" role="2U$1Aj" />
+            </node>
+          </node>
+        </node>
+        <node concept="1dT_AC" id="1TP$JLLo7wY" role="1dT_Ay">
+          <property role="1dT_AB" value=" instead" />
+        </node>
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="3t7WP23N$8C">

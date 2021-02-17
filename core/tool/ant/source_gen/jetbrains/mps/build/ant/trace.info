@@ -1326,22 +1326,33 @@
   </root>
   <root nodeRef="r:7b2ffdb7-2bfc-4488-8c0c-ee8fe93fe3c1(jetbrains.mps.build.ant)/4003657351907893424">
     <file name="ModuleJarDataType.java">
-      <node id="4003657351907893430" at="16,0,17,0" concept="6" trace="myJar" />
-      <node id="3643570831018858871" at="20,25,21,17" concept="12" />
-      <node id="5533869177019961376" at="23,33,24,75" concept="0" />
-      <node id="3643570831018858863" at="24,75,25,16" concept="5" />
-      <node id="4003657351907893437" at="17,0,20,0" concept="3" trace="ModuleJarDataType#()V" />
-      <node id="3643570831018858867" at="20,0,23,0" concept="10" trace="getFile#()Ljava/io/File;" />
-      <node id="3643570831018858857" at="23,0,27,0" concept="10" trace="setFile#(Ljava/io/File;)V" />
-      <scope id="4003657351907893440" at="18,30,18,30" />
-      <scope id="3643570831018858870" at="20,25,21,17" />
-      <scope id="3643570831018858862" at="23,33,25,16" />
-      <scope id="4003657351907893437" at="17,0,20,0" />
-      <scope id="3643570831018858867" at="20,0,23,0" />
-      <scope id="3643570831018858857" at="23,0,27,0">
+      <node id="4003657351907893430" at="14,0,15,0" concept="6" trace="myJar" />
+      <node id="3535927011724134300" at="15,0,16,0" concept="6" trace="myModuleManifest" />
+      <node id="3643570831018858871" at="19,25,20,17" concept="12" />
+      <node id="5533869177019961376" at="22,33,23,75" concept="0" />
+      <node id="3643570831018858863" at="23,75,24,16" concept="5" />
+      <node id="3535927011724134304" at="27,48,28,38" concept="5" />
+      <node id="3535927011724135605" at="30,29,31,28" concept="12" />
+      <node id="4003657351907893437" at="17,0,19,0" concept="3" trace="ModuleJarDataType#()V" />
+      <node id="3643570831018858867" at="19,0,22,0" concept="10" trace="getFile#()Ljava/io/File;" />
+      <node id="3535927011724134033" at="27,0,30,0" concept="10" trace="setManifest#(Ljava/io/File;)V" />
+      <node id="3535927011724134965" at="30,0,33,0" concept="10" trace="getManifest#()Ljava/io/File;" />
+      <node id="3643570831018858857" at="22,0,26,0" concept="10" trace="setFile#(Ljava/io/File;)V" />
+      <scope id="4003657351907893440" at="17,30,17,30" />
+      <scope id="3643570831018858870" at="19,25,20,17" />
+      <scope id="3535927011724134036" at="27,48,28,38" />
+      <scope id="3535927011724134969" at="30,29,31,28" />
+      <scope id="4003657351907893437" at="17,0,19,0" />
+      <scope id="3643570831018858862" at="22,33,24,16" />
+      <scope id="3643570831018858867" at="19,0,22,0" />
+      <scope id="3535927011724134033" at="27,0,30,0">
+        <var name="moduleManifest" id="3535927011724134145" />
+      </scope>
+      <scope id="3535927011724134965" at="30,0,33,0" />
+      <scope id="3643570831018858857" at="22,0,26,0">
         <var name="dir" id="3643570831018858860" />
       </scope>
-      <unit id="4003657351907893424" at="13,0,28,0" name="jetbrains.mps.build.ant.ModuleJarDataType" />
+      <unit id="4003657351907893424" at="12,0,34,0" name="jetbrains.mps.build.ant.ModuleJarDataType" />
     </file>
   </root>
   <root nodeRef="r:7b2ffdb7-2bfc-4488-8c0c-ee8fe93fe3c1(jetbrains.mps.build.ant)/543659029747133032">

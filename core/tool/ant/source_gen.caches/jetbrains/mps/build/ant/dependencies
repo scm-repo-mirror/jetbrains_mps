@@ -90,7 +90,6 @@
   </dependency>
   <dependency className="jetbrains.mps.build.ant.ModuleJarDataType">
     <classNode dependClassName="java.io.File" />
-    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode extendsClassName="org.apache.tools.ant.types.DataType" />
   </dependency>
