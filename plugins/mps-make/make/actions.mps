@@ -223,9 +223,14 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
+        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
+      </concept>
+      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
+        <reference id="1188214555875" name="key" index="2B6OnR" />
+        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1095950406618" name="jetbrains.mps.baseLanguage.structure.DivExpression" flags="nn" index="FJ1c_" />
       <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
@@ -9290,14 +9295,23 @@
     <node concept="3clFb_" id="C3dcc38V0G" role="jymVt">
       <property role="TrG5h" value="init" />
       <node concept="3cqZAl" id="C3dcc38V0H" role="3clF45" />
-      <node concept="3clFbS" id="C3dcc38V0J" role="3clF47">
-        <node concept="3clFbF" id="1tPM9NIM0Oz" role="3cqZAp">
-          <node concept="1rXfSq" id="4hiugqyzewv" role="3clFbG">
-            <ref role="37wK5l" node="1tPM9NIM0of" resolve="ensureRegistered" />
+      <node concept="3clFbS" id="C3dcc38V0J" role="3clF47" />
+      <node concept="3Tm1VV" id="C3dcc38V0I" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2cjwp5Ma6Vi" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+        <node concept="2B6LJw" id="2cjwp5Ma8zi" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+          <node concept="3clFbT" id="2cjwp5Ma99J" role="2B70Vg">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+        <node concept="2B6LJw" id="2cjwp5Ma99Y" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+          <node concept="Xl_RD" id="2cjwp5Ma9no" role="2B70Vg">
+            <property role="Xl_RC" value="2021.1" />
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="C3dcc38V0I" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="2ZAgslkc0wi" role="jymVt" />
     <node concept="3clFb_" id="C3dcc38V0L" role="jymVt">
@@ -9307,53 +9321,6 @@
       <node concept="3Tm1VV" id="C3dcc38V0N" role="1B3o_S" />
       <node concept="2AHcQZ" id="3tYsUK_RXcx" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2ZAgslkc1xH" role="jymVt" />
-    <node concept="3clFb_" id="1tPM9NIM0of" role="jymVt">
-      <property role="TrG5h" value="ensureRegistered" />
-      <node concept="3cqZAl" id="1tPM9NIM0og" role="3clF45" />
-      <node concept="3Tm6S6" id="1tPM9NIM0oj" role="1B3o_S" />
-      <node concept="3clFbS" id="1tPM9NIM0oi" role="3clF47">
-        <node concept="3clFbJ" id="1tPM9NIM0or" role="3cqZAp">
-          <node concept="3clFbS" id="1tPM9NIM0os" role="3clFbx">
-            <node concept="3clFbF" id="1tPM9NIM0ot" role="3cqZAp">
-              <node concept="2OqwBi" id="1tPM9NIM0ou" role="3clFbG">
-                <node concept="liA8E" id="1tPM9NIM0ow" role="2OqNvi">
-                  <ref role="37wK5l" to="fnpx:~Notifications.register(java.lang.String,com.intellij.notification.NotificationDisplayType,boolean)" resolve="register" />
-                  <node concept="37vLTw" id="2BHiRxeoiW3" role="37wK5m">
-                    <ref role="3cqZAo" node="6za2oG6XsvV" resolve="ID" />
-                  </node>
-                  <node concept="Rm8GO" id="1tPM9NIM0ox" role="37wK5m">
-                    <ref role="Rm8GQ" to="fnpx:~NotificationDisplayType.BALLOON" resolve="BALLOON" />
-                    <ref role="1Px2BO" to="fnpx:~NotificationDisplayType" resolve="NotificationDisplayType" />
-                  </node>
-                  <node concept="3clFbT" id="1tPM9NIM0oy" role="37wK5m">
-                    <property role="3clFbU" value="false" />
-                  </node>
-                </node>
-                <node concept="2YIFZM" id="1tPM9NIM0ov" role="2Oq$k0">
-                  <ref role="37wK5l" to="fnpx:~NotificationsConfiguration.getNotificationsConfiguration()" resolve="getNotificationsConfiguration" />
-                  <ref role="1Pybhc" to="fnpx:~NotificationsConfiguration" resolve="NotificationsConfiguration" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3fqX7Q" id="1tPM9NIM0Ot" role="3clFbw">
-            <node concept="2OqwBi" id="1tPM9NIM0On" role="3fr31v">
-              <node concept="liA8E" id="1tPM9NIM0Or" role="2OqNvi">
-                <ref role="37wK5l" to="o0ih:~NotificationsConfigurationImpl.isRegistered(java.lang.String)" resolve="isRegistered" />
-                <node concept="37vLTw" id="2BHiRxeogqi" role="37wK5m">
-                  <ref role="3cqZAo" node="6za2oG6XsvV" resolve="ID" />
-                </node>
-              </node>
-              <node concept="2YIFZM" id="4Sa0NTIpdjO" role="2Oq$k0">
-                <ref role="37wK5l" to="o0ih:~NotificationsConfigurationImpl.getInstanceImpl()" resolve="getInstanceImpl" />
-                <ref role="1Pybhc" to="o0ih:~NotificationsConfigurationImpl" resolve="NotificationsConfigurationImpl" />
-              </node>
-            </node>
-          </node>
-        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="2ZAgslkc1Pz" role="jymVt" />
@@ -10645,16 +10612,6 @@
             </node>
             <node concept="37vLTw" id="3l7XKooDpyS" role="37wK5m">
               <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="14ACydzRgcR" role="3cqZAp">
-          <node concept="2OqwBi" id="14ACydzRgcS" role="3clFbG">
-            <node concept="37vLTw" id="3l7XKooDpXl" role="2Oq$k0">
-              <ref role="3cqZAo" node="3l7XKooDoeu" resolve="myDisplayer" />
-            </node>
-            <node concept="liA8E" id="14ACydzRgcT" role="2OqNvi">
-              <ref role="37wK5l" node="C3dcc38V0G" resolve="init" />
             </node>
           </node>
         </node>

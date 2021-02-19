@@ -38,7 +38,6 @@ public class TransientModelsNotification {
 
     myDisplayer = new TransientModelBallonDisplayer(myStatusBar, myWidget);
     Disposer.register(myWidget, myDisplayer);
-    myDisplayer.init();
     myProject.getComponent(GenerationSettingsProvider.class).addSettingsListener(mySettingsListener);
     myProject.getComponent(MakeServiceComponent.class).get().addListener(myMakeNotificationListener);
   }

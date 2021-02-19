@@ -4,11 +4,10 @@ package jetbrains.mps.ide.make.actions;
 
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.wm.StatusBar;
-import com.intellij.notification.impl.NotificationsConfigurationImpl;
-import com.intellij.notification.NotificationsConfiguration;
-import com.intellij.notification.NotificationDisplayType;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
+import com.intellij.notification.impl.NotificationsConfigurationImpl;
+import com.intellij.notification.NotificationDisplayType;
 import com.intellij.openapi.ui.popup.BalloonBuilder;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.ui.LightColors;
@@ -35,18 +34,12 @@ public final class TransientModelBallonDisplayer implements Disposable {
     myWidget = widget;
   }
 
+  @Deprecated(forRemoval = true, since = "2021.1")
   public void init() {
-    ensureRegistered();
   }
 
   @Override
   public void dispose() {
-  }
-
-  private void ensureRegistered() {
-    if (!(NotificationsConfigurationImpl.getInstanceImpl().isRegistered(ID))) {
-      NotificationsConfiguration.getNotificationsConfiguration().register(ID, NotificationDisplayType.BALLOON, false);
-    }
   }
 
   /*package*/ void showBalloon() {
