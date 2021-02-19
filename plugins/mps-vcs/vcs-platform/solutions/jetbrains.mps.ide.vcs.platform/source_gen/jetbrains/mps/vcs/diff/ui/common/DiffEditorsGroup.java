@@ -215,6 +215,10 @@ public class DiffEditorsGroup {
       }
     });
   }
+
+  public List<DiffEditor> getEditors() {
+    return myDiffEditors;
+  }
   private static SNode check_s6qw4f_a0a0c0a0a6a32(EditorCell checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getSNode();

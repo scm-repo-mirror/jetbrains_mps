@@ -64,6 +64,55 @@ public class MergeConflictsBuilder {
     collectConflicts();
   }
 
+  public static MergeConflictsBuilder createOppositeConflictsBuilder(ChangeSet mineChangeSet, ChangeSet repoChangeSet) {
+    return new MergeConflictsBuilder(mineChangeSet, repoChangeSet);
+  }
+
+  private MergeConflictsBuilder(ChangeSet mineChangeSet, ChangeSet repoChangeSet) {
+    // should be invoked from read action
+    myBaseModel = mineChangeSet.getOldModel();
+    myMyModel = mineChangeSet.getNewModel();
+    myRepositoryModel = repoChangeSet.getNewModel();
+    myMineChangeSet = mineChangeSet;
+    myRepositoryChangeSet = repoChangeSet;
+    collectConflicts();
+  }
+
+  public void rebuildChanges(boolean trackMovedNodes) {
+    // should be invoked from read action
+    ChangeSetBuilder.rebuildChangeSet(myMineChangeSet, trackMovedNodes);
+    ChangeSetBuilder.rebuildChangeSet(myRepositoryChangeSet, trackMovedNodes);
+    collectConflicts();
+  }
+
+  public Map<ModelChange, List<ModelChange>> getConflictingChanges() {
+    return myConflictingChanges;
+  }
+
+  public Map<ModelChange, List<ModelChange>> getSymmetricChanges() {
+    return mySymmetricChanges;
+  }
+
+  public SModel getBaseModel() {
+    return myBaseModel;
+  }
+
+  public SModel getMyModel() {
+    return myMyModel;
+  }
+
+  public SModel getRepositoryModel() {
+    return myRepositoryModel;
+  }
+
+  public ChangeSet getMyChangeSet() {
+    return myMineChangeSet;
+  }
+
+  public ChangeSet getRepositoryChangeSet() {
+    return myRepositoryChangeSet;
+  }
+
   private void addPossibleConflict(ModelChange a, ModelChange b) {
     if (a.isNonConflicting() || b.isNonConflicting()) {
       addSymmetric(a, b);

@@ -57,23 +57,24 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
     FileType type = (contents.get(0).getContentType() != null ? contents.get(0).getContentType() : contents.get(1).getContentType());
     SNodeId rootId;
     if (MPSFileTypeFactory.MPS_ROOT_FILE_TYPE.equals(type) || MPSFileTypeFactory.MPS_HEADER_FILE_TYPE.equals(type)) {
-      Tuples._2<SModel, SNodeId> oldModel = getModelAndRoot(mpsProject, contents.get(0), type);
+      Tuples._2<SModel, SNodeId> oldModel1 = getModelAndRoot(mpsProject, contents.get(0), type);
       Tuples._2<SModel, SNodeId> newModel = getModelAndRoot(mpsProject, contents.get(1), type);
-      rootId = (newModel._1() != null ? newModel._1() : oldModel._1());
+      Tuples._2<SModel, SNodeId> oldModel2 = (contents.size() == 3 ? getModelAndRoot(mpsProject, contents.get(2), type) : null);
+      rootId = (newModel._1() != null ? newModel._1() : oldModel1._1());
       final boolean showTree = DIFF_SHOW_TREE.get(request, false);
       myViewer = new ModelDifferenceViewer(mpsProject, showTree);
-      myViewer.prepareModels(oldModel._0(), newModel._0(), (showTree ? null : rootId), true);
+      myViewer.prepareModels(oldModel1._0(), (oldModel2 == null ? null : oldModel2._0()), newModel._0(), (showTree ? null : rootId), true);
     } else {
-      SModel oldModel = ModelDiffViewer.getModel(mpsProject, contents.get(0), type);
+      SModel oldModel1 = ModelDiffViewer.getModel(mpsProject, contents.get(0), type);
       SModel newModel = ModelDiffViewer.getModel(mpsProject, contents.get(1), type);
+      SModel oldModel2 = (contents.size() == 3 ? ModelDiffViewer.getModel(mpsProject, contents.get(2), type) : null);
       //  show one root only if requested
       rootId = request.getUserData(DIFF_SHOW_ROOTID);
       final boolean showTree = DIFF_SHOW_TREE.get(request, true);
       myViewer = new ModelDifferenceViewer(mpsProject, showTree);
-      myViewer.prepareModels(oldModel, newModel, (showTree ? null : rootId), false);
+      myViewer.prepareModels(oldModel1, oldModel2, newModel, (showTree ? null : rootId), false);
     }
-    List<String> titles = request.getContentTitles();
-    myViewer.setContentTitles(titles.get(0), titles.get(1));
+    myViewer.setContentTitles(request.getContentTitles());
     if (rootId != null) {
       // beware, rootId == null is treated as 'show model metadata changes', regardless of whether there are such changes 
       myViewer.setCurrentRoot(rootId);
@@ -90,21 +91,37 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
       return false;
     }
     List<DiffContent> contents = ((ContentDiffRequest) request).getContents();
-    if (contents.size() != 2) {
+    if (contents.size() != 2 && contents.size() != 3) {
       return false;
     }
-    if (!((canShowContent(contents.get(0)) && canShowContent(contents.get(1))))) {
+    boolean allEmpty = true;
+    boolean contentFound = false;
+    for (DiffContent content : contents) {
+      if (!(canShowContent(content))) {
+        return false;
+      }
+      if (!((content instanceof EmptyContent))) {
+        allEmpty = false;
+      }
+      if (content instanceof ModelDiffContent) {
+        contentFound = true;
+      }
+    }
+    if (allEmpty) {
       return false;
     }
-    if (contents.get(0) instanceof EmptyContent && contents.get(1) instanceof EmptyContent) {
-      return false;
-    }
-    if (contents.get(0) instanceof ModelDiffContent || contents.get(1) instanceof ModelDiffContent) {
+    if (contentFound) {
       return true;
     }
     for (FileType type : ModelDiffTool.DIFF_SUPPORTED_TYPES) {
-      if (sameTypes(type, contents.get(0).getContentType(), contents.get(1).getContentType())) {
-        return true;
+      if (contents.size() == 3) {
+        if (sameTypes(type, contents.get(0).getContentType(), contents.get(1).getContentType()) && sameTypes(type, contents.get(1).getContentType(), contents.get(2).getContentType())) {
+          return true;
+        }
+      } else {
+        if (sameTypes(type, contents.get(0).getContentType(), contents.get(1).getContentType())) {
+          return true;
+        }
       }
     }
     return false;

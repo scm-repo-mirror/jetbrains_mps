@@ -9,6 +9,7 @@ import org.apache.log4j.LogManager;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vcs.diff.ModelChangeSet;
 import org.jetbrains.mps.openapi.model.SNodeId;
+import jetbrains.mps.vcs.diff.merge.MergeConflictsBuilder;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import com.intellij.ui.JBSplitter;
@@ -27,22 +28,23 @@ import com.intellij.ide.util.PropertiesComponent;
 import jetbrains.mps.vcs.diff.ChangeSetBuilder;
 import org.apache.log4j.Level;
 import org.jetbrains.annotations.Nullable;
+import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Arrays;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.vcs.diff.ui.common.DiffModelTree;
 import com.intellij.openapi.util.Ref;
 import org.jetbrains.mps.openapi.module.SRepository;
-import java.util.List;
 import jetbrains.mps.workbench.action.BaseAction;
 import java.util.ArrayList;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -51,15 +53,19 @@ import jetbrains.mps.vcs.diff.changes.ChangeType;
 import jetbrains.mps.vcs.diff.changes.AddRootChange;
 import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
-import java.util.Arrays;
 
 @GeneratedClass(node = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)/6410246949269566016", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
 public class ModelDifferenceViewer implements DataProvider {
   private static final Logger LOG = LogManager.getLogger(ModelDifferenceViewer.class);
   private final MPSProject myProject;
-  private ModelChangeSet myChangeSet;
-  private ModelChangeSet myMetadataChangeSet;
+  private ModelChangeSet myChangeSet1;
+  private ModelChangeSet myChangeSet2;
+  private ModelChangeSet myMetadataChangeSet1;
+  private ModelChangeSet myMetadataChangeSet2;
   private SNodeId myRootId;
+  private MergeConflictsBuilder myMergeConflictBuilder;
+  private MergeConflictsBuilder myMetaDataMergeConflictBuilder;
+
 
   private ModelDifferenceTree myTree = null;
   private JPanel myComponent = new JPanel(new BorderLayout());
@@ -69,9 +75,10 @@ public class ModelDifferenceViewer implements DataProvider {
 
   private GoToNeighbourRootActions myGoToNeighbourRootActions;
 
-  private String[] myContentTitles = new String[]{"before", "after"};
+  private String[] myContentTitles = new String[]{"before1", "after", "before2"};
   private boolean myEditable;
-  private boolean myOldRegistered;
+  private boolean myOldRegistered1;
+  private boolean myOldRegistered2;
   private boolean myNewRegistered;
 
   public ModelDifferenceViewer(MPSProject project, boolean showTree) {
@@ -99,8 +106,11 @@ public class ModelDifferenceViewer implements DataProvider {
     }
   }
 
-  public void prepareModels(final SModel oldModel, final SModel newModel, final SNodeId rootId, final boolean fixReferences) {
-    myOldRegistered = SNodeOperations.isRegistered(oldModel);
+  public void prepareModels(final SModel oldModel1, final SModel oldModel2, final SModel newModel, final SNodeId rootId, final boolean fixReferences) {
+    myOldRegistered1 = SNodeOperations.isRegistered(oldModel1);
+    if (oldModel2 != null) {
+      myOldRegistered2 = SNodeOperations.isRegistered(oldModel2);
+    }
     myNewRegistered = SNodeOperations.isRegistered(newModel);
     myEditable = newModel instanceof EditableSModel && myNewRegistered;
     // register models in repository and create changeset
@@ -110,18 +120,39 @@ public class ModelDifferenceViewer implements DataProvider {
           if (!(myNewRegistered)) {
             DiffModelUtil.renameModelAndRegister(newModel, "new", fixReferences);
           }
-          if (!(myOldRegistered)) {
-            DiffModelUtil.renameModelAndRegister(oldModel, "old", fixReferences);
+          if (!(myOldRegistered1)) {
+            DiffModelUtil.renameModelAndRegister(oldModel1, "old1", fixReferences);
+          }
+          if (oldModel2 != null && !(myOldRegistered2)) {
+            DiffModelUtil.renameModelAndRegister(oldModel2, "old2", fixReferences);
           }
           boolean trackMovedNodes = PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false);
           if (rootId == null) {
-            myChangeSet = ChangeSetBuilder.buildChangeSet(oldModel, newModel, true, trackMovedNodes);
+            myChangeSet1 = ChangeSetBuilder.buildChangeSet(oldModel1, newModel, true, trackMovedNodes);
           } else {
-            myChangeSet = ChangeSetBuilder.buildChangeSetForNode(oldModel, newModel, rootId, true, trackMovedNodes);
+            myChangeSet1 = ChangeSetBuilder.buildChangeSetForNode(oldModel1, newModel, rootId, true, trackMovedNodes);
+          }
+          if (oldModel2 != null) {
+            if (rootId == null) {
+              myChangeSet2 = ChangeSetBuilder.buildChangeSet(oldModel2, newModel, true, trackMovedNodes);
+            } else {
+              myChangeSet2 = ChangeSetBuilder.buildChangeSetForNode(oldModel2, newModel, rootId, true, trackMovedNodes);
+            }
+            // we use MergeConflictsBuilder and opposite change sets in case of three models in order to collect 
+            // conflicting changes properly.
+            myChangeSet1 = (ModelChangeSet) myChangeSet1.getOppositeChangeSet();
+            myChangeSet2 = (ModelChangeSet) myChangeSet2.getOppositeChangeSet();
+            myMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myChangeSet1, myChangeSet2);
           }
           SModel newMetaModel = MetadataUtil.createMetadataModel(newModel, "metadata_new", myEditable);
-          SModel oldMetaModel = MetadataUtil.createMetadataModel(oldModel, "metadata_old", false);
-          myMetadataChangeSet = ChangeSetBuilder.buildChangeSet(oldMetaModel, newMetaModel, true);
+          SModel oldMetaModel1 = MetadataUtil.createMetadataModel(oldModel1, "metadata_old1", false);
+          myMetadataChangeSet1 = ChangeSetBuilder.buildChangeSet(oldMetaModel1, newMetaModel, true);
+          if (oldModel2 != null) {
+            myMetadataChangeSet1 = ((ModelChangeSet) myMetadataChangeSet1.getOppositeChangeSet());
+            SModel oldMetaModel2 = MetadataUtil.createMetadataModel(oldModel2, "metadata_old2", false);
+            myMetadataChangeSet2 = ((ModelChangeSet) ChangeSetBuilder.buildChangeSet(oldMetaModel2, newMetaModel, true).getOppositeChangeSet());
+            myMetaDataMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myMetadataChangeSet1, myMetadataChangeSet2);
+          }
         } catch (Exception ex) {
           if (LOG.isEnabledFor(Level.ERROR)) {
             LOG.error("Failed to diff models", ex);
@@ -151,13 +182,26 @@ public class ModelDifferenceViewer implements DataProvider {
     }
     myProject.getRepository().getModelAccess().runWriteAction(new Runnable() {
       public void run() {
-        MetadataUtil.dispose(myMetadataChangeSet.getOldModel());
-        MetadataUtil.dispose(myMetadataChangeSet.getNewModel());
-        if (!(myOldRegistered)) {
-          DiffModelUtil.unregisterModel(myChangeSet.getOldModel());
-        }
-        if (!(myNewRegistered)) {
-          DiffModelUtil.unregisterModel(myChangeSet.getNewModel());
+        MetadataUtil.dispose(myMetadataChangeSet1.getOldModel());
+        MetadataUtil.dispose(myMetadataChangeSet1.getNewModel());
+        if (myChangeSet2 != null) {
+          // for a case of three models we use opposite change sets.
+          if (!(myOldRegistered1)) {
+            DiffModelUtil.unregisterModel(myChangeSet1.getNewModel());
+          }
+          if (!(myOldRegistered2)) {
+            DiffModelUtil.unregisterModel(myChangeSet2.getNewModel());
+          }
+          if (!(myNewRegistered)) {
+            DiffModelUtil.unregisterModel(myChangeSet1.getOldModel());
+          }
+        } else {
+          if (!(myOldRegistered1)) {
+            DiffModelUtil.unregisterModel(myChangeSet1.getOldModel());
+          }
+          if (!(myNewRegistered)) {
+            DiffModelUtil.unregisterModel(myChangeSet1.getNewModel());
+          }
         }
       }
     });
@@ -167,8 +211,15 @@ public class ModelDifferenceViewer implements DataProvider {
   }
 
   /*package*/ void rebuildChangeSets() {
-    ChangeSetBuilder.rebuildChangeSet(myChangeSet, PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false));
-    ChangeSetBuilder.rebuildChangeSet(myMetadataChangeSet);
+    boolean trackMovedNodes = PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false);
+    ChangeSetBuilder.rebuildChangeSet(myChangeSet1, trackMovedNodes);
+    ChangeSetBuilder.rebuildChangeSet(myMetadataChangeSet1);
+    if (myChangeSet2 != null) {
+      ChangeSetBuilder.rebuildChangeSet(myChangeSet2, trackMovedNodes);
+      ChangeSetBuilder.rebuildChangeSet(myMetadataChangeSet2);
+      myMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myChangeSet1, myChangeSet2);
+      myMetaDataMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myMetadataChangeSet1, myMetadataChangeSet2);
+    }
     if (myTree != null) {
       myTree.rebuildLater();
     }
@@ -180,16 +231,26 @@ public class ModelDifferenceViewer implements DataProvider {
     if (myEditable) {
       myProject.getModelAccess().executeCommand(new Runnable() {
         public void run() {
-          MetadataUtil.applyMetadataChanges(myChangeSet.getNewModel(), myMetadataChangeSet.getNewModel());
+          MetadataUtil.applyMetadataChanges(myChangeSet1.getNewModel(), myMetadataChangeSet1.getNewModel());
         }
       });
+      if (myChangeSet2 != null) {
+        myProject.getModelAccess().executeCommand(new Runnable() {
+          public void run() {
+            MetadataUtil.applyMetadataChanges(myChangeSet2.getNewModel(), myMetadataChangeSet2.getNewModel());
+          }
+        });
+      }
     }
   }
-  public void setContentTitles(String before, String after) {
-    myContentTitles[0] = before;
-    myContentTitles[1] = after;
+  public void setContentTitles(List<String> titles) {
+    myContentTitles[0] = titles.get(0);
+    myContentTitles[1] = titles.get(1);
+    if (titles.size() == 3) {
+      myContentTitles[2] = titles.get(2);
+    }
     if (myRootDifferencePane != null) {
-      myRootDifferencePane.setEditorTitles(before, after);
+      myRootDifferencePane.setEditorTitles(myContentTitles);
     }
   }
 
@@ -205,6 +266,7 @@ public class ModelDifferenceViewer implements DataProvider {
     myRootId = null;
     syncMetadataChanges();
   }
+
   private void changeCurrentRoot(@Nullable final SNodeId rootId) {
     if (myRootDifferencePane != null && myRootId == rootId) {
       return;
@@ -214,10 +276,14 @@ public class ModelDifferenceViewer implements DataProvider {
     myRootId = rootId;
     myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        ModelChangeSet changeSet = (rootId == null ? myMetadataChangeSet : myChangeSet);
-        SNodeId nodeId = (rootId == null ? ListSequence.fromList(SModelOperations.roots(myMetadataChangeSet.getOldModel(), null)).first().getNodeId() : rootId);
+        boolean isMetadataView = rootId == null;
+        SNodeId nodeId = (isMetadataView ? ListSequence.fromList(SModelOperations.roots(myMetadataChangeSet1.getOldModel(), null)).first().getNodeId() : rootId);
         if (myRootDifferencePane == null) {
-          myRootDifferencePane = new RootDifferencePane(myProject, changeSet, nodeId, getNameForRoot(rootId), myContentTitles, myEditable);
+          if (myChangeSet2 != null) {
+            myRootDifferencePane = createThreeSidePane(isMetadataView, nodeId, getNameForRoot(rootId));
+          } else {
+            myRootDifferencePane = createTwoSidePane(isMetadataView, nodeId, getNameForRoot(rootId));
+          }
           DefaultActionGroup actionGroup = new DefaultActionGroup();
           actionGroup.addAll(myRootDifferencePane.getActions());
           ActionToolbar toolbar = ActionManager.getInstance().createActionToolbar(ActionPlaces.UNKNOWN, actionGroup, true);
@@ -228,20 +294,35 @@ public class ModelDifferenceViewer implements DataProvider {
           myPanel.setSecondComponent(panel);
           myRootDifferencePane.navigateInitial(null);
         } else {
-          myRootDifferencePane.setRootId(nodeId, changeSet);
+          myRootDifferencePane.setRootId(nodeId, isMetadataView);
         }
       }
     });
   }
+
+  private RootDifferencePane createTwoSidePane(boolean isMetaDataView, SNodeId nodeId, String rootName) {
+    List<String> titles = Sequence.fromIterable(Sequence.fromArray(myContentTitles)).take(2).toListSequence();
+    List<SModel> models = Arrays.asList(myChangeSet1.getOldModel(), myChangeSet1.getNewModel());
+    return new TwoSideRootDifferencePane(myProject, myChangeSet1, myMetadataChangeSet1, nodeId, rootName, models, titles, myEditable, isMetaDataView);
+  }
+
+  private RootDifferencePane createThreeSidePane(boolean isMetaDataView, SNodeId nodeId, String rootName) {
+    List<String> titles = Sequence.fromIterable(Sequence.fromArray(myContentTitles)).take(3).toListSequence();
+    List<SModel> models = Arrays.asList(myMergeConflictBuilder.getMyModel(), myMergeConflictBuilder.getBaseModel(), myMergeConflictBuilder.getRepositoryModel());
+    return new ThreeSideRootDifferencePane(myProject, myMergeConflictBuilder, myMetaDataMergeConflictBuilder, nodeId, rootName, models, titles, isMetaDataView);
+  }
+
   private String getNameForRoot(SNodeId rootId) {
     return (myTree != null ? myTree.getNameForRoot(rootId) : "");
   }
+
   public void setCurrentRoot(@Nullable SNodeId rootId) {
     if (myTree != null) {
       myTree.setSelected(rootId);
     }
     changeCurrentRoot(rootId);
   }
+
   @Nullable
   public SNodeId getCurrentRoot() {
     return myRootId;
@@ -250,6 +331,7 @@ public class ModelDifferenceViewer implements DataProvider {
   public JComponent getComponent() {
     return myComponent;
   }
+
   public void navigate(@Nullable final Bounds scrollTo) {
     assert myRootDifferencePane != null;
     myProject.getModelAccess().runReadAction(new Runnable() {
@@ -292,7 +374,7 @@ public class ModelDifferenceViewer implements DataProvider {
           protected Iterable<ModelChange> getChanges() {
             return Sequence.fromIterable(Sequence.fromArray(getSelectedNodes(DiffModelTree.RootTreeNode.class, null))).translate(new ITranslator2<DiffModelTree.RootTreeNode, ModelChange>() {
               public Iterable<ModelChange> translate(DiffModelTree.RootTreeNode r) {
-                return myChangeSet.getChangesForRoot(r.getRootId());
+                return myChangeSet1.getChangesForRoot(r.getRootId());
               }
             });
           }
@@ -327,14 +409,21 @@ public class ModelDifferenceViewer implements DataProvider {
     protected void updateRootCustomPresentation(@NotNull DiffModelTree.RootTreeNode rootTreeNode) {
       ChangeType compositeChangeType = ChangeType.CHANGE;
       if (rootTreeNode.getRootId() != null) {
-        ModelChange firstChange = Sequence.fromIterable(myChangeSet.getChangesForRoot(rootTreeNode.getRootId())).first();
+        ModelChange firstChange = Sequence.fromIterable(myChangeSet1.getChangesForRoot(rootTreeNode.getRootId())).first();
         if (firstChange instanceof AddRootChange || firstChange instanceof DeleteRootChange) {
-          compositeChangeType = firstChange.getType();
-        } else if (firstChange == null) {
+          if (myChangeSet2 != null) {
+            ModelChange anotherFirstChange = Sequence.fromIterable(myChangeSet2.getChangesForRoot(rootTreeNode.getRootId())).first();
+            if (anotherFirstChange != null && firstChange.getType() == anotherFirstChange.getType()) {
+              compositeChangeType = (firstChange instanceof AddRootChange ? ChangeType.DELETE : ChangeType.ADD);
+            }
+          } else {
+            compositeChangeType = firstChange.getType();
+          }
+        } else if (firstChange == null && (myChangeSet2 == null || Sequence.fromIterable(myChangeSet2.getChangesForRoot(rootTreeNode.getRootId())).first() == null)) {
           compositeChangeType = null;
         }
       } else {
-        if (myMetadataChangeSet == null || ListSequence.fromList(myMetadataChangeSet.getModelChanges()).isEmpty()) {
+        if ((myMetadataChangeSet1 == null || ListSequence.fromList(myMetadataChangeSet1.getModelChanges()).isEmpty()) && (myChangeSet2 == null || (myMetadataChangeSet2 == null || ListSequence.fromList(myMetadataChangeSet2.getModelChanges()).isEmpty()))) {
           compositeChangeType = null;
         }
       }
@@ -342,11 +431,17 @@ public class ModelDifferenceViewer implements DataProvider {
     }
     @Override
     protected Iterable<SModel> getModels() {
-      return Arrays.asList(myChangeSet.getNewModel(), myChangeSet.getOldModel());
+      if (myChangeSet2 != null) {
+        return Arrays.asList(myChangeSet1.getOldModel(), myChangeSet1.getNewModel(), myChangeSet2.getNewModel());
+      }
+      return Arrays.asList(myChangeSet1.getNewModel(), myChangeSet1.getOldModel());
     }
     @Override
     protected Iterable<SNodeId> getAffectedRoots() {
-      return myChangeSet.getAffectedRoots();
+      if (myChangeSet2 == null) {
+        return myChangeSet1.getAffectedRoots();
+      }
+      return Sequence.fromIterable(myChangeSet1.getAffectedRoots()).concat(Sequence.fromIterable(myChangeSet2.getAffectedRoots())).distinct();
     }
     @Override
     protected void onUnselect() {

@@ -34,6 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
+import java.util.ArrayList;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
@@ -131,6 +132,10 @@ public class DiffEditor implements EditorMessageOwner {
     return EditorMessage.formatMessage(text, FormattingOptions.PLAIN_TEXT);
   }
 
+  public JBSplitter getSplitter() {
+    return (JBSplitter) getPanel();
+  }
+
   public void showInspector(boolean show) {
     if (myIsInspectorShown == show) {
       return;
@@ -223,6 +228,33 @@ public class DiffEditor implements EditorMessageOwner {
       }
     });
   }
+
+  public void highlightChanges(final SModel model, Iterable<ModelChange> changes, final boolean isOldEditor, final ChangeEditorMessage.ConflictChecker conflictChecker) {
+    final List<ChangeEditorMessage> allMessages = ListSequence.fromList(new ArrayList<ChangeEditorMessage>());
+    Sequence.fromIterable(changes).visitAll(new IVisitor<ModelChange>() {
+      public void visit(ModelChange change) {
+        List<ChangeEditorMessage> messages = ChangeEditorMessageFactory.createMessages(model, isOldEditor, change, DiffEditor.this, conflictChecker);
+        if (ListSequence.fromList(messages).isEmpty()) {
+          return;
+        }
+        MapSequence.fromMap(myChangeToMessages).put(change, messages);
+        ListSequence.fromList(allMessages).addSequence(ListSequence.fromList(messages));
+      }
+    });
+    if (ListSequence.fromList(allMessages).isEmpty()) {
+      return;
+    }
+    Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
+      public void visit(final EditorComponent ec) {
+        ListSequence.fromList(allMessages).visitAll(new IVisitor<ChangeEditorMessage>() {
+          public void visit(ChangeEditorMessage m) {
+            ec.getHighlightManager().mark(m);
+          }
+        });
+      }
+    });
+  }
+
 
   public void repaintAndRebuildEditorMessages() {
     Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
