@@ -53,6 +53,5 @@ public class InlineWithoutDeclarationDeletion_Test extends BaseTransformationTes
       }
     }
 
-
   }
 }

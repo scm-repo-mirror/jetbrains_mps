@@ -53,6 +53,5 @@ public class InlineLocalVariableReferenceWithoutDeclarationDeleting_Test extends
       }
     }
 
-
   }
 }

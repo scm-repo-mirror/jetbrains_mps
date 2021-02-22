@@ -75,7 +75,6 @@ public class TestProgramWithModeSpecified_Test extends BaseTransformationTest {
       Assert.assertTrue(program.getInstructions().size() == 1 && Objects.equals(program.getEnd(), program.getInstructions().get(0)));
     }
 
-
   }
 
   private static final class LINKS {

@@ -2978,7 +2978,6 @@ public class TransformationUtil_Complex_Test extends BaseTransformationTest {
       this.dispose();
     }
 
-
     public void init() {
       DebuggerInitializer.init();
     }

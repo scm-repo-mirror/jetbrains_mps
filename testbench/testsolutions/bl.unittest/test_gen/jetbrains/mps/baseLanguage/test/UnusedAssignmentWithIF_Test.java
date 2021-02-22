@@ -40,7 +40,6 @@ public class UnusedAssignmentWithIF_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1217866439753() throws Exception {
       SNode nodeToCheck = getRealNodeById("1217866140840");
       SNode operation = getRealNodeById("1217866439753");

@@ -251,7 +251,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       Assert.assertNull(SLinkOperations.setPointer(ctNodeNN, LINKS.classifier$cxMr, null));
 
     }
-
     public void test_NodeTypeCheck535833678907605667() throws Exception {
       SNode nodeToCheck = getRealNodeById("535833678907605665");
       SNode operation = getRealNodeById("535833678907605667");

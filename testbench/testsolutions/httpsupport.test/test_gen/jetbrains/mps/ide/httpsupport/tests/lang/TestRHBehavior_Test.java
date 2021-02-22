@@ -128,11 +128,10 @@ public class TestRHBehavior_Test extends BaseTransformationTest {
       Assert.assertEquals(PingStorage.pingCount(), 1);
     }
 
-
     public void testRequestResponse(String requestUrl, int exectedRetCode, String expectedResponse) {
       try {
         URL obj = new URL(requestUrl);
-        HttpURLConnection con = as_17tcaj_a0a1a0a41r(obj.openConnection(), HttpURLConnection.class);
+        HttpURLConnection con = as_17tcaj_a0a1a0a31r(obj.openConnection(), HttpURLConnection.class);
         con.connect();
 
         Assert.assertEquals(exectedRetCode, con.getResponseCode());
@@ -169,7 +168,7 @@ public class TestRHBehavior_Test extends BaseTransformationTest {
 
       return encoder.toString();
     }
-    private static <T> T as_17tcaj_a0a1a0a41r(Object o, Class<T> type) {
+    private static <T> T as_17tcaj_a0a1a0a31r(Object o, Class<T> type) {
       return (type.isInstance(o) ? (T) o : null);
     }
   }

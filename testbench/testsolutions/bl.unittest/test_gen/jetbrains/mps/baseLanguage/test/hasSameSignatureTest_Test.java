@@ -41,6 +41,5 @@ public class hasSameSignatureTest_Test extends BaseTransformationTest {
       Assert.assertTrue((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(getNodeById("5157939743593407754"), getNodeById("5157939743593407754")));
     }
 
-
   }
 }

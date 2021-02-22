@@ -107,7 +107,6 @@ public class MacroTest_Test extends BaseTransformationTest {
       Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153762")).getAvailableElements("")).contains(getNodeById("384280137912153753")));
     }
 
-
   }
 
   private static final class CONCEPTS {

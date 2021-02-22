@@ -53,6 +53,5 @@ public class InlineMethodThatChangesParameters_Test extends BaseTransformationTe
       }
     }
 
-
   }
 }

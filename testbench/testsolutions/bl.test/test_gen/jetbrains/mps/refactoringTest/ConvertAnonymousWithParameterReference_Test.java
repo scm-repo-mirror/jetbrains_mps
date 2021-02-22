@@ -52,6 +52,5 @@ public class ConvertAnonymousWithParameterReference_Test extends BaseTransformat
       }
     }
 
-
   }
 }

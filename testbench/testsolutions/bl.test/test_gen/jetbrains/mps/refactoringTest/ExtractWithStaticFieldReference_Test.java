@@ -57,6 +57,5 @@ public class ExtractWithStaticFieldReference_Test extends BaseTransformationTest
       }
     }
 
-
   }
 }

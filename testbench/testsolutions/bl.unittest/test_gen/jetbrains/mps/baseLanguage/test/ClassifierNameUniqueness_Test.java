@@ -66,7 +66,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTheNestedTypeCannotHideCheck2654404125187272997() throws Exception {
       SNode nodeToCheck = getRealNodeById("2654404125187259924");
       SNode operation = getRealNodeById("2654404125187272997");

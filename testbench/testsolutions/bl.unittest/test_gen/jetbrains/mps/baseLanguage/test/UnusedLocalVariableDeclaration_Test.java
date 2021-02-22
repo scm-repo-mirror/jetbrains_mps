@@ -78,7 +78,6 @@ public class UnusedLocalVariableDeclaration_Test extends BaseTransformationTest 
       super(owner);
     }
 
-
     public void test_NodeVariableInitializerIsRedundantWarningCheck215889526509545817() throws Exception {
       SNode nodeToCheck = getRealNodeById("215889526509544986");
       SNode operation = getRealNodeById("215889526509545817");

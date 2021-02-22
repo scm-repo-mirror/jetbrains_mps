@@ -40,6 +40,5 @@ public class RollBacksNewTypeSystem_Test extends BaseTransformationTest {
       TypeSystemCheckUtil.checkRollBacks(getNodeById("5210914756411638027"));
     }
 
-
   }
 }

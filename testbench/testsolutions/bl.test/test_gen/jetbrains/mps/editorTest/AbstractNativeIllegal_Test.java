@@ -45,7 +45,6 @@ public class AbstractNativeIllegal_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck8347245235047186104() throws Exception {
       SNode nodeToCheck = getRealNodeById("8347245235044889176");
       SNode operation = getRealNodeById("8347245235047186104");

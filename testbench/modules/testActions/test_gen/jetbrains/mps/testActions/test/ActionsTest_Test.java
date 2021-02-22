@@ -57,6 +57,5 @@ public class ActionsTest_Test extends BaseTransformationTest {
       Assert.assertTrue(error.toString(), flyingActions.isEmpty());
     }
 
-
   }
 }

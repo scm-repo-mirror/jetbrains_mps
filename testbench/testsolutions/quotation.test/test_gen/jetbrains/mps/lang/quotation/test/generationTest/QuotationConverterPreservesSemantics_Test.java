@@ -183,7 +183,6 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
     }
 
-
     private static SNode _quotation_createNode_kv034b_a0a0d61() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

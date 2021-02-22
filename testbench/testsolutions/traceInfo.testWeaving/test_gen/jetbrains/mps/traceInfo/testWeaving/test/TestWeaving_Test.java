@@ -91,7 +91,6 @@ public class TestWeaving_Test extends BaseTransformationTest {
       new TestUtil(myProject).testWeaveMany(SNodeOperations.getNode("r:7e5623b0-f241-4ce8-8fe7-d8a5c8c44458(jetbrains.mps.traceInfo.testWeaving.data)", "2819311507031209172"), SLinkOperations.getChildren(SNodeOperations.getNode("r:7e5623b0-f241-4ce8-8fe7-d8a5c8c44458(jetbrains.mps.traceInfo.testWeaving.data)", "2819311507031209172"), LINKS.weaveEachMany$vAl7), 50);
     }
 
-
   }
 
   private static final class LINKS {

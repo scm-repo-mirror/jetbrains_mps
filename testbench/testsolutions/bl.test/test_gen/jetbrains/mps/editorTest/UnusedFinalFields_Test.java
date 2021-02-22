@@ -70,7 +70,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeVariableHasNotBeenInitializedCheck2501421320960355491() throws Exception {
       SNode nodeToCheck = getRealNodeById("8129007564265890530");
       SNode operation = getRealNodeById("2501421320960355491");

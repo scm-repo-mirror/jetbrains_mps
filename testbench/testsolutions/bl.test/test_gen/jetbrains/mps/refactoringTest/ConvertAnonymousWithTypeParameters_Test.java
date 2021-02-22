@@ -52,6 +52,5 @@ public class ConvertAnonymousWithTypeParameters_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

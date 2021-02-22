@@ -2108,7 +2108,6 @@ public class TransformationUtil_Expressions_Test extends BaseTransformationTest 
       this.dispose();
     }
 
-
     public void init() {
       DebuggerInitializer.init();
     }

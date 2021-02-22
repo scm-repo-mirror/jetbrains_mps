@@ -62,6 +62,5 @@ public class FindForMethodWithIVariableLikeNodes_Test extends BaseTransformation
       }
     }
 
-
   }
 }

@@ -46,7 +46,6 @@ public class Cardinalities_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck1875480895988114782() throws Exception {
       SNode nodeToCheck = getRealNodeById("1875480895988095647");
       SNode operation = getRealNodeById("1875480895988114782");

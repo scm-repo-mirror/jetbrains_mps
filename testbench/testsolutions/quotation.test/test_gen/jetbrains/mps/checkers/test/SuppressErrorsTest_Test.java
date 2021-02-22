@@ -58,7 +58,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeOperatorCannotBeAppliedCheck2472582545953979358() throws Exception {
       SNode nodeToCheck = getRealNodeById("6807933448482366660");
       SNode operation = getRealNodeById("2472582545953979358");

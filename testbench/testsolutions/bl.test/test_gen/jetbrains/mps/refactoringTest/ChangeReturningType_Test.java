@@ -60,7 +60,6 @@ public class ChangeReturningType_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

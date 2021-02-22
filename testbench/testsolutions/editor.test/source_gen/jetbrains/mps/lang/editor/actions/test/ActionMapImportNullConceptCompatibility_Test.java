@@ -54,7 +54,6 @@ public class ActionMapImportNullConceptCompatibility_Test extends BaseTransforma
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1465006755400919484() throws Exception {
       SNode nodeToCheck = getRealNodeById("1465006755400366818");
       SNode operation = getRealNodeById("1465006755400919484");

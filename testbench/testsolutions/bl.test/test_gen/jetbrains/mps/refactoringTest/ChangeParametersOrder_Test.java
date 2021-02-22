@@ -66,7 +66,6 @@ public class ChangeParametersOrder_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

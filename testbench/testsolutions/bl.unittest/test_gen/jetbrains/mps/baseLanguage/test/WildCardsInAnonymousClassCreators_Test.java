@@ -58,7 +58,6 @@ public class WildCardsInAnonymousClassCreators_Test extends BaseTransformationTe
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck8187342170694474094() throws Exception {
       SNode nodeToCheck = getRealNodeById("8187342170694472081");
       SNode operation = getRealNodeById("8187342170694474094");

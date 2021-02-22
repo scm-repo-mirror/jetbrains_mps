@@ -39,6 +39,5 @@ public class FailedTestCase_Test_Test extends BaseTransformationTest {
       Assert.assertFalse(true);
     }
 
-
   }
 }

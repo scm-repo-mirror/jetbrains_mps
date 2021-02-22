@@ -59,6 +59,5 @@ public class MPSInstance_Test extends BaseTransformationTest {
       processRunner.startAndCheckProcess();
     }
 
-
   }
 }

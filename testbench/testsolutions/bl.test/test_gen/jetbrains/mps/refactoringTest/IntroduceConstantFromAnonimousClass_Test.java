@@ -58,6 +58,5 @@ public class IntroduceConstantFromAnonimousClass_Test extends BaseTransformation
       }
     }
 
-
   }
 }

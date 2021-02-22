@@ -104,7 +104,6 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
       this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
     }
 
-
     public void runTestsWithSettings(JUnitTests_Configuration junit, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {
       try {
         List<ITestNodeWrapper> allTests = ListSequence.fromList(testsToSucceed).union(ListSequence.fromList(testsToFail)).toListSequence();

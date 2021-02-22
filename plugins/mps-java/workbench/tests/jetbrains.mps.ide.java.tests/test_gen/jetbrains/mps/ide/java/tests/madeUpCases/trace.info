@@ -125,8 +125,8 @@
       <scope id="7030568040400121742" at="88,0,98,0" />
       <scope id="1369191534307059923" at="98,0,108,0" />
       <scope id="1369191534311333612" at="108,0,118,0" />
-      <unit id="4795297196607456968" at="52,0,121,0" name="jetbrains.mps.ide.java.tests.madeUpCases.RoundTrip_Test$TestBody" />
-      <unit id="4795297196607456968" at="16,0,122,0" name="jetbrains.mps.ide.java.tests.madeUpCases.RoundTrip_Test" />
+      <unit id="4795297196607456968" at="52,0,120,0" name="jetbrains.mps.ide.java.tests.madeUpCases.RoundTrip_Test$TestBody" />
+      <unit id="4795297196607456968" at="16,0,121,0" name="jetbrains.mps.ide.java.tests.madeUpCases.RoundTrip_Test" />
     </file>
   </root>
   <root nodeRef="r:62acf462-bd7b-40b0-b72a-892ef900fe37(jetbrains.mps.ide.java.tests.madeUpCases@tests)/4795297196607520928">
@@ -185,11 +185,11 @@
       <node id="4838479886817515876" at="135,97,136,195" concept="6" />
       <node id="1061585880846401014" at="136,195,137,213" concept="6" />
       <node id="1029938204559302091" at="137,213,138,143" concept="1" />
-      <node id="7079566526497204508" at="142,34,143,195" concept="4" />
-      <node id="4224242346908998905" at="143,195,144,41" concept="6" />
-      <node id="4224242346909006526" at="144,41,145,181" concept="6" />
-      <node id="4224242346909723683" at="145,181,146,165" concept="6" />
-      <node id="7079566526497177923" at="146,165,147,61" concept="5" />
+      <node id="7079566526497204508" at="141,34,142,195" concept="4" />
+      <node id="4224242346908998905" at="142,195,143,41" concept="6" />
+      <node id="4224242346909006526" at="143,41,144,181" concept="6" />
+      <node id="4224242346909723683" at="144,181,145,165" concept="6" />
+      <node id="7079566526497177923" at="145,165,146,61" concept="5" />
       <node id="4795297196607520928" at="22,0,24,0" concept="7" trace="ourParamCache" />
       <node id="4795297196607520928" at="24,0,26,0" concept="2" trace="myWithCommandRule" />
       <node id="4795297196607520928" at="27,0,30,0" concept="0" trace="JavaToMps_Test#()V" />
@@ -213,7 +213,7 @@
       <node id="4696287569454271726" at="108,0,114,0" concept="3" trace="test_Annotations#()V" />
       <node id="7030568040400313711" at="114,0,120,0" concept="3" trace="test_ClassNesting#()V" />
       <node id="8051061021619748495" at="125,0,131,0" concept="3" trace="test_LittleSource#()V" />
-      <node id="7079566526497176484" at="142,0,149,0" concept="3" trace="testsLocation#()Ljetbrains/mps/vfs/IFile;" />
+      <node id="7079566526497176484" at="141,0,148,0" concept="3" trace="testsLocation#()Ljetbrains/mps/vfs/IFile;" />
       <node id="7016215775330902582" at="131,0,140,0" concept="3" trace="test_ByteCodeVsSourceStubs#()V" />
       <scope id="4795297196607520928" at="27,27,28,25" />
       <scope id="4795297196607521181" at="32,47,33,38" />
@@ -251,7 +251,7 @@
       <scope id="7030568040400313711" at="114,54,118,172" />
       <scope id="8051061021619748495" at="125,54,129,285" />
       <scope id="887121589775270929" at="120,0,125,0" />
-      <scope id="7079566526497176484" at="142,34,147,61">
+      <scope id="7079566526497176484" at="141,34,146,61">
         <var name="testMaterial" id="7079566526497204509" />
       </scope>
       <scope id="4795297196607521181" at="78,0,84,0" />
@@ -265,10 +265,10 @@
       <scope id="7016215775330902582" at="131,63,138,143">
         <var name="guavaPath" id="8083368042256451509" />
       </scope>
-      <scope id="7079566526497176484" at="142,0,149,0" />
+      <scope id="7079566526497176484" at="141,0,148,0" />
       <scope id="7016215775330902582" at="131,0,140,0" />
-      <unit id="4795297196607520928" at="72,0,150,0" name="jetbrains.mps.ide.java.tests.madeUpCases.JavaToMps_Test$TestBody" />
-      <unit id="4795297196607520928" at="20,0,151,0" name="jetbrains.mps.ide.java.tests.madeUpCases.JavaToMps_Test" />
+      <unit id="4795297196607520928" at="72,0,149,0" name="jetbrains.mps.ide.java.tests.madeUpCases.JavaToMps_Test$TestBody" />
+      <unit id="4795297196607520928" at="20,0,150,0" name="jetbrains.mps.ide.java.tests.madeUpCases.JavaToMps_Test" />
     </file>
   </root>
 </debug-info>

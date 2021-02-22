@@ -67,7 +67,6 @@ public class ExtractMethodFromClosure_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class CONCEPTS {

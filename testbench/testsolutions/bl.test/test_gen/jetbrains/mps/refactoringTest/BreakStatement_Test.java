@@ -68,6 +68,5 @@ public class BreakStatement_Test extends BaseTransformationTest {
       Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275"), getNodeById("1230052480282"))) != null);
     }
 
-
   }
 }

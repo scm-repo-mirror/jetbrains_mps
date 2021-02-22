@@ -53,6 +53,5 @@ public class InlineWithoutReturnStatement_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

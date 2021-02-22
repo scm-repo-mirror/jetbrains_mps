@@ -54,7 +54,6 @@ public class FeaturesAndLocations_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeThisFeatureIsNotAllowedCheck4740302442485194061() throws Exception {
       SNode nodeToCheck = getRealNodeById("4740302442485192019");
       SNode operation = getRealNodeById("4740302442485194061");

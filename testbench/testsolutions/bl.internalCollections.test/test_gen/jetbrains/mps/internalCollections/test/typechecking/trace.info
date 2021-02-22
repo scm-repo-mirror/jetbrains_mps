@@ -82,8 +82,8 @@
       <scope id="1089557578630066569" at="63,51,73,9" />
       <scope id="1089557578630066569" at="63,0,75,0" />
       <unit id="2501421320961027113" at="69,135,73,7" name="jetbrains.mps.internalCollections.test.typechecking.TypeCheckingErrors_Test$TestBody$1" />
-      <unit id="1301553664999174713" at="48,0,94,0" name="jetbrains.mps.internalCollections.test.typechecking.TypeCheckingErrors_Test$TestBody" />
-      <unit id="1301553664999174713" at="20,0,95,0" name="jetbrains.mps.internalCollections.test.typechecking.TypeCheckingErrors_Test" />
+      <unit id="1301553664999174713" at="48,0,93,0" name="jetbrains.mps.internalCollections.test.typechecking.TypeCheckingErrors_Test$TestBody" />
+      <unit id="1301553664999174713" at="20,0,94,0" name="jetbrains.mps.internalCollections.test.typechecking.TypeCheckingErrors_Test" />
     </file>
   </root>
 </debug-info>

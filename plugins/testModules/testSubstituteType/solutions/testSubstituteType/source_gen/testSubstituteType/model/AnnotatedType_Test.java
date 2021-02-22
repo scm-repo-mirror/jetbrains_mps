@@ -82,7 +82,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTypeCheck1470921783545289079() throws Exception {
       SNode nodeToCheck = getRealNodeById("1470921783545285584");
       SNode operation = getRealNodeById("1470921783545289079");

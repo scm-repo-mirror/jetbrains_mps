@@ -50,7 +50,6 @@ public class PrivateMethod_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7938578788783487552() throws Exception {
       SNode nodeToCheck = getRealNodeById("7938578788783487531");
       SNode operation = getRealNodeById("7938578788783487552");

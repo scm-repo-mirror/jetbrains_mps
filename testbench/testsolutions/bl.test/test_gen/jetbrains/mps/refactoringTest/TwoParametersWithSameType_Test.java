@@ -62,7 +62,6 @@ public class TwoParametersWithSameType_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

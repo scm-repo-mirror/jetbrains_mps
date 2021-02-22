@@ -70,7 +70,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck4705425356438246964() throws Exception {
       SNode nodeToCheck = getRealNodeById("4705425356438246926");
       SNode operation = getRealNodeById("4705425356438246964");

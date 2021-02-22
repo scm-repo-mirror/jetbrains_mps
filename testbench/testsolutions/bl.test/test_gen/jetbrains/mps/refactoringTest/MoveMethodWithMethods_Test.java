@@ -55,6 +55,5 @@ public class MoveMethodWithMethods_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

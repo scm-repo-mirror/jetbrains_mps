@@ -60,6 +60,5 @@ public class IntroduceFieldFromVarAbstractInitializer_Test extends BaseTransform
       }
     }
 
-
   }
 }

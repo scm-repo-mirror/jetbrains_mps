@@ -55,6 +55,5 @@ public class MoveStaticFieldSimpleTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

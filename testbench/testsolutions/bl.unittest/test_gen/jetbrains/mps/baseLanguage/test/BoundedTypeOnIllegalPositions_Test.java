@@ -70,7 +70,6 @@ public class BoundedTypeOnIllegalPositions_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeThisTypeCantBeUsedInVariableCheck6923385624929132045() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230386");
       SNode operation = getRealNodeById("6923385624929132045");

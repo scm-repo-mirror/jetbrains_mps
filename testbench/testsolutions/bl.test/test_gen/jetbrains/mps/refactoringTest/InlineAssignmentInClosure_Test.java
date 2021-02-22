@@ -53,6 +53,5 @@ public class InlineAssignmentInClosure_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

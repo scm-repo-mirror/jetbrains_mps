@@ -55,7 +55,6 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_NodeReturnExpectedErrorCheck6923385624929494145() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230829");
       SNode operation = getRealNodeById("6923385624929494145");

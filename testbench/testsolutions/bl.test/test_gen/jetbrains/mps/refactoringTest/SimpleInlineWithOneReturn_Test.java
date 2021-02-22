@@ -53,6 +53,5 @@ public class SimpleInlineWithOneReturn_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

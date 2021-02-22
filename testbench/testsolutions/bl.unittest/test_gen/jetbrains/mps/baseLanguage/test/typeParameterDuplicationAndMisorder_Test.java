@@ -74,7 +74,6 @@ public class typeParameterDuplicationAndMisorder_Test extends BaseTransformation
       super(owner);
     }
 
-
     public void test_NodeTypeVariableIsNotNeededCheck6923385624929116385() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230303");
       SNode operation = getRealNodeById("6923385624929116385");

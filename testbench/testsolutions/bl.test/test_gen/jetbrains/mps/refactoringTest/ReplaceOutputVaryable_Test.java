@@ -62,6 +62,5 @@ public class ReplaceOutputVaryable_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

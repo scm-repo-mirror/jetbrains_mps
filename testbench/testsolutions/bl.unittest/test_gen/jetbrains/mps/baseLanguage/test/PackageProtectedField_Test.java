@@ -58,7 +58,6 @@ public class PackageProtectedField_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeFieldIsNeverUsedCheck7938578788783522703() throws Exception {
       SNode nodeToCheck = getRealNodeById("7938578788783522699");
       SNode operation = getRealNodeById("7938578788783522703");

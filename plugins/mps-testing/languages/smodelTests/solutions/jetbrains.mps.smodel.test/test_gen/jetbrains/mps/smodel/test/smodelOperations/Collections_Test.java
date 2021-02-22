@@ -50,7 +50,6 @@ public class Collections_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeUnnamedWarningCheck6405893568802055213() throws Exception {
       SNode nodeToCheck = getRealNodeById("6405539316368529261");
       SNode operation = getRealNodeById("6405893568802055213");

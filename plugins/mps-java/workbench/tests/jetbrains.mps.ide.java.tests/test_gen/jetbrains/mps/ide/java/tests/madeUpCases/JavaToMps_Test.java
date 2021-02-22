@@ -138,7 +138,6 @@ public class JavaToMps_Test extends BaseTransformationTest {
       new JavaToMpsUtils(myProject.getRepository()).compareBinAndSrcStubs(guavaPath.findChild("guava-12.0.1.jar"), guavaPath.findChild("src"));
     }
 
-
     public IFile testsLocation() {
       SModule testMaterial = PersistenceFacade.getInstance().createModuleReference("49166c31-952a-46f6-8970-ea45964379d0(jetbrains.mps.ide.java.testMaterial)").resolve(myProject.getRepository());
       // FIXME resurrected getOutputPath 

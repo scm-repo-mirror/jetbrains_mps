@@ -62,6 +62,5 @@ public class SimpleFindForExtractFromStatement_Test extends BaseTransformationTe
       }
     }
 
-
   }
 }

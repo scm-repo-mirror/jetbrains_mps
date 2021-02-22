@@ -52,6 +52,5 @@ public class InlineFieldOperationBinary_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

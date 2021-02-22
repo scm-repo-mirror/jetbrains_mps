@@ -38,7 +38,6 @@ public class FeedbackNoRefInObligatoryRole_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck7019192671317970783() throws Exception {
       SNode nodeToCheck = getRealNodeById("7019192671317969474");
       SNode operation = getRealNodeById("7019192671317970783");

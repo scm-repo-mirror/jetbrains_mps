@@ -181,7 +181,6 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
       this.testUserObjectsSaving(userObjects, userObjectsToSkip);
     }
 
-
     public void testUserObjectsSaving(Map<Object, Object> userObjects, Map<Object, Object> userObjectsToLoose) {
       SNode var1732396662099564454 = getNodeById("1732396662099564449");
       try {

@@ -82,7 +82,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck4065852147261983404() throws Exception {
       SNode nodeToCheck = getRealNodeById("8837437332634534350");
       SNode operation = getRealNodeById("4065852147261983404");

@@ -41,6 +41,5 @@ public class CheckInlineWithThrow_Test extends BaseTransformationTest {
       Assert.assertNull(new InlineMethodModel(getNodeById("1230053187517")).getErrors());
     }
 
-
   }
 }

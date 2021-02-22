@@ -65,7 +65,6 @@ public class UnusedVariableDeclaration_Test extends BaseTransformationTest {
     public void test_UnusedVariableDeclaration() throws Exception {
       addNodeById("1217271587025");
     }
-
     public void test_ErrorMessagesCheck5684597377559856228() throws Exception {
       SNode nodeToCheck = getRealNodeById("1216889573145");
       SNode operation = getRealNodeById("5684597377559856228");

@@ -65,12 +65,11 @@ public class SuppressErrorsPerformanceTest_Test extends BaseTransformationTest {
       Assert.assertTrue(String.format("%d expected to be less than 10000 ms", durationB.toMillis()), durationB.compareTo(Duration.ofMillis(10000)) < 0);
     }
 
-
     public Duration measureSuppressPerformance(int modelSize) {
       SNode var5968606277576107105 = getNodeById("5968606277576107085");
       ListSequence.fromList(SLinkOperations.getChildren(getNodeById("5968606277576107085"), LINKS.item$upGD)).clear();
       for (int i = 0; i < modelSize; i++) {
-        ListSequence.fromList(SLinkOperations.getChildren(getNodeById("5968606277576107085"), LINKS.item$upGD)).addElement(createNodeResponseItem_wxn1w7_a0a0a2a6h());
+        ListSequence.fromList(SLinkOperations.getChildren(getNodeById("5968606277576107085"), LINKS.item$upGD)).addElement(createNodeResponseItem_wxn1w7_a0a0a2a5h());
       }
       SModel modelToCheck = SNodeOperations.getModel(getNodeById("5968606277576107085"));
       IChecker<SNode, NodeReportItem> structureChecker = new StructureChecker();
@@ -80,7 +79,7 @@ public class SuppressErrorsPerformanceTest_Test extends BaseTransformationTest {
       long stopTime = System.nanoTime();
       return Duration.ofNanos(stopTime - startTime);
     }
-    private static SNode createNodeResponseItem_wxn1w7_a0a0a2a6h() {
+    private static SNode createNodeResponseItem_wxn1w7_a0a0a2a5h() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.NodeResponseItem$Xr);
       n0.forChild(LINKS.node$X2qT).initNull();
       return n0.getResult();

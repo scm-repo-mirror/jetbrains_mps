@@ -57,6 +57,5 @@ public class OneReturnTransformation_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

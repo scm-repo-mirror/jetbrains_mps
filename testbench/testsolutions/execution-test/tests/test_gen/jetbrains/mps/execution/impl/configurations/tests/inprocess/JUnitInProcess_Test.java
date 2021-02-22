@@ -65,7 +65,6 @@ public class JUnitInProcess_Test extends BaseTransformationTest {
       this.checkTests(ListSequence.fromList(new ArrayList<ITestNodeWrapper>()), wrappedTests);
     }
 
-
     public void checkTests(final List<ITestNodeWrapper> success, final List<ITestNodeWrapper> failure) {
       try {
         List<ITestNodeWrapper> testNodes = ListSequence.fromList(success).union(ListSequence.fromList(failure)).toListSequence();

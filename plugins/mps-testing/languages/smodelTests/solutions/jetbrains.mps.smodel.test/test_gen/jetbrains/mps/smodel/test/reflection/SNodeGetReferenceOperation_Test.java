@@ -110,7 +110,6 @@ public class SNodeGetReferenceOperation_Test extends BaseTransformationTest {
       Assert.assertNull(SNodeOperations.getReference(getNodeById("2906110183022122680"), invalidLink));
     }
 
-
     private static String check_l3bw6i_a21a4l(SReferenceLink checkedDotOperand) {
       if (null != checkedDotOperand) {
         return checkedDotOperand.getName();

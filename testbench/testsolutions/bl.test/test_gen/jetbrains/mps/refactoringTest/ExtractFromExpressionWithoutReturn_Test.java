@@ -57,6 +57,5 @@ public class ExtractFromExpressionWithoutReturn_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

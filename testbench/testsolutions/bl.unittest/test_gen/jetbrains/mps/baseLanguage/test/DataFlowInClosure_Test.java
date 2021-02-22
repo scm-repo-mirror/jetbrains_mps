@@ -59,7 +59,6 @@ public class DataFlowInClosure_Test extends BaseTransformationTest {
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928941627() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230032");
       SNode operation = getRealNodeById("6923385624928941627");

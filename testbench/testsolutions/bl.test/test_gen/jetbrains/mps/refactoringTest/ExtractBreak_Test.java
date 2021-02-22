@@ -59,6 +59,5 @@ public class ExtractBreak_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

@@ -50,6 +50,5 @@ public class SimpleMoveStaticMethod_Test extends BaseTransformationTest {
       refactoring.doRefactoring();
     }
 
-
   }
 }

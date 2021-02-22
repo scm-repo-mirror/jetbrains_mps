@@ -43,7 +43,6 @@ public class ConstraintsInvocation_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeUnknownRuleCheck730305212589682236() throws Exception {
       SNode nodeToCheck = getRealNodeById("730305212589577115");
       SNode operation = getRealNodeById("730305212589682236");

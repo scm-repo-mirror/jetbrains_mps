@@ -39,6 +39,5 @@ public class PropertyIsAvailaibleInMPSTestCase_Test extends BaseTransformationTe
       Assert.assertEquals("TRUE", System.getProperty("MyProp"));
     }
 
-
   }
 }

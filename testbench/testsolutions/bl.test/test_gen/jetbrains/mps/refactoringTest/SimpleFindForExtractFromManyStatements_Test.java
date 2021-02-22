@@ -62,6 +62,5 @@ public class SimpleFindForExtractFromManyStatements_Test extends BaseTransformat
       }
     }
 
-
   }
 }

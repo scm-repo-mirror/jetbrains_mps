@@ -62,7 +62,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeSupertypeMayNotSpecifyCheck6923385624927497212() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451229706");
       SNode operation = getRealNodeById("6923385624927497212");

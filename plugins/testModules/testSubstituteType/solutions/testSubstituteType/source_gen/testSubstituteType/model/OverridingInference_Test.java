@@ -73,7 +73,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck6572489169071449300() throws Exception {
       SNode nodeToCheck = getRealNodeById("6572489169071448896");
       SNode operation = getRealNodeById("6572489169071449300");

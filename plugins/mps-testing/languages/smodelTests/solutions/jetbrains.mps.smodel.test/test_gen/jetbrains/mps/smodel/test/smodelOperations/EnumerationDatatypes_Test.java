@@ -174,7 +174,6 @@ public class EnumerationDatatypes_Test extends BaseTransformationTest {
 
     }
 
-
     public void test_init(SNode container) {
       Assert.assertSame(SPropertyOperations.getEnum(container, PROPS.enumWODefault$6hVk), null);
       Assert.assertSame(SPropertyOperations.getEnum(container, PROPS.enumWithDefault$6hti), SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x55fd055f8f014dbfL, "jetbrains.mps.lang.smodelTests.structure.TestEnum_WithDefault"), 0x125bc18df9d40efbL, "name_2_def"));

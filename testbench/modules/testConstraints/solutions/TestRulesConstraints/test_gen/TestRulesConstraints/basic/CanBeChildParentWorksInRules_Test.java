@@ -70,7 +70,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodepropIsTrueCheck4999334160817530090() throws Exception {
       SNode nodeToCheck = getRealNodeById("4999334160817529595");
       SNode operation = getRealNodeById("4999334160817530090");

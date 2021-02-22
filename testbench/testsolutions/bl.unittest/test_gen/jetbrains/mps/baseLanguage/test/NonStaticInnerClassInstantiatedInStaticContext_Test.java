@@ -62,7 +62,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       super(owner);
     }
 
-
     public void test_NodeNoEnclosingInstanceOfCheck6923385624927702653() throws Exception {
       SNode nodeToCheck = getRealNodeById("966837649719086733");
       SNode operation = getRealNodeById("6923385624927702653");

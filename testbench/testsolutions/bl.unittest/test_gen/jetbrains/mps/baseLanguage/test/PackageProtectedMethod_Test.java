@@ -50,7 +50,6 @@ public class PackageProtectedMethod_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7938578788783497191() throws Exception {
       SNode nodeToCheck = getRealNodeById("7938578788783497188");
       SNode operation = getRealNodeById("7938578788783497191");

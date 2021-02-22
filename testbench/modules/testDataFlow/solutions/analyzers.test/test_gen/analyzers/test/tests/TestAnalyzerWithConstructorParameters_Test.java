@@ -49,7 +49,6 @@ public class TestAnalyzerWithConstructorParameters_Test extends BaseTransformati
       super(owner);
     }
 
-
     public void test_NodeErrorCheck8332528989793491523() throws Exception {
       SNode nodeToCheck = getRealNodeById("8332528989793488546");
       SNode operation = getRealNodeById("8332528989793491523");

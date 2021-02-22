@@ -57,6 +57,5 @@ public class ExtractMethodWithOutputVaryableFromExpression_Test extends BaseTran
       }
     }
 
-
   }
 }

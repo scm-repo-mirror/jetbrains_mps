@@ -103,7 +103,6 @@ public class Test_Test extends BaseTransformationTest {
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_ErrorMessagesCheck2501421320959199196() throws Exception {
       SNode nodeToCheck = getRealNodeById("6594325605663831239");
       SNode operation = getRealNodeById("2501421320959199196");

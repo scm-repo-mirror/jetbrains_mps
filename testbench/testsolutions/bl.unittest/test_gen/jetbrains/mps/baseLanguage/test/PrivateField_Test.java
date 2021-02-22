@@ -58,7 +58,6 @@ public class PrivateField_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeFieldIsNeverUsedCheck6923385624929265058() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451226474");
       SNode operation = getRealNodeById("6923385624929265058");

@@ -43,7 +43,6 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck7019192671317902489() throws Exception {
       SNode nodeToCheck = getRealNodeById("2802122285522027685");
       SNode operation = getRealNodeById("7019192671317902489");

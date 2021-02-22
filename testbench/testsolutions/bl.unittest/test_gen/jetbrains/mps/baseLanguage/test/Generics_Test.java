@@ -238,7 +238,6 @@ public class Generics_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck4246614868164066795() throws Exception {
       SNode nodeToCheck = getRealNodeById("4246614868164066712");
       SNode operation = getRealNodeById("4246614868164066795");

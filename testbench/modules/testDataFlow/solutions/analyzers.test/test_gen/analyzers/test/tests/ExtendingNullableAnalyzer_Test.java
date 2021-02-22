@@ -45,7 +45,6 @@ public class ExtendingNullableAnalyzer_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7974543756120908670() throws Exception {
       SNode nodeToCheck = getRealNodeById("1417601170173158309");
       SNode operation = getRealNodeById("7974543756120908670");

@@ -53,6 +53,5 @@ public class VariableDeclarationInitializer_Test extends BaseTransformationTest 
       }
     }
 
-
   }
 }

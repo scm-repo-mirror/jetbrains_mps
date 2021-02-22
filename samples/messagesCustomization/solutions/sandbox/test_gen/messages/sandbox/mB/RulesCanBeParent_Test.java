@@ -46,7 +46,6 @@ public class RulesCanBeParent_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck2802122285522113977() throws Exception {
       SNode nodeToCheck = getRealNodeById("2802122285522113964");
       SNode operation = getRealNodeById("2802122285522113977");

@@ -61,6 +61,5 @@ public class ReturnStatement_Test extends BaseTransformationTest {
       Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052642395"))) != null);
     }
 
-
   }
 }

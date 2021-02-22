@@ -40,7 +40,6 @@ public class CustomPropertyAccess_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck6799807267508922004() throws Exception {
       SNode nodeToCheck = getRealNodeById("6799807267502339007");
       SNode operation = getRealNodeById("6799807267508922004");

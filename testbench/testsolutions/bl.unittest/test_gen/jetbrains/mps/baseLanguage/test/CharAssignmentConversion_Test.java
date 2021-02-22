@@ -89,7 +89,6 @@ public class CharAssignmentConversion_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck7223665169660103878() throws Exception {
       SNode nodeToCheck = getRealNodeById("7223665169660102423");
       SNode operation = getRealNodeById("7223665169660103878");

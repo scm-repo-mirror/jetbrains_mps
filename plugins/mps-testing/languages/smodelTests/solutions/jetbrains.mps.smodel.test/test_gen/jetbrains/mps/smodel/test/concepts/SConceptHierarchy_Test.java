@@ -84,7 +84,6 @@ public class SConceptHierarchy_Test extends BaseTransformationTest {
       Assert.assertTrue(((SConcept) defaultIfaceConcept).getSuperInterfaces().iterator().next().equals(CONCEPTS.INamedConcept$Kd));
     }
 
-
   }
 
   private static final class CONCEPTS {

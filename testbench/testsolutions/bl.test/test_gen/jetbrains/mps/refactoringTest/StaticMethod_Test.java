@@ -53,6 +53,5 @@ public class StaticMethod_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

@@ -50,7 +50,6 @@ public class PropertySetterReturn_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeNotLegalStatementTheExpressionCheck6401638465588611410() throws Exception {
       SNode nodeToCheck = getRealNodeById("5772383102105101132");
       SNode operation = getRealNodeById("6401638465588611410");

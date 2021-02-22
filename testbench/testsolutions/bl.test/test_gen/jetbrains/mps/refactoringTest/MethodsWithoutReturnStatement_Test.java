@@ -57,6 +57,5 @@ public class MethodsWithoutReturnStatement_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

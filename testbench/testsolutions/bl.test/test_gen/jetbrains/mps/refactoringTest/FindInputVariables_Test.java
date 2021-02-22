@@ -49,6 +49,5 @@ public class FindInputVariables_Test extends BaseTransformationTest {
       Assert.assertEquals(getNodeById("1230052444315"), ListSequence.fromList(vars).first().getDeclaration());
     }
 
-
   }
 }

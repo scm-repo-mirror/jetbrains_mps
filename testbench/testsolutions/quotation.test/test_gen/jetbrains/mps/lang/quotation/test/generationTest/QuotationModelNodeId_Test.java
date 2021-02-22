@@ -84,7 +84,6 @@ public class QuotationModelNodeId_Test extends BaseTransformationTest {
       Assert.assertFalse(Objects.equals(ListSequence.fromList(SNodeOperations.getChildren(node)).getElement(1).getNodeId(), id));
     }
 
-
     private static SNode createReturnStatement_fw7ydn_a0c0d9(SModel modelToCreate, org.jetbrains.mps.openapi.model.SNodeId nodeId) {
       SNodeBuilder n0 = new SNodeBuilder(modelToCreate, nodeId).init(CONCEPTS.ReturnStatement$lt);
       n0.forChild(LINKS.expression$eJ92).init(CONCEPTS.NullLiteral$QQ);

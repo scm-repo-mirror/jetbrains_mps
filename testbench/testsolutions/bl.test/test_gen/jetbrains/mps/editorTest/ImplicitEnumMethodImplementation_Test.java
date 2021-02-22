@@ -70,7 +70,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck8841676161362742012() throws Exception {
       SNode nodeToCheck = getRealNodeById("8841676161362741848");
       SNode operation = getRealNodeById("8841676161362742012");

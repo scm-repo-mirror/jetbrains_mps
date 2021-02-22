@@ -397,7 +397,6 @@ public class SNodeReadAccess_Test extends BaseTransformationTest {
       Assert.assertTrue(error.toString(), currentCheckChanged.isEmpty() && currentCheckNew.isEmpty() && currentException.isEmpty());
     }
 
-
     public Map<String, Integer> getReadAccessMap() throws FileNotFoundException, IOException {
       InputStream stream = ((Object) this).getClass().getResourceAsStream("/SNodeMethodReads.xml");
       XMLDecoder xmlDecoder = new XMLDecoder(stream);

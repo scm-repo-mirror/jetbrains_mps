@@ -218,7 +218,6 @@ public class SNodeGetReferencesOperation_Test extends BaseTransformationTest {
       Assert.assertNull(SLinkOperations.getResolveInfo(nullReference));
     }
 
-
     public String addUnspecifiedReference(SNode input, SNode referenceTarget) {
       String referenceName = "unspecifiedReference";
       SNodeAccessUtil.setReferenceTarget(input, referenceName, referenceTarget);

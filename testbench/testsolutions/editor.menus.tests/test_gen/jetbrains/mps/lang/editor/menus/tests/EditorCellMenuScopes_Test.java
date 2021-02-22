@@ -61,7 +61,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ScopeOf_TransformationMenuReference_Default_concept_1068638940632614994() throws Exception {
       SNode nodeToCheck = getRealNodeById("1068638940632614994");
       SNode operation = getRealNodeById("1068638940632614996");

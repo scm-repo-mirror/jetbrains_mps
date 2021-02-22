@@ -73,7 +73,6 @@ public class ChangeMethodParametersForStatement_Test extends BaseTransformationT
       }
     }
 
-
   }
 
   private static final class LINKS {

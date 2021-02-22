@@ -49,7 +49,6 @@ public class FloatLiteral_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck290469496750263895() throws Exception {
       SNode nodeToCheck = getRealNodeById("290469496750221972");
       SNode operation = getRealNodeById("290469496750263895");

@@ -149,7 +149,6 @@ public class UnusedFields_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck8129007564264183307() throws Exception {
       SNode nodeToCheck = getRealNodeById("8129007564264174690");
       SNode operation = getRealNodeById("8129007564264183307");

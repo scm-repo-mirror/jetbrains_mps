@@ -45,6 +45,5 @@ public class ConceptFunctioParameterTest_Test extends BaseTransformationTest {
       Assert.assertEquals(1, ListSequence.fromList(analyzer.getInputVariables()).count());
     }
 
-
   }
 }

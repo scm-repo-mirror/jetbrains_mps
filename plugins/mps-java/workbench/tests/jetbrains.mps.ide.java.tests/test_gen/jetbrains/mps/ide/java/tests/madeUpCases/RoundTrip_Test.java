@@ -116,6 +116,5 @@ public class RoundTrip_Test extends BaseTransformationTest {
       new JavaToMpsUtils(myProject.getRepository()).checkString(genCode, getNodeById("1369191534311251786"), false);
     }
 
-
   }
 }

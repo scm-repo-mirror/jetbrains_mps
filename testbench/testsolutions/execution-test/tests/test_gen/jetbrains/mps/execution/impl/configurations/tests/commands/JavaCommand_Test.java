@@ -73,7 +73,6 @@ public class JavaCommand_Test extends BaseTransformationTest {
       processRunner.startAndCheckProcess();
     }
 
-
   }
 
   private static final class CONCEPTS {

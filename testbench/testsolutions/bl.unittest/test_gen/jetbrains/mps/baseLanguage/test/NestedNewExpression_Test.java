@@ -62,7 +62,6 @@ public class NestedNewExpression_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeInnerClassesCannotDeclareCheck876973622656563830() throws Exception {
       SNode nodeToCheck = getRealNodeById("2908733373806055116");
       SNode operation = getRealNodeById("876973622656563830");

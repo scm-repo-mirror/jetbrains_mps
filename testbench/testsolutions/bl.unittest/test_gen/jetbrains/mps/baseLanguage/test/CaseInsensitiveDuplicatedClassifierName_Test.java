@@ -53,7 +53,6 @@ public class CaseInsensitiveDuplicatedClassifierName_Test extends BaseTransforma
       super(owner);
     }
 
-
     public void test_NodeErrorCheck1005490780657563849() throws Exception {
       SNode nodeToCheck = getRealNodeById("1005490780655188848");
       SNode operation = getRealNodeById("1005490780657563849");

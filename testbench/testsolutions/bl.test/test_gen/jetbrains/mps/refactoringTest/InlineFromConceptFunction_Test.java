@@ -70,6 +70,5 @@ public class InlineFromConceptFunction_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

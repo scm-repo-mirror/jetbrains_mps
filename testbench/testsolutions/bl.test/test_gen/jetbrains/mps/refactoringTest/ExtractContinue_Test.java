@@ -59,6 +59,5 @@ public class ExtractContinue_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

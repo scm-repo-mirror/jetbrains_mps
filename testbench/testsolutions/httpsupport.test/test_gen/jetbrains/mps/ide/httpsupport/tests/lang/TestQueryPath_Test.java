@@ -58,7 +58,6 @@ public class TestQueryPath_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck529363524336252998() throws Exception {
       SNode nodeToCheck = getRealNodeById("529363524336252988");
       SNode operation = getRealNodeById("529363524336252998");

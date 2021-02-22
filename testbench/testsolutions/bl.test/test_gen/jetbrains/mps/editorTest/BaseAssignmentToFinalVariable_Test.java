@@ -66,7 +66,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeCannotAssignValueToFinalCheck5706606249111788699() throws Exception {
       SNode nodeToCheck = getRealNodeById("5706606249110735306");
       SNode operation = getRealNodeById("5706606249111788699");

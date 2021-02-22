@@ -49,7 +49,6 @@ public class DuplicitRoutineNameTest_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck8240600211257314592() throws Exception {
       SNode nodeToCheck = getRealNodeById("8240600211257311814");
       SNode operation = getRealNodeById("8240600211257314592");

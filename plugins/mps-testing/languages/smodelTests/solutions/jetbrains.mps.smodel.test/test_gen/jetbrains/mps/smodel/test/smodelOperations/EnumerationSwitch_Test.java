@@ -158,7 +158,6 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
         // expected exception 
       }
     }
-
     public void test_ErrorMessagesCheck7978163097786003032() throws Exception {
       SNode nodeToCheck = getRealNodeById("7978163097785996348");
       SNode operation = getRealNodeById("7978163097786003032");
@@ -201,7 +200,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
 
     public int testSwitchInStatement(SEnumerationLiteral testMember) {
       int x = 0;
-      switch (enumSwitchIndex_cs17f_a0b0q71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0b0p71.indexNullable(testMember)) {
         case 0:
           x = 1;
           break;
@@ -216,7 +215,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       return x * 2;
     }
     public int testSwitchInReturn(SEnumerationLiteral testMember) {
-      switch (enumSwitchIndex_cs17f_a0a0r71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0a0q71.indexNullable(testMember)) {
         case 0:
           return 2;
         case 1:
@@ -229,7 +228,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
     }
     public int testSwitchInAssignment(SEnumerationLiteral testMember) {
       int i;
-      switch (enumSwitchIndex_cs17f_a0b0s71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0b0r71.indexNullable(testMember)) {
         case 0:
           i = 1;
           break;
@@ -245,7 +244,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
     }
     public int testSwitchInLVD(SEnumerationLiteral testMember) {
       int i;
-      switch (enumSwitchIndex_cs17f_a0b0t71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0b0s71.indexNullable(testMember)) {
         case 0:
           i = 1;
           break;
@@ -260,7 +259,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       return i * 2;
     }
     public int testNonExhaustive(SEnumerationLiteral testMember) {
-      switch (enumSwitchIndex_cs17f_a0a0u71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0a0t71.indexNullable(testMember)) {
         case 0:
           return 1;
         default:
@@ -268,7 +267,7 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       }
     }
     public int testNonExhaustiveDefault(SEnumerationLiteral testMember) {
-      switch (enumSwitchIndex_cs17f_a0a0v71.indexNullable(testMember)) {
+      switch (enumSwitchIndex_cs17f_a0a0u71.indexNullable(testMember)) {
         case 0:
           return 1;
         default:
@@ -276,10 +275,10 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       }
     }
   }
-  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0q71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
-  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0r71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0p71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0q71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0r71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
   private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0s71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
-  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0t71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0t71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L);
   private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0u71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L);
-  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0v71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L);
 }

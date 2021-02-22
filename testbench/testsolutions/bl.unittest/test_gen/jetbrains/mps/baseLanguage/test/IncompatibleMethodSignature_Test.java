@@ -190,7 +190,6 @@ public class IncompatibleMethodSignature_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeWrongNumberOfParametersCheck1955277442708667269() throws Exception {
       SNode nodeToCheck = getRealNodeById("1955277442708667086");
       SNode operation = getRealNodeById("1955277442708667269");

@@ -53,6 +53,5 @@ public class ConvertAnonymousAbstractClassTest_Test extends BaseTransformationTe
       }
     }
 
-
   }
 }

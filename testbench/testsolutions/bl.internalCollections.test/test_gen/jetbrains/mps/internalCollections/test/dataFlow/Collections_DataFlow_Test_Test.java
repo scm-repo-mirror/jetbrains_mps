@@ -56,7 +56,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1140733686815042652() throws Exception {
       SNode nodeToCheck = getRealNodeById("1140733686814959179");
       SNode operation = getRealNodeById("1140733686815042652");

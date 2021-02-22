@@ -50,16 +50,16 @@
       <node id="1029938204559072914" at="97,0,98,64" concept="4" />
       <node id="1029938204559072948" at="98,64,99,119" concept="4" />
       <node id="1029938204559072959" at="99,119,100,72" concept="1" />
-      <node id="1029938204559073623" at="104,28,105,171" concept="5" />
-      <node id="1029938204559073895" at="107,28,108,171" concept="5" />
-      <node id="1029938204559073984" at="110,28,111,171" concept="5" />
+      <node id="1029938204559073623" at="103,28,104,171" concept="5" />
+      <node id="1029938204559073895" at="106,28,107,171" concept="5" />
+      <node id="1029938204559073984" at="109,28,110,171" concept="5" />
       <node id="1029938204559057131" at="24,0,26,0" concept="7" trace="ourParamCache" />
       <node id="1029938204559057131" at="26,0,28,0" concept="2" trace="myWithCommandRule" />
       <node id="1029938204559057131" at="29,0,32,0" concept="0" trace="TestDepViewer_Test#()V" />
       <node id="1029938204559057131" at="56,0,59,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1029938204559073554" at="104,0,107,0" concept="3" trace="model1#()Lorg/jetbrains/mps/openapi/model/SModel;" />
-      <node id="1029938204559073892" at="107,0,110,0" concept="3" trace="model2#()Lorg/jetbrains/mps/openapi/model/SModel;" />
-      <node id="1029938204559073981" at="110,0,113,0" concept="3" trace="model3#()Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="1029938204559073554" at="103,0,106,0" concept="3" trace="model1#()Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="1029938204559073892" at="106,0,109,0" concept="3" trace="model2#()Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="1029938204559073981" at="109,0,112,0" concept="3" trace="model3#()Lorg/jetbrains/mps/openapi/model/SModel;" />
       <node id="1029938204559057914" at="33,0,37,0" concept="3" trace="test_testPrecondition#()V" />
       <node id="1029938204559058262" at="37,0,41,0" concept="3" trace="test_testModel1DependsOnSomething#()V" />
       <node id="1029938204559058271" at="41,0,45,0" concept="3" trace="test_testModel3DoesntDependOnAnything#()V" />
@@ -77,16 +77,16 @@
       <scope id="1029938204559058283" at="46,65,47,56" />
       <scope id="1029938204559058298" at="50,70,51,61" />
       <scope id="1029938204559057131" at="56,52,57,19" />
-      <scope id="1029938204559073554" at="104,28,105,171" />
-      <scope id="1029938204559073892" at="107,28,108,171" />
-      <scope id="1029938204559073981" at="110,28,111,171" />
+      <scope id="1029938204559073554" at="103,28,104,171" />
+      <scope id="1029938204559073892" at="106,28,107,171" />
+      <scope id="1029938204559073981" at="109,28,110,171" />
       <scope id="1029938204559057131" at="29,0,32,0" />
       <scope id="1029938204559057131" at="56,0,59,0">
         <var name="owner" id="1029938204559057131" />
       </scope>
-      <scope id="1029938204559073554" at="104,0,107,0" />
-      <scope id="1029938204559073892" at="107,0,110,0" />
-      <scope id="1029938204559073981" at="110,0,113,0" />
+      <scope id="1029938204559073554" at="103,0,106,0" />
+      <scope id="1029938204559073892" at="106,0,109,0" />
+      <scope id="1029938204559073981" at="109,0,112,0" />
       <scope id="1029938204559057914" at="33,0,37,0" />
       <scope id="1029938204559058262" at="37,0,41,0" />
       <scope id="1029938204559058271" at="41,0,45,0" />
@@ -123,8 +123,8 @@
       </scope>
       <scope id="1029938204559058283" at="82,0,92,0" />
       <scope id="1029938204559058298" at="92,0,102,0" />
-      <unit id="1029938204559057131" at="54,0,114,0" name="tests.testDepViewer.test.TestDepViewer_Test$TestBody" />
-      <unit id="1029938204559057131" at="22,0,115,0" name="tests.testDepViewer.test.TestDepViewer_Test" />
+      <unit id="1029938204559057131" at="54,0,113,0" name="tests.testDepViewer.test.TestDepViewer_Test$TestBody" />
+      <unit id="1029938204559057131" at="22,0,114,0" name="tests.testDepViewer.test.TestDepViewer_Test" />
     </file>
   </root>
 </debug-info>

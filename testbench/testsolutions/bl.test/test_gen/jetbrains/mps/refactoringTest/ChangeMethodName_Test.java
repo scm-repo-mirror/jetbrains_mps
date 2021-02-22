@@ -59,7 +59,6 @@ public class ChangeMethodName_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class PROPS {

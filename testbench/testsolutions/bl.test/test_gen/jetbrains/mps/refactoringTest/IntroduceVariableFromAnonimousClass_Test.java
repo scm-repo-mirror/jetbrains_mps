@@ -57,6 +57,5 @@ public class IntroduceVariableFromAnonimousClass_Test extends BaseTransformation
       }
     }
 
-
   }
 }

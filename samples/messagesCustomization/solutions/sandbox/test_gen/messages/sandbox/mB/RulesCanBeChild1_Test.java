@@ -54,7 +54,6 @@ public class RulesCanBeChild1_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeUnknownRuleCheck2884486869351397457() throws Exception {
       SNode nodeToCheck = getRealNodeById("3071492597344700470");
       SNode operation = getRealNodeById("2884486869351397457");

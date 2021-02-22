@@ -85,7 +85,6 @@ public class AddParameterWithDefault_Test extends BaseTransformationTest {
       }
     }
 
-
     private static SNode _quotation_createNode_49gob3_a0f0d7() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

@@ -62,7 +62,6 @@ public class FinalFieldTests_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck843236768048178247() throws Exception {
       SNode nodeToCheck = getRealNodeById("843236768048177681");
       SNode operation = getRealNodeById("843236768048178247");

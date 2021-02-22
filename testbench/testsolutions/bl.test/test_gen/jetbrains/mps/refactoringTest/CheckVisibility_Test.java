@@ -47,6 +47,5 @@ public class CheckVisibility_Test extends BaseTransformationTest {
       Assert.assertTrue(ref.getProblems().length() == 0);
     }
 
-
   }
 }

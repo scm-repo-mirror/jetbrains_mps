@@ -91,7 +91,6 @@ public class KeepVarArgParameters_Test extends BaseTransformationTest {
       }
     }
 
-
     private static SNode _quotation_createNode_in913d_a0f0d7() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

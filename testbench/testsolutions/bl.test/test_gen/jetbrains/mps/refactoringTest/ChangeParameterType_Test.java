@@ -61,7 +61,6 @@ public class ChangeParameterType_Test extends BaseTransformationTest {
       }
     }
 
-
     private static SNode _quotation_createNode_69x5rj_a0d0d7() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

@@ -58,6 +58,5 @@ public class SimpleFindForIntroduceConstant_Test extends BaseTransformationTest 
       }
     }
 
-
   }
 }

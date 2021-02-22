@@ -60,6 +60,5 @@ public class ImageExport_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

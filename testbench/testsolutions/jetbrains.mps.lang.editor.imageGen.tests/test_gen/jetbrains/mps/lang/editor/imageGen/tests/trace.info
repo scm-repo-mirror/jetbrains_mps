@@ -70,8 +70,8 @@
       </scope>
       <scope id="5244026788026549149" at="44,0,53,0" />
       <scope id="3856853424911892005" at="53,0,62,0" />
-      <unit id="5244026788026549053" at="38,0,65,0" name="jetbrains.mps.lang.editor.imageGen.tests.ImageExport_Test$TestBody" />
-      <unit id="5244026788026549053" at="18,0,66,0" name="jetbrains.mps.lang.editor.imageGen.tests.ImageExport_Test" />
+      <unit id="5244026788026549053" at="38,0,64,0" name="jetbrains.mps.lang.editor.imageGen.tests.ImageExport_Test$TestBody" />
+      <unit id="5244026788026549053" at="18,0,65,0" name="jetbrains.mps.lang.editor.imageGen.tests.ImageExport_Test" />
     </file>
   </root>
   <root nodeRef="r:57812925-2ef0-43c6-8314-0222b2c13acf(jetbrains.mps.lang.editor.imageGen.tests@tests)/5244026788026555459">

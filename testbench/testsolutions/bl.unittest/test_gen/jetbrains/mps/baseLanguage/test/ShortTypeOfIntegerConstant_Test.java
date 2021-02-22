@@ -150,7 +150,6 @@ public class ShortTypeOfIntegerConstant_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7584461597510495229() throws Exception {
       SNode nodeToCheck = getRealNodeById("7584461597510495226");
       SNode operation = getRealNodeById("7584461597510495229");

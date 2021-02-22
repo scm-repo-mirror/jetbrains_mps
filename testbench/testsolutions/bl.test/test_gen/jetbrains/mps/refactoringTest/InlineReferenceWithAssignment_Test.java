@@ -53,6 +53,5 @@ public class InlineReferenceWithAssignment_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

@@ -57,6 +57,5 @@ public class ExtractMethodFromConstructor_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

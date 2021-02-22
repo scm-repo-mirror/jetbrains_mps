@@ -53,6 +53,5 @@ public class OneReturnWithNotVariableParameters_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

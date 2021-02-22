@@ -49,7 +49,6 @@ public class InitializerRequiredForFieldsInInterface_Test extends BaseTransforma
       super(owner);
     }
 
-
     public void test_NodeErrorCheck1187415722613141596() throws Exception {
       SNode nodeToCheck = getRealNodeById("1187415722601275233");
       SNode operation = getRealNodeById("1187415722613141596");

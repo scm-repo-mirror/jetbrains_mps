@@ -53,6 +53,5 @@ public class TestMigrateCommentBlock_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

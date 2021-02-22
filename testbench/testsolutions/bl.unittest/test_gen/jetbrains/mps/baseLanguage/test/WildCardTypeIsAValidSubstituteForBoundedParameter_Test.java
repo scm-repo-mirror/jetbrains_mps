@@ -86,7 +86,6 @@ public class WildCardTypeIsAValidSubstituteForBoundedParameter_Test extends Base
       super(owner);
     }
 
-
     public void test_NodeWarningCheck595838485961914360() throws Exception {
       SNode nodeToCheck = getRealNodeById("595838485955112039");
       SNode operation = getRealNodeById("595838485961914360");

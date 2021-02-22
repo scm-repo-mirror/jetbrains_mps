@@ -59,6 +59,5 @@ public class ExtractDifferentReturns_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

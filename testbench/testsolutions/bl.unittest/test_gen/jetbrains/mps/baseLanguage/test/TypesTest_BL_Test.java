@@ -231,7 +231,6 @@ public class TypesTest_BL_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTypeCheck5113180367541522974() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451231690");
       SNode operation = getRealNodeById("5113180367541522974");

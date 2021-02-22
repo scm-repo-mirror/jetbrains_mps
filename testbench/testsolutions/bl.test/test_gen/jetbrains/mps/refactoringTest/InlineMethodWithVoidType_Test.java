@@ -53,6 +53,5 @@ public class InlineMethodWithVoidType_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

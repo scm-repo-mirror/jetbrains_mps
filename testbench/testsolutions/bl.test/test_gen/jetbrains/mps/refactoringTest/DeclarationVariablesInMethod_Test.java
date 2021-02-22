@@ -53,6 +53,5 @@ public class DeclarationVariablesInMethod_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

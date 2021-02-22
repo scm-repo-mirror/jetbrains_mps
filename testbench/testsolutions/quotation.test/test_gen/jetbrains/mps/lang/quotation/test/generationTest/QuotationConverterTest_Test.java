@@ -77,7 +77,6 @@ public class QuotationConverterTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

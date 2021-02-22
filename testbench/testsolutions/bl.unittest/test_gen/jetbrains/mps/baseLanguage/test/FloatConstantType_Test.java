@@ -57,7 +57,6 @@ public class FloatConstantType_Test extends BaseTransformationTest {
       assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257283261")), CONCEPTS.DoubleType$x0);
       assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257285927")), CONCEPTS.FloatType$up);
     }
-
     public void test_ErrorMessagesCheck5868639094267614275() throws Exception {
       SNode nodeToCheck = getRealNodeById("5868639094257179249");
       SNode operation = getRealNodeById("5868639094267614275");

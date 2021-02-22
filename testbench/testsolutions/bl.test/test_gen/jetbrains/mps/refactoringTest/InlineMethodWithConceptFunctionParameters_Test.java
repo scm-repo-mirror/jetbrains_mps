@@ -54,6 +54,5 @@ public class InlineMethodWithConceptFunctionParameters_Test extends BaseTransfor
       }
     }
 
-
   }
 }

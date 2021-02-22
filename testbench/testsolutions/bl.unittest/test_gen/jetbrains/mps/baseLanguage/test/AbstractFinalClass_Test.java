@@ -39,7 +39,6 @@ public class AbstractFinalClass_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeIllegalCombinationOfModifiersCheck8431410806097805013() throws Exception {
       SNode nodeToCheck = getRealNodeById("8431410806097804849");
       SNode operation = getRealNodeById("8431410806097805013");

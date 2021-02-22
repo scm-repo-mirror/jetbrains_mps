@@ -53,6 +53,5 @@ public class MoveMethodWithFieldInTarget_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

@@ -53,7 +53,6 @@ public class ConstraintsReferenceInheritence_Scopes_Test extends BaseTransformat
       super(owner);
     }
 
-
     public void test_ScopeOf_TestRefConstraints_SubReference_HandlerSuperScoping_target_2614955748379945979() throws Exception {
       SNode nodeToCheck = getRealNodeById("2614955748379945979");
       SNode operation = getRealNodeById("2614955748379945983");

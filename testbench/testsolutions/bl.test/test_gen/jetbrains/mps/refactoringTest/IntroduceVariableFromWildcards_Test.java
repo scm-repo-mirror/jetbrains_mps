@@ -64,6 +64,5 @@ public class IntroduceVariableFromWildcards_Test extends BaseTransformationTest 
       }
     }
 
-
   }
 }

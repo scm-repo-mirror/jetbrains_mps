@@ -74,7 +74,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeFieldCanBeConvertedIntoCheck6923385624929411102() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451229518");
       SNode operation = getRealNodeById("6923385624929411102");

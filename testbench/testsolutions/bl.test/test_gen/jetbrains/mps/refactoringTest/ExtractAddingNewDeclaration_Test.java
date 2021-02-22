@@ -57,6 +57,5 @@ public class ExtractAddingNewDeclaration_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

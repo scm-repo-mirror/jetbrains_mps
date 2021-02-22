@@ -49,7 +49,6 @@ public class ClosureDataFlow_Test extends BaseTransformationTest {
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_ErrorMessagesCheck2501421320959199348() throws Exception {
       SNode nodeToCheck = getRealNodeById("1227886714749");
       SNode operation = getRealNodeById("2501421320959199348");

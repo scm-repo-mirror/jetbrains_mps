@@ -54,6 +54,5 @@ public class InlineInClosureWithOutsideAssignment_Test extends BaseTransformatio
       }
     }
 
-
   }
 }

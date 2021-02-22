@@ -56,6 +56,5 @@ public class MoveStaticFieldWithUsageTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

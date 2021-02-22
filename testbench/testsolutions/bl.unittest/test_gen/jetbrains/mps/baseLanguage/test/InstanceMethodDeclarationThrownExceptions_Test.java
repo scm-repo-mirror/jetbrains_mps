@@ -66,7 +66,6 @@ public class InstanceMethodDeclarationThrownExceptions_Test extends BaseTransfor
       super(owner);
     }
 
-
     public void test_NodeUnnamedErrorCheck143797558343291602() throws Exception {
       SNode nodeToCheck = getRealNodeById("3983029200623367486");
       SNode operation = getRealNodeById("143797558343291602");

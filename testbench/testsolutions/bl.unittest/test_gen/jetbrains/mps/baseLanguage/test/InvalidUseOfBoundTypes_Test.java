@@ -98,7 +98,6 @@ public class InvalidUseOfBoundTypes_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeInvalidUseOfBoundTypeCheck6923385624927426896() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451229232");
       SNode operation = getRealNodeById("6923385624927426896");

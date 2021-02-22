@@ -87,7 +87,6 @@ public class TestTemporalPaths_Test extends BaseTransformationTest {
       Assert.assertEquals(TestContext.TEMP + "/default/some.jar1/someFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("4209004860870558814"), testContext));
     }
 
-
     public SModel getBuildTestsModel() {
       return PersistenceFacade.getInstance().createModelReference("r:361d93bd-9223-4768-9e37-bcd7b8db1f40(jetbrains.mps.build.tests@tests)").resolve(myProject.getRepository());
     }

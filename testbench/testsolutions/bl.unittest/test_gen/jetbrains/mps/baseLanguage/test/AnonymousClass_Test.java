@@ -67,7 +67,6 @@ public class AnonymousClass_Test extends BaseTransformationTest {
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624927142051() throws Exception {
       SNode nodeToCheck = getRealNodeById("6090235207266878331");
       SNode operation = getRealNodeById("6923385624927142051");

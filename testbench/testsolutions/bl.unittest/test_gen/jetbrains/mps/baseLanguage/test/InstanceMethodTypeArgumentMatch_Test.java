@@ -198,7 +198,6 @@ public class InstanceMethodTypeArgumentMatch_Test extends BaseTransformationTest
       super(owner);
     }
 
-
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624927501558() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451229941");
       SNode operation = getRealNodeById("6923385624927501558");

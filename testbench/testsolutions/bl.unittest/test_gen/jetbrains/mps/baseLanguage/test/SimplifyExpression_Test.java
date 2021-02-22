@@ -194,7 +194,6 @@ public class SimplifyExpression_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTheConditionIsAlwaysCheck8245314650934534145() throws Exception {
       SNode nodeToCheck = getRealNodeById("8245314650934017653");
       SNode operation = getRealNodeById("8245314650934534145");

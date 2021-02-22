@@ -45,7 +45,6 @@ public class TestAnalyzerWithModeSpecified_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck2955426575106132885() throws Exception {
       SNode nodeToCheck = getRealNodeById("2955426575106132805");
       SNode operation = getRealNodeById("2955426575106132885");

@@ -54,6 +54,5 @@ public class InlineStaticFromAnotherClass_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

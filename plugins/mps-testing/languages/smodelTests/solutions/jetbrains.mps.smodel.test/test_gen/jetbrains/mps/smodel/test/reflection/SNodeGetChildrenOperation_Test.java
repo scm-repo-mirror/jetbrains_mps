@@ -152,7 +152,6 @@ public class SNodeGetChildrenOperation_Test extends BaseTransformationTest {
       Assert.assertTrue(ListSequence.fromList(SNodeOperations.getChildren(getNodeById("8758390115029078426"), nullLinkDeclaration)).isEmpty());
     }
 
-
     public SContainmentLink addUnspecifiedChild(SNode input, SNode unspecifiedChild) {
       SContainmentLink link = MetaAdapterFactory.getContainmentLink(1, 1, 1, 1, "unspecifiedChild");
       input.addChild(link, unspecifiedChild);

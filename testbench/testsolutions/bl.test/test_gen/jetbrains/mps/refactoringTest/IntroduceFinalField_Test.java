@@ -60,6 +60,5 @@ public class IntroduceFinalField_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

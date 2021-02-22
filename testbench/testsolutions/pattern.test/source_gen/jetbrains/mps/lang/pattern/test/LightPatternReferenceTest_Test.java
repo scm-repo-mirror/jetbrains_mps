@@ -85,7 +85,6 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
       Assert.assertTrue(matches);
     }
 
-
     private static SNode _quotation_createNode_9nn70n_a0c0d9() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

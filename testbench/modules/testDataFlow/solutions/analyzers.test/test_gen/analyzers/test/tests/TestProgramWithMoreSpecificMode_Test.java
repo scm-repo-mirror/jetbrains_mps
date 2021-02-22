@@ -64,7 +64,6 @@ public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest
       Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(getNodeById("7078910619969226058"), LINKS.child$cKRN)).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7078910619969226058"), LINKS.child$cKRN), LINKS.child$fPvo)).count() + 1);
     }
 
-
   }
 
   private static final class LINKS {

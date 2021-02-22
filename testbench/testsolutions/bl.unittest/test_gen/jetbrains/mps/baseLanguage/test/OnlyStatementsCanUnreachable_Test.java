@@ -50,7 +50,6 @@ public class OnlyStatementsCanUnreachable_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTheConditionIsAlwaysCheck2857825852305743236() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451223910");
       SNode operation = getRealNodeById("2857825852305743236");

@@ -65,7 +65,6 @@ public class PriorityCheckTestPlusFirst_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class PROPS {

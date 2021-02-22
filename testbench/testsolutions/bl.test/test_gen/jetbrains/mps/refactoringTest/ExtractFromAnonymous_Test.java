@@ -57,6 +57,5 @@ public class ExtractFromAnonymous_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

@@ -192,7 +192,6 @@ public class LightQuotationFinal_Test extends BaseTransformationTest {
       }
     }
 
-
     private static SNode _quotation_createNode_3vdjo8_a0b0d61(Object parameter_1) {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_2 = null;

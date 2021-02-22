@@ -38,7 +38,6 @@ public class FeedbackNoChildInObligatoryRole_Test extends BaseTransformationTest
       super(owner);
     }
 
-
     public void test_NodeErrorCheck7019192671317970800() throws Exception {
       SNode nodeToCheck = getRealNodeById("7019192671317970792");
       SNode operation = getRealNodeById("7019192671317970800");

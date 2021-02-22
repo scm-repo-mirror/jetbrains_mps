@@ -56,6 +56,5 @@ public class IntroduceFinalLocalVariable_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

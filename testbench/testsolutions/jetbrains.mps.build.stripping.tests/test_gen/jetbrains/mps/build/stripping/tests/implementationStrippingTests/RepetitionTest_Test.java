@@ -49,7 +49,6 @@ public class RepetitionTest_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck5264300948581808886() throws Exception {
       SNode nodeToCheck = getRealNodeById("5264300948581808855");
       SNode operation = getRealNodeById("5264300948581808886");

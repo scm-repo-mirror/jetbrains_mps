@@ -47,7 +47,6 @@ public class ReadAction_Test extends BaseTransformationTest {
     public void test_ReadAction() throws Exception {
       addNodeById("1217271586326");
     }
-
     public void test_ErrorMessagesCheck1216549241562() throws Exception {
       SNode nodeToCheck = getRealNodeById("1216549152296");
       SNode operation = getRealNodeById("1216549241562");

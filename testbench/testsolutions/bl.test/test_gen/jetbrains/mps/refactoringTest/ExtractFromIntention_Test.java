@@ -67,7 +67,6 @@ public class ExtractFromIntention_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

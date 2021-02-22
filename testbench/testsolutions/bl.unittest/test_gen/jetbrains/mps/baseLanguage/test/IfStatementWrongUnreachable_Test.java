@@ -50,7 +50,6 @@ public class IfStatementWrongUnreachable_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1217864879944() throws Exception {
       SNode nodeToCheck = getRealNodeById("1217861284985");
       SNode operation = getRealNodeById("1217864879944");

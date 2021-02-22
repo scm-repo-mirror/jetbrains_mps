@@ -57,7 +57,6 @@ public class ArrayCreatorTest_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck1100850602766327583() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766324278");
       SNode operation = getRealNodeById("1100850602766327583");

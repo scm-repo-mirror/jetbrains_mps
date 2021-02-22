@@ -40,6 +40,5 @@ public class TestGenerationMode_Test extends BaseTransformationTest {
       TypeSystemCheckUtil.checkGenerationMode(getNodeById("7187651930235347762"));
     }
 
-
   }
 }

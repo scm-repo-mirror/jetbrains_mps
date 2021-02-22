@@ -110,7 +110,6 @@ public class SLinkImplicitSelect_Test extends BaseTransformationTest {
       this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("34342663959152983"), getNodeById("34342663959152984"), getNodeById("34342663959152985")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.childSubConcept_0_n$apX), LINKS.grandChild_0_n$IX8v));
     }
 
-
     public void assertEquals(Iterable<SNode> expected, final Iterable<SNode> actual) {
       Assert.assertEquals(Sequence.fromIterable(expected).count(), Sequence.fromIterable(actual).count());
       Sequence.fromIterable(expected).visitAll(new IVisitor<SNode>() {

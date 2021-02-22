@@ -89,6 +89,5 @@ public class TypeCheckingErrors_Test extends BaseTransformationTest {
       assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("6368058149914761648"), null)).isEmpty();
     }
 
-
   }
 }

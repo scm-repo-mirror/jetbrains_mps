@@ -56,6 +56,5 @@ public class SimpleFindForIntroduceLocalVariable_Test extends BaseTransformation
       }
     }
 
-
   }
 }

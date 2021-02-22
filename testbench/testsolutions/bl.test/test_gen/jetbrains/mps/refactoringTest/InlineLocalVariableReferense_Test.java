@@ -53,6 +53,5 @@ public class InlineLocalVariableReferense_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

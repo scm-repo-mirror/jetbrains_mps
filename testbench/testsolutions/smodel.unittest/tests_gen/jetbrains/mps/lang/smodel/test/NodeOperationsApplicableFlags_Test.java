@@ -86,7 +86,6 @@ public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
       Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x69b8a9939b874d96L, 0xbf0c3559f4bb0c63L, "jetbrains.mps.lang.slanguage")));
     }
 
-
     public Iterable<SAbstractConcept> getAllNodeOperations() {
       SNode var6410670351275231787 = getNodeById("6410670351275225853");
       Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository()).getAllLanguages());

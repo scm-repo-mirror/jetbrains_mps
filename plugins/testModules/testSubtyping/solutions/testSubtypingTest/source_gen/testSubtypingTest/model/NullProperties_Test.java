@@ -65,7 +65,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck8681827087508331151() throws Exception {
       SNode nodeToCheck = getRealNodeById("706089536802542537");
       SNode operation = getRealNodeById("8681827087508331151");

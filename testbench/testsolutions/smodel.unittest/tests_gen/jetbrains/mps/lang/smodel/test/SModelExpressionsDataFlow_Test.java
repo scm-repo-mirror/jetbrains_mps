@@ -80,7 +80,6 @@ public class SModelExpressionsDataFlow_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck931754141965267346() throws Exception {
       SNode nodeToCheck = getRealNodeById("931754141965246002");
       SNode operation = getRealNodeById("931754141965267346");

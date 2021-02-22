@@ -61,7 +61,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck3813896760029621933() throws Exception {
       SNode nodeToCheck = getRealNodeById("3813896760029575891");
       SNode operation = getRealNodeById("3813896760029621933");

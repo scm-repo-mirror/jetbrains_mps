@@ -121,7 +121,6 @@ public class TypeInference_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTypeSystemCheck6923385624927474402() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451227169");
       SNode operation = getRealNodeById("6923385624927474402");

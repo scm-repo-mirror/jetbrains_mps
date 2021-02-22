@@ -39,6 +39,5 @@ public class WaitingTestCase_Test_Test extends BaseTransformationTest {
       Assert.assertFalse(false);
     }
 
-
   }
 }

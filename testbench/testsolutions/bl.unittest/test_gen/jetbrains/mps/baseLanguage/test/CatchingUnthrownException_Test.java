@@ -50,7 +50,6 @@ public class CatchingUnthrownException_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeCaughtExceptionIsNeverCheck5351203823893584498() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230337");
       SNode operation = getRealNodeById("5351203823893584498");

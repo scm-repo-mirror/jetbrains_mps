@@ -52,6 +52,5 @@ public class ConvertAnonymousWithLocalVariables_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

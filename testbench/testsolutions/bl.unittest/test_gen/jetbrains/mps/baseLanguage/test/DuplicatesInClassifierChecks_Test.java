@@ -78,7 +78,6 @@ public class DuplicatesInClassifierChecks_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeDuplicateEntryCheck3031388763767076123() throws Exception {
       SNode nodeToCheck = getRealNodeById("3031388763763461755");
       SNode operation = getRealNodeById("3031388763767076123");

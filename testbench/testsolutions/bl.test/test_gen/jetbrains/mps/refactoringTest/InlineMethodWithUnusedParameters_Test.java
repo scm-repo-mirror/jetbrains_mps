@@ -53,6 +53,5 @@ public class InlineMethodWithUnusedParameters_Test extends BaseTransformationTes
       }
     }
 
-
   }
 }

@@ -59,6 +59,5 @@ public class ExtractMethodWithUnusedAssignments_Test extends BaseTransformationT
 
     }
 
-
   }
 }

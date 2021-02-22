@@ -53,6 +53,5 @@ public class InlineFromExpression_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

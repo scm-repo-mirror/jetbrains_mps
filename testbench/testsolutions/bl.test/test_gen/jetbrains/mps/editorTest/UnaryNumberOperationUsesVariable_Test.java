@@ -40,7 +40,6 @@ public class UnaryNumberOperationUsesVariable_Test extends BaseTransformationTes
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck5706606249115952859() throws Exception {
       SNode nodeToCheck = getRealNodeById("5706606249115952801");
       SNode operation = getRealNodeById("5706606249115952859");

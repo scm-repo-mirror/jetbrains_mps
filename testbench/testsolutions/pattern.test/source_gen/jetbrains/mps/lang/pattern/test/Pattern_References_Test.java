@@ -106,7 +106,6 @@ public class Pattern_References_Test extends BaseTransformationTest {
       Assert.assertFalse(matches);
     }
 
-
     private static SNode _quotation_createNode_1sosjx_a0a0d0d9(Object parameter_1) {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_2 = null;

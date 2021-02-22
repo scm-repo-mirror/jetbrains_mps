@@ -53,6 +53,5 @@ public class ConvertAnonymousToStaticTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

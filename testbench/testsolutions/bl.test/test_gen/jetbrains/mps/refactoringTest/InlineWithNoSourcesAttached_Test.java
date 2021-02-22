@@ -41,6 +41,5 @@ public class InlineWithNoSourcesAttached_Test extends BaseTransformationTest {
       Assert.assertTrue(new InlineMethodModel(getNodeById("1230052989317")).getErrors() != null);
     }
 
-
   }
 }

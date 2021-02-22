@@ -45,7 +45,6 @@ public class AbstractPrivateMethod_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck2834737865485399118() throws Exception {
       SNode nodeToCheck = getRealNodeById("284804022098951626");
       SNode operation = getRealNodeById("2834737865485399118");

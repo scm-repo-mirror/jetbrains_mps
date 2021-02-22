@@ -86,7 +86,6 @@ public class FieldDeclarationCanBeLocalVariable_Test extends BaseTransformationT
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck4914675704512537909() throws Exception {
       SNode nodeToCheck = getRealNodeById("4914675704512530934");
       SNode operation = getRealNodeById("4914675704512537909");

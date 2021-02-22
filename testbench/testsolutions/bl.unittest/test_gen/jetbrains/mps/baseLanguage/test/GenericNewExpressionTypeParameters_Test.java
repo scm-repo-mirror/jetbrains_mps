@@ -254,7 +254,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       super(owner);
     }
 
-
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927777191() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451221205");
       SNode operation = getRealNodeById("6923385624927777191");

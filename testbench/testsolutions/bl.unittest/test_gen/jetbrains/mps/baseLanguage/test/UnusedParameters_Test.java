@@ -50,7 +50,6 @@ public class UnusedParameters_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1220265437276() throws Exception {
       SNode nodeToCheck = getRealNodeById("1220265263160");
       SNode operation = getRealNodeById("1220265437276");

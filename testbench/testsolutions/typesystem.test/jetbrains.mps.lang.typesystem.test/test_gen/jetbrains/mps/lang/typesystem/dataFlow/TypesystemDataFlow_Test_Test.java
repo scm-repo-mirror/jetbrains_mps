@@ -68,7 +68,6 @@ public class TypesystemDataFlow_Test_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7084752438137077608() throws Exception {
       SNode nodeToCheck = getRealNodeById("7084752438137077600");
       SNode operation = getRealNodeById("7084752438137077608");

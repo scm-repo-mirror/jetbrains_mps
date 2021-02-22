@@ -58,7 +58,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTheMethodCannotOverrideCheck6091751241368225336() throws Exception {
       SNode nodeToCheck = getRealNodeById("7471623575883489441");
       SNode operation = getRealNodeById("6091751241368225336");

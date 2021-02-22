@@ -70,7 +70,6 @@ public class WrappedType_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTypeCheck1470921783545306146() throws Exception {
       SNode nodeToCheck = getRealNodeById("1470921783545305905");
       SNode operation = getRealNodeById("1470921783545306146");

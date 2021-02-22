@@ -56,6 +56,5 @@ public class SimpleFindAndMoveForIntroduceLocalVar_Test extends BaseTransformati
       }
     }
 
-
   }
 }

@@ -60,7 +60,6 @@ public class ChangeSigantureOfInterface_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class PROPS {

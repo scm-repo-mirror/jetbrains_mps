@@ -194,7 +194,6 @@ public class MethodInheritanceChecks_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeCyclicInheritanceInvolvingCheck7861981782410361587() throws Exception {
       SNode nodeToCheck = getRealNodeById("3950519302563598929");
       SNode operation = getRealNodeById("7861981782410361587");

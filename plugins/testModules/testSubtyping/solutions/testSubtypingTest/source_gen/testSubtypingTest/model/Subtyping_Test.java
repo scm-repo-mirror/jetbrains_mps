@@ -53,7 +53,6 @@ public class Subtyping_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeErrorCheck2078093584693310057() throws Exception {
       SNode nodeToCheck = getRealNodeById("2078093584693144571");
       SNode operation = getRealNodeById("2078093584693310057");

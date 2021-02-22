@@ -57,6 +57,5 @@ public class ExtractMethodWithThrows_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

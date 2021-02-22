@@ -57,6 +57,5 @@ public class ExtractFromStatements_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

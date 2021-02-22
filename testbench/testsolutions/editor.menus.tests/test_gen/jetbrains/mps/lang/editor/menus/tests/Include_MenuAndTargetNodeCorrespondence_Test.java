@@ -68,7 +68,6 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
         Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
       }
     }
-
     public void test_MatchingMenuForCurrentNode6903010549536714073() throws Exception {
       SNode nodeToCheck = getRealNodeById("6903010549536713473");
       SNode operation = getRealNodeById("6903010549536714073");

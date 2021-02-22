@@ -49,7 +49,6 @@ public class FreshStaticFieldWithAbstractInitializerHasNoErrorOnType_Test extend
       super(owner);
     }
 
-
     public void test_NodeErrorCheck4928571864874057148() throws Exception {
       SNode nodeToCheck = getRealNodeById("4928571864874038116");
       SNode operation = getRealNodeById("4928571864874057148");

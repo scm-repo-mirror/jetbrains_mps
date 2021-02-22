@@ -41,6 +41,5 @@ public class InlineRecursiveMethod_Test extends BaseTransformationTest {
       Assert.assertTrue(new InlineMethodModel(getNodeById("1230052989285")).getErrors() != null);
     }
 
-
   }
 }

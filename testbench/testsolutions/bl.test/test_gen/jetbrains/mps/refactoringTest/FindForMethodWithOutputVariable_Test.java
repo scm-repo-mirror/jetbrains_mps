@@ -62,6 +62,5 @@ public class FindForMethodWithOutputVariable_Test extends BaseTransformationTest
       }
     }
 
-
   }
 }

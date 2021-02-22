@@ -138,7 +138,6 @@ public class TestPersistence_Test extends BaseTransformationTest {
       }
     }
 
-
     public void assertDeepModelEquals(SModel expectedModel, SModel actualModel) {
       this.assertSameImports(expectedModel, actualModel);
       this.assertSameModelImports(expectedModel, actualModel);

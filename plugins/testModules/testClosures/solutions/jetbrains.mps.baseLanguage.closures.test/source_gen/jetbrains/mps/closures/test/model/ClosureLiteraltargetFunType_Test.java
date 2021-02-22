@@ -61,7 +61,6 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
       new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype));
       this.assertLiteralTarget(genContext, literal, _quotation_createNode_7325qm_c0a6a3i());
     }
-
     public void test_NodeErrorCheck3981396688773519576() throws Exception {
       SNode nodeToCheck = getRealNodeById("6374750171056867612");
       SNode operation = getRealNodeById("3981396688773519576");

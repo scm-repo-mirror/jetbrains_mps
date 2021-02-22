@@ -53,6 +53,5 @@ public class OperandOfDotExpression_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

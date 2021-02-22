@@ -54,7 +54,6 @@ public class GenericMethodCall_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck7254243749546905063() throws Exception {
       SNode nodeToCheck = getRealNodeById("7254243749546841216");
       SNode operation = getRealNodeById("7254243749546905063");

@@ -60,6 +60,5 @@ public class IntroduceFieldFromVarNoInitializer_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

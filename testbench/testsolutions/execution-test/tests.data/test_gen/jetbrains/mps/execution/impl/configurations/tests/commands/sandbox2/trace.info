@@ -30,8 +30,8 @@
       </scope>
       <scope id="3879137142820985162" at="28,0,32,0" />
       <scope id="3879137142820985162" at="39,0,43,0" />
-      <unit id="3879137142820985113" at="33,0,46,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.UsingLangTestCase_Test$TestBody" />
-      <unit id="3879137142820985113" at="17,0,47,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.UsingLangTestCase_Test" />
+      <unit id="3879137142820985113" at="33,0,45,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.UsingLangTestCase_Test$TestBody" />
+      <unit id="3879137142820985113" at="17,0,46,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.UsingLangTestCase_Test" />
     </file>
   </root>
   <root nodeRef="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)/4414733712821357918">
@@ -57,8 +57,8 @@
       </scope>
       <scope id="4414733712821357919" at="29,0,33,0" />
       <scope id="4414733712821357919" at="40,0,44,0" />
-      <unit id="4414733712821357918" at="34,0,47,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.ReadingPropertyTestCase_Test_Test$TestBody" />
-      <unit id="4414733712821357918" at="18,0,48,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.ReadingPropertyTestCase_Test_Test" />
+      <unit id="4414733712821357918" at="34,0,46,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.ReadingPropertyTestCase_Test_Test$TestBody" />
+      <unit id="4414733712821357918" at="18,0,47,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.ReadingPropertyTestCase_Test_Test" />
     </file>
   </root>
   <root nodeRef="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)/5101378672993280081">
@@ -83,8 +83,8 @@
       </scope>
       <scope id="5101378672993280082" at="38,0,41,0" />
       <scope id="5101378672993280082" at="27,0,31,0" />
-      <unit id="5101378672993280081" at="32,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.PropertyIsAvailaibleInMPSTestCase_Test$TestBody" />
-      <unit id="5101378672993280081" at="16,0,45,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.PropertyIsAvailaibleInMPSTestCase_Test" />
+      <unit id="5101378672993280081" at="32,0,43,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.PropertyIsAvailaibleInMPSTestCase_Test$TestBody" />
+      <unit id="5101378672993280081" at="16,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.PropertyIsAvailaibleInMPSTestCase_Test" />
     </file>
   </root>
   <root nodeRef="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)/6339244025082034140">
@@ -109,8 +109,8 @@
       </scope>
       <scope id="6339244025082055679" at="38,0,41,0" />
       <scope id="6339244025082055679" at="27,0,31,0" />
-      <unit id="6339244025082034140" at="32,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.FailedTestCase_Test_Test$TestBody" />
-      <unit id="6339244025082034140" at="16,0,45,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.FailedTestCase_Test_Test" />
+      <unit id="6339244025082034140" at="32,0,43,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.FailedTestCase_Test_Test$TestBody" />
+      <unit id="6339244025082034140" at="16,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.FailedTestCase_Test_Test" />
     </file>
   </root>
   <root nodeRef="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)/6339244025082972090">
@@ -141,8 +141,8 @@
       <scope id="6339244025082972091" at="23,0,27,0" />
       <scope id="6339244025082972091" at="34,47,39,32" />
       <scope id="6339244025082972091" at="34,0,41,0" />
-      <unit id="6339244025082972090" at="28,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.WaitingTestCase_Test_Test$TestBody" />
-      <unit id="6339244025082972090" at="14,0,45,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.WaitingTestCase_Test_Test" />
+      <unit id="6339244025082972090" at="28,0,43,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.WaitingTestCase_Test_Test$TestBody" />
+      <unit id="6339244025082972090" at="14,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.WaitingTestCase_Test_Test" />
     </file>
   </root>
   <root nodeRef="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)/6937584626643047380">
@@ -167,8 +167,8 @@
       </scope>
       <scope id="6937584626643053783" at="38,0,41,0" />
       <scope id="6937584626643053783" at="27,0,31,0" />
-      <unit id="6937584626643047380" at="32,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.SimpleTestCase_Test_Test$TestBody" />
-      <unit id="6937584626643047380" at="16,0,45,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.SimpleTestCase_Test_Test" />
+      <unit id="6937584626643047380" at="32,0,43,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.SimpleTestCase_Test_Test$TestBody" />
+      <unit id="6937584626643047380" at="16,0,44,0" name="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2.SimpleTestCase_Test_Test" />
     </file>
   </root>
 </debug-info>

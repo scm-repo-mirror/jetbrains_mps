@@ -67,7 +67,6 @@ public class ChangeSignatureOfStaticMethod_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

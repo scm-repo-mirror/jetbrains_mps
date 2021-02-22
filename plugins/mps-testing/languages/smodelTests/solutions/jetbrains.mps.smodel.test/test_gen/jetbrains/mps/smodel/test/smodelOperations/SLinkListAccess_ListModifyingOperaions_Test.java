@@ -346,7 +346,6 @@ public class SLinkListAccess_ListModifyingOperaions_Test extends BaseTransformat
       Assert.assertTrue(ListSequence.fromList(SLinkOperations.getChildren(getNodeById("2282909602806268544"), LINKS.child_1_n$IYmu)).isEmpty());
     }
 
-
   }
 
   private static final class CONCEPTS {

@@ -50,6 +50,5 @@ public class CheckInlineCanBePerformed_Test extends BaseTransformationTest {
       Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233546124")).getErrors());
     }
 
-
   }
 }

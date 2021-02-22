@@ -84,7 +84,6 @@ public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
       this.checkTests(vmParams, null, testToSucceed, this.emptyList());
     }
 
-
     public void checkTests(@Nullable String vmParams, @Nullable File workingDir, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {
       try {
         List<ITestNodeWrapper> allTests = ListSequence.fromList(testsToSucceed).union(ListSequence.fromList(testsToFail)).toListSequence();

@@ -53,6 +53,5 @@ public class ConvertAnonymousWithTypeVariablesTest_Test extends BaseTransformati
       }
     }
 
-
   }
 }

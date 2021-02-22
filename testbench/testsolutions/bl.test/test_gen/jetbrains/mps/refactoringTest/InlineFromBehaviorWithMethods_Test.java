@@ -55,6 +55,5 @@ public class InlineFromBehaviorWithMethods_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

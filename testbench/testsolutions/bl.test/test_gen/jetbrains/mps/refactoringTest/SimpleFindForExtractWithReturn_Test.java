@@ -62,6 +62,5 @@ public class SimpleFindForExtractWithReturn_Test extends BaseTransformationTest 
       }
     }
 
-
   }
 }

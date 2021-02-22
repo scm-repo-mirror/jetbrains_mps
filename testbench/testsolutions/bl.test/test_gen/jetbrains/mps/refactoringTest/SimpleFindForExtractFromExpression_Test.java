@@ -62,6 +62,5 @@ public class SimpleFindForExtractFromExpression_Test extends BaseTransformationT
       }
     }
 
-
   }
 }

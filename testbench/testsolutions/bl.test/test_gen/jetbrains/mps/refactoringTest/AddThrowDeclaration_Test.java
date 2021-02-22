@@ -62,7 +62,6 @@ public class AddThrowDeclaration_Test extends BaseTransformationTest {
       }
     }
 
-
     private static SNode _quotation_createNode_njbq9a_a0a3a3h() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNode quotedNode_1 = null;

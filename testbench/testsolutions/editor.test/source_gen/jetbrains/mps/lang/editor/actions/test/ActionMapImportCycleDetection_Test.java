@@ -54,7 +54,6 @@ public class ActionMapImportCycleDetection_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeCycleInImportsCheck4205244270189351140() throws Exception {
       SNode nodeToCheck = getRealNodeById("4205244270189351135");
       SNode operation = getRealNodeById("4205244270189351140");

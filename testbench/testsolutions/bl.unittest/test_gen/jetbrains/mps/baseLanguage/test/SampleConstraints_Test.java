@@ -50,7 +50,6 @@ public class SampleConstraints_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeVariableHasNotBeenInitializedErrorCheck2675718132411786724() throws Exception {
       SNode nodeToCheck = getRealNodeById("7638302724810915512");
       SNode operation = getRealNodeById("2675718132411786724");

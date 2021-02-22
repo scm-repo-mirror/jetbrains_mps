@@ -60,6 +60,5 @@ public class IntroduceFinalFieldNoConstructor2_Test extends BaseTransformationTe
       }
     }
 
-
   }
 }

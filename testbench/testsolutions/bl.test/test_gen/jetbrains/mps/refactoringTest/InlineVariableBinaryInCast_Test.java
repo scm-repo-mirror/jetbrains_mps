@@ -53,6 +53,5 @@ public class InlineVariableBinaryInCast_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

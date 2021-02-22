@@ -57,7 +57,6 @@ public class FeedbackIncorrectConceptInRole_Test extends BaseTransformationTest 
       super(owner);
     }
 
-
     public void test_NodeErrorCheck116705030629664053() throws Exception {
       SNode nodeToCheck = getRealNodeById("116705030628902880");
       SNode operation = getRealNodeById("116705030629664053");

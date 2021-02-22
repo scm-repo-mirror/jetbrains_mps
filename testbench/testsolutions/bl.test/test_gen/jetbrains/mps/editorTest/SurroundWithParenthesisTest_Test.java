@@ -73,6 +73,5 @@ public class SurroundWithParenthesisTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

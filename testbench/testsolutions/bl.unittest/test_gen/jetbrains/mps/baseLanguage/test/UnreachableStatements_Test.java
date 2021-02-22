@@ -118,7 +118,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeUnusedLocalVariableCheck5924873649943434426() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451236689");
       SNode operation = getRealNodeById("5924873649943434426");

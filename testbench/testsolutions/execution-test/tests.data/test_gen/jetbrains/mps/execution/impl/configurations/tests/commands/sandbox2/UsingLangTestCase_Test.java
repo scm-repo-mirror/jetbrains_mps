@@ -41,6 +41,5 @@ public class UsingLangTestCase_Test extends BaseTransformationTest {
       Assert.assertFalse(false);
     }
 
-
   }
 }

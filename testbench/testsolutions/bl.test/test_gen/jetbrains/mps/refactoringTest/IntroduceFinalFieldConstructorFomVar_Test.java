@@ -60,6 +60,5 @@ public class IntroduceFinalFieldConstructorFomVar_Test extends BaseTransformatio
       }
     }
 
-
   }
 }

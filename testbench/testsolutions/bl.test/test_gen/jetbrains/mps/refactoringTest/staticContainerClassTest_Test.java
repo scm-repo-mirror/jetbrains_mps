@@ -69,7 +69,6 @@ public class staticContainerClassTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 
   private static final class LINKS {

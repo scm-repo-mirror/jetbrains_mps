@@ -52,6 +52,5 @@ public class ConvertAnonymousGenGenericFields_Test extends BaseTransformationTes
       }
     }
 
-
   }
 }

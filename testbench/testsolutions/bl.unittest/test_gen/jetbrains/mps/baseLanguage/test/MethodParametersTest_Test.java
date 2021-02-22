@@ -63,7 +63,6 @@ public class MethodParametersTest_Test extends BaseTransformationTest {
       // Check statement was moved to node annotation 
       // check <node>error messages 
     }
-
     public void test_NodeVariableHasNotBeenInitializedErrorCheck6923385624927544278() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451230144");
       SNode operation = getRealNodeById("6923385624927544278");

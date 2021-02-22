@@ -58,7 +58,6 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
       this.check(_quotation_createNode_p8h609_a0a0a4i(), true || false == false);
     }
 
-
     public void check(SNode expr, Object expectedValue) {
       this.expressionPriorityRebalance(expr);
       Assert.assertEquals(expectedValue, this.eval(SLinkOperations.getTarget(expr, LINKS.expression$TlhM)));

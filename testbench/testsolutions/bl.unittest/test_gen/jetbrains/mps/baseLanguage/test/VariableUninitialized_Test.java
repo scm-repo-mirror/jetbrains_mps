@@ -61,7 +61,6 @@ public class VariableUninitialized_Test extends BaseTransformationTest {
     public void test_VariableUninitialized() throws Exception {
       addNodeById("1217271587658");
     }
-
     public void test_NodeVariableHasNotBeenInitializedErrorCheck6923385624928777982() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451229641");
       SNode operation = getRealNodeById("6923385624928777982");

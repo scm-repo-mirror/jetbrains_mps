@@ -534,7 +534,6 @@ public class NullableAnalyzer_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeOperationCanProduceNPECheck6923385624927436728() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451228209");
       SNode operation = getRealNodeById("6923385624927436728");

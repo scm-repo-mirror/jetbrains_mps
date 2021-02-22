@@ -57,8 +57,8 @@
         <var name="lineSeparator" id="6926353569063795877" />
       </scope>
       <scope id="3197704031717961592" at="40,0,59,0" />
-      <unit id="3197704031717961581" at="34,0,62,0" name="jetbrains.mps.testActions.test.ActionsTest_Test$TestBody" />
-      <unit id="3197704031717961581" at="18,0,63,0" name="jetbrains.mps.testActions.test.ActionsTest_Test" />
+      <unit id="3197704031717961581" at="34,0,61,0" name="jetbrains.mps.testActions.test.ActionsTest_Test$TestBody" />
+      <unit id="3197704031717961581" at="18,0,62,0" name="jetbrains.mps.testActions.test.ActionsTest_Test" />
     </file>
   </root>
 </debug-info>

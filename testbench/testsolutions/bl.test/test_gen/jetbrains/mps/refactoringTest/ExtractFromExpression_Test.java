@@ -57,6 +57,5 @@ public class ExtractFromExpression_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

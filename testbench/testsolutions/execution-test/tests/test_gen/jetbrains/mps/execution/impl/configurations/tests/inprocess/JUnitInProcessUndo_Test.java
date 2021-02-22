@@ -59,7 +59,6 @@ public class JUnitInProcessUndo_Test extends BaseTransformationTest {
       this.checkTests(wrappedTests, ListSequence.fromList(new ArrayList<ITestNodeWrapper>()));
     }
 
-
     public SModel getMyModel() {
       return PersistenceFacade.getInstance().createModelReference("r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)").resolve(myProject.getRepository());
     }

@@ -76,6 +76,5 @@ public class ExtractDefaultClassifierMethodDeclaration_Test extends BaseTransfor
       }
     }
 
-
   }
 }

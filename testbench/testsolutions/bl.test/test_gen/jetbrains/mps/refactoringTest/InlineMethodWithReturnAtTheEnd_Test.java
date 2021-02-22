@@ -53,6 +53,5 @@ public class InlineMethodWithReturnAtTheEnd_Test extends BaseTransformationTest 
       }
     }
 
-
   }
 }

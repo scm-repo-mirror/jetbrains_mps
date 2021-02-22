@@ -50,7 +50,6 @@ public class UnwrappedTernaryOperator_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeTernaryOperatorMustBeCheck818296778600411956() throws Exception {
       SNode nodeToCheck = getRealNodeById("818296778600403614");
       SNode operation = getRealNodeById("818296778600411956");

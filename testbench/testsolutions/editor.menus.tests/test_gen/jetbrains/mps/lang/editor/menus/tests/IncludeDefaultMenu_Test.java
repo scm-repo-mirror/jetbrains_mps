@@ -55,7 +55,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669727090() throws Exception {
       SNode nodeToCheck = getRealNodeById("8095208975669432956");
       SNode operation = getRealNodeById("8095208975669727090");

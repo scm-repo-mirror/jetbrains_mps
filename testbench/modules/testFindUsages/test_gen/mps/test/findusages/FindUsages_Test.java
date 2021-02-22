@@ -93,7 +93,6 @@ public class FindUsages_Test extends BaseTransformationTest {
       Assert.assertTrue(resultObjects.contains(this.m2()));
     }
 
-
     public SModel m1() {
       return SPointerOperations.resolveModel(PersistenceFacade.getInstance().createModelReference("r:f0b2a91b-3c1d-49c2-b104-70549000f428(mps.test.findusages.m1)"), myProject.getRepository());
     }

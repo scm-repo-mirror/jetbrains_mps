@@ -43,43 +43,43 @@
       <node id="7357908728869709859" at="90,56,91,74" concept="6" />
       <node id="5144164107073305686" at="91,74,92,59" concept="1" />
       <node id="7357908728869694551" at="92,59,93,59" concept="1" />
-      <node id="5144164107073148245" at="97,24,98,192" concept="5" />
-      <node id="5144164107073203695" at="100,24,101,192" concept="5" />
-      <node id="5144164107073265847" at="103,45,104,183" concept="4" />
-      <node id="5144164107073271020" at="108,47,109,51" concept="5" />
+      <node id="5144164107073148245" at="96,24,97,192" concept="5" />
+      <node id="5144164107073203695" at="99,24,100,192" concept="5" />
+      <node id="5144164107073265847" at="102,45,103,183" concept="4" />
+      <node id="5144164107073271020" at="107,47,108,51" concept="5" />
       <node id="5144164107073146701" at="39,0,41,0" concept="7" trace="ourParamCache" />
       <node id="5144164107073146701" at="41,0,43,0" concept="2" trace="myWithCommandRule" />
       <node id="5144164107073146701" at="44,0,47,0" concept="0" trace="FindUsages_Test#()V" />
       <node id="5144164107073146701" at="59,0,62,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="5144164107073148127" at="97,0,100,0" concept="3" trace="m1#()Lorg/jetbrains/mps/openapi/model/SModel;" />
-      <node id="5144164107073203692" at="100,0,103,0" concept="3" trace="m2#()Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="5144164107073148127" at="96,0,99,0" concept="3" trace="m1#()Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="5144164107073203692" at="99,0,102,0" concept="3" trace="m2#()Lorg/jetbrains/mps/openapi/model/SModel;" />
       <node id="5144164107073146718" at="48,0,52,0" concept="3" trace="test_FindLanguageConceptNodes#()V" />
       <node id="5144164107073146733" at="52,0,56,0" concept="3" trace="test_FindLanguageModuleUsage#()V" />
-      <node id="5144164107073270340" at="106,0,111,0" concept="3" trace="getModules#()Ljava/lang/Iterable;" />
-      <node id="5144164107073266110" at="104,183,111,8" concept="5" />
-      <node id="5144164107073259811" at="103,0,113,0" concept="3" trace="getTestModuleScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
+      <node id="5144164107073270340" at="105,0,110,0" concept="3" trace="getModules#()Ljava/lang/Iterable;" />
+      <node id="5144164107073266110" at="103,183,110,8" concept="5" />
+      <node id="5144164107073259811" at="102,0,112,0" concept="3" trace="getTestModuleScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
       <node id="5144164107073146718" at="63,0,76,0" concept="3" trace="test_FindLanguageConceptNodes#()V" />
       <node id="5144164107073146733" at="76,0,95,0" concept="3" trace="test_FindLanguageModuleUsage#()V" />
       <scope id="5144164107073146701" at="44,28,45,25" />
       <scope id="5144164107073146718" at="49,64,50,55" />
       <scope id="5144164107073146733" at="53,63,54,54" />
       <scope id="5144164107073146701" at="59,52,60,19" />
-      <scope id="5144164107073148127" at="97,24,98,192" />
-      <scope id="5144164107073203692" at="100,24,101,192" />
-      <scope id="5144164107073270346" at="108,47,109,51" />
+      <scope id="5144164107073148127" at="96,24,97,192" />
+      <scope id="5144164107073203692" at="99,24,100,192" />
+      <scope id="5144164107073270346" at="107,47,108,51" />
       <scope id="5144164107073146701" at="44,0,47,0" />
       <scope id="5144164107073146701" at="59,0,62,0">
         <var name="owner" id="5144164107073146701" />
       </scope>
-      <scope id="5144164107073148127" at="97,0,100,0" />
-      <scope id="5144164107073203692" at="100,0,103,0" />
+      <scope id="5144164107073148127" at="96,0,99,0" />
+      <scope id="5144164107073203692" at="99,0,102,0" />
       <scope id="5144164107073146718" at="48,0,52,0" />
       <scope id="5144164107073146733" at="52,0,56,0" />
-      <scope id="5144164107073270340" at="106,0,111,0" />
-      <scope id="5144164107073259811" at="103,45,111,8">
+      <scope id="5144164107073270340" at="105,0,110,0" />
+      <scope id="5144164107073259811" at="102,45,110,8">
         <var name="testModule" id="5144164107073265848" />
       </scope>
-      <scope id="5144164107073259811" at="103,0,113,0" />
+      <scope id="5144164107073259811" at="102,0,112,0" />
       <scope id="5144164107073146718" at="63,66,74,61">
         <var name="query" id="5144164107073207329" />
         <var name="r" id="5144164107073425282" />
@@ -94,9 +94,9 @@
         <var name="sr" id="5144164107073253839" />
       </scope>
       <scope id="5144164107073146733" at="76,0,95,0" />
-      <unit id="5144164107073270334" at="105,17,111,7" name="mps.test.findusages.FindUsages_Test$TestBody$1" />
-      <unit id="5144164107073146701" at="57,0,114,0" name="mps.test.findusages.FindUsages_Test$TestBody" />
-      <unit id="5144164107073146701" at="37,0,115,0" name="mps.test.findusages.FindUsages_Test" />
+      <unit id="5144164107073270334" at="104,17,110,7" name="mps.test.findusages.FindUsages_Test$TestBody$1" />
+      <unit id="5144164107073146701" at="57,0,113,0" name="mps.test.findusages.FindUsages_Test$TestBody" />
+      <unit id="5144164107073146701" at="37,0,114,0" name="mps.test.findusages.FindUsages_Test" />
     </file>
   </root>
 </debug-info>

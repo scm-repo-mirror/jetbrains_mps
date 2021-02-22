@@ -54,6 +54,5 @@ public class InlineInsideClosure_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

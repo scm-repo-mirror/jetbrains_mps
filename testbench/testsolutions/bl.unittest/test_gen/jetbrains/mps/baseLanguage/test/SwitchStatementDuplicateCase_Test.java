@@ -62,7 +62,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeDuplicateCaseCheck6427750727968830896() throws Exception {
       SNode nodeToCheck = getRealNodeById("6427750727968830706");
       SNode operation = getRealNodeById("6427750727968830896");

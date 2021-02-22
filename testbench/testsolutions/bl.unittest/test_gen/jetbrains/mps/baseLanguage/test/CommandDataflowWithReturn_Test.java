@@ -40,7 +40,6 @@ public class CommandDataflowWithReturn_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_ErrorMessagesCheck1229350096076() throws Exception {
       SNode nodeToCheck = getRealNodeById("1229349840377");
       SNode operation = getRealNodeById("1229350096076");

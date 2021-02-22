@@ -61,7 +61,6 @@ public class JUnitInProcessTermination_Test extends BaseTransformationTest {
       this.startAndTerminate(new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6339244025082972090")));
     }
 
-
     public void startAndTerminate(final List<ITestNodeWrapper> testNodes) {
       try {
         final TestRunState runState = new TestRunState(testNodes);

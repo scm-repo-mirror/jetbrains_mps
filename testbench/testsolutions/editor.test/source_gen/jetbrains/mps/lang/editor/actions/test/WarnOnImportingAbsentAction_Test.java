@@ -39,7 +39,6 @@ public class WarnOnImportingAbsentAction_Test extends BaseTransformationTest {
       super(owner);
     }
 
-
     public void test_NodeImportHasNoEffectCheck858085313517684344() throws Exception {
       SNode nodeToCheck = getRealNodeById("1465006755395151322");
       SNode operation = getRealNodeById("858085313517684344");

@@ -53,6 +53,5 @@ public class InlineVariableBinaryInBinaryOnDeclaration_Test extends BaseTransfor
       }
     }
 
-
   }
 }

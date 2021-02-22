@@ -100,7 +100,6 @@ public class TestDepViewer_Test extends BaseTransformationTest {
       Assert.assertTrue(refSearchResults.getSearchResults2().isEmpty());
     }
 
-
     public SModel model1() {
       return PersistenceFacade.getInstance().createModelReference("r:c3326453-994c-4682-b1cc-f65f3d656c0f(tests.testDepViewer.model1)").resolve(myProject.getRepository());
     }

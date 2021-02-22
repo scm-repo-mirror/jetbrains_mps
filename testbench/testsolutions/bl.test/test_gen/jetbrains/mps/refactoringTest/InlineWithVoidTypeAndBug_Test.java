@@ -53,6 +53,5 @@ public class InlineWithVoidTypeAndBug_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

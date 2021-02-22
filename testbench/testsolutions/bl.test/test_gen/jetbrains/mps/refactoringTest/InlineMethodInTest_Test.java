@@ -53,6 +53,5 @@ public class InlineMethodInTest_Test extends BaseTransformationTest {
       }
     }
 
-
   }
 }

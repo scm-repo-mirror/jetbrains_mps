@@ -55,7 +55,6 @@ public class FeedbackPropConstraintsAreBroken_Test extends BaseTransformationTes
       super(owner);
     }
 
-
     public void test_NodeUnknownRuleCheck2884486869351401623() throws Exception {
       SNode nodeToCheck = getRealNodeById("3071492597344664119");
       SNode operation = getRealNodeById("2884486869351401623");

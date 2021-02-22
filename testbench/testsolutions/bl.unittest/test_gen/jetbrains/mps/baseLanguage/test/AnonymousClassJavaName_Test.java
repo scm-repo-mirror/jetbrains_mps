@@ -47,7 +47,6 @@ public class AnonymousClassJavaName_Test extends BaseTransformationTest {
       assert AnonymousClass__BehaviorDescriptor.getJavaName_id2_jKYQ0K_an.invoke(SLinkOperations.getTarget(getNodeById("7102466869931833255"), LINKS.cls$Saf6)).endsWith("Foo$Bar$3$Baz$1");
     }
 
-
   }
 
   private static final class LINKS {
