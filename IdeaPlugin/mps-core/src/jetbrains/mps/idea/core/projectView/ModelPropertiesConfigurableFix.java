@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 
 import java.util.HashSet;
-import java.util.stream.Collectors;
 
 /**
  * MPS-as-IDEA plugin needs to additionally process languages added to a model.
@@ -65,6 +64,6 @@ public class ModelPropertiesConfigurableFix extends ModelPropertiesConfigurable 
     if (languagesAdded.isEmpty()) {
       return;
     }
-    ModuleMPSSupport.getInstance().fixImports(ideaModule, languagesAdded.stream().map(SLanguage::getSourceModuleReference).collect(Collectors.toSet()));
+    ModuleMPSSupport.getInstance().fixImports(ideaModule, languagesAdded);
   }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.vfs.IFile;
-import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 
 import java.util.Collection;
@@ -77,7 +77,7 @@ public abstract class ModuleMPSSupport {
         }).findFirst();
 
         if (suitableSourceRoot.isPresent()) {
-          return new Pair<DefaultModelRoot, SourceRoot>((DefaultModelRoot) modelRoot, suitableSourceRoot.get());
+          return new Pair<>((DefaultModelRoot) modelRoot, suitableSourceRoot.get());
         }
       }
     }
@@ -87,6 +87,6 @@ public abstract class ModuleMPSSupport {
   /**
    * Called when the model gets new language imports
    */
-  public void fixImports(Module module, Collection<SModuleReference> addedLanguages) {
+  public void fixImports(Module module, Collection<SLanguage> addedLanguages) {
   }
 }
