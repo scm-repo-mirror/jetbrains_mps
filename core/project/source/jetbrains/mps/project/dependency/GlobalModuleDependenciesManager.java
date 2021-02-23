@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,11 +42,12 @@ public class GlobalModuleDependenciesManager {
 
   private final Set<SModule> myModules;
   @NotNull private final ErrorHandler myHandler;
-  private final UsedModulesCollector myUsedModulesCollector = new UsedModulesCollector();
+  private final UsedModulesCollector myUsedModulesCollector;
 
   public GlobalModuleDependenciesManager(Collection<? extends SModule> modules, @NotNull ErrorHandler handler) {
     myModules = new HashSet<>(modules);
     myHandler = handler;
+    myUsedModulesCollector = new UsedModulesCollector(handler);
   }
 
   public GlobalModuleDependenciesManager(Collection<? extends SModule> modules) {
@@ -121,7 +122,7 @@ public class GlobalModuleDependenciesManager {
   private Set<SModule> collectNeighbours(Deptype depType) {
     HashSet<SModule> result = new HashSet<>();
     for (SModule module : myModules) {
-      result.addAll(myUsedModulesCollector.directlyUsedModules(module, myHandler, true, depType.runtimes));
+      result.addAll(myUsedModulesCollector.directlyUsedModules(module, true, depType.runtimes));
     }
     result.addAll(myModules);
     return result;
@@ -130,7 +131,7 @@ public class GlobalModuleDependenciesManager {
   private void collect(SModule current, Set<SModule> result, Deptype depType) {
     if (!result.contains(current)) {
       result.add(current);
-      for (SModule m : myUsedModulesCollector.directlyUsedModules(current, myHandler, depType.reexportAll, depType.runtimes)) {
+      for (SModule m : myUsedModulesCollector.directlyUsedModules(current, depType.reexportAll, depType.runtimes)) {
         collect(m, result, depType);
       }
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,24 +37,36 @@ import static org.jetbrains.mps.openapi.module.SDependencyScope.GENERATES_INTO;
 
 /**
  * FIXME need to specify explicit contract what modules this class expects to receive (either deployed or from project), what are model access expectations,
- * and what does 'used module' means here. There are quite suspicious uses of the class in ModuleRuntimeLibrariesImporter.
+ * and what does 'used module' means here.
  * User: shatalin
  * Date: 19/11/15
  */
 @Immutable
 public final class UsedModulesCollector {
-  private final Map<SLanguage, Collection<SModuleReference>> myLanguageRuntimesCache = new HashMap<>();
+  private final Map<SLanguage, Collection<SModuleReference>> myLanguageRuntimesCache;
+  private final ErrorHandler myErrorHandler;
 
   public UsedModulesCollector() {
+    this(new PostingWarningsErrorHandler());
   }
 
-  @NotNull
-  public Collection<SModule> directlyUsedModules(@NotNull SModule module, boolean includeNonReexport, boolean runtimes) {
-    return directlyUsedModules(module, new PostingWarningsErrorHandler(), includeNonReexport, runtimes);
+  public UsedModulesCollector(ErrorHandler errorHandler) {
+    myErrorHandler = errorHandler;
+    myLanguageRuntimesCache = new HashMap<>();
+  }
+
+  private UsedModulesCollector(ErrorHandler errorHandler, UsedModulesCollector copy) {
+    myErrorHandler = errorHandler;
+    myLanguageRuntimesCache = copy.myLanguageRuntimesCache;
   }
 
   @NotNull
   public Collection<SModule> directlyUsedModules(@NotNull SModule module, @NotNull ErrorHandler handler, boolean includeNonReexport, boolean runtimes) {
+    return new UsedModulesCollector(handler, this).directlyUsedModules(module, includeNonReexport, runtimes);
+  }
+
+  @NotNull
+  public Collection<SModule> directlyUsedModules(@NotNull SModule module, boolean includeNonReexport, boolean runtimes) {
     Set<SModule> result = new HashSet<>();
     for (SDependency dependency : module.getDeclaredDependencies()) {
       SModule dependencyModule = dependency.getTarget();
@@ -67,7 +79,7 @@ public final class UsedModulesCollector {
         }
       } else {
         if (scope != GENERATES_INTO && scope != DESIGN) {
-          handler.depCannotBeResolved(module, dependency);
+          myErrorHandler.depCannotBeResolved(module, dependency);
         }
       }
     }
@@ -79,10 +91,10 @@ public final class UsedModulesCollector {
         // FIXME in fact, it's caller responsibility to ensure proper read access with supplied SModule.
         //       Read access added here just in case clients relied on ModuleRepositoryFacade.getModule(), which obtains read access when needed
         contextRepo.getModelAccess().runReadAction(() -> {
-          for (SModuleReference mr : new RuntimesOfUsedLanguageCalculator(myLanguageRuntimesCache, handler).invoke(module)) {
+          for (SModuleReference mr : new RuntimesOfUsedLanguageCalculator(myLanguageRuntimesCache, myErrorHandler).invoke(module)) {
             SModule m = mr.resolve(contextRepo);
             if (m == null) {
-              handler.runtimeDependencyCannotBeFound(mr);
+              myErrorHandler.runtimeDependencyCannotBeFound(mr);
             } else {
               result.add(m);
             }
