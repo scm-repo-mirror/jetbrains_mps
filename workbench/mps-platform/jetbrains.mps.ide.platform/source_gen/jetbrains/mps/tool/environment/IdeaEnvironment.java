@@ -184,6 +184,7 @@ public final class IdeaEnvironment extends EnvironmentBase {
       System.setProperty(PERF_LOG_KEY, Boolean.FALSE.toString());
     }
     System.setProperty("ide.new.project.model", Boolean.toString(false));
+    System.setProperty("ide.open.readme.md.on.startup", Boolean.toString(false));
     if (myConfig.isTestMode()) {
       String oldValue = System.getProperty(CREATE_PLUGIN_CLASSLOADERS);
       if (oldValue == null) {

@@ -1772,6 +1772,20 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="5XadiMejEyU" role="3cqZAp">
+          <node concept="2YIFZM" id="5XadiMejEyV" role="3clFbG">
+            <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+            <ref role="37wK5l" to="wyt6:~System.setProperty(java.lang.String,java.lang.String)" resolve="setProperty" />
+            <node concept="Xl_RD" id="5XadiMejEyW" role="37wK5m">
+              <property role="Xl_RC" value="ide.open.readme.md.on.startup" />
+            </node>
+            <node concept="2YIFZM" id="5XadiMejEyX" role="37wK5m">
+              <ref role="1Pybhc" to="wyt6:~Boolean" resolve="Boolean" />
+              <ref role="37wK5l" to="wyt6:~Boolean.toString(boolean)" resolve="toString" />
+              <node concept="3clFbT" id="5XadiMejEyY" role="37wK5m" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="4OPNMy2cD0Q" role="3cqZAp">
           <node concept="3clFbS" id="4OPNMy2cD0S" role="3clFbx">
             <node concept="3cpWs8" id="2Tuefk2gna7" role="3cqZAp">
