@@ -25,6 +25,7 @@ import jetbrains.mps.nodeEditor.EditorMessage;
 import jetbrains.mps.nodeEditor.checking.UpdateResult;
 import jetbrains.mps.nodeEditor.checking.UpdateResult.Completed;
 import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.TypecheckingSession;
 import jetbrains.mps.typesystem.LegacyTypecheckingProvider;
 import jetbrains.mps.typesystem.LegacyTypecheckingQueries;
@@ -70,7 +71,12 @@ public class NonTypesystemEditorChecker extends AbstractTypesystemEditorChecker 
                                           final Cancellable cancellable,
                                           final boolean applyQuickFixes)
   {
+    TypecheckingQueries typecheckingQueries = session.getQueries(rootNode);
     LegacyTypecheckingQueries legacyTypesystemQueries = session.getQueries(LegacyTypecheckingQueries.class);
+    if (typecheckingQueries == null || legacyTypesystemQueries == null) {
+      return UpdateResult.CANCELLED;
+    }
+
     TypeCheckingContext context = legacyTypesystemQueries.getTypeCheckingContext();
 
     if (!(context instanceof IncrementalTypecheckingContext)) {
@@ -86,9 +92,9 @@ public class NonTypesystemEditorChecker extends AbstractTypesystemEditorChecker 
       boolean messagesChanged = false;
 
       //non-typesystem checks
-      if (!(wasCheckedOnce && typesComponent.isChecked(true))) {
+      if (!(wasCheckedOnce && typesComponent.isCheckedNonTypesystem())) {
         // first, the types have to be updated, as later non-typesystem rules will rely on them
-        context.checkIfNotChecked(rootNode, false);
+        typecheckingQueries.checkRecursively(rootNode, nodeReportItem -> {/*NOP*/});
         try {
           messagesChanged = true;
           context.setNonTypesystemComputationMode(NonTypesystemComputationMode.ON_THE_FLY);

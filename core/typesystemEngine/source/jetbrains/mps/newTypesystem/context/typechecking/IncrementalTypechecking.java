@@ -273,6 +273,7 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
   }
 
   public boolean isCheckedNonTypesystem() {
+    processPendingEvents();
     return myNonTypeSystemComponent.isChecked();
   }
 
