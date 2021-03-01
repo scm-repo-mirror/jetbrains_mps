@@ -202,7 +202,6 @@
     <classNode extendsClassName="jetbrains.mps.internalCollections.test.closures.Util_Test" />
   </dependency>
   <dependency className="jetbrains.mps.internalCollections.test.closures.Util_Test">
-    <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.Integer" />
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />
@@ -214,8 +213,6 @@
     <classNode dependClassName="java.util.Iterator" />
     <classNode dependClassName="java.util.NoSuchElementException" />
     <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Ignore" />
-    <classNode dependClassName="org.junit.Test" />
   </dependency>
   <dependency className="jetbrains.mps.internalCollections.test.closures.VisitAll_Test">
     <classNode dependClassName="java.lang.Exception" />
