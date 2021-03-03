@@ -4307,6 +4307,9 @@
                 <property role="2Ry0Am" value="jaxb-api-2.3.1.jar" />
               </node>
             </node>
+            <node concept="3yrxFa" id="3XxDNGOUURO" role="2gdwQb">
+              <ref role="3yrxFb" node="3XxDNGOUU$a" />
+            </node>
           </node>
         </node>
         <node concept="1SiIV0" id="6U$p2g0plTr" role="3bR37C">
@@ -4316,6 +4319,9 @@
               <node concept="2Ry0Ak" id="6U$p2g0plTk" role="iGT6I">
                 <property role="2Ry0Am" value="jaxb-runtime-2.3.1.jar" />
               </node>
+            </node>
+            <node concept="3yrxFa" id="3XxDNGOUVi3" role="2gdwQb">
+              <ref role="3yrxFb" node="3XxDNGOUUBt" />
             </node>
           </node>
         </node>
@@ -25793,6 +25799,20 @@
         <node concept="3_J27D" id="4LdE6kxkoZ4" role="13uQ07">
           <node concept="3Mxwew" id="4LdE6kxkoZS" role="3MwsjC">
             <property role="3MwjfP" value="idea.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="3XxDNGOUU$a" role="39821P">
+        <node concept="3_J27D" id="3XxDNGOUU$c" role="13uQ07">
+          <node concept="3Mxwew" id="3XxDNGOUU_M" role="3MwsjC">
+            <property role="3MwjfP" value="jaxb-api-2.3.1.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="3XxDNGOUUBt" role="39821P">
+        <node concept="3_J27D" id="3XxDNGOUUBu" role="13uQ07">
+          <node concept="3Mxwew" id="3XxDNGOUUBv" role="3MwsjC">
+            <property role="3MwjfP" value="jaxb-runtime-2.3.1.jar" />
           </node>
         </node>
       </node>
