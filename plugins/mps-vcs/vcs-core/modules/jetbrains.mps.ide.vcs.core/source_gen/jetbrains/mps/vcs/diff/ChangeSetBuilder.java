@@ -165,14 +165,9 @@ public class ChangeSetBuilder {
     SNodeId oldTargetId = (oldReference instanceof DynamicReference ? null : check_nbyrtw_a0a2a42(oldReference));
     SNodeId newTargetId = (newReference instanceof DynamicReference ? null : check_nbyrtw_a0a3a42(newReference));
     SModelReference oldTargetModel = check_nbyrtw_a0e0y(oldReference);
-    if (SNodeOperations.getModel(oldNode).getReference().equals(oldTargetModel)) {
-      oldTargetModel = null;
-    }
-    SModelReference newTargetModel = check_nbyrtw_a0g0y(newReference);
-    if (SNodeOperations.getModel(newNode).getReference().equals(newTargetModel)) {
-      newTargetModel = null;
-    }
-    return Objects.equals(oldTargetId, newTargetId) && Objects.equals(oldTargetModel, newTargetModel) && Objects.equals(check_nbyrtw_a0a8a42(((jetbrains.mps.smodel.SReference) oldReference)), check_nbyrtw_a0a8a42_0(((jetbrains.mps.smodel.SReference) newReference)));
+    SModelReference newTargetModel = check_nbyrtw_a0f0y(newReference);
+    boolean modelsEquals = Objects.equals(oldTargetModel, newTargetModel) || (SNodeOperations.getModel(oldNode).getReference().equals(oldTargetModel) && SNodeOperations.getModel(newNode).getReference().equals(newTargetModel));
+    return Objects.equals(oldTargetId, newTargetId) && modelsEquals && Objects.equals(check_nbyrtw_a0a7a42(((jetbrains.mps.smodel.SReference) oldReference)), check_nbyrtw_a0a7a42_0(((jetbrains.mps.smodel.SReference) newReference)));
   }
 
   public void buildForReference(SNode oldNode, SNode newNode, SReferenceLink role) {
@@ -616,19 +611,19 @@ public class ChangeSetBuilder {
     }
     return null;
   }
-  private static SModelReference check_nbyrtw_a0g0y(SReference checkedDotOperand) {
+  private static SModelReference check_nbyrtw_a0f0y(SReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getTargetSModelReference();
     }
     return null;
   }
-  private static String check_nbyrtw_a0a8a42(jetbrains.mps.smodel.SReference checkedDotOperand) {
+  private static String check_nbyrtw_a0a7a42(jetbrains.mps.smodel.SReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getResolveInfo();
     }
     return null;
   }
-  private static String check_nbyrtw_a0a8a42_0(jetbrains.mps.smodel.SReference checkedDotOperand) {
+  private static String check_nbyrtw_a0a7a42_0(jetbrains.mps.smodel.SReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getResolveInfo();
     }
