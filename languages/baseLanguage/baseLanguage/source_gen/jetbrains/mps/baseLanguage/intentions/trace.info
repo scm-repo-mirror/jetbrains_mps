@@ -3468,24 +3468,32 @@
       <node id="1225762468790378154" at="31,35,32,66" concept="11" />
       <node id="1225762468790378154" at="36,53,37,19" concept="11" />
       <node id="1225762468790378154" at="38,5,39,16" concept="11" />
-      <node id="1225762468790386899" at="41,91,42,171" concept="11" />
+      <node id="1225762468790386899" at="41,91,42,240" concept="11" />
       <node id="1225762468790378154" at="45,35,46,17" concept="11" />
       <node id="1225762468790378154" at="49,37,50,105" concept="5" />
       <node id="1225762468790378154" at="51,5,52,30" concept="11" />
       <node id="1225762468790385362" at="58,87,59,69" concept="11" />
       <node id="1225762468790406250" at="62,78,63,200" concept="10" />
       <node id="1225762468791903088" at="63,200,64,86" concept="5" />
-      <node id="1225762468790437210" at="64,86,65,54" concept="5" />
-      <node id="1225762468790408894" at="65,54,66,27" concept="10" />
-      <node id="1225762468790432093" at="67,10,68,121" concept="10" />
-      <node id="1225762468790432349" at="68,121,69,72" concept="5" />
-      <node id="1225762468790443119" at="69,72,70,61" concept="10" />
-      <node id="1225762468790443286" at="70,61,71,44" concept="5" />
-      <node id="1225762468790412027" at="71,44,72,23" concept="5" />
-      <node id="1225762468790378154" at="76,48,77,81" concept="11" />
-      <node id="1225762468790378154" at="82,0,83,0" concept="14" trace="line$9eiT" />
-      <node id="1225762468790378154" at="83,0,84,0" concept="14" trace="lines$lpTr" />
-      <node id="1225762468790378154" at="87,0,88,0" concept="14" trace="SingleLineComment$Kw" />
+      <node id="840268415156080543" at="64,86,65,91" concept="5" />
+      <node id="1225762468790437210" at="65,91,66,54" concept="5" />
+      <node id="1225762468790408894" at="66,54,67,27" concept="10" />
+      <node id="1225762468790432093" at="69,12,70,123" concept="10" />
+      <node id="1225762468790432349" at="70,123,71,74" concept="5" />
+      <node id="1225762468790443119" at="71,74,72,63" concept="10" />
+      <node id="1225762468790443286" at="72,63,73,46" concept="5" />
+      <node id="1225762468790412027" at="73,46,74,25" concept="5" />
+      <node id="840268415156119118" at="77,12,78,128" concept="10" />
+      <node id="840268415156119126" at="78,128,79,78" concept="5" />
+      <node id="840268415156119131" at="79,78,80,63" concept="10" />
+      <node id="840268415156119137" at="80,63,81,46" concept="5" />
+      <node id="840268415156119141" at="81,46,82,25" concept="5" />
+      <node id="1225762468790378154" at="87,48,88,81" concept="11" />
+      <node id="1225762468790378154" at="93,0,94,0" concept="14" trace="paragraph$y$du" />
+      <node id="1225762468790378154" at="94,0,95,0" concept="14" trace="line$9eiT" />
+      <node id="1225762468790378154" at="95,0,96,0" concept="14" trace="lines$lpTr" />
+      <node id="1225762468790378154" at="96,0,97,0" concept="14" trace="paragraphs$z2IK" />
+      <node id="1225762468790378154" at="100,0,101,0" concept="14" trace="SingleLineComment$Kw" />
       <node id="1225762468790378154" at="55,0,57,0" concept="2" trace="IntentionImplementation#()V" />
       <node id="1225762468790378154" at="27,0,30,0" concept="2" trace="MergeFollowingSingleLineCommentsIntoMultilineComment_Intention#()V" />
       <node id="1225762468790378154" at="35,84,38,5" concept="8" />
@@ -3494,20 +3502,23 @@
       <node id="1225762468790378154" at="30,0,34,0" concept="9" trace="getPresentation#()Ljava/lang/String;" />
       <node id="1225762468790378154" at="44,0,48,0" concept="9" trace="isSurroundWith#()Z" />
       <node id="1225762468790378154" at="57,0,61,0" concept="9" trace="getDescription#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/lang/String;" />
-      <node id="1225762468790378154" at="75,0,79,0" concept="9" trace="getDescriptor#()Ljetbrains/mps/openapi/intentions/IntentionDescriptor;" />
+      <node id="1225762468790378154" at="86,0,90,0" concept="9" trace="getDescriptor#()Ljetbrains/mps/openapi/intentions/IntentionDescriptor;" />
       <node id="1225762468790378154" at="48,0,54,0" concept="9" trace="instances#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Ljava/util/Collection;" />
       <node id="1225762468790378154" at="34,0,41,0" concept="9" trace="isApplicable#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)Z" />
-      <node id="1225762468790409041" at="66,27,73,201" concept="4" />
-      <node id="1225762468790378154" at="61,0,75,0" concept="9" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
+      <node id="1225762468790409041" at="68,71,75,203" concept="4" />
+      <node id="840268415156119116" at="76,14,83,208" concept="4" />
+      <node id="840268415156118231" at="76,12,84,7" concept="0" />
+      <node id="840268415156117567" at="67,27,84,7" concept="8" />
+      <node id="1225762468790378154" at="61,0,86,0" concept="9" trace="execute#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
       <scope id="1225762468790378154" at="55,38,55,38" />
       <scope id="1225762468790378154" at="27,75,28,152" />
       <scope id="1225762468790378154" at="31,35,32,66" />
       <scope id="1225762468790378154" at="36,53,37,19" />
-      <scope id="1225762468790386640" at="41,91,42,171" />
+      <scope id="1225762468790386640" at="41,91,42,240" />
       <scope id="1225762468790378154" at="45,35,46,17" />
       <scope id="1225762468790378154" at="49,37,50,105" />
       <scope id="1225762468790378156" at="58,87,59,69" />
-      <scope id="1225762468790378154" at="76,48,77,81" />
+      <scope id="1225762468790378154" at="87,48,88,81" />
       <scope id="1225762468790378154" at="55,0,57,0" />
       <scope id="1225762468790378154" at="27,0,30,0" />
       <scope id="1225762468790378154" at="41,0,44,0">
@@ -3522,10 +3533,14 @@
         <var name="editorContext" id="1225762468790378154" />
         <var name="node" id="1225762468790378154" />
       </scope>
-      <scope id="1225762468790378154" at="75,0,79,0" />
-      <scope id="1225762468790409043" at="67,10,72,23">
+      <scope id="1225762468790378154" at="86,0,90,0" />
+      <scope id="1225762468790409043" at="69,12,74,25">
         <var name="l" id="1225762468790432094" />
         <var name="next" id="1225762468790443120" />
+      </scope>
+      <scope id="840268415156119117" at="77,12,82,25">
+        <var name="next" id="840268415156119132" />
+        <var name="p" id="840268415156119119" />
       </scope>
       <scope id="1225762468790378154" at="48,0,54,0">
         <var name="context" id="1225762468790378154" />
@@ -3535,18 +3550,20 @@
         <var name="editorContext" id="1225762468790378154" />
         <var name="node" id="1225762468790378154" />
       </scope>
-      <scope id="1225762468790378158" at="62,78,73,201">
+      <scope id="840268415156117569" at="68,71,75,203" />
+      <scope id="840268415156118232" at="76,14,83,208" />
+      <scope id="1225762468790378158" at="62,78,84,7">
         <var name="current" id="1225762468790408897" />
         <var name="m" id="1225762468790406251" />
       </scope>
-      <scope id="1225762468790378154" at="61,0,75,0">
+      <scope id="1225762468790378154" at="61,0,86,0">
         <var name="editorContext" id="1225762468790378154" />
         <var name="node" id="1225762468790378154" />
       </scope>
-      <unit id="1225762468790378154" at="86,0,89,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$CONCEPTS" />
-      <unit id="1225762468790378154" at="81,0,85,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$LINKS" />
-      <unit id="1225762468790378154" at="54,0,80,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$IntentionImplementation" />
-      <unit id="1225762468790378154" at="25,0,90,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention" />
+      <unit id="1225762468790378154" at="99,0,102,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$CONCEPTS" />
+      <unit id="1225762468790378154" at="92,0,98,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$LINKS" />
+      <unit id="1225762468790378154" at="54,0,91,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention$IntentionImplementation" />
+      <unit id="1225762468790378154" at="25,0,103,0" name="jetbrains.mps.baseLanguage.intentions.MergeFollowingSingleLineCommentsIntoMultilineComment_Intention" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c6(jetbrains.mps.baseLanguage.intentions)/1225762468790444401">
