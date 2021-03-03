@@ -20,14 +20,21 @@ import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.jetbrains.annotations.NotNull;
+import java.util.Collections;
+import java.awt.event.MouseEvent;
+import java.awt.Point;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.IterableUtils;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.nodeEditor.EditorMessage;
+import jetbrains.mps.openapi.editor.message.FormattingOptions;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
-import java.awt.event.MouseEvent;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import jetbrains.mps.openapi.editor.cells.CellAction;
@@ -88,6 +95,40 @@ public class DiffEditor implements EditorMessageOwner {
 
   public JPanel getPanel() {
     return myPanel;
+  }
+
+  @NotNull
+  /*package*/ List<DiffEditorChangeLayer> getLayers(boolean inspector) {
+    LayersHolder layersHolder = (inspector ? myInspectorComponent : myMainEditorComponent);
+    return (layersHolder.getLayers() == null ? Sequence.fromIterable(Sequence.fromIterable(Collections.<DiffEditorChangeLayer>emptyList())).toListSequence() : layersHolder.getLayers());
+  }
+
+  /*package*/ void setLayers(List<DiffEditorChangeLayer> layers, boolean inspector) {
+    LayersHolder layersHolder = (inspector ? myInspectorComponent : myMainEditorComponent);
+    layersHolder.setLayers(Collections.unmodifiableList(layers));
+  }
+
+  @NotNull
+  /*package*/ List<DiffEditorChangeLayer> getLayersUnderMouse(MouseEvent e, boolean inspector) {
+    final Point p = e.getPoint();
+    return ListSequence.fromList(ListSequence.fromList(getLayers(inspector)).where(new IWhereFilter<DiffEditorChangeLayer>() {
+      public boolean accept(DiffEditorChangeLayer layer) {
+        return p.y >= layer.getY() && p.y <= layer.getY() + layer.getHeight();
+      }
+    }).toListSequence()).reversedList();
+  }
+
+  /*package*/ String getToolTipTextFromSelectedLayers(boolean inspector) {
+    String text = IterableUtils.join(ListSequence.fromList(getLayers(inspector)).where(new IWhereFilter<DiffEditorChangeLayer>() {
+      public boolean accept(DiffEditorChangeLayer it) {
+        return it.isSelected();
+      }
+    }).select(new ISelector<DiffEditorChangeLayer, String>() {
+      public String select(DiffEditorChangeLayer it) {
+        return it.getDescription();
+      }
+    }), "\n\n");
+    return EditorMessage.formatMessage(text, FormattingOptions.PLAIN_TEXT);
   }
 
   public void showInspector(boolean show) {
@@ -225,10 +266,19 @@ public class DiffEditor implements EditorMessageOwner {
     void setTooltipProvider(TooltipProvider tooltipProvider);
   }
 
-  public class MyInspectorEditorComponent extends InspectorEditorComponent implements TooltipConsumer {
+  /*package*/ interface LayersHolder {
+
+    List<DiffEditorChangeLayer> getLayers();
+    void setLayers(List<DiffEditorChangeLayer> layers);
+  }
+
+  public class MyInspectorEditorComponent extends InspectorEditorComponent implements TooltipConsumer, LayersHolder {
 
     @Nullable
     private TooltipProvider myTooltipProvider;
+    @Nullable
+    private List<DiffEditorChangeLayer> myLayers;
+
 
     public MyInspectorEditorComponent(@NotNull SRepository repository, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().rightToLeft(rightToLeft).showSelectionLine(false).build());
@@ -260,13 +310,26 @@ public class DiffEditor implements EditorMessageOwner {
     public void setTooltipProvider(TooltipProvider tooltipProvider) {
       myTooltipProvider = tooltipProvider;
     }
+
+    @Override
+    @Nullable
+    public List<DiffEditorChangeLayer> getLayers() {
+      return myLayers;
+    }
+
+    @Override
+    public void setLayers(List<DiffEditorChangeLayer> layers) {
+      myLayers = layers;
+    }
   }
 
-  public class MainEditorComponent extends EditorComponent implements TooltipConsumer {
+  public class MainEditorComponent extends EditorComponent implements TooltipConsumer, LayersHolder {
     private DiffFileEditor myDiffFileEditor;
     private CommandContextWithVF myCommandContext;
     @Nullable
     private TooltipProvider myTooltipProvider;
+    @Nullable
+    private List<DiffEditorChangeLayer> myLayers;
 
 
     public MainEditorComponent(SRepository repository, boolean rightToLeft) {
@@ -327,6 +390,17 @@ public class DiffEditor implements EditorMessageOwner {
     @Override
     public void setTooltipProvider(TooltipProvider tooltipProvider) {
       myTooltipProvider = tooltipProvider;
+    }
+
+    @Override
+    @Nullable
+    public List<DiffEditorChangeLayer> getLayers() {
+      return myLayers;
+    }
+
+    @Override
+    public void setLayers(List<DiffEditorChangeLayer> layers) {
+      myLayers = layers;
     }
   }
 
