@@ -78,6 +78,7 @@ class InequalitySystemFactory {
     return inequationsForHole;
   }
 
+  @Deprecated(forRemoval = true)
   static InequalitySystem getInequalitiesSystem(SNode node, SModel typecheckingModel) {
     HashMap<SNode, SNode> mapping = new HashMap<>();
     SNode rootCopy = CopyUtil.copy(Collections.singletonList(node.getContainingRoot()), mapping).get(0);

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor.cellMenu;
 
-import jetbrains.mps.newTypesystem.TypesUtil;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
@@ -27,12 +26,10 @@ import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
-import jetbrains.mps.typesystem.inference.InequalitySystem;
 import jetbrains.mps.util.Computable;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
@@ -120,11 +117,6 @@ public abstract class AbstractNodeSubstituteInfo implements SubstituteInfo {
 
       return n == count;
     });
-  }
-
-  @Deprecated
-  protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
-    return null;
   }
 
   protected SubstitutionTrial getSubstitutionTrial(EditorCell contextCell) {
