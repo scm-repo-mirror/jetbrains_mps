@@ -89,6 +89,7 @@ public final class Line__BehaviorDescriptor extends BaseBHDescriptor {
             Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(__thisNode__, w);
           }
           if (SNodeOperations.isInstanceOf(it, CONCEPTS.EmptyParagraphLetter$W6)) {
+            Line__BehaviorDescriptor.addTextElement_idWJz9iAYdP6.invoke(__thisNode__, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word")));
             return;
           }
           if (SNodeOperations.isInstanceOf(it, CONCEPTS.UrlTextualElement$cU)) {
