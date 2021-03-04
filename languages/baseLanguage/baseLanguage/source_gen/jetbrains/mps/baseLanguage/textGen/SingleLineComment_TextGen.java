@@ -8,9 +8,8 @@ import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.ArrayList;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -24,14 +23,10 @@ public class SingleLineComment_TextGen extends TextGenDescriptorBase {
     tgs.indent();
     tgs.append("// ");
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.line$9eiT) != null) && ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.line$9eiT), LINKS.elements$_j45)).isNotEmpty()) {
-      for (SNode line : (((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.line$9eiT) != null) ? ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.line$9eiT)) : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.text$XpYF)))) {
-        Comments.commentLine(line, ctx);
-        if ((SNodeOperations.getNextSibling(line) != null)) {
-          tgs.newLine();
-          tgs.indent();
-          tgs.append("// ");
-        }
-      }
+      SNode line = SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.line$9eiT);
+      Comments.commentLine(line, ctx);
+    } else {
+      tgs.append(" ");
     }
     if (tgs.needPositions()) {
       tgs.fillPositionInfo(TraceableConcept__BehaviorDescriptor.getTraceableProperty_id4pl5GY7LKmH.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.TraceableConcept$L)));
@@ -40,7 +35,6 @@ public class SingleLineComment_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink line$9eiT = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x73f69d82391da738L, "line");
-    /*package*/ static final SContainmentLink text$XpYF = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text");
     /*package*/ static final SContainmentLink elements$_j45 = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
   }
 
