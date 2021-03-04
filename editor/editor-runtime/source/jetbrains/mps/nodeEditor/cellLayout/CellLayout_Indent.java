@@ -236,15 +236,19 @@ public class CellLayout_Indent extends AbstractCellLayout {
   }
 
   private static boolean isIndentCollection(EditorCell_Collection collection) {
-    return collection.getCellLayout() instanceof CellLayout_Indent && !collection.isEmpty();
+    return collection != null && collection.getCellLayout() instanceof CellLayout_Indent && !collection.isEmpty();
+  }
+
+  public static boolean isIndentCollection(EditorCell cell) {
+    return cell instanceof EditorCell_Collection && isIndentCollection((EditorCell_Collection) cell);
   }
 
   private class CellLayouter {
-    private EditorCell_Collection myCell;
+    private final EditorCell_Collection myCell;
 
     private final int myX;
     private final int myMaxWidth;
-    private int myWidth;
+
     private int myHeight;
 
     private int myLineWidth;
@@ -275,6 +279,7 @@ public class CellLayout_Indent extends AbstractCellLayout {
       myLineDescent = 0;
       myTopInset = 0;
       myBottomInset = 0;
+      myOverflow = false;
       myCurrentIndent = 0;
 
       myMaxWidth = maxWidth;
@@ -285,16 +290,27 @@ public class CellLayout_Indent extends AbstractCellLayout {
 
     public void layout() {
       layoutCollection(myCell);
+
+      // Apply baseline on last line
       newLine(false);
+
+      // Calculate position of collections
       updatePositions(myCell);
     }
 
-
+    /**
+     * Layout a single cell in the collection, which is not an indent layout cell.
+     * @param cell cell to be layouted
+     */
     private void layout(final EditorCell cell) {
+      final boolean newLineAfter = isNewLineAfter(myCell, cell);
+
+      // If this is on the first line according to parents indent layouts
       if (isOnNewLine(myCell, cell)) {
         newLine(false);
       }
 
+      // Add indent to current cell
       if (cell.getStyle().get(StyleAttributes.INDENT_LAYOUT_INDENT)) {
         withIndent(myCurrentIndent + myIndentSize, myCurrentIndent + 3 * myIndentSize, () -> appendCell(cell, false));
       } else {
@@ -305,7 +321,7 @@ public class CellLayout_Indent extends AbstractCellLayout {
         splitLineAt(findSplitPoint());
       }
 
-      if (isNewLineAfter(myCell, cell)) {
+      if (newLineAfter) {
         newLine(false);
       }
     }
@@ -362,7 +378,7 @@ public class CellLayout_Indent extends AbstractCellLayout {
 
     private void updatePositions(EditorCell_Collection collection) {
       for (EditorCell child : collection) {
-        if (child instanceof EditorCell_Collection && isIndentCollection((EditorCell_Collection) child)) {
+        if (isIndentCollection(child)) {
           updatePositions((EditorCell_Collection) child);
         }
       }
@@ -451,6 +467,10 @@ public class CellLayout_Indent extends AbstractCellLayout {
       return myX + myLineWidth > myMaxWidth && myLineContent.size() > 1;
     }
 
+    /**
+     * Find an appropriate cell to split (on the right side of the line and in the
+     * line content)
+     */
     private EditorCell findSplitPoint() {
       EditorCell lastCell = myLineContent.get(myLineContent.size() - 1);
       EditorCell result = lastCell;
@@ -507,6 +527,12 @@ public class CellLayout_Indent extends AbstractCellLayout {
       return result;
     }
 
+    /**
+     * Checks if the editor cell is not to be wrapped, or included in a
+     * collection denying wrap
+     * @param current cell to inspect
+     * @return whether the content of this cell can be wrap
+     */
     private Boolean isNoWrap(EditorCell current) {
       while (current != null) {
         if (current.getStyle().get(StyleAttributes.INDENT_LAYOUT_NO_WRAP)) {
@@ -530,6 +556,9 @@ public class CellLayout_Indent extends AbstractCellLayout {
       return cell.getX() + cell.getWidth() - myX > myMaxWidth / 2;
     }
 
+    /**
+     * Find the first leaf of the given collection that is not an indent layout collection
+     */
     private EditorCell getFirstIndentLeaf(EditorCell_Collection collection) {
       if (!isIndentCollection(collection)) {
         return collection;
@@ -547,6 +576,9 @@ public class CellLayout_Indent extends AbstractCellLayout {
       int index = myLineContent.indexOf(splitAt);
       if (index == -1) {
         throw new IllegalStateException();
+      } else if (index == 0) {
+        // No need to change anything, the line will remain the same
+        return;
       }
 
       final List<EditorCell> oldLine = new ArrayList<>(myLineContent.subList(0, index));
