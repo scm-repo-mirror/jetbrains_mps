@@ -316,9 +316,9 @@ public class CellLayout_Indent extends AbstractCellLayout {
 
       // Add indent to current cell
       if (cell.getStyle().get(StyleAttributes.INDENT_LAYOUT_INDENT)) {
-        appendCellWithIndent(cell, false);
+        appendCellWithIndent(cell, newLineAfter);
       } else {
-        appendCell(cell, false);
+        appendCell(cell, newLineAfter);
       }
 
       if (haveToSplit()) {
