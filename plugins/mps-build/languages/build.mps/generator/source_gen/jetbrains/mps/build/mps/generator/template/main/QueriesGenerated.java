@@ -153,13 +153,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(_context.getNode(), LINKS.plugin$ZarS), PROPS.pluginXmlProvided$f2I));
   }
   public static boolean rule_Condition_7_0(final BaseMappingRuleContext _context) {
-    // FIXME template for this case was copied from reduce_BuildMpsLayout_ModuleJars, shall refactor to avoid duplication 
+    // FIXME template for this case was copied from reduce_BuildMpsLayout_ModuleJars, shall refactor to avoid duplication
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT), CONCEPTS.BuildMps_Solution$R7)) {
       SNode solution = SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT), CONCEPTS.BuildMps_Solution$R7);
-      // something like !solution.hasSources() would be great, yet it doesn't make any sense at the moment - !hasSources might be true for a module with tests  
-      // rationale for the new condition here (replaces "module has no jar dependencies") is to allow explicit source specification for modules built 
-      // outside of MPS, so that they get bundled into distinct -src.jar like modules compiled in MPS do. Still, keep mechanism to build simple one-jar  
-      // distribution bundles for stub modules 
+      // something like !solution.hasSources() would be great, yet it doesn't make any sense at the moment - !hasSources might be true for a module with tests 
+      // rationale for the new condition here (replaces "module has no jar dependencies") is to allow explicit source specification for modules built
+      // outside of MPS, so that they get bundled into distinct -src.jar like modules compiled in MPS do. Still, keep mechanism to build simple one-jar 
+      // distribution bundles for stub modules
       return SPropertyOperations.getBoolean(solution, PROPS.doNotCompile$4EF) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(solution, LINKS.sources$mT1j), CONCEPTS.BuildMps_ModuleJavaSource$M6)).isEmpty();
     }
     return false;
@@ -172,7 +172,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static boolean rule_Condition_7_3(final BaseMappingRuleContext _context) {
     if ((SLinkOperations.getTarget(_context.getNode(), LINKS.packagingType$WOvS) == null)) {
-      // XXX check_PackagingTypeIsSet reports warning! 
+      // XXX check_PackagingTypeIsSet reports warning!
       _context.showErrorMessage(_context.getNode(), "Packaging type must be set");
       return true;
     }
@@ -182,24 +182,24 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.packagingType$WOvS), CONCEPTS.BuildMpsLayout_AutoPluginLayoutType$JU);
   }
   public static boolean rule_Condition_13_0(final BaseMappingRuleContext _context) {
-    // FIXME the only reason I check for same project, not same model here 
-    // is that to introduce least possible change now. Once I've got this functional, 
-    // shall get back and refactor this condition, as well as inspiring match in reduceMPSModule. 
-    // Check comment in the IF macro there for extra insight. 
+    // FIXME the only reason I check for same project, not same model here
+    // is that to introduce least possible change now. Once I've got this functional,
+    // shall get back and refactor this condition, as well as inspiring match in reduceMPSModule.
+    // Check comment in the IF macro there for extra insight.
     // 
-    // For the time being, for any layout node not from the same project (even from the same model, 
-    // i.e. being transformed simultaneously), take jar classpath element directly (like reduceMPSModule 
-    // does for dependencies between MpsModules). The problem with external jar is that BuildLayout_Node 
-    // comes from a different transformation step (now we collect them in a pre-processing script in a distinct 
-    // step (e.g @2_0), hence reference macro (@4_1->@5_0) yields a stale target) and generation fails unless 
-    // transient models are turned on. 
+    // For the time being, for any layout node not from the same project (even from the same model,
+    // i.e. being transformed simultaneously), take jar classpath element directly (like reduceMPSModule
+    // does for dependencies between MpsModules). The problem with external jar is that BuildLayout_Node
+    // comes from a different transformation step (now we collect them in a pre-processing script in a distinct
+    // step (e.g @2_0), hence reference macro (@4_1->@5_0) yields a stale target) and generation fails unless
+    // transient models are turned on.
     // 
-    // In fact, this condition would never be true, provided BL_File comes from DependenciesHelper artifacts 
-    // that are collected at distinct step, however, I'd like to keep both alternatives for completeness. 
+    // In fact, this condition would never be true, provided BL_File comes from DependenciesHelper artifacts
+    // that are collected at distinct step, however, I'd like to keep both alternatives for completeness.
     return SNodeOperations.getContainingRoot(((SNode) _context.getVariable("currentModule"))) != SNodeOperations.getContainingRoot(_context.getNode());
   }
   public static boolean rule_Condition_13_1(final BaseMappingRuleContext _context) {
-    // see above for the explanation 
+    // see above for the explanation
     return SNodeOperations.getContainingRoot(((SNode) _context.getVariable("currentModule"))) != SNodeOperations.getContainingRoot(_context.getNode());
   }
   public static boolean rule_Condition_18_0(final BaseMappingRuleContext _context) {
@@ -221,7 +221,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), LINKS.module$yKRo), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_0_5(final PropertyMacroContext _context) {
-    // constants from DeploymentDescriptor.TYPE_* 
+    // constants from DeploymentDescriptor.TYPE_*
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.module$yKRo), CONCEPTS.BuildMps_Solution$R7)) {
       return "solution";
     }
@@ -246,14 +246,14 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) BuildMps_AbstractModule__BehaviorDescriptor.getModuleReference_id41K1b4v5ZCB.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_0_9(final PropertyMacroContext _context) {
-    // FIXME BuildMps_AM.getModuleReference doesn't use PersistenceFacade or anything else but hardcoded knowledge about module reference format 
-    //       and the fact it's uuid-based! 
+    // FIXME BuildMps_AM.getModuleReference doesn't use PersistenceFacade or anything else but hardcoded knowledge about module reference format
+    //       and the fact it's uuid-based!
     SLanguage language = MetaAdapterFactory.getLanguage(PersistenceFacade.getInstance().createModuleReference(BuildMps_AbstractModule__BehaviorDescriptor.getModuleReference_id41K1b4v5ZCB.invoke(_context.getNode())));
     return PersistenceFacade.getInstance().asString(language);
   }
   public static Object propertyMacro_GetValue_0_10(final PropertyMacroContext _context) {
     final String pathText = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(_context.getNode());
-    // first, check if there's overridden location for the path provided by the moduleXml itself (override jar locations) 
+    // first, check if there's overridden location for the path provided by the moduleXml itself (override jar locations)
     String result = ListSequence.fromList(SLinkOperations.getChildren(((SNode) _context.getVariable("var:moduleXml")), LINKS.jarLocations$3SqA)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$t1zS)), pathText);
@@ -267,7 +267,7 @@ public class QueriesGenerated extends QueryProviderBase {
       return result;
     }
 
-    // if not, try to find matching path in the project's layout 
+    // if not, try to find matching path in the project's layout
     VisibleArtifacts local = ((VisibleArtifacts) _context.getVariable("var:localArtifacts"));
     SNode jarContainer = ((SNode) _context.getVariable("var:jarContainer"));
     if (jarContainer == null) {
@@ -309,10 +309,10 @@ public class QueriesGenerated extends QueryProviderBase {
     StringBuilder sb = new StringBuilder();
     sb.append(SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), LINKS.sourceLanguage$A51U), PROPS.name$MnvL));
     if ((Integer) _context.getVariable("loop:index") > 0) {
-      // for compatibility with legacy code, do not use index for the first generator. 
-      // as there is at most 1 generator per language now, this code is effectively dead. 
-      // When we move towards multiple generators, we need to change BuildMpsLayout_Plugin behavior (unpack and location), 
-      // as well as BuildMpsLayout_ModuleJars.location (and, perhaps, other locations that assume lagnuage.name-generator.jar pattern). 
+      // for compatibility with legacy code, do not use index for the first generator.
+      // as there is at most 1 generator per language now, this code is effectively dead.
+      // When we move towards multiple generators, we need to change BuildMpsLayout_Plugin behavior (unpack and location),
+      // as well as BuildMpsLayout_ModuleJars.location (and, perhaps, other locations that assume lagnuage.name-generator.jar pattern).
       sb.append('-');
       sb.append(Integer.toString((Integer) _context.getVariable("loop:index")));
     }
@@ -588,11 +588,11 @@ public class QueriesGenerated extends QueryProviderBase {
     SNode mpsAspect = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getNode(), LINKS.aspects$6r0Q), CONCEPTS.BuildMpsAspect$Ey)).first();
 
     int heapSize;
-    // 0 as default value and 0 as heap size should be distinguished 
+    // 0 as default value and 0 as heap size should be distinguished
     if ((mpsAspect != null) && (isNotEmptyString(mpsAspect.getProperty(PROPS.generationMaxHeapSizeInMb$XSHx)))) {
       heapSize = SPropertyOperations.getInteger(mpsAspect, PROPS.generationMaxHeapSizeInMb$XSHx);
     } else {
-      // default size 
+      // default size
       heapSize = 512;
     }
 
@@ -617,11 +617,11 @@ public class QueriesGenerated extends QueryProviderBase {
     SNode mpsAspect = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(_context.getNode(), LINKS.aspects$6r0Q), CONCEPTS.BuildMpsAspect$Ey)).first();
 
     int heapSize;
-    // 0 as default value and 0 as heap size should be distinguished 
+    // 0 as default value and 0 as heap size should be distinguished
     if ((mpsAspect != null) && (isNotEmptyString(mpsAspect.getProperty(PROPS.generationMaxHeapSizeInMb$XSHx)))) {
       heapSize = SPropertyOperations.getInteger(mpsAspect, PROPS.generationMaxHeapSizeInMb$XSHx);
     } else {
-      // default size 
+      // default size
       heapSize = 512;
     }
 
@@ -668,9 +668,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((String) _context.getVariable("jarPath"));
   }
   public static Object propertyMacro_GetValue_14_0(final PropertyMacroContext _context) {
-    // FIXME no reason for MM to assume DD.descriptorFile always goes under module, we shall keep this knowledge here 
-    //       right now it's MM that prepends "module/" to the path we construct here, although it's this code that actually knowsn 
-    //       about module/ folder in the jar 
+    // FIXME no reason for MM to assume DD.descriptorFile always goes under module, we shall keep this knowledge here
+    //       right now it's MM that prepends "module/" to the path we construct here, although it's this code that actually knowsn
+    //       about module/ folder in the jar
     return ((String) _context.getVariable("descriptorSourceFile"));
   }
   public static Object propertyMacro_GetValue_14_1(final PropertyMacroContext _context) {
@@ -845,14 +845,14 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Boolean) _context.getVariable("separateJarWithSources"));
   }
   public static boolean ifMacro_Condition_4_0(final IfMacroContext _context) {
-    // XXX I've got no idea why we restrict to modules from the same project, technically 
-    // any module from the same model could be referenced here with BS_JavaDependencyModule 
-    // as it's done for dependencies to regular BuildSource_JavaModule at the template's call site (main, MpsModule->JavaModule) 
-    // With current approach, it looks odd to see e.g. mpsDevkit@5_0, where its solutions got translated to JavaModule and depend from 
-    // mpsBootstrapCore and mpsTesting languages via classpath element, while dependencies to mpsBootstrapCore's java modules (e.g. openapi, kernel) 
-    // are plain BuildSource_JavaModule references. 
-    // OTOH, if we move towards partial model regeneration, we might need to reconsider assumptions like 'same model/root' and always rely on x-model 
-    // reference restore mechanism (i.e. go on with BS_JavaModule and let generator restore the reference). 
+    // XXX I've got no idea why we restrict to modules from the same project, technically
+    // any module from the same model could be referenced here with BS_JavaDependencyModule
+    // as it's done for dependencies to regular BuildSource_JavaModule at the template's call site (main, MpsModule->JavaModule)
+    // With current approach, it looks odd to see e.g. mpsDevkit@5_0, where its solutions got translated to JavaModule and depend from
+    // mpsBootstrapCore and mpsTesting languages via classpath element, while dependencies to mpsBootstrapCore's java modules (e.g. openapi, kernel)
+    // are plain BuildSource_JavaModule references.
+    // OTOH, if we move towards partial model regeneration, we might need to reconsider assumptions like 'same model/root' and always rely on x-model
+    // reference restore mechanism (i.e. go on with BS_JavaModule and let generator restore the reference).
     return SNodeOperations.getContainingRoot(_context.getNode()) == SNodeOperations.getContainingRoot(((SNode) _context.getVariable("owner")));
   }
   public static boolean ifMacro_Condition_7_0(final IfMacroContext _context) {
@@ -991,7 +991,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SLinkOperations.getTarget(((SNode) _context.getVariable("plugin")), LINKS.vendor$1XBo) != null) && isNotEmptyString(SPropertyOperations.getString(SLinkOperations.getTarget(((SNode) _context.getVariable("plugin")), LINKS.vendor$1XBo), PROPS.name$IIPU));
   }
   public static boolean ifMacro_Condition_9_3(final IfMacroContext _context) {
-    // generated by default 
+    // generated by default
     return (SLinkOperations.getTarget(((SNode) _context.getVariable("plugin")), LINKS.pluginXml$ywib) == null);
   }
   public static boolean ifMacro_Condition_10_0(final IfMacroContext _context) {
@@ -1096,9 +1096,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT);
   }
   public static SNode sourceNodeQuery_7_2(final SourceSubstituteMacroNodeContext _context) {
-    // XXX I know I could have delegated to 'sources of ->$aaa', but I don't like contentOf_BuildMpsLayout_ModuleSources 
-    //     template due to the way resources get copied depending on modelsOnly flag, and gonna refactor it. Once refactored, 
-    //     and the single jar deployment story is complete, may change this 'copy file .' to become 'sources of'. 
+    // XXX I know I could have delegated to 'sources of ->$aaa', but I don't like contentOf_BuildMpsLayout_ModuleSources
+    //     template due to the way resources get copied depending on modelsOnly flag, and gonna refactor it. Once refactored,
+    //     and the single jar deployment story is complete, may change this 'copy file .' to become 'sources of'.
     return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.module$iRYT), LINKS.path$iYKB);
   }
   public static SNode sourceNodeQuery_8_0(final SourceSubstituteMacroNodeContext _context) {
@@ -1322,9 +1322,9 @@ public class QueriesGenerated extends QueryProviderBase {
     }, true);
   }
   public static Iterable<SNode> sourceNodesQuery_0_11(final SourceSubstituteMacroNodesContext _context) {
-    // XXX though it's not apparent if deployed module shall tell their used languages (seems that RTs of these languages should be sufficient), 
-    //     there's a lot of code in MPS that asks for module's languages and it seems(!) we'd better give some reasonable values there. 
-    // FIXME revisit to justify true need for deployed module to tell its used languages 
+    // XXX though it's not apparent if deployed module shall tell their used languages (seems that RTs of these languages should be sufficient),
+    //     there's a lot of code in MPS that asks for module's languages and it seems(!) we'd better give some reasonable values there.
+    // FIXME revisit to justify true need for deployed module to tell its used languages
     return Sequence.fromIterable(((RuntimeDependencies) _context.getVariable("var:rtDeps")).usedLanguages()).sort(new ISelector<SNode, String>() {
       public String select(SNode it) {
         return SPropertyOperations.getString(it, PROPS.name$MnvL);
@@ -1335,7 +1335,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.collect(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), LINKS.module$yKRo), CONCEPTS.BuildMps_Module$JW)), CONCEPTS.BuildMps_ModuleDependencyJar$Rm), LINKS.path$yTVo);
   }
   public static Iterable<SNode> sourceNodesQuery_0_13(final SourceSubstituteMacroNodesContext _context) {
-    // / MPS module uses classes of some JavaModule as its java library. If there's a jarLcoation specified for such location, shall mention it in <library> 
+    // / MPS module uses classes of some JavaModule as its java library. If there's a jarLcoation specified for such location, shall mention it in <library>
     final Iterable<SNode> javaLibsOfModule = Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(BuildMps_Module__BehaviorDescriptor.getDependenciesUnwrapped_id3QtfwKhgryb.invoke(SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), LINKS.module$yKRo), CONCEPTS.BuildMps_Module$JW)), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK), LINKS.javaLibLocation$cmtb)).where(new NotNullWhereFilter<SNode>());
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.jarLocations$3SqA)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it1) {
@@ -1364,7 +1364,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.location$UU44);
   }
   public static Iterable<SNode> sourceNodesQuery_2_2(final SourceSubstituteMacroNodesContext _context) {
-    // FIXME why don't we handle this inside switch_ModuleSourcesToSourceLocation? 
+    // FIXME why don't we handle this inside switch_ModuleSourcesToSourceLocation?
     Set<SNode> modelRoots = SetSequence.fromSet(new LinkedHashSet<SNode>());
     SetSequence.fromSet(modelRoots).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), LINKS.module$zG3S), CONCEPTS.BuildMps_Module$JW), LINKS.sources$mT1j), CONCEPTS.BuildMps_ModuleModelRoot$Ie)));
 
@@ -1434,10 +1434,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(((SNode) _context.getVariable("plugin")), LINKS.xml$djzj);
   }
   public static Iterable<SNode> sourceNodesQuery_10_0(final SourceSubstituteMacroNodesContext _context) {
-    // FIXME in fact, we can utilize plugin id now as well (see EnvironmentConfig and PluginData) 
-    //      however, would need a node to hold 2 string values at a time 
-    // XXX FWIW, there's GeneratorInternal_PluginExpanded; though I hope to replace with just _IdeaPlugin reference some day, 
-    //    which is to be reduced to path value later. 
+    // FIXME in fact, we can utilize plugin id now as well (see EnvironmentConfig and PluginData)
+    //      however, would need a node to hold 2 string values at a time
+    // XXX FWIW, there's GeneratorInternal_PluginExpanded; though I hope to replace with just _IdeaPlugin reference some day,
+    //    which is to be reduced to path value later.
     return Sequence.fromIterable(Sequence.fromArray(((ModulePlugins) _context.getVariable("var:requiredPlugins")).getPluginPaths(_context))).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
         return createGeneratorInternal_String_x583g4_a0a0a0e0om(it);
@@ -1467,11 +1467,11 @@ public class QueriesGenerated extends QueryProviderBase {
         return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SLinkOperations.getTarget(it, LINKS.sourceLanguage$A51U), LINKS.managedGenerators$Hbof), LINKS.generator$98gH)).contains(it);
       }
     });
-    // XXX in fact, assumption that managed generator shares descriptor file is not perfect. 
-    //   as we need to reference module files here, might be better just to remove modules with duplicating path 
-    //   One more alternative is just to exclude modules without path (as we use path anyway in the template), however 
-    //   I won't use it alone as it would imply 'owned' BM_Generator module don't have path specified, which might get  
-    //   changed as it has changed for SModule/AbstractModule/Generator 
+    // XXX in fact, assumption that managed generator shares descriptor file is not perfect.
+    //   as we need to reference module files here, might be better just to remove modules with duplicating path
+    //   One more alternative is just to exclude modules without path (as we use path anyway in the template), however
+    //   I won't use it alone as it would imply 'owned' BM_Generator module don't have path specified, which might get 
+    //   changed as it has changed for SModule/AbstractModule/Generator
     return ListSequence.fromList(mm).subtract(Sequence.fromIterable(managedGenerators)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (SLinkOperations.getTarget(it, LINKS.path$iYKB) != null);
@@ -1553,8 +1553,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((List<SNode>) _context.getVariable("var:dependency"));
   }
   public static Iterable<SNode> sourceNodesQuery_12_0(final SourceSubstituteMacroNodesContext _context) {
-    // generator modules that are 'managed' (i.e. deployed along with a language) don't need a dedicated 'module' entry 
-    // loadModules script moves all BM_Generator modules to top level, therefore we can face both standalone and owned BM_Generator in the group 
+    // generator modules that are 'managed' (i.e. deployed along with a language) don't need a dedicated 'module' entry
+    // loadModules script moves all BM_Generator modules to top level, therefore we can face both standalone and owned BM_Generator in the group
     Iterable<SNode> managedGenerators = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.group$qLbS), LINKS.modules$JlQo), CONCEPTS.BuildMps_Generator$RQ)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SLinkOperations.getTarget(it, LINKS.sourceLanguage$A51U), LINKS.managedGenerators$Hbof), LINKS.generator$98gH)).contains(it);
@@ -1613,7 +1613,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
   public static void mapSrcMacro_post_0_2(final MapSrcMacroPostProcContext _context) {
-    // not sure there's need for preserveLocations when we have distinct DH for build.mps and mps.build steps 
+    // not sure there's need for preserveLocations when we have distinct DH for build.mps and mps.build steps
     DependenciesHelper.get(_context, SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.BuildProject$ae, false, false), "build.mps").preserveLocations(_context.getNode(), _context.getOutputNode());
   }
   public static void mapSrcMacro_post_7_0(final MapSrcMacroPostProcContext _context) {
@@ -1648,8 +1648,8 @@ public class QueriesGenerated extends QueryProviderBase {
       });
       ml.checkAllModules(ModuleChecker.CheckType.LOAD_ALL);
 
-      // move generators outside language, respect languages under Group project parts (hence, descendants), and 
-      // do not touch Generators that are not child of a generator (i.e. standalone generator modules, once we have them) 
+      // move generators outside language, respect languages under Group project parts (hence, descendants), and
+      // do not touch Generators that are not child of a generator (i.e. standalone generator modules, once we have them)
 
       for (SNode generator : SLinkOperations.collect(ListSequence.fromList(SLinkOperations.getChildren(project, LINKS.parts$mGDj)).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(SNode it) {
@@ -1664,7 +1664,7 @@ public class QueriesGenerated extends QueryProviderBase {
         if (ListSequence.fromList(SLinkOperations.getChildren(lang, LINKS.managedGenerators$Hbof)).isEmpty()) {
           ListSequence.fromList(SLinkOperations.getChildren(lang, LINKS.managedGenerators$Hbof)).addElement(generatorRef);
         } else {
-          // make sure 'owned' generator comes first in the list and receives default langname-generator.jar, not langname-x-generator.jar 
+          // make sure 'owned' generator comes first in the list and receives default langname-generator.jar, not langname-x-generator.jar
           ListSequence.fromList(SLinkOperations.getChildren(lang, LINKS.managedGenerators$Hbof)).insertElement(0, generatorRef);
         }
       }
@@ -1684,7 +1684,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getNode();
   }
   public static Object varMacro_Value_0_3(final TemplateVarContext _context) {
-    // ancestor jar of module descriptor 
+    // ancestor jar of module descriptor
     SNode firstAncestorJar = SNodeOperations.getParent(_context.getNode());
     while (SNodeOperations.isInstanceOf(firstAncestorJar, CONCEPTS.BuildLayout_Folder$AH)) {
       firstAncestorJar = SNodeOperations.getParent(firstAncestorJar);
@@ -1720,7 +1720,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getNode();
   }
   public static Object varMacro_Value_3_0(final TemplateVarContext _context) {
-    // need one to access template input from inside the nested loop 
+    // need one to access template input from inside the nested loop
     return _context.getNode();
   }
   public static Object varMacro_Value_6_0(final TemplateVarContext _context) {
@@ -1756,22 +1756,22 @@ public class QueriesGenerated extends QueryProviderBase {
       _context.showErrorMessage(_context.getNode(), "path " + BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(((SNode) _context.getVariable("remotePath"))) + " was not found in the layout");
       return MultiTuple.<Object,String>from(null, BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(((SNode) _context.getVariable("remotePath"))));
     }
-    // Since our layout nodes are pre-collected from transient models at a distinct step, we can't use them as reference targets for newly created dependencies, 
-    // and need to replace them with strings/classpath elements. Guess, the origin of the issue is that external jar dependency element may reference layout node, 
-    // which breaks the idea of BL being description of build parts, and dependency direction from BL to the part, not vice versa. 
-    // Even though this BL dependencies are often look reasonable and point to external layout nodes, I feel this part of build story is inconsistent, perhaps 
-    // 'java library' element shall get jars assigned with layout rather than reference layout node with extenal jar? OTOH, it's not clear what to do if I don't want 
-    // to include jar into layout, but would like to depend from it for compilation/build time? 
+    // Since our layout nodes are pre-collected from transient models at a distinct step, we can't use them as reference targets for newly created dependencies,
+    // and need to replace them with strings/classpath elements. Guess, the origin of the issue is that external jar dependency element may reference layout node,
+    // which breaks the idea of BL being description of build parts, and dependency direction from BL to the part, not vice versa.
+    // Even though this BL dependencies are often look reasonable and point to external layout nodes, I feel this part of build story is inconsistent, perhaps
+    // 'java library' element shall get jars assigned with layout rather than reference layout node with extenal jar? OTOH, it's not clear what to do if I don't want
+    // to include jar into layout, but would like to depend from it for compilation/build time?
     // 
-    // Here's small discrepancy, for a _SingleFolder node, getContentLocation is invoked inside switch_ExternalJar, while for _SingleFile I do getLocation 
-    // here right away. It's only to save extra DependenciesHelper initialization and to stay with existing two-element tuple. 
+    // Here's small discrepancy, for a _SingleFolder node, getContentLocation is invoked inside switch_ExternalJar, while for _SingleFile I do getLocation
+    // here right away. It's only to save extra DependenciesHelper initialization and to stay with existing two-element tuple.
     return MultiTuple.<SNode,String>from(layoutNode, helper.getLocation(layoutNode));
   }
   public static Object varMacro_Value_7_0(final TemplateVarContext _context) {
     return _context.getNode();
   }
   public static Object varMacro_Value_10_0(final TemplateVarContext _context) {
-    // with ant-mps residing in mpsTrueBootstrap project, its artifact is registered by BuildMPSPlugin.fetchDependencies()) and is available by regular means (helper.getArtifact("ant-mps"), below)  
+    // with ant-mps residing in mpsTrueBootstrap project, its artifact is registered by BuildMPSPlugin.fetchDependencies()) and is available by regular means (helper.getArtifact("ant-mps"), below) 
     DependenciesHelper helper = DependenciesHelper.get(_context, _context.getNode(), "build.mps");
     String artifact = "ant-mps";
     SNode jmAntJar = helper.getArtifact(artifact);
@@ -1826,7 +1826,7 @@ public class QueriesGenerated extends QueryProviderBase {
     } else {
       SNode defaults = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3ba296405b6f3b1bL, "jetbrains.mps.build.mps.structure.BuildMps_GeneratorOptions"));
       SPropertyOperations.assign(defaults, PROPS.parallel$AX9E, true);
-      // 8 is the value BaseGenerationWorker uses when parallel is true 
+      // 8 is the value BaseGenerationWorker uses when parallel is true
       SPropertyOperations.assign(defaults, PROPS.parallelThreads$AXQH, 8);
       SPropertyOperations.assign(defaults, PROPS.strict$ARKj, true);
       SPropertyOperations.assign(defaults, PROPS.inplace$q8Ts, false);
@@ -1859,7 +1859,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object varMacro_Value_10_8(final TemplateVarContext _context) {
     VisibleModules visibleModules = new VisibleModules(_context.getNode(), _context);
     visibleModules.collect();
-    // jetbrains.mps.tool.gentest 
+    // jetbrains.mps.tool.gentest
     SNode gentest = visibleModules.resolveById("3ba7b7cf-6a5a-4981-ba0b-3302e59ffef7");
     MPSModulesClosure closure = new MPSModulesClosure(SNodeOperations.cast(gentest, CONCEPTS.BuildMps_Module$JW));
     Iterable<SNode> allModules = Sequence.fromIterable(closure.runtimeClosure().getAllModules()).union(Sequence.fromIterable(((MPSModulesPartitioner) _context.getVariable("var:closure")).getExternal())).union(Sequence.fromIterable(Sequence.<SNode>singleton(gentest)));
