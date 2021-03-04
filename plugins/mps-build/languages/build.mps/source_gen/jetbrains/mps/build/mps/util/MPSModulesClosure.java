@@ -6,6 +6,7 @@ import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
+import java.util.List;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -19,7 +20,6 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.iterable.RecursiveIterator;
 import java.util.Iterator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.build.mps.behavior.BuildMps_Generator__BehaviorDescriptor;
 import org.jetbrains.annotations.NotNull;
@@ -38,11 +38,11 @@ public class MPSModulesClosure {
 
   private final Set<SNode> myModules = SetSequence.fromSet(new LinkedHashSet<SNode>());
   private final Set<SNode> myDevkits = SetSequence.fromSet(new LinkedHashSet<SNode>());
-  private final Iterable<SNode> myInitialModules;
+  private final List<SNode> myInitialModules;
   private final ModuleDependenciesOptions myOptions;
 
   public MPSModulesClosure(SNode initialModule, ModuleDependenciesOptions options) {
-    myInitialModules = Sequence.<SNode>singleton(initialModule);
+    myInitialModules = Sequence.fromIterable(Sequence.<SNode>singleton(initialModule)).toListSequence();
     myOptions = options;
   }
 
@@ -51,7 +51,7 @@ public class MPSModulesClosure {
   }
 
   public MPSModulesClosure(Iterable<SNode> initialModules, ModuleDependenciesOptions options) {
-    myInitialModules = SNodeOperations.ofConcept(initialModules, CONCEPTS.BuildMps_Module$JW);
+    myInitialModules = Sequence.fromIterable(SNodeOperations.ofConcept(initialModules, CONCEPTS.BuildMps_Module$JW)).toListSequence();
     myOptions = options;
   }
 
@@ -251,7 +251,7 @@ public class MPSModulesClosure {
 
     fillUsedLanguageRuntimes(langs, langsWithOddRT, solutions);
 
-    for (SNode module : Sequence.fromIterable(myInitialModules)) {
+    for (SNode module : ListSequence.fromList(myInitialModules)) {
       List<SNode> firstLevelDeps = Sequence.fromIterable(getDependencies(module, false)).toListSequence();
       collectDependencies(firstLevelDeps, true);
       SetSequence.fromSet(myModules).addSequence(ListSequence.fromList(firstLevelDeps));
@@ -260,7 +260,7 @@ public class MPSModulesClosure {
     SetSequence.fromSet(myLanguagesWithOddRuntime).addSequence(SetSequence.fromSet(langsWithOddRT));
     collectDependencies((Iterable<SNode>) solutions, true);
     if (!(myOptions.doesIncludeInitial())) {
-      SetSequence.fromSet(myModules).removeSequence(Sequence.fromIterable(myInitialModules).toListSequence());
+      SetSequence.fromSet(myModules).removeSequence(ListSequence.fromList(myInitialModules));
     }
     return this;
   }
@@ -277,11 +277,11 @@ public class MPSModulesClosure {
    * XXX There's {@link jetbrains.mps.build.mps.util.RuntimeDependencies } that builds a set of dependencies we record in deployment MD (extracted from this class), perhaps, could refactor both classes to reuse knowledge?
    */
   public MPSModulesClosure runtimeClosure() {
-    SetSequence.fromSet(myModules).addSequence(Sequence.fromIterable(myInitialModules));
+    SetSequence.fromSet(myModules).addSequence(ListSequence.fromList(myInitialModules));
     collectDependencies(myInitialModules, false);
     collectAllUsedLanguageRuntimesAndTheirDeps(myModules);
     if (!(myOptions.doesIncludeInitial())) {
-      SetSequence.fromSet(myModules).removeSequence(Sequence.fromIterable(myInitialModules).toListSequence());
+      SetSequence.fromSet(myModules).removeSequence(ListSequence.fromList(myInitialModules));
     }
     return this;
   }
@@ -305,7 +305,7 @@ public class MPSModulesClosure {
     MPSModulesClosure rtClosureOfUsedLangs = new MPSModulesClosure(usedLanguages, new ModuleDependenciesOptions(myOptions).setIncludeInitial()).runtimeClosure();
     mergeIntoMe(rtClosureOfUsedLangs);
     if (!(myOptions.doesIncludeInitial())) {
-      SetSequence.fromSet(myModules).removeSequence(Sequence.fromIterable(myInitialModules).toListSequence());
+      SetSequence.fromSet(myModules).removeSequence(ListSequence.fromList(myInitialModules));
     }
     return this;
   }
@@ -352,7 +352,7 @@ public class MPSModulesClosure {
     SetSequence.fromSet(myModules).addSequence(SetSequence.fromSet(usedLanguages));
     SetSequence.fromSet(myLanguagesWithOddRuntime).addSequence(SetSequence.fromSet(langsWithOddRT));
     if (!(myOptions.doesIncludeInitial())) {
-      SetSequence.fromSet(myModules).removeSequence(Sequence.fromIterable(myInitialModules).toListSequence());
+      SetSequence.fromSet(myModules).removeSequence(ListSequence.fromList(myInitialModules));
     }
     return this;
   }
@@ -415,7 +415,7 @@ public class MPSModulesClosure {
   }
 
   public RequiredJavaModules getRequiredJava() {
-    Iterable<SNode> reexportedFromModuleDependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(Sequence.fromIterable(getModules()).concat(Sequence.fromIterable(myInitialModules)), LINKS.dependencies$j8Lj), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> reexportedFromModuleDependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(Sequence.fromIterable(getModules()).concat(ListSequence.fromList(myInitialModules)), LINKS.dependencies$j8Lj), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$MK)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SPropertyOperations.getBoolean(it, PROPS.reexport$RnCo);
       }
@@ -449,8 +449,8 @@ public class MPSModulesClosure {
     return Sequence.fromIterable(((Iterable<SNode>) myModules)).concat(Sequence.fromIterable((Iterable<SNode>) myLanguagesWithOddRuntime)).concat(Sequence.fromIterable((Iterable<SNode>) myDevkits));
   }
 
-  public SNode getInitial() {
-    return Sequence.fromIterable(myInitialModules).first();
+  public List<SNode> getInitial() {
+    return myInitialModules;
   }
 
   public static class RequiredJavaModules {
