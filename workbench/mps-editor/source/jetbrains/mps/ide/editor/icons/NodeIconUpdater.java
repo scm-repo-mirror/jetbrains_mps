@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.ide.editor.icons;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx;
 import com.intellij.openapi.project.Project;
@@ -63,6 +64,9 @@ public class NodeIconUpdater implements ProjectComponent {
 
   @Override
   public void projectOpened() {
+    if (ApplicationManager.getApplication().isHeadlessEnvironment() || ApplicationManager.getApplication().isUnitTestMode()) {
+      return;
+    }
     final MessageBusConnection conn = myProject.getMessageBus().connect(myProject);
     conn.subscribe(NodeVirtualFileSystem.NODE_FS_CHANGES, new BulkVirtualFileListenerAdapter(myFileListener));
   }
@@ -72,7 +76,7 @@ public class NodeIconUpdater implements ProjectComponent {
 //    NodeVirtualFileSystem.getInstance().removeVirtualFileListener(myFileListener);
   }
 
-  void refresh(VirtualFile vf) {
+  private void refresh(VirtualFile vf) {
 //    if (false == vf instanceof MPSNodeVirtualFile) {
 //      return;
 //    }
