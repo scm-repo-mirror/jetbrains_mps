@@ -15,6 +15,7 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -24,9 +25,11 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, "jetbrains.mps.lang.text.structure.Text");
 
   public static final SMethod<List<SNode>> getLines_id6GJhO0n1Xys = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLines").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6GJhO0n1Xys").build();
+  public static final SMethod<Void> addLine_id7q4YwcerggR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addLine").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7q4YwcerggR").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<List<SNode>> getParagraphs_id2MpFNjy3tMn = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getParagraphs").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2MpFNjy3tMn").build();
+  public static final SMethod<Void> addParagraph_idfxHsktC$hi = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addParagraph").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("fxHsktC$hi").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLines_id6GJhO0n1Xys, getParagraphs_id2MpFNjy3tMn);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLines_id6GJhO0n1Xys, addLine_id7q4YwcerggR, getParagraphs_id2MpFNjy3tMn, addParagraph_idfxHsktC$hi);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -34,8 +37,14 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static List<SNode> getLines_id6GJhO0n1Xys(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.lines$U$m7);
   }
+  /*package*/ static void addLine_id7q4YwcerggR(@NotNull SNode __thisNode__, SNode l) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.lines$U$m7)).addElement(l);
+  }
   /*package*/ static List<SNode> getParagraphs_id2MpFNjy3tMn(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.paragraphs$ZAOz);
+  }
+  /*package*/ static void addParagraph_idfxHsktC$hi(@NotNull SNode __thisNode__, SNode p) {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.paragraphs$ZAOz)).addElement(p);
   }
 
   /*package*/ Text__BehaviorDescriptor() {
@@ -56,7 +65,13 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((List<SNode>) getLines_id6GJhO0n1Xys(node));
       case 1:
+        addLine_id7q4YwcerggR(node, (SNode) parameters[0]);
+        return null;
+      case 2:
         return (T) ((List<SNode>) getParagraphs_id2MpFNjy3tMn(node));
+      case 3:
+        addParagraph_idfxHsktC$hi(node, (SNode) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -30,8 +30,9 @@ public final class UrlTextualElement__BehaviorDescriptor extends BaseBHDescripto
 
   public static final SMethod<String> getTextualRepresentation_id69wk_bF5sg9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTextualRepresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("69wk_bF5sg9").build();
   public static final SMethod<List<SNode>> getParagraphs_id2MpFNjy3tMn = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getParagraphs").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2MpFNjy3tMn").build();
+  public static final SMethod<Void> addParagraph_idfxHsktC$hi = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("addParagraph").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("fxHsktC$hi").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTextualRepresentation_id69wk_bF5sg9, getParagraphs_id2MpFNjy3tMn);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTextualRepresentation_id69wk_bF5sg9, getParagraphs_id2MpFNjy3tMn, addParagraph_idfxHsktC$hi);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SLinkOperations.setTarget(__thisNode__, LINKS.text$A10X, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x7ee31bf598f4ec9eL, "jetbrains.mps.lang.text.structure.Paragraph")));
@@ -44,6 +45,9 @@ public final class UrlTextualElement__BehaviorDescriptor extends BaseBHDescripto
     List<SNode> nodes = new ArrayList<SNode>();
     ListSequence.fromList(nodes).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.text$A10X));
     return nodes;
+  }
+  /*package*/ static void addParagraph_idfxHsktC$hi(@NotNull SNode __thisNode__, SNode p) {
+    SLinkOperations.setTarget(__thisNode__, LINKS.text$A10X, p);
   }
 
   /*package*/ UrlTextualElement__BehaviorDescriptor() {
@@ -65,6 +69,9 @@ public final class UrlTextualElement__BehaviorDescriptor extends BaseBHDescripto
         return (T) ((String) getTextualRepresentation_id69wk_bF5sg9(node));
       case 1:
         return (T) ((List<SNode>) getParagraphs_id2MpFNjy3tMn(node));
+      case 2:
+        addParagraph_idfxHsktC$hi(node, (SNode) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
