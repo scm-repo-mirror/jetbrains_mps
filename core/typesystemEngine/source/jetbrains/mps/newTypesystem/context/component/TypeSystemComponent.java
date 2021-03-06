@@ -243,10 +243,8 @@ import java.util.*;
     @Override
     protected void postProcess(SNode sNode) {
       if (isIncrementalMode()) {
-        nodesReadListener.setAccessReport(true);
         Set<SNode> accessedNodes = nodesReadListener.getAccessedNodes();
         addDependentNodesTypeSystem(sNode, accessedNodes);
-        nodesReadListener.setAccessReport(false);
         nodesReadListener.clear();
       }
     }

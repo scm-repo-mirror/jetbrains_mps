@@ -84,24 +84,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
   protected class MyEventsReadListener extends AbstractNodesReadListener {
     private Set<SNode> myAccessedNodes = new THashSet<>(1);
     private Set<Pair<SNode, String>> myAccessedProperties = new THashSet<>(1);
-    private boolean myIsSetAccessReport = false;
 
     public MyEventsReadListener() {
     }
 
-    public void setAccessReport(boolean accessReport) {
-      myIsSetAccessReport = accessReport;
-    }
-
-    private void reportAccess() {
-      if (myIsSetAccessReport) {
-        new Throwable().printStackTrace();
-      }
-    }
-
     @Override
     public void nodeChildReadAccess(SNode node, String childRole, SNode child) {
-      reportAccess();
       myAccessedNodes.add(node);
       if (child != null) {
         myAccessedNodes.add(child);
@@ -110,13 +98,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
     @Override
     public void nodePropertyReadAccess(SNode node, String propertyName, String value) {
-      reportAccess();
       myAccessedProperties.add(new Pair<>(node, propertyName));
     }
 
     @Override
     public void nodeReferentReadAccess(SNode node, String referentRole, SNode referent) {
-      reportAccess();
       myAccessedNodes.add(node);
       if (referent != null) {
         myAccessedNodes.add(referent);
@@ -125,7 +111,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
     @Override
     public void nodeUnclassifiedReadAccess(SNode node) {
-      reportAccess();
       myAccessedNodes.add(node);
     }
 
@@ -134,7 +119,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
     }
 
     public void clear() {
-      reportAccess();
       myAccessedNodes = new THashSet<>();
       myAccessedProperties = new THashSet<>();
     }

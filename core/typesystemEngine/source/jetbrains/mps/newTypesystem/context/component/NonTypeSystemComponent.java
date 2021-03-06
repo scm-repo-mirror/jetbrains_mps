@@ -38,7 +38,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
-import jetbrains.mps.typesystem.inference.TypesReadListener;
 import jetbrains.mps.util.Pair;
 
 import java.util.*;
@@ -354,15 +353,11 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
           }
         }
         if (incrementalMode) {
-          nodesReadListener.setAccessReport(true);
           addDependentNodes(node, rule.o1, new THashSet<>(nodesReadListener.getAccessedNodes()));
           addDependentNodes(node, rule.o1, Collections.singleton(node));
           addDependentProperties(node, rule.o1, new THashSet<>(nodesReadListener.getAccessedProperties()));
-          nodesReadListener.setAccessReport(false);
 
-          typesReadListener.setAccessReport(true);
           addDependentTypeTerms(node, rule.o1, typesReadListener.getAccessedNodes());
-          typesReadListener.setAccessReport(false);
           nodesReadListener.clear();
         }
         myCheckedNodes.add(nodeAndRule);
@@ -378,11 +373,6 @@ public class NonTypeSystemComponent extends IncrementalTypecheckingComponent<Sta
 
   private static class MyTypesReadListener implements TypeAccessListener {
     private Set<SNode> myAccessedNodes = new THashSet<>(1);
-    private boolean myIsSetAccessReport = false;
-
-    public void setAccessReport(boolean accessReport) {
-      myIsSetAccessReport = accessReport;
-    }
 
     @Override
     public void typeAccessed(SNode expression) {

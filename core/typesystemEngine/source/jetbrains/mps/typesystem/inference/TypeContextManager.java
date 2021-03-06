@@ -175,6 +175,7 @@ public class TypeContextManager implements CoreComponent {
     return new Executor<>(contextOwner, computable).execute();
   }
 
+  @Deprecated(forRemoval = true)
   public TypeCheckingContext createTypeCheckingContext(SNode node) {
     if (myTypeChecker.isGenerationMode()) {
       return new TargetTypecheckingContext(node, myTypeChecker);
@@ -195,6 +196,7 @@ public class TypeContextManager implements CoreComponent {
     return new TracingTypecheckingContext(node, myTypeChecker);
   }
 
+  @Deprecated(forRemoval = true)
   public TypeCheckingContext acquireTypecheckingContext(SNode node, ITypeContextOwner contextOwner) {
     return getOrCreateContext(node, contextOwner);
   }
@@ -216,6 +218,7 @@ public class TypeContextManager implements CoreComponent {
   }
 
 
+  @Deprecated(forRemoval = true)
   private class Executor<T> {
     private ITypeContextOwner myContextOwner;
     private SNode myContextNode;
@@ -318,6 +321,7 @@ public class TypeContextManager implements CoreComponent {
   }
 
 
+  @Deprecated(forRemoval = true)
   private TypeCheckingContext getOrCreateContext(SNode node, ITypeContextOwner owner) {
     if (node == null) return null;
     final SModel model = node.getModel();
@@ -387,6 +391,7 @@ public class TypeContextManager implements CoreComponent {
     return new Executor<>(contextOwner, node, context -> context != null ? context.getTypeOf(node, myTypeChecker) : null).execute();
   }
 
+  @Deprecated(forRemoval = true)
   private interface TypecheckingContextHolder {
     ITypeContextOwner getOwner();
 

@@ -39,12 +39,6 @@ import java.util.List;
 public class TypeChecker implements CoreComponent, LanguageRegistryListener {
   private static TypeChecker INSTANCE;
 
-  public final Object LISTENERS_LOCK = new Object();
-
-  //TypeChecker is a singleton, so we can omit remove() here though the field is not static
-  private ThreadLocal<TypesReadListener> myTypesReadListener = new ThreadLocal<>();
-  private List<TypeRecalculatedListener> myTypeRecalculatedListeners = new ArrayList<>(5);
-
   private final LanguageRegistry myLanguageRegistry;
 
   private IPerformanceTracer myPerformanceTracer = null;
@@ -226,51 +220,6 @@ public class TypeChecker implements CoreComponent, LanguageRegistryListener {
   public SNode getTypeOf(final SNode node) {
     if (node == null || node.getModel() == null) return null;
     return TypeContextManager.getInstance().getTypeOf(node);
-  }
-
-
-  private List<TypeRecalculatedListener> copyTypeRecalculatedListeners() {
-    synchronized (LISTENERS_LOCK) {
-      return new ArrayList<>(myTypeRecalculatedListeners);
-    }
-  }
-
-  public void addTypesReadListener(TypesReadListener typesReadListener) {
-    assert myTypesReadListener.get() == null;
-    myTypesReadListener.set(typesReadListener);
-  }
-
-  public void removeTypesReadListener(TypesReadListener typesReadListener) {
-    assert myTypesReadListener.get() == typesReadListener;
-    myTypesReadListener.set(null);
-  }
-
-  public void removeTypeRecalculatedListener(TypeRecalculatedListener typeRecalculatedListener) {
-    synchronized (LISTENERS_LOCK) {
-      myTypeRecalculatedListeners.remove(typeRecalculatedListener);
-    }
-  }
-
-  public void addTypeRecalculatedListener(TypeRecalculatedListener typeRecalculatedListener) {
-    synchronized (LISTENERS_LOCK) {
-      if (!myTypeRecalculatedListeners.contains(typeRecalculatedListener)) {
-        myTypeRecalculatedListeners.add(typeRecalculatedListener);
-      }
-    }
-  }
-
-  public void fireTypeWillBeRecalculatedForTerm(SNode term) {
-    for (TypeRecalculatedListener typeRecalculatedListener : copyTypeRecalculatedListeners()) {
-      typeRecalculatedListener.typeWillBeRecalculatedForTerm(term);
-    }
-  }
-
-  @Deprecated(forRemoval = true)
-  public void fireNodeTypeAccessed(SNode term) {
-    TypesReadListener typesReadListener = myTypesReadListener.get();
-    if (typesReadListener != null) {
-      typesReadListener.nodeTypeAccessed(term);
-    }
   }
 
 }
