@@ -2025,181 +2025,193 @@
   </root>
   <root nodeRef="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/3722815385094205361">
     <file name="SimpleCommandQueue.java">
-      <node id="3722815385094205361" at="17,0,18,0" concept="13" trace="LOG" />
-      <node id="3722815385094206094" at="18,0,19,0" concept="5" trace="myThread" />
-      <node id="5920789476486294334" at="19,0,20,0" concept="5" trace="myProject" />
-      <node id="2324506610466057419" at="20,0,21,0" concept="5" trace="myDisposed" />
-      <node id="5217921753725803652" at="21,0,22,0" concept="5" trace="myHadExceptions" />
-      <node id="3722815385094208596" at="22,0,23,0" concept="5" trace="myQueue" />
-      <node id="3722815385094244352" at="24,74,25,48" concept="4" />
-      <node id="5920789476486300364" at="25,48,26,24" concept="4" />
-      <node id="3722815385094288748" at="29,34,30,21" concept="4" />
-      <node id="7334109670959042089" at="34,45,35,17" concept="4" />
-      <node id="3722815385094377525" at="36,12,37,20" concept="4" />
-      <node id="5365399102993543679" at="41,47,42,24" concept="4" />
-      <node id="5365399102993544835" at="45,59,46,44" concept="11" />
-      <node id="5365399102993537086" at="47,28,48,48" concept="9" />
-      <node id="5365399102993526468" at="49,24,50,29" concept="4" />
-      <node id="5365399102993515755" at="51,7,52,24" concept="4" />
-      <node id="5365399102993515760" at="52,24,53,23" concept="4" />
-      <node id="2324506610466065738" at="57,25,58,22" concept="4" />
-      <node id="6669546492594083149" at="58,22,59,25" concept="4" />
-      <node id="3722815385094288855" at="62,39,63,46" concept="0" />
-      <node id="3818729150937334345" at="68,42,69,121" concept="4" />
-      <node id="3619977242337125091" at="74,47,75,28" concept="4" />
-      <node id="5217921753725803670" at="78,34,79,27" concept="10" />
-      <node id="6730825638915471774" at="83,28,84,31" concept="10" />
-      <node id="3722815385094244342" at="89,51,90,18" concept="15" />
-      <node id="6669546492594119026" at="95,25,96,17" concept="10" />
-      <node id="3722815385094360871" at="97,9,98,22" concept="9" />
-      <node id="3722815385094360884" at="101,17,102,29" concept="4" />
-      <node id="3722815385094360894" at="103,46,104,21" concept="10" />
-      <node id="3722815385094360900" at="106,11,107,42" concept="4" />
-      <node id="5920789476486309003" at="109,13,110,103" concept="9" />
-      <node id="5920789476486325791" at="110,103,111,41" concept="4" />
-      <node id="3223323963577842316" at="113,98,114,21" concept="3" />
-      <node id="3818729150937334369" at="116,46,117,80" concept="4" />
-      <node id="5217921753725803660" at="118,11,119,33" concept="4" />
-      <node id="5365399102993214945" at="126,0,127,0" concept="5" trace="myTask" />
-      <node id="5365399102993215051" at="127,0,128,0" concept="5" trace="myKey" />
-      <node id="5365399102993504385" at="129,46,130,23" concept="17" />
-      <node id="5365399102993215924" at="133,58,134,20" concept="4" />
-      <node id="5365399102993217030" at="134,20,135,18" concept="4" />
-      <node id="5365399102993499020" at="138,31,139,20" concept="10" />
-      <node id="5365399102993487032" at="144,52,145,51" concept="10" />
-      <node id="5365399102993487389" at="146,14,147,31" concept="10" />
-      <node id="5365399102993488845" at="153,26,154,32" concept="10" />
-      <node id="5365399102993488857" at="155,14,156,32" concept="10" />
-      <node id="3722815385094377523" at="36,10,38,5" concept="1" />
-      <node id="5365399102993469490" at="146,12,148,7" concept="1" />
-      <node id="5365399102993488855" at="155,12,157,7" concept="1" />
-      <node id="604442910913428022" at="29,0,32,0" concept="8" trace="startThread#()V" />
-      <node id="3722815385094288757" at="41,0,44,0" concept="8" trace="addTask#(Ljava/lang/Runnable;)V" />
-      <node id="5365399102993525267" at="48,48,51,7" concept="7" />
-      <node id="3722815385094288809" at="62,0,65,0" concept="8" trace="assertIsCommandThread#()V" />
-      <node id="3818729150937334345" at="67,45,70,7" concept="7" />
-      <node id="3619977242337125087" at="74,0,77,0" concept="8" trace="setHadExceptions#(Z)V" />
-      <node id="5217921753725803666" at="78,0,81,0" concept="8" trace="hadExceptions#()Z" />
-      <node id="6730825638915443105" at="82,28,85,5" concept="16" />
-      <node id="3722815385094244337" at="89,0,92,0" concept="2" trace="MyExecutorThread#(Ljava/lang/String;)V" />
-      <node id="6669546492594083167" at="94,20,97,9" concept="7" />
-      <node id="3223323963577842285" at="112,31,115,11" concept="7" />
-      <node id="3818729150937334369" at="115,11,118,11" concept="7" />
-      <node id="5365399102993501629" at="129,0,132,0" concept="2" trace="QueueElem#(Ljava/lang/Runnable;)V" />
-      <node id="5365399102993496114" at="138,0,141,0" concept="8" trace="getTask#()Ljava/lang/Runnable;" />
-      <node id="3722815385094205363" at="24,0,28,0" concept="2" trace="SimpleCommandQueue#(Ljava/lang/String;Lcom/intellij/openapi/project/Project;)V" />
-      <node id="6669546492594067000" at="57,0,61,0" concept="8" trace="dispose#()V" />
-      <node id="5365399102993215169" at="133,0,137,0" concept="2" trace="QueueElem#(Ljava/lang/Runnable;Ljava/lang/Object;)V" />
-      <node id="3722815385094377504" at="33,47,38,5" concept="7" />
-      <node id="3722815385094288874" at="66,45,71,5" concept="7" />
-      <node id="6730825638915439448" at="82,0,87,0" concept="8" trace="isEmpty#()Z" />
-      <node id="3722815385094360882" at="100,37,105,13" concept="19" />
-      <node id="5365399102993453276" at="143,37,148,7" concept="7" />
-      <node id="5365399102993488836" at="152,27,157,7" concept="7" />
-      <node id="3722815385094377489" at="33,0,40,0" concept="8" trace="runTask#(Ljava/lang/Runnable;)V" />
-      <node id="3722815385094288862" at="66,0,73,0" concept="8" trace="assertSoftlyIsCommandThread#()V" />
-      <node id="3722815385094360880" at="99,32,106,11" concept="20" />
-      <node id="5365399102993515752" at="46,44,54,5" concept="16" />
-      <node id="5365399102993217881" at="142,0,150,0" concept="8" trace="equals#(Ljava/lang/Object;)Z" />
-      <node id="5365399102993487513" at="151,0,159,0" concept="8" trace="hashCode#()I" />
-      <node id="3722815385094360875" at="98,22,108,9" concept="16" />
-      <node id="5365399102993515748" at="45,0,56,0" concept="8" trace="addTask#(Ljava/lang/Runnable;Ljava/lang/Object;)V" />
-      <node id="3722815385094360908" at="108,9,120,9" concept="19" />
-      <node id="3722815385094360868" at="93,23,121,7" concept="20" />
-      <node id="3722815385094360858" at="92,0,123,0" concept="8" trace="run#()V" />
-      <scope id="604442910913428026" at="29,34,30,21" />
-      <scope id="3722815385094377506" at="34,45,35,17" />
-      <scope id="3722815385094377524" at="36,12,37,20" />
-      <scope id="3722815385094288760" at="41,47,42,24" />
-      <scope id="5365399102993525269" at="49,24,50,29" />
-      <scope id="3722815385094288812" at="62,39,63,46" />
-      <scope id="3818729150937334345" at="68,42,69,121" />
-      <scope id="3619977242337125090" at="74,47,75,28" />
-      <scope id="5217921753725803669" at="78,34,79,27" />
-      <scope id="6730825638915443107" at="83,28,84,31" />
-      <scope id="3722815385094244340" at="89,51,90,18" />
-      <scope id="6669546492594083168" at="95,25,96,17" />
-      <scope id="3722815385094360883" at="101,17,102,29" />
-      <scope id="3722815385094360893" at="103,46,104,21" />
-      <scope id="3223323963577842286" at="113,98,114,21" />
-      <scope id="3818729150937334369" at="116,46,117,80" />
-      <scope id="5365399102993501632" at="129,46,130,23" />
-      <scope id="5365399102993496117" at="138,31,139,20" />
-      <scope id="5365399102993453278" at="144,52,145,51" />
-      <scope id="5365399102993469491" at="146,14,147,31" />
-      <scope id="5365399102993488844" at="153,26,154,32" />
-      <scope id="5365399102993488856" at="155,14,156,32" />
-      <scope id="3722815385094205366" at="24,74,26,24" />
-      <scope id="6669546492594067003" at="57,25,59,25" />
-      <scope id="3722815385094360890" at="103,13,105,13">
+      <node id="3722815385094205361" at="20,0,21,0" concept="13" trace="LOG" />
+      <node id="3722815385094206094" at="21,0,22,0" concept="5" trace="myThread" />
+      <node id="5920789476486294334" at="22,0,23,0" concept="5" trace="myProject" />
+      <node id="2324506610466057419" at="23,0,24,0" concept="5" trace="myDisposed" />
+      <node id="5217921753725803652" at="24,0,25,0" concept="5" trace="myHadExceptions" />
+      <node id="3722815385094208596" at="25,0,26,0" concept="5" trace="myQueue" />
+      <node id="3722815385094244352" at="27,74,28,48" concept="4" />
+      <node id="5920789476486300364" at="28,48,29,24" concept="4" />
+      <node id="3722815385094288748" at="32,34,33,21" concept="4" />
+      <node id="7334109670959042089" at="37,45,38,17" concept="4" />
+      <node id="3722815385094377525" at="39,12,40,20" concept="4" />
+      <node id="5365399102993543679" at="44,47,45,24" concept="4" />
+      <node id="5365399102993544835" at="48,59,49,44" concept="11" />
+      <node id="5365399102993537086" at="50,28,51,48" concept="9" />
+      <node id="5365399102993526468" at="52,24,53,29" concept="4" />
+      <node id="5365399102993515755" at="54,7,55,24" concept="4" />
+      <node id="5365399102993515760" at="55,24,56,23" concept="4" />
+      <node id="2324506610466065738" at="60,25,61,22" concept="4" />
+      <node id="6669546492594083149" at="61,22,62,25" concept="4" />
+      <node id="3619977242337125091" at="71,47,72,28" concept="4" />
+      <node id="5217921753725803670" at="75,34,76,27" concept="10" />
+      <node id="6730825638915471774" at="80,28,81,31" concept="10" />
+      <node id="3722815385094244342" at="86,51,87,18" concept="15" />
+      <node id="6669546492594119026" at="93,25,94,17" concept="10" />
+      <node id="8707478622686286661" at="95,9,96,72" concept="9" />
+      <node id="3722815385094360884" at="99,17,100,29" concept="4" />
+      <node id="3722815385094360894" at="101,46,102,21" concept="10" />
+      <node id="3722815385094360871" at="105,40,106,53" concept="9" />
+      <node id="8707478622686334220" at="106,53,107,37" concept="4" />
+      <node id="6567657680269692841" at="109,9,110,43" concept="0" />
+      <node id="8707478622686371337" at="115,19,116,27" concept="4" />
+      <node id="8707478622686393747" at="118,104,119,27" concept="3" />
+      <node id="8707478622686393757" at="121,52,122,86" concept="4" />
+      <node id="8707478622686393768" at="123,17,124,39" concept="4" />
+      <node id="5920789476486309003" at="128,10,129,101" concept="9" />
+      <node id="5920789476486325791" at="129,101,130,53" concept="4" />
+      <node id="8707478622686179298" at="130,53,131,28" concept="4" />
+      <node id="5365399102993214945" at="137,0,138,0" concept="5" trace="myTask" />
+      <node id="5365399102993215051" at="138,0,139,0" concept="5" trace="myKey" />
+      <node id="5365399102993504385" at="140,46,141,23" concept="17" />
+      <node id="5365399102993215924" at="144,58,145,20" concept="4" />
+      <node id="5365399102993217030" at="145,20,146,18" concept="4" />
+      <node id="5365399102993499020" at="149,31,150,20" concept="10" />
+      <node id="5365399102993487032" at="155,52,156,51" concept="10" />
+      <node id="5365399102993487389" at="157,14,158,31" concept="10" />
+      <node id="5365399102993488845" at="164,26,165,32" concept="10" />
+      <node id="5365399102993488857" at="166,14,167,32" concept="10" />
+      <node id="3722815385094377523" at="39,10,41,5" concept="1" />
+      <node id="3722815385094288809" at="65,0,67,0" concept="8" trace="assertIsCommandThread#()V" />
+      <node id="3722815385094288862" at="68,0,70,0" concept="8" trace="assertSoftlyIsCommandThread#()V" />
+      <node id="5365399102993469490" at="157,12,159,7" concept="1" />
+      <node id="5365399102993488855" at="166,12,168,7" concept="1" />
+      <node id="604442910913428022" at="32,0,35,0" concept="8" trace="startThread#()V" />
+      <node id="3722815385094288757" at="44,0,47,0" concept="8" trace="addTask#(Ljava/lang/Runnable;)V" />
+      <node id="5365399102993525267" at="51,48,54,7" concept="7" />
+      <node id="3619977242337125087" at="71,0,74,0" concept="8" trace="setHadExceptions#(Z)V" />
+      <node id="5217921753725803666" at="75,0,78,0" concept="8" trace="hadExceptions#()Z" />
+      <node id="6730825638915443105" at="79,28,82,5" concept="16" />
+      <node id="3722815385094244337" at="86,0,89,0" concept="2" trace="MyExecutorThread#(Ljava/lang/String;)V" />
+      <node id="6669546492594083167" at="92,20,95,9" concept="7" />
+      <node id="8707478622686393745" at="117,37,120,17" concept="7" />
+      <node id="8707478622686393757" at="120,17,123,17" concept="7" />
+      <node id="5365399102993501629" at="140,0,143,0" concept="2" trace="QueueElem#(Ljava/lang/Runnable;)V" />
+      <node id="5365399102993496114" at="149,0,152,0" concept="8" trace="getTask#()Ljava/lang/Runnable;" />
+      <node id="3722815385094205363" at="27,0,31,0" concept="2" trace="SimpleCommandQueue#(Ljava/lang/String;Lcom/intellij/openapi/project/Project;)V" />
+      <node id="6669546492594067000" at="60,0,64,0" concept="8" trace="dispose#()V" />
+      <node id="8707478622686119258" at="104,11,108,11" concept="20" />
+      <node id="5365399102993215169" at="144,0,148,0" concept="2" trace="QueueElem#(Ljava/lang/Runnable;Ljava/lang/Object;)V" />
+      <node id="3722815385094377504" at="36,47,41,5" concept="7" />
+      <node id="6730825638915439448" at="79,0,84,0" concept="8" trace="isEmpty#()Z" />
+      <node id="3722815385094360882" at="98,37,103,13" concept="19" />
+      <node id="5365399102993453276" at="154,37,159,7" concept="7" />
+      <node id="5365399102993488836" at="163,27,168,7" concept="7" />
+      <node id="3722815385094377489" at="36,0,43,0" concept="8" trace="runTask#(Ljava/lang/Runnable;)V" />
+      <node id="3722815385094360880" at="97,32,104,11" concept="20" />
+      <node id="5365399102993515752" at="49,44,57,5" concept="16" />
+      <node id="5365399102993217881" at="153,0,161,0" concept="8" trace="equals#(Ljava/lang/Object;)Z" />
+      <node id="5365399102993487513" at="162,0,170,0" concept="8" trace="hashCode#()I" />
+      <node id="5365399102993515748" at="48,0,59,0" concept="8" trace="addTask#(Ljava/lang/Runnable;Ljava/lang/Object;)V" />
+      <node id="8707478622686379170" at="114,73,125,15" concept="19" />
+      <node id="3722815385094360875" at="96,72,109,9" concept="16" />
+      <node id="8707478622686362124" at="113,29,126,13" concept="6" />
+      <node id="8707478622686101593" at="112,0,128,0" concept="8" trace="run#()V" />
+      <node id="8707478622685893951" at="110,43,128,10" concept="9" />
+      <node id="3722815385094360868" at="91,23,132,7" concept="20" />
+      <node id="3722815385094360858" at="90,0,134,0" concept="8" trace="run#()V" />
+      <scope id="3722815385094288812" at="65,39,65,39" />
+      <scope id="3722815385094288865" at="68,45,68,45" />
+      <scope id="604442910913428026" at="32,34,33,21" />
+      <scope id="3722815385094377506" at="37,45,38,17" />
+      <scope id="3722815385094377524" at="39,12,40,20" />
+      <scope id="3722815385094288760" at="44,47,45,24" />
+      <scope id="5365399102993525269" at="52,24,53,29" />
+      <scope id="3619977242337125090" at="71,47,72,28" />
+      <scope id="5217921753725803669" at="75,34,76,27" />
+      <scope id="6730825638915443107" at="80,28,81,31" />
+      <scope id="3722815385094244340" at="86,51,87,18" />
+      <scope id="6669546492594083168" at="93,25,94,17" />
+      <scope id="3722815385094360883" at="99,17,100,29" />
+      <scope id="3722815385094360893" at="101,46,102,21" />
+      <scope id="8707478622686379172" at="115,19,116,27" />
+      <scope id="8707478622686393746" at="118,104,119,27" />
+      <scope id="8707478622686393757" at="121,52,122,86" />
+      <scope id="5365399102993501632" at="140,46,141,23" />
+      <scope id="5365399102993496117" at="149,31,150,20" />
+      <scope id="5365399102993453278" at="155,52,156,51" />
+      <scope id="5365399102993469491" at="157,14,158,31" />
+      <scope id="5365399102993488844" at="164,26,165,32" />
+      <scope id="5365399102993488856" at="166,14,167,32" />
+      <scope id="3722815385094205366" at="27,74,29,24" />
+      <scope id="6669546492594067003" at="60,25,62,25" />
+      <scope id="3722815385094288809" at="65,0,67,0" />
+      <scope id="3722815385094288862" at="68,0,70,0" />
+      <scope id="3722815385094360890" at="101,13,103,13">
         <var name="e" id="3722815385094360891" />
       </scope>
-      <scope id="3722815385094360909" at="109,13,111,41">
-        <var name="clm" id="5920789476486309004" />
+      <scope id="8707478622686119259" at="105,40,107,37">
+        <var name="task" id="3722815385094360872" />
       </scope>
-      <scope id="5365399102993215172" at="133,58,135,18" />
-      <scope id="604442910913428022" at="29,0,32,0" />
-      <scope id="3722815385094288757" at="41,0,44,0">
+      <scope id="5365399102993215172" at="144,58,146,18" />
+      <scope id="604442910913428022" at="32,0,35,0" />
+      <scope id="3722815385094288757" at="44,0,47,0">
         <var name="task" id="3722815385094288768" />
       </scope>
-      <scope id="3722815385094288809" at="62,0,65,0" />
-      <scope id="3722815385094288876" at="67,45,70,7" />
-      <scope id="3619977242337125087" at="74,0,77,0">
+      <scope id="3619977242337125087" at="71,0,74,0">
         <var name="value" id="3619977242337125097" />
       </scope>
-      <scope id="5217921753725803666" at="78,0,81,0" />
-      <scope id="6730825638915439451" at="82,28,85,5" />
-      <scope id="3722815385094244337" at="89,0,92,0">
+      <scope id="5217921753725803666" at="75,0,78,0" />
+      <scope id="6730825638915439451" at="79,28,82,5" />
+      <scope id="3722815385094244337" at="86,0,89,0">
         <var name="name" id="3722815385094244343" />
       </scope>
-      <scope id="5365399102993501629" at="129,0,132,0">
+      <scope id="5365399102993501629" at="140,0,143,0">
         <var name="task" id="5365399102993502136" />
       </scope>
-      <scope id="5365399102993496114" at="138,0,141,0" />
-      <scope id="3722815385094205363" at="24,0,28,0">
+      <scope id="5365399102993496114" at="149,0,152,0" />
+      <scope id="3722815385094205363" at="27,0,31,0">
         <var name="project" id="5920789476486300064" />
         <var name="threadName" id="3722815385094244350" />
       </scope>
-      <scope id="6669546492594067000" at="57,0,61,0" />
-      <scope id="5365399102993215169" at="133,0,137,0">
+      <scope id="6669546492594067000" at="60,0,64,0" />
+      <scope id="5365399102993215169" at="144,0,148,0">
         <var name="key" id="5365399102993215437" />
         <var name="task" id="5365399102993215385" />
       </scope>
-      <scope id="3722815385094377492" at="33,47,38,5" />
-      <scope id="3722815385094288865" at="66,45,71,5" />
-      <scope id="6730825638915439448" at="82,0,87,0" />
-      <scope id="3722815385094360881" at="100,37,105,13" />
-      <scope id="5365399102993217887" at="143,37,148,7" />
-      <scope id="5365399102993487517" at="152,27,157,7" />
-      <scope id="5365399102993515754" at="47,28,53,23">
+      <scope id="3722815385094377492" at="36,47,41,5" />
+      <scope id="6730825638915439448" at="79,0,84,0" />
+      <scope id="3722815385094360881" at="98,37,103,13" />
+      <scope id="5365399102993217887" at="154,37,159,7" />
+      <scope id="5365399102993487517" at="163,27,168,7" />
+      <scope id="5365399102993515754" at="50,28,56,23">
         <var name="elem" id="5365399102993537087" />
       </scope>
-      <scope id="3722815385094377489" at="33,0,40,0">
+      <scope id="3722815385094377489" at="36,0,43,0">
         <var name="task" id="3722815385094377494" />
       </scope>
-      <scope id="3722815385094288862" at="66,0,73,0" />
-      <scope id="3722815385094360917" at="112,31,119,33" />
-      <scope id="3722815385094360879" at="99,32,107,42" />
-      <scope id="3722815385094360914" at="112,9,120,9">
-        <var name="e" id="3722815385094360915" />
+      <scope id="8707478622686386603" at="117,37,124,39" />
+      <scope id="8707478622686386600" at="117,15,125,15">
+        <var name="t" id="8707478622686386601" />
       </scope>
-      <scope id="5365399102993217881" at="142,0,150,0">
+      <scope id="5365399102993217881" at="153,0,161,0">
         <var name="o" id="5365399102993217885" />
       </scope>
-      <scope id="5365399102993487513" at="151,0,159,0" />
-      <scope id="5365399102993515751" at="45,59,54,5" />
-      <scope id="5365399102993515748" at="45,0,56,0">
+      <scope id="5365399102993487513" at="162,0,170,0" />
+      <scope id="5365399102993515751" at="48,59,57,5" />
+      <scope id="5365399102993515748" at="48,0,59,0">
         <var name="key" id="5365399102993520939" />
         <var name="task" id="5365399102993515764" />
       </scope>
-      <scope id="3722815385094360870" at="94,20,120,9">
-        <var name="task" id="3722815385094360872" />
+      <scope id="3722815385094360879" at="97,32,108,11" />
+      <scope id="8707478622686362127" at="114,73,125,15" />
+      <scope id="8707478622686101597" at="113,29,126,13" />
+      <scope id="8707478622686362124" at="113,29,126,13">
+        <var name="task" id="8707478622686362125" />
       </scope>
-      <scope id="3722815385094360861" at="93,23,121,7" />
-      <scope id="3722815385094360858" at="92,0,123,0" />
-      <unit id="5365399102993212599" at="125,0,160,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue$QueueElem" />
-      <unit id="3722815385094244335" at="88,0,124,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue$MyExecutorThread" />
-      <unit id="3722815385094205361" at="15,0,161,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue" />
+      <scope id="8707478622686101593" at="112,0,128,0" />
+      <scope id="3722815385094360870" at="92,20,131,28">
+        <var name="clm" id="5920789476486309004" />
+        <var name="flushingRunnable" id="8707478622685893952" />
+        <var name="tasksToExecute" id="8707478622686286667" />
+      </scope>
+      <scope id="3722815385094360861" at="91,23,132,7" />
+      <scope id="3722815385094360858" at="90,0,134,0" />
+      <unit id="8707478622686101587" at="111,40,128,9" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue$MyExecutorThread$1" />
+      <unit id="5365399102993212599" at="136,0,171,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue$QueueElem" />
+      <unit id="3722815385094244335" at="85,0,135,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue$MyExecutorThread" />
+      <unit id="3722815385094205361" at="18,0,172,0" name="jetbrains.mps.vcs.changesmanager.SimpleCommandQueue" />
     </file>
   </root>
   <root nodeRef="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/6389979038222847043">
@@ -2349,26 +2361,29 @@
   </root>
   <root nodeRef="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/6756213824749156025">
     <file name="CurrentDifferenceAdapter.java">
-      <node id="6756213824749156027" at="11,0,13,0" concept="2" trace="CurrentDifferenceAdapter#()V" />
-      <node id="6756213824749156057" at="14,0,17,0" concept="8" trace="changeAdded#(Ljetbrains/mps/vcs/diff/changes/ModelChange;)V" />
-      <node id="6756213824749156050" at="18,0,21,0" concept="8" trace="changeRemoved#(Ljetbrains/mps/vcs/diff/changes/ModelChange;)V" />
-      <node id="6756213824749156036" at="22,0,25,0" concept="8" trace="changeUpdateStarted#()V" />
-      <node id="6756213824749156032" at="26,0,29,0" concept="8" trace="changeUpdateFinished#()V" />
-      <scope id="6756213824749156030" at="11,37,11,37" />
-      <scope id="6756213824749156063" at="15,56,15,56" />
-      <scope id="6756213824749156056" at="19,58,19,58" />
-      <scope id="6756213824749156039" at="23,37,23,37" />
-      <scope id="6756213824749156035" at="27,38,27,38" />
-      <scope id="6756213824749156027" at="11,0,13,0" />
-      <scope id="6756213824749156057" at="14,0,17,0">
-        <var name="change" id="6756213824749156060" />
-      </scope>
-      <scope id="6756213824749156050" at="18,0,21,0">
+      <node id="950452082526829195" at="11,37,12,0" concept="12" />
+      <node id="950452082526829449" at="12,0,13,0" concept="12" />
+      <node id="6567657680269414719" at="18,56,19,0" concept="12" />
+      <node id="6756213824749156050" at="22,0,25,0" concept="8" trace="changeRemoved#(Ljetbrains/mps/vcs/diff/changes/ModelChange;)V" />
+      <node id="6756213824749156036" at="26,0,29,0" concept="8" trace="changeUpdateStarted#()V" />
+      <node id="6756213824749156032" at="30,0,33,0" concept="8" trace="changeUpdateFinished#()V" />
+      <node id="6756213824749156027" at="11,0,15,0" concept="2" trace="CurrentDifferenceAdapter#()V" />
+      <node id="6756213824749156057" at="17,0,21,0" concept="8" trace="changeAdded#(Ljetbrains/mps/vcs/diff/changes/ModelChange;)V" />
+      <scope id="6756213824749156056" at="23,58,23,58" />
+      <scope id="6756213824749156039" at="27,37,27,37" />
+      <scope id="6756213824749156035" at="31,38,31,38" />
+      <scope id="6756213824749156063" at="18,56,19,0" />
+      <scope id="6756213824749156030" at="11,37,13,0" />
+      <scope id="6756213824749156050" at="22,0,25,0">
         <var name="change" id="6756213824749156053" />
       </scope>
-      <scope id="6756213824749156036" at="22,0,25,0" />
-      <scope id="6756213824749156032" at="26,0,29,0" />
-      <unit id="6756213824749156025" at="9,0,30,0" name="jetbrains.mps.vcs.changesmanager.CurrentDifferenceAdapter" />
+      <scope id="6756213824749156036" at="26,0,29,0" />
+      <scope id="6756213824749156032" at="30,0,33,0" />
+      <scope id="6756213824749156027" at="11,0,15,0" />
+      <scope id="6756213824749156057" at="17,0,21,0">
+        <var name="change" id="6756213824749156060" />
+      </scope>
+      <unit id="6756213824749156025" at="9,0,34,0" name="jetbrains.mps.vcs.changesmanager.CurrentDifferenceAdapter" />
     </file>
   </root>
   <root nodeRef="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/8579517044346265736">

@@ -9,10 +9,14 @@ import jetbrains.mps.vcs.diff.changes.ModelChange;
 @GeneratedClass(node = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)/6756213824749156025", model = "r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)")
 public abstract class CurrentDifferenceAdapter implements CurrentDifferenceListener {
   public CurrentDifferenceAdapter() {
+
+
   }
+
 
   @Override
   public void changeAdded(@NotNull ModelChange change) {
+
   }
 
   @Override

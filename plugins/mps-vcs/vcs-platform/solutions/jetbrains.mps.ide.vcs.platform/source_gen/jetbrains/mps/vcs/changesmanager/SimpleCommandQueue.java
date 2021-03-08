@@ -8,6 +8,9 @@ import org.apache.log4j.LogManager;
 import com.intellij.openapi.project.Project;
 import java.util.LinkedList;
 import org.jetbrains.annotations.NotNull;
+import java.util.List;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.apache.log4j.Level;
 import com.intellij.openapi.vcs.changes.ChangeListManagerImpl;
 import com.intellij.openapi.vcs.changes.ChangeListManager;
@@ -60,15 +63,9 @@ public final class SimpleCommandQueue {
   }
 
   public void assertIsCommandThread() {
-    assert Thread.currentThread() == myThread;
   }
 
   public void assertSoftlyIsCommandThread() {
-    if (Thread.currentThread() != myThread) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("", new AssertionError("Current thread is " + Thread.currentThread() + ", but should be " + myThread));
-      }
-    }
   }
 
   public void setHadExceptions(boolean value) {
@@ -89,13 +86,14 @@ public final class SimpleCommandQueue {
     public MyExecutorThread(@NotNull String name) {
       super(name);
     }
+
     @Override
     public void run() {
       while (true) {
         if (myDisposed) {
           return;
         }
-        Runnable task;
+        final List<Runnable> tasksToExecute = new ArrayList<Runnable>();
         synchronized (myQueue) {
           while (myQueue.isEmpty()) {
             try {
@@ -104,20 +102,33 @@ public final class SimpleCommandQueue {
               return;
             }
           }
-          task = myQueue.poll().getTask();
-        }
-        try {
-          ChangeListManagerImpl clm = (ChangeListManagerImpl) ChangeListManager.getInstance(myProject);
-          clm.executeUnderDataLock(task);
-        } catch (Throwable e) {
-          if (e instanceof InterruptedException || e.getCause() instanceof InterruptedException) {
-            continue;
+          while (!(myQueue.isEmpty())) {
+            Runnable task = myQueue.poll().getTask();
+            tasksToExecute.add(task);
           }
-          if (LOG.isEnabledFor(Level.ERROR)) {
-            LOG.error(e.getClass().getName() + " exception in " + getName(), e);
-          }
-          myHadExceptions = true;
         }
+        assert !(tasksToExecute.isEmpty());
+        Runnable flushingRunnable = new Runnable() {
+          @Override
+          public void run() {
+            for (Runnable task : ListSequence.fromList(tasksToExecute)) {
+              try {
+                task.run();
+              } catch (Throwable t) {
+                if (t instanceof InterruptedException || t.getCause() instanceof InterruptedException) {
+                  continue;
+                }
+                if (LOG.isEnabledFor(Level.ERROR)) {
+                  LOG.error(t.getClass().getName() + " exception in " + getName(), t);
+                }
+                myHadExceptions = true;
+              }
+            }
+          }
+        };
+        ChangeListManagerImpl clm = (ChangeListManagerImpl) ChangeListManager.getInstance(myProject);
+        clm.executeOnUpdaterThread(flushingRunnable);
+        clm.waitForUpdate();
       }
     }
   }
