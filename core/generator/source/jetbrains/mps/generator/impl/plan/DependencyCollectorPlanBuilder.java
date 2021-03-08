@@ -52,8 +52,9 @@ public class DependencyCollectorPlanBuilder implements GenerationPlanBuilder {
   public TransformStepBuilder transform() {
     return new TransformStepBuilder() {
       @Override
-      public void include(@NotNull SLanguage language, BuilderOption option) {
+      public TransformStepBuilder include(@NotNull SLanguage language, BuilderOption option) {
         myLanguages.add(language); // XXX what about extended, do I care to support these?
+        return this;
       }
 
       @Override

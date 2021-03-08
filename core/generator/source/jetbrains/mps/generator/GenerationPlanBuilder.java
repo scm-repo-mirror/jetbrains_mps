@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -157,11 +157,15 @@ public interface GenerationPlanBuilder {
     /**
      * Reduce languages that produce specified one, i.e. it's their generation 'target'.
      * Note, this excludes the specified language. I expect scenarios where target language have to
-     * get processed later, not together with those targeting it
+     * get processed later, not together with those targeting it.
+     * Note, it a language's generator targets the same language (a de-sugaring generator for a language with a TextGen, e.g. BaseLanguage)
+     * then this generator is not considered to be part of the 'target to' set, despite its
+     * {@link jetbrains.mps.generator.runtime.TemplateModule#getTargetLanguages()} manifest.
      */
     TargetTo,
     /**
-     *
+     * Reduce languages that extend the one specified. Unlike {@link #WithExtendedGenerators},
+     * this option is intended to capture 'extends' relation between languages, not generators.
      */
     Extend;
 
@@ -178,7 +182,7 @@ public interface GenerationPlanBuilder {
   interface TransformStepBuilder {
     // TODO include(SModuleReference generator, BuilderOption)
     // XXX perhaps, includeAllOtherwiseUnhandledLanguages() as well.
-    void include(@NotNull SLanguage  language, BuilderOption option);
+    TransformStepBuilder include(@NotNull SLanguage  language, BuilderOption option);
     void complete();
   }
 }

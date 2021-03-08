@@ -118,7 +118,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
     class TSB implements TransformStepBuilder {
       private final List<Predicate<? super TemplateModule>> subSteps = new ArrayList<>(4);
       @Override
-      public void include(@NotNull SLanguage language, BuilderOption option) {
+      public TransformStepBuilder include(@NotNull SLanguage language, BuilderOption option) {
         if (BuilderOption.Extend.presentIn(option)) {
           final Set<SLanguage> extending = new SLanguageHierarchy(myLanguageRegistry, Collections.singleton(language)).getExtending();
           extending.remove(language);
@@ -130,6 +130,7 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
         } else {
           subSteps.add(ofLanguage(language));
         }
+        return this;
       }
 
       @Override
@@ -146,7 +147,9 @@ public class RegularPlanBuilder implements GenerationPlanBuilder {
       }
 
       private Predicate<TemplateModule> ofTarget(final SLanguage l) {
-        return tm -> tm.getTargetLanguages().contains(l);
+        // XXX first part of condition is to cover cases like BL, when language generator is mostly de-sugaring and
+        //     is further processed by language own textgen.
+        return tm -> !l.equals(tm.getSourceLanguage().getIdentity()) && tm.getTargetLanguages().contains(l);
       }
 
     };

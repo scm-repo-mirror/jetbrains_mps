@@ -54,7 +54,18 @@ public class RigidPlanBuilder implements GenerationPlanBuilder {
 
   @Override
   public TransformStepBuilder transform() {
-    throw new UnsupportedOperationException("This implementation of plan builder doesn't support requested functionality");
+    return new TransformStepBuilder() {
+      @Override
+      public TransformStepBuilder include(@NotNull SLanguage language, BuilderOption option) {
+        transformLanguage(language); // uses of RigidPlanBuilder don't utilize option functionality
+        return this;
+      }
+
+      @Override
+      public void complete() {
+        //  no-op
+      }
+    };
   }
 
   @Override
