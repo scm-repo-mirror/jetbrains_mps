@@ -105,6 +105,8 @@
 
     <directoryIndexExcludePolicy implementation="jetbrains.mps.ide.vfs.ClassesGenPolicy"/>
 
+    <featureStatisticsBundle qualifiedName="messages.MPSFeatureStatisticsBundle"/>
+
     <!-- MPS Patch-->
     <applicationService serviceInterface="com.intellij.ui.EditorTextFieldProvider"
                         serviceImplementation="jetbrains.mps.EditorTextFieldProviderImpl"
