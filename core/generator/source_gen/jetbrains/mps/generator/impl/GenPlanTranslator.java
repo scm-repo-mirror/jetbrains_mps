@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
@@ -57,14 +58,31 @@ public final class GenPlanTranslator {
       if (SNodeOperations.isInstanceOf(stepNode, CONCEPTS.Checkpoint$ZV)) {
         planBuilder.recordCheckpoint(cpIdentity(SLinkOperations.getTarget(SNodeOperations.as(stepNode, CONCEPTS.Checkpoint$ZV), LINKS.cpSpec$v7$t)));
       } else if (SNodeOperations.isInstanceOf(stepNode, CONCEPTS.Transform$a_)) {
-        GenerationPlanBuilder.TransformStepBuilder stepBuilder = planBuilder.transform();
-        for (SNode lid : SLinkOperations.getChildren(SNodeOperations.as(stepNode, CONCEPTS.Transform$a_), LINKS.languages$AUhz)) {
-          stepBuilder.include(((SLanguage) BHReflection.invoke0(lid, CONCEPTS.LanguageIdentity$cN, SMethodTrimmedId.create("getLanguage", null, "34EJa6aIcyj"))), GenerationPlanBuilder.BuilderOption.None);
+        SNode stepTransform = SNodeOperations.as(stepNode, CONCEPTS.Transform$a_);
+        if (ListSequence.fromList(SLinkOperations.getChildren(stepTransform, LINKS.languages$AUhz)).isNotEmpty() && ListSequence.fromList(SLinkOperations.getChildren(stepTransform, LINKS.entries$T03u)).isEmpty()) {
+          // FIXME compatibility code to facilitate transition. Now `transform <language>` means
+          // its generators are applied regardless of actual language use/presence in the model
+          // (i.e. generator may decide itself not to produce anything in case of empty model, or to produce
+          // some output anyway). However, I don't feel it's desired behavior - using empty model as in input is
+          // not quite good (see @descriptor model provider and the dance around used/engaged languages)
+          // and would like to have a statement to apply language reductions only if language present
+          // However, can't switch to a new stmt right away as need to deal with structure aspect generator first - now 
+          // any structure model get some files generated.
+          ArrayList<SLanguage> ll = new ArrayList<SLanguage>();
+          for (SNode lid : SLinkOperations.getChildren(stepTransform, LINKS.languages$AUhz)) {
+            ll.add(((SLanguage) BHReflection.invoke0(lid, CONCEPTS.LanguageIdentity$cN, SMethodTrimmedId.create("getLanguage", null, "34EJa6aIcyj"))));
+          }
+          planBuilder.transformLanguage(ll.toArray(new SLanguage[0]));
+        } else {
+          GenerationPlanBuilder.TransformStepBuilder stepBuilder = planBuilder.transform();
+          for (SNode lid : SLinkOperations.getChildren(stepTransform, LINKS.languages$AUhz)) {
+            stepBuilder.include(((SLanguage) BHReflection.invoke0(lid, CONCEPTS.LanguageIdentity$cN, SMethodTrimmedId.create("getLanguage", null, "34EJa6aIcyj"))), GenerationPlanBuilder.BuilderOption.None);
+          }
+          for (SNode le : SLinkOperations.getChildren(stepTransform, LINKS.entries$T03u)) {
+            stepBuilder.include(((SLanguage) BHReflection.invoke0(SLinkOperations.getTarget(le, LINKS.language$pqOb), CONCEPTS.LanguageIdentity$cN, SMethodTrimmedId.create("getLanguage", null, "34EJa6aIcyj"))), option(le));
+          }
+          stepBuilder.complete();
         }
-        for (SNode le : SLinkOperations.getChildren(SNodeOperations.as(stepNode, CONCEPTS.Transform$a_), LINKS.entries$T03u)) {
-          stepBuilder.include(((SLanguage) BHReflection.invoke0(SLinkOperations.getTarget(le, LINKS.language$pqOb), CONCEPTS.LanguageIdentity$cN, SMethodTrimmedId.create("getLanguage", null, "34EJa6aIcyj"))), option(le));
-        }
-        stepBuilder.complete();
       } else if (SNodeOperations.isInstanceOf(stepNode, CONCEPTS.ApplyGenerators$PQ)) {
         SNode applyGeneratorsStep = SNodeOperations.as(stepNode, CONCEPTS.ApplyGenerators$PQ);
         final boolean withExtended = SPropertyOperations.getBoolean(applyGeneratorsStep, PROPS.withExtended$Vq9q);
@@ -138,8 +156,8 @@ public final class GenPlanTranslator {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Checkpoint$ZV = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, "jetbrains.mps.lang.generator.plan.structure.Checkpoint");
-    /*package*/ static final SInterfaceConcept LanguageIdentity$cN = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c318L, "jetbrains.mps.lang.smodel.structure.LanguageIdentity");
     /*package*/ static final SConcept Transform$a_ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, "jetbrains.mps.lang.generator.plan.structure.Transform");
+    /*package*/ static final SInterfaceConcept LanguageIdentity$cN = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c318L, "jetbrains.mps.lang.smodel.structure.LanguageIdentity");
     /*package*/ static final SConcept ApplyGenerators$PQ = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, "jetbrains.mps.lang.generator.plan.structure.ApplyGenerators");
     /*package*/ static final SInterfaceConcept ModuleIdentity$U1 = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e85338e1eL, "jetbrains.mps.lang.smodel.structure.ModuleIdentity");
     /*package*/ static final SConcept GeneratorModulePointer$49 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, "jetbrains.mps.lang.smodel.structure.GeneratorModulePointer");
@@ -156,8 +174,8 @@ public final class GenPlanTranslator {
   private static final class LINKS {
     /*package*/ static final SContainmentLink cpSpec$v7$t = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, 0x340cd07aed7cb2d2L, "cpSpec");
     /*package*/ static final SContainmentLink languages$AUhz = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x28dd6d5a7549fa8dL, "languages");
-    /*package*/ static final SContainmentLink language$pqOb = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x100024c0a63c480fL, 0x100024c0a63c4810L, "language");
     /*package*/ static final SContainmentLink entries$T03u = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x100024c0a63c5ff6L, "entries");
+    /*package*/ static final SContainmentLink language$pqOb = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x100024c0a63c480fL, 0x100024c0a63c4810L, "language");
     /*package*/ static final SContainmentLink module$u1do = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module");
     /*package*/ static final SContainmentLink generator$bWty = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0x73246de9adf5a45cL, "generator");
     /*package*/ static final SContainmentLink checkpoint$18uq = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0xc11e5088a794d07L, 0x340cd07aedd21238L, "checkpoint");
