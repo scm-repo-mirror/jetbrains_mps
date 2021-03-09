@@ -68,9 +68,6 @@ public class Language extends LanguageRuntime {
     if (aspectClass.isAssignableFrom(RulesConstraintsAspect.class)) {
       return aspectClass.cast(new GeneratedRulesConstraintsAspect());
     }
-
-
-    // AP: legacy part, must be migrated from switch: please use lang.descriptor mapping label
     if (aspectClass == BehaviorAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.lang.test.behavior.BehaviorAspectDescriptor());
     }
