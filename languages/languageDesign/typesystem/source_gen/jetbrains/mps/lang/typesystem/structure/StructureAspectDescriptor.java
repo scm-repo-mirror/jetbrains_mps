@@ -1594,6 +1594,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("body", 0x114177d17f1L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L).optional(false).ordered(true).multiple(false).origin("1185805047793").done();
     b.aggregate("argument", 0x114177d39c2L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("1185805056450").done();
     b.aggregate("argumentRepresentator", 0x118bd03e53bL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x118bd05a27aL).optional(false).ordered(true).multiple(false).origin("1205761991995").done();
+    b.aggregate("warning", 0x79802d04811913beL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("8755047172977267646").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("when concrete");
     return b.create();

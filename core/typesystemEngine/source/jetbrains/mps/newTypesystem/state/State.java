@@ -388,8 +388,16 @@ public class State {
             SConcept concept = node.getConcept();
             boolean isRuntime = concept.equals(SNodeUtil.concept_RuntimeTypeVariable);
             if (!concept.isAbstract() && !isRuntime) {
-              myTypeCheckingContext.reportWarning(node, "argument of WHEN CONCRETE block is never concrete",
-                  wCBlock.getNodeModel(), wCBlock.getNodeId(), null, new NodeMessageTarget());
+              String warnString = wCBlock.getWarningMessage();
+              if (warnString == null) {
+                warnString = "argument of WHEN CONCRETE block is never concrete";
+              }
+              myTypeCheckingContext.reportWarning(node,
+                                                  warnString,
+                                                  wCBlock.getNodeModel(),
+                                                  wCBlock.getNodeId(),
+                                                  null,
+                                                  new NodeMessageTarget());
             }
           }
         }
