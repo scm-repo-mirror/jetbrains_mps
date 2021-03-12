@@ -140,7 +140,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsOperation_hasConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683563")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsOperation_old(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683563")).apply(context);
       return tlist1;
     }
   }
@@ -155,7 +155,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsOperation_noConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683573")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsOperation_new(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683573")).apply(context);
       return tlist1;
     }
   }
@@ -195,7 +195,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsIncludingImportedOperation_hasConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683594")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsIncludingImportedOperation_old(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683594")).apply(context);
       return tlist1;
     }
   }
@@ -210,7 +210,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsIncludingImportedOperation_noConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683604")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_RootsIncludingImportedOperation_new(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683604")).apply(context);
       return tlist1;
     }
   }
@@ -225,7 +225,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_NodesIncludingImportedOperation_hasConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683614")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_NodesIncludingImportedOperation_old(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683614")).apply(context);
       return tlist1;
     }
   }
@@ -240,7 +240,7 @@ public class Switch_switch_SNodeOperation_model extends TemplateSwitchBase imple
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
       final TemplateExecutionEnvironment environment = context.getEnvironment();
-      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_NodesIncludingImportedOperation_noConcept(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683624")).apply(context);
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_Model_NodesIncludingImportedOperation_new(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386683624")).apply(context);
       return tlist1;
     }
   }

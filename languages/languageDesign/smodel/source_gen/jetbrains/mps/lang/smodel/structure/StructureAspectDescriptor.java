@@ -1556,6 +1556,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/1182511038748");
     b.version(2);
     b.associate("concept", 0x1135326811eL).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(true).origin("1182511038750").done();
+    b.aggregate("conceptArgument", 0x5db0166caf074c47L).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x118f285e4f7L).optional(true).ordered(true).multiple(false).origin("6750920497477143623").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("nodesIncludingImported");
     return b.create();
@@ -1588,6 +1589,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/1176109685393");
     b.version(2);
     b.associate("concept", 0x111d5999a92L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(true).origin("1176109685394").done();
+    b.aggregate("conceptArgument", 0x5db0166caf074c3bL).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x118f285e4f7L).optional(true).ordered(true).multiple(false).origin("6750920497477143611").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("rootsIncludingImported");
     return b.create();
@@ -1599,6 +1601,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/1171315804604");
     b.version(2);
     b.associate("concept", 0x110b7dcc9bdL).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(true).origin("1171315804605").done();
+    b.aggregate("conceptArgument", 0x5db0166caf05d059L).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x118f285e4f7L).optional(true).ordered(true).multiple(false).origin("6750920497477046361").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("roots");
     return b.create();

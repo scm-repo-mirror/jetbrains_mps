@@ -883,7 +883,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_Model_GetModule;
       case LanguageConceptSwitch.Model_NodesIncludingImportedOperation:
         if (props_Model_NodesIncludingImportedOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1135326811cL);
+          cpb.deprecateAssociation(0x1135326811eL, "concept");
           cpb.rawPresentation("nodesIncludingImported");
           props_Model_NodesIncludingImportedOperation = cpb.create();
         }
@@ -906,14 +907,16 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_Model_PointerOperation;
       case LanguageConceptSwitch.Model_RootsIncludingImportedOperation:
         if (props_Model_RootsIncludingImportedOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x111d5999a91L);
+          cpb.deprecateAssociation(0x111d5999a92L, "concept");
           cpb.rawPresentation("rootsIncludingImported");
           props_Model_RootsIncludingImportedOperation = cpb.create();
         }
         return props_Model_RootsIncludingImportedOperation;
       case LanguageConceptSwitch.Model_RootsOperation:
         if (props_Model_RootsOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110b7dcc9bcL);
+          cpb.deprecateAssociation(0x110b7dcc9bdL, "concept");
           cpb.rawPresentation("roots");
           props_Model_RootsOperation = cpb.create();
         }

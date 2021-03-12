@@ -103,10 +103,10 @@ public class TemplateModelImpl extends TemplateModelBase {
       return new Template_reduce_GetContainingRootOperation();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1171322948481"))) {
-      return new Template_reduce_Model_RootsOperation_hasConcept();
+      return new Template_reduce_Model_RootsOperation_old();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1171323120109"))) {
-      return new Template_reduce_Model_RootsOperation_noConcept();
+      return new Template_reduce_Model_RootsOperation_new();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1171324405763"))) {
       return new Template_reduce_Model_NodesOperation_old();
@@ -142,10 +142,10 @@ public class TemplateModelImpl extends TemplateModelBase {
       return new Template_reduce_GetAncestors_whereConceptInList();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1176109882192"))) {
-      return new Template_reduce_Model_RootsIncludingImportedOperation_hasConcept();
+      return new Template_reduce_Model_RootsIncludingImportedOperation_old();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1176109959275"))) {
-      return new Template_reduce_Model_RootsIncludingImportedOperation_noConcept();
+      return new Template_reduce_Model_RootsIncludingImportedOperation_new();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1179168430704"))) {
       return new Template_reduce_GetIndexInParentOperation();
@@ -157,10 +157,10 @@ public class TemplateModelImpl extends TemplateModelBase {
       return new Template_reduce_Concept_NewInstance();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1182511526037"))) {
-      return new Template_reduce_Model_NodesIncludingImportedOperation_hasConcept();
+      return new Template_reduce_Model_NodesIncludingImportedOperation_old();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1182511568451"))) {
-      return new Template_reduce_Model_NodesIncludingImportedOperation_noConcept();
+      return new Template_reduce_Model_NodesIncludingImportedOperation_new();
     }
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6119287946611399777"))) {
       return new Template_reduce_GetChildrenOperation_whereLinkQualifier();
