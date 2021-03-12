@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.project.dependency;
 
-import jetbrains.mps.smodel.Language;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -60,20 +59,6 @@ public class GlobalModuleDependenciesManager {
 
   public GlobalModuleDependenciesManager(@NotNull SModule module) {
     this(module, DEFAULT_HANDLER);
-  }
-
-  /**
-   * @return all languages used by the given modules
-   * @deprecated Use {@link org.jetbrains.mps.openapi.module.SModule#getUsedLanguages()} directly.
-   */
-  @Deprecated
-  @ToRemove(version = 3.3)
-  public Collection<Language> getUsedLanguages() {
-    Set<Language> result = new HashSet<>();
-    for (SModule module : myModules) {
-      result.addAll(directlyUsedLanguages(module));
-    }
-    return result;
   }
 
   /**
@@ -135,18 +120,6 @@ public class GlobalModuleDependenciesManager {
         collect(m, result, depType);
       }
     }
-  }
-
-  private static Collection<Language> directlyUsedLanguages(@NotNull SModule module) {
-    Set<Language> result = new HashSet<>();
-    for (SLanguage language : module.getUsedLanguages()) {
-      final SModule sourceModule = language.getSourceModule();
-      // respect sourceModule may be null
-      if (sourceModule instanceof Language) {
-        result.add((Language) sourceModule);
-      }
-    }
-    return result;
   }
 
   public enum Deptype {
