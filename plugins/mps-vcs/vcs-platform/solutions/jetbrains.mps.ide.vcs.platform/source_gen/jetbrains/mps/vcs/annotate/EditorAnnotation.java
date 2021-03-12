@@ -51,18 +51,10 @@ import org.jetbrains.mps.openapi.model.SModel;
 import git4idea.GitVcs;
 import com.intellij.openapi.vcs.history.VcsFileRevisionEx;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Comparator;
-import com.intellij.util.containers.ContainerUtil;
-import java.util.NavigableSet;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import com.intellij.openapi.util.Couple;
-import com.intellij.openapi.vcs.annotate.FileAnnotation;
-import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.vcs.actions.AnnotationsSettings;
-import java.util.function.BiConsumer;
+import java.util.Arrays;
 import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.vcs.annotate.ShowAllAffectedGenericAction;
 
@@ -476,126 +468,80 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     return compareResult >= 0;
   }
 
-  private static Map<VcsRevisionNumber, String> getAuthors(List<VcsFileRevision> revisions) {
-    final Map<VcsRevisionNumber, String> authors = MapSequence.fromMap(new HashMap<VcsRevisionNumber, String>());
-    ListSequence.fromList(revisions).distinct().visitAll(new IVisitor<VcsFileRevision>() {
-      public void visit(VcsFileRevision revision) {
-        VcsRevisionNumber number = revision.getRevisionNumber();
-        if (!(MapSequence.fromMap(authors).containsKey(number))) {
-          MapSequence.fromMap(authors).put(number, revision.getAuthor());
-        }
-      }
-    });
-    return authors;
-  }
-
-  /**
-   * Copied from {@link com.intellij.openapi.vcs.annotate.FileAnnotation } and {@link git4idea.annotate.GitFileAnnotation }
-   */
-  private static List<List<VcsRevisionNumber>> getOrderedRevisionNumbers(List<VcsFileRevision> allRevisions, boolean isGit) {
-    if (isGit) {
-      return getOrderedRevisionNumbersForGit(allRevisions);
-    } else {
-      final List<List<VcsRevisionNumber>> orderedRevisionNumbers = ListSequence.fromList(new ArrayList<List<VcsRevisionNumber>>());
-      List<VcsRevisionNumber> revisions = ListSequence.fromList(allRevisions).select(new ISelector<VcsFileRevision, VcsRevisionNumber>() {
-        public VcsRevisionNumber select(VcsFileRevision it) {
-          return it.getRevisionNumber();
-        }
-      }).distinct().sort(new Comparator<VcsRevisionNumber>() {
-        public int compare(VcsRevisionNumber a, VcsRevisionNumber b) {
-          return a.compareTo(b);
-        }
-      }, true).toListSequence();
-      ListSequence.fromList(revisions).visitAll(new IVisitor<VcsRevisionNumber>() {
-        public void visit(VcsRevisionNumber it) {
-          ListSequence.fromList(orderedRevisionNumbers).addElement(Collections.singletonList(it));
-        }
-      });
-      return orderedRevisionNumbers;
+  private Color getColorByRevisionOrder(VcsFileRevision revision) {
+    List<VcsFileRevision> rootCommits = myRootAnnotation.getRootRevisions();
+    int revisionOrderNumber = ListSequence.fromList(rootCommits).indexOf(revision);
+    if (revisionOrderNumber < 0) {
+      return null;
     }
+    List<Color> colorPalette = getOrderedColorPalette();
+    return ListSequence.fromList(colorPalette).getElement(revisionOrderNumber % ListSequence.fromList(colorPalette).count());
   }
 
-  /**
-   * Copied from {@link git4idea.annotate.GitFileAnnotation }
-   */
-  private static List<List<VcsRevisionNumber>> getOrderedRevisionNumbersForGit(List<VcsFileRevision> revisions) {
-    final ContainerUtil.KeyOrderedMultiMap<Date, VcsRevisionNumber> dates = new ContainerUtil.KeyOrderedMultiMap<Date, VcsRevisionNumber>();
-
-    ListSequence.fromList(revisions).visitAll(new IVisitor<VcsFileRevision>() {
-      public void visit(VcsFileRevision revision) {
-        dates.putValue(revision.getRevisionDate(), revision.getRevisionNumber());
+  private Color getColorByRevisionAuthor(VcsFileRevision revision) {
+    List<String> rootAuthors = ListSequence.fromList(myRootAnnotation.getRootRevisions()).select(new ISelector<VcsFileRevision, String>() {
+      public String select(VcsFileRevision it) {
+        return it.getAuthor();
       }
-    });
-
-    List<List<VcsRevisionNumber>> result = ListSequence.fromList(new ArrayList<List<VcsRevisionNumber>>());
-    NavigableSet<Date> orderedDates = dates.navigableKeySet();
-    for (Date date : orderedDates.descendingSet()) {
-      List<VcsRevisionNumber> numbers = ListSequence.fromList(new ArrayList<VcsRevisionNumber>());
-      ListSequence.fromList(numbers).addSequence(CollectionSequence.fromCollection(dates.get(date)));
-      ListSequence.fromList(result).addElement(numbers);
+    }).distinct().toListSequence();
+    int authorNumber = ListSequence.fromList(rootAuthors).indexOf(revision.getAuthor());
+    if (authorNumber < 0) {
+      return null;
     }
-    return result;
+    List<Color> colorPalette = getOrderedColorPalette();
+    return ListSequence.fromList(colorPalette).getElement(authorNumber % ListSequence.fromList(colorPalette).count());
   }
 
-  private Couple<Map<VcsRevisionNumber, Color>> getBgColorsMap() {
-    return getBgColorsMap(getAllRevisions(), myVcs instanceof GitVcs);
-  }
+  private static List<Color> getOrderedColorPalette() {
+    /*
+      Each processed revision obtains a color which differs from the color of previous processed revision. We start from the first main color in the palette, the next revision obtains the next main colors and so on. After the last main color is used we take the first subcolor of the first main color, then the first subcolor of the second main color and so on until all subcolors are used. Then we start again with the first main color.  
 
-  /**
-   * Copied from {@link com.intellij.openapi.vcs.actions.AnnotateToggleAction#computeBgColors(FileAnnotation, Editor) }
-   */
-  private static Couple<Map<VcsRevisionNumber, Color>> getBgColorsMap(List<VcsFileRevision> revisions, boolean isGit) {
-    Map<VcsRevisionNumber, Color> commitOrderColors = new HashMap<VcsRevisionNumber, Color>();
-    final Map<VcsRevisionNumber, Color> commitAuthorColors = new HashMap<VcsRevisionNumber, Color>();
+    */
 
     EditorColorsScheme colorsScheme = EditorColorsManager.getInstance().getGlobalScheme();
     AnnotationsSettings settings = AnnotationsSettings.getInstance();
-    List<Color> authorsColorPalette = settings.getAuthorsColors(colorsScheme);
-    List<Color> orderedColorPalette = settings.getOrderedColors(colorsScheme);
+    List<Color> initialPalette = settings.getOrderedColors(colorsScheme);
+    /*
+      There are five main colors, subcolors are calculated as intermediate colors between main colors. It's not possible to get the number of main colors from platform API, therefore it is hardcoded here as 5.
 
-    Map<VcsRevisionNumber, String> authorsMap = getAuthors(revisions);
+    */
 
-    final Map<String, Color> authorColors = MapSequence.fromMap(new HashMap<String, Color>());
-    List<String> authors = ListSequence.fromList(new ArrayList<String>());
-    ListSequence.fromList(authors).addSequence(CollectionSequence.fromCollection(authorsMap.values()));
-    for (String author : ListSequence.fromList(authors).distinct().sort(new ISelector<String, String>() {
-      public String select(String it) {
-        return it;
-      }
-    }, true)) {
-      int index = MapSequence.fromMap(authorColors).count();
-      Color color = authorsColorPalette.get(index % authorsColorPalette.size());
-      MapSequence.fromMap(authorColors).put(author, color);
+    final int numberOfMainColors = 5;
+    int numberOfColors = ListSequence.fromList(initialPalette).count();
+    int numberOfSubcolorRegions = numberOfMainColors - 1;
+    int subcolorRegionSize = (numberOfColors - numberOfMainColors) / numberOfSubcolorRegions;
+    List<Color> modifiedPalette = Arrays.asList(new Color[numberOfColors]);
+    int k = 0;
+    for (; k < numberOfMainColors; k++) {
+      ListSequence.fromList(modifiedPalette).setElement(k, ListSequence.fromList(initialPalette).getElement(k * (subcolorRegionSize + 1)));
     }
-    authorsMap.forEach(new BiConsumer<VcsRevisionNumber, String>() {
-      public void accept(VcsRevisionNumber revisionNumber, String author) {
-        MapSequence.fromMap(commitAuthorColors).put(revisionNumber, MapSequence.fromMap(authorColors).get(author));
-      }
-    });
-
-    List<List<VcsRevisionNumber>> orderedRevisions = getOrderedRevisionNumbers(revisions, isGit);
-    int revisionsCount = orderedRevisions.size();
-    for (int index = 0; index < revisionsCount; index++) {
-      Color color = orderedColorPalette.get(orderedColorPalette.size() * index / revisionsCount);
-      List<VcsRevisionNumber> numbers = orderedRevisions.get(index);
-      for (VcsRevisionNumber number : numbers) {
-        MapSequence.fromMap(commitOrderColors).put(number, color);
+    for (int j = 0; j < subcolorRegionSize; j++) {
+      for (int i = 0; i < numberOfMainColors - 1; i++) {
+        int mainColorIndex = i * (subcolorRegionSize + 1);
+        ListSequence.fromList(modifiedPalette).setElement(k, ListSequence.fromList(initialPalette).getElement(mainColorIndex + j + 1));
+        k++;
       }
     }
-    return Couple.of((MapSequence.fromMap(commitOrderColors).count() > 0 ? commitOrderColors : null), (MapSequence.fromMap(commitAuthorColors).count() > 0 ? commitAuthorColors : null));
+    return modifiedPalette;
   }
 
   @Nullable
   public Color getRevisionColor(VcsFileRevision revision) {
     AnnotationOptions.ColorMode colorMode = AnnotationOptions.getInstance().getColorMode();
-    if (colorMode == AnnotationOptions.ColorMode.NONE) {
-      return null;
+    switch (colorMode) {
+      case ORDER:
+        return getColorByRevisionOrder(revision);
+      case AUTHOR:
+        return getColorByRevisionAuthor(revision);
+      default:
+        return null;
     }
-    Map<VcsRevisionNumber, Color> colorMap = (colorMode == AnnotationOptions.ColorMode.AUTHOR ? getBgColorsMap().second : getBgColorsMap().first);
-    return (colorMap == null ? null : MapSequence.fromMap(colorMap).get(revision.getRevisionNumber()));
   }
 
   private Color calcCellColor(CellAnnotation cellAnnotation) {
+    if (cellAnnotation.getRevisionsGraphNode().getRevision() == myLocalRevision) {
+      return myEditorComponent.getBackground();
+    }
     Color color;
     if (AnnotationOptions.getInstance().isEditorHighlighted()) {
       color = getRevisionColor(cellAnnotation.getRevisionsGraphNode().getRevision());
