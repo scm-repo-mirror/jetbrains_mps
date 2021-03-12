@@ -34,12 +34,15 @@ import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -123,7 +126,7 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
       }
     });
     if (Sequence.fromIterable(extendedClassifiers).isEmpty()) {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")));
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), createClassifierType_8wwxv0_a0a0a1a4());
     } else {
       return ListSequence.fromListWithValues(new ArrayList<SNode>(), extendedClassifiers);
     }
@@ -137,19 +140,16 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
     }
 
     // populate extended interfaces members
-    for (SNode extendedInterface : SNodeOperations.ofConcept(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO)).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    }), CONCEPTS.IClassifierType$B1)) {
+    for (SNode extendedInterface : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.extendedInterface$PDVO)).where(new NotNullWhereFilter<SNode>())) {
       IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(extendedInterface, context, classifierType);
     }
 
     // populate Object members in case of classifierType.getClassifier() == this classifier
     if (IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifierType) == __thisNode__) {
-      if ((SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object") != null)) {
-        IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")), context, classifierType);
-      }
+      // although it seems odd to add Object methods into any Interface, guess, the reason
+      // is that the members query goes through ClassifierType. Given Iface i = new IfaceImpl(); 
+      // one needs to see Object methods for i anyway.
+      IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(createClassifierType_8wwxv0_a0d0h0f(), context, classifierType);
     }
   }
   /*package*/ static boolean canBeStatic_id2L7NFMC7$9I(@NotNull SNode __thisNode__) {
@@ -241,6 +241,18 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
+  private static SNode createClassifierType_8wwxv0_a0a0a1a4() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$bL);
+    n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    return n0.getResult();
+  }
+  private static SNode createClassifierType_8wwxv0_a0d0h0f() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$bL);
+    n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    return n0.getResult();
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink classifier$cxMr = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
@@ -254,10 +266,10 @@ public final class Interface__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept SuperInerfaceKind$Si = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x73048d24d425f35eL, "jetbrains.mps.baseLanguage.structure.SuperInerfaceKind");
     /*package*/ static final SConcept Interface$db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
     /*package*/ static final SInterfaceConcept IClassifierMember$Na = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x66c71d82c2eb113eL, "jetbrains.mps.baseLanguage.structure.IClassifierMember");
-    /*package*/ static final SInterfaceConcept IClassifierType$B1 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x66c71d82c2eb7f7eL, "jetbrains.mps.baseLanguage.structure.IClassifierType");
     /*package*/ static final SInterfaceConcept IBLDeprecatable$ah = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d2ea8a339L, "jetbrains.mps.baseLanguage.structure.IBLDeprecatable");
     /*package*/ static final SConcept ClassifierDocComment$mh = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment");
     /*package*/ static final SConcept DeprecatedBlockDocTag$8n = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
+    /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
   }
 
   private static final class PROPS {

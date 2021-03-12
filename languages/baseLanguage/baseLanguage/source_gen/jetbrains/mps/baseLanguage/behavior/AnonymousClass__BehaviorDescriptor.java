@@ -28,6 +28,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.apache.log4j.Level;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
@@ -117,7 +118,7 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
     }).indexOf(__thisNode__) + 1;
   }
   /*package*/ static boolean isDescendant_checkLoops_id6dL7A1DpKoA(@NotNull SNode __thisNode__, SNode nodeToCompare, Set<SNode> visited) {
-    if ((boolean) Classifier__BehaviorDescriptor.isSame_id4dzXPK1BpyE.invoke(nodeToCompare, SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"))) {
+    if (SNodeOperations.is(nodeToCompare, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"))) {
       return true;
     }
     if (SetSequence.fromSet(visited).contains(__thisNode__)) {
@@ -166,9 +167,8 @@ public final class AnonymousClass__BehaviorDescriptor extends BaseBHDescriptor {
     if (SNodeOperations.isInstanceOf(IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(superClass), CONCEPTS.ClassConcept$bK)) {
       IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(superClass, context, classifierType);
     } else if (SNodeOperations.isInstanceOf(IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(superClass), CONCEPTS.Interface$db)) {
-      if ((SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object") != null)) {
-        IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object")), context, classifierType);
-      }
+      // XXX here used to be node/Object/.getThisType().populateMembers(), but what's the point, if the same code
+      //    is in Interface.populateMembers()?  
       IClassifierType__BehaviorDescriptor.populateMembers_id6r77ob2USS_.invoke(superClass, context, classifierType);
     } else {
       if (LOG.isEnabledFor(Level.WARN)) {
