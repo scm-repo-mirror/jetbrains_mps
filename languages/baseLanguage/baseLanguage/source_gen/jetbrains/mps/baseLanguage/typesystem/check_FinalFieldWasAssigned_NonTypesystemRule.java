@@ -10,6 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.SModelStereotype;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -32,7 +33,7 @@ public class check_FinalFieldWasAssigned_NonTypesystemRule extends AbstractNonTy
   }
   public void applyRule(final SNode field, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode classifier = SNodeOperations.getNodeAncestor(field, CONCEPTS.ClassConcept$bK, false, false);
-    if (!(SPropertyOperations.getBoolean(field, PROPS.isFinal$gvTP)) || SLinkOperations.getTarget(field, LINKS.initializer$2twD) != null || classifier == null) {
+    if (!(SPropertyOperations.getBoolean(field, PROPS.isFinal$gvTP)) || SLinkOperations.getTarget(field, LINKS.initializer$2twD) != null || classifier == null || SModelStereotype.isStubModel(SNodeOperations.getModel(classifier))) {
       return;
     }
 
