@@ -62,7 +62,6 @@
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.TestInfo__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.generator.template.util.TestsUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
-    <classNode dependClassName="jetbrains.mps.smodel.SReference" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
     <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
