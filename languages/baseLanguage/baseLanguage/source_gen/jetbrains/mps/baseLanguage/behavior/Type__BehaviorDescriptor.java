@@ -25,7 +25,6 @@ import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -143,15 +142,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     }
   }
   /*package*/ static boolean isSupersetOf_idhKBOZqh(@NotNull SNode __thisNode__, SNode t) {
-    {
-      GeneratedMatchingPattern pattern_smb55n_a0o = new Pattern_smb55n_a0a0a0o(_quotation_createNode_smb55n_a0a0a0a0o(__thisNode__));
-      SNode coercedNode_smb55n_a0o = TypecheckingFacade.getFromContext().coerceType(t, pattern_smb55n_a0o);
-      if (coercedNode_smb55n_a0o != null) {
-        return true;
-      } else {
-      }
-    }
-    return false;
+    return TypecheckingFacade.getFromContext().isSubtype(t, __thisNode__);
   }
   /*package*/ static boolean isSupersetOf_id7PgshREdQKp(@NotNull SNode __thisNode__, SNode t, Map<SNode, SNode> substitutions) {
     if (SNodeOperations.isInstanceOf(t, CONCEPTS.TypeVariableReference$WL)) {
@@ -286,14 +277,6 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     SNode quotedNode_2 = null;
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x103fb730c14L, "ClassifierClassExpression")).getResult();
     SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x103fb730c14L, 0x103fb73a43eL, "classifier"), (SNode) parameter_1);
-    return quotedNode_2;
-  }
-  private static SNode _quotation_createNode_smb55n_a0a0a0a0o(Object parameter_1) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode quotedNode_2 = null;
-    quotedNode_2 = (SNode) parameter_1;
-    if (quotedNode_2 != null) {
-    }
     return quotedNode_2;
   }
 
