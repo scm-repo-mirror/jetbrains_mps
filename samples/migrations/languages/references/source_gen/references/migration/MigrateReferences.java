@@ -16,7 +16,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -59,9 +58,9 @@ public class MigrateReferences extends MigrationScriptBase {
   }
 
   private static SNode _quotation_createNode_w5820p_a0a0a0a2a5(Object parameter_1) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
-    quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x1610048531ac4899L, 0x91122289e22843ddL, "references"), 0x6aff2c104932a6c9L, "NewComponentRef")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x1610048531ac4899L, 0x91122289e22843ddL, "references"), 0x6aff2c104932a6c9L, "NewComponentRef"));
+    quotedNode_2 = nb.getResult();
     SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0x1610048531ac4899L, 0x91122289e22843ddL, 0x6aff2c104932a6c9L, 0x6aff2c104932a6caL, "target"), (SNode) parameter_1);
     return quotedNode_2;
   }

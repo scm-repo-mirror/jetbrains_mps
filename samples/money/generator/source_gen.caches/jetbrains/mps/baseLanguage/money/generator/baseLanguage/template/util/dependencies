@@ -7,7 +7,6 @@
     <classNode dependClassName="jetbrains.mps.typechecking.TypecheckingFacade" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
   </dependency>
 </dependenciesRoot>
 

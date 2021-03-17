@@ -92,7 +92,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.lang.editor.migration.Migrate_InlineReferencePresentations">
@@ -167,7 +166,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.lang.editor.migration.Migrate_SCAPartsForSmartReferences">
@@ -203,7 +201,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.lang.editor.migration.MigrationDescriptor">
@@ -242,7 +239,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
   </dependency>
   <dependency className="jetbrains.mps.lang.editor.migration.RefScopeFactories">
     <classNode dependClassName="java.lang.Object" />
@@ -252,7 +248,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
   </dependency>
   <dependency className="jetbrains.mps.lang.editor.migration.RemoveCellModelCollectionDeprecatedProps">
     <classNode dependClassName="java.lang.Override" />

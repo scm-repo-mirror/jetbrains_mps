@@ -24,68 +24,74 @@
       </scope>
     </file>
     <file name="typeof_PrimNumConstant_InferenceRule.java">
-      <node id="1470921783545367408" at="24,5,25,59" concept="5" />
-      <node id="1470921783545367408" at="25,59,26,194" concept="5" />
-      <node id="1470921783545367408" at="26,194,27,343" concept="2" />
-      <node id="1470921783545416820" at="30,50,31,39" concept="6" />
-      <node id="1470921783545416820" at="33,68,34,102" concept="6" />
-      <node id="1470921783545416820" at="36,30,37,17" concept="6" />
-      <node id="1470921783545372002" at="39,83,40,63" concept="5" />
-      <node id="1470921783545372002" at="40,63,41,30" concept="5" />
+      <node id="1470921783545367408" at="23,5,24,59" concept="5" />
+      <node id="1470921783545367408" at="24,59,25,194" concept="5" />
+      <node id="1470921783545367408" at="25,194,26,343" concept="2" />
+      <node id="1470921783545416820" at="29,50,30,39" concept="6" />
+      <node id="1470921783545416820" at="32,68,33,102" concept="6" />
+      <node id="1470921783545416820" at="35,30,36,17" concept="6" />
+      <node id="1470921783545372002" at="38,83,39,30" concept="5" />
+      <node id="1470921783545372002" at="39,30,40,30" concept="5" />
+      <node id="1470921783545372002" at="40,30,41,30" concept="5" />
       <node id="1470921783545372002" at="41,30,42,30" concept="5" />
-      <node id="1470921783545372002" at="42,30,43,30" concept="5" />
-      <node id="1470921783545372002" at="43,30,44,30" concept="5" />
-      <node id="1470921783545372002" at="44,30,45,227" concept="2" />
-      <node id="1470921783545372002" at="45,227,46,236" concept="2" />
-      <node id="1470921783545372002" at="46,236,47,233" concept="2" />
-      <node id="1470921783545372002" at="47,233,48,187" concept="2" />
-      <node id="1470921783545372002" at="48,187,49,176" concept="2" />
-      <node id="1470921783545372002" at="49,176,50,229" concept="2" />
-      <node id="1470921783545372002" at="50,229,51,177" concept="2" />
-      <node id="1470921783545372002" at="51,177,52,177" concept="2" />
-      <node id="1470921783545372002" at="52,177,53,24" concept="6" />
-      <node id="1470921783545416820" at="57,0,58,0" concept="7" trace="isFloat$3JH3" />
-      <node id="1470921783545416820" at="61,0,62,0" concept="7" trace="PrimNumConstant$bz" />
-      <node id="1470921783545416820" at="21,0,23,0" concept="1" trace="typeof_PrimNumConstant_InferenceRule#()V" />
-      <node id="1470921783545416820" at="30,0,33,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1470921783545416820" at="33,0,36,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="1470921783545416820" at="36,0,39,0" concept="4" trace="overrides#()Z" />
-      <node id="1470921783545367408" at="23,130,28,5" concept="0" />
-      <node id="1470921783545416820" at="23,0,30,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <node id="1470921783545372002" at="39,0,55,0" concept="8" trace="_quotation_createNode_wml952_a1a0c0a0b#(Ljava/lang/Object;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="1470921783545416820" at="21,49,21,49" />
-      <scope id="1470921783545416820" at="30,50,31,39" />
-      <scope id="1470921783545416820" at="33,68,34,102" />
-      <scope id="1470921783545416820" at="36,30,37,17" />
-      <scope id="1470921783545416820" at="21,0,23,0" />
-      <scope id="1470921783545367408" at="24,5,27,343">
+      <node id="1470921783545372002" at="42,30,43,218" concept="5" />
+      <node id="1470921783545372002" at="43,218,44,34" concept="2" />
+      <node id="1470921783545372002" at="44,34,45,228" concept="5" />
+      <node id="1470921783545372002" at="45,228,46,35" concept="2" />
+      <node id="1470921783545372002" at="46,35,47,225" concept="5" />
+      <node id="1470921783545372002" at="47,225,48,35" concept="2" />
+      <node id="1470921783545372002" at="48,35,49,187" concept="2" />
+      <node id="1470921783545372002" at="49,187,50,176" concept="2" />
+      <node id="1470921783545372002" at="50,176,51,221" concept="5" />
+      <node id="1470921783545372002" at="51,221,52,35" concept="2" />
+      <node id="1470921783545372002" at="52,35,53,177" concept="2" />
+      <node id="1470921783545372002" at="53,177,54,177" concept="2" />
+      <node id="1470921783545372002" at="54,177,55,24" concept="6" />
+      <node id="1470921783545416820" at="59,0,60,0" concept="7" trace="isFloat$3JH3" />
+      <node id="1470921783545416820" at="63,0,64,0" concept="7" trace="PrimNumConstant$bz" />
+      <node id="1470921783545416820" at="20,0,22,0" concept="1" trace="typeof_PrimNumConstant_InferenceRule#()V" />
+      <node id="1470921783545416820" at="29,0,32,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1470921783545416820" at="32,0,35,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="1470921783545416820" at="35,0,38,0" concept="4" trace="overrides#()Z" />
+      <node id="1470921783545367408" at="22,130,27,5" concept="0" />
+      <node id="1470921783545416820" at="22,0,29,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <node id="1470921783545372002" at="38,0,57,0" concept="8" trace="_quotation_createNode_wml952_a1a0c0a0b#(Ljava/lang/Object;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="1470921783545416820" at="20,49,20,49" />
+      <scope id="1470921783545416820" at="29,50,30,39" />
+      <scope id="1470921783545416820" at="32,68,33,102" />
+      <scope id="1470921783545416820" at="35,30,36,17" />
+      <scope id="1470921783545416820" at="20,0,22,0" />
+      <scope id="1470921783545367408" at="23,5,26,343">
         <var name="_info_12389875345" id="1470921783545367408" />
         <var name="_nodeToCheck_1029348928467" id="1470921783545367408" />
       </scope>
-      <scope id="1470921783545416820" at="30,0,33,0" />
-      <scope id="1470921783545416820" at="33,0,36,0">
+      <scope id="1470921783545416820" at="29,0,32,0" />
+      <scope id="1470921783545416820" at="32,0,35,0">
         <var name="argument" id="1470921783545416820" />
       </scope>
-      <scope id="1470921783545416820" at="36,0,39,0" />
-      <scope id="1470921783545416821" at="23,130,28,5" />
-      <scope id="1470921783545416820" at="23,0,30,0">
+      <scope id="1470921783545416820" at="35,0,38,0" />
+      <scope id="1470921783545416821" at="22,130,27,5" />
+      <scope id="1470921783545416820" at="22,0,29,0">
         <var name="primitiveConstant" id="1470921783545416820" />
         <var name="status" id="1470921783545416820" />
         <var name="typeCheckingContext" id="1470921783545416820" />
       </scope>
-      <scope id="1470921783545372002" at="39,83,53,24">
-        <var name="facade" id="1470921783545372002" />
+      <scope id="1470921783545372002" at="38,83,55,24">
+        <var name="nb" id="1470921783545372002" />
+        <var name="nb1" id="1470921783545372002" />
+        <var name="nb2" id="1470921783545372002" />
+        <var name="nb3" id="1470921783545372002" />
         <var name="quotedNode_2" id="1470921783545372002" />
         <var name="quotedNode_3" id="1470921783545372002" />
         <var name="quotedNode_4" id="1470921783545372002" />
         <var name="quotedNode_5" id="1470921783545372002" />
       </scope>
-      <scope id="1470921783545372002" at="39,0,55,0">
+      <scope id="1470921783545372002" at="38,0,57,0">
         <var name="parameter_1" id="1470921783545372002" />
       </scope>
-      <unit id="1470921783545416820" at="56,0,59,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule$PROPS" />
-      <unit id="1470921783545416820" at="60,0,63,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule$CONCEPTS" />
-      <unit id="1470921783545416820" at="20,0,64,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule" />
+      <unit id="1470921783545416820" at="58,0,61,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule$PROPS" />
+      <unit id="1470921783545416820" at="62,0,65,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule$CONCEPTS" />
+      <unit id="1470921783545416820" at="19,0,66,0" name="testAnnotatedType.typesystem.typeof_PrimNumConstant_InferenceRule" />
     </file>
   </root>
   <root nodeRef="r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)/6405009306797672392">

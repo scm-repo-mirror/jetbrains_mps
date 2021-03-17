@@ -70,7 +70,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.refactoring.framework.BaseRefactoring" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.refactorings.MakeFieldStatic_Target">

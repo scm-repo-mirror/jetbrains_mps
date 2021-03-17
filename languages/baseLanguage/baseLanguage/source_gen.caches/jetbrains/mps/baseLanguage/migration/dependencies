@@ -35,7 +35,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.migration.AddReturnTypeToConstructorDeclaration">
@@ -101,7 +100,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeId" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.migration.MigrationDescriptor">
@@ -235,7 +233,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.migration.ReplaceOldCommentWithGenericComment_CommentedStatementsBlock">

@@ -37,7 +37,6 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringRuntime;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -164,9 +163,9 @@ public class MoveAbstractConceptSpecialization extends StructureSpecializationBa
     return n0.getResult();
   }
   private static SNode _quotation_createNode_c4c66o_a0a3a3() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor"), 0x88a6ffdb3b4f8c6L, "SubstituteMenuPart_Subconcepts")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor"), 0x88a6ffdb3b4f8c6L, "SubstituteMenuPart_Subconcepts"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
 

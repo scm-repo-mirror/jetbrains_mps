@@ -17,7 +17,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import java.util.List;
@@ -61,16 +60,13 @@ public class MigrateDeclarations extends MigrationScriptBase {
   }
 
   private static SNode _quotation_createNode_9wc3oy_a0a0a0a1a5(Object parameter_1, Object parameter_2) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
-    quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, "declarations"), 0x6aff2c1049329d71L, "NewComponent")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, "declarations"), 0x6aff2c1049329d71L, "NewComponent"));
+    quotedNode_3 = nb.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_2);
-    {
-      List<SNode> nodes = (List<SNode>) parameter_1;
-      for (SNode child : nodes) {
-        quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049329d71L, 0x6aff2c1049329d74L, "member"), SNodeOperations.copyIfNecessary(child));
-      }
+    for (SNode child : (List<SNode>) parameter_1) {
+      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049329d71L, 0x6aff2c1049329d74L, "member"), SNodeOperations.copyIfNecessary(child));
     }
     return quotedNode_3;
   }

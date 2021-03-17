@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
@@ -37,17 +36,20 @@ public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_
     return false;
   }
   private static SNode _quotation_createNode_wml952_a1a0c0a0b(Object parameter_1) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
     SNode quotedNode_4 = null;
     SNode quotedNode_5 = null;
-    quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be609eL, "PrimIntType")).getResult();
-    quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be61ecL, "SubstituteAnnotation")).getResult();
-    quotedNode_4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1c7L, "PresenceCondition")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be609eL, "PrimIntType"));
+    quotedNode_2 = nb.getResult();
+    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be61ecL, "SubstituteAnnotation"));
+    quotedNode_3 = nb1.getResult();
+    SNodeBuilder nb2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1c7L, "PresenceCondition"));
+    quotedNode_4 = nb2.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_4, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_1);
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1c4L, "condition"), quotedNode_4);
-    quotedNode_5 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1bdL, "PrimFloatType")).getResult();
+    SNodeBuilder nb3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1bdL, "PrimFloatType"));
+    quotedNode_5 = nb3.getResult();
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1baL, "substitute"), quotedNode_5);
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"), quotedNode_3);
     return quotedNode_2;

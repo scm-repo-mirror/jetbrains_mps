@@ -61,7 +61,6 @@ import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
 import jetbrains.mps.generator.impl.query.CallArgumentQuery;
 import jetbrains.mps.generator.impl.query.MapNodeQuery;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -895,27 +894,27 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
   private static SNode _quotation_createNode_x583g4_a0a09() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_x583g4_a0a19() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_x583g4_a0a29() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_x583g4_a0a39() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x716499a9068b35e9L, "PropertiesAccessorParameter"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
 

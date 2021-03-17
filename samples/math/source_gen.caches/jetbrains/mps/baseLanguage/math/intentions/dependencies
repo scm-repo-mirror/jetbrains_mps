@@ -35,7 +35,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.intentions.AbstractIntentionDescriptor" />
     <classNode extendsClassName="jetbrains.mps.openapi.intentions.IntentionFactory" />
   </dependency>
@@ -57,7 +56,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.intentions.AbstractIntentionDescriptor" />
     <classNode extendsClassName="jetbrains.mps.openapi.intentions.IntentionFactory" />
   </dependency>

@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 
 public final class ConceptFunctionParameter_StyledText__BehaviorDescriptor extends BaseBHDescriptor {
@@ -80,9 +79,9 @@ public final class ConceptFunctionParameter_StyledText__BehaviorDescriptor exten
     return CONCEPT;
   }
   private static SNode _quotation_createNode_70zdzh_a0a0() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor"), 0x362b8be848e5c49bL, "StyledTextType")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor"), 0x362b8be848e5c49bL, "StyledTextType"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
 }

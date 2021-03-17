@@ -14,9 +14,8 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -35,11 +34,7 @@ public final class IContainsStatementList__BehaviorDescriptor extends BaseBHDesc
   }
 
   /*package*/ static SNode getStatementList_idi0zv5tb(@NotNull SNode __thisNode__) {
-    return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(__thisNode__)).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, CONCEPTS.StatementList$m_);
-      }
-    }).first(), CONCEPTS.StatementList$m_);
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getChildren(__thisNode__), CONCEPTS.StatementList$m_)).first();
   }
   /*package*/ static boolean isStatementListCompactable_idi0zvp2S(@NotNull SNode __thisNode__) {
     return false;

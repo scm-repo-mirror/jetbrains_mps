@@ -72,11 +72,11 @@
       <node id="1224072736282" at="320,15,321,66" concept="4" />
       <node id="3073231036165996123" at="333,14,334,57" concept="0" />
       <node id="3073231036165996123" at="351,15,352,61" concept="4" />
-      <node id="3073231036165996164" at="386,63,387,63" concept="3" />
-      <node id="3073231036165996164" at="387,63,388,30" concept="3" />
-      <node id="3073231036165996164" at="388,30,389,234" concept="0" />
-      <node id="3073231036165996164" at="389,234,390,253" concept="0" />
-      <node id="3073231036165996164" at="390,253,391,24" concept="4" />
+      <node id="3073231036165996164" at="386,63,387,30" concept="3" />
+      <node id="3073231036165996164" at="387,30,388,225" concept="3" />
+      <node id="3073231036165996164" at="388,225,389,34" concept="0" />
+      <node id="3073231036165996164" at="389,34,390,215" concept="0" />
+      <node id="3073231036165996164" at="390,215,391,24" concept="4" />
       <node id="1566704013439143567" at="61,0,64,0" concept="5" trace="rule_Condition_0_0#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
       <node id="149309863236326707" at="74,79,77,5" concept="1" />
       <node id="149309863236326260" at="80,0,83,0" concept="2" trace="select#(Lorg/jetbrains/mps/openapi/module/SModule;)Lorg/jetbrains/mps/openapi/module/SModuleReference;" />
@@ -177,7 +177,7 @@
         <var name="_context" id="6335866222570670327" />
       </scope>
       <scope id="3073231036165996164" at="386,63,391,24">
-        <var name="facade" id="3073231036165996164" />
+        <var name="nb" id="3073231036165996164" />
         <var name="quotedNode_1" id="3073231036165996164" />
       </scope>
       <scope id="3073231036165996164" at="386,0,393,0" />

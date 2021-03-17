@@ -18,7 +18,6 @@ import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.lang.resources.actions.IconHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
@@ -72,27 +71,32 @@ public final class CreateConceptIcon_Intention extends AbstractIntentionDescript
     }
   }
   private static SNode _quotation_createNode_46hmw2_a0b0a(Object parameter_1, Object parameter_2, Object parameter_3, Object parameter_4) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
     SNode quotedNode_7 = null;
     SNode quotedNode_8 = null;
     SNode quotedNode_9 = null;
     SNode quotedNode_10 = null;
-    quotedNode_5 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e0d45L, "TextIcon")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e0d45L, "TextIcon"));
+    quotedNode_5 = nb.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_5, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x12dbb53bb6b60039L, "iconId"), (String) parameter_4);
-    quotedNode_6 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e0e60L, "Circle")).getResult();
-    quotedNode_8 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral")).getResult();
+    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e0e60L, "Circle"));
+    quotedNode_6 = nb1.getResult();
+    SNodeBuilder nb2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral"));
+    quotedNode_8 = nb2.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_8, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, 0x19d079f4ec114be1L, "val"), (String) parameter_1);
     quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c11L, "fillColor"), quotedNode_8);
-    quotedNode_9 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral")).getResult();
+    SNodeBuilder nb3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral"));
+    quotedNode_9 = nb3.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_9, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, 0x19d079f4ec114be1L, "val"), (String) parameter_2);
     quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor"), quotedNode_9);
     quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers"), quotedNode_6);
-    quotedNode_7 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e28b9L, "Text")).getResult();
+    SNodeBuilder nb4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x26417c37742e28b9L, "Text"));
+    quotedNode_7 = nb4.getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_7, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text"), (String) parameter_3);
-    quotedNode_10 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral")).getResult();
-    quotedNode_10.setProperty(MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, 0x19d079f4ec114be1L, "val"), "000000");
+    SNodeBuilder nb5 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 0x19d079f4ec114bddL, "ColorLiteral"));
+    quotedNode_10 = nb5.getResult();
+    nb5.setProperty(MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x19d079f4ec114bddL, 0x19d079f4ec114be1L, "val"), "000000");
     quotedNode_7.addChild(MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x19d079f4ec114c16L, "color"), quotedNode_10);
     quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers"), quotedNode_7);
     return quotedNode_5;

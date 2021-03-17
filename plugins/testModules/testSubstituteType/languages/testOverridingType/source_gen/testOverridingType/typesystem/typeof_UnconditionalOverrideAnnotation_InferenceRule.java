@@ -12,7 +12,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -50,9 +49,9 @@ public class typeof_UnconditionalOverrideAnnotation_InferenceRule extends Abstra
     return true;
   }
   private static SNode _quotation_createNode_ldhnbc_a1a0c0a0a0a2() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x394e385732564e8bL, 0x96015abe7ad354d9L, "testOverridingType"), 0x19f3ac4f6f2a7f40L, "ErrorType")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x394e385732564e8bL, 0x96015abe7ad354d9L, "testOverridingType"), 0x19f3ac4f6f2a7f40L, "ErrorType"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
 

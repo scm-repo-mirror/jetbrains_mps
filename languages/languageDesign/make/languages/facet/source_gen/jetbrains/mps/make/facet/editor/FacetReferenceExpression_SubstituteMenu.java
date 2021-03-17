@@ -24,7 +24,6 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
@@ -153,11 +152,12 @@ public class FacetReferenceExpression_SubstituteMenu extends SubstituteMenuBase 
 
   }
   private static SNode _quotation_createNode_micvva_a0a0a0(Object parameter_1) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
-    quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x696c11654a59463bL, 0xbc5d902caab85dd0L, "jetbrains.mps.make.facet"), 0x639ef64ff4850bb0L, "FacetReferenceExpression")).getResult();
-    quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x696c11654a59463bL, 0xbc5d902caab85dd0L, "jetbrains.mps.make.facet"), 0x1aa1f6c694329f95L, "NamedFacetReference")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x696c11654a59463bL, 0xbc5d902caab85dd0L, "jetbrains.mps.make.facet"), 0x639ef64ff4850bb0L, "FacetReferenceExpression"));
+    quotedNode_2 = nb.getResult();
+    SNodeBuilder nb1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x696c11654a59463bL, 0xbc5d902caab85dd0L, "jetbrains.mps.make.facet"), 0x1aa1f6c694329f95L, "NamedFacetReference"));
+    quotedNode_3 = nb1.getResult();
     SNodeAccessUtil.setReferenceTarget(quotedNode_3, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet"), (SNode) parameter_1);
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x639ef64ff4850bb0L, 0x639ef64ff4850bb2L, "reference"), quotedNode_3);
     return quotedNode_2;

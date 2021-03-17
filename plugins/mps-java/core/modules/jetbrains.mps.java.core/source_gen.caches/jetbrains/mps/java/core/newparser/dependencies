@@ -81,7 +81,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.ResolveInfo" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeId" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
   </dependency>
   <dependency className="jetbrains.mps.java.core.newparser.ASTConverterWithExpressions">
     <classNode dependClassName="java.lang.Object" />
@@ -150,7 +149,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SReference" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.java.core.newparser.ASTConverter" />
   </dependency>
   <dependency className="jetbrains.mps.java.core.newparser.CommentHelper">
@@ -270,7 +268,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.java.core.newparser.ASTConverterWithExpressions" />
   </dependency>
   <dependency className="jetbrains.mps.java.core.newparser.IncrementalModelAccess">

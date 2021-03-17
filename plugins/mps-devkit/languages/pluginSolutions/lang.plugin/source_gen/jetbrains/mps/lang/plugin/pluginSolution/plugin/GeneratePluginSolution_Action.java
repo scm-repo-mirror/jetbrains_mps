@@ -21,7 +21,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 
 public class GeneratePluginSolution_Action extends BaseAction {
@@ -83,9 +82,9 @@ public class GeneratePluginSolution_Action extends BaseAction {
     projectPane.selectModule(s, false);
   }
   private static SNode _quotation_createNode_ljjiw0_a0a9a0a0a0a5a0() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, "jetbrains.mps.lang.plugin.standalone"), 0x685ef16bc1750e9cL, "StandalonePluginDescriptor")).getResult();
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, "jetbrains.mps.lang.plugin.standalone"), 0x685ef16bc1750e9cL, "StandalonePluginDescriptor"));
+    quotedNode_1 = nb.getResult();
     return quotedNode_1;
   }
 }
