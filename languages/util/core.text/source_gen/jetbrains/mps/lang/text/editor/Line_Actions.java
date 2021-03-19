@@ -15,14 +15,16 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.text.behavior.Line__BehaviorDescriptor;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
-import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Line_Actions {
 
@@ -245,6 +247,23 @@ public class Line_Actions {
 
     };
   }
+  /*package*/ static AbstractCellAction createAction_CUT(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+      }
+      @Override
+      public boolean canExecute(EditorContext editorContext) {
+        return this.canExecute_internal(editorContext, node);
+      }
+      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
+        return Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(node)).count() == 1 && Objects.equals(SPropertyOperations.getString(SNodeOperations.as(Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(node)).first(), CONCEPTS.Word$Dn), PROPS.value$zQr_), "");
+      }
+
+    };
+  }
   /*package*/ static AbstractCellAction createAction_PASTE(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
@@ -298,6 +317,7 @@ public class Line_Actions {
     editorCell.setAction(CellActionType.SELECT_END, createAction_SELECT_END(node));
     editorCell.setAction(CellActionType.SELECT_LOCAL_HOME, createAction_SELECT_LOCAL_HOME(node));
     editorCell.setAction(CellActionType.SELECT_LOCAL_END, createAction_SELECT_LOCAL_END(node));
+    editorCell.setAction(CellActionType.CUT, createAction_CUT(node));
     editorCell.setAction(CellActionType.PASTE, createAction_PASTE(node));
   }
 
@@ -332,6 +352,9 @@ public class Line_Actions {
     }
     if (Objects.equals(actionType, CellActionType.SELECT_LOCAL_END)) {
       editorCell.setAction(actionType, createAction_SELECT_LOCAL_END(node));
+    }
+    if (Objects.equals(actionType, CellActionType.CUT)) {
+      editorCell.setAction(actionType, createAction_CUT(node));
     }
     if (Objects.equals(actionType, CellActionType.PASTE)) {
       editorCell.setAction(actionType, createAction_PASTE(node));
@@ -373,5 +396,9 @@ public class Line_Actions {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink elements$_j45 = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$zQr_ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
   }
 }

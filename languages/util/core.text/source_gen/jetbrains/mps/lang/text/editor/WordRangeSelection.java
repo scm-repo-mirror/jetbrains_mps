@@ -478,24 +478,26 @@ public class WordRangeSelection extends AbstractMultipleSelection {
       currentCell = currentCell.getPrevSibling();
       foundLeaf = lineWrappingCell.findLeaf(currentCell.getX(), (above ? currentCell.getY() - cell.getHeight() : currentCell.getY() + cell.getHeight()));
     }
-    if (foundLeaf == null) {
-      currentCell = cell.getEditorComponent().findCellWithId(currentLine, "Initial_Paragraph_Space");
-      if (currentCell == null) {
-        return null;
-      }
-      foundLeaf = lineWrappingCell.findLeaf(currentCell.getX(), (above ? currentCell.getY() - cell.getHeight() : currentCell.getY() + cell.getHeight()));
-    }
     if (foundLeaf != null) {
       SNode foundNode = foundLeaf.getSNode();
       while (foundNode != null && !(ListSequence.fromList(lineSiblings).contains(foundNode)) && !(ListSequence.fromList(lineSiblings).contains(SNodeOperations.getParent(foundNode)))) {
         foundNode = SNodeOperations.getParent(foundNode);
       }
       if (SNodeOperations.isInstanceOf(foundNode, CONCEPTS.Line$yC)) {
-        foundNode = (Objects.equals(foundLeaf.getCellId(), "Initial_Paragraph_Space") ? Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(SNodeOperations.as(foundNode, CONCEPTS.Line$yC))).first() : Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(SNodeOperations.as(foundNode, CONCEPTS.Line$yC))).last());
+        SNode foundLine = SNodeOperations.as(foundNode, CONCEPTS.Line$yC);
+        foundNode = (Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(foundLine)).isNotEmpty() ? Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(foundLine)).first() : WordRangeSelection.findWordOnNonEmptyLine(foundLine, above));
       }
       return SNodeOperations.as(foundNode, CONCEPTS.TextElement$WN);
     }
     return null;
+  }
+
+  private static SNode findWordOnNonEmptyLine(SNode foundLine, boolean above) {
+    return Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(Sequence.fromIterable(SNodeOperations.ofConcept(((above ? SNodeOperations.getPrevSiblings(foundLine, false) : SNodeOperations.getNextSiblings(foundLine, false))), CONCEPTS.Line$yC)).findFirst(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return Sequence.fromIterable(Line__BehaviorDescriptor.getTextElements_idWJz9iATjyN.invoke(it)).isNotEmpty();
+      }
+    }))).first();
   }
 
   public void turnBold() {
