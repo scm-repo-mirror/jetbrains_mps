@@ -17,7 +17,6 @@ package jetbrains.mps.make;
 
 import jetbrains.mps.compiler.ErrorSink;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.module.SModule;
 
 public class CompilationErrorsHandler implements ErrorSink {
   private final static int MAX_ERRORS = 100;
@@ -35,9 +34,7 @@ public class CompilationErrorsHandler implements ErrorSink {
 
   @Override
   public void compileError(String fqName, String message, int lineNumber, int offset) {
-    SModule containingModule = myModulesContainer.getModuleContainingClass(fqName);
-    assert containingModule != null;
-    JavaFile javaFile = myModulesContainer.getSources(containingModule).getJavaFile(fqName);
+    JavaFile javaFile = myModulesContainer.getJavaFile(fqName);
 
     Object hintObject = new FileWithPosition(javaFile.getFile(), offset);
 

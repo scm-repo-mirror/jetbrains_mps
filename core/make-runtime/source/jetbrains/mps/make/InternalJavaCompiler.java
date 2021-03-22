@@ -20,9 +20,8 @@ import jetbrains.mps.compiler.ClassFile;
 import jetbrains.mps.compiler.JavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
-import jetbrains.mps.project.facets.JavaModuleOperations;
+import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -31,8 +30,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
-
-import static jetbrains.mps.project.SModuleOperations.getJavaFacet;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * fixme use bundle for this package
@@ -93,36 +92,27 @@ class InternalJavaCompiler {
     }
   }
 
-  /**
-   * @return eclipse java compiler with sources attached
-   */
   private void collectSources(JavaCompiler compiler) {
-    for (ModuleSources module : myModulesContainer.getDirtyModuleSources()) {
-      for (JavaFile javaFile : module.getFilesToCompile()) {
-        compiler.addSource(javaFile);
-        // FIXME what if 2 modules got 2 classes with same name?
-        myModulesContainer.putClassForModule(javaFile.getClassName(), module.getModule());
-      }
-    }
+    myModulesContainer.getDirtyModules().map(JavaModule::getFilesToCompile).flatMap(Collection::stream).forEach(compiler::addSource);
   }
 
   private void copyResources(CompositeTracer tracer) {
     tracer.start(COPYING_RESOURCES_MSG, 1);
     try {
-      for (SModule module : myModulesContainer.getModules()) {
-        ModuleSources sources = myModulesContainer.getSources(module);
-        IFile classesGen = getJavaFacet(module).getClassesGen();
+      for (JavaModule module : myModulesContainer.getModules().collect(Collectors.toList())) {
+        File classesGen = module.getClassesOut();
         if (classesGen == null) {
           continue;
         }
+        ModuleSources sources = module.getSources();
         for (ResourceFile toCopy : sources.getResourcesToCopy()) {
           String fqName = toCopy.getPath();
 
           fqName = fqName.substring(0, fqName.length() - toCopy.getFile().getName().length());
           String path = fqName + toCopy.getFile().getName();
 
-          if (new File(toCopy.getFile().getAbsolutePath()).exists()) {
-            FileUtil.copyFile(new File(toCopy.getFile().getAbsolutePath()), new File(classesGen.getDescendant(path).getPath()));
+          if (toCopy.getFile().exists()) {
+            FileUtil.copyFile(toCopy.getFile(), new File(classesGen, path));
           }
         }
       }
@@ -143,7 +133,7 @@ class InternalJavaCompiler {
   private MPSCompilationResult compileJava(JavaCompiler compiler, CompositeTracer tracer) {
     tracer.start(COMPILING_JAVA_MSG, 10);
     try {
-      Set<String> classPath = computeDependenciesClassPath(myModulesContainer.getModules(), tracer.subTracer(1));
+      Collection<String> classPath = computeDependenciesClassPath(tracer.subTracer(1));
       final CompilationErrorsHandler errorsHandler = new CompilationErrorsHandler(myModulesContainer, tracer.getSender());
 
       compiler.setErrorSink(errorsHandler);
@@ -155,7 +145,8 @@ class InternalJavaCompiler {
 
       if (errorsHandler.getErrorsCount() > 0) {
         tracer.getSender().error(COMPILATION_PROBLEMS); // XXX used to go first, before any error, does it matter?
-        tracer.getSender().info(String.format(MODULES_CLASSPATH_STR, myModulesContainer.getModules(), classPath));
+        Collection<String> names = myModulesContainer.getModules().map(JavaModule::name).collect(Collectors.toList());
+        tracer.getSender().info(String.format(MODULES_CLASSPATH_STR, names, classPath));
       }
       CompilationHandler compilationHandler = new CompilationHandler(myModulesContainer, classPath);
       Collection<SModule> changedModules = compilationHandler.process(allClasses, tracer.subTracer(3));
@@ -178,11 +169,10 @@ class InternalJavaCompiler {
     }
   }
 
-  // FIXME at least twice we count all the dependencies WHY
-  private static Set<String> computeDependenciesClassPath(Set<SModule> modules, CompositeTracer tracer) {
+  private Collection<String> computeDependenciesClassPath(CompositeTracer tracer) {
     tracer.start(CALCULATING_DEPS_MSG, 1);
     try {
-      Set<String> classpath = JavaModuleOperations.collectCompileClasspath(modules, true);
+      Collection<String> classpath = myModulesContainer.getCompileClasspath();
       tracer.getSender().debug("ClassPath: " + classpath);
       return classpath;
     } finally {

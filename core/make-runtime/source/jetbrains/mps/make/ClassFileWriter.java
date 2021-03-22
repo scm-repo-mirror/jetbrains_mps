@@ -20,8 +20,8 @@ import com.intellij.compiler.instrumentation.InstrumentationClassFinder;
 import com.intellij.compiler.instrumentation.InstrumenterClassWriter;
 import com.intellij.compiler.notNullVerification.NotNullVerifyingInstrumenter;
 import jetbrains.mps.compiler.ClassFile;
+import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.reloading.SDKDiscovery;
-import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.org.objectweb.asm.ClassWriter;
@@ -40,8 +40,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static jetbrains.mps.project.SModuleOperations.getJavaFacet;
 
 /**
  * Write compiled java classes to disk, also instruments the notnull annotations
@@ -127,12 +125,13 @@ public class ClassFileWriter {
 
   private void writeClassFile(ClassFile cf) {
     String containerClassName = cf.getTopClassQualifiedName();
-    SModule moduleForClass = myModulesContainer.getModuleContainingClass(containerClassName);
+    JavaModule moduleForClass = myModulesContainer.getModules().filter(m -> m.getSources().getJavaFile(containerClassName) != null).findAny().orElse(null);
     if (moduleForClass == null) {
       mySender.error(String.format(MODULE_FOR_CLASS_NOT_FOUND, containerClassName));
     } else {
-      myChangedModulesTracker.addChanged(moduleForClass);
-      File outputRoot = getClassesGen(moduleForClass);
+      myChangedModulesTracker.addChanged(moduleForClass.toModule());
+      File outputRoot = moduleForClass.getClassesOut();
+      assert outputRoot != null;
       File output = cf.getFile(outputRoot);
       if (!cf.hasErrors()) {
         output.getParentFile().mkdirs();
@@ -163,13 +162,6 @@ public class ClassFileWriter {
         }
       }
     }
-  }
-
-  @NotNull
-  private File getClassesGen(@NotNull SModule m) {
-    IFile classesGen = getJavaFacet(m).getClassesGen();
-    assert classesGen != null;
-    return new File(classesGen.getPath());
   }
 
   /**

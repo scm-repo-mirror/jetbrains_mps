@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,9 @@ package jetbrains.mps.make;
 
 import jetbrains.mps.compiler.EclipseJavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
-import jetbrains.mps.make.dependencies.StronglyConnectedModules;
+import jetbrains.mps.make.ModulesContainer.JavaModule;
+import jetbrains.mps.make.dependencies.graph.Graph;
+import jetbrains.mps.make.dependencies.graph.Graphs;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager.Deptype;
@@ -38,15 +40,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * ModuleMaker is able to make sources of the given modules.
@@ -69,10 +70,7 @@ public final class ModuleMaker {
   private final static String LOADING_DEPENDENCIES_MSG = "Loading Dependencies";
   private final static String CALCULATING_DEPENDENCIES_TO_COMPILE_MSG = "Calculating Modules To Compile";
   private final static String BUILDING_MODULE_CYCLES_MSG = "Building Module Cycles";
-  private final static String BUILDING_MODULES = "Building";
-  private final static String BUILDING_BACK_DEPS_MSG = "Building Closure";
   private final static String BUILDING_DIRTY_CLOSURE = "Dirty Modules";
-  private final static String CHECKING_DIRTY_MODULES_MSG = "Checking";
 
   @NotNull private final CompositeTracer myTracer;
 
@@ -135,6 +133,7 @@ public final class ModuleMaker {
     try {
       tracer.push(COLLECTING_DEPENDENCIES_MSG);
       Set<SModule> candidates = new LinkedHashSet<>(new GlobalModuleDependenciesManager(modules).getModules(Deptype.COMPILE));
+      final ModulesContainer modulesContainer = new ModulesContainer(candidates);
       tracer.pop(1);
 
       tracer.push(LOADING_DEPENDENCIES_MSG);
@@ -142,15 +141,15 @@ public final class ModuleMaker {
       tracer.pop(1);
 
       tracer.push(CALCULATING_DEPENDENCIES_TO_COMPILE_MSG);
-      final ModulesContainer modulesContainer = new ModulesContainer(candidates, dependencies);
-      Set<SModule> toCompile = buildDirtyModulesClosure(modulesContainer, tracer.subTracer(1));
-      tracer.pop();
+      modulesContainer.fillDependencies(dependencies);
+      tracer.pop(1);
+      Set<JavaModule> toCompile = buildDirtyModulesClosure(modulesContainer, tracer.subTracer(1));
 
       tracer.push(BUILDING_MODULE_CYCLES_MSG);
-      List<Set<SModule>> schedule = new StronglyConnectedModules<>(toCompile).getStronglyConnectedComponents();
+      List<Set<JavaModule>> schedule = getStronglyConnectedComponents(toCompile);
       tracer.pop(1);
 
-      return compileCycles(compilerOptions, schedule, tracer.subTracer(6, SubProgressKind.REPLACING), modulesContainer);
+      return compileCycles(compilerOptions, schedule, tracer.subTracer(5, SubProgressKind.REPLACING), modulesContainer);
     } finally {
       tracer.done();
       tracer.printReport();
@@ -158,18 +157,18 @@ public final class ModuleMaker {
   }
 
   @NotNull
-  private MPSCompilationResult compileCycles(@Nullable JavaCompilerOptions compilerOptions, List<Set<SModule>> cyclesToCompile, @NotNull CompositeTracer tracer, @NotNull ModulesContainer allModules) {
+  private MPSCompilationResult compileCycles(@Nullable JavaCompilerOptions compilerOptions, List<Set<JavaModule>> cyclesToCompile, @NotNull CompositeTracer tracer, @NotNull ModulesContainer allModules) {
     List<MPSCompilationResult> cycleCompilationResults = new ArrayList<>();
-    tracer.start("", cyclesToCompile.size());
+    tracer.start("Cycles", cyclesToCompile.size());
     try {
       int cycleNumber = 0;
-      for (Set<SModule> modulesInCycle : cyclesToCompile) {
+      for (Set<JavaModule> modulesInCycle : cyclesToCompile) {
         if (tracer.isMonitorCanceled()) {
           break;
         }
         ++cycleNumber;
         CompositeTracer cycleTracer = tracer.subTracer(1);
-        tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, modulesInCycle));
+        tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, modulesInCycle.stream().map(JavaModule::name).collect(Collectors.toList())));
         cycleTracer.start(getCycleString(cycleNumber, modulesInCycle), 1);
         ModulesContainer modulesContainer = allModules.restricted(modulesInCycle);
         InternalJavaCompiler internalJavaCompiler = new InternalJavaCompiler(modulesContainer, compilerOptions);
@@ -184,11 +183,11 @@ public final class ModuleMaker {
     return combineCycleCompilationResults(cycleCompilationResults);
   }
 
-  private String getCycleString(int cycleNumber, Set<SModule> modulesInCycle) {
-    Optional<SModule> first = modulesInCycle.stream().findFirst();
+  private String getCycleString(int cycleNumber, Set<JavaModule> modulesInCycle) {
+    Optional<JavaModule> first = modulesInCycle.stream().findFirst();
     String firstModule = "";
     if (first.isPresent()) {
-      firstModule = first.get().getModuleName();
+      firstModule = first.get().name();
       if (modulesInCycle.size() > 1) {
         firstModule += " and " + (modulesInCycle.size() - 1) + " others";
       }
@@ -209,50 +208,38 @@ public final class ModuleMaker {
     return new MPSCompilationResult(errorCount, warnCount, false, changedModules);
   }
 
-  /**
-   * The answer is always sorted by name
-   */
-  private Set<SModule> buildDirtyModulesClosure(ModulesContainer modulesContainer, CompositeTracer tracer) {
+  private Set<JavaModule> buildDirtyModulesClosure(ModulesContainer modulesContainer, CompositeTracer tracer) {
     tracer.start(BUILDING_DIRTY_CLOSURE, 3);
-    Set<SModule> candidates = modulesContainer.getModules();
-    tracer.push(CHECKING_DIRTY_MODULES_MSG);
-    List<SModule> dirtyModules = new ArrayList<>(candidates.size());
-    for (ModuleSources m : modulesContainer.getDirtyModuleSources()) {
-      dirtyModules.add(m.getModule());
-    }
-    tracer.pop(1);
+    HashSet<JavaModule> result = new HashSet<>();
+    Stream<JavaModule> dirtyModules = modulesContainer.getDirtyModules();
 
     // select from modules those that are affected by the "dirty" modules
     // M={m}, D={m*}, D<=M, R:M->2^M (required), R* transitive closure of R
     // C={m|m from M, exists m* from D: m* in R*(m)}
     // to compile T=D union C
 
-    Map<SModule, Set<SModule>> backDependencies = new HashMap<>();
+    dirtyModules.forEach(jm -> jm.reportWithDependants(result::add));
+    tracer.done();
+    return result;
+  }
 
-    tracer.push(BUILDING_BACK_DEPS_MSG);
-    for (SModule m : candidates) {
-      for (SModule dep : new GlobalModuleDependenciesManager(m).getModules(Deptype.COMPILE)) {
-        Set<SModule> incoming = backDependencies.computeIfAbsent(dep, k -> new HashSet<>());
-        incoming.add(m);
-      }
-    }
-    Set<SModule> toCompile = new LinkedHashSet<>();
-    // BFS from dirtyModules along backDependencies
-    LinkedList<SModule> queue = new LinkedList<>(dirtyModules);
-    while (!queue.isEmpty()) {
-      SModule m = queue.removeFirst();
-      if (candidates.contains(m)) {
-        toCompile.add(m);
-      }
-      Set<SModule> backDeps = backDependencies.remove(m);
-      if (backDeps != null) {
-        queue.addAll(backDeps);
-      }
-    }
-    tracer.pop(1);
+  private List<Set<JavaModule>> getStronglyConnectedComponents(Collection<JavaModule> toCompile) {
+    // based on StronglyConnectedModules
+    Graph<JavaModule> graph = new Graph<>();
+    toCompile.forEach(graph::add);
+    final List<List<JavaModule>> cycles = Graphs.findStronglyConnectedComponents(graph);
 
-    Set<SModule> result = new TreeSet<>(MODULE_BY_NAME_COMPARATOR);
-    result.addAll(toCompile);
+    List<Set<JavaModule>> result = new LinkedList<>();
+    int i = 0;
+    for (List<JavaModule> cycle : cycles) {
+      myTracer.getSender().debug(String.format("cycle #%d: %s", i++, cycle));
+      // XXX not sure there's any reason to convert List to Set, need to check if there could be duplicates at all
+      result.add(new LinkedHashSet<>(cycle));
+    }
+
+    // don't see a reason to reverse result as StronglyConnectedModules does -
+    //   JM uses reversed edges compared to original code, I suppose reverse in original code was for that reason
+
     return result;
   }
 }

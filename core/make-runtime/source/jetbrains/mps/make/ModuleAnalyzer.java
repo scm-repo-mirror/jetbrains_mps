@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.make;
 
+import jetbrains.mps.make.ModulesContainer.JavaModule;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -23,6 +24,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * module sources analysis before compilation.
@@ -42,7 +44,7 @@ class ModuleAnalyzer {
     Set<SModule> modulesWithRemovals = new HashSet<>();
     Set<File> filesToDelete = new HashSet<>();
 
-    for (ModuleSources sources : myModulesContainer.getDirtyModuleSources()) {
+    for (ModuleSources sources : myModulesContainer.getDirtyModules().map(JavaModule::getSources).collect(Collectors.toList())) {
       hasResourcesToUpdate |= !sources.isResourcesUpToDate();
       hasJavaToCompile |= !sources.isJavaUpToDate();
       Collection<File> filesToDelete0 = sources.getFilesToDelete();
