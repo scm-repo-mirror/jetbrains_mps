@@ -150,7 +150,7 @@ class InternalJavaCompiler {
       final ArrayList<ClassFile> allClasses = new ArrayList<>();
       compiler.setClassFileSink(allClasses::add);
       compiler.setOptions(myCompilerOptions);
-      compiler.setClasspath(JavaModuleOperations.collectCompileClasspath(myModulesContainer.getModules(), true));
+      compiler.setClasspath(classPath);
       doCompileJava(compiler, tracer.subTracer(6));
 
       if (errorsHandler.getErrorsCount() > 0) {
