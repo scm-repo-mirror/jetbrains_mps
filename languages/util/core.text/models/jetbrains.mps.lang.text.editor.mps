@@ -8958,11 +8958,6 @@
       </node>
       <node concept="3Tm6S6" id="4tfWvd2gYp7" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="4tfWvd2gYpc" role="jymVt">
-      <property role="TrG5h" value="myGrowingForward" />
-      <node concept="10P_77" id="4tfWvd2gYpe" role="1tU5fm" />
-      <node concept="3Tm6S6" id="4tfWvd2gYpf" role="1B3o_S" />
-    </node>
     <node concept="2tJIrI" id="4tfWvd2hRig" role="jymVt" />
     <node concept="3clFbW" id="4tfWvd2gYpq" role="jymVt">
       <node concept="3cqZAl" id="4tfWvd2gYpr" role="3clF45" />
@@ -9378,23 +9373,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4tfWvd2gYrF" role="3cqZAp">
-          <node concept="37vLTI" id="4tfWvd2gYrG" role="3clFbG">
-            <node concept="37vLTw" id="4tfWvd2gYrH" role="37vLTJ">
-              <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-            </node>
-            <node concept="2YIFZM" id="122pKLNNe9V" role="37vLTx">
-              <ref role="37wK5l" to="b8lf:~SelectionInfoImpl$Util.getBooleanProperty(java.util.Map,java.lang.String)" resolve="getBooleanProperty" />
-              <ref role="1Pybhc" to="b8lf:~SelectionInfoImpl$Util" resolve="SelectionInfoImpl.Util" />
-              <node concept="37vLTw" id="122pKLNNezB" role="37wK5m">
-                <ref role="3cqZAo" node="4tfWvd2gYpv" resolve="properties" />
-              </node>
-              <node concept="37vLTw" id="122pKLNNfLD" role="37wK5m">
-                <ref role="3cqZAo" node="4tfWvd2gYoG" resolve="GROWING_FORWARD_PROPERTY_NAME" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3J1_TO" id="4tfWvd2gYrV" role="3cqZAp">
           <node concept="3uVAMA" id="4tfWvd2j8B0" role="1zxBo5">
             <node concept="XOnhg" id="4tfWvd2j8B1" role="1zc67B">
@@ -9457,7 +9435,7 @@
       </node>
       <node concept="37vLTG" id="4tfWvd2gYsb" role="3clF46">
         <property role="TrG5h" value="growingForward" />
-        <node concept="10P_77" id="4tfWvd2gYsc" role="1tU5fm" />
+        <node concept="10P_77" id="38Q1ZfY5BRc" role="1tU5fm" />
       </node>
       <node concept="3clFbS" id="4tfWvd2gYsd" role="3clF47">
         <node concept="XkiVB" id="4tfWvd2hclA" role="3cqZAp">
@@ -9676,13 +9654,21 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4tfWvd2gYt1" role="3cqZAp">
-          <node concept="37vLTI" id="4tfWvd2gYt2" role="3clFbG">
-            <node concept="37vLTw" id="4tfWvd2gYt3" role="37vLTJ">
-              <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-            </node>
-            <node concept="37vLTw" id="4tfWvd2gYt4" role="37vLTx">
-              <ref role="3cqZAo" node="4tfWvd2gYsb" resolve="growingForward" />
+        <node concept="3clFbF" id="38Q1ZfXSkgq" role="3cqZAp">
+          <node concept="1rXfSq" id="38Q1ZfXSkgo" role="3clFbG">
+            <ref role="37wK5l" to="b8lf:~AbstractSelection.setDirection(jetbrains.mps.openapi.editor.selection.Selection$SelectionDirection)" resolve="setDirection" />
+            <node concept="3K4zz7" id="38Q1ZfXST8q" role="37wK5m">
+              <node concept="37vLTw" id="38Q1ZfY4swi" role="3K4Cdx">
+                <ref role="3cqZAo" node="4tfWvd2gYsb" resolve="growingForward" />
+              </node>
+              <node concept="Rm8GO" id="38Q1ZfXT7_W" role="3K4E3e">
+                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+              </node>
+              <node concept="Rm8GO" id="38Q1ZfXTnz_" role="3K4GZi">
+                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.LEFT" resolve="LEFT" />
+                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+              </node>
             </node>
           </node>
         </node>
@@ -10171,31 +10157,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4tfWvd2gYw1" role="3cqZAp">
-          <node concept="2OqwBi" id="4tfWvd2gYw2" role="3clFbG">
-            <node concept="2OqwBi" id="4tfWvd2hhLF" role="2Oq$k0">
-              <node concept="37vLTw" id="4tfWvd2hhLE" role="2Oq$k0">
-                <ref role="3cqZAo" node="4tfWvd2gYv8" resolve="selectionInfo" />
-              </node>
-              <node concept="liA8E" id="4tfWvd2hhLG" role="2OqNvi">
-                <ref role="37wK5l" to="b8lf:~SelectionInfoImpl.getPropertiesMap()" resolve="getPropertiesMap" />
-              </node>
-            </node>
-            <node concept="liA8E" id="4tfWvd2gYw4" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
-              <node concept="37vLTw" id="4tfWvd2gYw5" role="37wK5m">
-                <ref role="3cqZAo" node="4tfWvd2gYoG" resolve="GROWING_FORWARD_PROPERTY_NAME" />
-              </node>
-              <node concept="2YIFZM" id="4tfWvd2hh5k" role="37wK5m">
-                <ref role="1Pybhc" to="wyt6:~Boolean" resolve="Boolean" />
-                <ref role="37wK5l" to="wyt6:~Boolean.toString(boolean)" resolve="toString" />
-                <node concept="37vLTw" id="4tfWvd2hh5l" role="37wK5m">
-                  <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs6" id="4tfWvd2gYw8" role="3cqZAp">
           <node concept="37vLTw" id="4tfWvd2gYw9" role="3cqZAk">
             <ref role="3cqZAo" node="4tfWvd2gYv8" resolve="selectionInfo" />
@@ -10355,7 +10316,9 @@
       </node>
       <node concept="3clFbS" id="4tfWvd2gYwX" role="3clF47">
         <node concept="3cpWs6" id="4tfWvd2gYwY" role="3cqZAp">
-          <node concept="3clFbT" id="4tfWvd2gYwZ" role="3cqZAk" />
+          <node concept="3clFbT" id="4tfWvd2gYwZ" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
         </node>
       </node>
       <node concept="3Tm1VV" id="4tfWvd2gYx0" role="1B3o_S" />
@@ -11769,9 +11732,13 @@
                       <node concept="3clFbS" id="4AKXfymwPsK" role="3clF47">
                         <node concept="3clFbJ" id="4AKXfymwPsL" role="3cqZAp">
                           <node concept="1Wc70l" id="4AKXfymwPsM" role="3clFbw">
-                            <node concept="3fqX7Q" id="4AKXfymwPsN" role="3uHU7B">
-                              <node concept="37vLTw" id="4AKXfymwPsO" role="3fr31v">
-                                <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                            <node concept="3clFbC" id="38Q1ZfXZMRI" role="3uHU7B">
+                              <node concept="1rXfSq" id="38Q1ZfXZCgE" role="3uHU7B">
+                                <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                              </node>
+                              <node concept="Rm8GO" id="38Q1ZfY02yG" role="3uHU7w">
+                                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.LEFT" resolve="LEFT" />
+                                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
                               </node>
                             </node>
                             <node concept="3y3z36" id="4AKXfymwPsP" role="3uHU7w">
@@ -11928,8 +11895,14 @@
                                               <ref role="37wK5l" to="b8lf:~AbstractMultipleSelection.getLastNode()" resolve="getLastNode" />
                                             </node>
                                           </node>
-                                          <node concept="37vLTw" id="4AKXfymwPtG" role="37wK5m">
-                                            <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                                          <node concept="3clFbC" id="38Q1ZfY0k_m" role="37wK5m">
+                                            <node concept="1rXfSq" id="38Q1ZfY0k_n" role="3uHU7B">
+                                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                                            </node>
+                                            <node concept="Rm8GO" id="38Q1ZfY0unm" role="3uHU7w">
+                                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -12023,15 +11996,21 @@
                       <node concept="3clFbS" id="4AKXfymwUu3" role="3clF47">
                         <node concept="3clFbJ" id="4AKXfymwUu4" role="3cqZAp">
                           <node concept="1Wc70l" id="4AKXfymwUu5" role="3clFbw">
-                            <node concept="37vLTw" id="4AKXfymwUu6" role="3uHU7B">
-                              <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-                            </node>
                             <node concept="3y3z36" id="4AKXfymwUu7" role="3uHU7w">
                               <node concept="1rXfSq" id="4AKXfymwUu8" role="3uHU7B">
                                 <ref role="37wK5l" to="b8lf:~AbstractMultipleSelection.getFirstNode()" resolve="getFirstNode" />
                               </node>
                               <node concept="1rXfSq" id="4AKXfymwUu9" role="3uHU7w">
                                 <ref role="37wK5l" to="b8lf:~AbstractMultipleSelection.getLastNode()" resolve="getLastNode" />
+                              </node>
+                            </node>
+                            <node concept="3clFbC" id="38Q1ZfY0A85" role="3uHU7B">
+                              <node concept="1rXfSq" id="38Q1ZfY0A86" role="3uHU7B">
+                                <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                              </node>
+                              <node concept="Rm8GO" id="38Q1ZfY0JuR" role="3uHU7w">
+                                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
                               </node>
                             </node>
                           </node>
@@ -12174,8 +12153,14 @@
                                           <node concept="37vLTw" id="4AKXfymwUuX" role="37wK5m">
                                             <ref role="3cqZAo" node="4AKXfymwUuB" resolve="nextSelectableChild" />
                                           </node>
-                                          <node concept="37vLTw" id="4AKXfymwUuY" role="37wK5m">
-                                            <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                                          <node concept="3clFbC" id="38Q1ZfY0RIs" role="37wK5m">
+                                            <node concept="1rXfSq" id="38Q1ZfY0RIt" role="3uHU7B">
+                                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                                            </node>
+                                            <node concept="Rm8GO" id="38Q1ZfY16Tu" role="3uHU7w">
+                                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -12268,11 +12253,6 @@
                       </node>
                       <node concept="3clFbS" id="4VwCksAfIgT" role="3clF47">
                         <node concept="3clFbJ" id="WJz9iAU2_g" role="3cqZAp">
-                          <node concept="3fqX7Q" id="WJz9iAU2_h" role="3clFbw">
-                            <node concept="37vLTw" id="WJz9iAU2_i" role="3fr31v">
-                              <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-                            </node>
-                          </node>
                           <node concept="9aQIb" id="WJz9iAU2_j" role="9aQIa">
                             <node concept="3clFbS" id="WJz9iAU2_k" role="9aQI4">
                               <node concept="3cpWs8" id="WJz9iAU2_l" role="3cqZAp">
@@ -12495,6 +12475,15 @@
                               </node>
                             </node>
                           </node>
+                          <node concept="3clFbC" id="38Q1ZfY1tzt" role="3clFbw">
+                            <node concept="1rXfSq" id="38Q1ZfY1tzu" role="3uHU7B">
+                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                            </node>
+                            <node concept="Rm8GO" id="38Q1ZfY1tzv" role="3uHU7w">
+                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.LEFT" resolve="LEFT" />
+                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                       <node concept="3Tm1VV" id="4VwCksAfIhU" role="1B3o_S" />
@@ -12560,9 +12549,6 @@
                       </node>
                       <node concept="3clFbS" id="4VwCksAfNNX" role="3clF47">
                         <node concept="3clFbJ" id="WJz9iATVTX" role="3cqZAp">
-                          <node concept="37vLTw" id="WJz9iATVTY" role="3clFbw">
-                            <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-                          </node>
                           <node concept="9aQIb" id="WJz9iATVTZ" role="9aQIa">
                             <node concept="3clFbS" id="WJz9iATVU0" role="9aQI4">
                               <node concept="3cpWs8" id="WJz9iATVU1" role="3cqZAp">
@@ -12680,7 +12666,6 @@
                                   </node>
                                 </node>
                               </node>
-                              <node concept="3clFbH" id="aPhzCVcLMb" role="3cqZAp" />
                             </node>
                           </node>
                           <node concept="3clFbS" id="WJz9iATVU_" role="3clFbx">
@@ -12784,6 +12769,15 @@
                                   </node>
                                 </node>
                               </node>
+                            </node>
+                          </node>
+                          <node concept="3clFbC" id="38Q1ZfY1Bcr" role="3clFbw">
+                            <node concept="1rXfSq" id="38Q1ZfY1Bcs" role="3uHU7B">
+                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                            </node>
+                            <node concept="Rm8GO" id="38Q1ZfY1J$_" role="3uHU7w">
+                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
                             </node>
                           </node>
                         </node>
@@ -13276,15 +13270,21 @@
                       <node concept="3clFbS" id="5dCWnAnlWuR" role="3clF47">
                         <node concept="3clFbJ" id="5dCWnAnlWuS" role="3cqZAp">
                           <node concept="1Wc70l" id="5dCWnAnlWuT" role="3clFbw">
-                            <node concept="37vLTw" id="5dCWnAnlWuU" role="3uHU7B">
-                              <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
-                            </node>
                             <node concept="3y3z36" id="5dCWnAnlWuV" role="3uHU7w">
                               <node concept="1rXfSq" id="5dCWnAnlWuW" role="3uHU7B">
                                 <ref role="37wK5l" to="b8lf:~AbstractMultipleSelection.getFirstNode()" resolve="getFirstNode" />
                               </node>
                               <node concept="1rXfSq" id="5dCWnAnlWuX" role="3uHU7w">
                                 <ref role="37wK5l" to="b8lf:~AbstractMultipleSelection.getLastNode()" resolve="getLastNode" />
+                              </node>
+                            </node>
+                            <node concept="3clFbC" id="38Q1ZfY2Ypq" role="3uHU7B">
+                              <node concept="1rXfSq" id="38Q1ZfY2Ypr" role="3uHU7B">
+                                <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                              </node>
+                              <node concept="Rm8GO" id="38Q1ZfY38_f" role="3uHU7w">
+                                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
                               </node>
                             </node>
                           </node>
@@ -13405,8 +13405,14 @@
                                           <node concept="37vLTw" id="5dCWnAnnW33" role="37wK5m">
                                             <ref role="3cqZAo" node="5dCWnAnlWvt" resolve="nextSelectableChild" />
                                           </node>
-                                          <node concept="37vLTw" id="5dCWnAnlWws" role="37wK5m">
-                                            <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                                          <node concept="3clFbC" id="38Q1ZfY3hgr" role="37wK5m">
+                                            <node concept="1rXfSq" id="38Q1ZfY3hgs" role="3uHU7B">
+                                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                                            </node>
+                                            <node concept="Rm8GO" id="38Q1ZfY3qMj" role="3uHU7w">
+                                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>
@@ -13507,9 +13513,13 @@
                       <node concept="3clFbS" id="5dCWnAnlWwT" role="3clF47">
                         <node concept="3clFbJ" id="5dCWnAnlWwU" role="3cqZAp">
                           <node concept="1Wc70l" id="5dCWnAnlWwV" role="3clFbw">
-                            <node concept="3fqX7Q" id="5dCWnAnlWwW" role="3uHU7B">
-                              <node concept="37vLTw" id="5dCWnAnlWwX" role="3fr31v">
-                                <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                            <node concept="3clFbC" id="38Q1ZfY3z4H" role="3uHU7B">
+                              <node concept="1rXfSq" id="38Q1ZfY3z4I" role="3uHU7B">
+                                <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                              </node>
+                              <node concept="Rm8GO" id="38Q1ZfY718w" role="3uHU7w">
+                                <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.LEFT" resolve="LEFT" />
+                                <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
                               </node>
                             </node>
                             <node concept="3y3z36" id="5dCWnAnlWwY" role="3uHU7w">
@@ -13638,8 +13648,14 @@
                                           <node concept="37vLTw" id="5dCWnAnlWys" role="37wK5m">
                                             <ref role="3cqZAo" node="4tfWvd2gYoS" resolve="myLastNode" />
                                           </node>
-                                          <node concept="37vLTw" id="5dCWnAnlWyt" role="37wK5m">
-                                            <ref role="3cqZAo" node="4tfWvd2gYpc" resolve="myGrowingForward" />
+                                          <node concept="3clFbC" id="38Q1ZfY3Qfo" role="37wK5m">
+                                            <node concept="1rXfSq" id="38Q1ZfY3Qfp" role="3uHU7B">
+                                              <ref role="37wK5l" to="b8lf:~AbstractSelection.getDirection()" resolve="getDirection" />
+                                            </node>
+                                            <node concept="Rm8GO" id="38Q1ZfY3Y3k" role="3uHU7w">
+                                              <ref role="Rm8GQ" to="lwvz:~Selection$SelectionDirection.RIGHT" resolve="RIGHT" />
+                                              <ref role="1Px2BO" to="lwvz:~Selection$SelectionDirection" resolve="Selection.SelectionDirection" />
+                                            </node>
                                           </node>
                                         </node>
                                       </node>

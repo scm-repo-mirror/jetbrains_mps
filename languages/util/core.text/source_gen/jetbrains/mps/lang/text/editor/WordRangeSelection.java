@@ -14,13 +14,13 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.nodeEditor.selection.SelectionInfoImpl;
 import java.util.Objects;
+import jetbrains.mps.openapi.editor.selection.Selection;
 import java.util.List;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import java.util.ArrayList;
 import jetbrains.mps.openapi.editor.selection.SelectionInfo;
-import jetbrains.mps.openapi.editor.selection.Selection;
+import jetbrains.mps.nodeEditor.selection.SelectionInfoImpl;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -59,7 +59,6 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   private final SNode myFirstParentNode;
   private final SNode myLastParentNode;
   private final String myModelReference;
-  private boolean myGrowingForward;
 
   public WordRangeSelection(@NotNull EditorComponent editorComponent, Map<String, String> properties, CellInfo cellInfo) throws SelectionStoreException, SelectionRestoreException {
     super(editorComponent);
@@ -91,7 +90,6 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     if (myFirstParentNode != SNodeOperations.as(SNodeOperations.getParent(myFirstNode), CONCEPTS.Line$yC) || myLastParentNode != SNodeOperations.as(SNodeOperations.getParent(myLastNode), CONCEPTS.Line$yC)) {
       throw new SelectionRestoreException();
     }
-    myGrowingForward = SelectionInfoImpl.Util.getBooleanProperty(properties, GROWING_FORWARD_PROPERTY_NAME);
     try {
       initSelectedCells();
     } catch (CellNotFoundException e) {
@@ -118,7 +116,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     myFirstParentNode = SNodeOperations.as(SNodeOperations.getParent(myFirstNode), CONCEPTS.Line$yC);
     myLastParentNode = SNodeOperations.as(SNodeOperations.getParent(myLastNode), CONCEPTS.Line$yC);
     myModelReference = myFirstNode.getModel().getReference().toString();
-    myGrowingForward = growingForward;
+    setDirection((growingForward ? Selection.SelectionDirection.RIGHT : Selection.SelectionDirection.LEFT));
     assert myFirstParentNode != null;
     assert myLastParentNode != null;
     try {
@@ -164,7 +162,6 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     selectionInfo.getPropertiesMap().put(LAST_NODE_ID_PROPERTY_NAME, myLastNode.getNodeId().toString());
     selectionInfo.getPropertiesMap().put(FIRST_PARENT_NODE_ID_PROPERTY_NAME, myFirstParentNode.getNodeId().toString());
     selectionInfo.getPropertiesMap().put(LAST_PARENT_NODE_ID_PROPERTY_NAME, myLastParentNode.getNodeId().toString());
-    selectionInfo.getPropertiesMap().put(GROWING_FORWARD_PROPERTY_NAME, Boolean.toString(myGrowingForward));
     return selectionInfo;
   }
   @Override
@@ -180,7 +177,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
   }
   @Override
   public boolean isExactlyCoveringCell(EditorCell cell) {
-    return false;
+    return true;
   }
   @Override
   public boolean canExecuteAction(CellActionType type) {
@@ -303,10 +300,10 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (!(myGrowingForward) && getFirstNode() != getLastNode()) {
+        if (getDirection() == Selection.SelectionDirection.LEFT && getFirstNode() != getLastNode()) {
           SNode nextSelectableChild = getNextSelectableNode(SNodeOperations.as(getFirstNode(), CONCEPTS.TextElement$WN), true);
           if (nextSelectableChild != null) {
-            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), nextSelectableChild, SNodeOperations.as(getLastNode(), CONCEPTS.TextElement$WN), myGrowingForward));
+            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), nextSelectableChild, SNodeOperations.as(getLastNode(), CONCEPTS.TextElement$WN), getDirection() == Selection.SelectionDirection.RIGHT));
             editorContext.getEditorComponent().scrollToNode(nextSelectableChild);
           }
         } else {
@@ -324,10 +321,10 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (myGrowingForward && getFirstNode() != getLastNode()) {
+        if (getDirection() == Selection.SelectionDirection.RIGHT && getFirstNode() != getLastNode()) {
           SNode nextSelectableChild = getNextSelectableNode(SNodeOperations.as(getLastNode(), CONCEPTS.TextElement$WN), false);
           if (nextSelectableChild != null) {
-            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), SNodeOperations.as(getFirstNode(), CONCEPTS.TextElement$WN), nextSelectableChild, myGrowingForward));
+            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), SNodeOperations.as(getFirstNode(), CONCEPTS.TextElement$WN), nextSelectableChild, getDirection() == Selection.SelectionDirection.RIGHT));
             editorContext.getEditorComponent().scrollToNode(nextSelectableChild);
           }
         } else {
@@ -345,7 +342,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (!(myGrowingForward)) {
+        if (getDirection() == Selection.SelectionDirection.LEFT) {
           SNode nodeBelowFirst = WordRangeSelection.findNodeBelow(getFirstCell());
           if (nodeBelowFirst == null) {
             selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), myLastNode, myLastNode, false));
@@ -371,7 +368,7 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (myGrowingForward) {
+        if (getDirection() == Selection.SelectionDirection.RIGHT) {
           SNode nodeAboveLast = WordRangeSelection.findNodeAbove(getLastCell());
           if (nodeAboveLast == null) {
             selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), myFirstNode, myFirstNode, true));
@@ -388,7 +385,6 @@ public class WordRangeSelection extends AbstractMultipleSelection {
             selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), nodeAboveFirst, myLastNode, false));
           }
           editorContext.getEditorComponent().scrollToNode(nodeAboveFirst);
-
         }
       }
     });
@@ -435,10 +431,10 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (myGrowingForward && getFirstNode() != getLastNode()) {
+        if (getDirection() == Selection.SelectionDirection.RIGHT && getFirstNode() != getLastNode()) {
           SNode nextSelectableChild = WordRangeSelection.getNextSelectableNode(myLastNode, false);
           if (nextSelectableChild != null) {
-            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), SNodeOperations.as(getFirstNode(), CONCEPTS.TextElement$WN), nextSelectableChild, myGrowingForward));
+            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), SNodeOperations.as(getFirstNode(), CONCEPTS.TextElement$WN), nextSelectableChild, getDirection() == Selection.SelectionDirection.RIGHT));
             editorContext.getEditorComponent().scrollToNode(nextSelectableChild);
 
           }
@@ -457,10 +453,10 @@ public class WordRangeSelection extends AbstractMultipleSelection {
     editorContext.getRepository().getModelAccess().executeCommand(new EditorCommand(editorContext) {
       @Override
       public void doExecute() {
-        if (!(myGrowingForward) && getFirstNode() != getLastNode()) {
+        if (getDirection() == Selection.SelectionDirection.LEFT && getFirstNode() != getLastNode()) {
           SNode nextSelectableChild = WordRangeSelection.getNextSelectableNode(myFirstNode, true);
           if (nextSelectableChild != null) {
-            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), nextSelectableChild, myLastNode, myGrowingForward));
+            selectionManager.pushSelection(new WordRangeSelection(getEditorComponent(), nextSelectableChild, myLastNode, getDirection() == Selection.SelectionDirection.RIGHT));
             editorContext.getEditorComponent().scrollToNode(nextSelectableChild);
 
           }
