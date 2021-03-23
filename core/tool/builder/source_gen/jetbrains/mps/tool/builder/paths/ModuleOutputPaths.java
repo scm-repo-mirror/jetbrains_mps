@@ -14,7 +14,7 @@ import jetbrains.mps.project.facets.TestsFacet;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
-import jetbrains.mps.vfs.FileSystem;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 
 @GeneratedClass(node = "r:ab35dba0-4d05-45fe-8a07-0916d087799f(jetbrains.mps.tool.builder.paths)/1343659934891345537", model = "r:ab35dba0-4d05-45fe-8a07-0916d087799f(jetbrains.mps.tool.builder.paths)")
 public class ModuleOutputPaths {
@@ -94,22 +94,21 @@ public class ModuleOutputPaths {
       }
     }));
 
-    // XXX would be nice if model root tells its path as an object, rather than string
-    Iterable<String> modelRootPaths = Sequence.fromIterable(_modules).translate(new ITranslator2<SModule, ModelRoot>() {
+    // it's legitimate for a model root not to specify content dir (e.g. just paths, or 'provided' externally), 
+    // though not sure logic here is ok if we exclude certain modules due to this. I hope 
+    // next filter (!isArchive) means most of the cases w/o content dir (e.g. provided root of JDK) would have
+    // been ignored anyway.
+    Iterable<IFile> modelRootPaths = Sequence.fromIterable(_modules).translate(new ITranslator2<SModule, ModelRoot>() {
       public Iterable<ModelRoot> translate(SModule mod) {
         return mod.getModelRoots();
       }
-    }).ofType(FileBasedModelRoot.class).select(new ISelector<FileBasedModelRoot, String>() {
-      public String select(FileBasedModelRoot smr) {
-        return smr.getContentRoot();
+    }).ofType(FileBasedModelRoot.class).select(new ISelector<FileBasedModelRoot, IFile>() {
+      public IFile select(FileBasedModelRoot smr) {
+        return smr.getContentDirectory();
       }
-    });
+    }).where(new NotNullWhereFilter<IFile>());
 
-    this.sortedModelDirs = DirUtil.sortDirs(Sequence.fromIterable(modelRootPaths).select(new ISelector<String, IFile>() {
-      public IFile select(String path) {
-        return FileSystem.getInstance().getFile(path);
-      }
-    }).where(new IWhereFilter<IFile>() {
+    this.sortedModelDirs = DirUtil.sortDirs(Sequence.fromIterable(modelRootPaths).where(new IWhereFilter<IFile>() {
       public boolean accept(IFile f) {
         return f.isDirectory() && !(f.isInArchive());
       }

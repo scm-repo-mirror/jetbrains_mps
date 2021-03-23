@@ -96,6 +96,7 @@
         <property id="927724900262033861" name="generateDebugInfo" index="2_Ic$$" />
         <property id="927724900262033862" name="copyResources" index="2_Ic$B" />
         <property id="6998860900671147996" name="javaLevel" index="TZNOO" />
+        <property id="4416461515995611908" name="fork" index="1ck6Xt" />
         <property id="2059109515400425365" name="compiler" index="3fwGa$" />
         <child id="927724900262033863" name="resourceSelectors" index="2_Ic$A" />
       </concept>
@@ -49175,6 +49176,13 @@
     </node>
     <node concept="398rNT" id="1t0Ry55x4nV" role="1l3spd">
       <property role="TrG5h" value="idea_home" />
+    </node>
+    <node concept="2_Ic$z" id="5vi8Xo$odn7" role="3989C9">
+      <property role="2_Ic$$" value="true" />
+      <property role="2_GNG2" value="1024" />
+      <property role="3fwGa$" value="IntelliJ" />
+      <property role="TZNOO" value="" />
+      <property role="1ck6Xt" value="true" />
     </node>
     <node concept="PiPfp" id="1t0Ry55x4qv" role="3989C9">
       <property role="TrG5h" value="annotations-lib" />
