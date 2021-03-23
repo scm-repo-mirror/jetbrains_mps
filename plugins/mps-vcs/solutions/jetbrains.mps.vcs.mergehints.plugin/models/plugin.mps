@@ -11,7 +11,6 @@
   </languages>
   <imports>
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
-    <import index="w88" ref="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="6p" ref="r:134c8eea-8ea6-4b50-ba87-7cf1b28ce5ba(jetbrains.mps.vcs.mergehints.structure)" />
@@ -21,6 +20,7 @@
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
+    <import index="7e0v" ref="r:afc499bf-658e-47de-983c-b73f835c87e1(jetbrains.mps.ide.devkit.editor)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -866,40 +866,40 @@
     </node>
     <node concept="2vPdvu" id="7POWRVZLtOx" role="2E2X74">
       <node concept="2vPdvi" id="7POWRVZLtOy" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:7POWRVZMxkx" resolve="Structure" />
+        <ref role="2vPdvl" to="7e0v:7POWRVZMxkx" resolve="Structure" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOz" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVF9WV" resolve="Editor" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVF9WV" resolve="Editor" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtO$" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVFa2t" resolve="Constraints" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVFa2t" resolve="Constraints" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtO_" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVEQFB" resolve="Behavior" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVEQFB" resolve="Behavior" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOA" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:7POWRVZLtP_" resolve="Typesystem" />
+        <ref role="2vPdvl" to="7e0v:7POWRVZLtP_" resolve="Typesystem" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOB" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2$SWsiCu1P0" resolve="Actions" />
+        <ref role="2vPdvl" to="7e0v:2$SWsiCu1P0" resolve="Actions" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOC" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:7POWRVZLtD_" resolve="Refactorings" />
+        <ref role="2vPdvl" to="7e0v:7POWRVZLtD_" resolve="Refactorings" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOD" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVFcrJ" resolve="Intentions" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVFcrJ" resolve="Intentions" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOE" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVFaZh" resolve="Find Usages" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVFaZh" resolve="Find Usages" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOF" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVFaEE" resolve="Data Flow" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVFaEE" resolve="Data Flow" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOG" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:2erTeUVF2dY" resolve="Generator" />
+        <ref role="2vPdvl" to="7e0v:2erTeUVF2dY" resolve="Generator" />
       </node>
       <node concept="2vPdvi" id="7POWRVZLtOH" role="2vPdvg">
-        <ref role="2vPdvl" to="w88:7POWRVZLtO0" resolve="Textgen" />
+        <ref role="2vPdvl" to="7e0v:7POWRVZLtO0" resolve="Textgen" />
       </node>
       <node concept="2vPdvi" id="4qACXZlWkMH" role="2vPdvg">
         <ref role="2vPdvl" node="2erTeUVF9WV" resolve="Version Control" />

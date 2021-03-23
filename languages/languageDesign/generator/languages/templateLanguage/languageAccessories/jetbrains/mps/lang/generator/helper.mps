@@ -21,7 +21,6 @@
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" implicit="true" />
-    <import index="6bz1" ref="r:d3905048-7598-4a84-931a-cbbcbcda146d(jetbrains.mps.lang.intentions.methods)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -179,11 +178,6 @@
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
-      </concept>
-    </language>
-    <language id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl">
-      <concept id="8880393040217246788" name="jetbrains.mps.baseLanguage.lightweightdsl.structure.MethodParameterInstance" flags="ig" index="ffn8J">
-        <reference id="8880393040217294897" name="decl" index="ffrpq" />
       </concept>
     </language>
     <language id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions">
@@ -2966,10 +2960,9 @@
     <node concept="2tJIrI" id="7BS8DFNOyzG" role="jymVt" />
     <node concept="3clFb_" id="7BS8DFNQyg_" role="jymVt">
       <property role="TrG5h" value="isSuperconcept" />
-      <node concept="ffn8J" id="7BS8DFNQzy7" role="3clF46">
+      <node concept="37vLTG" id="5vi8Xo$ERUc" role="3clF46">
         <property role="TrG5h" value="cd" />
-        <ref role="ffrpq" to="6bz1:6yt8uwrpTKS" resolve="node" />
-        <node concept="3Tqbb2" id="7BS8DFNQzy8" role="1tU5fm">
+        <node concept="3Tqbb2" id="5vi8Xo$EXxP" role="1tU5fm">
           <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
         </node>
       </node>
@@ -3011,8 +3004,8 @@
               <ref role="3cqZAo" node="7BS8DFNOGPK" resolve="mySuperconcepts" />
             </node>
             <node concept="3JPx81" id="7BS8DFNPgh7" role="2OqNvi">
-              <node concept="37vLTw" id="7BS8DFNQiNB" role="25WWJ7">
-                <ref role="3cqZAo" node="7BS8DFNQzy7" resolve="cd" />
+              <node concept="37vLTw" id="5vi8Xo$Fcxu" role="25WWJ7">
+                <ref role="3cqZAo" node="5vi8Xo$ERUc" resolve="cd" />
               </node>
             </node>
           </node>
