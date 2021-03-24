@@ -36,7 +36,6 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -191,6 +190,15 @@ class InternalJavaCompiler {
           reportModulesWithRemovalsAreNotChanged(analysisResult.modulesWithRemovals, Collections.singleton(soleModule.toModule()), tracer);
           return new MPSCompilationResult(errorCount, 0, false, Collections.singleton(soleModule.toModule())); // fixme: no warnings in the result
         }
+        // instrument .class files
+        // FIXME need to control jdk we compile against
+        final File javaHome = new File(System.getProperty("java.home"));
+        final ClassFileWriter cfw = new ClassFileWriter(classPath, javaHome, tracer.getSender());
+        final Iterable<JavaFileObject> classFO = jfm.list(StandardLocation.CLASS_OUTPUT, "", Collections.singleton(JavaFileObject.Kind.CLASS), true);
+        for (JavaFileObject fo : classFO) {
+          cfw.instrumentNotNull(jfm.asPath(fo).toFile());
+        }
+
         reportModulesWithRemovalsAreNotChanged(analysisResult.modulesWithRemovals, Collections.singleton(soleModule.toModule()), tracer);
         return new MPSCompilationResult(0, 0, false, Collections.singleton(soleModule.toModule()));
       } catch (Exception ex) {
