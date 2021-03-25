@@ -4261,6 +4261,19 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="1sNWwCA2lQN" role="3bR37C">
+          <node concept="1BurEX" id="1sNWwCA2lQO" role="1SiIV1">
+            <node concept="398BVA" id="1sNWwCA2lQP" role="1BurEY">
+              <ref role="398BVh" node="3CewbsuA8IN" resolve="platform_lib" />
+              <node concept="2Ry0Ak" id="1sNWwCA2m2m" role="iGT6I">
+                <property role="2Ry0Am" value="javax.activation-1.2.0.jar" />
+              </node>
+            </node>
+            <node concept="3yrxFa" id="1sNWwCA2md_" role="2gdwQb">
+              <ref role="3yrxFb" node="1sNWwCA2lEp" />
+            </node>
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="7Kfy9QB6KZM" role="2G$12L">
         <property role="BnDLt" value="true" />
@@ -25634,7 +25647,14 @@
       <node concept="13uQ2_" id="3XxDNGOUUBt" role="39821P">
         <node concept="3_J27D" id="3XxDNGOUUBu" role="13uQ07">
           <node concept="3Mxwew" id="3XxDNGOUUBv" role="3MwsjC">
-            <property role="3MwjfP" value="jaxb-runtime-2.3.1.jar" />
+            <property role="3MwjfP" value="jaxb-runtime.jar" />
+          </node>
+        </node>
+      </node>
+      <node concept="13uQ2_" id="1sNWwCA2lEp" role="39821P">
+        <node concept="3_J27D" id="1sNWwCA2lEr" role="13uQ07">
+          <node concept="3Mxwew" id="1sNWwCA2lF$" role="3MwsjC">
+            <property role="3MwjfP" value="javax.activation-1.2.0.jar" />
           </node>
         </node>
       </node>

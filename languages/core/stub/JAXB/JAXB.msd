@@ -5,6 +5,7 @@
     <modelRoot contentPath="${platform_lib}" type="java_classes">
       <sourceRoot location="jaxb-api-2.3.1.jar" />
       <sourceRoot location="jaxb-runtime.jar" />
+      <sourceRoot location="javax.activation-1.2.0.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -16,6 +17,7 @@
   <stubModelEntries>
     <stubModelEntry path="${platform_lib}/jaxb-api-2.3.1.jar" />
     <stubModelEntry path="${platform_lib}/jaxb-runtime.jar" />
+    <stubModelEntry path="${platform_lib}/javax.activation-1.2.0.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>
