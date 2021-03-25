@@ -15,8 +15,10 @@
  */
 package jetbrains.mps.make;
 
+import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.compiler.EclipseJavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
+import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.make.dependencies.graph.Graph;
 import jetbrains.mps.make.dependencies.graph.Graphs;
@@ -160,7 +162,12 @@ public final class ModuleMaker {
   private MPSCompilationResult compileCycles(@Nullable JavaCompilerOptions compilerOptions, List<Set<JavaModule>> cyclesToCompile, @NotNull CompositeTracer tracer, @NotNull ModulesContainer allModules) {
     List<MPSCompilationResult> cycleCompilationResults = new ArrayList<>();
     tracer.start("Cycles", cyclesToCompile.size());
+    JavaCompilerImpl jc = null;
     try {
+      if (!RuntimeFlags.useEclipseJavaCompiler()) {
+        jc = new JavaCompilerImpl(new File(System.getProperty("java.home")), compilerOptions == null ? JavaCompilerOptionsComponent.DEFAULT_JAVA_COMPILER_OPTIONS : compilerOptions);
+      } else {
+      }
       int cycleNumber = 0;
       for (Set<JavaModule> modulesInCycle : cyclesToCompile) {
         if (tracer.isMonitorCanceled()) {
@@ -171,12 +178,20 @@ public final class ModuleMaker {
         tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, modulesInCycle.stream().map(JavaModule::name).collect(Collectors.toList())));
         cycleTracer.start(getCycleString(cycleNumber, modulesInCycle), 1);
         ModulesContainer modulesContainer = allModules.restricted(modulesInCycle);
-        InternalJavaCompiler internalJavaCompiler = new InternalJavaCompiler(modulesContainer, compilerOptions);
-        MPSCompilationResult cycleCompilationResult = internalJavaCompiler.compile(cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
+        final MPSCompilationResult cycleCompilationResult;
+        if (RuntimeFlags.useEclipseJavaCompiler()) {
+          InternalJavaCompiler internalJavaCompiler = new InternalJavaCompiler(modulesContainer, compilerOptions);
+          cycleCompilationResult = internalJavaCompiler.compile(cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
+        } else {
+          cycleCompilationResult = jc.compile(modulesContainer, cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
+        }
         cycleCompilationResults.add(cycleCompilationResult);
         cycleTracer.done(0);
       }
     } finally {
+      if (jc != null) {
+        jc.dispose();
+      }
       tracer.done();
     }
 

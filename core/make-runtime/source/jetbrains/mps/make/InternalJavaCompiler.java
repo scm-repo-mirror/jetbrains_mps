@@ -15,11 +15,9 @@
  */
 package jetbrains.mps.make;
 
-import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.compiler.ClassFile;
 import jetbrains.mps.compiler.JavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
-import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.util.FileUtil;
@@ -27,38 +25,28 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
-import javax.tools.Diagnostic;
-import javax.tools.Diagnostic.Kind;
-import javax.tools.DiagnosticCollector;
-import javax.tools.JavaCompiler.CompilationTask;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.StandardLocation;
-import javax.tools.ToolProvider;
 import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
+ * @deprecated shall use Eclipse Compiler through javax.tools.JavaCompiler API
  * fixme use bundle for this package
  */
+@Deprecated
 class InternalJavaCompiler {
-  private final static String MODULE_WITH_REMOVALS_WAS_NOT_CHANGED = "Module With Removals Is Not In The Changed Modules: %s";
+  final static String MODULE_WITH_REMOVALS_WAS_NOT_CHANGED = "Module With Removals Is Not In The Changed Modules: %s";
   private final static String NO_CHANGES_AFTER_COMPILATION_ERROR = "Compilation Passed But The Changed Modules Are Empty";
-  private final static String CALCULATING_DEPS_MSG = "Calculating Classpath";
-  private final static String COMPILING_JAVA_MSG = "Compiling Java";
-  private final static String PREPARING_TO_COMPILE_MSG = "Preparing";
-  private final static String COPYING_RESOURCES_MSG = "Copying Resources";
-  private final static String WRITING_CLASSES_MSG = "Writing Classes";
+  final static String CALCULATING_DEPS_MSG = "Calculating Classpath";
+  final static String COMPILING_JAVA_MSG = "Compiling Java";
+  final static String PREPARING_TO_COMPILE_MSG = "Preparing";
+  final static String COPYING_RESOURCES_MSG = "Copying Resources";
+  final static String WRITING_CLASSES_MSG = "Writing Classes";
   private final static String ECLIPSE_COMPILER_MSG = "Running ECJ";
-  private final static String MODULES_CLASSPATH_STR = "Modules: %s;\nClasspath: %s\n";
-  private final static String COMPILATION_PROBLEMS = "Compilation problems";
+  final static String MODULES_CLASSPATH_STR = "Modules: %s;\nClasspath: %s\n";
+  final static String COMPILATION_PROBLEMS = "Compilation problems";
 
   @NotNull private final ModulesContainer myModulesContainer;
   @Nullable private final JavaCompilerOptions myCompilerOptions;
@@ -73,13 +61,10 @@ class InternalJavaCompiler {
     if (!myModulesContainer.hasModuleToCompile()) {
       return MPSCompilationResult.ZERO_COMPILATION_RESULT;
     }
-    if (myModulesContainer.getDirtyModules().count() == 1) {
-      return compile2(tracer, myModulesContainer.getDirtyModules().findFirst().orElseThrow());
-    }
     tracer.start("", 5);
     try {
       ModuleAnalyzerResult analysisResult = new ModuleAnalyzer().analyze(myModulesContainer.getDirtyModules());
-      JavaCompiler compiler = RuntimeFlags.useEclipseJavaCompiler() ? new EclipseCompilerFacade() : new JdkToolCompilerFacade();
+      JavaCompiler compiler = new EclipseCompilerFacade();
       tracer.getSender().info(String.format("Compiler in use: %s", compiler.getClass().getSimpleName()));
       tracer.push(PREPARING_TO_COMPILE_MSG);
       try {
@@ -102,111 +87,6 @@ class InternalJavaCompiler {
       copyResources(tracer.subTracer(1));
 
       return result;
-    } finally {
-      tracer.done();
-    }
-  }
-
-  @NotNull
-  public MPSCompilationResult compile2(CompositeTracer tracer, JavaModule soleModule) {
-    tracer.start("", 5);
-    try {
-      ModuleAnalyzerResult analysisResult = new ModuleAnalyzer().analyze(Stream.of(soleModule));
-      final javax.tools.JavaCompiler compiler;
-      if (RuntimeFlags.useEclipseJavaCompiler()) {
-        // FIXME need to figure out proper way to use EclipseCompiler implementation of javax.tools.JavaCompiler interface
-        //   meanwhile, could resort to approach org.jetbrains.jps.javac.JavacMain uses, see
-        //   org.jetbrains.jps.builders.impl.java.EclipseCompilerTool#findCompiler() (by class name)
-        //new EclipseCompilerFacade();
-        throw new IllegalStateException("FIXME"); // FIXME
-      } else {
-        compiler = ToolProvider.getSystemJavaCompiler();
-      };
-      tracer.getSender().info(String.format("Compiler in use: %s", compiler.getClass().getSimpleName()));
-      tracer.push(PREPARING_TO_COMPILE_MSG);
-      try {
-        if (!analysisResult.hasJavaToCompile && !analysisResult.hasResourcesToUpdate) {
-          return MPSCompilationResult.nothingToDoCompilationResult();
-        }
-        analysisResult.filesToDelete.forEach(FileUtil::delete); // removing all stale files
-      } finally {
-        tracer.pop(1);
-      }
-
-      copyResources(tracer.subTracer(1));
-
-      if (!analysisResult.hasJavaToCompile) {
-        // XXX original code didn't invoke reportModulesWithRemovalsAreNotChanged() in this case, is it correct?
-        return MPSCompilationResult.noJavaCompiledCompilationResult();
-      }
-      try {
-        tracer.push(COMPILING_JAVA_MSG);
-        JavaModule jm = soleModule;
-        DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<>();
-        Collection<Path> classPath = computeDependenciesClassPath(tracer.subTracer(1)).stream().map(Path::of).collect(Collectors.toUnmodifiableList());
-        final StandardJavaFileManager jfm = compiler.getStandardFileManager(diagnostics, null, null);
-        jfm.setLocationFromPaths(StandardLocation.CLASS_PATH, classPath);
-        jfm.setLocation(StandardLocation.CLASS_OUTPUT, Collections.singleton(jm.getClassesOut()));
-        final File sourceOut = jm.getSourceOut();
-        if (sourceOut != null) {
-          jfm.setLocation(StandardLocation.SOURCE_OUTPUT, Collections.singleton(sourceOut));
-        }
-        jfm.setLocationFromPaths(StandardLocation.SOURCE_PATH, jm.getAllSourcePaths().stream().map(Path::of).collect(Collectors.toUnmodifiableList()));
-        JavaCompilerOptions opt = myCompilerOptions == null ? JavaCompilerOptionsComponent.DEFAULT_JAVA_COMPILER_OPTIONS : myCompilerOptions;
-        final String compileVer = opt.getTargetJavaVersion().getCompilerVersion();
-        // javac --release option: "Supported targets: 6, 7, 8, 9, 10, 11"
-        final String releaseVer = compileVer.startsWith("1.") ? compileVer.substring(2) : compileVer;
-        Iterable<String> options = Arrays.asList("--release", releaseVer, "-g");
-        final Iterable<JavaFileObject> cu = jfm.list(StandardLocation.SOURCE_PATH, "", Collections.singleton(JavaFileObject.Kind.SOURCE), true);
-        final CompilationTask task = compiler.getTask(null, jfm, diagnostics, options, null, cu);
-        if (!task.call()) {
-          // XXX perhaps, shall sender.trace() all jfm.location values?
-          final int MAX_ERRORS = 100; // XXX 20 would suffice?
-          final MessageSender sender = tracer.getSender();
-          int errorCount = 0;
-          for (Diagnostic<? extends JavaFileObject> d : diagnostics.getDiagnostics()) {
-            if (d.getKind() != Kind.ERROR || d.getSource() == null) {
-              sender.trace(d.getMessage(null));
-              continue;
-            }
-            if (errorCount++ == 0) {
-              sender.error(COMPILATION_PROBLEMS);
-            }
-            if (errorCount > MAX_ERRORS) {
-              continue;
-            }
-            final Path pathSrc = jfm.asPath(d.getSource());
-            final File javaFile = pathSrc.toFile();
-            Object hintObject = new FileWithPosition(javaFile, d.getPosition(), d.getLineNumber(), d.getColumnNumber());
-            String errMsg = String.format("%s (%s:%d)", d.getMessage(null), d.getSource().getName(), d.getLineNumber());
-            sender.error(errMsg, hintObject);
-          }
-
-          if (errorCount > 0) {
-            Collection<String> names = myModulesContainer.getModules().map(JavaModule::name).collect(Collectors.toList());
-            sender.info(String.format(MODULES_CLASSPATH_STR, names, classPath));
-          }
-          // in fact, looks that there's no reason for reportModulesWithRemovalsAreNotChanged call
-          reportModulesWithRemovalsAreNotChanged(analysisResult.modulesWithRemovals, Collections.singleton(soleModule.toModule()), tracer);
-          return new MPSCompilationResult(errorCount, 0, false, Collections.singleton(soleModule.toModule())); // fixme: no warnings in the result
-        }
-        // instrument .class files
-        // FIXME need to control jdk we compile against
-        final File javaHome = new File(System.getProperty("java.home"));
-        final ClassFileWriter cfw = new ClassFileWriter(classPath, javaHome, tracer.getSender());
-        final Iterable<JavaFileObject> classFO = jfm.list(StandardLocation.CLASS_OUTPUT, "", Collections.singleton(JavaFileObject.Kind.CLASS), true);
-        for (JavaFileObject fo : classFO) {
-          cfw.instrumentNotNull(jfm.asPath(fo).toFile());
-        }
-
-        reportModulesWithRemovalsAreNotChanged(analysisResult.modulesWithRemovals, Collections.singleton(soleModule.toModule()), tracer);
-        return new MPSCompilationResult(0, 0, false, Collections.singleton(soleModule.toModule()));
-      } catch (Exception ex) {
-        tracer.getSender().error(String.format("Compilation for %s failed", soleModule.name()), ex);
-        return new MPSCompilationResult(0, 0, true, Collections.emptySet());
-      } finally {
-        tracer.pop(3);
-      }
     } finally {
       tracer.done();
     }
