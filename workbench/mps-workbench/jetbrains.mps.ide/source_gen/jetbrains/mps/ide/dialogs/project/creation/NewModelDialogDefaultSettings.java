@@ -23,6 +23,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import java.awt.Insets;
+import com.intellij.openapi.ui.DialogWrapperPeer;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -113,9 +114,17 @@ public class NewModelDialogDefaultSettings implements NewModelDialogSettings {
 
     nameAndStereotype.add(myModelName, nameConstraints);
     myModelName.setText(modelName);
+    if (modelName != null && modelName.lastIndexOf('.') != -1) {
+      // FIXME get two fields (namespace and simple name) instead of one!
+      myModelName.select(modelName.lastIndexOf('.') + 1, modelName.length());
+      // found in DialogWrapperPeerImpl.setupSelectionOnPreferredComponent
+      myModelName.putClientProperty(DialogWrapperPeer.HAVE_INITIAL_SELECTION, true);
+    }
     myModelName.addKeyListener(new KeyAdapter() {
       @Override
       public void keyReleased(KeyEvent event) {
+        // FIXME shall pass actual text field value rather than expect validator to invoke some settings method with
+        //      undefined state/contract.
         myValidator.validate();
       }
     });

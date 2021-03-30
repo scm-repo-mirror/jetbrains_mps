@@ -98,6 +98,7 @@
     <classNode extendsClassName="com.intellij.openapi.ui.DialogWrapper" />
   </dependency>
   <dependency className="jetbrains.mps.ide.dialogs.project.creation.NewModelDialogDefaultSettings">
+    <classNode dependClassName="com.intellij.openapi.ui.DialogWrapperPeer" />
     <classNode dependClassName="com.intellij.ui.ColoredListCellRenderer" />
     <classNode dependClassName="com.intellij.uiDesigner.core.GridConstraints" />
     <classNode dependClassName="com.intellij.uiDesigner.core.GridLayoutManager" />
