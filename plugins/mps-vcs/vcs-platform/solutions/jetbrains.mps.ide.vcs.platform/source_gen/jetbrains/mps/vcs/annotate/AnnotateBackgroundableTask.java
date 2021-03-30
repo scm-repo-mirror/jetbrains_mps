@@ -61,7 +61,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
 
     final Wrappers._T<List<VcsFileRevision>> revisions = new Wrappers._T<List<VcsFileRevision>>();
     try {
-      revisions.value = getRevisionsFromVcs();
+      revisions.value = getFileRevisions();
     } catch (VcsException e) {
       myAnnotateComplete = false;
       return;
@@ -79,7 +79,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
     final Wrappers._int processedRevisionsCount = new Wrappers._int(0);
 
     rootAnnotation.addUpdateListener(new RootAnnotation.RootAnnotationUpdateListener() {
-      public void revisionProcessed(List<RevisionNodeChange> changes) {
+      public void revisionProcessed(RevisionChanges changes) {
         updateIndicator(indicator, ++processedRevisionsCount.value, ListSequence.fromList(revisions.value).count());
         if (indicator.isCanceled()) {
           rootAnnotation.cancelAnnotate();
@@ -101,7 +101,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
     });
 
     try {
-      rootAnnotation.annotate(revisions.value);
+      rootAnnotation.annotate(revisions.value, myEditor.getEditorContext().getModel());
     } catch (RootCommitsGraphTraverser.AnnotateModelReadException e) {
       myAnnotateException = e;
       wasCanceled.value = true;
@@ -147,7 +147,7 @@ public final class AnnotateBackgroundableTask extends Task.Backgroundable {
     super.onFinished();
   }
 
-  private List<VcsFileRevision> getRevisionsFromVcs() throws VcsException {
+  private List<VcsFileRevision> getFileRevisions() throws VcsException {
     return VcsCachingHistory.collect(myActiveVcs, VcsUtil.getFilePath(myActualFile), null);
   }
 

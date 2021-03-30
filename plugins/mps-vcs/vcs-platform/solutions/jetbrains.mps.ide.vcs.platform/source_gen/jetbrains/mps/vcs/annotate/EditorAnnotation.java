@@ -12,14 +12,12 @@ import java.util.Map;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import java.util.concurrent.ConcurrentHashMap;
 import com.intellij.util.ui.update.MergingUpdateQueue;
-import com.intellij.openapi.vcs.history.CurrentRevision;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
-import com.intellij.openapi.vcs.history.VcsRevisionNumber;
-import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import com.intellij.util.ui.update.Update;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import java.util.Set;
@@ -35,26 +33,25 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
 import java.awt.Color;
-import com.intellij.util.ui.UIUtil;
 import java.util.Objects;
 import java.util.Iterator;
 import java.util.Collection;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Collections;
 import jetbrains.mps.vcs.diff.ui.common.EditorCellMessageUtil;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.model.SModel;
 import git4idea.GitVcs;
-import com.intellij.openapi.vcs.history.VcsFileRevisionEx;
-import java.util.Date;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.vcs.actions.AnnotationsSettings;
 import java.util.Arrays;
+import jetbrains.mps.vcs.diff.changes.ChangeType;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.vcs.annotate.ShowAllAffectedGenericAction;
 
@@ -69,8 +66,7 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   private final Map<EditorCell, CellAnnotation> myCellAnnotations = new ConcurrentHashMap<EditorCell, CellAnnotation>();
   private final Map<EditorCell, AnnotatedCellMessage> myEditorMessages = new ConcurrentHashMap<EditorCell, AnnotatedCellMessage>();
   private final MergingUpdateQueue myUpdateQueue;
-  private final CurrentRevision myLocalRevision;
-  private final List<List<RevisionNodeChange>> myVcsChangesGroups = ListSequence.fromList(new ArrayList<List<RevisionNodeChange>>());
+  private final List<RevisionChanges> myVcsChangesGroups = ListSequence.fromList(new ArrayList<RevisionChanges>());
   private AtomicReference<List<LineAnnotation>> myLineAnnotationsRef = new AtomicReference<List<LineAnnotation>>(ListSequence.fromList(new ArrayList<LineAnnotation>()));
   private List<VcsFileRevision> myAllRevisions;
   private LineAnnotationsUpdateListener myLineAnnotationsUpdateListener;
@@ -81,30 +77,15 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     myFile = file;
     myVcs = vcs;
     myProject = project;
-    myLocalRevision = createLocalRevision(file);
     myRootAnnotation = rootAnnotation;
     myAllRevisions = revisions;
     myRootAnnotation.addUpdateListener(new RootAnnotation.RootAnnotationUpdateListener() {
-      public void revisionProcessed(List<RevisionNodeChange> changes) {
+      public void revisionProcessed(RevisionChanges changes) {
         processVcsChanges(changes);
       }
     });
     myUpdateQueue = new MergingUpdateQueue(getClass().getSimpleName(), 300, true, null, null, null, false);
     AnnotationOptions.getInstance().addUpdateListener(this);
-  }
-
-  private static CurrentRevision createLocalRevision(VirtualFile file) {
-    return new CurrentRevision(file, new VcsRevisionNumber() {
-      @Override
-      public int compareTo(VcsRevisionNumber p0) {
-        return 0;
-      }
-      @NotNull
-      @Override
-      public String asString() {
-        return "Local Changes";
-      }
-    });
   }
 
   /*package*/ interface LineAnnotationsUpdateListener {
@@ -115,7 +96,10 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     myLineAnnotationsUpdateListener = lineAnnotationsUpdateListener;
   }
 
-  private void processVcsChanges(List<RevisionNodeChange> changes) {
+  private void processVcsChanges(RevisionChanges changes) {
+    if (changes == null || CollectionSequence.fromCollection(changes.getNodeChanges()).isEmpty()) {
+      return;
+    }
     synchronized (myVcsChangesGroups) {
       ListSequence.fromList(myVcsChangesGroups).addElement(changes);
     }
@@ -128,13 +112,13 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   }
 
   private void updateVcsAnnotations() {
-    List<List<RevisionNodeChange>> changeGroups;
+    List<RevisionChanges> changeGroups;
     synchronized (myVcsChangesGroups) {
-      changeGroups = ListSequence.fromListWithValues(new ArrayList<List<RevisionNodeChange>>(), myVcsChangesGroups);
+      changeGroups = ListSequence.fromListWithValues(new ArrayList<RevisionChanges>(), myVcsChangesGroups);
       ListSequence.fromList(myVcsChangesGroups).clear();
     }
-    ListSequence.fromList(changeGroups).reversedList().visitAll(new IVisitor<List<RevisionNodeChange>>() {
-      public void visit(List<RevisionNodeChange> changes) {
+    ListSequence.fromList(changeGroups).reversedList().visitAll(new IVisitor<RevisionChanges>() {
+      public void visit(RevisionChanges changes) {
         Set<CellAnnotation> annotations = createAnnotationsForChanges(changes);
         final Set<EditorCell> updatedCells = SetSequence.fromSetWithValues(new HashSet<EditorCell>(), SetSequence.fromSet(annotations).select(new ISelector<CellAnnotation, EditorCell>() {
           public EditorCell select(CellAnnotation it) {
@@ -172,7 +156,7 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   public void repaintEditor() {
     Sequence.fromIterable(MapSequence.fromMap(myEditorMessages).values()).visitAll(new IVisitor<AnnotatedCellMessage>() {
       public void visit(AnnotatedCellMessage it) {
-        it.setColor(calcCellColor(it.getCellAnnotation()));
+        it.setColor(calcCellColor(it.getCommitsGraphNode(), it.getChanges()));
       }
     });
     ApplicationManager.getApplication().invokeLater(new Runnable() {
@@ -191,9 +175,6 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     return myEditorComponent.getEditedNode().getNodeId();
   }
 
-  private List<RevisionNodeChange> getLocalChanges() {
-    return myRootAnnotation.calcLocalChanges(getModel(), getModelAccess(), getRootId(), myLocalRevision);
-  }
 
   private void addMessagesAndRepaint(Set<CellAnnotation> newAnnotations) {
     if (SetSequence.fromSet(newAnnotations).isEmpty()) {
@@ -236,8 +217,8 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
 
   private void resetCellAnnotations() {
     MapSequence.fromMap(myCellAnnotations).clear();
-    createAnnotationsForChanges(getLocalChanges());
-    createVcsAnnotations();
+    myRootAnnotation.resetLocalChanges();
+    createAnnotations();
   }
 
   private void updateMessagesAndRepaint() {
@@ -249,28 +230,21 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     }
   }
 
-  private void createVcsAnnotations() {
-    final List<List<RevisionNodeChange>> changesGroups = ListSequence.fromList(new ArrayList<List<RevisionNodeChange>>());
+  private void createAnnotations() {
+    List<RevisionChanges> changesGroups = ListSequence.fromList(new ArrayList<RevisionChanges>());
     synchronized (myVcsChangesGroups) {
       ListSequence.fromList(myVcsChangesGroups).clear();
-      ListSequence.fromList(myAllRevisions).visitAll(new IVisitor<VcsFileRevision>() {
-        public void visit(VcsFileRevision revision) {
-          List<RevisionNodeChange> changes = myRootAnnotation.getChangesForRevision(revision);
-          if (ListSequence.fromList(changes).isNotEmpty()) {
-            ListSequence.fromList(changesGroups).addElement(changes);
-          }
-        }
-      });
+      ListSequence.fromList(changesGroups).addSequence(ListSequence.fromList(myRootAnnotation.getChanges()));
     }
-    ListSequence.fromList(changesGroups).visitAll(new IVisitor<List<RevisionNodeChange>>() {
-      public void visit(List<RevisionNodeChange> changes) {
+    ListSequence.fromList(changesGroups).visitAll(new IVisitor<RevisionChanges>() {
+      public void visit(RevisionChanges changes) {
         createAnnotationsForChanges(changes);
       }
     });
   }
 
-  private Set<CellAnnotation> createAnnotationsForChanges(List<RevisionNodeChange> changes) {
-    return SetSequence.fromSetWithValues(new HashSet<CellAnnotation>(), ListSequence.fromList(changes).translate(new ITranslator2<RevisionNodeChange, CellAnnotation>() {
+  private Set<CellAnnotation> createAnnotationsForChanges(RevisionChanges changes) {
+    return SetSequence.fromSetWithValues(new HashSet<CellAnnotation>(), CollectionSequence.fromCollection(changes.getNodeChanges()).translate(new ITranslator2<RevisionNodeChange, CellAnnotation>() {
       public Iterable<CellAnnotation> translate(RevisionNodeChange it) {
         return createAnnotationsForChange(it);
       }
@@ -294,19 +268,21 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   }
 
   @Nullable
-  private CellAnnotation createCellAnnotation(EditorCell cell, RevisionNodeChange change) {
+  private CellAnnotation createCellAnnotation(@NotNull EditorCell cell, RevisionNodeChange change) {
 
     CellAnnotation oldAnnotation = MapSequence.fromMap(myCellAnnotations).get(cell);
-    if (oldAnnotation != null && !(oldAnnotation.isEarlierThanRevision(change.getRevisionGraphNode().getRevision())) && oldAnnotation.getRevisionsGraphNode() != change.getRevisionGraphNode()) {
+    if (oldAnnotation != null && oldAnnotation.getCommitsGraphNode().compareTo(change.getCommitsGraphNode()) > 0) {
       return null;
     }
 
-    List<RevisionNodeChange> changes = ListSequence.fromList(new ArrayList<RevisionNodeChange>());
-    if (oldAnnotation != null && oldAnnotation.getRevisionsGraphNode() == change.getRevisionGraphNode()) {
-      ListSequence.fromList(changes).addSequence(ListSequence.fromList(oldAnnotation.getChanges()));
+    Set<RevisionNodeChange> changes = SetSequence.fromSet(new HashSet<RevisionNodeChange>());
+    if (oldAnnotation != null && oldAnnotation.getCommitsGraphNode() == change.getCommitsGraphNode()) {
+      SetSequence.fromSet(changes).addSequence(SetSequence.fromSet(oldAnnotation.getChanges()));
     }
-    ListSequence.fromList(changes).addElement(change);
-    CellAnnotation newAnnotation = new CellAnnotation(myProject, cell, change.getRevisionGraphNode(), changes);
+    if (!(SetSequence.fromSet(changes).contains(change))) {
+      SetSequence.fromSet(changes).addElement(change);
+    }
+    CellAnnotation newAnnotation = new CellAnnotation(cell, change.getCommitsGraphNode(), changes);
     MapSequence.fromMap(myCellAnnotations).put(cell, newAnnotation);
     return newAnnotation;
   }
@@ -314,41 +290,53 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   private void updateMessages(Set<CellAnnotation> cellAnnotations, final List<AnnotatedCellMessage> oldMessages, final List<AnnotatedCellMessage> newMessages) {
     SetSequence.fromSet(cellAnnotations).visitAll(new IVisitor<CellAnnotation>() {
       public void visit(CellAnnotation it) {
-        updateMessages(it, it.getCell(), oldMessages, newMessages);
+        updateMessages(it, it.getChanges(), it.getCell(), oldMessages, newMessages);
       }
     });
     updateLineAnnotations();
   }
 
-  private void updateMessages(CellAnnotation cellAnnotation, EditorCell cell, List<AnnotatedCellMessage> oldMessages, List<AnnotatedCellMessage> newMessages) {
+  private void updateMessages(CellAnnotation cellAnnotation, Set<RevisionNodeChange> changes, final EditorCell cell, List<AnnotatedCellMessage> oldMessages, List<AnnotatedCellMessage> newMessages) {
 
     if (CellTraversalUtil.getFoldedParent(cell) != null) {
       return;
     }
+
+    // prefer more specific annotations
     if (cellAnnotation.getCell() != cell && MapSequence.fromMap(myCellAnnotations).containsKey(cell)) {
       return;
     }
+
+    changes = SetSequence.fromSetWithValues(new HashSet<RevisionNodeChange>(), SetSequence.fromSet(changes).where(new IWhereFilter<RevisionNodeChange>() {
+      public boolean accept(RevisionNodeChange it) {
+        return !(ListSequence.fromList(it.getMovedChildIds()).contains(cell.getSNode().getNodeId()));
+      }
+    }));
+
+    if (SetSequence.fromSet(changes).isEmpty()) {
+      return;
+    }
+
     if (cell instanceof EditorCell_Collection) {
       for (EditorCell childCell : Sequence.fromIterable((EditorCell_Collection) cell)) {
-        updateMessages(cellAnnotation, childCell, oldMessages, newMessages);
+        updateMessages(cellAnnotation, changes, childCell, oldMessages, newMessages);
       }
     } else {
-      updateLeafMessage(cellAnnotation, cell, oldMessages, newMessages);
+      updateLeafMessage(cellAnnotation.getCommitsGraphNode(), changes, cell, oldMessages, newMessages);
     }
   }
 
-  private void updateLeafMessage(CellAnnotation cellAnnotation, EditorCell cell, List<AnnotatedCellMessage> oldMessages, List<AnnotatedCellMessage> newMessages) {
+  private void updateLeafMessage(CommitsGraphNode commitsGraphNode, Set<RevisionNodeChange> changes, EditorCell cell, List<AnnotatedCellMessage> oldMessages, List<AnnotatedCellMessage> newMessages) {
     AnnotatedCellMessage oldMessage = MapSequence.fromMap(myEditorMessages).get(cell);
-    Color color = calcCellColor(cellAnnotation);
-    String tooltipText = cellAnnotation.getChangesDescription() + "\n" + UIUtil.BORDER_LINE + "\n" + cellAnnotation.getRevisionDescription();
-    if (oldMessage != null && Objects.equals(oldMessage.getMessage(), tooltipText) && oldMessage.getColor().equals(color)) {
+    Color color = calcCellColor(commitsGraphNode, changes);
+    if (oldMessage != null && Objects.equals(oldMessage.getCommitsGraphNode(), commitsGraphNode) && Objects.equals(oldMessage.getChanges(), changes)) {
       return;
     }
 
     if (oldMessage != null) {
       ListSequence.fromList(oldMessages).addElement(oldMessage);
     }
-    AnnotatedCellMessage cellMessage = new AnnotatedCellMessage(cellAnnotation, cell, color, this);
+    AnnotatedCellMessage cellMessage = new AnnotatedCellMessage(myProject, commitsGraphNode, changes, cell, color, this);
     MapSequence.fromMap(myEditorMessages).put(cell, cellMessage);
     ListSequence.fromList(newMessages).addElement(cellMessage);
   }
@@ -370,7 +358,7 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
       }
     });
     myLineAnnotationsRef.set(lineAnnotations);
-    check_coav66_a3a26(myLineAnnotationsUpdateListener);
+    check_coav66_a3a85(myLineAnnotationsUpdateListener);
   }
 
   @NotNull
@@ -378,17 +366,23 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     return myLineAnnotationsRef.get();
   }
 
+
   private List<EditorCell> getCells(final RevisionNodeChange revisionNodeChange) {
-    final Wrappers._T<SNode> node = new Wrappers._T<SNode>();
+    final List<EditorCell> cells = ListSequence.fromList(new ArrayList<EditorCell>());
     getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        node.value = getModel().getNode(revisionNodeChange.getNodeId());
+        ListSequence.fromList(cells).addSequence(SetSequence.fromSet(revisionNodeChange.getNodeIds()).select(new ISelector<SNodeId, SNode>() {
+          public SNode select(SNodeId id) {
+            return getModel().getNode(id);
+          }
+        }).where(new NotNullWhereFilter<SNode>()).translate(new ITranslator2<SNode, EditorCell>() {
+          public Iterable<EditorCell> translate(SNode node) {
+            return EditorCellMessageUtil.getCells(myEditorComponent, revisionNodeChange.getMessageTarget(), node);
+          }
+        }).distinct());
       }
     });
-    if (node.value == null) {
-      return Collections.emptyList();
-    }
-    return EditorCellMessageUtil.getCells(myEditorComponent, revisionNodeChange.getMessageTarget(), node.value);
+    return cells;
   }
 
   private ModelAccess getModelAccess() {
@@ -397,10 +391,6 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
 
   private SModel getModel() {
     return myEditorComponent.getEditorContext().getModel();
-  }
-
-  public CurrentRevision getLocalRevision() {
-    return myLocalRevision;
   }
 
   public boolean isGit() {
@@ -419,14 +409,14 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     unhighlightCells();
   }
 
-  public void highlightCellsForRevision(final VcsFileRevision revision) {
+  public void highlightCellsForRevision(final CommitsGraphNode graphNode) {
     myEditorComponent.getHighlightManager().clearForOwner(this);
-    if (revision == myLocalRevision) {
+    if (graphNode.isLocalRevision()) {
       return;
     }
     myEditorComponent.getHighlightManager().mark(Sequence.fromIterable(MapSequence.fromMap(myEditorMessages).values()).where(new IWhereFilter<AnnotatedCellMessage>() {
       public boolean accept(AnnotatedCellMessage it) {
-        return it.getRevisionsGraphNode().getRevision() == revision;
+        return it.getCommitsGraphNode() == graphNode;
       }
     }).toListSequence());
     myEditorComponent.getHighlightManager().repaintAndRebuildEditorMessages();
@@ -441,36 +431,17 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     });
   }
 
-  public List<VcsFileRevision> getRootRevisions() {
-    return myRootAnnotation.getRootRevisions();
-  }
-
   public List<VcsFileRevision> getAllRevisions() {
     return myAllRevisions;
   }
 
-  public boolean isRevisionHighlighted(VcsFileRevision revision) {
-    VcsFileRevision firstRevision = ListSequence.fromList(getRootRevisions()).first();
-    if (revision == null) {
-      return false;
-    }
-    int compareResult = revision.getRevisionDate().compareTo(firstRevision.getRevisionDate());
-    // XXX not clear what VcsRevisionNumber.timestamp means (that's what VcsFileRevision.getRevisionDate() looks at)
-    // and why it's the same for few (or even all?) file revisions. It seems it does not reflect actual commit moment either,
-    // though I didn't investigate this thoroughly
-    if (compareResult == 0 && revision instanceof VcsFileRevisionEx && firstRevision instanceof VcsFileRevisionEx) {
-      Date d1 = ((VcsFileRevisionEx) revision).getAuthorDate();
-      Date d2 = ((VcsFileRevisionEx) firstRevision).getAuthorDate();
-      if (d1 != null && d2 != null) {
-        compareResult = d1.compareTo(d2);
-      }
-    }
-    return compareResult >= 0;
+  public boolean isRevisionHighlighted(CommitsGraphNode graphNode) {
+    return ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).count() > 0 && ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).first() == graphNode;
   }
 
-  private Color getColorByRevisionOrder(VcsFileRevision revision) {
-    List<VcsFileRevision> rootCommits = myRootAnnotation.getRootRevisions();
-    int revisionOrderNumber = ListSequence.fromList(rootCommits).indexOf(revision);
+  private Color getColorByRevisionOrder(CommitsGraphNode graphNode) {
+    List<CommitsGraphNode> rootCommits = myRootAnnotation.getOrderedRootCommits();
+    int revisionOrderNumber = ListSequence.fromList(rootCommits).indexOf(graphNode);
     if (revisionOrderNumber < 0) {
       return null;
     }
@@ -478,13 +449,13 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     return ListSequence.fromList(colorPalette).getElement(revisionOrderNumber % ListSequence.fromList(colorPalette).count());
   }
 
-  private Color getColorByRevisionAuthor(VcsFileRevision revision) {
-    List<String> rootAuthors = ListSequence.fromList(myRootAnnotation.getRootRevisions()).select(new ISelector<VcsFileRevision, String>() {
-      public String select(VcsFileRevision it) {
-        return it.getAuthor();
+  private Color getColorByRevisionAuthor(CommitsGraphNode graphNode) {
+    List<String> rootAuthors = ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).select(new ISelector<CommitsGraphNode, String>() {
+      public String select(CommitsGraphNode it) {
+        return it.getRevision().getAuthor();
       }
     }).distinct().toListSequence();
-    int authorNumber = ListSequence.fromList(rootAuthors).indexOf(revision.getAuthor());
+    int authorNumber = ListSequence.fromList(rootAuthors).indexOf(graphNode.getRevision().getAuthor());
     if (authorNumber < 0) {
       return null;
     }
@@ -526,39 +497,58 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   }
 
   @Nullable
-  public Color getRevisionColor(VcsFileRevision revision) {
+  public Color getRevisionColor(CommitsGraphNode graphNode) {
     AnnotationOptions.ColorMode colorMode = AnnotationOptions.getInstance().getColorMode();
     switch (colorMode) {
       case ORDER:
-        return getColorByRevisionOrder(revision);
+        return getColorByRevisionOrder(graphNode);
       case AUTHOR:
-        return getColorByRevisionAuthor(revision);
+        return getColorByRevisionAuthor(graphNode);
       default:
         return null;
     }
   }
 
-  private Color calcCellColor(CellAnnotation cellAnnotation) {
-    if (cellAnnotation.getRevisionsGraphNode().getRevision() == myLocalRevision) {
+  private static ChangeType getChangesType(Iterable<RevisionNodeChange> changes) {
+    final Wrappers._T<ChangeType> changeType = new Wrappers._T<ChangeType>(null);
+    final Wrappers._boolean oneColor = new Wrappers._boolean(true);
+    Sequence.fromIterable(changes).visitAll(new IVisitor<RevisionNodeChange>() {
+      public void visit(RevisionNodeChange it) {
+        if (oneColor.value) {
+          ChangeType messageType = it.getChangeType();
+          if (changeType.value == null) {
+            changeType.value = messageType;
+          } else if (messageType != changeType.value) {
+            oneColor.value = false;
+          }
+        }
+      }
+    });
+    if (!(oneColor.value)) {
+      return ChangeType.CHANGE;
+    }
+    return changeType.value;
+  }
+
+
+  private Color calcCellColor(CommitsGraphNode commitsGraphNode, Set<RevisionNodeChange> changes) {
+    if (commitsGraphNode.isLocalRevision()) {
       return myEditorComponent.getBackground();
     }
     Color color;
     if (AnnotationOptions.getInstance().isEditorHighlighted()) {
-      color = getRevisionColor(cellAnnotation.getRevisionsGraphNode().getRevision());
+      color = getRevisionColor(commitsGraphNode);
     } else {
-      color = ChangeColors.getInstance().getDiffColor(cellAnnotation.getChangeType());
+      color = ChangeColors.getInstance().getDiffColor(getChangesType(changes));
     }
     return (color != null ? color : myEditorComponent.getBackground());
   }
 
   public void showPathsAffectedByRevision(VcsFileRevision revision) {
-    if (revision == myLocalRevision) {
-      return;
-    }
     ShowAllAffectedGenericAction.showSubmittedFiles(myProject, revision.getRevisionNumber(), myFile, myVcs.getKeyInstanceMethod());
   }
 
-  public ShowDiffFromAnnotationAction createDiffAction(VcsFileRevision revision, @NotNull List<VcsFileRevision> parentRevisions) {
+  public ShowDiffFromAnnotationAction createDiffAction(CommitsGraphNode graphNode) {
     final Wrappers._T<String> rootName = new Wrappers._T<String>();
     final Wrappers._T<SNodeId> rootId = new Wrappers._T<SNodeId>();
     getModelAccess().runReadAction(new Runnable() {
@@ -567,9 +557,15 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
         rootName.value = myEditorComponent.getEditedNode().getName();
       }
     });
-    return new ShowDiffFromAnnotationAction(revision, parentRevisions, myProject, rootName.value, rootId.value, myFile.getExtension());
+    @NotNull List<VcsFileRevision> parentRevisions = ListSequence.fromList(graphNode.getParents()).select(new ISelector<CommitsGraphNode, VcsFileRevision>() {
+      public VcsFileRevision select(CommitsGraphNode it) {
+        return it.getRevision();
+      }
+    }).toListSequence();
+
+    return new ShowDiffFromAnnotationAction(graphNode.getRevision(), parentRevisions, myProject, rootName.value, rootId.value, myFile.getExtension());
   }
-  private static void check_coav66_a3a26(LineAnnotationsUpdateListener checkedDotOperand) {
+  private static void check_coav66_a3a85(LineAnnotationsUpdateListener checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.lineAnnotationsUpdated();
     }

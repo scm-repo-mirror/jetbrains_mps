@@ -6,6 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.vcs.log.impl.VcsLogApplicationSettings;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.vcs.annotate.LineAnnotationAspect;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
 import java.util.Date;
 import git4idea.GitFileRevision;
@@ -21,7 +22,8 @@ public class DateAspectSubcolumn extends AnnotationAspectSubcolumn {
   }
 
   @Override
-  public String getText(VcsFileRevision revision) {
+  public String getText(CommitsGraphNode graphNode) {
+    VcsFileRevision revision = graphNode.getRevision();
     Date date;
     if (revision instanceof GitFileRevision) {
       GitFileRevision gitRevision = (GitFileRevision) revision;

@@ -5,15 +5,22 @@ package jetbrains.mps.vcs.annotate;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.nodeEditor.messageTargets.EditorMessageWithTarget;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
+import java.util.Set;
 import java.awt.Color;
+import com.intellij.openapi.project.Project;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
+import java.util.Collections;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.openapi.editor.message.FormattingOptions;
+import jetbrains.mps.internal.collections.runtime.IterableUtils;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.EditorComponent;
-import jetbrains.mps.vcs.history.CommitsGraphNode;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import jetbrains.mps.nodeEditor.cells.GeometryUtil;
@@ -23,13 +30,17 @@ import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 /*package*/ final class AnnotatedCellMessage extends EditorMessageWithTarget {
 
   private final EditorCell myCell;
-  private final CellAnnotation myCellAnnotation;
+  private final CommitsGraphNode myCommitsGraphNode;
+  private Set<RevisionNodeChange> myChanges;
   private Color myColor;
+  private final Project myProject;
 
 
-  /*package*/ AnnotatedCellMessage(CellAnnotation cellAnnotation, EditorCell cell, Color color, EditorMessageOwner owner) {
+  /*package*/ AnnotatedCellMessage(Project project, CommitsGraphNode commitsGraphNode, Iterable<RevisionNodeChange> changes, EditorCell cell, Color color, EditorMessageOwner owner) {
     super(cell.getSNode(), MessageStatus.OK, new NodeMessageTarget(), color, "", owner);
-    myCellAnnotation = cellAnnotation;
+    myProject = project;
+    myCommitsGraphNode = commitsGraphNode;
+    myChanges = Collections.unmodifiableSet(SetSequence.fromSetWithValues(new HashSet<RevisionNodeChange>(), changes));
     myCell = cell;
     myColor = color;
   }
@@ -42,11 +53,15 @@ import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 
   @Override
   public String getMessage() {
-    return myCellAnnotation.getChangesDescription() + "\n" + UIUtil.BORDER_LINE + "\n" + myCellAnnotation.getRevisionDescription();
+    return IterableUtils.join(SetSequence.fromSet(myChanges).select(new ISelector<RevisionNodeChange, String>() {
+      public String select(RevisionNodeChange it) {
+        return it.getMessage();
+      }
+    }), "\n") + "\n" + UIUtil.BORDER_LINE + "\n" + myCommitsGraphNode.getRevisionDescription(myProject);
   }
 
   public String getRevisionDescription() {
-    return myCellAnnotation.getRevisionDescription();
+    return myCommitsGraphNode.getRevisionDescription(myProject);
   }
 
   public EditorCell getCell() {
@@ -62,8 +77,8 @@ import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
     return myColor;
   }
 
-  public CellAnnotation getCellAnnotation() {
-    return myCellAnnotation;
+  public Set<RevisionNodeChange> getChanges() {
+    return myChanges;
   }
 
   @Override
@@ -71,8 +86,8 @@ import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
     return myCell == cell;
   }
 
-  public CommitsGraphNode getRevisionsGraphNode() {
-    return myCellAnnotation.getRevisionsGraphNode();
+  public CommitsGraphNode getCommitsGraphNode() {
+    return myCommitsGraphNode;
   }
 
   @Override

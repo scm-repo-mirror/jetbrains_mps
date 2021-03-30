@@ -12,6 +12,11 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import org.jetbrains.mps.openapi.model.SModel;
+import java.util.Map;
+import org.jetbrains.mps.openapi.model.SNodeId;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
+import com.intellij.openapi.vcs.history.CurrentRevision;
 import java.util.Collection;
 import com.intellij.openapi.vcs.history.VcsRevisionNumber;
 import git4idea.GitRevisionNumber;
@@ -19,9 +24,22 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import com.intellij.openapi.vcs.VcsException;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
+import com.intellij.openapi.vcs.history.VcsFileRevisionEx;
+import java.util.Date;
+import com.intellij.openapi.project.Project;
+import git4idea.GitFileRevision;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.vcs.log.impl.VcsLogApplicationSettings;
+import com.intellij.vcs.log.impl.CommonUiProperties;
+import git4idea.annotate.AnnotationTooltipBuilder;
+import com.intellij.util.containers.Convertor;
+import git4idea.log.GitCommitTooltipLinkHandler;
+import com.intellij.openapi.vcs.VcsBundle;
+import com.intellij.util.text.DateFormatUtil;
+import org.jetbrains.idea.svn.history.SvnFileRevision;
 
 @GeneratedClass(node = "r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)/7498720847979280337", model = "r:2897a5d4-aed7-4a4e-ac07-fbc830f9ed9b(jetbrains.mps.vcs.history)")
-public final class CommitsGraphNode {
+public final class CommitsGraphNode implements Comparable {
   @NotNull
   private final VcsFileRevision myRevision;
   private final List<CommitsGraphNode> myParents = ListSequence.fromList(new ArrayList<CommitsGraphNode>());
@@ -30,12 +48,41 @@ public final class CommitsGraphNode {
   private final List<CommitsGraphNode> myIgnoredByChildren = ListSequence.fromList(new ArrayList<CommitsGraphNode>());
   private SModel myModel;
   private SModel myLoadedModel;
-  private boolean myModelCanBeUnloaded;
+  private boolean myModelCanBeUnloaded = true;
   private CommitsGraphNode myNodeWithLoadedModel;
+  private Map<CommitsGraphNode, Map<SNodeId, SNodeId>> myChangedIds = MapSequence.fromMap(new HashMap<CommitsGraphNode, Map<SNodeId, SNodeId>>());
 
 
   public CommitsGraphNode(@NotNull VcsFileRevision revision) {
     myRevision = revision;
+  }
+
+  public CommitsGraphNode(@NotNull CurrentRevision revision, SModel localModel) {
+    myRevision = revision;
+    myModel = localModel;
+    myLoadedModel = localModel;
+    myNodeWithLoadedModel = this;
+  }
+
+  public boolean isLocalRevision() {
+    return myRevision instanceof CurrentRevision;
+  }
+
+  public void setIdChanges(CommitsGraphNode parentNode, Map<SNodeId, SNodeId> changedIds) {
+    MapSequence.fromMap(myChangedIds).put(parentNode, changedIds);
+  }
+
+  public SNodeId getCurrentNodeId(SNodeId nodeId) {
+    if (SetSequence.fromSet(myChildren).isEmpty()) {
+      return nodeId;
+    }
+    // assume that any path in history will finally lead us to the head node in the graph
+    return SetSequence.fromSet(myChildren).first().getCurrentNodeId(this, nodeId);
+  }
+
+  private SNodeId getCurrentNodeId(CommitsGraphNode parent, SNodeId nodeId) {
+    SNodeId renamedId = (MapSequence.fromMap(myChangedIds).containsKey(parent) && MapSequence.fromMap(MapSequence.fromMap(myChangedIds).get(parent)).containsKey(nodeId) ? MapSequence.fromMap(MapSequence.fromMap(myChangedIds).get(parent)).get(nodeId) : nodeId);
+    return (SetSequence.fromSet(myChildren).isEmpty() ? renamedId : SetSequence.fromSet(myChildren).first().getCurrentNodeId(this, renamedId));
   }
 
   /*package*/ void addParent(CommitsGraphNode parent) {
@@ -82,7 +129,7 @@ public final class CommitsGraphNode {
   public String toString() {
     VcsRevisionNumber rn = myRevision.getRevisionNumber();
     if (rn instanceof GitRevisionNumber) {
-      GitRevisionNumber grn = as_9s317u_a0a0a1a72(rn, GitRevisionNumber.class);
+      GitRevisionNumber grn = as_9s317u_a0a0a1a83(rn, GitRevisionNumber.class);
       return grn.getShortRev() + "/" + myRevision.getCommitMessage();
     }
     return rn.asString();
@@ -97,6 +144,9 @@ public final class CommitsGraphNode {
   }
 
   /*package*/ void loadModel(@Nullable CommitsGraphNode childNode, String fileExtension) throws IOException, VcsException {
+    if (isModelLoaded()) {
+      return;
+    }
     try {
       myModel = VCSPersistenceUtil.loadModel(myRevision.loadContent(), fileExtension);
     } finally {
@@ -129,14 +179,17 @@ public final class CommitsGraphNode {
   }
 
   /*package*/ void unloadModel() {
+    if (isLocalRevision() || (SetSequence.fromSet(myChildren).isNotEmpty() && SetSequence.fromSet(myChildren).first().isLocalRevision())) {
+      return;
+    }
     if (myModelCanBeUnloaded) {
-      check_9s317u_a0a0a34(myLoadedModel);
+      check_9s317u_a0a1a45(myLoadedModel);
     }
     myLoadedModel = null;
     myModel = null;
   }
 
-  private void doNotUnload() {
+  public void doNotUnload() {
     myModelCanBeUnloaded = false;
   }
 
@@ -155,13 +208,67 @@ public final class CommitsGraphNode {
   /*package*/ boolean isIgnoredByChild(CommitsGraphNode child) {
     return ListSequence.fromList(myIgnoredByChildren).contains(child);
   }
-  private static void check_9s317u_a0a0a34(SModel checkedDotOperand) {
+
+  @Override
+  public int compareTo(Object object) {
+    if (object == this) {
+      return 0;
+    }
+    if (isLocalRevision()) {
+      return 1;
+    }
+    if (((CommitsGraphNode) object).isLocalRevision()) {
+      return -1;
+    }
+    VcsFileRevision otherRevision = ((CommitsGraphNode) object).getRevision();
+    int compareResult = myRevision.getRevisionDate().compareTo(otherRevision.getRevisionDate());
+    if (compareResult == 0 && myRevision instanceof VcsFileRevisionEx && otherRevision instanceof VcsFileRevisionEx) {
+      Date date1 = ((VcsFileRevisionEx) myRevision).getAuthorDate();
+      Date date2 = ((VcsFileRevisionEx) otherRevision).getAuthorDate();
+      if (date1 != null && date2 != null) {
+        compareResult = date1.compareTo(date2);
+      }
+    }
+    return compareResult;
+  }
+
+  public String getRevisionDescription(Project project) {
+    if (isLocalRevision()) {
+      return null;
+    }
+
+    String tooltipText = null;
+    if (myRevision instanceof GitFileRevision) {
+      GitFileRevision gitRevision = (GitFileRevision) myRevision;
+      Date date = (Boolean.TRUE.equals(ApplicationManager.getApplication().getService(VcsLogApplicationSettings.class).get(CommonUiProperties.PREFER_COMMIT_DATE)) ? gitRevision.getRevisionDate() : gitRevision.getAuthorDate());
+
+      AnnotationTooltipBuilder atb = new AnnotationTooltipBuilder(project, true);
+
+      atb.appendRevisionLine(myRevision.getRevisionNumber(), new Convertor<VcsRevisionNumber, String>() {
+        public String convert(VcsRevisionNumber number) {
+          return GitCommitTooltipLinkHandler.createLink(number.asString(), number);
+        }
+      });
+      atb.appendLine(VcsBundle.message("commit.description.tooltip.author", myRevision.getAuthor()));
+      atb.appendLine(VcsBundle.message("commit.description.tooltip.date", DateFormatUtil.formatDate(date)));
+      atb.appendCommitMessageBlock(myRevision.getCommitMessage());
+      tooltipText = atb.toString();
+    } else if (myRevision instanceof SvnFileRevision) {
+      tooltipText = AnnotationTooltipBuilder.buildSimpleTooltip(project, true, "Revision", String.valueOf(myRevision.getRevisionNumber()), myRevision.getCommitMessage());
+    }
+    if (tooltipText != null) {
+      tooltipText = tooltipText.replace("\n", "<br>");
+    }
+    return tooltipText;
+  }
+
+  private static void check_9s317u_a0a1a45(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.unload();
     }
 
   }
-  private static <T> T as_9s317u_a0a0a1a72(Object o, Class<T> type) {
+  private static <T> T as_9s317u_a0a0a1a83(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

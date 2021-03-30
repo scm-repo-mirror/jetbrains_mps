@@ -55,6 +55,11 @@ public final class CommitsGraph {
     return (ListSequence.fromList(heads).count() == 1 ? ListSequence.fromList(heads).first() : null);
   }
 
+  public void addLocalRevisionNode(CommitsGraphNode localRevisionNode) {
+    localRevisionNode.addParent(getHeadNode());
+    CollectionSequence.fromCollection(myNodes).addElement(localRevisionNode);
+  }
+
   public Collection<CommitsGraphNode> getNodes() {
     return myNodes;
   }
@@ -67,7 +72,7 @@ public final class CommitsGraph {
   @Nullable
   private static VcsLogData getDataManager(Project project) {
     VcsLogManager logManager = VcsProjectLog.getInstance(project).getLogManager();
-    return check_2ne4bd_a1a11(logManager);
+    return check_2ne4bd_a1a31(logManager);
   }
 
   @NotNull
@@ -188,7 +193,7 @@ public final class CommitsGraph {
     }
     return nodes;
   }
-  private static VcsLogData check_2ne4bd_a1a11(VcsLogManager checkedDotOperand) {
+  private static VcsLogData check_2ne4bd_a1a31(VcsLogManager checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getDataManager();
     }

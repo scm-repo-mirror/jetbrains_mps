@@ -6,9 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
-import java.util.List;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/6338414166361132708", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 /*package*/ final class LineAnnotation {
@@ -20,7 +17,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
   private final int myEnd;
 
   public LineAnnotation(@NotNull AnnotatedCellMessage message) {
-    this(message.getRevisionsGraphNode(), message.getRevisionDescription(), message.getCell().getY(), message.getCell().getBottom());
+    this(message.getCommitsGraphNode(), message.getRevisionDescription(), message.getCell().getY(), message.getCell().getBottom());
   }
 
   private LineAnnotation(@NotNull CommitsGraphNode revisionsGraphNode, String description, int start, int end) {
@@ -73,14 +70,5 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
   @NotNull
   /*package*/ CommitsGraphNode getRevisionsGraphNode() {
     return myRevisionsGraphNode;
-  }
-
-  @NotNull
-  /*package*/ List<VcsFileRevision> getParentRevisions() {
-    return ListSequence.fromList(myRevisionsGraphNode.getParents()).select(new ISelector<CommitsGraphNode, VcsFileRevision>() {
-      public VcsFileRevision select(CommitsGraphNode it) {
-        return it.getRevision();
-      }
-    }).toListSequence();
   }
 }

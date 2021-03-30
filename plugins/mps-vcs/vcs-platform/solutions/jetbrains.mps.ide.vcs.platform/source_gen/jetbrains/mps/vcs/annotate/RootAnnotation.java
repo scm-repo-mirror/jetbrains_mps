@@ -4,56 +4,61 @@ package jetbrains.mps.vcs.annotate;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.vcs.history.CommitsGraphNodeConsumer;
-import org.jetbrains.mps.openapi.model.SModel;
-import java.util.Map;
-import org.jetbrains.mps.openapi.model.SNodeId;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import com.intellij.openapi.vcs.history.VcsFileRevision;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.vcs.history.RootCommitsGraphTraverser;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.project.Project;
-import jetbrains.mps.vcs.history.CommitsGraph;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import com.intellij.openapi.vcs.history.VcsFileRevision;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.vcs.history.CommitsGraph;
+import com.intellij.openapi.vcs.history.CurrentRevision;
+import com.intellij.openapi.vcs.history.VcsRevisionNumber;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import java.util.Comparator;
-import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.vcs.diff.ChangeSetBuilder;
-import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.ModelChangeSet;
+import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.vcs.diff.merge.MergeConflictsBuilder;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Arrays;
 import jetbrains.mps.vcs.diff.changes.AddRootChange;
 import jetbrains.mps.vcs.diff.ChangeSetImpl;
-import java.util.Collections;
+import jetbrains.mps.vcs.diff.changes.StructureChange;
+import java.util.HashMap;
 import jetbrains.mps.vcs.diff.changes.NodeIdChange;
-import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
+import java.util.Set;
+import java.util.HashSet;
 import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
-import java.util.Objects;
-import jetbrains.mps.vcs.diff.changes.SetConceptChange;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import java.util.Collection;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
+import jetbrains.mps.internal.collections.runtime.IMapping;
+import jetbrains.mps.vcs.diff.ChangeSetBuilder;
+import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/5611602621953836093", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 /*package*/ final class RootAnnotation implements CommitsGraphNodeConsumer {
 
-  private SModel myAnnotatedModel;
-  private final Map<SNodeId, NodeAnnotation> myNodeAnnotations = new ConcurrentHashMap<SNodeId, NodeAnnotation>();
   private final List<RootAnnotationUpdateListener> myUpdateListeners = ListSequence.fromList(new ArrayList<RootAnnotationUpdateListener>());
-  private List<VcsFileRevision> myCachedRevisions;
   private final SNodeId myRootId;
   private final ModelAccess myModelAccess;
   private RootCommitsGraphTraverser myRevisionsGraphTraverser;
   private final VirtualFile myFile;
   private final Project myProject;
+  private CommitsGraphNode myLocalCommitsGraphNode;
+  private Map<CommitsGraphNode, RevisionChanges> myAnnotation = new ConcurrentHashMap<CommitsGraphNode, RevisionChanges>();
 
 
   /*package*/ RootAnnotation(VirtualFile file, SNodeId rootId, ModelAccess modelAccess, Project project) {
@@ -63,75 +68,55 @@ import jetbrains.mps.vcs.diff.changes.SetConceptChange;
     myProject = project;
   }
 
-  public void annotate(List<VcsFileRevision> revisions) throws RootCommitsGraphTraverser.AnnotateModelReadException {
-    myRevisionsGraphTraverser = new RootCommitsGraphTraverser(new CommitsGraph(myProject, myFile, revisions), myRootId, myFile, this);
+  /*package*/ void annotate(List<VcsFileRevision> revisions, SModel currentModel) throws RootCommitsGraphTraverser.AnnotateModelReadException {
+    CommitsGraph commitsGraph = new CommitsGraph(myProject, myFile, revisions);
+    CurrentRevision currentRevision = new CurrentRevision(myFile, new VcsRevisionNumber() {
+      @Override
+      public int compareTo(VcsRevisionNumber p0) {
+        return 0;
+      }
+      @NotNull
+      @Override
+      public String asString() {
+        return "Local Changes";
+      }
+    });
+    myLocalCommitsGraphNode = new CommitsGraphNode(currentRevision, currentModel);
+    commitsGraph.addLocalRevisionNode(myLocalCommitsGraphNode);
+    myRevisionsGraphTraverser = new RootCommitsGraphTraverser(commitsGraph, myRootId, myFile, this);
     myRevisionsGraphTraverser.run();
     if (myRevisionsGraphTraverser.getException() != null) {
       throw myRevisionsGraphTraverser.getException();
     }
   }
 
-  public void cancelAnnotate() {
-    check_nt8dt4_a0a61(myRevisionsGraphTraverser);
+  /*package*/ void cancelAnnotate() {
+    check_nt8dt4_a0a51(myRevisionsGraphTraverser);
   }
 
-  @Override
-  public void commitProcessingStarted(CommitsGraphNode node) {
-    if (myAnnotatedModel == null) {
-      // assume that head commit is processed first
-      myAnnotatedModel = node.getLoadedModel();
-    }
+  /*package*/ List<RevisionChanges> getChanges() {
+    return Sequence.fromIterable(MapSequence.fromMap(myAnnotation).values()).toListSequence();
   }
 
-  private List<RevisionNodeChange> getRevisionNodeChanges() {
-    return Sequence.fromIterable(MapSequence.fromMap(myNodeAnnotations).values()).translate(new ITranslator2<NodeAnnotation, RevisionNodeChange>() {
-      public Iterable<RevisionNodeChange> translate(NodeAnnotation it) {
-        return it.getRevisionNodeChanges();
-      }
-    }).toListSequence();
+  /*package*/ void dispose() {
+    ListSequence.fromList(myUpdateListeners).clear();
   }
 
-  public List<RevisionNodeChange> getChangesForRevision(final VcsFileRevision revision) {
-    return Sequence.fromIterable(MapSequence.fromMap(myNodeAnnotations).values()).translate(new ITranslator2<NodeAnnotation, RevisionNodeChange>() {
-      public Iterable<RevisionNodeChange> translate(NodeAnnotation it) {
-        return it.getRevisionNodeChanges();
-      }
-    }).where(new IWhereFilter<RevisionNodeChange>() {
-      public boolean accept(RevisionNodeChange it) {
-        return it.getRevisionGraphNode().getRevision() == revision;
-      }
-    }).toListSequence();
-  }
-
-  public synchronized List<VcsFileRevision> getRootRevisions() {
-    if (myCachedRevisions == null) {
-      myCachedRevisions = ListSequence.fromList(getRevisionNodeChanges()).select(new ISelector<RevisionNodeChange, VcsFileRevision>() {
-        public VcsFileRevision select(RevisionNodeChange it) {
-          return it.getRevisionGraphNode().getRevision();
-        }
-      }).distinct().sort(new Comparator<VcsFileRevision>() {
-        public int compare(VcsFileRevision a, VcsFileRevision b) {
-          return b.getRevisionDate().compareTo(a.getRevisionDate());
-        }
-      }, true).toListSequence();
-    }
-    return myCachedRevisions;
-  }
-
-  public void dispose() {
-  }
-
-  public void addUpdateListener(@NotNull RootAnnotationUpdateListener r) {
+  /*package*/ void addUpdateListener(@NotNull RootAnnotationUpdateListener r) {
     ListSequence.fromList(myUpdateListeners).addElement(r);
   }
 
-  public void removeUpdateListener(RootAnnotationUpdateListener r) {
+  /*package*/ void removeUpdateListener(RootAnnotationUpdateListener r) {
     ListSequence.fromList(myUpdateListeners).removeElement(r);
+  }
+
+  public interface RootAnnotationUpdateListener {
+    void revisionProcessed(RevisionChanges changes);
   }
 
   @Override
   public void commitProcessingFinished(CommitsGraphNode node) {
-    final List<RevisionNodeChange> changes = getChangesForRevision(node.getNodeWithLoadedModel().getRevision());
+    final RevisionChanges changes = MapSequence.fromMap(myAnnotation).get(node.getNodeWithLoadedModel());
     ListSequence.fromList(myUpdateListeners).visitAll(new IVisitor<RootAnnotationUpdateListener>() {
       public void visit(RootAnnotationUpdateListener it) {
         it.revisionProcessed(changes);
@@ -139,64 +124,39 @@ import jetbrains.mps.vcs.diff.changes.SetConceptChange;
     });
   }
 
-  public interface RootAnnotationUpdateListener {
-    void revisionProcessed(List<RevisionNodeChange> changes);
-  }
-
-  public List<RevisionNodeChange> calcLocalChanges(final SModel model, ModelAccess modelAccess, final SNodeId rootId, VcsFileRevision localRevision) {
-    final Wrappers._T<List<RevisionNodeChange>> changes = new Wrappers._T<List<RevisionNodeChange>>();
-    final CommitsGraphNode localRevNode = new CommitsGraphNode(localRevision);
-    modelAccess.runReadAction(new Runnable() {
-      public void run() {
-        changes.value = ListSequence.fromList(ChangeSetBuilder.buildChangeSetForNode(myAnnotatedModel, model, rootId, false, true).getModelChanges()).translate(new ITranslator2<ModelChange, RevisionNodeChange>() {
-          public Iterable<RevisionNodeChange> translate(ModelChange it) {
-            return RevisionNodeChange.createRevisionNodeChanges(it, model, localRevNode);
-          }
-        }).toListSequence();
-      }
-    });
-    return changes.value;
-  }
-
   @Override
-  public void processMergeCommit(CommitsGraphNode node) {
+  public void processMergeCommit(CommitsGraphNode graphNode) {
 
-    CommitsGraphNode parent1 = ListSequence.fromList(node.getParents()).getElement(0);
-    CommitsGraphNode parent2 = ListSequence.fromList(node.getParents()).getElement(1);
+    CommitsGraphNode parent1 = ListSequence.fromList(graphNode.getParents()).getElement(0);
+    CommitsGraphNode parent2 = ListSequence.fromList(graphNode.getParents()).getElement(1);
 
-    ModelChangeSet changeSet1 = calcChangeSet(parent1.getLoadedModel(), node.getLoadedModel(), true);
-    ModelChangeSet changeSet2 = calcChangeSet(parent2.getLoadedModel(), node.getLoadedModel(), true);
-    List<ModelChange> changes1 = ListSequence.fromList(changeSet1.getModelChanges()).where(new IWhereFilter<ModelChange>() {
-      public boolean accept(ModelChange it) {
-        return changeIsRelevant(it);
-      }
-    }).toListSequence();
-    List<ModelChange> changes2 = ListSequence.fromList(changeSet2.getModelChanges()).where(new IWhereFilter<ModelChange>() {
-      public boolean accept(ModelChange it) {
-        return changeIsRelevant(it);
-      }
-    }).toListSequence();
+    ModelChangeSet changeSet1 = calcChangeSet(parent1.getLoadedModel(), graphNode.getLoadedModel(), true);
+    ModelChangeSet changeSet2 = calcChangeSet(parent2.getLoadedModel(), graphNode.getLoadedModel(), true);
+    List<ModelChange> changes1 = changeSet1.getModelChanges();
+    List<ModelChange> changes2 = changeSet2.getModelChanges();
 
     if (ListSequence.fromList(changes1).isEmpty() && ListSequence.fromList(changes2).isEmpty()) {
       return;
     }
 
+    graphNode.setIdChanges(parent1, getRenamedIds(changes1));
+    graphNode.setIdChanges(parent2, getRenamedIds(changes2));
+
     //  we ignore a branch if all changes from another branch were accepted   
     if (ListSequence.fromList(changes1).isEmpty() && ListSequence.fromList(changes2).isNotEmpty()) {
-      parent2.setIgnoredByChild(node);
+      parent2.setIgnoredByChild(graphNode);
       return;
     }
     if (ListSequence.fromList(changes2).isEmpty() && ListSequence.fromList(changes1).isNotEmpty()) {
-      parent1.setIgnoredByChild(node);
+      parent1.setIgnoredByChild(graphNode);
       return;
     }
-
     if (parent1.isIgnored()) {
-      processModelChanges(changes2, node);
+      processCommitChanges(changes2, graphNode);
       return;
     }
     if (parent2.isIgnored()) {
-      processModelChanges(changes1, node);
+      processCommitChanges(changes1, graphNode);
       return;
     }
 
@@ -212,75 +172,111 @@ import jetbrains.mps.vcs.diff.changes.SetConceptChange;
       }
     }).toListSequence();
 
-    if (ListSequence.fromList(changes).isNotEmpty()) {
-      processModelChanges(changes, node);
-    }
+    processCommitChanges(changes, graphNode);
   }
 
   @Override
-  public void processSimpleCommit(@NotNull CommitsGraphNode node) {
-    CommitsGraphNode parentNode = ListSequence.fromList(node.getParents()).first();
-    List<ModelChange> changes = ListSequence.fromList(calcChangesBetweenModels(parentNode.getLoadedModel(), node.getLoadedModel(), false)).where(new IWhereFilter<ModelChange>() {
-      public boolean accept(ModelChange it) {
-        return changeIsRelevant(it);
-      }
-    }).toListSequence();
-    processModelChanges(changes, node.getNodeWithLoadedModel());
+  public void processSimpleCommit(@NotNull CommitsGraphNode graphNode) {
+    CommitsGraphNode parentNode = ListSequence.fromList(graphNode.getParents()).first();
+    SModel prevModel = parentNode.getLoadedModel();
+    SModel model = graphNode.getLoadedModel();
+    if (prevModel == model) {
+      return;
+    }
+    List<ModelChange> modelChanges = calcChangeSet(prevModel, model, false).getModelChanges();
+    graphNode.setIdChanges(parentNode, getRenamedIds(modelChanges));
+    processCommitChanges(modelChanges, graphNode.getNodeWithLoadedModel());
   }
 
   @Override
   public void processLastCommit(@NotNull CommitsGraphNode node) {
     SModel model = node.getLoadedModel();
-    processModelChanges(Arrays.asList(new AddRootChange(new ChangeSetImpl(model, model), myRootId)), node.getNodeWithLoadedModel());
+    processCommitChanges(Arrays.asList(new AddRootChange(new ChangeSetImpl(model, model), myRootId)), node.getNodeWithLoadedModel());
   }
 
-  private void processModelChanges(List<ModelChange> changes, final CommitsGraphNode node) {
-    final Wrappers._boolean annotationChanged = new Wrappers._boolean(false);
-    ListSequence.fromList(changes).visitAll(new IVisitor<ModelChange>() {
-      public void visit(ModelChange change) {
-        ListSequence.fromList(RevisionNodeChange.createRevisionNodeChanges(change, myAnnotatedModel, node)).visitAll(new IVisitor<RevisionNodeChange>() {
-          public void visit(RevisionNodeChange it) {
-            NodeAnnotation nodeAnnotation = MapSequence.fromMap(myNodeAnnotations).get(it.getNodeId());
-            if (nodeAnnotation == null) {
-              MapSequence.fromMap(myNodeAnnotations).put(it.getNodeId(), new NodeAnnotation(it));
-              annotationChanged.value = true;
-            } else {
-              NodeAnnotation newAnnotation = nodeAnnotation.withChange(it);
-              if (newAnnotation != nodeAnnotation) {
-                MapSequence.fromMap(myNodeAnnotations).put(it.getNodeId(), newAnnotation);
-                annotationChanged.value = true;
-              }
-            }
-          }
-        });
+  /*package*/ void resetLocalChanges() {
+    if (myLocalCommitsGraphNode == null || ListSequence.fromList(myLocalCommitsGraphNode.getParents()).isEmpty() || !(ListSequence.fromList(myLocalCommitsGraphNode.getParents()).first().isModelLoaded())) {
+      return;
+    }
+    processSimpleCommit(myLocalCommitsGraphNode);
+  }
+
+  private static List<StructureChange> getRelevantChanges(List<ModelChange> changes) {
+    return ListSequence.fromList(changes).ofType(StructureChange.class).where(new IWhereFilter<StructureChange>() {
+      public boolean accept(StructureChange it) {
+        return changeIsRelevant(it);
+      }
+    }).toListSequence();
+  }
+
+  private static Map<SNodeId, SNodeId> getRenamedIds(Iterable<ModelChange> changes) {
+    final Map<SNodeId, SNodeId> changedIds = MapSequence.fromMap(new HashMap<SNodeId, SNodeId>());
+    Sequence.fromIterable(changes).ofType(NodeIdChange.class).visitAll(new IVisitor<NodeIdChange>() {
+      public void visit(NodeIdChange it) {
+        MapSequence.fromMap(changedIds).put(it.getNodeId(false), it.getNodeId(true));
       }
     });
-    if (annotationChanged.value) {
-      synchronized (this) {
-        myCachedRevisions = null;
-      }
-    }
+    return changedIds;
   }
 
-  private ModelAccess getModelAccess() {
-    return myModelAccess;
+  private static Set<SNodeId> getMovedNodeIds(List<ModelChange> changes) {
+    return SetSequence.fromSetWithValues(new HashSet<SNodeId>(), ListSequence.fromList(changes).ofType(NodeGroupMoveChange.class).translate(new ITranslator2<NodeGroupMoveChange, SNodeId>() {
+      public Iterable<SNodeId> translate(NodeGroupMoveChange it) {
+        return it.getIds(true);
+      }
+    }));
+  }
+
+  private void processCommitChanges(List<ModelChange> modelChanges, final CommitsGraphNode graphNode) {
+
+    final Set<SNodeId> movedNodesIds = getMovedNodeIds(modelChanges);
+    Collection<RevisionNodeChange> nodeChanges = CollectionSequence.fromCollection(new ArrayList<RevisionNodeChange>());
+    for (final StructureChange modelChange : ListSequence.fromList(getRelevantChanges(modelChanges))) {
+      final Wrappers._T<RevisionNodeChange> nodeChange = new Wrappers._T<RevisionNodeChange>();
+      myModelAccess.runReadAction(new Runnable() {
+        public void run() {
+          nodeChange.value = new RevisionNodeChange(graphNode, modelChange, movedNodesIds);
+        }
+      });
+
+      if (nodeChange.value.getMessageTarget() instanceof DeletedNodeMessageTarget) {
+        continue;
+      }
+
+      RevisionNodeChange sameChange = MapSequence.fromMap(myAnnotation).select(new ISelector<IMapping<CommitsGraphNode, RevisionChanges>, RevisionChanges>() {
+        public RevisionChanges select(IMapping<CommitsGraphNode, RevisionChanges> it) {
+          return it.value();
+        }
+      }).translate(new ITranslator2<RevisionChanges, RevisionNodeChange>() {
+        public Iterable<RevisionNodeChange> translate(RevisionChanges it) {
+          return it.getNodeChanges();
+        }
+      }).where(new IWhereFilter<RevisionNodeChange>() {
+        public boolean accept(RevisionNodeChange it) {
+          return it.sameAs(nodeChange.value);
+        }
+      }).first();
+
+      if (sameChange == null || sameChange.getCommitsGraphNode().compareTo(nodeChange.value.getCommitsGraphNode()) < 0) {
+        CollectionSequence.fromCollection(nodeChanges).addElement(nodeChange.value);
+        if (sameChange != null) {
+          CollectionSequence.fromCollection(MapSequence.fromMap(myAnnotation).get(sameChange.getCommitsGraphNode()).getNodeChanges()).removeElement(sameChange);
+        }
+      }
+    }
+    if (CollectionSequence.fromCollection(nodeChanges).isNotEmpty()) {
+      MapSequence.fromMap(myAnnotation).put(graphNode, new RevisionChanges(graphNode, nodeChanges));
+    }
   }
 
   private ModelChangeSet calcChangeSet(final SModel prevModel, final SModel model, final boolean withOpposite) {
     final Wrappers._T<ModelChangeSet> changeSet = new Wrappers._T<ModelChangeSet>();
-    getModelAccess().runReadAction(new Runnable() {
+    myModelAccess.runReadAction(new Runnable() {
       public void run() {
-        changeSet.value = ChangeSetBuilder.buildChangeSetForNode(prevModel, model, myRootId, withOpposite, false);
+        changeSet.value = ChangeSetBuilder.buildChangeSetForNode(prevModel, model, myRootId, withOpposite, true, false);
       }
     });
     return changeSet.value;
-  }
-
-  private List<ModelChange> calcChangesBetweenModels(@NotNull SModel prevModel, @NotNull SModel model, boolean withOpposite) {
-    if (model == prevModel) {
-      return Collections.emptyList();
-    }
-    return calcChangeSet(prevModel, model, withOpposite).getModelChanges();
   }
 
   private static boolean changeIsRelevant(ModelChange change) {
@@ -290,20 +286,29 @@ import jetbrains.mps.vcs.diff.changes.SetConceptChange;
     if (change instanceof SetReferenceChange && ((SetReferenceChange) change).isResolveInfoOnly()) {
       return false;
     }
-    if (change instanceof NodeGroupMoveChange) {
-      NodeGroupMoveChange ch = (NodeGroupMoveChange) change;
-      if (Objects.equals(ch.getParentId(false), ch.getParentId(true)) && !(Objects.equals(ch.getParent(false).getConcept(), ch.getParent(true).getConcept()))) {
-        // moves caused by a concept change.
-        return false;
-      }
-    }
-    //  it is not clear if we should show concept changes in Annotate
-    if (change instanceof SetConceptChange) {
-      return false;
-    }
     return true;
   }
-  private static void check_nt8dt4_a0a61(RootCommitsGraphTraverser checkedDotOperand) {
+
+  /*package*/ List<CommitsGraphNode> getOrderedRootCommits() {
+    return ListSequence.fromList(MapSequence.fromMap(myAnnotation).where(new IWhereFilter<IMapping<CommitsGraphNode, RevisionChanges>>() {
+      public boolean accept(IMapping<CommitsGraphNode, RevisionChanges> it) {
+        return CollectionSequence.fromCollection(it.value().getNodeChanges()).isNotEmpty();
+      }
+    }).select(new ISelector<IMapping<CommitsGraphNode, RevisionChanges>, CommitsGraphNode>() {
+      public CommitsGraphNode select(IMapping<CommitsGraphNode, RevisionChanges> it) {
+        return it.key();
+      }
+    }).where(new IWhereFilter<CommitsGraphNode>() {
+      public boolean accept(CommitsGraphNode it) {
+        return !(it.isLocalRevision());
+      }
+    }).sort(new ISelector<CommitsGraphNode, Comparable<?>>() {
+      public Comparable<?> select(CommitsGraphNode it) {
+        return it;
+      }
+    }, true).toListSequence()).reversedList();
+  }
+  private static void check_nt8dt4_a0a51(RootCommitsGraphTraverser checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.stop();
     }

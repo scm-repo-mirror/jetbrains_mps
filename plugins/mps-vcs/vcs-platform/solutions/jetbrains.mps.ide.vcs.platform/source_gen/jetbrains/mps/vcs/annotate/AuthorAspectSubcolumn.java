@@ -4,7 +4,7 @@ package jetbrains.mps.vcs.annotate;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.vcs.annotate.LineAnnotationAspect;
-import com.intellij.openapi.vcs.history.VcsFileRevision;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/9024594033544814784", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public class AuthorAspectSubcolumn extends AnnotationAspectSubcolumn {
@@ -14,8 +14,8 @@ public class AuthorAspectSubcolumn extends AnnotationAspectSubcolumn {
   }
 
   @Override
-  public String getText(VcsFileRevision revision) {
-    String value = revision.getAuthor();
+  public String getText(CommitsGraphNode graphNode) {
+    String value = graphNode.getRevision().getAuthor();
     return AnnotationOptions.MpsShortNameType.shorten(value, AnnotationOptions.getInstance().getShortNameType());
   }
 }

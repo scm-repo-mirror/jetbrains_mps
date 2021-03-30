@@ -7,6 +7,7 @@ import java.util.Map;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 
@@ -22,12 +23,12 @@ public class CommitNumberSubcolumn extends AnnotationAspectSubcolumn {
   }
 
   @Override
-  public String getText(VcsFileRevision revision) {
+  public String getText(CommitsGraphNode graphNode) {
     List<VcsFileRevision> revisions = myEditorAnnotation.getAllRevisions();
     if (MapSequence.fromMap(myRevisionsToNumbers).count() != ListSequence.fromList(revisions).count()) {
       calcNumbers(revisions);
     }
-    return "" + MapSequence.fromMap(myRevisionsToNumbers).get(revision);
+    return "" + MapSequence.fromMap(myRevisionsToNumbers).get(graphNode.getRevision());
   }
 
   private void calcNumbers(List<VcsFileRevision> revisions) {

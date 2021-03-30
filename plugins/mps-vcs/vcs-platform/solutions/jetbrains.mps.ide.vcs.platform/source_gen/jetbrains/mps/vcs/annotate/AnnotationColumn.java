@@ -22,6 +22,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import jetbrains.mps.vcs.history.CommitsGraphNode;
 import java.awt.Color;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import java.awt.Font;
@@ -92,6 +93,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
     }
     if (!(getLeftEditorHighlighter().getLeftColumns().contains(this))) {
       getLeftEditorHighlighter().addLeftColumn(this);
+      myEditorAnnotation.updateAndRepaint();
     } else {
       getLeftEditorHighlighter().relayoutOnLeftColumnChange();
       getLeftEditorHighlighter().repaint();
@@ -135,21 +137,21 @@ public final class AnnotationColumn extends AbstractLeftColumn {
 
   private void paintRevisionLine(Graphics graphics, LineAnnotation lineAnnotation, Map<AnnotationAspectSubcolumn, Integer> subcolumnToX) {
 
-    VcsFileRevision revision = lineAnnotation.getRevision();
-    if (revision == myEditorAnnotation.getLocalRevision()) {
+    CommitsGraphNode graphNode = lineAnnotation.getRevisionsGraphNode();
+    if (graphNode.isLocalRevision()) {
       return;
     }
 
     int y = lineAnnotation.getStart();
     int height = lineAnnotation.getEnd() - y;
-    Color color = myEditorAnnotation.getRevisionColor(revision);
+    Color color = myEditorAnnotation.getRevisionColor(graphNode);
     if (color != null) {
       graphics.setColor(color);
       graphics.fillRect(getX(), y, getWidth(), height);
     }
     graphics.setColor(StyleRegistry.getInstance().getColor("ANNOTATIONS_COLOR"));
     Font font = EditorSettings.getInstance().getDefaultEditorFont();
-    if (myEditorAnnotation.isRevisionHighlighted(revision)) {
+    if (myEditorAnnotation.isRevisionHighlighted(graphNode)) {
       graphics.setFont(FontRegistry.getInstance().getFont(font.getName(), font.getStyle() | Font.BOLD, font.getSize()));
     } else {
       graphics.setFont(font);
@@ -163,7 +165,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
           return s.isEnabled();
         }
       })) {
-        String text = subcolumn.getText(revision);
+        String text = subcolumn.getText(graphNode);
         int textX = MapSequence.fromMap(subcolumnToX).get(subcolumn);
         if (subcolumn.isRightAligned()) {
           textX += subcolumn.getWidth() - metrics.stringWidth(text);
@@ -210,13 +212,13 @@ public final class AnnotationColumn extends AbstractLeftColumn {
   private void computeSubcolumnWidths() {
     FontMetrics metrics = FontRegistry.getInstance().getFontMetrics(EditorSettings.getInstance().getDefaultEditorFont());
     for (AnnotationAspectSubcolumn aspectSubcolumn : ListSequence.fromList(myAspectSubcolumns)) {
-      aspectSubcolumn.computeWidth(metrics, CollectionSequence.fromCollection(myEditorAnnotation.getLineAnnotations()).select(new ISelector<LineAnnotation, VcsFileRevision>() {
-        public VcsFileRevision select(LineAnnotation it) {
-          return it.getRevision();
+      aspectSubcolumn.computeWidth(metrics, CollectionSequence.fromCollection(myEditorAnnotation.getLineAnnotations()).select(new ISelector<LineAnnotation, CommitsGraphNode>() {
+        public CommitsGraphNode select(LineAnnotation it) {
+          return it.getRevisionsGraphNode();
         }
-      }).where(new IWhereFilter<VcsFileRevision>() {
-        public boolean accept(VcsFileRevision it) {
-          return it != myEditorAnnotation.getLocalRevision();
+      }).where(new IWhereFilter<CommitsGraphNode>() {
+        public boolean accept(CommitsGraphNode it) {
+          return !(it.isLocalRevision());
         }
       }));
     }
@@ -229,7 +231,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
       return null;
     }
     LineAnnotation la = getLineAnnotation(event.getY());
-    if (la == null || la.getRevision() == myEditorAnnotation.getLocalRevision()) {
+    if (la == null || la.getRevisionsGraphNode().isLocalRevision()) {
       return null;
     }
     return la.getDescription();
@@ -247,7 +249,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
   @Override
   public Cursor getCursor(MouseEvent event) {
     LineAnnotation la = getLineAnnotation(event.getY());
-    return (la == null || la.getRevision() == myEditorAnnotation.getLocalRevision() ? null : new Cursor(Cursor.HAND_CURSOR));
+    return (la == null || la.getRevisionsGraphNode().isLocalRevision() ? null : new Cursor(Cursor.HAND_CURSOR));
   }
 
   @Override
@@ -255,7 +257,7 @@ public final class AnnotationColumn extends AbstractLeftColumn {
     if (event.getButton() == MouseEvent.BUTTON1 && event.getID() == MouseEvent.MOUSE_RELEASED) {
       event.consume();
       LineAnnotation la = getLineAnnotation(event.getY());
-      if (la != null && la.getRevision() != myEditorAnnotation.getLocalRevision()) {
+      if (la != null && !(la.getRevisionsGraphNode().isLocalRevision())) {
         myEditorAnnotation.showPathsAffectedByRevision(la.getRevision());
       }
     } else {
@@ -289,12 +291,12 @@ public final class AnnotationColumn extends AbstractLeftColumn {
     if (isEditorHighlighted() || !(isColumnHoverHighlightRevision())) {
       return;
     }
-    VcsFileRevision revision = check_5mnya_a0b0zb(getLineAnnotation(event.getY()), this);
-    if (revision == myRevisionUnderMouse) {
+    CommitsGraphNode graphNode = check_5mnya_a0b0zb(getLineAnnotation(event.getY()), this);
+    if (check_5mnya_a0c0zb(graphNode) == myRevisionUnderMouse) {
       return;
     }
-    myEditorAnnotation.highlightCellsForRevision(revision);
-    myRevisionUnderMouse = revision;
+    myEditorAnnotation.highlightCellsForRevision(graphNode);
+    myRevisionUnderMouse = check_5mnya_a0e0zb(graphNode);
   }
 
   @Override
@@ -322,9 +324,9 @@ public final class AnnotationColumn extends AbstractLeftColumn {
   @Override
   public JPopupMenu getPopupMenu(MouseEvent event) {
     List<AnAction> actions = ListSequence.fromList(new ArrayList<AnAction>());
-    LineAnnotation la = getLineAnnotation(event.getY());
-    VcsFileRevision revision = check_5mnya_a0c0hc(la);
-    boolean isVcsRevision = revision != null && revision != myEditorAnnotation.getLocalRevision();
+    final LineAnnotation la = getLineAnnotation(event.getY());
+    final CommitsGraphNode graphNode = check_5mnya_a0c0hc(la);
+    boolean isVcsRevision = graphNode != null && !(graphNode.isLocalRevision());
     ListSequence.fromList(actions).addElement(new BaseAction("Close Annotations") {
       @Override
       protected void doExecute(AnActionEvent e, Map<String, Object> _params) {
@@ -333,14 +335,14 @@ public final class AnnotationColumn extends AbstractLeftColumn {
     });
     ListSequence.fromList(actions).addElement(Separator.getInstance());
     if (isVcsRevision) {
-      ListSequence.fromList(actions).addElement(myEditorAnnotation.createDiffAction(revision, la.getParentRevisions()));
+      ListSequence.fromList(actions).addElement(myEditorAnnotation.createDiffAction(graphNode));
     }
     ListSequence.fromList(actions).addElement(myViewActionGroup);
     if (isVcsRevision) {
-      ListSequence.fromList(actions).addElement(createCopyRevisionNumberAction(revision));
+      ListSequence.fromList(actions).addElement(createCopyRevisionNumberAction(graphNode.getRevision()));
     }
     if (isVcsRevision && myEditorAnnotation.isGit()) {
-      ListSequence.fromList(actions).addElement(new GitShowCommitInLogAction(revision, myEditorAnnotation.getProject()));
+      ListSequence.fromList(actions).addElement(new GitShowCommitInLogAction(graphNode.getRevision(), myEditorAnnotation.getProject()));
     }
     if (!(isEditorHighlighted())) {
       ListSequence.fromList(actions).addElement(Separator.getInstance());
@@ -437,7 +439,19 @@ public final class AnnotationColumn extends AbstractLeftColumn {
       }
     }
   }
-  private static VcsFileRevision check_5mnya_a0b0zb(LineAnnotation checkedDotOperand, AnnotationColumn checkedDotThisExpression) {
+  private static CommitsGraphNode check_5mnya_a0b0zb(LineAnnotation checkedDotOperand, AnnotationColumn checkedDotThisExpression) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getRevisionsGraphNode();
+    }
+    return null;
+  }
+  private static VcsFileRevision check_5mnya_a0c0zb(CommitsGraphNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getRevision();
+    }
+    return null;
+  }
+  private static VcsFileRevision check_5mnya_a0e0zb(CommitsGraphNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getRevision();
     }
@@ -449,9 +463,9 @@ public final class AnnotationColumn extends AbstractLeftColumn {
     }
 
   }
-  private static VcsFileRevision check_5mnya_a0c0hc(LineAnnotation checkedDotOperand) {
+  private static CommitsGraphNode check_5mnya_a0c0hc(LineAnnotation checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return checkedDotOperand.getRevision();
+      return checkedDotOperand.getRevisionsGraphNode();
     }
     return null;
   }

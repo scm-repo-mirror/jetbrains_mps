@@ -5,79 +5,157 @@ package jetbrains.mps.vcs.annotate;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
-import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
-import jetbrains.mps.vcs.diff.changes.ModelChange;
 import java.util.List;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.vcs.diff.changes.StructureChange;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.LinkedList;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import java.util.ArrayList;
+import java.util.Set;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
+import jetbrains.mps.vcs.diff.changes.StructureChange;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
+import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.vcs.diff.changes.ModifiedNode;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
+import java.util.Objects;
+import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/5555299221747429994", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 /*package*/ class RevisionNodeChange {
 
   @NotNull
   private final CommitsGraphNode myRevisionGraphNode;
-
-  @NotNull
-  private final SNodeId myNodeId;
   @NotNull
   private final MessageTarget myMessageTarget;
   @NotNull
   private final ChangeType myChangeType;
   private final String myMessage;
+  @NotNull
+  private final List<SNodeId> myMovedChildIds = ListSequence.fromList(new ArrayList<SNodeId>());
+  @NotNull
+  private final Set<SNodeId> myNodeIds = SetSequence.fromSet(new HashSet<SNodeId>());
 
 
-  /*package*/ RevisionNodeChange(@NotNull ModelChange change, @NotNull MessageTarget messageTarget, @NotNull SNodeId nodeId, @NotNull CommitsGraphNode revision) {
-    myRevisionGraphNode = revision;
-    myNodeId = nodeId;
-    myMessageTarget = messageTarget;
-    myChangeType = change.getType();
-    myMessage = change.getDescription();
+  /*package*/ RevisionNodeChange(@NotNull final CommitsGraphNode graphNode, @NotNull StructureChange modelChange, @NotNull final Set<SNodeId> movedNodesIds) {
+
+    myMessage = modelChange.getDescription();
+    myChangeType = modelChange.getType();
+    myRevisionGraphNode = graphNode;
+    List<Tuples._2<SNodeId, MessageTarget>> targetIds = modelChange.createMessageTargetsWithIds(true);
+    myMessageTarget = ListSequence.fromList(targetIds).first()._1();
+    Iterable<SNodeId> ids = ListSequence.fromList(targetIds).select(new ISelector<Tuples._2<SNodeId, MessageTarget>, SNodeId>() {
+      public SNodeId select(Tuples._2<SNodeId, MessageTarget> it) {
+        return it._0();
+      }
+    });
+    SetSequence.fromSet(myNodeIds).addSequence(Sequence.fromIterable(ids).select(new ISelector<SNodeId, SNodeId>() {
+      public SNodeId select(SNodeId id) {
+        return graphNode.getCurrentNodeId(id);
+      }
+    }).where(new NotNullWhereFilter<SNodeId>()));
+    final SModel model = modelChange.getChangeSet().getNewModel();
+    if (modelChange instanceof NodeGroupMoveChange) {
+      collectMovedChildIds(as_uhcuom_a0a0a9a9(modelChange, NodeGroupMoveChange.class), model);
+    } else if (myMessageTarget instanceof NodeMessageTarget) {
+      Sequence.fromIterable(ids).visitAll(new IVisitor<SNodeId>() {
+        public void visit(SNodeId id) {
+          collectChildNodeIds(model.getNode(id), movedNodesIds);
+        }
+      });
+    }
   }
 
   @NotNull
-  public MessageTarget getMessageTarget() {
+  /*package*/ MessageTarget getMessageTarget() {
     return myMessageTarget;
   }
 
   @NotNull
-  public SNodeId getNodeId() {
-    return myNodeId;
+  /*package*/ Set<SNodeId> getNodeIds() {
+    return myNodeIds;
   }
 
   @NotNull
-  public CommitsGraphNode getRevisionGraphNode() {
+  /*package*/ List<SNodeId> getMovedChildIds() {
+    return myMovedChildIds;
+  }
+
+  @NotNull
+  /*package*/ CommitsGraphNode getCommitsGraphNode() {
     return myRevisionGraphNode;
   }
 
-  public String getMessage() {
+  /*package*/ String getMessage() {
     return myMessage;
   }
 
   @NotNull
-  public ChangeType getChangeType() {
+  /*package*/ ChangeType getChangeType() {
     return myChangeType;
   }
 
-  @NotNull
-  /*package*/ static List<RevisionNodeChange> createRevisionNodeChanges(@NotNull final ModelChange change, final SModel model, @NotNull final CommitsGraphNode revisiongrGraphNode) {
-    if (!(change instanceof StructureChange)) {
-      return ListSequence.fromList(new LinkedList<RevisionNodeChange>());
+  private void collectMovedChildIds(NodeGroupMoveChange moveChange, final SModel model) {
+    ListSequence.fromList(moveChange.getGroup(true).getModifiedNodes()).select(new ISelector<ModifiedNode, SNode>() {
+      public SNode select(ModifiedNode it) {
+        return (SNode) model.getNode(it.getNodeId());
+      }
+    }).translate(new ITranslator2<SNode, SNode>() {
+      public Iterable<SNode> translate(SNode movedNode) {
+        return SNodeOperations.getChildren(movedNode);
+      }
+    }).visitAll(new IVisitor<SNode>() {
+      public void visit(SNode child) {
+        SNodeId id = myRevisionGraphNode.getCurrentNodeId(child.getNodeId());
+        if (id != null) {
+          ListSequence.fromList(myMovedChildIds).addElement(id);
+        }
+      }
+    });
+  }
+
+  private void collectChildNodeIds(SNode node, Set<SNodeId> movedNodesIds) {
+    for (SNode child : ListSequence.fromList(SNodeOperations.getChildren(node))) {
+      SNodeId childId = child.getNodeId();
+      if (SetSequence.fromSet(movedNodesIds).contains(childId)) {
+        SNodeId id = myRevisionGraphNode.getCurrentNodeId(childId);
+        if (id != null) {
+          ListSequence.fromList(myMovedChildIds).addElement(myRevisionGraphNode.getCurrentNodeId(childId));
+        }
+      } else {
+        SNodeId id = myRevisionGraphNode.getCurrentNodeId(childId);
+        if (id != null) {
+          SetSequence.fromSet(myNodeIds).addElement(id);
+        }
+        collectChildNodeIds(child, movedNodesIds);
+      }
     }
-    return ListSequence.fromList(((StructureChange) change).createMessageTargetsWithIds(true)).where(new IWhereFilter<Tuples._2<SNodeId, MessageTarget>>() {
-      public boolean accept(Tuples._2<SNodeId, MessageTarget> it) {
-        return model.getNode(it._0()) != null;
-      }
-    }).select(new ISelector<Tuples._2<SNodeId, MessageTarget>, RevisionNodeChange>() {
-      public RevisionNodeChange select(Tuples._2<SNodeId, MessageTarget> it) {
-        return new RevisionNodeChange(change, it._1(), it._0(), revisiongrGraphNode);
-      }
-    }).toListSequence();
+  }
+
+  /*package*/ boolean sameAs(@NotNull RevisionNodeChange otherChange) {
+    MessageTarget otherMessageTarget = otherChange.getMessageTarget();
+    if (otherMessageTarget.getClass() != myMessageTarget.getClass()) {
+      return false;
+    }
+    if (myMessageTarget instanceof PropertyMessageTarget) {
+      return Objects.equals(getNodeIds(), otherChange.getNodeIds()) && ((PropertyMessageTarget) myMessageTarget).getRole().equals(((PropertyMessageTarget) otherMessageTarget).getRole());
+    }
+    if (myMessageTarget instanceof ReferenceMessageTarget) {
+      return Objects.equals(getNodeIds(), otherChange.getNodeIds()) && ((ReferenceMessageTarget) myMessageTarget).getRole().equals(((ReferenceMessageTarget) otherMessageTarget).getRole());
+    }
+    return false;
+  }
+  private static <T> T as_uhcuom_a0a0a9a9(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 }
