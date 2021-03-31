@@ -19308,8 +19308,8 @@
                             <ref role="2Oxat5" to="tp26:2k7p7sTB2Am" resolve="type" />
                           </node>
                         </node>
-                        <node concept="liA8E" id="2k7p7sTBsZh" role="2OqNvi">
-                          <ref role="37wK5l" to="tp26:2k7p7sTBfUx" resolve="toString" />
+                        <node concept="liA8E" id="6$jl8GR4vry" role="2OqNvi">
+                          <ref role="37wK5l" to="tp26:6$jl8GR4kBr" resolve="method" />
                         </node>
                       </node>
                     </node>
@@ -19968,8 +19968,8 @@
                           <ref role="2Oxat5" to="tp26:2k7p7sTB2Am" resolve="type" />
                         </node>
                       </node>
-                      <node concept="liA8E" id="6LeUth2_FlT" role="2OqNvi">
-                        <ref role="37wK5l" to="tp26:2k7p7sTBfUx" resolve="toString" />
+                      <node concept="liA8E" id="6$jl8GR4AFa" role="2OqNvi">
+                        <ref role="37wK5l" to="tp26:6$jl8GR4xSE" resolve="reflectiveMethod" />
                       </node>
                     </node>
                   </node>

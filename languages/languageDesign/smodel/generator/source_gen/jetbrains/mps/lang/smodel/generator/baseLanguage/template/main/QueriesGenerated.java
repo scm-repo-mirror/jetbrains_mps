@@ -1084,7 +1084,7 @@ public class QueriesGenerated {
     return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).targetConcept;
   }
   public static Object referenceMacro_GetReferent_112_1(final ReferenceMacroContext _context) {
-    return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).type.toString();
+    return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).type.method();
   }
   public static Object referenceMacro_GetReferent_115_0(final ReferenceMacroContext _context) {
     return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).targetConcept;
@@ -1094,7 +1094,7 @@ public class QueriesGenerated {
     return SLinkOperations.getTarget(ConceptMethodDeclaration__BehaviorDescriptor.getBehaviour_idhP3pnNF.invoke(conceptMethodDeclaration), LINKS.concept$u6dL);
   }
   public static Object referenceMacro_GetReferent_115_2(final ReferenceMacroContext _context) {
-    return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).type.toString();
+    return ((ConceptMethodSuperCall.InvokationTarget) _context.getVariable("var:invocationTarget")).type.reflectiveMethod();
   }
   public static Object referenceMacro_GetReferent_116_0(final ReferenceMacroContext _context) {
     // hacking Bl method overloading resolution
