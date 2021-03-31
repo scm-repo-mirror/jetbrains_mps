@@ -364,14 +364,14 @@ public class Template_GeneratorRuntime extends TemplateDeclarationBase {
                       {
                         final List<SNode> tlist55 = new ArrayList<SNode>();
                         final Iterable<SNode> loopList55 = QueriesGenerated.sourceNodesQuery_6_1(new SourceSubstituteMacroNodesContext(context22, loopMacroRef_zfkl79_b0a0a1a2a1a1a4a1a1a6a1a01a3a6));
-                        int loopIndex__55 = 0;
+                        int loopIndex_55 = 0;
                         for (SNode itnode55 : loopList55) {
                           if (itnode55 == null) {
                             continue;
                           }
                           TemplateContext context28 = context22.subContext(itnode55);
-                          context28 = context28.withVariable("loop:index", loopIndex__55);
-                          loopIndex__55++;
+                          context28 = context28.withVariable("loop:index", loopIndex_55);
+                          loopIndex_55++;
                           final SNode tnode56 = environment.createOutputNode(myConcepts[12]);
                           {
                             TemplateContext context29 = context28.subContext();
@@ -707,14 +707,14 @@ public class Template_GeneratorRuntime extends TemplateDeclarationBase {
               {
                 final List<SNode> tlist109 = new ArrayList<SNode>();
                 final Iterable<SNode> loopList109 = QueriesGenerated.sourceNodesQuery_6_2(new SourceSubstituteMacroNodesContext(context48, loopMacroRef_zfkl79_b0a0a1a2a1a7a4a61a3a6));
-                int loopIndex__109 = 0;
+                int loopIndex_109 = 0;
                 for (SNode itnode109 : loopList109) {
                   if (itnode109 == null) {
                     continue;
                   }
                   TemplateContext context55 = context48.subContext(itnode109);
-                  context55 = context55.withVariable("loop:index", loopIndex__109);
-                  loopIndex__109++;
+                  context55 = context55.withVariable("loop:index", loopIndex_109);
+                  loopIndex_109++;
                   final SNode tnode110 = environment.createOutputNode(myConcepts[12]);
                   {
                     TemplateContext context56 = context55.subContext();

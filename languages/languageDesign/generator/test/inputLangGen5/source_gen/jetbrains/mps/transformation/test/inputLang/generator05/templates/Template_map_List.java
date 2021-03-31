@@ -55,15 +55,15 @@ public class Template_map_List extends TemplateDeclarationBase {
               {
                 final List<SNode> tlist4 = new ArrayList<SNode>();
                 final Iterable<SNode> loopList4 = QueriesGenerated.sourceNodesQuery_1_0(new SourceSubstituteMacroNodesContext(context3, loopMacroRef_yy8der_b0a0a1a1a1a2a1a3a2a5));
-                int loopIndex_null_4 = 0;
+                int loopIndex_4 = 0;
                 for (SNode itnode4 : loopList4) {
                   if (itnode4 == null) {
                     continue;
                   }
                   TemplateContext context4 = context3.subContext(itnode4);
                   context4 = context4.withVariable("loop:inputNode", context3.getInput());
-                  context4 = context4.withVariable("loop:index", loopIndex_null_4);
-                  loopIndex_null_4++;
+                  context4 = context4.withVariable("loop:index", loopIndex_4);
+                  loopIndex_4++;
                   final SNode tnode5 = environment.createOutputNode(myConcepts[3]);
                   {
                     TemplateContext context5 = context4.subContext();

@@ -52,14 +52,14 @@ public class Template_reduce_EnumSwitchExpression extends TemplateDeclarationBas
       {
         final List<SNode> tlist2 = new ArrayList<SNode>();
         final Iterable<SNode> loopList2 = QueriesGenerated.sourceNodesQuery_138_0(new SourceSubstituteMacroNodesContext(context1, loopMacroRef_rc46g0_b0a0a1a1a2a6));
-        int loopIndex__2 = 0;
+        int loopIndex_2 = 0;
         for (SNode itnode2 : loopList2) {
           if (itnode2 == null) {
             continue;
           }
           TemplateContext context2 = context1.subContext(itnode2);
-          context2 = context2.withVariable("loop:index", loopIndex__2);
-          loopIndex__2++;
+          context2 = context2.withVariable("loop:index", loopIndex_2);
+          loopIndex_2++;
           final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
           {
             TemplateContext context3 = context2.subContext();

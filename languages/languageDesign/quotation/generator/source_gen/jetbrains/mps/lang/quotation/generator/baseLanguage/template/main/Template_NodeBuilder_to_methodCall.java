@@ -330,14 +330,14 @@ public class Template_NodeBuilder_to_methodCall extends TemplateDeclarationBase 
           {
             final List<SNode> tlist44 = new ArrayList<SNode>();
             final Iterable<SNode> loopList44 = QueriesGenerated.sourceNodesQuery_3_1(new SourceSubstituteMacroNodesContext(context2, loopMacroRef_synbg_b0a0a1a8a1a1a2a6));
-            int loopIndex__44 = 0;
+            int loopIndex_44 = 0;
             for (SNode itnode44 : loopList44) {
               if (itnode44 == null) {
                 continue;
               }
               TemplateContext context24 = context2.subContext("parametersFromExpressionsL", itnode44);
-              context24 = context24.withVariable("loop:index", loopIndex__44);
-              loopIndex__44++;
+              context24 = context24.withVariable("loop:index", loopIndex_44);
+              loopIndex_44++;
               final SNode tnode45 = environment.createOutputNode(myConcepts[2]);
               {
                 SNodeAccessUtil.setPropertyValue(tnode45, myProperties[0], QueriesGenerated.propertyMacro_GetValue_3_2(new PropertyMacroContext(context24, "param", propertyMacro_synbg_c0a2a0a5a3a8a1a1a2a6)));

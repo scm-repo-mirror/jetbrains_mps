@@ -554,14 +554,14 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                 {
                   final List<SNode> tlist83 = new ArrayList<SNode>();
                   final Iterable<SNode> loopList83 = QueriesGenerated.sourceNodesQuery_7_3(new SourceSubstituteMacroNodesContext(context36, loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a4a5));
-                  int loopIndex__83 = 0;
+                  int loopIndex_83 = 0;
                   for (SNode itnode83 : loopList83) {
                     if (itnode83 == null) {
                       continue;
                     }
                     TemplateContext context43 = context36.subContext(itnode83);
-                    context43 = context43.withVariable("loop:index", loopIndex__83);
-                    loopIndex__83++;
+                    context43 = context43.withVariable("loop:index", loopIndex_83);
+                    loopIndex_83++;
                     final SNode tnode84 = environment.createOutputNode(myConcepts[18]);
                     {
                       TemplateContext context44 = context43.subContext();

@@ -57,29 +57,29 @@ public class Template_map_SquaredList extends TemplateDeclarationBase {
               {
                 final List<SNode> tlist4 = new ArrayList<SNode>();
                 final Iterable<SNode> loopList4 = QueriesGenerated.sourceNodesQuery_2_0(new SourceSubstituteMacroNodesContext(context3, loopMacroRef_inb1mm_b0a0a1a1a1a2a1a3a2a5));
-                int loopIndex_null_4 = 0;
+                int loopIndex_4 = 0;
                 for (SNode itnode4 : loopList4) {
                   if (itnode4 == null) {
                     continue;
                   }
                   TemplateContext context4 = context3.subContext(itnode4);
                   context4 = context4.withVariable("loop:inputNode", context3.getInput());
-                  context4 = context4.withVariable("loop:index", loopIndex_null_4);
-                  loopIndex_null_4++;
+                  context4 = context4.withVariable("loop:index", loopIndex_4);
+                  loopIndex_4++;
                   Collection<SNode> tlist5 = null;
                   TemplateContext context5 = context4;
                   context5 = context5.withVariable("var:listName", QueriesGenerated.varMacro_Value_2_0(new TemplateVarContext(context4, new SNodePointer("r:5bb953f6-c4e2-4f24-bd95-d2817ceec639(jetbrains.mps.transformation.test.inputLang.generator05.templates@generator)", "4289663133900812616"))));
                   final List<SNode> tlist6 = new ArrayList<SNode>();
                   final Iterable<SNode> loopList6 = QueriesGenerated.sourceNodesQuery_2_1(new SourceSubstituteMacroNodesContext(context5, loopMacroRef_inb1mm_b0a0a9a3a1a1a2a1a3a2a5));
-                  int loopIndex_null_6 = 0;
+                  int loopIndex_6 = 0;
                   for (SNode itnode6 : loopList6) {
                     if (itnode6 == null) {
                       continue;
                     }
                     TemplateContext context6 = context5.subContext(itnode6);
                     context6 = context6.withVariable("loop:inputNode", context5.getInput());
-                    context6 = context6.withVariable("loop:index", loopIndex_null_6);
-                    loopIndex_null_6++;
+                    context6 = context6.withVariable("loop:index", loopIndex_6);
+                    loopIndex_6++;
                     final SNode tnode7 = environment.createOutputNode(myConcepts[3]);
                     {
                       TemplateContext context7 = context6.subContext();

@@ -98,14 +98,14 @@ public class Template_reduce_ConceptSwitch extends TemplateDeclarationBase {
         {
           final List<SNode> tlist5 = new ArrayList<SNode>();
           final Iterable<SNode> loopList5 = QueriesGenerated.sourceNodesQuery_98_1(new SourceSubstituteMacroNodesContext(context1, loopMacroRef_j8e1z8_b0a0a1a2a1a2a7));
-          int loopIndex__5 = 0;
+          int loopIndex_5 = 0;
           for (SNode itnode5 : loopList5) {
             if (itnode5 == null) {
               continue;
             }
             TemplateContext context3 = context1.subContext(itnode5);
-            context3 = context3.withVariable("loop:index", loopIndex__5);
-            loopIndex__5++;
+            context3 = context3.withVariable("loop:index", loopIndex_5);
+            loopIndex_5++;
             final SNode tnode6 = environment.createOutputNode(myConcepts[5]);
             {
               TemplateContext context4 = context3.subContext();

@@ -45,14 +45,14 @@ public class Template_reduce_Parameters extends TemplateDeclarationBase {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
     final List<SNode> tlist1 = new ArrayList<SNode>();
     final Iterable<SNode> loopList1 = QueriesGenerated.sourceNodesQuery_85_0(new SourceSubstituteMacroNodesContext(context, loopMacroRef_f8m1hr_b0a0a2a7));
-    int loopIndex__1 = 0;
+    int loopIndex_1 = 0;
     for (SNode itnode1 : loopList1) {
       if (itnode1 == null) {
         continue;
       }
       TemplateContext context1 = context.subContext(itnode1);
-      context1 = context1.withVariable("loop:index", loopIndex__1);
-      loopIndex__1++;
+      context1 = context1.withVariable("loop:index", loopIndex_1);
+      loopIndex_1++;
       Collection<SNode> tlist2 = Collections.emptyList();
       if (QueriesGenerated.ifMacro_Condition_85_0(new IfMacroContext(context1, ifMacroRef_f8m1hr_b0a0f0e0h))) {
         Collection<SNode> tlist3 = null;
