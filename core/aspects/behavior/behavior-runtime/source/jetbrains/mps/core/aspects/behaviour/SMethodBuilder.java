@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,9 +57,13 @@ public final class SMethodBuilder<T> {
     return this;
   }
 
-  // FIXME a lot of modifiers are the same (e.g. public virtual), can re-use instances, no reason to keep a lot of duplicates
   public SMethodBuilder<T> modifiers(@NotNull SModifiersImpl modifiers) {
     myModifiers = modifiers;
+    return this;
+  }
+
+  public SMethodBuilder<T> modifiers(int mask, @NotNull AccessPrivileges accessPrivileges) {
+    myModifiers = SModifiersImpl.create(mask, accessPrivileges);
     return this;
   }
 
