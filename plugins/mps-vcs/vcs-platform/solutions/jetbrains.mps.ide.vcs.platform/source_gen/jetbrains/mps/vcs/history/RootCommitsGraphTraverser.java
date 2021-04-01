@@ -22,6 +22,7 @@ import jetbrains.mps.smodel.DefaultSModelDescriptor;
 import jetbrains.mps.smodel.InvalidSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
+import java.util.Comparator;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -155,7 +156,15 @@ public final class RootCommitsGraphTraverser {
   }
 
   private CommitsGraphNode getNextNode() {
-    return DequeSequence.fromDequeNew(myBranches).popElement();
+    CommitsGraphNode node = DequeSequence.fromDequeNew(myBranches).sort(new Comparator<CommitsGraphNode>() {
+      public int compare(CommitsGraphNode a, CommitsGraphNode b) {
+        return a.compareTo(b);
+      }
+    }, false).first();
+    if (node != null) {
+      DequeSequence.fromDequeNew(myBranches).removeElement(node);
+    }
+    return node;
   }
 
   private void processNode(CommitsGraphNode node) {

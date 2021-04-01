@@ -16,13 +16,14 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.vcs.diff.changes.StructureChange;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.vcs.diff.changes.ModifiedNode;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
@@ -47,33 +48,58 @@ import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
   private final Set<SNodeId> myNodeIds = SetSequence.fromSet(new HashSet<SNodeId>());
 
 
-  /*package*/ RevisionNodeChange(@NotNull final CommitsGraphNode graphNode, @NotNull StructureChange modelChange, @NotNull final Set<SNodeId> movedNodesIds) {
+  /*package*/ RevisionNodeChange(@NotNull final CommitsGraphNode graphNode, @NotNull final StructureChange modelChange, @NotNull final Set<SNodeId> movedNodesIds) {
 
     myMessage = modelChange.getDescription();
     myChangeType = modelChange.getType();
     myRevisionGraphNode = graphNode;
     List<Tuples._2<SNodeId, MessageTarget>> targetIds = modelChange.createMessageTargetsWithIds(true);
-    myMessageTarget = ListSequence.fromList(targetIds).first()._1();
-    Iterable<SNodeId> ids = ListSequence.fromList(targetIds).select(new ISelector<Tuples._2<SNodeId, MessageTarget>, SNodeId>() {
-      public SNodeId select(Tuples._2<SNodeId, MessageTarget> it) {
-        return it._0();
+
+
+    final SModel newModel = modelChange.getChangeSet().getNewModel();
+
+    Iterable<MessageTarget> messageTargets = ListSequence.fromList(targetIds).select(new ISelector<Tuples._2<SNodeId, MessageTarget>, MessageTarget>() {
+      public MessageTarget select(Tuples._2<SNodeId, MessageTarget> it) {
+        return it._1();
       }
     });
-    SetSequence.fromSet(myNodeIds).addSequence(Sequence.fromIterable(ids).select(new ISelector<SNodeId, SNodeId>() {
-      public SNodeId select(SNodeId id) {
-        return graphNode.getCurrentNodeId(id);
+
+    if (Sequence.fromIterable(messageTargets).all(new IWhereFilter<MessageTarget>() {
+      public boolean accept(MessageTarget it) {
+        return it instanceof DeletedNodeMessageTarget;
       }
-    }).where(new NotNullWhereFilter<SNodeId>()));
-    final SModel model = modelChange.getChangeSet().getNewModel();
-    if (modelChange instanceof NodeGroupMoveChange) {
-      collectMovedChildIds(as_uhcuom_a0a0a9a9(modelChange, NodeGroupMoveChange.class), model);
-    } else if (myMessageTarget instanceof NodeMessageTarget) {
-      Sequence.fromIterable(ids).visitAll(new IVisitor<SNodeId>() {
-        public void visit(SNodeId id) {
-          collectChildNodeIds(model.getNode(id), movedNodesIds);
+    })) {
+      myMessageTarget = Sequence.fromIterable(messageTargets).first();
+    } else if (Sequence.fromIterable(messageTargets).any(new IWhereFilter<MessageTarget>() {
+      public boolean accept(MessageTarget it) {
+        return it instanceof NodeMessageTarget;
+      }
+    })) {
+      myMessageTarget = Sequence.fromIterable(messageTargets).where(new IWhereFilter<MessageTarget>() {
+        public boolean accept(MessageTarget it) {
+          return it instanceof NodeMessageTarget;
         }
-      });
+      }).first();
+    } else {
+      myMessageTarget = ListSequence.fromList(targetIds).first()._1();
     }
+    ListSequence.fromList(targetIds).visitAll(new IVisitor<Tuples._2<SNodeId, MessageTarget>>() {
+      public void visit(Tuples._2<SNodeId, MessageTarget> it) {
+        SNodeId id = it._0();
+        MessageTarget messageTarget = it._1();
+        if (messageTarget instanceof DeletedNodeMessageTarget) {
+          return;
+        }
+        SetSequence.fromSet(myNodeIds).addSequence(SetSequence.fromSet(graphNode.getCurrentNodeIds(id)));
+        if (messageTarget instanceof NodeMessageTarget) {
+          if (modelChange instanceof NodeGroupMoveChange) {
+            collectMovedChildIds(as_uhcuom_a0a0a0a4a0a0a0a21a9(modelChange, NodeGroupMoveChange.class), newModel);
+          } else {
+            collectChildNodeIds(newModel.getNode(id), movedNodesIds);
+          }
+        }
+      }
+    });
   }
 
   @NotNull
@@ -116,10 +142,7 @@ import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode child) {
-        SNodeId id = myRevisionGraphNode.getCurrentNodeId(child.getNodeId());
-        if (id != null) {
-          ListSequence.fromList(myMovedChildIds).addElement(id);
-        }
+        ListSequence.fromList(myMovedChildIds).addSequence(SetSequence.fromSet(myRevisionGraphNode.getCurrentNodeIds(child.getNodeId())));
       }
     });
   }
@@ -127,17 +150,11 @@ import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
   private void collectChildNodeIds(SNode node, Set<SNodeId> movedNodesIds) {
     for (SNode child : ListSequence.fromList(SNodeOperations.getChildren(node))) {
       SNodeId childId = child.getNodeId();
-      if (SetSequence.fromSet(movedNodesIds).contains(childId)) {
-        SNodeId id = myRevisionGraphNode.getCurrentNodeId(childId);
-        if (id != null) {
-          ListSequence.fromList(myMovedChildIds).addElement(myRevisionGraphNode.getCurrentNodeId(childId));
-        }
-      } else {
-        SNodeId id = myRevisionGraphNode.getCurrentNodeId(childId);
-        if (id != null) {
-          SetSequence.fromSet(myNodeIds).addElement(id);
-        }
+      if (!(SetSequence.fromSet(movedNodesIds).contains(childId))) {
+        SetSequence.fromSet(myNodeIds).addSequence(SetSequence.fromSet(myRevisionGraphNode.getCurrentNodeIds(childId)));
         collectChildNodeIds(child, movedNodesIds);
+      } else {
+        ListSequence.fromList(myMovedChildIds).addSequence(SetSequence.fromSet(myRevisionGraphNode.getCurrentNodeIds(childId)));
       }
     }
   }
@@ -155,7 +172,7 @@ import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
     }
     return false;
   }
-  private static <T> T as_uhcuom_a0a0a9a9(Object o, Class<T> type) {
+  private static <T> T as_uhcuom_a0a0a0a4a0a0a0a21a9(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

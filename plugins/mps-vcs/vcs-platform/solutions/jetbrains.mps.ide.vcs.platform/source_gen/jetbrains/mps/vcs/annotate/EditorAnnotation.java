@@ -425,7 +425,7 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
 
   public void highlightCellsForRevision(final CommitsGraphNode graphNode) {
     myEditorComponent.getHighlightManager().clearForOwner(this);
-    if (graphNode.isLocalRevision()) {
+    if (graphNode == null || graphNode.isLocalRevision()) {
       return;
     }
     myEditorComponent.getHighlightManager().mark(Sequence.fromIterable(MapSequence.fromMap(myEditorMessages).values()).where(new IWhereFilter<AnnotatedCellMessage>() {
@@ -450,11 +450,11 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   }
 
   public boolean isRevisionHighlighted(CommitsGraphNode graphNode) {
-    return ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).count() > 0 && ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).first() == graphNode;
+    return ListSequence.fromList(myRootAnnotation.getProcessedCommits()).count() > 0 && ListSequence.fromList(myRootAnnotation.getProcessedCommits()).first() == graphNode;
   }
 
   private Color getColorByRevisionOrder(CommitsGraphNode graphNode) {
-    List<CommitsGraphNode> rootCommits = myRootAnnotation.getOrderedRootCommits();
+    List<CommitsGraphNode> rootCommits = myRootAnnotation.getProcessedCommits();
     int revisionOrderNumber = ListSequence.fromList(rootCommits).indexOf(graphNode);
     if (revisionOrderNumber < 0) {
       return null;
@@ -464,7 +464,7 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
   }
 
   private Color getColorByRevisionAuthor(CommitsGraphNode graphNode) {
-    List<String> rootAuthors = ListSequence.fromList(myRootAnnotation.getOrderedRootCommits()).select(new ISelector<CommitsGraphNode, String>() {
+    List<String> rootAuthors = ListSequence.fromList(myRootAnnotation.getProcessedCommits()).select(new ISelector<CommitsGraphNode, String>() {
       public String select(CommitsGraphNode it) {
         return it.getRevision().getAuthor();
       }

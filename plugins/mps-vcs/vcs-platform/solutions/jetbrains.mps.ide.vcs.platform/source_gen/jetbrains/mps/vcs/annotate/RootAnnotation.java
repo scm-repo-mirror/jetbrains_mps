@@ -15,6 +15,7 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.vcs.history.CommitsGraphNode;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import com.intellij.openapi.vcs.history.VcsFileRevision;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcs.history.CommitsGraph;
@@ -34,8 +35,6 @@ import java.util.Arrays;
 import jetbrains.mps.vcs.diff.changes.AddRootChange;
 import jetbrains.mps.vcs.diff.ChangeSetImpl;
 import jetbrains.mps.vcs.diff.changes.StructureChange;
-import java.util.HashMap;
-import jetbrains.mps.vcs.diff.changes.NodeIdChange;
 import java.util.Set;
 import java.util.HashSet;
 import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
@@ -46,6 +45,7 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.vcs.diff.ChangeSetBuilder;
+import jetbrains.mps.vcs.diff.changes.NodeIdChange;
 import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/5611602621953836093", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
@@ -59,6 +59,7 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
   private final Project myProject;
   private CommitsGraphNode myLocalCommitsGraphNode;
   private Map<CommitsGraphNode, RevisionChanges> myAnnotation = new ConcurrentHashMap<CommitsGraphNode, RevisionChanges>();
+  private List<CommitsGraphNode> myProcessedCommits = new CopyOnWriteArrayList<CommitsGraphNode>();
 
 
   /*package*/ RootAnnotation(VirtualFile file, SNodeId rootId, ModelAccess modelAccess, Project project) {
@@ -91,7 +92,7 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
   }
 
   /*package*/ void cancelAnnotate() {
-    check_nt8dt4_a0a51(myRevisionsGraphTraverser);
+    check_nt8dt4_a0a61(myRevisionsGraphTraverser);
   }
 
   /*package*/ List<RevisionChanges> getChanges() {
@@ -99,7 +100,6 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
   }
 
   /*package*/ void dispose() {
-    ListSequence.fromList(myUpdateListeners).clear();
   }
 
   /*package*/ void addUpdateListener(@NotNull RootAnnotationUpdateListener r) {
@@ -117,6 +117,9 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
   @Override
   public void commitProcessingFinished(CommitsGraphNode node) {
     final RevisionChanges changes = MapSequence.fromMap(myAnnotation).get(node.getNodeWithLoadedModel());
+    if (!(node.isLocalRevision()) && changes != null) {
+      ListSequence.fromList(myProcessedCommits).addElement(node.getNodeWithLoadedModel());
+    }
     ListSequence.fromList(myUpdateListeners).visitAll(new IVisitor<RootAnnotationUpdateListener>() {
       public void visit(RootAnnotationUpdateListener it) {
         it.revisionProcessed(changes);
@@ -135,12 +138,11 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
     List<ModelChange> changes1 = changeSet1.getModelChanges();
     List<ModelChange> changes2 = changeSet2.getModelChanges();
 
+    graphNode.setIdChanges(ListSequence.fromList(changes1).concat(ListSequence.fromList(changes2)));
+
     if (ListSequence.fromList(changes1).isEmpty() && ListSequence.fromList(changes2).isEmpty()) {
       return;
     }
-
-    graphNode.setIdChanges(parent1, getRenamedIds(changes1));
-    graphNode.setIdChanges(parent2, getRenamedIds(changes2));
 
     //  we ignore a branch if all changes from another branch were accepted   
     if (ListSequence.fromList(changes1).isEmpty() && ListSequence.fromList(changes2).isNotEmpty()) {
@@ -184,14 +186,14 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
       return;
     }
     List<ModelChange> modelChanges = calcChangeSet(prevModel, model, false).getModelChanges();
-    graphNode.setIdChanges(parentNode, getRenamedIds(modelChanges));
+    graphNode.setIdChanges(modelChanges);
     processCommitChanges(modelChanges, graphNode.getNodeWithLoadedModel());
   }
 
   @Override
-  public void processLastCommit(@NotNull CommitsGraphNode node) {
-    SModel model = node.getLoadedModel();
-    processCommitChanges(Arrays.asList(new AddRootChange(new ChangeSetImpl(model, model), myRootId)), node.getNodeWithLoadedModel());
+  public void processLastCommit(@NotNull CommitsGraphNode graphNode) {
+    SModel model = graphNode.getLoadedModel();
+    processCommitChanges(Arrays.asList(new AddRootChange(new ChangeSetImpl(model, model), myRootId)), graphNode.getNodeWithLoadedModel());
   }
 
   /*package*/ void resetLocalChanges() {
@@ -207,16 +209,6 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
         return changeIsRelevant(it);
       }
     }).toListSequence();
-  }
-
-  private static Map<SNodeId, SNodeId> getRenamedIds(Iterable<ModelChange> changes) {
-    final Map<SNodeId, SNodeId> changedIds = MapSequence.fromMap(new HashMap<SNodeId, SNodeId>());
-    Sequence.fromIterable(changes).ofType(NodeIdChange.class).visitAll(new IVisitor<NodeIdChange>() {
-      public void visit(NodeIdChange it) {
-        MapSequence.fromMap(changedIds).put(it.getNodeId(false), it.getNodeId(true));
-      }
-    });
-    return changedIds;
   }
 
   private static Set<SNodeId> getMovedNodeIds(List<ModelChange> changes) {
@@ -289,26 +281,10 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
     return true;
   }
 
-  /*package*/ List<CommitsGraphNode> getOrderedRootCommits() {
-    return ListSequence.fromList(MapSequence.fromMap(myAnnotation).where(new IWhereFilter<IMapping<CommitsGraphNode, RevisionChanges>>() {
-      public boolean accept(IMapping<CommitsGraphNode, RevisionChanges> it) {
-        return CollectionSequence.fromCollection(it.value().getNodeChanges()).isNotEmpty();
-      }
-    }).select(new ISelector<IMapping<CommitsGraphNode, RevisionChanges>, CommitsGraphNode>() {
-      public CommitsGraphNode select(IMapping<CommitsGraphNode, RevisionChanges> it) {
-        return it.key();
-      }
-    }).where(new IWhereFilter<CommitsGraphNode>() {
-      public boolean accept(CommitsGraphNode it) {
-        return !(it.isLocalRevision());
-      }
-    }).sort(new ISelector<CommitsGraphNode, Comparable<?>>() {
-      public Comparable<?> select(CommitsGraphNode it) {
-        return it;
-      }
-    }, true).toListSequence()).reversedList();
+  /*package*/ List<CommitsGraphNode> getProcessedCommits() {
+    return myProcessedCommits;
   }
-  private static void check_nt8dt4_a0a51(RootCommitsGraphTraverser checkedDotOperand) {
+  private static void check_nt8dt4_a0a61(RootCommitsGraphTraverser checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.stop();
     }

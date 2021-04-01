@@ -4407,25 +4407,20 @@
           <node concept="3cpWsn" id="30Bv66KVC4F" role="3cpWs9">
             <property role="TrG5h" value="taskName" />
             <node concept="17QB3L" id="30Bv66KVC4B" role="1tU5fm" />
-            <node concept="3cpWs3" id="30Bv66KVIdP" role="33vP2m">
-              <node concept="Xl_RD" id="30Bv66KVGRs" role="3uHU7B">
-                <property role="Xl_RC" value="Retrieving annotations for " />
+            <node concept="2OqwBi" id="4RwqHDAaGmD" role="33vP2m">
+              <node concept="2OqwBi" id="4RwqHDAaCAw" role="2Oq$k0">
+                <node concept="2OqwBi" id="55zwzn2E9IW" role="2Oq$k0">
+                  <node concept="2WthIp" id="55zwzn2E9nh" role="2Oq$k0" />
+                  <node concept="1DTwFV" id="1YeblkqUfnn" role="2OqNvi">
+                    <ref role="2WH_rO" node="3WCIgQv3c81" resolve="editor" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="55zwzn2Eb9V" role="2OqNvi">
+                  <ref role="37wK5l" to="exr9:~EditorComponent.getEditedNode()" resolve="getEditedNode" />
+                </node>
               </node>
-              <node concept="2OqwBi" id="4RwqHDAaGmD" role="3uHU7w">
-                <node concept="2OqwBi" id="4RwqHDAaCAw" role="2Oq$k0">
-                  <node concept="2OqwBi" id="55zwzn2E9IW" role="2Oq$k0">
-                    <node concept="2WthIp" id="55zwzn2E9nh" role="2Oq$k0" />
-                    <node concept="1DTwFV" id="1YeblkqUfnn" role="2OqNvi">
-                      <ref role="2WH_rO" node="3WCIgQv3c81" resolve="editor" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="55zwzn2Eb9V" role="2OqNvi">
-                    <ref role="37wK5l" to="exr9:~EditorComponent.getEditedNode()" resolve="getEditedNode" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="4RwqHDAaI2U" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SNode.getName()" resolve="getName" />
-                </node>
+              <node concept="liA8E" id="4RwqHDAaI2U" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SNode.getName()" resolve="getName" />
               </node>
             </node>
           </node>

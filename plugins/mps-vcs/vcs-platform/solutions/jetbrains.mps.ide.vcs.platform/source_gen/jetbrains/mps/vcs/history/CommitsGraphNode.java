@@ -17,6 +17,11 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import com.intellij.openapi.vcs.history.CurrentRevision;
+import jetbrains.mps.vcs.diff.changes.ModelChange;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.internal.collections.runtime.IMapping;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.vcs.diff.changes.NodeIdChange;
 import java.util.Collection;
 import com.intellij.openapi.vcs.history.VcsRevisionNumber;
 import git4idea.GitRevisionNumber;
@@ -53,7 +58,7 @@ public final class CommitsGraphNode implements Comparable {
   private SModel myLoadedModel;
   private boolean myModelCanBeUnloaded = true;
   private CommitsGraphNode myNodeWithLoadedModel;
-  private Map<CommitsGraphNode, Map<SNodeId, SNodeId>> myChangedIds = MapSequence.fromMap(new HashMap<CommitsGraphNode, Map<SNodeId, SNodeId>>());
+  private Map<SNodeId, Set<SNodeId>> myChangedIds = MapSequence.fromMap(new HashMap<SNodeId, Set<SNodeId>>());
 
 
   public CommitsGraphNode(@NotNull VcsFileRevision revision) {
@@ -71,21 +76,52 @@ public final class CommitsGraphNode implements Comparable {
     return myRevision instanceof CurrentRevision;
   }
 
-  public void setIdChanges(CommitsGraphNode parentNode, Map<SNodeId, SNodeId> changedIds) {
-    MapSequence.fromMap(myChangedIds).put(parentNode, changedIds);
+  private Map<SNodeId, Set<SNodeId>> getChangedIds() {
+    return myChangedIds;
   }
 
-  public SNodeId getCurrentNodeId(SNodeId nodeId) {
-    if (SetSequence.fromSet(myChildren).isEmpty()) {
-      return nodeId;
+  private void addChangedIds(SNodeId oldId, Set<SNodeId> newIds) {
+    Set<SNodeId> ids = MapSequence.fromMap(myChangedIds).get(oldId);
+    if (ids == null) {
+      ids = SetSequence.fromSet(new HashSet<SNodeId>());
+      MapSequence.fromMap(myChangedIds).put(oldId, ids);
     }
-    // assume that any path in history will finally lead us to the head node in the graph
-    return SetSequence.fromSet(myChildren).first().getCurrentNodeId(this, nodeId);
+    SetSequence.fromSet(ids).addSequence(SetSequence.fromSet(newIds));
   }
 
-  private SNodeId getCurrentNodeId(CommitsGraphNode parent, SNodeId nodeId) {
-    SNodeId renamedId = (MapSequence.fromMap(myChangedIds).containsKey(parent) && MapSequence.fromMap(MapSequence.fromMap(myChangedIds).get(parent)).containsKey(nodeId) ? MapSequence.fromMap(MapSequence.fromMap(myChangedIds).get(parent)).get(nodeId) : nodeId);
-    return (SetSequence.fromSet(myChildren).isEmpty() ? renamedId : SetSequence.fromSet(myChildren).first().getCurrentNodeId(this, renamedId));
+  public void setIdChanges(Iterable<ModelChange> modelChanges) {
+    SetSequence.fromSet(myChildren).visitAll(new IVisitor<CommitsGraphNode>() {
+      public void visit(CommitsGraphNode child) {
+        MapSequence.fromMap(child.getChangedIds()).visitAll(new IVisitor<IMapping<SNodeId, Set<SNodeId>>>() {
+          public void visit(IMapping<SNodeId, Set<SNodeId>> it) {
+            addChangedIds(it.key(), it.value());
+          }
+        });
+      }
+    });
+    Sequence.fromIterable(modelChanges).ofType(NodeIdChange.class).visitAll(new IVisitor<NodeIdChange>() {
+      public void visit(NodeIdChange nodeIdChange) {
+        SNodeId oldId = nodeIdChange.getNodeId(false);
+        SNodeId newId = nodeIdChange.getNodeId(true);
+        Set<SNodeId> newIds = SetSequence.fromSet(new HashSet<SNodeId>());
+        if (MapSequence.fromMap(myChangedIds).containsKey(newId)) {
+          SetSequence.fromSet(newIds).addSequence(SetSequence.fromSet(MapSequence.fromMap(myChangedIds).get(newId)));
+          MapSequence.fromMap(myChangedIds).removeKey(newId);
+        } else {
+          SetSequence.fromSet(newIds).addElement(newId);
+        }
+        addChangedIds(oldId, newIds);
+      }
+    });
+  }
+
+  public Set<SNodeId> getCurrentNodeIds(SNodeId nodeId) {
+    Set<SNodeId> currentIds = SetSequence.fromSet(new HashSet<SNodeId>());
+    if (MapSequence.fromMap(myChangedIds).containsKey(nodeId)) {
+      SetSequence.fromSet(currentIds).addSequence(SetSequence.fromSet(MapSequence.fromMap(myChangedIds).get(nodeId)));
+    }
+    SetSequence.fromSet(currentIds).addElement(nodeId);
+    return currentIds;
   }
 
   /*package*/ void addParent(CommitsGraphNode parent) {
@@ -132,7 +168,7 @@ public final class CommitsGraphNode implements Comparable {
   public String toString() {
     VcsRevisionNumber rn = myRevision.getRevisionNumber();
     if (rn instanceof GitRevisionNumber) {
-      GitRevisionNumber grn = as_9s317u_a0a0a1a83(rn, GitRevisionNumber.class);
+      GitRevisionNumber grn = as_9s317u_a0a0a1a04(rn, GitRevisionNumber.class);
       return grn.getShortRev() + "/" + myRevision.getCommitMessage();
     }
     return rn.asString();
@@ -186,7 +222,7 @@ public final class CommitsGraphNode implements Comparable {
       return;
     }
     if (myModelCanBeUnloaded) {
-      check_9s317u_a0a1a45(myLoadedModel);
+      check_9s317u_a0a1a65(myLoadedModel);
     }
     myLoadedModel = null;
     myModel = null;
@@ -309,13 +345,13 @@ public final class CommitsGraphNode implements Comparable {
     return tooltipText;
   }
 
-  private static void check_9s317u_a0a1a45(SModel checkedDotOperand) {
+  private static void check_9s317u_a0a1a65(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.unload();
     }
 
   }
-  private static <T> T as_9s317u_a0a0a1a83(Object o, Class<T> type) {
+  private static <T> T as_9s317u_a0a0a1a04(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }
