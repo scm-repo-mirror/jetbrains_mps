@@ -114,10 +114,10 @@ public abstract class ReportingTypecheckingContext<
   @Nullable
   public SimpleErrorReporter createErrorReporter(SNode nodeWithError, String errorString, String ruleModel, String ruleId, QuickFixProvider intentionProvider, MessageTarget errorTarget, MessageStatus severity) {
     if (nodeWithError == null) {
-      LOG.error("Node used to report an error is null. Error will be ignored. Reported from model " + ruleModel + " by rule " + ruleId + ".", new Throwable());
+      LOG.debug("Node used to report an error is null. Error will be ignored. Reported from model " + ruleModel + " by rule " + ruleId + ".", new Throwable());
       return null;
     } else if (nodeWithError.getModel() == null) {
-      LOG.error("Node used to report an error is not in a model. Error will be ignored. Node=" + SNodeOperations.getDebugText(nodeWithError) + ". Reported from model " + ruleModel + " by rule " + ruleId + ".", new Throwable());
+      LOG.debug("Node used to report an error is not in a model. Error will be ignored. Node=" + SNodeOperations.getDebugText(nodeWithError) + ". Reported from model " + ruleModel + " by rule " + ruleId + ".", new Throwable());
       return null;
     }
     SimpleErrorReporter reporter = new SimpleErrorReporter(nodeWithError, errorString, ruleModel, ruleId, severity, errorTarget);
