@@ -66,19 +66,6 @@ public class InspectorEditorComponent extends EditorComponent {
     return new EditorCell_Constant(getEditorContext(), null, "<no inspect info>");
   }
 
-  @NotNull
-  @Override
-  public ITypeContextOwner getTypecheckingContextOwner() {
-    FileEditor fileEditor = MPSCommonDataKeys.FILE_EDITOR.getData(DataManager.getInstance().getDataContext((this)));
-    if (fileEditor instanceof MPSFileNodeEditor) {
-      ITypeContextOwner typeContextOwner = (ITypeContextOwner) ((MPSFileNodeEditor) fileEditor).getNodeEditor().getCurrentEditorComponent();
-      if (typeContextOwner != null) {
-        return typeContextOwner;
-      }
-    }
-    return this;
-  }
-
   protected boolean updateContainingRoot(SNode node) {
     return true;
   }

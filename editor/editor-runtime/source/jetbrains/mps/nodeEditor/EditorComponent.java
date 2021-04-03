@@ -228,7 +228,7 @@ import java.util.Stack;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public abstract class EditorComponent extends JComponent implements Scrollable, DataProvider, ITypeContextOwner, TooltipComponent,
+public abstract class EditorComponent extends JComponent implements Scrollable, DataProvider, TooltipComponent,
                                                                     jetbrains.mps.openapi.editor.EditorComponent {
 
   private static final Logger LOG = Logger.wrap(LogManager.getLogger(EditorComponent.class));
@@ -1017,24 +1017,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         }
       }
     });
-  }
-
-  @Deprecated
-  @Override
-  public TypeCheckingContext createTypecheckingContext(SNode sNode, TypeContextManager typeContextManager) {
-    return (new DefaultTypecheckingContextOwner()).createTypecheckingContext(sNode, typeContextManager);
-  }
-
-  @Deprecated
-  @Override
-  public boolean reuseTypecheckingContext() {
-    return true;
-  }
-
-  @Deprecated
-  @Override
-  public SubtypingCache createSubtypingCache() {
-    return new ConcurrentSubtypingCache();
   }
 
   public String getMessagesTextFor(jetbrains.mps.openapi.editor.cells.EditorCell cell) {
@@ -2355,16 +2337,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   private boolean areMouseEventsBlocked() {
     return myMouseEventHandler != null;
-  }
-
-  /**
-   * @return
-   * @deprecated use {@link EditorComponent#getTypecheckingSession()} to launch typechecking reusing the cached state.
-   */
-  @Deprecated
-  @NotNull
-  public ITypeContextOwner getTypecheckingContextOwner() {
-    return this;
   }
 
   /**
