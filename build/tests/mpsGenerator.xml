@@ -701,9 +701,6 @@
       <fileset dir="${basedir}/languages/languageDesign/generator/test/inputLangGen5/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/jetbrains.mps.transformation.test.inputLang.generator05.jar" />
     </jar>
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-test-inputLangGen3-templates1">
-      <fileset dir="${basedir}/languages/languageDesign/generator/test/inputLangGen3/templates" includes="**/*.mps, **/*.mpsr, **/.model" />
-    </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-test-inputLangGen5-templates">
       <fileset dir="${basedir}/languages/languageDesign/generator/test/inputLangGen5/templates" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
@@ -715,7 +712,6 @@
         <exclude name="**/*.mps" />
       </fileset>
       <zipfileset file="${basedir}/languages/languageDesign/generator/test/inputLangGen5/jetbrains.mps.transformation.test.inputLang.generator05.mpst" prefix="module" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-test-inputLangGen3-templates1" prefix="module/templates" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-test-inputLangGen5-templates" prefix="module/templates" />
     </jar>
     <mkdir dir="${build.layout}/traceMacro" />
