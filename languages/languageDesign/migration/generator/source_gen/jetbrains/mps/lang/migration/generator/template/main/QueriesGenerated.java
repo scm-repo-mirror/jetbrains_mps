@@ -880,8 +880,8 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     snsqMethods.put("3001160274377874348", new SNsQ(i++));
-    snsqMethods.put("3001160274375126089", new SNsQ(i++));
-    snsqMethods.put("2016543223706389481", new SNsQ(i++));
+    snsqMethods.put("7854334384285157669", new SNsQ(i++));
+    snsqMethods.put("7854334384285086374", new SNsQ(i++));
     snsqMethods.put("2521103492728916448", new SNsQ(i++));
     snsqMethods.put("6807933448474487056", new SNsQ(i++));
     snsqMethods.put("5387853834547147401", new SNsQ(i++));
