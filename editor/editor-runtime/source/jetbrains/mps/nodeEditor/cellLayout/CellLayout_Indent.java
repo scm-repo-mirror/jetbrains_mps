@@ -287,8 +287,6 @@ public class CellLayout_Indent extends AbstractCellLayout {
     private int myLineWidth;
     private int myLineAscent;
     private int myLineDescent;
-    private int myTopInset;
-    private int myBottomInset;
     private boolean myOverflow;
     private final List<EditorCell> myLineContent = new ArrayList<>();
     private final int myIndentSize;
@@ -530,10 +528,8 @@ public class CellLayout_Indent extends AbstractCellLayout {
       cell.moveTo(myX + myLineWidth, Math.max(cell.getY(), myCell.getY() + myHeight));
       cell.relayout();
 
-      myLineAscent = Math.max(myLineAscent, cell.getAscent());
-      myLineDescent = Math.max(myLineDescent, cell.getDescent());
-      myTopInset = Math.max(myTopInset, cell.getTopInset());
-      myBottomInset = Math.max(myBottomInset, cell.getBottomInset());
+      myLineAscent = Math.max(myLineAscent, cell.getAscent() + cell.getTopInset());
+      myLineDescent = Math.max(myLineDescent, cell.getDescent() + cell.getBottomInset());
 
       myLineWidth += cell.getWidth();
 
@@ -545,7 +541,7 @@ public class CellLayout_Indent extends AbstractCellLayout {
     }
 
     private void newLine(boolean overflow) {
-      final int baseLine = myCell.getY() + myHeight + myTopInset + myLineAscent;
+      final int baseLine = myCell.getY() + myHeight + myLineAscent;
       myPreviousLineWidth = currentIndent();
 
       for (EditorCell cell : myLineContent) {
@@ -553,7 +549,7 @@ public class CellLayout_Indent extends AbstractCellLayout {
         cell.relayout();
       }
 
-      myHeight += myTopInset + myBottomInset + myLineAscent + myLineDescent;
+      myHeight += myLineAscent + myLineDescent;
       myOverflow = overflow;
 
       resetLine();
@@ -563,8 +559,6 @@ public class CellLayout_Indent extends AbstractCellLayout {
       myLineWidth = 0;
       myLineAscent = 0;
       myLineDescent = 0;
-      myTopInset = 0;
-      myBottomInset = 0;
       myLineContent.clear();
     }
 

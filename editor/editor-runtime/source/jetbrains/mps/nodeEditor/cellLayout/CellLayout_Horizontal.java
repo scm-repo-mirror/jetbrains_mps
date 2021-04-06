@@ -40,8 +40,6 @@ public class CellLayout_Horizontal extends AbstractCellLayout {
     final int y = editorCells.getY();
     int ascent = 0;
     int descent = 0;
-    int topInset = 0;
-    int bottomInset = 0;
 
     boolean isInsideGird = editorCells.getParent() != null && editorCells.getParent().getCellLayout() instanceof CellLayout_Vertical &&
         ((CellLayout_Vertical) editorCells.getParent().getCellLayout()).isGridLayout();
@@ -60,13 +58,11 @@ public class CellLayout_Horizontal extends AbstractCellLayout {
       editorCell.relayout();
       width += editorCell.getWidth();
 
-      ascent = Math.max(ascent, editorCell.getAscent());
-      descent = Math.max(descent, editorCell.getDescent());
-      topInset = Math.max(topInset, editorCell.getTopInset());
-      bottomInset = Math.max(bottomInset, editorCell.getBottomInset());
+      ascent = Math.max(ascent, editorCell.getAscent() + editorCell.getTopInset());
+      descent = Math.max(descent, editorCell.getDescent() + editorCell.getBottomInset());
     }
 
-    int baseline = y + ascent + topInset;
+    int baseline = y + ascent;
 
     for (EditorCell editorCell : editorCells) {
       editorCell.setBaseline(baseline);
@@ -74,7 +70,7 @@ public class CellLayout_Horizontal extends AbstractCellLayout {
     }
 
     editorCells.setWidth(width);
-    editorCells.setHeight(ascent + descent + topInset + bottomInset);
+    editorCells.setHeight(ascent + descent);
 
     if (!isInsideGird) {
       alignCellsToRightGreedily(editorCells);
