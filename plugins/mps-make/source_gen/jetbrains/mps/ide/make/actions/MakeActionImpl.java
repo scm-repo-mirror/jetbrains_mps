@@ -37,7 +37,7 @@ public class MakeActionImpl {
       throw new IllegalStateException("should be called outside of command");
     }
     // save all before launching make 
-    new SaveRepositoryCommand(project.getRepository()).execute();
+    new SaveRepositoryCommand(project.getRepository()).executeAndWait();
 
 
     MakeSession session = new MakeSession(project, new DefaultMakeMessageHandler(project), myParams.isCleanMake());
