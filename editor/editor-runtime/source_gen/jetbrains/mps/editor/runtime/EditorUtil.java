@@ -19,20 +19,20 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.util.Condition;
 import com.intellij.openapi.vfs.VirtualFile;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
+import jetbrains.mps.project.AbstractModule;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.util.PathFormatChecker;
-import jetbrains.mps.ide.vfs.IdeaFile;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
-import com.intellij.openapi.project.Project;
-import jetbrains.mps.ide.project.ProjectHelper;
 import com.intellij.openapi.fileChooser.FileChooser;
-import jetbrains.mps.vfs.FileSystems;
-import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.util.IFileUtil;
@@ -78,51 +78,46 @@ public class EditorUtil {
       }
     });
     descriptor.setTitle("Select Image File");
+    final Project ideaProject = ProjectHelper.toIdeaProject(context.getOperationContext().getProject());
+    final MPSProject mpsProject = ProjectHelper.fromIdeaProject(ideaProject);
 
-    final Wrappers._T<IFile> oldFile = new Wrappers._T<IFile>(null);
-    context.getRepository().getModelAccess().runReadAction(new Runnable() {
-      public void run() {
+    final IFile[] moduleDir = new IFile[1];
+    IFile oldFile = new ModelAccessHelper(context.getRepository()).runReadAction(new Computable<IFile>() {
+      public IFile compute() {
+        moduleDir[0] = ((AbstractModule) node.getModel().getModule()).getModuleSourceDir();
+
         String filePath = expandPath.invoke(SNodeAccessUtil.getProperty(node, property));
         if (filePath != null) {
           try {
-            oldFile.value = FileSystem.getInstance().getFile(filePath);
-            if (!(oldFile.value.exists())) {
-              oldFile.value = null;
-            }
+            IFile f = mpsProject.getFileSystem().getFile(filePath);
+            return (f.exists() ? f : null);
           } catch (PathFormatChecker.PathFormatException pfe) {
-            oldFile.value = null;
+            return null;
           }
         }
+        return null;
       }
     });
 
-    final VirtualFile oldVFile = (oldFile.value == null ? null : ((IdeaFile) oldFile.value).getVirtualFile());
+    final VirtualFile oldVFile = (oldFile == null ? null : mpsProject.getFileSystem().asVirtualFile(oldFile));
     final JButton button = new JButton();
     button.setAction(new AbstractAction("...") {
       @Override
       public void actionPerformed(ActionEvent e) {
-        Project project = ProjectHelper.toIdeaProject(context.getOperationContext().getProject());
-        final VirtualFile chosenFile = FileChooser.chooseFile(descriptor, project, oldVFile);
+        final VirtualFile chosenFile = FileChooser.chooseFile(descriptor, ideaProject, oldVFile);
         if (chosenFile == null) {
           return;
         }
 
-        final Wrappers._T<IFile> result = new Wrappers._T<IFile>(FileSystems.getDefault().getFile(chosenFile.getCanonicalPath()));
+        final Wrappers._T<IFile> result = new Wrappers._T<IFile>((mpsProject.getFileSystem().canConvert(chosenFile) ? mpsProject.getFileSystem().fromVirtualFile(chosenFile) : null));
         if (result.value == null) {
           return;
         }
 
-        final Wrappers._T<IFile> moduleDir = new Wrappers._T<IFile>();
-        final Wrappers._boolean isUnderModule = new Wrappers._boolean();
-        context.getRepository().getModelAccess().runReadAction(new Runnable() {
-          public void run() {
-            moduleDir.value = ((AbstractModule) node.getModel().getModule()).getModuleSourceDir();
-            isUnderModule.value = FileUtil.isAncestor(moduleDir.value.getPath(), chosenFile.getPath());
-          }
-        });
+        boolean isUnderModule = FileUtil.isAncestor(moduleDir[0].getPath(), chosenFile.getPath());
 
-        if (!(isUnderModule.value)) {
-          String message = String.format("The image file is outside of the module directory.%nMPS will copy the file to %s/icons folder.%nWould you like to proceed?", moduleDir.value.getPath());
+        if (!(isUnderModule)) {
+          String message = String.format("The image file is outside of the module directory.%nMPS will copy the file to %s/icons folder.%nWould you like to proceed?", moduleDir[0].getPath());
           if (Messages.showYesNoDialog(button, message, "Copy Image", Messages.getQuestionIcon()) != Messages.YES) {
             return;
           }
@@ -130,7 +125,7 @@ public class EditorUtil {
           final Wrappers._boolean success = new Wrappers._boolean(true);
           context.getRepository().getModelAccess().runWriteAction(new Runnable() {
             public void run() {
-              IFile copiedFile = moduleDir.value.findChild("icons").findChild(chosenFile.getName());
+              IFile copiedFile = moduleDir[0].findChild("icons").findChild(chosenFile.getName());
               if (copiedFile.exists()) {
                 String rewriteMessage = String.format("A file named %s already exists in the target folder.%nDo you want to replace it?", chosenFile.getName());
                 if (Messages.showYesNoDialog(button, rewriteMessage, "Warning", Messages.getWarningIcon()) != Messages.YES) {
