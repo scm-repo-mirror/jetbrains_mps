@@ -15,12 +15,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.FileSystems;
+import java.io.File;
 import javax.swing.ImageIcon;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -39,9 +37,6 @@ public final class MPSTipsAndTricks_Image__BehaviorDescriptor extends BaseBHDesc
 
   /*package*/ static boolean isValid_idIb_Fk7zRKP(@NotNull SNode __thisNode__) {
     SModule module = SNodeOperations.getModel(__thisNode__).getModule();
-    if (!(module instanceof AbstractModule)) {
-      return false;
-    }
 
     MacroHelper macroHelper = MacrosFactory.forModule(module);
     String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, PROPS.file$Q7$W));
@@ -49,7 +44,7 @@ public final class MPSTipsAndTricks_Image__BehaviorDescriptor extends BaseBHDesc
       return false;
     }
 
-    IFile file = FileSystems.getDefault().getFile(path);
+    File file = new File(path);
     if (!(file.exists())) {
       return false;
     }
