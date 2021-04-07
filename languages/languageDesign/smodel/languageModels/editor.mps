@@ -1955,6 +1955,7 @@
       <node concept="1QoScp" id="5QK5AMJ1t8k" role="3EZMnx">
         <property role="1QpmdY" value="true" />
         <node concept="3F1sOY" id="5QK5AMJ1uVn" role="1QoS34">
+          <property role="1$x2rV" value="&lt;all&gt;" />
           <ref role="1NtTu8" to="tp25:5QK5AMJ1t1p" resolve="conceptArgument" />
         </node>
         <node concept="pkWqt" id="5QK5AMJ1t8n" role="3e4ffs">
@@ -2313,6 +2314,7 @@
       <node concept="1QoScp" id="5QK5AMJ1Q8z" role="3EZMnx">
         <property role="1QpmdY" value="true" />
         <node concept="3F1sOY" id="5QK5AMJ1RxT" role="1QoS34">
+          <property role="1$x2rV" value="&lt;all&gt;" />
           <ref role="1NtTu8" to="tp25:5QK5AMJ1OKV" resolve="conceptArgument" />
         </node>
         <node concept="pkWqt" id="5QK5AMJ1Q8A" role="3e4ffs">
@@ -2562,6 +2564,7 @@
       <node concept="1QoScp" id="5QK5AMJ1OLr" role="3EZMnx">
         <property role="1QpmdY" value="true" />
         <node concept="3F1sOY" id="5QK5AMJ1Q1n" role="1QoS34">
+          <property role="1$x2rV" value="&lt;all&gt;" />
           <ref role="1NtTu8" to="tp25:5QK5AMJ1OL7" resolve="conceptArgument" />
         </node>
         <node concept="pkWqt" id="5QK5AMJ1OLu" role="3e4ffs">

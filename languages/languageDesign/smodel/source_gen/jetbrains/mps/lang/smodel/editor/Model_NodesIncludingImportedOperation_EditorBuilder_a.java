@@ -155,7 +155,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
     protected String getNoTargetText() {
-      return "<no conceptArgument>";
+      return "<all>";
     }
   }
   private EditorCell createRefCell_0() {
