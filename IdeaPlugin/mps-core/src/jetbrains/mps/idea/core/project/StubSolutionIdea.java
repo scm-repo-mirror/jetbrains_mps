@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.SRepositoryExt;
 import jetbrains.mps.extapi.persistence.DefaultSourceRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKinds;
+import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.idea.core.project.stubs.JdkStubSolutionManager;
 import jetbrains.mps.idea.core.project.stubs.StubModuleNameTakenException;
 import jetbrains.mps.module.SDependencyImpl;
@@ -164,12 +165,11 @@ public abstract class StubSolutionIdea extends Solution {
 
   @NotNull
   private static QualifiedPath file2QP(VirtualFile f, @NotNull VFSManager vfsManager) {
-    String url = f.getUrl();
-    String fsId = url.substring(0, url.indexOf(":"));
-    if (vfsManager.getFileSystem(fsId)==null){
-      throw new IllegalArgumentException("File system not supported: " + fsId);
+    final QualifiedPath qp = VirtualFileUtils.asQualifiedPath(f);
+    if (vfsManager.getFileSystem(qp.getFsId()) == null){
+      throw new IllegalArgumentException("File system not supported: " + qp.getFsId());
     }
-    return new QualifiedPath(fsId, f.getPath());
+    return qp;
   }
 
   private static ModelRootDescriptor jdkModelRoot(VirtualFile[] roots, VFSManager vfsManager) {

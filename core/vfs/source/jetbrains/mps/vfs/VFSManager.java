@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import jetbrains.mps.vfs.iofs.jrt.JrtIoFileSystem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -129,7 +130,8 @@ public class VFSManager implements CoreComponent {
     return myFileSystems.get(fsId);
   }
 
-  public IFile getFile(QualifiedPath path) {
+  @Nullable
+  public IFile getFile(@NotNull QualifiedPath path) {
     IFileSystem fs = getFileSystem(path.getFsId());
     if (fs == null) {
       return null;

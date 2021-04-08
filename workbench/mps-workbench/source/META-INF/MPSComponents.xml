@@ -32,9 +32,6 @@
       <implementation-class>jetbrains.mps.watching.WatchedRootsUpdater</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.ide.platform.watching.ModelCacheReloader</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.refactoring.RefactoringAccessImpl</implementation-class>
     </component>
     <component>

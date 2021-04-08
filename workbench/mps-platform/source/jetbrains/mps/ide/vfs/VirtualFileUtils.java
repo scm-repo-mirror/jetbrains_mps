@@ -21,12 +21,12 @@ import com.intellij.openapi.vfs.VfsUtilCore;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.QualifiedPath;
 import jetbrains.mps.vfs.impl.IoFileSystem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -116,12 +116,11 @@ public final class VirtualFileUtils {
   @Deprecated
   public static IFile toIFile(@NotNull VirtualFile f) {
     FileSystem fs = FileSystemExtPoint.getFS();
-    if (!(fs instanceof IdeaFileSystem)) {
-      LOG.warn("Current file system is not base on the IDEA VFS " + fs + ". Requested file is " + f);
-      return null;
+    if (fs instanceof IdeaFileSystem) {
+      return ((IdeaFileSystem) fs).fromVirtualFile(f);
     }
-    IdeaFileSystem ideaFS = (IdeaFileSystem) fs;
-    return ideaFS.getFile(FileUtil.normalize(f.getPath()));
+    LOG.warn("Current file system is not base on the IDEA VFS " + fs + ". Requested file is " + f);
+    return null;
   }
 
   public static File toFile(VirtualFile f) {
@@ -130,6 +129,21 @@ public final class VirtualFileUtils {
     } else {
       throw new RuntimeException("Attempt to get File for non local file." + f.getPath());
     }
+  }
+
+  /**
+   * Translates IDEA's {@link VirtualFile} to {@link QualifiedPath} API suitable for
+   * {@link jetbrains.mps.vfs.VFSManager#getFile(QualifiedPath)}.
+   * Note, there's no guarantee that {@link jetbrains.mps.vfs.VFSManager#getFileSystem(String)} supports FS of
+   * the returned path
+   * <p>Prefer {@link IdeaFileSystem#fromVirtualFile(VirtualFile)} if you have access to {@code MPSProject}</p>
+   */
+  @NotNull
+  public static QualifiedPath asQualifiedPath(@NotNull VirtualFile vf) {
+    // based on StubSolutionIdea.file2QP() implementation by MM
+    String url = vf.getUrl();
+    String fsId = url.substring(0, url.indexOf(':'));
+    return new QualifiedPath(fsId, vf.getPath());
   }
 
   public static void refreshSynchronouslyRecursively(VirtualFile file, ProgressMonitor progressMonitor) {

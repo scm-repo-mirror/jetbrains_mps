@@ -39,10 +39,6 @@
       <!-- FIXME same in MPSComponents.xml -->
       <implementation-class>jetbrains.mps.ide.platform.watching.FSChangesWatcher</implementation-class>
     </component>
-    <component>
-      <!-- FIXME same in MPSComponents.xml -->
-      <implementation-class>jetbrains.mps.ide.platform.watching.ModelCacheReloader</implementation-class>
-    </component>
   </application-components>
 
   <extensions defaultExtensionNs="com.intellij">

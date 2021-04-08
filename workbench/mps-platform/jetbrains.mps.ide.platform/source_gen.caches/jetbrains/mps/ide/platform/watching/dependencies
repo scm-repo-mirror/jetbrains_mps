@@ -109,26 +109,25 @@
   </dependency>
   <dependency className="jetbrains.mps.ide.platform.watching.ModelCacheReloader">
     <classNode dependClassName="com.intellij.openapi.vfs.VirtualFile" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileAdapter" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileEvent" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManager" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileMoveEvent" />
-    <classNode dependClassName="com.intellij.openapi.vfs.newvfs.ArchiveFileSystem" />
+    <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileEvent" />
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.ArrayDeque" />
+    <classNode dependClassName="java.util.HashSet" />
+    <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.components.ComponentHost" />
     <classNode dependClassName="jetbrains.mps.generator.ModelGenerationStatusManager" />
     <classNode dependClassName="jetbrains.mps.generator.impl.dependencies.GenerationDependenciesCache" />
     <classNode dependClassName="jetbrains.mps.ide.MPSCoreComponents" />
     <classNode dependClassName="jetbrains.mps.ide.vfs.VirtualFileUtils" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.vfs.IFile" />
+    <classNode dependClassName="jetbrains.mps.vfs.VFSManager" />
     <classNode dependClassName="org.apache.log4j.Level" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
     <classNode dependClassName="org.apache.log4j.Logger" />
-    <classNode dependClassName="org.jetbrains.annotations.NonNls" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="com.intellij.openapi.components.ApplicationComponent" />
+    <classNode extendsClassName="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
   </dependency>
   <dependency className="jetbrains.mps.ide.platform.watching.ModuleRootCache">
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
