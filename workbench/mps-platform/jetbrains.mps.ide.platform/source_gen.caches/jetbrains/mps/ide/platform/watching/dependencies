@@ -9,17 +9,12 @@
     <classNode dependClassName="com.intellij.openapi.application.Application" />
     <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.vfs.LocalFileSystem" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManager" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManagerListener" />
-    <classNode dependClassName="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileContentChangeEvent" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileCopyEvent" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileCreateEvent" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileDeleteEvent" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileEvent" />
     <classNode dependClassName="com.intellij.openapi.vfs.newvfs.events.VFileMoveEvent" />
-    <classNode dependClassName="com.intellij.util.messages.MessageBus" />
-    <classNode dependClassName="com.intellij.util.messages.MessageBusConnection" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.List" />
@@ -28,7 +23,6 @@
     <classNode dependClassName="jetbrains.mps.ide.platform.watching.FileProcessor" />
     <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadAction" />
     <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadManager" />
-    <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadManagerComponent" />
     <classNode dependClassName="jetbrains.mps.ide.vfs.IdeaFileSystem" />
     <classNode dependClassName="jetbrains.mps.ide.vfs.VirtualFileUtils" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
@@ -37,9 +31,8 @@
     <classNode dependClassName="jetbrains.mps.nodefs.NodeVirtualFileSystem" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
     <classNode dependClassName="org.apache.log4j.Logger" />
-    <classNode dependClassName="org.jetbrains.annotations.NonNls" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="com.intellij.openapi.components.ApplicationComponent" />
+    <classNode extendsClassName="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
   </dependency>
   <dependency className="jetbrains.mps.ide.platform.watching.FileProcessor">
     <classNode dependClassName="com.intellij.openapi.util.io.FileUtil" />
@@ -158,6 +151,8 @@
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.intellij.openapi.project.ProjectManager" />
     <classNode dependClassName="com.intellij.openapi.vcs.ProjectLevelVcsManager" />
+    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManager" />
+    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManagerListener" />
     <classNode dependClassName="com.intellij.util.ui.update.MergingUpdateQueue" />
     <classNode dependClassName="com.intellij.util.ui.update.Update" />
     <classNode dependClassName="java.lang.InterruptedException" />

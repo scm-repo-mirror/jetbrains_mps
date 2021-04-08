@@ -6,7 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.Disposable;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
-import com.intellij.openapi.project.ProjectManager;
 import jetbrains.mps.make.IMakeNotificationListener;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -14,11 +13,13 @@ import java.util.ArrayList;
 import com.intellij.util.ui.update.MergingUpdateQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import jetbrains.mps.make.IMakeService;
+import com.intellij.openapi.vfs.VirtualFileManager;
 import java.util.function.Supplier;
 import org.apache.log4j.Level;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.save.SaveRepositoryCommand;
@@ -31,12 +32,12 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.make.MakeNotification;
+import com.intellij.openapi.vfs.VirtualFileManagerListener;
 
 @GeneratedClass(node = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)/4774203567222173397", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
 public class ReloadManagerComponent extends ReloadManager implements Disposable {
   private static final Logger LOG = LogManager.getLogger(ReloadManagerComponent.class);
 
-  private final ProjectManager myProjectManager;
   private final IMakeNotificationListener myMakeListener = new NotReloadingOnMakeListener();
   private final List<ReloadListener> myReloadListeners = ListSequence.fromList(new ArrayList<ReloadListener>());
   private final ReloadSessionBroker myReloadSessionBroker = new ReloadSessionBroker();
@@ -46,11 +47,11 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
 
   private final IMakeService myMakeService;
 
-  public ReloadManagerComponent(ProjectManager projectManager, IMakeService makeService) {
-    myProjectManager = projectManager;
+  public ReloadManagerComponent(IMakeService makeService) {
     myTaskQueue.setRestartTimerOnAdd(true);
     myMakeService = makeService;
     myMakeService.addListener(myMakeListener);
+    VirtualFileManager.getInstance().addVirtualFileManagerListener(new NoReloadOnRefresh(), this);
   }
 
   @Override
@@ -135,8 +136,8 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
 
   /*package*/ void saveAllOpenProjects() {
     // see MPS-18743, 21760
-    // FIXME instead of this workardound, fix the defect in module reload (if there are changed models in it, reload leads to model changes being discarded)
-    for (Project project : myProjectManager.getOpenProjects()) {
+    // FIXME instead of this workaround, fix the defect in module reload (if there are changed models in it, reload leads to model changes being discarded)
+    for (Project project : ProjectManager.getInstance().getOpenProjects()) {
       SRepository projectRepo = ProjectHelper.getProjectRepository(project);
       if (projectRepo != null) {
         new SaveRepositoryCommand(projectRepo).execute();
@@ -151,7 +152,7 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
 
     myTaskQueue.queue(new Update(myUpdateId) {
       public void run() {
-        for (Project project : myProjectManager.getOpenProjects()) {
+        for (Project project : ProjectManager.getInstance().getOpenProjects()) {
           if (ProjectLevelVcsManager.getInstance(project).isBackgroundVcsOperationRunning()) {
             queueReloadSession();
             return;
@@ -244,6 +245,21 @@ public class ReloadManagerComponent extends ReloadManager implements Disposable 
     @Override
     public void sessionClosed(MakeNotification notification) {
       resumeReloads();
+    }
+  }
+
+  private class NoReloadOnRefresh implements VirtualFileManagerListener {
+    @Override
+    public void beforeRefreshStart(boolean async) {
+      suspendReloads();
+    }
+
+    @Override
+    public void afterRefreshFinish(boolean async) {
+      resumeReloads();
+      if (!(async)) {
+        flushAllPendingReloads();
+      }
     }
   }
 }

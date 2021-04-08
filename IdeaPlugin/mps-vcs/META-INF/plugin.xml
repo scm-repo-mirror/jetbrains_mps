@@ -34,13 +34,6 @@
     <diff.merge.MergeTool implementation="jetbrains.mps.vcs.platform.integration.ModelMergeTool"/>
   </extensions>
 
-  <application-components>
-    <component>
-      <!-- FIXME same in MPSComponents.xml -->
-      <implementation-class>jetbrains.mps.ide.platform.watching.FSChangesWatcher</implementation-class>
-    </component>
-  </application-components>
-
   <extensions defaultExtensionNs="com.intellij">
     <mps.LanguageLibrary dir="/"/>
     <errorHandler implementation="jetbrains.mps.ide.blame.CharismaReporter"/>
