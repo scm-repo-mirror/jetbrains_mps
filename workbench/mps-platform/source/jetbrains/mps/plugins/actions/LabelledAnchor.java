@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ import jetbrains.mps.workbench.action.BaseAction;
 import java.util.Map;
 
 public class LabelledAnchor extends BaseAction {
-  private String myId;
+  private final String myId;
 
   public LabelledAnchor(String id) {
-    super();
+    super(() -> id.substring(id.lastIndexOf('.') + 1));
     myId = id;
   }
 
@@ -40,6 +40,5 @@ public class LabelledAnchor extends BaseAction {
 
   @Override
   public void doExecute(AnActionEvent e, Map<String, Object> _params) {
-
   }
 }

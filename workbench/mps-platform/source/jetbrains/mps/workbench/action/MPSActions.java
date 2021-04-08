@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import org.apache.log4j.LogManager;
 import java.util.ArrayList;
 import java.util.List;
 
+// FIXME make a CoreComponent, so that BaseApplicationPlugin.dispose doesn't need to
 public class MPSActions {
   private static final Logger LOG = LogManager.getLogger(MPSActions.class);
 

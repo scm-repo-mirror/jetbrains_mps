@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 import jetbrains.mps.util.Pair;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.workbench.action.BaseGroup;
-import jetbrains.mps.workbench.action.ApplicationPlugin;
 import jetbrains.mps.workbench.action.MPSActions;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -123,7 +123,13 @@ public abstract class BaseApplicationPlugin implements ApplicationPlugin {
     }
   }
 
-  protected void addAction(BaseAction action) {
+  @Override
+  public final void addAction(BaseAction action) {
+    // It's essential to use pluginId for any action registered from this app plugin
+    // as it's the mechanism we use in dispose() to unregister all actions (to facilitate
+    // re-adding actions with the same id after plugin class reload.
+    // Note, plugin id here is name of the module, not id of IDEA plugin (they may match, but
+    // not necessarily do). Seems that IDEA doesn't care and just use it as a key
     ActionManagerEx.getInstanceEx().registerAction(action.getActionId(), action, getId());
   }
 
@@ -179,7 +185,7 @@ public abstract class BaseApplicationPlugin implements ApplicationPlugin {
     myPlatform = mpsPlatform;
   }
 
-  public final void dispose() {
+  public void dispose() {
     //groups are disposed in ActionFactory
     //keymaps are unregistered in ActionFactory
     for (ApplicationPluginPart part : myCustomParts) {

@@ -18,7 +18,6 @@ package jetbrains.mps.plugins.actions;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.Constraints;
-import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
 import com.intellij.openapi.extensions.PluginId;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.action.ApplicationPlugin;
@@ -75,13 +74,7 @@ public abstract class GeneratedActionGroup extends BaseGroup {
   // rt for GroupAnchor declaration
   protected void addNamedAnchor(String labelId) {
     LabelledAnchor action = new LabelledAnchor(labelId);
-    ActionManagerEx manager = ActionManagerEx.getInstanceEx();
-    // XXX pluginId is null, I don't see any reason to supply one for label/anchor entry
-    //     Besides, I'm confused as it's name of the module, not id of IDEA plugin (they may match, but
-    //     rarely do)
-    //     If, however, this is necessary, I'd say we shall take it from myApplicationPlugin rather than
-    //     supply from generated code.
-    manager.registerAction(action.getId(), action, null);
+    myApplicationPlugin.addAction(action);
     addAction(action, Constraints.LAST);
   }
 
