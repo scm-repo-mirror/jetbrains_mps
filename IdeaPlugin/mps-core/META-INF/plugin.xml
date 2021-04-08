@@ -69,11 +69,6 @@
     </component>
   </application-components>
 
-  <applicationListeners>
-    <!-- FIXME same in MPSWorkbench.xml -->
-    <listener class="jetbrains.mps.repository.FSNotificationsCleaner" topic="com.intellij.ide.AppLifecycleListener"/>
-  </applicationListeners>
-
   <xi:include href="../../../workbench/mps-platform/source/META-INF/MPSCore.xml" xpointer="xpointer(/components/*)"/>
   <xi:include href="../../../workbench/mps-editor/source/META-INF/MPSEditor.xml" xpointer="xpointer(/components/*)"/>
   <xi:include href="../../../workbench/mps-ui/source_gen/jetbrains/mps/ide/platform/actions/PlatformActions.xml"
@@ -186,8 +181,6 @@
   </extensions>
 
   <extensions defaultExtensionNs="jetbrains.mps">
-    <!-- FIXME same in MPSWorkbench.xml -->
-    <applicationService serviceImplementation="jetbrains.mps.repository.FSNotificationsImprover"/>
     <NodeEditorFactory implementation="jetbrains.mps.idea.core.editor.IdeaMPSEditorOpenHandler"/>
   </extensions>
 
