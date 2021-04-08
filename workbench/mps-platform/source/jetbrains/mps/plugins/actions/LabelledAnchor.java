@@ -28,7 +28,9 @@ public class LabelledAnchor extends BaseAction {
     myId = id;
   }
 
-  public String getId() {
+  @Override
+  public String getActionId() {
+    // that's what BaseApplicationPlugin.addAction() uses to identify the action
     return myId;
   }
 
