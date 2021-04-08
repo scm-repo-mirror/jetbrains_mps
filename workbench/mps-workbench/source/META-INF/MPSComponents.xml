@@ -11,10 +11,6 @@
 
   <application-components>
     <component>
-      <interface-class>jetbrains.mps.ide.platform.watching.FileSystemListenersContainer</interface-class>
-      <implementation-class>jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer</implementation-class>
-    </component>
-    <component>
       <interface-class>jetbrains.mps.repository.IdeaPluginFacetComponent</interface-class>
       <implementation-class>jetbrains.mps.ide.project.facets.IdeaPluginModuleFacetImplComponent</implementation-class>
     </component>
@@ -141,6 +137,8 @@
     <postStartupActivity implementation="jetbrains.mps.workbench.findusages.StubModelsFastFindSupport$Plug" />
     <postStartupActivity implementation="jetbrains.mps.ide.make.StartupModuleMakerImpl" />
     <projectService serviceImplementation="jetbrains.mps.ide.findusages.view.optionseditor.DefaultSearchOptionsComponent"/>
+    <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"
+                        serviceImplementation="jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer" />
   </extensions>
 
   <extensions defaultExtensionNs="jetbrains.mps">

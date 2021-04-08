@@ -78,6 +78,7 @@
     <classNode extendsClassName="jetbrains.mps.ide.platform.watching.ReloadParticipant" />
   </dependency>
   <dependency className="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer">
+    <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.vfs.JarFileSystem" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />

@@ -3913,6 +3913,37 @@
       </node>
       <node concept="3Tm6S6" id="5gUstTWeTma" role="1B3o_S" />
     </node>
+    <node concept="2tJIrI" id="U8pLGsw1GS" role="jymVt" />
+    <node concept="2YIFZL" id="U8pLGsw9N_" role="jymVt">
+      <property role="TrG5h" value="getInstance" />
+      <node concept="3clFbS" id="U8pLGsw9NC" role="3clF47">
+        <node concept="3cpWs6" id="U8pLGswfvz" role="3cqZAp">
+          <node concept="2OqwBi" id="U8pLGswe93" role="3cqZAk">
+            <node concept="2YIFZM" id="U8pLGswdYA" role="2Oq$k0">
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+            </node>
+            <node concept="liA8E" id="U8pLGswek2" role="2OqNvi">
+              <ref role="37wK5l" to="1m72:~ComponentManager.getService(java.lang.Class)" resolve="getService" />
+              <node concept="3VsKOn" id="U8pLGsweuq" role="37wK5m">
+                <ref role="3VsUkX" node="6KWQXOStuzV" resolve="FileSystemListenersContainer" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="U8pLGsw5nA" role="1B3o_S" />
+      <node concept="3uibUv" id="U8pLGsw8SC" role="3clF45">
+        <ref role="3uigEE" node="6KWQXOStuzV" resolve="FileSystemListenersContainer" />
+      </node>
+      <node concept="P$JXv" id="U8pLGswdhk" role="lGtFl">
+        <node concept="TZ5HA" id="U8pLGswdhl" role="TZ5H$">
+          <node concept="1dT_AC" id="U8pLGswdhm" role="1dT_Ay">
+            <property role="1dT_AB" value="This class is application-wide service" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="5LhcIq1TvbV" role="jymVt" />
     <node concept="312cEu" id="5p_KN$yVjcH" role="jymVt">
       <property role="2bfB8j" value="false" />

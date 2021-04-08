@@ -55,19 +55,19 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
   private FileSystemListenersContainer myListenersContainer;
   private final String myIdeaProtocol;
 
-  protected BaseIdeaFileSystem(MPSCoreComponents mpsCore, FileSystemListenersContainer listenerContainer) {
+  protected BaseIdeaFileSystem(MPSCoreComponents mpsCore) {
     myCoreComponents = mpsCore;
-    myListenersContainer = listenerContainer;
+    myListenersContainer = FileSystemListenersContainer.getInstance();
     myIdeaProtocol = null;
   }
 
-  public BaseIdeaFileSystem(@NotNull MPSCoreComponents mpsCore, @NotNull FileSystemListenersContainer listenerContainer, @NotNull String ideaProtocolIdentity) {
+  public BaseIdeaFileSystem(@NotNull MPSCoreComponents mpsCore, @NotNull String ideaProtocolIdentity) {
     // XXX would be nice to get VirtualFileManager instance as well (see #getUnderlyingFS()), but the parameter list gets too long
     //     Perhaps, if this class and subclasses stop being app component, we could have a single one that takes
     //     MPSCoreComponent, FileSystemListenersContainer and VirtualFileManager, and registers appropriate protocol
     //     implementations (jar, local, jrt and idea) as needed. Is there any value in distinct app components per protocol?
     myCoreComponents = mpsCore;
-    myListenersContainer = listenerContainer;
+    myListenersContainer = FileSystemListenersContainer.getInstance();
     myIdeaProtocol = ideaProtocolIdentity;
     vfsManager().registerFS(getProtocol(), this);
   }

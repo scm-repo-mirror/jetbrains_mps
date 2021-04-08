@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.ConcurrentMap;
 import jetbrains.mps.vfs.refresh.FileListenerAdapter;
 import java.util.concurrent.ConcurrentHashMap;
+import com.intellij.openapi.application.ApplicationManager;
 import java.util.List;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -49,6 +50,13 @@ public class FileSystemListenersContainer {
   private final ReadWriteLock myLock = new ReentrantReadWriteLock();
   private final Node myRootNode = new Node(null, null);
   private final ConcurrentMap<FileListenerAdapter, String> myListener2Path = new ConcurrentHashMap<FileListenerAdapter, String>();
+
+  /**
+   * This class is application-wide service
+   */
+  public static FileSystemListenersContainer getInstance() {
+    return ApplicationManager.getApplication().getService(FileSystemListenersContainer.class);
+  }
 
   public static class ListenersForPath {
     /*package*/ final List<FileSystemListener> ancestorListeners = ListSequence.fromList(new ArrayList<FileSystemListener>());
