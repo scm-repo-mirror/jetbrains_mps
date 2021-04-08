@@ -16559,7 +16559,7 @@
     </file>
     <file name="check_MultiForEachStatement_NonTypesystemRule.java">
       <node id="8656797459615262139" at="26,7,27,66" concept="8" />
-      <node id="8656797459615262139" at="27,66,28,278" concept="8" />
+      <node id="8656797459615262139" at="27,66,28,279" concept="8" />
       <node id="8656797459615262365" at="29,9,30,191" concept="8" />
       <node id="8656797459615262365" at="30,191,31,71" concept="3" />
       <node id="8656797459615225210" at="36,50,37,44" concept="9" />
@@ -16571,7 +16571,7 @@
       <node id="8656797459615225210" at="36,0,39,0" concept="7" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="8656797459615225210" at="39,0,42,0" concept="7" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="8656797459615225210" at="42,0,45,0" concept="7" trace="overrides#()Z" />
-      <node id="8656797459615262365" at="28,278,32,9" concept="0" />
+      <node id="8656797459615262365" at="28,279,32,9" concept="0" />
       <node id="8656797459615262139" at="25,117,33,7" concept="0" />
       <node id="8656797459615225238" at="24,134,34,5" concept="6" />
       <node id="8656797459615225210" at="24,0,36,0" concept="7" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />

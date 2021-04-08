@@ -13925,7 +13925,7 @@
         <node concept="3clFbS" id="7wz7QM0RDmo" role="3clFbx">
           <node concept="a7r0C" id="7wz7QM0RMmV" role="3cqZAp">
             <node concept="Xl_RD" id="7wz7QM0RMng" role="a7wSD">
-              <property role="Xl_RC" value="Multiple foreah with single variable" />
+              <property role="Xl_RC" value="Multiple foreach with single variable" />
             </node>
             <node concept="1YBJjd" id="7wz7QM0RNMj" role="1urrMF">
               <ref role="1YBMHb" node="7wz7QM0RDlX" resolve="multiForEachStatement" />
