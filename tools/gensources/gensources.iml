@@ -36,6 +36,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk7/languages/jdk7/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk7/solutions/jetbrains.mps.baseLanguage.jdk7.sandbox/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/jdk8/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/methodReferences/generator/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/methodReferences/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/lightweightdsl/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/lightweightdsl/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/logging/generator/source_gen" isTestSource="false" />
@@ -251,6 +253,8 @@
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk7/languages/jdk7/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk7/solutions/jetbrains.mps.baseLanguage.jdk7.sandbox/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/jdk8/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/methodReferences/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/jdk8/languages/methodReferences/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/lightweightdsl/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/lightweightdsl/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/logging/classes_gen" />
