@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)">
   <persistence version="9" />
-  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
@@ -1025,14 +1024,14 @@
         <node concept="3clFbS" id="5i1iuVBpRaG" role="2LFqv$">
           <node concept="1ZoDhX" id="1WpksPmavDr" role="3cqZAp">
             <property role="3wDh2S" value="false" />
-            <node concept="mw_s8" id="5i1iuVBpRaK" role="1ZfhK$">
-              <node concept="3M$PaV" id="5i1iuVBpRaN" role="mwGJk">
-                <ref role="3M$S_o" node="5i1iuVBpRaz" resolve="paramTypeLeft" />
-              </node>
-            </node>
             <node concept="mw_s8" id="5i1iuVBpRaI" role="1ZfhKB">
               <node concept="3M$PaV" id="5i1iuVBpRaM" role="mwGJk">
                 <ref role="3M$S_o" node="5i1iuVBpRaC" resolve="paramTypeRight" />
+              </node>
+            </node>
+            <node concept="mw_s8" id="5i1iuVBpRaK" role="1ZfhK$">
+              <node concept="3M$PaV" id="5i1iuVBpRaN" role="mwGJk">
+                <ref role="3M$S_o" node="5i1iuVBpRaz" resolve="paramTypeLeft" />
               </node>
             </node>
           </node>
@@ -2592,16 +2591,16 @@
                 <property role="TrG5h" value="pt" />
               </node>
               <node concept="1Z5TYs" id="hLFMmYa" role="3cqZAp">
+                <node concept="mw_s8" id="hLFMmYb" role="1ZfhK$">
+                  <node concept="1Z$b5t" id="hLFMmYc" role="mwGJk">
+                    <ref role="1Z$eMM" node="hLFMmY9" resolve="pt" />
+                  </node>
+                </node>
                 <node concept="mw_s8" id="hLFMmYd" role="1ZfhKB">
                   <node concept="1Z2H0r" id="hLFMmYe" role="mwGJk">
                     <node concept="37vLTw" id="3GM_nagTx_M" role="1Z2MuG">
                       <ref role="3cqZAo" node="hLFMmYB" resolve="param" />
                     </node>
-                  </node>
-                </node>
-                <node concept="mw_s8" id="hLFMmYb" role="1ZfhK$">
-                  <node concept="1Z$b5t" id="hLFMmYc" role="mwGJk">
-                    <ref role="1Z$eMM" node="hLFMmY9" resolve="pt" />
                   </node>
                 </node>
               </node>
