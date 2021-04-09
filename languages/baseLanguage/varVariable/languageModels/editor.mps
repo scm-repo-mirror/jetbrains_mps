@@ -229,6 +229,9 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
+      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
+        <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
@@ -734,6 +737,11 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="22mcaB" id="6WTbe$Lo7h4">
+    <property role="3GE5qa" value="" />
+    <ref role="aqKnT" to="dvap:h8PeGkH" resolve="VarType" />
+    <node concept="22hDWj" id="6WTbe$Lo7h5" role="22hAXT" />
   </node>
 </model>
 
