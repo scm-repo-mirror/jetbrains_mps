@@ -29,6 +29,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
 import com.intellij.openapi.project.DumbService;
+import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.make.MakeNotification;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import java.util.concurrent.ExecutionException;
@@ -107,9 +108,17 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     this.checkValidUsage();
     Project ideaProject = ProjectHelper.toIdeaProject(session.getProject());
     assert ideaProject != null;
-    if (DumbService.getInstance(ideaProject).isDumb()) {
-      DumbService.getInstance(ideaProject).showDumbModeNotification("Generation is not available until indices are built");
-      return false;
+    DumbService dumbInstance = DumbService.getInstance(ideaProject);
+    if (dumbInstance.isDumb()) {
+      if (!(ThreadUtils.isInEDT())) {
+        dumbInstance.waitForSmartMode();
+      } else {
+        dumbInstance.completeJustSubmittedTasks();
+      }
+      if (dumbInstance.isDumb()) {
+        dumbInstance.showDumbModeNotification("Generation is not available until indices are built");
+        return false;
+      }
     }
     if (!(currentSessionStickyMark.compareAndSet(null, session, false, session.isSticky()))) {
       return false;

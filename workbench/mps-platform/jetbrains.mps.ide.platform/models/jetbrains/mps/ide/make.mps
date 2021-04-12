@@ -748,38 +748,91 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="6y_Op2B0Dme" role="3cqZAp">
+          <node concept="3cpWsn" id="6y_Op2B0Dmf" role="3cpWs9">
+            <property role="TrG5h" value="dumbInstance" />
+            <node concept="3uibUv" id="6y_Op2B0BeV" role="1tU5fm">
+              <ref role="3uigEE" to="4nm9:~DumbService" resolve="DumbService" />
+            </node>
+            <node concept="2YIFZM" id="6y_Op2B0Dmg" role="33vP2m">
+              <ref role="1Pybhc" to="4nm9:~DumbService" resolve="DumbService" />
+              <ref role="37wK5l" to="4nm9:~DumbService.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+              <node concept="37vLTw" id="6y_Op2B0Dmh" role="37wK5m">
+                <ref role="3cqZAo" node="2BjwmTxV0jo" resolve="ideaProject" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="9D0Ba05vd3" role="3cqZAp">
           <node concept="3clFbS" id="9D0Ba05vd4" role="3clFbx">
-            <node concept="3clFbF" id="9D0Ba05vd5" role="3cqZAp">
-              <node concept="2OqwBi" id="9D0Ba05vd6" role="3clFbG">
-                <node concept="2YIFZM" id="9D0Ba05vd7" role="2Oq$k0">
-                  <ref role="1Pybhc" to="4nm9:~DumbService" resolve="DumbService" />
-                  <ref role="37wK5l" to="4nm9:~DumbService.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-                  <node concept="37vLTw" id="2BjwmTxV0jw" role="37wK5m">
-                    <ref role="3cqZAo" node="2BjwmTxV0jo" resolve="ideaProject" />
+            <node concept="3clFbJ" id="6y_Op2B0kGg" role="3cqZAp">
+              <node concept="3fqX7Q" id="6y_Op2B0kGh" role="3clFbw">
+                <node concept="2YIFZM" id="6y_Op2B0v6c" role="3fr31v">
+                  <ref role="37wK5l" to="3a50:~ThreadUtils.isInEDT()" resolve="isInEDT" />
+                  <ref role="1Pybhc" to="3a50:~ThreadUtils" resolve="ThreadUtils" />
+                </node>
+              </node>
+              <node concept="9aQIb" id="6y_Op2B0kGq" role="9aQIa">
+                <node concept="3clFbS" id="6y_Op2B0kGr" role="9aQI4">
+                  <node concept="3clFbF" id="6y_Op2B0kGs" role="3cqZAp">
+                    <node concept="2OqwBi" id="6y_Op2B0kGt" role="3clFbG">
+                      <node concept="37vLTw" id="6y_Op2B0HPB" role="2Oq$k0">
+                        <ref role="3cqZAo" node="6y_Op2B0Dmf" resolve="dumbInstance" />
+                      </node>
+                      <node concept="liA8E" id="6y_Op2B0NNY" role="2OqNvi">
+                        <ref role="37wK5l" to="4nm9:~DumbService.completeJustSubmittedTasks()" resolve="completeJustSubmittedTasks" />
+                      </node>
+                    </node>
                   </node>
                 </node>
-                <node concept="liA8E" id="9D0Ba05vde" role="2OqNvi">
-                  <ref role="37wK5l" to="4nm9:~DumbService.showDumbModeNotification(java.lang.String)" resolve="showDumbModeNotification" />
-                  <node concept="Xl_RD" id="9D0Ba05vdf" role="37wK5m">
-                    <property role="Xl_RC" value="Generation is not available until indices are built" />
+              </node>
+              <node concept="3clFbS" id="6y_Op2B0kGk" role="3clFbx">
+                <node concept="3clFbF" id="6y_Op2B0kGl" role="3cqZAp">
+                  <node concept="2OqwBi" id="6y_Op2B0kGm" role="3clFbG">
+                    <node concept="37vLTw" id="6y_Op2B0HDW" role="2Oq$k0">
+                      <ref role="3cqZAo" node="6y_Op2B0Dmf" resolve="dumbInstance" />
+                    </node>
+                    <node concept="liA8E" id="6y_Op2B0NQF" role="2OqNvi">
+                      <ref role="37wK5l" to="4nm9:~DumbService.waitForSmartMode()" resolve="waitForSmartMode" />
+                    </node>
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="3cpWs6" id="9D0Ba05vdg" role="3cqZAp">
-              <node concept="3clFbT" id="9D0Ba05vdh" role="3cqZAk">
-                <property role="3clFbU" value="false" />
+            <node concept="3clFbJ" id="6y_Op2B0O1J" role="3cqZAp">
+              <node concept="3clFbS" id="6y_Op2B0O1L" role="3clFbx">
+                <node concept="3clFbF" id="9D0Ba05vd5" role="3cqZAp">
+                  <node concept="2OqwBi" id="9D0Ba05vd6" role="3clFbG">
+                    <node concept="37vLTw" id="6y_Op2B0Dmj" role="2Oq$k0">
+                      <ref role="3cqZAo" node="6y_Op2B0Dmf" resolve="dumbInstance" />
+                    </node>
+                    <node concept="liA8E" id="9D0Ba05vde" role="2OqNvi">
+                      <ref role="37wK5l" to="4nm9:~DumbService.showDumbModeNotification(java.lang.String)" resolve="showDumbModeNotification" />
+                      <node concept="Xl_RD" id="9D0Ba05vdf" role="37wK5m">
+                        <property role="Xl_RC" value="Generation is not available until indices are built" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs6" id="9D0Ba05vdg" role="3cqZAp">
+                  <node concept="3clFbT" id="9D0Ba05vdh" role="3cqZAk">
+                    <property role="3clFbU" value="false" />
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="6y_Op2B0R6B" role="3clFbw">
+                <node concept="37vLTw" id="6y_Op2B0QYw" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6y_Op2B0Dmf" resolve="dumbInstance" />
+                </node>
+                <node concept="liA8E" id="6y_Op2B0SjW" role="2OqNvi">
+                  <ref role="37wK5l" to="4nm9:~DumbService.isDumb()" resolve="isDumb" />
+                </node>
               </node>
             </node>
           </node>
           <node concept="2OqwBi" id="9D0Ba05vdi" role="3clFbw">
-            <node concept="2YIFZM" id="9D0Ba05vdj" role="2Oq$k0">
-              <ref role="1Pybhc" to="4nm9:~DumbService" resolve="DumbService" />
-              <ref role="37wK5l" to="4nm9:~DumbService.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-              <node concept="37vLTw" id="2BjwmTxV0jv" role="37wK5m">
-                <ref role="3cqZAo" node="2BjwmTxV0jo" resolve="ideaProject" />
-              </node>
+            <node concept="37vLTw" id="6y_Op2B0Dmi" role="2Oq$k0">
+              <ref role="3cqZAo" node="6y_Op2B0Dmf" resolve="dumbInstance" />
             </node>
             <node concept="liA8E" id="9D0Ba05vdq" role="2OqNvi">
               <ref role="37wK5l" to="4nm9:~DumbService.isDumb()" resolve="isDumb" />

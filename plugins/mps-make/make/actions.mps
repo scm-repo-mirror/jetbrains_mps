@@ -4084,8 +4084,8 @@
                 </node>
               </node>
             </node>
-            <node concept="liA8E" id="236SrjKozuU" role="2OqNvi">
-              <ref role="37wK5l" to="hlw7:~SaveRepositoryCommand.execute()" resolve="execute" />
+            <node concept="liA8E" id="5g8XZ9otPU6" role="2OqNvi">
+              <ref role="37wK5l" to="hlw7:~SaveRepositoryCommand.executeAndWait()" resolve="executeAndWait" />
             </node>
           </node>
         </node>
