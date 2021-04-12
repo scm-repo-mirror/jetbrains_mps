@@ -63,10 +63,7 @@ public final class BinaryOperation__BehaviorDescriptor extends BaseBHDescriptor 
   /*package*/ static Object getCompileTimeConstantValue_idi1LP2xI(@NotNull SNode __thisNode__, SModule module) {
     Object l = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.leftExpression$sEj), module);
     Object r = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.rightExpression$nvX), module);
-    if (l != null && r != null) {
-      return BinaryOperation__BehaviorDescriptor.calculateCompileTimeConstantValue_id1o8Ht9sN5Hn.invoke(__thisNode__, l, r);
-    }
-    return null;
+    return BinaryOperation__BehaviorDescriptor.calculateCompileTimeConstantValue_id1o8Ht9sN5Hn.invoke(__thisNode__, l, r);
   }
   /*package*/ static Object calculateCompileTimeConstantValue_id1o8Ht9sN5Hn(@NotNull SNode __thisNode__, Object leftValue, Object rightValue) {
     return null;

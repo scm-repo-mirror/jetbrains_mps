@@ -16,6 +16,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class WhileStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
     _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$KEkM));
+
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$KEkM), CONCEPTS.BooleanConstant$n4)) {
       SNode constant = SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$KEkM), CONCEPTS.BooleanConstant$n4);
       if (!(SPropertyOperations.getBoolean(constant, PROPS.value$5y_M))) {

@@ -6,8 +6,6 @@ import jetbrains.mps.lang.dataFlow.DataFlowBuilder;
 import jetbrains.mps.lang.dataFlow.DataFlowBuilderContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -15,11 +13,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class IfStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
     _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
-    boolean isCompileTimeConstant = (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
-    Object compileTimeConstantValue = (isCompileTimeConstant ? Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17), SNodeOperations.getModel(_context.getNode()).getModule()) : null);
-    if (isCompileTimeConstant && (compileTimeConstantValue == null || compileTimeConstantValue instanceof Boolean)) {
-      Boolean v = (Boolean) compileTimeConstantValue;
-      if (v != null && v.booleanValue()) {
+    Boolean conditionConstant = ConditionUtil.computeConditionConstant(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
+    if (conditionConstant != null) {
+      if (conditionConstant.booleanValue()) {
         _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.ifTrue$5Rg8));
         _context.getBuilder().emitMayBeUnreachable(new Runnable() {
           public void run() {

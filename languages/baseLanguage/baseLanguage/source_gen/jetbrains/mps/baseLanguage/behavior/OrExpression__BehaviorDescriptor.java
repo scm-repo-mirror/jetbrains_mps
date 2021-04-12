@@ -37,10 +37,22 @@ public final class OrExpression__BehaviorDescriptor extends BaseBHDescriptor {
     return 2;
   }
   /*package*/ static Object calculateCompileTimeConstantValue_id1o8Ht9sN5Hn(@NotNull SNode __thisNode__, Object leftValue, Object rightValue) {
-    if (leftValue instanceof Boolean && rightValue instanceof Boolean) {
-      Boolean a = (Boolean) leftValue;
-      Boolean b = (Boolean) rightValue;
+    Boolean a = null;
+    if (leftValue != null && leftValue instanceof Boolean) {
+      a = (Boolean) leftValue;
+    }
+    Boolean b = null;
+    if (rightValue != null && rightValue instanceof Boolean) {
+      b = (Boolean) rightValue;
+    }
+    if (a != null && b != null) {
       return a || b;
+    }
+    if (a != null && a.booleanValue() == true) {
+      return a;
+    }
+    if (b != null && b.booleanValue() == true) {
+      return b;
     }
     return null;
   }
