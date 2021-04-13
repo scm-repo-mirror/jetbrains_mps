@@ -13,8 +13,6 @@ import java.util.HashMap;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.annotations.NotNull;
-import java.io.IOException;
-import com.intellij.openapi.vcs.VcsException;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.DefaultSModelDescriptor;
 import jetbrains.mps.smodel.InvalidSModel;
@@ -56,9 +54,7 @@ public final class RootCommitsGraphTraverser {
   public void run() {
     try {
       myStartNode.loadModel(null, myFile.getExtension());
-    } catch (IOException e) {
-      myException = new AnnotateModelReadException(myStartNode.getRevision(), e.getMessage());
-    } catch (VcsException e) {
+    } catch (Exception e) {
       myException = new AnnotateModelReadException(myStartNode.getRevision(), e.getMessage());
     }
     if (!(myStartNode.isModelLoaded())) {
@@ -103,11 +99,7 @@ public final class RootCommitsGraphTraverser {
     }
     try {
       parent.loadModel(node, myFile.getExtension());
-    } catch (VcsException e) {
-      if (!(myTolerateReadModelFailure)) {
-        throw new AnnotateModelReadException(parent.getRevision(), e.getMessage());
-      }
-    } catch (IOException e) {
+    } catch (Exception e) {
       if (!(myTolerateReadModelFailure)) {
         throw new AnnotateModelReadException(parent.getRevision(), e.getMessage());
       }

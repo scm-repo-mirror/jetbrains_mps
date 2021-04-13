@@ -26,8 +26,6 @@ import java.util.Collection;
 import com.intellij.openapi.vcs.history.VcsRevisionNumber;
 import git4idea.GitRevisionNumber;
 import org.jetbrains.annotations.Nullable;
-import java.io.IOException;
-import com.intellij.openapi.vcs.VcsException;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import com.intellij.diff.contents.DiffContent;
 import com.intellij.diff.contents.EmptyContent;
@@ -183,7 +181,7 @@ public final class CommitsGraphNode implements Comparable {
     return myIsIgnored;
   }
 
-  /*package*/ void loadModel(@Nullable CommitsGraphNode childNode, String fileExtension) throws IOException, VcsException {
+  /*package*/ void loadModel(@Nullable CommitsGraphNode childNode, String fileExtension) throws Exception {
     if (isModelLoaded()) {
       return;
     }

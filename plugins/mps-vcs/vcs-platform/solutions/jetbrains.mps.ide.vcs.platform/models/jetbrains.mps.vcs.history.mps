@@ -1465,11 +1465,8 @@
         <property role="TrG5h" value="fileExtension" />
         <node concept="17QB3L" id="7Kf$fJThbgt" role="1tU5fm" />
       </node>
-      <node concept="3uibUv" id="3tdNeKHftxx" role="Sfmx6">
-        <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
-      </node>
-      <node concept="3uibUv" id="3tdNeKHfvNk" role="Sfmx6">
-        <ref role="3uigEE" to="jlcu:~VcsException" resolve="VcsException" />
+      <node concept="3uibUv" id="7IzwFQmKfqQ" role="Sfmx6">
+        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
       </node>
     </node>
     <node concept="2tJIrI" id="3tdNeKHfbJF" role="jymVt" />
@@ -3141,48 +3138,8 @@
             <node concept="XOnhg" id="7Kf$fJToe6b" role="1zc67B">
               <property role="TrG5h" value="e" />
               <node concept="nSUau" id="7Kf$fJToe6c" role="1tU5fm">
-                <node concept="3uibUv" id="7Kf$fJToe6d" role="nSUat">
-                  <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3uVAMA" id="7Kf$fJTonp2" role="1zxBo5">
-            <node concept="3clFbS" id="7Kf$fJTonp3" role="1zc67A">
-              <node concept="3clFbF" id="7Kf$fJTqT6K" role="3cqZAp">
-                <node concept="37vLTI" id="7Kf$fJTqT6L" role="3clFbG">
-                  <node concept="37vLTw" id="7Kf$fJTqT6N" role="37vLTJ">
-                    <ref role="3cqZAo" node="41u046VcRLO" resolve="myException" />
-                  </node>
-                  <node concept="2ShNRf" id="ppWmVboBc3" role="37vLTx">
-                    <node concept="1pGfFk" id="ppWmVboBc4" role="2ShVmc">
-                      <ref role="37wK5l" node="ppWmVbn9sz" resolve="RootCommitsGraphTraverser.AnnotateModelReadException" />
-                      <node concept="2OqwBi" id="ppWmVboBc5" role="37wK5m">
-                        <node concept="liA8E" id="ppWmVboBc7" role="2OqNvi">
-                          <ref role="37wK5l" node="6wgNI6tC_ug" resolve="getRevision" />
-                        </node>
-                        <node concept="37vLTw" id="4sA_pTWD6km" role="2Oq$k0">
-                          <ref role="3cqZAo" node="4sA_pTWCsOh" resolve="myStartNode" />
-                        </node>
-                      </node>
-                      <node concept="2OqwBi" id="ppWmVboBc8" role="37wK5m">
-                        <node concept="37vLTw" id="ppWmVboBc9" role="2Oq$k0">
-                          <ref role="3cqZAo" node="7Kf$fJTonp4" resolve="e" />
-                        </node>
-                        <node concept="liA8E" id="ppWmVboBca" role="2OqNvi">
-                          <ref role="37wK5l" to="jlcu:~VcsException.getMessage()" resolve="getMessage" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="XOnhg" id="7Kf$fJTonp4" role="1zc67B">
-              <property role="TrG5h" value="e" />
-              <node concept="nSUau" id="7Kf$fJTonp5" role="1tU5fm">
-                <node concept="3uibUv" id="7Kf$fJTonp1" role="nSUat">
-                  <ref role="3uigEE" to="jlcu:~VcsException" resolve="VcsException" />
+                <node concept="3uibUv" id="7IzwFQmKuv7" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
                 </node>
               </node>
             </node>
@@ -3465,7 +3422,7 @@
                             <ref role="3cqZAo" node="ppWmVbow58" resolve="e" />
                           </node>
                           <node concept="liA8E" id="ppWmVboxjB" role="2OqNvi">
-                            <ref role="37wK5l" to="jlcu:~VcsException.getMessage()" resolve="getMessage" />
+                            <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
                           </node>
                         </node>
                       </node>
@@ -3482,52 +3439,8 @@
             <node concept="XOnhg" id="ppWmVbow58" role="1zc67B">
               <property role="TrG5h" value="e" />
               <node concept="nSUau" id="ppWmVbow59" role="1tU5fm">
-                <node concept="3uibUv" id="ppWmVbow55" role="nSUat">
-                  <ref role="3uigEE" to="jlcu:~VcsException" resolve="VcsException" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3uVAMA" id="ppWmVbow5b" role="1zxBo5">
-            <node concept="3clFbS" id="ppWmVbow5c" role="1zc67A">
-              <node concept="3clFbJ" id="2d$96lCZ92m" role="3cqZAp">
-                <node concept="3clFbS" id="2d$96lCZ92o" role="3clFbx">
-                  <node concept="YS8fn" id="ppWmVbowFY" role="3cqZAp">
-                    <node concept="2ShNRf" id="ppWmVbowFZ" role="YScLw">
-                      <node concept="1pGfFk" id="ppWmVbowG0" role="2ShVmc">
-                        <ref role="37wK5l" node="ppWmVbn9sz" resolve="RootCommitsGraphTraverser.AnnotateModelReadException" />
-                        <node concept="2OqwBi" id="ppWmVbowG1" role="37wK5m">
-                          <node concept="37vLTw" id="3tdNeKHdBl7" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3tdNeKHdtxC" resolve="parent" />
-                          </node>
-                          <node concept="liA8E" id="ppWmVbowG3" role="2OqNvi">
-                            <ref role="37wK5l" node="6wgNI6tC_ug" resolve="getRevision" />
-                          </node>
-                        </node>
-                        <node concept="2OqwBi" id="ppWmVbowG4" role="37wK5m">
-                          <node concept="37vLTw" id="ppWmVboxv7" role="2Oq$k0">
-                            <ref role="3cqZAo" node="ppWmVbow5d" resolve="e" />
-                          </node>
-                          <node concept="liA8E" id="ppWmVboxNW" role="2OqNvi">
-                            <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="3fqX7Q" id="5ILT1kFIUpV" role="3clFbw">
-                  <node concept="37vLTw" id="5ILT1kFIUpW" role="3fr31v">
-                    <ref role="3cqZAo" node="2d$96lCZ4hy" resolve="myTolerateReadModelFailure" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="XOnhg" id="ppWmVbow5d" role="1zc67B">
-              <property role="TrG5h" value="e" />
-              <node concept="nSUau" id="ppWmVbow5e" role="1tU5fm">
-                <node concept="3uibUv" id="ppWmVbow5a" role="nSUat">
-                  <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
+                <node concept="3uibUv" id="7IzwFQmKDIT" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
                 </node>
               </node>
             </node>

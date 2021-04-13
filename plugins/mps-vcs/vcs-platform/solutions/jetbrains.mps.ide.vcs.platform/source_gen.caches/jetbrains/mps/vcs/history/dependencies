@@ -43,7 +43,6 @@
     <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.intellij.openapi.vcs.VcsBundle" />
-    <classNode dependClassName="com.intellij.openapi.vcs.VcsException" />
     <classNode dependClassName="com.intellij.openapi.vcs.history.CurrentRevision" />
     <classNode dependClassName="com.intellij.openapi.vcs.history.VcsFileRevision" />
     <classNode dependClassName="com.intellij.openapi.vcs.history.VcsFileRevisionEx" />
@@ -56,7 +55,6 @@
     <classNode dependClassName="git4idea.GitRevisionNumber" />
     <classNode dependClassName="git4idea.annotate.AnnotationTooltipBuilder" />
     <classNode dependClassName="git4idea.log.GitCommitTooltipLinkHandler" />
-    <classNode dependClassName="java.io.IOException" />
     <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Class" />
     <classNode dependClassName="java.lang.Exception" />
@@ -95,10 +93,8 @@
     <classNode dependClassName="jetbrains.mps.vcs.history.CommitsGraphNode" />
   </dependency>
   <dependency className="jetbrains.mps.vcs.history.RootCommitsGraphTraverser">
-    <classNode dependClassName="com.intellij.openapi.vcs.VcsException" />
     <classNode dependClassName="com.intellij.openapi.vcs.history.VcsFileRevision" />
     <classNode dependClassName="com.intellij.openapi.vfs.VirtualFile" />
-    <classNode dependClassName="java.io.IOException" />
     <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
