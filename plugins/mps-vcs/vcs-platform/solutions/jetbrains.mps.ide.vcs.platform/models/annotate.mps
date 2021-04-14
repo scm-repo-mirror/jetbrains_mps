@@ -5808,6 +5808,20 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="6oV_RDwBP1d" role="jymVt" />
+    <node concept="3clFb_" id="6oV_RDwBQuK" role="jymVt">
+      <property role="TrG5h" value="showInGutter" />
+      <node concept="3Tm1VV" id="6oV_RDwBQuL" role="1B3o_S" />
+      <node concept="10P_77" id="6oV_RDwBQuN" role="3clF45" />
+      <node concept="3clFbS" id="6oV_RDwBQuP" role="3clF47">
+        <node concept="3cpWs6" id="6oV_RDwBREK" role="3cqZAp">
+          <node concept="3clFbT" id="6oV_RDwBTeg" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="6oV_RDwBQuQ" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="YIxS4Ep9mm" role="jymVt" />
     <node concept="3clFb_" id="YIxS4EpbVN" role="jymVt">
       <property role="TrG5h" value="getMessage" />

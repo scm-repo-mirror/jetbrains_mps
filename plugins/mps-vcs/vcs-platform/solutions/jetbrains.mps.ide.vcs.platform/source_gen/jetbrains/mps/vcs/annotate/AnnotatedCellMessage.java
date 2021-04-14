@@ -57,6 +57,11 @@ import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
   }
 
   @Override
+  public boolean showInGutter() {
+    return false;
+  }
+
+  @Override
   public String getMessage() {
     if (!(myShowCommitInfo)) {
       return "";
