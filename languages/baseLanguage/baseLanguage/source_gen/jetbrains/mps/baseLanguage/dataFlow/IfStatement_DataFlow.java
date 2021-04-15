@@ -13,7 +13,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class IfStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
     _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
-    Boolean conditionConstant = ConditionUtil.computeConditionConstant(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
+    Boolean conditionConstant = ConditionUtil.getConditionConstant(SLinkOperations.getTarget(_context.getNode(), LINKS.condition$5R17));
     if (conditionConstant != null) {
       if (conditionConstant.booleanValue()) {
         _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.ifTrue$5Rg8));

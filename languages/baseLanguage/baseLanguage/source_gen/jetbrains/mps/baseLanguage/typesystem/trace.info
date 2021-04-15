@@ -16790,74 +16790,70 @@
       </scope>
     </file>
     <file name="check_TernaryOperationCanBeSimplified_NonTypesystemRule.java">
-      <node id="2857825852308875265" at="26,138,27,89" concept="12" />
-      <node id="2857825852308875271" at="27,89,28,91" concept="12" />
-      <node id="2857825852308881592" at="28,91,29,97" concept="12" />
-      <node id="2857825852308875280" at="29,97,30,24" concept="12" />
-      <node id="2857825852308875283" at="30,24,31,18" concept="12" />
-      <node id="2857825852308875286" at="31,18,32,85" concept="12" />
-      <node id="2857825852308875295" at="33,101,34,125" concept="12" />
-      <node id="2857825852308875319" at="35,72,36,41" concept="6" />
-      <node id="2857825852308875311" at="36,41,37,47" concept="6" />
-      <node id="2857825852308875366" at="38,9,39,68" concept="12" />
-      <node id="2857825852308875366" at="39,68,40,334" concept="12" />
-      <node id="2857825852308875369" at="41,11,42,209" concept="12" />
-      <node id="2857825852308875372" at="42,209,43,74" concept="6" />
-      <node id="2857825852308875374" at="43,74,44,82" concept="6" />
-      <node id="2857825852308875369" at="44,82,45,73" concept="6" />
-      <node id="2857825852308875249" at="51,50,52,49" concept="13" />
-      <node id="2857825852308875249" at="54,68,55,102" concept="13" />
-      <node id="2857825852308875249" at="57,30,58,17" concept="13" />
-      <node id="2857825852308875249" at="62,0,63,0" concept="16" trace="ifTrue$Tg0R" />
-      <node id="2857825852308875249" at="63,0,64,0" concept="16" trace="ifFalse$Wbma" />
-      <node id="2857825852308875249" at="64,0,65,0" concept="16" trace="condition$nwNI" />
-      <node id="2857825852308875249" at="68,0,69,0" concept="16" trace="TernaryOperatorExpression$aq" />
-      <node id="2857825852308875249" at="24,0,26,0" concept="3" trace="check_TernaryOperationCanBeSimplified_NonTypesystemRule#()V" />
-      <node id="2857825852308875249" at="51,0,54,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="2857825852308875249" at="54,0,57,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="2857825852308875249" at="57,0,60,0" concept="11" trace="overrides#()Z" />
-      <node id="2857825852308875369" at="40,334,46,11" concept="1" />
-      <node id="2857825852308875366" at="37,47,47,9" concept="1" />
-      <node id="8245314650929367786" at="34,125,48,7" concept="10" />
-      <node id="2857825852308875309" at="32,85,49,5" concept="10" />
-      <node id="2857825852308875249" at="26,0,51,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="2857825852308875249" at="24,68,24,68" />
-      <scope id="2857825852308875249" at="51,50,52,49" />
-      <scope id="2857825852308875249" at="54,68,55,102" />
-      <scope id="2857825852308875249" at="57,30,58,17" />
-      <scope id="2857825852308875249" at="24,0,26,0" />
-      <scope id="2857825852308875249" at="51,0,54,0" />
-      <scope id="2857825852308875249" at="54,0,57,0">
+      <node id="2857825852308875265" at="24,138,25,89" concept="12" />
+      <node id="2857825852308875271" at="25,89,26,91" concept="12" />
+      <node id="2857825852308881592" at="26,91,27,97" concept="12" />
+      <node id="2857825852308875280" at="27,97,28,24" concept="12" />
+      <node id="3026370834469595211" at="28,24,29,0" concept="15" />
+      <node id="5218334018278948942" at="29,0,30,78" concept="12" />
+      <node id="2857825852308875283" at="31,36,32,61" concept="12" />
+      <node id="3026370834469613561" at="32,61,33,45" concept="6" />
+      <node id="3026370834469612898" at="34,7,35,66" concept="12" />
+      <node id="3026370834469612898" at="35,66,36,332" concept="12" />
+      <node id="3026370834469612905" at="37,9,38,207" concept="12" />
+      <node id="3026370834469612906" at="38,207,39,72" concept="6" />
+      <node id="3026370834469612908" at="39,72,40,80" concept="6" />
+      <node id="3026370834469612905" at="40,80,41,71" concept="6" />
+      <node id="2857825852308875249" at="46,50,47,49" concept="13" />
+      <node id="2857825852308875249" at="49,68,50,102" concept="13" />
+      <node id="2857825852308875249" at="52,30,53,17" concept="13" />
+      <node id="2857825852308875249" at="57,0,58,0" concept="16" trace="ifTrue$Tg0R" />
+      <node id="2857825852308875249" at="58,0,59,0" concept="16" trace="ifFalse$Wbma" />
+      <node id="2857825852308875249" at="59,0,60,0" concept="16" trace="condition$nwNI" />
+      <node id="2857825852308875249" at="63,0,64,0" concept="16" trace="TernaryOperatorExpression$aq" />
+      <node id="2857825852308875249" at="22,0,24,0" concept="3" trace="check_TernaryOperationCanBeSimplified_NonTypesystemRule#()V" />
+      <node id="2857825852308875249" at="46,0,49,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2857825852308875249" at="49,0,52,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="2857825852308875249" at="52,0,55,0" concept="11" trace="overrides#()Z" />
+      <node id="3026370834469612905" at="36,332,42,9" concept="1" />
+      <node id="3026370834469612898" at="33,45,43,7" concept="1" />
+      <node id="874246949135079167" at="30,78,44,5" concept="10" />
+      <node id="2857825852308875249" at="24,0,46,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="2857825852308875249" at="22,68,22,68" />
+      <scope id="2857825852308875249" at="46,50,47,49" />
+      <scope id="2857825852308875249" at="49,68,50,102" />
+      <scope id="2857825852308875249" at="52,30,53,17" />
+      <scope id="2857825852308875249" at="22,0,24,0" />
+      <scope id="2857825852308875249" at="46,0,49,0" />
+      <scope id="2857825852308875249" at="49,0,52,0">
         <var name="argument" id="2857825852308875249" />
       </scope>
-      <scope id="2857825852308875249" at="57,0,60,0" />
-      <scope id="2857825852308875369" at="41,11,45,73">
-        <var name="intentionProvider" id="2857825852308875369" />
+      <scope id="2857825852308875249" at="52,0,55,0" />
+      <scope id="3026370834469612905" at="37,9,41,71">
+        <var name="intentionProvider" id="3026370834469612905" />
       </scope>
-      <scope id="2857825852308875366" at="38,9,46,11">
-        <var name="_reporter_2309309498" id="2857825852308875366" />
-        <var name="errorTarget" id="2857825852308875366" />
+      <scope id="3026370834469612898" at="34,7,42,9">
+        <var name="_reporter_2309309498" id="3026370834469612898" />
+        <var name="errorTarget" id="3026370834469612898" />
       </scope>
-      <scope id="8245314650929367788" at="35,72,47,9" />
-      <scope id="2857825852308875310" at="33,101,48,7">
-        <var name="conditionValue" id="2857825852308875296" />
-      </scope>
-      <scope id="2857825852308875250" at="26,138,49,5">
-        <var name="condition" id="2857825852308881593" />
-        <var name="left" id="2857825852308875266" />
-        <var name="module" id="2857825852308875287" />
-        <var name="remainingNode" id="2857825852308875281" />
-        <var name="right" id="2857825852308875272" />
+      <scope id="874246949135079169" at="31,36,43,7">
         <var name="value" id="2857825852308875284" />
       </scope>
-      <scope id="2857825852308875249" at="26,0,51,0">
+      <scope id="2857825852308875250" at="24,138,44,5">
+        <var name="condition" id="2857825852308881593" />
+        <var name="conditionConstant" id="5218334018278948943" />
+        <var name="left" id="2857825852308875266" />
+        <var name="remainingNode" id="2857825852308875281" />
+        <var name="right" id="2857825852308875272" />
+      </scope>
+      <scope id="2857825852308875249" at="24,0,46,0">
         <var name="status" id="2857825852308875249" />
         <var name="ternaryOperatorExpression" id="2857825852308875249" />
         <var name="typeCheckingContext" id="2857825852308875249" />
       </scope>
-      <unit id="2857825852308875249" at="67,0,70,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule$CONCEPTS" />
-      <unit id="2857825852308875249" at="61,0,66,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule$LINKS" />
-      <unit id="2857825852308875249" at="23,0,71,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule" />
+      <unit id="2857825852308875249" at="62,0,65,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule$CONCEPTS" />
+      <unit id="2857825852308875249" at="56,0,61,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule$LINKS" />
+      <unit id="2857825852308875249" at="21,0,66,0" name="jetbrains.mps.baseLanguage.typesystem.check_TernaryOperationCanBeSimplified_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/2925336694746290132">

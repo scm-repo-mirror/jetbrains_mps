@@ -22,6 +22,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.baseLanguage.scopes.Scopes;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.dataFlow.ConditionUtil;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -67,6 +68,11 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     if (child != SLinkOperations.getTarget(__thisNode__, LINKS.condition$wARE)) {
       return null;
     }
+    Boolean conditionConstant = ConditionUtil.getConditionConstant(SLinkOperations.getTarget(__thisNode__, LINKS.condition$wARE));
+    if (conditionConstant != null && conditionConstant.booleanValue() != value) {
+      return null;
+    }
+
     if (value) {
       if (SLinkOperations.getTarget(__thisNode__, LINKS.body$c1sm) != null) {
         return NextProgramPoint.continueAt(SLinkOperations.getTarget(__thisNode__, LINKS.body$c1sm), false);

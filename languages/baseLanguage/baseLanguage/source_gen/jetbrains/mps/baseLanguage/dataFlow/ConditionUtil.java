@@ -8,6 +8,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 public class ConditionUtil {
   public static Boolean computeConditionConstant(SNode expr) {
+    // TODO remove
     boolean isCompileTimeConstant = (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(expr);
     Object compileTimeConstantValue = (isCompileTimeConstant ? Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(expr, SNodeOperations.getModel(expr).getModule()) : null);
     if (isCompileTimeConstant && (compileTimeConstantValue == null || compileTimeConstantValue instanceof Boolean)) {

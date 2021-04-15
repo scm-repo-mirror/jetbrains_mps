@@ -501,12 +501,12 @@
             <node concept="3uibUv" id="4xFfMh6QBPQ" role="1tU5fm">
               <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
             </node>
-            <node concept="2YIFZM" id="4xFfMh6QC1g" role="33vP2m">
-              <ref role="37wK5l" node="4xFfMh6Q_As" resolve="computeConditionConstant" />
+            <node concept="2YIFZM" id="2BZP3Pj0n6q" role="33vP2m">
+              <ref role="37wK5l" node="42hKkhwwGDV" resolve="getConditionConstant" />
               <ref role="1Pybhc" node="4xFfMh6Qxjd" resolve="ConditionUtil" />
-              <node concept="2OqwBi" id="4xFfMh6QC1h" role="37wK5m">
-                <node concept="3__QtB" id="4xFfMh6QC1i" role="2Oq$k0" />
-                <node concept="3TrEf2" id="4xFfMh6QC1j" role="2OqNvi">
+              <node concept="2OqwBi" id="2BZP3Pj0n6r" role="37wK5m">
+                <node concept="3__QtB" id="2BZP3Pj0n6s" role="2Oq$k0" />
+                <node concept="3TrEf2" id="2BZP3Pj0n6t" role="2OqNvi">
                   <ref role="3Tt5mk" to="tpee:fzclF8o" resolve="condition" />
                 </node>
               </node>
@@ -8098,6 +8098,16 @@
     <node concept="2YIFZL" id="4xFfMh6Q_As" role="jymVt">
       <property role="TrG5h" value="computeConditionConstant" />
       <node concept="3clFbS" id="4xFfMh6Qxpm" role="3clF47">
+        <node concept="3SKdUt" id="2BZP3Pk0Q0u" role="3cqZAp">
+          <node concept="1PaTwC" id="2BZP3Pk0Q0v" role="1aUNEU">
+            <node concept="3oM_SD" id="2BZP3Pk0Q1d" role="1PaTwD">
+              <property role="3oM_SC" value="TODO" />
+            </node>
+            <node concept="3oM_SD" id="2BZP3Pk0Q1f" role="1PaTwD">
+              <property role="3oM_SC" value="remove" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4xFfMh6QxpH" role="3cqZAp">
           <node concept="3cpWsn" id="4xFfMh6QxpI" role="3cpWs9">
             <property role="TrG5h" value="isCompileTimeConstant" />

@@ -60,7 +60,7 @@ public final class NPEEqualsExpression__BehaviorDescriptor extends BaseBHDescrip
     return (leftValue != null && rightValue != null ? leftValue == rightValue : null);
   }
   /*package*/ static Object getCompileTimeConstantValue_idi1LP2xI(@NotNull SNode __thisNode__, SModule module) {
-    if (VariableReferenceUtil.referencesPointToSameVariableDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.leftExpression$sEj), SLinkOperations.getTarget(__thisNode__, LINKS.rightExpression$nvX))) {
+    if ((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.leftExpression$sEj)) && (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.rightExpression$nvX)) && VariableReferenceUtil.referencesPointToSameVariableDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.leftExpression$sEj), SLinkOperations.getTarget(__thisNode__, LINKS.rightExpression$nvX))) {
       return true;
     }
     return ((Object) Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invokeSuper(__thisNode__, CONCEPTS.NPEEqualsExpression$Ey, module));
