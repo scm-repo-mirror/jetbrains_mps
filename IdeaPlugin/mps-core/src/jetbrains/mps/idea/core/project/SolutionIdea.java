@@ -304,6 +304,15 @@ public class SolutionIdea extends Solution {
     // TODO: implement saving functionality here.
     // should this methods really do something?
 //        super.save();    //To change body of overridden methods use File | Settings | File Templates.
+
+    // Mark facet as changed to trigger save
+    FacetManager facetManager = myModule.getComponent(FacetManager.class);
+    if (facetManager != null) {
+      MPSFacet mpsFacet = facetManager.getFacetByType(MPSFacetType.ID);
+      if (mpsFacet != null) {
+        facetManager.facetConfigurationChanged(mpsFacet);
+      }
+    }
   }
 
   private void handleFacetChanged(Facet facet) {
