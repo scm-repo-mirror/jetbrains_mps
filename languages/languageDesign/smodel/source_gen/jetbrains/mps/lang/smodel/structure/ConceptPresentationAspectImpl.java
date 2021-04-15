@@ -141,6 +141,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Node_GetReferenceOperation;
   private ConceptPresentation props_Node_GetReferencesOperation;
   private ConceptPresentation props_Node_GetSConceptOperation;
+  private ConceptPresentation props_Node_HasNextSiblingOperation;
+  private ConceptPresentation props_Node_HasPrevSiblingOperation;
   private ConceptPresentation props_Node_InsertNewNextSiblingOperation;
   private ConceptPresentation props_Node_InsertNewPrevSiblingOperation;
   private ConceptPresentation props_Node_InsertNextSiblingOperation;
@@ -1187,6 +1189,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Node_GetSConceptOperation = cpb.create();
         }
         return props_Node_GetSConceptOperation;
+      case LanguageConceptSwitch.Node_HasNextSiblingOperation:
+        if (props_Node_HasNextSiblingOperation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("has-next-sibling");
+          props_Node_HasNextSiblingOperation = cpb.create();
+        }
+        return props_Node_HasNextSiblingOperation;
+      case LanguageConceptSwitch.Node_HasPrevSiblingOperation:
+        if (props_Node_HasPrevSiblingOperation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("has-prev-sibling");
+          props_Node_HasPrevSiblingOperation = cpb.create();
+        }
+        return props_Node_HasPrevSiblingOperation;
       case LanguageConceptSwitch.Node_InsertNewNextSiblingOperation:
         if (props_Node_InsertNewNextSiblingOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

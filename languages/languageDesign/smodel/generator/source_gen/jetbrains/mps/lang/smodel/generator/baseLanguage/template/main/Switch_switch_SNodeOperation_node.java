@@ -31,7 +31,7 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
   private final Iterable<TemplateReductionRule> rules;
   public Switch_switch_SNodeOperation_node() {
     super(new MO());
-    rules = TemplateUtil.<TemplateReductionRule>asIterable(new ReductionRule0(), new ReductionRule1(), new ReductionRule2(), new ReductionRule3(), new ReductionRule4(), new ReductionRule5(), new ReductionRule6(), new ReductionRule7(), new ReductionRule8(), new ReductionRule9(), new ReductionRule10(), new ReductionRule11(), new ReductionRule12(), new ReductionRule13(), new ReductionRule14(), new ReductionRule15(), new ReductionRule16(), new ReductionRule17(), new ReductionRule18(), new ReductionRule19(), new ReductionRule20(), new ReductionRule21(), new ReductionRule22(), new ReductionRule23(), new ReductionRule24(), new ReductionRule25(), new ReductionRule26(), new ReductionRule27(), new ReductionRule28(), new ReductionRule29(), new ReductionRule30(), new ReductionRule31(), new ReductionRule32(), new ReductionRule33(), new ReductionRule34(), new ReductionRule35(), new ReductionRule36(), new ReductionRule37(), new ReductionRule38(), new ReductionRule39(), new ReductionRule40(), new ReductionRule41(), new ReductionRule42());
+    rules = TemplateUtil.<TemplateReductionRule>asIterable(new ReductionRule0(), new ReductionRule1(), new ReductionRule2(), new ReductionRule3(), new ReductionRule4(), new ReductionRule5(), new ReductionRule6(), new ReductionRule7(), new ReductionRule8(), new ReductionRule9(), new ReductionRule10(), new ReductionRule11(), new ReductionRule12(), new ReductionRule13(), new ReductionRule14(), new ReductionRule15(), new ReductionRule16(), new ReductionRule17(), new ReductionRule18(), new ReductionRule19(), new ReductionRule20(), new ReductionRule21(), new ReductionRule22(), new ReductionRule23(), new ReductionRule24(), new ReductionRule25(), new ReductionRule26(), new ReductionRule27(), new ReductionRule28(), new ReductionRule29(), new ReductionRule30(), new ReductionRule31(), new ReductionRule32(), new ReductionRule33(), new ReductionRule34(), new ReductionRule35(), new ReductionRule36(), new ReductionRule37(), new ReductionRule38(), new ReductionRule39(), new ReductionRule40(), new ReductionRule41(), new ReductionRule42(), new ReductionRule43(), new ReductionRule44());
   }
   public SNodeReference getSwitchNode() {
     return new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386630999");
@@ -337,6 +337,28 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
   }
   /*package*/ final class ReductionRule18 extends ReductionRuleBase {
     public ReductionRule18() {
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8432949284911536518"), CONCEPTS.Node_HasNextSiblingOperation$BK, false);
+    }
+    @Override
+    public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
+      final TemplateExecutionEnvironment environment = context.getEnvironment();
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_HasNextSiblingOperation(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8432949284911536519")).apply(context);
+      return tlist1;
+    }
+  }
+  /*package*/ final class ReductionRule19 extends ReductionRuleBase {
+    public ReductionRule19() {
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8432949284911499542"), CONCEPTS.Node_HasPrevSiblingOperation$xn, false);
+    }
+    @Override
+    public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
+      final TemplateExecutionEnvironment environment = context.getEnvironment();
+      Collection<SNode> tlist1 = environment.callSite(new Template_reduce_HasPrevSiblingOperation(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8432949284911545837")).apply(context);
+      return tlist1;
+    }
+  }
+  /*package*/ final class ReductionRule20 extends ReductionRuleBase {
+    public ReductionRule20() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640606"), CONCEPTS.Node_GetPrevSiblingOperation$DO, false);
     }
     @Override
@@ -346,8 +368,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule19 extends ReductionRuleBase {
-    public ReductionRule19() {
+  /*package*/ final class ReductionRule21 extends ReductionRuleBase {
+    public ReductionRule21() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640608"), CONCEPTS.Node_GetNextSiblingsOperation$6I, false);
     }
     @Override
@@ -357,8 +379,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule20 extends ReductionRuleBase {
-    public ReductionRule20() {
+  /*package*/ final class ReductionRule22 extends ReductionRuleBase {
+    public ReductionRule22() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640610"), CONCEPTS.Node_GetPrevSiblingsOperation$ar, false);
     }
     @Override
@@ -368,8 +390,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule21 extends ReductionRuleBase {
-    public ReductionRule21() {
+  /*package*/ final class ReductionRule23 extends ReductionRuleBase {
+    public ReductionRule23() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640612"), CONCEPTS.Node_GetAllSiblingsOperation$qK, false);
     }
     @Override
@@ -379,8 +401,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule22 extends ReductionRuleBase {
-    public ReductionRule22() {
+  /*package*/ final class ReductionRule24 extends ReductionRuleBase {
+    public ReductionRule24() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640614"), CONCEPTS.Node_InsertNewNextSiblingOperation$n7, false);
     }
     @Override
@@ -390,8 +412,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule23 extends ReductionRuleBase {
-    public ReductionRule23() {
+  /*package*/ final class ReductionRule25 extends ReductionRuleBase {
+    public ReductionRule25() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640616"), CONCEPTS.Node_InsertNewPrevSiblingOperation$Ae, false);
     }
     @Override
@@ -401,8 +423,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule24 extends ReductionRuleBase {
-    public ReductionRule24() {
+  /*package*/ final class ReductionRule26 extends ReductionRuleBase {
+    public ReductionRule26() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640618"), CONCEPTS.Node_InsertNextSiblingOperation$c2, false);
     }
     @Override
@@ -412,8 +434,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule25 extends ReductionRuleBase {
-    public ReductionRule25() {
+  /*package*/ final class ReductionRule27 extends ReductionRuleBase {
+    public ReductionRule27() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640620"), CONCEPTS.Node_InsertPrevSiblingOperation$d9, false);
     }
     @Override
@@ -423,8 +445,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule26 extends ReductionRuleBase {
-    public ReductionRule26() {
+  /*package*/ final class ReductionRule28 extends ReductionRuleBase {
+    public ReductionRule28() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640622"), CONCEPTS.Node_ReplaceWithNewOperation$zd, false);
     }
     @Override
@@ -434,8 +456,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule27 extends ReductionRuleBase {
-    public ReductionRule27() {
+  /*package*/ final class ReductionRule29 extends ReductionRuleBase {
+    public ReductionRule29() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640624"), CONCEPTS.Node_ReplaceWithAnotherOperation$2k, false);
     }
     @Override
@@ -445,8 +467,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule28 extends ReductionRuleBase {
-    public ReductionRule28() {
+  /*package*/ final class ReductionRule30 extends ReductionRuleBase {
+    public ReductionRule30() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640626"), CONCEPTS.Node_DeleteOperation$lG, false);
     }
     @Override
@@ -459,16 +481,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_3(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b43));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b43, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640629", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_3(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b63));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b63, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640629", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule29 extends ReductionRuleBase {
-    public ReductionRule29() {
+  /*package*/ final class ReductionRule31 extends ReductionRuleBase {
+    public ReductionRule31() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640637"), CONCEPTS.Node_DetachOperation$AU, false);
     }
     @Override
@@ -481,16 +503,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_4(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b53));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b53, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640640", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_4(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b73));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b73, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640640", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule30 extends ReductionRuleBase {
-    public ReductionRule30() {
+  /*package*/ final class ReductionRule32 extends ReductionRuleBase {
+    public ReductionRule32() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640648"), CONCEPTS.Node_CopyOperation$31, false);
     }
     @Override
@@ -500,8 +522,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule31 extends ReductionRuleBase {
-    public ReductionRule31() {
+  /*package*/ final class ReductionRule33 extends ReductionRuleBase {
+    public ReductionRule33() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640650"), CONCEPTS.Node_IsNotNullOperation$t5, false);
     }
     @Override
@@ -511,8 +533,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule32 extends ReductionRuleBase {
-    public ReductionRule32() {
+  /*package*/ final class ReductionRule34 extends ReductionRuleBase {
+    public ReductionRule34() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640652"), CONCEPTS.Node_IsNullOperation$A7, false);
     }
     @Override
@@ -522,8 +544,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule33 extends ReductionRuleBase {
-    public ReductionRule33() {
+  /*package*/ final class ReductionRule35 extends ReductionRuleBase {
+    public ReductionRule35() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640654"), CONCEPTS.Node_IsRoleOperation$X2, false);
     }
     @Override
@@ -533,8 +555,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule34 extends ReductionRuleBase {
-    public ReductionRule34() {
+  /*package*/ final class ReductionRule36 extends ReductionRuleBase {
+    public ReductionRule36() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640656"), CONCEPTS.Node_GetConceptOperation$jx, false);
     }
     @Override
@@ -544,8 +566,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule35 extends ReductionRuleBase {
-    public ReductionRule35() {
+  /*package*/ final class ReductionRule37 extends ReductionRuleBase {
+    public ReductionRule37() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640658"), CONCEPTS.Node_GetSConceptOperation$Gq, false);
     }
     @Override
@@ -555,8 +577,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule36 extends ReductionRuleBase {
-    public ReductionRule36() {
+  /*package*/ final class ReductionRule38 extends ReductionRuleBase {
+    public ReductionRule38() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640660"), CONCEPTS.Node_IsAttributeOperation$2U, false);
     }
     @Override
@@ -569,16 +591,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_5(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b24));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b24, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640663", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_5(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b44));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b44, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640663", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule37 extends ReductionRuleBase {
-    public ReductionRule37() {
+  /*package*/ final class ReductionRule39 extends ReductionRuleBase {
+    public ReductionRule39() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640671"), CONCEPTS.Node_GetReferencesOperation$XK, false);
     }
     @Override
@@ -591,16 +613,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_6(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b34));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b34, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640674", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_6(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b54));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b54, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640674", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule38 extends ReductionRuleBase {
-    public ReductionRule38() {
+  /*package*/ final class ReductionRule40 extends ReductionRuleBase {
+    public ReductionRule40() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640682"), CONCEPTS.Node_GetReferenceOperation$zo, false);
     }
     @Override
@@ -613,20 +635,20 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_7(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b44));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b44, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640685", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_7(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b64));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b64, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640685", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
         {
           Collection<SNode> tlist3 = null;
           {
-            final SNode switchInput3 = QueriesGenerated.sourceNodeQuery_120_8(new SourceSubstituteMacroNodeContext(context1, switchMacroRef_yds1mf_b0a0a0a1a4a2a1sb));
+            final SNode switchInput3 = QueriesGenerated.sourceNodeQuery_120_8(new SourceSubstituteMacroNodeContext(context1, switchMacroRef_yds1mf_b0a0a0a1a4a2a1ub));
             if (switchInput3 == null) {
               tlist3 = Collections.emptyList();
             } else {
               TemplateContext switchContext3 = context1;
               switchContext3 = switchContext3.subContext(null, switchInput3);
-              tlist3 = environment.trySwitch(templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1sb, switchContext3);
+              tlist3 = environment.trySwitch(templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1ub, switchContext3);
               if (tlist3 == null) {
                 final SNode tnode4 = environment.createOutputNode(myConcepts[1]);
                 tlist3 = TemplateUtil.singletonList(tnode4);
@@ -639,8 +661,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule39 extends ReductionRuleBase {
-    public ReductionRule39() {
+  /*package*/ final class ReductionRule41 extends ReductionRuleBase {
+    public ReductionRule41() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640714"), CONCEPTS.Node_ContainingLinkOperation$$L, false);
     }
     @Override
@@ -653,16 +675,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_9(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b54));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b54, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640717", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_9(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b74));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b74, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640717", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule40 extends ReductionRuleBase {
-    public ReductionRule40() {
+  /*package*/ final class ReductionRule42 extends ReductionRuleBase {
+    public ReductionRule42() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640725"), CONCEPTS.Node_GetContainingRoleOperation$uI, false);
     }
     @Override
@@ -675,16 +697,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_10(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b64));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b64, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640728", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_10(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0b84));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0b84, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640728", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule41 extends ReductionRuleBase implements TemplateRuleWithCondition {
-    public ReductionRule41() {
+  /*package*/ final class ReductionRule43 extends ReductionRuleBase implements TemplateRuleWithCondition {
+    public ReductionRule43() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640736"), CONCEPTS.Node_PointerOperation$T2, false);
     }
     @Override
@@ -701,16 +723,16 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_11(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0c74));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0c74, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640739", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_11(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0c94));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0c94, "tpl/r:00000000-0000-4000-0000-011c89590303/6683433361386640739", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
       }
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule42 extends ReductionRuleBase implements TemplateRuleWithCondition {
-    public ReductionRule42() {
+  /*package*/ final class ReductionRule44 extends ReductionRuleBase implements TemplateRuleWithCondition {
+    public ReductionRule44() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763905062"), CONCEPTS.Node_IsOperation$Kh, true);
     }
     @Override
@@ -727,13 +749,13 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_12(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0c84));
-          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0c84, "tpl/r:00000000-0000-4000-0000-011c89590303/3661776679763994176", context1);
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_120_12(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_yds1mf_b0a0c0d0c0c05));
+          tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_yds1mf_b0a0c0d0c0c05, "tpl/r:00000000-0000-4000-0000-011c89590303/3661776679763994176", context1);
           environment.aggregate(tnode1, myAggregationLinks[0], tlist2);
         }
         {
           Collection<SNode> tlist3 = null;
-          SNode callInputNode3 = QueriesGenerated.sourceNodeQuery_120_13(new SourceSubstituteMacroNodeContext(context1, callMacro_yds1mf_b0a0a1a4a2a2wb));
+          SNode callInputNode3 = QueriesGenerated.sourceNodeQuery_120_13(new SourceSubstituteMacroNodeContext(context1, callMacro_yds1mf_b0a0a1a4a2a2yb));
           TemplateContext context2 = context1;
           context2 = context2.subContext(null, callInputNode3);
           if (callInputNode3 != null) {
@@ -778,18 +800,18 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
   private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b22 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640589");
   private static final SNodePointer switchMacroRef_yds1mf_b0a0a0a1a4a2a1w = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640597");
   private static final SNodePointer templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1w = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3902354333653355606");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b43 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640630");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b53 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640641");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b24 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640664");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b34 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640675");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b44 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640686");
-  private static final SNodePointer switchMacroRef_yds1mf_b0a0a0a1a4a2a1sb = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640694");
-  private static final SNodePointer templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1sb = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3902354333653082203");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b54 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640718");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b64 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640729");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0c74 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640740");
-  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0c84 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763994177");
-  private static final SNodePointer callMacro_yds1mf_b0a0a1a4a2a2wb = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763994850");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b63 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640630");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b73 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640641");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b44 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640664");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b54 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640675");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b64 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640686");
+  private static final SNodePointer switchMacroRef_yds1mf_b0a0a0a1a4a2a1ub = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640694");
+  private static final SNodePointer templateSwitchNode_yds1mf_a0a0c0a1a1a4a2a1ub = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3902354333653082203");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b74 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640718");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0b84 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640729");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0c94 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6683433361386640740");
+  private static final SNodePointer copySrcMacro_yds1mf_b0a0c0d0c0c05 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763994177");
+  private static final SNodePointer callMacro_yds1mf_b0a0a1a4a2a2yb = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3661776679763994850");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Node_GetParentOperation$Yf = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x109563e6169L, "jetbrains.mps.lang.smodel.structure.Node_GetParentOperation");
@@ -803,6 +825,8 @@ public class Switch_switch_SNodeOperation_node extends TemplateSwitchBase implem
     /*package*/ static final SConcept Node_GetIndexInParentOperation$Q3 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1128be3ca6aL, "jetbrains.mps.lang.smodel.structure.Node_GetIndexInParentOperation");
     /*package*/ static final SConcept Node_IsInstanceOfOperation$5d = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10956bb6029L, "jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation");
     /*package*/ static final SConcept Node_GetNextSiblingOperation$BD = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a3ea0a40dL, "jetbrains.mps.lang.smodel.structure.Node_GetNextSiblingOperation");
+    /*package*/ static final SConcept Node_HasNextSiblingOperation$BK = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x646db1627f10e293L, "jetbrains.mps.lang.smodel.structure.Node_HasNextSiblingOperation");
+    /*package*/ static final SConcept Node_HasPrevSiblingOperation$xn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7507dab1e808dedcL, "jetbrains.mps.lang.smodel.structure.Node_HasPrevSiblingOperation");
     /*package*/ static final SConcept Node_GetPrevSiblingOperation$DO = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a3e9fedc7L, "jetbrains.mps.lang.smodel.structure.Node_GetPrevSiblingOperation");
     /*package*/ static final SConcept Node_GetNextSiblingsOperation$6I = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ab957e8bbL, "jetbrains.mps.lang.smodel.structure.Node_GetNextSiblingsOperation");
     /*package*/ static final SConcept Node_GetPrevSiblingsOperation$ar = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ab975b657L, "jetbrains.mps.lang.smodel.structure.Node_GetPrevSiblingsOperation");

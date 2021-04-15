@@ -9390,6 +9390,48 @@
       </node>
     </node>
   </node>
+  <node concept="13h7C7" id="6hHGm9Z4eh8">
+    <property role="3GE5qa" value="operation.node" />
+    <ref role="13h7C2" to="tp25:6hHGm9Z4eaj" resolve="Node_HasNextSiblingOperation" />
+    <node concept="13hLZK" id="6hHGm9Z4eh9" role="13h7CW">
+      <node concept="3clFbS" id="6hHGm9Z4eha" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="6hHGm9Z4emU" role="13h7CS">
+      <property role="2Ki8OM" value="true" />
+      <property role="TrG5h" value="applicableToNode" />
+      <ref role="13i0hy" node="1653mnvAgrs" resolve="applicableToNode" />
+      <node concept="3Tm1VV" id="6hHGm9Z4emV" role="1B3o_S" />
+      <node concept="3clFbS" id="6hHGm9Z4en0" role="3clF47">
+        <node concept="3cpWs6" id="6hHGm9Z4p7f" role="3cqZAp">
+          <node concept="3clFbT" id="6hHGm9Z4pDi" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="10P_77" id="6hHGm9Z4en1" role="3clF45" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="7k7QF7C2e1Q">
+    <property role="3GE5qa" value="operation.node" />
+    <ref role="13h7C2" to="tp25:7k7QF7C2dVs" resolve="Node_HasPrevSiblingOperation" />
+    <node concept="13hLZK" id="7k7QF7C2e1R" role="13h7CW">
+      <node concept="3clFbS" id="7k7QF7C2e1S" role="2VODD2" />
+    </node>
+    <node concept="13i0hz" id="7k7QF7C2e1T" role="13h7CS">
+      <property role="2Ki8OM" value="true" />
+      <property role="TrG5h" value="applicableToNode" />
+      <ref role="13i0hy" node="1653mnvAgrs" resolve="applicableToNode" />
+      <node concept="3Tm1VV" id="7k7QF7C2e1U" role="1B3o_S" />
+      <node concept="3clFbS" id="7k7QF7C2e1V" role="3clF47">
+        <node concept="3cpWs6" id="7k7QF7C2e1W" role="3cqZAp">
+          <node concept="3clFbT" id="7k7QF7C2e1X" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="10P_77" id="7k7QF7C2e1Y" role="3clF45" />
+    </node>
+  </node>
   <node concept="13h7C7" id="1g73YSPNS8W">
     <property role="3GE5qa" value="identity" />
     <ref role="13h7C2" to="tp25:296OPknU5z2" resolve="LanguageIdentityBySourceModule" />

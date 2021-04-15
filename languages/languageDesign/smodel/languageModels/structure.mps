@@ -3156,5 +3156,25 @@
       <property role="t5JxN" value="Tells if a reference resorts to scopes to find out its target (unlike 'static' reference that keeps complete target node identity)" />
     </node>
   </node>
+  <node concept="1TIwiD" id="6hHGm9Z4eaj">
+    <property role="R5$K7" value="false" />
+    <property role="R5$K2" value="false" />
+    <property role="TrG5h" value="Node_HasNextSiblingOperation" />
+    <property role="2_RsDV" value="4G1g3fIR8JG" />
+    <property role="3GE5qa" value="operation.node" />
+    <property role="34LRSv" value="has-next-sibling" />
+    <property role="EcuMT" value="7236635212850979475" />
+    <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
+  </node>
+  <node concept="1TIwiD" id="7k7QF7C2dVs">
+    <property role="R5$K7" value="false" />
+    <property role="R5$K2" value="false" />
+    <property role="TrG5h" value="Node_HasPrevSiblingOperation" />
+    <property role="2_RsDV" value="4G1g3fIR8JG" />
+    <property role="3GE5qa" value="operation.node" />
+    <property role="34LRSv" value="has-prev-sibling" />
+    <property role="EcuMT" value="8432949284911505116" />
+    <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
+  </node>
 </model>
 
