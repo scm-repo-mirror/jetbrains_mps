@@ -15,9 +15,9 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_Expression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_Expression_NonTypesystemRule() {
@@ -37,9 +37,12 @@ public class check_Expression_NonTypesystemRule extends AbstractNonTypesystemRul
             }
           }
         } else {
-          {
-            final MessageTarget errorTarget = new NodeMessageTarget();
-            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(expr, "The condition is always " + conditionConstant, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4056233746950486949", null, errorTarget);
+          // Do not report while/do-while with "true", as this is used fairly frequently
+          if (!(conditionConstant.booleanValue()) || (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(expr), CONCEPTS.WhileStatement$Ay)) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(expr), CONCEPTS.DoWhileStatement$9p)))) {
+            {
+              final MessageTarget errorTarget = new NodeMessageTarget();
+              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(expr, "The condition is always " + conditionConstant, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4056233746950486949", null, errorTarget);
+            }
           }
         }
       }
@@ -55,15 +58,17 @@ public class check_Expression_NonTypesystemRule extends AbstractNonTypesystemRul
     return false;
   }
 
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WhileStatement$Ay = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
+    /*package*/ static final SConcept DoWhileStatement$9p = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
+    /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$wARE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, 0x10a69819132L, "condition");
     /*package*/ static final SContainmentLink condition$5R17 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
     /*package*/ static final SContainmentLink condition$k0T9 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition");
     /*package*/ static final SContainmentLink condition$KEkM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, 0xfaa4bf0f30L, "condition");
     /*package*/ static final SContainmentLink condition$UPf8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, 0x11232679422L, "condition");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }
