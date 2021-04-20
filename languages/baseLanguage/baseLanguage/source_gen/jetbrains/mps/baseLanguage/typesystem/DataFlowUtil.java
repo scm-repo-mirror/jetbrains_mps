@@ -270,7 +270,7 @@ public class DataFlowUtil {
               final MessageTarget errorTarget = new NodeMessageTarget();
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(var, "Unused variable", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8937659523942275424", null, errorTarget);
             }
-          } else if (SLinkOperations.getTarget(SNodeOperations.cast(var, CONCEPTS.LocalVariableDeclaration$41), LINKS.initializer$2twD) == null) {
+          } else {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(var, "Unused variable", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4056233746948448436", null, errorTarget);
