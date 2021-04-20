@@ -8,8 +8,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.dataFlow.ConditionUtil;
+import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -23,16 +23,23 @@ public class check_Expression_NonTypesystemRule extends AbstractNonTypesystemRul
   public check_Expression_NonTypesystemRule() {
   }
   public void applyRule(final SNode expr, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SNodeOperations.hasRole(expr, LINKS.condition$5R17) || SNodeOperations.hasRole(expr, LINKS.condition$k0T9) || SNodeOperations.hasRole(expr, LINKS.condition$KEkM) || SNodeOperations.hasRole(expr, LINKS.condition$UPf8) || SNodeOperations.hasRole(expr, LINKS.condition$wARE)) && !((boolean) Expression__BehaviorDescriptor.constant_id1653mnvAgr2.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(expr))))) {
+    if ((SNodeOperations.hasRole(expr, LINKS.condition$5R17) || SNodeOperations.hasRole(expr, LINKS.condition$k0T9) || SNodeOperations.hasRole(expr, LINKS.condition$KEkM) || SNodeOperations.hasRole(expr, LINKS.condition$UPf8) || SNodeOperations.hasRole(expr, LINKS.condition$wARE))) {
       Boolean conditionConstant = ConditionUtil.getConditionConstant(expr);
       if (conditionConstant != null) {
-        {
-          final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(expr, "The condition is always " + conditionConstant, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8245314650935561947", null, errorTarget);
+        if (!((boolean) Expression__BehaviorDescriptor.constant_id1653mnvAgr2.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(expr))))) {
           {
-            BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.SimplifyCondition_QuickFix", "8626468694781677016", false);
-            intentionProvider.putArgument("newValue", conditionConstant.toString());
-            _reporter_2309309498.addIntentionProvider(intentionProvider);
+            final MessageTarget errorTarget = new NodeMessageTarget();
+            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(expr, "The condition is always " + conditionConstant, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8245314650935561947", null, errorTarget);
+            {
+              BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.SimplifyCondition_QuickFix", "8626468694781677016", false);
+              intentionProvider.putArgument("newValue", conditionConstant.toString());
+              _reporter_2309309498.addIntentionProvider(intentionProvider);
+            }
+          }
+        } else {
+          {
+            final MessageTarget errorTarget = new NodeMessageTarget();
+            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(expr, "The condition is always " + conditionConstant, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4056233746950486949", null, errorTarget);
           }
         }
       }
