@@ -3162,6 +3162,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         myPersistentUI = ui;
       }
       super.setUI(myPersistentUI);
+      setOpaque(false);
     }
 
     /**

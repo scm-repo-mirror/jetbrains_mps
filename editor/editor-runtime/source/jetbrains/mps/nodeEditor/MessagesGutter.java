@@ -125,19 +125,12 @@ public class MessagesGutter extends ButtonlessScrollBarUI.Transparent implements
         g2d.setTransform(old);
       }
     } else {
-      int shift = myRightToLeft ? -9 : 9;
-      g.translate(shift, 0);
       super.paintThumb(g, c, thumbBounds);
-      g.translate(-shift, 0);
     }
   }
 
   @Override
   protected void doPaintTrack(Graphics g, JComponent c, Rectangle bounds) {
-    super.doPaintTrack(g, c, bounds);
-    g.setColor(getEditorComponent().getBackground());
-    g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
-
     drawMarks(g);
   }
 
