@@ -12394,9 +12394,9 @@
         <node concept="3clFbS" id="2iMJRNxBv2k" role="3clFbx">
           <node concept="1Z5TYs" id="2iMJRNx_s6D" role="3cqZAp">
             <node concept="mw_s8" id="2iMJRNx_s6E" role="1ZfhKB">
-              <node concept="2c44tf" id="2iMJRNx_s6F" role="mwGJk">
-                <node concept="3uibUv" id="7BIvS$tIxO9" role="2c44tc">
-                  <ref role="3uigEE" to="c17a:~SContainmentLink" resolve="SContainmentLink" />
+              <node concept="2pJPEk" id="39RMTAKmIyN" role="mwGJk">
+                <node concept="2pJPED" id="39RMTAKmIza" role="2pJPEn">
+                  <ref role="2pJxaS" to="tp25:1YRcO3NA_w5" resolve="AggregationLinkType" />
                 </node>
               </node>
             </node>
@@ -12433,9 +12433,9 @@
           <node concept="3clFbS" id="2iMJRNxBxi5" role="9aQI4">
             <node concept="1Z5TYs" id="2iMJRNxBxmr" role="3cqZAp">
               <node concept="mw_s8" id="2iMJRNxBxms" role="1ZfhKB">
-                <node concept="2c44tf" id="2iMJRNxBxmt" role="mwGJk">
-                  <node concept="3uibUv" id="7BIvS$tIxP0" role="2c44tc">
-                    <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
+                <node concept="2pJPEk" id="39RMTAKmIxD" role="mwGJk">
+                  <node concept="2pJPED" id="39RMTAKmIxP" role="2pJPEn">
+                    <ref role="2pJxaS" to="tp25:1YRcO3NA_wL" resolve="AssociationLinkType" />
                   </node>
                 </node>
               </node>
