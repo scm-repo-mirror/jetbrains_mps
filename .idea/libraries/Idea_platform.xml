@@ -105,6 +105,10 @@
       <root url="jar://$PROJECT_DIR$/lib/bcprov-jdk15on-1.65.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/bcpkix-jdk15on-1.65.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testFramework-java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testFramework.core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testFramework.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tests_bootstrap.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

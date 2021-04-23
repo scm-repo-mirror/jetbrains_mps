@@ -24,6 +24,10 @@
       <sourceRoot location="spellchecker.jar" />
       <sourceRoot location="java-api.jar" />
       <sourceRoot location="java-impl.jar" />
+      <sourceRoot location="testFramework.core.jar" />
+      <sourceRoot location="testFramework.jar" />
+      <sourceRoot location="testFramework-java.jar" />
+      <sourceRoot location="tests_bootstrap.jar" />
       <!-- -->
       <sourceRoot location="netty-buffer-4.1.52.Final.jar" />
       <sourceRoot location="netty-codec-4.1.52.Final.jar" />
@@ -65,6 +69,10 @@
     <stubModelEntry path="${platform_lib}/spellchecker.jar" />
     <stubModelEntry path="${platform_lib}/java-api.jar" />
     <stubModelEntry path="${platform_lib}/java-impl.jar" />
+    <stubModelEntry path="${platform_lib}/testFramework.core.jar" />
+    <stubModelEntry path="${platform_lib}/testFramework.jar" />
+    <stubModelEntry path="${platform_lib}/testFramework-java.jar" />
+    <stubModelEntry path="${platform_lib}/tests_bootstrap.jar" />
     <!-- aka 'idea jars' -->
     <stubModelEntry path="${platform_lib}/netty-buffer-4.1.52.Final.jar" />
     <stubModelEntry path="${platform_lib}/netty-codec-4.1.52.Final.jar" />
