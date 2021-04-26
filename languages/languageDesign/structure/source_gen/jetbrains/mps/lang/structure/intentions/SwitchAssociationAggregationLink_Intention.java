@@ -55,7 +55,7 @@ public final class SwitchAssociationAggregationLink_Intention extends AbstractIn
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$PeKc), 0xfc6f4e95b9L)) {
-        SPropertyOperations.setEnum(node, PROPS.metaClass$PeKc, 0xfc6f4e95b8L, "association");
+        SPropertyOperations.setEnum(node, PROPS.metaClass$PeKc, 0xfc6f4e95b8L, "reference");
         if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.sourceCardinality$cxYK), 0xfc6f3944c5L)) {
           SPropertyOperations.setEnum(node, PROPS.sourceCardinality$cxYK, 0xfc6f3944c3L, "_0__1");
         } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.sourceCardinality$cxYK), 0xfc6f3944c6L)) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.scope.ConditionalScope;
 import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.smodel.undo.DefaultCommand;
+import jetbrains.mps.smodel.undo.NamedCommand;
 import jetbrains.mps.smodel.undo.NodeBasedCommand;
 import jetbrains.mps.util.Callback;
 import jetbrains.mps.util.NotCondition;
@@ -182,27 +182,22 @@ public class ModelImportHelper {
         myProject.getModelAccess().runReadAction(() -> modelImporter.prepare(modelToImport));
         final boolean confirmed = !modelImporter.affectsModuleDependencies() || modelImporter.confirmModuleChanges(getFrame());
 
+        final Runnable activity = () -> {
+          if (confirmed) {
+            modelImporter.execute();
+          }
+          executeCallback(callbackParameters);
+        };
         Runnable command;
         if (myContextNode != null) {
           command = new NodeBasedCommand(myContextNode, myProject.getRepository()) {
             @Override
             public void run() {
-              if (confirmed) {
-                modelImporter.execute();
-              }
-              executeCallback(callbackParameters);
+              activity.run();
             }
           };
         } else {
-          command = new DefaultCommand(myProject.getRepository()) {
-            @Override
-            public void run() {
-              if (confirmed) {
-                modelImporter.execute();
-              }
-              executeCallback(callbackParameters);
-            }
-          };
+          command = NamedCommand.wrap("Update imports", activity);
         }
         myProject.getModelAccess().executeCommand(command);
       });
