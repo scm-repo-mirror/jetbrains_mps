@@ -3904,8 +3904,8 @@
               <node concept="37vLTw" id="1HYau0faS5_" role="2Oq$k0">
                 <ref role="3cqZAo" node="1HYau0faqun" resolve="commitsGraphNode" />
               </node>
-              <node concept="liA8E" id="1HYau0fb0q2" role="2OqNvi">
-                <ref role="37wK5l" to="5p6x:6wgNI6tCb4n" resolve="getParents" />
+              <node concept="liA8E" id="1MsUFH6a$Gm" role="2OqNvi">
+                <ref role="37wK5l" to="5p6x:1MsUFH695KS" resolve="getParentsWithRoot" />
               </node>
             </node>
           </node>
