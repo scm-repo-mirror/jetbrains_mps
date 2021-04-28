@@ -1509,8 +1509,11 @@
         <property role="TrG5h" value="fileExtension" />
         <node concept="17QB3L" id="7Kf$fJThbgt" role="1tU5fm" />
       </node>
-      <node concept="3uibUv" id="7IzwFQmKfqQ" role="Sfmx6">
-        <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+      <node concept="3uibUv" id="1K6WBNun8f9" role="Sfmx6">
+        <ref role="3uigEE" to="jlcu:~VcsException" resolve="VcsException" />
+      </node>
+      <node concept="3uibUv" id="1K6WBNunepG" role="Sfmx6">
+        <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
       </node>
     </node>
     <node concept="2tJIrI" id="3tdNeKHfbJF" role="jymVt" />
@@ -3182,8 +3185,8 @@
             <node concept="XOnhg" id="7Kf$fJToe6b" role="1zc67B">
               <property role="TrG5h" value="e" />
               <node concept="nSUau" id="7Kf$fJToe6c" role="1tU5fm">
-                <node concept="3uibUv" id="7IzwFQmKuv7" role="nSUat">
-                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+                <node concept="3uibUv" id="1K6WBNuekw2" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Throwable" resolve="Throwable" />
                 </node>
               </node>
             </node>
@@ -3483,8 +3486,8 @@
             <node concept="XOnhg" id="ppWmVbow58" role="1zc67B">
               <property role="TrG5h" value="e" />
               <node concept="nSUau" id="ppWmVbow59" role="1tU5fm">
-                <node concept="3uibUv" id="7IzwFQmKDIT" role="nSUat">
-                  <ref role="3uigEE" to="wyt6:~Exception" resolve="Exception" />
+                <node concept="3uibUv" id="1K6WBNuenxU" role="nSUat">
+                  <ref role="3uigEE" to="wyt6:~Throwable" resolve="Throwable" />
                 </node>
               </node>
             </node>
