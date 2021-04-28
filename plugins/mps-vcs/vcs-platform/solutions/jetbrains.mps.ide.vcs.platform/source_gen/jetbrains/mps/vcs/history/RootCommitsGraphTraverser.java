@@ -54,7 +54,7 @@ public final class RootCommitsGraphTraverser {
   public void run() {
     try {
       myStartNode.loadModel(null, myFile.getExtension());
-    } catch (Exception e) {
+    } catch (Throwable e) {
       myException = new AnnotateModelReadException(myStartNode.getRevision(), e.getMessage());
     }
     if (!(myStartNode.isModelLoaded())) {
@@ -99,7 +99,7 @@ public final class RootCommitsGraphTraverser {
     }
     try {
       parent.loadModel(node, myFile.getExtension());
-    } catch (Exception e) {
+    } catch (Throwable e) {
       if (!(myTolerateReadModelFailure)) {
         throw new AnnotateModelReadException(parent.getRevision(), e.getMessage());
       }
