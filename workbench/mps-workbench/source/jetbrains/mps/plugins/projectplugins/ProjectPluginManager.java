@@ -229,7 +229,14 @@ public class ProjectPluginManager extends BasePluginManager<BaseProjectPlugin> i
 //    myState.pluginsState.clear();
     for (BaseProjectPlugin plugin : plugins) {
       PluginState state = plugin.getState();
-      if (state != null) {
+      // XXX can make BaseProjectPlugin.getState() return null if there's nothing to store,
+      //     however, null return value sort of PersistentStateComponent.getState() has special
+      //     meaning (use previous). Although it's just this PPM that asks getState() and
+      //     we could establish own contract, I decided not to (well, unless we replace
+      //     IDEA's API with own (identical), where we can have this contract explicit.
+      //     That's why here's a !myComponentsState.isEmpty check, not to write blank xml elements
+      //     into workspace.xml for each MPS Project Plugin.
+      if (state != null && !state.myComponentsState.isEmpty()) {
         myState.pluginsState.put(plugin.getClass().getName(), state);
       } else {
         myState.pluginsState.remove(plugin.getClass().getName());
