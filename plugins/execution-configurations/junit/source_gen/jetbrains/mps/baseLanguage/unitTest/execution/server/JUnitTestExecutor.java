@@ -27,13 +27,18 @@ public class JUnitTestExecutor implements TestExecutor {
   private final TestsContributor myTestContributor;
   private int myFailureCount = -1;
   private Throwable myException;
-  private final CommandOutputStream myOutStream;
-  private final CommandOutputStream myErrStream;
+  private CommandOutputStream myOutStream;
+  private CommandOutputStream myErrStream;
+  private final boolean myRedirectStdOutErr;
+
 
   public JUnitTestExecutor(@NotNull TestsContributor testContributor) {
+    this(testContributor, true);
+  }
+
+  public JUnitTestExecutor(@NotNull TestsContributor testContributor, boolean redirectStdOutErr) {
     myTestContributor = testContributor;
-    myOutStream = new CommandOutputStream(System.out);
-    myErrStream = new CommandOutputStream(System.err);
+    myRedirectStdOutErr = redirectStdOutErr;
   }
 
   @Nullable
@@ -46,14 +51,20 @@ public class JUnitTestExecutor implements TestExecutor {
     if (LOG.isDebugEnabled()) {
       LOG.debug("Initializing " + getClass().getSimpleName());
     }
-    System.setOut(new PrintStream(myOutStream));
-    System.setErr(new PrintStream(myErrStream));
+    myOutStream = new CommandOutputStream(System.out);
+    myErrStream = new CommandOutputStream(System.err);
+    if (myRedirectStdOutErr) {
+      System.setOut(new PrintStream(myOutStream));
+      System.setErr(new PrintStream(myErrStream));
+    }
   }
 
   @Override
   public void dispose() {
-    System.setOut(myOutStream.getOldStream());
-    System.setErr(myErrStream.getOldStream());
+    if (myRedirectStdOutErr) {
+      System.setOut(myOutStream.getOldStream());
+      System.setErr(myErrStream.getOldStream());
+    }
     if (LOG.isDebugEnabled()) {
       LOG.debug("Disposing " + getClass().getSimpleName());
     }
