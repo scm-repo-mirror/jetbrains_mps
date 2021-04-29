@@ -112,10 +112,6 @@
     <action id="FixDocComment" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <action id="QuickPreview" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
 
-    <action id="ViewNavigationBar" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
-
-    <action id="ViewMembersInNavigationBar" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
-
     <action id="ViewImportPopups" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
 
     <!-- Go To -->
