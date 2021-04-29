@@ -50,7 +50,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
     if (!(checkExecutionIsPossible())) {
       return new EmptyProcessHandler();
     }
-    final JUnitTestExecutor executor = new JUnitTestExecutor(myTestsContributor);
+    final JUnitTestExecutor executor = new JUnitTestExecutor(myTestsContributor, false);
     final Future<?> future = doExecute(executor);
     // can use TestInProcessRunState instead of both process and future parameter, isDone == TERMINATED, startNotify() == INITIALIZED -> READYTOEXECUTE
     // Alternatively, FakeProcess.init may do INITIALIZED -> READYTOEXECUTE, and rely on default ProcessHandler.isProcessTerminated implementation instead of Future.isDone
@@ -86,37 +86,40 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
         // it doesn't hurt to have this flag set anyway, just in case anyone asks if we are TestMode.isInsideTestEnvironment
         RuntimeFlags.setTestMode(TestMode.IN_PROCESS);
         try {
-          executor.init();
           waitUnlessProcessIsReady();
           assert myTestRunState.isReady();
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn("Be aware of the execution of your own test code and its consequences when running tests in-process. " + "The code is being executed within the current MPS environment and might do a lot of damage if written without caution.");
+          try {
+            executor.init();
+            if (LOG.isEnabledFor(Level.WARN)) {
+              LOG.warn("Be aware of the execution of your own test code and its consequences when running tests in-process. " + "The code is being executed within the current MPS environment and might do a lot of damage if written without caution.");
+            }
+            if (LOG.isInfoEnabled()) {
+              LOG.info("Executing tests in-process");
+            }
+            myTestRunState.advance(RunStateEnum.READYTOEXECUTE, RunStateEnum.RUNNING);
+            executor.execute();
+            // regular test execution ends in RUNNING state. If we are in TERMINATING state here already, it means PH.requestTerminate triggered execution stop.
+            boolean cancelled = myTestRunState.isTerminating();
+            myTestRunState.advance(RunStateEnum.RUNNING, RunStateEnum.TERMINATING);
+            if (executor.getExecutionError() != null) {
+              myFakeProcess.setExitCode(DefaultTestExecutor.EXIT_CODE_FOR_EXCEPTION);
+            } else if (cancelled) {
+              myFakeProcess.setExitCode(FakeProcess.TERMINATION_CODE);
+            } else {
+              myFakeProcess.setExitCode(executor.getFailureCount());
+            }
+            // copied from TestInProcessExecutor#terminateProcess(int), though not sure I see the point in TestEventsDispatcher use
+            String terminateMessage = "in-process test execution finished with exit code " + myFakeProcess.exitValue();
+            if (LOG.isInfoEnabled()) {
+              LOG.info(terminateMessage);
+            }
+            // once this Future is completed (isDone() == true), FakeProcessHandler terminates and process listeners
+            // have a change to notify others (e.g. TestRunState though UnitTestProcessListener with TestEventsDispatcher)
+          } finally {
+            executor.dispose();
           }
-          if (LOG.isInfoEnabled()) {
-            LOG.info("Executing tests in-process");
-          }
-          myTestRunState.advance(RunStateEnum.READYTOEXECUTE, RunStateEnum.RUNNING);
-          executor.execute();
-          // regular test execution ends in RUNNING state. If we are in TERMINATING state here already, it means PH.requestTerminate triggered execution stop.
-          boolean cancelled = myTestRunState.isTerminating();
-          myTestRunState.advance(RunStateEnum.RUNNING, RunStateEnum.TERMINATING);
-          if (executor.getExecutionError() != null) {
-            myFakeProcess.setExitCode(DefaultTestExecutor.EXIT_CODE_FOR_EXCEPTION);
-          } else if (cancelled) {
-            myFakeProcess.setExitCode(FakeProcess.TERMINATION_CODE);
-          } else {
-            myFakeProcess.setExitCode(executor.getFailureCount());
-          }
-          // copied from TestInProcessExecutor#terminateProcess(int), though not sure I see the point in TestEventsDispatcher use
-          String terminateMessage = "in-process test execution finished with exit code " + myFakeProcess.exitValue();
-          if (LOG.isInfoEnabled()) {
-            LOG.info(terminateMessage);
-          }
-          // once this Future is completed (isDone() == true), FakeProcessHandler terminates and process listeners
-          // have a change to notify others (e.g. TestRunState though UnitTestProcessListener with TestEventsDispatcher)
         } finally {
           RuntimeFlags.setTestMode(oldTestMode);
-          executor.dispose();
           myTestRunState.set(RunStateEnum.TERMINATED);
           JUnitInProcessRunStarter.this.dispose();
         }
