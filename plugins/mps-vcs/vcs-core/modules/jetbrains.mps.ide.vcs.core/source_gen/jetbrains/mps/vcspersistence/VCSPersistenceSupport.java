@@ -32,11 +32,11 @@ import java.io.InputStreamReader;
 import jetbrains.mps.util.FileUtil;
 import java.util.List;
 import jetbrains.mps.smodel.persistence.lines.LineContent;
-import java.io.StringReader;
 import java.io.ByteArrayInputStream;
 import jetbrains.mps.util.JDOMUtil;
 import org.jdom.JDOMException;
 import jetbrains.mps.smodel.DefaultSModel;
+import java.io.StringReader;
 import org.xml.sax.helpers.DefaultHandler;
 import jetbrains.mps.util.xml.BreakParseSAXException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -176,36 +176,6 @@ public class VCSPersistenceSupport {
     }
   }
 
-  /**
-   * 
-   * @deprecated will be removed once 2021.1 is out
-   */
-  @Nullable
-  @Deprecated(forRemoval = true)
-  public static List<LineContent> getLineToContentMap(String content) throws ModelReadException {
-    try {
-      SModelHeader header;
-      header = loadDescriptor(new InputSource(new StringReader(content)));
-      IModelPersistence mp = getPersistence(header.getPersistenceVersion());
-      if (mp == null) {
-        return null;
-      }
-
-      XMLSAXHandler<List<LineContent>> handler = mp.getLineToContentMapReaderHandler();
-      if (handler == null) {
-        return null;
-      }
-
-      parseAndHandleExceptions(new InputSource(new StringReader(content)), handler, "line to content map");
-      return handler.getResult();
-    } catch (IOException e) {
-      throw new ModelReadException(e.toString(), e);
-    }
-  }
-
-  /**
-   * Alternative {@link jetbrains.mps.vcspersistence.VCSPersistenceSupport#getLineToContentMap(String) } that takes {@code byte[]} instead of {@code String} to be a bit more memory friendly
-   */
   @Nullable
   public static List<LineContent> getLineToContentMap(byte[] content, boolean withValues) throws ModelReadException {
     try {

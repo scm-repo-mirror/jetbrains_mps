@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import jetbrains.mps.smodel.persistence.lines.LineContent;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.JDOMUtil;
 import jetbrains.mps.util.StringUtil;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.xml.BreakParseSAXException;
 import jetbrains.mps.util.xml.XMLSAXHandler;
 import org.apache.log4j.LogManager;
@@ -247,9 +248,15 @@ public class ModelPersistence {
   /**
    * Serialize model into xml, conformant to actual model's persistence version, if any, or current persistence version otherwise.
    * The method doesn't update persistence version of the model (as it used to do)
+   * @deprecated fate of the method is uncertain. Does anyone need it? What for? If you care to keep it, stand up, otherwise
+   *             we remove it in coming releases
    */
   @NotNull
+  @Deprecated(forRemoval = true)
+  @ToRemove(version = 2021.2)
   public static Document saveModel(@NotNull SModel sourceModel) {
+    // XXX is there need for the method? Who might care to get XML Document for a model except our own
+    //     implementation code (addressed by modelToXml() method)?
     int persistenceVersion = -1;
     if (sourceModel instanceof DefaultSModel) {
       persistenceVersion = ((DefaultSModel) sourceModel).getSModelHeader().getPersistenceVersion();
@@ -260,6 +267,7 @@ public class ModelPersistence {
     try {
       return modelToXml(sourceModel, persistenceVersion);
     } catch (ModelSaveException ex) {
+      // XXX oh, really? Replace checked, openapi Exception with undocumented ISE?
       LOG.error(ex.getMessage(), ex);
       throw new IllegalStateException(ex);
     }
@@ -316,10 +324,6 @@ public class ModelPersistence {
     return (DefaultSModel) readModel(header, new InputSource(new StringReader(content)), state).getModel();
   }
 
-  @NotNull
-  public static String modelToString(@NotNull final SModel model) {
-    return JDOMUtil.asString(saveModel(model));
-  }
 
   // propagates exceptions that had happened during read, except for special case when we deliberately stop parsing process
   // wrap certain errors as exceptions to facilitate broken model instead of broken MPS
