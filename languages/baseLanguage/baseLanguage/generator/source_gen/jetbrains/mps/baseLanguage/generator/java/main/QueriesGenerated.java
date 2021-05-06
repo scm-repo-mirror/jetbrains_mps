@@ -80,12 +80,12 @@ public class QueriesGenerated extends QueryProviderBase {
       public SModuleReference select(SModule it) {
         return it.getModuleReference();
       }
-    }).contains(PersistenceFacade.getInstance().createModuleReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)")))) {
+    }).contains(PersistenceFacade.getInstance().createModuleReference("3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)")))) {
       return false;
     }
     return SNodeOperations.getParent(_context.getNode()) == null && !(ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.annotation$K49I)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.hasPointer(it, LINKS.annotation$12Ek, new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass"));
+        return SLinkOperations.hasPointer(it, LINKS.annotation$12Ek, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.annotations(Annotations/)", "~GeneratedClass"));
       }
     }));
   }

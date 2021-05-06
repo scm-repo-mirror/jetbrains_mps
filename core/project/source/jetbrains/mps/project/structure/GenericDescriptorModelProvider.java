@@ -17,6 +17,7 @@ package jetbrains.mps.project.structure;
 
 import jetbrains.mps.extapi.module.SModuleBase;
 import jetbrains.mps.project.Solution;
+import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.smodel.SModelId.IntegerSModelId;
 import jetbrains.mps.smodel.SModelStereotype;
@@ -57,6 +58,10 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
     if (false == module instanceof Solution) {
       return false;
     }
+    if (((Solution) module).getKind() == SolutionKind.NONE) {
+      // For solutions not managed by MPS, no reason to assume generation of descriptor class intended for MPS management.
+      return false;
+    }
     return true;
   }
 
@@ -76,12 +81,11 @@ public class GenericDescriptorModelProvider extends DescriptorModelProvider {
       Even if we reduce it to Annotation solution, it might be still too much if
       we want to keep an option to generate pure Java code.
        */
+      // XXX shall I add devkit, not engaged language?
 //      dm.addDevKit(BootstrapLanguages.getLanguageDescriptorDevKit());
-      // Provisionally turn off lang.descriptor, engaged for solution@descriptor model;
-      // need to sort out lang.smodel runtimes or lang.descriptor generation target first.
-      // Doesn't hurt at the moment as we don't generate anything right now. Perhaps, shall add this
-      // conditionally once there are extensions/extpoints/lang.plugin elements in the solution?
-//      dm.addEngagedOnGenerationLanguage(BootstrapLanguages.getLanguageDescriptorLang());
+      // Perhaps, shall add lang.descriptor conditionally once there
+      // are extensions/extpoints/lang.plugin elements in the solution?
+      dm.addEngagedOnGenerationLanguage(BootstrapLanguages.getLanguageDescriptorLang());
       myModels.put(modelReference, dm);
       ((SModuleBase) module).registerModel(dm);
     }

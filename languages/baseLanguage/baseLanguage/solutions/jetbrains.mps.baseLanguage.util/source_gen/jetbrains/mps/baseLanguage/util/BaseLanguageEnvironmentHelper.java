@@ -86,7 +86,7 @@ public class BaseLanguageEnvironmentHelper {
     }
     SNode generatedAnnotation = ListSequence.fromList(SLinkOperations.getChildren(stubClassifier, LINKS.annotation$K49I)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(check_sif9ng_a0a0a0a0a1a6(SLinkOperations.getTarget(it, LINKS.annotation$12Ek)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass").getNodeId());
+        return SLinkOperations.hasPointer(it, LINKS.annotation$12Ek, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.annotations(Annotations/)", "~GeneratedClass"));
       }
     }).first();
     if (generatedAnnotation == null) {
@@ -94,7 +94,7 @@ public class BaseLanguageEnvironmentHelper {
     }
     String nodeParameter = SPropertyOperations.getString(SNodeOperations.as(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(generatedAnnotation, LINKS.value$uK2B)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(check_sif9ng_a0a0a0a0a0a0d0g(SLinkOperations.getTarget(it, LINKS.key$bSmV)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass.node()").getNodeId());
+        return SLinkOperations.hasPointer(it, LINKS.key$bSmV, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.annotations(Annotations/)", "~GeneratedClass.node()"));
       }
     }).first(), LINKS.value$Y7om), CONCEPTS.StringLiteral$xu), PROPS.value$w7MM);
     if (nodeParameter == null) {
@@ -177,18 +177,6 @@ public class BaseLanguageEnvironmentHelper {
   private static SModule check_sif9ng_a0a0a0m0e(SModuleReference checkedDotOperand, SRepository repository) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.resolve(repository);
-    }
-    return null;
-  }
-  private static SNodeId check_sif9ng_a0a0a0a0a1a6(SNode checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getNodeId();
-    }
-    return null;
-  }
-  private static SNodeId check_sif9ng_a0a0a0a0a0a0d0g(SNode checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getNodeId();
     }
     return null;
   }

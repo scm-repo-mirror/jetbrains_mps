@@ -840,9 +840,9 @@
       <node id="7468377204996275583" at="78,60,79,113" concept="8" />
       <node id="7468377204996283314" at="79,113,80,48" concept="8" />
       <node id="7468377204996376630" at="82,41,83,282" concept="9" />
-      <node id="5203766242652327627" at="88,39,89,242" concept="9" />
+      <node id="5203766242652327627" at="88,39,89,191" concept="9" />
       <node id="5203766242652444564" at="92,38,93,18" concept="9" />
-      <node id="5203766242652421628" at="96,39,97,245" concept="9" />
+      <node id="5203766242652421628" at="96,39,97,191" concept="9" />
       <node id="5203766242652561752" at="100,32,101,18" concept="9" />
       <node id="5203766242652470578" at="102,5,103,104" concept="8" />
       <node id="5203766242652528657" at="103,104,104,135" concept="9" />
@@ -872,19 +872,15 @@
       <node id="1169205798839349172" at="174,5,175,16" concept="9" />
       <node id="1169205798839347173" at="178,36,179,51" concept="9" />
       <node id="1169205798839347173" at="180,5,181,16" concept="9" />
-      <node id="8407616557622799587" at="184,36,185,43" concept="9" />
-      <node id="8407616557622799587" at="186,5,187,16" concept="9" />
-      <node id="8407616557622800975" at="190,36,191,43" concept="9" />
-      <node id="8407616557622800975" at="192,5,193,16" concept="9" />
-      <node id="8733037826900131627" at="197,0,198,0" concept="12" trace="INamedConcept$Kd" />
-      <node id="8733037826900131627" at="198,0,199,0" concept="12" trace="Classifier$Ix" />
-      <node id="8733037826900131627" at="199,0,200,0" concept="12" trace="StringLiteral$xu" />
-      <node id="8733037826900131627" at="203,0,204,0" concept="12" trace="annotation$K49I" />
-      <node id="8733037826900131627" at="204,0,205,0" concept="12" trace="annotation$12Ek" />
-      <node id="8733037826900131627" at="205,0,206,0" concept="12" trace="value$uK2B" />
-      <node id="8733037826900131627" at="206,0,207,0" concept="12" trace="key$bSmV" />
-      <node id="8733037826900131627" at="207,0,208,0" concept="12" trace="value$Y7om" />
-      <node id="8733037826900131627" at="211,0,212,0" concept="12" trace="value$w7MM" />
+      <node id="8733037826900131627" at="185,0,186,0" concept="12" trace="INamedConcept$Kd" />
+      <node id="8733037826900131627" at="186,0,187,0" concept="12" trace="Classifier$Ix" />
+      <node id="8733037826900131627" at="187,0,188,0" concept="12" trace="StringLiteral$xu" />
+      <node id="8733037826900131627" at="191,0,192,0" concept="12" trace="annotation$K49I" />
+      <node id="8733037826900131627" at="192,0,193,0" concept="12" trace="annotation$12Ek" />
+      <node id="8733037826900131627" at="193,0,194,0" concept="12" trace="value$uK2B" />
+      <node id="8733037826900131627" at="194,0,195,0" concept="12" trace="key$bSmV" />
+      <node id="8733037826900131627" at="195,0,196,0" concept="12" trace="value$Y7om" />
+      <node id="8733037826900131627" at="199,0,200,0" concept="12" trace="value$w7MM" />
       <node id="4860663896739412409" at="117,10,119,5" concept="0" />
       <node id="348420060660484875" at="44,0,47,0" concept="7" trace="getLanguageLevel#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/project/facets/JavaLanguageLevel;" />
       <node id="551979864671247912" at="47,0,50,0" concept="7" trace="getLanguageLevel#(Lorg/jetbrains/mps/openapi/model/SModel;)Ljetbrains/mps/project/facets/JavaLanguageLevel;" />
@@ -908,8 +904,6 @@
       <node id="1169205798839353045" at="165,87,168,5" concept="6" />
       <node id="1169205798839349172" at="171,97,174,5" concept="6" />
       <node id="1169205798839347173" at="177,109,180,5" concept="6" />
-      <node id="8407616557622799587" at="183,77,186,5" concept="6" />
-      <node id="8407616557622800975" at="189,80,192,5" concept="6" />
       <node id="7468377204996283845" at="80,48,85,17" concept="9" />
       <node id="5203766242652327617" at="86,5,91,15" concept="8" />
       <node id="5203766242652421614" at="94,5,99,81" concept="8" />
@@ -924,8 +918,6 @@
       <node id="1169205798839353045" at="165,0,171,0" concept="13" trace="check_sif9ng_a0a0m0e#(Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SNodeId;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1169205798839349172" at="171,0,177,0" concept="13" trace="check_sif9ng_a0a0a21a4#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/model/SModelId;)Lorg/jetbrains/mps/openapi/model/SModel;" />
       <node id="1169205798839347173" at="177,0,183,0" concept="13" trace="check_sif9ng_a0a0a0m0e#(Lorg/jetbrains/mps/openapi/module/SModuleReference;Lorg/jetbrains/mps/openapi/module/SRepository;)Lorg/jetbrains/mps/openapi/module/SModule;" />
-      <node id="8407616557622799587" at="183,0,189,0" concept="13" trace="check_sif9ng_a0a0a0a0a1a6#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNodeId;" />
-      <node id="8407616557622800975" at="189,0,195,0" concept="13" trace="check_sif9ng_a0a0a0a0a0a0d0g#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNodeId;" />
       <node id="4554287425297775807" at="111,5,119,5" concept="6" />
       <node id="7468377204996266717" at="77,63,86,5" concept="6" />
       <node id="3266045160146017298" at="107,0,122,0" concept="7" trace="findCompatibleClassifiers#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/List;" />
@@ -937,9 +929,9 @@
       <scope id="2240253528190865455" at="59,29,60,18" />
       <scope id="2352925231005980450" at="70,30,71,106" />
       <scope id="7468377204996369030" at="82,41,83,282" />
-      <scope id="5203766242652327626" at="88,39,89,242" />
+      <scope id="5203766242652327626" at="88,39,89,191" />
       <scope id="5203766242652438680" at="92,38,93,18" />
-      <scope id="5203766242652421627" at="96,39,97,245" />
+      <scope id="5203766242652421627" at="96,39,97,191" />
       <scope id="5203766242652559499" at="100,32,101,18" />
       <scope id="4860663896739436483" at="109,55,110,20" />
       <scope id="4554287425298198494" at="114,25,115,55" />
@@ -954,8 +946,6 @@
       <scope id="1169205798839353045" at="166,36,167,47" />
       <scope id="1169205798839349172" at="172,36,173,53" />
       <scope id="1169205798839347173" at="178,36,179,51" />
-      <scope id="8407616557622799587" at="184,36,185,43" />
-      <scope id="8407616557622800975" at="190,36,191,43" />
       <scope id="348420060660484875" at="44,0,47,0">
         <var name="contextNode" id="348420060660526960" />
       </scope>
@@ -987,8 +977,6 @@
       <scope id="1169205798839353045" at="165,87,169,16" />
       <scope id="1169205798839349172" at="171,97,175,16" />
       <scope id="1169205798839347173" at="177,109,181,16" />
-      <scope id="8407616557622799587" at="183,77,187,16" />
-      <scope id="8407616557622800975" at="189,80,193,16" />
       <scope id="2352925231005942951" at="67,0,73,5">
         <var name="classType" id="2352925231005942953" />
       </scope>
@@ -1025,12 +1013,6 @@
         <var name="checkedDotOperand" id="1169205798839347173" />
         <var name="repository" id="1169205798839333893" />
       </scope>
-      <scope id="8407616557622799587" at="183,0,189,0">
-        <var name="checkedDotOperand" id="8407616557622799587" />
-      </scope>
-      <scope id="8407616557622800975" at="189,0,195,0">
-        <var name="checkedDotOperand" id="8407616557622800975" />
-      </scope>
       <scope id="7468377204996266719" at="78,60,85,17">
         <var name="nodeRoot" id="7468377204996283315" />
         <var name="root" id="7468377204996275586" />
@@ -1063,13 +1045,13 @@
       <scope id="5203766242652126234" at="77,0,106,0">
         <var name="stubClassifier" id="5203766242652126235" />
       </scope>
-      <unit id="8733037826900131627" at="210,0,213,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$PROPS" />
+      <unit id="8733037826900131627" at="198,0,201,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$PROPS" />
       <unit id="7468377204996369029" at="81,148,85,7" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$1" />
       <unit id="5203766242652327625" at="87,132,91,5" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$2" />
       <unit id="5203766242652421626" at="95,202,99,5" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$3" />
-      <unit id="8733037826900131627" at="196,0,201,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$CONCEPTS" />
-      <unit id="8733037826900131627" at="202,0,209,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$LINKS" />
-      <unit id="8733037826900131627" at="41,0,214,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper" />
+      <unit id="8733037826900131627" at="184,0,189,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$CONCEPTS" />
+      <unit id="8733037826900131627" at="190,0,197,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper$LINKS" />
+      <unit id="8733037826900131627" at="41,0,202,0" name="jetbrains.mps.baseLanguage.util.BaseLanguageEnvironmentHelper" />
     </file>
   </root>
 </debug-info>
