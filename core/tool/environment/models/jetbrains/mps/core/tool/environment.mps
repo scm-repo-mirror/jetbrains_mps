@@ -54,6 +54,9 @@
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
+      <concept id="7485977462274819189" name="jetbrains.mps.baseLanguage.structure.FormatOperation" flags="ng" index="2cAKMz">
+        <child id="7485977462274819664" name="arguments" index="2cAKU6" />
+      </concept>
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
@@ -6590,8 +6593,20 @@
               <node concept="2ShNRf" id="6TXAd2x_bRI" role="YScLw">
                 <node concept="1pGfFk" id="6TXAd2x_hQN" role="2ShVmc">
                   <ref role="37wK5l" to="wyt6:~IllegalStateException.&lt;init&gt;(java.lang.String)" resolve="IllegalStateException" />
-                  <node concept="Xl_RD" id="6TXAd2x_hS$" role="37wK5m">
-                    <property role="Xl_RC" value="Cannot proceed with compilation errors" />
+                  <node concept="2OqwBi" id="WkbJYv2Q3u" role="37wK5m">
+                    <node concept="Xl_RD" id="6TXAd2x_hS$" role="2Oq$k0">
+                      <property role="Xl_RC" value="Cannot proceed with compilation errors. %s" />
+                    </node>
+                    <node concept="2cAKMz" id="WkbJYv2Rhv" role="2OqNvi">
+                      <node concept="2OqwBi" id="WkbJYv30g8" role="2cAKU6">
+                        <node concept="37vLTw" id="WkbJYv2ZCF" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3IZXeSR$wwc" resolve="result" />
+                        </node>
+                        <node concept="liA8E" id="WkbJYv31gE" role="2OqNvi">
+                          <ref role="37wK5l" to="vqh0:~MPSCompilationResult.toString()" resolve="toString" />
+                        </node>
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
