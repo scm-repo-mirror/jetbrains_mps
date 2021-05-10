@@ -34,6 +34,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.behavior.AbstractCatchClause__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.IMethodLike__BehaviorDescriptor;
+import java.util.StringJoiner;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import jetbrains.mps.lang.dataFlow.framework.Program;
@@ -673,10 +675,11 @@ __switch__:
       }
     }
     if (!(ListSequence.fromList(throwTypes).isEmpty())) {
-      String errorString = message;
+      StringJoiner sj = new StringJoiner(" ", " ", "");
       for (SNode exc : throwTypes) {
-        errorString = errorString + " " + exc;
+        sj.add(BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(exc));
       }
+      String errorString = message + sj.toString();
       if (useQuickfix && supportsCheckedExceptions) {
         if ((SNodeOperations.getNodeAncestor(mainNode, CONCEPTS.ITryCatchStatement$pH, false, false) != null)) {
           {
