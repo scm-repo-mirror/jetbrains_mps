@@ -2973,8 +2973,8 @@
     <property role="TrG5h" value="MakeTask" />
     <property role="2bfB8j" value="false" />
     <property role="1sVAO0" value="false" />
-    <node concept="3uibUv" id="9D0Ba05uEx" role="1zkMxy">
-      <ref role="3uigEE" to="xygl:~Task$Backgroundable" resolve="Task.Backgroundable" />
+    <node concept="3uibUv" id="7vpEG_12ehC" role="1zkMxy">
+      <ref role="3uigEE" to="xygl:~Task$ConditionalModal" resolve="Task.ConditionalModal" />
     </node>
     <node concept="3uibUv" id="9D0Ba05uFx" role="EKbjA">
       <ref role="3uigEE" to="5zyv:~Future" resolve="Future" />
@@ -3081,7 +3081,7 @@
       <node concept="3cqZAl" id="41innpAnEqC" role="3clF45" />
       <node concept="3clFbS" id="41innpAnEqE" role="3clF47">
         <node concept="XkiVB" id="41innpAoczx" role="3cqZAp">
-          <ref role="37wK5l" to="xygl:~Task$Backgroundable.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean,com.intellij.openapi.progress.PerformInBackgroundOption)" resolve="Task.Backgroundable" />
+          <ref role="37wK5l" to="xygl:~Task$ConditionalModal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean,com.intellij.openapi.progress.PerformInBackgroundOption)" resolve="Task.ConditionalModal" />
           <node concept="37vLTw" id="41innpAocH1" role="37wK5m">
             <ref role="3cqZAo" node="41innpAnFI6" resolve="project" />
           </node>
