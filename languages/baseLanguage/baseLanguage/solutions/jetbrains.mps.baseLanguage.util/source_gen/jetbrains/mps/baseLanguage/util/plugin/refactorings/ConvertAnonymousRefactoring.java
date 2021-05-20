@@ -332,7 +332,7 @@ public class ConvertAnonymousRefactoring {
   }
   private static boolean check_qy1soj_a0a52(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return ((boolean) (Boolean) BHReflection.invoke0(checkedDotOperand, CONCEPTS.ClassifierMember$At, SMethodTrimmedId.create("isStatic", null, "7MS72Gc8avw")));
+      return ((boolean) (Boolean) BHReflection.invoke0(checkedDotOperand, CONCEPTS.ClassifierMember$At, SMethodTrimmedId.create("isStaticClassifierMember", null, "7MS72Gc8avw")));
     }
     return false;
   }

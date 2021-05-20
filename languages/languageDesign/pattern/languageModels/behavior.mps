@@ -1296,8 +1296,8 @@
       <node concept="3clFbS" id="64p9aapFrPw" role="2VODD2" />
     </node>
     <node concept="13i0hz" id="64p9aapTmOp" role="13h7CS">
-      <property role="TrG5h" value="isStatic" />
-      <ref role="13i0hy" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+      <property role="TrG5h" value="isStaticClassifierMember" />
+      <ref role="13i0hy" to="tpek:7MS72Gc8avw" resolve="isStaticClassifierMember" />
       <node concept="3Tm1VV" id="64p9aapTmOq" role="1B3o_S" />
       <node concept="3clFbS" id="64p9aapTmOv" role="3clF47">
         <node concept="3clFbF" id="64p9aapZ7cP" role="3cqZAp">

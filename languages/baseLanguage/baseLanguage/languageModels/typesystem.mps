@@ -6177,6 +6177,9 @@
                 <node concept="3clFbJ" id="6iraXScKSv5" role="3cqZAp">
                   <node concept="3clFbS" id="6iraXScKSv6" role="3clFbx">
                     <node concept="a7r0C" id="6iraXScKSv7" role="3cqZAp">
+                      <node concept="37vLTw" id="2BHiRxglS4D" role="1urrMF">
+                        <ref role="3cqZAo" node="6iraXScKSvI" resolve="expression" />
+                      </node>
                       <node concept="2OqwBi" id="6u9dq0r2Gk0" role="a7wSD">
                         <node concept="Xl_RD" id="6iraXScKSvb" role="2Oq$k0">
                           <property role="Xl_RC" value="Expression %s might evaluate to null but is returned from method declared @NotNull" />
@@ -6191,9 +6194,6 @@
                             </node>
                           </node>
                         </node>
-                      </node>
-                      <node concept="37vLTw" id="2BHiRxglS4D" role="1urrMF">
-                        <ref role="3cqZAo" node="6iraXScKSvI" resolve="expression" />
                       </node>
                     </node>
                   </node>
@@ -11412,8 +11412,8 @@
                 <ref role="37wK5l" to="tpek:5DIwcw5fPui" resolve="getContextClassifierMember" />
               </node>
             </node>
-            <node concept="2qgKlT" id="5DIwcw5fPxh" role="2OqNvi">
-              <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+            <node concept="2qgKlT" id="1r7NMFm5bkZ" role="2OqNvi">
+              <ref role="37wK5l" to="tpek:6r77ob2USS8" resolve="isStatic" />
             </node>
           </node>
         </node>
@@ -73121,8 +73121,8 @@
               <ref role="3cqZAo" node="6fye98SzSCM" resolve="member" />
             </node>
           </node>
-          <node concept="2qgKlT" id="6fye98S$HSA" role="2OqNvi">
-            <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+          <node concept="2qgKlT" id="1r7NMFm5bAp" role="2OqNvi">
+            <ref role="37wK5l" to="tpek:6r77ob2USS8" resolve="isStatic" />
           </node>
         </node>
       </node>

@@ -92,7 +92,7 @@ public class ClassConcept_TransformationMenu extends TransformationMenuBase {
   public class TMP_Group_bz24q3_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !((boolean) ClassifierMember__BehaviorDescriptor.isStatic_id7MS72Gc8avw.invoke(_context.getNode())) && (boolean) ClassConcept__BehaviorDescriptor.canBeStatic_id2L7NFMAtrRg.invoke(_context.getNode());
+      return !((boolean) ClassifierMember__BehaviorDescriptor.isStaticClassifierMember_id7MS72Gc8avw.invoke(_context.getNode())) && (boolean) ClassConcept__BehaviorDescriptor.canBeStatic_id2L7NFMAtrRg.invoke(_context.getNode());
     }
 
     @NotNull

@@ -442,19 +442,6 @@
         </node>
       </node>
     </node>
-    <node concept="13i0hz" id="6d7r2FpJdmN" role="13h7CS">
-      <property role="13i0iv" value="false" />
-      <property role="TrG5h" value="isStatic" />
-      <property role="13i0it" value="false" />
-      <ref role="13i0hy" to="tpek:6r77ob2USS8" resolve="isStatic" />
-      <node concept="3Tm1VV" id="6d7r2FpJdmO" role="1B3o_S" />
-      <node concept="3clFbS" id="6d7r2FpJdmR" role="3clF47">
-        <node concept="3clFbF" id="6d7r2FpJdmU" role="3cqZAp">
-          <node concept="3clFbT" id="6d7r2FpJdmT" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="10P_77" id="6d7r2FpJdmS" role="3clF45" />
-    </node>
     <node concept="13i0hz" id="6d7r2FpJdmV" role="13h7CS">
       <property role="13i0iv" value="false" />
       <property role="TrG5h" value="isVisible" />

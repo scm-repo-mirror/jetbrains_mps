@@ -71,7 +71,7 @@ public class InterfaceModifiersAndExtends_ext_5 extends TransformationMenuBase {
   public class TMP_Group_1lnb8u_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !((boolean) ClassifierMember__BehaviorDescriptor.isStatic_id7MS72Gc8avw.invoke(_context.getNode())) && (boolean) Interface__BehaviorDescriptor.canBeStatic_id2L7NFMC7$9I.invoke(_context.getNode());
+      return !((boolean) ClassifierMember__BehaviorDescriptor.isStaticClassifierMember_id7MS72Gc8avw.invoke(_context.getNode())) && (boolean) Interface__BehaviorDescriptor.canBeStatic_id2L7NFMC7$9I.invoke(_context.getNode());
     }
 
     @NotNull

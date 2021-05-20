@@ -1995,7 +1995,7 @@
               </node>
             </node>
             <node concept="2qgKlT" id="8V" role="2OqNvi">
-              <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+              <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStaticClassifierMember" />
               <uo k="s:originTrace" v="n:7197377355157003814" />
             </node>
           </node>
