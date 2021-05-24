@@ -32,6 +32,7 @@
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" />
     <import index="fnmy" ref="r:89c0fb70-0977-4113-a076-5906f9d8630f(jetbrains.mps.baseLanguage.scopes)" />
+    <import index="tpc2" ref="r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -74,6 +75,7 @@
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
+      <concept id="1070534370425" name="jetbrains.mps.baseLanguage.structure.IntegerType" flags="in" index="10Oyi0" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
         <child id="1070534934091" name="type" index="10QFUM" />
@@ -1332,6 +1334,18 @@
             </node>
             <node concept="TSZUe" id="2D1PBM_bzeA" role="2OqNvi">
               <node concept="35c_gC" id="2xELmDxRnOV" role="25WWJ7">
+                <ref role="35c_gD" to="tpc2:7I1om2Aqt7L" resolve="ConceptFunctionParameter_index" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1oZFGAbElS3" role="3cqZAp">
+          <node concept="2OqwBi" id="1oZFGAbElS4" role="3clFbG">
+            <node concept="37vLTw" id="1oZFGAbElS5" role="2Oq$k0">
+              <ref role="3cqZAo" node="2D1PBM_bzeb" resolve="result" />
+            </node>
+            <node concept="TSZUe" id="1oZFGAbElS6" role="2OqNvi">
+              <node concept="35c_gC" id="1oZFGAbElS7" role="25WWJ7">
                 <ref role="35c_gD" to="tpcw:gTQ6Nt5" resolve="ConceptFunctionParameter_model" />
               </node>
             </node>
@@ -1646,6 +1660,30 @@
     </node>
     <node concept="13hLZK" id="5CTPYn2wJMC" role="13h7CW">
       <node concept="3clFbS" id="5CTPYn2wJMD" role="2VODD2" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="1oZFGAbEjF9">
+    <property role="3GE5qa" value="conceptFunctionParameters" />
+    <ref role="13h7C2" to="tpdg:1oZFGAbEjxR" resolve="NodeSetupFunction_Index" />
+    <node concept="13i0hz" id="4IGpg_YjLoC" role="13h7CS">
+      <property role="TrG5h" value="getType" />
+      <property role="13i0it" value="false" />
+      <property role="13i0iv" value="false" />
+      <ref role="13i0hy" to="tpek:27DJnJtIQ9C" resolve="getType" />
+      <node concept="3Tm1VV" id="4IGpg_YjLoD" role="1B3o_S" />
+      <node concept="3clFbS" id="4IGpg_YjLoE" role="3clF47">
+        <node concept="3cpWs6" id="4IGpg_YjLoF" role="3cqZAp">
+          <node concept="2c44tf" id="4IGpg_YjLoB" role="3cqZAk">
+            <node concept="10Oyi0" id="5rVfazo6z$q" role="2c44tc" />
+          </node>
+        </node>
+      </node>
+      <node concept="3Tqbb2" id="4IGpg_YjLoG" role="3clF45">
+        <ref role="ehGHo" to="tpee:fz3vP1H" resolve="Type" />
+      </node>
+    </node>
+    <node concept="13hLZK" id="1oZFGAbEjFa" role="13h7CW">
+      <node concept="3clFbS" id="1oZFGAbEjFb" role="2VODD2" />
     </node>
   </node>
 </model>

@@ -23,6 +23,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
@@ -109,9 +110,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
               public SContainmentLink getSLink() {
                 return LINKS.element$6GqD;
               }
-
               @Override
-              public SNode createNodeToInsert(EditorContext p0) {
+              public SNode createNodeToInsert(EditorContext editorContext, @Nullable SNode prevNode, @Nullable SNode nextNode, int index) {
                 return SNodeFactoryOperations.createNewNode(CONCEPTS.Expression$mB, null);
               }
 

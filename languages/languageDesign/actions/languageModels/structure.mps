@@ -612,5 +612,14 @@
       <ref role="2wpffI" node="38nmGbCPLik" />
     </node>
   </node>
+  <node concept="1TIwiD" id="1oZFGAbEjxR">
+    <property role="TrG5h" value="NodeSetupFunction_Index" />
+    <property role="3GE5qa" value="conceptFunctionParameters" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
+    <property role="34LRSv" value="index" />
+    <property role="EcuMT" value="1603192173021968503" />
+    <property role="R4oN_" value="Position of the new node in its parent collection or 0 if it is not part of a collection" />
+    <ref role="1TJDcQ" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
+  </node>
 </model>
 

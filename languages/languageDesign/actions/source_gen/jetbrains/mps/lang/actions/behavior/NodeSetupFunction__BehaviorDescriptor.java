@@ -39,6 +39,7 @@ public final class NodeSetupFunction__BehaviorDescriptor extends BaseBHDescripto
     ListSequence.fromList(result).addElement(CONCEPTS.NodeSetupFunction_NewNode$zG);
     ListSequence.fromList(result).addElement(CONCEPTS.NodeSetupFunction_SampleNode$$H);
     ListSequence.fromList(result).addElement(CONCEPTS.NodeSetupFunction_EnclosingNode$wk);
+    ListSequence.fromList(result).addElement(CONCEPTS.ConceptFunctionParameter_index$h5);
     ListSequence.fromList(result).addElement(CONCEPTS.ConceptFunctionParameter_model$jw);
     return result;
   }
@@ -96,6 +97,7 @@ public final class NodeSetupFunction__BehaviorDescriptor extends BaseBHDescripto
     /*package*/ static final SConcept NodeSetupFunction_NewNode$zG = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x4d7fc32c166cd43fL, "jetbrains.mps.lang.actions.structure.NodeSetupFunction_NewNode");
     /*package*/ static final SConcept NodeSetupFunction_SampleNode$$H = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x4d7fc32c166cf25dL, "jetbrains.mps.lang.actions.structure.NodeSetupFunction_SampleNode");
     /*package*/ static final SConcept NodeSetupFunction_EnclosingNode$wk = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x4d7fc32c166cf35eL, "jetbrains.mps.lang.actions.structure.NodeSetupFunction_EnclosingNode");
+    /*package*/ static final SConcept ConceptFunctionParameter_index$h5 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7b816160a669d1f1L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_index");
     /*package*/ static final SConcept ConceptFunctionParameter_model$jw = MetaAdapterFactory.getConcept(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10e761b3745L, "jetbrains.mps.lang.sharedConcepts.structure.ConceptFunctionParameter_model");
   }
 }

@@ -39,6 +39,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptNodeFactory = createDescriptorForNodeFactory();
   /*package*/ final ConceptDescriptor myConceptNodeSetupFunction = createDescriptorForNodeSetupFunction();
   /*package*/ final ConceptDescriptor myConceptNodeSetupFunction_EnclosingNode = createDescriptorForNodeSetupFunction_EnclosingNode();
+  /*package*/ final ConceptDescriptor myConceptNodeSetupFunction_Index = createDescriptorForNodeSetupFunction_Index();
   /*package*/ final ConceptDescriptor myConceptNodeSetupFunction_NewNode = createDescriptorForNodeSetupFunction_NewNode();
   /*package*/ final ConceptDescriptor myConceptNodeSetupFunction_SampleNode = createDescriptorForNodeSetupFunction_SampleNode();
   /*package*/ final ConceptDescriptor myConceptPastePostProcessFunction = createDescriptorForPastePostProcessFunction();
@@ -65,7 +66,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptConceptFunctionParameter_nodeToCopyPreProcess, myConceptConceptFunctionParameter_nodeToCopyPreProcessOriginal, myConceptConceptFunctionParameter_nodeToPastePostProcess, myConceptConceptFunctionParameter_nodeToPasteWrap, myConceptCopyPasteHandlers, myConceptCopyPreProcessFunction, myConceptCopyPreProcessor, myConceptICouldBeAnnotatedWithMigrateManually, myConceptMigrateManuallyAnnotation, myConceptMigratedToAnnotation, myConceptNF_Concept_NewInstance, myConceptNF_LinkList_AddNewChildOperation, myConceptNF_Link_SetNewChildOperation, myConceptNF_Model_CreateNewNodeOperation, myConceptNF_Model_CreateNewRootNodeOperation, myConceptNF_Node_InsertNewNextSiblingOperation, myConceptNF_Node_InsertNewPrevSiblingOperation, myConceptNF_Node_ReplaceWithNewOperation, myConceptNodeFactories, myConceptNodeFactory, myConceptNodeSetupFunction, myConceptNodeSetupFunction_EnclosingNode, myConceptNodeSetupFunction_NewNode, myConceptNodeSetupFunction_SampleNode, myConceptPastePostProcessFunction, myConceptPastePostProcessor, myConceptPasteWrapper, myConceptPasteWrappers, myConceptQueryFunction_PasteWrapper, myConceptSNodeCreatorAndInitializer);
+    return Arrays.asList(myConceptConceptFunctionParameter_nodeToCopyPreProcess, myConceptConceptFunctionParameter_nodeToCopyPreProcessOriginal, myConceptConceptFunctionParameter_nodeToPastePostProcess, myConceptConceptFunctionParameter_nodeToPasteWrap, myConceptCopyPasteHandlers, myConceptCopyPreProcessFunction, myConceptCopyPreProcessor, myConceptICouldBeAnnotatedWithMigrateManually, myConceptMigrateManuallyAnnotation, myConceptMigratedToAnnotation, myConceptNF_Concept_NewInstance, myConceptNF_LinkList_AddNewChildOperation, myConceptNF_Link_SetNewChildOperation, myConceptNF_Model_CreateNewNodeOperation, myConceptNF_Model_CreateNewRootNodeOperation, myConceptNF_Node_InsertNewNextSiblingOperation, myConceptNF_Node_InsertNewPrevSiblingOperation, myConceptNF_Node_ReplaceWithNewOperation, myConceptNodeFactories, myConceptNodeFactory, myConceptNodeSetupFunction, myConceptNodeSetupFunction_EnclosingNode, myConceptNodeSetupFunction_Index, myConceptNodeSetupFunction_NewNode, myConceptNodeSetupFunction_SampleNode, myConceptPastePostProcessFunction, myConceptPastePostProcessor, myConceptPasteWrapper, myConceptPasteWrappers, myConceptQueryFunction_PasteWrapper, myConceptSNodeCreatorAndInitializer);
   }
 
   @Override
@@ -116,6 +117,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptNodeSetupFunction;
       case LanguageConceptSwitch.NodeSetupFunction_EnclosingNode:
         return myConceptNodeSetupFunction_EnclosingNode;
+      case LanguageConceptSwitch.NodeSetupFunction_Index:
+        return myConceptNodeSetupFunction_Index;
       case LanguageConceptSwitch.NodeSetupFunction_NewNode:
         return myConceptNodeSetupFunction_NewNode;
       case LanguageConceptSwitch.NodeSetupFunction_SampleNode:
@@ -368,6 +371,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("enclosingNode");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForNodeSetupFunction_Index() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.actions", "NodeSetupFunction_Index", 0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x163faec98ba93877L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.baseLanguage.structure.ConceptFunctionParameter", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101c66e2c0bL);
+    b.origin("r:00000000-0000-4000-0000-011c895902a8(jetbrains.mps.lang.actions.structure)/1603192173021968503");
+    b.version(2);
+    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
+    b.alias("index");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForNodeSetupFunction_NewNode() {

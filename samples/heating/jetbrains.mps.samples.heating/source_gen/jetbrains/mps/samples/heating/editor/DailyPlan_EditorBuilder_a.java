@@ -287,11 +287,11 @@ import org.jetbrains.mps.openapi.language.SProperty;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.Slot$rU;
     }
-    public SNode createNodeToInsert(EditorContext editorContext) {
-      return nodeFactory();
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
-    public SNode nodeFactory() {
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
       SNode item = SNodeFactoryOperations.createNewNode(CONCEPTS.Slot$rU, null);
       SPropertyOperations.assign(item, PROPS.start$f2z3, -1);
       SPropertyOperations.assign(SLinkOperations.getTarget(item, LINKS.event$bwBp), PROPS.temperature$7jnX, 20);

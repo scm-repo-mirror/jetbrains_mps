@@ -70,6 +70,7 @@
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
+      <concept id="1070534370425" name="jetbrains.mps.baseLanguage.structure.IntegerType" flags="in" index="10Oyi0" />
       <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu">
         <property id="1075300953594" name="abstractClass" index="1sVAO0" />
         <property id="1221565133444" name="isFinal" index="1EXbeo" />
@@ -2520,6 +2521,10 @@
             <node concept="3uibUv" id="4UrKinLkgtj" role="1tU5fm">
               <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
             </node>
+          </node>
+          <node concept="37vLTG" id="1oZFGAbEUzY" role="3clF46">
+            <property role="TrG5h" value="index" />
+            <node concept="10Oyi0" id="1oZFGAbEUB5" role="1tU5fm" />
           </node>
           <node concept="37vLTG" id="4UrKinLkgtk" role="3clF46">
             <property role="TrG5h" value="model" />

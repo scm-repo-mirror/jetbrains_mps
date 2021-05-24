@@ -20,7 +20,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class IExtensibleMenuPart_factory {
   public static class NodeFactory_7985135009829579183 implements NodeFactory {
-    public void setup(final SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(final SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       Iterable<SConcept> requiredFeatures = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(enclosingNode, CONCEPTS.TransformationMenuSection$SB, true, false), LINKS.locations$m8FB)).translate(new ITranslator2<SNode, SConcept>() {
         public Iterable<SConcept> translate(SNode it) {
           return (Collection<SConcept>) TransformationLocation__BehaviorDescriptor.getRequiredFeatures_id7L5lpRJHK_w.invoke(it);

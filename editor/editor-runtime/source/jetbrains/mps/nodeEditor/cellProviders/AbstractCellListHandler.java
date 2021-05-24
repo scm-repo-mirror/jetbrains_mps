@@ -28,6 +28,7 @@ import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SConceptFeature;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.Iterator;
@@ -59,13 +60,63 @@ public abstract class AbstractCellListHandler extends AbstractEditorBuilder impl
     return null;
   }
 
+  public SContainmentLink getSLink() {
+    return null;
+  }
+
   protected abstract SNode getAnchorNode(EditorCell anchorCell);
 
   protected abstract void doInsertNode(SNode nodeToInsert, SNode anchorNode, boolean insertBefore);
 
   public void insertNewChild(EditorContext editorContext, EditorCell anchorCell, boolean insertBefore) {
     SNode anchorNode = getAnchorNode(anchorCell);
-    SNode nodeToInsert = createNodeToInsert(editorContext);
+
+    List<? extends SNode> children = getNodesForList();
+    int anchorIndex;
+    if (anchorNode == null) {
+      anchorIndex = -1;
+    } else {
+      anchorIndex = children.indexOf(anchorNode);
+    }
+
+    SNode prevNode;
+    SNode nextNode;
+    int insertIndex;
+
+    int size = children.size();
+
+    if (size == 0) {
+      prevNode = nextNode = null;
+      insertIndex = 0;
+    } else if (anchorIndex == -1) {
+      if (insertBefore) {
+        prevNode = children.get(size - 1);
+        nextNode = null;
+        insertIndex = size;
+      } else {   // insertAfter
+        prevNode = null;
+        nextNode = children.get(0);
+        insertIndex = 0;
+      }
+    } else if (insertBefore) {
+      nextNode = anchorNode;
+      insertIndex = anchorIndex;
+      if (anchorIndex == 0) {
+        prevNode = null;
+      } else {
+        prevNode = children.get(anchorIndex - 1);
+      }
+    } else {  // insertAfter
+      prevNode = anchorNode;
+      insertIndex = anchorIndex + 1;
+      if (anchorIndex == size - 1) {
+        nextNode = null;
+      } else {
+        nextNode = children.get(anchorIndex + 1);
+      }
+    }
+
+    SNode nodeToInsert = createNodeToInsert(editorContext, prevNode, nextNode, insertIndex);
     doInsertNode(nodeToInsert, anchorNode, insertBefore);
   }
 
@@ -82,7 +133,19 @@ public abstract class AbstractCellListHandler extends AbstractEditorBuilder impl
     return null;
   }
 
-  public abstract SNode createNodeToInsert(EditorContext editorContext);
+  /**
+   * @param prevNode a node to become the previous sibling of the newly created node or null if the new node will be placed first
+   * @param nextNode a node to become the next sibling of the newly created node or null if the new node will be placed last
+   * @param index index of the newly created node. Index is 0 if the new node will be placed first.
+   */
+  public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+    return createNodeToInsert(editorContext);
+  }
+
+  @Deprecated
+  public SNode createNodeToInsert(EditorContext editorContext) {
+    throw new UnsupportedOperationException();
+  }
 
   public EditorCell_Collection createCells(CellLayout cellLayout, boolean selectable) {
     EditorCell_Collection cellsCollection = createCells(cellLayout);

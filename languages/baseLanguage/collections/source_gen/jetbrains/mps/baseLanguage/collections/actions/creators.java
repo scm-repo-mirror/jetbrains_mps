@@ -14,7 +14,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class creators {
   public static class NodeFactory_1241474531795 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbstractContainerCreator$cz)) {
         SLinkOperations.setTarget(newNode, LINKS.elementType$WxmV, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.elementType$WxmV)));
         for (SNode v : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.initValue$Wx_W))) {
@@ -25,7 +25,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241474511499 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbstractContainerCreator$cz)) {
         SLinkOperations.setTarget(newNode, LINKS.elementType$WxmV, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.elementType$WxmV)));
         for (SNode v : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.initValue$Wx_W))) {
@@ -36,7 +36,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475097267 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbstractContainerCreator$cz)) {
         SLinkOperations.setTarget(newNode, LINKS.elementType$WxmV, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.elementType$WxmV)));
         for (SNode v : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.initValue$Wx_W))) {
@@ -47,7 +47,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475118079 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbstractContainerCreator$cz)) {
         SLinkOperations.setTarget(newNode, LINKS.elementType$WxmV, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.elementType$WxmV)));
         for (SNode v : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.initValue$Wx_W))) {
@@ -58,7 +58,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475137153 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbstractContainerCreator$cz)) {
         SLinkOperations.setTarget(newNode, LINKS.elementType$WxmV, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.elementType$WxmV)));
         for (SNode v : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.AbstractContainerCreator$cz), LINKS.initValue$Wx_W))) {
@@ -69,7 +69,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475150554 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.HashMapCreator$mW)) {
         SLinkOperations.setTarget(newNode, LINKS.keyType$Uj4M, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.keyType$Uj4M)));
         SLinkOperations.setTarget(newNode, LINKS.valueType$2EUo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.valueType$2EUo)));
@@ -78,7 +78,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475270085 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.HashMapCreator$mW)) {
         SLinkOperations.setTarget(newNode, LINKS.keyType$Uj4M, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.keyType$Uj4M)));
         SLinkOperations.setTarget(newNode, LINKS.valueType$2EUo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.valueType$2EUo)));
@@ -87,7 +87,7 @@ public class creators {
     }
   }
   public static class NodeFactory_1241475279119 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.HashMapCreator$mW)) {
         SLinkOperations.setTarget(newNode, LINKS.keyType$Uj4M, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.keyType$Uj4M)));
         SLinkOperations.setTarget(newNode, LINKS.valueType$2EUo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.HashMapCreator$mW), LINKS.valueType$2EUo)));

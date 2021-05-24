@@ -26372,5 +26372,10 @@
     </node>
     <node concept="3VyMlK" id="1hkJY7guNgC" role="3ft7WO" />
   </node>
+  <node concept="22mcaB" id="7I1om2Aqt8c">
+    <property role="3GE5qa" value="QueryFunction.Parameters" />
+    <ref role="aqKnT" to="tpc2:7I1om2Aqt7L" resolve="ConceptFunctionParameter_index" />
+    <node concept="22hDWj" id="7I1om2Aqt8d" role="22hAXT" />
+  </node>
 </model>
 

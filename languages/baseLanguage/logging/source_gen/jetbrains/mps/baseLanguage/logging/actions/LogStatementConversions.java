@@ -15,7 +15,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LogStatementConversions {
   public static class NodeFactory_6057591418743042050 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       {
         final SNode msg = sampleNode;
         if (SNodeOperations.isInstanceOf(msg, CONCEPTS.MsgStatement$Pu)) {
@@ -35,7 +35,7 @@ public class LogStatementConversions {
     }
   }
   public static class NodeFactory_6057591418743066490 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       {
         final SNode msg = sampleNode;
         if (SNodeOperations.isInstanceOf(msg, CONCEPTS.MsgStatement$Pu)) {

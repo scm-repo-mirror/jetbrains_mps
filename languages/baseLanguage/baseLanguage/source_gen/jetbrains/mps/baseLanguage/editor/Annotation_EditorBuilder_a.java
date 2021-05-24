@@ -192,11 +192,11 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.AnnotationMethodDeclaration$4O;
     }
-    public SNode createNodeToInsert(EditorContext editorContext) {
-      return nodeFactory();
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
-    public SNode nodeFactory() {
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
       SNode method = SNodeFactoryOperations.createNewNode(CONCEPTS.AnnotationMethodDeclaration$4O, null);
       SLinkOperations.setTarget(method, LINKS.returnType$5xoi, SNodeFactoryOperations.createNewNode(CONCEPTS.StringType$uX, null));
       return method;
@@ -288,11 +288,11 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.ClassifierMember$At;
     }
-    public SNode createNodeToInsert(EditorContext editorContext) {
-      return nodeFactory();
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
-    public SNode nodeFactory() {
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
       SNode method = SNodeFactoryOperations.createNewNode(CONCEPTS.AnnotationMethodDeclaration$4O, null);
       SLinkOperations.setTarget(method, LINKS.returnType$5xoi, SNodeFactoryOperations.createNewNode(CONCEPTS.StringType$uX, null));
       return method;

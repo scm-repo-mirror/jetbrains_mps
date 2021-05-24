@@ -16,7 +16,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class closure_operations {
   public static class NodeFactory_1225118817881 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {

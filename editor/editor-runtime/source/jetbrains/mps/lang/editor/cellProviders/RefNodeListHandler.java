@@ -25,6 +25,7 @@ import jetbrains.mps.smodel.action.NodeFactoryManager;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SConceptFeature;
@@ -70,13 +71,13 @@ public abstract class RefNodeListHandler extends AbstractCellListHandler {
   public abstract SAbstractConcept getChildSConcept();
 
   @Override
-  public SNode createNodeToInsert(EditorContext editorContext) {
+  public SNode createNodeToInsert(EditorContext editorContext, @Nullable SNode prevNode, @Nullable SNode nextNode, int index) {
     SAbstractConcept childConcept = getChildSConcept();
     SConcept defaultConcreteConcept = ConceptRegistry.getInstance().getConstraintsDescriptor(childConcept).getDefaultConcreteConcept();
     if (defaultConcreteConcept != null) {
       childConcept = defaultConcreteConcept;
     }
-    return NodeFactoryManager.createNode(childConcept, null, getNode(), getNode().getModel());
+    return NodeFactoryManager.createNode(childConcept, index, getNode(), getSLink(), getNode().getModel());
   }
 
   @Override

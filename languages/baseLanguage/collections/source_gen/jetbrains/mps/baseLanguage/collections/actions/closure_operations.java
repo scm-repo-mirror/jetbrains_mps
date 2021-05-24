@@ -16,7 +16,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class closure_operations {
   public static class NodeFactory_1225118817881 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -30,7 +30,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225119174306 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -44,7 +44,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225119188770 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -58,7 +58,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225119083460 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -72,7 +72,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225119114838 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -86,7 +86,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225110009888 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$Rjuo);
       if ((sel == null)) {
         sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$Rjuo, CONCEPTS.ClosureLiteral$rp);
@@ -98,7 +98,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225728791327 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -112,7 +112,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1225730740847 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -126,7 +126,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1235567398001 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -140,7 +140,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1235567424420 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -154,7 +154,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_3055999550620994085 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$My)) {
         SLinkOperations.setTarget(newNode, LINKS.closure$Rjuo, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$My), LINKS.closure$Rjuo)));
       } else {
@@ -168,7 +168,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1522217801069385377 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$Rjuo);
       if ((comb == null)) {
         comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$Rjuo, CONCEPTS.ClosureLiteral$rp);
@@ -180,7 +180,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1522217801069396478 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$Rjuo);
       if ((comb == null)) {
         comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$Rjuo, CONCEPTS.ClosureLiteral$rp);
@@ -192,7 +192,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1522217801069421699 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$Rjuo);
       if ((comb == null)) {
         comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$Rjuo, CONCEPTS.ClosureLiteral$rp);
@@ -204,7 +204,7 @@ public class closure_operations {
     }
   }
   public static class NodeFactory_1522217801069421974 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$Rjuo);
       if ((comb == null)) {
         comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$Rjuo, CONCEPTS.ClosureLiteral$rp);

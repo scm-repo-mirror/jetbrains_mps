@@ -5040,6 +5040,134 @@
       <unit id="893030362424993465" at="15,0,43,0" name="jetbrains.mps.lang.editor.actions.test.Subst_SingleChildDefaultConcreteDefEditor_AddNewChildByCompl_Test" />
     </file>
   </root>
+  <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/9038082488514418071">
+    <file name="ElementFatoryTestPrevNode_Test.java">
+      <node id="9038082488514418071" at="18,43,19,25" concept="8" />
+      <node id="9038082488514418071" at="23,65,24,36" concept="1" />
+      <node id="9038082488514418071" at="29,52,30,19" concept="8" />
+      <node id="9038082488514418071" at="34,51,35,72" concept="1" />
+      <node id="9038082488514704053" at="35,72,36,69" concept="1" />
+      <node id="9038082488515374889" at="36,69,37,69" concept="1" />
+      <node id="9038082488515446938" at="37,69,38,69" concept="1" />
+      <node id="9038082488515233094" at="38,69,39,69" concept="1" />
+      <node id="9038082488514418071" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="9038082488514418071" at="18,0,21,0" concept="0" trace="ElementFatoryTestPrevNode_Test#()V" />
+      <node id="9038082488514418071" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="9038082488514418071" at="22,0,26,0" concept="3" trace="test_ElementFatoryTestPrevNode#()V" />
+      <node id="9038082488514418071" at="33,0,41,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="9038082488514418071" at="18,43,19,25" />
+      <scope id="9038082488514418071" at="23,65,24,36" />
+      <scope id="9038082488514418071" at="29,52,30,19" />
+      <scope id="9038082488514418071" at="18,0,21,0" />
+      <scope id="9038082488514418071" at="29,0,32,0">
+        <var name="owner" id="9038082488514418071" />
+      </scope>
+      <scope id="9038082488514418071" at="22,0,26,0" />
+      <scope id="9038082488514418071" at="34,51,39,69" />
+      <scope id="9038082488514418071" at="33,0,41,0" />
+      <unit id="9038082488514418071" at="27,0,42,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestPrevNode_Test$TestBody" />
+      <unit id="9038082488514418071" at="13,0,43,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestPrevNode_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/9038082488515587848">
+    <file name="ElementFatoryTestNextNode_Test.java">
+      <node id="9038082488515587848" at="18,43,19,25" concept="8" />
+      <node id="9038082488515587848" at="23,65,24,36" concept="1" />
+      <node id="9038082488515587848" at="29,52,30,19" concept="8" />
+      <node id="9038082488515587848" at="34,51,35,72" concept="1" />
+      <node id="9038082488515587858" at="35,72,36,69" concept="1" />
+      <node id="9038082488515587860" at="36,69,37,69" concept="1" />
+      <node id="9038082488515587862" at="37,69,38,67" concept="1" />
+      <node id="9038082488515587864" at="38,67,39,69" concept="1" />
+      <node id="9038082488516141368" at="39,69,40,67" concept="1" />
+      <node id="9038082488516141366" at="40,67,41,69" concept="1" />
+      <node id="9038082488515587848" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="9038082488515587848" at="18,0,21,0" concept="0" trace="ElementFatoryTestNextNode_Test#()V" />
+      <node id="9038082488515587848" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="9038082488515587848" at="22,0,26,0" concept="3" trace="test_ElementFatoryTestNextNode#()V" />
+      <node id="9038082488515587848" at="33,0,43,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="9038082488515587848" at="18,43,19,25" />
+      <scope id="9038082488515587848" at="23,65,24,36" />
+      <scope id="9038082488515587848" at="29,52,30,19" />
+      <scope id="9038082488515587848" at="18,0,21,0" />
+      <scope id="9038082488515587848" at="29,0,32,0">
+        <var name="owner" id="9038082488515587848" />
+      </scope>
+      <scope id="9038082488515587848" at="22,0,26,0" />
+      <scope id="9038082488515587848" at="34,51,41,69" />
+      <scope id="9038082488515587848" at="33,0,43,0" />
+      <unit id="9038082488515587848" at="27,0,44,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestNextNode_Test$TestBody" />
+      <unit id="9038082488515587848" at="13,0,45,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestNextNode_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/9038082488516248123">
+    <file name="ElementFatoryTestIndex_Test.java">
+      <node id="9038082488516248123" at="18,40,19,25" concept="8" />
+      <node id="9038082488516248123" at="23,62,24,36" concept="1" />
+      <node id="9038082488516248123" at="29,52,30,19" concept="8" />
+      <node id="9038082488516248123" at="34,51,35,72" concept="1" />
+      <node id="9038082488516248134" at="35,72,36,69" concept="1" />
+      <node id="9038082488516467266" at="36,69,37,69" concept="1" />
+      <node id="9038082488516467272" at="37,69,38,69" concept="1" />
+      <node id="9038082488516467280" at="38,69,39,69" concept="1" />
+      <node id="9038082488516467330" at="39,69,40,67" concept="1" />
+      <node id="9038082488516467351" at="40,67,41,69" concept="1" />
+      <node id="9038082488516467312" at="41,69,42,0" concept="6" />
+      <node id="9038082488516248123" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="9038082488516248123" at="18,0,21,0" concept="0" trace="ElementFatoryTestIndex_Test#()V" />
+      <node id="9038082488516248123" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="9038082488516248123" at="22,0,26,0" concept="3" trace="test_ElementFatoryTestIndex#()V" />
+      <node id="9038082488516248123" at="33,0,44,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="9038082488516248123" at="18,40,19,25" />
+      <scope id="9038082488516248123" at="23,62,24,36" />
+      <scope id="9038082488516248123" at="29,52,30,19" />
+      <scope id="9038082488516248123" at="18,0,21,0" />
+      <scope id="9038082488516248123" at="29,0,32,0">
+        <var name="owner" id="9038082488516248123" />
+      </scope>
+      <scope id="9038082488516248123" at="22,0,26,0" />
+      <scope id="9038082488516248123" at="34,51,42,0" />
+      <scope id="9038082488516248123" at="33,0,44,0" />
+      <unit id="9038082488516248123" at="27,0,45,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestIndex_Test$TestBody" />
+      <unit id="9038082488516248123" at="13,0,46,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestIndex_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/9038082488517006310">
+    <file name="ElementFatoryTestNodes_Test.java">
+      <node id="9038082488517006310" at="18,40,19,25" concept="8" />
+      <node id="9038082488517006310" at="23,62,24,36" concept="1" />
+      <node id="9038082488517006310" at="29,52,30,19" concept="8" />
+      <node id="9038082488517006310" at="34,51,35,72" concept="1" />
+      <node id="9038082488517006322" at="35,72,36,69" concept="1" />
+      <node id="9038082488517096836" at="36,69,37,69" concept="1" />
+      <node id="9038082488517096914" at="37,69,38,69" concept="1" />
+      <node id="9038082488517096843" at="38,69,39,67" concept="1" />
+      <node id="9038082488517096873" at="39,67,40,69" concept="1" />
+      <node id="9038082488517168197" at="40,69,41,69" concept="1" />
+      <node id="9038082488517168229" at="41,69,42,69" concept="1" />
+      <node id="9038082488517168255" at="42,69,43,67" concept="1" />
+      <node id="9038082488517168257" at="43,67,44,69" concept="1" />
+      <node id="9038082488517168176" at="44,69,45,0" concept="6" />
+      <node id="9038082488517006334" at="45,0,46,0" concept="6" />
+      <node id="9038082488517006310" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="9038082488517006310" at="18,0,21,0" concept="0" trace="ElementFatoryTestNodes_Test#()V" />
+      <node id="9038082488517006310" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="9038082488517006310" at="22,0,26,0" concept="3" trace="test_ElementFatoryTestNodes#()V" />
+      <node id="9038082488517006310" at="33,0,48,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="9038082488517006310" at="18,40,19,25" />
+      <scope id="9038082488517006310" at="23,62,24,36" />
+      <scope id="9038082488517006310" at="29,52,30,19" />
+      <scope id="9038082488517006310" at="18,0,21,0" />
+      <scope id="9038082488517006310" at="29,0,32,0">
+        <var name="owner" id="9038082488517006310" />
+      </scope>
+      <scope id="9038082488517006310" at="22,0,26,0" />
+      <scope id="9038082488517006310" at="34,51,46,0" />
+      <scope id="9038082488517006310" at="33,0,48,0" />
+      <unit id="9038082488517006310" at="27,0,49,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestNodes_Test$TestBody" />
+      <unit id="9038082488517006310" at="13,0,50,0" name="jetbrains.mps.lang.editor.actions.test.ElementFatoryTestNodes_Test" />
+    </file>
+  </root>
   <root nodeRef="r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)/9133079350911890332">
     <file name="Subst_MultiChild_AddNewChildBySeparator_Test.java">
       <node id="9133079350911890332" at="18,57,19,25" concept="8" />

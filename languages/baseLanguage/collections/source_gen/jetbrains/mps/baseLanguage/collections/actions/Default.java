@@ -22,7 +22,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Default {
   public static class NodeFactory_8656797459614949039 implements NodeFactory {
-    public void setup(final SNode newNode, final SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(final SNode newNode, final SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.ForEachStatement$RO)) {
         SLinkOperations.setTarget(newNode, LINKS.body$c1sm, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.ForEachStatement$RO), LINKS.body$c1sm));
         SLinkOperations.addNewChild(newNode, LINKS.forEach$Z1RP, null);
@@ -47,7 +47,7 @@ public class Default {
     }
   }
   public static class NodeFactory_8656797459614853042 implements NodeFactory {
-    public void setup(final SNode newNode, final SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(final SNode newNode, final SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.MultiForEachStatement$i)) {
         SLinkOperations.setTarget(newNode, LINKS.body$c1sm, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.MultiForEachStatement$i), LINKS.body$c1sm));
         SLinkOperations.setTarget(newNode, LINKS.inputSequence$YoEF, SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.MultiForEachStatement$i), LINKS.forEach$Z1RP)).first(), LINKS.input$Z7VO));

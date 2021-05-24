@@ -2921,8 +2921,8 @@
       <node id="6869265041613948825" at="259,28,260,20" concept="6" />
       <node id="6869265041613948825" at="262,40,263,32" concept="6" />
       <node id="6869265041613948825" at="265,48,266,41" concept="6" />
-      <node id="6869265041613948825" at="268,66,269,27" concept="6" />
-      <node id="6148399791136420459" at="272,32,273,199" concept="6" />
+      <node id="6869265041613948825" at="268,109,269,52" concept="6" />
+      <node id="6148399791136420459" at="272,73,273,199" concept="6" />
       <node id="6869265041613948825" at="275,57,276,83" concept="5" />
       <node id="6869265041613948825" at="276,83,277,65" concept="1" />
       <node id="6869265041613948825" at="277,65,278,25" concept="6" />
@@ -3148,8 +3148,8 @@
       <node id="1237139122107280431" at="223,98,226,11" concept="3" />
       <node id="6869265041613948825" at="262,0,265,0" concept="4" trace="getSLink#()Lorg/jetbrains/mps/openapi/language/SContainmentLink;" />
       <node id="6869265041613948825" at="265,0,268,0" concept="4" trace="getChildSConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6869265041613948825" at="268,0,271,0" concept="4" trace="createNodeToInsert#(Ljetbrains/mps/openapi/editor/EditorContext;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6869265041613948825" at="272,0,275,0" concept="4" trace="nodeFactory#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6869265041613948825" at="268,0,271,0" concept="4" trace="createNodeToInsert#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6869265041613948825" at="272,0,275,0" concept="4" trace="nodeFactory#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="6869265041613948825" at="379,87,382,7" concept="3" />
       <node id="6869265041613948825" at="382,7,385,7" concept="3" />
       <node id="6869265041613948825" at="401,0,404,0" concept="4" trace="getNoTargetText#()Ljava/lang/String;" />
@@ -3262,8 +3262,8 @@
       <scope id="6869265041613948825" at="259,28,260,20" />
       <scope id="6869265041613948825" at="262,40,263,32" />
       <scope id="6869265041613948825" at="265,48,266,41" />
-      <scope id="6869265041613948825" at="268,66,269,27" />
-      <scope id="6148399791136420245" at="272,32,273,199" />
+      <scope id="6869265041613948825" at="268,109,269,52" />
+      <scope id="6148399791136420245" at="272,73,273,199" />
       <scope id="6869265041613948825" at="289,17,290,42" />
       <scope id="6869265041613948825" at="365,28,366,20" />
       <scope id="6869265041613948825" at="380,118,381,137" />
@@ -3337,8 +3337,15 @@
       <scope id="6869265041613948825" at="265,0,268,0" />
       <scope id="6869265041613948825" at="268,0,271,0">
         <var name="editorContext" id="6869265041613948825" />
+        <var name="index" id="6869265041613948825" />
+        <var name="nextNode" id="6869265041613948825" />
+        <var name="prevNode" id="6869265041613948825" />
       </scope>
-      <scope id="6869265041613948825" at="272,0,275,0" />
+      <scope id="6869265041613948825" at="272,0,275,0">
+        <var name="index" id="6869265041613948825" />
+        <var name="nextNode" id="6869265041613948825" />
+        <var name="prevNode" id="6869265041613948825" />
+      </scope>
       <scope id="6869265041613948825" at="275,57,278,25">
         <var name="elementCell" id="6869265041613948825" />
       </scope>

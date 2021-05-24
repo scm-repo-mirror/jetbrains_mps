@@ -41,12 +41,12 @@
       <node id="6057591418743065494" at="28,37,33,9" concept="2" />
       <node id="6057591418743066493" at="40,37,45,9" concept="2" />
       <node id="6057591418743066522" at="48,37,53,9" concept="2" />
-      <node id="6057591418743042056" at="18,91,26,7" concept="0" />
+      <node id="6057591418743042056" at="18,102,26,7" concept="0" />
       <node id="6057591418743065494" at="26,7,34,7" concept="0" />
-      <node id="6057591418743066493" at="38,91,46,7" concept="0" />
+      <node id="6057591418743066493" at="38,102,46,7" concept="0" />
       <node id="6057591418743066522" at="46,7,54,7" concept="0" />
-      <node id="6057591418743042050" at="18,0,36,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="6057591418743066490" at="38,0,56,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="6057591418743042050" at="18,0,36,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="6057591418743066490" at="38,0,56,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <scope id="6057591418743042058" at="21,74,24,121" />
       <scope id="6057591418743065496" at="29,82,32,121" />
       <scope id="6057591418743066495" at="41,74,44,121" />
@@ -63,16 +63,18 @@
       <scope id="6057591418743066522" at="47,7,53,9">
         <var name="msg" id="6057591418743066522" />
       </scope>
-      <scope id="6057591418743042050" at="18,91,34,7" />
-      <scope id="6057591418743066490" at="38,91,54,7" />
+      <scope id="6057591418743042050" at="18,102,34,7" />
+      <scope id="6057591418743066490" at="38,102,54,7" />
       <scope id="6057591418743042050" at="18,0,36,0">
         <var name="enclosingNode" id="6057591418743042050" />
+        <var name="index" id="6057591418743042050" />
         <var name="model" id="6057591418743042050" />
         <var name="newNode" id="6057591418743042050" />
         <var name="sampleNode" id="6057591418743042050" />
       </scope>
       <scope id="6057591418743066490" at="38,0,56,0">
         <var name="enclosingNode" id="6057591418743066490" />
+        <var name="index" id="6057591418743066490" />
         <var name="model" id="6057591418743066490" />
         <var name="newNode" id="6057591418743066490" />
         <var name="sampleNode" id="6057591418743066490" />

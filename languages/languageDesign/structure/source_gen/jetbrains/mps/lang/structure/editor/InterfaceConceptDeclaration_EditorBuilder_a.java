@@ -466,11 +466,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.LinkDeclaration$1p;
     }
-    public SNode createNodeToInsert(EditorContext editorContext) {
-      return nodeFactory();
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
-    public SNode nodeFactory() {
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
       SNode result = SNodeFactoryOperations.createNewNode(SNodeOperations.getModel(myNode), CONCEPTS.LinkDeclaration$1p, null);
       SPropertyOperations.setEnum(result, PROPS.metaClass$PeKc, 0xfc6f4e95b9L, "aggregation");
       return result;
@@ -604,11 +604,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     public SAbstractConcept getChildSConcept() {
       return CONCEPTS.LinkDeclaration$1p;
     }
-    public SNode createNodeToInsert(EditorContext editorContext) {
-      return nodeFactory();
+    public SNode createNodeToInsert(EditorContext editorContext, SNode prevNode, SNode nextNode, int index) {
+      return nodeFactory(prevNode, nextNode, index);
     }
 
-    public SNode nodeFactory() {
+    public SNode nodeFactory(SNode prevNode, SNode nextNode, int index) {
       SNode result = SNodeFactoryOperations.createNewNode(SNodeOperations.getModel(myNode), CONCEPTS.LinkDeclaration$1p, null);
       SPropertyOperations.setEnum(result, PROPS.metaClass$PeKc, 0xfc6f4e95b8L, "reference");
       return result;

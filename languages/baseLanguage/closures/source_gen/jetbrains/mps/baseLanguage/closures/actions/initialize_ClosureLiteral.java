@@ -22,7 +22,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 public class initialize_ClosureLiteral {
   public static class NodeFactory_876385242039333159 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       if (SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.IMethodCall$M9)) {
         int idx = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(enclosingNode, CONCEPTS.IMethodCall$M9), LINKS.actualArgument$pzdx)).indexOf(newNode);
         if (idx >= 0) {
@@ -45,7 +45,7 @@ public class initialize_ClosureLiteral {
     }
   }
   public static class NodeFactory_8992394414545768356 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       {
         final SNode param = sampleNode;
         if (SNodeOperations.isInstanceOf(param, CONCEPTS.ParameterDeclaration$RG)) {

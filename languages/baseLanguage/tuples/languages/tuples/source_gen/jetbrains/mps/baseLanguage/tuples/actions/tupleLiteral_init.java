@@ -17,7 +17,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class tupleLiteral_init {
   public static class NodeFactory_1239567483800 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       for (SNode cd : ListSequence.fromList(NamedTupleDeclaration__BehaviorDescriptor.allExtends_id2ItBWjOSZqc.invoke(SLinkOperations.getTarget(newNode, LINKS.tupleDeclaration$Pcb7))).reversedList().translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(SNode ntd) {
           return SLinkOperations.getChildren(ntd, LINKS.component$wCHx);

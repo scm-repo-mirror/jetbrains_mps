@@ -25,6 +25,7 @@ import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
+import jetbrains.mps.util.IterableUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -64,7 +65,16 @@ public class NodeFactoryManager {
     return createNode(nodeConcept, sampleNode, enclosingNode, model, new HashSet<>());
   }
 
+  public static SNode createNode(@NotNull SAbstractConcept nodeConcept, int index, SNode enclosingNode, @Nullable SContainmentLink link, @Nullable SModel model) {
+    return createNode(nodeConcept, null, index, enclosingNode, link, model, new HashSet<>());
+  }
+
   private static SNode createNode(@NotNull SAbstractConcept nodeConcept, SNode sampleNode, SNode enclosingNode, @Nullable SModel model,
+                                  Set<SAbstractConcept> visitedNonOptionalChildConcepts) {
+    return createNode(nodeConcept, sampleNode, -1, enclosingNode, null, model, visitedNonOptionalChildConcepts);
+  }
+
+  private static SNode createNode(@NotNull SAbstractConcept nodeConcept, SNode sampleNode, int index, SNode enclosingNode, @Nullable SContainmentLink link, @Nullable SModel model,
       Set<SAbstractConcept> visitedNonOptionalChildConcepts) {
     SNode newNode = SModelOperations.createNewNode(model, null, nodeConcept);
     if (newNode == null) {
@@ -73,11 +83,8 @@ public class NodeFactoryManager {
     if (nodeConcept instanceof SInterfaceConcept) {
       return newNode;
     }
-    if (sampleNode != null) {
-      sampleNode = CopyUtil.copy(sampleNode);
-    }
     nodeConcept = newNode.getConcept(); // XXX is it possible to get another concept on creation?
-    setupNode(nodeConcept, newNode, sampleNode, enclosingNode, model);
+    setupNode(nodeConcept, newNode, sampleNode, index, enclosingNode, link, model);
     createNodeStructure(nodeConcept, newNode, sampleNode, enclosingNode, model, visitedNonOptionalChildConcepts);
     return newNode;
   }
@@ -105,7 +112,26 @@ public class NodeFactoryManager {
     }
   }
 
-  public static void setupNode(SAbstractConcept nodeConcept, SNode node, SNode sampleNode, SNode enclosingNode, SModel model) {
+  public static void setupNode(SAbstractConcept nodeConcept, @NotNull SNode node, @Nullable SNode sampleNode, @Nullable SNode enclosingNode, SModel model) {
+    setupNode(nodeConcept, node, sampleNode, -1, enclosingNode, null, model);
+  }
+
+  public static void setupNode(SAbstractConcept nodeConcept, @NotNull SNode node, @Nullable SNode sampleNode, int index, @Nullable SNode enclosingNode, @Nullable SContainmentLink link, SModel model) {
+    if (index == -1 && sampleNode != null) {
+      if (enclosingNode == null) {
+        enclosingNode = sampleNode.getParent();
+      }
+      if (link == null) {
+        link = sampleNode.getContainmentLink();
+      }
+    }
+    if (index == -1 && enclosingNode != null && link != null) {
+      index = getIndex(enclosingNode, sampleNode, link);
+    }
+    if (sampleNode != null) {
+      sampleNode = CopyUtil.copy(sampleNode);
+    }
+
     for (SAbstractConcept ancestor : new DepthFirstConceptIterator(nodeConcept)) {
       ActionAspectDescriptor actionAspectDescriptor = null;
       LanguageRuntime languageRuntime = LanguageRegistry.getInstance().getLanguage(ancestor.getLanguage());
@@ -117,8 +143,31 @@ public class NodeFactoryManager {
       }
       Collection<NodeFactory> factories = actionAspectDescriptor.getFactories(ancestor);
       for (NodeFactory factory : factories) {
-        factory.setup(node, sampleNode, enclosingNode, model);
+        factory.setup(node, sampleNode, enclosingNode, index, model);
       }
+    }
+  }
+
+  private static int getIndex(@NotNull SNode parent, @Nullable SNode sampleNode, @NotNull SContainmentLink link) {
+    int index;
+    Iterable<? extends SNode> children = parent.getChildren(link);
+    if (sampleNode == null) {
+      index = iterableSize(children);
+    } else {
+      index = IterableUtil.indexOf(children, sampleNode);
+    }
+    return index;
+  }
+
+  private static int iterableSize(@NotNull Iterable<?> children) {
+    if (children instanceof Collection) {
+      return ((Collection<?>) children).size();
+    } else {
+      int i = 0;
+      for (Object ignored : children) {
+        i++;
+      }
+      return i;
     }
   }
 

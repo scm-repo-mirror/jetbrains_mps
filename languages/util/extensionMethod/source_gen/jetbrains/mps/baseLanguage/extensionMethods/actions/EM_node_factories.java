@@ -12,7 +12,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class EM_node_factories {
   public static class NodeFactory_720975379598240372 implements NodeFactory {
-    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
       SNodeFactoryOperations.setNewChild(newNode, LINKS.visibility$Yyua, CONCEPTS.PublicVisibility$R0);
     }
   }
