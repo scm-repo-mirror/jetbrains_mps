@@ -7162,8 +7162,8 @@
                 <ref role="3cqZAo" node="5IkW5anFe5n" resolve="sameMetaLevel" />
               </node>
               <node concept="2YIFZM" id="5IkW5anFe5A" role="3K4E3e">
-                <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
-                <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
+                <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                 <node concept="37vLTw" id="2BHiRxglyGK" role="37wK5m">
                   <ref role="3cqZAo" node="5IkW5anFe5f" resolve="node" />
                 </node>
@@ -7259,8 +7259,8 @@
                         <ref role="3cqZAo" node="5IkW5anFe5y" resolve="metaLevel" />
                       </node>
                       <node concept="2YIFZM" id="7osd9LN$mQ6" role="3uHU7B">
-                        <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
-                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
+                        <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                        <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                         <node concept="37vLTw" id="7osd9LN$mQ7" role="37wK5m">
                           <ref role="3cqZAo" node="5IkW5anFe5H" resolve="rootParent" />
                         </node>
@@ -7379,8 +7379,8 @@
                 </node>
                 <node concept="3clFbC" id="7osd9LN$mQy" role="3uHU7w">
                   <node concept="2YIFZM" id="7osd9LN$mQz" role="3uHU7B">
-                    <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
-                    <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
+                    <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                    <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                     <node concept="37vLTw" id="7osd9LN$mQ$" role="37wK5m">
                       <ref role="3cqZAo" node="5IkW5anFe69" resolve="outputNode" />
                     </node>
@@ -7416,8 +7416,8 @@
                         <ref role="3cqZAo" node="5IkW5anFe5y" resolve="metaLevel" />
                       </node>
                       <node concept="2YIFZM" id="7osd9LN$mLK" role="3uHU7B">
-                        <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
-                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
+                        <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                        <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                         <node concept="37vLTw" id="7osd9LN$mLL" role="37wK5m">
                           <ref role="3cqZAo" node="5IkW5anFe69" resolve="outputNode" />
                         </node>
@@ -7584,8 +7584,8 @@
                 <ref role="3cqZAo" node="5IkW5anFe80" resolve="sameMetaLevel" />
               </node>
               <node concept="2YIFZM" id="5IkW5anFe8f" role="3K4E3e">
-                <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
-                <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                 <node concept="37vLTw" id="2BHiRxgmDaC" role="37wK5m">
                   <ref role="3cqZAo" node="5IkW5anFe7R" resolve="node" />
                 </node>
@@ -7648,8 +7648,8 @@
                   <node concept="22lmx$" id="5IkW5anFe8E" role="3clFbw">
                     <node concept="3clFbC" id="5IkW5anFe8H" role="3uHU7w">
                       <node concept="2YIFZM" id="5IkW5anFe8I" role="3uHU7B">
-                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
-                        <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                        <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                        <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                         <node concept="37vLTw" id="3GM_nagTADo" role="37wK5m">
                           <ref role="3cqZAo" node="5IkW5anFe8v" resolve="rootParent" />
                         </node>
@@ -7780,8 +7780,8 @@
                 </node>
                 <node concept="3clFbC" id="5IkW5anFe9o" role="3uHU7w">
                   <node concept="2YIFZM" id="5IkW5anFe9p" role="3uHU7B">
-                    <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
-                    <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                    <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                    <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                     <node concept="37vLTw" id="3GM_nagTt42" role="37wK5m">
                       <ref role="3cqZAo" node="5IkW5anFe8R" resolve="outputNode" />
                     </node>
@@ -7837,8 +7837,8 @@
                   <node concept="22lmx$" id="5IkW5anFe9J" role="3clFbw">
                     <node concept="3clFbC" id="5IkW5anFe9M" role="3uHU7w">
                       <node concept="2YIFZM" id="5IkW5anFe9N" role="3uHU7B">
-                        <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
-                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
+                        <ref role="1Pybhc" to="w1kc:~SNodeUtil" resolve="SNodeUtil" />
+                        <ref role="37wK5l" to="w1kc:~SNodeUtil.getMetaLevel(org.jetbrains.mps.openapi.model.SNode)" resolve="getMetaLevel" />
                         <node concept="37vLTw" id="3GM_nagTsQU" role="37wK5m">
                           <ref role="3cqZAo" node="5IkW5anFe8R" resolve="outputNode" />
                         </node>

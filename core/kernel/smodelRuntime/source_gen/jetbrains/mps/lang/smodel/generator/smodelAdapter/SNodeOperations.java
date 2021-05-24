@@ -10,10 +10,9 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.CopyUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.SNodeUtil;
 import java.util.ArrayList;
 import jetbrains.mps.util.IterableUtil;
-import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.util.InstanceOfCondition;
 import org.jetbrains.mps.util.Condition;
 import org.jetbrains.mps.util.DescendantsTreeIterator;
@@ -74,13 +73,13 @@ public class SNodeOperations {
     if (node == null) {
       return null;
     }
-    int metaLevel = (sameMetaLevel ? SModelUtil_new.getMetaLevel(node) : 0);
+    int metaLevel = (sameMetaLevel ? SNodeUtil.getMetaLevel(node) : 0);
 
     // look up for certain concept
     if (root) {
       SNode rootParent = node.getContainingRoot();
       if (rootParent.getModel() != null && isInstanceOf(rootParent, ancestorConcept)) {
-        if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(rootParent) == metaLevel) {
+        if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(rootParent) == metaLevel) {
           return rootParent;
         }
       }
@@ -98,13 +97,13 @@ public class SNodeOperations {
       return null;
     }
     if (isInstanceOf(outputNode, ancestorConcept)) {
-      if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(outputNode) == metaLevel) {
+      if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(outputNode) == metaLevel) {
         return outputNode;
       }
     }
     while ((outputNode = outputNode.getParent()) != null) {
       if (isInstanceOf(outputNode, ancestorConcept)) {
-        if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(outputNode) == metaLevel) {
+        if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(outputNode) == metaLevel) {
           break;
         }
       }
@@ -118,14 +117,14 @@ public class SNodeOperations {
     if (node == null) {
       return null;
     }
-    int metaLevel = (sameMetaLevel ? SModelUtil_new.getMetaLevel(node) : 0);
+    int metaLevel = (sameMetaLevel ? SNodeUtil.getMetaLevel(node) : 0);
     if (ancestorConceptFqNames.length == 0) {
       return null;
     }
     if (root) {
       SNode rootParent = node.getContainingRoot();
       if (SNodeOperations._isInstanceOf(rootParent, ancestorConceptFqNames)) {
-        if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(rootParent) == metaLevel) {
+        if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(rootParent) == metaLevel) {
           return rootParent;
         }
       }
@@ -143,13 +142,13 @@ public class SNodeOperations {
       return null;
     }
     if (SNodeOperations._isInstanceOf(outputNode, ancestorConceptFqNames)) {
-      if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(outputNode) == metaLevel) {
+      if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(outputNode) == metaLevel) {
         return outputNode;
       }
     }
     while ((outputNode = outputNode.getParent()) != null) {
       if (SNodeOperations._isInstanceOf(outputNode, ancestorConceptFqNames)) {
-        if (!(sameMetaLevel) || SModelUtil_new.getMetaLevel(outputNode) == metaLevel) {
+        if (!(sameMetaLevel) || SNodeUtil.getMetaLevel(outputNode) == metaLevel) {
           return outputNode;
         }
       }
@@ -192,7 +191,7 @@ public class SNodeOperations {
     if (node == null) {
       return EMPTY_LIST;
     }
-    return IterableUtil.asList(SNodeUtil.getDescendants(node, (childConcept == null ? null : new InstanceOfCondition(childConcept)), inclusion));
+    return IterableUtil.asList(org.jetbrains.mps.openapi.model.SNodeUtil.getDescendants(node, (childConcept == null ? null : new InstanceOfCondition(childConcept)), inclusion));
   }
   public static List<SNode> getNodeDescendants(SNode node, final SAbstractConcept childConcept, boolean inclusion, final SAbstractConcept[] stopConceptFqNames) {
     if (node == null) {
@@ -212,7 +211,7 @@ public class SNodeOperations {
     if (node == null || descendantConcepts.length == 0) {
       return EMPTY_LIST;
     }
-    return IterableUtil.asList(SNodeUtil.getDescendants(node, new InstanceOfCondition(descendantConcepts), inclusion));
+    return IterableUtil.asList(org.jetbrains.mps.openapi.model.SNodeUtil.getDescendants(node, new InstanceOfCondition(descendantConcepts), inclusion));
   }
   public static List<SNode> getNodeDescendantsWhereConceptInList(SNode node, final SAbstractConcept[] descendantConcepts, boolean inclusion, final SAbstractConcept[] stopConcepts) {
     if (node == null || descendantConcepts.length == 0) {
@@ -458,7 +457,7 @@ public class SNodeOperations {
     if (newChild == null) {
       return null;
     }
-    SNodeUtil.replaceWithAnother(oldChild, newChild);
+    org.jetbrains.mps.openapi.model.SNodeUtil.replaceWithAnother(oldChild, newChild);
     SNodeOperations.copyAllAttributes(oldChild, newChild);
     return newChild;
   }
@@ -490,7 +489,7 @@ public class SNodeOperations {
   }
   public static SNode replaceWithAnother(SNode node, SNode anotherNode) {
     assert node != null : "can't replace node. node is NULL";
-    return ((SNode) SNodeUtil.replaceWithAnother(node, anotherNode));
+    return ((SNode) org.jetbrains.mps.openapi.model.SNodeUtil.replaceWithAnother(node, anotherNode));
   }
   public static SNode deleteNode(SNode node) {
     if (node != null) {
