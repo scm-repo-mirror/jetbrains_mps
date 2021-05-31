@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.constraints;
 
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.scope.ErrorScope;
 import jetbrains.mps.scope.FilteringByConceptScope;
 import jetbrains.mps.scope.ModelPlusImportedScope;
@@ -25,6 +24,7 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.search.LinkDeclarationLookup;
 import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -45,17 +45,17 @@ import org.jetbrains.mps.openapi.model.SReference;
  * (e.g. #getReferencePresentation() with booleans)
  */
 public abstract class ReferenceDescriptor {
-  private static final Logger LOG = Logger.wrap(LogManager.getLogger(ReferenceDescriptor.class));
+  private static final Logger LOG = LogManager.getLogger(ReferenceDescriptor.class);
 
   // can be ErrorScope
   @NotNull
   abstract public Scope getScope();
 
   /**
-   * @return optional pointer to a scope declaration function
+   * @return an optional pointer to the scope declaration function
    */
   @Nullable
-  public SNodeReference getScopeDeclarationHint() {
+  public SNodeReference getScopeRuleNodeReference() {
     // hides implementation detail ReferenceScopeProvider#getSearchScopeValidatorNode(). Templates of lang.constraints
     // generate ReferenceScopeProvider implementation, hand-written code access ReferenceDescriptor 'facade', not impl classes.
     // XXX Perhaps, we need a distinct validator object?
@@ -140,15 +140,17 @@ public abstract class ReferenceDescriptor {
         // global search scope
         return new ModelPlusImportedScope(getModel(), false, myLinkTarget);
       } catch (Exception t) {
-        LOG.error(t, myContextNode);
+        LOG.error(String.format("Context node %s", myContextNode), t);
         return new ErrorScope("can't create search scope for link `" + myReferenceLink + "' in '" + myNodeConcept.getName() + "'", t);
       }
     }
 
     @Override
-    @Nullable
-    public SNodeReference getScopeDeclarationHint() {
-      return myScopeProvider == null ? null : myScopeProvider.getSearchScopeValidatorNode();
+    public SNodeReference getScopeRuleNodeReference() {
+      if (myScopeProvider == null) {
+        return null;
+      }
+      return myScopeProvider.getSearchScopeValidatorNode();
     }
 
     @Nullable

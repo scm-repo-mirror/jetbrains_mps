@@ -82,7 +82,7 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
         continue;
       }
       // don't check unresolved and broken references, they should already have an error message 
-      // do we need all these additional dependencies? mb. it's better to use .runcheckingAction() instead?
+      // do we need all these additional dependencies? mb. it's better to use .runCheckingAction() instead?
       // The reason not to use runCheckingAction is memory consumption, see https://youtrack.jetbrains.com/issue/MPS-19776, commit 88c5a52d
       errorsCollector.addDependency(target);
       ReferenceDescriptor refDescriptor = ModelConstraints.getReferenceDescriptor(ref);
@@ -90,7 +90,7 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
       if (refScope instanceof ErrorScope) {
         errorsCollector.addError(new LanguageErrorItem.ReferenceItem((ErrorScope) refScope, ref));
       } else if (!(refScope.contains(target))) {
-        SNodeReference debugInfo = refDescriptor.getScopeDeclarationHint();
+        SNodeReference debugInfo = refDescriptor.getScopeRuleNodeReference();
         RefOutOfScopeProblem problem = new RefOutOfScopeProblem(ref.getLink(), null);
         RefOutOfScopeContext context = new RefOutOfScopeContext(ref);
         FeedbackAspectRegistry registry = getFeedbackAspectRegistry();
