@@ -16530,5 +16530,55 @@
       <ref role="1YaFvo" to="tp25:1YRcO3NA_wL" resolve="AssociationLinkType" />
     </node>
   </node>
+  <node concept="3aFulz" id="4UZLrJIg2M7">
+    <property role="3GE5qa" value="type" />
+    <property role="TrG5h" value="AssociationLinkTypeAsClassifier" />
+    <node concept="1Yb3XT" id="4UZLrJIg2Mt" role="3bfgSz">
+      <property role="TrG5h" value="classifierType" />
+      <node concept="2DMOqp" id="4UZLrJIg2Mv" role="1YbcFS">
+        <node concept="2c44tf" id="4UZLrJIg2Mx" role="HM535">
+          <node concept="3uibUv" id="4UZLrJIg2Np" role="2c44tc">
+            <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="4UZLrJIg2M9" role="2sgrp5">
+      <node concept="3clFbF" id="4UZLrJIg2Oo" role="3cqZAp">
+        <node concept="3clFbT" id="4UZLrJIg2On" role="3clFbG">
+          <property role="3clFbU" value="true" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="4UZLrJIg2Mb" role="1YuTPh">
+      <property role="TrG5h" value="associationLinkType" />
+      <ref role="1YaFvo" to="tp25:1YRcO3NA_wL" resolve="AssociationLinkType" />
+    </node>
+  </node>
+  <node concept="3aFulz" id="4UZLrJIg2Yy">
+    <property role="3GE5qa" value="type" />
+    <property role="TrG5h" value="AggregationLinkTypeAsClassifier" />
+    <node concept="1Yb3XT" id="4UZLrJIg2YS" role="3bfgSz">
+      <property role="TrG5h" value="classifierType" />
+      <node concept="2DMOqp" id="4UZLrJIg2YU" role="1YbcFS">
+        <node concept="2c44tf" id="4UZLrJIg2YW" role="HM535">
+          <node concept="3uibUv" id="4UZLrJIg2ZO" role="2c44tc">
+            <ref role="3uigEE" to="c17a:~SContainmentLink" resolve="SContainmentLink" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbS" id="4UZLrJIg2Y$" role="2sgrp5">
+      <node concept="3clFbF" id="4UZLrJIg30N" role="3cqZAp">
+        <node concept="3clFbT" id="4UZLrJIg30M" role="3clFbG">
+          <property role="3clFbU" value="true" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="4UZLrJIg2YA" role="1YuTPh">
+      <property role="TrG5h" value="aggregationLinkType" />
+      <ref role="1YaFvo" to="tp25:1YRcO3NA_w5" resolve="AggregationLinkType" />
+    </node>
+  </node>
 </model>
 
