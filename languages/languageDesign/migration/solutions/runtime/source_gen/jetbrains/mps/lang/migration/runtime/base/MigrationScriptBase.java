@@ -50,8 +50,17 @@ public abstract class MigrationScriptBase implements MigrationScript {
 
   @Override
   public MigrationScriptReference getReference() {
+    return getDescriptor();
+  }
+  @Deprecated(forRemoval = true, since = "2017.2")
+  protected MigrationScriptReference getDescriptor() {
+    // this method is an old name for getReference, but is overridden in a lot of 
+    // existing migration classes. Used to be referenced from MigrationScriptImpl template
+    // until 2021.2; keep this method for at least a couple of years to ensure user migrations 
+    // could get executed even for an old library.
     return null;
   }
+
   public Iterable<Problem> check(SModule module) {
     return Collections.emptyList();
   }

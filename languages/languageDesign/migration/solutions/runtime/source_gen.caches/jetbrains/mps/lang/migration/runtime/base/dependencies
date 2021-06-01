@@ -133,6 +133,7 @@
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.BaseScript" />
   </dependency>
   <dependency className="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase">
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />

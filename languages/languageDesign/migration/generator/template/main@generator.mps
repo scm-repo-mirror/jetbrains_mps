@@ -1469,7 +1469,7 @@
     </node>
     <node concept="3clFb_" id="6QXKeyZ7tJQ" role="jymVt">
       <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getDescriptor" />
+      <property role="TrG5h" value="getReference" />
       <node concept="3uibUv" id="6QXKeyZ7tJR" role="3clF45">
         <ref role="3uigEE" to="6f4m:2RG318eWpZ8" resolve="MigrationScriptReference" />
       </node>
