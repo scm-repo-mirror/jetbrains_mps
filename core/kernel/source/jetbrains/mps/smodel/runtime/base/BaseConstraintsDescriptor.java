@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,11 +50,11 @@ import java.util.stream.Stream;
 public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private final SAbstractConcept myConcept;
 
-  private ConstraintFunction<ConstraintContext_CanBeChild, Boolean> myCanBeChildConstraint;
-  private ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> myCanBeRootConstraint;
-  private ConstraintFunction<ConstraintContext_CanBeParent, Boolean> myCanBeParentConstraint;
-  private ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> myCanBeAncestorConstraint;
-  private ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> myDefaultScopeConstraint;
+  private final ConstraintFunction<ConstraintContext_CanBeChild, Boolean> myCanBeChildConstraint;
+  private final ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> myCanBeRootConstraint;
+  private final ConstraintFunction<ConstraintContext_CanBeParent, Boolean> myCanBeParentConstraint;
+  private final ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> myCanBeAncestorConstraint;
+  private final ConstraintFunction<ConstraintContext_DefaultScopeProvider, ReferenceScopeProvider> myDefaultScopeConstraint;
 
   private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> propertiesConstraints = new ConcurrentHashMap<>();
   private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> referencesConstraints = new ConcurrentHashMap<>();
@@ -211,7 +211,7 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
       return null;
     }
 
-    propertiesConstraints.put(property, new BasePropertyConstraintsDescriptor(property, this));
+    propertiesConstraints.put(property, new BasePropertyConstraintsDescriptor(property, this, false, false, false));
 
     return propertiesConstraints.get(property);
   }
@@ -225,7 +225,7 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
       return null;
     }
 
-    referencesConstraints.put(ref, new BaseReferenceConstraintsDescriptor(ref, this));
+    referencesConstraints.put(ref, new BaseReferenceConstraintsDescriptor(ref, this, false, false));
 
     return referencesConstraints.get(ref);
   }

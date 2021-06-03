@@ -15,63 +15,100 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
-import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDispatchable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.util.DepthFirstConceptIterator;
 
 public class BaseReferenceConstraintsDescriptor implements ReferenceConstraintsDispatchable {
   private final SReferenceLink myReferenceLink;
   private final ConstraintsDescriptor container;
 
+  // TODO make final once deprecated cons goes away. Need these for legacy code to work ok
+  //      (don't want to access final fields in case hasOwnScopeProvider() hasn't been overridden)
+  // XXX FWIW, I'm not sure there's any reason for methods that expose these values. Unless RCD overrides scope/refHandler,
+  //     we can always assume it's parent (the one with the reference) knows how to deal it, and we could just take the one from parent.
+  private boolean myOwnScope = false, myOwnRefHandler = false;
+
   private final ReferenceConstraintsDescriptor scopeProviderDescriptor;
   private final ReferenceConstraintsDescriptor onReferenceSetHandlerDescriptor;
 
+  /**
+   * @deprecated in use by generated code till 2021.1. Keep for at least a year to facilitate migration of projects
+   *             and libraries with compiled code.
+   */
+  @Deprecated(forRemoval = true, since = "2021.2")
+  @ToRemove(version = 2021.2)
   public BaseReferenceConstraintsDescriptor(SReferenceLink referenceLink, ConstraintsDescriptor container) {
     this.myReferenceLink = referenceLink;
     this.container = container;
 
-    if (hasOwnScopeProvider()) {
-      scopeProviderDescriptor = this;
-    } else {
-      scopeProviderDescriptor = getSomethingUsingInheritance(getContainer().getConcept(), referenceLink, SCOPE_INHERITANCE_PARAMETERS);
-    }
+    // if these methods are overridden, it's fine. If not, we just take default false values and assign them again.
+    myOwnScope = hasOwnScopeProvider();
+    myOwnRefHandler = hasOwnOnReferenceSetHandler();
+    scopeProviderDescriptor = deduceScopeProvider();
+    onReferenceSetHandlerDescriptor = deduceRefHandler();
+  }
 
-    if (hasOwnOnReferenceSetHandler()) {
-      onReferenceSetHandlerDescriptor = this;
-    } else {
-      onReferenceSetHandlerDescriptor = getSomethingUsingInheritance(getContainer().getConcept(), referenceLink, ON_SET_HANDLER_INHERITANCE_PARAMETERS);
-    }
+  /**
+   * @since 2021.2
+   */
+  public BaseReferenceConstraintsDescriptor(SReferenceLink referenceLink, ConstraintsDescriptor container, boolean ownScope, boolean ownRefHandler) {
+    myReferenceLink = referenceLink;
+    this.container = container;
+    myOwnScope = ownScope;
+    myOwnRefHandler = ownRefHandler;
+    scopeProviderDescriptor = deduceScopeProvider();
+    onReferenceSetHandlerDescriptor = deduceRefHandler();
+  }
+
+  private ReferenceConstraintsDescriptor deduceScopeProvider() {
+    return hasOwnScopeProvider() ? this : getSomethingUsingInheritance(SCOPE_INHERITANCE_PARAMETERS);
+  }
+
+  private ReferenceConstraintsDescriptor deduceRefHandler() {
+    return hasOwnOnReferenceSetHandler() ? this : getSomethingUsingInheritance(ON_SET_HANDLER_INHERITANCE_PARAMETERS);
   }
 
   @Nullable
-  private static ReferenceConstraintsDescriptor getSomethingUsingInheritance(SAbstractConcept concept, SReferenceLink referenceLinkId,
-      InheritanceCalculateParameters parameters) {
-    // fixme rewrite without recursion
-    for (SAbstractConcept parent : SModelUtil.getDirectSuperConcepts(concept)) {
-      if (!((SAbstractConceptAdapter) parent).hasReference(referenceLinkId)) {
+  private ReferenceConstraintsDescriptor getSomethingUsingInheritance(InheritanceCalculateParameters parameters) {
+    // it's a bit tricky to decide which iterator mimics old recursive approach.
+    // on one hand, use of SModelUtil.getDirectSuperConcepts suggested we go breadth-wise,
+    // on the other,  recursion seems to interrupt 'breadth-wise' iteration with a dive into specific element.
+    // However, as long as all our RCD are BaseReferenceConstraintsDescriptor, plus CD.getReference() gives
+    // BaseReferenceConstraintsDescriptor instance for known links, we never get to the recursion, and all I care
+    // to keep right now is the order of concepts SModelUtil.getDirectSuperConcepts() used to give, and it's DepthFirstConceptIterator.
+    DepthFirstConceptIterator it = new DepthFirstConceptIterator(container.getConcept());
+    SAbstractConcept next = it.next();
+    // iterator always starts with the concept supplied at init
+    assert container.getConcept().equals(next);
+    while (it.hasNext()) {
+      next = it.next();
+      if (!((SAbstractConceptAdapter) next).hasReference(myReferenceLink)) {
         continue;
       }
 
-      ConstraintsDescriptor parentDescriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(parent);
-      ReferenceConstraintsDescriptor parentReferenceDescriptor = parentDescriptor.getReference(referenceLinkId);
+      ConstraintsDescriptor parentDescriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(next);
+      ReferenceConstraintsDescriptor parentReferenceDescriptor = parentDescriptor.getReference(myReferenceLink);
 
       ReferenceConstraintsDescriptor parentCalculated;
 
       if (parentReferenceDescriptor instanceof BaseReferenceConstraintsDescriptor) {
         parentCalculated = parameters.getParentCalculatedDescriptor((BaseReferenceConstraintsDescriptor) parentReferenceDescriptor);
       } else if (parentReferenceDescriptor instanceof ReferenceConstraintsDispatchable) {
+        // this seems to be dead code these days - all RCD we generate are BaseReferenceConstraintsDescriptor!
         if (parameters.hasOwn((ReferenceConstraintsDispatchable) parentReferenceDescriptor)) {
           parentCalculated = parentReferenceDescriptor;
         } else {
-          parentCalculated = getSomethingUsingInheritance(parent, referenceLinkId, parameters);
+          parentCalculated = null; // just go on with iteration
         }
       } else {
         parentCalculated = parentReferenceDescriptor;
@@ -115,12 +152,12 @@ public class BaseReferenceConstraintsDescriptor implements ReferenceConstraintsD
 
   @Override
   public boolean hasOwnScopeProvider() {
-    return false;
+    return myOwnScope;
   }
 
   @Override
   public boolean hasOwnOnReferenceSetHandler() {
-    return false;
+    return myOwnRefHandler;
   }
 
   private interface InheritanceCalculateParameters {

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
-import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
@@ -31,42 +30,69 @@ import org.jetbrains.mps.openapi.language.SDataType;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.util.DepthFirstConceptIterator;
 
 public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDispatchable {
   private final SProperty myProperty;
   private final ConstraintsDescriptor container;
 
+  // FIXME make final once deprecated cons is removed
+  private boolean myOwnGet = false, myOwnSet = false, myOwnValidate = false;
+
   private final PropertyConstraintsDescriptor getterDescriptor;
   private final PropertyConstraintsDescriptor setterDescriptor;
   private final PropertyConstraintsDescriptor validatorDescriptor;
 
+  /**
+   * @deprecated in use by generator code till 2021.1. Keep for at least a year to facilitate transition of compiled code.
+   */
+  @Deprecated(forRemoval = true, since = "2021.2")
+  @ToRemove(version = 2021.2)
   public BasePropertyConstraintsDescriptor(SProperty property, ConstraintsDescriptor container) {
     this.myProperty = property;
     this.container = container;
 
+    // just re-assign defaults unless methods are overridden
+    myOwnGet = hasOwnGetter();
+    myOwnSet = hasOwnSetter();
+    myOwnValidate = hasOwnValidator();
+
     if (!isBootstrapProperty(container.getConcept(), property)) {
-      if (hasOwnGetter()) {
-        getterDescriptor = this;
-      } else {
-        getterDescriptor = getSomethingUsingInheritance(getContainer().getConcept(), property, GETTER_INHERITANCE_PARAMETERS);
-      }
-
-      if (hasOwnSetter()) {
-        setterDescriptor = this;
-      } else {
-        setterDescriptor = getSomethingUsingInheritance(getContainer().getConcept(), property, SETTER_INHERITANCE_PARAMETERS);
-      }
-
+      getterDescriptor = deduceGet();
+      setterDescriptor = deduceSet();
     } else {
       getterDescriptor = null;
       setterDescriptor = null;
     }
 
-    if (hasOwnValidator()) {
-      validatorDescriptor = this;
-    } else {
-      validatorDescriptor = getSomethingUsingInheritance(getContainer().getConcept(), property, VALIDATOR_INHERITANCE_PARAMETERS);
-    }
+    validatorDescriptor = deduceValidate();
+  }
+
+  /**
+   * @since 2021.2
+   */
+  public BasePropertyConstraintsDescriptor(SProperty property, ConstraintsDescriptor container, boolean ownGet, boolean ownSet, boolean ownValidate) {
+    myProperty = property;
+    this.container = container;
+    myOwnGet = ownGet;
+    myOwnSet = ownSet;
+    myOwnValidate = ownValidate;
+
+    getterDescriptor = deduceGet();
+    setterDescriptor = deduceSet();
+    validatorDescriptor = deduceValidate();
+  }
+
+  private PropertyConstraintsDescriptor deduceGet() {
+    return hasOwnGetter() ? this : getSomethingUsingInheritance(GETTER_INHERITANCE_PARAMETERS);
+  }
+
+  private PropertyConstraintsDescriptor deduceSet() {
+    return hasOwnSetter() ? this : getSomethingUsingInheritance(SETTER_INHERITANCE_PARAMETERS);
+  }
+
+  private PropertyConstraintsDescriptor deduceValidate() {
+    return hasOwnValidator() ? this : getSomethingUsingInheritance(VALIDATOR_INHERITANCE_PARAMETERS);
   }
 
   @ToRemove(version = 3.5)
@@ -78,26 +104,30 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Nullable
-  private static PropertyConstraintsDescriptor getSomethingUsingInheritance(SAbstractConcept concept, SProperty property,
-      InheritanceCalculateParameters parameters) {
-    // fixme rewrite without recursion
-    for (SAbstractConcept parent : SModelUtil.getDirectSuperConcepts(concept)) {
-      if (!((SAbstractConceptAdapter) parent).hasProperty(property)) {
+  private PropertyConstraintsDescriptor getSomethingUsingInheritance(InheritanceCalculateParameters parameters) {
+    // XXX see ~identical method in BaseReferenceConstraintsDescriptor for extensive comments
+    DepthFirstConceptIterator it = new DepthFirstConceptIterator(container.getConcept());
+    SAbstractConcept parent = it.next();
+    assert container.getConcept().equals(parent);
+    while (it.hasNext()) {
+      parent = it.next();
+      if (!((SAbstractConceptAdapter) parent).hasProperty(myProperty)) {
         continue;
       }
 
       ConstraintsDescriptor parentDescriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(parent);
-      PropertyConstraintsDescriptor parentPropertyDescriptor = parentDescriptor.getProperty(property);
+      PropertyConstraintsDescriptor parentPropertyDescriptor = parentDescriptor.getProperty(myProperty);
 
       PropertyConstraintsDescriptor parentCalculated;
 
       if (parentPropertyDescriptor instanceof BasePropertyConstraintsDescriptor) {
         parentCalculated = parameters.getParentCalculatedDescriptor((BasePropertyConstraintsDescriptor) parentPropertyDescriptor);
       } else if (parentPropertyDescriptor instanceof PropertyConstraintsDispatchable) {
+        // dead code? all PCD are BasePropertyConstraintsDescriptor!
         if (parameters.hasOwn((PropertyConstraintsDispatchable) parentPropertyDescriptor)) {
           parentCalculated = parentPropertyDescriptor;
         } else {
-          parentCalculated = getSomethingUsingInheritance(parent, property, parameters);
+          parentCalculated = null; // go on with iteration
         }
       } else {
         parentCalculated = parentPropertyDescriptor;
@@ -125,17 +155,17 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
   @Override
   public boolean hasOwnGetter() {
-    return false;
+    return myOwnGet;
   }
 
   @Override
   public boolean hasOwnSetter() {
-    return false;
+    return myOwnSet;
   }
 
   @Override
   public boolean hasOwnValidator() {
-    return false;
+    return myOwnValidate;
   }
 
   @Override
@@ -147,7 +177,6 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   public ConstraintsDescriptor getContainer() {
     return container;
   }
-
 
   @Override
   public Object getValue(SNode node) {
