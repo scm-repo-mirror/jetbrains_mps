@@ -76,9 +76,6 @@ public class QuickFixRuntimeAdapter implements EditorQuickFix, NodeFlavouredItem
     return myNode;
   }
 
-  public static final SimpleReportItemFlavour<QuickFixRuntimeAdapter, QuickFix_Runtime> FLAVOUR_QUICKFIX_RUNTIME =
-      new SimpleReportItemFlavour<>("FLAVOUR_QUICKFIX_RUNTIME", QuickFixRuntimeAdapter.class, QuickFixRuntimeAdapter::getFixRuntime);
-
   public static final SimpleReportItemFlavour<QuickFixRuntimeAdapter, QuickFixProvider> FLAVOUR_QUICKFIX_PROVIDER =
       new SimpleReportItemFlavour<>("FLAVOUR_QUICKFIX_PROVIDER", QuickFixRuntimeAdapter.class, QuickFixRuntimeAdapter::getFixProvider);
 
