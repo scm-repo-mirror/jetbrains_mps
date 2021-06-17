@@ -21,7 +21,7 @@
       <unit at="26,0,98,0" name="jetbrains.mps.samples.languagePatterns.Basic.editor.AddressReference_SubstituteMenu" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="18,0,164,0" name="jetbrains.mps.samples.languagePatterns.Basic.editor.EditorAspectDescriptorImpl" />
+      <unit at="18,0,167,0" name="jetbrains.mps.samples.languagePatterns.Basic.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="ItemReference_SubstituteMenu.java">
       <unit at="90,0,93,0" name="jetbrains.mps.samples.languagePatterns.Basic.editor.ItemReference_SubstituteMenu$CONCEPTS" />

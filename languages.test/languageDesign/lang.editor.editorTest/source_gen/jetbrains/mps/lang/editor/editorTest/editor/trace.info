@@ -24,7 +24,7 @@
       <unit at="26,0,98,0" name="jetbrains.mps.lang.editor.editorTest.editor.DelTestChildWithSmartReference_SubstituteMenu" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <unit at="23,0,366,0" name="jetbrains.mps.lang.editor.editorTest.editor.EditorAspectDescriptorImpl" />
+      <unit at="23,0,367,0" name="jetbrains.mps.lang.editor.editorTest.editor.EditorAspectDescriptorImpl" />
     </file>
     <file name="NotEditableVarableReference_SubstituteMenu.java">
       <unit at="124,0,127,0" name="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_SubstituteMenu$CONCEPTS" />
@@ -2506,8 +2506,8 @@
   </root>
   <root nodeRef="r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)/1384684774806551882">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="1384684774806551882" at="295,116,296,121" concept="8" />
-      <scope id="1384684774806551882" at="295,116,296,121" />
+      <node id="1384684774806551882" at="296,116,297,121" concept="8" />
+      <scope id="1384684774806551882" at="296,116,297,121" />
     </file>
     <file name="MenuTraceTransformationChild_NamedTransformationMenu.java">
       <node id="1384684774806551882" at="35,0,36,0" concept="3" trace="myLocations" />
@@ -20678,8 +20678,8 @@
       <unit id="7636548531550361182" at="37,0,131,0" name="jetbrains.mps.lang.editor.editorTest.editor.AutoResolveChildWithErrorCell_Action" />
     </file>
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="7636548531550361182" at="286,100,287,105" concept="8" />
-      <scope id="7636548531550361182" at="286,100,287,105" />
+      <node id="7636548531550361182" at="287,100,288,105" concept="8" />
+      <scope id="7636548531550361182" at="287,100,288,105" />
     </file>
   </root>
   <root nodeRef="r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)/7636548531550364625">
@@ -24319,8 +24319,8 @@
   </root>
   <root nodeRef="r:12055fd0-2d7f-4ac3-93ec-28bb09579a63(jetbrains.mps.lang.editor.editorTest.editor)/913276302143982464">
     <file name="EditorAspectDescriptorImpl.java">
-      <node id="913276302143982464" at="347,108,348,109" concept="8" />
-      <scope id="913276302143982464" at="347,108,348,109" />
+      <node id="913276302143982464" at="348,108,349,109" concept="8" />
+      <scope id="913276302143982464" at="348,108,349,109" />
     </file>
     <file name="MenuTraceSubstituteChild_NamedSubstituteMenu.java">
       <node id="913276302143982464" at="28,118,29,140" concept="7" />
