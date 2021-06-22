@@ -4034,20 +4034,20 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.menus.transformation.TransformationMenuBase" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_Editor">
+  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_Editor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_EditorBuilder_a" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_InspectorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_EditorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_InspectorBuilder_a" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.DefaultNodeEditor" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_EditorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_EditorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
@@ -4115,7 +4115,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_InspectorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_InspectorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Objects" />
@@ -6969,7 +6969,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_ApplySideTransforms" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_TransformationMenu" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_VisibleExpressionBoundaries_Editor" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassConcept_include_deprecated_elements_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassCreator_ApplySideTransforms" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassCreator_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.ClassCreator_SmartReference" />
@@ -7027,7 +7027,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Empty_Visibility_TransformtaionMenu" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_ApplySideTransforms" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_Editor" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_Editor" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumConstantDeclaration_ApplySideTransforms" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumConstantDeclaration_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumConstantDeclaration_SubstituteMenu" />
@@ -7102,7 +7102,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_ApplySideTransforms" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_TransformationMenu" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_Editor" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.JavaImport_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.JavaImports_Editor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.JavaModifier_SubstituteMenu" />
@@ -7704,20 +7704,20 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_Editor">
+  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_Editor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_EditorBuilder_a" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_InspectorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_EditorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_InspectorBuilder_a" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.DefaultNodeEditor" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_EditorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_EditorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
@@ -7781,7 +7781,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_VisibleExpressionBoundaries_InspectorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.EnumClass_include_deprecated_elements_InspectorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Objects" />
@@ -11071,20 +11071,20 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.menus.transformation.TransformationMenuBase" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_Editor">
+  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_Editor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_EditorBuilder_a" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_InspectorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_EditorBuilder_a" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_InspectorBuilder_a" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.DefaultNodeEditor" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_EditorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_EditorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
@@ -11145,7 +11145,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_VisibleExpressionBoundaries_InspectorBuilder_a">
+  <dependency className="jetbrains.mps.baseLanguage.editor.Interface_include_deprecated_elements_InspectorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Objects" />

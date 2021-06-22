@@ -772,6 +772,11 @@
       <property role="TrG5h" value="comment" />
       <property role="2BUmq6" value="comment" />
     </node>
+    <node concept="2BsEeg" id="VnA7RS5fnE" role="2ABdcP">
+      <property role="2gpH_U" value="true" />
+      <property role="TrG5h" value="include_deprecated_elements" />
+      <property role="2BUmq6" value="Include deprecated elements" />
+    </node>
     <node concept="2BsEeg" id="3YRgRgnTV5p" role="2ABdcP">
       <property role="2BUmq6" value="reflectiveEditor" />
       <property role="TrG5h" value="reflectiveEditor" />

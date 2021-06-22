@@ -10,17 +10,17 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class ClassConcept_VisibleExpressionBoundaries_Editor extends DefaultNodeEditor {
-  private Collection<String> myContextHints = Arrays.asList(new String[]{"jetbrains.mps.baseLanguage.editor.BLHints.VisibleExpressionBoundaries"});
+public class ClassConcept_include_deprecated_elements_Editor extends DefaultNodeEditor {
+  private Collection<String> myContextHints = Arrays.asList(new String[]{"jetbrains.mps.lang.core.editor.BaseEditorContextHints.include_deprecated_elements"});
   @Override
   @NotNull
   public Collection<String> getContextHints() {
     return myContextHints;
   }
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new ClassConcept_VisibleExpressionBoundaries_EditorBuilder_a(editorContext, node).createCell();
+    return new ClassConcept_include_deprecated_elements_EditorBuilder_a(editorContext, node).createCell();
   }
   public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
-    return new ClassConcept_VisibleExpressionBoundaries_InspectorBuilder_a(editorContext, node).createCell();
+    return new ClassConcept_include_deprecated_elements_InspectorBuilder_a(editorContext, node).createCell();
   }
 }
