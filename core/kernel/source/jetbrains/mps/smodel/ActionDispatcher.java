@@ -51,19 +51,22 @@ import java.util.function.Predicate;
   private final List<T> myListeners = new CopyOnWriteArrayList<>();
   private final Consumer<T> myOnActionStart;
   private final Consumer<T> myOnActionFinish;
-  private final DispatchController myDispatchController;
+  private final T myPrePostListener;
   private final AtomicInteger myActionLevel = new AtomicInteger(0);
 
   // all arguments are non-null
   public ActionDispatcher(Consumer<T> onActionStart, Consumer<T> onActionFinish) {
-    myDispatchController = new DispatchController() {};
+    myPrePostListener = null;
     myOnActionStart = onActionStart;
     myOnActionFinish = onActionFinish;
   }
 
+  // @param prePostListener optional T to get pre and post notification around action dispatch for the listeners.
+  //        receives same onActionStart/onActionFinish events as other listeners, the difference is that
+  //        prePostListener is guaranteed to be invoked as first and last.
   // all arguments are non-null
-  public ActionDispatcher(DispatchController controller, Consumer<T> onActionStart, Consumer<T> onActionFinish) {
-    myDispatchController = controller;
+  public ActionDispatcher(T prePostListener, Consumer<T> onActionStart, Consumer<T> onActionFinish) {
+    myPrePostListener = prePostListener;
     myOnActionStart = onActionStart;
     myOnActionFinish = onActionFinish;
   }
@@ -136,7 +139,9 @@ import java.util.function.Predicate;
 
   private void onActionStarted() {
     try {
-      myDispatchController.onActionStart();
+      if (myPrePostListener != null) {
+        myOnActionStart.accept(myPrePostListener);
+      }
       myListeners.forEach(myOnActionStart);
     } catch (RuntimeException ex) {
       logUnexpectedRuntimeException(ex);
@@ -147,7 +152,9 @@ import java.util.function.Predicate;
   private void onActionFinished() {
     try {
       myListeners.forEach(myOnActionFinish);
-      myDispatchController.onActionFinish();
+      if (myPrePostListener != null) {
+        myOnActionFinish.accept(myPrePostListener);
+      }
     } catch (RuntimeException ex) {
       logUnexpectedRuntimeException(ex);
       throw ex;
@@ -193,19 +200,5 @@ import java.util.function.Predicate;
     ListenersConsistenceException(String msg) {
       super(msg);
     }
-  }
-
-  /**
-   * Mechanism to get pre and post notification around action dispatch for listeners T
-   * Note, the need for this class stems from the mixing 2 kind of functionality in the same class,
-   * one is action level tracking and another is collection of listeners and notification mechanism.
-   * However, I don't feel the urge to refactor it now (don't have a name for listener container class ;) as
-   * for now I need both aspects of this functionality at the same time, and no scenario for distinct use.
-   * Besides, likely would need DispatchController anyway (which would do
-   * {@code writeListenerContainer.notify(WrriteActionLisener::actionStarted)} itself.
-   */
-  public interface DispatchController {
-    default void onActionStart() {}
-    default void onActionFinish() {}
   }
 }
