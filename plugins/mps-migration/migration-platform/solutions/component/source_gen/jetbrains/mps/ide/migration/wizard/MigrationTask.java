@@ -43,9 +43,6 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.project.AbstractModule;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.EditableSModel;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.concurrent.atomic.AtomicReference;
 import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
 import jetbrains.mps.util.NameUtil;
@@ -357,7 +354,7 @@ public class MigrationTask {
         allModules.value = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(project)).toListSequence();
       }
     });
-    String caption = "Resaving project...";
+    String caption = "Re-saving project modules, models...";
     m.start(caption, ListSequence.fromList(allModules.value).count() + 10);
     runLocalHistoryRecord(caption, new Runnable() {
       public void run() {
@@ -371,19 +368,7 @@ public class MigrationTask {
               public void run() {
                 project.getRepository().getModelAccess().executeCommand(new Runnable() {
                   public void run() {
-                    ((AbstractModule) module).save();
-                    Iterable<SModel> models = module.getModels();
-                    for (EditableSModel model : Sequence.fromIterable(models).ofType(EditableSModel.class).where(new IWhereFilter<EditableSModel>() {
-                      public boolean accept(EditableSModel it) {
-                        return !(it.isReadOnly());
-                      }
-                    })) {
-                      // ensure model is loaded
-                      model.load();
-                      // and force to save model
-                      model.setChanged(true);
-                      model.save();
-                    }
+                    ((AbstractModule) module).saveRecursively();
                   }
                 });
               }

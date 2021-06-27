@@ -72,7 +72,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
       public CompletionStage<ConflictResolved> resolveConflict(@NotNull EditableSModel model) {
         LOG.warning("Conflict happens, we always choose memory data by default", new Throwable());
         model.save(new SaveOptions.SaveOptionsBuilder()
-                       .force()
+                       .forceSave()
                        .build());
         return CompletableFuture.completedFuture(ConflictResolved.MEMORY_CHOSEN);
       }
@@ -243,27 +243,26 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
   public CompletionStage<SaveResult> save(@NotNull SaveOptions options) {
     assertCanChange();
     if (!isLoaded()) {
-      if (options.force() || options.preloadModelIfNeeded()) {
+      if (options.preloadModel() || options.forceSave()) {
         load();
       } else {
         return CompletableFuture.completedFuture(SaveResult.NOT_LOADED);
       }
     }
     assert isLoaded();
-    if (options.force()) {
+    if (options.forceSave()) {
       setChanged(true);
     }
     if (!isChanged()) {
       return CompletableFuture.completedFuture(SaveResult.NOT_CHANGED);
     }
-    assert isChanged();
 
     LOG.debug(" Saving the model " + getName().getLongName());
 
     if (options.refreshDataSource()) {
       getSource().refresh();
     }
-    if (!options.force()) {
+    if (options.resolveConflicts()) {
       CompletionStage<SaveResult> conflictFuture = resolveConflictsOnSave();
       if (conflictFuture != null) {
         return conflictFuture;

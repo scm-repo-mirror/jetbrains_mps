@@ -4,8 +4,6 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import javax.swing.Icon;
 import jetbrains.mps.workbench.action.ActionAccess;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -27,17 +25,10 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.intellij.openapi.application.ApplicationManager;
-import jetbrains.mps.smodel.Generator;
-import org.jetbrains.mps.openapi.model.EditableSModel;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.smodel.SModelStereotype;
-import org.apache.log4j.Level;
 import com.intellij.openapi.application.ModalityState;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2533953941693774358", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class ForcedSaveAll_Action extends BaseAction {
-  private static final Logger LOG = LogManager.getLogger(ForcedSaveAll_Action.class);
   private static final Icon ICON = null;
 
   public ForcedSaveAll_Action() {
@@ -109,37 +100,7 @@ public class ForcedSaveAll_Action extends BaseAction {
                   if (module == null) {
                     return;
                   }
-
-                  // save module
-                  module.updateExternalReferences();
-                  if (!(moduleRef instanceof Generator)) {
-                    // generators are saved as part of owning Language's save, no need to do it twice
-                    module.save();
-                  }
-
-                  // save its models
-                  for (EditableSModel model : Sequence.fromIterable(((Iterable<SModel>) module.getModels())).ofType(EditableSModel.class).where(new IWhereFilter<EditableSModel>() {
-                    public boolean accept(EditableSModel it) {
-                      return !(SModelStereotype.isStubModel(it));
-                    }
-                  })) {
-                    if (model.isReadOnly()) {
-                      continue;
-                    }
-                    try {
-                      // ensure model is loaded
-                      model.load();
-                      //  and force to save model
-                      model.setChanged(true);
-                      if (model.isChanged()) {
-                        model.save();
-                      }
-                    } catch (Exception ex) {
-                      if (LOG.isEnabledFor(Level.ERROR)) {
-                        LOG.error("Error re-saving model " + model.getName(), ex);
-                      }
-                    }
-                  }
+                  module.saveRecursively();
                 }
               });
             }

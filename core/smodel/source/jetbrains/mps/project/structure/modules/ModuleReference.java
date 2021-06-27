@@ -90,7 +90,7 @@ public final class ModuleReference implements SModuleReference {
 
   /**
    * Common functionality to tell if two references are identical, identical here being both id and name.
-   * Unlike #equals(), where id takes precedence.
+   * Unlike #equals(), where only ids are tested for equality.
    * Not specific to ModuleReference implementation, lives here as there's no better/discoverable place yet.
    * Originates from RefUpdateUtil.
    * @return <code>true</code> if either reference is null, or either references' name or id does not match

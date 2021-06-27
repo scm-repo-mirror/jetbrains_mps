@@ -41,6 +41,8 @@ import org.jetbrains.mps.annotations.Mutable;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SaveOptions;
+import org.jetbrains.mps.openapi.model.SaveOptions.SaveOptionsBuilder;
 import org.jetbrains.mps.openapi.module.FacetsFacade;
 import org.jetbrains.mps.openapi.module.SDependency;
 import org.jetbrains.mps.openapi.module.SDependencyScope;
@@ -75,7 +77,7 @@ import static org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
  * Secondly, this class provides a common implementation of the module editing. Not only the implementation of
  * simple interface {@link EditableSModule} is here but also a special editing mechanism is suggested below.
  * Nonetheless there are several flaws.
- *
+ * <p>
  * 1. We need to separate FileBasedModule from the AbstractModule in order to make the AbstractModule truly abstract.
  * 2. We need to enforce a special committing mechanism (for the module editing) which is only sketched in this class.
  * The {@link #getModuleDescriptor()} method in fact is just a public property which discloses all the internals of the module.
@@ -87,7 +89,7 @@ import static org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
  * [or something like this]
  * 3. Also this subclass serves another purpose: it introduces model roots and module facets into module.
  * I guess this logic might migrate to <code>SModuleBase</code>.
- *
+ * <p>
  * AP
  *
  * @see ModuleDescriptor for the details
@@ -103,14 +105,15 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   /**
    * All paths concerning a module must be either absolute or relative to this 'anchor' file.
    * This is a rational idea since keeping the same information twice does not make sense.
-   *
+   * <p>
    * please do not mutate the field
    */
   @Nullable
   @Immutable
   private final IFile myDescriptorFile;
 
-  @NotNull private final FileSystem myFileSystem;
+  @NotNull
+  private final FileSystem myFileSystem;
   private SModuleReference myModuleReference;
   private final Set<ModelRoot> mySModelRoots = new LinkedHashSet<>();
   private final Set<SModuleFacet> myFacets = new LinkedHashSet<>();
@@ -266,7 +269,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
 
   /**
    * PROVISIONAL INTERNAL API, DON'T USE OUTSIDE OF MPS, TO BE CHANGED WITHOUT NOTICE
-   *
+   * <p>
    * sometimes we do not need to mark the reloaded module as changed (e.g. in the cases when we reload from the disk)
    */
   public final void setModuleDescriptor(@NotNull ModuleDescriptor moduleDescriptor, boolean setAsChanged) {
@@ -298,6 +301,27 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
     }
   }
 
+  /**
+   * invokes module#save, force saves its models, updates imports for module and containing models
+   */
+  public final void saveRecursively() {
+    assertCanChange();
+    // save module
+    updateExternalReferences();
+    this.save();
+
+    // save its models
+    for (SModel model : getModels()) {
+      if (model instanceof EditableSModel) {
+        var eModel = (EditableSModel) model;
+        if (eModel.isReadOnly()) {
+          continue;
+        }
+        eModel.save(SaveOptions.FORCE_SAVE);
+      }
+    }
+  }
+
   @Override
   public void save() {
     assertCanChange();
@@ -305,9 +329,9 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
     // ensure ModelRoot has a chance to serialize their changes, if any
     // For now, we don't account for added/removed model roots as there's no API other than ModuleDescriptor, hence we only try to change matching MR-MRD pairs
     if (moduleDescriptor != null) {
-      LinkedList<ModelRootDescriptor> descriptors = new LinkedList<>(moduleDescriptor.getModelRootDescriptors());
+      var descriptors = new LinkedList<>(moduleDescriptor.getModelRootDescriptors());
       // I can't change MRD.memento, therefore need to replace MRD instance with new memento, next collection is to ensure root ordering persists.
-      ArrayList<ModelRootDescriptor> newDescriptors = new ArrayList<>(moduleDescriptor.getModelRootDescriptors().size());
+      var newDescriptors = new ArrayList<ModelRootDescriptor>(moduleDescriptor.getModelRootDescriptors().size());
       for (ModelRoot mr : mySModelRoots) {
         ModelRootDescriptor mrd = null;
         // here we assume order of descriptors correspond to the order of loaded MR, and new descriptors, if any, are at the end of
@@ -545,6 +569,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
    * Note, the name of descriptor file for deployed module is not necessarily the same as for the same module in sources
    * (e.g. META-INF/module.xml vs mylang/my.lang.mpl)
    * </p>
+   *
    * @return a file (might be shared with other module) we took module's description from, or {@code null} if no such information is available.
    */
   @Nullable
@@ -644,8 +669,8 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       if (model instanceof EditableSModel && ((EditableSModel) model).isChanged()) {
         LOG.warn(
             "Trying to reload module " + getModuleName() + " which contains a non-saved model '" +
-                model.getName() + "'. To prevent data loss, MPS will not update models in this module. " +
-                "Please save your work and restart MPS. See MPS-18743 for details."
+            model.getName() + "'. To prevent data loss, MPS will not update models in this module. " +
+            "Please save your work and restart MPS. See MPS-18743 for details."
         );
         return;
       }
@@ -688,7 +713,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   // hence it's superficial  to pass repository in here (although might add one for consistency)
   // TODO discuss: isn't it plain better to personally track all the dependency renames for each module (and model)?
   //      or it could be #save where we re-resolve all the references in the descriptor
-  //  the current method exposes the persistence stuff of this module, which must be of noone's concern
+  //  the current method exposes the persistence stuff of this module, which must be of no one's concern
   public void updateExternalReferences() {
     ModuleDescriptor moduleDescriptor = getModuleDescriptor();
     final SRepository repository = getRepository();
@@ -734,7 +759,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   /**
    * @deprecated this is internal method, ask ModuleDescriptor for persisted setting directly, if it's what you're
    * looking for (check {@link ProjectPathUtil#getGeneratorOutputPath(ModuleDescriptor)}. There ain't no such thing as output path for a module in general.
-   *
+   * <p>
    * This method is no longer used in MPS, do not resurrect its uses. Although it's not part of openapi, AbstractModule is often deemed as 'almost api',
    * left for one release.
    */
@@ -769,8 +794,8 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       if (check) {
         LOG.warn(String.format(
             "#getUsedLanguageVersion can't find a version for language %s in module %s, so it is falling back to the current version of the language. " +
-                "Probably the language is not imported into this module or #validateLanguageVersions() was not called on this module in appropriate moment." +
-                "NB: there might be migrations which must be applied, however they are not going to.",
+            "Probably the language is not imported into this module or #validateLanguageVersions() was not called on this module in appropriate moment." +
+            "NB: there might be migrations which must be applied, however they are not going to.",
             usedLanguage.getQualifiedName(), getModuleName()), new Throwable());
       }
       return usedLanguage.getLanguageVersion();
@@ -797,9 +822,9 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       if (check) {
         LOG.error(
             "#getDependencyVersion can't find a version for module " + dependency.getModuleName() +
-                " in module " + getModuleName() + "." +
-                " This can either mean that the module is not visible from this module or that " +
-                "#validateDependencyVersions() was not called on this module in appropriate moment.",
+            " in module " + getModuleName() + "." +
+            " This can either mean that the module is not visible from this module or that " +
+            "#validateDependencyVersions() was not called on this module in appropriate moment.",
             new Throwable());
       }
       return ((AbstractModule) dependency).getModuleVersion();

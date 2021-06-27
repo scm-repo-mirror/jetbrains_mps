@@ -149,7 +149,7 @@ public final class ConflictResolverImpl {
   private ConflictResolved saveModel(final EditableSModel model) {
     ModelAccess modelAccess = myProject.getRepository().getModelAccess();
     return modelAccess.computeWriteAction(() -> {
-      var result = model.save(SaveOptions.FORCE);
+      var result = model.save(SaveOptions.FORCE_SAVE_MEMORY);
       result.handle((res, throwable) -> {
         if (res != SaveResult.SAVED_TO_DATA_SOURCE) {
           LOG.error("The result is not expected", new IllegalStateException("While saving the conflicting model " + model + " to " + model.getSource()));
