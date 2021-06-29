@@ -348,7 +348,10 @@ public class MPSModuleRepository extends SRepositoryBase implements CoreComponen
     @Override
     public Scope getScope(@NotNull SReference reference) {
       if (myCache == null) {
-        assertReadStarted();
+        // perfectly legal scenario, e.g. inside model write, where we don't cache values.
+        // XXX perhaps, shall come up with a better approach (now can not tell whether it's
+        //     write or just a defect in read notification dispatch as it used to be with old
+        //     ActionDispatcher implementation)
         return super.getScope(reference);
       }
       final Map<SReference, Scope> thisThreadCache = myCache.get();
@@ -362,15 +365,10 @@ public class MPSModuleRepository extends SRepositoryBase implements CoreComponen
     @Override
     public EvaluateScopeContext getContext() {
       if (myContextCache == null) {
-        assertReadStarted();
+        // see @getScope(), above
         return super.getContext();
       }
       return myContextCache.get();
-    }
-
-    private void assertReadStarted() {
-      // see ActionDispatcher history for explanation why ReadActionListener used to be invoked incorrectly.
-      assert false : "ReadActionListener.readStarted didn't get invoked properly. Thread: " + Thread.currentThread().getName();
     }
 
     @Override
