@@ -67,7 +67,7 @@ public class NodeEditorActions {
   }
 
   public static class MoveLocal extends HorizontalNavigationAction {
-    private boolean myHome;
+    private final boolean myHome;
 
     public MoveLocal(boolean home) {
       myHome = home;
@@ -146,7 +146,7 @@ public class NodeEditorActions {
   }
 
   public static class MoveToRoot extends NavigationAction {
-    private boolean myHome;
+    private final boolean myHome;
 
     public MoveToRoot(boolean home) {
       myHome = home;
@@ -645,7 +645,7 @@ public class NodeEditorActions {
 
   public static class EnlargeSelection extends NavigationAction {
 
-    private boolean myUp;
+    private final boolean myUp;
 
     public EnlargeSelection(boolean up) {
       myUp = up;
@@ -710,36 +710,24 @@ public class NodeEditorActions {
 
   public static class Complete extends AbstractCellAction {
 
-    Complete(){
-      super(false);
+    private final boolean mySmart;
+
+    public Complete(boolean smart) {
+      super(smart);
+      mySmart = smart;
     }
 
     @Override
-    public boolean canExecute(EditorContext context) {
+    public final boolean canExecute(EditorContext context) {
       EditorCell selection = context.getSelectedCell();
       return selection != null && selection.getSubstituteInfo() != null;
     }
 
     @Override
-    public void execute(EditorContext context) {
+    public final void execute(EditorContext context) {
       EditorCell selection = context.getSelectedCell();
       ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).activateNodeSubstituteChooser(selection,
-          ((selection instanceof EditorCell_Label) && ((EditorCell_Label) selection).isEverythingSelected()), false);
-    }
-  }
-
-  public static class CompleteSmart extends AbstractCellAction {
-    @Override
-    public boolean canExecute(EditorContext context) {
-      EditorCell selection = context.getSelectedCell();
-      return selection != null && selection.getSubstituteInfo() != null;
-    }
-
-    @Override
-    public void execute(EditorContext context) {
-      EditorCell selection = context.getSelectedCell();
-      ((jetbrains.mps.nodeEditor.EditorComponent) context.getEditorComponent()).activateNodeSubstituteChooser(selection,
-          ((selection instanceof EditorCell_Label) && ((EditorCell_Label) selection).isEverythingSelected()), true);
+        ((selection instanceof EditorCell_Label) && ((EditorCell_Label) selection).isEverythingSelected()), mySmart);
     }
   }
 

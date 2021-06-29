@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.nodeEditor.cellMenu;
 
+import com.intellij.codeInsight.CodeInsightSettings;
 import com.intellij.ui.CollectionListModel;
 import com.intellij.ui.components.JBList;
 import jetbrains.mps.RuntimeFlags;
@@ -75,6 +76,7 @@ public class NodeSubstituteChooser implements KeyboardHandler {
   private List<SubstituteAction> mySubstituteActions = new ArrayList<>();
   private boolean myMenuEmpty;
   private boolean myUserChoseItem;
+  private boolean myAutoMode;
   private JList<SubstituteAction> myList;
   private ISubstituteChooserUi myUi;
 
@@ -144,6 +146,10 @@ public class NodeSubstituteChooser implements KeyboardHandler {
 
   public void setPatternEditor(NodeSubstitutePatternEditor patternEditor) {
     myPatternEditor = patternEditor;
+  }
+
+  public void setCompletionCustomizationManager(CompletionCustomizationManager completionCustomizationManager) {
+    myCompletionCustomizationManager = completionCustomizationManager;
   }
 
   public void setContextCell(@NotNull EditorCell contextCell) {
@@ -235,6 +241,41 @@ public class NodeSubstituteChooser implements KeyboardHandler {
     myList.removeListSelectionListener(listener);
   }
 
+  public void setAutoMode(boolean autoMode) {
+    myAutoMode = autoMode;
+  }
+
+  public void setVisible(List<SubstituteAction> matchingActions) {
+    if (myIsVisible) {
+      return;
+    }
+    myIsVisible = true;
+    boolean realUi = getEditorWindow() != null && getEditorWindow().isShowing() && !(RuntimeFlags.isTestMode());
+
+    if (myContextCell == null || myNodeSubstituteInfo == null) {
+      throw new IllegalStateException("Context cell and substitute info must not be null to show the NodeSubstituteChooser");
+    }
+    initList();
+    myEditorComponent.pushKeyboardHandler(this);
+    doRebuildMenuEntries(matchingActions);
+    activate(realUi);
+    setUserChoseItem(false);
+  }
+
+  private void activate(boolean realUi) {
+    Point location = calcPatternEditorLocation();
+    if (location == null) {
+      location = new Point(10, 10);
+    }
+    getPatternEditor().activate(getEditorWindow(), location, calcPatternEditorDimension(), realUi);
+    myUi = createNodeSubstituteChooserUi(realUi);
+    myUi.show();
+    setSelectionIndex(0);
+    if (realUi) {
+      getEditorWindow().addComponentListener(myComponentListener);
+    }
+  }
+
   /**
    * Makes the chooser visible or invisible.
    *
@@ -256,17 +297,7 @@ public class NodeSubstituteChooser implements KeyboardHandler {
       myCompletionCustomizationManager = new CompletionCustomizationManager(myContextCell);
       myEditorComponent.pushKeyboardHandler(this);
       rebuildMenuEntries();
-      Point location = calcPatternEditorLocation();
-      if (location == null) {
-        location = new Point(10, 10);
-      }
-      getPatternEditor().activate(getEditorWindow(), location, calcPatternEditorDimension(), realUi);
-      myUi = createNodeSubstituteChooserUi(realUi);
-      myUi.show();
-      setSelectionIndex(0);
-      if (realUi) {
-        getEditorWindow().addComponentListener(myComponentListener);
-      }
+      activate(realUi);
     } else {
       dispose();
       myNodeSubstituteInfo.invalidateActions();
@@ -315,6 +346,13 @@ public class NodeSubstituteChooser implements KeyboardHandler {
     } else {
       getModelAccess().runReadAction(this::doRebuildMenuEntries);
     }
+  }
+
+  private void doRebuildMenuEntries(List<SubstituteAction> matchingActions) {
+    mySubstituteActions = matchingActions;
+    CollectionListModel<SubstituteAction> model = getListModel();
+    model.removeAll();
+    model.add(mySubstituteActions);
   }
 
   private void doRebuildMenuEntries() {
@@ -388,7 +426,7 @@ public class NodeSubstituteChooser implements KeyboardHandler {
 
 
     mySubstituteActions = matchingActions;
-    if (mySubstituteActions.size() == 0) {
+    if (mySubstituteActions.size() == 0 && !myAutoMode) {
       myMenuEmpty = true;
       mySubstituteActions.add(new AbstractNodeSubstituteAction() {
         @Override
@@ -459,9 +497,17 @@ public class NodeSubstituteChooser implements KeyboardHandler {
 
   private void processEventAfterPatternEditor() {
     SubstituteAction actionToSelect = getCurrentSubstituteAction();
-    rebuildMenuEntries();
-    selectPreviouslySelectedAction(actionToSelect);
-    myUi.refreshUi(true);
+    if (myAutoMode && myPatternEditor.getText().isEmpty()) {
+      setVisible(false);
+    } else {
+      rebuildMenuEntries();
+      if (myAutoMode && mySubstituteActions.isEmpty()) {
+        setVisible(false);
+      } else {
+        selectPreviouslySelectedAction(actionToSelect);
+        myUi.refreshUi(true);
+      }
+    }
   }
 
   private void selectPreviouslySelectedAction(SubstituteAction actionToSelect) {
@@ -580,7 +626,6 @@ public class NodeSubstituteChooser implements KeyboardHandler {
   private void doSubstituteSelection() {
     final String pattern = getPatternEditor().getPattern();
     final SubstituteAction action = mySubstituteActions.get(getSelectionIndex());
-    getPatternEditor().commit();
     setVisible(false);
     myEditorComponent.getEditorContext().getRepository().getModelAccess().executeCommand(new EditorCommand(myEditorComponent) {
       @Override

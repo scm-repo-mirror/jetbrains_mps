@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.nodeEditor.cells;
 
+import com.intellij.codeInsight.CodeInsightSettings;
 import com.intellij.openapi.command.CommandProcessor;
 import jetbrains.mps.editor.runtime.TextBuilderImpl;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
@@ -30,6 +31,7 @@ import jetbrains.mps.nodeEditor.EditorSettings;
 import jetbrains.mps.nodeEditor.IntelligentInputUtil;
 import jetbrains.mps.nodeEditor.IntelligentInputUtil.IntelligentCellProcessor;
 import jetbrains.mps.nodeEditor.cellLayout.PunctuationUtil;
+import jetbrains.mps.nodeEditor.cellMenu.CompletionHelper;
 import jetbrains.mps.nodeEditor.cellMenu.NodeSubstitutePatternEditor;
 import jetbrains.mps.nodeEditor.keyboard.TextChangeEvent;
 import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
@@ -1211,6 +1213,7 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
       myTextLine.resetSelection();
       fireSelectionChanged();
       ensureCaretVisible();
+      activateCompletion();
     }
 
     @Nullable
@@ -1229,6 +1232,14 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     public boolean shallConfirmUndo() {
       return false;
     }
+  }
+
+  private void activateCompletion() {
+    if (myTextLine.getText().isBlank() || !CompletionHelper.isAutoPopup()) {
+      return;
+    }
+    jetbrains.mps.nodeEditor.EditorComponent editorComponent = (jetbrains.mps.nodeEditor.EditorComponent) getContext().getEditorComponent();
+    editorComponent.activateNodeSubstituteChooser(this);
   }
 
   /**

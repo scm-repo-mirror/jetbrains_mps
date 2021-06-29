@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor.cellMenu;
 
-import com.intellij.codeInsight.CodeInsightSettings;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.nodeEditor.EditorComponentSettingsImpl;
@@ -69,16 +68,10 @@ public class NodeSubstitutePatternEditor {
 
   public NodeSubstitutePatternEditor(EditorComponentSettings settings, @NotNull EditorCell_Label cell) {
     mySettings = settings;
-    // TODO: remove this after finishing MPS-30958
-    boolean autoPopup = CodeInsightSettings.getInstance().AUTO_POPUP_COMPLETION_LOOKUP;
-    if (autoPopup) {
-      myCell = cell;
-      TextLine textLine = myCell.getRenderedTextLine();
-      myCachedText = textLine.getText();
-      myCachedCaretPosition = textLine.getCaretPosition();
-    } else {
-      myCell = null;
-    }
+    myCell = cell;
+    TextLine textLine = myCell.getRenderedTextLine();
+    myCachedText = textLine.getText();
+    myCachedCaretPosition = textLine.getCaretPosition();
   }
 
   public void setText(String text) {
@@ -228,10 +221,6 @@ public class NodeSubstitutePatternEditor {
     return myTextLineOperations.getFont();
   }
 
-  public void commit() {
-    myTextLineOperations.commit();
-  }
-
   private interface TextLineOperations {
     void setText(String text);
     void setCaretPosition(int caretPosition);
@@ -247,25 +236,14 @@ public class NodeSubstitutePatternEditor {
     int getHeight();
     Point getLocation();
     Font getFont();
-    void commit();
   }
 
   private class TextLineDelegate implements TextLineOperations {
-    private final int myOriginalCaret;
-    private final String myOriginalText;
     private final EditorComponent editorComponent;
-    private boolean committed;
 
     TextLineDelegate(Point location) {
-      myOriginalText = myCell.getText();
-      myOriginalCaret = myCell.getCaretPosition();
       editorComponent = (EditorComponent) myCell.getEditorComponent();
       setLocation(location);
-    }
-
-    @Override
-    public void commit() {
-      committed = true;
     }
 
     @Override
@@ -306,10 +284,6 @@ public class NodeSubstitutePatternEditor {
 
     @Override
     public void dispose() {
-      if (!committed) {
-        myCell.setText(myOriginalText);
-        myCell.setCaretPosition(myOriginalCaret);
-      }
     }
 
     @Override
@@ -407,10 +381,6 @@ public class NodeSubstitutePatternEditor {
       myTextLine = new TextLine("", settings);
       mySettings = settings;
       add(new EditorPanel());
-    }
-
-    @Override
-    public void commit() {
     }
 
     @Override

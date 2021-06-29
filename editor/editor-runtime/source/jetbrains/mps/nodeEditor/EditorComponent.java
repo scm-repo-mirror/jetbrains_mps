@@ -38,10 +38,8 @@ import com.intellij.openapi.actionSystem.Separator;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.ex.EditorSettingsExternalizable;
 import com.intellij.openapi.editor.ex.util.EditorUtil;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
@@ -80,9 +78,8 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.nodeEditor.actions.ActionHandlerImpl;
 import jetbrains.mps.nodeEditor.assist.DefaultContextAssistantManager;
 import jetbrains.mps.nodeEditor.assist.DisabledContextAssistantManager;
+import jetbrains.mps.nodeEditor.cellMenu.CompletionHelper;
 import jetbrains.mps.nodeEditor.cellMenu.NodeSubstituteChooser;
-import jetbrains.mps.nodeEditor.cellMenu.NodeSubstituteChooserHandler;
-import jetbrains.mps.nodeEditor.cellMenu.NodeSubstitutePatternEditor;
 import jetbrains.mps.nodeEditor.cells.APICellAdapter;
 import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
 import jetbrains.mps.nodeEditor.cells.CellFinderUtil.Finder;
@@ -369,6 +366,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private ReferenceUnderliner myReferenceUnderliner = new ReferenceUnderliner();
   private BracesHighlighter myBracesHighlighter = new BracesHighlighter(this);
   private HighlightUsagesSupport myHighlightUsagesSupport;
+  private final CompletionHelper myCompletionHelper = new CompletionHelper(this);
   private boolean myPopupMenuEnabled;
   private boolean myIsInFiguresHierarchy = false;
 
@@ -2477,6 +2475,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return p != null ? p : ProjectHelper.getProject(myRepository);
   }
 
+  public void activateNodeSubstituteChooser(@NotNull jetbrains.mps.nodeEditor.cells.EditorCell cell) {
+    myCompletionHelper.show(cell);
+  }
+
   public boolean activateNodeSubstituteChooser(jetbrains.mps.openapi.editor.cells.EditorCell editorCell, boolean resetPattern) {
     return activateNodeSubstituteChooser(editorCell, resetPattern, false);
   }
@@ -2506,19 +2508,12 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     if (editorCell == null || substituteInfo == null) {
       return false;
     }
-    NodeSubstitutePatternEditor patternEditor = ((EditorCell) editorCell).createSubstitutePatternEditor();
-    if (resetPattern) {
-      patternEditor.toggleReplaceMode();
-    }
-    NodeSubstituteChooserHandler substituteChooserHandler = new NodeSubstituteChooserHandler(editorCell, this, substituteInfo, patternEditor, isSmart);
-    if (!substituteChooserHandler.tryToSubstituteImmediately()) {
-      substituteChooserHandler.showNodeSubstituteChooser(myNodeSubstituteChooser);
-    }
+    myCompletionHelper.showNow(editorCell, substituteInfo, resetPattern, isSmart);
     return true;
   }
 
   public final void deactivateSubstituteChooser() {
-    myNodeSubstituteChooser.setVisible(false);
+    myCompletionHelper.hide();
   }
 
   public NodeSubstituteChooser getNodeSubstituteChooser() {
