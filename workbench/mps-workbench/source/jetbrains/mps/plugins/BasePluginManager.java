@@ -72,7 +72,7 @@ public abstract class BasePluginManager<T> implements PluginLoader {
       return false;
     }
     int size = contributors.size();
-    LOG.debug("Loading plugins from " + size + " contributors [" + toString() + "]");
+    LOG.debug("Loading plugins from " + size + " contributors [" + this + "]");
     final Map<PluginContributor, T> plugins = createPlugins(contributors);
     synchronized (myPluginsLock) {
       plugins.forEach((contributor, plugin) -> {
