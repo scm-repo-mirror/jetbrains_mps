@@ -45,13 +45,11 @@ import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.migration.global.CleanupProjectMigration;
-import java.util.Collections;
-import jetbrains.mps.ide.migration.ProjectMigrationProgress;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import java.util.Collections;
 
 /*package*/ class TestMigrationSession extends MigrationSession.MigrationSessionBase {
-  private MyMigrationManager myManager = new MyMigrationManager();
   private final MigrationTestConfigDialog.Result mySettings;
   private final MPSProject myProject;
 
@@ -83,11 +81,11 @@ import org.jetbrains.mps.openapi.language.SLanguage;
       myProject.getRepository().getModelAccess().runReadAction(new _Adapters._return_P0_E0_to_Runnable_adapter(new _FunctionTypes._return_P0_E0<SReference>() {
         public SReference invoke() {
           {
-            SearchScope scope_51bgm5_a0a0a2a2a0a6 = CommandUtil.createScope(myProject);
-            final SearchScope scope_51bgm5_a0a0a2a2a0a6_0 = new EditableFilteringScope(scope_51bgm5_a0a0a2a2a0a6);
+            SearchScope scope_51bgm5_a0a0a2a2a0a5 = CommandUtil.createScope(myProject);
+            final SearchScope scope_51bgm5_a0a0a2a2a0a5_0 = new EditableFilteringScope(scope_51bgm5_a0a0a2a2a0a5);
             QueryExecutionContext context = new QueryExecutionContext() {
               public SearchScope getDefaultSearchScope() {
-                return scope_51bgm5_a0a0a2a2a0a6_0;
+                return scope_51bgm5_a0a0a2a2a0a5_0;
               }
             };
             return ref.value = Sequence.fromIterable(CommandUtil.nodes(CommandUtil.selectScope(null, context))).translate(new ITranslator2<SNode, SReference>() {
@@ -277,46 +275,6 @@ import org.jetbrains.mps.openapi.language.SLanguage;
         return (MigrationScript) new MyModuleMigration(lmig.language, lmig.version, lmig.error);
       }
     }).toListSequence();
-  }
-
-  private class MyMigrationManager implements MigrationRegistry {
-
-    public MyMigrationManager() {
-    }
-    public boolean isMigrationRequired() {
-      // XXX seems to be no-op for test scenario, no uses except in NoPendingMigrationTest
-      return mySettings.required;
-    }
-    public boolean importVersionsUpdateRequired(Iterable<SModule> modules) {
-      return false;
-    }
-    public void doUpdateImportVersions(SModule module) {
-    }
-    @Override
-    public Collection<ProjectMigration> getProjectMigrations() {
-      return getProjectMig();
-    }
-    @Override
-    public Collection<ScriptApplied> getModuleMigrations(Iterable<SModule> modules) {
-      if (Sequence.fromIterable(modules).isEmpty()) {
-        return Collections.<ScriptApplied>emptyList();
-      }
-      final Iterable<SModule> modulesWithGenerators = myProject.getProjectModulesWithGenerators();
-      if (Sequence.fromIterable(modules).any(new IWhereFilter<SModule>() {
-        public boolean accept(SModule it) {
-          return !(Sequence.fromIterable(modulesWithGenerators).contains(it));
-        }
-      })) {
-        return Collections.<ScriptApplied>emptyList();
-      }
-      return getModuleMigrationsApplied();
-    }
-    public ProjectMigration nextProjectStep(ProjectMigrationProgress migrationProgress, MigrationOptions options, boolean cleanup) {
-      throw new UnsupportedOperationException();
-    }
-    public ScriptApplied nextModuleStep(@Nullable BaseScriptReference ref) {
-      throw new UnsupportedOperationException();
-    }
   }
 
   private class MyModuleMigration extends MigrationScriptBase {
