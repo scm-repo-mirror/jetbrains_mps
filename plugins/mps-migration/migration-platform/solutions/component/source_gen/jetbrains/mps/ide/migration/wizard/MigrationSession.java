@@ -59,6 +59,7 @@ public interface MigrationSession {
     private MigrationError myErrors = null;
     protected final Set<MigrationStepKind> myRequiredSteps = SetSequence.fromSet(new HashSet<MigrationStepKind>());
     private final ProjectMigrationProgress myProjectMigrationProgress = new ProjectMigrationProgress();
+    private final MigrationOptions myOptions = new MigrationOptions();
 
     public MigrationSessionBase() {
     }
@@ -88,6 +89,11 @@ public interface MigrationSession {
     @Override
     public void setCurrentStage(Object stage) {
       myStage = stage;
+    }
+
+    @Override
+    public MigrationOptions getOptions() {
+      return myOptions;
     }
 
     @Override

@@ -165,6 +165,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -4942,6 +4945,20 @@
           </node>
         </node>
       </node>
+      <node concept="312cEg" id="4WgzjbQI5eH" role="jymVt">
+        <property role="TrG5h" value="myOptions" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3Tm6S6" id="4WgzjbQI3Yf" role="1B3o_S" />
+        <node concept="3uibUv" id="4WgzjbQI52H" role="1tU5fm">
+          <ref role="3uigEE" to="bdll:~MigrationOptions" resolve="MigrationOptions" />
+        </node>
+        <node concept="2ShNRf" id="4WgzjbQI65O" role="33vP2m">
+          <node concept="1pGfFk" id="4WgzjbQIB25" role="2ShVmc">
+            <property role="373rjd" value="true" />
+            <ref role="37wK5l" to="bdll:~MigrationOptions.&lt;init&gt;()" resolve="MigrationOptions" />
+          </node>
+        </node>
+      </node>
       <node concept="2tJIrI" id="1548xle3_nO" role="jymVt" />
       <node concept="3clFbW" id="1548xle39oB" role="jymVt">
         <node concept="3clFbS" id="1548xle39oC" role="3clF47" />
@@ -5117,6 +5134,24 @@
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
+      <node concept="2tJIrI" id="4WgzjbQIBfY" role="jymVt" />
+      <node concept="3clFb_" id="4WgzjbQIBYj" role="jymVt">
+        <property role="TrG5h" value="getOptions" />
+        <node concept="3uibUv" id="4WgzjbQIBYk" role="3clF45">
+          <ref role="3uigEE" to="bdll:~MigrationOptions" resolve="MigrationOptions" />
+        </node>
+        <node concept="3Tm1VV" id="4WgzjbQIBYl" role="1B3o_S" />
+        <node concept="3clFbS" id="4WgzjbQIBYn" role="3clF47">
+          <node concept="3clFbF" id="4WgzjbQIBYq" role="3cqZAp">
+            <node concept="37vLTw" id="4WgzjbQIDZm" role="3clFbG">
+              <ref role="3cqZAo" node="4WgzjbQI5eH" resolve="myOptions" />
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="4WgzjbQIBYo" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
       <node concept="2tJIrI" id="48vNO9iu1n$" role="jymVt" />
       <node concept="3clFb_" id="7vYYdQneVY0" role="jymVt">
         <property role="TrG5h" value="requires" />
@@ -5204,7 +5239,7 @@
                   <ref role="3cqZAo" node="1gYPC58WE8S" resolve="myProjectMigrationProgress" />
                 </node>
                 <node concept="1rXfSq" id="48vNO9itLQJ" role="37wK5m">
-                  <ref role="37wK5l" node="4hH4xQoKYd8" resolve="getOptions" />
+                  <ref role="37wK5l" node="4WgzjbQIBYj" resolve="getOptions" />
                 </node>
                 <node concept="3clFbT" id="48vNO9itMJe" role="37wK5m" />
               </node>
@@ -5234,7 +5269,7 @@
                   <ref role="3cqZAo" node="1gYPC58WE8S" resolve="myProjectMigrationProgress" />
                 </node>
                 <node concept="1rXfSq" id="48vNO9itPRP" role="37wK5m">
-                  <ref role="37wK5l" node="4hH4xQoKYd8" resolve="getOptions" />
+                  <ref role="37wK5l" node="4WgzjbQIBYj" resolve="getOptions" />
                 </node>
                 <node concept="3clFbT" id="48vNO9itQMM" role="37wK5m">
                   <property role="3clFbU" value="true" />

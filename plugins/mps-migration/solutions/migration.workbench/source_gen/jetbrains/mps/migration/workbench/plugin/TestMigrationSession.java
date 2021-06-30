@@ -52,12 +52,12 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 
 /*package*/ class TestMigrationSession extends MigrationSession.MigrationSessionBase {
   private MyMigrationManager myManager = new MyMigrationManager();
-  private MigrationTestConfigDialog.Result mySettings;
-  private MPSProject myProject;
+  private final MigrationTestConfigDialog.Result mySettings;
+  private final MPSProject myProject;
 
   private List<ProjectMigration> passedP = ListSequence.fromList(new ArrayList<ProjectMigration>());
   private List<ScriptApplied> passedM = ListSequence.fromList(new ArrayList<ScriptApplied>());
-  private MigrationChecker myChecker = new MigrationChecker() {
+  private final MigrationChecker myChecker = new MigrationChecker() {
     public void checkMigrations(ProgressMonitor m, Processor<ScriptApplied> processor) {
       if (mySettings.preError != 2) {
         return;
@@ -106,7 +106,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
       // todo
     }
   };
-  private MigrationExecutor myExecutor = new MigrationExecutor() {
+  private final MigrationExecutor myExecutor = new MigrationExecutor() {
     public void executeModuleMigration(ScriptApplied s) {
       s.getScriptReference().resolve(myProject, true).execute(s.getModule(myProject.getRepository()));
       ListSequence.fromList(passedM).addElement(s);
@@ -122,14 +122,18 @@ import org.jetbrains.mps.openapi.language.SLanguage;
     myProject = p;
     SetSequence.fromSet(myRequiredSteps).addElement(MigrationSession.MigrationStepKind.MIGRATE);
   }
+  @Override
   public Project getProject() {
     return myProject;
   }
+  @Override
   public MigrationRegistry getMigrationRegistry() {
     return this.myManager;
   }
+  @Override
   public MigrationOptions getOptions() {
-    MigrationOptions res = new MigrationOptions();
+    MigrationOptions res = super.getOptions();
+    // XXX is it ok to addOptions() each time getOptions is invoked?
     for (ProjectMigrationWithOptions pm : CollectionSequence.fromCollection(getProjectMigrations()).ofType(ProjectMigrationWithOptions.class)) {
       for (ProjectMigrationWithOptions.Option o : CollectionSequence.fromCollection(pm.getOptions())) {
         res.addOption(o);
@@ -137,6 +141,17 @@ import org.jetbrains.mps.openapi.language.SLanguage;
     }
     return res;
   }
+
+  @Override
+  public MigrationChecker getChecker() {
+    return this.myChecker;
+  }
+
+  @Override
+  public MigrationExecutor getExecutor() {
+    return myExecutor;
+  }
+
   private class MyMigrationManager implements MigrationRegistry {
     private List<ProjectMigration> myProjectMig;
     private List<MigrationScript> myModuleMig;
@@ -352,15 +367,5 @@ import org.jetbrains.mps.openapi.language.SLanguage;
     @Override
     public void forceExecutionNextTime(Project project) {
     }
-  }
-
-  @Override
-  public MigrationChecker getChecker() {
-    return this.myChecker;
-  }
-
-  @Override
-  public MigrationExecutor getExecutor() {
-    return myExecutor;
   }
 }

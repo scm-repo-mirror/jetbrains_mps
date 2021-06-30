@@ -94,10 +94,6 @@ public class MigrationsTest implements EnvironmentAware {
         return new MigrationExecutorImpl(myProject);
       }
 
-      @Override
-      public MigrationOptions getOptions() {
-        return new MigrationOptions();
-      }
     };
 
     new MigrationTask(session,new ProgressMonitorAdapter(new EmptyProgressIndicator())).run();

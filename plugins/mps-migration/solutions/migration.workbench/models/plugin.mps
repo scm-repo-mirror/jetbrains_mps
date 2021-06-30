@@ -6047,6 +6047,7 @@
     </node>
     <node concept="312cEg" id="5pUhUVGMv$z" role="jymVt">
       <property role="TrG5h" value="mySettings" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="5pUhUVGMv$$" role="1B3o_S" />
       <node concept="3uibUv" id="5pUhUVGMv$A" role="1tU5fm">
         <ref role="3uigEE" node="5pUhUVGDLad" resolve="MigrationTestConfigDialog.Result" />
@@ -6054,6 +6055,7 @@
     </node>
     <node concept="312cEg" id="5pUhUVGMybv" role="jymVt">
       <property role="TrG5h" value="myProject" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="5pUhUVGMybw" role="1B3o_S" />
       <node concept="3uibUv" id="5pUhUVGMyby" role="1tU5fm">
         <ref role="3uigEE" to="z1c3:~MPSProject" resolve="MPSProject" />
@@ -6100,6 +6102,7 @@
     </node>
     <node concept="312cEg" id="4biA4YBv2bD" role="jymVt">
       <property role="TrG5h" value="myChecker" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="4biA4YBv2bB" role="1B3o_S" />
       <node concept="3uibUv" id="4biA4YBv2bC" role="1tU5fm">
         <ref role="3uigEE" to="bim2:xB9FQhi9bJ" resolve="MigrationChecker" />
@@ -6469,6 +6472,7 @@
     </node>
     <node concept="312cEg" id="4biA4YBuFCw" role="jymVt">
       <property role="TrG5h" value="myExecutor" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="4biA4YBuFBN" role="1B3o_S" />
       <node concept="3uibUv" id="4biA4YBuFBO" role="1tU5fm">
         <ref role="3uigEE" to="bim2:4biA4YBo9Fb" resolve="MigrationExecutor" />
@@ -6658,6 +6662,9 @@
           </node>
         </node>
       </node>
+      <node concept="2AHcQZ" id="4WgzjbQLDsP" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
     <node concept="3clFb_" id="65hwFmZi2SX" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -6677,6 +6684,9 @@
           </node>
         </node>
       </node>
+      <node concept="2AHcQZ" id="4WgzjbQL$ad" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
     <node concept="3clFb_" id="65hwFmZi2T3" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -6692,10 +6702,45 @@
             <node concept="3uibUv" id="6Cb4D9RHf1W" role="1tU5fm">
               <ref role="3uigEE" to="bdll:~MigrationOptions" resolve="MigrationOptions" />
             </node>
-            <node concept="2ShNRf" id="6Cb4D9RHf1Z" role="33vP2m">
-              <node concept="1pGfFk" id="6bvoCJghS05" role="2ShVmc">
-                <ref role="37wK5l" to="bdll:~MigrationOptions.&lt;init&gt;()" resolve="MigrationOptions" />
-              </node>
+            <node concept="3nyPlj" id="4WgzjbQIW6b" role="33vP2m">
+              <ref role="37wK5l" to="o8ag:4WgzjbQIBYj" resolve="getOptions" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4WgzjbQJ91N" role="3cqZAp">
+          <node concept="1PaTwC" id="4WgzjbQJ91O" role="1aUNEU">
+            <node concept="3oM_SD" id="4WgzjbQJbtF" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbtH" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbtK" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbtO" role="1PaTwD">
+              <property role="3oM_SC" value="ok" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbtT" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbtZ" role="1PaTwD">
+              <property role="3oM_SC" value="addOptions()" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbvT" role="1PaTwD">
+              <property role="3oM_SC" value="each" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbw1" role="1PaTwD">
+              <property role="3oM_SC" value="time" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbwh" role="1PaTwD">
+              <property role="3oM_SC" value="getOptions" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbwr" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="4WgzjbQJbwA" role="1PaTwD">
+              <property role="3oM_SC" value="invoked?" />
             </node>
           </node>
         </node>
@@ -6750,7 +6795,54 @@
           </node>
         </node>
       </node>
+      <node concept="2AHcQZ" id="4WgzjbQLuyp" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
+    <node concept="2tJIrI" id="4WgzjbQKWQm" role="jymVt" />
+    <node concept="3clFb_" id="2wbhCYFKFPS" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="getChecker" />
+      <node concept="3Tm1VV" id="2wbhCYFKFPU" role="1B3o_S" />
+      <node concept="3uibUv" id="2wbhCYFKFPV" role="3clF45">
+        <ref role="3uigEE" to="bim2:xB9FQhi9bJ" resolve="MigrationChecker" />
+      </node>
+      <node concept="3clFbS" id="2wbhCYFKFPX" role="3clF47">
+        <node concept="3clFbF" id="2wbhCYFKK2r" role="3cqZAp">
+          <node concept="2OqwBi" id="4biA4YBv2f6" role="3clFbG">
+            <node concept="Xjq3P" id="4biA4YBv2f7" role="2Oq$k0" />
+            <node concept="2OwXpG" id="4biA4YBv2f8" role="2OqNvi">
+              <ref role="2Oxat5" node="4biA4YBv2bD" resolve="myChecker" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2wbhCYFKFPY" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="4biA4YBtpuT" role="jymVt" />
+    <node concept="3clFb_" id="4biA4YBt0LF" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="getExecutor" />
+      <node concept="3Tm1VV" id="4biA4YBt0LH" role="1B3o_S" />
+      <node concept="3uibUv" id="4biA4YBt0LI" role="3clF45">
+        <ref role="3uigEE" to="bim2:4biA4YBo9Fb" resolve="MigrationExecutor" />
+      </node>
+      <node concept="3clFbS" id="4biA4YBt0LK" role="3clF47">
+        <node concept="3clFbF" id="4biA4YBuYtL" role="3cqZAp">
+          <node concept="37vLTw" id="4biA4YBuYtG" role="3clFbG">
+            <ref role="3cqZAo" node="4biA4YBuFCw" resolve="myExecutor" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4biA4YBt0LL" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="4WgzjbQL9RC" role="jymVt" />
     <node concept="312cEu" id="65hwFmZi8BK" role="jymVt">
       <property role="TrG5h" value="MyMigrationManager" />
       <property role="2bfB8j" value="true" />
@@ -8414,51 +8506,8 @@
         <ref role="3uigEE" node="65hwFmZiSK1" resolve="TestMigrationSession.MyProjectMigration" />
       </node>
     </node>
-    <node concept="2tJIrI" id="17C4G6EAilI" role="jymVt" />
     <node concept="3uibUv" id="1548xledCuc" role="1zkMxy">
       <ref role="3uigEE" to="o8ag:1548xleaCvu" resolve="MigrationSession.MigrationSessionBase" />
-    </node>
-    <node concept="3clFb_" id="2wbhCYFKFPS" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="getChecker" />
-      <node concept="3Tm1VV" id="2wbhCYFKFPU" role="1B3o_S" />
-      <node concept="3uibUv" id="2wbhCYFKFPV" role="3clF45">
-        <ref role="3uigEE" to="bim2:xB9FQhi9bJ" resolve="MigrationChecker" />
-      </node>
-      <node concept="3clFbS" id="2wbhCYFKFPX" role="3clF47">
-        <node concept="3clFbF" id="2wbhCYFKK2r" role="3cqZAp">
-          <node concept="2OqwBi" id="4biA4YBv2f6" role="3clFbG">
-            <node concept="Xjq3P" id="4biA4YBv2f7" role="2Oq$k0" />
-            <node concept="2OwXpG" id="4biA4YBv2f8" role="2OqNvi">
-              <ref role="2Oxat5" node="4biA4YBv2bD" resolve="myChecker" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2wbhCYFKFPY" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4biA4YBtpuT" role="jymVt" />
-    <node concept="3clFb_" id="4biA4YBt0LF" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="getExecutor" />
-      <node concept="3Tm1VV" id="4biA4YBt0LH" role="1B3o_S" />
-      <node concept="3uibUv" id="4biA4YBt0LI" role="3clF45">
-        <ref role="3uigEE" to="bim2:4biA4YBo9Fb" resolve="MigrationExecutor" />
-      </node>
-      <node concept="3clFbS" id="4biA4YBt0LK" role="3clF47">
-        <node concept="3clFbF" id="4biA4YBuYtL" role="3cqZAp">
-          <node concept="37vLTw" id="4biA4YBuYtG" role="3clFbG">
-            <ref role="3cqZAo" node="4biA4YBuFCw" resolve="myExecutor" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="4biA4YBt0LL" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
     </node>
   </node>
   <node concept="sE7Ow" id="5$zfhXzhGml">

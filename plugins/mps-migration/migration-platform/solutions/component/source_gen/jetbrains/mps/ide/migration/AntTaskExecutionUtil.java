@@ -19,7 +19,6 @@ import jetbrains.mps.messages.LogHandler;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import jetbrains.mps.migration.global.MigrationOptions;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 
@@ -90,7 +89,6 @@ public class AntTaskExecutionUtil {
   private static class MyMigrationSession extends MigrationSession.MigrationSessionBase {
     private final Project myProject;
     private final MigrationRegistry myMigrationRegistry;
-    private MigrationOptions myOptions = new MigrationOptions();
     private MigrationCheckerImpl myChecker;
     private MigrationExecutorImpl myExecutor;
 
@@ -125,9 +123,6 @@ public class AntTaskExecutionUtil {
     }
     public MigrationChecker getChecker() {
       return myChecker;
-    }
-    public MigrationOptions getOptions() {
-      return myOptions;
     }
     @Override
     public MigrationExecutor getExecutor() {

@@ -5,7 +5,6 @@ package jetbrains.mps.ide.migration;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.ide.migration.wizard.MigrationSession;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.migration.global.MigrationOptions;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.project.Project;
 
@@ -15,7 +14,6 @@ import jetbrains.mps.project.Project;
   private final MigrationRegistry myMigrationRegistry;
   private MigrationCheckerImpl myChecker;
   private MigrationExecutorImpl myExecutor;
-  private final MigrationOptions myOptions = new MigrationOptions();
 
   public MigrationSessionImpl(MPSProject mpsProject, MigrationRegistry migrationRegistry, boolean resave, boolean migrate) {
     myMpsProject = mpsProject;
@@ -36,10 +34,6 @@ import jetbrains.mps.project.Project;
   @Override
   public MigrationRegistry getMigrationRegistry() {
     return myMigrationRegistry;
-  }
-  @Override
-  public MigrationOptions getOptions() {
-    return myOptions;
   }
   @Override
   public MigrationChecker getChecker() {
