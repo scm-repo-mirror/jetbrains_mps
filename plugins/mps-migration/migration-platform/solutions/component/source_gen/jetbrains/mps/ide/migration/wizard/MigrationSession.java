@@ -16,12 +16,15 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import jetbrains.mps.ide.migration.ProjectMigrationProgress;
 import jetbrains.mps.ide.migration.MigrationRegistry;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.migration.global.CleanupProjectMigration;
+import jetbrains.mps.migration.global.ProjectMigrationWithOptions;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)/2620437876316714136", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:49062720-8530-4489-916a-fdd3a02a7b82(jetbrains.mps.migration.component/jetbrains.mps.ide.migration.wizard)")
@@ -58,7 +61,7 @@ public interface MigrationSession {
     private Object myStage = null;
     private MigrationError myErrors = null;
     protected final Set<MigrationStepKind> myRequiredSteps = SetSequence.fromSet(new HashSet<MigrationStepKind>());
-    private final ProjectMigrationProgress myProjectMigrationProgress = new ProjectMigrationProgress();
+    private final Set<ProjectMigration> myExecutedInSession = SetSequence.fromSet(new HashSet<ProjectMigration>());
     private final MigrationOptions myOptions = new MigrationOptions();
 
     public MigrationSessionBase() {
@@ -69,7 +72,7 @@ public interface MigrationSession {
     @Override
     public Collection<ScriptApplied> getModuleMigrations() {
       // FIXME init once per session
-      return getMigrationRegistry().getModuleMigrations(MigrationModuleUtil.getMigrateableModulesFromProject(getProject()));
+      return getMigrationRegistry().getModuleMigrations();
     }
     @Override
     public Collection<ProjectMigration> getProjectMigrations() {
@@ -108,14 +111,43 @@ public interface MigrationSession {
 
     @Override
     public ProjectMigration nextStepProject() {
-      return getMigrationRegistry().nextProjectStep(myProjectMigrationProgress, getOptions(), false);
+      // important thing is that we only consider PMs of the required cleanup state only not to add odd PMs to considered
+      ProjectMigration m = CollectionSequence.fromCollection(getProjectMigrations()).where(new IWhereFilter<ProjectMigration>() {
+        public boolean accept(ProjectMigration it) {
+          return false == it instanceof CleanupProjectMigration;
+        }
+      }).findFirst(new IWhereFilter<ProjectMigration>() {
+        public boolean accept(ProjectMigration it) {
+          return consider(it);
+        }
+      });
+      if (m instanceof ProjectMigrationWithOptions) {
+        ((ProjectMigrationWithOptions) m).setOptionValues(getOptions());
+      }
+      return m;
     }
 
     @Override
     public ProjectMigration nextStepCleanup() {
-      return getMigrationRegistry().nextProjectStep(myProjectMigrationProgress, getOptions(), true);
+      ProjectMigration m = CollectionSequence.fromCollection(getProjectMigrations()).ofType(CleanupProjectMigration.class).ofType(ProjectMigration.class).findFirst(new IWhereFilter<ProjectMigration>() {
+        public boolean accept(ProjectMigration it) {
+          return consider(it);
+        }
+      });
+      if (m instanceof ProjectMigrationWithOptions) {
+        ((ProjectMigrationWithOptions) m).setOptionValues(getOptions());
+      }
+      return m;
     }
 
+    private boolean consider(ProjectMigration pm) {
+      // just a replacement for ProjectMigrationProgress
+      if (SetSequence.fromSet(myExecutedInSession).contains(pm)) {
+        return false;
+      }
+      SetSequence.fromSet(myExecutedInSession).addElement(pm);
+      return pm.shouldBeExecuted(getProject());
+    }
 
     @Override
     public void updateModuleImports(ProgressMonitor progress) {

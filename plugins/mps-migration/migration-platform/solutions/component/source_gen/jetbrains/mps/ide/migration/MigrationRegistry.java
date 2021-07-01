@@ -8,17 +8,31 @@ import jetbrains.mps.migration.global.ProjectMigration;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.migration.runtime.base.BaseScriptReference;
-import jetbrains.mps.migration.global.MigrationOptions;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/6781485246382121685", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public interface MigrationRegistry {
+
   boolean isMigrationRequired();
 
+  /**
+   * 
+   * @return project-wide migrations
+   */
   Collection<ProjectMigration> getProjectMigrations();
+
+  /**
+   * Pretty much result of {@link jetbrains.mps.ide.migration.MigrationRegistry#getModuleMigrations(Iterable<SModule>) } for a set of modules known to caller
+   * 
+   * @return language migrations for a set of modules configured by instance creator
+   */
+  Collection<ScriptApplied> getModuleMigrations();
+
+  /**
+   * Likely to fade away, gives access to logic that calculates required migrations for specific modules
+   */
   Collection<ScriptApplied> getModuleMigrations(Iterable<SModule> modules);
 
   ScriptApplied nextModuleStep(@Nullable BaseScriptReference preferredId);
-  ProjectMigration nextProjectStep(ProjectMigrationProgress migrationProgress, MigrationOptions options, boolean cleanup);
 
   boolean importVersionsUpdateRequired(Iterable<SModule> modules);
   void doUpdateImportVersions(SModule module);

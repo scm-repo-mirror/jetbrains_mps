@@ -13,7 +13,10 @@ import jetbrains.mps.project.Project;
  * Tracks project migrations that were already run or should not be executed. 
  * For module migrations, language versions from modules serve the same purpose.
  * An object of this class is a state for the stateless MirgationRegistryImpl during a single MigrationSession
+ * 
+ * @deprecated of no use
  */
+@Deprecated(forRemoval = true, since = "2021.2")
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1458839180077459547", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public class ProjectMigrationProgress {
   private List<ProjectMigration> myWereRun = ListSequence.fromList(new ArrayList<ProjectMigration>());
