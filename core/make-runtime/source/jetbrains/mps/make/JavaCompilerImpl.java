@@ -238,8 +238,10 @@ final class JavaCompilerImpl {
         }
         final Path pathSrc = myFileManager.asPath(d.getSource());
         final File javaFile = pathSrc.toFile();
-        Object hintObject = new FileWithPosition(javaFile, d.getPosition(), d.getLineNumber(), d.getColumnNumber());
-        String errMsg = String.format("%s (%s:%d)", d.getMessage(null), d.getSource().getName(), d.getLineNumber());
+        final long lineNumber = d.getLineNumber();
+        final long columnNumber = d.getColumnNumber();
+        Object hintObject = new FileWithPosition(javaFile, d.getPosition(), lineNumber > 0 ? lineNumber-1 : -1, columnNumber > 0 ? columnNumber-1 : -1);
+        String errMsg = String.format("%s (%s:%d)", d.getMessage(null), d.getSource().getName(), lineNumber);
         sender.error(errMsg, hintObject);
       }
       if (errorRecord.errors > 0) {
