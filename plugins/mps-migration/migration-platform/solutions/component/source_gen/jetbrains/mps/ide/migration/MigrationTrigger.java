@@ -44,7 +44,6 @@ import jetbrains.mps.migration.global.CleanupProjectMigration;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.ide.migration.wizard.MigrationError;
 import jetbrains.mps.errors.item.IssueKindReportItem;
@@ -280,7 +279,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   private PostponedState getNewMigrations(Iterable<SModule> modules2Check) {
-    PostponedState current = PostponedState.current(myMigrationRegistry, modules2Check);
+    PostponedState current = PostponedState.current(new MigrationRegistryImpl(myMpsProject, modules2Check));
     PostponedState saved = myPostponedState.get();
     if (saved != null) {
       current = current.substract(saved);
@@ -315,20 +314,14 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                   syncRefresh();
                 }
               });
-              final Wrappers._T<PostponedState> newState = new Wrappers._T<PostponedState>();
-              myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-                public void run() {
-                  Iterable<SModule> modules = MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject);
-                  newState.value = PostponedState.current(myMigrationRegistry, modules);
-                }
-              });
+              PostponedState newState = PostponedState.current(new MigrationRegistryImpl(myMpsProject));
 
               if (myPostponedState.get() == null || force) {
-                boolean hasSomethingToApply = newState.value.hasSomethingToApply();
+                boolean hasSomethingToApply = newState.hasSomethingToApply();
                 if (hasSomethingToApply) {
-                  final Tuples._2<MigrationResult, MigrationError> result = runMigration(newState.value.hasVersionUpdate(), newState.value.hasMigrations());
+                  final Tuples._2<MigrationResult, MigrationError> result = runMigration(newState.hasVersionUpdate(), newState.hasMigrations());
                   if (result._0() == MigrationResult.POSTPONED) {
-                    myPostponedState.set(newState.value);
+                    myPostponedState.set(newState);
                     myNotifications.showRequired();
                   } else if (result._0() == MigrationResult.FINISHED_WITH_ERRORS) {
                     ProgressManager.getInstance().run(new Task.Modal(myProject, "Collecting Errors", false) {
@@ -341,7 +334,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                         });
                       }
                     });
-                    myPostponedState.set(newState.value);
+                    myPostponedState.set(newState);
                     myNotifications.showRequired();
                     cleanup();
                   } else if (result._0() == MigrationResult.FINISHED) {
@@ -355,7 +348,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                 }
               } else {
                 if (myNotifications.showRequired()) {
-                  myPostponedState.accumulateAndGet(newState.value, new BinaryOperator<PostponedState>() {
+                  myPostponedState.accumulateAndGet(newState, new BinaryOperator<PostponedState>() {
                     @Override
                     public PostponedState apply(PostponedState current, PostponedState additional) {
                       return (current == null ? null : current.add(additional));
@@ -496,7 +489,7 @@ __switch__:
   private Tuples._2<MigrationResult, MigrationError> runMigration(boolean update, boolean migrate) {
     myMigrationRunning = true;
     try {
-      MigrationSessionImpl session = new MigrationSessionImpl(myMpsProject, myMigrationRegistry, update, migrate);
+      MigrationSessionImpl session = new MigrationSessionImpl(myMpsProject, new MigrationRegistryImpl(myMpsProject), update, migrate);
       final MigrationWizard wizard = new MigrationWizard(myProject, session);
       boolean finished = wizard.showAndGet();
       MigrationError errors = session.getError();

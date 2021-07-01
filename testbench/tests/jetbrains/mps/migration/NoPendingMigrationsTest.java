@@ -20,13 +20,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.migration.MigrationRegistry;
 import jetbrains.mps.ide.migration.MigrationRegistryImpl;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.testbench.junit.suites.BaseProjectsTest;
 import jetbrains.mps.util.IterableUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.jetbrains.mps.openapi.module.SModule;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -57,18 +55,14 @@ public class NoPendingMigrationsTest extends BaseProjectsTest {
     List<String> moduleMigrations = new ArrayList<>();
     Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
       final MigrationRegistry migrationManager = new MigrationRegistryImpl(getContextProject());
-      List<SModule> modules = new ArrayList<>();
-      getContextProject().getModelAccess().runReadAction(()->{
-        modules.addAll(IterableUtil.asCollection(MigrationModuleUtil.getMigrateableModulesFromProject(getContextProject())));
-        migrationRequired[0] = migrationManager.importVersionsUpdateRequired(modules);
-      });
+      migrationRequired[0] = migrationManager.importVersionsUpdateRequired();
       migrationRequired[1] = migrationManager.isMigrationRequired();
       if (migrationRequired[1]) {
         projectMigrations.addAll(IterableUtil.asCollection(migrationManager.getProjectMigrations())
             .stream().map(ProjectMigration::getDescription)
             .collect(Collectors.toList()));
         getContextProject().getModelAccess().runReadAction(() -> {
-          moduleMigrations.addAll(migrationManager.getModuleMigrations(modules)
+          moduleMigrations.addAll(migrationManager.getModuleMigrations()
               .stream().map(it -> it.getScriptReference().resolve(getContextProject(),false).getCaption())
               .collect(Collectors.toList()));
         });

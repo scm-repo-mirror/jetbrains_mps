@@ -7,12 +7,12 @@ import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.Processor;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.util.List;
+import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import java.util.Collection;
 import java.util.HashSet;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
@@ -68,7 +68,7 @@ public class MigrationCheckerImpl implements MigrationChecker {
     m.start("Checking migrations consistency...", 1);
     myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        Iterable<ScriptApplied> problems = CollectionSequence.fromCollection(myManager.getModuleMigrations(MigrationModuleUtil.getMigrateableModulesFromProject(myProject))).where(new IWhereFilter<ScriptApplied>() {
+        Iterable<ScriptApplied> problems = CollectionSequence.fromCollection(myManager.getModuleMigrations()).where(new IWhereFilter<ScriptApplied>() {
           public boolean accept(ScriptApplied it) {
             return it.getScriptReference().resolve(myProject, false) == null;
           }

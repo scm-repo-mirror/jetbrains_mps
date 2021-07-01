@@ -30,6 +30,8 @@ public interface MigrationRegistry {
    */
   Collection<ScriptApplied> getModuleMigrations(Iterable<SModule> modules);
 
+  boolean importVersionsUpdateRequired();
+
   boolean importVersionsUpdateRequired(Iterable<SModule> modules);
   void doUpdateImportVersions(SModule module);
 }
