@@ -22,7 +22,6 @@ import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcs.diff.DiffUtil;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/4047500669634631216", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
 public final class NodeGroupWrapChange extends HierarchicalNodeGroupChange {
@@ -249,23 +248,17 @@ public final class NodeGroupWrapChange extends HierarchicalNodeGroupChange {
     return ChangeType.CHANGE;
   }
 
+  public boolean isWrap() {
+    return myIsWrap;
+  }
+
   @NotNull
   @Override
   protected ModelChange createOppositeChange() {
     return new NodeGroupWrapChange(getChangeSet().getOppositeChangeSet(), myWrappingGroup, !(myIsWrap));
   }
 
-  @Override
-  @NotNull
-  public List<ModifiedNode> getModifiedNodes(boolean isNew) {
-    return ((isNew == myIsWrap) ? ListSequence.fromList(myWrappingGroup.getModifiedNodes()).concat(ListSequence.fromList(myWrappingGroup.getWrappedGroups()).translate(new ITranslator2<ModifiedNodesGroup, ModifiedNode>() {
-      public Iterable<ModifiedNode> translate(ModifiedNodesGroup it) {
-        return it.getModifiedNodes();
-      }
-    })).toListSequence() : ListSequence.fromList(myWrappingGroup.getUnwrappedGroups()).translate(new ITranslator2<ModifiedNodesGroup, ModifiedNode>() {
-      public Iterable<ModifiedNode> translate(ModifiedNodesGroup it) {
-        return it.getModifiedNodes();
-      }
-    }).toListSequence());
+  public WrappingNodesGroup getWrappingGroup() {
+    return myWrappingGroup;
   }
 }

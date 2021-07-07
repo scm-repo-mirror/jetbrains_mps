@@ -118,7 +118,7 @@ public class ChangeSetBuilder {
   private void buildChangeSetForNode(@Nullable SNode oldNode, @Nullable SNode newNode) {
     if (myTrackMovedNodes) {
       MovesAwareChangeSetBuilder builder = new MovesAwareChangeSetBuilder(oldNode, newNode, myChangeSet);
-      ListSequence.fromList(myNewChanges).addSequence(ListSequence.fromList(builder.getChanges(false, myCreateWrapChanges)));
+      ListSequence.fromList(myNewChanges).addSequence(ListSequence.fromList(builder.getChanges()));
     } else {
       buildForNode(oldNode, newNode);
     }

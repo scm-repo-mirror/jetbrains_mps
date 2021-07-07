@@ -4,22 +4,26 @@ package jetbrains.mps.vcs.diff.changes;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcs.diff.ChangeSet;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
+import java.util.Collection;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import java.util.LinkedList;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import java.util.Objects;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/8998650098108147555", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
 public abstract class HierarchicalNodeGroupChange extends StructureChange {
@@ -28,10 +32,6 @@ public abstract class HierarchicalNodeGroupChange extends StructureChange {
   private final ModifiedNodesGroup myOldGroup;
   @NotNull
   private final ModifiedNodesGroup myNewGroup;
-  @Nullable
-  private HierarchicalNodeGroupChange myOldParentChange;
-  @Nullable
-  private HierarchicalNodeGroupChange myNewParentChange;
 
 
   protected HierarchicalNodeGroupChange(@NotNull ChangeSet changeSet, @NotNull ModifiedNodesGroup oldGroup, @NotNull ModifiedNodesGroup newGroup) {
@@ -60,11 +60,6 @@ public abstract class HierarchicalNodeGroupChange extends StructureChange {
     return getGroup(isNew).getIds();
   }
 
-  @NotNull
-  public List<ModifiedNode> getModifiedNodes(boolean isNew) {
-    return getGroup(isNew).getModifiedNodes();
-  }
-
   public SNodeId getParentId(boolean isNew) {
     return getGroup(isNew).getParentId();
   }
@@ -85,22 +80,58 @@ public abstract class HierarchicalNodeGroupChange extends StructureChange {
     return getGroup(isNew).isEmpty();
   }
 
-  @Nullable
-  public HierarchicalNodeGroupChange getParentChange(boolean isNew) {
-    return (isNew ? myNewParentChange : myOldParentChange);
-  }
+  /*package*/ static void applyChanges(Iterable<HierarchicalNodeGroupChange> changes, final SModel model, final NodeCopier nodeCopier) {
 
-  public void setParent(HierarchicalNodeGroupChange parentChange, boolean isNew) {
-    if (isNew) {
-      myNewParentChange = parentChange;
-    } else {
-      myOldParentChange = parentChange;
-    }
-    parentChange.getGroup(isNew).addDependantGroup(getGroup(isNew));
-  }
-
-  public boolean isAnchestorOf(HierarchicalNodeGroupChange anotherChange, boolean isNew) {
-    return getGroup(isNew).isAnchestorOf(anotherChange.getGroup(isNew));
+    Sequence.fromIterable(changes).ofType(NodeGroupWrapChange.class).where(new IWhereFilter<NodeGroupWrapChange>() {
+      public boolean accept(NodeGroupWrapChange it) {
+        return it.isWrap();
+      }
+    }).visitAll(new IVisitor<NodeGroupWrapChange>() {
+      public void visit(NodeGroupWrapChange it) {
+        it.apply(model, nodeCopier);
+      }
+    });
+    Collection<NodeGroupNotMoveChange> notMoveChanges = Sequence.fromIterable(changes).ofType(NodeGroupNotMoveChange.class).toListSequence();
+    CollectionSequence.fromCollection(notMoveChanges).select(new ISelector<NodeGroupNotMoveChange, ModifiedNodesGroup>() {
+      public ModifiedNodesGroup select(NodeGroupNotMoveChange it) {
+        return it.getGroup(true);
+      }
+    }).visitAll(new IVisitor<ModifiedNodesGroup>() {
+      public void visit(ModifiedNodesGroup it) {
+        if (it.isEmpty() || it.isApplied(model)) {
+          return;
+        }
+        it.insertCopyIntoModel(model, nodeCopier);
+        it.setIsApplied(model);
+      }
+    });
+    Sequence.fromIterable(changes).ofType(NodeGroupMoveChange.class).visitAll(new IVisitor<NodeGroupMoveChange>() {
+      public void visit(NodeGroupMoveChange it) {
+        it.apply(model, nodeCopier);
+      }
+    });
+    CollectionSequence.fromCollection(notMoveChanges).select(new ISelector<NodeGroupNotMoveChange, ModifiedNodesGroup>() {
+      public ModifiedNodesGroup select(NodeGroupNotMoveChange it) {
+        return it.getGroup(false);
+      }
+    }).visitAll(new IVisitor<ModifiedNodesGroup>() {
+      public void visit(ModifiedNodesGroup it) {
+        if (it.isEmpty() || it.isApplied(model)) {
+          return;
+        }
+        it.deleteFromModel(model);
+        it.setIsApplied(model);
+      }
+    });
+    Sequence.fromIterable(changes).ofType(NodeGroupWrapChange.class).where(new IWhereFilter<NodeGroupWrapChange>() {
+      public boolean accept(NodeGroupWrapChange it) {
+        return !(it.isWrap());
+      }
+    }).visitAll(new IVisitor<NodeGroupWrapChange>() {
+      public void visit(NodeGroupWrapChange it) {
+        it.apply(model, nodeCopier);
+      }
+    });
   }
 
   @Override
@@ -108,20 +139,11 @@ public abstract class HierarchicalNodeGroupChange extends StructureChange {
     if (isEmpty(isNew)) {
       return ListSequence.fromListAndArray(new LinkedList<Tuples._2<SNodeId, MessageTarget>>(), MultiTuple.<SNodeId,MessageTarget>from(getParentId(isNew), ((MessageTarget) new DeletedNodeMessageTarget(getLink(isNew), getEnd(isNew)))));
     }
-    return ListSequence.fromList(getModifiedNodes(isNew)).select(new ISelector<ModifiedNode, Tuples._2<SNodeId, MessageTarget>>() {
-      public Tuples._2<SNodeId, MessageTarget> select(ModifiedNode it) {
-        return MultiTuple.<SNodeId,MessageTarget>from(it.getNodeId(), ((MessageTarget) new NodeMessageTarget()));
+    return ListSequence.fromList(getIds(isNew)).select(new ISelector<SNodeId, Tuples._2<SNodeId, MessageTarget>>() {
+      public Tuples._2<SNodeId, MessageTarget> select(SNodeId it) {
+        return MultiTuple.<SNodeId,MessageTarget>from(it, ((MessageTarget) new NodeMessageTarget()));
       }
     }).toListSequence();
-  }
-
-  @Nullable
-  public ModifiedNode getModifiedNode(final SNodeId id, boolean isNew) {
-    return ListSequence.fromList(getModifiedNodes(isNew)).findFirst(new IWhereFilter<ModifiedNode>() {
-      public boolean accept(ModifiedNode it) {
-        return Objects.equals(it.getNodeId(), id);
-      }
-    });
   }
 
   protected String getMultiLineIdsString(boolean isNew) {
@@ -150,5 +172,4 @@ public abstract class HierarchicalNodeGroupChange extends StructureChange {
     }
     return sb.toString();
   }
-
 }

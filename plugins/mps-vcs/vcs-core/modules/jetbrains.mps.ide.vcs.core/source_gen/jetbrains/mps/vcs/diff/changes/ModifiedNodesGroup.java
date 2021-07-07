@@ -24,8 +24,6 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/5759241003042619496", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
@@ -98,11 +96,6 @@ public class ModifiedNodesGroup {
       if (nextGroup instanceof WrappingNodesGroup || nextGroup instanceof IdChangeGroup) {
         return nextGroup.getFirstNodeId();
       }
-      WrappingNodesGroup oppositeWrappingGroup = nextGroup.getOppositeWrappingGroup();
-      if (oppositeWrappingGroup != null && ListSequence.fromList(oppositeWrappingGroup.getUnwrappedGroups()).first() == nextGroup) {
-        // next group is first unwrapped group of some wrapping group
-        return nextGroup.getFirstNodeId();
-      }
       if (nextGroup.isWrappedMove()) {
         return nextGroup.getFirstNodeId();
       }
@@ -110,7 +103,6 @@ public class ModifiedNodesGroup {
     }
     return myNextNodeId;
   }
-
 
   public void setNextNodeId(SNodeId nextNodeId) {
     myNextNodeId = nextNodeId;
@@ -274,7 +266,7 @@ public class ModifiedNodesGroup {
       }
     }).visitAll(new IVisitor<SNodeId>() {
       public void visit(SNodeId id) {
-        check_1a4m4r_a0a0a0a0cd(model.getNode(id));
+        check_1a4m4r_a0a0a0a0bd(model.getNode(id));
       }
     });
   }
@@ -293,74 +285,51 @@ public class ModifiedNodesGroup {
 
   /*package*/ SNodeId getNextInsertedNodeId(SModel model) {
 
-    if (myNextGroup != null && myNextGroup.isApplied(model)) {
-      return myNextGroup.getFirstNodeId();
+    // last wrapped group
+    if (myWrappingGroup != null && !(myWrappingGroup.isApplied(model)) && ListSequence.fromList(myWrappingGroup.getWrappedGroups()).last() == this) {
+      return myWrappingGroup.getNextInsertedNodeId(model);
     }
-
-    if (myNextGroup instanceof IdChangeGroup) {
-      return ((IdChangeGroup) myNextGroup).getOppositeGroup().getId();
-    }
-
-    if (myOppositeWrappingGroup != null) {
-      if (myNextGroup != null && myNextGroup.getOppositeWrappingGroup() == myOppositeWrappingGroup) {
-        if (myNextGroup.isWrappedMove()) {
-          return myNextGroup.getFirstNodeId();
-        } else {
-          return myNextGroup.getNextInsertedNodeId(model);
-        }
-      }
-      if (!(myOppositeWrappingGroup.isApplied(model)) && ListSequence.fromList(myOppositeWrappingGroup.getUnwrappedGroups()).last() == this) {
-        return null;
-      }
-    }
-
-    if (myWrappingGroup != null) {
-      if (myNextGroup != null && myNextGroup.getWrappingGroup() == myWrappingGroup && myNextGroup.isWrappedMove()) {
-        return myNextGroup.getFirstNodeId();
-      }
-      if (!(myWrappingGroup.isApplied(model)) && ListSequence.fromList(myWrappingGroup.getWrappedGroups()).last() == this) {
-        return myWrappingGroup.getNextInsertedNodeId(model);
-      }
+    // last unwrapped group
+    if (myOppositeWrappingGroup != null && !(myOppositeWrappingGroup.isApplied(model)) && ListSequence.fromList(myOppositeWrappingGroup.getUnwrappedGroups()).last() == this) {
+      return null;
     }
 
     if (myNextGroup == null) {
       return getNextNodeId();
     }
 
-    if (myNextGroup instanceof WrappingNodesGroup) {
-      WrappingNodesGroup nextWrappingGroup = as_1a4m4r_a0a0a11a48(myNextGroup, WrappingNodesGroup.class);
-      // next group is not applied yet
-      ModifiedNodesGroup firstUnwrappedGroup = ListSequence.fromList(nextWrappingGroup.getUnwrappedGroups()).first();
-      if (firstUnwrappedGroup.isWrappedMove() || !(firstUnwrappedGroup.isApplied(model))) {
-        return firstUnwrappedGroup.getFirstNodeId();
-      } else {
-        return firstUnwrappedGroup.getNextInsertedNodeId(model);
-      }
+    if (myNextGroup.isApplied(model)) {
+      return (myNextGroup.isNotEmpty() ? myNextGroup.getFirstNodeId() : myNextGroup.getNextInsertedNodeId(model));
     }
 
+    if (myNextGroup instanceof IdChangeGroup) {
+      return ((IdChangeGroup) myNextGroup).getOppositeGroup().getId();
+    }
+    if (myNextGroup instanceof WrappingNodesGroup) {
+      return ListSequence.fromList(((WrappingNodesGroup) myNextGroup).getUnwrappedGroups()).first().getFirstNodeId();
+    }
     WrappingNodesGroup nextOppositeWrappingGroup = myNextGroup.getOppositeWrappingGroup();
     if (nextOppositeWrappingGroup != null && !(nextOppositeWrappingGroup.isApplied(model))) {
       return nextOppositeWrappingGroup.getFirstNodeId();
     }
-
     if (myNextGroup.getReplacingGroup() != null && myNextGroup.getReplacingGroup().isNotEmpty()) {
       return myNextGroup.getReplacingGroup().getFirstNodeId();
     }
-
     return myNextGroup.getNextInsertedNodeId(model);
   }
 
   private SNodeId getInsertParentId(SModel model) {
-    if (check_1a4m4r_a0a0a68(myParentIdChangeGroup) != null && !(myParentIdChangeGroup.getOppositeGroup().isApplied(model))) {
+    if (check_1a4m4r_a0a0a58(myParentIdChangeGroup) != null && !(myParentIdChangeGroup.getOppositeGroup().isApplied(model))) {
       return myParentIdChangeGroup.getOppositeGroup().getId();
     }
-    WrappingNodesGroup wrappingGroup = getWrappingGroup();
-    if (wrappingGroup != null && !(wrappingGroup.isApplied(model))) {
-      return wrappingGroup.getParentId();
+    if (myWrappingGroup != null) {
+      return (myWrappingGroup.isApplied(model) ? myWrappingGroup.getWrappedParentId() : myWrappingGroup.getUnwrappedParentId());
     }
-    if (myOppositeWrappingGroup != null && !(myOppositeWrappingGroup.isApplied(model))) {
-      return myOppositeWrappingGroup.getWrappedParentId();
+
+    if (myOppositeWrappingGroup != null) {
+      return (myOppositeWrappingGroup.isApplied(model) ? myOppositeWrappingGroup.getUnwrappedParentId() : myOppositeWrappingGroup.getWrappedParentId());
     }
+
     return getParentId();
   }
 
@@ -392,38 +361,8 @@ public class ModifiedNodesGroup {
     });
   }
 
-  /*package*/ boolean isAnchestorOf(ModifiedNodesGroup group) {
-    if (group.isEmpty()) {
-      return false;
-    }
-    final Set<SNodeId> descendantIds = SetSequence.fromSetWithValues(new HashSet<SNodeId>(), ListSequence.fromList(myNodes).translate(new ITranslator2<ModifiedNode, SNodeId>() {
-      public Iterable<SNodeId> translate(ModifiedNode it) {
-        SNode node = it.getNode();
-        return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, null, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNodeId>() {
-          public SNodeId select(SNode it) {
-            return it.getNodeId();
-          }
-        });
-      }
-    }));
-
-    return ListSequence.fromList(group.getIds()).all(new IWhereFilter<SNodeId>() {
-      public boolean accept(SNodeId it) {
-        return SetSequence.fromSet(descendantIds).contains(it);
-      }
-    });
-  }
-
   public void addDependantGroup(ModifiedNodesGroup group) {
     SetSequence.fromSet(myDependantGroups).addElement(group);
-  }
-
-  public boolean isUnwrappedGroup() {
-    return myOppositeWrappingGroup != null;
-  }
-
-  public boolean isWrappedGroup() {
-    return myWrappingGroup != null;
   }
 
   public boolean isWrappedMove() {
@@ -505,19 +444,16 @@ public class ModifiedNodesGroup {
     sb.append(" of parent #").append(myParentId);
     return sb.toString();
   }
-  private static void check_1a4m4r_a0a0a0a0cd(SNode checkedDotOperand) {
+  private static void check_1a4m4r_a0a0a0a0bd(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.delete();
     }
 
   }
-  private static IdChangeGroup check_1a4m4r_a0a0a68(IdChangeGroup checkedDotOperand) {
+  private static IdChangeGroup check_1a4m4r_a0a0a58(IdChangeGroup checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getOppositeGroup();
     }
     return null;
-  }
-  private static <T> T as_1a4m4r_a0a0a11a48(Object o, Class<T> type) {
-    return (type.isInstance(o) ? (T) o : null);
   }
 }

@@ -39,7 +39,6 @@ public final class WrappingNodesGroup extends ModifiedNodesGroup {
     myUnwrappedGroups = unwrappedGroups;
     ListSequence.fromList(wrappedGroups).visitAll(new IVisitor<ModifiedNodesGroup>() {
       public void visit(ModifiedNodesGroup it) {
-        addDependantGroup(it);
         it.setWrappingGroup(WrappingNodesGroup.this);
       }
     });

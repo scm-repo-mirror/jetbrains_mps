@@ -16,7 +16,7 @@ public final class NodeGroupMoveChange extends HierarchicalNodeGroupChange {
 
   private final String myDescription;
   private final String myShortDescription;
-  private NodeGroupNotMoveChange myOuterNotMoveChange;
+
 
   public NodeGroupMoveChange(@NotNull ChangeSet changeSet, @NotNull ModifiedNodesGroup oldGroup, @NotNull ModifiedNodesGroup newGroup) {
     super(changeSet, oldGroup, newGroup);
@@ -50,14 +50,6 @@ public final class NodeGroupMoveChange extends HierarchicalNodeGroupChange {
     }
   }
 
-  public void setOuterNotMoveChange(NodeGroupNotMoveChange notMoveChange) {
-    myOuterNotMoveChange = notMoveChange;
-  }
-
-  public boolean isInternalMove() {
-    return myOuterNotMoveChange != null;
-  }
-
   @Override
   public String getDescription() {
     return myDescription;
@@ -70,9 +62,6 @@ public final class NodeGroupMoveChange extends HierarchicalNodeGroupChange {
 
   @Override
   public void apply(@NotNull SModel model, @NotNull NodeCopier nodeCopier) {
-    if (isInternalMove()) {
-      return;
-    }
     if (this.getGroup(false).isApplied(model) || this.getGroup(true).isApplied(model)) {
       return;
     }

@@ -13,9 +13,16 @@ import java.util.ArrayList;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.vcs.diff.changes.IdChangeGroup;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcs.diff.changes.ModifiedNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -23,22 +30,16 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.ISequenceClosure;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 import java.util.List;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.util.LongestCommonSubsequenceFinder;
 import java.util.Map;
-import jetbrains.mps.vcs.diff.changes.IdChangeGroup;
 import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.util.HashMap;
 import jetbrains.mps.vcs.diff.changes.WrappingNodesGroup;
 
@@ -53,14 +54,37 @@ import jetbrains.mps.vcs.diff.changes.WrappingNodesGroup;
   private final Queue<ParentsLink> myLinks = QueueSequence.fromQueue(new LinkedList<ParentsLink>());
 
 
-  /*package*/ NodeGroupsBuilder(@NotNull ModifiedNodesBuilder nodesBuilder, boolean buildWrapChanges) {
+  /*package*/ NodeGroupsBuilder(@NotNull ModifiedNodesBuilder nodesBuilder, SNode oldRootNode, SNode newRootNode) {
     myNodesBuilder = nodesBuilder;
     collectGroups();
     setOppositeMoves();
-    if (buildWrapChanges) {
-      new WrappingGroupsBuilder(this).collectWrappedGroups();
-    }
+    new WrappingGroupsBuilder(this).collectWrappedGroups();
+    buildGroupsHierarchy(oldRootNode, null, false);
+    buildGroupsHierarchy(newRootNode, null, true);
   }
+
+  private void buildGroupsHierarchy(final SNode node, @Nullable ModifiedNodesGroup parentGroup, final boolean isNew) {
+
+    final Wrappers._T<ModifiedNodesGroup> nodeGroup = new Wrappers._T<ModifiedNodesGroup>(CollectionSequence.fromCollection(getGroups(isNew)).findFirst(new IWhereFilter<ModifiedNodesGroup>() {
+      public boolean accept(ModifiedNodesGroup it) {
+        return ListSequence.fromList(it.getIds()).contains(node.getNodeId());
+      }
+    }));
+
+    if (nodeGroup.value != null) {
+      if (parentGroup != null && !(nodeGroup.value instanceof IdChangeGroup)) {
+        parentGroup.addDependantGroup(nodeGroup.value);
+      }
+    } else {
+      nodeGroup.value = parentGroup;
+    }
+    ListSequence.fromList(SNodeOperations.getChildren(node)).visitAll(new IVisitor<SNode>() {
+      public void visit(SNode childNode) {
+        buildGroupsHierarchy(childNode, nodeGroup.value, isNew);
+      }
+    });
+  }
+
 
   @NotNull
   /*package*/ Collection<NodeIdChange> getIdChanges() {
@@ -351,8 +375,8 @@ __switch__:
   }
 
   private void removeGroup(ModifiedNodesGroup group) {
-    check_ceu2he_a0a24(group.getPrevGroup(), group);
-    check_ceu2he_a1a24(group.getPrevGroup(), group);
+    check_ceu2he_a0a54(group.getPrevGroup(), group);
+    check_ceu2he_a1a54(group.getPrevGroup(), group);
     CollectionSequence.fromCollection(getGroups(group.isNew())).removeElement(group);
   }
 
@@ -485,7 +509,7 @@ __switch__:
   }
 
   /*package*/ List<ModifiedNodesGroup> getOppositeMovesFromSamePosition(ModifiedNodesGroup notMoveGroup) {
-
+    assert notMoveGroup.isInsertOrDelete();
     final SNodeId parentId = getOppositeGroupParentId(notMoveGroup);
     final SContainmentLink link = getOppositeGroupLink(notMoveGroup);
     final SNodeId nextNodeId = getOppositeGroupNextNodeId(notMoveGroup);
@@ -500,19 +524,21 @@ __switch__:
     }, true).toListSequence();
   }
 
-  /*package*/ ModifiedNodesGroup createEmptyGroup(ModifiedNodesGroup group) {
-    boolean isNew = !(group.isNew());
-    SNodeId parentId = getOppositeGroupParentId(group);
-    SContainmentLink link = getOppositeGroupLink(group);
-    SNodeId nextNodeId = getOppositeGroupNextNodeId(group);
+  /*package*/ ModifiedNodesGroup createEmptyGroup(ModifiedNodesGroup notMoveGroup) {
+    assert notMoveGroup.isInsertOrDelete();
+    boolean isNew = !(notMoveGroup.isNew());
+    SNodeId parentId = getOppositeGroupParentId(notMoveGroup);
+    SContainmentLink link = getOppositeGroupLink(notMoveGroup);
+    SNodeId nextNodeId = getOppositeGroupNextNodeId(notMoveGroup);
     return new ModifiedNodesGroup(getModel(isNew), nextNodeId, parentId, link, (isNew ? ChangeType.ADD : ChangeType.DELETE));
   }
 
-  /*package*/ List<ModifiedNodesGroup> getNotMoveGroupsWithSamePosition(final ModifiedNodesGroup group) {
-    final SNodeId nextNodeId = group.getActualNextNodeId();
-    return CollectionSequence.fromCollection(getGroups(group.isNew())).where(new IWhereFilter<ModifiedNodesGroup>() {
+  /*package*/ List<ModifiedNodesGroup> getNotMoveGroupsWithSamePosition(final ModifiedNodesGroup notMoveGroup) {
+    assert notMoveGroup.isInsertOrDelete();
+    final SNodeId nextNodeId = notMoveGroup.getActualNextNodeId();
+    return CollectionSequence.fromCollection(getGroups(notMoveGroup.isNew())).where(new IWhereFilter<ModifiedNodesGroup>() {
       public boolean accept(ModifiedNodesGroup it) {
-        return it.isInsertOrDelete() && Objects.equals(group.getParentId(), it.getParentId()) && Objects.equals(group.getLink(), it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId());
+        return it.isInsertOrDelete() && it.isNotEmpty() && Objects.equals(notMoveGroup.getParentId(), it.getParentId()) && Objects.equals(notMoveGroup.getLink(), it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId());
       }
     }).sort(new ISelector<ModifiedNodesGroup, Integer>() {
       public Integer select(ModifiedNodesGroup it) {
@@ -521,13 +547,14 @@ __switch__:
     }, true).toListSequence();
   }
 
-  /*package*/ List<ModifiedNodesGroup> getOppositeNotMoveGroupsWithSamePosition(final ModifiedNodesGroup group) {
-    final SNodeId parentId = getOppositeGroupParentId(group);
-    final SContainmentLink link = getOppositeGroupLink(group);
-    final SNodeId nextNodeId = getOppositeGroupNextNodeId(group);
-    return CollectionSequence.fromCollection(getGroups(!(group.isNew()))).where(new IWhereFilter<ModifiedNodesGroup>() {
+  /*package*/ List<ModifiedNodesGroup> getOppositeNotMoveGroupsWithSamePosition(final ModifiedNodesGroup notMovegroup) {
+    assert notMovegroup.isInsertOrDelete();
+    final SNodeId parentId = getOppositeGroupParentId(notMovegroup);
+    final SContainmentLink link = getOppositeGroupLink(notMovegroup);
+    final SNodeId nextNodeId = getOppositeGroupNextNodeId(notMovegroup);
+    return CollectionSequence.fromCollection(getGroups(!(notMovegroup.isNew()))).where(new IWhereFilter<ModifiedNodesGroup>() {
       public boolean accept(ModifiedNodesGroup it) {
-        return it.isInsertOrDelete() && Objects.equals(parentId, it.getParentId()) && Objects.equals(link, it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId()) && group.getWrappingGroup() == it.getOppositeWrappingGroup() && group.getOppositeWrappingGroup() == it.getWrappingGroup();
+        return it.isInsertOrDelete() && it.isNotEmpty() && Objects.equals(parentId, it.getParentId()) && Objects.equals(link, it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId()) && notMovegroup.getWrappingGroup() == it.getOppositeWrappingGroup() && notMovegroup.getOppositeWrappingGroup() == it.getWrappingGroup();
       }
     }).sort(new ISelector<ModifiedNodesGroup, Integer>() {
       public Integer select(ModifiedNodesGroup it) {
@@ -536,8 +563,9 @@ __switch__:
     }, true).toListSequence();
   }
 
-  private SNodeId getOppositeGroupNextNodeId(ModifiedNodesGroup group) {
-    ModifiedNodesGroup nextGroup = group.getNextGroup();
+  private SNodeId getOppositeGroupNextNodeId(ModifiedNodesGroup notMoveGroup) {
+    assert notMoveGroup.isInsertOrDelete();
+    ModifiedNodesGroup nextGroup = notMoveGroup.getNextGroup();
     while (nextGroup != null) {
       if (nextGroup instanceof IdChangeGroup) {
         return ((IdChangeGroup) nextGroup).getOppositeGroup().getId();
@@ -546,24 +574,22 @@ __switch__:
         return ListSequence.fromList(((WrappingNodesGroup) nextGroup).getUnwrappedGroups()).first().getFirstNodeId();
       }
       WrappingNodesGroup oppositeWrappingGroup = nextGroup.getOppositeWrappingGroup();
-      if (oppositeWrappingGroup != null && ListSequence.fromList(oppositeWrappingGroup.getUnwrappedGroups()).first() == nextGroup) {
-        return oppositeWrappingGroup.getFirstNodeId();
-      }
-      if ((group.getWrappingGroup() != null && nextGroup.getWrappingGroup() == group.getWrappingGroup()) || (group.getOppositeWrappingGroup() != null && nextGroup.getOppositeWrappingGroup() == group.getOppositeWrappingGroup())) {
-        if (nextGroup.isWrappedMove()) {
-          // we know that this id is not renamed
-          return nextGroup.getFirstNodeId();
+      if (oppositeWrappingGroup != null && ListSequence.fromList(oppositeWrappingGroup.getUnwrappedGroups()).where(new IWhereFilter<ModifiedNodesGroup>() {
+        public boolean accept(ModifiedNodesGroup it) {
+          return it.isWrappedMove();
         }
+      }).first() == nextGroup) {
+        return oppositeWrappingGroup.getFirstNodeId();
       }
       nextGroup = nextGroup.getNextGroup();
     }
-    if (group.getWrappingGroup() != null) {
-      // this is the last wrapped group
-      // we should consider last unwrapped group then
-      ModifiedNodesGroup lastUnwrappedGroup = check_ceu2he_a0c0c0qc(check_ceu2he_a0a2a2a86(group.getWrappingGroup()));
-      return check_ceu2he_a3a2a86(lastUnwrappedGroup);
+    if (notMoveGroup.getWrappingGroup() != null && notMoveGroup.getNextNodeId() == null) {
+      // this is the last wrapped group since it does not have next group.
+      // we should take last unwrapped group as an opposite group.
+      ModifiedNodesGroup lastUnwrappedGroup = check_ceu2he_a0c0d0tc(check_ceu2he_a0a2a3a17(notMoveGroup.getWrappingGroup()));
+      return check_ceu2he_a3a3a17(lastUnwrappedGroup);
     }
-    return getRenamedNodeId(group.getNextNodeId(), group.isNew());
+    return getRenamedNodeId(notMoveGroup.getNextNodeId(), notMoveGroup.isNew());
   }
 
   private SNodeId getOppositeGroupParentId(ModifiedNodesGroup group) {
@@ -598,31 +624,31 @@ __switch__:
     }
     return id;
   }
-  private static void check_ceu2he_a0a24(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup group) {
+  private static void check_ceu2he_a0a54(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup group) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setNextGroup(group.getNextGroup());
     }
 
   }
-  private static void check_ceu2he_a1a24(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup group) {
+  private static void check_ceu2he_a1a54(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup group) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setNextNodeId(group.getNextNodeId());
     }
 
   }
-  private static ModifiedNodesGroup check_ceu2he_a0c0c0qc(List<ModifiedNodesGroup> checkedDotOperand) {
+  private static ModifiedNodesGroup check_ceu2he_a0c0d0tc(List<ModifiedNodesGroup> checkedDotOperand) {
     if (null != checkedDotOperand) {
       return ListSequence.fromList(checkedDotOperand).last();
     }
     return null;
   }
-  private static List<ModifiedNodesGroup> check_ceu2he_a0a2a2a86(WrappingNodesGroup checkedDotOperand) {
+  private static List<ModifiedNodesGroup> check_ceu2he_a0a2a3a17(WrappingNodesGroup checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getUnwrappedGroups();
     }
     return null;
   }
-  private static SNodeId check_ceu2he_a3a2a86(ModifiedNodesGroup checkedDotOperand) {
+  private static SNodeId check_ceu2he_a3a3a17(ModifiedNodesGroup checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getActualNextNodeId();
     }

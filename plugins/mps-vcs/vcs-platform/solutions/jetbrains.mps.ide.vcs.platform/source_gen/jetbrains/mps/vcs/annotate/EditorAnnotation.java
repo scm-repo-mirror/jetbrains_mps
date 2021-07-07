@@ -36,12 +36,14 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.Objects;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import java.awt.Color;
-import java.util.Objects;
 import java.util.Iterator;
 import java.util.Collection;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.vcs.diff.ui.common.EditorCellMessageUtil;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -52,7 +54,6 @@ import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.vcs.actions.AnnotationsSettings;
 import java.util.Arrays;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.vcs.annotate.ShowAllAffectedGenericAction;
 import com.intellij.diff.requests.SimpleDiffRequest;
@@ -67,6 +68,8 @@ import com.intellij.openapi.progress.ProgressManager;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import java.io.IOException;
 import com.intellij.openapi.vcs.VcsException;
+import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/1507597541852241756", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public final class EditorAnnotation implements EditorMessageOwner, AnnotationOptions.UpdateListener {
@@ -331,7 +334,19 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     }
 
     changes = SetSequence.fromSetWithValues(new HashSet<RevisionNodeChange>(), SetSequence.fromSet(changes).where(new IWhereFilter<RevisionNodeChange>() {
-      public boolean accept(RevisionNodeChange it) {
+      public boolean accept(final RevisionNodeChange it) {
+        if (SetSequence.fromSet(it.getNodeIds()).count() == 1) {
+          final Wrappers._T<SNode> node = new Wrappers._T<SNode>();
+          getModelAccess().runReadAction(new Runnable() {
+            public void run() {
+              node.value = getModel().getNode(SetSequence.fromSet(it.getNodeIds()).first());
+            }
+          });
+          if (SNodeOperations.isInstanceOf(node.value, CONCEPTS.BaseCommentAttribute$nv)) {
+            boolean commentedNode = cell.isBig() && !(Objects.equals(cell.getSNode(), node.value)) && !(Objects.equals(cell.getParent().getSNode(), node.value));
+            return !(commentedNode);
+          }
+        }
         return !(ListSequence.fromList(it.getMovedChildIds()).contains(cell.getSNode().getNodeId()));
       }
     }));
@@ -637,5 +652,9 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
       checkedDotOperand.lineAnnotationsUpdated();
     }
 
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$nv = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }

@@ -16,8 +16,15 @@ import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
+import java.util.Objects;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.jetbrains.mps.openapi.model.SNodeId;
+import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.util.Computable;
 import org.jetbrains.annotations.NotNull;
 import org.apache.log4j.Level;
@@ -25,17 +32,16 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.cells.EditorCellContext;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
-import java.util.Objects;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.nodeEditor.messageTargets.CellFinder;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4894808100206113750", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public final class EditorCellMessageUtil {
@@ -46,7 +52,7 @@ public final class EditorCellMessageUtil {
   private EditorCellMessageUtil() {
   }
 
-  public static List<EditorCell> getCells(EditorComponent editor, MessageTarget messageTarget, SNode node) {
+  public static List<EditorCell> getCells(EditorComponent editor, MessageTarget messageTarget, final SNode node) {
 
     if (messageTarget instanceof DeletedNodeMessageTarget) {
       DeletedNodeMessageTarget dmt = ((DeletedNodeMessageTarget) messageTarget);
@@ -87,10 +93,26 @@ public final class EditorCellMessageUtil {
       }).toListSequence();
     } else {
       EditorCell cell = getCellInBothWays((jetbrains.mps.nodeEditor.EditorComponent) editor, messageTarget, node);
-      if (cell != null) {
+      if (cell == null) {
+        return Collections.emptyList();
+      }
+      if (!(Objects.equals(node.getContainmentLink(), LINKS.smodelAttribute$KJ43))) {
         return Collections.singletonList(cell);
       }
-      return Collections.emptyList();
+
+      final Wrappers._T<Iterable<SNode>> descendants = new Wrappers._T<Iterable<SNode>>();
+      new ModelAccessHelper(editor.getEditorContext().getRepository()).runReadAction(new Runnable() {
+        public void run() {
+          descendants.value = SNodeOperations.getNodeDescendants(node, null, true, new SAbstractConcept[]{});
+        }
+      });
+      List<EditorCell> attributeCells = ListSequence.fromList(new ArrayList<EditorCell>());
+      findAttributeCells(node, Sequence.fromIterable(descendants.value).select(new ISelector<SNode, SNodeId>() {
+        public SNodeId select(SNode it) {
+          return it.getNodeId();
+        }
+      }), cell, attributeCells);
+      return attributeCells;
     }
   }
 
@@ -169,6 +191,30 @@ public final class EditorCellMessageUtil {
         return getCellForParentNodeInMainEditor(editor, node);
       }
     });
+  }
+
+  private static void findAttributeCells(SNode node, Iterable<SNodeId> allowedNodes, EditorCell editorCell, List<EditorCell> result) {
+
+    if (!(editorCell instanceof EditorCell_Collection)) {
+      ListSequence.fromList(result).addElement(editorCell);
+      return;
+    }
+    boolean baseCommentAttribute = SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$nv);
+    for (EditorCell childCell : ((EditorCell_Collection) editorCell)) {
+      boolean commentedNode = childCell.isBig() && !(Objects.equals(childCell.getSNode(), node)) && !(Objects.equals(childCell.getParent().getSNode(), node));
+
+      if (baseCommentAttribute && commentedNode) {
+        continue;
+      }
+
+      if (childCell instanceof EditorCell_Collection) {
+        findAttributeCells(node, allowedNodes, childCell, result);
+      } else {
+        if (Sequence.fromIterable(allowedNodes).contains(childCell.getSNode().getNodeId())) {
+          ListSequence.fromList(result).addElement(childCell);
+        }
+      }
+    }
   }
 
   public static boolean cellHasChildrenWithDifferentNode(EditorCell cell) {
@@ -267,7 +313,12 @@ public final class EditorCellMessageUtil {
     return null;
   }
 
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$KJ43 = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  }
+
   private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$nv = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
     /*package*/ static final SInterfaceConcept INamedConcept$Kd = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

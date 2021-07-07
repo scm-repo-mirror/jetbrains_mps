@@ -11,6 +11,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcs.util.MergeStrategy;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/8813828754313712692", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
@@ -89,7 +90,12 @@ public abstract class ModelChange {
         ((NodeGroupChange) ch).prepare();
       }
     }
-    Sequence.fromIterable(oppositeChanges).visitAll(new IVisitor<ModelChange>() {
+    HierarchicalNodeGroupChange.applyChanges(Sequence.fromIterable(oppositeChanges).ofType(HierarchicalNodeGroupChange.class), model, nc);
+    Sequence.fromIterable(oppositeChanges).where(new IWhereFilter<ModelChange>() {
+      public boolean accept(ModelChange it) {
+        return !(it instanceof HierarchicalNodeGroupChange);
+      }
+    }).visitAll(new IVisitor<ModelChange>() {
       public void visit(ModelChange ch) {
         ch.apply(model, nc);
       }

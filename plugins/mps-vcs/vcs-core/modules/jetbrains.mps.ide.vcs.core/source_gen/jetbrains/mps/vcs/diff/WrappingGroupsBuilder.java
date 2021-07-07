@@ -58,7 +58,7 @@ import jetbrains.mps.vcs.diff.changes.WrappingNodesGroup;
   /*package*/ void collectWrappedGroups() {
     List<ModifiedNodesGroup> notMoveGroups = CollectionSequence.fromCollection(getAllGroups()).where(new IWhereFilter<ModifiedNodesGroup>() {
       public boolean accept(ModifiedNodesGroup it) {
-        return !(it.isMove());
+        return it.isInsertOrDelete();
       }
     }).toListSequence();
     ListSequence.fromList(notMoveGroups).visitAll(new IVisitor<ModifiedNodesGroup>() {
@@ -301,6 +301,12 @@ __switch__:
     ModifiedNodesGroup nextGroup = null;
     SNodeId nextNodeId = null;
     for (ModifiedNodesGroup group : ListSequence.fromList(allWrappedGroups).reversedList()) {
+      if (nextGroup != null && nextGroup.isWrappedMove()) {
+        nextNodeId = nextGroup.getFirstNodeId();
+        nextGroup = null;
+      } else {
+        group.setNextGroup(nextGroup);
+      }
       group.setNextGroup(nextGroup);
       group.setNextNodeId(nextNodeId);
       nextGroup = group;
@@ -317,9 +323,16 @@ __switch__:
       }
     }, true).toListSequence();
 
+    nextGroup = null;
+    for (ModifiedNodesGroup group : ListSequence.fromList(unwrappedGroups).reversedList()) {
+      if (nextGroup != null && nextGroup.isWrappedMove()) {
+        group.setNextGroup(null);
+        group.setNextNodeId(nextGroup.getFirstNodeId());
+      }
+      nextGroup = group;
+    }
     return new WrappingNodesGroup(getModel(isNew), notMoveNode, null, allWrappedGroups, unwrappedGroups);
   }
-
 
   private void replaceGroupByNewGroups(List<ModifiedNodesGroup> newGroups, ModifiedNodesGroup oldGroup) {
     ModifiedNodesGroup nextGroup = oldGroup.getNextGroup();
@@ -329,8 +342,8 @@ __switch__:
       group.setNextNodeId(nextNodeId);
       nextGroup = group;
     }
-    check_eh55ud_a3a02(oldGroup.getPrevGroup(), nextGroup);
-    check_eh55ud_a4a02(oldGroup.getPrevGroup(), nextNodeId);
+    check_eh55ud_a3a91(oldGroup.getPrevGroup(), nextGroup);
+    check_eh55ud_a4a91(oldGroup.getPrevGroup(), nextNodeId);
     boolean isNew = oldGroup.isNew();
     CollectionSequence.fromCollection(getGroups(isNew)).removeElement(oldGroup);
     CollectionSequence.fromCollection(getGroups(isNew)).addSequence(ListSequence.fromList(newGroups));
@@ -341,13 +354,13 @@ __switch__:
     }
     return null;
   }
-  private static void check_eh55ud_a3a02(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup nextGroup) {
+  private static void check_eh55ud_a3a91(ModifiedNodesGroup checkedDotOperand, ModifiedNodesGroup nextGroup) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setNextGroup(nextGroup);
     }
 
   }
-  private static void check_eh55ud_a4a02(ModifiedNodesGroup checkedDotOperand, SNodeId nextNodeId) {
+  private static void check_eh55ud_a4a91(ModifiedNodesGroup checkedDotOperand, SNodeId nextNodeId) {
     if (null != checkedDotOperand) {
       checkedDotOperand.setNextNodeId(nextNodeId);
     }

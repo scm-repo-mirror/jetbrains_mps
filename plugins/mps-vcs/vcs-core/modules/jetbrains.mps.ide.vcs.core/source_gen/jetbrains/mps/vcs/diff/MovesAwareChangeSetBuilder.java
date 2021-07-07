@@ -40,7 +40,7 @@ import java.util.ArrayList;
     return ModifiedNodesBuilder.hasChanges(changeSet, oldRootNode, newRootNode);
   }
 
-  /*package*/ List<ModelChange> getChanges(boolean orderByNewGroups, boolean buildWrapChanges) {
+  /*package*/ List<ModelChange> getChanges() {
 
     if (myOldRootNode == null && myNewRootNode == null) {
       return Collections.emptyList();
@@ -63,15 +63,15 @@ import java.util.ArrayList;
     }
 
     // combine modified nodes into groups 
-    NodeGroupsBuilder groupsBuilder = new NodeGroupsBuilder(nodesBuilder, buildWrapChanges);
+    NodeGroupsBuilder groupsBuilder = new NodeGroupsBuilder(nodesBuilder, myOldRootNode, myNewRootNode);
 
     // create the changes from the groups
-    HierarchicalChangesBuilder changesBuilder = new HierarchicalChangesBuilder(groupsBuilder, buildWrapChanges, orderByNewGroups);
+    HierarchicalChangesBuilder changesBuilder = new HierarchicalChangesBuilder(groupsBuilder);
 
     List<ModelChange> changes = ListSequence.fromList(new ArrayList<ModelChange>());
     ListSequence.fromList(changes).addSequence(CollectionSequence.fromCollection(nodesBuilder.getNodeChanges()));
     ListSequence.fromList(changes).addSequence(CollectionSequence.fromCollection(groupsBuilder.getIdChanges()));
-    ListSequence.fromList(changes).addSequence(ListSequence.fromList(changesBuilder.getChanges()));
+    ListSequence.fromList(changes).addSequence(CollectionSequence.fromCollection(changesBuilder.getChanges()));
     return changes;
   }
 }

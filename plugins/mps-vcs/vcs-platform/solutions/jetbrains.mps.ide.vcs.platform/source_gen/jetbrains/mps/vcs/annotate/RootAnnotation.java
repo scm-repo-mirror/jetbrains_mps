@@ -43,6 +43,8 @@ import java.util.Set;
 import java.util.HashSet;
 import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import jetbrains.mps.vcs.diff.changes.NodeGroupWrapChange;
+import jetbrains.mps.vcs.diff.changes.ModifiedNodesGroup;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import jetbrains.mps.internal.collections.runtime.IMapping;
@@ -263,56 +265,76 @@ import jetbrains.mps.vcs.diff.changes.SetReferenceChange;
       public Iterable<SNodeId> translate(NodeGroupMoveChange it) {
         return it.getIds(true);
       }
-    }));
+    }).concat(ListSequence.fromList(changes).ofType(NodeGroupWrapChange.class).translate(new ITranslator2<NodeGroupWrapChange, SNodeId>() {
+      public Iterable<SNodeId> translate(NodeGroupWrapChange it) {
+        return ListSequence.fromList(it.getWrappingGroup().getWrappedGroups()).where(new IWhereFilter<ModifiedNodesGroup>() {
+          public boolean accept(ModifiedNodesGroup it) {
+            return it.isMove();
+          }
+        }).translate(new ITranslator2<ModifiedNodesGroup, SNodeId>() {
+          public Iterable<SNodeId> translate(ModifiedNodesGroup it) {
+            return it.getIds();
+          }
+        });
+      }
+    })));
   }
 
   private synchronized void processCommitChanges(List<ModelChange> modelChanges, final CommitsGraphNode graphNode) {
 
     final Set<SNodeId> movedNodesIds = getMovedNodeIds(modelChanges);
-    Collection<RevisionNodeChange> nodeChanges = CollectionSequence.fromCollection(new ArrayList<RevisionNodeChange>());
+    final Collection<RevisionNodeChange> nodeChanges = CollectionSequence.fromCollection(new ArrayList<RevisionNodeChange>());
     for (final StructureChange modelChange : ListSequence.fromList(getRelevantChanges(modelChanges))) {
-      final Wrappers._T<RevisionNodeChange> nodeChange = new Wrappers._T<RevisionNodeChange>();
+      final Wrappers._T<Collection<RevisionNodeChange>> revisionNodeChanges = new Wrappers._T<Collection<RevisionNodeChange>>();
       myModelAccess.runReadAction(new Runnable() {
         public void run() {
-          nodeChange.value = new RevisionNodeChange(graphNode, modelChange, movedNodesIds);
+          revisionNodeChanges.value = RevisionNodeChange.createRevisionNodeChanges(graphNode, modelChange, movedNodesIds);
         }
       });
-
-      if (nodeChange.value.getMessageTarget() instanceof DeletedNodeMessageTarget) {
-        continue;
-      }
-
-      if (graphNode.isLocalRevision()) {
-        CollectionSequence.fromCollection(nodeChanges).addElement(nodeChange.value);
-        continue;
-      }
-
-      RevisionNodeChange sameChange = MapSequence.fromMap(myAnnotation).select(new ISelector<IMapping<CommitsGraphNode, RevisionChanges>, RevisionChanges>() {
-        public RevisionChanges select(IMapping<CommitsGraphNode, RevisionChanges> it) {
-          return it.value();
+      CollectionSequence.fromCollection(revisionNodeChanges.value).visitAll(new IVisitor<RevisionNodeChange>() {
+        public void visit(RevisionNodeChange it) {
+          tryToAddNodeChange(it, graphNode, nodeChanges);
         }
-      }).translate(new ITranslator2<RevisionChanges, RevisionNodeChange>() {
-        public Iterable<RevisionNodeChange> translate(RevisionChanges it) {
-          return it.getNodeChanges();
-        }
-      }).where(new IWhereFilter<RevisionNodeChange>() {
-        public boolean accept(RevisionNodeChange it) {
-          return it.sameAs(nodeChange.value);
-        }
-      }).first();
-
-      if (sameChange == null || sameChange.getCommitsGraphNode().compareTo(nodeChange.value.getCommitsGraphNode()) < 0) {
-        CollectionSequence.fromCollection(nodeChanges).addElement(nodeChange.value);
-        if (sameChange != null) {
-          CollectionSequence.fromCollection(MapSequence.fromMap(myAnnotation).get(sameChange.getCommitsGraphNode()).getNodeChanges()).removeElement(sameChange);
-        }
-      }
+      });
     }
     if (CollectionSequence.fromCollection(nodeChanges).isNotEmpty()) {
       if (graphNode.isLocalRevision()) {
         myLocalChanges = new RevisionChanges(graphNode, nodeChanges);
       } else {
         MapSequence.fromMap(myAnnotation).put(graphNode, new RevisionChanges(graphNode, nodeChanges));
+      }
+    }
+  }
+
+  private void tryToAddNodeChange(final RevisionNodeChange nodeChange, CommitsGraphNode graphNode, Collection<RevisionNodeChange> nodeChanges) {
+
+    if (nodeChange.getMessageTarget() instanceof DeletedNodeMessageTarget) {
+      return;
+    }
+
+    if (graphNode.isLocalRevision()) {
+      CollectionSequence.fromCollection(nodeChanges).addElement(nodeChange);
+      return;
+    }
+
+    RevisionNodeChange sameChange = MapSequence.fromMap(myAnnotation).select(new ISelector<IMapping<CommitsGraphNode, RevisionChanges>, RevisionChanges>() {
+      public RevisionChanges select(IMapping<CommitsGraphNode, RevisionChanges> it) {
+        return it.value();
+      }
+    }).translate(new ITranslator2<RevisionChanges, RevisionNodeChange>() {
+      public Iterable<RevisionNodeChange> translate(RevisionChanges it) {
+        return it.getNodeChanges();
+      }
+    }).where(new IWhereFilter<RevisionNodeChange>() {
+      public boolean accept(RevisionNodeChange it) {
+        return it.sameAs(nodeChange);
+      }
+    }).first();
+
+    if (sameChange == null || sameChange.getCommitsGraphNode().compareTo(nodeChange.getCommitsGraphNode()) < 0) {
+      CollectionSequence.fromCollection(nodeChanges).addElement(nodeChange);
+      if (sameChange != null) {
+        CollectionSequence.fromCollection(MapSequence.fromMap(myAnnotation).get(sameChange.getCommitsGraphNode()).getNodeChanges()).removeElement(sameChange);
       }
     }
   }
