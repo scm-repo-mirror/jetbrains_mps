@@ -1,17 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.smodel;
 
@@ -53,8 +41,11 @@ public final class StaticReference extends SReferenceBase {
   /**
    * create 'mature' reference
    */
-  public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @Nullable SModelReference targetModelReference, @Nullable SNodeId nodeId,
-      @Nullable String resolveInfo) {
+  public StaticReference(@NotNull SReferenceLink role,
+                         @NotNull SNode sourceNode,
+                         @Nullable SModelReference targetModelReference,
+                         @Nullable SNodeId nodeId,
+                         @Nullable String resolveInfo) {
     // 'targetModelReference' can be null only if it is broken external reference
     super(role, sourceNode);
     myImmatureTargetNode = null;
@@ -292,7 +283,6 @@ public final class StaticReference extends SReferenceBase {
       targetNode = commandContext(targetModel).resolveUnregistered(targetNodeId);
     }
     myImmatureTargetNode = targetNode;
-    setResolveInfo(targetNode.getName());
 //    if (myImmatureTargetNode != null) {
 //      ImmatureReferences.getInstance().add(this);
 //    }

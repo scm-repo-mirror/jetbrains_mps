@@ -258,7 +258,7 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
       setChanged(true);
     }
     if (options.updateResolveInfoInRefs()) {
-      updateResolveInfoInRefs();
+      new ResolveInfoUpdater().updateResolveInfoInRefs(this);
     }
     if (!isChanged()) {
       return CompletableFuture.completedFuture(SaveResult.NOT_CHANGED);
@@ -277,22 +277,6 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
     }
 
     return save0();
-  }
-
-  private void updateResolveInfoInRefs() {
-    for (var node : SNodeUtil.getDescendants(this)) {
-      for (var ref : node.getReferences()) {
-        updateResolveInfo(ref);
-      }
-    }
-  }
-
-  private void updateResolveInfo(org.jetbrains.mps.openapi.model.SReference ref) {
-    SNode target = ref instanceof StaticReference ? ref.getTargetNode() : null;
-    if (target != null) {
-      String newResolveInfo = SNodeOperations.getResolveInfo(target);
-      ((StaticReference) ref).setResolveInfo(newResolveInfo);
-    }
   }
 
   @NotNull

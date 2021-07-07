@@ -22,7 +22,6 @@ import java.util.Set;
 // This is not a CoreComponent, rather an implementation friend of MA class. Since we don not control StaticReference instantiation, we resort to this
 // singleton class to record model reference come and go.
 public final class ImmatureReferences {
-
   private final TObjectIdentityHashingStrategy<StaticReference> myHashStrategy = new TObjectIdentityHashingStrategy<>();
   private final Set<StaticReference> myReferences = new THashSet<>(myHashStrategy);
 
