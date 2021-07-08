@@ -90,18 +90,8 @@ public class CloneUtil {
       TracingUtil.putInputNode(outputNode, inputNode);
     }
     for (SReference reference : inputNode.getReferences()) {
-      boolean ext = inputNode.getModel() == null || !inputNode.getModel().getReference().equals(reference.getTargetSModelReference());
-      final SModelReference targetModelReference;
-      if (ext) {
-        targetModelReference = reference.getTargetSModelReference();
-        if (targetModelReference == null) {
-          final SNode sourceNode = reference.getSourceNode();
-          LOG.warning("broken reference '" + reference.getLink().getName() + "' in " + SNodeOperations.getDebugText(sourceNode), sourceNode);
-          continue;
-        }
-      } else {
-        targetModelReference = myOutputModelRef;
-      }
+      final boolean ext = inputNode.getModel() == null || !inputNode.getModel().getReference().equals(reference.getTargetSModelReference());
+      final SModelReference targetModelReference = ext ? reference.getTargetSModelReference() : myOutputModelRef;
       // FIXME once there's no distinction between creating static and dynamic reference, no need for factory indirection.
       myFactory.create(reference, outputNode, targetModelReference);
     }
@@ -131,6 +121,13 @@ public class CloneUtil {
       // [model] clone mechanism in smodel.SReference or elsewhere not to perform instanceof
       // Besides, what if there's custom openapi.SReference impl (GenSReference) I'm not aware of? How am I supposed to clone it here?
       if (prototype instanceof StaticReference) {
+        if (targetModelRef == null) {
+          // Note, this warning makes sense only for static references. For dynamic, targetModelRef always null
+          // but we still need to clone them.
+          final SNode sourceNode = prototype.getSourceNode();
+          LOG.warning("broken reference '" + prototype.getLink().getName() + "' in " + SNodeOperations.getDebugText(sourceNode), sourceNode);
+          return;
+        }
         final SNodePointer ptr = new SNodePointer(targetModelRef, prototype.getTargetNodeId());
         outputNode.setReference(prototype.getLink(), ResolveInfo.of(ptr, ((StaticReference) prototype).getResolveInfo()));
       } else if (prototype instanceof DynamicReference) {
