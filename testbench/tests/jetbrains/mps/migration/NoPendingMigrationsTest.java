@@ -19,7 +19,6 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.migration.MigrationSetup;
-import jetbrains.mps.ide.migration.MigrationSetupImpl;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.testbench.junit.suites.BaseProjectsTest;
 import jetbrains.mps.util.IterableUtil;
@@ -54,7 +53,7 @@ public class NoPendingMigrationsTest extends BaseProjectsTest {
     List<String> projectMigrations = new ArrayList<>();
     List<String> moduleMigrations = new ArrayList<>();
     Exception exception = ThreadUtils.runInUIThreadAndWait(() -> {
-      final MigrationSetup migrationManager = new MigrationSetupImpl(getContextProject());
+      final MigrationSetup migrationManager = new MigrationSetup(getContextProject());
       migrationRequired[0] = migrationManager.importVersionsUpdateRequired();
       migrationRequired[1] = migrationManager.isMigrationRequired();
       if (migrationRequired[1]) {

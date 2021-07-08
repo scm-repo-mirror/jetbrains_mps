@@ -5285,10 +5285,10 @@
       </node>
       <node concept="2tJIrI" id="4vZEdvrq$yu" role="jymVt" />
       <node concept="3clFb_" id="4vZEdvrqAMN" role="jymVt">
-        <property role="TrG5h" value="getMigrationRegistry" />
+        <property role="TrG5h" value="getConfiguration" />
         <property role="1EzhhJ" value="true" />
         <node concept="3uibUv" id="4vZEdvrqBXh" role="3clF45">
-          <ref role="3uigEE" to="bim2:5SsFeroaabl" resolve="MigrationSetup" />
+          <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
         </node>
         <node concept="3Tmbuc" id="4vZEdvrqBpG" role="1B3o_S" />
         <node concept="3clFbS" id="4vZEdvrqAMR" role="3clF47" />
@@ -5325,10 +5325,10 @@
           <node concept="3clFbF" id="48vNO9iw3ZE" role="3cqZAp">
             <node concept="2OqwBi" id="48vNO9iw4i2" role="3clFbG">
               <node concept="1rXfSq" id="48vNO9iw3ZD" role="2Oq$k0">
-                <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getMigrationRegistry" />
+                <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getConfiguration" />
               </node>
               <node concept="liA8E" id="48vNO9iw4BH" role="2OqNvi">
-                <ref role="37wK5l" to="bim2:7W$jB0VAA6w" resolve="getModuleMigrations" />
+                <ref role="37wK5l" to="bim2:7W$jB0VB3vJ" resolve="getModuleMigrations" />
               </node>
             </node>
           </node>
@@ -5349,10 +5349,10 @@
           <node concept="3clFbF" id="48vNO9iwfZD" role="3cqZAp">
             <node concept="2OqwBi" id="48vNO9iwguL" role="3clFbG">
               <node concept="1rXfSq" id="48vNO9iwfZC" role="2Oq$k0">
-                <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getMigrationRegistry" />
+                <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getConfiguration" />
               </node>
               <node concept="liA8E" id="48vNO9iwh13" role="2OqNvi">
-                <ref role="37wK5l" to="bim2:4biA4YBnY_p" resolve="getProjectMigrations" />
+                <ref role="37wK5l" to="bim2:4biA4YBvoAV" resolve="getProjectMigrations" />
               </node>
             </node>
           </node>
@@ -6494,10 +6494,10 @@
               <node concept="3clFbF" id="4vZEdvrotKB" role="3cqZAp">
                 <node concept="2OqwBi" id="4vZEdvroujP" role="3clFbG">
                   <node concept="1rXfSq" id="4vZEdvrotKA" role="2Oq$k0">
-                    <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getMigrationRegistry" />
+                    <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getConfiguration" />
                   </node>
                   <node concept="liA8E" id="4vZEdvrouU3" role="2OqNvi">
-                    <ref role="37wK5l" to="bim2:2V3ml1v0Sjr" resolve="doUpdateImportVersions" />
+                    <ref role="37wK5l" to="bim2:2V3ml1v0Uym" resolve="doUpdateImportVersions" />
                     <node concept="2GrUjf" id="4vZEdvroxYg" role="37wK5m">
                       <ref role="2Gs0qQ" node="4vZEdvrow16" resolve="m" />
                     </node>
@@ -6554,7 +6554,7 @@
                         <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
                       </node>
                       <node concept="1rXfSq" id="6b$YhINoTZP" role="10QFUP">
-                        <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getMigrationRegistry" />
+                        <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getConfiguration" />
                       </node>
                     </node>
                   </node>

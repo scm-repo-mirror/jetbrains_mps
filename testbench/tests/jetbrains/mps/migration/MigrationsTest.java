@@ -15,32 +15,18 @@
  */
 package jetbrains.mps.migration;
 
-import com.intellij.history.core.changes.ChangeSet;
 import com.intellij.history.integration.LocalHistoryImpl;
-import com.intellij.openapi.progress.EmptyProgressIndicator;
 import jetbrains.mps.classloading.ClassLoadingBroadCaster;
-import jetbrains.mps.ide.migration.MigrationChecker;
-import jetbrains.mps.ide.migration.MigrationCheckerImpl;
-import jetbrains.mps.ide.migration.MigrationExecutor;
-import jetbrains.mps.ide.migration.MigrationExecutorImpl;
-import jetbrains.mps.ide.migration.MigrationSetup;
-import jetbrains.mps.ide.migration.MigrationSetupImpl;
-import jetbrains.mps.ide.migration.wizard.MigrationSession;
-import jetbrains.mps.ide.migration.wizard.MigrationSession.MigrationSessionBase;
-import jetbrains.mps.ide.migration.wizard.MigrationTask;
-import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.testbench.junit.suites.TestMakeUtil;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import org.jetbrains.annotations.NotNull;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.util.List;
 
 public class MigrationsTest implements EnvironmentAware {
   private static final String PROJECT_PATH = "testbench/modules/migrationLocalHist";

@@ -128,7 +128,7 @@ import java.util.Collections;
     return myProject;
   }
   @Override
-  protected MigrationSetup getMigrationRegistry() {
+  protected MigrationSetup getConfiguration() {
     throw new UnsupportedOperationException("all superclass methods requiring MR have to be overridden");
   }
   @Override

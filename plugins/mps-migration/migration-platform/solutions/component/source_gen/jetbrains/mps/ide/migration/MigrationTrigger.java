@@ -90,7 +90,7 @@ import jetbrains.mps.smodel.language.LanguageRuntime;
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/6781485246382122239", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 public class MigrationTrigger extends AbstractProjectComponent implements IStartupMigrationExecutor {
   private final MPSProject myMpsProject;
-  private final MigrationSetupImpl myProjectMigrationSetup;
+  private final MigrationSetup myProjectMigrationSetup;
   private final ReloadManager myReloadManager;
   private final LanguageRegistry myLanguageRegistry;
 
@@ -133,7 +133,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     myLanguageRegistry = mpsCore.getPlatform().findComponent(LanguageRegistry.class);
     myMake = mpsCore.getPlatform().findComponent(MakeServiceComponent.class).get();
     myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
-    myProjectMigrationSetup = new MigrationSetupImpl(p);
+    myProjectMigrationSetup = new MigrationSetup(p);
     myNotifications = new MigrationNotificationsSupport(ideaProject, p, myLanguageRegistry) {
       @Override
       public void runAssistant() {
@@ -280,7 +280,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   }
 
   private PostponedState getNewMigrations(Iterable<SModule> modules2Check) {
-    PostponedState current = PostponedState.current(new MigrationSetupImpl(myMpsProject, modules2Check));
+    PostponedState current = PostponedState.current(new MigrationSetup(myMpsProject, modules2Check));
     PostponedState saved = myPostponedState.get();
     if (saved != null) {
       current = current.substract(saved);
@@ -315,7 +315,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                   syncRefresh();
                 }
               });
-              PostponedState newState = PostponedState.current(new MigrationSetupImpl(myMpsProject));
+              PostponedState newState = PostponedState.current(new MigrationSetup(myMpsProject));
 
               if (myPostponedState.get() == null || force) {
                 boolean hasSomethingToApply = newState.hasSomethingToApply();

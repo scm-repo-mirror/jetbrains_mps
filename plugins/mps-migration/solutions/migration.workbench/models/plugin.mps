@@ -6673,9 +6673,9 @@
     <node concept="3clFb_" id="65hwFmZi2SX" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="getMigrationRegistry" />
+      <property role="TrG5h" value="getConfiguration" />
       <node concept="3uibUv" id="65hwFmZi2T0" role="3clF45">
-        <ref role="3uigEE" to="bim2:5SsFeroaabl" resolve="MigrationSetup" />
+        <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
       </node>
       <node concept="3clFbS" id="65hwFmZi2T1" role="3clF47">
         <node concept="YS8fn" id="4WgzjbQTnsO" role="3cqZAp">

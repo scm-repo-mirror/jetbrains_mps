@@ -29,7 +29,6 @@ import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.ide.migration.MigrationSetupImpl;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.module.SModuleReference;
@@ -81,16 +80,16 @@ public interface MigrationSession {
     public MigrationSessionBase() {
     }
 
-    protected abstract MigrationSetup getMigrationRegistry();
+    protected abstract MigrationSetup getConfiguration();
 
     @Override
     public Collection<ScriptApplied> getModuleMigrations() {
       // FIXME init once per session
-      return getMigrationRegistry().getModuleMigrations();
+      return getConfiguration().getModuleMigrations();
     }
     @Override
     public Collection<ProjectMigration> getProjectMigrations() {
-      return getMigrationRegistry().getProjectMigrations();
+      return getConfiguration().getProjectMigrations();
     }
 
     public MigrationError getError() {
@@ -210,7 +209,7 @@ public interface MigrationSession {
       List<SModule> modules = Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(getProject())).toListSequence();
       progress.start("Updating versions...", ListSequence.fromList(modules).count());
       for (SModule m : ListSequence.fromList(modules)) {
-        getMigrationRegistry().doUpdateImportVersions(m);
+        getConfiguration().doUpdateImportVersions(m);
         progress.advance(1);
       }
       progress.done();
@@ -220,7 +219,7 @@ public interface MigrationSession {
     @Override
     public void completed() {
       if (getError() == null && requires(MigrationStepKind.MIGRATE)) {
-        ((MigrationSetupImpl) getMigrationRegistry()).markMigratedProjectVersion();
+        ((MigrationSetup) getConfiguration()).markMigratedProjectVersion();
       }
     }
 

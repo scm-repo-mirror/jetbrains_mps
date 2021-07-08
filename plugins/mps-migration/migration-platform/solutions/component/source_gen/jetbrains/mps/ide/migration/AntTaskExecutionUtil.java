@@ -55,7 +55,7 @@ public class AntTaskExecutionUtil {
       }
     };
 
-    MigrationSetupImpl setup = new MigrationSetupImpl(project);
+    MigrationSetup setup = new MigrationSetup(project);
     MigrationSession session = new MigrationSessionImpl(project, setup, new MigrationCheckerImpl(project, setup), tracingExecutor, true, true, true);
     ProgressMonitorAdapter progress = new ProgressMonitorAdapter(new EmptyProgressIndicator());
 
