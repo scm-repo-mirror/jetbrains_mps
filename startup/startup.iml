@@ -14,13 +14,11 @@
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../lib/util.jar!/" />
           <root url="jar://$MODULE_DIR$/../lib/bootstrap.jar!/" />
-          <root url="jar://$MODULE_DIR$/../lib/trove4j.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Util" level="project" />
     <orderEntry type="library" name="Annotations" level="project" />
     <orderEntry type="module" module-name="startup-util" />
   </component>
