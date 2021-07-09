@@ -50,8 +50,7 @@
       <implementation-class>jetbrains.mps.idea.java.psi.PsiChangesWatcher</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.idea.java.refactoring.RegisterMoveStaticMemberPsiParticipant
-      </implementation-class>
+      <implementation-class>jetbrains.mps.idea.java.refactoring.RegisterMoveStaticMemberPsiParticipant</implementation-class>
     </component>
   </project-components>
 
