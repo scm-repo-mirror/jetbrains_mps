@@ -4,7 +4,6 @@
     <modelRoot contentPath="${mps_home}/plugins/git4idea/lib" type="java_classes">
       <sourceRoot location="git4idea-rt.jar" />
       <sourceRoot location="git4idea.jar" />
-      <sourceRoot location="resources_en.jar" />
     </modelRoot>
   </models>
   <facets>
@@ -16,7 +15,6 @@
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/plugins/git4idea/lib/git4idea-rt.jar" />
     <stubModelEntry path="${mps_home}/plugins/git4idea/lib/git4idea.jar" />
-    <stubModelEntry path="${mps_home}/plugins/git4idea/lib/resources_en.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

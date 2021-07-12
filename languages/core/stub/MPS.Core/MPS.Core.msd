@@ -18,9 +18,7 @@
     </modelRoot>
     <modelRoot contentPath="${platform_lib}" type="java_classes">
       <!-- For historical reasons, next libraries were exposed through MPS.Core; need to write migration code to update references to proper solutions -->
-      <sourceRoot location="log4j.jar" />
-      <sourceRoot location="trove4j.jar" />
-      <sourceRoot location="jdom.jar" />
+      <sourceRoot location="util.jar" />
       <sourceRoot location="ecj-4.16.jar" />
     </modelRoot>
   </models>
@@ -45,9 +43,7 @@
     <stubModelEntry path="${mps_home}/lib/mps-tuples.jar" />
     <stubModelEntry path="${mps_home}/lib/mps-constraints-runtime.jar" />
     <!-- Some code expects MPS.Core to provide next libraries as classpath. Don't want to add guava, xstream, asm-all unless have to do so-->
-    <stubModelEntry path="${platform_lib}/log4j.jar" />
-    <stubModelEntry path="${platform_lib}/trove4j.jar" />
-    <stubModelEntry path="${platform_lib}/jdom.jar" />
+    <stubModelEntry path="${platform_lib}/util.jar" />
     <stubModelEntry path="${platform_lib}/ecj-4.16.jar" />
   </stubModelEntries>
   <sourcePath />
