@@ -7669,7 +7669,7 @@
         </node>
         <node concept="3cpWs8" id="T86AKN1Xzs" role="3cqZAp">
           <node concept="3cpWsn" id="T86AKN1Xzt" role="3cpWs9">
-            <property role="TrG5h" value="jdomLib" />
+            <property role="TrG5h" value="util" />
             <node concept="3Tqbb2" id="T86AKN1Xzh" role="1tU5fm">
               <ref role="ehGHo" to="3ior:5gfUUDxhbxN" resolve="BuildSource_JavaLibrary" />
             </node>
@@ -7700,7 +7700,7 @@
                     <ref role="3cqZAo" node="2TqXzNe$YQE" resolve="project" />
                   </node>
                   <node concept="Xl_RD" id="T86AKN1XzB" role="37wK5m">
-                    <property role="Xl_RC" value="jdom-lib" />
+                    <property role="Xl_RC" value="util" />
                   </node>
                 </node>
               </node>
@@ -7714,7 +7714,7 @@
           <node concept="3clFbS" id="T86AKN25pW" role="3clFbx">
             <node concept="3cpWs8" id="T86AKN4IAD" role="3cqZAp">
               <node concept="3cpWsn" id="T86AKN4IAE" role="3cpWs9">
-                <property role="TrG5h" value="jdomJarRef" />
+                <property role="TrG5h" value="utilJarRef" />
                 <node concept="3Tqbb2" id="T86AKN4IAz" role="1tU5fm">
                   <ref role="ehGHo" to="3ior:4RsV8qJGJpc" resolve="BuildSource_JavaExternalJarRef" />
                 </node>
@@ -7726,7 +7726,7 @@
                         <node concept="2OqwBi" id="T86AKN4IAJ" role="2Oq$k0">
                           <node concept="2OqwBi" id="T86AKN4IAK" role="2Oq$k0">
                             <node concept="37vLTw" id="T86AKN4IAL" role="2Oq$k0">
-                              <ref role="3cqZAo" node="T86AKN1Xzt" resolve="jdomLib" />
+                              <ref role="3cqZAo" node="T86AKN1Xzt" resolve="util" />
                             </node>
                             <node concept="3Tsc0h" id="T86AKN4IAM" role="2OqNvi">
                               <ref role="3TtcxE" to="3ior:5gfUUDxhech" resolve="elements" />
@@ -7756,7 +7756,7 @@
             </node>
             <node concept="3cpWs8" id="T86AKN2h1p" role="3cqZAp">
               <node concept="3cpWsn" id="T86AKN2h1q" role="3cpWs9">
-                <property role="TrG5h" value="jdomArtifact" />
+                <property role="TrG5h" value="utilArtifact" />
                 <node concept="3Tqbb2" id="T86AKN2h1e" role="1tU5fm">
                   <ref role="ehGHo" to="3ior:6qcrfIJF4M5" resolve="BuildLayout_Node" />
                 </node>
@@ -7770,7 +7770,7 @@
                       <ref role="37wK5l" to="o3n2:6PrCok1LkPV" resolve="findArtifact" />
                       <node concept="2OqwBi" id="T86AKN4IUv" role="37wK5m">
                         <node concept="37vLTw" id="T86AKN4IAS" role="2Oq$k0">
-                          <ref role="3cqZAo" node="T86AKN4IAE" resolve="jdomJarRef" />
+                          <ref role="3cqZAo" node="T86AKN4IAE" resolve="utilJarRef" />
                         </node>
                         <node concept="3TrEf2" id="T86AKN4Jln" role="2OqNvi">
                           <ref role="3Tt5mk" to="3ior:4RsV8qJGJpd" resolve="jar" />
@@ -7794,10 +7794,10 @@
                     <node concept="liA8E" id="T86AKN6QWq" role="2OqNvi">
                       <ref role="37wK5l" to="o3n2:7i60FrlvY8I" resolve="addWithTag" />
                       <node concept="37vLTw" id="T86AKN6QX0" role="37wK5m">
-                        <ref role="3cqZAo" node="T86AKN2h1q" resolve="jdomArtifact" />
+                        <ref role="3cqZAo" node="T86AKN2h1q" resolve="utilArtifact" />
                       </node>
                       <node concept="Xl_RD" id="T86AKN6MlZ" role="37wK5m">
-                        <property role="Xl_RC" value="jdom" />
+                        <property role="Xl_RC" value="util" />
                       </node>
                     </node>
                   </node>
@@ -7806,7 +7806,7 @@
               <node concept="3y3z36" id="T86AKN2los" role="3clFbw">
                 <node concept="10Nm6u" id="T86AKN2loQ" role="3uHU7w" />
                 <node concept="37vLTw" id="T86AKN2lfQ" role="3uHU7B">
-                  <ref role="3cqZAo" node="T86AKN2h1q" resolve="jdomArtifact" />
+                  <ref role="3cqZAo" node="T86AKN2h1q" resolve="utilArtifact" />
                 </node>
               </node>
             </node>
@@ -7814,158 +7814,7 @@
           <node concept="3y3z36" id="T86AKN26$e" role="3clFbw">
             <node concept="10Nm6u" id="T86AKN270U" role="3uHU7w" />
             <node concept="37vLTw" id="T86AKN2601" role="3uHU7B">
-              <ref role="3cqZAo" node="T86AKN1Xzt" resolve="jdomLib" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs8" id="T86AKN20AO" role="3cqZAp">
-          <node concept="3cpWsn" id="T86AKN20AP" role="3cpWs9">
-            <property role="TrG5h" value="log4jLib" />
-            <node concept="3Tqbb2" id="T86AKN20AQ" role="1tU5fm">
-              <ref role="ehGHo" to="3ior:5gfUUDxhbxN" resolve="BuildSource_JavaLibrary" />
-            </node>
-            <node concept="1PxgMI" id="T86AKN20AR" role="33vP2m">
-              <property role="1BlNFB" value="true" />
-              <node concept="2OqwBi" id="T86AKN20AS" role="1m5AlR">
-                <node concept="2OqwBi" id="T86AKN20AT" role="2Oq$k0">
-                  <node concept="37vLTw" id="T86AKN20AU" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2TqXzNe$YQE" resolve="project" />
-                  </node>
-                  <node concept="2qgKlT" id="T86AKN20AV" role="2OqNvi">
-                    <ref role="37wK5l" to="tpcu:52_Geb4QFgX" resolve="getScope" />
-                    <node concept="35c_gC" id="42Bx8VcbYPg" role="37wK5m">
-                      <ref role="35c_gD" to="3ior:5gfUUDxhbxN" resolve="BuildSource_JavaLibrary" />
-                    </node>
-                    <node concept="359W_D" id="42Bx8VcbYXd" role="37wK5m">
-                      <ref role="359W_E" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
-                      <ref role="359W_F" to="3ior:6qcrfIJFfrM" resolve="parts" />
-                    </node>
-                    <node concept="3cmrfG" id="T86AKN20AY" role="37wK5m">
-                      <property role="3cmrfH" value="0" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="liA8E" id="T86AKN20AZ" role="2OqNvi">
-                  <ref role="37wK5l" to="o8zo:3fifI_xCtP3" resolve="resolve" />
-                  <node concept="37vLTw" id="T86AKN20B0" role="37wK5m">
-                    <ref role="3cqZAo" node="2TqXzNe$YQE" resolve="project" />
-                  </node>
-                  <node concept="Xl_RD" id="T86AKN20B1" role="37wK5m">
-                    <property role="Xl_RC" value="log4j-lib" />
-                  </node>
-                </node>
-              </node>
-              <node concept="chp4Y" id="714IaVdGYXF" role="3oSUPX">
-                <ref role="cht4Q" to="3ior:5gfUUDxhbxN" resolve="BuildSource_JavaLibrary" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="T86AKN2iDq" role="3cqZAp">
-          <node concept="3clFbS" id="T86AKN2iDs" role="3clFbx">
-            <node concept="3cpWs8" id="T86AKN4Sk2" role="3cqZAp">
-              <node concept="3cpWsn" id="T86AKN4Sk3" role="3cpWs9">
-                <property role="TrG5h" value="log4jJarRef" />
-                <node concept="3Tqbb2" id="T86AKN4SjM" role="1tU5fm">
-                  <ref role="ehGHo" to="3ior:4RsV8qJGJpc" resolve="BuildSource_JavaExternalJarRef" />
-                </node>
-                <node concept="2OqwBi" id="T86AKN4Sk4" role="33vP2m">
-                  <node concept="1PxgMI" id="T86AKN4Sk5" role="2Oq$k0">
-                    <property role="1BlNFB" value="true" />
-                    <node concept="2OqwBi" id="T86AKN4Sk6" role="1m5AlR">
-                      <node concept="2OqwBi" id="T86AKN4Sk7" role="2Oq$k0">
-                        <node concept="2OqwBi" id="T86AKN4Sk8" role="2Oq$k0">
-                          <node concept="2OqwBi" id="T86AKN4Sk9" role="2Oq$k0">
-                            <node concept="37vLTw" id="T86AKN4Ska" role="2Oq$k0">
-                              <ref role="3cqZAo" node="T86AKN20AP" resolve="log4jLib" />
-                            </node>
-                            <node concept="3Tsc0h" id="T86AKN4Skb" role="2OqNvi">
-                              <ref role="3TtcxE" to="3ior:5gfUUDxhech" resolve="elements" />
-                            </node>
-                          </node>
-                          <node concept="v3k3i" id="T86AKN4Skc" role="2OqNvi">
-                            <node concept="chp4Y" id="T86AKN4Skd" role="v3oSu">
-                              <ref role="cht4Q" to="3ior:3elU8iQ7kMV" resolve="BuildSource_JavaLibraryCP" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="1uHKPH" id="T86AKN4Ske" role="2OqNvi" />
-                      </node>
-                      <node concept="3TrEf2" id="T86AKN4Skf" role="2OqNvi">
-                        <ref role="3Tt5mk" to="3ior:3elU8iQ7kMX" resolve="classpath" />
-                      </node>
-                    </node>
-                    <node concept="chp4Y" id="714IaVdGYXv" role="3oSUPX">
-                      <ref role="cht4Q" to="3ior:4RsV8qJHgQB" resolve="BuildSource_JavaLibraryExternalJar" />
-                    </node>
-                  </node>
-                  <node concept="3TrEf2" id="T86AKN4Skg" role="2OqNvi">
-                    <ref role="3Tt5mk" to="3ior:4RsV8qJHgQC" resolve="extJar" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3cpWs8" id="T86AKN2kKO" role="3cqZAp">
-              <node concept="3cpWsn" id="T86AKN2kKP" role="3cpWs9">
-                <property role="TrG5h" value="log4jArtifact" />
-                <node concept="3Tqbb2" id="T86AKN2kKF" role="1tU5fm">
-                  <ref role="ehGHo" to="3ior:6qcrfIJF4M5" resolve="BuildLayout_Node" />
-                </node>
-                <node concept="1PxgMI" id="T86AKN71SJ" role="33vP2m">
-                  <property role="1BlNFB" value="true" />
-                  <node concept="2OqwBi" id="T86AKN2kKQ" role="1m5AlR">
-                    <node concept="37vLTw" id="T86AKN2kKR" role="2Oq$k0">
-                      <ref role="3cqZAo" node="27eOSzOUT_S" resolve="artifacts" />
-                    </node>
-                    <node concept="liA8E" id="T86AKN2kKS" role="2OqNvi">
-                      <ref role="37wK5l" to="o3n2:6PrCok1LkPV" resolve="findArtifact" />
-                      <node concept="2OqwBi" id="T86AKN4SJq" role="37wK5m">
-                        <node concept="37vLTw" id="T86AKN4SAo" role="2Oq$k0">
-                          <ref role="3cqZAo" node="T86AKN4Sk3" resolve="log4jJarRef" />
-                        </node>
-                        <node concept="3TrEf2" id="T86AKN4SQq" role="2OqNvi">
-                          <ref role="3Tt5mk" to="3ior:4RsV8qJGJpd" resolve="jar" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="chp4Y" id="714IaVdGYWK" role="3oSUPX">
-                    <ref role="cht4Q" to="3ior:6qcrfIJF4M5" resolve="BuildLayout_Node" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbJ" id="T86AKN2l1F" role="3cqZAp">
-              <node concept="3clFbS" id="T86AKN2l1H" role="3clFbx">
-                <node concept="3clFbF" id="T86AKN72Ts" role="3cqZAp">
-                  <node concept="2OqwBi" id="T86AKN72Zi" role="3clFbG">
-                    <node concept="37vLTw" id="T86AKN72Tq" role="2Oq$k0">
-                      <ref role="3cqZAo" node="27eOSzOUT_U" resolve="builder" />
-                    </node>
-                    <node concept="liA8E" id="T86AKN734O" role="2OqNvi">
-                      <ref role="37wK5l" to="o3n2:7i60FrlvY8I" resolve="addWithTag" />
-                      <node concept="37vLTw" id="T86AKN737b" role="37wK5m">
-                        <ref role="3cqZAo" node="T86AKN2kKP" resolve="log4jArtifact" />
-                      </node>
-                      <node concept="Xl_RD" id="T86AKN72_M" role="37wK5m">
-                        <property role="Xl_RC" value="log4j" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3y3z36" id="T86AKN2lbV" role="3clFbw">
-                <node concept="10Nm6u" id="T86AKN2lcl" role="3uHU7w" />
-                <node concept="37vLTw" id="T86AKN2l3l" role="3uHU7B">
-                  <ref role="3cqZAo" node="T86AKN2kKP" resolve="log4jArtifact" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3y3z36" id="T86AKN2jMb" role="3clFbw">
-            <node concept="10Nm6u" id="T86AKN2ke3" role="3uHU7w" />
-            <node concept="37vLTw" id="T86AKN2jeM" role="3uHU7B">
-              <ref role="3cqZAo" node="T86AKN20AP" resolve="log4jLib" />
+              <ref role="3cqZAo" node="T86AKN1Xzt" resolve="util" />
             </node>
           </node>
         </node>

@@ -80,20 +80,12 @@ public final class BuildMPSPlugin__BehaviorDescriptor extends BaseBHDescriptor {
     }
     // FIXME consider JavaExternalLibraryHelper re-use
     // XXX isn't it odd to populate DependenciesHelper here (addWithTag hides this now, but still), and not in unpack?
-    SNode jdomLib = SNodeOperations.as(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke(project, CONCEPTS.BuildSource_JavaLibrary$6q, LINKS.parts$mGDj, ((int) 0)).resolve(project, "jdom-lib"), CONCEPTS.BuildSource_JavaLibrary$6q);
-    if (jdomLib != null) {
-      SNode jdomJarRef = SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(jdomLib, LINKS.elements$fli0), CONCEPTS.BuildSource_JavaLibraryCP$up)).first(), LINKS.classpath$WEG$), CONCEPTS.BuildSource_JavaLibraryExternalJar$gz), LINKS.extJar$Hzyz);
-      SNode jdomArtifact = SNodeOperations.as(artifacts.findArtifact(SLinkOperations.getTarget(jdomJarRef, LINKS.jar$JLD3)), CONCEPTS.BuildLayout_Node$Rb);
-      if (jdomArtifact != null) {
-        builder.addWithTag(jdomArtifact, "jdom");
-      }
-    }
-    SNode log4jLib = SNodeOperations.as(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke(project, CONCEPTS.BuildSource_JavaLibrary$6q, LINKS.parts$mGDj, ((int) 0)).resolve(project, "log4j-lib"), CONCEPTS.BuildSource_JavaLibrary$6q);
-    if (log4jLib != null) {
-      SNode log4jJarRef = SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(log4jLib, LINKS.elements$fli0), CONCEPTS.BuildSource_JavaLibraryCP$up)).first(), LINKS.classpath$WEG$), CONCEPTS.BuildSource_JavaLibraryExternalJar$gz), LINKS.extJar$Hzyz);
-      SNode log4jArtifact = SNodeOperations.as(artifacts.findArtifact(SLinkOperations.getTarget(log4jJarRef, LINKS.jar$JLD3)), CONCEPTS.BuildLayout_Node$Rb);
-      if (log4jArtifact != null) {
-        builder.addWithTag(log4jArtifact, "log4j");
+    SNode util = SNodeOperations.as(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke(project, CONCEPTS.BuildSource_JavaLibrary$6q, LINKS.parts$mGDj, ((int) 0)).resolve(project, "util"), CONCEPTS.BuildSource_JavaLibrary$6q);
+    if (util != null) {
+      SNode utilJarRef = SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(util, LINKS.elements$fli0), CONCEPTS.BuildSource_JavaLibraryCP$up)).first(), LINKS.classpath$WEG$), CONCEPTS.BuildSource_JavaLibraryExternalJar$gz), LINKS.extJar$Hzyz);
+      SNode utilArtifact = SNodeOperations.as(artifacts.findArtifact(SLinkOperations.getTarget(utilJarRef, LINKS.jar$JLD3)), CONCEPTS.BuildLayout_Node$Rb);
+      if (utilArtifact != null) {
+        builder.addWithTag(utilArtifact, "util");
       }
     }
 

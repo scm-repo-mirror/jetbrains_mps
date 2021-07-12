@@ -26,8 +26,7 @@
 
   <path id="path.mps.ant.path">
     <pathelement location="${mps_build_home}/lib/ant/lib/ant-mps.jar"/>
-    <pathelement location="${mps_build_home}/lib/jdom.jar"/>
-    <pathelement location="${mps_build_home}/lib/log4j.jar"/>
+    <pathelement location="${mps_build_home}/lib/util.jar"/>
   </path>
 
   <path id="test_classpath">

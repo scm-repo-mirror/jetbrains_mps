@@ -696,8 +696,8 @@
       <node concept="nCB5N" id="4Wqyp$2_Whg" role="nCB5Z">
         <ref role="nCB5Y" node="47JXWa7IVSW" resolve="pattern-runtime" />
       </node>
-      <node concept="2sjeV3" id="2MtyMjH3rOy" role="nCB5Z">
-        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
+      <node concept="2sjeV3" id="4YmhUESdX3j" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
     </node>
     <node concept="398b33" id="4_qKb05xiaz" role="3989C9">
@@ -1356,8 +1356,8 @@
       <node concept="2sjeV3" id="1nB28rXdoq" role="nCB5Z">
         <ref role="2sjeV2" node="1t0Ry55x4qv" resolve="annotations-lib" />
       </node>
-      <node concept="2sjeV3" id="1nB28rXdRw" role="nCB5Z">
-        <ref role="2sjeV2" node="6NgXkpBqq5l" resolve="log4j-lib" />
+      <node concept="2sjeV3" id="4YmhUESdVRW" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
       <node concept="nCB5N" id="1nB28rXPU6" role="nCB5Z">
         <ref role="nCB5Y" node="3A27KL0TKsc" resolve="mps-project" />
@@ -1828,11 +1828,6 @@
           <node concept="3LWZYx" id="6VpnTvSD3UY" role="3LXTna">
             <property role="3LWZYw" value="**/*.svg" />
           </node>
-        </node>
-      </node>
-      <node concept="2GhqfE" id="5DAo_J9annZ" role="nCB5Z">
-        <node concept="3yrxFa" id="5DAo_J9ano3" role="3yrxIG">
-          <ref role="3yrxFb" node="5DAo_J9amSF" />
         </node>
       </node>
       <node concept="2GhqfE" id="5DAo_J9ano9" role="nCB5Z">
@@ -24117,19 +24112,6 @@
           </node>
         </node>
       </node>
-      <node concept="25zrj4" id="5xa9wY2vqbq" role="nCB5Z">
-        <node concept="2HycW7" id="5xa9wY2vqbr" role="25zrj5">
-          <node concept="398BVA" id="5xa9wY2vqbt" role="25ysHA">
-            <ref role="398BVh" node="2eDSGe9d1qB" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="5xa9wY2vqbu" role="iGT6I">
-              <property role="2Ry0Am" value="lib" />
-              <node concept="2Ry0Ak" id="5xa9wY2vqbv" role="2Ry0An">
-                <property role="2Ry0Am" value="trove4j.jar" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
       <node concept="25zrj4" id="5xa9wY2vqbx" role="nCB5Z">
         <node concept="2HycW7" id="5xa9wY2vqby" role="25zrj5">
           <node concept="398BVA" id="5xa9wY2vqb$" role="25ysHA">
@@ -24138,45 +24120,6 @@
               <property role="2Ry0Am" value="lib" />
               <node concept="2Ry0Ak" id="5xa9wY2vqbA" role="2Ry0An">
                 <property role="2Ry0Am" value="util.jar" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="25zrj4" id="5xa9wY2vqbB" role="nCB5Z">
-        <node concept="2HycW7" id="5xa9wY2vqbC" role="25zrj5">
-          <node concept="398BVA" id="5xa9wY2vqbD" role="25ysHA">
-            <ref role="398BVh" node="2eDSGe9d1qB" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="5xa9wY2vqbE" role="iGT6I">
-              <property role="2Ry0Am" value="lib" />
-              <node concept="2Ry0Ak" id="5xa9wY2vqbF" role="2Ry0An">
-                <property role="2Ry0Am" value="jdom.jar" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="25zrj4" id="5xa9wY2vqbG" role="nCB5Z">
-        <node concept="2HycW7" id="5xa9wY2vqbH" role="25zrj5">
-          <node concept="398BVA" id="5xa9wY2vqbI" role="25ysHA">
-            <ref role="398BVh" node="2eDSGe9d1qB" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="5xa9wY2vqbJ" role="iGT6I">
-              <property role="2Ry0Am" value="lib" />
-              <node concept="2Ry0Ak" id="5xa9wY2vqbK" role="2Ry0An">
-                <property role="2Ry0Am" value="log4j.jar" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="25zrj4" id="5xa9wY2vqbL" role="nCB5Z">
-        <node concept="2HycW7" id="5xa9wY2vqbM" role="25zrj5">
-          <node concept="398BVA" id="5xa9wY2vqbN" role="25ysHA">
-            <ref role="398BVh" node="2eDSGe9d1qB" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="5xa9wY2vqbO" role="iGT6I">
-              <property role="2Ry0Am" value="lib" />
-              <node concept="2Ry0Ak" id="5xa9wY2vqbP" role="2Ry0An">
-                <property role="2Ry0Am" value="extensions.jar" />
               </node>
             </node>
           </node>
@@ -25703,27 +25646,6 @@
           </node>
         </node>
       </node>
-      <node concept="13uQ2_" id="6eCuTcwOX1H" role="39821P">
-        <node concept="3_J27D" id="6eCuTcwOX1I" role="13uQ07">
-          <node concept="3Mxwew" id="6eCuTcwOX1J" role="3MwsjC">
-            <property role="3MwjfP" value="jdom.jar" />
-          </node>
-        </node>
-      </node>
-      <node concept="13uQ2_" id="6eCuTcwOX1R" role="39821P">
-        <node concept="3_J27D" id="6eCuTcwOX1S" role="13uQ07">
-          <node concept="3Mxwew" id="6eCuTcwOX1T" role="3MwsjC">
-            <property role="3MwjfP" value="log4j.jar" />
-          </node>
-        </node>
-      </node>
-      <node concept="13uQ2_" id="6eCuTcwOX1W" role="39821P">
-        <node concept="3_J27D" id="6eCuTcwOX1X" role="13uQ07">
-          <node concept="3Mxwew" id="6eCuTcwOX1Y" role="3MwsjC">
-            <property role="3MwjfP" value="trove4j.jar" />
-          </node>
-        </node>
-      </node>
       <node concept="13uQ2_" id="6eCuTcwOX20" role="39821P">
         <node concept="3_J27D" id="6eCuTcwOX21" role="13uQ07">
           <node concept="3Mxwew" id="6eCuTcwOX22" role="3MwsjC">
@@ -25749,13 +25671,6 @@
         <node concept="3_J27D" id="4Xk_ETUiPTp" role="13uQ07">
           <node concept="3Mxwew" id="4Xk_ETUiPU7" role="3MwsjC">
             <property role="3MwjfP" value="asm-all-9.1.jar" />
-          </node>
-        </node>
-      </node>
-      <node concept="13uQ2_" id="5DAo_J9amSF" role="39821P">
-        <node concept="3_J27D" id="5DAo_J9amSH" role="13uQ07">
-          <node concept="3Mxwew" id="5DAo_J9amTl" role="3MwsjC">
-            <property role="3MwjfP" value="icons.jar" />
           </node>
         </node>
       </node>
@@ -25890,13 +25805,6 @@
               </node>
             </node>
           </node>
-          <node concept="13uQ2_" id="7ad8nWle5Zl" role="39821P">
-            <node concept="3_J27D" id="7ad8nWle5Zn" role="13uQ07">
-              <node concept="3Mxwew" id="7ad8nWle655" role="3MwsjC">
-                <property role="3MwjfP" value="resources_en.jar" />
-              </node>
-            </node>
-          </node>
         </node>
       </node>
       <node concept="398223" id="4tNwrSpam8n" role="39821P">
@@ -25922,13 +25830,6 @@
             <node concept="3_J27D" id="7ad8nWle67T" role="13uQ07">
               <node concept="3Mxwew" id="7ad8nWle68r" role="3MwsjC">
                 <property role="3MwjfP" value="sqlite-jdbc-3.20.1.jar" />
-              </node>
-            </node>
-          </node>
-          <node concept="13uQ2_" id="7ad8nWle69r" role="39821P">
-            <node concept="3_J27D" id="7ad8nWle69t" role="13uQ07">
-              <node concept="3Mxwew" id="7ad8nWle6at" role="3MwsjC">
-                <property role="3MwjfP" value="resources_en.jar" />
               </node>
             </node>
           </node>
@@ -38167,15 +38068,6 @@
     <node concept="26EafG" id="BJYGrH08XA" role="26Ea7d">
       <property role="26EafJ" value="lib/util.jar" />
     </node>
-    <node concept="26EafG" id="BJYGrH08XB" role="26Ea7d">
-      <property role="26EafJ" value="lib/jdom.jar" />
-    </node>
-    <node concept="26EafG" id="BJYGrH08XC" role="26Ea7d">
-      <property role="26EafJ" value="lib/log4j.jar" />
-    </node>
-    <node concept="26EafG" id="BJYGrH08XE" role="26Ea7d">
-      <property role="26EafJ" value="lib/trove4j.jar" />
-    </node>
     <node concept="26EafG" id="BsOHnjrceI" role="26Ea7d">
       <property role="26EafJ" value="lib/jna.jar" />
     </node>
@@ -44466,28 +44358,6 @@
           </node>
         </node>
       </node>
-      <node concept="1SiIV0" id="4wxeloVug44" role="3bR37C">
-        <node concept="1BurEX" id="4wxeloVug45" role="1SiIV1">
-          <node concept="398BVA" id="4wxeloVug3U" role="1BurEY">
-            <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
-            <node concept="2Ry0Ak" id="4wxeloVug3V" role="iGT6I">
-              <property role="2Ry0Am" value="plugins" />
-              <node concept="2Ry0Ak" id="4wxeloVug3W" role="2Ry0An">
-                <property role="2Ry0Am" value="git4idea" />
-                <node concept="2Ry0Ak" id="4wxeloVug3X" role="2Ry0An">
-                  <property role="2Ry0Am" value="lib" />
-                  <node concept="2Ry0Ak" id="4wxeloVug3Y" role="2Ry0An">
-                    <property role="2Ry0Am" value="resources_en.jar" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3yrxFa" id="2NYcxOd6q7f" role="2gdwQb">
-            <ref role="3yrxFb" node="7ad8nWle5Zl" />
-          </node>
-        </node>
-      </node>
     </node>
     <node concept="m$_wf" id="4wxeloVufXr" role="3989C9">
       <property role="m$_wk" value="jetbrains.mps.git4idea.stubs" />
@@ -44637,24 +44507,6 @@
                       <property role="2Ry0Am" value="lib" />
                       <node concept="2Ry0Ak" id="GF9IugZbcD" role="2Ry0An">
                         <property role="2Ry0Am" value="git4idea-rt.jar" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3yLZsm" id="GF9IugZbfu" role="3yL2VB">
-              <property role="3yLZsk" value="../../git4idea/lib/resources_en.jar" />
-              <node concept="398BVA" id="GF9IugZbfv" role="3yLZsn">
-                <ref role="398BVh" node="6ifcnI8$2ke" resolve="mps_home" />
-                <node concept="2Ry0Ak" id="GF9IugZbfw" role="iGT6I">
-                  <property role="2Ry0Am" value="plugins" />
-                  <node concept="2Ry0Ak" id="GF9IugZbfx" role="2Ry0An">
-                    <property role="2Ry0Am" value="git4idea" />
-                    <node concept="2Ry0Ak" id="GF9IugZbfy" role="2Ry0An">
-                      <property role="2Ry0Am" value="lib" />
-                      <node concept="2Ry0Ak" id="GF9IugZbfz" role="2Ry0An">
-                        <property role="2Ry0Am" value="resources_en.jar" />
                       </node>
                     </node>
                   </node>
@@ -49351,16 +49203,6 @@
         </node>
       </node>
     </node>
-    <node concept="PiPfp" id="1t0Ry55x4qz" role="3989C9">
-      <property role="TrG5h" value="jdom-lib" />
-      <node concept="25yagZ" id="1t0Ry55x4q$" role="PiKyV">
-        <node concept="3yqu4x" id="1t0Ry55x4q_" role="25yagT">
-          <node concept="3yrxFa" id="1t0Ry55x4qA" role="3yqu4I">
-            <ref role="3yrxFb" node="6eCuTcwOX1H" />
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="PiPfp" id="1FaKCGJSzMS" role="3989C9">
       <property role="TrG5h" value="idea-ant" />
       <node concept="25yagZ" id="2vaDE4tAX34" role="PiKyV">
@@ -49371,22 +49213,12 @@
         </node>
       </node>
     </node>
-    <node concept="PiPfp" id="6NgXkpBqq5l" role="3989C9">
-      <property role="TrG5h" value="log4j-lib" />
-      <node concept="25yagZ" id="4RsV8qJHuxI" role="PiKyV">
-        <node concept="3yqu4x" id="4RsV8qJHuxJ" role="25yagT">
-          <node concept="3yrxFa" id="4RsV8qJHuZq" role="3yqu4I">
-            <ref role="3yrxFb" node="6eCuTcwOX1R" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="PiPfp" id="6S1jmf0xDFH" role="3989C9">
-      <property role="TrG5h" value="trove4j" />
-      <node concept="25yagZ" id="4RsV8qJHuxL" role="PiKyV">
-        <node concept="3yqu4x" id="4RsV8qJHuxM" role="25yagT">
-          <node concept="3yrxFa" id="4RsV8qJHuZr" role="3yqu4I">
-            <ref role="3yrxFb" node="6eCuTcwOX1W" />
+    <node concept="PiPfp" id="4YmhUESdVsA" role="3989C9">
+      <property role="TrG5h" value="util" />
+      <node concept="25yagZ" id="4YmhUESdVsB" role="PiKyV">
+        <node concept="3yqu4x" id="4YmhUESdVsC" role="25yagT">
+          <node concept="3yrxFa" id="4YmhUESdVyb" role="3yqu4I">
+            <ref role="3yrxFb" node="5DAo_J9amU0" />
           </node>
         </node>
       </node>
@@ -49602,11 +49434,8 @@
           </node>
         </node>
       </node>
-      <node concept="2sjeV3" id="6NgXkpBnnLF" role="nCB5Z">
-        <ref role="2sjeV2" node="1t0Ry55x4qz" resolve="jdom-lib" />
-      </node>
-      <node concept="2sjeV3" id="6NgXkpBqv72" role="nCB5Z">
-        <ref role="2sjeV2" node="6NgXkpBqq5l" resolve="log4j-lib" />
+      <node concept="2sjeV3" id="4YmhUESdVzc" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
       <node concept="2sjeV3" id="6NgXkpBaBt9" role="nCB5Z">
         <property role="2a2d0E" value="false" />
@@ -49640,7 +49469,7 @@
       <property role="TrG5h" value="mps-logging" />
       <node concept="2sjeV3" id="1s0vtrwZkwM" role="nCB5Z">
         <property role="2a2d0E" value="true" />
-        <ref role="2sjeV2" node="6NgXkpBqq5l" resolve="log4j-lib" />
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
       <node concept="nCB5N" id="1s0vtrwZo2C" role="nCB5Z">
         <ref role="nCB5Y" node="1s0vtrwURQP" resolve="mps-annotations" />
@@ -49746,8 +49575,8 @@
         <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="1s0vtrwURQP" resolve="mps-annotations" />
       </node>
-      <node concept="2sjeV3" id="4YAukiuqFBv" role="nCB5Z">
-        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
+      <node concept="2sjeV3" id="4YmhUESdXIh" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
       <node concept="398b2D" id="3vjn6$4rsZi" role="398b2p">
         <node concept="398BVA" id="3vjn6$4rsZj" role="398b2C">
@@ -49801,8 +49630,8 @@
       <node concept="nCB5N" id="3vjn6$4v68Q" role="nCB5Z">
         <ref role="nCB5Y" node="3vjn6$4rsZc" resolve="util-core" />
       </node>
-      <node concept="2sjeV3" id="5dCxNuZJ7k2" role="nCB5Z">
-        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
+      <node concept="2sjeV3" id="4YmhUESdXIt" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
     </node>
     <node concept="398b33" id="42Iv58Wf3Ei" role="3989C9">
@@ -49827,8 +49656,8 @@
         <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="3vjn6$4rsZc" resolve="util-core" />
       </node>
-      <node concept="2sjeV3" id="4EZl5JbWaYq" role="nCB5Z">
-        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
+      <node concept="2sjeV3" id="4YmhUESdXIM" role="nCB5Z">
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
       <node concept="398b2D" id="42Iv58WeTIy" role="398b2p">
         <node concept="398BVA" id="42Iv58WeV$i" role="398b2C">
@@ -50164,13 +49993,9 @@
       <node concept="nCB5N" id="1vxgdUOrFfq" role="nCB5Z">
         <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />
       </node>
-      <node concept="2sjeV3" id="6NgXkpBjPQ0" role="nCB5Z">
+      <node concept="2sjeV3" id="4YmhUESdVzq" role="nCB5Z">
         <property role="2a2d0E" value="true" />
-        <ref role="2sjeV2" node="1t0Ry55x4qz" resolve="jdom-lib" />
-      </node>
-      <node concept="2sjeV3" id="5WR0ub2I5Ro" role="nCB5Z">
-        <property role="2a2d0E" value="true" />
-        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
+        <ref role="2sjeV2" node="4YmhUESdVsA" resolve="util" />
       </node>
     </node>
     <node concept="398b33" id="3A27KL0TKsc" role="3989C9">

@@ -42,7 +42,7 @@ public class JarClassPathItemTest {
   public void testJarNestedInJar() throws Exception {
     // any jar would do, preferably with a name that won't change when platform updates.
     // I can create a custom one, just don't see a reason to bother
-    final File ij = new File(PathManager.getHomePath(), "lib/log4j.jar");
+    final File ij = new File(PathManager.getHomePath(), "lib/util.jar");
     final File oj = File.createTempFile("outer", ".jar");
     oj.deleteOnExit();
     try (JarOutputStream jos = new JarOutputStream(new FileOutputStream(oj))) {

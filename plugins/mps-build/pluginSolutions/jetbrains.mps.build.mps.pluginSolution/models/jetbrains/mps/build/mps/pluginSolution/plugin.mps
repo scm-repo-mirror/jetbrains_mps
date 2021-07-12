@@ -15227,15 +15227,6 @@
                 <node concept="26EafG" id="BJYGrH08XA" role="26Ea7d">
                   <property role="26EafJ" value="lib/util.jar" />
                 </node>
-                <node concept="26EafG" id="BJYGrH08XB" role="26Ea7d">
-                  <property role="26EafJ" value="lib/jdom.jar" />
-                </node>
-                <node concept="26EafG" id="BJYGrH08XC" role="26Ea7d">
-                  <property role="26EafJ" value="lib/log4j.jar" />
-                </node>
-                <node concept="26EafG" id="BJYGrH08XE" role="26Ea7d">
-                  <property role="26EafJ" value="lib/trove4j.jar" />
-                </node>
                 <node concept="26EafG" id="BsOHnjrceI" role="26Ea7d">
                   <property role="26EafJ" value="lib/jna.jar" />
                 </node>
