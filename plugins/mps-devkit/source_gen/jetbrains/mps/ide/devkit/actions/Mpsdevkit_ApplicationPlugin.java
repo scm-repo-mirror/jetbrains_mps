@@ -15,7 +15,6 @@ import jetbrains.mps.ide.actions.AnalyzeModule_ActionGroup;
 import jetbrains.mps.ide.actions.Tools_ActionGroup;
 import jetbrains.mps.ide.actions.NamespaceNewActions_ActionGroup;
 import jetbrains.mps.ide.actions.LanguageActions_ActionGroup;
-import jetbrains.mps.ide.actions.FlyingActions_ActionGroup;
 import jetbrains.mps.ide.actions.DevkitActions_ActionGroup;
 import jetbrains.mps.ide.actions.GeneratorActions_ActionGroup;
 import jetbrains.mps.ide.actions.SolutionActions_ActionGroup;
@@ -114,7 +113,6 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(LanguageNewCustomPartActions_ActionGroup.ID, LanguageNewActions_ActionGroup.ID, LanguageNewActions_ActionGroup.LABEL_ID_newAspect);
     insertGroupIntoAnother(NamespaceNewActionsEx_ActionGroup.ID, NamespaceNewActions_ActionGroup.ID, null);
     insertGroupIntoAnother(FindLanguageUsages_ActionGroup.ID, LanguageActions_ActionGroup.ID, LanguageActions_ActionGroup.LABEL_ID_find_usages);
-    insertGroupIntoAnother(RuntimeFolderActions_ActionGroup.ID, FlyingActions_ActionGroup.ID, null);
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, DevkitActions_ActionGroup.ID, DevkitActions_ActionGroup.LABEL_ID_find_usages);
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, GeneratorActions_ActionGroup.ID, GeneratorActions_ActionGroup.LABEL_ID_find_usages);
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, SolutionActions_ActionGroup.ID, SolutionActions_ActionGroup.LABEL_ID_find_usages);

@@ -510,7 +510,6 @@
       <modulePath path="$PROJECT_DIR$/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/jetbrains.mps.baseLanguage.testRefs.testLang.mpl" folder="tests.BL references" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/jetbrains.mps.baseLanguage.testRefs/jetbrains.mps.baseLanguage.testRefs.msd" folder="tests.BL references" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/simpleProject/solutions/simpleProject/simpleProject.msd" folder="tests.diskMemoryConflict" />
-      <modulePath path="$PROJECT_DIR$/testbench/modules/testActions/jetbrains.mps.testActions.msd" folder="tests" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L1/BHL1.mpl" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L2/BHL2.mpl" folder="tests.testBehavior" />
       <modulePath path="$PROJECT_DIR$/testbench/modules/testBehavior/languages/L3/BHL3.mpl" folder="tests.testBehavior" />

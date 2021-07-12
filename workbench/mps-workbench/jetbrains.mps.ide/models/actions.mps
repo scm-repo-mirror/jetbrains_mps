@@ -1036,9 +1036,6 @@
   <node concept="tC5Ba" id="hyf4Hgq">
     <property role="TrG5h" value="ModelActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Model" />
-    <node concept="tT9cl" id="4tZNbTvQiDR" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDLCO" role="ftER_">
       <node concept="10WQ6h" id="1ePK2dvwshF" role="ftvYc">
         <property role="TrG5h" value="newActions" />
@@ -1132,9 +1129,6 @@
   <node concept="tC5Ba" id="hyf4HGL">
     <property role="TrG5h" value="ProjectActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Project" />
-    <node concept="tT9cl" id="3x0JEQldLkH" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDKKC" role="ftER_">
       <node concept="10WQ6h" id="hyahB7P" role="ftvYc">
         <property role="TrG5h" value="projectNew" />
@@ -1210,9 +1204,6 @@
   <node concept="tC5Ba" id="hyf4IKE">
     <property role="TrG5h" value="LanguageActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Language" />
-    <node concept="tT9cl" id="3x0JEQldLkC" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDJpr" role="ftER_">
       <node concept="10WQ6h" id="hyajjwa" role="ftvYc">
         <property role="TrG5h" value="newGroup" />
@@ -1242,9 +1233,6 @@
   <node concept="tC5Ba" id="hyf4Jd1">
     <property role="TrG5h" value="SolutionActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Solution" />
-    <node concept="tT9cl" id="3x0JEQldKmh" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDUNP" role="ftER_">
       <node concept="10WQ6h" id="hyalGNA" role="ftvYc">
         <property role="TrG5h" value="solutionNew" />
@@ -1286,9 +1274,6 @@
   <node concept="tC5Ba" id="hyf4J_e">
     <property role="TrG5h" value="DevkitActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Devkit" />
-    <node concept="tT9cl" id="4tZNbTvQcLO" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDtuE" role="ftER_">
       <node concept="10WQ6h" id="1Yktpp4om2p" role="ftvYc">
         <property role="TrG5h" value="check" />
@@ -1336,9 +1321,6 @@
   <node concept="tC5Ba" id="hyf4JZ8">
     <property role="TrG5h" value="GeneratorActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Generator" />
-    <node concept="tT9cl" id="4tZNbTvQiDX" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDxBf" role="ftER_">
       <node concept="10WQ6h" id="hyes0L3" role="ftvYc">
         <property role="TrG5h" value="generatorNew" />
@@ -1359,9 +1341,6 @@
   <node concept="tC5Ba" id="hyf4KbA">
     <property role="TrG5h" value="TransientModulesActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.TransientModules" />
-    <node concept="tT9cl" id="4tZNbTvPNGj" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDWs8" role="ftER_">
       <node concept="tCFHf" id="hGoJmeO" role="ftvYc">
         <ref role="tCJdB" node="hGoIdF8" resolve="RemoveTransientModels" />
@@ -5199,9 +5178,6 @@
   <node concept="tC5Ba" id="hHO$Mm0">
     <property role="TrG5h" value="FileActions" />
     <property role="3GE5qa" value="Menu.FileView" />
-    <node concept="tT9cl" id="3x0JEQldLkF" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hHO_zRN" role="ftER_">
       <node concept="10WQ6h" id="hHO__5z" role="ftvYc">
         <property role="TrG5h" value="abstractFileActions" />
@@ -5211,9 +5187,6 @@
   <node concept="tC5Ba" id="hHO_2Y6">
     <property role="TrG5h" value="FolderActions" />
     <property role="3GE5qa" value="Menu.FileView" />
-    <node concept="tT9cl" id="3x0JEQldLkD" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hHO_DGw" role="ftER_">
       <node concept="10WQ6h" id="hHO_DGx" role="ftvYc">
         <property role="TrG5h" value="abstractFileActions" />
@@ -5223,9 +5196,6 @@
   <node concept="tC5Ba" id="hHO_ap1">
     <property role="TrG5h" value="ModuleActions" />
     <property role="3GE5qa" value="Menu.FileView" />
-    <node concept="tT9cl" id="4tZNbTvQiDQ" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hHO_F6t" role="ftER_">
       <node concept="10WQ6h" id="hHO_F6u" role="ftvYc">
         <property role="TrG5h" value="abstractFileActions" />
@@ -5300,9 +5270,6 @@
   <node concept="tC5Ba" id="hQgQFu$">
     <property role="TrG5h" value="PackageActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Packages" />
-    <node concept="tT9cl" id="4tZNbTvQiDS" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hQhdL0f" role="ftER_">
       <node concept="10WQ6h" id="2tI2dcwuQgX" role="ftvYc">
         <property role="TrG5h" value="newActions" />
@@ -5323,9 +5290,6 @@
   <node concept="tC5Ba" id="hQh2F9P">
     <property role="TrG5h" value="NamespaceActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Packages" />
-    <node concept="tT9cl" id="4tZNbTvQcLP" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hQhemVH" role="ftER_">
       <node concept="10WQ6h" id="hQhenBr" role="ftvYc">
         <property role="TrG5h" value="namespaceInternal" />
@@ -5517,9 +5481,6 @@
   <node concept="tC5Ba" id="hSPPZ$r">
     <property role="TrG5h" value="ReferenceNodeActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Node" />
-    <node concept="tT9cl" id="4tZNbTvQiDY" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hSPS8jM" role="ftER_">
       <node concept="tCFHf" id="hSPS8LP" role="ftvYc">
         <ref role="tCJdB" node="hSPQ8SF" resolve="DeleteReferenceAction" />
@@ -5828,9 +5789,6 @@
   <node concept="tC5Ba" id="hSPWb4a">
     <property role="TrG5h" value="PropertyNodeActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Node" />
-    <node concept="tT9cl" id="4tZNbTvQcLQ" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="hSPWb4b" role="ftER_">
       <node concept="tCFHf" id="hSPWb4c" role="ftvYc">
         <ref role="tCJdB" node="hSPVNcR" resolve="DeletePropertyAction" />
@@ -18672,18 +18630,12 @@
     <property role="TrG5h" value="JUnitTestCaseActions" />
     <property role="3GE5qa" value="BaseLanguage.JUnitOutput" />
     <property role="1XlLyE" value="true" />
-    <node concept="tT9cl" id="4tZNbTvPNLm" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="1aswVvlWXHF" role="ftER_" />
   </node>
   <node concept="tC5Ba" id="1aswVvlWXHG">
     <property role="TrG5h" value="JUnitTestMethodActions" />
     <property role="3GE5qa" value="BaseLanguage.JUnitOutput" />
     <property role="1XlLyE" value="true" />
-    <node concept="tT9cl" id="4tZNbTvQiDT" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="1aswVvlWXHH" role="ftER_" />
   </node>
   <node concept="sE7Ow" id="1ePK2dvw5PC">
@@ -23876,9 +23828,6 @@
   <node concept="tC5Ba" id="5LMwfTe3ae5">
     <property role="TrG5h" value="NamespaceMakeActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Packages" />
-    <node concept="tT9cl" id="4tZNbTvQiDU" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="5LMwfTe3ae7" role="ftER_">
       <node concept="10WQ6h" id="5LMwfTe3ae8" role="ftvYc">
         <property role="TrG5h" value="make" />
@@ -24201,9 +24150,6 @@
   <node concept="tC5Ba" id="hyf4Gvz">
     <property role="TrG5h" value="NodeActions" />
     <property role="3GE5qa" value="Menu.ProjectPane.Node" />
-    <node concept="tT9cl" id="4tZNbTvPNLn" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="h$fDSTY" role="ftER_">
       <node concept="10WQ6h" id="7jff0wjeeqm" role="ftvYc">
         <property role="TrG5h" value="newActions" />
@@ -25329,9 +25275,6 @@
     <property role="3GE5qa" value="Menu.ProjectPane.Packages" />
     <property role="2f7twF" value="New" />
     <property role="1XlLyE" value="true" />
-    <node concept="tT9cl" id="4tZNbTvRfrh" role="2f5YQi">
-      <ref role="tU$_T" node="3x0JEQldoed" resolve="FlyingActions" />
-    </node>
     <node concept="ftmFs" id="3vQPCiAiTPC" role="ftER_">
       <node concept="tCFHf" id="3vQPCiAiTPH" role="ftvYc">
         <ref role="tCJdB" node="hSQishw" resolve="NewSolution" />
@@ -33000,29 +32943,6 @@
             </node>
           </node>
         </node>
-      </node>
-    </node>
-  </node>
-  <node concept="tC5Ba" id="3x0JEQldoed">
-    <property role="TrG5h" value="FlyingActions" />
-    <node concept="ftmFs" id="3x0JEQldpI$" role="ftER_">
-      <node concept="tCFHf" id="7yauBUcYpmr" role="ftvYc">
-        <ref role="tCJdB" node="2Fydl1EdN_l" resolve="ShowDependenciesInViewer" />
-      </node>
-      <node concept="tCFHf" id="4tZNbTvQcLN" role="ftvYc">
-        <ref role="tCJdB" node="7TSspuy9Ap" resolve="RenameModulesVirtualFolder" />
-      </node>
-      <node concept="tCFHf" id="7kKUpL4KTQ3" role="ftvYc">
-        <ref role="tCJdB" node="5I8fr3HMh8V" resolve="RemoveModulesVirtualFolder" />
-      </node>
-      <node concept="tCFHf" id="IdD8aesCxu" role="ftvYc">
-        <ref role="tCJdB" node="5I8fr3HGQqZ" resolve="RenameModelsNamespace" />
-      </node>
-      <node concept="tCFHf" id="4tZNbTvQiDW" role="ftvYc">
-        <ref role="tCJdB" node="185rHHJdnAu" resolve="ShowInDependenciesViewer" />
-      </node>
-      <node concept="tCFHf" id="2aZcM6jf4CI" role="ftvYc">
-        <ref role="tCJdB" node="5ACi1uVc9On" resolve="SetPluginIdToCompileInIdeaModules" />
       </node>
     </node>
   </node>

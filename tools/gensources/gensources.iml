@@ -1222,11 +1222,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/simpleProject/solutions/simpleProject/source_gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/simpleProject/solutions/simpleProject/classes_gen" />
     </content>
-    <content url="file://$MODULE_DIR$/../../testbench/modules/testActions">
-      <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testActions/source_gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testActions/test_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testActions/classes_gen" />
-    </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testBehavior">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testBehavior/languages/L1/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testBehavior/languages/L2/source_gen" isTestSource="false" />

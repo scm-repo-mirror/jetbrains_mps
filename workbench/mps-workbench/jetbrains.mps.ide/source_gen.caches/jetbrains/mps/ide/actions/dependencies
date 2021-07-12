@@ -1264,13 +1264,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode extendsClassName="jetbrains.mps.workbench.action.BaseAction" />
   </dependency>
-  <dependency className="jetbrains.mps.ide.actions.FlyingActions_ActionGroup">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
-  </dependency>
   <dependency className="jetbrains.mps.ide.actions.FolderActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
@@ -1797,7 +1790,6 @@
     <classNode dependClassName="jetbrains.mps.ide.actions.FindUsages_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.ide.actions.FixModuleImportsInProject_Action" />
     <classNode dependClassName="jetbrains.mps.ide.actions.FixModuleImports_Action" />
-    <classNode dependClassName="jetbrains.mps.ide.actions.FlyingActions_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.ide.actions.FolderActions_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.ide.actions.ForceSaveAll_Action" />
     <classNode dependClassName="jetbrains.mps.ide.actions.GeneratorActions_ActionGroup" />
