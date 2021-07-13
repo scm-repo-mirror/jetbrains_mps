@@ -351,16 +351,9 @@ public abstract class BaseTool {
     }
     ToolWindow toolWindow = getToolWindow();
     if (toolWindow != null) {
-      String lastActiveToolWindowId = myWindowManager.getLastActiveToolWindowId();
       myWindowManager.unregisterToolWindow(myId);
       ContentManager contentManager = toolWindow.getContentManager();
       Disposer.dispose(contentManager);
-      // overcoming the IJ bug IDEA-264792
-      ToolWindow activeToolWindow = myWindowManager.getToolWindow(lastActiveToolWindowId);
-      if (activeToolWindow != null) {
-        activeToolWindow.hide();
-        activeToolWindow.show();
-      }
     }
     myIsRegistered = false;
   }
