@@ -15,19 +15,17 @@
  */
 package jetbrains.mps.editor.runtime.style;
 
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.StyleAttributeProvider;
 import jetbrains.mps.openapi.editor.style.StyleAttribute;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.smodel.language.LanguageRegistryListener;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.util.annotation.ToRemove;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.ApiStatus.Internal;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConceptFeature;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.awt.Color;
@@ -55,34 +53,7 @@ public class StyleAttributes {
 
   private static StyleAttributes ourInstance;
 
-  private static final Logger LOG = Logger.wrap(LogManager.getLogger(StyleAttributes.class));
-
   private StyleAttributes() {
-    if (LanguageRegistry.getInstance() == null) {
-      // For testing purposes
-      // TODO: modify this code. Introduce ILanguageAspect.dispose() method, unregister
-      // TODO: StyleAttributes from EditorAspectDescriptor.dispose()
-      // TODO: similar code present in ValidEditorDescriptorsCache
-      return;
-    }
-    LanguageRegistry.getInstance().addRegistryListener(new LanguageRegistryListener() {
-      @Override
-      public void afterLanguagesLoaded(Iterable<LanguageRuntime> languages) {
-      }
-
-      @Override
-      public void beforeLanguagesUnloaded(Iterable<LanguageRuntime> languages) {
-        for (LanguageRuntime language : languages) {
-          Map<String, StyleAttribute> attributeMap = ourLanguageAttributes.get(language);
-          if (attributeMap != null) {
-            for (StyleAttribute attribute : attributeMap.values()) {
-              attribute.unregister();
-            }
-            ourLanguageAttributes.remove(language);
-          }
-        }
-      }
-    });
   }
 
   public static StyleAttributes getInstance() {
@@ -149,6 +120,32 @@ public class StyleAttributes {
       ourLanguageAttributes.get(language).put(attributeName, attribute);
       attribute.register();
       return attribute;
+    }
+  }
+
+  // invoke when StyleAttributeProvider is disposed to clear any cached instance of attribute provided by the language
+  // does nothing if no attributes for the language were ever queried.
+  // since 2021.2
+  public void forgetAttributes(@NotNull SLanguage language) {
+    // FIXME use SLanguage as key instead of LanguageRuntime
+    LanguageRuntime match = null;
+    for (LanguageRuntime lr : ourLanguageAttributes.keySet()) {
+      if (language.equals(lr.getIdentity())) {
+        match = lr;
+        break;
+      }
+    }
+    if (match == null) {
+      return;
+    }
+    final Map<String, StyleAttribute> knownAttributes = ourLanguageAttributes.remove(match);
+    if (knownAttributes != null) {
+      // odd code, has to be != null. This is the way it was in original LanguageRegistryListener impl
+      for (StyleAttribute attribute : knownAttributes.values()) {
+        // XXX not sure that I need register/unregister in StyleAttribute, when
+        // both these activities happen here, in this class
+        attribute.unregister();
+      }
     }
   }
 
