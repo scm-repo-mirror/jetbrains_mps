@@ -407,6 +407,9 @@
     <node concept="tT9cl" id="7$e6lgA3BAr" role="2f5YQi">
       <ref role="tU$_T" to="tprs:hyf4HSg" resolve="ProjectNewActions" />
     </node>
+    <node concept="tT9cl" id="6mhEhX8ilqs" role="2f5YQi">
+      <ref role="tU$_T" to="tprs:3vQPCiAiTP$" resolve="NamespaceNewActions" />
+    </node>
   </node>
   <node concept="sE7Ow" id="7$e6lgA3B_D">
     <property role="TrG5h" value="GeneratePluginSolution" />
