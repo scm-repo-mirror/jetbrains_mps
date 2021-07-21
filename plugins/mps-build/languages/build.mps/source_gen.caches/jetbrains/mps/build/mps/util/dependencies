@@ -246,14 +246,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModuleId" />
   </dependency>
-  <dependency className="jetbrains.mps.build.mps.util.ModuleLoaderException">
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.Throwable" />
-    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="java.lang.RuntimeException" />
-  </dependency>
   <dependency className="jetbrains.mps.build.mps.util.ModuleLoaderUtils">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />

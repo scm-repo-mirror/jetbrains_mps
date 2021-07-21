@@ -34,7 +34,6 @@
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
-    <import index="ncw5" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.util.annotation(Annotations/)" />
     <import index="31cb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.module(MPS.Core/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="ap4t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator(MPS.Core/)" />
@@ -89,14 +88,9 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
         <reference id="2820489544401957798" name="classifier" index="HV5vE" />
@@ -194,9 +188,6 @@
       <concept id="1225271369338" name="jetbrains.mps.baseLanguage.structure.IsEmptyOperation" flags="nn" index="17RlXB" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
-      </concept>
-      <concept id="1111509017652" name="jetbrains.mps.baseLanguage.structure.FloatingPointConstant" flags="nn" index="3b6qkQ">
-        <property id="1113006610751" name="value" index="$nhwW" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <property id="4276006055363816570" name="isSynchronized" index="od$2w" />
@@ -374,9 +365,6 @@
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
         <reference id="2217234381367530213" name="classifier" index="VXe09" />
@@ -15502,93 +15490,6 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="7cOEBlPPAXG" role="1B3o_S" />
-  </node>
-  <node concept="312cEu" id="6tgFcyzWR3Q">
-    <property role="TrG5h" value="ModuleLoaderException" />
-    <node concept="3uibUv" id="6tgFcyzWU_X" role="1zkMxy">
-      <ref role="3uigEE" to="wyt6:~RuntimeException" resolve="RuntimeException" />
-    </node>
-    <node concept="312cEg" id="3HwLahs6bkm" role="jymVt">
-      <property role="TrG5h" value="node" />
-      <node concept="3Tqbb2" id="3HwLahs6bko" role="1tU5fm" />
-      <node concept="3Tm6S6" id="3HwLahs6bkn" role="1B3o_S" />
-    </node>
-    <node concept="3clFbW" id="ermczCV39L" role="jymVt">
-      <node concept="3clFbS" id="ermczCV39O" role="3clF47">
-        <node concept="XkiVB" id="ermczCV39P" role="3cqZAp">
-          <ref role="37wK5l" to="wyt6:~RuntimeException.&lt;init&gt;(java.lang.String,java.lang.Throwable)" resolve="RuntimeException" />
-          <node concept="37vLTw" id="2BHiRxgm7F_" role="37wK5m">
-            <ref role="3cqZAo" node="ermczCV39X" resolve="message" />
-          </node>
-          <node concept="37vLTw" id="2BHiRxgmcpv" role="37wK5m">
-            <ref role="3cqZAo" node="ermczCV3aa" resolve="cause" />
-          </node>
-        </node>
-        <node concept="3clFbF" id="ermczCV39R" role="3cqZAp">
-          <node concept="37vLTI" id="ermczCV39S" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxgm8wP" role="37vLTx">
-              <ref role="3cqZAo" node="ermczCV39Z" resolve="node" />
-            </node>
-            <node concept="2OqwBi" id="ermczCV39T" role="37vLTJ">
-              <node concept="2OwXpG" id="ermczCV39V" role="2OqNvi">
-                <ref role="2Oxat5" node="3HwLahs6bkm" resolve="node" />
-              </node>
-              <node concept="Xjq3P" id="ermczCV39U" role="2Oq$k0" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="ermczCV39N" role="1B3o_S" />
-      <node concept="3cqZAl" id="ermczCV39M" role="3clF45" />
-      <node concept="37vLTG" id="ermczCV39X" role="3clF46">
-        <property role="TrG5h" value="message" />
-        <node concept="17QB3L" id="ermczCV39Y" role="1tU5fm" />
-      </node>
-      <node concept="37vLTG" id="ermczCV39Z" role="3clF46">
-        <property role="TrG5h" value="node" />
-        <node concept="3Tqbb2" id="ermczCV3a0" role="1tU5fm" />
-      </node>
-      <node concept="37vLTG" id="ermczCV3aa" role="3clF46">
-        <property role="TrG5h" value="cause" />
-        <node concept="3uibUv" id="ermczCV3af" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Throwable" resolve="Throwable" />
-        </node>
-      </node>
-    </node>
-    <node concept="3clFb_" id="3HwLahs6bkv" role="jymVt">
-      <property role="TrG5h" value="getNode" />
-      <node concept="3Tqbb2" id="3HwLahs6bkw" role="3clF45" />
-      <node concept="3Tm1VV" id="3HwLahs6bkx" role="1B3o_S" />
-      <node concept="3clFbS" id="3HwLahs6bky" role="3clF47">
-        <node concept="3clFbF" id="3HwLahs6bkz" role="3cqZAp">
-          <node concept="37vLTw" id="2BHiRxeuWPw" role="3clFbG">
-            <ref role="3cqZAo" node="3HwLahs6bkm" resolve="node" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3Tm1VV" id="6tgFcyzWR3R" role="1B3o_S" />
-    <node concept="3UR2Jj" id="6cqWk79SrGy" role="lGtFl">
-      <node concept="TZ5HI" id="6cqWk79SrGz" role="3nqlJM">
-        <node concept="TZ5HA" id="6cqWk79SrG$" role="3HnX3l">
-          <node concept="1dT_AC" id="6cqWk79SrIx" role="1dT_Ay">
-            <property role="1dT_AB" value="This exception is never thrown, drop its catch() clause and other uses. ModuleLoader and ModuleChecker report errors through IMessageHandler now" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="6cqWk79SrG_" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-    </node>
-    <node concept="2AHcQZ" id="6cqWk79SrIz" role="2AJF6D">
-      <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-      <node concept="2B6LJw" id="6cqWk79SrUp" role="2B76xF">
-        <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-        <node concept="3b6qkQ" id="6cqWk79SrZT" role="2B70Vg">
-          <property role="$nhwW" value="2017.3" />
-        </node>
-      </node>
-    </node>
   </node>
   <node concept="312cEu" id="6tgFcyzLvoC">
     <property role="TrG5h" value="ModuleLoaderUtils" />
