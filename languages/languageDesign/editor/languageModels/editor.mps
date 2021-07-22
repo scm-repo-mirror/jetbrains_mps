@@ -39,6 +39,7 @@
     <import index="7a0s" ref="r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)" />
     <import index="g51k" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cells(MPS.Editor/)" />
     <import index="25zl" ref="r:7bd127a5-e641-4c13-b150-b9c9b96f76ae(jetbrains.mps.lang.modelapi.editor)" />
+    <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
     <import index="tp25" ref="r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)" implicit="true" />
     <import index="tpdg" ref="r:00000000-0000-4000-0000-011c895902a8(jetbrains.mps.lang.actions.structure)" implicit="true" />
   </imports>
@@ -3956,12 +3957,25 @@
                 <property role="VOm3f" value="false" />
               </node>
             </node>
-            <node concept="3F2HdR" id="hGCG0n2" role="3EZMnx">
-              <ref role="1NtTu8" to="tpc2:gyPyayW" resolve="keystroke" />
-              <node concept="VPM3Z" id="hGCG0n3" role="3F10Kt">
-                <property role="VOm3f" value="false" />
+            <node concept="3EZMnI" id="4aV90YofpOT" role="3EZMnx">
+              <node concept="2iRkQZ" id="4aV90YofpOU" role="2iSdaV" />
+              <node concept="3F2HdR" id="hGCG0n2" role="3EZMnx">
+                <ref role="1NtTu8" to="tpc2:gyPyayW" resolve="keystroke" />
+                <node concept="VPM3Z" id="hGCG0n3" role="3F10Kt">
+                  <property role="VOm3f" value="false" />
+                </node>
+                <node concept="2EHx9g" id="i2IxuUU" role="2czzBx" />
               </node>
-              <node concept="2EHx9g" id="i2IxuUU" role="2czzBx" />
+              <node concept="3F0ifn" id="4aV90YofpPr" role="3EZMnx">
+                <property role="3F0ifm" value="Enter a character to handle KeyTyped events." />
+                <ref role="1k5W1q" to="tpch:6t_vhrzKdF" resolve="Comment" />
+                <node concept="VPM3Z" id="4aV90Yok8f3" role="3F10Kt" />
+              </node>
+              <node concept="3F0ifn" id="4aV90YofpRx" role="3EZMnx">
+                <property role="3F0ifm" value="Enter a VK_xxx constant to handle KeyPressed events." />
+                <ref role="1k5W1q" to="tpch:6t_vhrzKdF" resolve="Comment" />
+                <node concept="VPM3Z" id="4aV90Yok8f5" role="3F10Kt" />
+              </node>
             </node>
             <node concept="VPM3Z" id="hGCG0n4" role="3F10Kt">
               <property role="VOm3f" value="false" />
