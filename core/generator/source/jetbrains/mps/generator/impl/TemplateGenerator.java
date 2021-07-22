@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -125,6 +125,9 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
   private final TransitionTrace myTransitionTrace;
   private final IPerformanceTracer myPerformanceTrace; // not null
   private final ArrayList<LMCollector> myPerThreadLabels = new ArrayList<>();
+  private final ArrayList<EmployedLanguageCollector> myLanguageCollectors = new ArrayList<>();
+  private final Object myAuxEnvPartsLock = new Object();
+  private final ArrayList<SLanguage> myEmployedLanguages = new ArrayList<>();
 
   static final class StepArguments {
     public final GenPlanActiveStep planStep;
@@ -264,6 +267,9 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       // be using model scopes and TypeSystem, and latter is quite picky about imports.
       // we don't use any repository as it's ok to reference language's accessory model explicitly for a transient model
       new ModelDependencyUpdate(getOutputModel()).updateUsedLanguages().updateImportedModels(null);
+      EmployedLanguageCollector lc = new EmployedLanguageCollector();
+      myLanguageCollectors.forEach(lc::addAll);
+      lc.forEachLanguage(myEmployedLanguages::add);
     }
 
     // replace reference placeholders (PostponedReference) with resolved
@@ -284,6 +290,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       getBlockedReductionsData().advanceStep();
       checkMonitorCanceled();
     }
+    myEmployedLanguages.clear();
     return myChanged;
   }
 
@@ -515,6 +522,11 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     return super.getOutputModel();
   }
 
+  // empty unless #apply() changed anything
+  /*package*/ Collection<SLanguage> getEmployedLanguages() {
+    return myEmployedLanguages;
+  }
+
   /**
    * Executor for queries from primary/main thread. If there's only one thread, this is the only query executor out there.
    * For parallel execution, {@link ParallelTemplateGenerator subclass} shall provide an appropriate wrapper as needed and when needed
@@ -541,13 +553,14 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     // FIXME revisit need to QueryExecutionContext, likely don't need one if switch to per-query tracing/wrapping
     // FIXME revisit use of template processor there, it's only necessary for interpreted templates, can I avoid exposing it
     //       from TEE?
-    return teeTracksLabels(new TemplateExecutionEnvironmentImpl(myTemplateProcessor, queryExecutor, new ReductionTrack(getBlockedReductionsData())));
+    return teeAuxParts(new TemplateExecutionEnvironmentImpl(myTemplateProcessor, queryExecutor, new ReductionTrack(getBlockedReductionsData())));
   }
 
-  private TemplateExecutionEnvironmentImpl teeTracksLabels(TemplateExecutionEnvironmentImpl env) {
-    synchronized (myPerThreadLabels) {
+  private TemplateExecutionEnvironmentImpl teeAuxParts(TemplateExecutionEnvironmentImpl env) {
+    synchronized (myAuxEnvPartsLock) {
       // newExecutionEnvironment can get invoked in parallel threads
       myPerThreadLabels.add(env.getNamedLabels());
+      myLanguageCollectors.add(env.getEmployedLanguages());
     }
     return env;
   }
@@ -829,7 +842,13 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     return myPlanStep;
   }
 
-  public void checkIsExpectedLanguage(@NotNull Iterable<SNode> nodes, @NotNull SNodeReference templateNode, @NotNull TemplateContext templateContext) {
+  // FIXME with TEEImpl responsible to collect languages that showed up during transformations
+  //       we could report 'unexpected' languages as a single operation once step is over.
+  //       Keep in mind, for a 'partial' GP, 'unexpected' languages are fine, in fact.
+  //       Benefit of this method is that it has a reference to template where the node showed up (otherwise,
+  //       might be tricky to nail the location down at the end of the step).
+  //       Also, have to deal with cases when an uncontrolled node comes from $INSERT$ or a COPY-SRC query
+  /*package*/ void checkIsExpectedLanguage(@NotNull Iterable<SNode> nodes, @NotNull SNodeReference templateNode, @NotNull TemplateContext templateContext) {
     Collection<SNode> toReport = getGenerationPlan().selectUnexpectedNodes(nodes);
     if (toReport.isEmpty()) {
       return;
@@ -1185,9 +1204,11 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       final SModel inputNodeModel = inputNode.getModel();
       if (inputNode.getNodeId() != null && inputNodeModel != null) {
         // copy preserving id
-        outputNode = myNodeFactory.create(inputNode);
+        // XXX what this inputNodeModel != null check is about? Didn't find any explanation in history
+        //     nor any idea why it's important to keep node id (although doesn't hurt, I guess).
+        outputNode = myEnv.createOutputNode(inputNode);
       } else {
-        outputNode = myEnv.getOutputModel().createNode(inputNode.getConcept());
+        outputNode = myEnv.createOutputNode(inputNode.getConcept());
       }
       myEnv.getGenerator().recordCopyInputTrace(inputNode, outputNode);
       myEnv.blockReductionsForCopiedNode(inputNode, outputNode); // prevent infinite applying of the same reduction to the 'same' node.

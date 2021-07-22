@@ -74,6 +74,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -110,6 +111,7 @@ class GenerationSession {
   private int myMinorStep = -1;
   private int myActiveBranchSerial = 0;
   private final List<SModel> myTransientModelsToRecycle = new ArrayList<>();
+  private final HashSet<SLanguage> myEmployedLanguages = new HashSet<>(50);
 
   GenerationSession(@NotNull SModel inputModel, @NotNull GenControllerContext environment, ITaskPoolProvider taskPoolProvider,
       GeneratorLoggerAdapter logger, TransientModelsModule transientModule, IPerformanceTracer performanceTracer, GenerationTrace genTrace) {
@@ -215,6 +217,7 @@ class GenerationSession {
       final GenerationDependencies genDeps = new GenerationDependencies(myOriginalInputModel, myControlEnv.getOptions().getParametersProvider());
       GenerationStatus generationStatus = new GenerationStatus(myOriginalInputModel, allOutputModels, genDeps, myLogger.getErrorCount() > 0);
       generationStatus.setCrossModelEnvironment(myControlEnv.getCrossModelEnvironment());
+      generationStatus.setEmployedLanguages(myEmployedLanguages);
       return generationStatus;
     } catch (GenerationCanceledException gce) {
       throw gce;
@@ -475,6 +478,7 @@ class GenerationSession {
           // next iteration ...
           mySessionContext.clearTransientObjects();
           isPrimary = false;
+          myEmployedLanguages.addAll(tg.getEmployedLanguages());
         }
       } finally {
         // if apply fails with exception, I'd like to keep both current input and output.

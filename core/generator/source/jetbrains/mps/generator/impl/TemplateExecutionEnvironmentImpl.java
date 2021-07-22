@@ -79,6 +79,7 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   // Does it bother me that failed rules are reported per-root in case of || generation?
   private final Set<SNodeReference> myFailedRules = new ConcurrentHashSet<>();
   private final LMCollector myLabels = new LMCollector();
+  private final EmployedLanguageCollector myEmployedLanguages = new EmployedLanguageCollector();
 
   /**
    * Input nodes coming from a model other than input model (or no model at all), e.g. if
@@ -112,7 +113,14 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   @NotNull
   @Override
   public SNode createOutputNode(@NotNull SConcept concept) {
+    myEmployedLanguages.instanceCreated(concept);
     return generator.getOutputModel().createNode(concept);
+  }
+
+  /*package*/ SNode createOutputNode(SNode prototype) {
+    final SConcept concept = prototype.getConcept();
+    myEmployedLanguages.instanceCreated(concept);
+    return generator.getOutputModel().createNode(concept, prototype.getNodeId());
   }
 
   @NotNull
@@ -187,6 +195,8 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   @Override
   public SNode insertNode(SNode child, SNodeReference templateNode, TemplateContext templateContext) {
     generator.checkIsExpectedLanguage(Collections.singletonList(child), templateNode, templateContext);
+    // FIXME respect children/all descendants. Part of ChildAdopter, perhaps?
+    myEmployedLanguages.instanceCreated(child.getConcept());
     return new ChildAdopter(generator).adopt(child, templateContext);
   }
 
@@ -503,6 +513,11 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   @NotNull
   /*package*/ LMCollector getNamedLabels() {
     return myLabels;
+  }
+
+  @NotNull
+  /*package*/ EmployedLanguageCollector getEmployedLanguages() {
+    return myEmployedLanguages;
   }
 
   @Nullable

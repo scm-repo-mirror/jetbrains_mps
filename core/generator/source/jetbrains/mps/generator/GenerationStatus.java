@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import jetbrains.mps.generator.impl.plan.CrossModelEnvironment;
 import jetbrains.mps.util.IStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SRepository;
 
@@ -128,6 +129,17 @@ public final class GenerationStatus implements IStatus {
     return myCrossModelEnvironment;
   }
   private CrossModelEnvironment myCrossModelEnvironment;
+
+  // same considerations as for #setCrossModelEnvironment() apply, just an experimental mechanism
+  // to pass information collected during m2m outside
+  public void setEmployedLanguages(Collection<SLanguage> languages) {
+    myEmployedLanguages = languages;
+  }
+  public Collection<SLanguage> getEmployedLanguages() {
+    return myEmployedLanguages;
+  }
+  private Collection<SLanguage> myEmployedLanguages;
+
 
   public static GenerationStatus failure(@NotNull SModel inputModel) {
     return new GenerationStatus(inputModel, (SModel) null, null, true);
