@@ -1,7 +1,6 @@
 <component name="libraryTable">
-  <library name="IDEA runtime jars">
+  <library name="3rd-party">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/idea_rt.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/3rd-party.jar!/" />
     </CLASSES>
     <JAVADOC />
