@@ -27,6 +27,7 @@ import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager.Deptype;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.util.FileUtil;
+import jetbrains.mps.util.performance.IPerformanceTracer;
 import jetbrains.mps.util.performance.IPerformanceTracer.NullPerformanceTracer;
 import jetbrains.mps.util.performance.PerformanceTracer;
 import org.apache.log4j.Level;
@@ -83,8 +84,10 @@ public final class ModuleMaker {
    */
   public ModuleMaker() {
     Logger logger = LogManager.getLogger(ModuleMaker.class);
-    MessageSender sender = new MessageSender(IMessageHandler.NULL_HANDLER, logger, this, Level.ERROR);
-    myTracer = new CompositeTracer(new NullPerformanceTracer(), sender);
+    // if there's logging level explicitly specified for this class, use it, otherwise just errors
+    final Level explicitLevel = logger.getLevel();
+    MessageSender sender = new MessageSender(IMessageHandler.NULL_HANDLER, logger, this, explicitLevel == null ? Level.ERROR : explicitLevel);
+    myTracer = new CompositeTracer(performanceTrace(logger), sender);
   }
 
   /**
@@ -97,8 +100,12 @@ public final class ModuleMaker {
     Logger logger = LogManager.getLogger(ModuleMaker.class);
     String mmName = ModuleMaker.class.getName();
     MessageSender sender = new MessageSender(handler, logger, mmName, Level.ALL);
+    myTracer = new CompositeTracer(performanceTrace(logger), sender);
+  }
+
+  private static IPerformanceTracer performanceTrace(Logger logger) {
     // PerformanceTracer.printReport sends it with info level, but it doesn't seem reasonable to collect performance data unless we debug MM.
-    myTracer = new CompositeTracer(logger.isDebugEnabled() ? new PerformanceTracer(mmName) : new NullPerformanceTracer(), sender);
+    return logger.isDebugEnabled() ? new PerformanceTracer(ModuleMaker.class.getName()) : new NullPerformanceTracer();
   }
 
   /**
@@ -135,7 +142,7 @@ public final class ModuleMaker {
     CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
     tracer.start(String.format(BUILDING_MODULES_MSG, modules.size()), 10);
     try {
-      tracer.push(COLLECTING_DEPENDENCIES_MSG);
+      tracer.push(COLLECTING_DEPENDENCIES_MSG );
       Set<SModule> candidates = new LinkedHashSet<>(new GlobalModuleDependenciesManager(modules).getModules(Deptype.COMPILE));
       final ModulesContainer modulesContainer = new ModulesContainer(candidates);
       tracer.pop(1);
