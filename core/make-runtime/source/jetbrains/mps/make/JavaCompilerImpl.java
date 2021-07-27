@@ -177,7 +177,7 @@ final class JavaCompilerImpl {
       final Set<BaseModuleContainer.JavaModule> changedModules = modules.getDirtyModules().collect(Collectors.toSet());
       reportModulesWithRemovalsAreNotChanged(analysisResult.modulesWithRemovals, changedModules, tracer.getSender());
       tracer.pop();
-      return new MPSCompilationResult(total.errors, total.warnings, false, changedModules.stream().map(BaseModuleContainer.JavaModule::toModule).collect(Collectors.toList()));
+      return new MPSCompilationResult(total.errors, total.warnings, false, changedModules.stream().map(BaseModuleContainer.JavaModule::moduleReference).collect(Collectors.toList()));
     } catch (Exception ex) {
       if (tempDir != null) {
         FileUtil.delete(tempDir);

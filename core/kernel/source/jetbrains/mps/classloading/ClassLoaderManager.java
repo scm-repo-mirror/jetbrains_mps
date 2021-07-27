@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,7 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModule.DeploymentStatus;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.smodel.tempmodel.TempModule;
-import jetbrains.mps.util.ArrayWrapper;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.NotCondition;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
@@ -495,6 +493,34 @@ public class ClassLoaderManager implements CoreComponent {
     refresh();
     doReloadModules(modules, monitor);
   }
+
+  /**
+   * Resovle modules with associated repository and reload any found.
+   * @since 2021.2
+   */
+  public void reload(Iterable<SModuleReference> modules, @NotNull ProgressMonitor monitor) {
+    if (myRepository.getModelAccess().canWrite()) {
+      resolveAndReload(modules, monitor);
+    } else {
+      myRepository.getModelAccess().runWriteAction(() -> resolveAndReload(modules, monitor));
+    }
+  }
+
+  private void resolveAndReload(Iterable<SModuleReference> modules, @NotNull ProgressMonitor monitor) {
+    checkWriteAccess();
+    ArrayList<SModule> toReload = new ArrayList<>();
+    for (SModuleReference mr : modules) {
+      SModule m = mr.resolve(myRepository);
+      if (m != null) {
+        toReload.add(m);
+      }
+    }
+    if (toReload.isEmpty()) {
+      return;
+    }
+    reloadModules(toReload, monitor);
+  }
+
 
   void doReloadModules(Iterable<? extends SModule> modules, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();

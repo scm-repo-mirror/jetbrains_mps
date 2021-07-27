@@ -8,14 +8,13 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
 import jetbrains.mps.tool.environment.EnvironmentConfig;
 import jetbrains.mps.tool.builder.WorkerHelper;
+import jetbrains.mps.smodel.MPSModuleRepository;
+import java.util.function.Supplier;
+import java.util.Collection;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.util.IterableUtil;
 import java.io.File;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.make.MPSCompilationResult;
-import jetbrains.mps.make.ModuleMaker;
-import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.progress.EmptyProgressMonitor;
-import jetbrains.mps.classloading.ClassLoaderManager;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
@@ -46,7 +45,15 @@ public class MigrationWorker extends WorkerBase {
   @Override
   public void work() {
     // todo the following line is needed until we introduce layered migration
-    new WorkerHelper(myEnvironment).make(myJavaCompilerOptions);
+    // FIXME why do I care to make these modules?
+    WorkerHelper compileReloadHelper = new WorkerHelper(myEnvironment.getPlatform());
+    final MPSModuleRepository repo = myEnvironment.getPlatform().findComponent(MPSModuleRepository.class);
+
+    compileReloadHelper.makeAndReload(repo, new Supplier<Collection<SModule>>() {
+      public Collection<SModule> get() {
+        return IterableUtil.asCollection(repo.getModules());
+      }
+    }, myJavaCompilerOptions);
 
     for (File file : myWhatToDo.getMPSProjectFiles()) {
       final Project[] container = new Project[1];
@@ -55,19 +62,12 @@ public class MigrationWorker extends WorkerBase {
       info("Loaded project " + project);
       myEnvironment.flushAllEvents();
 
-      final Wrappers._T<MPSCompilationResult> mpsCompilationResult = new Wrappers._T<MPSCompilationResult>();
-      project.getRepository().getModelAccess().runReadAction(new Runnable() {
-        public void run() {
-          mpsCompilationResult.value = new ModuleMaker().make(IterableUtil.asCollection(project.getProjectModulesWithGenerators()), new EmptyProgressMonitor(), myJavaCompilerOptions);
+      compileReloadHelper.makeAndReload(project.getRepository(), new Supplier<Collection<SModule>>() {
+        public Collection<SModule> get() {
+          return (Collection<SModule>) project.getProjectModulesWithGenerators();
         }
-      });
-      if (mpsCompilationResult.value.isReloadingNeeded()) {
-        project.getRepository().getModelAccess().runWriteAction(new Runnable() {
-          public void run() {
-            project.getComponent(ClassLoaderManager.class).reloadModules(mpsCompilationResult.value.getChangedModules());
-          }
-        });
-      }
+      }, myJavaCompilerOptions);
+
       myEnvironment.flushAllEvents();
 
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {

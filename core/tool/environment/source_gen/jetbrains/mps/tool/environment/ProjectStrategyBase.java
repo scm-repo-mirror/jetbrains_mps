@@ -21,10 +21,10 @@ import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import java.util.Set;
-import org.jetbrains.mps.openapi.module.SModule;
-import java.lang.reflect.InvocationTargetException;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
 
 @GeneratedClass(node = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)/6450649963068953208", model = "r:2876f1ee-0b45-4db5-8c09-0682cdee5c67(jetbrains.mps.tool.environment)")
@@ -75,34 +75,29 @@ public abstract class ProjectStrategyBase implements ProjectStrategy {
   }
 
   @NotNull
-  protected Project makeOnFirstTimeOpened(@NotNull Project project) {
+  protected final Project makeOnFirstTimeOpened(@NotNull Project project) {
     MPSCompilationResult result = makeAllInCreatedEnvironment(project);
     if (!(result.isOk())) {
       throw new IllegalStateException(String.format("Cannot proceed with compilation errors. %s", result.toString()));
     }
     try {
-      Set<SModule> changedModules = result.getChangedModules();
       if (result.isReloadingNeeded()) {
-        reloadAllAfterMake(project, changedModules);
+        reloadAfterMake(project, result.getAffectedModules());
       }
-      updateModelsInModules(project, changedModules);
+      updateModelsInModules(project, result.getAffectedModules());
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
     return project;
   }
 
-  protected void reloadAllAfterMake(@NotNull Project project, final Set<SModule> changed) throws InterruptedException, InvocationTargetException {
+  protected final void reloadAfterMake(@NotNull Project project, Set<SModuleReference> changed) {
     if (LOG.isInfoEnabled()) {
       LOG.info("Reloading built modules");
     }
 
     // todo create make process listeners, class loading is a client
-    project.getModelAccess().runWriteAction(new Runnable() {
-      public void run() {
-        ClassLoaderManager.getInstance().reloadModules(changed);
-      }
-    });
+    project.getComponent(ClassLoaderManager.class).reload(changed, new EmptyProgressMonitor());
   }
 
   /**
@@ -113,10 +108,11 @@ public abstract class ProjectStrategyBase implements ProjectStrategy {
    * But by that time model repository is already filled and it has no such models since there was no class files
    * when it got filled.
    */
-  protected static void updateModelsInModules(@NotNull Project project, final Set<SModule> changed) {
+  protected static void updateModelsInModules(@NotNull final Project project, final Set<SModuleReference> changed) {
     project.getModelAccess().runWriteAction(new Runnable() {
       public void run() {
-        for (SModule module : SetSequence.fromSet(changed)) {
+        for (SModuleReference mref : SetSequence.fromSet(changed)) {
+          SModule module = mref.resolve(project.getRepository());
           if (module instanceof AbstractModule) {
             ((AbstractModule) module).updateModelsSet();
           }

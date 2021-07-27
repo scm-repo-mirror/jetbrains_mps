@@ -51,11 +51,7 @@ public class DefaultMakeTask extends Task.Modal {
       });
 
       if (mpsCompilationResult.isReloadingNeeded()) {
-        myProject.getModelAccess().runWriteAction(new Runnable() {
-          public void run() {
-            ClassLoaderManager.getInstance().reloadModules(mpsCompilationResult.getChangedModules(), monitor.subTask(2));
-          }
-        });
+        myProject.getComponent(ClassLoaderManager.class).reload(mpsCompilationResult.getAffectedModules(), monitor.subTask(2));
       }
     } finally {
       monitor.done();

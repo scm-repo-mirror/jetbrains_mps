@@ -536,15 +536,15 @@ public final class ModuleMaker {
       }
     }
     System.out.println();
-    toCompile = components;
+    myToCompile = components;
   }
 
-  private List<List<JM>> toCompile;
+  private List<List<JM>> myToCompile;
 
   // doesn't need model read, deals with what #prepare() got ready
   @NotNull
   public MPSCompilationResult make(@NotNull final ProgressMonitor monitor) {
-    for (List<JM> cc : toCompile) {
+    for (List<JM> cc : myToCompile) {
 //      final MC mc = new MC(cc);
 //      compileCycles(mc);
     }
@@ -662,11 +662,11 @@ public final class ModuleMaker {
   private MPSCompilationResult combineCycleCompilationResults(List<MPSCompilationResult> results) {
     int errorCount = 0;
     int warnCount = 0;
-    Set<SModule> changedModules = new HashSet<>();
+    Set<SModuleReference> changedModules = new HashSet<>();
     for (MPSCompilationResult result : results) {
       errorCount += result.getErrorsCount();
       warnCount += result.getWarningsCount();
-      changedModules.addAll(result.getChangedModules());
+      changedModules.addAll(result.getAffectedModules());
     }
     return new MPSCompilationResult(errorCount, warnCount, false, changedModules);
   }

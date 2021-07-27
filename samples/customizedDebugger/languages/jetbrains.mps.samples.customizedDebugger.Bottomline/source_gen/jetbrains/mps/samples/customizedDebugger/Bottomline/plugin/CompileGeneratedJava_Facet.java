@@ -83,6 +83,7 @@ public class CompileGeneratedJava_Facet extends IFacet.Stub {
           final Iterable<TResource> input = (Iterable<TResource>) (Iterable) rawInput;
           switch (0) {
             case 0:
+              // FIXME this is a copy of JavaCompile, what's the reason to do it this way?
               if (Boolean.TRUE.equals(vars(pa.global()).skipCompilation())) {
                 _output_widgfz_a0a = Sequence.fromIterable(_output_widgfz_a0a).concat(Sequence.fromIterable(input));
                 return new IResult.SUCCESS(_output_widgfz_a0a);
@@ -122,7 +123,7 @@ public class CompileGeneratedJava_Facet extends IFacet.Stub {
                 if (tres.module() == null) {
                   return new IResult.FAILURE(_output_widgfz_a0a);
                 }
-                if (cr.getChangedModules().contains(tres.module())) {
+                if (cr.getAffectedModules().contains(tres.module().getModuleReference())) {
                   _output_widgfz_a0a = Sequence.fromIterable(_output_widgfz_a0a).concat(Sequence.fromIterable(Sequence.<IResource>singleton(tres)));
                 }
               }

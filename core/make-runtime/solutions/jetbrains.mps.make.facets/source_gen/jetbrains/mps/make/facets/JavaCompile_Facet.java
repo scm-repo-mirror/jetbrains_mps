@@ -125,7 +125,7 @@ public class JavaCompile_Facet extends IFacet.Stub {
                 if (tres.module() == null) {
                   return new IResult.FAILURE(_output_wf1ya0_a0a);
                 }
-                if (cr.getChangedModules().contains(tres.module())) {
+                if (cr.getAffectedModules().contains(tres.module().getModuleReference())) {
                   _output_wf1ya0_a0a = Sequence.fromIterable(_output_wf1ya0_a0a).concat(Sequence.fromIterable(Sequence.<IResource>singleton(tres)));
                 }
               }

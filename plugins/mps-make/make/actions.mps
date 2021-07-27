@@ -1931,50 +1931,38 @@
                 </node>
               </node>
               <node concept="3clFbS" id="47QEcUfsm6f" role="3clFbx">
-                <node concept="3clFbF" id="1KUoCiqb5Zp" role="3cqZAp">
-                  <node concept="2OqwBi" id="1KUoCiqb5Zq" role="3clFbG">
-                    <node concept="2OqwBi" id="769DNvT2qhm" role="2Oq$k0">
-                      <node concept="37vLTw" id="769DNvT2q1F" role="2Oq$k0">
+                <node concept="3clFbF" id="ZGgUpLTjBl" role="3cqZAp">
+                  <node concept="2OqwBi" id="ZGgUpLTqTZ" role="3clFbG">
+                    <node concept="2OqwBi" id="ZGgUpLTlL0" role="2Oq$k0">
+                      <node concept="37vLTw" id="ZGgUpLTjBj" role="2Oq$k0">
                         <ref role="3cqZAo" node="769DNvT2a3H" resolve="myProject" />
                       </node>
-                      <node concept="liA8E" id="769DNvT2rnH" role="2OqNvi">
-                        <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
+                      <node concept="liA8E" id="ZGgUpLTn55" role="2OqNvi">
+                        <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
+                        <node concept="3VsKOn" id="ZGgUpLTpM6" role="37wK5m">
+                          <ref role="3VsUkX" to="3qmy:~ClassLoaderManager" resolve="ClassLoaderManager" />
+                        </node>
                       </node>
                     </node>
-                    <node concept="liA8E" id="1KUoCiqb5Zs" role="2OqNvi">
-                      <ref role="37wK5l" to="lui2:~ModelAccess.runWriteAction(java.lang.Runnable)" resolve="runWriteAction" />
-                      <node concept="1bVj0M" id="1KUoCiqb5Zt" role="37wK5m">
-                        <node concept="3clFbS" id="1KUoCiqb5Zu" role="1bW5cS">
-                          <node concept="3clFbF" id="1KUoCiqb5Zv" role="3cqZAp">
-                            <node concept="2OqwBi" id="1KUoCiqb5Zw" role="3clFbG">
-                              <node concept="2YIFZM" id="1KUoCiqb5Zx" role="2Oq$k0">
-                                <ref role="37wK5l" to="3qmy:~ClassLoaderManager.getInstance()" resolve="getInstance" />
-                                <ref role="1Pybhc" to="3qmy:~ClassLoaderManager" resolve="ClassLoaderManager" />
-                              </node>
-                              <node concept="liA8E" id="1KUoCiqb5Zy" role="2OqNvi">
-                                <ref role="37wK5l" to="3qmy:~ClassLoaderManager.reloadModules(java.lang.Iterable,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="reloadModules" />
-                                <node concept="2OqwBi" id="3IZXeSRzRwS" role="37wK5m">
-                                  <node concept="37vLTw" id="3IZXeSRzRrd" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="3IZXeSRzOHe" resolve="mpsCompilationResult" />
-                                  </node>
-                                  <node concept="liA8E" id="3IZXeSRzRXO" role="2OqNvi">
-                                    <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getChangedModules()" resolve="getChangedModules" />
-                                  </node>
-                                </node>
-                                <node concept="2OqwBi" id="1KUoCiqb5Zz" role="37wK5m">
-                                  <node concept="liA8E" id="1KUoCiqb5Z$" role="2OqNvi">
-                                    <ref role="37wK5l" to="yyf4:~ProgressMonitor.subTask(int)" resolve="subTask" />
-                                    <node concept="3cmrfG" id="1KUoCiqb5Z_" role="37wK5m">
-                                      <property role="3cmrfH" value="2" />
-                                    </node>
-                                  </node>
-                                  <node concept="37vLTw" id="3GM_nagTAP1" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="1qSnb0zjzaV" resolve="monitor" />
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
+                    <node concept="liA8E" id="ZGgUpLTrXr" role="2OqNvi">
+                      <ref role="37wK5l" to="3qmy:~ClassLoaderManager.reload(java.lang.Iterable,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="reload" />
+                      <node concept="2OqwBi" id="ZGgUpLTvbz" role="37wK5m">
+                        <node concept="37vLTw" id="ZGgUpLTu8H" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3IZXeSRzOHe" resolve="mpsCompilationResult" />
+                        </node>
+                        <node concept="liA8E" id="ZGgUpLTwHh" role="2OqNvi">
+                          <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getAffectedModules()" resolve="getAffectedModules" />
+                        </node>
+                      </node>
+                      <node concept="2OqwBi" id="1KUoCiqb5Zz" role="37wK5m">
+                        <node concept="liA8E" id="1KUoCiqb5Z$" role="2OqNvi">
+                          <ref role="37wK5l" to="yyf4:~ProgressMonitor.subTask(int)" resolve="subTask" />
+                          <node concept="3cmrfG" id="1KUoCiqb5Z_" role="37wK5m">
+                            <property role="3cmrfH" value="2" />
                           </node>
+                        </node>
+                        <node concept="37vLTw" id="3GM_nagTAP1" role="2Oq$k0">
+                          <ref role="3cqZAo" node="1qSnb0zjzaV" resolve="monitor" />
                         </node>
                       </node>
                     </node>

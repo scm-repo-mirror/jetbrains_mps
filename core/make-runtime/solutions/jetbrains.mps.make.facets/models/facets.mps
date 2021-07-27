@@ -820,18 +820,23 @@
                   <node concept="2OqwBi" id="5$SFEs5s1ox" role="3clFbw">
                     <node concept="liA8E" id="5$SFEs5s6hu" role="2OqNvi">
                       <ref role="37wK5l" to="33ny:~Set.contains(java.lang.Object)" resolve="contains" />
-                      <node concept="2OqwBi" id="5$SFEs5s8eW" role="37wK5m">
-                        <node concept="2sxana" id="5$SFEs5scWL" role="2OqNvi">
-                          <ref role="2sxfKC" to="fn29:1Xl3kQ1uadw" resolve="module" />
+                      <node concept="2OqwBi" id="ZGgUpLVomm" role="37wK5m">
+                        <node concept="2OqwBi" id="5$SFEs5s8eW" role="2Oq$k0">
+                          <node concept="2sxana" id="5$SFEs5scWL" role="2OqNvi">
+                            <ref role="2sxfKC" to="fn29:1Xl3kQ1uadw" resolve="module" />
+                          </node>
+                          <node concept="2GrUjf" id="5$SFEs5s6hw" role="2Oq$k0">
+                            <ref role="2Gs0qQ" node="5L5h3brvDQk" resolve="tres" />
+                          </node>
                         </node>
-                        <node concept="2GrUjf" id="5$SFEs5s6hw" role="2Oq$k0">
-                          <ref role="2Gs0qQ" node="5L5h3brvDQk" resolve="tres" />
+                        <node concept="liA8E" id="ZGgUpLVp8E" role="2OqNvi">
+                          <ref role="37wK5l" to="lui2:~SModule.getModuleReference()" resolve="getModuleReference" />
                         </node>
                       </node>
                     </node>
                     <node concept="2OqwBi" id="5$SFEs5rKIh" role="2Oq$k0">
                       <node concept="liA8E" id="5$SFEs5rMMF" role="2OqNvi">
-                        <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getChangedModules()" resolve="getChangedModules" />
+                        <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getAffectedModules()" resolve="getAffectedModules" />
                       </node>
                       <node concept="37vLTw" id="5$SFEs5rKEd" role="2Oq$k0">
                         <ref role="3cqZAo" node="5L5h3brvDQU" resolve="cr" />

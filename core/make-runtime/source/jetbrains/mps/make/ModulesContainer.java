@@ -65,13 +65,6 @@ final class ModulesContainer implements BaseModuleContainer<ModulesContainer.Jav
       myModuleReference = module.getModuleReference();
     }
 
-    // FIXME no reason to expose, once I deal with ClassFileWriter scenario, drop this one and revisit other public methods
-    //      Ideally, JM has to be just a black box for outer world
-    @Override
-    public SModule toModule() {
-      return myModule;
-    }
-
     @Override
     public String name() {
       return myModuleReference.getModuleName();

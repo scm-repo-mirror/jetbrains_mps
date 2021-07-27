@@ -11,7 +11,6 @@ import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.progress.EmptyProgressMonitor;
-import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.classloading.ClassLoaderManager;
 
 @GeneratedClass(node = "r:984811b0-078d-45d7-bf58-fa501204c2fc(jetbrains.mps.testbench.junit.suites)/2577066619598079009", model = "r:984811b0-078d-45d7-bf58-fa501204c2fc(jetbrains.mps.testbench.junit.suites)")
@@ -23,20 +22,16 @@ public final class TestMakeUtil {
   }
 
   public void make(@NotNull final Project p) {
-    // Apparently, derived from MpsWorker.make()
+    // Apparently, derived from WorkerHelper.makeAndReload()
     final Wrappers._T<MPSCompilationResult> mpsCompilationResult = new Wrappers._T<MPSCompilationResult>();
     p.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         ModuleMaker maker = new ModuleMaker();
-        mpsCompilationResult.value = maker.make(IterableUtil.asCollection(p.getProjectModules()), new EmptyProgressMonitor(), JavaCompilerOptionsComponent.DEFAULT_JAVA_COMPILER_OPTIONS);
+        mpsCompilationResult.value = maker.make(IterableUtil.asCollection(p.getProjectModules()), new EmptyProgressMonitor());
       }
     });
     if (mpsCompilationResult.value.isReloadingNeeded()) {
-      p.getRepository().getModelAccess().runWriteAction(new Runnable() {
-        public void run() {
-          myPlatform.findComponent(ClassLoaderManager.class).reloadModules(mpsCompilationResult.value.getChangedModules());
-        }
-      });
+      myPlatform.findComponent(ClassLoaderManager.class).reload(mpsCompilationResult.value.getAffectedModules(), new EmptyProgressMonitor());
     }
   }
 }

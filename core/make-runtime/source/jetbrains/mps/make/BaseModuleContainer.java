@@ -35,9 +35,6 @@ interface BaseModuleContainer<T extends JavaModule> {
     @Nullable
     File getSourceOut();
 
-    // FIXME get rid of
-    SModule toModule();
-
     Iterable<ResourceFile> getResourcesToCopy();
 
   }

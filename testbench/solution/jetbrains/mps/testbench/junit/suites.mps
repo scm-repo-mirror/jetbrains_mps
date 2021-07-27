@@ -37,7 +37,6 @@
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="mk8z" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="3qmy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.classloading(MPS.Core/)" />
-    <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
     <import index="vqh0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="j8aq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.module(MPS.Core/)" />
@@ -164,6 +163,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
@@ -317,7 +319,6 @@
         <child id="8974276187400348171" name="commandClosureLiteral" index="1QHqEI" />
       </concept>
       <concept id="8974276187400348181" name="jetbrains.mps.lang.access.structure.ExecuteLightweightCommandStatement" flags="nn" index="1QHqEK" />
-      <concept id="8974276187400348183" name="jetbrains.mps.lang.access.structure.ExecuteWriteActionStatement" flags="nn" index="1QHqEM" />
     </language>
     <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
       <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
@@ -4372,7 +4373,7 @@
               <property role="3oM_SC" value="from" />
             </node>
             <node concept="3oM_SD" id="ATZLwXopAd" role="1PaTwD">
-              <property role="3oM_SC" value="MpsWorker.make()" />
+              <property role="3oM_SC" value="WorkerHelper.makeAndReload()" />
             </node>
           </node>
         </node>
@@ -4412,7 +4413,7 @@
                       <ref role="3cqZAo" node="U3XrcI_MXK" resolve="maker" />
                     </node>
                     <node concept="liA8E" id="U3XrcI_MXT" role="2OqNvi">
-                      <ref role="37wK5l" to="vqh0:~ModuleMaker.make(java.util.Collection,org.jetbrains.mps.openapi.util.ProgressMonitor,jetbrains.mps.compiler.JavaCompilerOptions)" resolve="make" />
+                      <ref role="37wK5l" to="vqh0:~ModuleMaker.make(java.util.Collection,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="make" />
                       <node concept="2YIFZM" id="U3XrcI_MXU" role="37wK5m">
                         <ref role="1Pybhc" to="18ew:~IterableUtil" resolve="IterableUtil" />
                         <ref role="37wK5l" to="18ew:~IterableUtil.asCollection(java.lang.Iterable)" resolve="asCollection" />
@@ -4429,10 +4430,6 @@
                         <node concept="1pGfFk" id="U3XrcI_MXZ" role="2ShVmc">
                           <ref role="37wK5l" to="mk8z:~EmptyProgressMonitor.&lt;init&gt;()" resolve="EmptyProgressMonitor" />
                         </node>
-                      </node>
-                      <node concept="10M0yZ" id="U3XrcI_MY0" role="37wK5m">
-                        <ref role="1PxDUh" to="l46t:~JavaCompilerOptionsComponent" resolve="JavaCompilerOptionsComponent" />
-                        <ref role="3cqZAo" to="l46t:~JavaCompilerOptionsComponent.DEFAULT_JAVA_COMPILER_OPTIONS" resolve="DEFAULT_JAVA_COMPILER_OPTIONS" />
                       </node>
                     </node>
                   </node>
@@ -4459,43 +4456,35 @@
             </node>
           </node>
           <node concept="3clFbS" id="U3XrcI_MY8" role="3clFbx">
-            <node concept="1QHqEM" id="U3XrcI_MY9" role="3cqZAp">
-              <node concept="1QHqEC" id="U3XrcI_MYa" role="1QHqEI">
-                <node concept="3clFbS" id="U3XrcI_MYb" role="1bW5cS">
-                  <node concept="3clFbF" id="U3XrcI_MYc" role="3cqZAp">
-                    <node concept="2OqwBi" id="U3XrcI_MYd" role="3clFbG">
-                      <node concept="2OqwBi" id="U3XrcI_NAy" role="2Oq$k0">
-                        <node concept="37vLTw" id="U3XrcI_Nl6" role="2Oq$k0">
-                          <ref role="3cqZAo" node="U3XrcI_M_H" resolve="myPlatform" />
-                        </node>
-                        <node concept="liA8E" id="U3XrcI_NLe" role="2OqNvi">
-                          <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
-                          <node concept="3VsKOn" id="U3XrcI_O86" role="37wK5m">
-                            <ref role="3VsUkX" to="3qmy:~ClassLoaderManager" resolve="ClassLoaderManager" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="U3XrcI_MYf" role="2OqNvi">
-                        <ref role="37wK5l" to="3qmy:~ClassLoaderManager.reloadModules(java.lang.Iterable)" resolve="reloadModules" />
-                        <node concept="2OqwBi" id="U3XrcI_MYg" role="37wK5m">
-                          <node concept="37vLTw" id="U3XrcI_MYh" role="2Oq$k0">
-                            <ref role="3cqZAo" node="U3XrcI_MXE" resolve="mpsCompilationResult" />
-                          </node>
-                          <node concept="liA8E" id="U3XrcI_MYi" role="2OqNvi">
-                            <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getChangedModules()" resolve="getChangedModules" />
-                          </node>
-                        </node>
-                      </node>
+            <node concept="3clFbF" id="U3XrcI_MYc" role="3cqZAp">
+              <node concept="2OqwBi" id="U3XrcI_MYd" role="3clFbG">
+                <node concept="2OqwBi" id="U3XrcI_NAy" role="2Oq$k0">
+                  <node concept="37vLTw" id="U3XrcI_Nl6" role="2Oq$k0">
+                    <ref role="3cqZAo" node="U3XrcI_M_H" resolve="myPlatform" />
+                  </node>
+                  <node concept="liA8E" id="U3XrcI_NLe" role="2OqNvi">
+                    <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                    <node concept="3VsKOn" id="U3XrcI_O86" role="37wK5m">
+                      <ref role="3VsUkX" to="3qmy:~ClassLoaderManager" resolve="ClassLoaderManager" />
                     </node>
                   </node>
                 </node>
-              </node>
-              <node concept="2OqwBi" id="U3XrcI_MYj" role="ukAjM">
-                <node concept="37vLTw" id="U3XrcI_MYk" role="2Oq$k0">
-                  <ref role="3cqZAo" node="U3XrcI_MYm" resolve="p" />
-                </node>
-                <node concept="liA8E" id="U3XrcI_MYl" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                <node concept="liA8E" id="U3XrcI_MYf" role="2OqNvi">
+                  <ref role="37wK5l" to="3qmy:~ClassLoaderManager.reload(java.lang.Iterable,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="reload" />
+                  <node concept="2OqwBi" id="U3XrcI_MYg" role="37wK5m">
+                    <node concept="37vLTw" id="U3XrcI_MYh" role="2Oq$k0">
+                      <ref role="3cqZAo" node="U3XrcI_MXE" resolve="mpsCompilationResult" />
+                    </node>
+                    <node concept="liA8E" id="U3XrcI_MYi" role="2OqNvi">
+                      <ref role="37wK5l" to="vqh0:~MPSCompilationResult.getAffectedModules()" resolve="getAffectedModules" />
+                    </node>
+                  </node>
+                  <node concept="2ShNRf" id="ZGgUpLS5ly" role="37wK5m">
+                    <node concept="1pGfFk" id="ZGgUpLSApY" role="2ShVmc">
+                      <property role="373rjd" value="true" />
+                      <ref role="37wK5l" to="mk8z:~EmptyProgressMonitor.&lt;init&gt;()" resolve="EmptyProgressMonitor" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
