@@ -950,7 +950,18 @@ public class EditorCell_Collection extends EditorCell_Basic implements jetbrains
 
   @Override
   public boolean isTransparentCollection() {
-    return getCellsCount() == 1 && getStyle().get(StyleAttributes.SELECTABLE);
+    if (!getStyle().get(StyleAttributes.SELECTABLE)) {
+      return false;
+    }
+    Container<EditorCell> visibleChildCells = getVisibleChildCells();
+    if (visibleChildCells.size() == 0) return false;
+    int opaqueCount = 0;
+    for (EditorCell child : visibleChildCells) {
+      if (!child.getStyle().get(StyleAttributes.TRANSPARENT) && ++opaqueCount > 1) {
+        return false;
+      }
+    }
+    return true;
   }
 
   class EditorCell_Brace extends EditorCell_Constant {

@@ -48,6 +48,7 @@ public final class EditorCellModel__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<SNode> getParent_idhJF64sU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParent").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hJF64sU").build();
   public static final SMethod<Boolean> isSelectable_idhJF6SX1 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSelectable").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hJF6SX1").build();
   public static final SMethod<Void> setSelectable_idi4bRWUe = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSelectable").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("i4bRWUe").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<Void> setTransparent_id3uCw42NPV2V = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setTransparent").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("3uCw42NPV2V").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   /*package*/ static final SMethod<Color> getColor_idhPjC$St = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("getColor").modifiers(0, AccessPrivileges.PRIVATE).concept(CONCEPT).id("hPjC$St").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Color> getForegroundColor_idhL6TA5F = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("getForegroundColor").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hL6TA5F").build();
   public static final SMethod<Color> getBackgroundColor_idhL7rNfN = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("getBackgroundColor").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hL7rNfN").build();
@@ -72,7 +73,7 @@ public final class EditorCellModel__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<SNode> getParentCollectionCell_id7XYaZQUjT8u = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParentCollectionCell").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7XYaZQUjT8u").build();
   public static final SMethod<Boolean> canBeUsedAsEmptyCell_id6RO52Mcgrfa = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeUsedAsEmptyCell").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6RO52Mcgrfa").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCellModelKind_idhHfCaJf, getCellId_idhHbewHT, getDefaultCellId_id3VYF6qfIQs_, getUniqueCellIdPrefix_id7c58AbNRrel, getAbbreviation_id7c58AbNSIrP, getTopAncestorCellModel_idM76vXnqh08, getFactoryMethodName_idhHfE2BD, getParent_idhJF64sU, isSelectable_idhJF6SX1, setSelectable_idi4bRWUe, getColor_idhPjC$St, getForegroundColor_idhL6TA5F, getBackgroundColor_idhL7rNfN, getTextBackgroundColor_idhL7BhMP, isUnderlined_idhLmqR8u, isStrikeOut_idhNnL8J1, getFontFamily_id4qPnysr_4es, getFontSize_idhLmaQwP, getFontStyle_idhLcv3Z9, getOpeningTag_idhKxXtpm, getClosingTag_idhKxXx_K, getOpeningText_idhKxU$w9, getClosingText_idhKxUEwj, getOpeningPrefix_idhKxW98J, getDefaultFontStyle_idhL_r0Mx, isCellIdInitialized_idhTuDsSD, getBooleanStyleValue_idi0pNf1r, isNewLine_idi0pLPAc, isOnNewLine_idi0pUMOG, isIndented_idi0pN94$, isNewLineChildren_idi0pNGlC, getParentCollectionCell_id7XYaZQUjT8u, canBeUsedAsEmptyCell_id6RO52Mcgrfa);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCellModelKind_idhHfCaJf, getCellId_idhHbewHT, getDefaultCellId_id3VYF6qfIQs_, getUniqueCellIdPrefix_id7c58AbNRrel, getAbbreviation_id7c58AbNSIrP, getTopAncestorCellModel_idM76vXnqh08, getFactoryMethodName_idhHfE2BD, getParent_idhJF64sU, isSelectable_idhJF6SX1, setSelectable_idi4bRWUe, setTransparent_id3uCw42NPV2V, getColor_idhPjC$St, getForegroundColor_idhL6TA5F, getBackgroundColor_idhL7rNfN, getTextBackgroundColor_idhL7BhMP, isUnderlined_idhLmqR8u, isStrikeOut_idhNnL8J1, getFontFamily_id4qPnysr_4es, getFontSize_idhLmaQwP, getFontStyle_idhLcv3Z9, getOpeningTag_idhKxXtpm, getClosingTag_idhKxXx_K, getOpeningText_idhKxU$w9, getClosingText_idhKxUEwj, getOpeningPrefix_idhKxW98J, getDefaultFontStyle_idhL_r0Mx, isCellIdInitialized_idhTuDsSD, getBooleanStyleValue_idi0pNf1r, isNewLine_idi0pLPAc, isOnNewLine_idi0pUMOG, isIndented_idi0pN94$, isNewLineChildren_idi0pNGlC, getParentCollectionCell_id7XYaZQUjT8u, canBeUsedAsEmptyCell_id6RO52Mcgrfa);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -174,6 +175,14 @@ public final class EditorCellModel__BehaviorDescriptor extends BaseBHDescriptor 
       ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.styleItem$FgZD)).addElement(firstItem);
     }
     SPropertyOperations.set(firstItem, PROPS.flag$7SqM, newSelectable);
+  }
+  /*package*/ static void setTransparent_id3uCw42NPV2V(@NotNull SNode __thisNode__, boolean value) {
+    SNode firstItem = SNodeOperations.cast(ListSequence.fromList(IStyleContainer__BehaviorDescriptor.getClassItems_idhJF5KPu.invoke(__thisNode__, CONCEPTS.TransparentStyleSheetItem$Si)).first(), CONCEPTS.TransparentStyleSheetItem$Si);
+    if ((firstItem == null)) {
+      firstItem = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x9bb058bdeda2e78L, "jetbrains.mps.lang.editor.structure.TransparentStyleSheetItem"));
+      ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.styleItem$FgZD)).addElement(firstItem);
+    }
+    SPropertyOperations.set(firstItem, PROPS.flag$7SqM, value);
   }
   /*package*/ static Color getColor_idhPjC$St(@NotNull SNode __thisNode__, SNode firstItem) {
     if ((firstItem == null)) {
@@ -356,50 +365,53 @@ public final class EditorCellModel__BehaviorDescriptor extends BaseBHDescriptor 
         setSelectable_idi4bRWUe(node, ((boolean) (Boolean) parameters[0]));
         return null;
       case 10:
-        return (T) ((Color) getColor_idhPjC$St(node, (SNode) parameters[0]));
+        setTransparent_id3uCw42NPV2V(node, ((boolean) (Boolean) parameters[0]));
+        return null;
       case 11:
-        return (T) ((Color) getForegroundColor_idhL6TA5F(node));
+        return (T) ((Color) getColor_idhPjC$St(node, (SNode) parameters[0]));
       case 12:
-        return (T) ((Color) getBackgroundColor_idhL7rNfN(node));
+        return (T) ((Color) getForegroundColor_idhL6TA5F(node));
       case 13:
-        return (T) ((Color) getTextBackgroundColor_idhL7BhMP(node));
+        return (T) ((Color) getBackgroundColor_idhL7rNfN(node));
       case 14:
-        return (T) ((Boolean) isUnderlined_idhLmqR8u(node));
+        return (T) ((Color) getTextBackgroundColor_idhL7BhMP(node));
       case 15:
-        return (T) ((Boolean) isStrikeOut_idhNnL8J1(node));
+        return (T) ((Boolean) isUnderlined_idhLmqR8u(node));
       case 16:
-        return (T) ((String) getFontFamily_id4qPnysr_4es(node));
+        return (T) ((Boolean) isStrikeOut_idhNnL8J1(node));
       case 17:
-        return (T) ((Integer) getFontSize_idhLmaQwP(node));
+        return (T) ((String) getFontFamily_id4qPnysr_4es(node));
       case 18:
-        return (T) ((Integer) getFontStyle_idhLcv3Z9(node));
+        return (T) ((Integer) getFontSize_idhLmaQwP(node));
       case 19:
-        return (T) ((String) getOpeningTag_idhKxXtpm(node));
+        return (T) ((Integer) getFontStyle_idhLcv3Z9(node));
       case 20:
-        return (T) ((String) getClosingTag_idhKxXx_K(node));
+        return (T) ((String) getOpeningTag_idhKxXtpm(node));
       case 21:
-        return (T) ((String) getOpeningText_idhKxU$w9(node));
+        return (T) ((String) getClosingTag_idhKxXx_K(node));
       case 22:
-        return (T) ((String) getClosingText_idhKxUEwj(node));
+        return (T) ((String) getOpeningText_idhKxU$w9(node));
       case 23:
-        return (T) ((String) getOpeningPrefix_idhKxW98J(node));
+        return (T) ((String) getClosingText_idhKxUEwj(node));
       case 24:
-        return (T) ((Integer) getDefaultFontStyle_idhL_r0Mx(node));
+        return (T) ((String) getOpeningPrefix_idhKxW98J(node));
       case 25:
-        return (T) ((Boolean) isCellIdInitialized_idhTuDsSD(node));
+        return (T) ((Integer) getDefaultFontStyle_idhL_r0Mx(node));
       case 26:
-        return (T) ((Boolean) getBooleanStyleValue_idi0pNf1r(node, (SConcept) parameters[0], ((boolean) (Boolean) parameters[1])));
+        return (T) ((Boolean) isCellIdInitialized_idhTuDsSD(node));
       case 27:
-        return (T) ((Boolean) isNewLine_idi0pLPAc(node));
+        return (T) ((Boolean) getBooleanStyleValue_idi0pNf1r(node, (SConcept) parameters[0], ((boolean) (Boolean) parameters[1])));
       case 28:
-        return (T) ((Boolean) isOnNewLine_idi0pUMOG(node));
+        return (T) ((Boolean) isNewLine_idi0pLPAc(node));
       case 29:
-        return (T) ((Boolean) isIndented_idi0pN94$(node));
+        return (T) ((Boolean) isOnNewLine_idi0pUMOG(node));
       case 30:
-        return (T) ((Boolean) isNewLineChildren_idi0pNGlC(node));
+        return (T) ((Boolean) isIndented_idi0pN94$(node));
       case 31:
-        return (T) ((SNode) getParentCollectionCell_id7XYaZQUjT8u(node));
+        return (T) ((Boolean) isNewLineChildren_idi0pNGlC(node));
       case 32:
+        return (T) ((SNode) getParentCollectionCell_id7XYaZQUjT8u(node));
+      case 33:
         return (T) ((Boolean) canBeUsedAsEmptyCell_id6RO52Mcgrfa(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -462,6 +474,7 @@ public final class EditorCellModel__BehaviorDescriptor extends BaseBHDescriptor 
     /*package*/ static final SConcept EditorComponentDeclaration$WM = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
     /*package*/ static final SConcept EditorCellModel$gN = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
     /*package*/ static final SConcept SelectableStyleSheetItem$Au = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd721ebL, "jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem");
+    /*package*/ static final SConcept TransparentStyleSheetItem$Si = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x9bb058bdeda2e78L, "jetbrains.mps.lang.editor.structure.TransparentStyleSheetItem");
     /*package*/ static final SConcept ForegroundColorStyleClassItem$LK = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b38c56eL, "jetbrains.mps.lang.editor.structure.ForegroundColorStyleClassItem");
     /*package*/ static final SConcept BackgroundColorStyleClassItem$KF = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b3924ccL, "jetbrains.mps.lang.editor.structure.BackgroundColorStyleClassItem");
     /*package*/ static final SConcept TextBackgroundColorStyleClassItem$4f = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11ac043ee66L, "jetbrains.mps.lang.editor.structure.TextBackgroundColorStyleClassItem");

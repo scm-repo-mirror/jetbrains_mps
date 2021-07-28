@@ -453,9 +453,10 @@ public final class LanguageConceptSwitch {
   public static final int TransformationMenuVariableReference = 441;
   public static final int TransformationMenu_Default = 442;
   public static final int TransformationMenu_Named = 443;
-  public static final int URLStyleClassItem = 444;
-  public static final int UnapplyStyle = 445;
-  public static final int UnderlinedStyleClassItem = 446;
+  public static final int TransparentStyleSheetItem = 444;
+  public static final int URLStyleClassItem = 445;
+  public static final int UnapplyStyle = 446;
+  public static final int UnderlinedStyleClassItem = 447;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x18bc659203a64e29L, 0xa83a7ff23bde13baL);
@@ -903,6 +904,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x201faaffc29bac4fL, TransformationMenuVariableReference);
     builder.put(0x16be955f384efce1L, TransformationMenu_Default);
     builder.put(0x4e0f93d8a0ac4ee8L, TransformationMenu_Named);
+    builder.put(0x9bb058bdeda2e78L, TransparentStyleSheetItem);
     builder.put(0x5cb9219482b227f7L, URLStyleClassItem);
     builder.put(0x1b1161f6e68dfae3L, UnapplyStyle);
     builder.put(0x1143bd837d7L, UnderlinedStyleClassItem);

@@ -22521,6 +22521,15 @@
         </node>
       </node>
     </node>
+    <node concept="3aamgX" id="AV1oJuQPt0" role="3aUrZf">
+      <ref role="30HIoZ" to="tpc2:AV1oJuQyTS" resolve="TransparentStyleSheetItem" />
+      <node concept="gft3U" id="AV1oJuQRhP" role="1lVwrX">
+        <node concept="10M0yZ" id="AV1oJuQXIJ" role="gfFT$">
+          <ref role="3cqZAo" to="5ueo:~StyleAttributes.TRANSPARENT" resolve="TRANSPARENT" />
+          <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+        </node>
+      </node>
+    </node>
     <node concept="3aamgX" id="5hGzT1$6Ggh" role="3aUrZf">
       <ref role="30HIoZ" to="tpc2:hNnxI6D" resolve="StrikeOutStyleSheet" />
       <node concept="gft3U" id="5hGzT1$6Ggi" role="1lVwrX">

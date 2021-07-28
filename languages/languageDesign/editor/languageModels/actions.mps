@@ -561,6 +561,17 @@
               </node>
             </node>
           </node>
+          <node concept="3clFbF" id="3uCw42NQ8mz" role="3cqZAp">
+            <node concept="2OqwBi" id="3uCw42NQ8_M" role="3clFbG">
+              <node concept="1r4Lsj" id="3uCw42NQ8my" role="2Oq$k0" />
+              <node concept="2qgKlT" id="3uCw42NQ95q" role="2OqNvi">
+                <ref role="37wK5l" to="tpcb:3uCw42NPV2V" resolve="setTransparent" />
+                <node concept="3clFbT" id="3uCw42NQ97r" role="37wK5m">
+                  <property role="3clFbU" value="true" />
+                </node>
+              </node>
+            </node>
+          </node>
         </node>
       </node>
     </node>

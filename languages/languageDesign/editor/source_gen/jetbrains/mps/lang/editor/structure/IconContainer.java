@@ -5,21 +5,21 @@ package jetbrains.mps.lang.editor.structure;
 import jetbrains.mps.smodel.runtime.IconResource;
 
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a91b0gr = new IconResource("actionMap.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a92b0gr = new IconResource("keyMap.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a54b0gr = new IconResource("menuComponent.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a221b0gr = new IconResource("editorContextHints.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a321b0gr = new IconResource("editor.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a951b0gr = new IconResource("editorComponent.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a242b0gr = new IconResource("parametersInformation.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a863b0gr = new IconResource("styleKeyPack.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a073b0gr = new IconResource("editorStylesheet.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a973b0gr = new IconResource("substituteMenu.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a204b0gr = new IconResource("substituteMenuContribution.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a304b0gr = new IconResource("substituteMenu.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a404b0gr = new IconResource("substituteMenu.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a324b0gr = new IconResource("transformationMenu.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a424b0gr = new IconResource("transformationMenuContribution.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a244b0gr = new IconResource("transformationMenu.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a4a0a344b0gr = new IconResource("transformationMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a91b0hr = new IconResource("actionMap.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a92b0hr = new IconResource("keyMap.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a54b0hr = new IconResource("menuComponent.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a221b0hr = new IconResource("editorContextHints.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a321b0hr = new IconResource("editor.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a951b0hr = new IconResource("editorComponent.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a242b0hr = new IconResource("parametersInformation.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a863b0hr = new IconResource("styleKeyPack.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a073b0hr = new IconResource("editorStylesheet.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a973b0hr = new IconResource("substituteMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a204b0hr = new IconResource("substituteMenuContribution.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a4a0a304b0hr = new IconResource("substituteMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a4a0a404b0hr = new IconResource("substituteMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a324b0hr = new IconResource("transformationMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a424b0hr = new IconResource("transformationMenuContribution.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a4a0a244b0hr = new IconResource("transformationMenu.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a4a0a344b0hr = new IconResource("transformationMenu.png", IconContainer.class);
 }

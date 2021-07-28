@@ -170,6 +170,7 @@ public class StyleAttributes {
   public static final StyleAttribute<Boolean> DRAW_BRACKETS = new SimpleStyleAttribute<>("draw-brackets", false, true);
   public static final StyleAttribute<Boolean> DRAW_BORDER = new SimpleStyleAttribute<>("draw-border", false, true);
   public static final StyleAttribute<Boolean> SELECTABLE = new SimpleStyleAttribute<>("selectable", true, true);
+  public static final StyleAttribute<Boolean> TRANSPARENT = new SimpleStyleAttribute<>("transparent", false, true);
   public static final StyleAttribute<Boolean> EDITABLE = new SimpleStyleAttribute<>("editable", true, true);
   public static final StyleAttribute<Boolean> READ_ONLY = new InheritableStyleAttribute<>("read-only", false, true);
   public static final StyleAttribute<Boolean> UNDERLINED = new SimpleStyleAttribute<>("underlined", false, true);

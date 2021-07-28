@@ -25,21 +25,22 @@
       <node id="1165441453675" at="47,82,48,160" concept="0" />
       <node id="1239813819483" at="55,142,56,215" concept="0" />
       <node id="5571273656752866794" at="62,102,63,101" concept="0" />
-      <node id="1158947431096" at="68,0,69,0" concept="5" trace="CellModel_RefCell$7g" />
-      <node id="1158947431096" at="69,0,70,0" concept="5" trace="CellModel_Collection$Og" />
-      <node id="1158947431096" at="70,0,71,0" concept="5" trace="EditorCellModel$gN" />
-      <node id="1158947431096" at="74,0,75,0" concept="5" trace="readOnly$vff7" />
-      <node id="1158947431096" at="75,0,76,0" concept="5" trace="vertical$WXft" />
-      <node id="1158947431096" at="79,0,80,0" concept="5" trace="cellLayout$Of4I" />
-      <node id="1158947431096" at="80,0,81,0" concept="5" trace="childCellModel$HAw7" />
-      <node id="1158947431096" at="81,0,82,0" concept="5" trace="ifTrueCellModel$tpU2" />
-      <node id="1158947431096" at="82,0,83,0" concept="5" trace="cellLayout$ZXkU" />
+      <node id="4010596483557000611" at="63,101,64,105" concept="0" />
+      <node id="1158947431096" at="69,0,70,0" concept="5" trace="CellModel_RefCell$7g" />
+      <node id="1158947431096" at="70,0,71,0" concept="5" trace="CellModel_Collection$Og" />
+      <node id="1158947431096" at="71,0,72,0" concept="5" trace="EditorCellModel$gN" />
+      <node id="1158947431096" at="75,0,76,0" concept="5" trace="readOnly$vff7" />
+      <node id="1158947431096" at="76,0,77,0" concept="5" trace="vertical$WXft" />
+      <node id="1158947431096" at="80,0,81,0" concept="5" trace="cellLayout$Of4I" />
+      <node id="1158947431096" at="81,0,82,0" concept="5" trace="childCellModel$HAw7" />
+      <node id="1158947431096" at="82,0,83,0" concept="5" trace="ifTrueCellModel$tpU2" />
+      <node id="1158947431096" at="83,0,84,0" concept="5" trace="cellLayout$ZXkU" />
       <node id="1158948124192" at="21,119,24,7" concept="1" />
       <node id="1239813782084" at="30,103,33,9" concept="1" />
       <node id="1187370382914" at="37,117,40,9" concept="1" />
       <node id="1165441453670" at="46,66,49,7" concept="1" />
       <node id="1239813819481" at="54,90,57,9" concept="1" />
-      <node id="5571273656752866301" at="62,0,65,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="5571273656752866301" at="62,0,66,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="1239813403756" at="53,102,58,7" concept="1" />
       <node id="1158947460472" at="20,0,26,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="1162581464184" at="28,102,34,7" concept="1" />
@@ -52,20 +53,20 @@
       <scope id="1187370382915" at="38,178,39,107" />
       <scope id="1165441453674" at="47,82,48,160" />
       <scope id="1239813819482" at="55,142,56,215" />
-      <scope id="5571273656752866301" at="62,102,63,101" />
+      <scope id="5571273656752866301" at="62,102,64,105" />
       <scope id="1239813403761" at="54,90,57,9" />
-      <scope id="5571273656752866301" at="62,0,65,0">
+      <scope id="1158947460472" at="20,102,24,7">
+        <var name="parentRefCell" id="1158948118953" />
+      </scope>
+      <scope id="1162581464186" at="29,90,33,9" />
+      <scope id="1165441265075" at="45,102,49,7" />
+      <scope id="5571273656752866301" at="62,0,66,0">
         <var name="enclosingNode" id="5571273656752866301" />
         <var name="index" id="5571273656752866301" />
         <var name="model" id="5571273656752866301" />
         <var name="newNode" id="5571273656752866301" />
         <var name="sampleNode" id="5571273656752866301" />
       </scope>
-      <scope id="1158947460472" at="20,102,24,7">
-        <var name="parentRefCell" id="1158948118953" />
-      </scope>
-      <scope id="1162581464186" at="29,90,33,9" />
-      <scope id="1165441265075" at="45,102,49,7" />
       <scope id="1159287385553" at="35,82,40,9">
         <var name="innerNode" id="1187370374056" />
       </scope>
@@ -99,15 +100,15 @@
         <var name="newNode" id="1159287296418" />
         <var name="sampleNode" id="1159287296418" />
       </scope>
-      <unit id="1158947431096" at="73,0,77,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$PROPS" />
-      <unit id="5571273656752866301" at="61,0,66,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_5571273656752866301" />
-      <unit id="1158947431096" at="67,0,72,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$CONCEPTS" />
-      <unit id="1158947431096" at="78,0,84,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$LINKS" />
+      <unit id="1158947431096" at="74,0,78,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$PROPS" />
+      <unit id="1158947431096" at="68,0,73,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$CONCEPTS" />
+      <unit id="5571273656752866301" at="61,0,67,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_5571273656752866301" />
+      <unit id="1158947431096" at="79,0,85,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$LINKS" />
       <unit id="1158947460472" at="19,0,27,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_1158947460472" />
       <unit id="1165441265075" at="44,0,52,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_1165441265075" />
       <unit id="1239813377368" at="52,0,61,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_1239813377368" />
       <unit id="1159287296418" at="27,0,44,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories$NodeFactory_1159287296418" />
-      <unit id="1158947431096" at="18,0,85,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories" />
+      <unit id="1158947431096" at="18,0,86,0" name="jetbrains.mps.lang.editor.actions.EDTL_node_factories" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590296(jetbrains.mps.lang.editor.actions)/1222177296905">
