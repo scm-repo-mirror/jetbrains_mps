@@ -26,6 +26,7 @@ interface BaseModuleContainer<T extends JavaModule> {
     SModuleReference moduleReference();
 
     // XXX String --> Path?
+    // locations we are going to compile
     Collection<String> getAllSourcePaths();
 
     // XXX File --> Path to unify API?
@@ -33,6 +34,7 @@ interface BaseModuleContainer<T extends JavaModule> {
     File getClassesOut();
 
     @Nullable
+    // where source files produced by annotations go
     File getSourceOut();
 
     Iterable<ResourceFile> getResourcesToCopy();

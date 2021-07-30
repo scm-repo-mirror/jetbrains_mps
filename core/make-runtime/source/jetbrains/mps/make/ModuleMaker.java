@@ -19,6 +19,7 @@ import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.compiler.EclipseJavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
+import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.make.dependencies.graph.Graph;
 import jetbrains.mps.make.dependencies.graph.IVertex;
@@ -33,6 +34,7 @@ import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.performance.IPerformanceTracer;
 import jetbrains.mps.util.performance.IPerformanceTracer.NullPerformanceTracer;
 import jetbrains.mps.util.performance.PerformanceTracer;
+import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
@@ -46,6 +48,7 @@ import org.jetbrains.mps.openapi.util.SubProgressKind;
 
 import javax.tools.JavaCompiler;
 import java.io.File;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -158,7 +161,7 @@ public final class ModuleMaker {
     JM createJM(SModule m) {
       assert !myModules.containsKey(m.getModuleReference());
       JM rv;
-      myModules.put(m.getModuleReference(), rv = new JM(m.getModuleName()));
+      myModules.put(m.getModuleReference(), rv = new JM(m.getModuleReference()));
       myTransientMap.put(rv, m);
       return rv;
     }
@@ -220,24 +223,33 @@ public final class ModuleMaker {
 
     // requires SModule knowledge, but can deal with source location(s) recorded beforehand
     void detectDirtySources(JM jm) {
-      SModule m = toOriginChecked(jm);
-      final IFile classesOut = SModuleOperations.getJavaFacet(m).getClassesGen();
-      if (m.isPackaged() || m.isReadOnly() || (classesOut == null || !classesOut.exists())) {
+      evaluateSources(jm);
+      if (jm.mySources == null) {
         jm.markClean();
         return;
-      }
-      JS js = new JS();
-      final Set<String> allSourcePaths = SModuleOperations.getAllSourcePaths(m);
-      // seems fair to walk java.io.File here, not IDEA's VirtualFile or MPS IFile, as we care about actual FS state, not some cached one
-      // Besides, it's tricky to get IFile with present SModule/JMF API.
-      js.collectSources(allSourcePaths.stream().map(File::new));
-      js.walkOutput(new File(classesOut.getPath()));
-      if (js.outdatedSources()) {
-        jm.setSources(js);
-        jm.markDirty();
       } else {
-        jm.markClean();
+        if (jm.mySources.outdatedSources()) {
+          jm.markDirty();
+        } else {
+          jm.markClean();
+        }
       }
+    }
+
+    // requires SModule knowledge
+    void evaluateSources(JM jm) {
+      if (jm.mySources != null) {
+        return;
+      }
+      SModule m = toOriginChecked(jm);
+      final JavaModuleFacet jmf = SModuleOperations.getJavaFacet(m);
+      final IFile classesOut = jmf.getClassesGen();
+      if (m.isPackaged() || m.isReadOnly() || classesOut == null) {
+        return;
+      }
+      final Set<String> allSourcePaths = SModuleOperations.getAllSourcePaths(m);
+      final IFile outputRoot = jmf.getOutputRoot();
+      jm.setSources(allSourcePaths, classesOut.getPath(), outputRoot == null ? null : outputRoot.getPath());
     }
 
     // requires SModule knowledge
@@ -288,15 +300,17 @@ public final class ModuleMaker {
   }
 
   // shall not keep SModule, but only relevant parts that may be used without model access
-  static class JM implements IVertex {
-    private final String myName;
+  static class JM implements IVertex, BaseModuleContainer.JavaModule {
+    private final SModuleReference myModule;
     private CompileState myCompileState = CompileState.UNCHECKED;
     private final List<JM> myDependencies = new ArrayList<>();
     private Set<String> myClasspath; // nullable
     private JS mySources; // nullable
+    private Collection<String> mySourcePaths; // nullable
+    private File myClassesOut, mySourcesOut; // nullable
 
-    JM(String name) {
-      myName = name;
+    JM(SModuleReference moduleRef) {
+      myModule = moduleRef;
     }
 
     @Override
@@ -336,8 +350,47 @@ public final class ModuleMaker {
       myClasspath = classpath;
     }
 
-    void setSources(JS sources) {
-      mySources = sources;
+    void setSources(Collection<String> allSourcePaths, /*not null*/ String classOut, @Nullable String sourceOutRoot) {
+      JS js = new JS();
+      // seems fair to walk java.io.File here, not IDEA's VirtualFile or MPS IFile, as we care about actual FS state, not some cached one
+      // Besides, it's tricky to get IFile with present SModule/JMF API.
+      js.collectSources(allSourcePaths.stream().map(File::new));
+      js.walkOutput(myClassesOut = new File(classOut));
+      mySources = js;
+      mySourcePaths = allSourcePaths;
+      mySourcesOut = sourceOutRoot == null ? null : new File(sourceOutRoot);
+    }
+
+    @Override
+    public String name() {
+      return moduleReference().getModuleName();
+    }
+
+    @Override
+    public SModuleReference moduleReference() {
+      return myModule;
+    }
+
+    @Override
+    public Collection<String> getAllSourcePaths() {
+      return mySourcePaths;
+    }
+
+    @Nullable
+    @Override
+    public File getClassesOut() {
+      return myClassesOut;
+    }
+
+    @Nullable
+    @Override
+    public File getSourceOut() {
+      return mySourcesOut;
+    }
+
+    @Override
+    public Iterable<ResourceFile> getResourcesToCopy() {
+      return mySources.myResourcesToCopy;
     }
   }
 
@@ -358,10 +411,14 @@ public final class ModuleMaker {
     private void sources(File dir, StringBuilder packPrefix) {
       final int prefixLen = packPrefix.length();
       for (File f : dir.listFiles()) {
-        // deliberately don't check if file is ignored as the old code used to do (FileSystem.getInstance().isFileIgnored())
-        // as I don't expect any reasonable exclude for MPS-controlled source roots. If we need to exclude some files, I expect
-        // it has to me MPS-specific setting that works both in IDE and in pure environment (i.e. why would I compile differently in IDE and in ant script)
         final String childName = f.getName();
+        if (isIgnoredFileName(childName)) {
+          // Initially, I didn't want to check if file is ignored as the old code used to do (FileSystem.getInstance().isFileIgnored())
+          // as I didn't expect any reasonable exclude for MPS-controlled source roots. If we need to exclude some files, I expect
+          // it has to me MPS-specific setting that works both in IDE and in pure environment (i.e. why would I compile differently in IDE and in ant script)
+          // However, it turned out there could be files (e.g. .DS_Store on MacOS that we'd better ignore)
+          continue;
+        }
         if (f.isDirectory()) {
           packPrefix.append(childName);
           packPrefix.append('.');
@@ -391,13 +448,20 @@ public final class ModuleMaker {
       myResourcesToCopy.clear();
       myFilesToCompile.addAll(myJavaFiles.values());
       myResourcesToCopy.addAll(myResourceFiles.values());
+      if (!classesRoot.exists()) {
+        return;
+      }
       classes(classesRoot, new StringBuilder());
     }
 
+    // pre: dir.exists()
     private void classes(File dir, StringBuilder packPrefix) {
       final int prefixLen = packPrefix.length();
       for (File f : dir.listFiles()) {
         final String childName = f.getName();
+        if (isIgnoredFileName(childName)) {
+          continue;
+        }
         if (f.isDirectory()) {
           packPrefix.append(childName);
           packPrefix.append('.');
@@ -438,7 +502,6 @@ public final class ModuleMaker {
           }
         }
       }
-
     }
 
     private boolean isFileUpToDate(JavaFile javaFile, long classFileLastModified) {
@@ -449,13 +512,18 @@ public final class ModuleMaker {
       return true;
     }
 
+    private static boolean isIgnoredFileName(String fileName) {
+      return FileSystem.getInstance().isFileIgnored(fileName);
+    }
+
     boolean outdatedSources() {
       return !myFilesToCompile.isEmpty() || !myResourcesToCopy.isEmpty() || !myFilesToDelete.isEmpty();
     }
 
     @Override
     public String toString() {
-      return String.format("SRC(java %d/%d; resources %d/%d; to delete %d)", myFilesToCompile.size(), myJavaFiles.size(), myResourcesToCopy.size(), myResourceFiles.size(), myFilesToDelete.size());
+      return String.format("SRC(java %d/%d; resources %d/%d; to delete %d)", myFilesToCompile.size(), myJavaFiles.size(), myResourcesToCopy.size(),
+                           myResourceFiles.size(), myFilesToDelete.size());
     }
   }
 
@@ -465,6 +533,7 @@ public final class ModuleMaker {
 
   // requires model read
   public void prepare(final Collection<? extends SModule> modules, boolean forceCompile, @NotNull final ProgressMonitor monitor) {
+    myToCompile = Collections.emptyList();
     final Predicate<SModule> isExcluded = ModulesContainer::isExcluded;
     MC initial = new MC();
     for (SModule m : modules.stream().filter(isExcluded.negate()).collect(Collectors.toList())) {
@@ -511,31 +580,31 @@ public final class ModuleMaker {
         return;
       }
     }
-    // XXX may compile classpath for each JM here and don't need SModule any longer
+    // XXX may compile classpath for each JM, not only dirty, CP for a dirty module needs CP of its dependencies.
     withDeps.calculateClasspath();
-    withDeps.abandonModelRead();
+    // some dirty modules got sources while we walked for needsCompile(), some got their dirty state derived
+    // or forced (i.e. forceCompile). Make sure all dirty modules (we're going to compile these) get sources initialized:
+    initial.allJavaModules().stream().filter(JM::isDirty).forEach(initial::evaluateSources);
+    withDeps.abandonModelRead(); // don't need SModule any longer
     // Build clusters that contain both clean and dirty, and then remove clean from the final cluster:
     //   cycle C -> B -> A -> C; make(A,C) without B, won't notice A and C are in the cycle.
-    List<List<JM>> components = withDeps.scc();
+    List<List<JM>> components = new ArrayList<>(withDeps.scc());
     components.forEach(l -> l.removeIf(JM::isClean));
+    components.removeIf(List::isEmpty);
     // XXX shall I remove those JM in components that are not part of 'initial' set?
     //     If I derive 'dirty' for B in the aforementioned example, do I want to exclude it from compile or not - it was not requested
     //     but as long as it's part of the cycle, its recompilation might be necessary
     for (List<JM> cc : components) {
 //      final MC mc = new MC(cc);
 //      compileCycles(mc);
-      if (cc.isEmpty()) {
-        continue;
-      }
-      System.out.printf("Cycle of %d modules\n", cc.size());
+      myTracer.getSender().info(String.format("Cycle of %d modules\n", cc.size()));
       for (JM x : cc) {
-        System.out.printf("\t%s\n", x.myName);
-        System.out.printf("\t\t%s\n", x.myDependencies.stream().map(xx -> xx.myName).collect(Collectors.toList()));
-        System.out.printf("\t\t%s  %s\n", x.compileState(), x.mySources);
-        System.out.printf("\t\t%s\n", x.myClasspath);
+        myTracer.getSender().info(String.format("\t%s\n", x.name()));
+        myTracer.getSender().info(String.format("\t\t%s\n", x.myDependencies.stream().map(JM::name).collect(Collectors.toList())));
+        myTracer.getSender().info(String.format("\t\t%s  JS:%s\n", x.compileState(), x.mySources));
+        myTracer.getSender().info(String.format("\t\t%s\n", x.myClasspath));
       }
     }
-    System.out.println();
     myToCompile = components;
   }
 
@@ -544,11 +613,89 @@ public final class ModuleMaker {
   // doesn't need model read, deals with what #prepare() got ready
   @NotNull
   public MPSCompilationResult make(@NotNull final ProgressMonitor monitor) {
-    for (List<JM> cc : myToCompile) {
-//      final MC mc = new MC(cc);
-//      compileCycles(mc);
+    final CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
+    tracer.start(String.format(BUILDING_MODULES_MSG, myToCompile.size()), 10);
+    try {
+      return compileCycles2(tracer.subTracer(9, SubProgressKind.REPLACING));
+    } catch (Exception ex) {
+      String m = String.format("Unexpected exception '%s', compilation aborted!", ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
+      tracer.getSender().error(m, ex);
+      return new MPSCompilationResult(1, 0, true, Collections.emptySet());
+    } finally {
+      tracer.done();
+      tracer.printReport();
     }
-    return null;
+  }
+
+  private MPSCompilationResult compileCycles2(CompositeTracer tracer) {
+    List<MPSCompilationResult> cycleCompilationResults = new ArrayList<>();
+    tracer.start("Cycles", myToCompile.size());
+
+    try (JavaCompilerImpl jc = decideOnActualCompiler(tracer.getSender())) {
+      int cycleNumber = 0;
+      for (List<JM> cc : myToCompile) {
+        if (tracer.isMonitorCanceled()) {
+          break;
+        }
+        ++cycleNumber;
+        CompositeTracer cycleTracer = tracer.subTracer(1);
+        tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, cc.stream().map(JM::name).collect(Collectors.toList())));
+        cycleTracer.start(getCycleString(cycleNumber, cc), 1);
+        BaseModuleContainer<JM> modulesContainer = new BaseModuleContainer<JM>() {
+          @Override
+          public Stream<JM> getDirtyModules() {
+            return cc.stream();
+          }
+
+          @Override
+          public Collection<String> getCompileClasspath() {
+            HashSet<JM> seen = new HashSet<>();
+            ArrayDeque<JM> queue = new ArrayDeque<>(cc);
+            HashSet<String> rv = new HashSet<>();
+            do {
+              final JM jm = queue.removeFirst();
+              if (seen.add(jm)) {
+                if (jm.myClasspath == null) {
+                  System.out.printf("Module %s got no classpath!\n", jm.name());
+                  continue;
+                }
+                rv.addAll(jm.myClasspath);
+                jm.dependsFrom().forEach(queue::add);
+              }
+            } while (!queue.isEmpty());
+            return rv;
+          }
+
+          @Override
+          public ModuleAnalyzerResult analyze() {
+            boolean hasJavaToCompile = false;
+            boolean hasResourcesToUpdate = false;
+            Set<BaseModuleContainer.JavaModule> modulesWithRemovals = new HashSet<>();
+            Set<File> filesToDelete = new HashSet<>();
+            for (JM jm : cc) {
+              if (jm.mySources == null) {
+                System.out.printf("Module %s got no sources!\n", jm.name());
+                continue;
+              }
+              // !isResourcesUpToDate == (myFilesToDelete.isEmpty() && myResourcesToCopy.isEmpty())
+              // XXX is it right to include files to delete into condition?
+              hasResourcesToUpdate |= !jm.mySources.myResourcesToCopy.isEmpty() || !jm.mySources.myFilesToDelete.isEmpty();
+              hasJavaToCompile |= !jm.mySources.myFilesToCompile.isEmpty();
+              if (filesToDelete.addAll(jm.mySources.myFilesToDelete)) {
+                modulesWithRemovals.add(jm);
+              }
+            }
+            return ModuleAnalyzerResult.build(hasJavaToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
+          }
+        };
+        final MPSCompilationResult cycleCompilationResult = jc.compile(modulesContainer, cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
+        cycleCompilationResults.add(cycleCompilationResult);
+        cycleTracer.done(0);
+      }
+    } finally {
+      tracer.done();
+    }
+    return combineCycleCompilationResults(cycleCompilationResults);
   }
 
 
@@ -561,7 +708,11 @@ public final class ModuleMaker {
   public MPSCompilationResult make(final Collection<? extends SModule> modules, @NotNull final ProgressMonitor monitor,
                                    @Nullable final JavaCompilerOptions compilerOptions) {
     options(compilerOptions);
-    prepare(modules, false, new EmptyProgressMonitor());
+//    final long s = System.nanoTime();
+//    prepare(modules, false, new EmptyProgressMonitor());
+//    final long s1 = System.nanoTime();
+//    make(new EmptyProgressMonitor());
+//    myTracer.getSender().debug(String.format("MAKE2 took %d + %d us\n", (s1-s)/1000, (System.nanoTime()-s1)/1000));
     CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
     tracer.start(String.format(BUILDING_MODULES_MSG, modules.size()), 10);
     try {
@@ -622,8 +773,8 @@ public final class ModuleMaker {
     return combineCycleCompilationResults(cycleCompilationResults);
   }
 
-  private String getCycleString(int cycleNumber, Set<JavaModule> modulesInCycle) {
-    Optional<JavaModule> first = modulesInCycle.stream().findFirst();
+  private String getCycleString(int cycleNumber, Collection<? extends BaseModuleContainer.JavaModule> modulesInCycle) {
+    Optional<? extends BaseModuleContainer.JavaModule> first = modulesInCycle.stream().findFirst();
     String firstModule = "";
     if (first.isPresent()) {
       firstModule = first.get().name();
