@@ -61,6 +61,7 @@
     <import index="rfhd" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.registry(MPS.IDEA/)" />
     <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
     <import index="de5p" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.actions(MPS.IDEA/)" />
+    <import index="ihz5" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.blame.api(MPS.Platform/)" />
     <import index="px75" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.leftHighlighter(MPS.Editor/)" implicit="true" />
   </imports>
   <registry>
@@ -1506,7 +1507,6 @@
                             <node concept="3cpWs8" id="3r0tX$XetTo" role="3cqZAp">
                               <node concept="3cpWsn" id="3r0tX$XetTp" role="3cpWs9">
                                 <property role="TrG5h" value="revisionStringContent" />
-                                <node concept="17QB3L" id="DuTZ70UrvN" role="1tU5fm" />
                                 <node concept="2OqwBi" id="3r0tX$XetTq" role="33vP2m">
                                   <node concept="37vLTw" id="3r0tX$XetTr" role="2Oq$k0">
                                     <ref role="3cqZAo" node="78RbNhWi9MI" resolve="revision" />
@@ -1515,6 +1515,7 @@
                                     <ref role="37wK5l" to="1037:~ContentRevision.getContent()" resolve="getContent" />
                                   </node>
                                 </node>
+                                <node concept="17QB3L" id="DuTZ70UrvN" role="1tU5fm" />
                               </node>
                             </node>
                             <node concept="3clFbJ" id="3r0tX$Xev8B" role="3cqZAp">
@@ -2323,6 +2324,7 @@
         </node>
       </node>
     </node>
+    <node concept="3Tm1VV" id="78RbNhWi9Re" role="1B3o_S" />
     <node concept="2tJIrI" id="DuTZ70N$TX" role="jymVt" />
     <node concept="2YIFZL" id="DuTZ70OnBo" role="jymVt">
       <property role="TrG5h" value="getFileFromModel" />
@@ -2975,7 +2977,6 @@
         <node concept="10P_77" id="DuTZ70Q82J" role="1tU5fm" />
       </node>
     </node>
-    <node concept="3Tm1VV" id="78RbNhWi9Re" role="1B3o_S" />
   </node>
   <node concept="yhzZL" id="78RbNhWi9Rj">
     <property role="TrG5h" value="MPSVcs" />
@@ -3124,8 +3125,9 @@
             </node>
             <node concept="liA8E" id="341WClvYTWP" role="2OqNvi">
               <ref role="37wK5l" to="qy69:~BlameDialog.setSubsystem(java.lang.String)" resolve="setSubsystem" />
-              <node concept="Xl_RD" id="341WClvYTWQ" role="37wK5m">
-                <property role="Xl_RC" value="Version Control" />
+              <node concept="10M0yZ" id="6lwQXX7u9C5" role="37wK5m">
+                <ref role="3cqZAo" to="ihz5:~Reporter.SUBSYSTEM_VERSION_CONTROL" resolve="SUBSYSTEM_VERSION_CONTROL" />
+                <ref role="1PxDUh" to="ihz5:~Reporter" resolve="Reporter" />
               </node>
             </node>
           </node>
@@ -5142,6 +5144,14 @@
       </node>
     </node>
   </node>
+  <node concept="1ESbSp" id="67kWSvhRIy3">
+    <property role="TrG5h" value="IDEAVcsGroups" />
+    <property role="3GE5qa" value="Groups" />
+    <node concept="Xl_RD" id="67kWSvhRIy4" role="3mKD$K">
+      <property role="Xl_RC" value="VcsGroups" />
+    </node>
+    <node concept="ftmFs" id="67kWSvhRIy5" role="ftER_" />
+  </node>
   <node concept="yhzZL" id="7P7YAtPMDqq">
     <property role="TrG5h" value="MPSVcsGit" />
     <property role="BHXKe" value="${module}/../META-INF/" />
@@ -5150,14 +5160,6 @@
         <ref role="2zDL_u" node="7yFo2E9ZaLd" resolve="MPSGitFileActions" />
       </node>
     </node>
-  </node>
-  <node concept="1ESbSp" id="67kWSvhRIy3">
-    <property role="TrG5h" value="IDEAVcsGroups" />
-    <property role="3GE5qa" value="Groups" />
-    <node concept="Xl_RD" id="67kWSvhRIy4" role="3mKD$K">
-      <property role="Xl_RC" value="VcsGroups" />
-    </node>
-    <node concept="ftmFs" id="67kWSvhRIy5" role="ftER_" />
   </node>
 </model>
 
