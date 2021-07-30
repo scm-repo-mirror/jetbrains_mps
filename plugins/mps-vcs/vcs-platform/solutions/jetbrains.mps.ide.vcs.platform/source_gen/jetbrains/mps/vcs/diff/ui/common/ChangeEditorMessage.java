@@ -6,12 +6,12 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.nodeEditor.messageTargets.EditorMessageWithTarget;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
-import jetbrains.mps.vcs.diff.changes.ChangeType;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.errors.MessageStatus;
 import java.awt.Color;
+import jetbrains.mps.vcs.diff.changes.ChangeType;
 import java.awt.Graphics;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -49,8 +49,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public class ChangeEditorMessage extends EditorMessageWithTarget {
   @Nullable
   private final ModelChange myChange;
-
-  private final ChangeType myChangeType;
   @Nullable
   private final ConflictChecker myConflictsChecker;
   private boolean myHighlighted;
@@ -59,19 +57,9 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   protected ChangeEditorMessage(SNode node, MessageTarget target, EditorMessageOwner owner, ModelChange change, @Nullable ConflictChecker conflictChecker, boolean highlighted) {
     super(node, MessageStatus.OK, target, null, "", owner);
     myChange = change;
-    myChangeType = myChange.getType();
     myConflictsChecker = conflictChecker;
     myHighlighted = highlighted;
   }
-
-  protected ChangeEditorMessage(SNode node, MessageTarget target, EditorMessageOwner owner, ModelChange change, @Nullable ConflictChecker conflictChecker, ChangeType changeType, boolean highlighted) {
-    super(node, MessageStatus.OK, target, null, "", owner);
-    myChangeType = changeType;
-    myConflictsChecker = conflictChecker;
-    myChange = change;
-    myHighlighted = highlighted;
-  }
-
 
   public boolean isConflicted() {
     return myConflictsChecker != null && myConflictsChecker.isChangeConflicted(myChange);
@@ -83,7 +71,20 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   }
   @Override
   public Color getColor() {
-    return ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : myChangeType));
+    return ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : myChange.getType()));
+  }
+
+  public ModelChange getChange() {
+    return myChange;
+  }
+
+  public ChangeType getChangeType() {
+    return myChange.getType();
+  }
+
+  @Override
+  public String getMessage() {
+    return myChange.getDescription();
   }
 
   @Override
@@ -130,7 +131,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       if (myChange instanceof NodeGroupWrapChange) {
         changeType = ListSequence.fromList(((NodeGroupWrapChange) myChange).getWrappingGroup().getModifiedNodes()).first().getType();
       } else {
-        changeType = myChangeType;
+        changeType = myChange.getType();
       }
       Color c = ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : changeType));
       final SNode node = getNode();
@@ -284,13 +285,13 @@ __switch__:
                       this.__CP__ = 6;
                       break;
                     case 7:
-                      this._7__yield_myu41h_a0a0a0a0a0a63_it = Sequence.fromIterable(invoke(_4_child)).iterator();
+                      this._7__yield_myu41h_a0a0a0a0a0a73_it = Sequence.fromIterable(invoke(_4_child)).iterator();
                     case 8:
-                      if (!(this._7__yield_myu41h_a0a0a0a0a0a63_it.hasNext())) {
+                      if (!(this._7__yield_myu41h_a0a0a0a0a0a73_it.hasNext())) {
                         this.__CP__ = 5;
                         break;
                       }
-                      this._7__yield_myu41h_a0a0a0a0a0a63 = this._7__yield_myu41h_a0a0a0a0a0a63_it.next();
+                      this._7__yield_myu41h_a0a0a0a0a0a73 = this._7__yield_myu41h_a0a0a0a0a0a73_it.next();
                       this.__CP__ = 9;
                       break;
                     case 2:
@@ -302,7 +303,7 @@ __switch__:
                       break;
                     case 10:
                       this.__CP__ = 8;
-                      this.yield(_7__yield_myu41h_a0a0a0a0a0a63);
+                      this.yield(_7__yield_myu41h_a0a0a0a0a0a73);
                       return true;
                     case 12:
                       this.__CP__ = 1;
@@ -331,8 +332,8 @@ __switch__:
               }
               private EditorCell _4_child;
               private Iterator<EditorCell> _4_child_it;
-              private EditorCell _7__yield_myu41h_a0a0a0a0a0a63;
-              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a63_it;
+              private EditorCell _7__yield_myu41h_a0a0a0a0a0a73;
+              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a73_it;
             };
           }
         };
