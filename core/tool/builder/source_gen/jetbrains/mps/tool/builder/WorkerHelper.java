@@ -9,11 +9,9 @@ import java.util.function.Supplier;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.compiler.JavaCompilerOptions;
-import jetbrains.mps.make.MPSCompilationResult;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.progress.EmptyProgressMonitor;
+import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.classloading.ClassLoaderManager;
 
 @GeneratedClass(node = "r:73cef602-d8a6-459c-91ff-d4e129d1a7c5(jetbrains.mps.tool.builder)/6744798568372956937", model = "r:73cef602-d8a6-459c-91ff-d4e129d1a7c5(jetbrains.mps.tool.builder)")
@@ -24,13 +22,15 @@ public final class WorkerHelper {
     myPlatform = host;
   }
 
-  public void makeAndReload(SRepository repo, final Supplier<Collection<SModule>> modules, final JavaCompilerOptions opts) {
-    MPSCompilationResult mpsCompilationResult = new ModelAccessHelper(repo).runReadAction(new Computable<MPSCompilationResult>() {
-      public MPSCompilationResult compute() {
-        ModuleMaker maker = new ModuleMaker();
-        return maker.make(modules.get(), new EmptyProgressMonitor(), opts);
+  public void makeAndReload(SRepository repo, final Supplier<Collection<SModule>> modules, JavaCompilerOptions opts) {
+    final ModuleMaker maker = new ModuleMaker();
+    maker.options(opts);
+    repo.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        maker.prepare(modules.get(), true, new EmptyProgressMonitor());
       }
     });
+    MPSCompilationResult mpsCompilationResult = maker.make(new EmptyProgressMonitor());
     if (mpsCompilationResult.isReloadingNeeded()) {
       myPlatform.findComponent(ClassLoaderManager.class).reload(mpsCompilationResult.getAffectedModules(), new EmptyProgressMonitor());
     }

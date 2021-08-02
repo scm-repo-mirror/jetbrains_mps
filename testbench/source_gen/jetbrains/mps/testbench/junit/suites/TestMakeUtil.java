@@ -6,10 +6,8 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.core.platform.Platform;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.make.ModuleMaker;
-import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.classloading.ClassLoaderManager;
 
@@ -23,15 +21,16 @@ public final class TestMakeUtil {
 
   public void make(@NotNull final Project p) {
     // Apparently, derived from WorkerHelper.makeAndReload()
-    final Wrappers._T<MPSCompilationResult> mpsCompilationResult = new Wrappers._T<MPSCompilationResult>();
+    MPSCompilationResult mpsCompilationResult;
+    final ModuleMaker maker = new ModuleMaker();
     p.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        ModuleMaker maker = new ModuleMaker();
-        mpsCompilationResult.value = maker.make(IterableUtil.asCollection(p.getProjectModules()), new EmptyProgressMonitor());
+        maker.prepare(p.getProjectModules(), true, new EmptyProgressMonitor());
       }
     });
-    if (mpsCompilationResult.value.isReloadingNeeded()) {
-      myPlatform.findComponent(ClassLoaderManager.class).reload(mpsCompilationResult.value.getAffectedModules(), new EmptyProgressMonitor());
+    mpsCompilationResult = maker.make(new EmptyProgressMonitor());
+    if (mpsCompilationResult.isReloadingNeeded()) {
+      myPlatform.findComponent(ClassLoaderManager.class).reload(mpsCompilationResult.getAffectedModules(), new EmptyProgressMonitor());
     }
   }
 }
