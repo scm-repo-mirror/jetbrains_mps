@@ -31,20 +31,20 @@ import com.intellij.openapi.vcs.ProjectLevelVcsManager;
 import com.intellij.openapi.vcs.diff.DiffProvider;
 import com.intellij.openapi.vcs.history.VcsRevisionNumber;
 import org.apache.log4j.Level;
-import com.intellij.openapi.vcs.changes.ContentRevision;
-import org.jetbrains.mps.openapi.model.SNodeId;
-import com.intellij.diff.DiffContentFactory;
 import com.intellij.diff.contents.DiffContent;
-import com.intellij.openapi.vcs.changes.BinaryContentRevision;
-import java.io.IOException;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import com.intellij.diff.requests.SimpleDiffRequest;
 import java.util.Arrays;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.vcs.platform.integration.ModelDiffViewer;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.diff.DiffManager;
+import com.intellij.diff.DiffContentFactory;
+import com.intellij.openapi.vcs.changes.ContentRevision;
+import com.intellij.openapi.vcs.changes.BinaryContentRevision;
+import java.io.IOException;
 import com.intellij.openapi.vcs.impl.VcsFileStatusProvider;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Iterator;
@@ -138,33 +138,15 @@ public final class VcsActionsUtil {
             }
             return;
           }
-          ContentRevision revision = diffProvider.createFileContent(revisionNumber, vFile);
-          final SNodeId id = myNodeRef.getNodeId();
-          if (revision == null) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("content revision is null for file " + vFile + " revision=" + revisionNumber);
-            }
+          DiffContent revisionContent = createRevisionContent(ideaProject, vcs, revisionNumber, vFile);
+          if (revisionContent == null) {
             return;
           }
-
-          DiffContentFactory diffContentFactory = DiffContentFactory.getInstance();
-          String revisionStringContent = revision.getContent();
-          if (revisionStringContent == null) {
-            throw new VcsException("Failed to load content");
-          }
-          DiffContent revisionContent;
-          try {
-            revisionContent = (revision instanceof BinaryContentRevision ? diffContentFactory.createBinary(ideaProject, ((BinaryContentRevision) revision).getBinaryContent(), vFile.getFileType(), vFile.getName()) : diffContentFactory.create(revisionStringContent, vFile.getFileType()));
-          } catch (IOException e) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("error when reading revision content from file " + vFile + " revision=" + revisionNumber, e);
-            }
-            return;
-          }
-          DiffContent currentContent = diffContentFactory.create(ideaProject, vFile);
+          DiffContent currentContent = createCurrentContent(ideaProject, vFile);
           List<String> titles = ListSequence.fromListAndArray(new ArrayList<String>(), revisionNumber.asString() + " (Read-Only)", "Your Version");
           DiffRequest req = new SimpleDiffRequest(myContainingRootName, Arrays.asList(revisionContent, currentContent), titles);
           // put hint to show only one root and navigate
+          final SNodeId id = myNodeRef.getNodeId();
           req.putUserData(ModelDiffViewer.DIFF_SHOW_ROOTID, id);
           req.putUserData(ModelDiffViewer.DIFF_NAVIGATE_TO, bounds);
           request.set(req);
@@ -190,6 +172,39 @@ public final class VcsActionsUtil {
         }
       }
     });
+  }
+
+  @NotNull
+  public static DiffContent createCurrentContent(Project ideaProject, VirtualFile vFile) {
+    return DiffContentFactory.getInstance().create(ideaProject, vFile);
+  }
+
+  @Nullable
+  public static DiffContent createRevisionContent(Project ideaProject, AbstractVcs vcs, VcsRevisionNumber revisionNumber, VirtualFile vFile) throws VcsException {
+    DiffProvider diffProvider = vcs.getDiffProvider();
+    assert diffProvider != null;
+
+    ContentRevision revision = diffProvider.createFileContent(revisionNumber, vFile);
+    if (revision == null) {
+      if (LOG.isEnabledFor(Level.WARN)) {
+        LOG.warn("content revision is null for file " + vFile + " revision=" + revisionNumber);
+      }
+      return null;
+    }
+
+    DiffContentFactory diffContentFactory = DiffContentFactory.getInstance();
+    String revisionStringContent = revision.getContent();
+    if (revisionStringContent == null) {
+      throw new VcsException("Failed to load content");
+    }
+    try {
+      return (revision instanceof BinaryContentRevision ? diffContentFactory.createBinary(ideaProject, ((BinaryContentRevision) revision).getBinaryContent(), vFile.getFileType(), vFile.getName()) : diffContentFactory.create(revisionStringContent, vFile.getFileType()));
+    } catch (IOException e) {
+      if (LOG.isEnabledFor(Level.WARN)) {
+        LOG.warn("error when reading revision content from file " + vFile + " revision=" + revisionNumber, e);
+      }
+      return null;
+    }
   }
 
   private static Iterable<VirtualFile> collectUnversionedFiles(final VcsFileStatusProvider fileStatusProvider, @NotNull final VirtualFile dir) {
@@ -218,13 +233,13 @@ __switch__:
                       this.__CP__ = 7;
                       break;
                     case 8:
-                      this._8__yield_brpb5o_a0b0a0a0k_it = Sequence.fromIterable(collectUnversionedFiles(fileStatusProvider, _5_child)).iterator();
+                      this._8__yield_brpb5o_a0b0a0a0o_it = Sequence.fromIterable(collectUnversionedFiles(fileStatusProvider, _5_child)).iterator();
                     case 9:
-                      if (!(this._8__yield_brpb5o_a0b0a0a0k_it.hasNext())) {
+                      if (!(this._8__yield_brpb5o_a0b0a0a0o_it.hasNext())) {
                         this.__CP__ = 6;
                         break;
                       }
-                      this._8__yield_brpb5o_a0b0a0a0k = this._8__yield_brpb5o_a0b0a0a0k_it.next();
+                      this._8__yield_brpb5o_a0b0a0a0o = this._8__yield_brpb5o_a0b0a0a0o_it.next();
                       this.__CP__ = 10;
                       break;
                     case 2:
@@ -240,7 +255,7 @@ __switch__:
                       return true;
                     case 11:
                       this.__CP__ = 9;
-                      this.yield(_8__yield_brpb5o_a0b0a0a0k);
+                      this.yield(_8__yield_brpb5o_a0b0a0a0o);
                       return true;
                     case 0:
                       this.__CP__ = 2;
@@ -262,8 +277,8 @@ __switch__:
               }
               private VirtualFile _5_child;
               private Iterator<VirtualFile> _5_child_it;
-              private VirtualFile _8__yield_brpb5o_a0b0a0a0k;
-              private Iterator<VirtualFile> _8__yield_brpb5o_a0b0a0a0k_it;
+              private VirtualFile _8__yield_brpb5o_a0b0a0a0o;
+              private Iterator<VirtualFile> _8__yield_brpb5o_a0b0a0a0o_it;
             };
           }
         };
@@ -348,7 +363,7 @@ __switch__:
   /*package*/ static AnnotationColumn getAnnotationColumn(EditorComponent editorComponent) {
     for (AbstractLeftColumn column : editorComponent.getLeftEditorHighlighter().getLeftColumns()) {
       if (column instanceof AnnotationColumn) {
-        return as_brpb5o_a0a0a0a0x(column, AnnotationColumn.class);
+        return as_brpb5o_a0a0a0a0bb(column, AnnotationColumn.class);
       }
     }
     return null;
@@ -408,7 +423,7 @@ __switch__:
   public static BackgroundableActionLock getAnnotateRootLock(Project project, String taskName) {
     return BackgroundableActionLock.getLock(project, VcsBackgroundableActions.ANNOTATE, taskName);
   }
-  private static <T> T as_brpb5o_a0a0a0a0x(Object o, Class<T> type) {
+  private static <T> T as_brpb5o_a0a0a0a0bb(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

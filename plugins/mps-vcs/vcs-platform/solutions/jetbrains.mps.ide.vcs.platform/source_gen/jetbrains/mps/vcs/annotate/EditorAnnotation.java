@@ -56,18 +56,24 @@ import java.util.Arrays;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
 import jetbrains.mps.vcs.diff.ui.common.ChangeColors;
 import com.intellij.openapi.vcs.annotate.ShowAllAffectedGenericAction;
+import jetbrains.mps.util.Reference;
+import com.intellij.openapi.vcs.VcsException;
+import com.intellij.diff.requests.DiffRequest;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
+import com.intellij.openapi.vcs.VcsBundle;
+import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.diff.requests.SimpleDiffRequest;
 import jetbrains.mps.vcs.platform.integration.ModelDiffViewer;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.diff.DiffManager;
 import jetbrains.mps.vcs.diff.ui.common.DiffModelUtil;
 import jetbrains.mps.ide.editor.NodeEditor;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import com.intellij.openapi.vcs.impl.BackgroundableActionLock;
 import jetbrains.mps.vcs.platform.actions.VcsActionsUtil;
-import com.intellij.openapi.progress.ProgressManager;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import java.io.IOException;
-import com.intellij.openapi.vcs.VcsException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -579,24 +585,59 @@ public final class EditorAnnotation implements EditorMessageOwner, AnnotationOpt
     ShowAllAffectedGenericAction.showSubmittedFiles(myMpsProject.getProject(), revision.getRevisionNumber(), myFile, myVcs.getKeyInstanceMethod());
   }
 
-  public void showDiff(CommitsGraphNode node) {
-    final Wrappers._T<String> rootName = new Wrappers._T<String>();
-    final Wrappers._T<SNodeId> rootId = new Wrappers._T<SNodeId>();
-    getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        rootId.value = getRootId();
-        rootName.value = myEditorComponent.getEditedNode().getName();
+  public void showDiff(final CommitsGraphNode node) {
+
+    final Reference<VcsException> exception1 = new Reference<VcsException>();
+    final Reference<DiffRequest> request = new Reference<DiffRequest>();
+
+    final StringBuilder fileAtRevisions = new StringBuilder(myFile.getPresentableName());
+    fileAtRevisions.append('@');
+    String nodeRevision = node.getRevision().getRevisionNumber().asString();
+    fileAtRevisions.append((node.isLocalRevision() ? nodeRevision : nodeRevision.substring(0, 8)));
+    ListSequence.fromList(node.getParents()).visitAll(new IVisitor<CommitsGraphNode>() {
+      public void visit(CommitsGraphNode it) {
+        fileAtRevisions.append(',').append(it.getRevision().getRevisionNumber().asString().substring(0, 8));
       }
     });
 
-    final SimpleDiffRequest rq = new SimpleDiffRequest(rootName.value, node.createContents(myFile.getExtension()), node.createTitles());
-    ModelDiffViewer.DIFF_SHOW_ROOTID.set(rq, rootId.value);
-    ModelDiffViewer.DIFF_SHOW_TREE.set(rq, false);
-    ApplicationManager.getApplication().invokeLater(new Runnable() {
-      public void run() {
-        DiffManager.getInstance().showDiff(myMpsProject.getProject(), rq);
+    ProgressManager.getInstance().run(new Task.Backgroundable(getProject(), VcsBundle.message("show.diff.progress.title.detailed", fileAtRevisions.toString()), true) {
+      @Override
+      public void run(@NotNull ProgressIndicator pi) {
+        try {
+          final Wrappers._T<String> rootName = new Wrappers._T<String>();
+          final Wrappers._T<SNodeId> rootId = new Wrappers._T<SNodeId>();
+          getModelAccess().runReadAction(new Runnable() {
+            public void run() {
+              rootId.value = getRootId();
+              rootName.value = myEditorComponent.getEditedNode().getName();
+            }
+          });
+
+          SimpleDiffRequest rq;
+          rq = new SimpleDiffRequest(rootName.value, node.createContents(getProject(), myVcs, myFile), node.createTitles());
+          ModelDiffViewer.DIFF_SHOW_ROOTID.set(rq, rootId.value);
+          ModelDiffViewer.DIFF_SHOW_TREE.set(rq, false);
+          request.set(rq);
+        } catch (VcsException e) {
+          exception1.set(e);
+        }
+      }
+      @Override
+      public void onCancel() {
+        onSuccess();
+      }
+      @Override
+      public void onSuccess() {
+        if (exception1.get() != null) {
+          Messages.showErrorDialog(getProject(), "Can't show difference due to the following error: " + exception1.get().getMessage(), "Error");
+          return;
+        }
+        if (request.get() != null) {
+          DiffManager.getInstance().showDiff(getProject(), request.get());
+        }
       }
     });
+
   }
 
   public void annotateRevision(final VcsFileRevision revision) {
