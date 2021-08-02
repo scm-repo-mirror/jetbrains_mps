@@ -6494,6 +6494,26 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
       <node concept="3clFbS" id="1R9fMbxrL$F" role="3clF47">
+        <node concept="3clFbJ" id="7Ut6nIE90IQ" role="3cqZAp">
+          <node concept="3clFbS" id="7Ut6nIE90IR" role="3clFbx">
+            <node concept="3cpWs6" id="7Ut6nIE90IS" role="3cqZAp">
+              <node concept="2ShNRf" id="7Ut6nIE90IT" role="3cqZAk">
+                <node concept="1pGfFk" id="7Ut6nIE90IU" role="2ShVmc">
+                  <ref role="37wK5l" to="dxuu:~JLabel.&lt;init&gt;(java.lang.String)" resolve="JLabel" />
+                  <node concept="Xl_RD" id="7Ut6nIE90IV" role="37wK5m">
+                    <property role="Xl_RC" value="Failed to create diff viewer" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="7Ut6nIE90IW" role="3clFbw">
+            <node concept="10Nm6u" id="7Ut6nIE90IX" role="3uHU7w" />
+            <node concept="37vLTw" id="7Ut6nIE90IY" role="3uHU7B">
+              <ref role="3cqZAo" node="5zPLqcHLKP4" resolve="myViewer" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="1R9fMbxrL$H" role="3cqZAp">
           <node concept="2OqwBi" id="5U8a8kRyKnj" role="3clFbG">
             <node concept="37vLTw" id="5U8a8kRy5Gn" role="2Oq$k0">

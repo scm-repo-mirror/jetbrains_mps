@@ -158,6 +158,9 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
   }
   @Nullable
   public JComponent getPreferredFocusedComponent() {
+    if (myViewer == null) {
+      return new JLabel("Failed to create diff viewer");
+    }
     return myViewer.getPreferredFocusedComponent();
   }
   @NotNull
