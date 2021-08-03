@@ -106,16 +106,18 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     SNode node = getNode();
     boolean baseCommentAttribute = SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$nv);
     for (EditorCell childCell : ((EditorCell_Collection) editorCell)) {
-      boolean commentedNode = childCell.isBig() && !(Objects.equals(childCell.getSNode(), getNode())) && !(Objects.equals(childCell.getParent().getSNode(), getNode()));
 
-      if (Sequence.fromIterable(movedNodes).isNotEmpty() && color != backgroundColor && Sequence.fromIterable(movedNodes).contains(editorCell.getSNode().getNodeId()) && (!(baseCommentAttribute) || commentedNode)) {
-        color = backgroundColor;
-      }
+      boolean commentedNode = baseCommentAttribute && childCell.isBig() && !(Objects.equals(childCell.getSNode(), getNode())) && !(Objects.equals(childCell.getParent().getSNode(), getNode()));
+
+      boolean useBackgroundColor = Sequence.fromIterable(movedNodes).isNotEmpty() && color != backgroundColor && Sequence.fromIterable(movedNodes).contains(editorCell.getSNode().getNodeId()) && (!(baseCommentAttribute) || commentedNode);
+
+      Color childCellColor = (useBackgroundColor ? backgroundColor : color);
+
       if (childCell instanceof EditorCell_Collection) {
-        paintSelection(graphics, color, backgroundColor, allowedNodes, movedNodes, ((EditorCell_Collection) childCell));
+        paintSelection(graphics, childCellColor, backgroundColor, allowedNodes, movedNodes, ((EditorCell_Collection) childCell));
       } else {
         if (Sequence.fromIterable(allowedNodes).contains(childCell.getSNode().getNodeId())) {
-          ((jetbrains.mps.nodeEditor.cells.EditorCell) childCell).paintSelection(graphics, color, false);
+          ((jetbrains.mps.nodeEditor.cells.EditorCell) childCell).paintSelection(graphics, childCellColor, false);
         }
       }
     }
