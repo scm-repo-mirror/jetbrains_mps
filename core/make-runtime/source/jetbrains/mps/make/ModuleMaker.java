@@ -398,6 +398,11 @@ public final class ModuleMaker {
     public Iterable<ResourceFile> getResourcesToCopy() {
       return mySources.myResourcesToCopy;
     }
+
+    @Override
+    public boolean hasJavaToCompile() {
+      return !mySources.myFilesToCompile.isEmpty();
+    }
   }
 
   private static class PackagePrefix {
@@ -615,6 +620,8 @@ public final class ModuleMaker {
     // some dirty modules got sources while we walked for needsCompile(), some got their dirty state derived
     // or forced (i.e. forceCompile). Make sure all dirty modules (we're going to compile these) get sources initialized:
     final Predicate<JM> isDirty = JM::isDirty;
+    // XXX perhaps, shall evaluate sources for initial modules first, to get isDirty for them
+    //   in a way similar to legacy MM?
     initial.allJavaModules().stream().filter(isDirty).forEach(initial::evaluateSources);
     withDeps.abandonModelRead(); // don't need SModule any longer
     // Build clusters that contain both clean and dirty, and then remove clean from the final cluster:

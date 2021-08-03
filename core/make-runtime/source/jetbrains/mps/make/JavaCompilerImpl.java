@@ -164,7 +164,7 @@ final class JavaCompilerImpl implements AutoCloseable {
         //     At the moment, it's not a big deal, as we pass at least some of modules as 'dirty',
         //     and those that are not dirty but in cycle, would need to get reloaded anyway after
         //     compilation of their dirty peer.
-        final ErrorRecord errorRecord = doCompile(jm, tracer.getSender());
+        final ErrorRecord errorRecord = compileModule(jm, tracer.getSender());
         tracer.pop(1);
         if (errorRecord == null || errorRecord.errors == 0) {
           // disregard warnings, only errors prevent us from instrumentation
@@ -205,7 +205,21 @@ final class JavaCompilerImpl implements AutoCloseable {
     }
   }
 
-  // assume classpath configured. Compile single MPS module, deal with issues
+  @Nullable
+  private ErrorRecord compileModule(BaseModuleContainer.JavaModule jm, MessageSender sender) throws IOException, RuntimeException {
+    if (!jm.hasJavaToCompile()) {
+      sender.info(String.format("Nothing to compile for module %s", jm.name()));
+      return null;
+    }
+    try {
+      return doCompile(jm, sender);
+    } catch (RuntimeException ex) {
+      sender.error(String.format("Compile of %s failed with exception", jm.name()));
+      throw ex;
+    }
+  }
+
+    // assume classpath configured. Compile single MPS module, deal with issues
   private ErrorRecord doCompile(BaseModuleContainer.JavaModule jm, MessageSender sender) throws IOException {
     configureOutput(jm);
     configureSourcePath(jm.getAllSourcePaths().stream().map(Path::of));

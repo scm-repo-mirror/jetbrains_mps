@@ -39,6 +39,7 @@ interface BaseModuleContainer<T extends JavaModule> {
 
     Iterable<ResourceFile> getResourcesToCopy();
 
+    boolean hasJavaToCompile();
   }
 
   Stream<T> getDirtyModules();

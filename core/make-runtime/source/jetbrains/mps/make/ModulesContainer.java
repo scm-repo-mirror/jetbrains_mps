@@ -150,6 +150,11 @@ final class ModulesContainer implements BaseModuleContainer<ModulesContainer.Jav
     public Iterable<ResourceFile> getResourcesToCopy() {
       return getSources().getResourcesToCopy();
     }
+
+    @Override
+    public boolean hasJavaToCompile() {
+      return !getSources().isJavaUpToDate();
+    }
   }
 
   public ModulesContainer(Collection<? extends SModule> modules) {
