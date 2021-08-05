@@ -106,7 +106,11 @@ public class JavaCompile_Facet extends IFacet.Stub {
               final IMessageHandler msgHandler = new ErrorsLoggingHandler(LogManager.getLogger(new IFacet.Name("jetbrains.mps.make.facets.JavaCompile").getName())).compose(monitor.getSession().getMessageHandler());
               MPSCompilationResult cr = new ModelAccessHelper(monitor.getSession().getProject().getModelAccess()).runReadAction(new Computable<MPSCompilationResult>() {
                 public MPSCompilationResult compute() {
-                  return new ModuleMaker(msgHandler).make(toCompile, progressMonitor, vars(pa.global()).options());
+                  ModuleMaker mm = new ModuleMaker(msgHandler);
+                  // FIXME would be great to re-use deps known to textGen facet, however
+                  //    can not compile code as this class lives in IDEA-compiled solution,
+                  //    while TextGen facet is part of lang.core/plugin, managed by MPS
+                  return mm.make(toCompile, progressMonitor, vars(pa.global()).options());
                 }
               });
               vars(pa.global()).compiledAnything(vars(pa.global()).compiledAnything() || cr.isCompiledAnything());

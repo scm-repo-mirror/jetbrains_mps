@@ -250,7 +250,7 @@ public class TextGen_Facet extends IFacet.Stub {
                 // there's no really any use of the cached bl dependencies, provided each model from the set of resources is generated once and the cache is only populated, not read.
                 // however, it's better than global singleton, and, perhaps, some day we could pass it further to make to use readily available bl dependencies in ModuleMaker, so that it
                 // doesn't need to read these 'dependencies' files again with its Dependencies class.
-                final BLDependenciesCache blDepsCache = new BLDependenciesCache();
+                final BLDependenciesCache blDepsCache = (vars(pa.global()).dependenciesCache() == null ? new BLDependenciesCache() : vars(pa.global()).dependenciesCache());
                 // same as above applies to cache of trace.info
                 final TraceInfoCache traceInfoCache = new TraceInfoCache();
                 // we don't care about cached values of 'generated', but we need a way to read values, if any (e.g. StaleFilesCollector),
@@ -376,6 +376,7 @@ public class TextGen_Facet extends IFacet.Stub {
                 for (GResource resource : SetSequence.fromSet(MapSequence.fromMap(deltas2).keySet())) {
                   _output_21gswx_a0b = Sequence.fromIterable(_output_21gswx_a0b).concat(Sequence.fromIterable(Sequence.<IResource>singleton(new TResource(MapSequence.fromMap(deltas2).get(resource).getDelta(), resource.module(), resource.model()))));
                 }
+                vars(pa.global()).dependenciesCache(blDepsCache);
               } catch (InterruptedException ex) {
                 monitor.reportFeedback(new IFeedback.ERROR(String.valueOf("TextGen interrupted")));
                 return new IResult.FAILURE(_output_21gswx_a0b);
@@ -436,7 +437,7 @@ public class TextGen_Facet extends IFacet.Stub {
     public <T> T createParameters(Class<T> cls, T copyFrom) {
       T t = createParameters(cls);
       if (t != null) {
-        ((Tuples._1) t).assign((Tuples._1) copyFrom);
+        ((Tuples._2) t).assign((Tuples._2) copyFrom);
       }
       return t;
     }
@@ -446,18 +447,24 @@ public class TextGen_Facet extends IFacet.Stub {
     public static Parameters vars(IPropertiesPool ppool) {
       return ppool.properties(name, Parameters.class);
     }
-    public static class Parameters extends MultiTuple._1<Boolean> {
+    public static class Parameters extends MultiTuple._2<Boolean, BLDependenciesCache> {
       public Parameters() {
         super();
       }
-      public Parameters(Boolean generateDebugInfo) {
-        super(generateDebugInfo);
+      public Parameters(Boolean generateDebugInfo, BLDependenciesCache dependenciesCache) {
+        super(generateDebugInfo, dependenciesCache);
       }
       public Boolean generateDebugInfo(Boolean value) {
         return super._0(value);
       }
+      public BLDependenciesCache dependenciesCache(BLDependenciesCache value) {
+        return super._1(value);
+      }
       public Boolean generateDebugInfo() {
         return super._0();
+      }
+      public BLDependenciesCache dependenciesCache() {
+        return super._1();
       }
     }
   }
@@ -575,6 +582,7 @@ public class TextGen_Facet extends IFacet.Stub {
         if (properties.hasProperties(name)) {
           Target_textGen.Parameters props = properties.properties(name, Target_textGen.Parameters.class);
           MapSequence.fromMap(store).put("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo", String.valueOf(props.generateDebugInfo()));
+          MapSequence.fromMap(store).put("jetbrains.mps.lang.core.TextGen.textGen.dependenciesCache", null);
         }
       }
     }
@@ -585,6 +593,9 @@ public class TextGen_Facet extends IFacet.Stub {
           Target_textGen.Parameters props = properties.properties(name, Target_textGen.Parameters.class);
           if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo")) {
             props.generateDebugInfo(Boolean.valueOf(MapSequence.fromMap(store).get("jetbrains.mps.lang.core.TextGen.textGen.generateDebugInfo")));
+          }
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.lang.core.TextGen.textGen.dependenciesCache")) {
+            props.dependenciesCache(null);
           }
         }
       } catch (RuntimeException re) {

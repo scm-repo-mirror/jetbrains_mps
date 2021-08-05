@@ -22,6 +22,8 @@ import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.util.FlattenIterable;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 
@@ -34,9 +36,14 @@ class Dependencies {
   private final Map<String, Set<String>> myDependencies = new HashMap<>();
   private final Map<String, Set<String>> myExtendsDependencies = new HashMap<>();
   private final Map<String, SModule> myFqName2Modules = new HashMap<>();
-  private final BLDependenciesCache myBLDependenciesCache = new BLDependenciesCache();
+  private final BLDependenciesCache myBLDependenciesCache;
 
   public Dependencies(Collection<? extends SModule> ms) {
+    this(ms, null);
+  }
+
+  public Dependencies(@NotNull Collection<? extends SModule> ms, @Nullable BLDependenciesCache dependenciesCache) {
+    myBLDependenciesCache = dependenciesCache == null ? new BLDependenciesCache() : dependenciesCache;
     for (SModule m : ms) {
       collectDependencies(m);
     }

@@ -23,6 +23,7 @@ import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;
 import jetbrains.mps.make.ModulesContainer.JavaModule;
 import jetbrains.mps.make.dependencies.graph.Graph;
 import jetbrains.mps.make.dependencies.graph.IVertex;
+import jetbrains.mps.make.java.BLDependenciesCache;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.SModuleOperations;
@@ -91,6 +92,8 @@ public final class ModuleMaker {
 
   @NotNull
   private final CompositeTracer myTracer;
+  @Nullable
+  private BLDependenciesCache myDependenciesCache;
 
   /**
    * The empty constructor delegates only error messages to the apache's logger and traces nothing
@@ -127,6 +130,11 @@ public final class ModuleMaker {
    */
   public ModuleMaker options(@Nullable JavaCompilerOptions options) {
     myCompilerOptions = options;
+    return this;
+  }
+
+  public ModuleMaker dependencies(@Nullable BLDependenciesCache dependenciesCache) {
+    myDependenciesCache = dependenciesCache;
     return this;
   }
 
@@ -770,7 +778,7 @@ public final class ModuleMaker {
       tracer.pop(1);
 
       tracer.push(LOADING_DEPENDENCIES_MSG);
-      Dependencies dependencies = new Dependencies(candidates); // fixme AP why do we need to look for some other deps??
+      Dependencies dependencies = new Dependencies(candidates, myDependenciesCache); // fixme AP why do we need to look for some other deps??
       tracer.pop(1);
 
       tracer.push(CALCULATING_DEPENDENCIES_TO_COMPILE_MSG);

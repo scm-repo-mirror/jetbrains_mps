@@ -1987,9 +1987,26 @@
                     <node concept="3uibUv" id="URDuznnrXB" role="1tU5fm">
                       <ref role="3uigEE" to="9fyk:~BLDependenciesCache" resolve="BLDependenciesCache" />
                     </node>
-                    <node concept="2ShNRf" id="URDuznnrXF" role="33vP2m">
-                      <node concept="1pGfFk" id="URDuznnrXG" role="2ShVmc">
-                        <ref role="37wK5l" to="9fyk:~BLDependenciesCache.&lt;init&gt;()" resolve="BLDependenciesCache" />
+                    <node concept="3K4zz7" id="6SVxhiG5YM4" role="33vP2m">
+                      <node concept="1aIXbY" id="6SVxhiG61rg" role="3K4GZi">
+                        <node concept="1aIXbZ" id="6SVxhiG61rf" role="2Oq$k0" />
+                        <node concept="2sxana" id="6SVxhiG61rj" role="2OqNvi">
+                          <ref role="2sxfKC" node="6SVxhiG5Qz5" resolve="dependenciesCache" />
+                        </node>
+                      </node>
+                      <node concept="3clFbC" id="6SVxhiG5Wl_" role="3K4Cdx">
+                        <node concept="10Nm6u" id="6SVxhiG5XTH" role="3uHU7w" />
+                        <node concept="1aIXbY" id="6SVxhiG5Uv7" role="3uHU7B">
+                          <node concept="1aIXbZ" id="6SVxhiG5Uv6" role="2Oq$k0" />
+                          <node concept="2sxana" id="6SVxhiG5Uva" role="2OqNvi">
+                            <ref role="2sxfKC" node="6SVxhiG5Qz5" resolve="dependenciesCache" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="2ShNRf" id="6SVxhiG602F" role="3K4E3e">
+                        <node concept="1pGfFk" id="URDuznnrXG" role="2ShVmc">
+                          <ref role="37wK5l" to="9fyk:~BLDependenciesCache.&lt;init&gt;()" resolve="BLDependenciesCache" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -4087,6 +4104,19 @@
                     </node>
                   </node>
                 </node>
+                <node concept="3clFbF" id="6SVxhiG66RB" role="3cqZAp">
+                  <node concept="37vLTI" id="6SVxhiG6bng" role="3clFbG">
+                    <node concept="37vLTw" id="6SVxhiG6bCG" role="37vLTx">
+                      <ref role="3cqZAo" node="URDuznnrXE" resolve="blDepsCache" />
+                    </node>
+                    <node concept="1aIXbY" id="6SVxhiG66Rz" role="37vLTJ">
+                      <node concept="1aIXbZ" id="6SVxhiG66Ry" role="2Oq$k0" />
+                      <node concept="2sxana" id="6SVxhiG66RA" role="2OqNvi">
+                        <ref role="2sxfKC" node="6SVxhiG5Qz5" resolve="dependenciesCache" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
               </node>
               <node concept="1wplmZ" id="brEIaCk64JF" role="1zxBo6">
                 <node concept="3clFbS" id="7A08csWcyKm" role="1wplMD">
@@ -4247,6 +4277,12 @@
           <property role="TrG5h" value="generateDebugInfo" />
           <node concept="3uibUv" id="5L5h3brvDMT" role="2lK19J">
             <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
+          </node>
+        </node>
+        <node concept="2lGYhJ" id="6SVxhiG5Qz5" role="2pHZQ9">
+          <property role="TrG5h" value="dependenciesCache" />
+          <node concept="3uibUv" id="6SVxhiG5S7O" role="2lK19J">
+            <ref role="3uigEE" to="9fyk:~BLDependenciesCache" resolve="BLDependenciesCache" />
           </node>
         </node>
       </node>
