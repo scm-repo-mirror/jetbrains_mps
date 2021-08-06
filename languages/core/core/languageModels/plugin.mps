@@ -41,6 +41,7 @@
     <import index="b0pz" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.facets(MPS.Core/)" />
     <import index="lvdd" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.cache(MPS.Core/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
+    <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -2406,6 +2407,27 @@
                         </node>
                       </node>
                     </node>
+                    <node concept="3clFbH" id="3g56Re5ZuR" role="3cqZAp" />
+                    <node concept="3cpWs8" id="3g56Re63$Y" role="3cqZAp">
+                      <node concept="3cpWsn" id="3g56Re63$W" role="3cpWs9">
+                        <property role="3TUv4t" value="true" />
+                        <property role="TrG5h" value="languageRegistry" />
+                        <node concept="3uibUv" id="3g56Re66pK" role="1tU5fm">
+                          <ref role="3uigEE" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                        </node>
+                        <node concept="2OqwBi" id="3g56Re68mo" role="33vP2m">
+                          <node concept="37vLTw" id="3g56Re6hhe" role="2Oq$k0">
+                            <ref role="3cqZAo" node="7A08csWclcg" resolve="mpsProject" />
+                          </node>
+                          <node concept="liA8E" id="3g56Re694K" role="2OqNvi">
+                            <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
+                            <node concept="3VsKOn" id="3g56Re69$u" role="37wK5m">
+                              <ref role="3VsUkX" to="vndm:~LanguageRegistry" resolve="LanguageRegistry" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
                     <node concept="3clFbH" id="3xnl$BhH2fe" role="3cqZAp" />
                     <node concept="3clFbF" id="3QuLV9OsVQ7" role="3cqZAp">
                       <node concept="2OqwBi" id="3QuLV9OsWxQ" role="3clFbG">
@@ -3346,7 +3368,18 @@
                                               <ref role="3cqZAo" node="URDuznnrXE" resolve="blDepsCache" />
                                             </node>
                                             <node concept="liA8E" id="3QuLV9OzOb8" role="2OqNvi">
-                                              <ref role="37wK5l" to="9fyk:~BLDependenciesCache.newCacheGenerator(jetbrains.mps.make.java.ModelDependencies)" resolve="newCacheGenerator" />
+                                              <ref role="37wK5l" to="9fyk:~BLDependenciesCache.newCacheGenerator(jetbrains.mps.smodel.language.LanguageRegistry,org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.make.java.ModelDependencies)" resolve="newCacheGenerator" />
+                                              <node concept="37vLTw" id="3g56Re6bsF" role="37wK5m">
+                                                <ref role="3cqZAo" node="3g56Re63$W" resolve="languageRegistry" />
+                                              </node>
+                                              <node concept="2OqwBi" id="3g56Re6iO2" role="37wK5m">
+                                                <node concept="37vLTw" id="3g56Re6iO3" role="2Oq$k0">
+                                                  <ref role="3cqZAo" node="7A08csWclcg" resolve="mpsProject" />
+                                                </node>
+                                                <node concept="liA8E" id="3g56Re6iO4" role="2OqNvi">
+                                                  <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                                                </node>
+                                              </node>
                                               <node concept="2OqwBi" id="nbGO$BsM83" role="37wK5m">
                                                 <node concept="2ShNRf" id="nbGO$BsLxf" role="2Oq$k0">
                                                   <node concept="1pGfFk" id="nbGO$BsM76" role="2ShVmc">

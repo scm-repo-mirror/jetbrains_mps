@@ -42,6 +42,7 @@ import jetbrains.mps.textgen.trace.TraceInfoCache;
 import java.util.concurrent.TimeUnit;
 import jetbrains.mps.text.TextUnit;
 import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.internal.make.runtime.java.FileDeltaCollector;
 import jetbrains.mps.generator.impl.dependencies.GenerationDependencies;
@@ -281,6 +282,8 @@ public class TextGen_Facet extends IFacet.Stub {
                     outputModelRepo = mpsProject.getRepository();
                   }
 
+                  final LanguageRegistry languageRegistry = mpsProject.getComponent(LanguageRegistry.class);
+
                   outputModelRepo.getModelAccess().runReadAction(new Runnable() {
                     public void run() {
                       ResourceDeltaCollector rdm = MapSequence.fromMap(deltas2).get(inputResource);
@@ -329,7 +332,7 @@ public class TextGen_Facet extends IFacet.Stub {
                       //  
                       // Update caches and auxiliary artifacts
                       CacheGenLayout cgl = new CacheGenLayout(messageHandler);
-                      cgl.register(cachesLocation, blDepsCache.newCacheGenerator(new BLDependenciesBuilder().build(tgr)));
+                      cgl.register(cachesLocation, blDepsCache.newCacheGenerator(languageRegistry, mpsProject.getRepository(), new BLDependenciesBuilder().build(tgr)));
                       cgl.register(cachesLocation, genDepsCache.getGenerator());
                       if (_generateDebugInfo) {
                         cgl.register(javaSourcesLoc, traceInfoCache.newCacheGenerator(new DebugInfoBuilder(mpsProject.getRepository()).build(tgr)));

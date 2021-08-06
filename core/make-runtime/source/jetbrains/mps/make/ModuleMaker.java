@@ -268,7 +268,7 @@ public final class ModuleMaker {
           //     Besides, GMDM doesn't care too much about modules missing in a repo (reports to log), hence the
           //     same logic seems fine here (at least for the first round)
           final SRepository repository = m.getRepository();
-          return rv.stream().distinct().map(r -> r.resolve(repository)).filter(Objects::isNull).collect(Collectors.toUnmodifiableList());
+          return rv.stream().distinct().map(r -> r.resolve(repository)).filter(Objects::nonNull).collect(Collectors.toUnmodifiableList());
         }
         // else fall through, resort to default logic
       }
@@ -451,6 +451,11 @@ public final class ModuleMaker {
     public boolean hasJavaToCompile() {
       return !mySources.myFilesToCompile.isEmpty();
     }
+
+    @Override
+    public String toString() {
+      return String.format("JM[%s]", name());
+    }
   }
 
   private static class PackagePrefix {
@@ -630,7 +635,8 @@ public final class ModuleMaker {
     // depJM - one of requested modules depend on a module which is not among requested. we keep these targets in depJM
     MC depJM = new MC();
     for (JM jm : initial.allJavaModules()) {
-      Collection<SModule> deps = initial.walkDependencies(jm, myDependenciesCache);
+      final BLDependenciesCache depCache = myDependenciesCache == null ? new BLDependenciesCache() : myDependenciesCache;
+      Collection<SModule> deps = initial.walkDependencies(jm, depCache);
       for (SModule d : deps) {
         if (SModuleOperations.getJavaFacet(d) == null) {
           // we may depend on deployed modules that got classesGen == null, ModulesContainer.isExcluded would give wrong result here
@@ -732,7 +738,7 @@ public final class ModuleMaker {
         }
         ++cycleNumber;
         CompositeTracer cycleTracer = tracer.subTracer(1);
-        tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, cc.stream().map(JM::name).collect(Collectors.toList())));
+        tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, cc.stream().map(JM::name).collect(Collectors.joining(","))));
         cycleTracer.start(getCycleString(cycleNumber, cc), 1);
         BaseModuleContainer<JM> modulesContainer = new BaseModuleContainer<JM>() {
           @Override

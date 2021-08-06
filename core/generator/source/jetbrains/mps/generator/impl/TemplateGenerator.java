@@ -270,6 +270,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       EmployedLanguageCollector lc = new EmployedLanguageCollector();
       myLanguageCollectors.forEach(lc::addAll);
       lc.forEachLanguage(myEmployedLanguages::add);
+      myLanguageCollectors.clear();
     }
 
     // replace reference placeholders (PostponedReference) with resolved
@@ -290,7 +291,6 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       getBlockedReductionsData().advanceStep();
       checkMonitorCanceled();
     }
-    myEmployedLanguages.clear();
     return myChanged;
   }
 
