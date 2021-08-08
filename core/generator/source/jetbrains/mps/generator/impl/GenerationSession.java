@@ -176,17 +176,22 @@ class GenerationSession {
       // and we'll need to switch to 'transient' (generator) model here anyway
       SModel currInputModel = createTransientModel(0, 0, "0");
       new CloneUtil(myOriginalInputModel, currInputModel).traceOriginalInput().cloneModelWithImports();
+      // FIXME 1. regular GP (not custom) collects all languages + handles 'additional' languages, have to re-use
+      //       2. custom GP doesn't necessarily cover all the model languages, do I care to limit to actually employed?
+      //       3. Forks may induce different set of employed languages, have to keep per output model, and, likely
+      //          collect input model languages per fork branch
+      // For now, I just need to get over the obstacle of failing tests (ModuleMaker doesn't get full CP e.g. if initial
+      //   model uses closures and they get reduced by external behavior method to a ClassifierType).
+      //   Logic similar to the one of GMDM (takes used languages of a model) is ok for the first round.
+      myEmployedLanguages.addAll(ModelContentUtil.getUsedLanguages(myOriginalInputModel));
       ArrayList<SModel> allOutputModels = new ArrayList<>(4);
       ttrace.push("steps");
-
 
       ModelTransitions transitionTrace = new ModelTransitions(); // FIXME make it optional, if there are no Checkpoint steps, do not record transitions
       transitionTrace.newTransition(null, currInputModel, null);
 
 
-
       ArrayDeque<PlanBranchInfo> forkQueue = new ArrayDeque<>();
-
 
       PlanBranchInfo majorBranch = new PlanBranchInfo();
       majorBranch.inputModel = currInputModel;

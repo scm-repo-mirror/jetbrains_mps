@@ -21,6 +21,7 @@ import jetbrains.mps.generator.cache.CacheGenerator;
 import jetbrains.mps.generator.cache.ParseFacility;
 import jetbrains.mps.generator.cache.ParseFacility.Parser;
 import jetbrains.mps.generator.generationTypes.StreamHandler;
+import jetbrains.mps.smodel.ModelDependencyScanner;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.JDOMUtil;
@@ -90,7 +91,11 @@ public class BLDependenciesCache extends BaseModelCache<ModelDependencies> {
         md.clear();
         // XXX figure out what's with model access here
         myDependencyRegistry.getModelAccess().runReadAction(()-> {
-          for (SModelReference importedModel : new ModelImports(status.getInputModel()).getImportedModels()) {
+          // new ModelImports(status.getInputModel()).getImportedModels() is not enough
+          // as it looks into 'explicit' imports only, while there could be 'implicit' import, vital for compilation deps
+          final ModelDependencyScanner ds = new ModelDependencyScanner().crossModelReferences(true).usedLanguages(false);
+          ds.walk(status.getInputModel());
+          for (SModelReference importedModel : ds.getCrossModelReferences()) {
             final SModel m = importedModel.resolve(myDependencyRegistry);
             if (m != null) {
               md.add(m.getModule().getModuleReference());
