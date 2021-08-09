@@ -34906,6 +34906,9 @@
             </node>
           </node>
         </node>
+        <node concept="1E0d5M" id="472OCDGieYV" role="1E1XAP">
+          <ref role="1E0d5P" node="2eDSGe9d1qo" resolve="jetbrains.mps.execution.api" />
+        </node>
       </node>
       <node concept="1E1JtD" id="5xa9wY2vh8W" role="2G$12L">
         <property role="TrG5h" value="jetbrains.mps.execution.configurations" />
