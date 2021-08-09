@@ -97,7 +97,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_NodeWrapperElement == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("element which wraps any node");
-          cpb.rawPresentation("<node>");
+          cpb.rawPresentation("node");
           props_NodeWrapperElement = cpb.create();
         }
         return props_NodeWrapperElement;

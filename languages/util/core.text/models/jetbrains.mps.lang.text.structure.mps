@@ -139,7 +139,7 @@
   <node concept="1TIwiD" id="2HViukQ0LZD">
     <property role="EcuMT" value="3133179214568824809" />
     <property role="TrG5h" value="NodeWrapperElement" />
-    <property role="34LRSv" value="&lt;node&gt;" />
+    <property role="34LRSv" value="node" />
     <property role="R4oN_" value="element which wraps any node" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
     <ref role="1TJDcQ" node="8D0iRqSPVB" resolve="TextElement" />

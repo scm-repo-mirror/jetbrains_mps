@@ -36,7 +36,6 @@ public class AddNodeWrapper_Test extends BaseTransformationTest {
     public void testMethodImpl() throws Exception {
       initEditorComponent("6328114375521722562", "6328114375521722566");
       invokeAction("jetbrains.mps.ide.editor.actions.Complete_Action");
-      typeString("node");
       pressKeys(ListSequence.fromListAndArray(new ArrayList<String>(), " ENTER"));
     }
   }

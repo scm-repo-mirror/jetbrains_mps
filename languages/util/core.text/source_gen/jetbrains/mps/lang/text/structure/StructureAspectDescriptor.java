@@ -202,7 +202,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("node", 0x2b7b49e536031feaL).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(true).ordered(true).multiple(false).origin("3133179214568824810").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
-    b.alias("<node>");
+    b.alias("node");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForNodeWrapperTextualElement() {

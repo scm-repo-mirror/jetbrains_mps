@@ -119,6 +119,9 @@
         <property id="709746936026609031" name="linkId" index="3V$3ak" />
         <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
       </concept>
+      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
+        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
+      </concept>
     </language>
     <language id="81f0abb8-d71e-4d13-a0c1-d2291fbb28b7" name="jetbrains.mps.lang.editor.editorTest">
       <concept id="6866182640452532265" name="jetbrains.mps.lang.editor.editorTest.structure.PlaceholderChild" flags="ng" index="30quMi" />
@@ -258,8 +261,12 @@
           <ref role="1iFR8X" to="ekwn:2XByp9s_j7f" resolve="Complete" />
         </node>
       </node>
-      <node concept="2TK7Tu" id="5vhYBWF0Y3d" role="3cqZAp">
-        <property role="2TTd_B" value="node" />
+      <node concept="1X3_iC" id="4Jml0YJHswv" role="lGtFl">
+        <property role="3V$3am" value="statement" />
+        <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+        <node concept="2TK7Tu" id="5vhYBWF0Y3d" role="8Wnug">
+          <property role="2TTd_B" value="node" />
+        </node>
       </node>
       <node concept="yd1bK" id="5vhYBWF0Yjl" role="3cqZAp">
         <node concept="pLAjd" id="5vhYBWF0Yjn" role="yd6KS">
