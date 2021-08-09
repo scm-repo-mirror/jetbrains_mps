@@ -271,6 +271,7 @@
         <child id="7980428675268276159" name="parts" index="1Qtc8A" />
       </concept>
       <concept id="1176717841777" name="jetbrains.mps.lang.editor.structure.QueryFunction_ModelAccess_Getter" flags="in" index="3TQlhw" />
+      <concept id="2722384699544370949" name="jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Placeholder" flags="ng" index="3VyMlK" />
       <concept id="1166049232041" name="jetbrains.mps.lang.editor.structure.AbstractComponent" flags="ng" index="1XWOmA">
         <reference id="1166049300910" name="conceptDeclaration" index="1XX52x" />
       </concept>
@@ -34968,6 +34969,45 @@
       <property role="TrG5h" value="No_SpellCheck" />
       <property role="2BUmq6" value="No spellcheck" />
     </node>
+  </node>
+  <node concept="22mcaB" id="4Jml0YJ$b8z">
+    <ref role="aqKnT" to="zqge:2HViukQ0LZD" resolve="NodeWrapperElement" />
+    <node concept="22hDWj" id="4Jml0YJ$bdQ" role="22hAXT" />
+    <node concept="3eGOop" id="4Jml0YJ_rpP" role="3ft7WO">
+      <node concept="ucgPf" id="4Jml0YJ_rpQ" role="3aKz83">
+        <node concept="3clFbS" id="4Jml0YJ_rpR" role="2VODD2">
+          <node concept="3clFbF" id="4Jml0YJ_xFO" role="3cqZAp">
+            <node concept="2ShNRf" id="4Jml0YJ_xFM" role="3clFbG">
+              <node concept="3zrR0B" id="4Jml0YJ_WLk" role="2ShVmc">
+                <node concept="3Tqbb2" id="4Jml0YJ_WLm" role="3zrR0E">
+                  <ref role="ehGHo" to="zqge:2HViukQ0LZD" resolve="NodeWrapperElement" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="16NL3D" id="4Jml0YJ_s8s" role="upBLP">
+        <node concept="16Na2f" id="4Jml0YJ_s8t" role="16NL3A">
+          <node concept="3clFbS" id="4Jml0YJ_s8u" role="2VODD2">
+            <node concept="3clFbF" id="4Jml0YJ_sgQ" role="3cqZAp">
+              <node concept="3clFbC" id="4Jml0YJ_u$2" role="3clFbG">
+                <node concept="2OqwBi" id="4Jml0YJ_sKw" role="3uHU7B">
+                  <node concept="ub8z3" id="4Jml0YJ_sgP" role="2Oq$k0" />
+                  <node concept="liA8E" id="4Jml0YJ_thh" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~String.length()" resolve="length" />
+                  </node>
+                </node>
+                <node concept="3cmrfG" id="4Jml0YJ_wOM" role="3uHU7w">
+                  <property role="3cmrfH" value="0" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3VyMlK" id="4Jml0YJ_s2J" role="3ft7WO" />
   </node>
 </model>
 
