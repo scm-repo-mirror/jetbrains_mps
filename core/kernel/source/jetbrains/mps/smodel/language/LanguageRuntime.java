@@ -223,9 +223,17 @@ public abstract class LanguageRuntime {
     //
     // XXX OTOH, does it make sense to force generation of explicit extends lang.core in each language?
     LanguageRuntime langCore = registry.getLanguage(BootstrapLanguages.getLangCore());
-    assert langCore != null;
-    if (this != langCore && !visitedLanguages.contains(langCore.getId())) {
-      langCore.registerExtendingLanguage(this);
+    if (langCore != null) {
+      if (this != langCore && !visitedLanguages.contains(langCore.getId())) {
+        langCore.registerExtendingLanguage(this);
+      }
+    } else {
+      // It's odd, yet I've seen it. $git clean -fX languages/, restart.
+      // MPS discovers e.g. core.properties (from plugins/mps-core/, not sure how come), instantiates it LR
+      // (there's no direct dependency to lang.core there, CLM goes ahead) and then fails to get lang.core which has not
+      // been compiled yet. Assertion was too much, imo.
+      final String m = "No language runtime for j.m.lang.core while initializing another language (%s), bootstrap?";
+      Logger.getLogger(LanguageRuntime.class).error(String.format(m, getNamespace()));
     }
     myLanguageRegistry = registry;
   }
