@@ -33339,85 +33339,85 @@
       </scope>
     </file>
     <file name="check_StaticFinalFieldWasAssigned_NonTypesystemRule.java">
-      <node id="469468540691054212" at="31,71,32,13" concept="13" />
-      <node id="843236768047680740" at="34,75,35,13" concept="13" />
-      <node id="843236768047680746" at="36,5,37,102" concept="12" />
-      <node id="843236768047680756" at="38,29,39,13" concept="13" />
-      <node id="3136320261466828744" at="41,5,42,158" concept="12" />
-      <node id="3136320261466828744" at="42,158,43,28" concept="12" />
-      <node id="3136320261466828744" at="44,40,45,48" concept="6" />
-      <node id="843236768047704544" at="47,132,48,19" concept="13" />
-      <node id="843236768047680817" at="53,5,54,64" concept="12" />
-      <node id="843236768047680817" at="54,64,55,317" concept="12" />
-      <node id="6911873060799512521" at="56,7,57,173" concept="12" />
-      <node id="6911873060799512521" at="57,173,58,69" concept="6" />
-      <node id="843236768047679839" at="62,50,63,46" concept="13" />
-      <node id="843236768047679839" at="65,68,66,102" concept="13" />
-      <node id="843236768047679839" at="68,30,69,17" concept="13" />
-      <node id="843236768047679839" at="73,0,74,0" concept="16" trace="isFinal$gvTP" />
-      <node id="843236768047679839" at="74,0,75,0" concept="16" trace="name$MnvL" />
-      <node id="843236768047679839" at="78,0,79,0" concept="16" trace="initializer$2twD" />
-      <node id="843236768047679839" at="79,0,80,0" concept="16" trace="variableDeclaration$N1XG" />
-      <node id="843236768047679839" at="83,0,84,0" concept="16" trace="ClassConcept$bK" />
-      <node id="843236768047679839" at="84,0,85,0" concept="16" trace="StaticFieldReference$cU" />
-      <node id="843236768047679839" at="85,0,86,0" concept="16" trace="VariableReference$TC" />
-      <node id="843236768047679839" at="86,0,87,0" concept="16" trace="StaticFieldDeclaration$jR" />
-      <node id="843236768047679839" at="28,0,30,0" concept="3" trace="check_StaticFinalFieldWasAssigned_NonTypesystemRule#()V" />
-      <node id="469468540691054200" at="30,118,33,5" concept="10" />
-      <node id="843236768047680738" at="33,5,36,5" concept="10" />
-      <node id="843236768047680754" at="37,102,40,5" concept="10" />
-      <node id="843236768047704525" at="46,225,49,11" concept="10" />
-      <node id="843236768047679839" at="62,0,65,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="843236768047679839" at="65,0,68,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="843236768047679839" at="68,0,71,0" concept="11" trace="overrides#()Z" />
-      <node id="6911873060799512521" at="55,317,59,7" concept="1" />
-      <node id="843236768047680879" at="45,48,50,9" concept="9" />
-      <node id="3136320261466828742" at="43,28,51,7" concept="22" />
-      <node id="843236768047680817" at="52,5,60,5" concept="1" />
-      <node id="3136320261466828742" at="40,5,52,5" concept="1" />
-      <node id="843236768047679839" at="30,0,62,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="843236768047679839" at="28,64,28,64" />
-      <scope id="469468540691054201" at="31,71,32,13" />
-      <scope id="843236768047680739" at="34,75,35,13" />
-      <scope id="843236768047680755" at="38,29,39,13" />
-      <scope id="843236768047704527" at="47,132,48,19" />
-      <scope id="843236768047679839" at="62,50,63,46" />
-      <scope id="843236768047679839" at="65,68,66,102" />
-      <scope id="843236768047679839" at="68,30,69,17" />
-      <scope id="843236768047679839" at="28,0,30,0" />
-      <scope id="6911873060799512521" at="56,7,58,69">
+      <node id="469468540691054212" at="32,71,33,13" concept="13" />
+      <node id="843236768047680740" at="35,140,36,13" concept="13" />
+      <node id="843236768047680746" at="37,5,38,102" concept="12" />
+      <node id="843236768047680756" at="39,29,40,13" concept="13" />
+      <node id="3136320261466828744" at="42,5,43,158" concept="12" />
+      <node id="3136320261466828744" at="43,158,44,28" concept="12" />
+      <node id="3136320261466828744" at="45,40,46,48" concept="6" />
+      <node id="843236768047704544" at="48,132,49,19" concept="13" />
+      <node id="843236768047680817" at="54,5,55,64" concept="12" />
+      <node id="843236768047680817" at="55,64,56,328" concept="12" />
+      <node id="6911873060799512521" at="57,7,58,173" concept="12" />
+      <node id="6911873060799512521" at="58,173,59,69" concept="6" />
+      <node id="843236768047679839" at="63,50,64,46" concept="13" />
+      <node id="843236768047679839" at="66,68,67,102" concept="13" />
+      <node id="843236768047679839" at="69,30,70,17" concept="13" />
+      <node id="843236768047679839" at="74,0,75,0" concept="16" trace="isFinal$gvTP" />
+      <node id="843236768047679839" at="75,0,76,0" concept="16" trace="name$MnvL" />
+      <node id="843236768047679839" at="79,0,80,0" concept="16" trace="initializer$2twD" />
+      <node id="843236768047679839" at="80,0,81,0" concept="16" trace="variableDeclaration$N1XG" />
+      <node id="843236768047679839" at="84,0,85,0" concept="16" trace="ClassConcept$bK" />
+      <node id="843236768047679839" at="85,0,86,0" concept="16" trace="StaticFieldReference$cU" />
+      <node id="843236768047679839" at="86,0,87,0" concept="16" trace="VariableReference$TC" />
+      <node id="843236768047679839" at="87,0,88,0" concept="16" trace="StaticFieldDeclaration$jR" />
+      <node id="843236768047679839" at="29,0,31,0" concept="3" trace="check_StaticFinalFieldWasAssigned_NonTypesystemRule#()V" />
+      <node id="469468540691054200" at="31,118,34,5" concept="10" />
+      <node id="843236768047680738" at="34,5,37,5" concept="10" />
+      <node id="843236768047680754" at="38,102,41,5" concept="10" />
+      <node id="843236768047704525" at="47,225,50,11" concept="10" />
+      <node id="843236768047679839" at="63,0,66,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="843236768047679839" at="66,0,69,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="843236768047679839" at="69,0,72,0" concept="11" trace="overrides#()Z" />
+      <node id="6911873060799512521" at="56,328,60,7" concept="1" />
+      <node id="843236768047680879" at="46,48,51,9" concept="9" />
+      <node id="3136320261466828742" at="44,28,52,7" concept="22" />
+      <node id="843236768047680817" at="53,5,61,5" concept="1" />
+      <node id="3136320261466828742" at="41,5,53,5" concept="1" />
+      <node id="843236768047679839" at="31,0,63,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="843236768047679839" at="29,64,29,64" />
+      <scope id="469468540691054201" at="32,71,33,13" />
+      <scope id="843236768047680739" at="35,140,36,13" />
+      <scope id="843236768047680755" at="39,29,40,13" />
+      <scope id="843236768047704527" at="48,132,49,19" />
+      <scope id="843236768047679839" at="63,50,64,46" />
+      <scope id="843236768047679839" at="66,68,67,102" />
+      <scope id="843236768047679839" at="69,30,70,17" />
+      <scope id="843236768047679839" at="29,0,31,0" />
+      <scope id="6911873060799512521" at="57,7,59,69">
         <var name="intentionProvider" id="6911873060799512521" />
       </scope>
-      <scope id="843236768047680881" at="46,225,49,11" />
-      <scope id="843236768047679839" at="62,0,65,0" />
-      <scope id="843236768047679839" at="65,0,68,0">
+      <scope id="843236768047680881" at="47,225,50,11" />
+      <scope id="843236768047679839" at="63,0,66,0" />
+      <scope id="843236768047679839" at="66,0,69,0">
         <var name="argument" id="843236768047679839" />
       </scope>
-      <scope id="843236768047679839" at="68,0,71,0" />
-      <scope id="843236768047680879" at="45,48,50,9">
+      <scope id="843236768047679839" at="69,0,72,0" />
+      <scope id="843236768047680879" at="46,48,51,9">
         <var name="reference" id="843236768047680880" />
       </scope>
-      <scope id="3136320261466828742" at="44,40,50,9" />
-      <scope id="843236768047680817" at="53,5,59,7">
+      <scope id="3136320261466828742" at="45,40,51,9" />
+      <scope id="843236768047680817" at="54,5,60,7">
         <var name="_reporter_2309309498" id="843236768047680817" />
         <var name="errorTarget" id="843236768047680817" />
       </scope>
-      <scope id="3136320261466828742" at="41,5,51,7">
+      <scope id="3136320261466828742" at="42,5,52,7">
         <var name="initializer_it" id="3136320261466828744" />
         <var name="initializer_var" id="3136320261466828744" />
       </scope>
-      <scope id="843236768047679840" at="30,118,60,5">
+      <scope id="843236768047679840" at="31,118,61,5">
         <var name="classifier" id="843236768047680747" />
       </scope>
-      <scope id="843236768047679839" at="30,0,62,0">
+      <scope id="843236768047679839" at="31,0,63,0">
         <var name="field" id="843236768047679839" />
         <var name="status" id="843236768047679839" />
         <var name="typeCheckingContext" id="843236768047679839" />
       </scope>
-      <unit id="843236768047679839" at="72,0,76,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$PROPS" />
-      <unit id="843236768047679839" at="77,0,81,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$LINKS" />
-      <unit id="843236768047679839" at="82,0,88,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$CONCEPTS" />
-      <unit id="843236768047679839" at="27,0,89,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule" />
+      <unit id="843236768047679839" at="73,0,77,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$PROPS" />
+      <unit id="843236768047679839" at="78,0,82,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$LINKS" />
+      <unit id="843236768047679839" at="83,0,89,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule$CONCEPTS" />
+      <unit id="843236768047679839" at="28,0,90,0" name="jetbrains.mps.baseLanguage.typesystem.check_StaticFinalFieldWasAssigned_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/8473865358220097980">
