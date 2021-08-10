@@ -14,9 +14,11 @@ import jetbrains.mps.nodeEditor.leftHighlighter.BackgroundWithFoldingLinePainter
 import java.awt.event.MouseAdapter;
 import javax.swing.event.ChangeListener;
 import java.util.concurrent.atomic.AtomicInteger;
+import jetbrains.mps.openapi.editor.update.UpdaterListener;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.openapi.editor.update.UpdaterListenerAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.event.ChangeEvent;
 import java.awt.Graphics;
@@ -25,6 +27,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.awt.Color;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
+import java.awt.event.MouseWheelEvent;
+import com.intellij.openapi.editor.ex.util.EditorUtil;
 import com.intellij.util.ui.update.Update;
 import com.intellij.openapi.util.Disposer;
 import java.util.List;
@@ -43,6 +47,7 @@ import com.intellij.diff.util.DiffDrawUtil;
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.util.ui.GraphicsUtil;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import javax.swing.JScrollPane;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/1801212291202741470", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public final class TripleChangeGroupLayout {
@@ -62,6 +67,7 @@ public final class TripleChangeGroupLayout {
   private final Map<DiffEditor, MouseAdapter> myMouseListeners = MapSequence.fromMap(new HashMap<DiffEditor, MouseAdapter>());
   private final Map<DiffEditor, ChangeListener> myViewportListeners = MapSequence.fromMap(new HashMap<DiffEditor, ChangeListener>());
   private final Map<DiffEditor, AtomicInteger> myOffsets = MapSequence.fromMap(new HashMap<DiffEditor, AtomicInteger>());
+  private final UpdaterListener myUpdaterListener;
 
 
   public TripleChangeGroupLayout(@NotNull DiffChangeGroupLayout leftLayout, @Nullable DiffChangeGroupLayout rightLayout, boolean isInspector) {
@@ -70,8 +76,9 @@ public final class TripleChangeGroupLayout {
     myIsInspector = isInspector;
     myUpdateQueue = new MergingUpdateQueue("TripleChangeGroupLayout", 100, true, null, null, null, false);
     myGroupInvalidateListener = createLayoutInvalidateListener();
-    check_fgmqy5_a5a61(myLeftLayout, myGroupInvalidateListener);
-    check_fgmqy5_a6a61(myRightLayout, myGroupInvalidateListener);
+    myUpdaterListener = createUpdaterListener();
+    check_fgmqy5_a6a71(myLeftLayout, myGroupInvalidateListener);
+    check_fgmqy5_a7a71(myRightLayout, myGroupInvalidateListener);
     ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
       public void visit(DiffEditor it) {
         initEditor(it);
@@ -98,12 +105,24 @@ public final class TripleChangeGroupLayout {
     MapSequence.fromMap(myMouseListeners).put(diffEditor, mouseListener);
     editorComponent.addMouseListener(mouseListener);
     editorComponent.addMouseMotionListener(mouseListener);
+    check_fgmqy5_a41a12(diffEditor.getScrollPane(myIsInspector), mouseListener);
     ChangeListener viewportListener = createViewportListener(diffEditor);
     MapSequence.fromMap(myViewportListeners).put(diffEditor, viewportListener);
     editorComponent.getViewport().addChangeListener(viewportListener);
     if (editorComponent instanceof DiffEditor.TooltipConsumer) {
       ((DiffEditor.TooltipConsumer) editorComponent).setTooltipProvider(createTooltipProvider(diffEditor));
     }
+    editorComponent.getUpdater().addListener(myUpdaterListener);
+  }
+
+  private UpdaterListener createUpdaterListener() {
+    return new UpdaterListenerAdapter() {
+      @Override
+      public void editorUpdated(jetbrains.mps.openapi.editor.EditorComponent editorComponent) {
+        myLeftLayout.invalidate();
+        check_fgmqy5_a1a0a0a0a32(myRightLayout);
+      }
+    };
   }
 
   private DiffEditor.TooltipProvider createTooltipProvider(final DiffEditor diffEditor) {
@@ -122,7 +141,9 @@ public final class TripleChangeGroupLayout {
     MouseAdapter mouseListener = MapSequence.fromMap(myMouseListeners).get(diffEditor);
     editorComponent.removeMouseListener(mouseListener);
     editorComponent.removeMouseMotionListener(mouseListener);
+    check_fgmqy5_a7a72(diffEditor.getScrollPane(myIsInspector), mouseListener);
     editorComponent.getViewport().removeChangeListener(MapSequence.fromMap(myViewportListeners).get(diffEditor));
+    editorComponent.getUpdater().removeListener(myUpdaterListener);
   }
 
   private ChangeListener createViewportListener(final DiffEditor diffEditor) {
@@ -244,7 +265,7 @@ public final class TripleChangeGroupLayout {
       @Override
       public void mouseMoved(MouseEvent e) {
         selectLayers(diffEditor.getLayersUnderMouse(e, myIsInspector));
-        repaintEditorsAndSplitters();
+        repaintEditorMessagesAndSplitters();
       }
 
       @Override
@@ -284,12 +305,27 @@ public final class TripleChangeGroupLayout {
       @Override
       public void mouseMoved(MouseEvent e) {
         selectLayers(diffEditor.getLayersUnderMouse(e, myIsInspector));
-        repaintEditorsAndSplitters();
+        repaintEditorMessagesAndSplitters();
       }
       @Override
       public void mouseExited(MouseEvent e) {
         selectLayers(Sequence.fromIterable(Collections.emptyList()));
-        repaintEditorsAndSplitters();
+        repaintEditorMessagesAndSplitters();
+      }
+      @Override
+      public void mouseWheelMoved(final MouseWheelEvent e) {
+        if (!(EditorUtil.isChangeFontSize(e))) {
+          return;
+        }
+        ListSequence.fromList(getEditors()).where(new IWhereFilter<DiffEditor>() {
+          public boolean accept(DiffEditor it) {
+            return it != diffEditor;
+          }
+        }).visitAll(new IVisitor<DiffEditor>() {
+          public void visit(DiffEditor it) {
+            it.getEditorComponent(myIsInspector).processChangeFontSizeEvent(e);
+          }
+        });
       }
     };
   }
@@ -300,7 +336,7 @@ public final class TripleChangeGroupLayout {
         myUpdateQueue.queue(new Update(myUpdateIdentity) {
           public void run() {
             updateChangeLayers();
-            repaintEditorsAndSplitters();
+            repaintEditorMessagesAndSplitters();
           }
         });
       }
@@ -313,8 +349,8 @@ public final class TripleChangeGroupLayout {
         disposeEditor(it);
       }
     });
-    check_fgmqy5_a1a83(myLeftLayout, myGroupInvalidateListener);
-    check_fgmqy5_a2a83(myRightLayout, myGroupInvalidateListener);
+    check_fgmqy5_a1a14(myLeftLayout, myGroupInvalidateListener);
+    check_fgmqy5_a2a14(myRightLayout, myGroupInvalidateListener);
     // we should always use Disposer#dispose for Disposable objects instead of direct call
     // of dispose method.
     Disposer.dispose(myUpdateQueue);
@@ -528,9 +564,9 @@ __switch__:
 
   private void paintPolygons(final Graphics2D gg, final int dividerWidth, DiffEditor leftEditor, DiffEditor rightEditor) {
     GraphicsConfig config = GraphicsUtil.setupAAPainting(gg);
-    final Wrappers._int leftOffset = new Wrappers._int(check_fgmqy5_a0b0gc(MapSequence.fromMap(myOffsets).get(leftEditor)));
+    final Wrappers._int leftOffset = new Wrappers._int(check_fgmqy5_a0b0jc(MapSequence.fromMap(myOffsets).get(leftEditor)));
     leftOffset.value += leftEditor.getMessagesPanelOffset(myIsInspector);
-    final Wrappers._int rightOffset = new Wrappers._int(check_fgmqy5_a0d0gc(MapSequence.fromMap(myOffsets).get(rightEditor)));
+    final Wrappers._int rightOffset = new Wrappers._int(check_fgmqy5_a0d0jc(MapSequence.fromMap(myOffsets).get(rightEditor)));
     rightOffset.value += rightEditor.getMessagesPanelOffset(myIsInspector);
 
     List<DiffEditorChangeLayer> leftLayers = leftEditor.getLayers(myIsInspector);
@@ -642,52 +678,70 @@ __switch__:
     });
   }
 
-  /*package*/ void repaintEditorsAndSplitters() {
+  /*package*/ void repaintEditorMessagesAndSplitters() {
     ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
       public void visit(DiffEditor it) {
         it.repaintAndRebuildEditorMessages();
       }
     });
     myLeftLayout.repaintSplitter();
-    check_fgmqy5_a2a46(myRightLayout);
+    check_fgmqy5_a2a76(myRightLayout);
   }
-  private static void check_fgmqy5_a5a61(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
+  private static void check_fgmqy5_a6a71(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
       checkedDotOperand.addInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static void check_fgmqy5_a6a61(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
+  private static void check_fgmqy5_a7a71(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
       checkedDotOperand.addInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static void check_fgmqy5_a1a83(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
+  private static void check_fgmqy5_a41a12(JScrollPane checkedDotOperand, MouseAdapter mouseListener) {
+    if (null != checkedDotOperand) {
+      checkedDotOperand.addMouseWheelListener(mouseListener);
+    }
+
+  }
+  private static void check_fgmqy5_a1a0a0a0a32(DiffChangeGroupLayout checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      checkedDotOperand.invalidate();
+    }
+
+  }
+  private static void check_fgmqy5_a7a72(JScrollPane checkedDotOperand, MouseAdapter mouseListener) {
+    if (null != checkedDotOperand) {
+      checkedDotOperand.removeMouseWheelListener(mouseListener);
+    }
+
+  }
+  private static void check_fgmqy5_a1a14(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
       checkedDotOperand.removeInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static void check_fgmqy5_a2a83(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
+  private static void check_fgmqy5_a2a14(DiffChangeGroupLayout checkedDotOperand, ChangeGroupInvalidateListener myGroupInvalidateListener) {
     if (null != checkedDotOperand) {
       checkedDotOperand.removeInvalidateListener(myGroupInvalidateListener);
     }
 
   }
-  private static int check_fgmqy5_a0b0gc(AtomicInteger checkedDotOperand) {
+  private static int check_fgmqy5_a0b0jc(AtomicInteger checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.get();
     }
     return 0;
   }
-  private static int check_fgmqy5_a0d0gc(AtomicInteger checkedDotOperand) {
+  private static int check_fgmqy5_a0d0jc(AtomicInteger checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.get();
     }
     return 0;
   }
-  private static void check_fgmqy5_a2a46(DiffChangeGroupLayout checkedDotOperand) {
+  private static void check_fgmqy5_a2a76(DiffChangeGroupLayout checkedDotOperand) {
     if (null != checkedDotOperand) {
       checkedDotOperand.repaintSplitter();
     }

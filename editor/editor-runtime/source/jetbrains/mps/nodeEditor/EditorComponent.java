@@ -707,22 +707,34 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return new FontSizeChangingScrollPane();
   }
 
+  /**
+   * This method is made public, so we can update this editor's font size using
+   * an event happened in another editor.
+   */
+  public void processChangeFontSizeEvent(MouseWheelEvent e) {
+    assert EditorUtil.isChangeFontSize(e);
+    if (!EditorSettingsExternalizable.getInstance().isWheelFontChangeEnabled()) {
+      return;
+    }
+    if (e.getWheelRotation() < 0) {
+      myEditorComponentSettings.increaseUIScale();
+    } else {
+      myEditorComponentSettings.decreaseUIScale();
+    }
+    mySettingsListener.settingsChanged();
+  }
+
   private final class FontSizeChangingScrollPane extends JBScrollPane {
 
     private static final int MIN_FONT_SIZE = 8;
 
     @Override
     protected void processMouseWheelEvent(MouseWheelEvent e) {
-      if (EditorUtil.isChangeFontSize(e) && EditorSettingsExternalizable.getInstance().isWheelFontChangeEnabled()) {
-        if (e.getWheelRotation() < 0) {
-          myEditorComponentSettings.increaseUIScale();
-        } else {
-          myEditorComponentSettings.decreaseUIScale();
-        }
-        mySettingsListener.settingsChanged();
-      } else {
-        super.processMouseWheelEvent(e);
+      if (EditorUtil.isChangeFontSize(e)) {
+        processChangeFontSizeEvent(e);
       }
+      // a super method should always be invoked in order to notify other listeners.
+      super.processMouseWheelEvent(e);
     }
   }
 
@@ -1880,7 +1892,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   public void rebuildEditorContent() {
     assertInEDT();
 
-    ViewportState wps =  new ViewportState();
+    ViewportState wps = new ViewportState();
     getUpdater().update();
     relayout();
     wps.restore();
@@ -1912,7 +1924,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
           int newYCenter = (int) (yCenter * newSize.height);
           int yValue = newYCenter - viewRect.height / 2;
-          if (yValue < 0) yValue = 0;
+          if (yValue < 0) {
+            yValue = 0;
+          }
 
           int xValue;
           if (xCenter == 0) {
@@ -1920,7 +1934,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
           } else {
             int newXCenter = (int) (xCenter * newSize.width);
             xValue = newXCenter - viewRect.width / 2;
-            if (xValue < 0) xValue = 0;
+            if (xValue < 0) {
+              xValue = 0;
+            }
           }
 
           viewport.setViewPosition(new Point(xValue, yValue));

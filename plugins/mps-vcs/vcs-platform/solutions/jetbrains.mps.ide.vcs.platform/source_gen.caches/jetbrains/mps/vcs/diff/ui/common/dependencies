@@ -263,7 +263,7 @@
   <dependency className="jetbrains.mps.vcs.diff.ui.common.DiffEditor">
     <classNode dependClassName="com.intellij.openapi.actionSystem.PlatformDataKeys" />
     <classNode dependClassName="com.intellij.ui.JBSplitter" />
-    <classNode dependClassName="com.intellij.ui.ScrollPaneFactory" />
+    <classNode dependClassName="com.intellij.util.ui.JBUI" />
     <classNode dependClassName="java.awt.Dimension" />
     <classNode dependClassName="java.awt.Point" />
     <classNode dependClassName="java.awt.event.MouseEvent" />
@@ -670,6 +670,7 @@
     <classNode dependClassName="com.intellij.diff.util.DiffDividerDrawUtil" />
     <classNode dependClassName="com.intellij.diff.util.DiffDrawUtil" />
     <classNode dependClassName="com.intellij.ide.util.PropertiesComponent" />
+    <classNode dependClassName="com.intellij.openapi.editor.ex.util.EditorUtil" />
     <classNode dependClassName="com.intellij.openapi.ui.GraphicsConfig" />
     <classNode dependClassName="com.intellij.openapi.util.Disposer" />
     <classNode dependClassName="com.intellij.openapi.util.Pair" />
@@ -681,6 +682,7 @@
     <classNode dependClassName="java.awt.Graphics2D" />
     <classNode dependClassName="java.awt.event.MouseAdapter" />
     <classNode dependClassName="java.awt.event.MouseEvent" />
+    <classNode dependClassName="java.awt.event.MouseWheelEvent" />
     <classNode dependClassName="java.lang.Integer" />
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Object" />
@@ -695,6 +697,7 @@
     <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="java.util.concurrent.atomic.AtomicInteger" />
     <classNode dependClassName="javax.swing.JComponent" />
+    <classNode dependClassName="javax.swing.JScrollPane" />
     <classNode dependClassName="javax.swing.event.ChangeEvent" />
     <classNode dependClassName="javax.swing.event.ChangeListener" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
@@ -711,6 +714,9 @@
     <classNode dependClassName="jetbrains.mps.nodeEditor.AdditionalPainter" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.EditorComponent" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.leftHighlighter.BackgroundWithFoldingLinePainter" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.EditorComponent" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.update.UpdaterListener" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.update.UpdaterListenerAdapter" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.Bounds" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.ChangeGroup" />
     <classNode dependClassName="jetbrains.mps.vcs.diff.ui.common.ChangeGroupInvalidateListener" />

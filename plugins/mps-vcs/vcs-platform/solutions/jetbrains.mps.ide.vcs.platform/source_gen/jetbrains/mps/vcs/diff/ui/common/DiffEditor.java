@@ -36,11 +36,11 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import java.util.ArrayList;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import javax.swing.JScrollPane;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import jetbrains.mps.openapi.editor.cells.CellAction;
-import javax.swing.JScrollPane;
-import com.intellij.ui.ScrollPaneFactory;
+import com.intellij.util.ui.JBUI;
 import jetbrains.mps.nodeEditor.commands.CommandContextWithVF;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -304,12 +304,18 @@ public class DiffEditor implements EditorMessageOwner {
     void setLayers(List<DiffEditorChangeLayer> layers);
   }
 
+  @Nullable
+  /*package*/ JScrollPane getScrollPane(boolean inspector) {
+    return (inspector ? myInspectorComponent.getScrollPane() : myMainEditorComponent.getScrollPane());
+  }
+
   public class MyInspectorEditorComponent extends InspectorEditorComponent implements TooltipConsumer, LayersHolder {
 
     @Nullable
     private TooltipProvider myTooltipProvider;
     @Nullable
     private List<DiffEditorChangeLayer> myLayers;
+    private JScrollPane myScrollPane;
 
 
     public MyInspectorEditorComponent(@NotNull SRepository repository, boolean rightToLeft) {
@@ -335,7 +341,15 @@ public class DiffEditor implements EditorMessageOwner {
 
     @Override
     protected JScrollPane createScrollPane() {
-      return ScrollPaneFactory.createScrollPane(null, true);
+      JScrollPane scrollPane = super.createScrollPane();
+      scrollPane.setBorder(JBUI.Borders.empty());
+      scrollPane.setViewportBorder(JBUI.Borders.empty());
+      myScrollPane = scrollPane;
+      return scrollPane;
+    }
+
+    private JScrollPane getScrollPane() {
+      return myScrollPane;
     }
 
     @Override
@@ -362,6 +376,7 @@ public class DiffEditor implements EditorMessageOwner {
     private TooltipProvider myTooltipProvider;
     @Nullable
     private List<DiffEditorChangeLayer> myLayers;
+    private JScrollPane myScrollPane;
 
 
     public MainEditorComponent(SRepository repository, boolean rightToLeft) {
@@ -377,7 +392,16 @@ public class DiffEditor implements EditorMessageOwner {
 
     @Override
     protected JScrollPane createScrollPane() {
-      return ScrollPaneFactory.createScrollPane(null, true);
+      JScrollPane scrollPane = super.createScrollPane();
+      scrollPane.setBorder(JBUI.Borders.empty());
+      scrollPane.setViewportBorder(JBUI.Borders.empty());
+      myScrollPane = scrollPane;
+      return scrollPane;
+    }
+
+    @Nullable
+    private JScrollPane getScrollPane() {
+      return myScrollPane;
     }
 
     @Override
