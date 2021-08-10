@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor.cells;
 
-import com.intellij.codeInsight.CodeInsightSettings;
 import com.intellij.openapi.command.CommandProcessor;
 import jetbrains.mps.editor.runtime.TextBuilderImpl;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
@@ -476,12 +475,12 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     if (isEditable()) {
       ModelAccess modelAccess = getContext().getRepository().getModelAccess();
       buildActions(modelAccess);
-      IntelligentCellProcessor cellProcessor = IntelligentInputUtil.getIntelligentCellProcessor(this, getContext(), side);
+      IntelligentCellProcessor cellProcessor = getEditorComponent().isAutomaticSubstitutionEnabled() ? IntelligentInputUtil.getIntelligentCellProcessor(this, getContext(), side) : null;
       ModifyTextCommand command = new ModifyTextCommand(keyEvent, text, allowErrors, side, getContext(), cellProcessor);
       modelAccess.executeCommand(command);
       getEditor().relayout();
       result = command.getResult();
-    } else {
+    } else if (getEditorComponent().isAutomaticSubstitutionEnabled()) {
       if (side != null) {
         // TODO: we do this twice ... allowErrors = true/false
         String pattern = getUpdatedText(text);
@@ -520,6 +519,7 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     if (cellText.isEmpty() || isErrorState()) {
       return false;
     }
+    if (!getEditorComponent().isAutomaticSubstitutionEnabled()) return false;
 
     EditorCell nextCell = CellTraversalUtil.getNextLeaf(this);
     ActionHandler actionHandler = getContext().getEditorComponent().getActionHandler();
@@ -675,6 +675,10 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
   }
 
   public void changeText(final String text) {
+    changeTextInternal(text);
+  }
+
+  private void changeTextInternal(String text) {
     String oldText = getText();
     setText(text);
     updateVfsTimestamp(text, oldText);
@@ -1208,7 +1212,11 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
 
     private void commit(String newText) {
       int startSelection = myTextLine.getStartTextSelectionPosition();
-      changeText(newText);
+      if (getEditorComponent().isAutomaticSubstitutionEnabled()) {
+        changeText(newText);
+      } else {
+        changeTextInternal(newText);
+      }
       setCaretPositionIfPossible(startSelection + myReplacingText.length());
       myTextLine.resetSelection();
       fireSelectionChanged();

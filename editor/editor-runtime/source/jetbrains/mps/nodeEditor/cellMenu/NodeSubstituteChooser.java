@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.nodeEditor.cellMenu;
 
-import com.intellij.codeInsight.CodeInsightSettings;
 import com.intellij.ui.CollectionListModel;
 import com.intellij.ui.components.JBList;
 import jetbrains.mps.RuntimeFlags;
@@ -164,6 +163,11 @@ public class NodeSubstituteChooser implements KeyboardHandler {
     return myPatternEditor;
   }
 
+  public void selectionChanged() {
+    myPatternEditor.selectionChanged();
+    processEventAfterPatternEditor();
+  }
+
   public boolean isVisible() {
     if (myIsVisible) {
       NodeSubstitutePatternEditor patternEditor = getPatternEditor();
@@ -243,6 +247,14 @@ public class NodeSubstituteChooser implements KeyboardHandler {
 
   public void setAutoMode(boolean autoMode) {
     myAutoMode = autoMode;
+  }
+
+  public boolean isAutoMode() {
+    return myAutoMode;
+  }
+
+  public void updateAfterKeyEvent() {
+    processEventAfterPatternEditor();
   }
 
   public void setVisible(List<SubstituteAction> matchingActions) {
@@ -538,7 +550,10 @@ public class NodeSubstituteChooser implements KeyboardHandler {
       return true;
     }
 
-    return menu_processKeyPressed(keyEvent);
+    boolean processedAsMenuNavigation = menu_processKeyPressed(keyEvent);
+    // switch to manual mode if the user interacts with the list
+    myAutoMode = myAutoMode && !processedAsMenuNavigation;
+    return processedAsMenuNavigation;
   }
 
   @Override
@@ -614,9 +629,10 @@ public class NodeSubstituteChooser implements KeyboardHandler {
     if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER || keyEvent.getKeyCode() == KeyEvent.VK_TAB) {
       if (!myMenuEmpty) {
         doSubstituteSelection();
+        return true;
       }
     }
-    return true;
+    return false;
   }
 
   private int getPageSize() {

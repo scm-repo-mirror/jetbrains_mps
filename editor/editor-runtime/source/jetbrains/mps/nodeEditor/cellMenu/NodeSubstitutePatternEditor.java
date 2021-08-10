@@ -24,6 +24,7 @@ import jetbrains.mps.nodeEditor.cells.FontRegistry;
 import jetbrains.mps.nodeEditor.cells.TextLine;
 import jetbrains.mps.nodeEditor.keyboard.TextChangeEvent;
 import jetbrains.mps.openapi.editor.EditorComponentSettings;
+import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import org.jetbrains.annotations.NotNull;
 
@@ -190,7 +191,7 @@ public class NodeSubstitutePatternEditor {
         }
         myTextLineOperations = editorWindow;
       } else {
-        myTextLineOperations = new TextLineDelegate(location);
+        myTextLineOperations = new TextLineDelegate();
       }
     }
   }
@@ -217,6 +218,10 @@ public class NodeSubstitutePatternEditor {
     }
   }
 
+  public void selectionChanged() {
+    myTextLineOperations.update();
+  }
+
   Font getFont() {
     return myTextLineOperations.getFont();
   }
@@ -236,14 +241,36 @@ public class NodeSubstitutePatternEditor {
     int getHeight();
     Point getLocation();
     Font getFont();
+    void execute(CellActionType type);
+    void update();
   }
 
   private class TextLineDelegate implements TextLineOperations {
     private final EditorComponent editorComponent;
+    private String myText;
+    private int myCaretPosition;
 
-    TextLineDelegate(Point location) {
+    TextLineDelegate() {
+      myText = myCell.getText();
+      myCaretPosition = myCell.getCaretPosition();
       editorComponent = (EditorComponent) myCell.getEditorComponent();
-      setLocation(location);
+    }
+
+    @Override
+    public void update() {
+      myText = myCell.getText();
+      myCaretPosition = myCell.getCaretPosition();
+    }
+
+    @Override
+    public void execute(CellActionType type) {
+      myCell.executeTextAction(type, true);
+      if (type == CellActionType.BACKSPACE) {
+        myText = myText.substring(0, myCaretPosition - 1) + myText.substring(myCaretPosition);
+        myCaretPosition--;
+      } else {
+        myText = myText.substring(0, myCaretPosition) + myText.substring(myCaretPosition + 1);
+      }
     }
 
     @Override
@@ -254,13 +281,15 @@ public class NodeSubstitutePatternEditor {
 
     @Override
     public void setText(String text) {
+      myText = text;
       myCell.setText(text);
       editorComponent.relayout();
     }
 
     @Override
     public void setCaretPosition(int caretPosition) {
-      myCell.setCaretPosition(caretPosition);
+      myCaretPosition = caretPosition;
+      myCell.setCaretPositionIfPossible(caretPosition);
     }
 
     @Override
@@ -274,12 +303,12 @@ public class NodeSubstitutePatternEditor {
 
     @Override
     public int getCaretPosition() {
-      return myCell.getCaretPosition();
+      return myCaretPosition;
     }
 
     @Override
     public String getText() {
-      return myCell.getText();
+      return myText;
     }
 
     @Override
@@ -307,12 +336,9 @@ public class NodeSubstitutePatternEditor {
         return false;
       }
 
-      String oldText = myCell.getText();
-      int caretPosition = myCell.getCaretPosition();
       if (keyEvent.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-        if (caretPosition > 0) {
-          setText(oldText.substring(0, caretPosition - 1) + oldText.substring(caretPosition));
-          setCaretPosition(caretPosition - 1);
+        if (myCaretPosition > 0) {
+          execute(CellActionType.BACKSPACE);
           return true;
         } else {
           return false;
@@ -320,8 +346,8 @@ public class NodeSubstitutePatternEditor {
       }
 
       if (keyEvent.getKeyCode() == KeyEvent.VK_DELETE) {
-        if (caretPosition < oldText.length()) {
-          setText(oldText.substring(0, caretPosition) + oldText.substring(caretPosition + 1));
+        if (myCaretPosition < myText.length()) {
+          execute(CellActionType.DELETE);
           return true;
         } else {
           return false;
@@ -329,8 +355,8 @@ public class NodeSubstitutePatternEditor {
       }
 
       if (keyEvent.getKeyCode() == KeyEvent.VK_LEFT) {
-        if (caretPosition > 0) {
-          setCaretPosition(caretPosition - 1);
+        if (myCaretPosition > 0) {
+          setCaretPosition(myCaretPosition - 1);
           return true;
         } else {
           return false;
@@ -338,8 +364,8 @@ public class NodeSubstitutePatternEditor {
       }
 
       if (keyEvent.getKeyCode() == KeyEvent.VK_RIGHT) {
-        if (caretPosition < oldText.length()) {
-          setCaretPosition(caretPosition + 1);
+        if (myCaretPosition < myText.length()) {
+          setCaretPosition(myCaretPosition + 1);
           return true;
         } else {
           return false;
@@ -350,23 +376,17 @@ public class NodeSubstitutePatternEditor {
 
     @Override
     public boolean processKeyTyped(KeyEvent keyEvent) {
-      String oldText = myCell.getText();
-      int caretPosition = myCell.getCaretPosition();
-
-      char keyChar = keyEvent.getKeyChar();
       if (UIUtil.isReallyTypedEvent(keyEvent)) {
-        setText(oldText.substring(0, caretPosition) + keyChar/* + myText.substring(caretPosition)*/);
-        setCaretPosition(caretPosition + 1);
-        return true;
+        myText = myText.substring(0, myCaretPosition) + keyEvent.getKeyChar() + myText.substring(myCaretPosition);
+        myCaretPosition++;
       }
       return false;
     }
 
     @Override
     public void processTextChanged(TextChangeEvent textChangeEvent) {
-      String oldText = myCell.getText();
-      int keptTextEndIndex = Math.max(myCell.getCaretPosition() - textChangeEvent.getOffset(), 0);
-      setText(oldText.substring(0, keptTextEndIndex) + textChangeEvent.getText());
+      int keptTextEndIndex = Math.max(myCaretPosition - textChangeEvent.getOffset(), 0);
+      setText(myText.substring(0, keptTextEndIndex) + textChangeEvent.getText());
       setCaretPosition(keptTextEndIndex + textChangeEvent.getText().length());
     }
   }
@@ -381,6 +401,22 @@ public class NodeSubstitutePatternEditor {
       myTextLine = new TextLine("", settings);
       mySettings = settings;
       add(new EditorPanel());
+    }
+
+    @Override
+    public void update() {
+    }
+
+    @Override
+    public void execute(CellActionType type) {
+      String oldText = myTextLine.getText();
+      int caretPosition = myTextLine.getCaretPosition();
+      if (type == CellActionType.BACKSPACE) {
+        setText(oldText.substring(0, caretPosition - 1) + oldText.substring(caretPosition));
+        setCaretPosition(caretPosition - 1);
+      } else {
+        setText(oldText.substring(0, caretPosition) + oldText.substring(caretPosition + 1));
+      }
     }
 
     @Override

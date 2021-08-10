@@ -2975,8 +2975,8 @@
           <node concept="LIFWc" id="1cRoRtw6NDD" role="lGtFl">
             <property role="LIFWa" value="0" />
             <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="18" />
-            <property role="p6zMs" value="18" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
             <property role="LIFWd" value="Constant_i2boga_a0" />
           </node>
         </node>
@@ -3880,8 +3880,8 @@
           <node concept="LIFWc" id="1cRoRtw5NuJ" role="lGtFl">
             <property role="LIFWa" value="0" />
             <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="12" />
-            <property role="p6zMs" value="12" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
             <property role="LIFWd" value="Constant_i2boga_a0" />
           </node>
         </node>
@@ -6152,8 +6152,8 @@
           <node concept="LIFWc" id="1cRoRtw7trj" role="lGtFl">
             <property role="LIFWa" value="0" />
             <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="26" />
-            <property role="p6zMs" value="26" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
             <property role="LIFWd" value="Constant_i2boga_a0" />
           </node>
         </node>
@@ -7001,8 +7001,8 @@
           <node concept="LIFWc" id="1cRoRtw54wI" role="lGtFl">
             <property role="LIFWa" value="0" />
             <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="13" />
-            <property role="p6zMs" value="13" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
             <property role="LIFWd" value="Constant_i2boga_a0" />
           </node>
         </node>

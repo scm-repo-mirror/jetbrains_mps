@@ -146,4 +146,6 @@ public interface EditorComponent {
    */
   @NotNull
   IMessageHandler getMessageHandler();
+
+  boolean isAutomaticSubstitutionEnabled();
 }

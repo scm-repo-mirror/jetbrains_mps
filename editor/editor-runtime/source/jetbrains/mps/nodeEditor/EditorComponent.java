@@ -194,15 +194,16 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.Stack;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -317,7 +318,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   private final CommandContextImpl myCommandContext;
   private final UpdaterImpl myUpdater;
 
-  private Stack<KeyboardHandler> myKbdHandlersStack;
+  private Deque<KeyboardHandler> myKbdHandlersStack;
   private MouseListener myMouseEventHandler;
 
   private final Object myEditorComponentActionsLock = new Object();
@@ -439,7 +440,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     myNodeSubstituteChooser = new NodeSubstituteChooser(this);
 
     // --- keyboard handling ---
-    myKbdHandlersStack = new Stack<>();
+    myKbdHandlersStack = new LinkedList<>();
     myKbdHandlersStack.push(new EditorComponentKeyboardHandler(myKeymapHandler));
 
     registerKeyboardAction(new AbstractAction() {
@@ -589,6 +590,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
           return;
         }
         Point point = getNodeSubstituteChooser().calcPatternEditorLocation();
+        if (point == null) {
+          return;
+        }
         Rectangle viewRect = getViewport().getViewRect();
         if (isInsideEditor(point, viewRect)) {
           getNodeSubstituteChooser().moveToContextCell();
@@ -671,6 +675,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
     getSelectionManager().addSelectionListener((editorComponent, oldSelection, newSelection) -> {
       if (oldSelection == newSelection) {
+        if (myNodeSubstituteChooser.isVisible()) {
+          myNodeSubstituteChooser.selectionChanged();
+        }
         return;
       }
       deactivateSubstituteChooser();
@@ -2419,9 +2426,18 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       return;
     }
 
-    if (isKeyboardHandlerProcessingEnabled(keyEvent) && peekKeyboardHandler().processKeyPressed(getEditorContext(), keyEvent)) {
-      keyEvent.consume();
+    if (isKeyboardHandlerProcessingEnabled(keyEvent)) {
+      for (KeyboardHandler keyboardHandler : myKbdHandlersStack) {
+        if (keyboardHandler.processKeyPressed(getEditorContext(), keyEvent)) {
+          keyEvent.consume();
+          break;
+        }
+      }
     }
+    if (myNodeSubstituteChooser.isVisible()) {
+      myNodeSubstituteChooser.updateAfterKeyEvent();
+    }
+
     repaintExternalComponent();
   }
 
@@ -2430,9 +2446,18 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       return;
     }
 
-    if (isKeyboardHandlerProcessingEnabled(keyEvent) && peekKeyboardHandler().processKeyReleased(getEditorContext(), keyEvent)) {
-      keyEvent.consume();
+    if (isKeyboardHandlerProcessingEnabled(keyEvent)) {
+      for (KeyboardHandler keyboardHandler : myKbdHandlersStack) {
+        if (keyboardHandler.processKeyReleased(getEditorContext(), keyEvent)) {
+          keyEvent.consume();
+          break;
+        }
+      }
     }
+    if (myNodeSubstituteChooser.isVisible()) {
+      myNodeSubstituteChooser.updateAfterKeyEvent();
+    }
+
     repaintExternalComponent();
   }
 
@@ -2441,9 +2466,18 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       return;
     }
 
-    if (isKeyboardHandlerProcessingEnabled(keyEvent) && peekKeyboardHandler().processKeyTyped(getEditorContext(), keyEvent)) {
-      keyEvent.consume();
+    if (isKeyboardHandlerProcessingEnabled(keyEvent)) {
+      for (KeyboardHandler keyboardHandler : myKbdHandlersStack) {
+        if (keyboardHandler.processKeyTyped(getEditorContext(), keyEvent)) {
+          keyEvent.consume();
+          break;
+        }
+      }
     }
+    if (myNodeSubstituteChooser.isVisible()) {
+      myNodeSubstituteChooser.updateAfterKeyEvent();
+    }
+
     repaintExternalComponent();
   }
 
@@ -2506,6 +2540,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     //       I just hack there for the project key (there is project there btw) but this complex system is no good
     final MPSProject p = ProjectHelper.fromIdeaProject(CommonDataKeys.PROJECT.getData(dataContext));
     return p != null ? p : ProjectHelper.getProject(myRepository);
+  }
+
+  @Override
+  public boolean isAutomaticSubstitutionEnabled() {
+    return !myNodeSubstituteChooser.isVisible() || myNodeSubstituteChooser.isAutoMode();
   }
 
   public void activateNodeSubstituteChooser(@NotNull jetbrains.mps.nodeEditor.cells.EditorCell cell) {
