@@ -83,11 +83,6 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   }
 
   @Override
-  public String getMessage() {
-    return myChange.getDescription();
-  }
-
-  @Override
   public boolean isBackground() {
     return true;
   }
@@ -287,13 +282,13 @@ __switch__:
                       this.__CP__ = 6;
                       break;
                     case 7:
-                      this._7__yield_myu41h_a0a0a0a0a0a73_it = Sequence.fromIterable(invoke(_4_child)).iterator();
+                      this._7__yield_myu41h_a0a0a0a0a0a53_it = Sequence.fromIterable(invoke(_4_child)).iterator();
                     case 8:
-                      if (!(this._7__yield_myu41h_a0a0a0a0a0a73_it.hasNext())) {
+                      if (!(this._7__yield_myu41h_a0a0a0a0a0a53_it.hasNext())) {
                         this.__CP__ = 5;
                         break;
                       }
-                      this._7__yield_myu41h_a0a0a0a0a0a73 = this._7__yield_myu41h_a0a0a0a0a0a73_it.next();
+                      this._7__yield_myu41h_a0a0a0a0a0a53 = this._7__yield_myu41h_a0a0a0a0a0a53_it.next();
                       this.__CP__ = 9;
                       break;
                     case 2:
@@ -305,7 +300,7 @@ __switch__:
                       break;
                     case 10:
                       this.__CP__ = 8;
-                      this.yield(_7__yield_myu41h_a0a0a0a0a0a73);
+                      this.yield(_7__yield_myu41h_a0a0a0a0a0a53);
                       return true;
                     case 12:
                       this.__CP__ = 1;
@@ -334,8 +329,8 @@ __switch__:
               }
               private EditorCell _4_child;
               private Iterator<EditorCell> _4_child_it;
-              private EditorCell _7__yield_myu41h_a0a0a0a0a0a73;
-              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a73_it;
+              private EditorCell _7__yield_myu41h_a0a0a0a0a0a53;
+              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a53_it;
             };
           }
         };
