@@ -17,19 +17,13 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.project.ProjectHelper;
 import java.io.File;
-import java.util.List;
+import java.util.ArrayDeque;
 import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import org.jetbrains.mps.openapi.module.SearchScope;
-import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
 import jetbrains.mps.project.EditableFilteringScope;
-import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import jetbrains.mps.textgen.trace.DebugInfo;
 import jetbrains.mps.textgen.trace.TraceInfo;
 import org.apache.log4j.Level;
@@ -40,15 +34,21 @@ import com.intellij.openapi.wm.ex.StatusBarEx;
 import com.intellij.openapi.ui.MessageType;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import com.intellij.ide.impl.ProjectUtil;
+import java.util.List;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.textgen.trace.TraceablePositionInfo;
 import jetbrains.mps.textgen.trace.DebugInfoRoot;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
+import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.project.GlobalScope;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.ide.findusages.findalgorithm.finders.specific.AspectMethodsFinder;
@@ -67,7 +67,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
- * This is a callback for mps-idea integraion plugin, responsible for actions in MPS Project. There's IProjectHandler in the IDEA instance, remote object we can ask for activities in IDEA project.
+ * This is a callback for mps-idea integration plugin, responsible for actions in MPS Project. There's IProjectHandler in the IDEA instance, remote object we can ask for activities in IDEA project.
  * There are few actions available from IDEA project that navigate to MPS project counterparts, and to support these, this MPSProjectIDEHandler is registered in IProjectHandler for each started MPS project
  * so that IDEA project actions could navigate to MPS nodes from source files.
  */
@@ -148,31 +148,19 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
       public void run() {
         String fileName = new File(filePath).getName();
 
-        List<SModel> modelsByName = ListSequence.fromList(new ArrayList<SModel>());
+        ArrayDeque<SModel> modelsByName = new ArrayDeque<>();
 
-        {
-          SearchScope scope_xnj2f8_e0a0a1a11 = CommandUtil.createScope(mpsProject);
-          final SearchScope scope_xnj2f8_e0a0a1a11_0 = new EditableFilteringScope(scope_xnj2f8_e0a0a1a11);
-          QueryExecutionContext context = new QueryExecutionContext() {
-            public SearchScope getDefaultSearchScope() {
-              return scope_xnj2f8_e0a0a1a11_0;
-            }
-          };
+        for (SModel it : new EditableFilteringScope(mpsProject.getScope()).getModels()) {
           // we first look up in models with the given name (better chance to succeed), then in all other models
-          ListSequence.fromList(modelsByName).addSequence(Sequence.fromIterable(CommandUtil.models(CommandUtil.selectScope(null, context))).where(new IWhereFilter<SModel>() {
-            public boolean accept(SModel it) {
-              return Objects.equals(SModelOperations.getModelName(it), modelHint);
-            }
-          }));
-          ListSequence.fromList(modelsByName).addSequence(Sequence.fromIterable(CommandUtil.models(CommandUtil.selectScope(null, context))).where(new IWhereFilter<SModel>() {
-            public boolean accept(SModel it) {
-              return !(Objects.equals(SModelOperations.getModelName(it), modelHint));
-            }
-          }));
+          if (Objects.equals(SModelOperations.getModelName(it), modelHint)) {
+            modelsByName.addFirst(it);
+          } else {
+            modelsByName.addLast(it);
+          }
         }
 
         SNode bestNode = null;
-        for (SModel model : ListSequence.fromList(modelsByName)) {
+        for (SModel model : QueueSequence.fromQueue(modelsByName)) {
           DebugInfo di = new TraceInfo().getDebugInfo(model);
           if (di == null) {
             if (LOG_1373119566.isEnabledFor(Level.WARN)) {
