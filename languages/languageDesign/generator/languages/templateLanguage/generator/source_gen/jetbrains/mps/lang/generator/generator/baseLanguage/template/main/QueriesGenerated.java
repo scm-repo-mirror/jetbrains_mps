@@ -2615,10 +2615,17 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.getParent(_context.getNode());
   }
   public static SNode sourceNodeQuery_89_0(final SourceSubstituteMacroNodeContext _context) {
-    // FIXME why not node.type, and do the rest with typesystem inference rules?
-    // FIXME why do we need ClassifierTypeUtil here, are types not capable to reduce at the proper time?
-    SNode classifierType = ClassifierTypeUtil.getTypeCoercedToClassifierType(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG), LINKS.type$EpCe));
-    return ((classifierType != null) ? classifierType : SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG), LINKS.type$EpCe));
+    SNode tn = TypecheckingFacade.getFromContext().getTypeOf(_context.getNode());
+    if (SNodeOperations.isInstanceOf(tn, CONCEPTS.Type$bu)) {
+      // FIXME why do we need ClassifierTypeUtil here, are types not capable to reduce at the proper time?
+      SNode classifierType = ClassifierTypeUtil.getTypeCoercedToClassifierType(SNodeOperations.cast(tn, CONCEPTS.Type$bu));
+      return ((classifierType != null) ? classifierType : tn);
+    }
+    if ((SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG), LINKS.type$EpCe) != null)) {
+      return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.vardecl$C7NG), LINKS.type$EpCe);
+    }
+    // no idea how to deal properly with vardecl.type==null here 
+    return tn;
   }
   public static SNode sourceNodeQuery_93_0(final SourceSubstituteMacroNodeContext _context) {
     return SNodeOperations.getParent(_context.getNode());
