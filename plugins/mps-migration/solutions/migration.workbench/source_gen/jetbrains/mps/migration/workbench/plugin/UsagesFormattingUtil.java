@@ -7,7 +7,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
 import java.util.Map;
-import jetbrains.mps.ide.migration.util.DeprecatedNodeProperties;
+import jetbrains.mps.migration.workbench.util.DeprecatedNodeProperties;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.IMapping;

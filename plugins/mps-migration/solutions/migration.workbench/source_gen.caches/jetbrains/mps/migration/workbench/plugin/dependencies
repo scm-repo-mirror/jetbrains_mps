@@ -92,9 +92,9 @@
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.CategoryKind" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResults" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.UsagesViewTool" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedNodeProperties" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.migration.workbench.plugin.UsagesFormattingUtil" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedNodeProperties" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.util.Pair" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -118,9 +118,9 @@
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.CategoryKind" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResults" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.UsagesViewTool" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedNodeProperties" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.migration.workbench.plugin.UsagesFormattingUtil" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedNodeProperties" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.util.Pair" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -147,11 +147,11 @@
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResults" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.scopes.ModulesScope" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.UsagesViewTool" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedNodeProperties" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.migration.workbench.plugin.UsagesFormattingUtil" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedNodeProperties" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedUtil" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.util.Pair" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -478,10 +478,10 @@
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.CategoryKind" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResult" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResults" />
-    <classNode dependClassName="jetbrains.mps.ide.migration.util.DeprecatedNodeProperties" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IMapping" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
+    <classNode dependClassName="jetbrains.mps.migration.workbench.util.DeprecatedNodeProperties" />
     <classNode dependClassName="jetbrains.mps.util.Pair" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
   </dependency>

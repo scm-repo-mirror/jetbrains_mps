@@ -48,7 +48,6 @@
     <import index="xygl" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.progress(MPS.IDEA/)" />
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="auc7" ref="r:22e3ec81-a192-41cd-83a2-488758bdeedc(jetbrains.mps.ide.migration.util)" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
     <import index="d6hs" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.item(MPS.Core/)" />
     <import index="bdll" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.migration.global(MPS.Platform/)" />
@@ -61,6 +60,7 @@
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="fn29" ref="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)" />
     <import index="6xcv" ref="r:1f98243e-778e-4688-8b37-94002e0884e9(jetbrains.mps.migration.workbench.components)" />
+    <import index="zwky" ref="r:d5126472-b29d-457e-9e94-b213f8fd72ad(jetbrains.mps.migration.workbench.util)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -5692,12 +5692,12 @@
                                 <node concept="3rvAFt" id="65Effnlwg80" role="1tU5fm">
                                   <node concept="3Tqbb2" id="65EffnlwgvP" role="3rvQeY" />
                                   <node concept="3uibUv" id="65EffnlwjEF" role="3rvSg0">
-                                    <ref role="3uigEE" to="auc7:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
+                                    <ref role="3uigEE" to="zwky:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
                                   </node>
                                 </node>
-                                <node concept="2YIFZM" id="51adnVzX_35" role="33vP2m">
-                                  <ref role="1Pybhc" to="auc7:51adnVzUm$d" resolve="DeprecatedUtil" />
-                                  <ref role="37wK5l" to="auc7:51adnVzVq2Z" resolve="deprecated" />
+                                <node concept="2YIFZM" id="rIPW1VofLV" role="33vP2m">
+                                  <ref role="37wK5l" to="zwky:51adnVzVq2Z" resolve="deprecated" />
+                                  <ref role="1Pybhc" to="zwky:51adnVzUm$d" resolve="DeprecatedUtil" />
                                   <node concept="2OqwBi" id="51adnVzX_39" role="37wK5m">
                                     <node concept="2OqwBi" id="51adnVzX_3a" role="2Oq$k0">
                                       <node concept="2WthIp" id="51adnVzX_3b" role="2Oq$k0" />
@@ -8562,9 +8562,9 @@
                             <node concept="3cpWs8" id="51adnVzXqji" role="3cqZAp">
                               <node concept="3cpWsn" id="51adnVzXqjj" role="3cpWs9">
                                 <property role="TrG5h" value="depLibs" />
-                                <node concept="2YIFZM" id="51adnVzXqjk" role="33vP2m">
-                                  <ref role="37wK5l" to="auc7:51adnVzUmYa" resolve="usagesOfDeprecated" />
-                                  <ref role="1Pybhc" to="auc7:51adnVzUm$d" resolve="DeprecatedUtil" />
+                                <node concept="2YIFZM" id="rIPW1VofHB" role="33vP2m">
+                                  <ref role="37wK5l" to="zwky:51adnVzUmYa" resolve="usagesOfDeprecated" />
+                                  <ref role="1Pybhc" to="zwky:51adnVzUm$d" resolve="DeprecatedUtil" />
                                   <node concept="2ShNRf" id="51adnVzXqjl" role="37wK5m">
                                     <node concept="1pGfFk" id="51adnVzXqjm" role="2ShVmc">
                                       <ref role="37wK5l" to="mte5:~ModulesScope.&lt;init&gt;(java.lang.Iterable)" resolve="ModulesScope" />
@@ -8588,7 +8588,7 @@
                                 <node concept="3rvAFt" id="75sEHjoIh37" role="1tU5fm">
                                   <node concept="3Tqbb2" id="75sEHjoIhPx" role="3rvQeY" />
                                   <node concept="3uibUv" id="75sEHjoIj49" role="3rvSg0">
-                                    <ref role="3uigEE" to="auc7:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
+                                    <ref role="3uigEE" to="zwky:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
                                   </node>
                                 </node>
                               </node>
@@ -8596,9 +8596,9 @@
                             <node concept="3cpWs8" id="51adnVzXu6C" role="3cqZAp">
                               <node concept="3cpWsn" id="51adnVzXu6D" role="3cpWs9">
                                 <property role="TrG5h" value="depProj" />
-                                <node concept="2YIFZM" id="51adnVzXu6G" role="33vP2m">
-                                  <ref role="1Pybhc" to="auc7:51adnVzUm$d" resolve="DeprecatedUtil" />
-                                  <ref role="37wK5l" to="auc7:51adnVzUmYa" resolve="usagesOfDeprecated" />
+                                <node concept="2YIFZM" id="rIPW1VofLU" role="33vP2m">
+                                  <ref role="37wK5l" to="zwky:51adnVzUmYa" resolve="usagesOfDeprecated" />
+                                  <ref role="1Pybhc" to="zwky:51adnVzUm$d" resolve="DeprecatedUtil" />
                                   <node concept="2OqwBi" id="51adnVzXvQL" role="37wK5m">
                                     <node concept="2OqwBi" id="51adnVzXvQM" role="2Oq$k0">
                                       <node concept="2WthIp" id="51adnVzXvQN" role="2Oq$k0" />
@@ -8625,7 +8625,7 @@
                                 <node concept="3rvAFt" id="75sEHjoIjZ9" role="1tU5fm">
                                   <node concept="3Tqbb2" id="75sEHjoIjZa" role="3rvQeY" />
                                   <node concept="3uibUv" id="75sEHjoIjZb" role="3rvSg0">
-                                    <ref role="3uigEE" to="auc7:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
+                                    <ref role="3uigEE" to="zwky:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
                                   </node>
                                 </node>
                               </node>
@@ -8924,7 +8924,7 @@
                           <node concept="3AV6Ez" id="75sEHjoSeZf" role="2OqNvi" />
                         </node>
                         <node concept="2OwXpG" id="75sEHjoSeZg" role="2OqNvi">
-                          <ref role="2Oxat5" to="auc7:75sEHjoIfSt" resolve="version" />
+                          <ref role="2Oxat5" to="zwky:75sEHjoIfSt" resolve="version" />
                         </node>
                       </node>
                     </node>
@@ -8985,7 +8985,7 @@
                               <node concept="3AV6Ez" id="75sEHjoShtq" role="2OqNvi" />
                             </node>
                             <node concept="2OwXpG" id="75sEHjoShtr" role="2OqNvi">
-                              <ref role="2Oxat5" to="auc7:75sEHjoIg4o" resolve="category" />
+                              <ref role="2Oxat5" to="zwky:75sEHjoIg4o" resolve="category" />
                             </node>
                           </node>
                         </node>
@@ -9058,7 +9058,7 @@
         <node concept="3rvAFt" id="75sEHjoPBaY" role="1tU5fm">
           <node concept="3Tqbb2" id="75sEHjoPBaZ" role="3rvQeY" />
           <node concept="3uibUv" id="75sEHjoPBb0" role="3rvSg0">
-            <ref role="3uigEE" to="auc7:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
+            <ref role="3uigEE" to="zwky:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
           </node>
         </node>
       </node>
@@ -9139,12 +9139,12 @@
                                 <node concept="3rvAFt" id="2t6hOiXU0eK" role="1tU5fm">
                                   <node concept="3Tqbb2" id="2t6hOiXU0eL" role="3rvQeY" />
                                   <node concept="3uibUv" id="2t6hOiXU0eM" role="3rvSg0">
-                                    <ref role="3uigEE" to="auc7:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
+                                    <ref role="3uigEE" to="zwky:75sEHjoI5GU" resolve="DeprecatedNodeProperties" />
                                   </node>
                                 </node>
-                                <node concept="2YIFZM" id="2t6hOiXURxL" role="33vP2m">
-                                  <ref role="37wK5l" to="auc7:2t6hOiXUMJs" resolve="deprecatedAndNotUsed" />
-                                  <ref role="1Pybhc" to="auc7:51adnVzUm$d" resolve="DeprecatedUtil" />
+                                <node concept="2YIFZM" id="rIPW1VofLW" role="33vP2m">
+                                  <ref role="37wK5l" to="zwky:2t6hOiXUMJs" resolve="deprecatedAndNotUsed" />
+                                  <ref role="1Pybhc" to="zwky:51adnVzUm$d" resolve="DeprecatedUtil" />
                                   <node concept="2OqwBi" id="2t6hOiXURxM" role="37wK5m">
                                     <node concept="2OqwBi" id="2t6hOiXURxN" role="2Oq$k0">
                                       <node concept="2WthIp" id="2t6hOiXURxO" role="2Oq$k0" />
