@@ -42,11 +42,8 @@ import java.util.HashMap;
 import jetbrains.mps.progress.ProgressMonitorDecorator;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
-import org.jetbrains.mps.openapi.module.SearchScope;
-import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
-import jetbrains.mps.project.EditableFilteringScope;
-import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.migration.runtime.base.MigrateManually;
@@ -212,25 +209,23 @@ public class MigrationCheckerImpl implements MigrationChecker {
 
         m.start("Finding not migrated code...", Sequence.fromIterable(modules).count() + Sequence.fromIterable(migrations).count() * 10);
 
-        {
-          SearchScope scope_9mxawj_f0a0a8 = CommandUtil.createScope(modules);
-          final SearchScope scope_9mxawj_f0a0a8_0 = new EditableFilteringScope(scope_9mxawj_f0a0a8);
-          QueryExecutionContext context = new QueryExecutionContext() {
-            public SearchScope getDefaultSearchScope() {
-              return scope_9mxawj_f0a0a8_0;
+        for (SModule module : Sequence.fromIterable(modules)) {
+          for (SModel mm : module.getModels()) {
+            if (mm.isReadOnly()) {
+              continue;
             }
-          };
-          for (SNode ann : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MigrationAnnotation_old$2i, false)).where(new IWhereFilter<SNode>() {
-            public boolean accept(SNode it) {
-              return ((boolean) (Boolean) BHReflection.invoke0(it, CONCEPTS.MigrationAnnotation_old$2i, SMethodTrimmedId.create("showInResults", null, "29O0pTxWdmG")));
+            for (SNode ann : ListSequence.fromList(SModelOperations.nodes(mm, CONCEPTS.MigrationAnnotation_old$2i)).where(new IWhereFilter<SNode>() {
+              public boolean accept(SNode it) {
+                return ((boolean) (Boolean) BHReflection.invoke0(it, CONCEPTS.MigrationAnnotation_old$2i, SMethodTrimmedId.create("showInResults", null, "29O0pTxWdmG")));
+              }
+            })) {
+              if (!(processor.process(MigrateManually.fromAnnotation(ann)))) {
+                m.done();
+                return;
+              }
             }
-          })) {
-            if (!(processor.process(MigrateManually.fromAnnotation(ann)))) {
-              m.done();
-              return;
-            }
-            m.advance(1);
           }
+          m.advance(1);
         }
 
         // todo show only annotations left by our run migrations
