@@ -47085,14 +47085,8 @@
                       <node concept="2ShNRf" id="3xDEu4ZLgHD" role="37wK5m">
                         <node concept="1pGfFk" id="3xDEu4ZLgHE" role="2ShVmc">
                           <ref role="37wK5l" to="q1l7:~TemplateVarContext.&lt;init&gt;(jetbrains.mps.generator.runtime.TemplateContext,org.jetbrains.mps.openapi.model.SNodeReference)" resolve="TemplateVarContext" />
-                          <node concept="37vLTw" id="3xDEu4ZLgHF" role="37wK5m">
-                            <ref role="3cqZAo" node="UesZ_odLzc" resolve="context" />
-                            <node concept="5jKBG" id="3xDEu4ZLgHG" role="lGtFl">
-                              <ref role="v9R2y" node="2EXfbuW86od" resolve="reduce_Context2" />
-                              <node concept="v3LJS" id="3xDEu4ZLgHH" role="v9R3O">
-                                <ref role="v3LJV" node="UesZ_odLz6" resolve="ctx" />
-                              </node>
-                            </node>
+                          <node concept="37vLTw" id="EcxTtaZsLA" role="37wK5m">
+                            <ref role="3cqZAo" node="UesZ_odL$s" resolve="innerContext" />
                           </node>
                           <node concept="10Nm6u" id="3xDEu4ZLgHI" role="37wK5m">
                             <node concept="5jKBG" id="3xDEu4ZLgHJ" role="lGtFl">
