@@ -18,8 +18,11 @@ package jetbrains.mps.ide.findusages.view;
 import com.intellij.ide.OccurenceNavigator;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ex.ToolWindowManagerEx;
+import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -76,6 +79,11 @@ final class InspectorToolWindowFixer {
   }
 
   private String calcActiveToolWindowId(ToolWindowManagerEx toolWindowManager) {
-    return toolWindowManager.getLastActiveToolWindowId();
+    ToolWindow[] data = myDataContext.getData(PlatformDataKeys.LAST_ACTIVE_TOOL_WINDOWS);
+    if (data.length > 0) {
+      return data[0].getId();
+    }
+    LogManager.getLogger(InspectorToolWindowFixer.class).warn("no active tool windows");
+    return null;
   }
 }
