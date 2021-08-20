@@ -3719,5 +3719,35 @@
       </node>
     </node>
   </node>
+  <node concept="18kY7G" id="1RsDREw1P4h">
+    <property role="3GE5qa" value="Layout" />
+    <property role="TrG5h" value="check_PluginDescriptorLayout" />
+    <node concept="3clFbS" id="1RsDREw1P4i" role="18ibNy">
+      <node concept="3clFbJ" id="1RsDREw1Pn9" role="3cqZAp">
+        <node concept="2OqwBi" id="1RsDREw1P$q" role="3clFbw">
+          <node concept="1YBJjd" id="1RsDREw1Pnl" role="2Oq$k0">
+            <ref role="1YBMHb" node="1RsDREw1PeS" resolve="buildMpsLayout_Plugin" />
+          </node>
+          <node concept="2qgKlT" id="1RsDREw1PA5" role="2OqNvi">
+            <ref role="37wK5l" to="2txq:1RsDREvCrek" resolve="isPluginDescriptorPossiblyMissingInLayout" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="1RsDREw1Pnb" role="3clFbx">
+          <node concept="a7r0C" id="1RsDREw1PFj" role="3cqZAp">
+            <node concept="Xl_RD" id="1RsDREw1Q3u" role="a7wSD">
+              <property role="Xl_RC" value="Plugin descriptor not detected in layout (lib/plugin.jar/META-INF/plugin descriptor ref or xml file)" />
+            </node>
+            <node concept="1YBJjd" id="1RsDREw1PF_" role="1urrMF">
+              <ref role="1YBMHb" node="1RsDREw1PeS" resolve="buildMpsLayout_Plugin" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="1RsDREw1PeS" role="1YuTPh">
+      <property role="TrG5h" value="buildMpsLayout_Plugin" />
+      <ref role="1YaFvo" to="kdzh:5HVSRHdUrHI" resolve="BuildMpsLayout_Plugin" />
+    </node>
+  </node>
 </model>
 
