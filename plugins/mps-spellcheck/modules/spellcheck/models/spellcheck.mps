@@ -1377,7 +1377,7 @@
         <node concept="3cpWs6" id="1OIlcCDhghO" role="3cqZAp">
           <node concept="2ShNRf" id="1OIlcCDgPVa" role="3cqZAk">
             <node concept="1pGfFk" id="1OIlcCDgPVb" role="2ShVmc">
-              <ref role="37wK5l" to="n70j:~UpdateResult$Completed.&lt;init&gt;(boolean,java.util.Collection)" resolve="Completed" />
+              <ref role="37wK5l" to="n70j:~UpdateResult$Completed.&lt;init&gt;(boolean,java.util.Collection)" resolve="UpdateResult.Completed" />
               <node concept="3clFbT" id="1OIlcCDgPVc" role="37wK5m">
                 <property role="3clFbU" value="true" />
               </node>
@@ -2135,7 +2135,7 @@
               <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
               <node concept="2ShNRf" id="1OIlcCDl_1D" role="37wK5m">
                 <node concept="1pGfFk" id="1OIlcCDlLIZ" role="2ShVmc">
-                  <ref role="37wK5l" node="1OIlcCDlF6C" resolve="M" />
+                  <ref role="37wK5l" node="1OIlcCDlF6C" resolve="CommentSpellChecker.M" />
                   <node concept="37vLTw" id="2lw8JLTvbMG" role="37wK5m">
                     <ref role="3cqZAo" node="1OIlcCDjnMg" resolve="mistakes" />
                   </node>
@@ -2356,7 +2356,7 @@
         <node concept="3cpWs6" id="5PtqdhJ4iCM" role="3cqZAp">
           <node concept="2ZW3vV" id="5PtqdhJ4jbp" role="3cqZAk">
             <node concept="3uibUv" id="5PtqdhJ4jra" role="2ZW6by">
-              <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="M" />
+              <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="CommentSpellChecker.M" />
             </node>
             <node concept="37vLTw" id="5PtqdhJ4iRr" role="2ZW6bz">
               <ref role="3cqZAo" node="5PtqdhJ4hNe" resolve="msg" />
@@ -2391,7 +2391,7 @@
                 <node concept="1eOMI4" id="33z3Yy7kVZU" role="2Oq$k0">
                   <node concept="10QFUN" id="33z3Yy7kVZV" role="1eOMHV">
                     <node concept="3uibUv" id="33z3Yy7kVZW" role="10QFUM">
-                      <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="M" />
+                      <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="CommentSpellChecker.M" />
                     </node>
                     <node concept="37vLTw" id="33z3Yy7kVZX" role="10QFUP">
                       <ref role="3cqZAo" node="33z3Yy7kNjp" resolve="msg" />
@@ -2403,7 +2403,7 @@
           </node>
           <node concept="2ZW3vV" id="33z3Yy7kOp9" role="3clFbw">
             <node concept="3uibUv" id="33z3Yy7kOCu" role="2ZW6by">
-              <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="M" />
+              <ref role="3uigEE" node="1OIlcCDh_Jr" resolve="CommentSpellChecker.M" />
             </node>
             <node concept="37vLTw" id="33z3Yy7kO98" role="2ZW6bz">
               <ref role="3cqZAo" node="33z3Yy7kNjp" resolve="msg" />
@@ -2468,7 +2468,7 @@
               <ref role="37wK5l" to="v6uv:~SpellCheckerManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
               <ref role="1Pybhc" to="v6uv:~SpellCheckerManager" resolve="SpellCheckerManager" />
               <node concept="37vLTw" id="mQZQCkd6$m" role="37wK5m">
-                <ref role="3cqZAo" node="mQZQCkd6$i" resolve="project" />
+                <ref role="3cqZAo" node="mQZQCkd6$i" resolve="ideaProject" />
               </node>
             </node>
           </node>

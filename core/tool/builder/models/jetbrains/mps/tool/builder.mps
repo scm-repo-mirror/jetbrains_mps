@@ -19,7 +19,6 @@
     <import index="vqh0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make(MPS.Core/)" />
     <import index="32g5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.library(MPS.Core/)" />
     <import index="3qmy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.classloading(MPS.Core/)" />
-    <import index="ap4t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator(MPS.Core/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
@@ -31,6 +30,7 @@
     <import index="pa15" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.persistence(MPS.Core/)" />
     <import index="31cb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.module(MPS.Core/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
+    <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -3215,10 +3215,10 @@
         <node concept="3clFbF" id="5QqlCZXtfAO" role="3cqZAp">
           <node concept="37vLTI" id="5QqlCZXtfAQ" role="3clFbG">
             <node concept="37vLTw" id="5QqlCZXtfAT" role="37vLTJ">
-              <ref role="3cqZAo" node="5QqlCZXtfAK" resolve="myEnv" />
+              <ref role="3cqZAo" node="5QqlCZXtfAK" resolve="myPlatform" />
             </node>
             <node concept="37vLTw" id="5QqlCZXtfAU" role="37vLTx">
-              <ref role="3cqZAo" node="5QqlCZXs7C6" resolve="env" />
+              <ref role="3cqZAo" node="5QqlCZXs7C6" resolve="host" />
             </node>
           </node>
         </node>

@@ -2243,7 +2243,7 @@
                                   </node>
                                 </node>
                                 <node concept="2qgKlT" id="5nILdfQiR8i" role="2OqNvi">
-                                  <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+                                  <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStaticClassifierMember" />
                                 </node>
                               </node>
                             </node>

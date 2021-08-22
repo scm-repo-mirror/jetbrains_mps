@@ -453,10 +453,10 @@
         <node concept="3clFbF" id="5QqlCZXto7c" role="3cqZAp">
           <node concept="2OqwBi" id="5QqlCZXtJ3i" role="3clFbG">
             <node concept="37vLTw" id="3X0dfoRfIKn" role="2Oq$k0">
-              <ref role="3cqZAo" node="3X0dfoRfIKh" resolve="helper" />
+              <ref role="3cqZAo" node="3X0dfoRfIKh" resolve="compileReloadHelper" />
             </node>
             <node concept="liA8E" id="5QqlCZXtKON" role="2OqNvi">
-              <ref role="37wK5l" to="jo3e:5QqlCZXtfUQ" resolve="make" />
+              <ref role="37wK5l" to="jo3e:5QqlCZXtfUQ" resolve="makeAndReload" />
               <node concept="37vLTw" id="3X0dfoRgeoz" role="37wK5m">
                 <ref role="3cqZAo" node="5QqlCZXtfUW" resolve="repo" />
               </node>

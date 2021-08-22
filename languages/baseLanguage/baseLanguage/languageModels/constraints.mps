@@ -3140,7 +3140,7 @@
                             <ref role="3cqZAo" node="7MS72Gc8d3c" resolve="it" />
                           </node>
                           <node concept="2qgKlT" id="7MS72Gc8d3C" role="2OqNvi">
-                            <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+                            <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStaticClassifierMember" />
                           </node>
                         </node>
                       </node>
@@ -4734,7 +4734,7 @@
                         <ref role="3cqZAo" node="5Vvmn_Qkhvf" resolve="clazz" />
                       </node>
                       <node concept="2qgKlT" id="5Vvmn_Qkhv9" role="2OqNvi">
-                        <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStatic" />
+                        <ref role="37wK5l" to="tpek:7MS72Gc8avw" resolve="isStaticClassifierMember" />
                       </node>
                     </node>
                   </node>

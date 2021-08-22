@@ -880,7 +880,7 @@
               <node concept="liA8E" id="4dXFBzEm0EM" role="2OqNvi">
                 <ref role="37wK5l" to="1ctc:~Stream.sorted(java.util.Comparator)" resolve="sorted" />
                 <node concept="37vLTw" id="4dXFBzEms6i" role="37wK5m">
-                  <ref role="3cqZAo" node="4dXFBzEm4$M" resolve="byName" />
+                  <ref role="3cqZAo" node="4dXFBzEm4$M" resolve="byName1" />
                 </node>
               </node>
             </node>
@@ -1072,7 +1072,7 @@
                     <node concept="liA8E" id="4dXFBzEnH__" role="2OqNvi">
                       <ref role="37wK5l" to="dush:~PersistenceFacade.asString(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="asString" />
                       <node concept="2GrUjf" id="4dXFBzEnH_A" role="37wK5m">
-                        <ref role="2Gs0qQ" node="4dXFBzEnH_a" resolve="l" />
+                        <ref role="2Gs0qQ" node="4dXFBzEnH_a" resolve="i" />
                       </node>
                     </node>
                   </node>

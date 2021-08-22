@@ -51200,7 +51200,7 @@
     </node>
     <node concept="1l3spV" id="3SKb_4JtHPj" role="1l3spN">
       <node concept="m$_wl" id="3SKb_4JujwY" role="39821P">
-        <ref role="m_rDy" node="3SKb_4Jujh$" />
+        <ref role="m_rDy" node="3SKb_4Jujh$" resolve="jetbrains.mps.editor.spellcheck" />
         <node concept="pUk6x" id="3SKb_4Jujx4" role="pUk7w" />
       </node>
     </node>

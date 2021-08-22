@@ -5288,7 +5288,7 @@
         <property role="TrG5h" value="getConfiguration" />
         <property role="1EzhhJ" value="true" />
         <node concept="3uibUv" id="4vZEdvrqBXh" role="3clF45">
-          <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
+          <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetup" />
         </node>
         <node concept="3Tmbuc" id="4vZEdvrqBpG" role="1B3o_S" />
         <node concept="3clFbS" id="4vZEdvrqAMR" role="3clF47" />
@@ -6544,7 +6544,7 @@
                   <node concept="1eOMI4" id="6b$YhINpv2F" role="2Oq$k0">
                     <node concept="10QFUN" id="6b$YhINpwSp" role="1eOMHV">
                       <node concept="3uibUv" id="6b$YhINpBO3" role="10QFUM">
-                        <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
+                        <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetup" />
                       </node>
                       <node concept="1rXfSq" id="6b$YhINoTZP" role="10QFUP">
                         <ref role="37wK5l" node="4vZEdvrqAMN" resolve="getConfiguration" />
@@ -6562,7 +6562,7 @@
                 <ref role="37wK5l" node="7vYYdQneVY0" resolve="requires" />
                 <node concept="Rm8GO" id="6b$YhINq66F" role="37wK5m">
                   <ref role="Rm8GQ" node="cQNMA1EOrF" resolve="MIGRATE" />
-                  <ref role="1Px2BO" node="cQNMA1ENsh" resolve="MigrationStepKind" />
+                  <ref role="1Px2BO" node="cQNMA1ENsh" resolve="MigrationSession.MigrationStepKind" />
                 </node>
               </node>
               <node concept="3clFbC" id="6b$YhINpOSP" role="3uHU7B">
@@ -6575,7 +6575,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="6b$YhINoPzo" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="2tJIrI" id="7W$jB0VUKWe" role="jymVt" />

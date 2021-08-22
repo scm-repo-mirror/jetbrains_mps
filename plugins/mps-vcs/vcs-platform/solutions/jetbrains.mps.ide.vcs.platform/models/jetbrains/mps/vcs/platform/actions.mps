@@ -1493,7 +1493,7 @@
                                   <ref role="3uigEE" to="2o8p:~DiffContent" resolve="DiffContent" />
                                 </node>
                                 <node concept="1rXfSq" id="2AsRvWbyBpJ" role="33vP2m">
-                                  <ref role="37wK5l" node="2AsRvWbyslA" resolve="createCurrent" />
+                                  <ref role="37wK5l" node="2AsRvWbyslA" resolve="createCurrentContent" />
                                   <node concept="37vLTw" id="2AsRvWbyE1d" role="37wK5m">
                                     <ref role="3cqZAo" node="523_aD7XWQR" resolve="ideaProject" />
                                   </node>

@@ -8727,7 +8727,7 @@
                     <node concept="3clFbS" id="4Jifr3LJGOD" role="1bW5cS">
                       <node concept="3clFbF" id="4Jifr3LJLZa" role="3cqZAp">
                         <node concept="1rXfSq" id="4Jifr3LJLZ9" role="3clFbG">
-                          <ref role="37wK5l" node="mW3wmE4bsu" resolve="tryToAddChange" />
+                          <ref role="37wK5l" node="mW3wmE4bsu" resolve="tryToAddNodeChange" />
                           <node concept="37vLTw" id="4Jifr3LJQ$m" role="37wK5m">
                             <ref role="3cqZAo" node="4Jifr3LJGOE" resolve="it" />
                           </node>
@@ -10846,7 +10846,7 @@
               <ref role="3cqZAo" node="43OnP9nmpcy" resolve="myMessage" />
             </node>
             <node concept="37vLTw" id="4Jifr3LWP3R" role="37vLTx">
-              <ref role="3cqZAo" node="4Jifr3LWD4J" resolve="de" />
+              <ref role="3cqZAo" node="4Jifr3LWD4J" resolve="description" />
             </node>
           </node>
         </node>
@@ -11040,7 +11040,7 @@
         <node concept="3clFbF" id="mW3wmE1ELo" role="3cqZAp">
           <node concept="2OqwBi" id="mW3wmE1GvK" role="3clFbG">
             <node concept="37vLTw" id="mW3wmE1ELm" role="2Oq$k0">
-              <ref role="3cqZAo" node="mW3wmE1_WO" resolve="movedNodesIds" />
+              <ref role="3cqZAo" node="mW3wmE1_WO" resolve="nodesIds" />
             </node>
             <node concept="2es0OD" id="mW3wmE1IHZ" role="2OqNvi">
               <node concept="1bVj0M" id="mW3wmE1II1" role="23t8la">
@@ -11121,7 +11121,7 @@
           <node concept="1rXfSq" id="4Jifr3LSQK6" role="3clFbG">
             <ref role="37wK5l" node="5PRn7fORioz" resolve="collectMovedChildIds" />
             <node concept="37vLTw" id="4Jifr3LSTPS" role="37wK5m">
-              <ref role="3cqZAo" node="mW3wmE1_WO" resolve="movedNodesIds" />
+              <ref role="3cqZAo" node="mW3wmE1_WO" resolve="nodesIds" />
             </node>
             <node concept="37vLTw" id="4Jifr3LSZcE" role="37wK5m">
               <ref role="3cqZAo" node="mW3wmE2cYx" resolve="model" />
@@ -18208,7 +18208,7 @@
               </node>
             </node>
             <node concept="37vLTw" id="23VhocsYts" role="2Oq$k0">
-              <ref role="3cqZAo" node="23Vhocrf4$" resolve="sb" />
+              <ref role="3cqZAo" node="23Vhocrf4$" resolve="fileAtRevisions" />
             </node>
           </node>
         </node>
@@ -18239,7 +18239,7 @@
         <node concept="3clFbF" id="23VhocCUuY" role="3cqZAp">
           <node concept="2OqwBi" id="23VhocCUuZ" role="3clFbG">
             <node concept="37vLTw" id="23VhocCUv0" role="2Oq$k0">
-              <ref role="3cqZAo" node="23Vhocrf4$" resolve="sb" />
+              <ref role="3cqZAo" node="23Vhocrf4$" resolve="fileAtRevisions" />
             </node>
             <node concept="liA8E" id="23VhocCUv1" role="2OqNvi">
               <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
@@ -18290,7 +18290,7 @@
                     <node concept="2OqwBi" id="23VhocwgTw" role="3clFbG">
                       <node concept="2OqwBi" id="23VhoczE7B" role="2Oq$k0">
                         <node concept="37vLTw" id="23Vhocw9CA" role="2Oq$k0">
-                          <ref role="3cqZAo" node="23Vhocrf4$" resolve="sb" />
+                          <ref role="3cqZAo" node="23Vhocrf4$" resolve="fileAtRevisions" />
                         </node>
                         <node concept="liA8E" id="23VhoczSxU" role="2OqNvi">
                           <ref role="37wK5l" to="wyt6:~StringBuilder.append(char)" resolve="append" />
@@ -18355,8 +18355,8 @@
                 <node concept="YeOm9" id="54iJvNQZOjW" role="2ShVmc">
                   <node concept="1Y3b0j" id="54iJvNQZOjX" role="YeSDq">
                     <property role="2bfB8j" value="true" />
-                    <ref role="37wK5l" to="xygl:~Task$Backgroundable.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Backgroundable" />
-                    <ref role="1Y3XeK" to="xygl:~Task$Backgroundable" resolve="Backgroundable" />
+                    <ref role="37wK5l" to="xygl:~Task$Backgroundable.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Backgroundable" />
+                    <ref role="1Y3XeK" to="xygl:~Task$Backgroundable" resolve="Task.Backgroundable" />
                     <node concept="3clFb_" id="54iJvNQZOjZ" role="jymVt">
                       <property role="1EzhhJ" value="false" />
                       <property role="TrG5h" value="run" />
@@ -18530,7 +18530,7 @@
                               <node concept="3clFbF" id="1Hxk2C1iGqB" role="3cqZAp">
                                 <node concept="2OqwBi" id="1zVp7pQYG$k" role="3clFbG">
                                   <node concept="37vLTw" id="1Hxk2C1iGq_" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception" />
+                                    <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception1" />
                                   </node>
                                   <node concept="liA8E" id="1zVp7pQYGRD" role="2OqNvi">
                                     <ref role="37wK5l" to="18ew:~Reference.set(java.lang.Object)" resolve="set" />
@@ -18574,7 +18574,7 @@
                           <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
                         </node>
                         <node concept="37vLTw" id="23VhocBls5" role="2Oq$k0">
-                          <ref role="3cqZAo" node="23Vhocrf4$" resolve="s" />
+                          <ref role="3cqZAo" node="23Vhocrf4$" resolve="fileAtRevisions" />
                         </node>
                       </node>
                     </node>
@@ -18606,7 +18606,7 @@
                             <node concept="10Nm6u" id="1Hxk2C1iPtI" role="3uHU7w" />
                             <node concept="2OqwBi" id="1zVp7pQYIHx" role="3uHU7B">
                               <node concept="37vLTw" id="1Hxk2C1iOkS" role="2Oq$k0">
-                                <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception" />
+                                <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception1" />
                               </node>
                               <node concept="liA8E" id="1zVp7pQYITD" role="2OqNvi">
                                 <ref role="37wK5l" to="18ew:~Reference.get()" resolve="get" />
@@ -18628,7 +18628,7 @@
                                     </node>
                                     <node concept="2OqwBi" id="1zVp7pQYJ7t" role="2Oq$k0">
                                       <node concept="37vLTw" id="1Hxk2C1iWnO" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception" />
+                                        <ref role="3cqZAo" node="1Hxk2C1iBHc" resolve="exception1" />
                                       </node>
                                       <node concept="liA8E" id="1zVp7pQYJjP" role="2OqNvi">
                                         <ref role="37wK5l" to="18ew:~Reference.get()" resolve="get" />

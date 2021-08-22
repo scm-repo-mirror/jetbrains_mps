@@ -62,7 +62,7 @@
     </node>
     <node concept="26qawf" id="KhTgyauEJ$" role="2VgMA7">
       <node concept="3ps6dm" id="1BDRb8BtZd3" role="3pRG92">
-        <ref role="3ps6dl" node="KhTgyauEJJ" resolve="MyCheckpoint" />
+        <ref role="3ps6dl" node="KhTgyauEJJ" />
       </node>
     </node>
     <node concept="2VgMA1" id="5rmusCvjwbc" role="2VgMA7">

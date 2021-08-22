@@ -6892,7 +6892,7 @@
               <node concept="3clFbS" id="6rYSYZkPHoI" role="3clFbx">
                 <node concept="3clFbF" id="7X3$Ctw3YtO" role="3cqZAp">
                   <node concept="1rXfSq" id="5A5jZrz7exe" role="3clFbG">
-                    <ref role="37wK5l" node="Unl8PVi821" resolve="reloadAllAfterMake" />
+                    <ref role="37wK5l" node="Unl8PVi821" resolve="reloadAfterMake" />
                     <node concept="37vLTw" id="6rYSYZkPFfU" role="37wK5m">
                       <ref role="3cqZAo" node="6jVPebMMnIO" resolve="project" />
                     </node>
@@ -7101,7 +7101,7 @@
                           </node>
                           <node concept="2OqwBi" id="ZGgUpLV9yz" role="33vP2m">
                             <node concept="2GrUjf" id="ZGgUpLV9y$" role="2Oq$k0">
-                              <ref role="2Gs0qQ" node="6rYSYZkPJQd" resolve="module" />
+                              <ref role="2Gs0qQ" node="6rYSYZkPJQd" resolve="mref" />
                             </node>
                             <node concept="liA8E" id="ZGgUpLV9y_" role="2OqNvi">
                               <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
@@ -7142,7 +7142,7 @@
                             <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
                           </node>
                           <node concept="37vLTw" id="ZGgUpLVbs5" role="2ZW6bz">
-                            <ref role="3cqZAo" node="ZGgUpLV9yy" resolve="m" />
+                            <ref role="3cqZAo" node="ZGgUpLV9yy" resolve="module" />
                           </node>
                         </node>
                       </node>

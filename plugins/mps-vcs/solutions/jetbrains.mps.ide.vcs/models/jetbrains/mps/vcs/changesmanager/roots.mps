@@ -222,7 +222,7 @@
         <node concept="3clFbF" id="3bmhQqpJ41X" role="3cqZAp">
           <node concept="37vLTI" id="3bmhQqpJ41Z" role="3clFbG">
             <node concept="37vLTw" id="3bmhQqpJ422" role="37vLTJ">
-              <ref role="3cqZAo" node="3bmhQqpJ41T" resolve="myIdeaProject" />
+              <ref role="3cqZAo" node="3bmhQqpJ41T" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="3bmhQqpJ423" role="37vLTx">
               <ref role="3cqZAo" node="3bmhQqpIDoJ" resolve="ideaProject" />
@@ -460,7 +460,7 @@
         <node concept="XkiVB" id="2n7wcdLayEk" role="3cqZAp">
           <ref role="37wK5l" to="lcr:2n7wcdLaAWO" resolve="NodeFileStatusMapping" />
           <node concept="37vLTw" id="2BHiRxgmaHg" role="37wK5m">
-            <ref role="3cqZAo" node="2n7wcdLayEg" resolve="project" />
+            <ref role="3cqZAo" node="2n7wcdLayEg" resolve="ideaProject" />
           </node>
         </node>
       </node>

@@ -4313,7 +4313,7 @@
             </node>
             <node concept="tyxLq" id="3uCw42NPV3x" role="2OqNvi">
               <node concept="37vLTw" id="3uCw42NPV3y" role="tz02z">
-                <ref role="3cqZAo" node="3uCw42NPV3z" resolve="newSelectable" />
+                <ref role="3cqZAo" node="3uCw42NPV3z" resolve="value" />
               </node>
             </node>
           </node>

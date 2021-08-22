@@ -22405,7 +22405,7 @@
     </node>
     <node concept="3aamgX" id="2xkx6pX7Ac4" role="3aUrZf">
       <property role="36QftV" value="true" />
-      <ref role="30HIoZ" to="tpc2:2xkx6pX7zvC" resolve="SpellCheck" />
+      <ref role="30HIoZ" to="tpc2:2xkx6pX7zvC" resolve="SpellCheckStyle" />
       <node concept="gft3U" id="2xkx6pX7B0j" role="1lVwrX">
         <node concept="10M0yZ" id="2xkx6pX7H5V" role="gfFT$">
           <ref role="3cqZAo" to="5ueo:~StyleAttributes.SPELLCHECK" resolve="SPELLCHECK" />

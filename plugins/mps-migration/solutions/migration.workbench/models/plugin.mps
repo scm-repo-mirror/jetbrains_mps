@@ -51,7 +51,6 @@
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
     <import index="d6hs" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.item(MPS.Core/)" />
     <import index="bdll" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.migration.global(MPS.Platform/)" />
-    <import index="ap4t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator(MPS.Core/)" />
     <import index="yo81" ref="r:4ea5a78b-cb8a-4831-b227-f7860a22491d(jetbrains.mps.make.resources)" />
     <import index="drpk" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.make(MPS.Platform/)" />
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
@@ -61,6 +60,7 @@
     <import index="fn29" ref="r:6ba2667b-185e-45cd-ac65-e4b9d66da28e(jetbrains.mps.smodel.resources)" />
     <import index="6xcv" ref="r:1f98243e-778e-4688-8b37-94002e0884e9(jetbrains.mps.migration.workbench.components)" />
     <import index="zwky" ref="r:d5126472-b29d-457e-9e94-b213f8fd72ad(jetbrains.mps.migration.workbench.util)" />
+    <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -6675,7 +6675,7 @@
       <property role="2aFKle" value="false" />
       <property role="TrG5h" value="getConfiguration" />
       <node concept="3uibUv" id="65hwFmZi2T0" role="3clF45">
-        <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetupImpl" />
+        <ref role="3uigEE" to="bim2:36$CdjYcVqX" resolve="MigrationSetup" />
       </node>
       <node concept="3clFbS" id="65hwFmZi2T1" role="3clF47">
         <node concept="YS8fn" id="4WgzjbQTnsO" role="3cqZAp">

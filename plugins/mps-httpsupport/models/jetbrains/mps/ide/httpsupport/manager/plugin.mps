@@ -2239,7 +2239,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="15Pz4SXRQrO" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       </node>
     </node>
     <node concept="2tJIrI" id="3BwRxVwWzDV" role="jymVt" />
@@ -2457,7 +2457,7 @@
           <node concept="3clFbS" id="1IYR_$nEvW_" role="3clFbx">
             <node concept="3cpWs6" id="1IYR_$nEx4Q" role="3cqZAp">
               <node concept="37vLTw" id="1IYR_$nExzn" role="3cqZAk">
-                <ref role="3cqZAo" node="1IYR_$nExzl" resolve="i" />
+                <ref role="3cqZAo" node="1IYR_$nExzl" resolve="defaultValue" />
               </node>
             </node>
           </node>
@@ -2481,7 +2481,7 @@
                 <ref role="3cqZAo" node="3BwRxVwWbFj" resolve="PORT_KEY" />
               </node>
               <node concept="37vLTw" id="1IYR_$nExzo" role="37wK5m">
-                <ref role="3cqZAo" node="1IYR_$nExzl" resolve="i" />
+                <ref role="3cqZAo" node="1IYR_$nExzl" resolve="defaultValue" />
               </node>
             </node>
           </node>

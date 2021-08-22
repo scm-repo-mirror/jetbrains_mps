@@ -425,7 +425,7 @@
                 </node>
                 <node concept="2OqwBi" id="4LLpBW4k46c" role="L3pyr">
                   <node concept="37vLTw" id="4LLpBW4k3Ak" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4m1XtPGA2Lr" resolve="context" />
+                    <ref role="3cqZAo" node="4m1XtPGA2Lr" resolve="consoleContext" />
                   </node>
                   <node concept="liA8E" id="4LLpBW4k4u7" role="2OqNvi">
                     <ref role="37wK5l" to="qgo0:4LLpBW4km_T" resolve="getScope" />
@@ -446,7 +446,7 @@
                 <node concept="3clFbF" id="3ZgZ1njXaN3" role="3cqZAp">
                   <node concept="2OqwBi" id="3ZgZ1njXaNG" role="3clFbG">
                     <node concept="37vLTw" id="3ZgZ1njXaN2" role="2Oq$k0">
-                      <ref role="3cqZAo" node="4Cd_ANvqxyC" resolve="console" />
+                      <ref role="3cqZAo" node="4Cd_ANvqxyC" resolve="consoleStream" />
                     </node>
                     <node concept="liA8E" id="3ZgZ1njXaVo" role="2OqNvi">
                       <ref role="37wK5l" to="qgo0:3ZgZ1njWQP3" resolve="addException" />
@@ -1389,7 +1389,7 @@
                     <ref role="37wK5l" to="mte5:~ProjectScope.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ProjectScope" />
                     <node concept="2OqwBi" id="238_VGTQSij" role="37wK5m">
                       <node concept="37vLTw" id="238_VGTQSik" role="2Oq$k0">
-                        <ref role="3cqZAo" node="238_VGTQRMR" resolve="context" />
+                        <ref role="3cqZAo" node="238_VGTQRMR" resolve="consoleContext" />
                       </node>
                       <node concept="liA8E" id="238_VGTQSil" role="2OqNvi">
                         <ref role="37wK5l" to="qgo0:3MPHfSuPT3Y" resolve="getProject" />
@@ -1430,7 +1430,7 @@
                 <ref role="37wK5l" to="mte5:~ProjectScope.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ProjectScope" />
                 <node concept="2OqwBi" id="238_VGTQRP0" role="37wK5m">
                   <node concept="37vLTw" id="238_VGTQRP1" role="2Oq$k0">
-                    <ref role="3cqZAo" node="238_VGTQROT" resolve="context" />
+                    <ref role="3cqZAo" node="238_VGTQROT" resolve="consoleContext" />
                   </node>
                   <node concept="liA8E" id="238_VGTQRP2" role="2OqNvi">
                     <ref role="37wK5l" to="qgo0:3MPHfSuPT3Y" resolve="getProject" />

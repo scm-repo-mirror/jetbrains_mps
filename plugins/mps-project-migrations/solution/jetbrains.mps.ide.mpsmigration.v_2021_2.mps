@@ -255,7 +255,7 @@
           <ref role="37wK5l" to="bdll:~BaseProjectMigration.&lt;init&gt;(java.lang.String,int)" resolve="BaseProjectMigration" />
           <node concept="2OqwBi" id="rD7wLbQQm" role="37wK5m">
             <node concept="3VsKOn" id="rD7wLbQFX" role="2Oq$k0">
-              <ref role="3VsUkX" node="rD7wLbPnD" resolve="SplitCoreInto" />
+              <ref role="3VsUkX" node="rD7wLbPnD" resolve="SplitMPSCoreStub" />
             </node>
             <node concept="liA8E" id="rD7wLbRrI" role="2OqNvi">
               <ref role="37wK5l" to="wyt6:~Class.getName()" resolve="getName" />
@@ -753,7 +753,7 @@
                                     <node concept="liA8E" id="rD7wLj4Z6" role="2OqNvi">
                                       <ref role="37wK5l" to="33ny:~Set.add(java.lang.Object)" resolve="add" />
                                       <node concept="37vLTw" id="rD7wLj6oc" role="37wK5m">
-                                        <ref role="3cqZAo" node="rD7wLijWq" resolve="newRef" />
+                                        <ref role="3cqZAo" node="rD7wLijWq" resolve="newTarget" />
                                       </node>
                                     </node>
                                   </node>
@@ -773,7 +773,7 @@
                                     <node concept="liA8E" id="rD7wLg0Ad" role="2OqNvi">
                                       <ref role="37wK5l" to="w1kc:~StaticReference.setTargetSModelReference(org.jetbrains.mps.openapi.model.SModelReference)" resolve="setTargetSModelReference" />
                                       <node concept="37vLTw" id="rD7wLijW_" role="37wK5m">
-                                        <ref role="3cqZAo" node="rD7wLijWq" resolve="createModelReference" />
+                                        <ref role="3cqZAo" node="rD7wLijWq" resolve="newTarget" />
                                       </node>
                                     </node>
                                   </node>
@@ -1838,7 +1838,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="rD7wLbRUZ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="rD7wLbT2N" role="jymVt" />

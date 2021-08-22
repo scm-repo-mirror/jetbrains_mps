@@ -22,9 +22,7 @@
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
-    <import index="tft2" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.impl.plan(MPS.Core/)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
-    <import index="r99j" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)" />
     <import index="w0gx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.structure.modules(MPS.Core/)" />
     <import index="e8bb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.ids(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -32,7 +30,10 @@
     <import index="tpeu" ref="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
-    <import index="28nf" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.impl.query(MPS.Core/)" />
+    <import index="28nf" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.query(MPS.Generator/)" />
+    <import index="tft2" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.plan(MPS.Generator/)" />
+    <import index="r99j" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)" />
+    <import index="r99k" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.runtime(MPS.Generator/)" />
   </imports>
   <registry>
     <language id="86ef8290-12bb-4ca7-947f-093788f263a9" name="jetbrains.mps.lang.project">
@@ -1291,8 +1292,8 @@
           </node>
           <node concept="gft3U" id="1_4jpH9o4CY" role="150oIE">
             <node concept="2YIFZM" id="1_4jpH9o4D0" role="gfFT$">
-              <ref role="37wK5l" to="r99j:~TemplateUtil.createStrictlyBeforeRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyBeforeRule" />
-              <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+              <ref role="37wK5l" to="r99k:~TemplateUtil.createStrictlyBeforeRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyBeforeRule" />
+              <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
               <node concept="10Nm6u" id="1_4jpH9o4D1" role="37wK5m">
                 <node concept="29HgVG" id="1_4jpH9o4D2" role="lGtFl">
                   <node concept="3NFfHV" id="1_4jpH9o4D3" role="3NFExx">
@@ -1350,8 +1351,8 @@
           </node>
           <node concept="gft3U" id="1_4jpH9o4DK" role="150oIE">
             <node concept="2YIFZM" id="1_4jpH9o4Ek" role="gfFT$">
-              <ref role="37wK5l" to="r99j:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
-              <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+              <ref role="37wK5l" to="r99k:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
+              <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
               <node concept="10Nm6u" id="1_4jpH9o4El" role="37wK5m">
                 <node concept="29HgVG" id="1_4jpH9o4Em" role="lGtFl">
                   <node concept="3NFfHV" id="1_4jpH9o4En" role="3NFExx">
@@ -1409,8 +1410,8 @@
           </node>
           <node concept="gft3U" id="2iI_8zFGm1W" role="150oIE">
             <node concept="2YIFZM" id="2iI_8zFGm2E" role="gfFT$">
-              <ref role="37wK5l" to="r99j:~TemplateUtil.createStrictlyAfterRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyAfterRule" />
-              <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+              <ref role="37wK5l" to="r99k:~TemplateUtil.createStrictlyAfterRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyAfterRule" />
+              <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
               <node concept="10Nm6u" id="2iI_8zFGm2F" role="37wK5m">
                 <node concept="29HgVG" id="2iI_8zFGm2G" role="lGtFl">
                   <node concept="3NFfHV" id="2iI_8zFGm2H" role="3NFExx">
@@ -1468,8 +1469,8 @@
           </node>
           <node concept="gft3U" id="2iI_8zFGm2o" role="150oIE">
             <node concept="2YIFZM" id="2iI_8zFGm2V" role="gfFT$">
-              <ref role="37wK5l" to="r99j:~TemplateUtil.createAfterOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createAfterOrTogetherRule" />
-              <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+              <ref role="37wK5l" to="r99k:~TemplateUtil.createAfterOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createAfterOrTogetherRule" />
+              <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
               <node concept="10Nm6u" id="2iI_8zFGm2W" role="37wK5m">
                 <node concept="29HgVG" id="2iI_8zFGm2X" role="lGtFl">
                   <node concept="3NFfHV" id="2iI_8zFGm2Y" role="3NFExx">
@@ -1507,8 +1508,8 @@
         </node>
         <node concept="gft3U" id="1_4jpH9o4E2" role="14YRTM">
           <node concept="2YIFZM" id="1_4jpH9o4E_" role="gfFT$">
-            <ref role="37wK5l" to="r99j:~TemplateUtil.createStrictlyTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyTogetherRule" />
-            <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+            <ref role="37wK5l" to="r99k:~TemplateUtil.createStrictlyTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createStrictlyTogetherRule" />
+            <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
             <node concept="10Nm6u" id="1_4jpH9o4EA" role="37wK5m">
               <node concept="29HgVG" id="1_4jpH9o4EB" role="lGtFl">
                 <node concept="3NFfHV" id="1_4jpH9o4EC" role="3NFExx">
@@ -1549,8 +1550,8 @@
       <ref role="30HIoZ" to="hypd:2n3WChplMvx" resolve="MappingConfigExternalRef" />
       <node concept="gft3U" id="1_4jpH9o4ES" role="1lVwrX">
         <node concept="2YIFZM" id="1_4jpH9o4Fb" role="gfFT$">
-          <ref role="37wK5l" to="r99j:~TemplateUtil.createRefExternal(java.lang.String,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createRefExternal" />
-          <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+          <ref role="37wK5l" to="r99k:~TemplateUtil.createRefExternal(java.lang.String,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createRefExternal" />
+          <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
           <node concept="Xl_RD" id="1_4jpH9o4GF" role="37wK5m">
             <property role="Xl_RC" value="" />
             <node concept="17Uvod" id="1_4jpH9o4GT" role="lGtFl">
@@ -1630,8 +1631,8 @@
       <ref role="30HIoZ" to="hypd:2n3WChplMtR" resolve="MappingConfigNormalRef" />
       <node concept="gft3U" id="1_4jpH9o4Ft" role="1lVwrX">
         <node concept="2YIFZM" id="1_4jpH9o4FC" role="gfFT$">
-          <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
-          <ref role="37wK5l" to="r99j:~TemplateUtil.createRefNormal(java.lang.String,java.lang.String,java.lang.String)" resolve="createRefNormal" />
+          <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
+          <ref role="37wK5l" to="r99k:~TemplateUtil.createRefNormal(java.lang.String,java.lang.String,java.lang.String)" resolve="createRefNormal" />
           <node concept="Xl_RD" id="1_4jpH9o4G2" role="37wK5m">
             <property role="Xl_RC" value="" />
             <node concept="17Uvod" id="1_4jpH9o4G5" role="lGtFl">
@@ -1696,8 +1697,8 @@
       <ref role="30HIoZ" to="hypd:2n3WChplfsf" resolve="MappingConfigRefAllGlobal" />
       <node concept="gft3U" id="1_4jpH9o4Fw" role="1lVwrX">
         <node concept="2YIFZM" id="1_4jpH9o4FD" role="gfFT$">
-          <ref role="37wK5l" to="r99j:~TemplateUtil.createRefGlobal()" resolve="createRefGlobal" />
-          <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+          <ref role="37wK5l" to="r99k:~TemplateUtil.createRefGlobal()" resolve="createRefGlobal" />
+          <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
         </node>
       </node>
     </node>
@@ -1705,8 +1706,8 @@
       <ref role="30HIoZ" to="hypd:2n3WChplKbk" resolve="MappingConfigRefAllLocal" />
       <node concept="gft3U" id="1_4jpH9o4Fz" role="1lVwrX">
         <node concept="2YIFZM" id="1_4jpH9o4FE" role="gfFT$">
-          <ref role="37wK5l" to="r99j:~TemplateUtil.createRefLocal()" resolve="createRefLocal" />
-          <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+          <ref role="37wK5l" to="r99k:~TemplateUtil.createRefLocal()" resolve="createRefLocal" />
+          <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
         </node>
       </node>
     </node>
@@ -1714,8 +1715,8 @@
       <ref role="30HIoZ" to="hypd:2n3WChplKcb" resolve="MappingConfigRefSet" />
       <node concept="gft3U" id="1_4jpH9o4FA" role="1lVwrX">
         <node concept="2YIFZM" id="1_4jpH9o4FF" role="gfFT$">
-          <ref role="37wK5l" to="r99j:~TemplateUtil.createRefSet(jetbrains.mps.generator.runtime.TemplateMappingConfigRef...)" resolve="createRefSet" />
-          <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+          <ref role="37wK5l" to="r99k:~TemplateUtil.createRefSet(jetbrains.mps.generator.runtime.TemplateMappingConfigRef...)" resolve="createRefSet" />
+          <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
           <node concept="10Nm6u" id="1_4jpH9o4FG" role="37wK5m">
             <node concept="2b32R4" id="2TxoddSUU7p" role="lGtFl">
               <node concept="3JmXsc" id="2TxoddSUU7r" role="2P8S$">
@@ -2008,7 +2009,7 @@
     <node concept="312cEu" id="eB6_hfBaPz" role="13RCb5">
       <property role="TrG5h" value="Generator" />
       <node concept="3uibUv" id="eB6_hfBaP$" role="1zkMxy">
-        <ref role="3uigEE" to="r99j:~TemplateModuleBase" resolve="TemplateModuleBase" />
+        <ref role="3uigEE" to="r99k:~TemplateModuleBase" resolve="TemplateModuleBase" />
       </node>
       <node concept="3Tm1VV" id="eB6_hfBaP_" role="1B3o_S" />
       <node concept="312cEg" id="eB6_hfBaQh" role="jymVt">
@@ -2045,7 +2046,7 @@
         <node concept="3Tm6S6" id="eB6_hfBaQG" role="1B3o_S" />
         <node concept="10Q1$e" id="OBSkGZVngz" role="1tU5fm">
           <node concept="3uibUv" id="OBSkGZVngw" role="10Q1$1">
-            <ref role="3uigEE" to="r99j:~TemplateModel" resolve="TemplateModel" />
+            <ref role="3uigEE" to="r99k:~TemplateModel" resolve="TemplateModel" />
           </node>
         </node>
       </node>
@@ -2055,7 +2056,7 @@
         <node concept="3Tm1VV" id="eB6_hfBaQV" role="1B3o_S" />
         <node concept="3clFbS" id="eB6_hfBaQW" role="3clF47">
           <node concept="XkiVB" id="2CIO$e$83wo" role="3cqZAp">
-            <ref role="37wK5l" to="r99j:~TemplateModuleBase.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,jetbrains.mps.smodel.language.LanguageRuntime)" resolve="TemplateModuleBase" />
+            <ref role="37wK5l" to="r99k:~TemplateModuleBase.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,jetbrains.mps.smodel.language.LanguageRuntime)" resolve="TemplateModuleBase" />
             <node concept="37vLTw" id="2CIO$e$851j" role="37wK5m">
               <ref role="3cqZAo" node="2CIO$e$80YG" resolve="languageRegistry" />
             </node>
@@ -2069,11 +2070,11 @@
                 <ref role="3cqZAo" node="eB6_hfBaQh" resolve="priorities" />
               </node>
               <node concept="2YIFZM" id="eB6_hfBaR6" role="37vLTx">
-                <ref role="37wK5l" to="r99j:~TemplateUtil.asCollection(java.lang.Object...)" resolve="asCollection" />
-                <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+                <ref role="37wK5l" to="r99k:~TemplateUtil.asCollection(java.lang.Object...)" resolve="asCollection" />
+                <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
                 <node concept="2YIFZM" id="eB6_hfBaR7" role="37wK5m">
-                  <ref role="37wK5l" to="r99j:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
-                  <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+                  <ref role="37wK5l" to="r99k:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
+                  <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
                   <node concept="10Nm6u" id="eB6_hfBaR8" role="37wK5m" />
                   <node concept="10Nm6u" id="eB6_hfBaR9" role="37wK5m" />
                   <node concept="2b32R4" id="eB6_hfBaRa" role="lGtFl">
@@ -2316,7 +2317,7 @@
         <node concept="3uibUv" id="eB6_hfBaTa" role="3clF45">
           <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
           <node concept="3uibUv" id="eB6_hfBaTb" role="11_B2D">
-            <ref role="3uigEE" to="r99j:~TemplateModel" resolve="TemplateModel" />
+            <ref role="3uigEE" to="r99k:~TemplateModel" resolve="TemplateModel" />
           </node>
         </node>
         <node concept="3clFbS" id="eB6_hfBaTc" role="3clF47">
@@ -2351,7 +2352,7 @@
                         </node>
                       </node>
                       <node concept="3uibUv" id="OBSkGZVP3H" role="3$_nBY">
-                        <ref role="3uigEE" to="r99j:~TemplateModel" resolve="TemplateModel" />
+                        <ref role="3uigEE" to="r99k:~TemplateModel" resolve="TemplateModel" />
                       </node>
                     </node>
                   </node>
@@ -2366,7 +2367,7 @@
                     <property role="1nD$Q0" value="model.TemplateModelImpl" />
                     <node concept="Xjq3P" id="OBSkGZVWgP" role="2U2pNA" />
                     <node concept="3uibUv" id="OBSkGZVWjr" role="2lIhxL">
-                      <ref role="3uigEE" to="r99j:~TemplateModel" resolve="TemplateModel" />
+                      <ref role="3uigEE" to="r99k:~TemplateModel" resolve="TemplateModel" />
                     </node>
                     <node concept="17Uvod" id="OBSkGZVXWc" role="lGtFl">
                       <property role="P4ACc" value="df345b11-b8c7-4213-ac66-48d2a9b75d88/1173996401517/1173996588177" />
@@ -3007,7 +3008,7 @@
         <node concept="37vLTG" id="5UPbZlSlKKt" role="3clF46">
           <property role="TrG5h" value="referencedGenerators" />
           <node concept="3uibUv" id="5UPbZlSlKKu" role="1tU5fm">
-            <ref role="3uigEE" to="r99j:~TemplateModuleBase$ReferencedGenerators" resolve="TemplateModuleBase.ReferencedGenerators" />
+            <ref role="3uigEE" to="r99k:~TemplateModuleBase$ReferencedGenerators" resolve="TemplateModuleBase.ReferencedGenerators" />
           </node>
         </node>
         <node concept="3clFbS" id="5UPbZlSlKKv" role="3clF47">
@@ -3017,7 +3018,7 @@
                 <ref role="3cqZAo" node="5UPbZlSlKKt" resolve="referencedGenerators" />
               </node>
               <node concept="liA8E" id="5UPbZlSm7jA" role="2OqNvi">
-                <ref role="37wK5l" to="r99j:~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)" resolve="extended" />
+                <ref role="37wK5l" to="r99k:~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)" resolve="extended" />
                 <node concept="Xl_RD" id="5UPbZlSmgYm" role="37wK5m">
                   <property role="Xl_RC" value="" />
                   <node concept="17Uvod" id="5UPbZlSmxCw" role="lGtFl">
@@ -3060,7 +3061,7 @@
                 <ref role="3cqZAo" node="5UPbZlSlKKt" resolve="referencedGenerators" />
               </node>
               <node concept="liA8E" id="5UPbZlSm8D_" role="2OqNvi">
-                <ref role="37wK5l" to="r99j:~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)" resolve="employed" />
+                <ref role="37wK5l" to="r99k:~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)" resolve="employed" />
                 <node concept="Xl_RD" id="5UPbZlSm8Ej" role="37wK5m">
                   <property role="Xl_RC" value="" />
                   <node concept="17Uvod" id="5UPbZlSmBw8" role="lGtFl">
@@ -3522,7 +3523,7 @@
       <node concept="3Tm1VV" id="VdkN0k0dXe" role="1B3o_S" />
       <node concept="3clFbS" id="VdkN0k0dXf" role="3clF47">
         <node concept="XkiVB" id="VdkN0k0fe1" role="3cqZAp">
-          <ref role="37wK5l" to="r99j:~TemplateModuleInterpreted2.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,jetbrains.mps.smodel.language.LanguageRuntime,jetbrains.mps.smodel.Generator)" resolve="TemplateModuleInterpreted2" />
+          <ref role="37wK5l" to="r99k:~TemplateModuleInterpreted2.&lt;init&gt;(jetbrains.mps.smodel.language.LanguageRegistry,jetbrains.mps.smodel.language.LanguageRuntime,jetbrains.mps.smodel.Generator)" resolve="TemplateModuleInterpreted2" />
           <node concept="37vLTw" id="VdkN0k0fev" role="37wK5m">
             <ref role="3cqZAo" node="VdkN0k0f6M" resolve="languageRegistry" />
           </node>
@@ -3595,7 +3596,7 @@
       <node concept="37vLTG" id="VdkN0k1sYY" role="3clF46">
         <property role="TrG5h" value="models" />
         <node concept="3uibUv" id="VdkN0k1sYZ" role="1tU5fm">
-          <ref role="3uigEE" to="r99j:~TemplateModuleInterpreted2$TemplateModels" resolve="TemplateModuleInterpreted2.TemplateModels" />
+          <ref role="3uigEE" to="r99k:~TemplateModuleInterpreted2$TemplateModels" resolve="TemplateModuleInterpreted2.TemplateModels" />
         </node>
       </node>
       <node concept="3clFbS" id="VdkN0k1sZ0" role="3clF47">
@@ -3605,7 +3606,7 @@
               <ref role="3cqZAo" node="VdkN0k1sYY" resolve="models" />
             </node>
             <node concept="liA8E" id="VdkN0k1wp5" role="2OqNvi">
-              <ref role="37wK5l" to="r99j:~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class)" resolve="templates" />
+              <ref role="37wK5l" to="r99k:~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class)" resolve="templates" />
               <node concept="Xl_RD" id="VdkN0k1wpY" role="37wK5m">
                 <property role="Xl_RC" value="model-id" />
                 <node concept="17Uvod" id="7c0vVc2H7ea" role="lGtFl">
@@ -3728,7 +3729,7 @@
       <node concept="37vLTG" id="VdkN0k17wW" role="3clF46">
         <property role="TrG5h" value="referencedGenerators" />
         <node concept="3uibUv" id="VdkN0k17wX" role="1tU5fm">
-          <ref role="3uigEE" to="r99j:~TemplateModuleBase$ReferencedGenerators" resolve="TemplateModuleBase.ReferencedGenerators" />
+          <ref role="3uigEE" to="r99k:~TemplateModuleBase$ReferencedGenerators" resolve="TemplateModuleBase.ReferencedGenerators" />
         </node>
       </node>
       <node concept="3clFbS" id="VdkN0k17wY" role="3clF47">
@@ -3738,7 +3739,7 @@
               <ref role="3cqZAo" node="VdkN0k17wW" resolve="referencedGenerators" />
             </node>
             <node concept="liA8E" id="VdkN0k17x2" role="2OqNvi">
-              <ref role="37wK5l" to="r99j:~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)" resolve="extended" />
+              <ref role="37wK5l" to="r99k:~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)" resolve="extended" />
               <node concept="Xl_RD" id="VdkN0k17x3" role="37wK5m">
                 <property role="Xl_RC" value="" />
                 <node concept="17Uvod" id="VdkN0k17x4" role="lGtFl">
@@ -3781,7 +3782,7 @@
               <ref role="3cqZAo" node="VdkN0k17wW" resolve="referencedGenerators" />
             </node>
             <node concept="liA8E" id="VdkN0k17xl" role="2OqNvi">
-              <ref role="37wK5l" to="r99j:~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)" resolve="employed" />
+              <ref role="37wK5l" to="r99k:~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)" resolve="employed" />
               <node concept="Xl_RD" id="VdkN0k17xm" role="37wK5m">
                 <property role="Xl_RC" value="" />
                 <node concept="17Uvod" id="VdkN0k17xn" role="lGtFl">
@@ -4692,11 +4693,11 @@
       <node concept="3clFbS" id="VdkN0k0w0o" role="3clF47">
         <node concept="3cpWs6" id="VdkN0k0E02" role="3cqZAp">
           <node concept="2YIFZM" id="VdkN0k0H_K" role="3cqZAk">
-            <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
-            <ref role="37wK5l" to="r99j:~TemplateUtil.asCollection(java.lang.Object...)" resolve="asCollection" />
+            <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
+            <ref role="37wK5l" to="r99k:~TemplateUtil.asCollection(java.lang.Object...)" resolve="asCollection" />
             <node concept="2YIFZM" id="VdkN0k0H_L" role="37wK5m">
-              <ref role="37wK5l" to="r99j:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
-              <ref role="1Pybhc" to="r99j:~TemplateUtil" resolve="TemplateUtil" />
+              <ref role="37wK5l" to="r99k:~TemplateUtil.createBeforeOrTogetherRule(jetbrains.mps.generator.runtime.TemplateMappingConfigRef,jetbrains.mps.generator.runtime.TemplateMappingConfigRef)" resolve="createBeforeOrTogetherRule" />
+              <ref role="1Pybhc" to="r99k:~TemplateUtil" resolve="TemplateUtil" />
               <node concept="10Nm6u" id="VdkN0k0H_M" role="37wK5m" />
               <node concept="10Nm6u" id="VdkN0k0H_N" role="37wK5m" />
               <node concept="2b32R4" id="VdkN0k0H_O" role="lGtFl">
@@ -4743,7 +4744,7 @@
       <ref role="n9lRv" to="yv2q:3pzUVOrWgq3" resolve="GeneratorDescriptor" />
     </node>
     <node concept="3uibUv" id="VdkN0jZVDp" role="1zkMxy">
-      <ref role="3uigEE" to="r99j:~TemplateModuleInterpreted2" resolve="TemplateModuleInterpreted2" />
+      <ref role="3uigEE" to="r99k:~TemplateModuleInterpreted2" resolve="TemplateModuleInterpreted2" />
     </node>
     <node concept="17Uvod" id="VdkN0k09mQ" role="lGtFl">
       <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />

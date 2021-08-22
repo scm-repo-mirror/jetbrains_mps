@@ -3431,7 +3431,7 @@
               <node concept="3clFbS" id="6WMWsKgb13j" role="3clFbx">
                 <node concept="3clFbF" id="6WMWsKgbjsE" role="3cqZAp">
                   <node concept="1rXfSq" id="6WMWsKgbjsC" role="3clFbG">
-                    <ref role="37wK5l" node="6WMWsKg9AUd" resolve="paint" />
+                    <ref role="37wK5l" node="6WMWsKg9AUd" resolve="paintSelection" />
                     <node concept="37vLTw" id="6WMWsKgcyo5" role="37wK5m">
                       <ref role="3cqZAo" node="6WMWsKgbZAB" resolve="graphics" />
                     </node>
@@ -3442,10 +3442,10 @@
                       <ref role="3cqZAo" node="4CkRKoaUbLr" resolve="backgroundColor" />
                     </node>
                     <node concept="37vLTw" id="6WMWsKgbtxy" role="37wK5m">
-                      <ref role="3cqZAo" node="6WMWsKgac79" resolve="parentNode" />
+                      <ref role="3cqZAo" node="6WMWsKgac79" resolve="allowedNodes" />
                     </node>
                     <node concept="37vLTw" id="4CkRKoaT4tf" role="37wK5m">
-                      <ref role="3cqZAo" node="4CkRKoaSFeM" resolve="editorColorNodes" />
+                      <ref role="3cqZAo" node="4CkRKoaSFeM" resolve="movedNodes" />
                     </node>
                     <node concept="1eOMI4" id="6WMWsKgbCBc" role="37wK5m">
                       <node concept="10QFUN" id="6WMWsKgbCB9" role="1eOMHV">
@@ -4047,10 +4047,10 @@
                 <node concept="3clFbF" id="4CkRKoaR8pb" role="3cqZAp">
                   <node concept="37vLTI" id="4CkRKoaRd11" role="3clFbG">
                     <node concept="37vLTw" id="4CkRKoaRi0_" role="37vLTx">
-                      <ref role="3cqZAo" node="1kcI2bL7HQ3" resolve="descendants" />
+                      <ref role="3cqZAo" node="1kcI2bL7HQ3" resolve="descendantIds" />
                     </node>
                     <node concept="37vLTw" id="4CkRKoaR8p9" role="37vLTJ">
-                      <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="editorColorIds" />
+                      <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="movedIds" />
                     </node>
                   </node>
                 </node>
@@ -4099,7 +4099,7 @@
                   <node concept="3clFbF" id="4CkRKoaVWPb" role="3cqZAp">
                     <node concept="37vLTI" id="4CkRKoaVWPc" role="3clFbG">
                       <node concept="37vLTw" id="4CkRKoaVWPd" role="37vLTJ">
-                        <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="editorColorIds" />
+                        <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="movedIds" />
                       </node>
                       <node concept="2OqwBi" id="4CkRKoaVWPq" role="37vLTx">
                         <node concept="2OqwBi" id="4CkRKoaWlrP" role="2Oq$k0">
@@ -4169,7 +4169,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="4CkRKoaRIoM" role="37vLTJ">
-                        <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="editorColorIds" />
+                        <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="movedIds" />
                       </node>
                     </node>
                   </node>
@@ -4194,10 +4194,10 @@
                   </node>
                 </node>
                 <node concept="37vLTw" id="1kcI2bL9Dm5" role="37wK5m">
-                  <ref role="3cqZAo" node="1kcI2bL7HQ3" resolve="descendants" />
+                  <ref role="3cqZAo" node="1kcI2bL7HQ3" resolve="descendantIds" />
                 </node>
                 <node concept="37vLTw" id="4CkRKoaVdJW" role="37wK5m">
-                  <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="editorColorIds" />
+                  <ref role="3cqZAo" node="4CkRKoaPXcC" resolve="movedIds" />
                 </node>
                 <node concept="37vLTw" id="1kcI2bL9LCe" role="37wK5m">
                   <ref role="3cqZAo" node="42hl10VHa2j" resolve="cell" />
@@ -6359,7 +6359,7 @@
                 <ref role="3cqZAo" to="67qc:~EditorMessageWithTarget.myMessageTarget" resolve="myMessageTarget" />
               </node>
               <node concept="37vLTw" id="4obaMd2SBx$" role="37wK5m">
-                <ref role="3cqZAo" node="4obaMd2Rpfa" resolve="parent" />
+                <ref role="3cqZAo" node="4obaMd2Rpfa" resolve="attributedNode" />
               </node>
             </node>
           </node>
@@ -22687,7 +22687,7 @@
                     <node concept="3clFbS" id="3yluYP0qRCx" role="1bW5cS">
                       <node concept="3clFbF" id="3yluYP0qSos" role="3cqZAp">
                         <node concept="1rXfSq" id="72gYhBNbN9e" role="3clFbG">
-                          <ref role="37wK5l" node="72gYhBNbIJo" resolve="changeCanHaveMessage" />
+                          <ref role="37wK5l" node="72gYhBNbIJo" resolve="changeCanHaveMessageForId" />
                           <node concept="37vLTw" id="72gYhBNbPJK" role="37wK5m">
                             <ref role="3cqZAo" node="7X2JJJDQ1mi" resolve="change" />
                           </node>
@@ -22840,7 +22840,7 @@
                   </node>
                   <node concept="2JrnkZ" id="72gYhBNbKqZ" role="2Oq$k0">
                     <node concept="37vLTw" id="72gYhBNbKr0" role="2JrQYb">
-                      <ref role="3cqZAo" node="72gYhBNbJmg" resolve="editedMod" />
+                      <ref role="3cqZAo" node="72gYhBNbJmg" resolve="editedModel" />
                     </node>
                   </node>
                 </node>
@@ -24130,7 +24130,7 @@
                     <ref role="3cqZAo" node="4fHQwy8MHOq" resolve="cell" />
                   </node>
                   <node concept="37vLTw" id="2Of5EVgg04$" role="37wK5m">
-                    <ref role="3cqZAo" node="2Of5EVgg04e" resolve="result" />
+                    <ref role="3cqZAo" node="2Of5EVgg04e" resolve="attributeCells" />
                   </node>
                 </node>
               </node>
@@ -25131,7 +25131,7 @@
               <node concept="3clFbS" id="2zDaWfFoQr" role="3clFbx">
                 <node concept="3clFbF" id="2zDaWfFoQs" role="3cqZAp">
                   <node concept="1rXfSq" id="2zDaWfFoQt" role="3clFbG">
-                    <ref role="37wK5l" node="2zDaWfFoP_" resolve="findAttributeNodeCells1" />
+                    <ref role="37wK5l" node="2zDaWfFoP_" resolve="findAttributeCells" />
                     <node concept="37vLTw" id="2zDaWfFoQu" role="37wK5m">
                       <ref role="3cqZAo" node="2zDaWfFoQZ" resolve="node" />
                     </node>

@@ -6542,11 +6542,11 @@
           <node concept="3cpWsn" id="6Q$KBKW887N" role="3cpWs9">
             <property role="TrG5h" value="toolbarComponents" />
             <node concept="3uibUv" id="6Q$KBKW8b9Z" role="1tU5fm">
-              <ref role="3uigEE" to="yt4f:~FrameDiffTool$ToolbarComponents" resolve="ToolbarComponents" />
+              <ref role="3uigEE" to="yt4f:~FrameDiffTool$ToolbarComponents" resolve="FrameDiffTool.ToolbarComponents" />
             </node>
             <node concept="2ShNRf" id="6Q$KBKW8kVw" role="33vP2m">
               <node concept="1pGfFk" id="6Q$KBKW8kVx" role="2ShVmc">
-                <ref role="37wK5l" to="yt4f:~FrameDiffTool$ToolbarComponents.&lt;init&gt;()" resolve="ToolbarComponents" />
+                <ref role="37wK5l" to="yt4f:~FrameDiffTool$ToolbarComponents.&lt;init&gt;()" resolve="FrameDiffTool.ToolbarComponents" />
               </node>
             </node>
           </node>
