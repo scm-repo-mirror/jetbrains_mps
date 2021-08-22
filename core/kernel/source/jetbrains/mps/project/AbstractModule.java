@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -404,9 +404,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       return dep;
     }
 
-    Dependency dep = new Dependency();
-    dep.setModuleRef(moduleRef);
-    dep.setReexport(reexport);
+    Dependency dep = new Dependency(moduleRef, reexport);
     descriptor.getDependencies().add(dep);
 
     dependenciesChanged();

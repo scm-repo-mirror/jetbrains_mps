@@ -14,6 +14,7 @@
     <import index="o6n5" ref="r:80120231-6b9d-496a-9363-8f1bb4f714e1(jetbrains.mps.ide.mpsmigration.v_2018_2)" />
     <import index="61bi" ref="r:73a55312-0033-4c07-bbd4-89c7dbcb79fc(jetbrains.mps.ide.mpsmigration.v_2017_2)" />
     <import index="6oz7" ref="r:87ca99dc-4ebb-4b25-aad1-a314895ec01e(jetbrains.mps.ide.mpsmigration.v_2017_1)" />
+    <import index="gqsl" ref="r:ca90fd1c-881a-4295-9491-6851600bff7d(jetbrains.mps.ide.mpsmigration.v_2021_2)" />
   </imports>
   <registry>
     <language id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone">
@@ -60,6 +61,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
@@ -348,6 +352,25 @@
               <node concept="2OqwBi" id="30LZLzbjLrL" role="37wK5m">
                 <node concept="2WthIp" id="30LZLzbjLrM" role="2Oq$k0" />
                 <node concept="2BZ7hE" id="30LZLzbjLrN" role="2OqNvi">
+                  <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="rD7wLbFdA" role="3cqZAp">
+          <node concept="2OqwBi" id="rD7wLbN9T" role="3clFbG">
+            <node concept="2ShNRf" id="rD7wLbFdy" role="2Oq$k0">
+              <node concept="HV5vD" id="rD7wLbN6Q" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="HV5vE" to="gqsl:rD7wLbBXj" resolve="Migrations_2021_2" />
+              </node>
+            </node>
+            <node concept="liA8E" id="rD7wLbNAJ" role="2OqNvi">
+              <ref role="37wK5l" to="gqsl:6MHXMmJyBuZ" resolve="offerInto" />
+              <node concept="2OqwBi" id="rD7wLbNMQ" role="37wK5m">
+                <node concept="2WthIp" id="rD7wLbNBm" role="2Oq$k0" />
+                <node concept="2BZ7hE" id="rD7wLbO0C" role="2OqNvi">
                   <ref role="2WH_rO" node="30LZLzbjgjd" resolve="myMigrations" />
                 </node>
               </node>

@@ -36,6 +36,7 @@
     <classNode dependClassName="jetbrains.mps.ide.mpsmigration.v_2018_2.Migrations_2018_2" />
     <classNode dependClassName="jetbrains.mps.ide.mpsmigration.v_2019_1.Migrations_2019_1" />
     <classNode dependClassName="jetbrains.mps.ide.mpsmigration.v_2019_3.Migrations_2019_3" />
+    <classNode dependClassName="jetbrains.mps.ide.mpsmigration.v_2021_2.Migrations_2021_2" />
     <classNode dependClassName="jetbrains.mps.migration.global.ProjectMigration" />
     <classNode dependClassName="jetbrains.mps.migration.global.ProjectMigrationsRegistry" />
     <classNode extendsClassName="jetbrains.mps.plugins.part.ApplicationPluginPart" />
