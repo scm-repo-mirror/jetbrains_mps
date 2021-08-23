@@ -77,11 +77,14 @@ public abstract class WorkerBase {
 
   protected abstract Environment createEnvironment();
 
+  protected EnvironmentConfig initEnvironmentConfig() {
+    return EnvironmentConfig.emptyConfig().withDefaultSamples().withDefaultPlugins().withBootstrapLibraries().withWorkbenchPath();
+  }
+
   protected EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
-    EnvironmentConfig config = EnvironmentConfig.emptyConfig().withDefaultSamples().withDefaultPlugins();
+    EnvironmentConfig config = initEnvironmentConfig();
     RepositoryDescriptor repo = whatToDo.getRepoDescriptor();
     if (repo != null) {
-      config = config.withBootstrapLibraries().withWorkbenchPath();
       // todo make this code more typed
       for (String folder : repo.folders) {
         if (!(new File(folder).exists())) {
@@ -95,9 +98,8 @@ public abstract class WorkerBase {
         }
         config = config.addLib(file);
       }
-    } else {
-      config = config.withBootstrapLibraries().withWorkbenchPath();
     }
+    // else assume the one coming from initEnvironmentConfig is fine
     for (IMapping<String, String> macro : MapSequence.fromMap(whatToDo.getMacro())) {
       config.addMacro(macro.key(), new File(macro.value()));
     }

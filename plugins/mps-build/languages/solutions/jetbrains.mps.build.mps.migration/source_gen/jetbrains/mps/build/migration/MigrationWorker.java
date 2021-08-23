@@ -15,11 +15,14 @@ import java.util.Collection;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import java.io.File;
 import jetbrains.mps.project.Project;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.ide.plugins.PluginManagerCore;
-import com.intellij.openapi.extensions.PluginId;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
+import jetbrains.mps.classloading.ClassLoaderManager;
 import java.lang.reflect.Method;
 import com.intellij.openapi.application.ModalityState;
 import java.util.Properties;
@@ -27,7 +30,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MigrationWorker extends WorkerBase {
-  private static final String MIGRATION_PLUGIN = "jetbrains.mps.ide.migration.workbench";
   private static final String TASK_EXEC_CLASS = "jetbrains.mps.ide.migration.AntTaskExecutionUtil";
 
   public MigrationWorker(Script whatToDo) {
@@ -41,9 +43,11 @@ public class MigrationWorker extends WorkerBase {
     return environment;
   }
 
+
   @Override
-  protected EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
-    return super.createEnvironmentConfig(whatToDo).withMigrationPlugin();
+  protected EnvironmentConfig initEnvironmentConfig() {
+    // for mysterious reasons, lang.migration.util is part of mps-core plugin
+    return EnvironmentConfig.emptyConfig().withBootstrapLibraries().withCorePlugin().withMigrationPlugin();
   }
 
   @Override
@@ -66,6 +70,8 @@ public class MigrationWorker extends WorkerBase {
 
     final Wrappers._boolean result = new Wrappers._boolean(true);
 
+    final SModuleReference execClassModule = PersistenceFacade.getInstance().createModuleReference("a5b1c28d-abeb-49a6-a58c-559039616d64(jetbrains.mps.migration.component)");
+
     for (File file : myWhatToDo.getMPSProjectFiles()) {
       final Project[] container = new Project[1];
       container[0] = myEnvironment.openProject(file);
@@ -84,9 +90,22 @@ public class MigrationWorker extends WorkerBase {
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {
         public void run() {
           try {
-            // XXX instead of explicit IDEA's PluginManager, we could use CL of "j.m.migration.component" MPS module to load desired class
-            // MPS would resort to proper plugin CL to perform the task.
-            Class<?> euClass = PluginManagerCore.getPlugin(PluginId.getId(MIGRATION_PLUGIN)).getPluginClassLoader().loadClass(TASK_EXEC_CLASS);
+            // FIXME why another reflection? MigrationTask builds classpath to load MigrationWorker by reflection
+            // and them MigrationWorker once again uses reflection to load another class.
+            Class<?> euClass = new ModelAccessHelper(project.getRepository()).runReadAction(new Computable<Class<?>>() {
+              public Class<?> compute() {
+                try {
+                  SModule execModule = execClassModule.resolve(project.getRepository());
+                  if (execModule == null) {
+                    error(String.format("Module %s not loaded, likely broken module/plugin dependencies, check log for reasons", execClassModule.getModuleName()));
+                  }
+                  ClassLoaderManager clm = myEnvironment.getPlatform().findComponent(ClassLoaderManager.class);
+                  return clm.getClassLoader(execModule).loadClass(TASK_EXEC_CLASS);
+                } catch (Exception ex) {
+                  throw new RuntimeException("Exception during migration", ex);
+                }
+              }
+            });
             Method method = euClass.getMethod("migrate", Project.class, Boolean.TYPE);
             Object rv = method.invoke(null, project, preCheckFailureHalt);
             if (rv instanceof Boolean) {

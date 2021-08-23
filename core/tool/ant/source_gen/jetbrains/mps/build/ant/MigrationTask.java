@@ -14,7 +14,6 @@ import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
-import jetbrains.mps.tool.common.RepositoryDescriptor;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
@@ -79,8 +78,6 @@ public class MigrationTask extends MpsLoadTask {
     propFile.deleteOnExit();
     final String errCodeKey = "mps.migration.errcode";
     myProps.outputPropertyFile(propFile).outputPropertyErrorKey(errCodeKey);
-    // this line is here until we generate migration task and the list of needed modules for it
-    addMpsModules();
 
     super.execute();
     Properties p = new Properties();
@@ -92,15 +89,6 @@ public class MigrationTask extends MpsLoadTask {
     if (!(Objects.equals(p.getProperty(errCodeKey), "0"))) {
       throw new BuildException("Migration was not executed. See log for details.");
     }
-  }
-
-  private void addMpsModules() {
-    RepositoryDescriptor repoDesc = myWhatToDo.getRepoDescriptor();
-    if (repoDesc == null) {
-      repoDesc = new RepositoryDescriptor();
-      myWhatToDo.setRepoDescriptor(repoDesc);
-    }
-    repoDesc.folders.add(getMpsHomePath());
   }
 
   @Override
@@ -118,12 +106,6 @@ public class MigrationTask extends MpsLoadTask {
     // although in fact it's pure java "get me in global cp" class.
 
     return classPath;
-  }
-
-  private String getMpsHomePath() {
-    File mpsHome = getMpsHome_Checked();
-    assert mpsHome != null : "MPSLoadTask.getMpsHome() == null. MPS home folder was not specified.";
-    return mpsHome.getAbsolutePath();
   }
 
   private void addClassPath(Set<File> classPath, File mpsHome, String relativePath) {
