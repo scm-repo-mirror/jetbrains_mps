@@ -5,31 +5,27 @@
   <property name="test.project" location="${basedir}/testbench/modules/testSmartRefAttrMigration"/>
 
   <!--this will be specified by test.xml-->
-  <property name="mps_build_home" location="build/artifacts/mps"/>
-  <property name="test_classes" location="${basedir}/testbench/testclasses"/>
+  <property name="mps_home" location="build/artifacts/mps"/>
 
-  <!--this is needed by migration task to run, see MPS-23341
-      the section should be removed as soon as the issue is fixed
+  <!--
+     Unless mpsHome attribute is specified for <migrate>, task might need artifacts.mps value
+     see MPS-23341 and MPSClasspathUtil.calculateClassPath.
+     FIXME Note, <migrate> needs both mps.home/mps_home properties and mpsHome attribute (or artifacts.mps)
+        properties are in use to calculate classpath for MigrationWorker location,
+        while attribute is to get classpath of MPS itself.
+        This is stupid, indeed, have to use same mechanism.
+  <property name="artifacts.mps" location="${mps_home}"/>
   -->
-  <property name="mps_home" location="${mps_build_home}"/>
-  <property name="build.dir" location=""/>
-  <property name="build.tmp" location="${build.dir}/tmp/mpsPlugins"/>
-  <property name="artifacts.mps" location="${mps_build_home}"/>
-  <property name="idea_home" location="${mps_home}"/>
-  <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore"/>
-  <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore"/>
-  <property name="artifacts.IDEA" location="${idea_home}"/>
 
   <path id="path.mps.ant.path">
-    <pathelement location="${mps_build_home}/lib/ant/lib/ant-mps.jar"/>
-    <pathelement location="${mps_build_home}/lib/util.jar"/>
+    <pathelement location="${mps_home}/lib/ant/lib/ant-mps.jar"/>
+    <pathelement location="${mps_home}/lib/util.jar"/>
   </path>
 
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path"/>
 
   <target name="check">
-    <migrate project="${test.project}">
-      <macro name="mps_home" path="${mps_build_home}"/>
+    <migrate project="${test.project}" mpsHome="${mps_home}" makeDistribModules="false">
       <jvmargs>
         <arg value="-Xmx1200m" />
         <arg value="-ea" />
@@ -39,7 +35,6 @@
     <ant antfile="build/tests/mpsSmartRefAttrMigration_gen.xml" inheritAll="true" useNativeBasedir="true">
       <target name="build"/>
       <target name="check"/>
-      <property name="mps_home" value="${mps_build_home}"/>
     </ant>
   </target>
 </project>
