@@ -38,11 +38,12 @@ public final class LanguageConceptSwitch {
   public static final int InterfaceConceptDeclaration = 26;
   public static final int InterfaceConceptReference = 27;
   public static final int LinkDeclaration = 28;
-  public static final int PrimitiveDataTypeDeclaration = 29;
-  public static final int PropertyDeclaration = 30;
-  public static final int RefPresentationTemplate = 31;
-  public static final int ReferenceLinkDeclartionScopeKind = 32;
-  public static final int SmartReferenceAttribute = 33;
+  public static final int MarkerInterfaceAttribute = 29;
+  public static final int PrimitiveDataTypeDeclaration = 30;
+  public static final int PropertyDeclaration = 31;
+  public static final int RefPresentationTemplate = 32;
+  public static final int ReferenceLinkDeclartionScopeKind = 33;
+  public static final int SmartReferenceAttribute = 34;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc72da2b97cce4447L, 0x8389f407dc1158b7L);
@@ -75,6 +76,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x1103556dcafL, InterfaceConceptDeclaration);
     builder.put(0x110356fc618L, InterfaceConceptReference);
     builder.put(0xf979bd086aL, LinkDeclaration);
+    builder.put(0x4d7dcbe8bf135fd0L, MarkerInterfaceAttribute);
     builder.put(0xfc3652de27L, PrimitiveDataTypeDeclaration);
     builder.put(0xf979bd086bL, PropertyDeclaration);
     builder.put(0x7ab7b29c4d66855eL, RefPresentationTemplate);

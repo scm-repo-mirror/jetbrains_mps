@@ -1304,5 +1304,21 @@
       <property role="t5JxN" value="defines a naming policy that all language aspects are recommended to use. May include spaces and other symbols in future. A correct way to generate a unique valid class name from it is now genContext.name from (this.getValidClassName()). It's better to create a generator language feature for that." />
     </node>
   </node>
+  <node concept="1TIwiD" id="4PXMYyZ4PZg">
+    <property role="EcuMT" value="5583843313507852240" />
+    <property role="TrG5h" value="MarkerInterfaceAttribute" />
+    <property role="34LRSv" value="@marker interface" />
+    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <node concept="M6xJ_" id="4PXMYyZ4PZh" role="lGtFl">
+      <property role="Hh88m" value="markerIface" />
+      <node concept="tn0Fv" id="4PXMYyZ4PZj" role="HhnKV" />
+      <node concept="trNpa" id="4PXMYyZ4PZl" role="EQaZv">
+        <ref role="trN6q" node="h0PlHMJ" resolve="InterfaceConceptDeclaration" />
+      </node>
+    </node>
+    <node concept="t5JxF" id="4PXMYyZ6LAb" role="lGtFl">
+      <property role="t5JxN" value="Denotes a 'lightweight' interface declaration that doesn'r require 'extends' relation for a language implementing the one." />
+    </node>
+  </node>
 </model>
 

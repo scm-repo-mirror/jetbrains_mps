@@ -39,6 +39,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_InterfaceConceptDeclaration;
   private ConceptPresentation props_InterfaceConceptReference;
   private ConceptPresentation props_LinkDeclaration;
+  private ConceptPresentation props_MarkerInterfaceAttribute;
   private ConceptPresentation props_PrimitiveDataTypeDeclaration;
   private ConceptPresentation props_PropertyDeclaration;
   private ConceptPresentation props_RefPresentationTemplate;
@@ -90,8 +91,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L);
           cpb.deprecateProperty(0x10e328118ddL, "iconPath");
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a3a0a5b0jb);
-          cpb.icon(IconContainer.RESOURCE_a0a4a0a5b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a3a0a5b0kb);
+          cpb.icon(IconContainer.RESOURCE_a0a4a0a5b0kb);
           props_ConceptDeclaration = cpb.create();
         }
         return props_ConceptDeclaration;
@@ -99,8 +100,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_ConstrainedDataTypeDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a6b0jb);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a6b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a6b0kb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a6b0kb);
           props_ConstrainedDataTypeDeclaration = cpb.create();
         }
         return props_ConstrainedDataTypeDeclaration;
@@ -164,7 +165,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.deprecated(true);
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a51b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a51b0kb);
           props_EnumerationDataTypeDeclaration_Old = cpb.create();
         }
         return props_EnumerationDataTypeDeclaration_Old;
@@ -172,8 +173,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_EnumerationDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a61b0jb);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a61b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a61b0kb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a61b0kb);
           props_EnumerationDeclaration = cpb.create();
         }
         return props_EnumerationDeclaration;
@@ -241,8 +242,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_InterfaceConceptDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a62b0jb);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a62b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a62b0kb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a62b0kb);
           props_InterfaceConceptDeclaration = cpb.create();
         }
         return props_InterfaceConceptDeclaration;
@@ -257,16 +258,23 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_LinkDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a82b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a82b0kb);
           props_LinkDeclaration = cpb.create();
         }
         return props_LinkDeclaration;
+      case LanguageConceptSwitch.MarkerInterfaceAttribute:
+        if (props_MarkerInterfaceAttribute == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("@marker interface");
+          props_MarkerInterfaceAttribute = cpb.create();
+        }
+        return props_MarkerInterfaceAttribute;
       case LanguageConceptSwitch.PrimitiveDataTypeDeclaration:
         if (props_PrimitiveDataTypeDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a92b0jb);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a92b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a03b0kb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a03b0kb);
           props_PrimitiveDataTypeDeclaration = cpb.create();
         }
         return props_PrimitiveDataTypeDeclaration;
@@ -274,7 +282,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PropertyDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a03b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a13b0kb);
           props_PropertyDeclaration = cpb.create();
         }
         return props_PropertyDeclaration;
@@ -301,9 +309,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL_lpa09p_a0a3a0a5b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a6b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a61b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a62b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a92b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a3a0a5b0kb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a6b0kb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a61b0kb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a62b0kb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a03b0kb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
 }
