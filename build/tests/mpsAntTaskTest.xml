@@ -37,7 +37,7 @@
     <pathelement path="${test_classes}"/>
   </path>
 
-  <taskdef name="custom" classname="jetbrains.mps.build.ant.CustomMPSLoadTask" classpathref="path.mps.ant.path"/>
+  <taskdef name="custom" classname="jetbrains.mps.build.ant.MpsLoadTask" classpathref="path.mps.ant.path"/>
 
   <target name="compileTestClasses">
     <mkdir dir="${test_classes}"/>

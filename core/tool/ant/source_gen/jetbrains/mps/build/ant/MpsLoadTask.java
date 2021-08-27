@@ -24,6 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Constructor;
 import org.apache.tools.ant.ProjectComponent;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Collections;
 import java.io.FileInputStream;
 import org.jetbrains.annotations.Nullable;
@@ -52,6 +53,7 @@ public class MpsLoadTask extends Task {
   private boolean myFork = true;
   private String myWorkerClass;
   private final List<String> myJvmArgs = new ArrayList<String>();
+  private List<String> myExtraArgs;
 
   public MpsLoadTask() {
   }
@@ -321,9 +323,13 @@ public class MpsLoadTask extends Task {
     method.invoke(workerInstance);
   }
 
+  public void setArgs(String args) {
+    myExtraArgs = Arrays.asList(args.split(" "));
+  }
+
   @NotNull
   protected List<String> getAdditionalArgs() {
-    return Collections.<String>emptyList();
+    return (myExtraArgs == null ? Collections.<String>emptyList() : myExtraArgs);
   }
 
   private void outputBuildNumber(File mpsHome) {
