@@ -16,9 +16,13 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.ide.DataManager;
+import com.intellij.ide.lightEdit.LightEditCompatible;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.IdeActions;
 import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.EditorColorsManager;
+import com.intellij.openapi.keymap.KeymapUtil;
+import com.intellij.openapi.project.DumbAwareAction;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.search.AbstractSearchPanel;
 import jetbrains.mps.ide.search.SearchHistoryStorage;
@@ -57,6 +61,18 @@ public class SearchPanel extends AbstractSearchPanel {
   public SearchPanel(EditorComponent editor) {
     super();
     myEditor = editor;
+    new CloseAction() {
+      @Override
+      public void actionPerformed(@NotNull AnActionEvent e) {
+        deactivate();
+      }
+    }.registerCustomShortcutSet(KeymapUtil.getActiveKeymapShortcuts(IdeActions.ACTION_EDITOR_ESCAPE), myEditor.getExternalComponent());
+  }
+
+  /**
+   * Copied from {@link com.intellij.find.SearchReplaceComponent.CloseAction}
+   */
+  private abstract static class CloseAction extends DumbAwareAction implements LightEditCompatible {
   }
 
   @Override
