@@ -1689,10 +1689,6 @@
     </node>
     <node concept="3clFb_" id="1a_CTtY8r8d" role="jymVt">
       <property role="TrG5h" value="getRedirect" />
-      <node concept="37vLTG" id="1a_CTtY8r8e" role="3clF46">
-        <property role="TrG5h" value="path" />
-        <node concept="17QB3L" id="1a_CTtY8r8f" role="1tU5fm" />
-      </node>
       <node concept="3uibUv" id="1a_CTtY8r8g" role="3clF45">
         <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
       </node>
@@ -1709,7 +1705,7 @@
                 <node concept="1rXfSq" id="4hiugqyzhLV" role="33vP2m">
                   <ref role="37wK5l" node="1a_CTtY8r8S" resolve="getOutputRedirect" />
                   <node concept="37vLTw" id="2BHiRxgm8uE" role="37wK5m">
-                    <ref role="3cqZAo" node="1a_CTtY8r8e" resolve="path" />
+                    <ref role="3cqZAo" node="4fMXdiUHZ45" resolve="f" />
                   </node>
                 </node>
               </node>
@@ -1765,7 +1761,7 @@
             <node concept="1rXfSq" id="4hiugqyzeP0" role="33vP2m">
               <ref role="37wK5l" node="1a_CTtY8r9p" resolve="getCachesOutputRedirect" />
               <node concept="37vLTw" id="2BHiRxgmP9R" role="37wK5m">
-                <ref role="3cqZAo" node="1a_CTtY8r8e" resolve="path" />
+                <ref role="3cqZAo" node="4fMXdiUHZ45" resolve="f" />
               </node>
             </node>
           </node>
@@ -1809,34 +1805,33 @@
           </node>
         </node>
         <node concept="3cpWs6" id="1a_CTtY8r8N" role="3cqZAp">
-          <node concept="2OqwBi" id="1a_CTtY8r8O" role="3cqZAk">
-            <node concept="2YIFZM" id="1a_CTtY8r8P" role="2Oq$k0">
-              <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
-              <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
-            </node>
-            <node concept="liA8E" id="1a_CTtY8r8Q" role="2OqNvi">
-              <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
-              <node concept="37vLTw" id="2BHiRxgm7SI" role="37wK5m">
-                <ref role="3cqZAo" node="1a_CTtY8r8e" resolve="path" />
-              </node>
-            </node>
+          <node concept="37vLTw" id="4fMXdiUI4b_" role="3cqZAk">
+            <ref role="3cqZAo" node="4fMXdiUHZ45" resolve="f" />
           </node>
         </node>
       </node>
       <node concept="2AHcQZ" id="3tYsUK_p6fr" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
+      <node concept="37vLTG" id="4fMXdiUHZ45" role="3clF46">
+        <property role="TrG5h" value="f" />
+        <node concept="3uibUv" id="4fMXdiUHZ44" role="1tU5fm">
+          <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
+        </node>
+      </node>
     </node>
     <node concept="3clFb_" id="1a_CTtY8r8S" role="jymVt">
       <property role="TrG5h" value="getOutputRedirect" />
       <node concept="37vLTG" id="1a_CTtY8r8T" role="3clF46">
-        <property role="TrG5h" value="path" />
-        <node concept="17QB3L" id="1a_CTtY8r8U" role="1tU5fm" />
+        <property role="TrG5h" value="f" />
+        <node concept="3uibUv" id="4fMXdiUI5q5" role="1tU5fm">
+          <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
+        </node>
       </node>
       <node concept="3uibUv" id="1a_CTtY8r8V" role="3clF45">
         <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
       </node>
-      <node concept="3Tm1VV" id="1a_CTtY8r8W" role="1B3o_S" />
+      <node concept="3Tm6S6" id="4fMXdiUI4qf" role="1B3o_S" />
       <node concept="3clFbS" id="1a_CTtY8r8X" role="3clF47">
         <node concept="3clFbJ" id="1a_CTtY8r8Y" role="3cqZAp">
           <node concept="3clFbS" id="1a_CTtY8r8Z" role="3clFbx">
@@ -1850,8 +1845,13 @@
                   </node>
                   <node concept="liA8E" id="1a_CTtY8r95" role="2OqNvi">
                     <ref role="37wK5l" node="1a_CTtY7SsM" resolve="toLocalPath" />
-                    <node concept="37vLTw" id="2BHiRxglRGI" role="37wK5m">
-                      <ref role="3cqZAo" node="1a_CTtY8r8T" resolve="path" />
+                    <node concept="2OqwBi" id="4fMXdiUI6gW" role="37wK5m">
+                      <node concept="37vLTw" id="2BHiRxglRGI" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1a_CTtY8r8T" resolve="f" />
+                      </node>
+                      <node concept="liA8E" id="4fMXdiUI6Qd" role="2OqNvi">
+                        <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -1862,12 +1862,16 @@
                 <node concept="3cpWs6" id="1a_CTtY8r99" role="3cqZAp">
                   <node concept="2OqwBi" id="1a_CTtY8r9a" role="3cqZAk">
                     <node concept="2OqwBi" id="1a_CTtY8r9b" role="2Oq$k0">
-                      <node concept="2YIFZM" id="1a_CTtY8r9c" role="2Oq$k0">
-                        <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
-                        <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
+                      <node concept="2OqwBi" id="4fMXdiUI8KZ" role="2Oq$k0">
+                        <node concept="37vLTw" id="4fMXdiUI8oB" role="2Oq$k0">
+                          <ref role="3cqZAo" node="1a_CTtY8r8T" resolve="f" />
+                        </node>
+                        <node concept="liA8E" id="4fMXdiUI9aF" role="2OqNvi">
+                          <ref role="37wK5l" to="3ju5:~IFile.getFS()" resolve="getFS" />
+                        </node>
                       </node>
                       <node concept="liA8E" id="1a_CTtY8r9d" role="2OqNvi">
-                        <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
+                        <ref role="37wK5l" to="3ju5:~IFileSystem.getFile(java.lang.String)" resolve="getFile" />
                         <node concept="37vLTw" id="2BHiRxeuHtk" role="37wK5m">
                           <ref role="3cqZAo" node="1a_CTtY8r7t" resolve="outputRoot" />
                         </node>
@@ -1904,14 +1908,16 @@
     </node>
     <node concept="3clFb_" id="1a_CTtY8r9p" role="jymVt">
       <property role="TrG5h" value="getCachesOutputRedirect" />
-      <node concept="37vLTG" id="1a_CTtY8r9q" role="3clF46">
-        <property role="TrG5h" value="path" />
-        <node concept="17QB3L" id="1a_CTtY8r9r" role="1tU5fm" />
+      <node concept="37vLTG" id="4fMXdiUIbiX" role="3clF46">
+        <property role="TrG5h" value="f" />
+        <node concept="3uibUv" id="4fMXdiUIbyH" role="1tU5fm">
+          <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
+        </node>
       </node>
       <node concept="3uibUv" id="1a_CTtY8r9s" role="3clF45">
         <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
       </node>
-      <node concept="3Tm1VV" id="1a_CTtY8r9t" role="1B3o_S" />
+      <node concept="3Tm6S6" id="4fMXdiUIaNT" role="1B3o_S" />
       <node concept="3clFbS" id="1a_CTtY8r9u" role="3clF47">
         <node concept="3clFbJ" id="1a_CTtY8r9v" role="3cqZAp">
           <node concept="3clFbS" id="1a_CTtY8r9w" role="3clFbx">
@@ -1925,8 +1931,13 @@
                   </node>
                   <node concept="liA8E" id="1a_CTtY8r9A" role="2OqNvi">
                     <ref role="37wK5l" node="1a_CTtY7St9" resolve="toLocalCachePath" />
-                    <node concept="37vLTw" id="2BHiRxgmBq8" role="37wK5m">
-                      <ref role="3cqZAo" node="1a_CTtY8r9q" resolve="path" />
+                    <node concept="2OqwBi" id="4fMXdiUIcLt" role="37wK5m">
+                      <node concept="37vLTw" id="2BHiRxgmBq8" role="2Oq$k0">
+                        <ref role="3cqZAo" node="4fMXdiUIbiX" resolve="f" />
+                      </node>
+                      <node concept="liA8E" id="4fMXdiUId7r" role="2OqNvi">
+                        <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -1937,12 +1948,16 @@
                 <node concept="3cpWs6" id="1a_CTtY8r9E" role="3cqZAp">
                   <node concept="2OqwBi" id="1a_CTtY8r9F" role="3cqZAk">
                     <node concept="2OqwBi" id="1a_CTtY8r9G" role="2Oq$k0">
-                      <node concept="2YIFZM" id="1a_CTtY8r9H" role="2Oq$k0">
-                        <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
-                        <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
+                      <node concept="2OqwBi" id="4fMXdiUIdFu" role="2Oq$k0">
+                        <node concept="37vLTw" id="4fMXdiUIdwJ" role="2Oq$k0">
+                          <ref role="3cqZAo" node="4fMXdiUIbiX" resolve="f" />
+                        </node>
+                        <node concept="liA8E" id="4fMXdiUIdYZ" role="2OqNvi">
+                          <ref role="37wK5l" to="3ju5:~IFile.getFS()" resolve="getFS" />
+                        </node>
                       </node>
                       <node concept="liA8E" id="1a_CTtY8r9I" role="2OqNvi">
-                        <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
+                        <ref role="37wK5l" to="3ju5:~IFileSystem.getFile(java.lang.String)" resolve="getFile" />
                         <node concept="37vLTw" id="2BHiRxeusb4" role="37wK5m">
                           <ref role="3cqZAo" node="1a_CTtY8r7w" resolve="cachesOutputRoot" />
                         </node>
@@ -2034,7 +2049,9 @@
       <property role="TrG5h" value="getRedirect" />
       <node concept="37vLTG" id="10Uj_trkvTH" role="3clF46">
         <property role="TrG5h" value="path" />
-        <node concept="17QB3L" id="10Uj_trkw3c" role="1tU5fm" />
+        <node concept="3uibUv" id="4fMXdiUHV5e" role="1tU5fm">
+          <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
+        </node>
       </node>
       <node concept="3Tm1VV" id="10Uj_trkvT$" role="1B3o_S" />
       <node concept="3clFbS" id="10Uj_trkvT_" role="3clF47" />

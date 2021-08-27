@@ -4,7 +4,6 @@ package jetbrains.mps.tool.builder.paths;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.FileSystem;
 
 @GeneratedClass(node = "r:ab35dba0-4d05-45fe-8a07-0916d087799f(jetbrains.mps.tool.builder.paths)/1343659934891487707", model = "r:ab35dba0-4d05-45fe-8a07-0916d087799f(jetbrains.mps.tool.builder.paths)")
 public class OutputPathRedirects implements IRedirects {
@@ -32,36 +31,36 @@ public class OutputPathRedirects implements IRedirects {
     this.moduleOutputPaths = outputPaths;
   }
   @Override
-  public IFile getRedirect(String path) {
+  public IFile getRedirect(IFile f) {
     if (useTransientOutput) {
-      IFile outputRedirect = getOutputRedirect(path);
+      IFile outputRedirect = getOutputRedirect(f);
       if (outputRedirect != null) {
         return outputRedirect;
       }
     }
     // use transient folder for caches always
-    IFile cachesOutputRedirect = getCachesOutputRedirect(path);
+    IFile cachesOutputRedirect = getCachesOutputRedirect(f);
     if (cachesOutputRedirect != null) {
       return cachesOutputRedirect;
     }
 
     // can't convert, return the literal path
-    return FileSystem.getInstance().getFile(path);
+    return f;
   }
-  public IFile getOutputRedirect(String path) {
+  private IFile getOutputRedirect(IFile f) {
     if (outputRoot != null) {
-      String localOutPath = moduleOutputPaths.toLocalPath(path);
+      String localOutPath = moduleOutputPaths.toLocalPath(f.getPath());
       if (localOutPath != null) {
-        return FileSystem.getInstance().getFile(outputRoot).getDescendant(localOutPath);
+        return f.getFS().getFile(outputRoot).getDescendant(localOutPath);
       }
     }
     return null;
   }
-  public IFile getCachesOutputRedirect(String path) {
+  private IFile getCachesOutputRedirect(IFile f) {
     if (cachesOutputRoot != null) {
-      String localOutCachePath = moduleOutputPaths.toLocalCachePath(path);
+      String localOutCachePath = moduleOutputPaths.toLocalCachePath(f.getPath());
       if (localOutCachePath != null) {
-        return FileSystem.getInstance().getFile(cachesOutputRoot).getDescendant(localOutCachePath);
+        return f.getFS().getFile(cachesOutputRoot).getDescendant(localOutCachePath);
       }
     }
     return null;

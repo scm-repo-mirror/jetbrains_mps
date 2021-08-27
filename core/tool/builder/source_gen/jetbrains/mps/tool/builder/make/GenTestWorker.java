@@ -42,7 +42,6 @@ import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
 import jetbrains.mps.vfs.IFileSystem;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.tool.common.ScriptProperties;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.messages.IMessage;
@@ -239,16 +238,17 @@ public class GenTestWorker extends BaseGeneratorWorker {
   }
 
   private String pathOfTmpFile(IFile file) {
+    final IFileSystem fs = file.getFS();
     String p = file.getPath();
     if (!(p.startsWith(tmpPath))) {
       throw new IllegalArgumentException("unknown tmp path '" + file.getParent() + "'");
     }
     p = p.substring(tmpPath.length() + 1);
     if (p.contains("_w_")) {
-      return FileSystem.getInstance().getFile(p.replace("_w_", ":")).getPath();
+      return fs.getFile(p.replace("_w_", ":")).getPath();
     }
     String prefix = (File.separatorChar == '/' ? "/" : "\\\\");
-    return FileSystem.getInstance().getFile(prefix + p).getPath();
+    return fs.getFile(prefix + p).getPath();
   }
 
   private boolean isRunningOnTeamCity() {
