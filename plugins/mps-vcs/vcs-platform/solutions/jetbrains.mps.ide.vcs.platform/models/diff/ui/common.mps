@@ -11652,7 +11652,7 @@
     </node>
     <node concept="2tJIrI" id="6rfWsXMjznz" role="jymVt" />
     <node concept="3clFb_" id="6rfWsXMjTR9" role="jymVt">
-      <property role="TrG5h" value="getMessagesPanelOffset" />
+      <property role="TrG5h" value="getScrollPanelOffset" />
       <node concept="3clFbS" id="6rfWsXMjTRc" role="3clF47">
         <node concept="3clFbF" id="6rfWsXMk4r4" role="3cqZAp">
           <node concept="3K4zz7" id="6rfWsXMk5dx" role="3clFbG">
@@ -11661,7 +11661,7 @@
                 <ref role="3cqZAo" node="42hl10VHayV" resolve="myInspectorComponent" />
               </node>
               <node concept="liA8E" id="6rfWsXMk8z2" role="2OqNvi">
-                <ref role="37wK5l" to="exr9:~EditorComponent.getMessagesPanelOffset()" resolve="getMessagesPanelOffset" />
+                <ref role="37wK5l" to="exr9:~EditorComponent.getScrollPaneOffset()" resolve="getScrollPaneOffset" />
               </node>
             </node>
             <node concept="2OqwBi" id="6rfWsXMkg8d" role="3K4GZi">
@@ -11669,7 +11669,7 @@
                 <ref role="3cqZAo" node="42hl10VHayP" resolve="myMainEditorComponent" />
               </node>
               <node concept="liA8E" id="6rfWsXMkhBJ" role="2OqNvi">
-                <ref role="37wK5l" to="exr9:~EditorComponent.getMessagesPanelOffset()" resolve="getMessagesPanelOffset" />
+                <ref role="37wK5l" to="exr9:~EditorComponent.getScrollPaneOffset()" resolve="getScrollPaneOffset" />
               </node>
             </node>
             <node concept="37vLTw" id="6rfWsXMk4r3" role="3K4Cdx">

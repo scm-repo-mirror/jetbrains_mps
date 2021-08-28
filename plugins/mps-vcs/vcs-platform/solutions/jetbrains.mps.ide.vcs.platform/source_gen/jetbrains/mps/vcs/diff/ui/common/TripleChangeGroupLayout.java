@@ -565,9 +565,9 @@ __switch__:
   private void paintPolygons(final Graphics2D gg, final int dividerWidth, DiffEditor leftEditor, DiffEditor rightEditor) {
     GraphicsConfig config = GraphicsUtil.setupAAPainting(gg);
     final Wrappers._int leftOffset = new Wrappers._int(check_fgmqy5_a0b0jc(MapSequence.fromMap(myOffsets).get(leftEditor)));
-    leftOffset.value += leftEditor.getMessagesPanelOffset(myIsInspector);
+    leftOffset.value += leftEditor.getScrollPanelOffset(myIsInspector);
     final Wrappers._int rightOffset = new Wrappers._int(check_fgmqy5_a0d0jc(MapSequence.fromMap(myOffsets).get(rightEditor)));
-    rightOffset.value += rightEditor.getMessagesPanelOffset(myIsInspector);
+    rightOffset.value += rightEditor.getScrollPanelOffset(myIsInspector);
 
     List<DiffEditorChangeLayer> leftLayers = leftEditor.getLayers(myIsInspector);
     final List<DiffEditorChangeLayer> rightLayers = rightEditor.getLayers(myIsInspector);

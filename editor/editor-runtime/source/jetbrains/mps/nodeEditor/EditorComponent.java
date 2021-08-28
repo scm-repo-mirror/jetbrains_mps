@@ -820,8 +820,15 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return bar != null && bar.isVisible() ? bar.getPreferredSize().height : 0;
   }
 
-  public int getMessagesPanelOffset() {
-    return myMessageHandler.isVisible() ? myMessageHandler.getPreferredSize().height : 0;
+  public int getScrollPaneOffset() {
+    int offset = 0;
+    if (mySearchPanel != null && mySearchPanel.isVisible()) {
+      offset += mySearchPanel.getPreferredSize().height;
+    }
+    if (myMessageHandler.isVisible()) {
+      offset += myMessageHandler.getPreferredSize().height;
+    }
+    return offset;
   }
 
   Point getViewPosition() {

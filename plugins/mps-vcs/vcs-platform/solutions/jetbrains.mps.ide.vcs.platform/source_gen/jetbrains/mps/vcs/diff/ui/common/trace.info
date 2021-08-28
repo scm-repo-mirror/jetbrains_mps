@@ -561,10 +561,10 @@
       <node id="7723333902964481715" at="561,48,562,32" concept="6" />
       <node id="7723333902964603511" at="565,122,566,61" concept="12" />
       <node id="7723333902964603530" at="566,61,567,124" concept="12" />
-      <node id="7723333902964603541" at="567,124,568,73" concept="6" />
-      <node id="7723333902964603548" at="568,73,569,126" concept="12" />
-      <node id="7723333902964603559" at="569,126,570,75" concept="6" />
-      <node id="5344832149337134025" at="570,75,571,0" concept="15" />
+      <node id="7723333902964603541" at="567,124,568,71" concept="6" />
+      <node id="7723333902964603548" at="568,71,569,126" concept="12" />
+      <node id="7723333902964603559" at="569,126,570,73" concept="6" />
+      <node id="5344832149337134025" at="570,73,571,0" concept="15" />
       <node id="7753187795800617825" at="571,0,572,81" concept="12" />
       <node id="7753187795800628794" at="572,81,573,89" concept="12" />
       <node id="7753187795802556165" at="573,89,574,0" concept="15" />
@@ -3064,7 +3064,7 @@
       <node id="4652592318748338570" at="195,50,196,32" concept="13" />
       <node id="5991167955826983248" at="199,42,200,55" concept="13" />
       <node id="5399749540963776881" at="203,53,204,66" concept="13" />
-      <node id="7408405785326143172" at="207,56,208,120" concept="13" />
+      <node id="7408405785326143172" at="207,54,208,114" concept="13" />
       <node id="4652592318748338576" at="211,64,212,70" concept="13" />
       <node id="4652592318748338587" at="215,139,216,140" concept="12" />
       <node id="4652592318748338598" at="217,52,218,13" concept="13" />
@@ -3155,7 +3155,7 @@
       <node id="4652592318748338566" at="195,0,198,0" concept="11" trace="getInspector#()Ljetbrains/mps/nodeEditor/inspector/InspectorEditorComponent;" />
       <node id="5991167955826972498" at="199,0,202,0" concept="11" trace="getBottomComponent#()Ljavax/swing/JComponent;" />
       <node id="5399749540963756119" at="203,0,206,0" concept="11" trace="getComponent#(Z)Ljavax/swing/JComponent;" />
-      <node id="7408405785326099913" at="207,0,210,0" concept="11" trace="getMessagesPanelOffset#(Z)I" />
+      <node id="7408405785326099913" at="207,0,210,0" concept="11" trace="getScrollPanelOffset#(Z)I" />
       <node id="4652592318748338572" at="211,0,214,0" concept="11" trace="getEditorComponent#(Z)Ljetbrains/mps/nodeEditor/EditorComponent;" />
       <node id="4652592318748338596" at="216,140,219,5" concept="10" />
       <node id="4652592318748338618" at="224,0,227,0" concept="11" trace="visit#(Ljetbrains/mps/vcs/diff/ui/common/ChangeEditorMessage;)V" />
@@ -3243,7 +3243,7 @@
       <scope id="4652592318748338569" at="195,50,196,32" />
       <scope id="5991167955826972501" at="199,42,200,55" />
       <scope id="5399749540963756122" at="203,53,204,66" />
-      <scope id="7408405785326099916" at="207,56,208,120" />
+      <scope id="7408405785326099916" at="207,54,208,114" />
       <scope id="4652592318748338575" at="211,64,212,70" />
       <scope id="4652592318748338597" at="217,52,218,13" />
       <scope id="4652592318748338619" at="224,52,225,45" />

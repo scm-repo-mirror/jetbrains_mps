@@ -204,8 +204,8 @@ public class DiffEditor implements EditorMessageOwner {
     return (inspector ? getBottomComponent() : getTopComponent());
   }
 
-  public int getMessagesPanelOffset(boolean inspector) {
-    return (inspector ? myInspectorComponent.getMessagesPanelOffset() : myMainEditorComponent.getMessagesPanelOffset());
+  public int getScrollPanelOffset(boolean inspector) {
+    return (inspector ? myInspectorComponent.getScrollPaneOffset() : myMainEditorComponent.getScrollPaneOffset());
   }
 
   public EditorComponent getEditorComponent(boolean inspector) {
