@@ -212,6 +212,56 @@
 
   <target name="update-licence-info">
     <replace dir="${basedir}/../license"  token="IntelliJ IDEA" value="MPS" includes="**/*.txt"/>
+
+    <replace file="${basedir}/../license/third-party-libraries.html">
+      <replacetoken><![CDATA[</table>]]></replacetoken>
+      <replacevalue><![CDATA[<tr valign="top">
+    <td class="firstColumn">
+      <span class="name">Diff Utils</span>
+      <span class="version">1.2.1</span>
+    </td>
+    <td class="secondColumn">
+      <a id="Diff_Utils_1.2.1_license_url" class="licence" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>
+    </td>
+  </tr>
+<tr valign="top">
+    <td class="firstColumn">
+      <span class="name">JetPad</span>
+      <span class="version">1.0.0</span>
+    </td>
+    <td class="secondColumn">
+      <a id="JetPad_1.0.0_license_url" class="licence" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>
+    </td>
+  </tr>
+<tr valign="top">
+    <td class="firstColumn">
+      <span class="name">Hamcrest</span>
+      <span class="version">1.3</span>
+    </td>
+    <td class="secondColumn">
+      <a id="Hamcrest_1.3_license_url" class="licence" href="https://opensource.org/licenses/BSD-3-Clause">New BSD</a>
+    </td>
+  </tr>
+<tr valign="top">
+    <td class="firstColumn">
+      <span class="name">JMock</span>
+      <span class="version">2.8.2</span>
+    </td>
+    <td class="secondColumn">
+      <a id="JMock_2.8.2_license_url" class="licence" href="https://opensource.org/licenses/BSD-3-Clause">New BSD</a>
+    </td>
+  </tr>
+<tr valign="top">
+    <td class="firstColumn">
+      <span class="name">JMock JUnit</span>
+      <span class="version">2.8.2</span>
+    </td>
+    <td class="secondColumn">
+      <a id="JMock_JUnit_2.8.2_license_url" class="licence" href="https://opensource.org/licenses/BSD-3-Clause">New BSD</a>
+    </td>
+  </tr>
+</table>]]></replacevalue>
+    </replace>
   </target>
 
   <target name="repackage-java-plugin">
@@ -302,6 +352,17 @@
     <delete dir="${basedir}/../plugins/laf-win10" failonerror="false"/>
 
     <delete dir="${basedir}/../build/tools/mac" failonerror="false"/>
+
+    <antcall target="clean-licence"/>
+  </target>
+
+  <target name="clean-licence">
+    <delete dir="${basedir}/../license" failonerror="false">
+      <exclude name="diffutils_license.txt"/>
+      <exclude name="hamcrest-core_license.txt"/>
+      <exclude name="jetpad_license.txt"/>
+      <exclude name="mps_license.txt"/>
+    </delete>
   </target>
 
 
