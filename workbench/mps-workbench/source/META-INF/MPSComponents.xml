@@ -4,10 +4,10 @@
             xsi:schemaLocation="http://www.w3.org/2001/XInclude
    http://www.w3.org/2001/XInclude.xsd">
 
-  <xi:include href="/META-INF/MPSCore.xml" xpointer="xpointer(/idea-plugin/*)"/>
-  <xi:include href="/META-INF/MPSEditor.xml" xpointer="xpointer(/idea-plugin/*)"/>
-  <xi:include href="/META-INF/MPSUI.xml" xpointer="xpointer(/idea-plugin/*)"/>
-  <xi:include href="/META-INF/MPSWorkbench.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/MPSCore.xml"/>
+  <xi:include href="/META-INF/MPSEditor.xml"/>
+  <xi:include href="/META-INF/MPSUI.xml"/>
+  <xi:include href="/META-INF/MPSWorkbench.xml"/>
 
   <application-components>
     <component>

@@ -25,7 +25,7 @@
   <depends optional="true">jetbrains.mps.ide.make</depends>
   <depends optional="true" config-file="langDesignOptional.xml">jetbrains.mps.ide.devkit</depends>
 
-  <xi:include href="MPSVcs.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="MPSVcs.xml"/>
 
   <project-components>
     <component>

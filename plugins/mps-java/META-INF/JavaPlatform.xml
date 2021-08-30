@@ -3,7 +3,7 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.w3.org/2001/XInclude
                                 http://www.w3.org/2001/XInclude.xsd">
-  <xi:include href="JavaPlatformActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="JavaPlatformActions.xml"/>
 
   <application-components>
     <component>
