@@ -190,9 +190,9 @@
     <copy todir="${build.layout}/plugins/mps-tooltips">
       <fileset dir="${artifacts.mpsTooltips}/mps-tooltips" />
     </copy>
-    <mkdir dir="${build.layout}/plugins/mps-build" />
-    <copy todir="${build.layout}/plugins/mps-build">
-      <fileset dir="${artifacts.mpsBuildUI}/mps-build" />
+    <mkdir dir="${build.layout}/plugins/mps-build-ui" />
+    <copy todir="${build.layout}/plugins/mps-build-ui">
+      <fileset dir="${artifacts.mpsBuildUI}/mps-build-ui" />
     </copy>
     <copy todir="${build.layout}/plugins">
       <fileset dir="${artifacts.jetpad}" />
