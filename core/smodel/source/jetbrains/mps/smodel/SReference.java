@@ -66,6 +66,7 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
    */
   @Deprecated(since = "2021.2")
   public static SReference create(SReferenceLink role, SNode sourceNode, SModelReference targetModelReference, SNodeId targetNodeId) {
+    // FIXME 3 uses in MPS generator
     return create(role, sourceNode, targetModelReference, targetNodeId, null);
   }
   /**
@@ -73,6 +74,7 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
    */
   @Deprecated(since = "2021.2")
   public static SReference create(SReferenceLink role, SNode sourceNode, SModelReference targetModelReference, SNodeId targetNodeId, String resolveInfo) {
+    // XXX no uses of the method in MPS outside of this class
     return new StaticReference(role, sourceNode, targetModelReference, targetNodeId, resolveInfo);
   }
   /**

@@ -46,7 +46,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.refactoring.participant.NodeCopyTracker;
-import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -264,19 +264,7 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
     return true;
   }
   protected void doUpdateReference(final List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget, final String resolveInfo) {
-    containingNode.setReference(role, jetbrains.mps.smodel.SReference.create(role, containingNode, newTarget.baseData().reference(), resolveInfo));
-  }
-  /**
-   * 
-   * @deprecated override {@link jetbrains.mps.lang.core.pluginSolution.plugin.UpdateReferencesParticipantBase#doUpdateModelImport(List<RefactoringParticipant.Option>, SRepository, SModel, NodeData<T>) } instead. Marked final to get overrides fixed immediately, the method no longer invoked by refactoring infrastructure
-   */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
-  protected final void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget) {
-    SModel model = (containingNode == null ? null : containingNode).getModel();
-    if (model != null) {
-      doUpdateModelImport(selectedOptions, repository, model, newTarget);
-    }
+    containingNode.setReference(role, ResolveInfo.of(newTarget.baseData().reference(), resolveInfo));
   }
   protected void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, SModel model2update, NodeData<T> newTarget) {
     UpdateModelImports.addModelImport(model2update, newTarget.baseData().reference().getModelReference().resolve(repository));
