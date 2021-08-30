@@ -45,8 +45,12 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.smodel.ModelDependencyUpdate;
 import jetbrains.mps.util.IFileUtil;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.util.Pair;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -58,8 +62,6 @@ import jetbrains.mps.scope.Scope;
 import java.util.Deque;
 import jetbrains.mps.internal.collections.runtime.DequeSequence;
 import java.util.LinkedList;
-import org.jetbrains.mps.openapi.model.SModelReference;
-import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRoot;
@@ -80,7 +82,6 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(node = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)/3356342729940974921", model = "r:b1598fca-3527-4718-b3ee-193781dbf052(jetbrains.mps.java.core.newparser)")
@@ -265,6 +266,10 @@ public class JavaToMpsConverter {
   }
 
   public void tryResolveRefs(Iterable<SNode> nodes, FeatureKind level, ProgressMonitor progress) {
+    if (myModels == null) {
+      assert myModel != null;
+      myModels = Sequence.fromIterable(Sequence.<SModel>singleton(myModel)).toListSequence();
+    }
     tryResolveRefs(nodes, level, progress, IncrementalModelAccess.INSIDE_COMMAND_OR_UPDATE_MODE);
   }
 
@@ -394,6 +399,12 @@ public class JavaToMpsConverter {
 
     removeJavaImportsPass(nodes, progress.subTask(1), modelAccess);
 
+    // XXX perhaps, this code shall not be part of public tryResolveRefs invocation (when pasting Java code), or has to be explicit there.
+    for (SModel m : ListSequence.fromList(myModels)) {
+      // could have pass myRepository, intentionally null to get imports explicit
+      new ModelDependencyUpdate(m).updateUsedLanguages().updateImportedModels(null);
+    }
+
     progress.done();
   }
 
@@ -457,7 +468,7 @@ public class JavaToMpsConverter {
   private Set<SReference> myVisitedRefs = SetSequence.fromSet(new HashSet<SReference>());
 
   private void resolveUpdatePass(String name, final Iterable<SNode> nodes, final _FunctionTypes._return_P1_E0<? extends Iterable<SReference>, ? super SNode> extractor, final ProgressMonitor progress, IncrementalModelAccess modelAccess) {
-    final Map<SNodeReference, List<SReference>> resolveMap = MapSequence.fromMap(new HashMap<SNodeReference, List<SReference>>());
+    final Map<SNodeReference, List<Pair<SReferenceLink, ResolveInfo>>> resolveMap = MapSequence.fromMap(new HashMap<SNodeReference, List<Pair<SReferenceLink, ResolveInfo>>>());
     progress.start(name, Sequence.fromIterable(nodes).count() + 1);
 
     modelAccess.accessModel(new Runnable() {
@@ -1005,7 +1016,8 @@ public class JavaToMpsConverter {
     });
   }
 
-  private void resolveRefs(Iterable<SReference> refs, Map<SNodeReference, List<SReference>> result) {
+  private void resolveRefs(Iterable<SReference> refs, Map<SNodeReference, List<Pair<SReferenceLink, ResolveInfo>>> result) {
+    // looks like 'replace dynamic with static' logic in Generator
     for (SReference ref : refs) {
       if (!(SLinkOperations.isDynamic(ref))) {
         continue;
@@ -1021,32 +1033,24 @@ public class JavaToMpsConverter {
 
       SNode source = ref.getSourceNode();
 
-      SReference staticRef = jetbrains.mps.smodel.SReference.create(ref.getLink(), source, target.getReference(), SLinkOperations.getResolveInfo(ref));
-
-      List<SReference> nodeRefs = MapSequence.fromMap(result).get(source.getReference());
+      List<Pair<SReferenceLink, ResolveInfo>> nodeRefs = MapSequence.fromMap(result).get(source.getReference());
       if (nodeRefs == null) {
-        nodeRefs = ListSequence.fromList(new ArrayList<SReference>());
+        nodeRefs = ListSequence.fromList(new ArrayList<Pair<SReferenceLink, ResolveInfo>>());
         MapSequence.fromMap(result).put(source.getReference(), nodeRefs);
       }
-      ListSequence.fromList(nodeRefs).addElement((SReference) staticRef);
+      ListSequence.fromList(nodeRefs).addElement(new Pair<>(ref.getLink(), ResolveInfo.of(target.getReference(), SLinkOperations.getResolveInfo(ref))));
     }
   }
 
-  private void updateReference(Map<SNodeReference, List<SReference>> refMap) {
+  private void updateReference(Map<SNodeReference, List<Pair<SReferenceLink, ResolveInfo>>> refMap) {
     for (SNodeReference nodeRef : SetSequence.fromSet(MapSequence.fromMap(refMap).keySet())) {
       final SNode node = nodeRef.resolve(myRepository);
       if (node == null) {
         continue;
       }
-      final SModel sourceModel = node.getModel();
-      ListSequence.fromList(MapSequence.fromMap(refMap).get(nodeRef)).visitAll(new IVisitor<SReference>() {
-        public void visit(SReference it) {
-          SModelReference targetModelRef = it.getTargetSModelReference();
-          if (!(sourceModel.getReference().equals(targetModelRef))) {
-            // avoiding self-import
-            ((SModelInternal) sourceModel).addModelImport(targetModelRef);
-          }
-          node.setReference(it.getLink(), it);
+      ListSequence.fromList(MapSequence.fromMap(refMap).get(nodeRef)).visitAll(new IVisitor<Pair<SReferenceLink, ResolveInfo>>() {
+        public void visit(Pair<SReferenceLink, ResolveInfo> it) {
+          node.setReference(it.o1, it.o2);
         }
       });
     }

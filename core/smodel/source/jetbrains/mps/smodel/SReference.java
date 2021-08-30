@@ -82,6 +82,7 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
    */
   @Deprecated(since = "2021.2")
   public static SReference create(SReferenceLink role, SNode sourceNode, SNodeReference pointer, String resolveInfo) {
+    // 3 uses in MPS own internal classes, 2 in SNode impl, +1 in SLinkOperations
     return create(role, sourceNode, pointer.getModelReference(), pointer.getNodeId(), resolveInfo);
   }
 
