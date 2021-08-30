@@ -19,6 +19,7 @@ import jetbrains.mps.generator.impl.TemplateGenerator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.util.SNodeOperations;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.ResolveInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 
@@ -70,9 +71,7 @@ public final class DynamicReferenceUpdate {
         }
         continue;
       }
-      final jetbrains.mps.smodel.SReference sr = jetbrains.mps.smodel.SReference.create(dr.getLink(), dr.getSourceNode(), target);
-      sr.setResolveInfo(resolveInfo);
-      srcNode.setReference(dr.getLink(), sr);
+      srcNode.setReference(dr.getLink(), ResolveInfo.of(target.getReference(), resolveInfo));
     }
   }
 }
