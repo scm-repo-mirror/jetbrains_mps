@@ -66,6 +66,11 @@ public class SearchPanel extends AbstractSearchPanel {
       public void actionPerformed(@NotNull AnActionEvent e) {
         deactivate();
       }
+
+      @Override
+      public void update(@NotNull AnActionEvent e) {
+        e.getPresentation().setEnabled(SearchPanel.this.isVisible());
+      }
     }.registerCustomShortcutSet(KeymapUtil.getActiveKeymapShortcuts(IdeActions.ACTION_EDITOR_ESCAPE), myEditor.getExternalComponent());
   }
 
@@ -413,8 +418,8 @@ public class SearchPanel extends AbstractSearchPanel {
 
     public SearchPanelEditorMessage(@NotNull EditorCell_Label cell, @NotNull List<Pair> positions) {
       super(cell.getSNode(),
-          EditorColorsManager.getInstance().getGlobalScheme().getAttributes(EditorColors.SEARCH_RESULT_ATTRIBUTES).getBackgroundColor(),
-          "", SearchPanel.this.myOwner);
+            EditorColorsManager.getInstance().getGlobalScheme().getAttributes(EditorColors.SEARCH_RESULT_ATTRIBUTES).getBackgroundColor(),
+            "", SearchPanel.this.myOwner);
       myCell = cell;
       myPositions = positions;
     }
@@ -442,9 +447,9 @@ public class SearchPanel extends AbstractSearchPanel {
           FontMetrics metrics = g.getFontMetrics();
           String text = editorCell.getRenderedText().substring(startPosition, endPosition);
           int prevStringWidth = metrics.stringWidth(editorCell.getRenderedText().
-              substring(0, startPosition));
+                                                              substring(0, startPosition));
           int x = editorCell.getX() + editorCell.getLeftInset()
-              + prevStringWidth;
+                  + prevStringWidth;
           int y = editorCell.getY();
           int height = editorCell.getHeight();
           int width = metrics.stringWidth(text);
