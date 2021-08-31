@@ -65,8 +65,10 @@ public abstract class ReferenceInfo {
   }
 
   @NotNull
-  protected final ResolveInfo createStaticReference(@NotNull PostponedReference ref, @NotNull SNode target) {
-    return ResolveInfo.of(target.getReference(), null);
+  protected final ResolveInfo createStaticReference(@NotNull PostponedReference ref, @NotNull final SNode target) {
+    // FIXME investigate scenario when target is detached node and target.getReference() doesn't yield anything
+    //       ResolveInfo.of() could make use of.
+    return (ResolveInfoExt) (source, link) -> jetbrains.mps.smodel.SReference.create(link, source, target);
   }
 
   public final static class DRI implements ResolveInfoExt {
