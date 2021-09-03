@@ -27,8 +27,7 @@ public final class PropertyMessageTarget implements MessageTarget {
   private final String myPropertyName;
   private final SProperty myProperty;
 
-  @Deprecated
-  @ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
   public PropertyMessageTarget(String propertyName) {
     myPropertyName = propertyName;
     myProperty = null;

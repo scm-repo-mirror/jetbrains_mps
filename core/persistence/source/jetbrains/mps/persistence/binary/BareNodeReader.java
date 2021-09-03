@@ -52,8 +52,7 @@ public class BareNodeReader {
   /**
    * @deprecated use {@link #BareNodeReader(Supplier, ModelInputStream)} instead
    */
-  @Deprecated
-  @ToRemove(version = 2020.2)
+@Deprecated(since = "2020.2", forRemoval = true)
   public BareNodeReader(@NotNull SModelReference modelReference, @NotNull ModelInputStream is) {
     this (() -> modelReference, is);
   }

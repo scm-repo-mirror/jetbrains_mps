@@ -138,8 +138,7 @@ public class NodePresentationUtil {
    *
    * @deprecated use {@link #matchingText(SAbstractConcept)}  instead.
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String matchingText(SAbstractConcept concept, boolean referentPresentation) {
     return matchingText(concept);
   }
@@ -149,8 +148,7 @@ public class NodePresentationUtil {
    * @deprecated This method provides a visible matching text instead of real matching text, that might be confusing.
    *             Should be replaced with {@link #visibleMatchingText(SNode, SNode)}.
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String matchingText(SNode node) {
     return visibleMatchingText(node, null);
   }
@@ -160,8 +158,7 @@ public class NodePresentationUtil {
    * @deprecated This method provides a visible matching text instead of real matching text, that might be confusing.
    *             Should be replaced with {@link #visibleMatchingText(SNode, SNode)}.
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String matchingText(SNode node, boolean referent_presentation) {
     return visibleMatchingText(node, null);
   }
@@ -170,8 +167,7 @@ public class NodePresentationUtil {
    *
    * @deprecated use {@link #matchingText(SNode, SNode)}, {@link #matchingText(SNode, SNode, boolean)} or {@link #visibleMatchingText(SNode, SNode)}
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String matchingText(SNode node, boolean referent_presentation, boolean visible) {
     return matchingText(node, null, visible);
   }
@@ -216,8 +212,7 @@ public class NodePresentationUtil {
   /**
    * @deprecated use {@link #descriptionText(SAbstractConcept)} instead
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String descriptionText(SAbstractConcept concept, boolean referentPresentation) {
     return descriptionText(concept);
   }
@@ -229,8 +224,7 @@ public class NodePresentationUtil {
   /**
    * @deprecated use {@link #descriptionText(SNode)} instead.
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String descriptionText(SNode node, boolean referent_presentation) {
     return descriptionText(node, null);
   }

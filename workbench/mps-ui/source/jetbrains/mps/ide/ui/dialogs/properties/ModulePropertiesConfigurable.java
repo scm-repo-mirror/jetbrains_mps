@@ -1505,7 +1505,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
      * This is temporary helper method for transition period.
      * Should be removed alongside with {@link FacetsFacade#addFactory(String, FacetsFacade.FacetFactory)}.
      */
-    @ToRemove(version = 2020.1)
+    @Deprecated(since = "2020.1", forRemoval = true)
     private String type2PresentationConverter(String facetType) {
       final StringBuilder builder = new StringBuilder(facetType.length());
       if (!facetType.isEmpty()) {

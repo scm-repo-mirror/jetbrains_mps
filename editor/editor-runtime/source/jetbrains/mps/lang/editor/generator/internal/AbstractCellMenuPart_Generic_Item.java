@@ -73,8 +73,7 @@ public abstract class AbstractCellMenuPart_Generic_Item implements SubstituteInf
   /**
    * @deprecated override {@link #handleAction(SNode, SModel, EditorContext)} instead
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.2)
+  @Deprecated(since = "2020.2", forRemoval = true)
   protected void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
     // no-op, just can't be abstract to facilitate generation of new method override
   }

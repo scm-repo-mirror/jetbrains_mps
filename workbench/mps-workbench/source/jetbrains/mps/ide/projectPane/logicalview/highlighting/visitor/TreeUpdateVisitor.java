@@ -57,8 +57,7 @@ public abstract class TreeUpdateVisitor implements TreeNodeVisitor {
   /**
    * @deprecated see {@link TreeNodeUpdater#addUpdate(MPSTreeNode, NodeUpdate)}
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.3)
+  @Deprecated(since = "2020.3", forRemoval = true)
   protected final void addUpdate(MPSTreeNode node, @Nullable NodeUpdate r) {
     final TreeNodeUpdater u = myUpdater;
     if (u != null) {

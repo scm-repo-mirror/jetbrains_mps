@@ -37,8 +37,7 @@ public interface PathMacrosProvider {
   /**
    * @deprecated message is to be defined by the provider as well
    */
-  @ToRemove(version = 201)
-  @Deprecated
+@Deprecated(since = "201", forRemoval = true)
   default void report(String message, String macro) {
     reportUnknownMacro(macro);
   }

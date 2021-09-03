@@ -33,7 +33,7 @@ import java.util.List;
  * FIXME revisit, check if we can use it for checkpoint models
  * Evgeny Gryaznov, Sep 21, 2010
  */
-@ToRemove(version = 0)
+@Deprecated(since = "0", forRemoval = true)
 public class IntermediateModelsCache {
 
   private static final String SIGNATURE = "signature";

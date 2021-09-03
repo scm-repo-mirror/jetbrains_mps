@@ -56,7 +56,7 @@ public class SModelReferenceTest implements EnvironmentAware {
    * Instead, we ensure that once they got parsed, they do match our hand-crafted reference reference (sorry ;)
    */
   @Test
-  @ToRemove(version = 3.3)
+  @Deprecated(since = "3.3", forRemoval = true)
   public void testLegacyJavaStub() {
     SModelReference r1 = getPersistenceFacade().createModelReference("f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.util(JDK/java.util@java_stub)");
     SModelReference r2 = getPersistenceFacade().createModelReference("f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.util(java.util@java_stub)");

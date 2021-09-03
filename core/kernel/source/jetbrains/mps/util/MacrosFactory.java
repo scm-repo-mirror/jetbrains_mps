@@ -87,8 +87,7 @@ public final class MacrosFactory implements MacroHelper.Source {
   /**
    * @deprecated why would anyone care to cast openapi.SModule to AbstractModule? Use {@link #forModule(SModule)} instead.
    */
-  @Deprecated
-  @ToRemove(version = 2018.1)
+@Deprecated(since = "2018.1", forRemoval = true)
   public static MacroHelper forModule(AbstractModule module) {
     // todo: if descriptor file == null?
     IFile file = module.getDescriptorFile();

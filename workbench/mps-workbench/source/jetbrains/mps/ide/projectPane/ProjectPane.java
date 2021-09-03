@@ -332,8 +332,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
   /**
    * @deprecated use {@link #rebuild()} instead
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.3)
+  @Deprecated(since = "2020.3", forRemoval = true)
   public void rebuildTree() {
     // @see #updateFromRoot
     updateFromRoot(true);

@@ -80,8 +80,7 @@ public final class LibraryInitializer implements CoreComponent, RepositoryReader
    * @deprecated use {@link #load(List)} instead
    */
   @Override
-  @ToRemove(version = 2017.3)
-  @Deprecated
+@Deprecated(since = "2017.3", forRemoval = true)
   public void loadRefreshed(List<LibraryContributor> contributors) {
     for (LibraryContributor contributor : contributors) {
       addContributor(contributor);

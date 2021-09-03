@@ -36,8 +36,7 @@ public class ExtensionPoint<T> {
     myId = id;
   }
 
-  @Deprecated
-  @ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
   public ExtensionPoint(String id, Class<T> type) {
     myId = id;
   }

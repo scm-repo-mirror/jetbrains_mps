@@ -96,8 +96,7 @@ public final class TracingUtil {
   /**
    * @deprecated code branching done with boolean flag.
    */
-  @Deprecated
-  @ToRemove(version = 2018.2)
+@Deprecated(since = "2018.2", forRemoval = true)
   public static void fillOriginalNode(@NotNull SNode inputNode, @NotNull SNode outputNode, boolean originalInput) {
     if (originalInput) {
       putInputNode(outputNode, inputNode);

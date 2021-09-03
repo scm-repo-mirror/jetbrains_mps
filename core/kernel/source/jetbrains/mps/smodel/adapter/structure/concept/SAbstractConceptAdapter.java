@@ -203,8 +203,7 @@ public abstract class SAbstractConceptAdapter extends SNamedElementAdapter imple
 
   @Nullable
   @Override
-  @Deprecated
-  @ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
   public SNode getDeclarationNode() {
     Language lang = ((Language) getLanguage().getSourceModule());
     if (lang == null) {

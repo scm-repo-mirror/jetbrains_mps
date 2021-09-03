@@ -30,8 +30,7 @@ public class IncompatibleTargetReportItem extends NodeReportItemBase implements 
     super(MessageStatus.ERROR, node, message);
   }
 
-  @Deprecated
-  @ToRemove(version = 201)
+@Deprecated(since = "201", forRemoval = true)
   public static String createMessage(SConceptFeature link, SAbstractConcept expectedTarget, SConcept foundTarget) {
     return "incompatible target concept in role \"" + link.getName() + "\": subconcept of \"" + expectedTarget + "\" expected, \"" + foundTarget + "\" found";
   }

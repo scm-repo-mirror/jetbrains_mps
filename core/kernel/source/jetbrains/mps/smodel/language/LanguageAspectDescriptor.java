@@ -74,8 +74,7 @@ public abstract class LanguageAspectDescriptor implements OrderParticipant<Strin
     return null;
   }
 
-  @Deprecated
-  @ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
   @Nullable
   public Icon getIcon() {
     return null;

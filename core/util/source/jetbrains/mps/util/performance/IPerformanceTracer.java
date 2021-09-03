@@ -27,8 +27,7 @@ public interface IPerformanceTracer {
   /**
    * @deprecated parameter {@code isMajor} is useless, use {@link #push(String)}
    */
-  @Deprecated
-  @ToRemove(version = 2018.2)
+@Deprecated(since = "2018.2", forRemoval = true)
   void push(String taskName, boolean isMajor);
 
   default void push(String taskName) {

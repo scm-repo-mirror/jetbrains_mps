@@ -76,8 +76,7 @@ public class GlobalModuleDependenciesManager {
    * Return only modules with 'reexport' mark in the dependents subtree
    * @deprecated one usage does not justify method's existence
    */
-  @Deprecated
-  @ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
   public Collection<SModule> getOnlyReexportModules() {
     Set<SModule> result = new HashSet<>();
     for (SModule module : myModules) {

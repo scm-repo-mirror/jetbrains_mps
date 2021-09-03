@@ -54,8 +54,7 @@ public final class CommonPaths {
 //    }
   }
 
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   //use getPaths
   public static List<String> getMPSPaths(ClassType type) {
     // there's only 1 use in Ant_Command with ClassType.JDK_TOOLS

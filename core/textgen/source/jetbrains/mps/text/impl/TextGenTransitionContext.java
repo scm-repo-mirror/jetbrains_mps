@@ -28,7 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
  * FIXME with legacy TextGenBuffer and TraceInfoCollector gone, this is just a regular TextGenContext implementation, the name has to get changed to reflect this
  * @author Artem Tikhomirov
  */
-@ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
 public final class TextGenTransitionContext implements TextGenContext {
   private final SNode myInput;
   private final RegularTextUnit myTextUnit;

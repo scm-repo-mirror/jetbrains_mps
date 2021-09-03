@@ -24,8 +24,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 public class MappingScriptContext extends TemplateQueryContext {
   private final SModel myModel;
 
-  @Deprecated
-  @ToRemove(version = 2021.1)
+@Deprecated(since = "2021.1", forRemoval = true)
   public MappingScriptContext(SModel model, @NotNull SNodeReference mappingScript, @NotNull ITemplateGenerator generator) {
     super(mappingScript, generator);
     myModel = model;

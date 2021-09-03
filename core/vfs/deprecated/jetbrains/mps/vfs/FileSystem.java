@@ -24,8 +24,7 @@ import org.jetbrains.annotations.NotNull;
  * Note the IFileSystem is per-protocol, in which it differs from FileSystem.
  */
 public interface FileSystem extends jetbrains.mps.vfs.openapi.FileSystem {
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   @NotNull IFile getFile(@NotNull String path);
 
   @NotNull default IFile getFile(@NotNull Path path) {
@@ -33,14 +32,12 @@ public interface FileSystem extends jetbrains.mps.vfs.openapi.FileSystem {
     return getFile(path.toUnixPathFormat().toText());
   }
 
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   static FileSystem getInstance() {
     return FileSystemExtPoint.getFS();
   }
 
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   boolean isFileIgnored(@NotNull String name);
 
   /**
@@ -48,7 +45,6 @@ public interface FileSystem extends jetbrains.mps.vfs.openapi.FileSystem {
    * @param r code to execute within platform write lock
    * @return <code>false</code> if an exception was encountered
    */
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   boolean runWriteTransaction(@NotNull Runnable r);
 }

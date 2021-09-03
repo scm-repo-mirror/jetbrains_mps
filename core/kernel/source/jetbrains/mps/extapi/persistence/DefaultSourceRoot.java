@@ -29,7 +29,7 @@ import java.util.Objects;
  * @author apyshkin
  * @since 3.5
  */
-@ToRemove(version = 3.6)
+@Deprecated(since = "3.6", forRemoval = true)
 public final class DefaultSourceRoot implements SourceRoot {
   private final String myPath;
   private final IFile myAbsolutePath;

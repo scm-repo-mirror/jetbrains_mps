@@ -72,8 +72,7 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
    * @deprecated shall use no-arg cons instead, and pass BehaviorRegistry through init()
    *  shall survive 2019.2 release to ensure code generated/compiled with previous MPS releases works (ensures binary compatibility)
    */
-  @Deprecated
-  @ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
   protected BaseBHDescriptor(BehaviorRegistry behaviorRegistry) {
     myBehaviorRegistry = behaviorRegistry;
   }

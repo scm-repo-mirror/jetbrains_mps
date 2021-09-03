@@ -27,8 +27,7 @@ import org.jetbrains.mps.openapi.language.SType;
  *
  * @deprecated Use another {@link SDataType} instance (e.g {@link SPrimitiveTypes#STRING} or {@link InvalidDataType)})
  */
-@Deprecated
-@ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
 public class SDataTypeAdapter implements SDataType {
   public SDataTypeAdapter() {
   }

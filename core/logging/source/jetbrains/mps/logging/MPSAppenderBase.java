@@ -61,8 +61,7 @@ public abstract class MPSAppenderBase extends AppenderSkeleton {
   /**
    * @deprecated use with a specified project method instead
    */
-  @ToRemove(version = 2017.2)
-  @Deprecated
+@Deprecated(since = "2017.2", forRemoval = true)
   protected abstract void append(@NotNull Priority level,
                                  @NotNull String categoryName,
                                  @NotNull String message,

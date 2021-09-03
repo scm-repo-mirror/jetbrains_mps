@@ -109,8 +109,7 @@ public abstract class AbstractCellMenuPart_Generic_Group implements SubstituteIn
   /**
    * @deprecated override {@link #createParameterObjects(SNode, EditorContext)} instead
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.2)
+  @Deprecated(since = "2020.2", forRemoval = true)
   protected List<?> createParameterObjects(SNode node, IOperationContext operationContext, EditorContext editorContext) {
     return null;
   }
@@ -123,8 +122,7 @@ public abstract class AbstractCellMenuPart_Generic_Group implements SubstituteIn
   /**
    * @deprecated override {@link #handleAction(Object, SNode, SModel, EditorContext)} instead
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.2)
+  @Deprecated(since = "2020.2", forRemoval = true)
   protected void handleAction(Object parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
     // no-op, just can't be abstract to facilitate generation of new method override
   }
@@ -134,8 +132,7 @@ public abstract class AbstractCellMenuPart_Generic_Group implements SubstituteIn
    * Now we should use truly concepts in parameter objects, not concept nodes.
    * [2020.2] can't remove as there are still uses in MPS
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   protected boolean isReferentPresentation() {
     return true;
   }

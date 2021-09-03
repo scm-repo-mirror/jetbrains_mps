@@ -170,6 +170,6 @@ public interface ModelFactory {
    *         For example each model file which ends with '.mps_binary' suffix would be associated with the
    *         corresponding data source type which in turn would be associated with 'MyBinaryModelFactory'.
    */
-  @ToRemove(version = 193)
+  @Deprecated(since = "193", forRemoval = true)
   @NotNull List<DataSourceType> getPreferredDataSourceTypes();
 }

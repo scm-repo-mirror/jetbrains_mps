@@ -33,8 +33,7 @@ import java.net.URL;
  * @since 29/12/16
  * @deprecated consider using {@link PreinstalledPathDataSourceFactories} instead
  */
-@ToRemove(version=2022.2)
-@Deprecated
+@Deprecated(since = "2021.1", forRemoval = true)
 public interface DataSourceFactoryFromURL {
   /**
    * Creates a new <code>DataSource</code>

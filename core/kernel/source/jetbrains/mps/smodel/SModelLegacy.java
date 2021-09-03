@@ -58,8 +58,7 @@ public final class SModelLegacy {
     myModel.addLanguage(MetaAdapterFactory.getLanguage(ref));
   }
 
-  @Deprecated
-  @ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
   //use SModelInternal.addLanguage(SLanguage)
   public void addLanguage(Language language) {
     myModel.addLanguage(MetaAdapterByDeclaration.getLanguage(language));

@@ -381,7 +381,7 @@ public class ModulesWatcher {
      * tmp invalid status.
      * the module might be disposed itself or depend on some disposed module ref
      */
-    @ToRemove(version = 0)
+    @Deprecated(since = "0", forRemoval = true)
     SIMPLY_INVALID,
     /**
      * not tracked by ModulesWatcher

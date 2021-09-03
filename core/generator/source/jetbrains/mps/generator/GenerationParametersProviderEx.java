@@ -28,8 +28,7 @@ public interface GenerationParametersProviderEx extends GenerationParametersProv
   /**
    * @deprecated use generation plans to control which languages and generators are involved. String for a language is not a best possible API anyway.
    */
-  @Deprecated
-  @ToRemove(version = 2018.2)
+@Deprecated(since = "2018.2", forRemoval = true)
   default Collection<String> getAdditionalLanguages(SModel descriptor) {
     // in use by mbeddr
     return null;

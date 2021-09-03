@@ -107,8 +107,7 @@ class Dependencies {
    *             there's no point in bogus file lookup logic independent of any other module file management
    *             remove once 2021.1 is out
    */
-  @Deprecated
-  @ToRemove(version = 2021.1)
+@Deprecated(since = "2021.1", forRemoval = true)
   public long getJavaFileLastModified(String fqName) {
     return 0;
   }

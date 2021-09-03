@@ -22,8 +22,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Use VFSManager
  */
-@Deprecated
-@ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
 public final class FileSystemExtPoint {
   private static FileSystem ourFS = IoFileSystem.INSTANCE;
 

@@ -108,8 +108,7 @@ public abstract class AbstractCellMenuPart_ReplaceChild_Group implements Substit
   /**
    * @deprecated left for compatibility with code generated in 2020.2, override {@link #customCreateChildNode(Object, SNode, SNode, SAbstractConcept, SModel, EditorContext)} instead
    */
-  @ToRemove(version = 2020.3)
-  @Deprecated(forRemoval = true)
+  @Deprecated(since = "2020.3", forRemoval = true)
   @Nullable
   protected SNode customCreateChildNode(Object parameterObject, SNode node, SNode currentChild, SAbstractConcept defaultChildConcept, SModel model,
                                         IOperationContext context, EditorContext editorContext) {
@@ -142,8 +141,7 @@ public abstract class AbstractCellMenuPart_ReplaceChild_Group implements Substit
   /**
    * @deprecated left for compatibility with code generated in 2020.2, override {@link #createParameterObjects(SNode, SNode, SAbstractConcept, EditorContext)} instead
    */
-  @ToRemove(version = 2020.3)
-  @Deprecated(forRemoval = true)
+  @Deprecated(since = "2020.3", forRemoval = true)
   @Nullable
   protected List createParameterObjects(SNode node, SNode currentChild, SAbstractConcept defaultConceptOfChild, IOperationContext operationContext,
                                         EditorContext editorContext) {

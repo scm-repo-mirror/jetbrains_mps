@@ -86,8 +86,7 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
   public static final String LOCATION = "location"; // TODO: 12/20/16 lower visibility
   private static final String PATH = "path";
 
-  @ToRemove(version = 3.5)
-  @Deprecated
+@Deprecated(since = "3.5", forRemoval = true)
   @Nullable
   @Immutable
   private final List<String> mySupportedFileKinds; // null <=> default constructor is used
@@ -112,8 +111,7 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
    * @deprecated use {@link #FileBasedModelRoot()} instead and
    * define your own {@link #getSupportedFileKinds1()}
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   protected FileBasedModelRoot(String[] supportedFileKinds) {
     mySupportedFileKinds = supportedFileKinds != null ? List.of(supportedFileKinds)
                                                       : emptyList();

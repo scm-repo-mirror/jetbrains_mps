@@ -44,8 +44,7 @@ public abstract class GeneratedActionGroup extends BaseGroup {
     addActionSafe(ActionManager.getInstance().getAction(id));
   }
 
-  @Deprecated
-  @ToRemove(version = 2021.1)
+@Deprecated(since = "2021.1", forRemoval = true)
   protected final void addParameterizedAction(BaseAction action, PluginId unused, Object... params) {
     // keep for couple of releases once 21.1 is out, code generated with 2020.3 invoked this method
     addParameterizedAction(action, params);

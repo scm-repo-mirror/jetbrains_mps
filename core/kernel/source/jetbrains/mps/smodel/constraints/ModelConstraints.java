@@ -206,8 +206,7 @@ public class ModelConstraints {
 
   // properties part
 
-  @Deprecated
-  @ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
   public static boolean validatePropertyValue(SNode node, SProperty property, Object propertyValue) {
     return validatePropertyValue(node, property, propertyValue, null);
   }

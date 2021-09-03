@@ -45,8 +45,7 @@ import java.util.Iterator;
  * @deprecated better use {@link CustomPersistenceModelWithHeader}
  * @see XmlPersistence for example
  */
-@ToRemove(version = 191)
-@Deprecated
+@Deprecated(since = "191", forRemoval = true)
 public final class CustomPersistenceSModel extends EditableSModelBase implements SingleRootSModel {
   @NotNull
   private final SModelPersistence myPersistence;

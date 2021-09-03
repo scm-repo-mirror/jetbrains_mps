@@ -198,8 +198,7 @@ public class EditorCell_Collection extends EditorCell_Basic implements jetbrains
     return myCellListHandler != null;
   }
 
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public String getCellNodesRole() {
     if (myCellListHandler == null) {
       return null;

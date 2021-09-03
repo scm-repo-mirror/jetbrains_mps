@@ -38,7 +38,7 @@ import java.util.Map;
  * FIXME Consider {@link jetbrains.mps.text.impl.RegularTextUnit#addContextObject(String, Object)} - could we use same mechanism?
  * @author Artem Tikhomirov
  */
-@ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
 public interface CompatibilityTextUnit extends TextUnit {
   @Nullable
   Map<SNode, TraceablePositionInfo> getPositions();

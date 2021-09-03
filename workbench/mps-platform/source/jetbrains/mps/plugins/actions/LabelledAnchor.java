@@ -29,8 +29,7 @@ public class LabelledAnchor extends BaseAction {
     myId = id;
   }
 
-  @Deprecated(forRemoval = true, since = "2021.1")
-  @ToRemove(version = 2021.1)
+  @Deprecated(since = "2021.1", forRemoval = true)
   public String getId() {
     // keep this method for at least a year, old generated code for action groups may use it,
     // need to wait till libraries build with 2020.3 and earlier MPS versions fade away

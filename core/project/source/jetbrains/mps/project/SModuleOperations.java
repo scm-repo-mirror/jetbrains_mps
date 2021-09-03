@@ -51,8 +51,7 @@ public class SModuleOperations {
    * @deprecated use {@link jetbrains.mps.project.facets.GenerationTargetFacet#getOutputLocation(SModel)} or {@link JavaModuleFacet#getOutputRoot()}.
    *             Even {@code #getOutputRoot(SModel)} is much better as it (a) deals with IFile (b) hints it's root, not model-specific location
    */
-  @Deprecated
-  @ToRemove(version = 3.5)
+@Deprecated(since = "3.5", forRemoval = true)
   public static String getOutputPathFor(SModel model) {
     // FIXME a lot of uses in mbeddr (14!)
     IFile outputDir = SModelOperations.getOutputLocation(model);
@@ -65,8 +64,7 @@ public class SModuleOperations {
    *             module, there could be multiple outputs, specified per model.
    * @return all locations where generated files (including auxiliary model streams, files with hashes and dependencies) of the module could be found.
    */
-  @ToRemove(version = 3.5)
-  @Deprecated
+@Deprecated(since = "3.5", forRemoval = true)
   public static Collection<IFile> getOutputRoots(@NotNull SModule module) {
     // XXX there's jetbrains.mps.tool.builder.paths.ModuleOutputPaths which looks quite similar, shall refactor. It's definitely not tooling-specific code.
     ArrayList<IFile> rv = new ArrayList<>(4);
@@ -163,8 +161,7 @@ public class SModuleOperations {
    *             there are 2 uses in mbeddr
    */
   @NotNull
-  @ToRemove(version = 2018.3)
-  @Deprecated
+@Deprecated(since = "2018.3", forRemoval = true)
   public static EditableSModel createModelWithAdjustments(@NotNull String name,
                                                           @NotNull ModelRoot root,
                                                           @Nullable ModelFactoryType modelFactoryType) throws ModelCannotBeCreatedException {

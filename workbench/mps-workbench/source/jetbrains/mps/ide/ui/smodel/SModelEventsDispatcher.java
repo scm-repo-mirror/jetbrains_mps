@@ -35,8 +35,7 @@ import java.util.Set;
  * User: Alexander Shatalin
  * Date: 16.04.2010
  */
-@Deprecated
-@ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
 public class SModelEventsDispatcher {
   private final SRepository myRepo;
   private ModelsEventsCollector myModelsEventsCollector;

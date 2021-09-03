@@ -81,8 +81,7 @@ public interface ModelRoot {
    * @deprecated use specific #canCreateModel(SModelName)
    * @return whether this model root is read-only in the way described above
    */
-  @ToRemove(version = 4.0)
-  @Deprecated
+@Deprecated(since = "4.0", forRemoval = true)
   boolean canCreateModels();
 
   /**

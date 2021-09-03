@@ -58,8 +58,7 @@ public abstract class SChildListHandler extends AbstractCellListHandler {
     myIsReverseOrder = isReverseOrder;
   }
 
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   @Override
   public String getElementRole() {
     return myElementRole;

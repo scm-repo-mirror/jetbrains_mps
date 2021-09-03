@@ -23,8 +23,7 @@ import java.util.Objects;
 /**
  * @deprecated Use {@link jetbrains.mps.ide.ui.tree.TreeMessage} with {@code additional text}
  */
-@ToRemove(version = 2020.3)
-@Deprecated(forRemoval = true)
+@Deprecated(since = "2020.3", forRemoval = true)
 public class AdditionalTextNodeUpdate extends NodeUpdate {
   private final String myText;
 

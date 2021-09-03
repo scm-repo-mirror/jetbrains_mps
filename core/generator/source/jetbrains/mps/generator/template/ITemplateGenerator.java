@@ -45,8 +45,7 @@ public interface ITemplateGenerator extends GeneratorQueryProvider.Source {
    *   possible. This method is left solely for scenarios of LM registration from inside scripts (through genContext/TemplateQueryContext operations) when
    *   TEE is not available.
    */
-  @ToRemove(version = 2021.1)
-  @Deprecated
+@Deprecated(since = "2021.1", forRemoval = true)
   void registerMappingLabel(SNode inputNode, String mappingName, SNode outputNode);
 
   /**

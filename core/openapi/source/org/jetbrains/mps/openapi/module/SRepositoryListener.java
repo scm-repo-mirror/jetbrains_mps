@@ -53,19 +53,15 @@ public interface SRepositoryListener {
   // there are many direct implementations, I'd say most would use SRepositoryListenerBase
   // and won't get affected by the removal of the methods, so I won't keep these for long
 
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
+  @Deprecated(since = "2021.1", forRemoval = true)
   default void updateStarted(SRepository repository) {}
 
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
+  @Deprecated(since = "2021.1", forRemoval = true)
   default void updateFinished(SRepository repository) {}
 
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
+  @Deprecated(since = "2021.1", forRemoval = true)
   default void repositoryCommandStarted(SRepository repository) {}
-
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
+  
+  @Deprecated(since = "2021.1", forRemoval = true)
   default void repositoryCommandFinished(SRepository repository) {}
 }

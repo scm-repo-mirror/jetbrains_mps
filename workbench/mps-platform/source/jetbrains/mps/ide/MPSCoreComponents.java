@@ -88,8 +88,7 @@ public class MPSCoreComponents implements Disposable {
   /**
    * @deprecated it's our implementation part, shall drop once no uses
    */
-  @Deprecated
-  @ToRemove(version = 0)
+@Deprecated(since = "0", forRemoval = true)
   public MPSModuleRepository getModuleRepository() {
     return myPlatform.findComponent(MPSModuleRepository.class);
   }

@@ -236,8 +236,7 @@ public class ContainerTests<T> extends AbstractContainerParameterizedTest<T> {
       return null;
     }
 
-    @Deprecated
-    @ToRemove(version = 2018.2)
+  @Deprecated(since = "2018.2", forRemoval = true)
     @Override
     public String getRole() {
       return null;

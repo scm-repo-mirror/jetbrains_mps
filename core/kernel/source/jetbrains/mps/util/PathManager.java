@@ -44,8 +44,7 @@ public final class PathManager {
   /**
    * @deprecatedto be be removed withour replacement, just inline one if you care.
    */
-  @ToRemove(version = 2019.2)
-  @Deprecated
+@Deprecated(since = "2019.2", forRemoval = true)
   public static final FilenameFilter JAR_FILE_FILTER = (dir, name) -> name.endsWith(DOT_JAR);
 
   private PathManager() {

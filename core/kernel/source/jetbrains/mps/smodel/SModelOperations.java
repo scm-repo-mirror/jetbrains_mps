@@ -124,8 +124,7 @@ public class SModelOperations {
    * @return set of languages imported by the model, either directly or through devkit
    * @since 3.3
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   @NotNull
   public static Set<SLanguage> getAllLanguageImports(@NotNull SModel model) {
     // there are ~10 uses in mbeddr
@@ -138,8 +137,7 @@ public class SModelOperations {
   /**
    * @deprecated use {@link ModelDependencyResolver} instead
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public static List<SModel> allImportedModels(@NotNull SModel model) {
     // no uses in mbeddr
     SRepository repo = model.getRepository();

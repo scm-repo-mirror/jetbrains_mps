@@ -132,8 +132,7 @@ public class ConceptDescriptorBuilder2 {
    *
    * @deprecated use {@link #property(String, long)} instead.
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public ConceptDescriptorBuilder2 prop(String name, long propertyId, String sourceNodeId) {
     SNodeReference srcNode = myOrigin != null && sourceNodeId != null ? new SNodePointer(myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(sourceNodeId)) : null;
     addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null, srcNode));
@@ -145,8 +144,7 @@ public class ConceptDescriptorBuilder2 {
    *
    * @deprecated use {@link #property(String, long)} instead.
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public ConceptDescriptorBuilder2 prop(String name, long propertyId, SNodeReference srcNode) {
     myProperties.add(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null, srcNode));
     // perhaps, propertySourceNode(long,SNodeReference) instead of duplicated method? Same for optional(linkId) value?

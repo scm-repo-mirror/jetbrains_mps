@@ -52,7 +52,6 @@ public interface CompilationResult {
   * @deprecated use {@link #getAffectedModules()} instead. Compilation of java files may happen outside of
   *             model read, don't need to carry objects that may get stale.
   */
- @Deprecated
- @ToRemove(version = 2021.2)
+ @Deprecated(since = "2021.2", forRemoval = true)
  @NotNull Set<SModule> getChangedModules();
 }

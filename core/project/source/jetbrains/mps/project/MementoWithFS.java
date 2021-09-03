@@ -29,8 +29,7 @@ import org.jetbrains.mps.openapi.persistence.Memento;
  * @deprecated model root factory will pass module to the constructor of any model root
  * @see org.jetbrains.mps.openapi.persistence.ModelRoot
  */
-@Deprecated
-@ToRemove(version = 0)
+@Deprecated(since = "0", forRemoval = true)
 public final class MementoWithFS implements Memento {
   @NotNull
   private final Memento myDelegate;

@@ -62,8 +62,7 @@ public class BareNodeWriter {
   /**
    * @deprecated use {@link #BareNodeWriter(Predicate, ModelOutputStream, boolean)} instead
    */
-  @Deprecated
-  @ToRemove(version = 2020.2)
+@Deprecated(since = "2020.2", forRemoval = true)
   public BareNodeWriter(@NotNull SModelReference modelReference, @NotNull ModelOutputStream os) {
     this(modelReference::equals, os, true);
   }

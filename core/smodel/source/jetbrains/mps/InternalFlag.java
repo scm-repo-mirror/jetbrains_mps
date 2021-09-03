@@ -20,8 +20,7 @@ import jetbrains.mps.util.annotation.ToRemove;
 /**
  * @deprecated use {@link RuntimeFlags}
   */
-@Deprecated
-@ToRemove(version = 2018.2)
+@Deprecated(since = "2018.2", forRemoval = true)
 public class InternalFlag {
 
   public static InternalFlag getInstance() {

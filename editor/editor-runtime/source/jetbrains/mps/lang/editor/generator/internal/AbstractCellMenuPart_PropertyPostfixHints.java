@@ -87,8 +87,7 @@ public abstract class AbstractCellMenuPart_PropertyPostfixHints implements Subst
   /**
    * @deprecated override {@link #getPostfixes(SNode, EditorContext)} instead
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.2)
+  @Deprecated(since = "2020.2", forRemoval = true)
   public List<String> getPostfixes(SNode node, IOperationContext operationContext, EditorContext editorContext) {
     return null;
   }

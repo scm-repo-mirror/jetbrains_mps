@@ -106,7 +106,7 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
    * JpsTestModelsEnvironment.createModelRoot relied on DMR, which is wrong, although used to work)
    *
    */
-  @ToRemove(version = 0)
+  @Deprecated(since = "0", forRemoval = true)
   private DefaultModelRoot(int ignored) {
     myModelFactoryRegistry = null;
     myDataSourceRegistry = null;
@@ -374,8 +374,7 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
    * Obviously whilst the model root descriptors are in the <code>AbstractModule</code> we
    * need this method
    */
-  @ToRemove(version = 3.6)
-  @Deprecated
+@Deprecated(since = "3.6", forRemoval = true)
   public ModelRootDescriptor toDescriptor() {
     ModelRootDescriptor result = new ModelRootDescriptor(getType());
     save(result.getMemento());

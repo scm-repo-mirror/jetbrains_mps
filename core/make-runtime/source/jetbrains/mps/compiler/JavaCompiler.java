@@ -39,8 +39,7 @@ import java.util.function.Consumer;
  * @author Artem Tikhomirov
  * @since 2021.1
  */
-@Deprecated
-@ToRemove(version = 2021.2)
+@Deprecated(since = "2021.2", forRemoval = true)
 public interface JavaCompiler {
   void setOptions(JavaCompilerOptions options);
 

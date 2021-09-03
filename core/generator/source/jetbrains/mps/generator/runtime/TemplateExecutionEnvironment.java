@@ -70,8 +70,7 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
    * TemplateGenerator is implementation class and there's no apparent reason why TEE clients might need access to it.
    * @return
    */
-  @Deprecated
-  @ToRemove(version = 2020.1)
+@Deprecated(since = "2020.1", forRemoval = true)
   @NotNull
   TemplateGenerator getGenerator();
 

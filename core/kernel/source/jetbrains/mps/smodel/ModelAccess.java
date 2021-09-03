@@ -73,8 +73,7 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
    * @deprecated
    * @since 3.1
    */
-  @Deprecated
-  @ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
   public static ModelAccess instance() {
     return ourInstance;
   }

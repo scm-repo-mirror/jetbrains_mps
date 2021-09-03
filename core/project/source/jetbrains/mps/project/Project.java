@@ -54,8 +54,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
   /**
    * @deprecated this is an ugly way to pass Project instance into ProjectRepository cons
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   protected Project(String name, @NotNull Function<Project, ProjectRepository> repoFactory) {
     myName = name;
     myRepository = repoFactory.apply(this);
@@ -91,7 +90,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
   }
 
   @NotNull
-  @ToRemove(version = 3.4)
+  @Deprecated(since = "3.4", forRemoval = true)
   public abstract String getName();
 
   public abstract <T> T getComponent(Class<T> t);
@@ -100,8 +99,7 @@ public abstract class Project implements MPSModuleOwner, IProject {
    * @deprecated the project is not necessarily backed up by file. Left for compatibility
    * @see FileBasedProject
    */
-  @Deprecated
-  @ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
   public File getProjectFile() {
     if (this instanceof FileBasedProject) {
       FileBasedProject fileBasedProject = (FileBasedProject) this;

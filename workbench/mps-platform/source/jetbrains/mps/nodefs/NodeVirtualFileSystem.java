@@ -97,7 +97,7 @@ public final class NodeVirtualFileSystem extends VirtualFileSystem implements Di
    * compatibility with existing code, that doesn't manage SRepository well. Shall drop as soon as MPSModuleRepository instance is history
    * (or at least managed and not exposed to user code).
    */
-  @ToRemove(version = 3.4)
+  @Deprecated(since = "3.4", forRemoval = true)
   private final RepositoryVirtualFiles myGlobalRepoFiles;
 
   private final Object myRepoVFLock = new Object();

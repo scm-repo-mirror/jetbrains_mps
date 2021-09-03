@@ -50,8 +50,7 @@ public class PropertyTransformationMenuItem extends ActionItemBase implements Ba
   /**
    * @deprecated Use another constructor that passes values as is
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public PropertyTransformationMenuItem(@NotNull SProperty property, String string, @NotNull TransformationMenuContext context) {
     this(property, property.getType().fromString(string), context);
   }

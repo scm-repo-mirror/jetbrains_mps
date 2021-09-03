@@ -251,8 +251,7 @@ public class ClassLoaderManager implements CoreComponent {
    * @see ModuleIsNotLoadableException
    * @see ModuleClassNotFoundException
    */
-  @Deprecated
-  @ToRemove(version = 3.2)
+@Deprecated(since = "3.2", forRemoval = true)
   @Nullable
   public Class<?> getClass(@NotNull SModule module, String classFqName) {
     assertCanLoad(module);
@@ -331,7 +330,7 @@ public class ClassLoaderManager implements CoreComponent {
   /**
    * no events are triggered, classloaders do not change during this section
    */
-  @ToRemove(version = 201)
+  @Deprecated(since = "201", forRemoval = true)
   @Internal
   public void runNonReloadableSection(@NotNull Runnable runnable) {
     myRepository.getModelAccess().runReadAction(myRepositoryListener::pause);

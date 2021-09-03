@@ -109,7 +109,7 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
     return myWriteActionDispatcher.wrap(r);
   }
 
-  @ToRemove(version = 201)
+  @Deprecated(since = "201", forRemoval = true)
   @Internal
   public void forceFlush() {
     myEDTExecutor.forceFlush();

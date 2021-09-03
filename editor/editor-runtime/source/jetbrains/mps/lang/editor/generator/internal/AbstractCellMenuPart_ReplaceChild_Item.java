@@ -89,8 +89,7 @@ public abstract class AbstractCellMenuPart_ReplaceChild_Item implements Substitu
     /**
      * @deprecated
      */
-  @ToRemove(version = 2020.2)
-  @Deprecated(forRemoval = true)
+  @Deprecated(since = "2020.2", forRemoval = true)
   protected SNode customCreateChildNode(SNode node, SNode currentChild, SAbstractConcept defaultChildConcept, SModel model,
                                          IOperationContext operationContext, EditorContext editorContext){
     return null;

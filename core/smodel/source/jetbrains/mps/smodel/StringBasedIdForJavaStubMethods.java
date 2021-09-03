@@ -133,7 +133,7 @@ import java.util.Objects;
  * FUTURE:
  * (2xx release) Change 4: removing this class and the migrating map, all java stub method are resolved by no-return-signatures now.
  */
-@ToRemove(version = 201)
+@Deprecated(since = "201", forRemoval = true)
 @Internal
 @Immutable
 public final class StringBasedIdForJavaStubMethods extends SNodeId implements StringBasedId {

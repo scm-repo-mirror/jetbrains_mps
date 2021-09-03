@@ -35,8 +35,7 @@ import java.util.stream.Collectors;
  * Instead of {@link #delete(Generator)} method {@link jetbrains.mps.workbench.actions.module.DeleteModuleHelper#deleteModules(List, boolean, boolean)} can be used.
  * Method {@link #canDelete(Generator)} will be implemented either in {@link jetbrains.mps.workbench.actions.module.DeleteModuleHelper} or in some extension.
  */
-@Deprecated
-@ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
 public class DeleteGeneratorHelper {
   private final Project myProject;
   private boolean myDeleteFiles;

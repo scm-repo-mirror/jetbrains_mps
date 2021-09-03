@@ -125,8 +125,7 @@ public interface EditorCell {
   String getCellId();
 
   //use getSRole
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   String getRole();
 
   //it would be better to have typing here, however introducing generics may lead to compilation incompatibility

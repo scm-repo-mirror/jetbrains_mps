@@ -34,8 +34,7 @@ public abstract class MPSTreeNodeEx extends MPSTreeNode {
    *             {@link #getNodePointer()} doesn't change so that external code has something to rely on.
    */
   @Nullable
-  @Deprecated
-  @ToRemove(version = 2019.3)
+@Deprecated(since = "2019.3", forRemoval = true)
   public abstract SNode getSNode();
 
   /**

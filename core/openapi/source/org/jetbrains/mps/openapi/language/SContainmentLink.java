@@ -40,7 +40,6 @@ public interface SContainmentLink extends SAbstractLink {
   //left for compatibility with "interpreting" code
   //use SContainmentLink in code instead
   @Nullable
-  @Deprecated
-  @ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
   SNode getDeclarationNode();
 }

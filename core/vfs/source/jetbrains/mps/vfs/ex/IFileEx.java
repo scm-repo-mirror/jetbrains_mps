@@ -18,6 +18,6 @@ package jetbrains.mps.vfs.ex;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 
-@ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
 public interface IFileEx extends IFile {
 }

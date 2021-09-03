@@ -95,7 +95,7 @@ public abstract class LazyEditableSModelBase extends EditableSModelBase {
     }
   }
 
-  @ToRemove(version = 0)
+  @Deprecated(since = "0", forRemoval = true)
   private static boolean needToChangeReference(SModelReference oldRef, SModelReference newRef) {
     return !(oldRef.getModelId().equals(newRef.getModelId()) && oldRef.getName().equals(newRef.getName()));
   }

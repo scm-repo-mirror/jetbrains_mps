@@ -67,8 +67,7 @@ public interface DataSourceFactoryRule {
    * @deprecated use the {@link #spawn(Path)}
    */
   @Nullable
-  @ToRemove(version=2022.2)
-  @Deprecated
+  @Deprecated(since = "2021.1", forRemoval = true)
   DataSourceFactoryFromURL spawn(@NotNull URL url);
 
   /**

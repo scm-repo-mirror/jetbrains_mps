@@ -76,7 +76,7 @@ public final class ModelScanner {
    *
    * Drop once there's no use of this method.
    */
-  @ToRemove(version = 0)
+  @Deprecated(since = "0", forRemoval = true)
   public ModelScanner scanInLegacyMode(SModel model) {
     scan(model);
 

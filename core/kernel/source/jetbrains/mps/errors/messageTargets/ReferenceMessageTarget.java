@@ -28,8 +28,7 @@ public final class ReferenceMessageTarget implements MessageTarget {
   private final String myRoleName;
   private final SAbstractLink myRole;
 
-  @Deprecated
-  @ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
   public ReferenceMessageTarget(String role) {
     myRoleName = role;
     myRole = null;

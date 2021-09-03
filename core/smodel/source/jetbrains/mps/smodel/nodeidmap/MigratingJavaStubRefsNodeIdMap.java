@@ -43,7 +43,7 @@ import java.util.List;
  *
  * @author apyshkin
  */
-@ToRemove(version = 193)
+@Deprecated(since = "193", forRemoval = true)
 public final class MigratingJavaStubRefsNodeIdMap implements INodeIdToNodeMap {
   /**
    * contains all the nodes with the usual foreign ids + java stub method node ids with the short (no return) string key.

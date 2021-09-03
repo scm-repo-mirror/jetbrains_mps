@@ -154,7 +154,7 @@ final class EDTExecutorInternal implements Disposable {
   }
 
   @Internal
-  @ToRemove(version = 201)
+  @Deprecated(since = "201", forRemoval = true)
   public void forceScheduleFlushEDT() {
     if (LOG.isTraceEnabled()) {
       LOG.trace("flushing the queue: " + callersString() + " : context transaction " + TransactionGuard.getInstance().getContextTransaction());

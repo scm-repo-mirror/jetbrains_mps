@@ -76,8 +76,7 @@ public final class DataSourceFactoryRuleService implements CoreComponent  {
   }
 
   @Nullable
-  @ToRemove(version=2022.2)
-  @Deprecated
+  @Deprecated(since = "2021.1", forRemoval = true)
   public synchronized DataSourceFactoryFromURL getFactory(@NotNull URL url) {
     for (DataSourceFactoryRule rule : myFactoryRules) {
       DataSourceFactoryFromURL result = rule.spawn(url);

@@ -35,8 +35,7 @@ import java.io.File;
  *      legitimate way to get rid of used of the class prior to that. Uses of the class in MPS code are implementation dependencies and shall get refactored
  *      one the class is gone (either copy implementation or drop transitional uses).
  */
-@Deprecated
-@ToRemove(version = 3.4)
+@Deprecated(since = "3.4", forRemoval = true)
 public class FileGenerationUtil {
   private static final String CACHES_SUFFIX = ".caches";
 

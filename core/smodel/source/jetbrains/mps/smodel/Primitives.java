@@ -23,8 +23,7 @@ import jetbrains.mps.util.annotation.ToRemove;
  *
  * @deprecated Use {@code jetbrains.mps.smodel.adapter.structure.types.SPrimitiveTypes} instead
  */
-@Deprecated
-@ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
 public class Primitives {
   public static final String STRING_TYPE = "string";
   public static final String INTEGER_TYPE = "integer";

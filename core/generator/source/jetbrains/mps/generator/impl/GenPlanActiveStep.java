@@ -117,8 +117,7 @@ final class GenPlanActiveStep {
    * @deprecated unused, just drop it
    */
   @Nullable
-  @Deprecated
-  @ToRemove(version = 0)
+@Deprecated(since = "0", forRemoval = true)
   public Checkpoint getLastCheckpoint() {
     Checkpoint lastSeen = null;
     for (Step p : myPlan.getSteps()) {

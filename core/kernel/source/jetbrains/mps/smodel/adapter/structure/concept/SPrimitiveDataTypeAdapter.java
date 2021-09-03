@@ -23,8 +23,7 @@ import org.jetbrains.mps.openapi.language.SPrimitiveDataType;
 /**
  * @deprecated Use one of {@link SPrimitiveTypes}
  */
-@Deprecated
-@ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
 public class SPrimitiveDataTypeAdapter implements SPrimitiveDataType {
   private int type;
 

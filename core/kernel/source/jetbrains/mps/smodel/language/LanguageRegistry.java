@@ -79,8 +79,7 @@ public final class LanguageRegistry implements CoreComponent, DeployListener {
    * @deprecated obtain instance through {@link jetbrains.mps.components.ComponentHost#findComponent(Class) componentHost#findComponent(LanguageRegistry.class)}
    *             or use context-specific alternative {@link #getInstance(SRepository)}.
    */
-  @Deprecated
-  @ToRemove(version = 3.3)
+@Deprecated(since = "3.3", forRemoval = true)
   public static LanguageRegistry getInstance() {
     return INSTANCE;
   }

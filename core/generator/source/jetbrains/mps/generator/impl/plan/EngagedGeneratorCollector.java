@@ -62,8 +62,7 @@ public final class EngagedGeneratorCollector {
   /**
    * @deprecated use the cons with {@code LanguageRegistry}. There's no use for additionalLanguages (generation parameters shall fade away; could get replaced with GP if necessary)
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.3)
+  @Deprecated(since = "2020.3", forRemoval = true)
   public EngagedGeneratorCollector(@NotNull SModel model, @Nullable Collection<SLanguage> additionalLanguages) {
     myLanguageRegistry = LanguageRegistry.getInstance();
     myModel = model;

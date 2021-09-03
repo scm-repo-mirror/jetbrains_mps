@@ -21,8 +21,7 @@ import jetbrains.mps.util.annotation.ToRemove;
  * @deprecated to remove without replacement
  * XXX perhaps, could reuse to pass counter number to INodeRepresentator#getResultsText, though I hate naming of both classes
  */
-@Deprecated
-@ToRemove(version = 2019.2)
+@Deprecated(since = "2019.2", forRemoval = true)
 public class TextOptions {
   public boolean myAdditionalInfo;
   public boolean myCounters;

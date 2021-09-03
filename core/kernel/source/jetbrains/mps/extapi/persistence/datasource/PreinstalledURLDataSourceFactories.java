@@ -34,9 +34,8 @@ import java.net.URL;
  * @author apyshkin
  * @since 29/12/16
  */
-@ToRemove(version=2022.2)
 @Immutable
-@Deprecated
+@Deprecated(since = "2021.1", forRemoval = true)
 public enum PreinstalledURLDataSourceFactories implements DataSourceFactoryFromURL {
   FILE_OR_FOLDER;
 

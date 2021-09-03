@@ -55,8 +55,7 @@ public final class QueryKeyImpl implements QueryKey {
    * @deprecated uses in generated code for non-compiled templates source node/nodes query.
    *             leave here for at least a year to facilitate graceful transition
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2020.3)
+  @Deprecated(since = "2020.3", forRemoval = true)
   public SNodeId getQueryNodeId() {
     return myFunctionNodeId;
   }

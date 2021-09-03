@@ -70,8 +70,7 @@ public abstract class WrapSubstituteMenuTransformationMenuPart implements Transf
     return context.getNode();
   }
 
-  @Deprecated
-  @ToRemove(version = 2017.2)
+@Deprecated(since = "2017.2", forRemoval = true)
   protected void execute(SNode targetNode, SubstituteMenuItem item, TransformationMenuContext context, String pattern) {
     // made not abstract for compatibility reasons.
   }

@@ -37,8 +37,7 @@ public final class PathMacros implements CoreComponent {
   /**
    * @deprecated it is a CoreComponent, one can get it from MPSPlatform
    */
-  @ToRemove(version = 3.4)
-  @Deprecated
+@Deprecated(since = "3.4", forRemoval = true)
   public static PathMacros getInstance() {
     return INSTANCE;
   }

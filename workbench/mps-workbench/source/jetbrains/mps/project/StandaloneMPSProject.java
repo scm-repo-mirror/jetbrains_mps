@@ -129,13 +129,13 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
 
   // todo remove; project descriptor is its internal substance which represents the persistence data
   @NotNull
-  @ToRemove(version = 3.3)
+  @Deprecated(since = "3.3", forRemoval = true)
   public ProjectDescriptor getProjectDescriptor() {
     return myProjectDescriptor;
   }
 
   // todo remove
-  @ToRemove(version = 3.3)
+  @Deprecated(since = "3.3", forRemoval = true)
   public void setProjectDescriptor(ProjectDescriptor projectDescriptor) {
     myProjectDescriptor = projectDescriptor;
     update();

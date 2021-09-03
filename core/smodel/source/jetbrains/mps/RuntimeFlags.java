@@ -82,8 +82,7 @@ public final class RuntimeFlags {
    *         These days, MPS doesn't need these, the option is left for compatibility in case there's legacy code that depends on presence
    *         of LanguageRuntime instances for every language module.
    */
-  @Deprecated(forRemoval = true)
-  @ToRemove(version = 2021.1)
+  @Deprecated(since = "2021.1", forRemoval = true)
   public static boolean isUseInterpretedLanguages() {
     if (ourUseInterpretedLanguages == null) {
       ourUseInterpretedLanguages = Boolean.getBoolean("mps.useInterpretedLanguages");

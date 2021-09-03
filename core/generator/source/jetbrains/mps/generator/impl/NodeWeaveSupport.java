@@ -36,7 +36,7 @@ import java.util.Iterator;
  * @author Artem Tikhomirov
  * @since 3.3
  */
-@ToRemove(version = 0)  // just a gentle reminder to refactor
+@Deprecated(since = "0", forRemoval = true)  // just a gentle reminder to refactor
 public abstract class NodeWeaveSupport implements ApplySink {
   private TemplateContext myTemplateContext;
   private final SNode myContextParentNode;

@@ -38,8 +38,7 @@ public class GlobalScope extends BaseScope implements CoreComponent {
   /**
    * @deprecated there ain't no such thing as 'global' scope, use {@link #GlobalScope(SRepository)}
    */
-  @Deprecated
-  @ToRemove(version = 2019.1)
+@Deprecated(since = "2019.1", forRemoval = true)
   public static GlobalScope getInstance() {
     return INSTANCE;
   }

@@ -28,8 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
  */
 // XXX this is the only reason [smodel] depends on [vfs]
 @Immutable
-@Deprecated(forRemoval = true, since = "2021.1")
-@ToRemove(version = 2021.1)
+@Deprecated(since = "2021.1", forRemoval = true)
 public class SModelFileChangedEvent extends SModelEvent {
   private final IFile myOldFile;
   private final IFile myNewFile;

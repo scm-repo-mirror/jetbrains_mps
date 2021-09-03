@@ -22,8 +22,7 @@ import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
-@Deprecated
-@ToRemove(version = 2020.1)
+@Deprecated(since = "2020.1", forRemoval = true)
 class TransformationMenuContextToEditorMenuItemCustomizationContext implements EditorMenuItemCustomizationContext {
   private final EditorMenuItemModifyingCustomizationContext myCompletionItemModifyingContext;
 

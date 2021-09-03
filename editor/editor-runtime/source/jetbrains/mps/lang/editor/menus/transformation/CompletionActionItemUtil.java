@@ -50,8 +50,7 @@ public class CompletionActionItemUtil {
   /**
    * @deprecated Use {@link #getVisibleMatchingText(CompletionActionItem, String)} instead.
    */
-  @Deprecated
-  @ToRemove(version = 2017.2)
+@Deprecated(since = "2017.2", forRemoval = true)
   public static String getVisibleMatchingText(CompletionActionItem item) {
     return getVisibleMatchingText(item, "");
   }

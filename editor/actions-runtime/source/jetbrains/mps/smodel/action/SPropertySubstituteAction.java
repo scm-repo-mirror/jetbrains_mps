@@ -37,8 +37,7 @@ public class SPropertySubstituteAction extends AbstractSubstituteAction {
   /**
    * @deprecated Use another constructor that consumes property values as is
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+@Deprecated(since = "2018.3", forRemoval = true)
   public SPropertySubstituteAction(SNode sourceNode, SProperty property, String propertyValue) {
     this(sourceNode, property, property.getType().fromString(propertyValue));
   }
