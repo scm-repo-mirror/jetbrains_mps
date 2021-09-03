@@ -40,10 +40,10 @@ import jetbrains.mps.ide.util.ColorAndGraphicsUtil;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.util.Computable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)/4652592318748335691", model = "r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)")
 public class ChangeEditorMessage extends EditorMessageWithTarget {
@@ -407,30 +407,21 @@ __switch__:
     final SNode node = getNode();
     Bounds nodeBounds = getCellInBothWaysBounds(editorComponent, myMessageTarget, node);
 
-    if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.Attribute$g1))) {
+    if (!(AttributeOperations.isAttribute(node)) || AttributeOperations.isChildAttribute(node)) {
       return nodeBounds;
     }
 
-    final Wrappers._T<SNode> attributedNode = new Wrappers._T<SNode>();
-    new ModelAccessHelper(editorComponent.getEditorContext().getRepository()).runReadAction(new Runnable() {
-      public void run() {
-        if (SNodeOperations.isInstanceOf(node, CONCEPTS.ChildAttribute$m8)) {
-          if (SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$nv)) {
-            attributedNode.value = SLinkOperations.getTarget((SNodeOperations.cast(node, CONCEPTS.BaseCommentAttribute$nv)), LINKS.commentedNode$MYvG);
-          } else {
-            attributedNode.value = null;
-          }
-        } else {
-          attributedNode.value = SNodeOperations.getParent(node);
-        }
+    SNode attributedNode = new ModelAccessHelper(editorComponent.getEditorContext().getRepository()).runReadAction(new Computable<SNode>() {
+      public SNode compute() {
+        return SNodeOperations.getParent(node);
       }
     });
 
-    if (attributedNode.value == null) {
+    if (attributedNode == null) {
       return nodeBounds;
     }
 
-    Bounds parentBounds = getCellInBothWaysBounds(editorComponent, myMessageTarget, attributedNode.value);
+    Bounds parentBounds = getCellInBothWaysBounds(editorComponent, myMessageTarget, attributedNode);
     if ((int) nodeBounds.start() == (int) parentBounds.start() && (int) nodeBounds.end() == (int) parentBounds.end()) {
       return nodeBounds;
     }
@@ -476,11 +467,5 @@ __switch__:
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BaseCommentAttribute$nv = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
-    /*package*/ static final SConcept Attribute$g1 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute");
-    /*package*/ static final SConcept ChildAttribute$m8 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink commentedNode$MYvG = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode");
   }
 }
