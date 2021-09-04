@@ -114,16 +114,26 @@ public class UseDeprecatedInsteadOfToRemoveOrScheduledForRemoval extends Migrati
                 return;
               }
 
-              if (sinceExpr != null) {
+              if (sinceExpr != null && ListSequence.fromList(SLinkOperations.getChildren(deprecatedAnnotation, LINKS.value$uK2B)).all(new IWhereFilter<SNode>() {
+                public boolean accept(SNode it) {
+                  return !(SLinkOperations.hasPointer(it, LINKS.key$bSmV, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Deprecated.since()")));
+                }
+              })) {
                 SNode instanceValueSince = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue"));
                 SLinkOperations.setTarget(instanceValueSince, LINKS.key$bSmV, SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Deprecated.since()"), m.getRepository()));
                 SLinkOperations.setTarget(instanceValueSince, LINKS.value$Y7om, sinceExpr);
                 ListSequence.fromList(SLinkOperations.getChildren(deprecatedAnnotation, LINKS.value$uK2B)).addElement(instanceValueSince);
               }
-              SNode instanceValueToRemove = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue"));
-              SLinkOperations.setTarget(instanceValueToRemove, LINKS.key$bSmV, SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Deprecated.forRemoval()"), m.getRepository()));
-              SLinkOperations.setTarget(instanceValueToRemove, LINKS.value$Y7om, createBooleanConstant_pulpev_a0o0a0a2a0a0b0a0g());
-              ListSequence.fromList(SLinkOperations.getChildren(deprecatedAnnotation, LINKS.value$uK2B)).addElement(instanceValueToRemove);
+              if (ListSequence.fromList(SLinkOperations.getChildren(deprecatedAnnotation, LINKS.value$uK2B)).all(new IWhereFilter<SNode>() {
+                public boolean accept(SNode it) {
+                  return !(SLinkOperations.hasPointer(it, LINKS.key$bSmV, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Deprecated.forRemoval()")));
+                }
+              })) {
+                SNode instanceValueToRemove = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue"));
+                SLinkOperations.setTarget(instanceValueToRemove, LINKS.key$bSmV, SPointerOperations.resolveNode(new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Deprecated.forRemoval()"), m.getRepository()));
+                SLinkOperations.setTarget(instanceValueToRemove, LINKS.value$Y7om, createBooleanConstant_pulpev_a0c0m0a0a2a0a0b0a0g());
+                ListSequence.fromList(SLinkOperations.getChildren(deprecatedAnnotation, LINKS.value$uK2B)).addElement(instanceValueToRemove);
+              }
               SNodeOperations.deleteNode(toRemove);
             }
           });
@@ -168,7 +178,7 @@ public class UseDeprecatedInsteadOfToRemoveOrScheduledForRemoval extends Migrati
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 11);
   }
 
-  private static SNode createBooleanConstant_pulpev_a0o0a0a2a0a0b0a0g() {
+  private static SNode createBooleanConstant_pulpev_a0c0m0a0a2a0a0b0a0g() {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BooleanConstant$n4);
     n0.setProperty(PROPS.value$5y_M, "" + (true));
     return n0.getResult();
