@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.event;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.model.SModel;

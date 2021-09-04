@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.classloading;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.module.SModule;
 
 /**

@@ -25,7 +25,6 @@ import jetbrains.mps.smodel.adapter.BootstrapAdapterFactory;
 import jetbrains.mps.smodel.event.SModelListener;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;

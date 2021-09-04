@@ -48,7 +48,6 @@ import jetbrains.mps.openapi.editor.selection.SelectionListener;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.util.ConditionalIterable;
 import jetbrains.mps.util.NameUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

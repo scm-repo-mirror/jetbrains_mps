@@ -19,7 +19,6 @@ import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.smodel.DynamicReference.DynamicReferenceOrigin;
 import jetbrains.mps.smodel.StaticReference;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SProperty;

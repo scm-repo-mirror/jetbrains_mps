@@ -8695,58 +8695,58 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/4221956679900513516">
     <file name="AnalyzeStacktraceDialog.java">
-      <node id="4221956679900513517" at="29,0,30,0" concept="7" trace="myComponent" />
-      <node id="4221956679900513521" at="30,0,31,0" concept="7" trace="myText" />
-      <node id="4221956679900513524" at="31,0,32,0" concept="7" trace="myProject" />
-      <node id="4221956679900513533" at="34,51,35,19" concept="18" />
-      <node id="4221956679900513535" at="35,19,36,35" concept="6" />
-      <node id="4221956679900513544" at="36,35,37,29" concept="6" />
-      <node id="4221956679900513550" at="37,29,38,42" concept="6" />
-      <node id="4221956679900513558" at="38,42,39,0" concept="15" />
-      <node id="4221956679900513559" at="39,0,40,11" concept="6" />
-      <node id="4221956679900513579" at="45,52,46,18" concept="13" />
-      <node id="4221956679900513586" at="51,44,52,28" concept="13" />
-      <node id="4221956679900513594" at="55,35,56,50" concept="12" />
-      <node id="4221956679900513601" at="56,50,57,0" concept="15" />
-      <node id="4221956679900513602" at="57,0,58,73" concept="6" />
-      <node id="4221956679900513610" at="58,73,59,0" concept="15" />
-      <node id="4221956679900513611" at="59,0,60,36" concept="6" />
-      <node id="4221956679900513619" at="60,36,61,56" concept="12" />
-      <node id="4221956679900513625" at="62,22,63,31" concept="6" />
-      <node id="4221956679900513635" at="64,5,65,36" concept="6" />
-      <node id="4221956679900513642" at="65,36,66,0" concept="15" />
-      <node id="4221956679900513643" at="66,0,67,72" concept="12" />
-      <node id="4221956679900513648" at="67,72,68,36" concept="6" />
-      <node id="4221956679900513653" at="68,36,69,57" concept="6" />
-      <node id="4221956679900513661" at="69,57,70,0" concept="15" />
-      <node id="4221956679900513662" at="70,0,71,47" concept="6" />
-      <node id="4221956679900513668" at="71,47,72,17" concept="13" />
-      <node id="4221956679900513677" at="76,31,77,88" concept="6" />
-      <node id="4221956679900513685" at="77,88,78,23" concept="6" />
-      <node id="4221956679900513623" at="61,56,64,5" concept="10" />
-      <node id="4221956679900513574" at="43,0,48,0" concept="11" trace="getPreferredFocusedComponent#()Ljavax/swing/JComponent;" />
-      <node id="4221956679900513582" at="49,0,54,0" concept="11" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
-      <node id="4221956679900513672" at="75,0,80,0" concept="11" trace="doOKAction#()V" />
-      <node id="4221956679900513527" at="33,0,42,0" concept="3" trace="AnalyzeStacktraceDialog#(Lcom/intellij/openapi/project/Project;)V" />
-      <node id="4221956679900513592" at="55,0,74,0" concept="11" trace="createPanel#()Ljavax/swing/JComponent;" />
-      <scope id="4221956679900513578" at="45,52,46,18" />
-      <scope id="4221956679900513585" at="51,44,52,28" />
-      <scope id="4221956679900513624" at="62,22,63,31" />
-      <scope id="4221956679900513676" at="76,31,78,23" />
-      <scope id="4221956679900513574" at="43,0,48,0" />
-      <scope id="4221956679900513582" at="49,0,54,0" />
-      <scope id="4221956679900513672" at="75,0,80,0" />
-      <scope id="4221956679900513532" at="34,51,40,11" />
-      <scope id="4221956679900513527" at="33,0,42,0">
+      <node id="4221956679900513517" at="27,0,28,0" concept="7" trace="myComponent" />
+      <node id="4221956679900513521" at="28,0,29,0" concept="7" trace="myText" />
+      <node id="4221956679900513524" at="29,0,30,0" concept="7" trace="myProject" />
+      <node id="4221956679900513533" at="32,51,33,19" concept="18" />
+      <node id="4221956679900513535" at="33,19,34,35" concept="6" />
+      <node id="4221956679900513544" at="34,35,35,29" concept="6" />
+      <node id="4221956679900513550" at="35,29,36,42" concept="6" />
+      <node id="4221956679900513558" at="36,42,37,0" concept="15" />
+      <node id="4221956679900513559" at="37,0,38,11" concept="6" />
+      <node id="4221956679900513579" at="43,52,44,18" concept="13" />
+      <node id="4221956679900513586" at="49,44,50,28" concept="13" />
+      <node id="4221956679900513594" at="53,35,54,50" concept="12" />
+      <node id="4221956679900513601" at="54,50,55,0" concept="15" />
+      <node id="4221956679900513602" at="55,0,56,73" concept="6" />
+      <node id="4221956679900513610" at="56,73,57,0" concept="15" />
+      <node id="4221956679900513611" at="57,0,58,36" concept="6" />
+      <node id="4221956679900513619" at="58,36,59,56" concept="12" />
+      <node id="4221956679900513625" at="60,22,61,31" concept="6" />
+      <node id="4221956679900513635" at="62,5,63,36" concept="6" />
+      <node id="4221956679900513642" at="63,36,64,0" concept="15" />
+      <node id="4221956679900513643" at="64,0,65,72" concept="12" />
+      <node id="4221956679900513648" at="65,72,66,36" concept="6" />
+      <node id="4221956679900513653" at="66,36,67,57" concept="6" />
+      <node id="4221956679900513661" at="67,57,68,0" concept="15" />
+      <node id="4221956679900513662" at="68,0,69,47" concept="6" />
+      <node id="4221956679900513668" at="69,47,70,17" concept="13" />
+      <node id="4221956679900513677" at="74,31,75,88" concept="6" />
+      <node id="4221956679900513685" at="75,88,76,23" concept="6" />
+      <node id="4221956679900513623" at="59,56,62,5" concept="10" />
+      <node id="4221956679900513574" at="41,0,46,0" concept="11" trace="getPreferredFocusedComponent#()Ljavax/swing/JComponent;" />
+      <node id="4221956679900513582" at="47,0,52,0" concept="11" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
+      <node id="4221956679900513672" at="73,0,78,0" concept="11" trace="doOKAction#()V" />
+      <node id="4221956679900513527" at="31,0,40,0" concept="3" trace="AnalyzeStacktraceDialog#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="4221956679900513592" at="53,0,72,0" concept="11" trace="createPanel#()Ljavax/swing/JComponent;" />
+      <scope id="4221956679900513578" at="43,52,44,18" />
+      <scope id="4221956679900513585" at="49,44,50,28" />
+      <scope id="4221956679900513624" at="60,22,61,31" />
+      <scope id="4221956679900513676" at="74,31,76,23" />
+      <scope id="4221956679900513574" at="41,0,46,0" />
+      <scope id="4221956679900513582" at="47,0,52,0" />
+      <scope id="4221956679900513672" at="73,0,78,0" />
+      <scope id="4221956679900513532" at="32,51,38,11" />
+      <scope id="4221956679900513527" at="31,0,40,0">
         <var name="project" id="4221956679900513528" />
       </scope>
-      <scope id="4221956679900513593" at="55,35,72,17">
+      <scope id="4221956679900513593" at="53,35,70,17">
         <var name="panel" id="4221956679900513595" />
         <var name="scrollPane" id="4221956679900513644" />
         <var name="str" id="4221956679900513620" />
       </scope>
-      <scope id="4221956679900513592" at="55,0,74,0" />
-      <unit id="4221956679900513516" at="25,0,81,0" name="jetbrains.mps.ide.actions.AnalyzeStacktraceDialog" />
+      <scope id="4221956679900513592" at="53,0,72,0" />
+      <unit id="4221956679900513516" at="24,0,79,0" name="jetbrains.mps.ide.actions.AnalyzeStacktraceDialog" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/4221956679901046710">

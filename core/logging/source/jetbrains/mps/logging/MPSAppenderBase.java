@@ -16,7 +16,6 @@
 package jetbrains.mps.logging;
 
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggingEvent;

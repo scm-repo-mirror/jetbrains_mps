@@ -18,7 +18,6 @@ package jetbrains.mps.text;
 import jetbrains.mps.textgen.trace.ScopePositionInfo;
 import jetbrains.mps.textgen.trace.TraceablePositionInfo;
 import jetbrains.mps.textgen.trace.UnitPositionInfo;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 

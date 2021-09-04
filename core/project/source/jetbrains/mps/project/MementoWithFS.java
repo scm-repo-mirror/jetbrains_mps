@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.project;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.openapi.FileSystem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.Memento;

@@ -27,7 +27,6 @@ import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

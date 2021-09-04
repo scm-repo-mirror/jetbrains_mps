@@ -17,7 +17,6 @@ package jetbrains.mps.generator.impl.query;
 
 import jetbrains.mps.smodel.SNodeId.Regular;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;

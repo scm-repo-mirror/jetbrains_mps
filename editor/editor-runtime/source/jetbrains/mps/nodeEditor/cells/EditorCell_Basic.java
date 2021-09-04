@@ -49,7 +49,6 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.util.ListMap;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

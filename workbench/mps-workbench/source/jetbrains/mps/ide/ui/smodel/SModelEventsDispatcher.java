@@ -17,7 +17,6 @@ package jetbrains.mps.ide.ui.smodel;
 
 import jetbrains.mps.smodel.ModelsEventsCollector;
 import jetbrains.mps.smodel.event.SModelEvent;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SRepository;

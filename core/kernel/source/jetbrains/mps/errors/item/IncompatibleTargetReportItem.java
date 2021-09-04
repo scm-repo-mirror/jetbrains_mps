@@ -16,7 +16,6 @@
 package jetbrains.mps.errors.item;
 
 import jetbrains.mps.errors.MessageStatus;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SConceptFeature;

@@ -19,7 +19,6 @@ import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuItemUtil;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.transformation.CompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.transformation.ConstraintsVerifiableActionItem;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 

@@ -30,7 +30,6 @@ import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.MacrosFactory;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.VFSManager;
 import org.apache.log4j.LogManager;

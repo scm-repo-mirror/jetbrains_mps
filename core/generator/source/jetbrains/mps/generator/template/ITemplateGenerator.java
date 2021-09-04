@@ -18,7 +18,6 @@ package jetbrains.mps.generator.template;
 import jetbrains.mps.generator.GenerationSessionContext;
 import jetbrains.mps.generator.IGeneratorLogger;
 import jetbrains.mps.generator.impl.query.GeneratorQueryProvider;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;

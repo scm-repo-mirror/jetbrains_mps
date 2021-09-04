@@ -18,7 +18,6 @@ package jetbrains.mps.reloading;
 import jetbrains.mps.util.ClassPathReader;
 import jetbrains.mps.util.ClassType;
 import jetbrains.mps.util.PathManager;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.QualifiedPath;
 import jetbrains.mps.vfs.VFSManager;

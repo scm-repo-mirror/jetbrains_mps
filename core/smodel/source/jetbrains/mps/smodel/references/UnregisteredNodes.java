@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.references;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SModelReference;

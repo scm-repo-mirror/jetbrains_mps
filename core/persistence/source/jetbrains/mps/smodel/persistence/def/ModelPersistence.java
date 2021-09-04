@@ -32,7 +32,6 @@ import jetbrains.mps.smodel.persistence.lines.LineContent;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.JDOMUtil;
 import jetbrains.mps.util.StringUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.xml.BreakParseSAXException;
 import jetbrains.mps.util.xml.XMLSAXHandler;
 import org.apache.log4j.LogManager;

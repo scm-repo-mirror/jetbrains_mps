@@ -21,7 +21,6 @@ import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.CancellableReadAction;
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.containers.ConcurrentHashSet;
 import org.apache.log4j.Logger;
 

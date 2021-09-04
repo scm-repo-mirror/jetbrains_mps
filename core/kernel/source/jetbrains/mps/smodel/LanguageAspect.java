@@ -19,7 +19,6 @@ import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;

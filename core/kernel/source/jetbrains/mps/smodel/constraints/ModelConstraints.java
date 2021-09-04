@@ -30,7 +30,6 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeAncestor;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;

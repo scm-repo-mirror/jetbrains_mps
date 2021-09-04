@@ -16,7 +16,6 @@
 package jetbrains.mps.compiler;
 
 import jetbrains.mps.make.JavaFile;
-import jetbrains.mps.util.annotation.ToRemove;
 
 import java.util.Collection;
 import java.util.function.Consumer;

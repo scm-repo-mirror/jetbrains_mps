@@ -19,7 +19,6 @@ import jetbrains.mps.ide.projectPane.logicalview.highlighting.visitor.updates.No
 import jetbrains.mps.ide.projectPane.logicalview.highlighting.visitor.updates.TreeNodeUpdater;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.TreeNodeVisitor;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 
 /**

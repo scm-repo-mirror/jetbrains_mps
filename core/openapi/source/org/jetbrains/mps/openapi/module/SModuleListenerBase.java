@@ -15,7 +15,6 @@
  */
 package org.jetbrains.mps.openapi.module;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;

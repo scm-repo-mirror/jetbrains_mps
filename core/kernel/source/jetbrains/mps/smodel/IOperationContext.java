@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.project.Project;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.module.SModule;
 
 /** @deprecated

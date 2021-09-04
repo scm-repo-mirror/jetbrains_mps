@@ -23,7 +23,6 @@ import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.NotCondition;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

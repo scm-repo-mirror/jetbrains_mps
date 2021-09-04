@@ -19,7 +19,6 @@ import jetbrains.mps.smodel.references.ImmatureReferences;
 import jetbrains.mps.smodel.references.UnregisteredNodes;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.ComputeRunnable;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

@@ -16,7 +16,6 @@
 package jetbrains.mps.nodeEditor.cells;
 
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.util.Condition;

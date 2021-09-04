@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.generator;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 
 import java.util.Collection;

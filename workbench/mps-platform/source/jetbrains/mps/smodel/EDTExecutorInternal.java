@@ -28,7 +28,6 @@ import jetbrains.mps.smodel.EDTExecutor.Task;
 import jetbrains.mps.smodel.EDTExecutor.TaskIsOutdated;
 import jetbrains.mps.util.NamedThreadFactory;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

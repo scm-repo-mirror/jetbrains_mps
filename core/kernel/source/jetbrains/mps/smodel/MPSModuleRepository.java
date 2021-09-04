@@ -24,7 +24,6 @@ import jetbrains.mps.extapi.module.SRepositoryRegistry;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.EvaluateScopeContext;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.containers.ManyToManyMap;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

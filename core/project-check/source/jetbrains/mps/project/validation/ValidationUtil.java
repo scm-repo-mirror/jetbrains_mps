@@ -38,7 +38,6 @@ import jetbrains.mps.smodel.ModelDependencyScanner;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.CollectionUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;

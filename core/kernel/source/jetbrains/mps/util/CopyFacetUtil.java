@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.util;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**

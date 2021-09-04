@@ -23,7 +23,6 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModelDependencyScanner;
 import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

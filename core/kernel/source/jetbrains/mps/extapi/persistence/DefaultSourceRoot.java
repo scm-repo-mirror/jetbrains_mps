@@ -17,7 +17,6 @@ package jetbrains.mps.extapi.persistence;
 
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 

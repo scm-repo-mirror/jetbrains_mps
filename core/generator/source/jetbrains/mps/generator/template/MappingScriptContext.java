@@ -16,7 +16,6 @@
 package jetbrains.mps.generator.template;
 
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNodeReference;

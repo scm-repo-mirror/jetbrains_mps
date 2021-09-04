@@ -17,7 +17,6 @@ package jetbrains.mps.smodel;
 
 import jetbrains.mps.persistence.MetaModelInfoProvider;
 import jetbrains.mps.smodel.persistence.def.ModelPersistence;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.Nullable;

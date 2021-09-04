@@ -18,7 +18,6 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.extapi.persistence.DataSourceBase;
 import jetbrains.mps.smodel.SModelId.ModelNameSModelId;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

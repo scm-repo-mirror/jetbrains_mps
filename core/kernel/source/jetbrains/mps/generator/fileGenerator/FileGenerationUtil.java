@@ -16,7 +16,6 @@
 package jetbrains.mps.generator.fileGenerator;
 
 import jetbrains.mps.util.IFileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import org.jetbrains.annotations.NotNull;

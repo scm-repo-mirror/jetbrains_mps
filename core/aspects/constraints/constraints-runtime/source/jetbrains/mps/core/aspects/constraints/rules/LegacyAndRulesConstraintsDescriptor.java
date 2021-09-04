@@ -30,7 +30,6 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeRoot;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.impl.CheckingNodeContextImpl;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

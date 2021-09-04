@@ -21,7 +21,6 @@ import jetbrains.mps.make.java.RootDependencies;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.util.FlattenIterable;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;

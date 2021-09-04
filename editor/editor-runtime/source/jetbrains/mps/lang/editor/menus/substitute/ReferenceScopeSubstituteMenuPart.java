@@ -22,7 +22,6 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.structure.concept.SConceptAdapter;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;

@@ -32,7 +32,6 @@ import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.smodel.runtime.ModuleRuntime.ModuleRuntimeContext;
 import jetbrains.mps.util.CollectionUtil;
 import jetbrains.mps.util.NameUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 /**
  * Author: Sergey Dmitriev.

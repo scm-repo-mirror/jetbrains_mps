@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="hp7be9tijwrr6xlbwxhxq1ca5k41zu">
+<product version="3" modelHash="1f0nge02nr1bjlty1nn3t8abatcg6ex">
   <files names="AbstractInstaller.java:CommandLineGenerator.java:GitConfigUtilWrapped.java:GitGlobalConfigFixesInstaller.java:GitMergeDriverInstaller.java:GitRepositoriesInstaller.java:MergeDriverInstaller.java:MergeDriverNotification.java:MergeDriverOptionsDialog.java:MergeDriverPacker.java:ScriptGenerator.java:SvnInstaller.java" />
 </product>
 

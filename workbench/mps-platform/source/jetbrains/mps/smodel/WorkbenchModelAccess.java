@@ -25,7 +25,6 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.undo.DefaultUndoContext;
 import jetbrains.mps.smodel.undo.UndoContext;
 import jetbrains.mps.util.ComputeRunnable;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.annotations.Internal;

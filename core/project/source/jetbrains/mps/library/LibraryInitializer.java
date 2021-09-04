@@ -21,7 +21,6 @@ import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.library.contributor.LibraryContributor;
 import jetbrains.mps.library.contributor.RepositoryContributor;
 import jetbrains.mps.project.io.DescriptorIOFacade;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.refresh.FileRefresh;
 import org.apache.log4j.LogManager;

@@ -18,7 +18,6 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.extapi.model.EditableSModelBase;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.loading.PartialModelDataSupport;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;

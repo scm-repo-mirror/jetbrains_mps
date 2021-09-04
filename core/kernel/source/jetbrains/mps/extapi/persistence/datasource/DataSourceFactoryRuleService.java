@@ -16,7 +16,6 @@
 package jetbrains.mps.extapi.persistence.datasource;
 
 import jetbrains.mps.components.CoreComponent;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.path.Path;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

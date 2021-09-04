@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.vfs;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.regex.Pattern;

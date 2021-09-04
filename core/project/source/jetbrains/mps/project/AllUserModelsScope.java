@@ -19,7 +19,6 @@ import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.extapi.module.TransientSModule;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 

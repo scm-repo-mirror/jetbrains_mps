@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.errors.messageTargets;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.language.SAbstractLink;

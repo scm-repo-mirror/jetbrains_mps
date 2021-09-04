@@ -21,7 +21,6 @@ import jetbrains.mps.generator.runtime.ApplySink;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.WeavingWithAnchor;
 import jetbrains.mps.textgen.trace.TracingUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;

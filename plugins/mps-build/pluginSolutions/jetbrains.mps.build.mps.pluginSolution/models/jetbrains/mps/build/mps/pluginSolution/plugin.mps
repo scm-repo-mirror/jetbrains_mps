@@ -15,7 +15,7 @@
     <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="11" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="-1" />
     <use id="1a8554c4-eb84-43ba-8c34-6f0d90c6e75a" name="jetbrains.mps.lang.smodel.query" version="3" />
   </languages>
@@ -262,9 +262,6 @@
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
-      <concept id="1111509017652" name="jetbrains.mps.baseLanguage.structure.FloatingPointConstant" flags="nn" index="3b6qkQ">
-        <property id="1113006610751" name="value" index="$nhwW" />
-      </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <property id="4276006055363816570" name="isSynchronized" index="od$2w" />
         <property id="1181808852946" name="isFinal" index="DiZV1" />
@@ -418,6 +415,16 @@
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
+    </language>
+    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
+      </concept>
+      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA" />
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
+      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers">
       <concept id="1205752633985" name="jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression" flags="nn" index="2WthIp" />
@@ -3162,18 +3169,26 @@
     </node>
     <node concept="2AHcQZ" id="5TeO2c2aQOg" role="2AJF6D">
       <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-    </node>
-    <node concept="2AHcQZ" id="5TeO2c2aS98" role="2AJF6D">
-      <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-      <node concept="2B6LJw" id="5TeO2c2aTBA" role="2B76xF">
-        <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-        <node concept="3b6qkQ" id="5TeO2c2aTV3" role="2B70Vg">
-          <property role="$nhwW" value="2018.2" />
+      <node concept="2B6LJw" id="2sePq$_siXj" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+        <node concept="Xl_RD" id="2sePq$_siXf" role="2B70Vg">
+          <property role="Xl_RC" value="2018.2" />
+        </node>
+      </node>
+      <node concept="2B6LJw" id="2sePq$_siXk" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+        <node concept="3clFbT" id="2sePq$_siXl" role="2B70Vg">
+          <property role="3clFbU" value="true" />
         </node>
       </node>
     </node>
     <node concept="3uibUv" id="5TeO2c2em6q" role="1zkMxy">
       <ref role="3uigEE" to="qqrq:~JBPanel" resolve="JBPanel" />
+    </node>
+    <node concept="3UR2Jj" id="2sePq$_siXg" role="lGtFl">
+      <node concept="TZ5HI" id="2sePq$_siXh" role="3nqlJM">
+        <node concept="TZ5HA" id="2sePq$_siXi" role="3HnX3l" />
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="7$e6lgA3A_g">

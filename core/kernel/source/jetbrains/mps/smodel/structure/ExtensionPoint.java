@@ -17,7 +17,6 @@ package jetbrains.mps.smodel.structure;
 
 import jetbrains.mps.smodel.language.ExtensionRegistry;
 import jetbrains.mps.util.EqualUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.annotations.Immutable;
 
 import java.util.Objects;

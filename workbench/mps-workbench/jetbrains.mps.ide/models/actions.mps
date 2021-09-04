@@ -18,7 +18,7 @@
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
   </languages>
@@ -39925,17 +39925,20 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="3EnpNH2zGmn" role="1B3o_S" />
-    <node concept="2AHcQZ" id="4$l6vdT6YA9" role="2AJF6D">
-      <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-      <node concept="2B6LJw" id="4$l6vdT771n" role="2B76xF">
-        <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-        <node concept="3b6qkQ" id="4$l6vdT771T" role="2B70Vg">
-          <property role="$nhwW" value="2019.3" />
-        </node>
-      </node>
-    </node>
     <node concept="2AHcQZ" id="4$l6vdT65el" role="2AJF6D">
       <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+      <node concept="2B6LJw" id="2sePq$_siZo" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+        <node concept="Xl_RD" id="2sePq$_siZn" role="2B70Vg">
+          <property role="Xl_RC" value="2019.3" />
+        </node>
+      </node>
+      <node concept="2B6LJw" id="2sePq$_siZp" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+        <node concept="3clFbT" id="2sePq$_siZq" role="2B70Vg">
+          <property role="3clFbU" value="true" />
+        </node>
+      </node>
     </node>
     <node concept="3UR2Jj" id="4$l6vdT62KU" role="lGtFl">
       <node concept="TZ5HI" id="4$l6vdT772m" role="3nqlJM">

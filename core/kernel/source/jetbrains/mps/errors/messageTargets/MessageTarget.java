@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.errors.messageTargets;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 /**
  * Cyril.Konopko, 18.02.2010

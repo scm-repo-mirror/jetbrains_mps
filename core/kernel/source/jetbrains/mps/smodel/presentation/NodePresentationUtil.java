@@ -21,7 +21,6 @@ import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.SmartReferentUtil;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.StringUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;

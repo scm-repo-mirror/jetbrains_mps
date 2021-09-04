@@ -16,7 +16,6 @@
 package jetbrains.mps.ide.ui.tree;
 
 import com.intellij.icons.AllIcons;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.intellij.lang.annotations.MagicConstant;

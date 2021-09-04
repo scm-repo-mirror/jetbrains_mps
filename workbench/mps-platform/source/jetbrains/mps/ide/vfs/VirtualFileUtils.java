@@ -22,7 +22,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.IFile;

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.util.performance;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 /**
  * Interface which offers a cosy stack-like methods to track the performance (e.g. time consumption)

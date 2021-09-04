@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.vfs.ex;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 
 @Deprecated(since = "3.4", forRemoval = true)

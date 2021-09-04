@@ -6,7 +6,6 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

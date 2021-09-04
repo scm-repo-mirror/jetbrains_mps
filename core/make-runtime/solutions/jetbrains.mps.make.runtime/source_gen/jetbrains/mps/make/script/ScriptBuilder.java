@@ -15,7 +15,6 @@ import jetbrains.mps.internal.make.runtime.script.ValidationError;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.make.facet.FacetRegistry;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.make.runtime.script.InvalidScript;
 import java.util.Map;
@@ -42,8 +41,7 @@ public class ScriptBuilder {
    * 
    * @deprecated replace with the one that takes FacetRegistry argument
    */
-  @Deprecated
-  @ToRemove(version = 2020.1)
+  @Deprecated(since = "2020.1", forRemoval = true)
   public ScriptBuilder() {
     this(FacetRegistry.getInstance());
   }

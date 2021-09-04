@@ -17,7 +17,6 @@ package jetbrains.mps.project;
 
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.smodel.ModelImports;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;

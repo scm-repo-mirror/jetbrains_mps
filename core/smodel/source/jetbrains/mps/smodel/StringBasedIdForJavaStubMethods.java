@@ -17,7 +17,6 @@ package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.SNodeId.StringBasedId;
 import jetbrains.mps.util.InternUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

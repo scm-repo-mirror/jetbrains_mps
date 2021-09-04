@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.extapi.persistence.datasource;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 

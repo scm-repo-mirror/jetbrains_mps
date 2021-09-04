@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel.adapter.structure.concept;
 
 import jetbrains.mps.smodel.adapter.structure.types.SPrimitiveTypes;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SPrimitiveDataType;
 

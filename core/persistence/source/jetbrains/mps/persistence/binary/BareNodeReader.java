@@ -20,7 +20,6 @@ import jetbrains.mps.smodel.DynamicReference;
 import jetbrains.mps.smodel.DynamicReference.DynamicReferenceOrigin;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.StaticReference;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelInputStream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

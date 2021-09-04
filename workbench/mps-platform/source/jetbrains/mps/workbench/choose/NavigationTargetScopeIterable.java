@@ -20,7 +20,6 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.NavigationService;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;

@@ -18,7 +18,6 @@ package jetbrains.mps.smodel.nodeidmap;
 import gnu.trove.THashMap;
 import jetbrains.mps.smodel.SNodeId.StringBasedId;
 import jetbrains.mps.smodel.StringBasedIdForJavaStubMethods;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 

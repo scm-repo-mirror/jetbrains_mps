@@ -16,7 +16,6 @@
 package jetbrains.mps.plugins.actions;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.action.BaseAction;
 
 import java.util.Map;

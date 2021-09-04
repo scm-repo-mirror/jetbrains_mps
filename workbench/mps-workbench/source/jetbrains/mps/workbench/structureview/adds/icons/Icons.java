@@ -19,7 +19,6 @@ import com.intellij.icons.AllIcons.ObjectBrowser;
 import jetbrains.mps.icons.MPSIcons.Generator;
 import jetbrains.mps.icons.MPSIcons.Nodes.Models;
 import jetbrains.mps.ide.icons.IdeIcons;
-import jetbrains.mps.util.annotation.ToRemove;
 
 import javax.swing.Icon;
 

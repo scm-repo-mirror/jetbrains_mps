@@ -17,7 +17,6 @@ package jetbrains.mps.generator.impl.cache;
 
 import jetbrains.mps.generator.GenerationCacheContainer.ModelCacheContainer;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.mps.openapi.model.SModelReference;

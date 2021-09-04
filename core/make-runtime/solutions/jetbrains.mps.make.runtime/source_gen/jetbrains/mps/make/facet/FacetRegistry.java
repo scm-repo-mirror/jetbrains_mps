@@ -20,7 +20,6 @@ import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.smodel.runtime.MakeAspectDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Collections;
-import jetbrains.mps.util.annotation.ToRemove;
 
 @GeneratedClass(node = "r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)/6168415856807659069", model = "r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)")
 public class FacetRegistry implements CoreComponent {
@@ -104,8 +103,7 @@ public class FacetRegistry implements CoreComponent {
    * 
    * @deprecated Use ComponentHost#findComponent() instead
    */
-  @Deprecated
-  @ToRemove(version = 2018.3)
+  @Deprecated(since = "2018.3", forRemoval = true)
   public static FacetRegistry getInstance() {
     if (INSTANCE == null) {
       LOG.fatal("not initialized");

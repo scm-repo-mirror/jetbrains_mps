@@ -21,7 +21,6 @@ import jetbrains.mps.smodel.adapter.structure.property.InvalidProperty;
 import jetbrains.mps.smodel.adapter.structure.ref.InvalidReferenceLink;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;

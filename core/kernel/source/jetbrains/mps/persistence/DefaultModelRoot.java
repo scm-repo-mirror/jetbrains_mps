@@ -30,7 +30,6 @@ import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.persistence.DataSourceFactoryBridge.DSourceAndOptions;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

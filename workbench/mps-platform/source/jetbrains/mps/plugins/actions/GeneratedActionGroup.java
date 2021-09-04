@@ -19,7 +19,6 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.Constraints;
 import com.intellij.openapi.extensions.PluginId;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.action.ApplicationPlugin;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.workbench.action.BaseGroup;

@@ -61,7 +61,6 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.workbench.FileSystemModelHelper;

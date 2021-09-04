@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.compiler;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 
 /**

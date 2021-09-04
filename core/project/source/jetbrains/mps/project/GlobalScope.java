@@ -17,7 +17,6 @@ package jetbrains.mps.project;
 
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.smodel.BaseScope;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.iterable.CollectManyIterator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 /**
  * @deprecated use {@link RuntimeFlags}

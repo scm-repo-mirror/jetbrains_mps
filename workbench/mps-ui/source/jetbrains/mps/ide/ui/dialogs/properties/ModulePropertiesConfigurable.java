@@ -121,7 +121,6 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.ToStringComparator;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.util.PathUtil;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;

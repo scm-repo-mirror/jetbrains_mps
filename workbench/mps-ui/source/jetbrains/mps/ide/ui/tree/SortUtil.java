@@ -17,7 +17,6 @@ package jetbrains.mps.ide.ui.tree;
 
 import jetbrains.mps.util.SModelNameComparator;
 import jetbrains.mps.util.SModuleNameComparator;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.extapi.persistence.datasource;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 import java.net.URL;
 import java.text.MessageFormat;

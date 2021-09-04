@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.vfs;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.openapi.FileSystem;
 import jetbrains.mps.vfs.path.Path;
 import jetbrains.mps.vfs.refresh.CachingContext;

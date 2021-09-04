@@ -16,7 +16,6 @@
 package jetbrains.mps.project.structure.modules;
 
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;

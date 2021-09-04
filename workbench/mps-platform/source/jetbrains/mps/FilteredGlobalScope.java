@@ -17,7 +17,6 @@ package jetbrains.mps;
 
 import jetbrains.mps.project.FilteredScope;
 import jetbrains.mps.project.GlobalScope;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;

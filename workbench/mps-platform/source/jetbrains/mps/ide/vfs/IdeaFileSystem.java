@@ -21,7 +21,6 @@ import com.intellij.openapi.vfs.SafeWriteRequestor;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.IFile;

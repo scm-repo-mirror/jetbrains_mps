@@ -32,7 +32,6 @@ import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.smodel.presentation.IPropertyPresentationProvider;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.PatternUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

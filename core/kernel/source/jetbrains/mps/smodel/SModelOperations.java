@@ -19,7 +19,6 @@ import jetbrains.mps.project.dependency.ModelDependenciesManager;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.facets.TestsFacet;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

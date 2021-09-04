@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel.runtime;
 
 import jetbrains.mps.classloading.ModuleClassLoader;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

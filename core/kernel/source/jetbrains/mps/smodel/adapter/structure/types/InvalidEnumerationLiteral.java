@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel.adapter.structure.types;
 
 import jetbrains.mps.util.StringUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SDataType;

@@ -32,7 +32,6 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.event.NodeChangeCollector;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

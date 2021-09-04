@@ -16,7 +16,6 @@
 package jetbrains.mps.ide.projectPane.logicalview.highlighting.visitor.updates;
 
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
-import jetbrains.mps.util.annotation.ToRemove;
 
 import java.util.Objects;
 

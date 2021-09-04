@@ -28,7 +28,6 @@ import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.scope.VisibleDepsSearchScope;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
 import org.apache.log4j.LogManager;

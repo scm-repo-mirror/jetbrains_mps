@@ -19,7 +19,6 @@ import jetbrains.mps.VisibleModuleRegistry;
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.MPSModuleRepository;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jdom.Element;
 import org.jetbrains.mps.openapi.module.SModule;
 

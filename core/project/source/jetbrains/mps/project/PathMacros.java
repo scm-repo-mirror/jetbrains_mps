@@ -16,7 +16,6 @@
 package jetbrains.mps.project;
 
 import jetbrains.mps.components.CoreComponent;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;

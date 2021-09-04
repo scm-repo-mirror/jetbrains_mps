@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.ide.findusages.view.treeholder.tree;
 
-import jetbrains.mps.util.annotation.ToRemove;
 
 /**
  * @deprecated to remove without replacement

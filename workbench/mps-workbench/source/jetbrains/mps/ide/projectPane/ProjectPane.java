@@ -66,7 +66,6 @@ import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TempModule2;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jdom.Element;

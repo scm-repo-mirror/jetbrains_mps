@@ -21,7 +21,6 @@ import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.IStatus;
 import jetbrains.mps.util.Status;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.ArrayList;

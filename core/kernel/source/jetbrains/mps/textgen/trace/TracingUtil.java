@@ -17,7 +17,6 @@ package jetbrains.mps.textgen.trace;
 
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;

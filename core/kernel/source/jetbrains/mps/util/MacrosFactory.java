@@ -19,7 +19,6 @@ import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.PathMacros;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import org.jetbrains.annotations.NotNull;
