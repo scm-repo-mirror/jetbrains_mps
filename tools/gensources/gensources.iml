@@ -2,7 +2,9 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../core" />
+    <content url="file://$MODULE_DIR$/../../core">
+      <sourceFolder url="file://$MODULE_DIR$/../../core/make-runtime/solutions/jetbrains.mps.make.facets/source_gen" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../../languages">
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/sandbox/source_gen" isTestSource="false" />
@@ -1570,7 +1572,6 @@
     <orderEntry type="module" module-name="baseLanguage-util" />
     <orderEntry type="module" module-name="environment" />
     <orderEntry type="module" module-name="mps-idea-integration" />
-    <orderEntry type="module" module-name="make-facets" />
     <orderEntry type="module" module-name="make-runtime" />
     <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="mps-workbench" />
