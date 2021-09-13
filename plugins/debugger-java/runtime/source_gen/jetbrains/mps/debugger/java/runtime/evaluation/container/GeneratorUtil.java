@@ -22,6 +22,8 @@ import jetbrains.mps.smodel.resources.ModelsToResources;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.make.script.IResult;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
 import jetbrains.mps.module.ReloadableModule;
 import java.util.concurrent.ExecutionException;
 import java.lang.reflect.InvocationTargetException;
@@ -51,14 +53,25 @@ public class GeneratorUtil {
         }).resources();
         IResult result = makeService.make(makeSession, resources).get();
         if (result.isSucessful()) {
-          // lucky for us, model.getModule doesn't require model read
-          return ((ReloadableModule) model.getModule()).getClassLoader0().loadClass(fullClassName);
+          Class<?> rv = new ModelAccessHelper(model.getRepository()).runReadAction(new Computable<Class<?>>() {
+            public Class<?> compute() {
+              try {
+                // although model.getModule doesn't require model read, module classloader deep down there does
+                return ((ReloadableModule) model.getModule()).getClassLoader0().loadClass(fullClassName);
+              } catch (ClassNotFoundException ex) {
+                // ignore
+              }
+              return null;
+            }
+          });
+          if (rv == null) {
+            throw new EvaluationException(String.format("Can not load evaluator class %s", fullClassName));
+          }
+          return rv;
         }
         // else fall-through, up to throws EvaluationException below
       } catch (InterruptedException | ExecutionException e) {
         throw new EvaluationException(e);
-      } catch (ClassNotFoundException ex) {
-        throw new EvaluationException(String.format("Can not load evaluator class %s", fullClassName), ex);
       }
     }
     throw new EvaluationException("Errors during generation.");
