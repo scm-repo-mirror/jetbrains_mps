@@ -5,10 +5,16 @@ package jetbrains.mps.make.facets;
 import jetbrains.mps.smodel.runtime.ModuleRuntime;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.make.facet.FacetRegistry;
+import jetbrains.mps.make.facet.IFacet;
+import org.jetbrains.mps.openapi.language.SLanguage;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ModuleActivator implements ModuleRuntime.Activator {
   private final ComponentHost myPlatform;
-  private BootstrapMakeFacets myFacets;
+  private FacetRegistry myFacetRegistry;
+  private IFacet javaCompileFacet;
+  private IFacet reloadClassesFacet;
+  private IFacet makeFacet;
 
   public ModuleActivator(ComponentHost platform) {
     myPlatform = platform;
@@ -16,16 +22,29 @@ public final class ModuleActivator implements ModuleRuntime.Activator {
 
   @Override
   public void activate() {
-    // XXX BootstrapMakeFacets is not a proper name, come up with a better one, or just inline
-    //    for now, just need to keep changes minimal not to obscure the purpose
-    FacetRegistry facetRegistry = myPlatform.findComponent(FacetRegistry.class);
-    myFacets = new BootstrapMakeFacets(facetRegistry);
-    myFacets.init();
+    try {
+      myFacetRegistry = myPlatform.findComponent(FacetRegistry.class);
+      javaCompileFacet = JavaCompile_Facet.class.getDeclaredConstructor().newInstance();
+      reloadClassesFacet = ReloadClasses_Facet.class.getDeclaredConstructor().newInstance();
+      makeFacet = Make_Facet.class.getDeclaredConstructor().newInstance();
+      SLanguage langCore = MetaAdapterFactory.getLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
+      SLanguage langBL = MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
+      myFacetRegistry.register(langBL, javaCompileFacet);
+      myFacetRegistry.register(langBL, reloadClassesFacet);
+      myFacetRegistry.register(langCore, makeFacet);
+    } catch (Throwable t) {
+      throw new RuntimeException(t);
+    }
   }
 
   @Override
   public void deactivate() {
-    myFacets.dispose();
-    myFacets = null;
+    myFacetRegistry.unregister(javaCompileFacet);
+    myFacetRegistry.unregister(reloadClassesFacet);
+    myFacetRegistry.unregister(makeFacet);
+    javaCompileFacet = null;
+    reloadClassesFacet = null;
+    makeFacet = null;
+    myFacetRegistry = null;
   }
 }

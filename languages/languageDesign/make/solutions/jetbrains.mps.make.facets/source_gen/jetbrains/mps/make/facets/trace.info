@@ -26,45 +26,6 @@
       <unit at="12,0,30,0" name="jetbrains.mps.make.facets.FacetManifest" />
     </file>
   </root>
-  <root nodeRef="r:89c0fb70-0977-7777-a076-5906f9d8630f(jetbrains.mps.make.facets)/2951837577273070526">
-    <file name="BootstrapMakeFacets.java">
-      <node id="4381112213089070964" at="9,0,10,0" concept="11" trace="BASELANGUAGE_NAMESPACE" />
-      <node id="1757239459041748410" at="10,0,11,0" concept="11" trace="CORELANGUAGE_NAMESPACE" />
-      <node id="2116919505573333716" at="12,0,13,0" concept="3" trace="myFacetRegistry" />
-      <node id="2951837577273121546" at="13,0,14,0" concept="3" trace="javaCompileFacet" />
-      <node id="2951837577273130325" at="14,0,15,0" concept="3" trace="reloadClassesFacet" />
-      <node id="1757239459041629865" at="15,0,16,0" concept="3" trace="makeFacet" />
-      <node id="2116919505573333720" at="17,59,18,36" concept="2" />
-      <node id="2951837577273135258" at="22,9,23,63" concept="2" />
-      <node id="2951837577273144975" at="23,63,24,67" concept="2" />
-      <node id="1757239459041754255" at="24,67,25,49" concept="2" />
-      <node id="3242884307092035015" at="25,49,26,73" concept="2" />
-      <node id="3242884307092094997" at="26,73,27,75" concept="2" />
-      <node id="1757239459041777967" at="27,75,28,66" concept="2" />
-      <node id="3242884307092267214" at="29,27,30,36" concept="15" />
-      <node id="8706423149416448500" at="34,30,35,49" concept="2" />
-      <node id="8706423149416459213" at="35,49,36,51" concept="2" />
-      <node id="7662694400988190882" at="36,51,37,42" concept="2" />
-      <node id="2116919505573331320" at="17,0,20,0" concept="1" trace="BootstrapMakeFacets#(Ljetbrains/mps/make/facet/FacetRegistry;)V" />
-      <node id="4315828340754824334" at="34,0,39,0" concept="6" trace="dispose#()V" />
-      <node id="3242884307092266093" at="21,27,31,5" concept="16" />
-      <node id="4315828340754824329" at="21,0,33,0" concept="6" trace="init#()V" />
-      <scope id="2116919505573331323" at="17,59,18,36" />
-      <scope id="3242884307092266102" at="29,27,30,36" />
-      <scope id="3242884307092266096" at="29,5,31,5">
-        <var name="t" id="3242884307092266098" />
-      </scope>
-      <scope id="2116919505573331320" at="17,0,20,0">
-        <var name="facetRegistry" id="2116919505573333233" />
-      </scope>
-      <scope id="4315828340754824338" at="34,30,37,42" />
-      <scope id="4315828340754824334" at="34,0,39,0" />
-      <scope id="3242884307092266095" at="22,9,28,66" />
-      <scope id="4315828340754824333" at="21,27,31,5" />
-      <scope id="4315828340754824329" at="21,0,33,0" />
-      <unit id="2951837577273070526" at="8,0,40,0" name="jetbrains.mps.make.facets.BootstrapMakeFacets" />
-    </file>
-  </root>
   <root nodeRef="r:89c0fb70-0977-7777-a076-5906f9d8630f(jetbrains.mps.make.facets)/525295658369136955">
     <file name="FacetManifest.java">
       <node id="525295658369136955" at="15,70,16,63" concept="2" />
@@ -1377,30 +1338,50 @@
   </root>
   <root nodeRef="r:89c0fb70-0977-7777-a076-5906f9d8630f(jetbrains.mps.make.facets)/7138365327883783026">
     <file name="ModuleActivator.java">
-      <node id="2432913164248268880" at="10,0,11,0" concept="3" trace="myPlatform" />
-      <node id="2432913164248289018" at="11,0,12,0" concept="3" trace="myFacets" />
-      <node id="2432913164248268884" at="13,50,14,26" concept="2" />
-      <node id="6038006547933573071" at="18,26,19,94" concept="9" />
-      <node id="6038006547933573837" at="19,94,20,79" concept="9" />
-      <node id="6038006547933583225" at="20,79,21,80" concept="7" />
-      <node id="6038006547933571855" at="21,80,22,54" concept="2" />
-      <node id="6038006547933585854" at="22,54,23,20" concept="2" />
-      <node id="2432913164248280544" at="27,28,28,23" concept="2" />
-      <node id="2432913164248284813" at="28,23,29,20" concept="2" />
-      <node id="2432913164248265487" at="13,0,16,0" concept="1" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
-      <node id="2432913164248269299" at="26,0,31,0" concept="6" trace="deactivate#()V" />
-      <node id="2432913164248269287" at="17,0,25,0" concept="6" trace="activate#()V" />
-      <scope id="2432913164248265492" at="13,50,14,26" />
-      <scope id="2432913164248269304" at="27,28,29,20" />
-      <scope id="2432913164248265487" at="13,0,16,0">
+      <node id="2432913164248268880" at="13,0,14,0" concept="3" trace="myPlatform" />
+      <node id="4184158612069915866" at="14,0,15,0" concept="3" trace="myFacetRegistry" />
+      <node id="4184158612069915869" at="15,0,16,0" concept="3" trace="javaCompileFacet" />
+      <node id="4184158612069915872" at="16,0,17,0" concept="3" trace="reloadClassesFacet" />
+      <node id="4184158612069915875" at="17,0,18,0" concept="3" trace="makeFacet" />
+      <node id="2432913164248268884" at="19,50,20,26" concept="2" />
+      <node id="4184158612069923793" at="25,9,26,70" concept="2" />
+      <node id="2951837577273135258" at="26,70,27,88" concept="2" />
+      <node id="2951837577273144975" at="27,88,28,92" concept="2" />
+      <node id="1757239459041754255" at="28,92,29,74" concept="2" />
+      <node id="4184158612069841009" at="29,74,30,127" concept="7" />
+      <node id="4184158612069845568" at="30,127,31,128" concept="7" />
+      <node id="3242884307092035015" at="31,128,32,57" concept="2" />
+      <node id="3242884307092094997" at="32,57,33,59" concept="2" />
+      <node id="1757239459041777967" at="33,59,34,52" concept="2" />
+      <node id="3242884307092267214" at="35,27,36,36" concept="15" />
+      <node id="8706423149416448500" at="41,28,42,49" concept="2" />
+      <node id="8706423149416459213" at="42,49,43,51" concept="2" />
+      <node id="7662694400988190882" at="43,51,44,42" concept="2" />
+      <node id="4184158612070047071" at="44,42,45,28" concept="2" />
+      <node id="4184158612070054414" at="45,28,46,30" concept="2" />
+      <node id="4184158612070061440" at="46,30,47,21" concept="2" />
+      <node id="4184158612070040202" at="47,21,48,27" concept="2" />
+      <node id="2432913164248265487" at="19,0,22,0" concept="1" trace="ModuleActivator#(Ljetbrains/mps/components/ComponentHost;)V" />
+      <node id="2432913164248269299" at="40,0,50,0" concept="6" trace="deactivate#()V" />
+      <node id="3242884307092266093" at="24,26,37,5" concept="16" />
+      <node id="2432913164248269287" at="23,0,39,0" concept="6" trace="activate#()V" />
+      <scope id="2432913164248265492" at="19,50,20,26" />
+      <scope id="3242884307092266102" at="35,27,36,36" />
+      <scope id="3242884307092266096" at="35,5,37,5">
+        <var name="t" id="3242884307092266098" />
+      </scope>
+      <scope id="2432913164248265487" at="19,0,22,0">
         <var name="platform" id="2432913164248268820" />
       </scope>
-      <scope id="2432913164248269292" at="18,26,23,20">
-        <var name="facetRegistry" id="6038006547933583226" />
+      <scope id="2432913164248269304" at="41,28,48,27" />
+      <scope id="3242884307092266095" at="25,9,34,52">
+        <var name="langBL" id="4184158612069845569" />
+        <var name="langCore" id="4184158612069841010" />
       </scope>
-      <scope id="2432913164248269299" at="26,0,31,0" />
-      <scope id="2432913164248269287" at="17,0,25,0" />
-      <unit id="7138365327883783026" at="9,0,32,0" name="jetbrains.mps.make.facets.ModuleActivator" />
+      <scope id="2432913164248269299" at="40,0,50,0" />
+      <scope id="2432913164248269292" at="24,26,37,5" />
+      <scope id="2432913164248269287" at="23,0,39,0" />
+      <unit id="7138365327883783026" at="12,0,51,0" name="jetbrains.mps.make.facets.ModuleActivator" />
     </file>
   </root>
 </debug-info>
