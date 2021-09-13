@@ -33,6 +33,7 @@ public final class RuntimeFlags {
   private static Boolean ourEclipseJavaCompiler = null;
   private static Boolean ourLegacyJavaCompiler = null;
   private static Boolean ourLegacyModuleMaker = null; // false by default
+  private static Boolean ourModuleActivators = null;
 
   private RuntimeFlags() {
   }
@@ -145,5 +146,17 @@ public final class RuntimeFlags {
       ourLegacyModuleMaker = "legacy".equalsIgnoreCase(val) || "1step".equals(val);
     }
     return ourLegacyModuleMaker;
+  }
+
+  /**
+   * experimental support for activator code in Solution module
+   */
+  public static boolean enabledModuleActivators() {
+    if (ourModuleActivators == null) {
+      final String val = System.getProperty("mps.rt.module.activator");
+      // enabled by default
+      ourModuleActivators = val == null || Boolean.parseBoolean(val);
+    }
+    return ourModuleActivators;
   }
 }
