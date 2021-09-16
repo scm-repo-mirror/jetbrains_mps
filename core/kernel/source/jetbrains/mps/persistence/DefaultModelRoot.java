@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,10 +39,10 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.persistence.DataSource;
+import org.jetbrains.mps.openapi.persistence.MFProblem;
 import org.jetbrains.mps.openapi.persistence.Memento;
 import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import org.jetbrains.mps.openapi.persistence.MFProblem;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.ModelLoadingOption;
@@ -81,6 +81,7 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
  * @author evgeny
  * @since 11/9/12
  */
+@SuppressWarnings("UnstableApiUsage")
 public final class DefaultModelRoot extends FileBasedModelRoot implements CopyableModelRoot<DefaultModelRoot> {
   private static final Logger LOG = LogManager.getLogger(DefaultModelRoot.class);
   private final ModelFactoryRegistry myModelFactoryRegistry;
@@ -171,7 +172,7 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
   }
 
   @Override
-  public boolean canCreateModel(@NotNull String modelName) {
+  public boolean canCreateModel(@NotNull SModelName modelName) {
     if (!canCreateModels()) {
       return false;
     }
@@ -185,12 +186,12 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
       // XXX could iterate over all source roots to find the one capable to create a model, but the rest of MR API (namely, createModel) would need
       //     to figure out proper source root as well, which is not a task I'd like to tackle now. I'd use object return value instead of simple
       //     boolean here, which would keep all relevant data (model factory, source root) for model creation
-      DSourceAndOptions<DataSource> result = getDataSourceFactoryBridge().create(new SModelName(modelName),
+      DSourceAndOptions<DataSource> result = getDataSourceFactoryBridge().create(modelName,
                                                                                  Defaults.sourceRoot(this),
                                                                                  Defaults.DATA_SOURCE_TYPE);
       DataSource dataSource = result.getDataSource();
       ModelLoadingOption[] modelLoadingOptions = result.getOptions().convertToLoadingOptions();
-      return NO_PROBLEM == defaultMF.canCreate(dataSource, new SModelName(modelName), modelLoadingOptions);
+      return NO_PROBLEM == defaultMF.canCreate(dataSource, modelName, modelLoadingOptions);
     } catch (NoSourceRootsInModelRootException | DataSourceFactoryNotFoundException | SourceRootDoesNotExistException ignored) {
     }
     return false;

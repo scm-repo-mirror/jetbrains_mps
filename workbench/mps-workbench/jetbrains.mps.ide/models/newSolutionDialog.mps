@@ -103,6 +103,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -4387,9 +4390,15 @@
                 </node>
                 <node concept="2OqwBi" id="7BBl3KJzokr" role="3uHU7w">
                   <node concept="liA8E" id="7BBl3KJzotB" role="2OqNvi">
-                    <ref role="37wK5l" to="dush:~ModelRoot.canCreateModel(java.lang.String)" resolve="canCreateModel" />
-                    <node concept="37vLTw" id="7BBl3KJzoyD" role="37wK5m">
-                      <ref role="3cqZAo" node="7BBl3KJzkYO" resolve="modelName" />
+                    <ref role="37wK5l" to="dush:~ModelRoot.canCreateModel(org.jetbrains.mps.openapi.model.SModelName)" resolve="canCreateModel" />
+                    <node concept="2ShNRf" id="D47cPP1T$q" role="37wK5m">
+                      <node concept="1pGfFk" id="D47cPP1Ykc" role="2ShVmc">
+                        <property role="373rjd" value="true" />
+                        <ref role="37wK5l" to="mhbf:~SModelName.&lt;init&gt;(java.lang.String)" resolve="SModelName" />
+                        <node concept="37vLTw" id="D47cPP20g2" role="37wK5m">
+                          <ref role="3cqZAo" node="7BBl3KJzkYO" resolve="modelName" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                   <node concept="37vLTw" id="7BBl3KJzohs" role="2Oq$k0">

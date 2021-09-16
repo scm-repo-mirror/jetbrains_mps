@@ -357,7 +357,7 @@ public class NewModuleUtil {
 
   private static EditableSModel createModel(SModule module, String modelName) {
     for (ModelRoot root : module.getModelRoots()) {
-      if (root.canCreateModels() && root.canCreateModel(modelName)) {
+      if (root.canCreateModels() && root.canCreateModel(new SModelName(modelName))) {
         EditableSModel model = (EditableSModel) root.createModel(modelName);
         // todo: ???
         // this is strict model loading. without it save() not working - isLoaded() returns false in save method

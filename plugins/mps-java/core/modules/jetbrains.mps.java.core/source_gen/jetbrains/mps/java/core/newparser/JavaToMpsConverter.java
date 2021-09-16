@@ -68,13 +68,13 @@ import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromName;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.persistence.ModelCannotBeCreatedException;
+import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import jetbrains.mps.persistence.FilePerRootDataSource;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -1106,7 +1106,7 @@ public class JavaToMpsConverter {
         return null;
       }
     } else {
-      DefaultModelRoot modelRoot = getFirstRootToCreateModel(pkgFqName);
+      ModelRoot modelRoot = getFirstRootToCreateModel(new SModelName(pkgFqName));
       if (modelRoot == null) {
         myMessageHandler.handle(new Message(MessageKind.ERROR, "Failed to find model root to create model in"));
         return null;
@@ -1118,6 +1118,7 @@ public class JavaToMpsConverter {
       myMessageHandler.handle(new Message(MessageKind.ERROR, String.format("Failed to create model for package %s", pkgFqName)));
       return null;
     }
+    // FIXME
     modelDescr.load();
 
     return modelDescr;
@@ -1144,13 +1145,10 @@ public class JavaToMpsConverter {
   }
 
   @Nullable
-  private DefaultModelRoot getFirstRootToCreateModel(String packageName) {
+  private ModelRoot getFirstRootToCreateModel(SModelName packageName) {
     for (ModelRoot root : Sequence.fromIterable(myModule.getModelRoots())) {
-      if (!(root instanceof DefaultModelRoot)) {
-        continue;
-      }
       if (root.canCreateModel(packageName)) {
-        return (DefaultModelRoot) root;
+        return root;
       }
     }
     return null;

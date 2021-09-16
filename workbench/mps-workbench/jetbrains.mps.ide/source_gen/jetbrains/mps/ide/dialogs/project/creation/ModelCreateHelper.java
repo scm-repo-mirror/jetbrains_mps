@@ -58,7 +58,10 @@ public class ModelCreateHelper {
     // FIXME distinct write with subsequent command. Is it the way we would like to go?
     return new ModelAccessHelper(myProject.getModelAccess()).runWriteAction(new Computable<SourceRoot>() {
       public SourceRoot compute() {
-        if (distinctSrcRoot4Accessory || !(selectedModelRoot.canCreateModel(myFqName.getLongName()))) {
+        // XXX this !canCreateModel check is related to a hack in NewModelDialogDefaultSettings, when we 
+        //    allow file-based MR with !canCreateModels() in Language, see MPS-17276
+        // Quite dubious fix, imo, worth refactoring.
+        if (distinctSrcRoot4Accessory || !(selectedModelRoot.canCreateModel(myFqName))) {
           final String dedicatedSourceRootName = "languageAccessories";
           for (SourceRoot sr : selectedModelRoot.getSourceRoots(SourceRootKinds.SOURCES)) {
             if (sr.getPath().endsWith(dedicatedSourceRootName)) {
