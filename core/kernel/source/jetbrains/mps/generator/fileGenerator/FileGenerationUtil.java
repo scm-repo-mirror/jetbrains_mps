@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 
-import java.io.File;
-
 /**
  * @deprecated This class doesn't respect overridden output location ({@link jetbrains.mps.extapi.model.GeneratableSModel#isGenerateIntoModelFolder()} nor
  *             does it tell anything about where to take <code>outputRootDir</code> from (assumes it comes
@@ -38,12 +36,8 @@ import java.io.File;
 public class FileGenerationUtil {
   private static final String CACHES_SUFFIX = ".caches";
 
-  public static String getCachesPath(String outputRoot) {
-    return outputRoot + CACHES_SUFFIX;
-  }
-
   public static IFile getCachesDir(IFile outputRoot) {
-    return outputRoot.getFileSystem().getFile(outputRoot.getPath() + CACHES_SUFFIX);
+    return outputRoot.getParent().findChild(outputRoot.getName() + CACHES_SUFFIX);
   }
 
   public static IFile getDefaultOutputDir(org.jetbrains.mps.openapi.model.SModel model, @NotNull IFile outputRootDir) {

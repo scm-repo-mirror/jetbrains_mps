@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -205,6 +205,7 @@ public interface IFile {
 
   /**
    * Immediate child only. Empty name is forbidden. Neither path separators nor archive separators can't present in name
+   * 'find' in the name doesn't imply existence of the returned file, just an unfortunate name
    */
   @NotNull IFile findChild(@NotNull String name);
 

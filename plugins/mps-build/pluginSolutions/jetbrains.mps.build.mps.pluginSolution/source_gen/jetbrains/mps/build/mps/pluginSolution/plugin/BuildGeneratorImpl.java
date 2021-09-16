@@ -15,7 +15,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import java.util.Objects;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import com.intellij.openapi.application.ex.ApplicationInfoEx;
 import jetbrains.mps.core.platform.MPSCore;
@@ -115,10 +114,10 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
   }
 
   private void copyIcons() {
-    FileSystem.getInstance().runWriteTransaction(new Runnable() {
+    myProject.getFileSystem().runWriteTransaction(new Runnable() {
       @Override
       public void run() {
-        IFile baseDir = FileSystem.getInstance().getFile(getBasePath());
+        IFile baseDir = myProject.getFileSystem().getFile(getBasePath());
         IFile iconsDir = baseDir.findChild(BuildGeneratorImpl.ICONS);
         iconsDir.mkdirs();
 
@@ -189,7 +188,7 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     if (getCreateModel()) {
       Solution solution;
       if (getCreateSolution()) {
-        IFile projectBaseDir = FileSystem.getInstance().getFile(getBasePath());
+        IFile projectBaseDir = myProject.getFileSystem().getFile(getBasePath());
         //  get solution
         String solutionName = getNewSolutionName();
         IFile solutionBaseDir = projectBaseDir.findChild("solutions").findChild(solutionName);
