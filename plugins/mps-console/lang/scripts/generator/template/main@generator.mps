@@ -205,7 +205,7 @@
               <ref role="1Pybhc" to="8wae:1whNchEH953" resolve="ScriptsUtil" />
               <ref role="37wK5l" to="8wae:1U0jI2qTL76" resolve="executeScript" />
               <node concept="37vLTw" id="1whNchEKZ9z" role="37wK5m">
-                <ref role="3cqZAo" node="1whNchEKZ9q" resolve="context" />
+                <ref role="3cqZAo" node="1whNchEKZ9q" resolve="consoleContext" />
               </node>
               <node concept="10QFUN" id="3ZgZ1njMIa1" role="37wK5m">
                 <node concept="3B5_sB" id="1whNchEKZ9$" role="10QFUP">
@@ -266,7 +266,7 @@
               <ref role="1Pybhc" to="8wae:1whNchEH953" resolve="ScriptsUtil" />
               <ref role="37wK5l" to="8wae:23X86fnS_$6" resolve="refactor" />
               <node concept="37vLTw" id="23X86fnVb5G" role="37wK5m">
-                <ref role="3cqZAo" node="23X86fnVai2" resolve="context" />
+                <ref role="3cqZAo" node="23X86fnVai2" resolve="consoleontext" />
               </node>
               <node concept="10Nm6u" id="23X86fnVCLP" role="37wK5m">
                 <node concept="29HgVG" id="23X86fnVCQt" role="lGtFl">

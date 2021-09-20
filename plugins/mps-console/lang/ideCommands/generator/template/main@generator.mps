@@ -675,7 +675,7 @@
               <ref role="37wK5l" to="4olo:2uclMud5Tqe" resolve="make" />
               <node concept="2OqwBi" id="4PRmqZeK050" role="37wK5m">
                 <node concept="37vLTw" id="4PRmqZeK051" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4PRmqZeK04S" resolve="context" />
+                  <ref role="3cqZAo" node="4PRmqZeK04S" resolve="consoleContext" />
                 </node>
                 <node concept="liA8E" id="4PRmqZeK05e" role="2OqNvi">
                   <ref role="37wK5l" to="qgo0:3MPHfSuPT3Y" resolve="getProject" />
@@ -851,7 +851,7 @@
               <ref role="1Pybhc" to="4olo:4PRmqZeKGRd" resolve="IdeCommandUtil" />
               <node concept="2OqwBi" id="4AHaCIocV_I" role="37wK5m">
                 <node concept="37vLTw" id="4AHaCIocV_J" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2tFdLTOYl5m" resolve="context" />
+                  <ref role="3cqZAo" node="2tFdLTOYl5m" resolve="consoleContext" />
                 </node>
                 <node concept="liA8E" id="4AHaCIocV_W" role="2OqNvi">
                   <ref role="37wK5l" to="qgo0:3MPHfSuPT3Y" resolve="getProject" />
@@ -991,7 +991,7 @@
               <ref role="1Pybhc" to="4olo:4PRmqZeKGRd" resolve="IdeCommandUtil" />
               <node concept="2OqwBi" id="4AHaCIocX7t" role="37wK5m">
                 <node concept="37vLTw" id="4AHaCIocX7u" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2tFdLTRKhj1" resolve="context" />
+                  <ref role="3cqZAo" node="2tFdLTRKhj1" resolve="consoleContext" />
                 </node>
                 <node concept="liA8E" id="4AHaCIocX7F" role="2OqNvi">
                   <ref role="37wK5l" to="qgo0:3MPHfSuPT3Y" resolve="getProject" />
