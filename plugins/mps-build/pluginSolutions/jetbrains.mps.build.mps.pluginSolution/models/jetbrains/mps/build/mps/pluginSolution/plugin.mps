@@ -857,7 +857,7 @@
               </node>
               <node concept="2OqwBi" id="4zGYUkQ43xN" role="37wK5m">
                 <node concept="37vLTw" id="6lScNDIkWHk" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="project" />
+                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                 </node>
                 <node concept="liA8E" id="4zGYUkQ43xR" role="2OqNvi">
                   <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
@@ -868,7 +868,7 @@
                 <ref role="1Pybhc" to="4nm9:~ProjectUtil" resolve="ProjectUtil" />
                 <node concept="2OqwBi" id="4zGYUkQ43xT" role="37wK5m">
                   <node concept="37vLTw" id="6lScNDIkWHl" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6lScNDIkWHf" resolve="project" />
+                    <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                   </node>
                   <node concept="liA8E" id="4zGYUkQ43xX" role="2OqNvi">
                     <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
@@ -927,7 +927,7 @@
                   <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                 </node>
                 <node concept="37vLTw" id="6lScNDIkWHj" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="project" />
+                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                 </node>
               </node>
             </node>
@@ -961,7 +961,7 @@
                               <ref role="37wK5l" to="32g5:~ModulesMiner.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="ModulesMiner" />
                               <node concept="2OqwBi" id="7e0YLSJ4f5L" role="37wK5m">
                                 <node concept="37vLTw" id="6lScNDIkWHm" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="project" />
+                                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                                 </node>
                                 <node concept="liA8E" id="7e0YLSJ4glN" role="2OqNvi">
                                   <ref role="37wK5l" to="z1c3:~ProjectBase.getPlatform()" resolve="getPlatform" />
@@ -1063,7 +1063,7 @@
                           <ref role="37wK5l" to="57ty:~DefaultMessageHandler.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="DefaultMessageHandler" />
                           <node concept="2OqwBi" id="6cqWk79IcKi" role="37wK5m">
                             <node concept="37vLTw" id="6lScNDIkWHn" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6lScNDIkWHf" resolve="project" />
+                              <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                             </node>
                             <node concept="liA8E" id="6cqWk79IcKm" role="2OqNvi">
                               <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
@@ -16780,7 +16780,7 @@
                 </node>
                 <node concept="2OqwBi" id="7S35ELNTYdF" role="37vLTx">
                   <node concept="37vLTw" id="reSgCPLMbp" role="2Oq$k0">
-                    <ref role="3cqZAo" node="reSgCPLKLt" resolve="fileSystem" />
+                    <ref role="3cqZAo" node="reSgCPLKLt" resolve="baseDir" />
                   </node>
                   <node concept="liA8E" id="7S35ELNTYdH" role="2OqNvi">
                     <ref role="37wK5l" to="3ju5:~IFile.findChild(java.lang.String)" resolve="findChild" />
@@ -16789,7 +16789,7 @@
                         <ref role="3cqZAo" node="7S35ELNTYaG" resolve="i" />
                       </node>
                       <node concept="37vLTw" id="3GM_nagTsXS" role="3uHU7B">
-                        <ref role="3cqZAo" node="7S35ELNTYol" resolve="solutionBaseDirPath" />
+                        <ref role="3cqZAo" node="7S35ELNTYol" resolve="solutionBaseName" />
                       </node>
                     </node>
                   </node>

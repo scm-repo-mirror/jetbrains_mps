@@ -12928,7 +12928,7 @@
               <node concept="2ShNRf" id="1jN8rBkZFIw" role="2Oq$k0">
                 <node concept="1pGfFk" id="1jN8rBkZQlN" role="2ShVmc">
                   <property role="373rjd" value="true" />
-                  <ref role="37wK5l" node="7yVToIGZqPW" resolve="ModelsByName" />
+                  <ref role="37wK5l" node="7yVToIGZqPW" resolve="ClassifierResolveUtils.ModelsByName" />
                   <node concept="37vLTw" id="1jN8rBkZVa_" role="37wK5m">
                     <ref role="3cqZAo" node="47k7VnvVyly" resolve="visibleModels" />
                   </node>
@@ -17175,12 +17175,12 @@
           <node concept="3cpWsn" id="1jN8rBl4ILQ" role="3cpWs9">
             <property role="TrG5h" value="models" />
             <node concept="3uibUv" id="1jN8rBl4ILR" role="1tU5fm">
-              <ref role="3uigEE" node="7yVToIGZlgc" resolve="ModelsByName" />
+              <ref role="3uigEE" node="7yVToIGZlgc" resolve="ClassifierResolveUtils.ModelsByName" />
             </node>
             <node concept="2ShNRf" id="1jN8rBl56Zb" role="33vP2m">
               <node concept="1pGfFk" id="1jN8rBl5d3n" role="2ShVmc">
                 <property role="373rjd" value="true" />
-                <ref role="37wK5l" node="7yVToIGZqPW" resolve="ModelsByName" />
+                <ref role="37wK5l" node="7yVToIGZqPW" resolve="ClassifierResolveUtils.ModelsByName" />
                 <node concept="2OqwBi" id="1jN8rBl3n4r" role="37wK5m">
                   <node concept="2OqwBi" id="1jN8rBl371n" role="2Oq$k0">
                     <node concept="1eOMI4" id="1jN8rBl3c5J" role="2Oq$k0">
@@ -17222,7 +17222,7 @@
         </node>
         <node concept="2Gpval" id="4PsceGKFCBU" role="3cqZAp">
           <node concept="37vLTw" id="1jN8rBl3AJx" role="2GsD0m">
-            <ref role="3cqZAo" node="1jN8rBl3AJj" resolve="seq" />
+            <ref role="3cqZAo" node="1jN8rBl3AJj" resolve="staticImports" />
           </node>
           <node concept="2GrKxI" id="4PsceGKFCBW" role="2Gsz3X">
             <property role="TrG5h" value="imp" />

@@ -1821,7 +1821,7 @@
                 <node concept="liA8E" id="5P5FNO9Ye3z" role="2OqNvi">
                   <ref role="37wK5l" to="w1kc:~ModelImports.addModelImport(org.jetbrains.mps.openapi.model.SModelReference)" resolve="addModelImport" />
                   <node concept="37vLTw" id="2_9uqMUQv28" role="37wK5m">
-                    <ref role="3cqZAo" node="2_9uqMUQv1O" resolve="createModelReference" />
+                    <ref role="3cqZAo" node="2_9uqMUQv1O" resolve="mr" />
                   </node>
                 </node>
               </node>
@@ -5555,7 +5555,7 @@
                 <node concept="liA8E" id="4XrW5KhyT5e" role="2OqNvi">
                   <ref role="37wK5l" to="w1kc:~ModelImports.addModelImport(org.jetbrains.mps.openapi.model.SModelReference)" resolve="addModelImport" />
                   <node concept="37vLTw" id="2_9uqMUQC7v" role="37wK5m">
-                    <ref role="3cqZAo" node="2_9uqMUQC7b" resolve="createModelReference" />
+                    <ref role="3cqZAo" node="2_9uqMUQC7b" resolve="mr" />
                   </node>
                 </node>
               </node>

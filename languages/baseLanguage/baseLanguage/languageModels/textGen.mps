@@ -624,7 +624,7 @@
                   <node concept="1ZvZ2y" id="6fUw26Uh$wO" role="3cqZAp">
                     <node concept="2OqwBi" id="2_9uqMUHKQB" role="v0bCk">
                       <node concept="37vLTw" id="2_9uqMUI25P" role="2Oq$k0">
-                        <ref role="3cqZAo" node="2_9uqMUI25N" resolve="string" />
+                        <ref role="3cqZAo" node="2_9uqMUI25N" resolve="msg" />
                       </node>
                       <node concept="2cAKMz" id="2_9uqMUHM6Y" role="2OqNvi">
                         <node concept="2OqwBi" id="6FkefidQk7f" role="2cAKU6">

@@ -2728,13 +2728,13 @@
       <node concept="3Tm6S6" id="4yfhjdSwyUw" role="1B3o_S" />
       <node concept="2hMVRd" id="4yfhjdSwyUx" role="1tU5fm">
         <node concept="3uibUv" id="4yfhjdSwyUy" role="2hN53Y">
-          <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="Name" />
+          <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="IFacet.Name" />
         </node>
       </node>
       <node concept="2ShNRf" id="4yfhjdSwyUz" role="33vP2m">
         <node concept="2i4dXS" id="4yfhjdSwyU$" role="2ShVmc">
           <node concept="3uibUv" id="4yfhjdSwyU_" role="HW$YZ">
-            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="Name" />
+            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="IFacet.Name" />
           </node>
         </node>
       </node>
@@ -2823,7 +2823,7 @@
         <node concept="3clFbF" id="6Lwhjun_Ub3" role="3cqZAp">
           <node concept="2OqwBi" id="6Lwhjun_Ub5" role="3clFbG">
             <node concept="37vLTw" id="2BHiRxeug3z" role="2Oq$k0">
-              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="facets" />
+              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="myRequestedFacets" />
             </node>
             <node concept="TSZUe" id="4O1dS63RoNc" role="2OqNvi">
               <node concept="37vLTw" id="4O1dS63Rp2Y" role="25WWJ7">
@@ -2893,7 +2893,7 @@
         <node concept="3clFbF" id="6Lwhjun_UaT" role="3cqZAp">
           <node concept="2OqwBi" id="6Lwhjun_UaV" role="3clFbG">
             <node concept="37vLTw" id="2BHiRxeuVv6" role="2Oq$k0">
-              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="facets" />
+              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="myRequestedFacets" />
             </node>
             <node concept="X8dFx" id="4O1dS63Rhyd" role="2OqNvi">
               <node concept="37vLTw" id="4O1dS63Rlh1" role="25WWJ7">
@@ -2975,7 +2975,7 @@
         <property role="TrG5h" value="facetNames" />
         <node concept="8X2XB" id="4yfhjdSwxDT" role="1tU5fm">
           <node concept="3uibUv" id="4yfhjdSwu3E" role="8Xvag">
-            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="Name" />
+            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="IFacet.Name" />
           </node>
         </node>
       </node>
@@ -3375,7 +3375,7 @@
           </node>
           <node concept="2OqwBi" id="6mbw3pZeA3f" role="3clFbw">
             <node concept="37vLTw" id="6mbw3pZe_4c" role="2Oq$k0">
-              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="facets" />
+              <ref role="3cqZAo" node="6Lwhjun__gz" resolve="myRequestedFacets" />
             </node>
             <node concept="1v1jN8" id="6mbw3pZeAPZ" role="2OqNvi" />
           </node>
@@ -3643,7 +3643,7 @@
             <property role="TrG5h" value="fn" />
           </node>
           <node concept="37vLTw" id="2BHiRxeut2r" role="2GsD0m">
-            <ref role="3cqZAo" node="6Lwhjun__gz" resolve="facets" />
+            <ref role="3cqZAo" node="6Lwhjun__gz" resolve="myRequestedFacets" />
           </node>
           <node concept="3clFbS" id="6Lwhjun_Uai" role="2LFqv$">
             <node concept="3cpWs8" id="6Lwhjun_Uaj" role="3cqZAp">
@@ -4707,7 +4707,7 @@
         <node concept="37vLTG" id="4yfhjdSzleK" role="3clF46">
           <property role="TrG5h" value="requestee" />
           <node concept="3uibUv" id="4yfhjdSzleL" role="1tU5fm">
-            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="Name" />
+            <ref role="3uigEE" to="ud0o:5mqBoD3U3U9" resolve="IFacet.Name" />
           </node>
         </node>
         <node concept="37vLTG" id="4yfhjdSzleP" role="3clF46">

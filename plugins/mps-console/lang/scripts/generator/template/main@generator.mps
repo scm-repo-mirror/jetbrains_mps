@@ -186,13 +186,13 @@
       <node concept="2YIFZL" id="1whNchEKZ9p" role="jymVt">
         <property role="TrG5h" value="execute" />
         <node concept="37vLTG" id="1whNchEKZ9q" role="3clF46">
-          <property role="TrG5h" value="context" />
+          <property role="TrG5h" value="consoleContext" />
           <node concept="3uibUv" id="1whNchEKZ9r" role="1tU5fm">
             <ref role="3uigEE" to="qgo0:jysm2GDsTL" resolve="ConsoleContext" />
           </node>
         </node>
         <node concept="37vLTG" id="1whNchEKZ9s" role="3clF46">
-          <property role="TrG5h" value="console" />
+          <property role="TrG5h" value="consoleStream" />
           <node concept="3uibUv" id="1whNchEKZ9t" role="1tU5fm">
             <ref role="3uigEE" to="qgo0:5WpmwkrQPPk" resolve="ConsoleStream" />
           </node>
@@ -205,7 +205,7 @@
               <ref role="1Pybhc" to="8wae:1whNchEH953" resolve="ScriptsUtil" />
               <ref role="37wK5l" to="8wae:1U0jI2qTL76" resolve="executeScript" />
               <node concept="37vLTw" id="1whNchEKZ9z" role="37wK5m">
-                <ref role="3cqZAo" node="1whNchEKZ9q" resolve="context" />
+                <ref role="3cqZAo" node="1whNchEKZ9q" resolve="consoleContext" />
               </node>
               <node concept="10QFUN" id="3ZgZ1njMIa1" role="37wK5m">
                 <node concept="3B5_sB" id="1whNchEKZ9$" role="10QFUP">
@@ -248,13 +248,13 @@
         <property role="TrG5h" value="execute" />
         <node concept="3cqZAl" id="23X86fnVai1" role="3clF45" />
         <node concept="37vLTG" id="23X86fnVai2" role="3clF46">
-          <property role="TrG5h" value="context" />
+          <property role="TrG5h" value="consoleontext" />
           <node concept="3uibUv" id="23X86fnVai3" role="1tU5fm">
             <ref role="3uigEE" to="qgo0:jysm2GDsTL" resolve="ConsoleContext" />
           </node>
         </node>
         <node concept="37vLTG" id="23X86fnVai4" role="3clF46">
-          <property role="TrG5h" value="console" />
+          <property role="TrG5h" value="consoleStream" />
           <node concept="3uibUv" id="23X86fnVai5" role="1tU5fm">
             <ref role="3uigEE" to="qgo0:5WpmwkrQPPk" resolve="ConsoleStream" />
           </node>
@@ -266,7 +266,7 @@
               <ref role="1Pybhc" to="8wae:1whNchEH953" resolve="ScriptsUtil" />
               <ref role="37wK5l" to="8wae:23X86fnS_$6" resolve="refactor" />
               <node concept="37vLTw" id="23X86fnVb5G" role="37wK5m">
-                <ref role="3cqZAo" node="23X86fnVai2" resolve="context" />
+                <ref role="3cqZAo" node="23X86fnVai2" resolve="consoleontext" />
               </node>
               <node concept="10Nm6u" id="23X86fnVCLP" role="37wK5m">
                 <node concept="29HgVG" id="23X86fnVCQt" role="lGtFl">

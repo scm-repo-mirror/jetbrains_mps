@@ -74,11 +74,14 @@ public class MigrationSetup {
           }
         }
 
-        mv.resetVersions();
-        for (SModule module : Sequence.fromIterable(modules)) {
-          if (mv.needsUpdate(module)) {
-            myNeedImportVersionUpdate = true;
-            break;
+        if (!(myBrokenDepsOfProjectModules)) {
+          // resetVersions + needsUpdate() assert that dependenciesPresent() == true
+          mv.resetVersions();
+          for (SModule module : Sequence.fromIterable(mmm)) {
+            if (mv.needsUpdate(module)) {
+              myNeedImportVersionUpdate = true;
+              break;
+            }
           }
         }
       }

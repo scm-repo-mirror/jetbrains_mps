@@ -1147,7 +1147,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="3Ch7xrbZJ_Y" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="3Ch7xrcbKu0" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="3Ch7xrcbKw0" role="2B70Vg">
@@ -1781,7 +1781,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="3Ch7xrbZB25" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
         <node concept="2B6LJw" id="3Ch7xrcl6Ow" role="2B76xF">
           <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
           <node concept="3clFbT" id="3Ch7xrcl6QC" role="2B70Vg">
@@ -2071,7 +2071,7 @@
                                 <node concept="3clFbF" id="3Ch7xrcg32F" role="3cqZAp">
                                   <node concept="2OqwBi" id="3Ch7xrcg616" role="3clFbG">
                                     <node concept="37vLTw" id="3Ch7xrcg32E" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="3Ch7xrcf5Z_" resolve="rv" />
+                                      <ref role="3cqZAo" node="3Ch7xrcf5Z_" resolve="forLang" />
                                     </node>
                                     <node concept="liA8E" id="3Ch7xrcg9Y3" role="2OqNvi">
                                       <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
@@ -2245,7 +2245,7 @@
           <node concept="2OqwBi" id="3Ch7xrchQSC" role="3clFbG">
             <node concept="4Tj9Z" id="3Ch7xrchWdq" role="2OqNvi">
               <node concept="37vLTw" id="3Ch7xrchXW1" role="576Qk">
-                <ref role="3cqZAo" node="3Ch7xrcf5Z_" resolve="rv" />
+                <ref role="3cqZAo" node="3Ch7xrcf5Z_" resolve="forLang" />
               </node>
             </node>
             <node concept="2OqwBi" id="3Ch7xrci5Mo" role="2Oq$k0">
@@ -2316,7 +2316,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="3Ch7xrciAHE" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       </node>
     </node>
     <node concept="3uibUv" id="1PwNLcbNOlZ" role="EKbjA">
