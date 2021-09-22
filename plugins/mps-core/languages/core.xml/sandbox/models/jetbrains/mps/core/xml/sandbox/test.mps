@@ -150,7 +150,6 @@
           </node>
           <node concept="2pNNFK" id="1q3yNZeAIAE" role="3o6s8t">
             <property role="2pNNFO" value="asdas" />
-            <node concept="3o6iSG" id="64xzUTVocBZ" role="3o6s8t" />
             <node concept="3o6iSG" id="1q3yNZeAYL6" role="3o6s8t">
               <property role="3o6i5n" value="adsad" />
             </node>
