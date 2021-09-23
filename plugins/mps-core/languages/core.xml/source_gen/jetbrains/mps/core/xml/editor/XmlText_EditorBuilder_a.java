@@ -56,7 +56,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Collection_crdhdg_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    HandleXmlTextSplitMerge.setCellActions(editorCell, myNode, getEditorContext());
+    HandleXmlTextCollectionSplitMerge.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createProperty_0());
     if (nodeCondition_crdhdg_a1a()) {
       editorCell.addEditorCell(createConstant_0());

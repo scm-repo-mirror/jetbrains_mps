@@ -5,13 +5,12 @@ package jetbrains.mps.core.xml.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.openapi.editor.cells.EditorCell;
-import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
+import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
@@ -20,65 +19,27 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 
-public class HandleXmlTextSplitMerge {
+public class HandleXmlTextCollectionSplitMerge {
 
-  /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
-    return new AbstractCellAction() {
-      public void execute(EditorContext editorContext) {
-        this.execute_internal(editorContext, node);
-      }
-      public void execute_internal(EditorContext editorContext, SNode node) {
-        EditorCell cell = editorContext.getContextCell();
-        EditorCell_Label labelCell = ((EditorCell_Label) cell);
-        int caretPosition = labelCell.getCaretPosition();
-        String text = labelCell.getText();
-        String lastPart = text.substring(caretPosition);
-        String firstPart = text.substring(0, caretPosition);
-        SNode selectedNode = editorContext.getSelectedNode();
-        SPropertyOperations.assign(SNodeOperations.as(selectedNode, CONCEPTS.XmlText$q9), PROPS.value$6Orv, firstPart);
-        SNode next = SNodeFactoryOperations.insertNewNextSiblingChild(selectedNode, CONCEPTS.XmlText$q9);
-        SPropertyOperations.assign(next, PROPS.value$6Orv, lastPart);
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, next, SelectionManager.FIRST_EDITABLE_CELL, 0);
-      }
-      @Override
-      public boolean canExecute(EditorContext editorContext) {
-        return this.canExecute_internal(editorContext, node);
-      }
-      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        EditorCell cell = editorContext.getContextCell();
-        if (!(cell instanceof EditorCell_Label)) {
-          return false;
-        }
-        EditorCell_Label labelCell = ((EditorCell_Label) cell);
-        int caretPosition = labelCell.getCaretPosition();
-        String text = labelCell.getText();
-        if ((text == null || text.length() == 0)) {
-          return false;
-        }
-        if (caretPosition >= text.length()) {
-          return false;
-        }
-        return true;
-      }
-
-    };
-  }
   /*package*/ static AbstractCellAction createAction_BACKSPACE(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode p = SNodeOperations.getPrevSibling(node);
-        SNodeOperations.deleteNode(node);
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, p, SelectionManager.LAST_CELL, -1);
+        SNode n = SNodeOperations.getNextSibling(node);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_EDITABLE_CELL, -1);
+        String value = (SPropertyOperations.getString(SNodeOperations.as(n, CONCEPTS.XmlText$q9), PROPS.value$6Orv) != null ? SPropertyOperations.getString(SNodeOperations.as(n, CONCEPTS.XmlText$q9), PROPS.value$6Orv) : "");
+        SPropertyOperations.plusAssignStringProp(node, PROPS.value$6Orv, value);
+        SNodeOperations.deleteNode(n);
       }
       @Override
       public boolean canExecute(EditorContext editorContext) {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return isEmptyString(SPropertyOperations.getString(node, PROPS.value$6Orv)) && (SNodeOperations.getPrevSibling(node) != null);
+        SNode selectedNode = editorContext.getSelectedNode();
+        return (selectedNode != null);
       }
 
     };
@@ -89,16 +50,25 @@ public class HandleXmlTextSplitMerge {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode n = SNodeOperations.getNextSibling(node);
-        SNodeOperations.deleteNode(node);
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, n, SelectionManager.FIRST_CELL, 0);
+        SNode p = SNodeOperations.getPrevSibling(node);
+        if (SNodeOperations.isInstanceOf(p, CONCEPTS.XmlText$q9)) {
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, p, SelectionManager.LAST_EDITABLE_CELL, -1);
+          String value = (SPropertyOperations.getString(node, PROPS.value$6Orv) != null ? SPropertyOperations.getString(node, PROPS.value$6Orv) : "");
+          SPropertyOperations.plusAssignStringProp(SNodeOperations.as(p, CONCEPTS.XmlText$q9), PROPS.value$6Orv, value);
+          SNodeOperations.deleteNode(node);
+        } else {
+          if (!(DeletionApproverUtil.approve(editorContext, node))) {
+            SNodeOperations.deleteNode(node);
+          }
+        }
       }
       @Override
       public boolean canExecute(EditorContext editorContext) {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return isEmptyString(SPropertyOperations.getString(node, PROPS.value$6Orv)) && (SNodeOperations.getNextSibling(node) != null);
+        SNode selectedNode = editorContext.getSelectedNode();
+        return (selectedNode != null);
       }
 
     };
@@ -132,7 +102,6 @@ public class HandleXmlTextSplitMerge {
     // set cell actions from all imported action maps
 
     // set cell actions defined directly in this action map
-    editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
     editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
   }
@@ -142,18 +111,12 @@ public class HandleXmlTextSplitMerge {
     // set cell action(s) of the given type from imported action maps
 
     // set cell action of the given type defined directly in this action map
-    if (Objects.equals(actionType, CellActionType.INSERT)) {
-      editorCell.setAction(actionType, createAction_INSERT(node));
-    }
     if (Objects.equals(actionType, CellActionType.BACKSPACE)) {
       editorCell.setAction(actionType, createAction_BACKSPACE(node));
     }
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
-  }
-  private static boolean isEmptyString(String str) {
-    return str == null || str.isEmpty();
   }
 
   private static final class CONCEPTS {
