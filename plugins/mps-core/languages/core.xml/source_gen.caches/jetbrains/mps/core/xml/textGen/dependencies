@@ -60,6 +60,7 @@
   <dependency className="jetbrains.mps.core.xml.textGen.XmlAttribute_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.core.xml.behavior.XmlBaseAttribute__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.core.xml.textGen.XmlCharEscape" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -82,6 +83,14 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.core.xml.textGen.XmlCharEscape">
+    <classNode dependClassName="java.lang.Character" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.lang.StringBuilder" />
+    <classNode dependClassName="java.util.HashMap" />
+    <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
   </dependency>
   <dependency className="jetbrains.mps.core.xml.textGen.XmlCharRefValue_TextGen">
     <classNode dependClassName="java.lang.Override" />
@@ -107,6 +116,7 @@
   </dependency>
   <dependency className="jetbrains.mps.core.xml.textGen.XmlCommentLine_TextGen">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.core.xml.textGen.XmlCharEscape" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
@@ -166,6 +176,7 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.core.xml.behavior.XmlElement__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.core.xml.behavior.XmlPart__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.core.xml.textGen.XmlCharEscape" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
@@ -255,6 +266,7 @@
   <dependency className="jetbrains.mps.core.xml.textGen.XmlTextValue_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.core.xml.behavior.XmlValuePart__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.core.xml.textGen.XmlCharEscape" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -267,6 +279,7 @@
   <dependency className="jetbrains.mps.core.xml.textGen.XmlText_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.core.xml.behavior.XmlPart__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.core.xml.textGen.XmlCharEscape" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
