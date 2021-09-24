@@ -12,7 +12,6 @@ public class XmlCharEscape {
   static {
     MapSequence.fromMap(codes).put('&', "&amp;");
     MapSequence.fromMap(codes).put('"', "&quote;");
-    MapSequence.fromMap(codes).put('\'', "&apos;");
     MapSequence.fromMap(codes).put('<', "&lt;");
     MapSequence.fromMap(codes).put('>', "&gt;");
   }
