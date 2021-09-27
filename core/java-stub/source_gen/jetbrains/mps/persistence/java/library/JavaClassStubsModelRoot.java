@@ -117,10 +117,11 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
 
     Set<IFile> jarsToLoad = new HashSet<IFile>();
     final Set<IFile> cpRootsToLoad = new HashSet<IFile>();
+    Set<IFile> visitedFiles = SetSequence.fromSet(new HashSet<IFile>());
 
     for (IFile file : files) {
       LOG.trace("collecting jar files from " + file.getPath());
-      collectJarFiles(file, excludedFiles, jarsToLoad);
+      collectJarFiles(file, excludedFiles, jarsToLoad, visitedFiles);
 
       // we suppose here that each path can be either a jar-file or a classes directory or a jar directory,
       // but does not contain both jar files and class files
@@ -169,10 +170,15 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
     return rv;
   }
 
-  private static void collectJarFiles(final IFile file, Collection<IFile> excluded, Set<IFile> archiveFiles) {
-    if (excluded.contains(file)) {
+  private static void collectJarFiles(final IFile file, Collection<IFile> excludedFiles, Set<IFile> archiveFiles, Set<IFile> visitedFiles) {
+    if (excludedFiles.contains(file)) {
       return;
     }
+    if (SetSequence.fromSet(visitedFiles).contains(file)) {
+      LOG.warn("The file is already visited; ignoring " + file.getPath());
+      return;
+    }
+    SetSequence.fromSet(visitedFiles).addElement(file);
     LOG.trace("#collectJarFiles " + file.getPath());
     if (file.getPath().endsWith(".jar") || file.getPath().endsWith(".zip")) {
       SetSequence.fromSet(archiveFiles).addElement(file);
@@ -182,7 +188,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
       return;
     }
     for (IFile child : file.getChildren()) {
-      collectJarFiles(child, excluded, archiveFiles);
+      collectJarFiles(child, excludedFiles, archiveFiles, visitedFiles);
     }
   }
 
