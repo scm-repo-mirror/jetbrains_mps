@@ -17,9 +17,7 @@ public final class DeprecatedVisualizationnHelper {
       if ((v != null)) {
         if ((boolean) IDeprecatable__BehaviorDescriptor.isDeprecated_idhOwoPtR.invoke(v)) {
           style.setStrikeout();
-          style.setPriority(1.0);
-        } else {
-          style.setPriority(2.0);
+          style.setPriority(-1.0);
         }
       }
     }

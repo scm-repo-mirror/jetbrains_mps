@@ -71858,7 +71858,7 @@
                         <node concept="liA8E" id="6_dvVnZ$mvp" role="2OqNvi">
                           <ref role="37wK5l" to="av1m:~EditorMenuItemStyle.setPriority(double)" resolve="setPriority" />
                           <node concept="3b6qkQ" id="6_dvVnZ$mvq" role="37wK5m">
-                            <property role="$nhwW" value="1.0" />
+                            <property role="$nhwW" value="-1.0" />
                           </node>
                         </node>
                       </node>
@@ -71870,23 +71870,6 @@
                     </node>
                     <node concept="2qgKlT" id="6_dvVnZ$mvt" role="2OqNvi">
                       <ref role="37wK5l" to="tpcu:hOwoPtR" resolve="isDeprecated" />
-                    </node>
-                  </node>
-                  <node concept="9aQIb" id="6_dvVnZ$mvu" role="9aQIa">
-                    <node concept="3clFbS" id="6_dvVnZ$mvv" role="9aQI4">
-                      <node concept="3clFbF" id="6_dvVnZ$mvw" role="3cqZAp">
-                        <node concept="2OqwBi" id="6_dvVnZ$mvx" role="3clFbG">
-                          <node concept="37vLTw" id="6_dvVnZ$nlk" role="2Oq$k0">
-                            <ref role="3cqZAo" node="6_dvVnZ$mFF" resolve="style" />
-                          </node>
-                          <node concept="liA8E" id="6_dvVnZ$mvz" role="2OqNvi">
-                            <ref role="37wK5l" to="av1m:~EditorMenuItemStyle.setPriority(double)" resolve="setPriority" />
-                            <node concept="3b6qkQ" id="6_dvVnZ$mv$" role="37wK5m">
-                              <property role="$nhwW" value="2.0" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
                     </node>
                   </node>
                 </node>
