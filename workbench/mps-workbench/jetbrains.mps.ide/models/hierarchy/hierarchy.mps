@@ -163,6 +163,9 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
+      </concept>
       <concept id="1092119917967" name="jetbrains.mps.baseLanguage.structure.MulExpression" flags="nn" index="17qRlL" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
@@ -4808,12 +4811,37 @@
           </node>
         </node>
         <node concept="3cpWs6" id="51NkKCgB3z2" role="3cqZAp">
-          <node concept="2OqwBi" id="51NkKCgB3z3" role="3cqZAk">
-            <node concept="37vLTw" id="2BHiRxeuL3s" role="2Oq$k0">
-              <ref role="3cqZAo" node="51NkKCgB3vr" resolve="mySelectedConceptContainer" />
+          <node concept="2OqwBi" id="s8xtnyk5cg" role="3cqZAk">
+            <node concept="2ShNRf" id="s8xtnyim7m" role="2Oq$k0">
+              <node concept="1pGfFk" id="s8xtnyiPXQ" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" to="w1kc:~ModelAccessHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelAccessHelper" />
+                <node concept="2OqwBi" id="s8xtnyjvmc" role="37wK5m">
+                  <node concept="37vLTw" id="s8xtnyjfRr" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1um9r$LVO2d" resolve="myProject" />
+                  </node>
+                  <node concept="liA8E" id="s8xtnyjS0$" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                  </node>
+                </node>
+              </node>
             </node>
-            <node concept="liA8E" id="51NkKCgB3z5" role="2OqNvi">
-              <ref role="37wK5l" node="51NkKCgB3sL" resolve="getNode" />
+            <node concept="liA8E" id="s8xtnykFXM" role="2OqNvi">
+              <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
+              <node concept="1bVj0M" id="s8xtnynC_b" role="37wK5m">
+                <node concept="3clFbS" id="s8xtnynC_c" role="1bW5cS">
+                  <node concept="3clFbF" id="s8xtnyvA42" role="3cqZAp">
+                    <node concept="2OqwBi" id="51NkKCgB3z3" role="3clFbG">
+                      <node concept="37vLTw" id="2BHiRxeuL3s" role="2Oq$k0">
+                        <ref role="3cqZAo" node="51NkKCgB3vr" resolve="mySelectedConceptContainer" />
+                      </node>
+                      <node concept="liA8E" id="51NkKCgB3z5" role="2OqNvi">
+                        <ref role="37wK5l" node="51NkKCgB3sL" resolve="getNode" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -6119,9 +6147,7 @@
       </node>
       <node concept="37vLTG" id="51NkKCgB3Eq" role="3clF46">
         <property role="TrG5h" value="dataId" />
-        <node concept="3uibUv" id="51NkKCgB3Er" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
+        <node concept="17QB3L" id="s8xtnye1kL" role="1tU5fm" />
         <node concept="2AHcQZ" id="51NkKCgB3Es" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
         </node>

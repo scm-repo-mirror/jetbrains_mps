@@ -47,6 +47,9 @@ import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
+import org.jetbrains.mps.openapi.model.SNode;
 
 public class UnitTestViewComponent extends JPanel implements Disposable {
   private static final String SPLITTER_SIZE_PROPERTY = UnitTestOptions.PREFIX + ".UnitTestViewComponent" + ".splitter";
@@ -208,13 +211,15 @@ public class UnitTestViewComponent extends JPanel implements Disposable {
         if (currentNode == null) {
           return null;
         }
-        ITestNodeWrapper testWrapper = (ITestNodeWrapper) currentNode.getUserObject();
+        final ITestNodeWrapper testWrapper = (ITestNodeWrapper) currentNode.getUserObject();
         if (testWrapper == null) {
           return null;
         }
-        // XXX it's unclear whether we shall assume model read lock here, or obtain it ourselves
-        // I didn't get the lock here as it's stupid to ask for SNode not inside a lock already.
-        return testWrapper.getNodePointer().resolve(myProject.getRepository());
+        return new ModelAccessHelper(myProject.getRepository()).runReadAction(new Computable<SNode>() {
+          public SNode compute() {
+            return testWrapper.getNodePointer().resolve(myProject.getRepository());
+          }
+        });
       }
       return null;
     }

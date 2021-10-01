@@ -45,6 +45,10 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.tree.TreePath;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
+import org.jetbrains.mps.openapi.model.SNode;
 
 @GeneratedClass(node = "r:a35795b4-c996-4cf6-bdbd-9ddbda25cde5(jetbrains.mps.debugger.api.ui.tree)/4474271214083118048", model = "r:a35795b4-c996-4cf6-bdbd-9ddbda25cde5(jetbrains.mps.debugger.api.ui.tree)")
 public class VariablesTree extends MPSTree implements DataProvider {
@@ -188,20 +192,27 @@ public class VariablesTree extends MPSTree implements DataProvider {
   @Override
   @Nullable
   public Object getData(@NonNls String dataId) {
+    AbstractWatchableNode selectedNode = findSelectedNode();
+    if (selectedNode == null) {
+      return null;
+    }
+
     if (MPSCommonDataKeys.NODE.is(dataId)) {
-      AbstractWatchableNode selectedNode = findSelectedNode();
-      if (selectedNode != null && selectedNode.getNode() != null) {
-        return selectedNode.getNode().resolve(ProjectHelper.getProjectRepository(getProject()));
+      final SNodeReference node = selectedNode.getNode();
+      if (node != null) {
+        final SRepository repository = ProjectHelper.getProjectRepository(getProject());
+        return (repository != null ? new ModelAccessHelper(repository).runReadAction(new Computable<SNode>() {
+          public SNode compute() {
+            return node.resolve(repository);
+          }
+        }) : null);
       }
     } else if (MPS_DEBUGGER_VALUE.is(dataId)) {
-      AbstractWatchableNode selectedNode = findSelectedNode();
-      if (selectedNode != null) {
-        if (selectedNode instanceof WatchableNode) {
-          return ((WatchableNode) selectedNode).getValue();
-        }
+      if (selectedNode instanceof WatchableNode) {
+        return ((WatchableNode) selectedNode).getValue();
       }
     } else if (MPSCommonDataKeys.TREE_NODE.is(dataId)) {
-      return findSelectedNode();
+      return selectedNode;
     }
     return null;
   }

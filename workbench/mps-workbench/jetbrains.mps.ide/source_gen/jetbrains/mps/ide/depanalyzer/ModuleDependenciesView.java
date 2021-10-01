@@ -104,14 +104,9 @@ public class ModuleDependenciesView extends JPanel implements DataProvider {
   @Override
   public Object getData(@NonNls String dataId) {
     if (dataId.equals(MPSCommonDataKeys.PLACE.getName())) {
-      return getPlace();
+      return ActionPlace.MODULE_DEPENDENCIES;
     }
-
-    // not found
     return null;
-  }
-  private ActionPlace getPlace() {
-    return ActionPlace.MODULE_DEPENDENCIES;
   }
   public static class MyToggleAction extends ToggleAction {
     private boolean myValue;

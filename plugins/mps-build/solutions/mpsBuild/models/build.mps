@@ -33356,10 +33356,10 @@
         </node>
       </node>
       <node concept="1E1JtA" id="7gdoTYdo$eB" role="2G$12L">
-        <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.debugger.api.runtime" />
         <property role="3LESm3" value="25891414-2b70-48c7-b1cc-8dc0c127d669" />
         <property role="2GAjPV" value="true" />
+        <property role="BnDLt" value="true" />
         <node concept="3rtmxn" id="EpEP7iii8g" role="3bR31x">
           <node concept="3LXTmp" id="EpEP7iii8h" role="3rtmxm">
             <node concept="3qWCbU" id="EpEP7iii8i" role="3LXTna">
@@ -33503,6 +33503,11 @@
             <node concept="3qWCbU" id="73GUf$umtmj" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="1zpTN3IHxYP" role="3bR37C">
+          <node concept="3bR9La" id="1zpTN3IHxYQ" role="1SiIV1">
+            <ref role="3bR37D" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
           </node>
         </node>
       </node>
