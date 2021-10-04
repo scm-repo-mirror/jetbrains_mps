@@ -61,8 +61,8 @@
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
     <import index="tywb" ref="r:92932ea9-7c1a-42ec-ba50-b485e2406f2b(jetbrains.mps.ide.ui.util)" />
     <import index="ewej" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt.font(JDK/)" />
-    <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
+    <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -162,6 +162,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1092119917967" name="jetbrains.mps.baseLanguage.structure.MulExpression" flags="nn" index="17qRlL" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
@@ -1107,11 +1110,11 @@
               <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
             </node>
             <node concept="2OqwBi" id="5CK42mQosJO" role="33vP2m">
-              <node concept="liA8E" id="5CK42mQosJV" role="2OqNvi">
-                <ref role="37wK5l" to="qkt:~ActionToolbar.getComponent()" resolve="getComponent" />
-              </node>
               <node concept="37vLTw" id="3WF3aHSnQgA" role="2Oq$k0">
                 <ref role="3cqZAo" node="3WF3aHSnQgv" resolve="toolbar" />
+              </node>
+              <node concept="liA8E" id="5CK42mQosJV" role="2OqNvi">
+                <ref role="37wK5l" to="qkt:~ActionToolbar.getComponent()" resolve="getComponent" />
               </node>
             </node>
           </node>
@@ -4808,12 +4811,37 @@
           </node>
         </node>
         <node concept="3cpWs6" id="51NkKCgB3z2" role="3cqZAp">
-          <node concept="2OqwBi" id="51NkKCgB3z3" role="3cqZAk">
-            <node concept="37vLTw" id="2BHiRxeuL3s" role="2Oq$k0">
-              <ref role="3cqZAo" node="51NkKCgB3vr" resolve="mySelectedConceptContainer" />
+          <node concept="2OqwBi" id="s8xtnyk5cg" role="3cqZAk">
+            <node concept="2ShNRf" id="s8xtnyim7m" role="2Oq$k0">
+              <node concept="1pGfFk" id="s8xtnyiPXQ" role="2ShVmc">
+                <property role="373rjd" value="true" />
+                <ref role="37wK5l" to="w1kc:~ModelAccessHelper.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository)" resolve="ModelAccessHelper" />
+                <node concept="2OqwBi" id="s8xtnyjvmc" role="37wK5m">
+                  <node concept="37vLTw" id="s8xtnyjfRr" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1um9r$LVO2d" resolve="myProject" />
+                  </node>
+                  <node concept="liA8E" id="s8xtnyjS0$" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                  </node>
+                </node>
+              </node>
             </node>
-            <node concept="liA8E" id="51NkKCgB3z5" role="2OqNvi">
-              <ref role="37wK5l" node="51NkKCgB3sL" resolve="getNode" />
+            <node concept="liA8E" id="s8xtnykFXM" role="2OqNvi">
+              <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
+              <node concept="1bVj0M" id="s8xtnynC_b" role="37wK5m">
+                <node concept="3clFbS" id="s8xtnynC_c" role="1bW5cS">
+                  <node concept="3clFbF" id="s8xtnyvA42" role="3cqZAp">
+                    <node concept="2OqwBi" id="51NkKCgB3z3" role="3clFbG">
+                      <node concept="37vLTw" id="2BHiRxeuL3s" role="2Oq$k0">
+                        <ref role="3cqZAo" node="51NkKCgB3vr" resolve="mySelectedConceptContainer" />
+                      </node>
+                      <node concept="liA8E" id="51NkKCgB3z5" role="2OqNvi">
+                        <ref role="37wK5l" node="51NkKCgB3sL" resolve="getNode" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -6119,12 +6147,10 @@
       </node>
       <node concept="37vLTG" id="51NkKCgB3Eq" role="3clF46">
         <property role="TrG5h" value="dataId" />
-        <node concept="3uibUv" id="51NkKCgB3Er" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
         <node concept="2AHcQZ" id="51NkKCgB3Es" role="2AJF6D">
           <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
         </node>
+        <node concept="17QB3L" id="s8xtnye1kL" role="1tU5fm" />
       </node>
       <node concept="3clFbS" id="51NkKCgB3Et" role="3clF47">
         <node concept="3clFbJ" id="51NkKCgB3Eu" role="3cqZAp">
@@ -9711,20 +9737,6 @@
               </node>
             </node>
           </node>
-          <node concept="3J1hQo" id="3WF3aHSq5dZ" role="3J1_TS">
-            <property role="3TUv4t" value="true" />
-            <property role="TrG5h" value="unused" />
-            <node concept="3uibUv" id="3WF3aHSqaFx" role="1tU5fm">
-              <ref role="3uigEE" to="bd8o:~AccessToken" resolve="AccessToken" />
-            </node>
-            <node concept="2YIFZM" id="3WF3aHSp4FW" role="33vP2m">
-              <ref role="37wK5l" to="9w4s:~SlowOperations.allowSlowOperations(java.lang.String)" resolve="allowSlowOperations" />
-              <ref role="1Pybhc" to="9w4s:~SlowOperations" resolve="SlowOperations" />
-              <node concept="Xl_RD" id="3WF3aHSp4FX" role="37wK5m">
-                <property role="Xl_RC" value="hierarchy-tree" />
-              </node>
-            </node>
-          </node>
           <node concept="1wplmZ" id="3WF3aHSptts" role="1zxBo6">
             <node concept="3clFbS" id="3WF3aHSpttt" role="1wplMD">
               <node concept="3clFbF" id="51NkKCgB44c" role="3cqZAp">
@@ -9736,6 +9748,20 @@
                     <property role="3clFbU" value="true" />
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3J1hQo" id="3WF3aHSq5dZ" role="3J1_TS">
+            <property role="3TUv4t" value="true" />
+            <property role="TrG5h" value="unused" />
+            <node concept="3uibUv" id="3WF3aHSqaFx" role="1tU5fm">
+              <ref role="3uigEE" to="bd8o:~AccessToken" resolve="AccessToken" />
+            </node>
+            <node concept="2YIFZM" id="3WF3aHSp4FW" role="33vP2m">
+              <ref role="37wK5l" to="9w4s:~SlowOperations.allowSlowOperations(java.lang.String)" resolve="allowSlowOperations" />
+              <ref role="1Pybhc" to="9w4s:~SlowOperations" resolve="SlowOperations" />
+              <node concept="Xl_RD" id="3WF3aHSp4FX" role="37wK5m">
+                <property role="Xl_RC" value="hierarchy-tree" />
               </node>
             </node>
           </node>
