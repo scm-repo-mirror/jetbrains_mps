@@ -9,7 +9,7 @@
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
   </languages>
   <imports>
@@ -861,18 +861,18 @@
                       <node concept="liA8E" id="4CjKsJms82Y" role="2OqNvi">
                         <ref role="37wK5l" to="w1kc:~SModelFileTracker.findModel(jetbrains.mps.vfs.IFile)" resolve="findModel" />
                         <node concept="2OqwBi" id="4CjKsJms82Z" role="37wK5m">
+                          <node concept="liA8E" id="4CjKsJms831" role="2OqNvi">
+                            <ref role="37wK5l" to="4hrd:~IdeaFileSystem.fromVirtualFile(com.intellij.openapi.vfs.VirtualFile)" resolve="fromVirtualFile" />
+                            <node concept="37vLTw" id="3GM_nagTyjw" role="37wK5m">
+                              <ref role="3cqZAo" node="4CjKsJms82Q" resolve="file" />
+                            </node>
+                          </node>
                           <node concept="2OqwBi" id="7kmLdYdY6rf" role="2Oq$k0">
                             <node concept="37vLTw" id="7kmLdYdY4t7" role="2Oq$k0">
                               <ref role="3cqZAo" node="4CjKsJms83h" resolve="mpsProject" />
                             </node>
                             <node concept="liA8E" id="7kmLdYdY8vK" role="2OqNvi">
                               <ref role="37wK5l" to="z1c4:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-                            </node>
-                          </node>
-                          <node concept="liA8E" id="4CjKsJms831" role="2OqNvi">
-                            <ref role="37wK5l" to="4hrd:~IdeaFileSystem.fromVirtualFile(com.intellij.openapi.vfs.VirtualFile)" resolve="fromVirtualFile" />
-                            <node concept="37vLTw" id="3GM_nagTyjw" role="37wK5m">
-                              <ref role="3cqZAo" node="4CjKsJms82Q" resolve="file" />
                             </node>
                           </node>
                         </node>

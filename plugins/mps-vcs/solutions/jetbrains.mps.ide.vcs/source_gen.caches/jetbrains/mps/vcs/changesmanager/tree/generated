@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="9kbmgivabkiiv67hm85y8ot4p7uvex1">
+<product version="3" modelHash="6mb0atwz2ouhio58t4zdcwd4e7fsjvg">
   <files names="ChangesTreeCreationHandler.java:FeatureForestMapListener.java:FeatureForestMapSupport.java:FeatureWithParent.java:FeaturesFromVcs.java:HierarchyFeatureExtractor.java:ProjectTreeFeatureExtractor.java:TreeHighlighter.java:TreeHighlighterFactory.java:TreeNodeFeatureExtractor.java:UsagesTreeFeatureExtractor.java" />
 </product>
 

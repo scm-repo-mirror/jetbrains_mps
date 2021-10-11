@@ -1910,7 +1910,7 @@
             <node concept="3clFbS" id="4myorRWx0ZG" role="3eOfB_">
               <node concept="3cpWs6" id="4myorRWximP" role="3cqZAp">
                 <node concept="37vLTw" id="29TpidqaEaV" role="3cqZAk">
-                  <ref role="3cqZAo" node="29TpidqaEaR" resolve="findSelectedNode" />
+                  <ref role="3cqZAo" node="29TpidqaEaR" resolve="selectedNode" />
                 </node>
               </node>
             </node>
@@ -1945,6 +1945,12 @@
               </node>
             </node>
             <node concept="3clFbJ" id="3SnNvqCbxnz" role="3cqZAp">
+              <node concept="3y3z36" id="6k4GBOybPer" role="3clFbw">
+                <node concept="10Nm6u" id="6k4GBOybQsR" role="3uHU7w" />
+                <node concept="37vLTw" id="29TpidqdsqQ" role="3uHU7B">
+                  <ref role="3cqZAo" node="29TpidqdsqM" resolve="node" />
+                </node>
+              </node>
               <node concept="3clFbS" id="3SnNvqCbxnB" role="3clFbx">
                 <node concept="3cpWs8" id="29Tpidqe07w" role="3cqZAp">
                   <node concept="3cpWsn" id="29Tpidqe07x" role="3cpWs9">
@@ -2002,12 +2008,6 @@
                       </node>
                     </node>
                   </node>
-                </node>
-              </node>
-              <node concept="3y3z36" id="6k4GBOybPer" role="3clFbw">
-                <node concept="10Nm6u" id="6k4GBOybQsR" role="3uHU7w" />
-                <node concept="37vLTw" id="29TpidqdsqQ" role="3uHU7B">
-                  <ref role="3cqZAo" node="29TpidqdsqM" resolve="node" />
                 </node>
               </node>
             </node>

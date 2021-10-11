@@ -5,7 +5,7 @@
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
   </languages>
   <imports>
@@ -32,8 +32,8 @@
     <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
-    <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
+    <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
@@ -2918,6 +2918,13 @@
   <node concept="312cEu" id="ZFW0c2ct0X">
     <property role="TrG5h" value="PropertyFilesStubModelRootEntryFactory" />
     <property role="1EXbeo" value="true" />
+    <node concept="3Tm1VV" id="ZFW0c2ct0Y" role="1B3o_S" />
+    <node concept="3uibUv" id="ZFW0c2ctlN" role="EKbjA">
+      <ref role="3uigEE" to="3fr7:~ModelRootEntryFactory" resolve="ModelRootEntryFactory" />
+      <node concept="3uibUv" id="ZFW0c2ctoL" role="11_B2D">
+        <ref role="3uigEE" node="3urGXjhz7oK" resolve="PropertyFilesStubModelRoot" />
+      </node>
+    </node>
     <node concept="312cEg" id="42$9Ot08LrI" role="jymVt">
       <property role="TrG5h" value="myProject" />
       <property role="3TUv4t" value="true" />
@@ -2953,13 +2960,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="42$9Ot08SAu" role="jymVt" />
-    <node concept="3Tm1VV" id="ZFW0c2ct0Y" role="1B3o_S" />
-    <node concept="3uibUv" id="ZFW0c2ctlN" role="EKbjA">
-      <ref role="3uigEE" to="3fr7:~ModelRootEntryFactory" resolve="ModelRootEntryFactory" />
-      <node concept="3uibUv" id="ZFW0c2ctoL" role="11_B2D">
-        <ref role="3uigEE" node="3urGXjhz7oK" resolve="PropertyFilesStubModelRoot" />
-      </node>
-    </node>
     <node concept="3clFb_" id="ZFW0c2ctut" role="jymVt">
       <property role="TrG5h" value="getModelRootEntry" />
       <node concept="3Tm1VV" id="ZFW0c2ctuu" role="1B3o_S" />

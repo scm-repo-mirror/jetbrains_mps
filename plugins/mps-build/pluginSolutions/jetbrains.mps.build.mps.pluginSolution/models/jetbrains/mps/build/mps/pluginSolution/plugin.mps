@@ -14,7 +14,7 @@
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="-1" />
     <use id="1a8554c4-eb84-43ba-8c34-6f0d90c6e75a" name="jetbrains.mps.lang.smodel.query" version="3" />
@@ -856,22 +856,22 @@
                 <ref role="37wK5l" to="3fkn:~FileChooserDescriptorFactory.createSingleFolderDescriptor()" resolve="createSingleFolderDescriptor" />
               </node>
               <node concept="2OqwBi" id="4zGYUkQ43xN" role="37wK5m">
-                <node concept="37vLTw" id="6lScNDIkWHk" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
-                </node>
                 <node concept="liA8E" id="4zGYUkQ43xR" role="2OqNvi">
                   <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
+                </node>
+                <node concept="37vLTw" id="6lScNDIkWHk" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                 </node>
               </node>
               <node concept="2YIFZM" id="3FLm4EWukWs" role="37wK5m">
                 <ref role="37wK5l" to="4nm9:~ProjectUtil.guessProjectDir(com.intellij.openapi.project.Project)" resolve="guessProjectDir" />
                 <ref role="1Pybhc" to="4nm9:~ProjectUtil" resolve="ProjectUtil" />
                 <node concept="2OqwBi" id="4zGYUkQ43xT" role="37wK5m">
-                  <node concept="37vLTw" id="6lScNDIkWHl" role="2Oq$k0">
-                    <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
-                  </node>
                   <node concept="liA8E" id="4zGYUkQ43xX" role="2OqNvi">
                     <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
+                  </node>
+                  <node concept="37vLTw" id="6lScNDIkWHl" role="2Oq$k0">
+                    <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                   </node>
                 </node>
               </node>
@@ -960,11 +960,11 @@
                             <node concept="1pGfFk" id="7LkutxgSJZj" role="2ShVmc">
                               <ref role="37wK5l" to="32g5:~ModulesMiner.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="ModulesMiner" />
                               <node concept="2OqwBi" id="7e0YLSJ4f5L" role="37wK5m">
-                                <node concept="37vLTw" id="6lScNDIkWHm" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
-                                </node>
                                 <node concept="liA8E" id="7e0YLSJ4glN" role="2OqNvi">
                                   <ref role="37wK5l" to="z1c3:~ProjectBase.getPlatform()" resolve="getPlatform" />
+                                </node>
+                                <node concept="37vLTw" id="6lScNDIkWHm" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                                 </node>
                               </node>
                             </node>
@@ -1062,11 +1062,11 @@
                         <node concept="1pGfFk" id="6cqWk79IcKh" role="2ShVmc">
                           <ref role="37wK5l" to="57ty:~DefaultMessageHandler.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="DefaultMessageHandler" />
                           <node concept="2OqwBi" id="6cqWk79IcKi" role="37wK5m">
-                            <node concept="37vLTw" id="6lScNDIkWHn" role="2Oq$k0">
-                              <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
-                            </node>
                             <node concept="liA8E" id="6cqWk79IcKm" role="2OqNvi">
                               <ref role="37wK5l" to="z1c5:~MPSProject.getProject()" resolve="getProject" />
+                            </node>
+                            <node concept="37vLTw" id="6lScNDIkWHn" role="2Oq$k0">
+                              <ref role="3cqZAo" node="6lScNDIkWHf" resolve="mpsProject" />
                             </node>
                           </node>
                         </node>
@@ -10253,14 +10253,6 @@
       <node concept="3clFbS" id="1q4WFGK3qGc" role="3clF47">
         <node concept="3clFbF" id="1q4WFGK3qGd" role="3cqZAp">
           <node concept="2OqwBi" id="1q4WFGK3qGe" role="3clFbG">
-            <node concept="2OqwBi" id="y3sY7CeHJr" role="2Oq$k0">
-              <node concept="37vLTw" id="y3sY7Ce$Z7" role="2Oq$k0">
-                <ref role="3cqZAo" node="7$e6lgA3Bmu" resolve="myProject" />
-              </node>
-              <node concept="liA8E" id="y3sY7CeQjB" role="2OqNvi">
-                <ref role="37wK5l" to="z1c5:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-              </node>
-            </node>
             <node concept="liA8E" id="1q4WFGK3qGg" role="2OqNvi">
               <ref role="37wK5l" to="4hrd:~BaseIdeaFileSystem.runWriteTransaction(java.lang.Runnable)" resolve="runWriteTransaction" />
               <node concept="2ShNRf" id="1q4WFGK3qGh" role="37wK5m">
@@ -10284,18 +10276,18 @@
                               <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
                             </node>
                             <node concept="2OqwBi" id="1q4WFGK3qGr" role="33vP2m">
+                              <node concept="liA8E" id="1q4WFGK3qGt" role="2OqNvi">
+                                <ref role="37wK5l" to="4hrd:~IdeaFileSystem.getFile(java.lang.String)" resolve="getFile" />
+                                <node concept="1rXfSq" id="OqYxEjxOzz" role="37wK5m">
+                                  <ref role="37wK5l" node="OqYxEjwwox" resolve="getBasePath" />
+                                </node>
+                              </node>
                               <node concept="2OqwBi" id="y3sY7CfpO$" role="2Oq$k0">
                                 <node concept="37vLTw" id="y3sY7Cfhqd" role="2Oq$k0">
                                   <ref role="3cqZAo" node="7$e6lgA3Bmu" resolve="myProject" />
                                 </node>
                                 <node concept="liA8E" id="y3sY7Cfz5j" role="2OqNvi">
                                   <ref role="37wK5l" to="z1c5:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="1q4WFGK3qGt" role="2OqNvi">
-                                <ref role="37wK5l" to="4hrd:~IdeaFileSystem.getFile(java.lang.String)" resolve="getFile" />
-                                <node concept="1rXfSq" id="OqYxEjxOzz" role="37wK5m">
-                                  <ref role="37wK5l" node="OqYxEjwwox" resolve="getBasePath" />
                                 </node>
                               </node>
                             </node>
@@ -10447,6 +10439,14 @@
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="y3sY7CeHJr" role="2Oq$k0">
+              <node concept="37vLTw" id="y3sY7Ce$Z7" role="2Oq$k0">
+                <ref role="3cqZAo" node="7$e6lgA3Bmu" resolve="myProject" />
+              </node>
+              <node concept="liA8E" id="y3sY7CeQjB" role="2OqNvi">
+                <ref role="37wK5l" to="z1c5:~MPSProject.getFileSystem()" resolve="getFileSystem" />
               </node>
             </node>
           </node>
@@ -11031,18 +11031,18 @@
                       <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
                     </node>
                     <node concept="2OqwBi" id="7S35ELNTYmK" role="33vP2m">
+                      <node concept="liA8E" id="7S35ELNTYmQ" role="2OqNvi">
+                        <ref role="37wK5l" to="4hrd:~IdeaFileSystem.getFile(java.lang.String)" resolve="getFile" />
+                        <node concept="1rXfSq" id="OqYxEjx_wz" role="37wK5m">
+                          <ref role="37wK5l" node="OqYxEjwwox" resolve="getBasePath" />
+                        </node>
+                      </node>
                       <node concept="2OqwBi" id="y3sY7Cg3SO" role="2Oq$k0">
                         <node concept="37vLTw" id="y3sY7CfVnV" role="2Oq$k0">
                           <ref role="3cqZAo" node="7$e6lgA3Bmu" resolve="myProject" />
                         </node>
                         <node concept="liA8E" id="y3sY7Cgdfj" role="2OqNvi">
                           <ref role="37wK5l" to="z1c5:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="7S35ELNTYmQ" role="2OqNvi">
-                        <ref role="37wK5l" to="4hrd:~IdeaFileSystem.getFile(java.lang.String)" resolve="getFile" />
-                        <node concept="1rXfSq" id="OqYxEjx_wz" role="37wK5m">
-                          <ref role="37wK5l" node="OqYxEjwwox" resolve="getBasePath" />
                         </node>
                       </node>
                     </node>

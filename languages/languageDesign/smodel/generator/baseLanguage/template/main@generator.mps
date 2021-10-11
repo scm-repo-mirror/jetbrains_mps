@@ -6,7 +6,7 @@
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="4" />
     <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -22238,6 +22238,32 @@
     <node concept="gft3U" id="5N0kNHps$pg" role="jxRDz">
       <node concept="10Nm6u" id="5N0kNHps_E3" role="gfFT$">
         <node concept="29HgVG" id="5N0kNHps_E4" role="lGtFl" />
+      </node>
+    </node>
+    <node concept="3aamgX" id="7eq243tUxeC" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="tp25:7eq243tT_Ux" resolve="Node_PresentationOperation" />
+      <node concept="gft3U" id="7eq243tU_$z" role="1lVwrX">
+        <node concept="2YIFZM" id="7eq243tUyMN" role="gfFT$">
+          <ref role="37wK5l" to="i8bi:7eq243tU0SP" resolve="present" />
+          <ref role="1Pybhc" to="i8bi:5IkW5anFcyt" resolve="SNodeOperations" />
+          <node concept="10Nm6u" id="7eq243tUyMO" role="37wK5m">
+            <node concept="29HgVG" id="7eq243tUyMP" role="lGtFl">
+              <node concept="3NFfHV" id="7eq243tUyMQ" role="3NFExx">
+                <node concept="3clFbS" id="7eq243tUyMR" role="2VODD2">
+                  <node concept="3clFbF" id="7eq243tUyMS" role="3cqZAp">
+                    <node concept="2OqwBi" id="7eq243tUyMT" role="3clFbG">
+                      <node concept="30H73N" id="7eq243tUyMU" role="2Oq$k0" />
+                      <node concept="2qgKlT" id="7eq243tUyMV" role="2OqNvi">
+                        <ref role="37wK5l" to="tpeu:hEwJdGu" resolve="getLeftExpression" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
   </node>

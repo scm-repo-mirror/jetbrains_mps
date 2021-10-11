@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-6xmt476a19wpply5pv5q9ko93q95bbo">
+<product version="3" modelHash="bxgsqwj4ow780wdwkea7n68gblghve5">
   <files names="DataFlow.java:DataFlowBuilder.java:DataFlowBuilderContext.java:DataflowBuilderException.java:MPSProgramBuilder.java:MPSProgramFactory.java" />
 </product>
 

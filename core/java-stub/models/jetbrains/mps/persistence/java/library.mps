@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:adc783db-1c21-4910-9cf7-6a22bf949a4a(jetbrains.mps.persistence.java.library)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="18" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
   </languages>
   <imports>
@@ -3444,7 +3445,6 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm6S6" id="74EzGwfNX10" role="1B3o_S" />
       <node concept="37vLTG" id="2koUMFl4jQP" role="3clF46">
         <property role="TrG5h" value="visitedFiles" />
         <node concept="2hMVRd" id="2koUMFl4o8j" role="1tU5fm">
@@ -3453,6 +3453,7 @@
           </node>
         </node>
       </node>
+      <node concept="3Tm6S6" id="74EzGwfNX10" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="1OabvAsfEQc" role="jymVt" />
     <node concept="3clFb_" id="5JsnGMj1qjX" role="jymVt">
