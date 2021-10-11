@@ -83,11 +83,6 @@ public class ClosureLiteralUtil {
     return result;
   }
   public static boolean canTargetJavaLambda(final SNode node, SNode targetType, TemplateQueryContext genContext) {
-    // TODO remove this to enable generation into java lambda (condition to prevent unreachable error)
-    if (true) {
-      return false;
-    }
-
     if (!(new BaseLanguageEnvironmentHelper().getLanguageLevel(genContext.getOriginalInputModel()).doTargetLambda())) {
       return false;
     }

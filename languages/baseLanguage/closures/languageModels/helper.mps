@@ -8236,63 +8236,6 @@
     <node concept="2YIFZL" id="2KTDc52zzjN" role="jymVt">
       <property role="TrG5h" value="canTargetJavaLambda" />
       <node concept="3clFbS" id="2KTDc52zzjQ" role="3clF47">
-        <node concept="3SKdUt" id="6gKfq_Zs3QA" role="3cqZAp">
-          <node concept="1PaTwC" id="6gKfq_Zs3QB" role="1aUNEU">
-            <node concept="3oM_SD" id="6gKfq_Zs4F2" role="1PaTwD">
-              <property role="3oM_SC" value="TODO" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4F4" role="1PaTwD">
-              <property role="3oM_SC" value="remove" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4F7" role="1PaTwD">
-              <property role="3oM_SC" value="this" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4Fb" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4Fg" role="1PaTwD">
-              <property role="3oM_SC" value="enable" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4Fm" role="1PaTwD">
-              <property role="3oM_SC" value="generation" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4Ft" role="1PaTwD">
-              <property role="3oM_SC" value="into" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4F_" role="1PaTwD">
-              <property role="3oM_SC" value="java" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zs4FI" role="1PaTwD">
-              <property role="3oM_SC" value="lambda" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zudlt" role="1PaTwD">
-              <property role="3oM_SC" value="(condition" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_ZudlU" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zudm6" role="1PaTwD">
-              <property role="3oM_SC" value="prevent" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_Zudmj" role="1PaTwD">
-              <property role="3oM_SC" value="unreachable" />
-            </node>
-            <node concept="3oM_SD" id="6gKfq_ZudmE" role="1PaTwD">
-              <property role="3oM_SC" value="error)" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="6gKfq_ZtM4n" role="3cqZAp">
-          <node concept="3clFbS" id="6gKfq_ZtM4p" role="3clFbx">
-            <node concept="3cpWs6" id="6gKfq_Zs1_U" role="3cqZAp">
-              <node concept="3clFbT" id="6gKfq_Zs29i" role="3cqZAk" />
-            </node>
-          </node>
-          <node concept="3clFbT" id="6gKfq_ZtN50" role="3clFbw">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-        <node concept="3clFbH" id="6gKfq_ZrZY4" role="3cqZAp" />
         <node concept="3clFbJ" id="6abFxTgQaw" role="3cqZAp">
           <node concept="3clFbS" id="6abFxTgQay" role="3clFbx">
             <node concept="3cpWs6" id="6abFxTh3I8" role="3cqZAp">
