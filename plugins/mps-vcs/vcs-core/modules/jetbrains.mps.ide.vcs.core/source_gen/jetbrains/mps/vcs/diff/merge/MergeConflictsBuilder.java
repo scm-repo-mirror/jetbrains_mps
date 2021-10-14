@@ -78,31 +78,12 @@ public class MergeConflictsBuilder {
     collectConflicts();
   }
 
-  public void rebuildChanges(boolean trackMovedNodes) {
-    // should be invoked from read action
-    ChangeSetBuilder.rebuildChangeSet(myMineChangeSet, trackMovedNodes);
-    ChangeSetBuilder.rebuildChangeSet(myRepositoryChangeSet, trackMovedNodes);
-    collectConflicts();
-  }
-
   public Map<ModelChange, List<ModelChange>> getConflictingChanges() {
     return myConflictingChanges;
   }
 
   public Map<ModelChange, List<ModelChange>> getSymmetricChanges() {
     return mySymmetricChanges;
-  }
-
-  public SModel getBaseModel() {
-    return myBaseModel;
-  }
-
-  public SModel getMyModel() {
-    return myMyModel;
-  }
-
-  public SModel getRepositoryModel() {
-    return myRepositoryModel;
   }
 
   public ChangeSet getMyChangeSet() {

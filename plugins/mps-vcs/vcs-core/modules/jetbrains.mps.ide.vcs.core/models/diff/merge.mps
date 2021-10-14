@@ -757,69 +757,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="3VuY1gQWhQj" role="jymVt" />
-    <node concept="3clFb_" id="3VuY1gQWBxT" role="jymVt">
-      <property role="TrG5h" value="rebuildChanges" />
-      <node concept="3clFbS" id="3VuY1gQWBxW" role="3clF47">
-        <node concept="3SKdUt" id="3VuY1gQYk3k" role="3cqZAp">
-          <node concept="1PaTwC" id="3VuY1gQYk3l" role="1aUNEU">
-            <node concept="3oM_SD" id="3VuY1gQYk3m" role="1PaTwD">
-              <property role="3oM_SC" value="should" />
-            </node>
-            <node concept="3oM_SD" id="3VuY1gQYk3n" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="3VuY1gQYk3o" role="1PaTwD">
-              <property role="3oM_SC" value="invoked" />
-            </node>
-            <node concept="3oM_SD" id="3VuY1gQYk3p" role="1PaTwD">
-              <property role="3oM_SC" value="from" />
-            </node>
-            <node concept="3oM_SD" id="3VuY1gQYk3q" role="1PaTwD">
-              <property role="3oM_SC" value="read" />
-            </node>
-            <node concept="3oM_SD" id="3VuY1gQYk3r" role="1PaTwD">
-              <property role="3oM_SC" value="action" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="5sfInVAihG1" role="3cqZAp">
-          <node concept="2YIFZM" id="5sfInVAihG2" role="3clFbG">
-            <ref role="1Pybhc" to="bfxj:42hl10VHbfH" resolve="ChangeSetBuilder" />
-            <ref role="37wK5l" to="bfxj:42hl10VHbve" resolve="rebuildChangeSet" />
-            <node concept="37vLTw" id="3VuY1gQY1HR" role="37wK5m">
-              <ref role="3cqZAo" node="3$YpntjF4iu" resolve="myMineChangeSet" />
-            </node>
-            <node concept="37vLTw" id="3VuY1gQY4Q1" role="37wK5m">
-              <ref role="3cqZAo" node="3VuY1gQXFiR" resolve="trackMovedNodes" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="5sfInVAi$C$" role="3cqZAp">
-          <node concept="2YIFZM" id="5sfInVAi$C_" role="3clFbG">
-            <ref role="37wK5l" to="bfxj:42hl10VHbve" resolve="rebuildChangeSet" />
-            <ref role="1Pybhc" to="bfxj:42hl10VHbfH" resolve="ChangeSetBuilder" />
-            <node concept="37vLTw" id="3VuY1gQY8uK" role="37wK5m">
-              <ref role="3cqZAo" node="3$YpntjF4iw" resolve="myRepositoryChangeSet" />
-            </node>
-            <node concept="37vLTw" id="3VuY1gQYbPo" role="37wK5m">
-              <ref role="3cqZAo" node="3VuY1gQXFiR" resolve="trackMovedNodes" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="3VuY1gQYf8Z" role="3cqZAp">
-          <node concept="1rXfSq" id="3VuY1gQYf8X" role="3clFbG">
-            <ref role="37wK5l" node="3$YpntjF4gv" resolve="collectConflicts" />
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="3VuY1gQWtAL" role="1B3o_S" />
-      <node concept="3cqZAl" id="3VuY1gQW$ms" role="3clF45" />
-      <node concept="37vLTG" id="3VuY1gQXFiR" role="3clF46">
-        <property role="TrG5h" value="trackMovedNodes" />
-        <node concept="10P_77" id="3VuY1gQXFiQ" role="1tU5fm" />
-      </node>
-    </node>
     <node concept="2tJIrI" id="7sCUYIi9S1a" role="jymVt" />
     <node concept="3clFb_" id="2$XQf3f7auB" role="jymVt">
       <property role="TrG5h" value="getConflictingChanges" />
@@ -863,45 +800,6 @@
           </node>
         </node>
       </node>
-    </node>
-    <node concept="2tJIrI" id="1pCPaDJrdBR" role="jymVt" />
-    <node concept="3clFb_" id="1pCPaDJrvZR" role="jymVt">
-      <property role="TrG5h" value="getBaseModel" />
-      <node concept="3clFbS" id="1pCPaDJrvZU" role="3clF47">
-        <node concept="3clFbF" id="1pCPaDJrAoq" role="3cqZAp">
-          <node concept="37vLTw" id="1pCPaDJrAop" role="3clFbG">
-            <ref role="3cqZAo" node="3$YpntjF4il" resolve="myBaseModel" />
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="1pCPaDJrmYE" role="1B3o_S" />
-      <node concept="H_c77" id="1pCPaDJrtaT" role="3clF45" />
-    </node>
-    <node concept="2tJIrI" id="2$XQf3f7nf1" role="jymVt" />
-    <node concept="3clFb_" id="1pCPaDJrFZm" role="jymVt">
-      <property role="TrG5h" value="getMyModel" />
-      <node concept="3clFbS" id="1pCPaDJrFZn" role="3clF47">
-        <node concept="3clFbF" id="1pCPaDJrFZo" role="3cqZAp">
-          <node concept="37vLTw" id="1pCPaDJrUR_" role="3clFbG">
-            <ref role="3cqZAo" node="3$YpntjF4io" resolve="myMyModel" />
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="1pCPaDJrFZq" role="1B3o_S" />
-      <node concept="H_c77" id="1pCPaDJrFZr" role="3clF45" />
-    </node>
-    <node concept="2tJIrI" id="1pCPaDJrXJW" role="jymVt" />
-    <node concept="3clFb_" id="1pCPaDJsckg" role="jymVt">
-      <property role="TrG5h" value="getRepositoryModel" />
-      <node concept="3clFbS" id="1pCPaDJsckj" role="3clF47">
-        <node concept="3clFbF" id="1pCPaDJsiGn" role="3cqZAp">
-          <node concept="37vLTw" id="1pCPaDJsiGm" role="3clFbG">
-            <ref role="3cqZAo" node="3$YpntjF4ir" resolve="myRepositoryModel" />
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="1pCPaDJs3i8" role="1B3o_S" />
-      <node concept="H_c77" id="1pCPaDJs9vi" role="3clF45" />
     </node>
     <node concept="2tJIrI" id="1pCPaDJsNz8" role="jymVt" />
     <node concept="3clFb_" id="1pCPaDJsQFY" role="jymVt">

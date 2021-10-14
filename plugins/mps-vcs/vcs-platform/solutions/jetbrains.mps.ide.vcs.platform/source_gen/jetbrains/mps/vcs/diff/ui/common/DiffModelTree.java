@@ -265,7 +265,7 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
       myPresentation = null;
       Icon icon = null;
       for (SModel model : Sequence.fromIterable(getModels())) {
-        SNode root = model.getNode(myRootId);
+        SNode root = (model != null ? model.getNode(myRootId) : null);
         if (root != null && SNodeOperations.getParent(root) == null) {
           String presentation = root.getPresentation();
           if (myPresentation == null) {

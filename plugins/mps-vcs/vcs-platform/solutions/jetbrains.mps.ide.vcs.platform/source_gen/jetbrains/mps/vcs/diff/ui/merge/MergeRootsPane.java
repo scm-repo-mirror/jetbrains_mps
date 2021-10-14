@@ -429,8 +429,7 @@ public class MergeRootsPane implements PropertyChangeListener {
 
   private DiffEditor addEditor(int index, SModel model) {
     SNodeId rootId = getRootNodeId(model);
-    SNode root = (rootId == null ? null : model.getNode(rootId));
-    final DiffEditor result = new DiffEditor(ProjectHelper.fromIdeaProject(myProject), root, myTitles[index], index == 0, isInspectorShown);
+    final DiffEditor result = new DiffEditor(ProjectHelper.fromIdeaProject(myProject), model, rootId, myTitles[index], index == 0, isInspectorShown);
     myDiffEditorsGroup.add(result);
     return result;
   }

@@ -307,7 +307,7 @@ public class StructDifferencePane implements PropertyChangeListener {
   }
 
   private DiffEditor addEditor(SModel model, SNodeId nodeId, String title, boolean isLeftEditor) {
-    DiffEditor result = new DiffEditor(ProjectHelper.fromIdeaProject(myProject), model.getNode(nodeId), title, isLeftEditor, isInspectorShown);
+    DiffEditor result = new DiffEditor(ProjectHelper.fromIdeaProject(myProject), model, nodeId, title, isLeftEditor, isInspectorShown);
     myDiffEditorsGroup.add(result);
     return result;
   }

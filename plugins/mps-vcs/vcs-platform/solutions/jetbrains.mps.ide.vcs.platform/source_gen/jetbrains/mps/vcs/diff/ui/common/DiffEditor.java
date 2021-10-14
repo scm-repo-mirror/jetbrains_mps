@@ -12,13 +12,18 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.project.MPSProject;
-import org.jetbrains.mps.openapi.model.SNode;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.awt.Dimension;
-import javax.swing.JLabel;
+import com.intellij.openapi.editor.colors.EditorColorsManager;
 import javax.swing.JPanel;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
@@ -31,9 +36,6 @@ import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.nodeEditor.EditorMessage;
 import jetbrains.mps.openapi.editor.message.FormattingOptions;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNodeId;
-import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
@@ -69,11 +71,14 @@ public class DiffEditor implements EditorMessageOwner {
   private final JComponent myTitleComponent;
   private final Map<ModelChange, List<ChangeEditorMessage>> myChangeToMessages = MapSequence.fromMap(new HashMap<ModelChange, List<ChangeEditorMessage>>());
   private final MPSProject myMpsProject;
+  private final boolean myRightToLeft;
   public static final String USE_SHORT_CHANGE_DESCRIPTIONS = "vcs.diff.use.short.change.descriptions";
+  private final JLabel myFailedToLoadModelPanel = new JLabel("Failed to load model", SwingConstants.CENTER);
 
 
-  public DiffEditor(final MPSProject project, SNode node, String contentTitle, boolean rightToLeft, boolean isInspectorShown) {
+  public DiffEditor(final MPSProject project, @Nullable SModel model, @Nullable SNodeId nodeId, String contentTitle, boolean rightToLeft, boolean isInspectorShown) {
     myMpsProject = project;
+    myRightToLeft = rightToLeft;
     myIsInspectorShown = isInspectorShown;
     myTitle = contentTitle;
     myMainEditorComponent = new MainEditorComponent(project.getRepository(), rightToLeft);
@@ -84,7 +89,10 @@ public class DiffEditor implements EditorMessageOwner {
       }
     });
 
-    myMainEditorComponent.editNode(node);
+    if (model != null) {
+      SNode node = (model == null || nodeId == null ? null : model.getNode(nodeId));
+      myMainEditorComponent.editNode(node);
+    }
     myInspectorComponent.getExternalComponent().setPreferredSize(new Dimension());
     Sequence.fromIterable(getEditorComponents()).visitAll(new IVisitor<EditorComponent>() {
       public void visit(EditorComponent ec) {
@@ -94,10 +102,16 @@ public class DiffEditor implements EditorMessageOwner {
 
     myTitleComponent = new JLabel(((contentTitle == null || contentTitle.length() == 0) ? "" : contentTitle));
 
-    myPanel.setFirstComponent(getTopComponent());
+    myFailedToLoadModelPanel.setBackground(EditorColorsManager.getInstance().getSchemeForCurrentUITheme().getDefaultBackground());
+    myFailedToLoadModelPanel.setOpaque(true);
+    myPanel.setFirstComponent((model != null ? getTopComponent() : myFailedToLoadModelPanel));
     if (isInspectorShown) {
       myPanel.setSecondComponent(getBottomComponent());
     }
+  }
+
+  /*package*/ boolean isRightToLeft() {
+    return myRightToLeft;
   }
 
   public JPanel getPanel() {
@@ -172,7 +186,12 @@ public class DiffEditor implements EditorMessageOwner {
     return getMainEditor().getEditedNode();
   }
 
-  public void editRoot(@Nullable SNodeId rootId, @NotNull SModel model) {
+  public void editRoot(@Nullable SNodeId rootId, @Nullable SModel model) {
+    if (model == null) {
+      myPanel.setFirstComponent(myFailedToLoadModelPanel);
+      return;
+    }
+    myPanel.setFirstComponent(getTopComponent());
     SNode root = (rootId == null ? null : model.getNode(rootId));
     getMainEditor().editNode(root);
   }

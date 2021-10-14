@@ -261,6 +261,7 @@
   <dependency className="jetbrains.mps.vcs.diff.ui.common.DiffEditor">
     <classNode dependClassName="com.intellij.ide.util.PropertiesComponent" />
     <classNode dependClassName="com.intellij.openapi.actionSystem.PlatformDataKeys" />
+    <classNode dependClassName="com.intellij.openapi.editor.colors.EditorColorsManager" />
     <classNode dependClassName="com.intellij.ui.JBSplitter" />
     <classNode dependClassName="com.intellij.util.ui.JBUI" />
     <classNode dependClassName="java.awt.Dimension" />
@@ -281,6 +282,7 @@
     <classNode dependClassName="javax.swing.JLabel" />
     <classNode dependClassName="javax.swing.JPanel" />
     <classNode dependClassName="javax.swing.JScrollPane" />
+    <classNode dependClassName="javax.swing.SwingConstants" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
@@ -642,12 +644,11 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="javax.swing.Icon" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ITranslator2" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.NotNullWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.EditorComponent" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorComponent" />
@@ -680,6 +681,7 @@
     <classNode dependClassName="com.intellij.util.ui.update.MergingUpdateQueue" />
     <classNode dependClassName="com.intellij.util.ui.update.Update" />
     <classNode dependClassName="java.awt.Color" />
+    <classNode dependClassName="java.awt.Component" />
     <classNode dependClassName="java.awt.Graphics" />
     <classNode dependClassName="java.awt.Graphics2D" />
     <classNode dependClassName="java.awt.event.MouseAdapter" />

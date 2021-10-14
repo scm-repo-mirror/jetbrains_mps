@@ -5673,36 +5673,6 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="2jv$fqwevkY" role="3cqZAp">
-          <node concept="3cpWsn" id="2jv$fqwevkZ" role="3cpWs9">
-            <property role="TrG5h" value="root" />
-            <node concept="3uibUv" id="2jv$fqwevl0" role="1tU5fm">
-              <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-            </node>
-            <node concept="3K4zz7" id="2jv$fqwevl1" role="33vP2m">
-              <node concept="2OqwBi" id="2jv$fqwevl2" role="3K4GZi">
-                <node concept="liA8E" id="2jv$fqwevl3" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SModel.getNode(org.jetbrains.mps.openapi.model.SNodeId)" resolve="getNode" />
-                  <node concept="37vLTw" id="3GM_nagTxhL" role="37wK5m">
-                    <ref role="3cqZAo" node="2jv$fqwevkU" resolve="rootId" />
-                  </node>
-                </node>
-                <node concept="2JrnkZ" id="2jv$fqwevl5" role="2Oq$k0">
-                  <node concept="37vLTw" id="2BHiRxgm9Vb" role="2JrQYb">
-                    <ref role="3cqZAo" node="2jv$fqwevkQ" resolve="model" />
-                  </node>
-                </node>
-              </node>
-              <node concept="10Nm6u" id="2jv$fqwevl7" role="3K4E3e" />
-              <node concept="3clFbC" id="2jv$fqwevl8" role="3K4Cdx">
-                <node concept="10Nm6u" id="2jv$fqwevl9" role="3uHU7w" />
-                <node concept="37vLTw" id="3GM_nagTrRd" role="3uHU7B">
-                  <ref role="3cqZAo" node="2jv$fqwevkU" resolve="rootId" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs8" id="2jv$fqwevlb" role="3cqZAp">
           <node concept="3cpWsn" id="2jv$fqwevlc" role="3cpWs9">
             <property role="TrG5h" value="result" />
@@ -5721,7 +5691,10 @@
                   </node>
                 </node>
                 <node concept="37vLTw" id="3GM_nagTt0W" role="37wK5m">
-                  <ref role="3cqZAo" node="2jv$fqwevkZ" resolve="root" />
+                  <ref role="3cqZAo" node="2jv$fqwevkQ" resolve="model" />
+                </node>
+                <node concept="37vLTw" id="1Ahjuz8PMel" role="37wK5m">
+                  <ref role="3cqZAo" node="2jv$fqwevkU" resolve="rootId" />
                 </node>
                 <node concept="AH0OO" id="2jv$fqwevlk" role="37wK5m">
                   <node concept="37vLTw" id="2jv$fqwevll" role="AHHXb">

@@ -7,12 +7,14 @@ import jetbrains.mps.vcs.diff.merge.MergeConflictsBuilder;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import java.util.List;
-import jetbrains.mps.vcs.diff.ChangeSet;
-import java.util.Arrays;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.vcs.diff.ModelChangeSet;
 import jetbrains.mps.vcs.diff.ui.common.ChangeEditorMessage;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
+import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.vcs.diff.ChangeSet;
 import javax.swing.JPanel;
 import com.intellij.ui.JBSplitter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -20,9 +22,9 @@ import jetbrains.mps.vcs.diff.ui.common.DiffEditor;
 import com.intellij.diff.tools.util.side.ThreesideContentPanel;
 import com.intellij.diff.util.Side;
 import com.intellij.ide.util.PropertiesComponent;
+import jetbrains.mps.vcs.diff.ChangeSetBuilder;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.vcs.diff.ChangeSetImpl;
 import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
 
 @GeneratedClass(node = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)/1614774294889322589", model = "r:df1b052a-af27-4b87-80fc-1492fa2192be(jetbrains.mps.vcs.diff.ui)")
@@ -31,32 +33,21 @@ import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
   private MergeConflictsBuilder myConflictsBuilder;
 
 
-  /*package*/ ThreeSideRootDifferencePane(MPSProject mpsProject, MergeConflictsBuilder mergeConflictsBuilder, SNodeId rootId, String rootName, List<String> titles) {
-    super(mpsProject, rootId, rootName, titles, getChangeSets(mergeConflictsBuilder), false);
-    myConflictsBuilder = mergeConflictsBuilder;
-  }
-
-  private static List<ChangeSet> getChangeSets(MergeConflictsBuilder conflictsBuilder) {
-    // Opposite changes were used to collect the conflicting changes. And here we need regular changes in
-    // order to get correct tooltip messages and correct change types.
-    return Arrays.asList(conflictsBuilder.getMyChangeSet().getOppositeChangeSet(), conflictsBuilder.getRepositoryChangeSet().getOppositeChangeSet());
+  /*package*/ ThreeSideRootDifferencePane(MPSProject mpsProject, SNodeId rootId, boolean isMetadataView, List<String> titles, List<SModel> models, List<SModel> metadataModels, List<ModelChangeSet> changeSets, List<ModelChangeSet> metadataChangeSets) {
+    super(mpsProject, rootId, isMetadataView, titles, models, metadataModels, changeSets, metadataChangeSets);
   }
 
   @Override
   protected ChangeEditorMessage.ConflictChecker getConflictChecker() {
     return new ChangeEditorMessage.ConflictChecker() {
       public boolean isChangeConflicted(ModelChange ch) {
-        return ListSequence.fromList(MapSequence.fromMap(getConflictsBuilder().getConflictingChanges()).get(ch.getOppositeChange())).isNotEmpty();
+        return (myConflictsBuilder == null ? false : ListSequence.fromList(MapSequence.fromMap(myConflictsBuilder.getConflictingChanges()).get(ch.getOppositeChange())).isNotEmpty());
       }
     };
   }
 
-  private MergeConflictsBuilder getConflictsBuilder() {
-    return myConflictsBuilder;
-  }
-
-  /*package*/ void setConflictsBuilder(MergeConflictsBuilder conflictsBuilder) {
-    myConflictsBuilder = conflictsBuilder;
+  private MergeConflictsBuilder createConflictsBuilder(@NotNull ChangeSet myChangeSet, @NotNull ChangeSet repoChangeSet) {
+    return MergeConflictsBuilder.createOppositeConflictsBuilder(myChangeSet.getOppositeChangeSet(), repoChangeSet.getOppositeChangeSet());
   }
 
   @Override
@@ -94,9 +85,9 @@ import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
 
   @Override
   public void editRootId(SNodeId rootId) {
-    getMyEditor().editRoot(rootId, getConflictsBuilder().getMyModel());
-    getBaseEditor().editRoot(rootId, getConflictsBuilder().getBaseModel());
-    getRepoEditor().editRoot(rootId, getConflictsBuilder().getRepositoryModel());
+    getMyEditor().editRoot(rootId, getMyModel());
+    getBaseEditor().editRoot(rootId, getBaseModel());
+    getRepoEditor().editRoot(rootId, getRepoModel());
   }
 
   @Override
@@ -104,9 +95,19 @@ import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
     if (myDisposed) {
       return;
     }
+    ModelChangeSet myChangeSet = getMyChangeSet();
+    ModelChangeSet repoChangeSet = getRepoChangeSet();
     if (rebuildChangeSet) {
       boolean trackMovedNodes = PropertiesComponent.getInstance().getBoolean("vcs.diff.track.moved.nodes", false);
-      getConflictsBuilder().rebuildChanges(trackMovedNodes);
+      if (myChangeSet != null) {
+        ChangeSetBuilder.rebuildChangeSet(myChangeSet, trackMovedNodes);
+      }
+      if (repoChangeSet != null) {
+        ChangeSetBuilder.rebuildChangeSet(repoChangeSet, trackMovedNodes);
+      }
+      if (myChangeSet != null && repoChangeSet != null) {
+        myConflictsBuilder = createConflictsBuilder(myChangeSet, repoChangeSet);
+      }
     }
     ListSequence.fromList(getEditors()).visitAll(new IVisitor<DiffEditor>() {
       public void visit(DiffEditor it) {
@@ -115,10 +116,29 @@ import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
     });
 
     if (getBaseEditor().getEditedNode() == null) {
-      getBaseEditor().editRoot(getRootId(), getConflictsBuilder().getBaseModel());
+      getBaseEditor().editRoot(getRootId(), getBaseModel());
     }
     getBaseEditor().getMainEditor().rebuildEditorContent();
     highlightAllChanges();
+  }
+
+  private ModelChangeSet getMyChangeSet() {
+    return ListSequence.fromList(getChangeSets()).getElement(0);
+  }
+  private ModelChangeSet getRepoChangeSet() {
+    return ListSequence.fromList(getChangeSets()).getElement(1);
+  }
+
+  private SModel getMyModel() {
+    return ListSequence.fromList(getModels()).getElement(0);
+  }
+
+  private SModel getBaseModel() {
+    return ListSequence.fromList(getModels()).getElement(1);
+  }
+
+  private SModel getRepoModel() {
+    return ListSequence.fromList(getModels()).getElement(2);
   }
 
   @Override
@@ -128,31 +148,28 @@ import jetbrains.mps.vcs.diff.ui.common.DiffChangeGroupLayout;
         it.unhighlightAllChanges();
       }
     });
-    // Opposite changes were used to collect the conflicting changes. And here we need regular changes in
-    // order to get correct tooltip messages and correct change types.
-    Iterable<ModelChange> myChanges = Sequence.fromIterable(getChangesToHighlight((ChangeSetImpl) getConflictsBuilder().getMyChangeSet())).select(new ISelector<ModelChange, ModelChange>() {
-      public ModelChange select(ModelChange it) {
-        return it.getOppositeChange();
-      }
-    });
-    Iterable<ModelChange> repoChanges = Sequence.fromIterable(getChangesToHighlight((ChangeSetImpl) getConflictsBuilder().getRepositoryChangeSet())).select(new ISelector<ModelChange, ModelChange>() {
-      public ModelChange select(ModelChange it) {
-        return it.getOppositeChange();
-      }
-    });
-    getMyEditor().highlightChanges(getConflictsBuilder().getMyModel(), myChanges, true, getConflictChecker());
-    getBaseEditor().highlightChanges(getConflictsBuilder().getBaseModel(), Sequence.fromIterable(myChanges).concat(Sequence.fromIterable(repoChanges)), false, getConflictChecker());
-    getRepoEditor().highlightChanges(getConflictsBuilder().getRepositoryModel(), repoChanges, true, getConflictChecker());
+    Iterable<ModelChange> myChanges = getChangesToHighlight(getMyChangeSet());
+    Iterable<ModelChange> repoChanges = getChangesToHighlight(getRepoChangeSet());
+
+    if (getMyModel() != null) {
+      getMyEditor().highlightChanges(getMyModel(), myChanges, true, getConflictChecker());
+    }
+    if (getBaseModel() != null) {
+      getBaseEditor().highlightChanges(getBaseModel(), Sequence.fromIterable(myChanges).concat(Sequence.fromIterable(repoChanges)), false, getConflictChecker());
+    }
+    if (getRepoModel() != null) {
+      getRepoEditor().highlightChanges(getRepoModel(), repoChanges, true, getConflictChecker());
+    }
     invalidateLayouts();
   }
 
   @Override
   protected ChangeSet getChangeSet(DiffEditor leftEditor, DiffEditor rightEditor) {
     if (leftEditor == getMyEditor() && rightEditor == getBaseEditor()) {
-      return getConflictsBuilder().getMyChangeSet().getOppositeChangeSet();
+      return getMyChangeSet();
     }
     if (leftEditor == getBaseEditor() && rightEditor == getRepoEditor()) {
-      return getConflictsBuilder().getRepositoryChangeSet().getOppositeChangeSet();
+      return getRepoChangeSet();
     }
     return null;
   }
