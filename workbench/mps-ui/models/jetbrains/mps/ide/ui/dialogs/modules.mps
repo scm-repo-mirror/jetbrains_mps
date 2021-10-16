@@ -2503,6 +2503,11 @@
                                 </node>
                               </node>
                             </node>
+                            <node concept="3clFbF" id="7vE1jcMYDSx" role="3cqZAp">
+                              <node concept="1rXfSq" id="7vE1jcMYDSv" role="3clFbG">
+                                <ref role="37wK5l" node="7G8zgmv$nkw" resolve="fireChanged" />
+                              </node>
+                            </node>
                           </node>
                         </node>
                       </node>

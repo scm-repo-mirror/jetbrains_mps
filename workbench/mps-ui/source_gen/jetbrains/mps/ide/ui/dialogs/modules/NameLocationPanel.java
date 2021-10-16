@@ -77,6 +77,7 @@ public final class NameLocationPanel extends JPanel {
       protected void textChanged(DocumentEvent p0) {
         if (myLocationDocListenerEnabled) {
           mySelectedLocation = new File(myModuleLocation.getText());
+          fireChanged();
         }
       }
     });
