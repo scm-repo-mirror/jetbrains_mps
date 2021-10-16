@@ -24,6 +24,11 @@ import java.awt.Component;
 import java.awt.Insets;
 import java.awt.GridBagConstraints;
 
+/**
+ * 
+ * @deprecated use {@code NameLocationPanel} instead. This class requires subclassing, in addition to subclass of AbstractModuleCreationDialog; too much.
+ */
+@Deprecated
 @GeneratedClass(node = "r:47803144-d0ed-4800-ae84-e83a292e3adb(jetbrains.mps.ide.ui.dialogs.modules)/289384041347491301", model = "r:47803144-d0ed-4800-ae84-e83a292e3adb(jetbrains.mps.ide.ui.dialogs.modules)")
 public abstract class AbstractModuleCreationSettings extends JPanel {
 
@@ -37,6 +42,7 @@ public abstract class AbstractModuleCreationSettings extends JPanel {
 
   protected String myProjectPath;
 
+  @Deprecated
   protected AbstractModuleCreationSettings(@Nullable String projectPath, String moduleNameLabel, String moduleLocationLabel) {
     super(new GridBagLayout());
 

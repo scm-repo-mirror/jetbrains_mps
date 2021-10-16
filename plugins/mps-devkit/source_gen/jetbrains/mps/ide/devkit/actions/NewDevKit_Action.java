@@ -52,7 +52,7 @@ public class NewDevKit_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     NewDevKitDialog dialog = new NewDevKitDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), ((String) MapSequence.fromMap(_params).get("namespace")));
     dialog.show();
-    DevKit devkit = dialog.getModule();
+    DevKit devkit = dialog.getResult();
     if (devkit == null) {
       return;
     }

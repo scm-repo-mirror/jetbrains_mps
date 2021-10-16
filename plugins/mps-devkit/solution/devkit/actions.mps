@@ -819,7 +819,7 @@
                 <ref role="3cqZAo" node="56$IWKxenav" resolve="dialog" />
               </node>
               <node concept="liA8E" id="7o065Etxun4" role="2OqNvi">
-                <ref role="37wK5l" to="dsk9:3pY4pKeZj_N" resolve="getModule" />
+                <ref role="37wK5l" to="tpro:7G8zgmvP2wN" resolve="getResult" />
               </node>
             </node>
           </node>
