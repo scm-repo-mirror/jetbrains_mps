@@ -658,10 +658,14 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
             return isExtendsDep && !scanTask.getExtendsSet().contains(moduleImport.getModuleReference());
           }, DependencyCellState.SUPERFLUOUS_EXTENDS);
         }
-        cellRender.addCellState(
-            moduleImport -> !scanTask.getGenerationTargets().contains(moduleImport.getModuleReference()) &&
-                            !scanTask.getCrossModuleSet().contains(moduleImport.getModuleReference()),
-            DependencyCellState.UNUSED);
+        if (false == myModule instanceof DevKit) {
+          // unused imports make no sense for devkit. Perhaps, for other modules, too, but
+          // this is the way we've got MPS now
+          cellRender.addCellState(
+              moduleImport -> !scanTask.getGenerationTargets().contains(moduleImport.getModuleReference()) &&
+                              !scanTask.getCrossModuleSet().contains(moduleImport.getModuleReference()),
+              DependencyCellState.UNUSED);
+        }
         myDependTableModel.fireTableDataChanged();
         ModuleDependenciesTab.this.setTableContentIsLoading(false);
       };
