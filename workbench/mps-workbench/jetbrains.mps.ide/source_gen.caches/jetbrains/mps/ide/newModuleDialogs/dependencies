@@ -28,6 +28,7 @@
   <uses module="5593bf7e-4f21-422d-947c-e60d33010362(jetbrains.mps.project)" kind="dp" />
   <dependency className="jetbrains.mps.ide.newModuleDialogs.AbstractModuleCreationDialog">
     <classNode dependClassName="com.intellij.project.ProjectKt" />
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="javax.swing.JComponent" />
@@ -157,6 +158,7 @@
     <classNode extendsClassName="jetbrains.mps.ide.newModuleDialogs.AbstractModuleCreationDialog" />
   </dependency>
   <dependency className="jetbrains.mps.ide.newModuleDialogs.NewSolutionDialog">
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
@@ -165,7 +167,6 @@
     <classNode dependClassName="jetbrains.mps.project.MPSExtentions" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.project.Solution" />
-    <classNode dependClassName="jetbrains.mps.project.StandaloneMPSProject" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.ide.newModuleDialogs.AbstractModuleCreationDialog" />
   </dependency>

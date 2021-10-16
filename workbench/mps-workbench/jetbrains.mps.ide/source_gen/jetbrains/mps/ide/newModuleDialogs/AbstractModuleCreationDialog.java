@@ -13,6 +13,11 @@ import javax.swing.JComponent;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
+/**
+ * 
+ * @deprecated don't use; poor design that requires few subclasses to accomplish simple task
+ */
+@Deprecated(forRemoval = true, since = "2021.3")
 @GeneratedClass(node = "r:8bdc9cf5-28de-48ab-8b85-36b2d96bc635(jetbrains.mps.ide.newModuleDialogs)/3357388636346012335", model = "r:8bdc9cf5-28de-48ab-8b85-36b2d96bc635(jetbrains.mps.ide.newModuleDialogs)")
 public abstract class AbstractModuleCreationDialog<R extends AbstractModule> extends DialogWrapper {
   protected R myResult;
@@ -23,6 +28,7 @@ public abstract class AbstractModuleCreationDialog<R extends AbstractModule> ext
   protected String myVirtualFolder;
 
 
+  @Deprecated
   public AbstractModuleCreationDialog(MPSProject project, @Nullable String virtualFolder) {
     super(project.getProject());
 

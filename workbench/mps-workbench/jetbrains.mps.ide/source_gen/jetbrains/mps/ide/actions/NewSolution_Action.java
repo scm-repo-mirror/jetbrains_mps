@@ -12,8 +12,13 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.workbench.MPSDataKeys;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.ide.newModuleDialogs.NewSolutionDialog;
+import jetbrains.mps.ide.ui.dialogs.modules.NameLocationPanel;
+import jetbrains.mps.ide.ui.dialogs.modules.NewModuleDialog;
 import jetbrains.mps.project.Solution;
+import java.util.function.Supplier;
+import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
+import jetbrains.mps.project.MPSExtentions;
+import java.io.File;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1229271450720", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
@@ -49,9 +54,34 @@ public class NewSolution_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    NewSolutionDialog dialog = new NewSolutionDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), ((String) MapSequence.fromMap(_params).get("namespace")));
+    final MPSProject mpsProject = ((MPSProject) MapSequence.fromMap(_params).get("project"));
+    final String virtualFolder = ((String) MapSequence.fromMap(_params).get("namespace"));
+    final NameLocationPanel cfg = new NameLocationPanel(NewModuleDialog.projectHome(mpsProject), "Solution name:", "Solution file location:");
+    cfg.withDefaults("NewSolution", "solutions");
+    NewModuleDialog<Solution> dialog = new NewModuleDialog<>(mpsProject, cfg);
+    dialog.withCheck(new Supplier<String>() {
+      public String get() {
+        return NewModuleUtil.check(mpsProject, MPSExtentions.DOT_SOLUTION, cfg.getModuleName(), cfg.getModuleLocation().getAbsolutePath());
+      }
+    });
+    dialog.withFactory(new Supplier<Solution>() {
+      public Solution get() {
+        String devkitName = cfg.getModuleName();
+        File devkitLocation = cfg.getModuleLocation();
+        Solution result = NewModuleUtil.createSolution(devkitName, devkitLocation.getAbsolutePath(), mpsProject);
+        mpsProject.setVirtualFolder(result, virtualFolder);
+        mpsProject.save();
+        return result;
+      }
+    });
+
+    dialog.setTitle("New Solution");
     dialog.show();
-    Solution solution = dialog.getModule();
+    if (!(dialog.isOK())) {
+      return;
+    }
+
+    Solution solution = dialog.getResult();
     if (solution == null) {
       return;
     }

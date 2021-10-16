@@ -13,8 +13,13 @@ import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.workbench.MPSDataKeys;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.ide.devkit.newDevkitDialog.NewDevKitDialog;
+import jetbrains.mps.ide.ui.dialogs.modules.NameLocationPanel;
+import jetbrains.mps.ide.ui.dialogs.modules.NewModuleDialog;
 import jetbrains.mps.project.DevKit;
+import java.util.function.Supplier;
+import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
+import jetbrains.mps.project.MPSExtentions;
+import java.io.File;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/5883033498657845915", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
@@ -50,14 +55,39 @@ public class NewDevKit_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    NewDevKitDialog dialog = new NewDevKitDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), ((String) MapSequence.fromMap(_params).get("namespace")));
+    final MPSProject mpsProject = ((MPSProject) MapSequence.fromMap(_params).get("project"));
+    final String virtualFolder = ((String) MapSequence.fromMap(_params).get("namespace"));
+    final NameLocationPanel cfg = new NameLocationPanel(NewModuleDialog.projectHome(mpsProject), "Devkit name:", "Devkit file location:");
+    cfg.withDefaults("NewDevkit", "devkits");
+    NewModuleDialog<DevKit> dialog = new NewModuleDialog<>(mpsProject, cfg);
+    dialog.withCheck(new Supplier<String>() {
+      public String get() {
+        return NewModuleUtil.check(mpsProject, MPSExtentions.DOT_DEVKIT, cfg.getModuleName(), cfg.getModuleLocation().getAbsolutePath());
+      }
+    });
+    dialog.withFactory(new Supplier<DevKit>() {
+      public DevKit get() {
+        String devkitName = cfg.getModuleName();
+        File devkitLocation = cfg.getModuleLocation();
+        DevKit result = NewModuleUtil.createDevKit(devkitName, devkitLocation.getAbsolutePath(), mpsProject);
+        mpsProject.setVirtualFolder(result, virtualFolder);
+        mpsProject.save();
+        return result;
+      }
+    });
+
+    dialog.setTitle("New Devkit");
     dialog.show();
+    if (!(dialog.isOK())) {
+      return;
+    }
+
     DevKit devkit = dialog.getResult();
     if (devkit == null) {
       return;
     }
 
-    ProjectPane projectPane = ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("project")));
+    ProjectPane projectPane = ProjectPane.getInstance(mpsProject);
     projectPane.selectModule(devkit, false);
   }
 }

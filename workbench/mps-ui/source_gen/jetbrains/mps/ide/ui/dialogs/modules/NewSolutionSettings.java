@@ -4,13 +4,20 @@ package jetbrains.mps.ide.ui.dialogs.modules;
 
 import jetbrains.mps.annotations.GeneratedClass;
 
+/**
+ * 
+ * @deprecated use NameLocationPanel
+ */
+@Deprecated(forRemoval = true, since = "2021.3")
 @GeneratedClass(node = "r:47803144-d0ed-4800-ae84-e83a292e3adb(jetbrains.mps.ide.ui.dialogs.modules)/3978024352671960228", model = "r:47803144-d0ed-4800-ae84-e83a292e3adb(jetbrains.mps.ide.ui.dialogs.modules)")
 public class NewSolutionSettings extends AbstractModuleCreationSettings {
 
+  @Deprecated
   public NewSolutionSettings() {
     this(null);
   }
 
+  @Deprecated
   public NewSolutionSettings(String projectPath) {
     super(projectPath, "Solution name:", "Solution file location:");
   }

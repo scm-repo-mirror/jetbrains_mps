@@ -7,13 +7,18 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
-import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.ide.ui.dialogs.modules.NewSolutionSettings;
 
+/**
+ * 
+ * @deprecated use {@code NewModuleDialog} instead. MPS doesn't use this class any more and it will be removed in the next release!
+ */
+@Deprecated(forRemoval = true, since = "2021.3")
 @GeneratedClass(node = "r:8bdc9cf5-28de-48ab-8b85-36b2d96bc635(jetbrains.mps.ide.newModuleDialogs)/3926595287074919987", model = "r:8bdc9cf5-28de-48ab-8b85-36b2d96bc635(jetbrains.mps.ide.newModuleDialogs)")
 public class NewSolutionDialog extends AbstractModuleCreationDialog<Solution> {
 
+  @Deprecated
   public NewSolutionDialog(MPSProject project, @Nullable String virtualFolder) {
     super(project, virtualFolder);
     setTitle("New Solution");
@@ -26,7 +31,7 @@ public class NewSolutionDialog extends AbstractModuleCreationDialog<Solution> {
     String solutionName = mySettings.getModuleName();
     String solutionLocation = mySettings.getModuleLocation();
     myResult = NewModuleUtil.createSolution(solutionName, solutionLocation, myProject);
-    ((StandaloneMPSProject) myProject).setFolderFor(myResult, myVirtualFolder);
+    myProject.setVirtualFolder(myResult, myVirtualFolder);
     myProject.save();
   }
 

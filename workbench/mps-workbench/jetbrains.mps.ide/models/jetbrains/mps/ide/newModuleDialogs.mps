@@ -64,9 +64,14 @@
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
+        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
+      </concept>
+      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
+        <reference id="1188214555875" name="key" index="2B6OnR" />
+        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -275,6 +280,15 @@
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
+      <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
+        <child id="3106559687488741665" name="line" index="2Xj1qM" />
+      </concept>
+      <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
+        <child id="6962838954693749192" name="tag" index="qph3F" />
+      </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
       </concept>
@@ -451,18 +465,11 @@
         </node>
         <node concept="3clFbF" id="2nvU_Iukjyg" role="3cqZAp">
           <node concept="2OqwBi" id="2nvU_IuklM2" role="3clFbG">
-            <node concept="1eOMI4" id="2nvU_IuklAm" role="2Oq$k0">
-              <node concept="10QFUN" id="2nvU_Iuklvp" role="1eOMHV">
-                <node concept="3uibUv" id="2nvU_Iuklvw" role="10QFUM">
-                  <ref role="3uigEE" to="z1c5:~StandaloneMPSProject" resolve="StandaloneMPSProject" />
-                </node>
-                <node concept="37vLTw" id="2nvU_Iukjyf" role="10QFUP">
-                  <ref role="3cqZAo" node="Ecfd3cMwd2" resolve="myProject" />
-                </node>
-              </node>
+            <node concept="37vLTw" id="2nvU_Iukjyf" role="2Oq$k0">
+              <ref role="3cqZAo" node="Ecfd3cMwd2" resolve="myProject" />
             </node>
             <node concept="liA8E" id="2nvU_IukmAe" role="2OqNvi">
-              <ref role="37wK5l" to="z1c5:~StandaloneMPSProject.setFolderFor(org.jetbrains.mps.openapi.module.SModule,java.lang.String)" resolve="setFolderFor" />
+              <ref role="37wK5l" to="z1c3:~ProjectBase.setVirtualFolder(org.jetbrains.mps.openapi.module.SModule,java.lang.String)" resolve="setVirtualFolder" />
               <node concept="37vLTw" id="2UnPMOMm63D" role="37wK5m">
                 <ref role="3cqZAo" node="2UnPMOMlF4U" resolve="myResult" />
               </node>
@@ -536,6 +543,42 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="3pY4pKeOHoO" role="1B3o_S" />
+    <node concept="3UR2Jj" id="3mo93YU2bDW" role="lGtFl">
+      <node concept="TZ5HI" id="3mo93YU2bDX" role="3nqlJM">
+        <node concept="TZ5HA" id="3mo93YU2bDY" role="3HnX3l">
+          <node concept="1dT_AC" id="3mo93YU2ey5" role="1dT_Ay">
+            <property role="1dT_AB" value="use " />
+          </node>
+          <node concept="1dT_AA" id="3mo93YU2ey8" role="1dT_Ay">
+            <node concept="VVOAv" id="3mo93YU2eye" role="qph3F">
+              <node concept="TZ5HA" id="3mo93YU2eyg" role="2Xj1qM">
+                <node concept="1dT_AC" id="3mo93YU2eyk" role="1dT_Ay">
+                  <property role="1dT_AB" value="NewModuleDialog" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="3mo93YU2ey7" role="1dT_Ay">
+            <property role="1dT_AB" value=" instead. MPS doesn't use this class any more and it will be removed in the next release!" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="3mo93YU2bDZ" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+      <node concept="2B6LJw" id="3mo93YU2ctN" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+        <node concept="3clFbT" id="3mo93YU2ejM" role="2B70Vg">
+          <property role="3clFbU" value="true" />
+        </node>
+      </node>
+      <node concept="2B6LJw" id="3mo93YU2ejT" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+        <node concept="Xl_RD" id="3mo93YU2exS" role="2B70Vg">
+          <property role="Xl_RC" value="2021.3" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="312cEu" id="7iZR6YlW8ti">
     <property role="TrG5h" value="NewLanguageDialog" />
@@ -3290,6 +3333,30 @@
     </node>
     <node concept="3uibUv" id="2UnPMOMlAd3" role="1zkMxy">
       <ref role="3uigEE" to="jkm4:~DialogWrapper" resolve="DialogWrapper" />
+    </node>
+    <node concept="3UR2Jj" id="3mo93YU2f9O" role="lGtFl">
+      <node concept="TZ5HI" id="3mo93YU2f9P" role="3nqlJM">
+        <node concept="TZ5HA" id="3mo93YU2f9Q" role="3HnX3l">
+          <node concept="1dT_AC" id="3mo93YU2gr4" role="1dT_Ay">
+            <property role="1dT_AB" value="don't use; poor design that requires few subclasses to accomplish simple task" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="3mo93YU2f9R" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+      <node concept="2B6LJw" id="3mo93YU2gr6" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+        <node concept="3clFbT" id="3mo93YU2gEN" role="2B70Vg">
+          <property role="3clFbU" value="true" />
+        </node>
+      </node>
+      <node concept="2B6LJw" id="3mo93YU2gEU" role="2B76xF">
+        <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+        <node concept="Xl_RD" id="3mo93YU2gY6" role="2B70Vg">
+          <property role="Xl_RC" value="2021.3" />
+        </node>
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="2UnPMOMpJla">
