@@ -150,7 +150,25 @@
                   <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="1240327119637" />
                 </mapping-set-element>
                 <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="7551657168185584731" />
+                </mapping-set-element>
+                <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="5692182839348358131" />
+                </mapping-set-element>
+                <mapping-set-element>
                   <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="6407023681583038100" />
+                </mapping-set-element>
+                <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="1717381292179408189" />
+                </mapping-set-element>
+                <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="4693937538534631146" />
+                </mapping-set-element>
+                <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="3648723375514217924" />
+                </mapping-set-element>
+                <mapping-set-element>
+                  <mapping-node modelUID="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" nodeID="8564914671171160406" />
                 </mapping-set-element>
               </mapping-set>
             </external-mapping>
