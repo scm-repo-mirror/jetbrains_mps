@@ -15,12 +15,15 @@
  */
 package jetbrains.mps.ide.persistence;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.extensions.PluginDescriptor;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.persistence.SModelIdFactory;
 
 /*
  * XXX likely shall get merged into ModelFactoryRegister, no reason for a distinct
@@ -37,11 +40,20 @@ public class PersistenceComponent implements ApplicationComponent {
     final MPSCoreComponents mpsCore = MPSCoreComponents.getInstance();
     PersistenceRegistry registry = mpsCore.getPlatform().findComponent(PersistenceRegistry.class);
 
+    final ModelIdFactoryExtension[] idFactories = ModelIdFactoryExtension.EXTENSION_POINT.getExtensions();
+    for (ModelIdFactoryExtension idFactory : idFactories) {
+      try {
+        registry.setModelIdFactory(idFactory.getType(), idFactory.createInstance());
+      } catch (RuntimeException ex) {
+        LOG.error(String.format("Failed to instantiate model id factory extension (class %s from plugin %s)", idFactory.myImplementationClass, idFactory.getPluginDescriptor().getPluginId()), ex);
+      }
+    }
+
     ModelRootFactoryEP[] extensions = ModelRootFactoryEP.EP_NAME.getExtensions();
     for (ModelRootFactoryEP extension : extensions) {
       try {
-        registry.setModelRootFactory(extension.rootType, extension.getFactory());
-      } catch (ClassNotFoundException ex) {
+        registry.setModelRootFactory(extension.rootType, extension.createInstance());
+      } catch (RuntimeException ex) {
         String f = "Failed to instantiate model root factory extension (class %s from plugin %s)";
         String m = String.format(f, extension.className, extension.getPluginDescriptor().getPluginId());
         LOG.error(m);
