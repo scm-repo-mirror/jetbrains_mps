@@ -2577,7 +2577,17 @@ public class QueriesGenerated {
     return SLinkOperations.collectMany(SLinkOperations.getChildren(_context.getNode(), LINKS.cases$m7UV), LINKS.members$Eq_0);
   }
   public static SNode weavingRule_ContextQuery_59_0(final WeavingMappingRuleContext _context) {
-    return _context.getCopiedOutputNodeForInputNode(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, false));
+    SNode classAncestor = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, false);
+    if (classAncestor == null) {
+      // solely to deal with scenario when lang.smodel generator
+      // runs at the same step with a generator that translates IMemberContainer
+      // into ClassConcept. E.g. lang.behavior.ConceptBehavior (IMemberContainer)
+      // Unless I deal with mc_concept_method_call that has to run together with
+      // lang.behavior, I shall account for behavior aspect running 
+      // lang.behavior and lang.smodel generators together
+      classAncestor = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.IMemberContainer$yM, false, false);
+    }
+    return _context.getCopiedOutputNodeForInputNode(classAncestor);
   }
   public static boolean mc_Condition_3(final TemplateQueryContext _context) {
     // FIXME Blank MC left as an empty placeholder as there are generator priority rules that reference it
@@ -2853,6 +2863,7 @@ public class QueriesGenerated {
     /*package*/ static final SConcept SubconceptCase$o1 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x527e98a73771f432L, "jetbrains.mps.lang.smodel.structure.SubconceptCase");
     /*package*/ static final SConcept EnumSwitchCase$4B = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase");
     /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SInterfaceConcept IMemberContainer$yM = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
     /*package*/ static final SInterfaceConcept SEnumOperation_Old$hZ = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37273dL, "jetbrains.mps.lang.smodel.structure.SEnumOperation_Old");
     /*package*/ static final SConcept SEnumerationType$iV = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802d81c423L, "jetbrains.mps.lang.smodel.structure.SEnumerationType");
     /*package*/ static final SConcept OperationParm_Concept$WJ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61caab68L, "jetbrains.mps.lang.smodel.structure.OperationParm_Concept");
