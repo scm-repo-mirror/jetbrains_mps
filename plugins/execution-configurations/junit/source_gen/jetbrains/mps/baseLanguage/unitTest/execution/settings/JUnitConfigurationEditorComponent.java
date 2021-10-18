@@ -7,23 +7,26 @@ import com.intellij.ui.components.JBCheckBox;
 import jetbrains.mps.execution.lib.ui.FieldWithPathChooseDialog;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import jetbrains.mps.project.Project;
+import java.util.Map;
 import javax.swing.JComponent;
-import com.intellij.ui.components.JBRadioButton;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
+import com.intellij.openapi.ui.ComboBox;
 import javax.swing.BoxLayout;
 import com.intellij.ui.components.JBLabel;
-import javax.swing.ButtonGroup;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 import org.jetbrains.annotations.NotNull;
 import java.awt.GridBagLayout;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.common.LayoutUtil;
 import com.intellij.ui.components.JBTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.Box;
 import jetbrains.mps.baseLanguage.execution.api.JavaConfigurationEditorComponent;
 import jetbrains.mps.execution.configurations.implementation.plugin.plugin.DeployEditorPanel;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -34,6 +37,7 @@ import jetbrains.mps.execution.lib.PointerUtils;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 
 public class JUnitConfigurationEditorComponent extends JBPanel {
   private final InProcessJBCheckBox myInProcessCheckBox = new InProcessJBCheckBox("Execute in the same process ");
@@ -46,75 +50,32 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
   private final ModelChooser myModelChooser;
   private final TestListPanel myClassesList;
   private final TestListPanel myMethodsList;
-  private final JComponent[] myPanels = new JComponent[JUnitRunTypes.values().length];
-  private final JBRadioButton[] myButtons = new JBRadioButton[JUnitRunTypes.values().length];
-  private JUnitRunTypes myRunKind = JUnitRunTypes.PROJECT;
+  private final Map<JUnitRunType, JComponent> myPanels = MapSequence.fromMap(new HashMap<JUnitRunType, JComponent>());
+  private ComboBox<JUnitRunType> myRunTypeBox;
+  private JUnitRunType myCurrentRunType = JUnitRunTypes.PROJECT;
 
   private JBPanel createPanelWithTestKind() {
-    final JBPanel kindPanel = new JBPanel();
+    JBPanel kindPanel = new JBPanel();
     kindPanel.setLayout(new BoxLayout(kindPanel, BoxLayout.X_AXIS));
     kindPanel.add(new JBLabel("Test scope:"));
-    JBRadioButton projectKind = new JBRadioButton("Project", true);
-    JBRadioButton moduleKind = new JBRadioButton("Module");
-    JBRadioButton modelKind = new JBRadioButton("Model");
-    JBRadioButton classKind = new JBRadioButton("Class");
-    JBRadioButton methodKind = new JBRadioButton("Method");
-    myButtons[JUnitRunTypes.PROJECT.ordinal()] = projectKind;
-    myButtons[JUnitRunTypes.MODULE.ordinal()] = moduleKind;
-    myButtons[JUnitRunTypes.MODEL.ordinal()] = modelKind;
-    myButtons[JUnitRunTypes.NODE.ordinal()] = classKind;
-    myButtons[JUnitRunTypes.METHOD.ordinal()] = methodKind;
-    final ButtonGroup kindaRadioGroup = new ButtonGroup();
-    Sequence.fromIterable(Sequence.fromArray(myButtons)).visitAll(new IVisitor<JBRadioButton>() {
-      public void visit(JBRadioButton it) {
-        kindaRadioGroup.add(it);
-        kindPanel.add(it);
-      }
-    });
-
-    addKindActionListeners(projectKind, moduleKind, modelKind, classKind, methodKind);
+    myRunTypeBox = new ComboBox<JUnitRunType>();
+    for (JUnitRunType runType : JUnitRunTypes.values()) {
+      myRunTypeBox.addItem(runType);
+    }
+    addKindActionListeners(myRunTypeBox);
+    myRunTypeBox.setSelectedItem(myCurrentRunType);
     return kindPanel;
   }
 
-  private void addKindActionListeners(final JBRadioButton projectKind, final JBRadioButton moduleKind, final JBRadioButton modelKind, final JBRadioButton classKind, final JBRadioButton methodKind) {
-    projectKind.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (projectKind.isSelected()) {
-          myRunKind = JUnitRunTypes.PROJECT;
+  private void addKindActionListeners(ComboBox<JUnitRunType> box) {
+    box.addItemListener(new ItemListener() {
+      @Override
+      public void itemStateChanged(ItemEvent p1) {
+        if (p1.getStateChange() == ItemEvent.SELECTED) {
+          JUnitRunType runType = (JUnitRunType) p1.getItem();
+          myCurrentRunType = runType;
+          updatePanels();
         }
-        updatePanels();
-      }
-    });
-    moduleKind.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (moduleKind.isSelected()) {
-          myRunKind = JUnitRunTypes.MODULE;
-        }
-        updatePanels();
-      }
-    });
-    modelKind.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (modelKind.isSelected()) {
-          myRunKind = JUnitRunTypes.MODEL;
-        }
-        updatePanels();
-      }
-    });
-    classKind.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (classKind.isSelected()) {
-          myRunKind = JUnitRunTypes.NODE;
-        }
-        updatePanels();
-      }
-    });
-    methodKind.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (methodKind.isSelected()) {
-          myRunKind = JUnitRunTypes.METHOD;
-        }
-        updatePanels();
       }
     });
   }
@@ -142,11 +103,11 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
 
     myClassesList = new TestListPanel(project, false);
     myMethodsList = new TestListPanel(project, true);
-    myPanels[JUnitRunTypes.PROJECT.ordinal()] = projectPanel;
-    myPanels[JUnitRunTypes.MODULE.ordinal()] = modulePanel;
-    myPanels[JUnitRunTypes.MODEL.ordinal()] = modelPanel;
-    myPanels[JUnitRunTypes.NODE.ordinal()] = myClassesList;
-    myPanels[JUnitRunTypes.METHOD.ordinal()] = myMethodsList;
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.PROJECT, projectPanel);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.MODULE, modulePanel);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.MODEL, modelPanel);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.NODE, myClassesList);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.METHOD, myMethodsList);
 
     JBPanel saveCachesPanel = new JBPanel();
     saveCachesPanel.setLayout(new BoxLayout(saveCachesPanel, BoxLayout.X_AXIS));
@@ -189,12 +150,10 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
   }
 
   private void updatePanels() {
-    Sequence.fromIterable(Sequence.fromArray(myPanels)).visitAll(new IVisitor<JComponent>() {
-      public void visit(JComponent it) {
-        it.setVisible(false);
-      }
-    });
-    myPanels[myRunKind.ordinal()].setVisible(true);
+    for (JComponent panel : Sequence.fromIterable(MapSequence.fromMap(myPanels).values())) {
+      panel.setVisible(false);
+    }
+    MapSequence.fromMap(myPanels).get(myCurrentRunType).setVisible(true);
   }
 
   public void apply(final JUnitSettings_Configuration configuration) {
@@ -229,7 +188,7 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
       });
 
     }
-    configuration.setRunType(myRunKind.ordinal());
+    configuration.setRunType(myCurrentRunType);
 
     configuration.setTestMethods(testMethods);
     configuration.setTestCases(testCases);
@@ -243,12 +202,7 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
   }
 
   public void reset(JUnitSettings_Configuration settings) {
-    if (settings.getRunType() >= 0 && settings.getRunType() < JUnitRunTypes.values().length) {
-      myRunKind = settings.getJUnitRunType();
-    } else {
-      myRunKind = JUnitRunTypes.PROJECT;
-    }
-    myButtons[myRunKind.ordinal()].setSelected(true);
+    myCurrentRunType = JUnitRunTypes.PROJECT;
 
     List<ITestNodeWrapper> classes = loadTestCasesFromPersistence(settings);
     myClassesList.setData(classes);

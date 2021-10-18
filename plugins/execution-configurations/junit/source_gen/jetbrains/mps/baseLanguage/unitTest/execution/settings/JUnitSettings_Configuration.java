@@ -8,7 +8,6 @@ import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
-import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -27,6 +26,7 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
+import com.intellij.execution.configurations.RuntimeConfigurationError;
 import jetbrains.mps.lang.test.util.TestInProcessRunState;
 import jetbrains.mps.lang.test.util.RunStateEnum;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
@@ -45,16 +45,13 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
 
   @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
-    if (this.getRunType() < 0 || this.getRunType() > JUnitRunTypes.values().length) {
-      throw new RuntimeConfigurationError("Type of test is not selected");
-    }
     // We do not validate, only check if there is something to test, since validating everything be very slow 
     // see MPS-8781 JUnit run configuration check method performance. 
     Project project = myProject;
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
     checkCachesDirIsFreeToLock();
     checkInProcessRunIsSingle();
-    if (!((Objects.equals(this.getRunType(), JUnitRunTypes.PROJECT.ordinal())))) {
+    if (!((Objects.equals(this.getRunType(), JUnitRunTypes.PROJECT)))) {
       check(mpsProject);
     }
   }
@@ -98,11 +95,11 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
     return PersistenceRegistry.getInstance().createModelReference(this.getModelRef());
   }
-  public JUnitRunTypes getJUnitRunType() {
-    return JUnitRunTypes.values()[this.getRunType()];
+  public JUnitRunType getJUnitRunType() {
+    return this.getRunType();
   }
-  public void setJUnitRunType(JUnitRunTypes runType) {
-    this.setRunType(runType.ordinal());
+  public void setJUnitRunType(@NotNull JUnitRunType runType) {
+    this.setRunType(runType);
   }
   public boolean canExecuteInProcess() {
     return this.getInProcess() && !(this.getDebug());
@@ -114,7 +111,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     final JUnitSettings_Configuration settings = this;
     String errorMsg = new ModelAccessHelper(project.getRepository()).runReadAction(new Computable<String>() {
       public String compute() {
-        JUnitRunTypes chosenType = getJUnitRunType();
+        JUnitRunType chosenType = getJUnitRunType();
         return chosenType.check(settings, project);
       }
     });
@@ -193,7 +190,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
   public ClonableList<String> getTestMethods() {
     return myState.myTestMethods;
   }
-  public int getRunType() {
+  public JUnitRunType getRunType() {
     return myState.myRunType;
   }
 
@@ -224,7 +221,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
   public void setTestMethods(ClonableList<String> value) {
     myState.myTestMethods = value;
   }
-  public void setRunType(int value) {
+  public void setRunType(JUnitRunType value) {
     myState.myRunType = value;
   }
 
@@ -238,7 +235,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     public String myCachesPath = getDefaultPathForSettings();
     public ClonableList<String> myTestCases = new ClonableList<String>();
     public ClonableList<String> myTestMethods = new ClonableList<String>();
-    public int myRunType = JUnitRunTypes.PROJECT.ordinal();
+    public JUnitRunType myRunType = JUnitRunTypes.PROJECT;
 
     @Override
     public Object clone() throws CloneNotSupportedException {
@@ -256,7 +253,9 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
       if (myTestMethods != null) {
         state.myTestMethods = myTestMethods.clone();
       }
-      state.myRunType = myRunType;
+      if (myRunType != null) {
+        state.myRunType = myRunType.clone();
+      }
       return state;
     }
   }
