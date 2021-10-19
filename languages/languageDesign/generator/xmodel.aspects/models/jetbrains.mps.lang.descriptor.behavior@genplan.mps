@@ -80,6 +80,15 @@
         </node>
       </node>
     </node>
+    <node concept="2VgMA2" id="1VVI8eHQmNP" role="2VgMA7">
+      <property role="1s431M" value="true" />
+      <node concept="2Qf6Nf" id="1VVI8eHQmOb" role="2Qf7GQ">
+        <node concept="2V$Bhx" id="1VVI8eHQmOf" role="2Qf6Ng">
+          <property role="2V$B1T" value="774bf8a0-62e5-41e1-af63-f4812e60e48b" />
+          <property role="2V$B1Q" value="jetbrains.mps.baseLanguage.checkedDots" />
+        </node>
+      </node>
+    </node>
     <node concept="2VgMA2" id="7vE1jcMYKou" role="2VgMA7">
       <node concept="2Qf6Nf" id="7vE1jcMYMF9" role="2Qf7GQ">
         <node concept="2V$Bhx" id="7vE1jcMYMFb" role="2Qf6Ng">

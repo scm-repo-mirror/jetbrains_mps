@@ -15,6 +15,9 @@
       <concept id="3705377275350227759" name="jetbrains.mps.lang.generator.plan.structure.IncludePlan" flags="ng" index="NozSJ">
         <reference id="3705377275350227762" name="plan" index="NozSM" />
       </concept>
+      <concept id="1152961914448136207" name="jetbrains.mps.lang.generator.plan.structure.LanguageEntry" flags="ng" index="2Qf6Nf">
+        <child id="1152961914448136208" name="language" index="2Qf6Ng" />
+      </concept>
       <concept id="1820634577908471803" name="jetbrains.mps.lang.generator.plan.structure.Plan" flags="ng" index="2VgMpV">
         <child id="1820634577908471815" name="steps" index="2VgMA7" />
       </concept>
@@ -22,6 +25,8 @@
         <child id="3750601816081740498" name="cpSpec" index="3ps6aC" />
       </concept>
       <concept id="1820634577908471810" name="jetbrains.mps.lang.generator.plan.structure.Transform" flags="ng" index="2VgMA2">
+        <property id="2209292798354050154" name="individualStepPerGenerator" index="1s431M" />
+        <child id="1152961914448142326" name="entries" index="2Qf7GQ" />
         <child id="2944629966652439181" name="languages" index="1t_9vn" />
       </concept>
       <concept id="3750601816081740541" name="jetbrains.mps.lang.generator.plan.structure.DeclaredCheckpointSpec" flags="ng" index="3ps6a7">
@@ -109,6 +114,15 @@
       <node concept="2V$Bhx" id="3ZKqOfpDwxM" role="1t_9vn">
         <property role="2V$B1T" value="3a13115c-633c-4c5c-bbcc-75c4219e9555" />
         <property role="2V$B1Q" value="jetbrains.mps.lang.quotation" />
+      </node>
+    </node>
+    <node concept="2VgMA2" id="1VVI8eHQmJR" role="2VgMA7">
+      <property role="1s431M" value="true" />
+      <node concept="2Qf6Nf" id="1VVI8eHQmKg" role="2Qf7GQ">
+        <node concept="2V$Bhx" id="1VVI8eHQmKk" role="2Qf6Ng">
+          <property role="2V$B1T" value="774bf8a0-62e5-41e1-af63-f4812e60e48b" />
+          <property role="2V$B1Q" value="jetbrains.mps.baseLanguage.checkedDots" />
+        </node>
       </node>
     </node>
     <node concept="2VgMA2" id="3ZKqOfpDwxP" role="2VgMA7">
