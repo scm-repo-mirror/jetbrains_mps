@@ -12,18 +12,26 @@ import javax.swing.JComponent;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import com.intellij.openapi.ui.ComboBox;
-import javax.swing.BoxLayout;
+import java.awt.GridBagConstraints;
+import com.intellij.util.ui.JBInsets;
+import com.intellij.util.ui.JBUI;
+import java.awt.GridBagLayout;
 import com.intellij.ui.components.JBLabel;
+import com.intellij.ui.SideBorder;
+import com.intellij.ui.JBColor;
+import javax.swing.JPanel;
+import com.intellij.ui.components.JBTextField;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import org.jetbrains.annotations.NotNull;
-import java.awt.GridBagLayout;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.ide.common.LayoutUtil;
-import com.intellij.ui.components.JBTextField;
+import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.Box;
+import jetbrains.mps.ide.common.LayoutUtil;
 import jetbrains.mps.baseLanguage.execution.api.JavaConfigurationEditorComponent;
 import jetbrains.mps.execution.configurations.implementation.plugin.plugin.DeployEditorPanel;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -44,28 +52,130 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
   private final JBCheckBox myReuseCachesCheckBox = new JBCheckBox("Reuse caches", true);
   private final JBCheckBox myOverrideCachesCheckBox = new JBCheckBox("Override the default settings location:");
   private final FieldWithPathChooseDialog myCachesDir = new FieldWithPathChooseDialog(new FileChooserDescriptor(false, true, false, false, false, false));
-
   private final Project myProject;
   private final ModuleChooser myModuleChooser;
   private final ModelChooser myModelChooser;
-  private final TestListPanel myClassesList;
-  private final TestListPanel myMethodsList;
+  private final TestListPanel myClassesChooser;
+  private final TestListPanel myMethodsChooser;
   private final Map<JUnitRunType, JComponent> myPanels = MapSequence.fromMap(new HashMap<JUnitRunType, JComponent>());
   private ComboBox<JUnitRunType> myRunTypeBox;
   private JUnitRunType myCurrentRunType = JUnitRunTypes.PROJECT;
 
+  private static GridBagConstraints createStandardConstraints() {
+    JBInsets insets = JBUI.emptyInsets();
+    GridBagConstraints gc = new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, insets, 0, 0);
+    return gc;
+  }
+
   private JBPanel createPanelWithTestKind() {
-    JBPanel kindPanel = new JBPanel();
-    kindPanel.setLayout(new BoxLayout(kindPanel, BoxLayout.X_AXIS));
-    kindPanel.add(new JBLabel("Test scope:"));
-    myRunTypeBox = new ComboBox<JUnitRunType>();
-    for (JUnitRunType runType : JUnitRunTypes.values()) {
-      myRunTypeBox.addItem(runType);
-    }
+    GridBagConstraints gc = createStandardConstraints();
+    JBPanel kindPanel = new JBPanel(new GridBagLayout());
+    JBLabel label = new JBLabel("Test scope:");
+
+    kindPanel.add(label, gc);
+    myRunTypeBox = new ComboBox<JUnitRunType>(JUnitRunTypes.values());
     addKindActionListeners(myRunTypeBox);
     myRunTypeBox.setSelectedItem(myCurrentRunType);
+    gc.gridx++;
+    gc.fill = GridBagConstraints.NONE;
+    gc.anchor = GridBagConstraints.EAST;
+    kindPanel.add(myRunTypeBox, gc);
+    gc.anchor = GridBagConstraints.WEST;
+    gc.gridx++;
+    gc.fill = GridBagConstraints.BOTH;
+
+    addStrutToXEnd(gc, kindPanel);
+
+    gc.gridy++;
+    gc.gridx = 0;
+    gc.anchor = GridBagConstraints.WEST;
+    gc.weightx = 1;
+    gc.gridwidth = 2;
+    gc.fill = GridBagConstraints.BOTH;
+
+    for (JComponent comp : MapSequence.fromMap(myPanels).values()) {
+      kindPanel.add(comp, gc);
+    }
+
+    gc.gridx += 2;
+    addStrutToXEnd(gc, kindPanel);
+    kindPanel.setBorder(new SideBorder(JBColor.border(), SideBorder.ALL));
     return kindPanel;
   }
+
+  private void addStrutToXEnd(GridBagConstraints gc, JBPanel panel1) {
+    gc.anchor = GridBagConstraints.WEST;
+    gc.fill = GridBagConstraints.BOTH;
+    gc.gridwidth = GridBagConstraints.REMAINDER;
+    gc.weightx = 3;
+    JPanel panel = new JPanel();
+    panel1.add(panel, gc);
+  }
+
+  private JComponent createModulePanel() {
+    GridBagConstraints gc = createStandardConstraints();
+    gc.insets = JBUI.emptyInsets();
+    JBPanel modulePanel = new JBPanel(new GridBagLayout());
+    gc.fill = GridBagConstraints.NONE;
+    gc.weightx = 0.1;
+    JBLabel label = new JBLabel("Module:");
+    modulePanel.add(label, gc);
+    gc.gridx++;
+    gc.fill = GridBagConstraints.HORIZONTAL;
+    gc.anchor = GridBagConstraints.EAST;
+    gc.gridwidth = 1;
+    gc.weightx = 1;
+    modulePanel.add(myModuleChooser, gc);
+
+    return modulePanel;
+  }
+
+  private JBPanel createModelPanel() {
+    GridBagConstraints gc = createStandardConstraints();
+    gc.insets = JBUI.emptyInsets();
+    gc.fill = GridBagConstraints.HORIZONTAL;
+
+    JBPanel modelPanel = new JBPanel(new GridBagLayout());
+    gc.weightx = 0.1;
+    JBLabel label = new JBLabel("Model:");
+    modelPanel.add(label, gc);
+
+    gc.gridx++;
+    gc.weightx = 1;
+    gc.fill = GridBagConstraints.HORIZONTAL;
+    gc.anchor = GridBagConstraints.EAST;
+    gc.gridwidth = 1;
+    modelPanel.add(myModelChooser, gc);
+
+    return modelPanel;
+  }
+
+  private JComponent createProjectPanel(com.intellij.openapi.project.Project project) {
+    JBPanel projectPanel = new JBPanel(new GridBagLayout());
+    GridBagConstraints gc = createStandardConstraints();
+    gc.insets = JBUI.emptyInsets();
+    projectPanel.add(new JBLabel("Project Name:"), gc);
+    JBTextField projectNameField = new JBTextField(project.getName());
+    projectNameField.setEditable(false);
+    projectNameField.setEnabled(false);
+    gc.gridx++;
+    gc.anchor = GridBagConstraints.EAST;
+    gc.fill = GridBagConstraints.NONE;
+    projectPanel.add(projectNameField, gc);
+    return projectPanel;
+  }
+
+  private static JComponent wrap(JComponent component) {
+    JPanel panel = new JPanel(new BorderLayout());
+    JPanel labelPanel = new JPanel(new BorderLayout());
+    JLabel label = new JLabel("per-scope settings");
+    label.setBorder(JBUI.Borders.empty(JBUI.scale(12), 0, 0, JBUI.scale(5)));
+    labelPanel.add(label, BorderLayout.NORTH);
+    panel.add(labelPanel, BorderLayout.WEST);
+    panel.add(component, BorderLayout.CENTER);
+    return panel;
+  }
+
 
   private void addKindActionListeners(ComboBox<JUnitRunType> box) {
     box.addItemListener(new ItemListener() {
@@ -83,32 +193,22 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
   public JUnitConfigurationEditorComponent(@NotNull com.intellij.openapi.project.Project project) {
     super(new GridBagLayout());
     myProject = ProjectHelper.fromIdeaProject(project);
-    JBPanel kindPanel = createPanelWithTestKind();
-
-    JBPanel projectPanel = new JBPanel(new GridBagLayout());
-    projectPanel.add(new JBLabel("Project:"), LayoutUtil.createLabelConstraints(0));
-    JBTextField projectNameField = new JBTextField(project.getName());
-    projectNameField.setEditable(false);
-    projectPanel.add(projectNameField, LayoutUtil.createPanelConstraints(1));
-
-    JBPanel modulePanel = new JBPanel(new GridBagLayout());
-    modulePanel.add(new JBLabel("Module:"), LayoutUtil.createLabelConstraints(0));
-    myModuleChooser = new ModuleChooser(myProject);
-    modulePanel.add(myModuleChooser, LayoutUtil.createPanelConstraints(1));
-
-    JBPanel modelPanel = new JBPanel(new GridBagLayout());
-    modelPanel.add(new JBLabel("Model:"), LayoutUtil.createLabelConstraints(0));
     myModelChooser = new ModelChooser(myProject);
-    modelPanel.add(myModelChooser, LayoutUtil.createPanelConstraints(1));
+    myModuleChooser = new ModuleChooser(myProject);
 
-    myClassesList = new TestListPanel(project, false);
-    myMethodsList = new TestListPanel(project, true);
+    JComponent projectPanel = createProjectPanel(project);
+    JComponent modulePanel = createModulePanel();
+    JComponent modelPanel = createModelPanel();
+    myClassesChooser = new TestListPanel(project, false);
+    myMethodsChooser = new TestListPanel(project, true);
+
     MapSequence.fromMap(myPanels).put(JUnitRunTypes.PROJECT, projectPanel);
     MapSequence.fromMap(myPanels).put(JUnitRunTypes.MODULE, modulePanel);
     MapSequence.fromMap(myPanels).put(JUnitRunTypes.MODEL, modelPanel);
-    MapSequence.fromMap(myPanels).put(JUnitRunTypes.NODE, myClassesList);
-    MapSequence.fromMap(myPanels).put(JUnitRunTypes.METHOD, myMethodsList);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.NODE, myClassesChooser);
+    MapSequence.fromMap(myPanels).put(JUnitRunTypes.METHOD, myMethodsChooser);
 
+    JBPanel kindPanel = createPanelWithTestKind();
     JBPanel saveCachesPanel = new JBPanel();
     saveCachesPanel.setLayout(new BoxLayout(saveCachesPanel, BoxLayout.X_AXIS));
     saveCachesPanel.add(myOverrideCachesCheckBox);
@@ -120,13 +220,9 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     saveCachesPanel.add(Box.createHorizontalGlue());
     saveCachesPanel.add(myCachesDir);
 
-    add(kindPanel, LayoutUtil.createPanelConstraints(0));
-    add(projectPanel, LayoutUtil.createPanelConstraints(1));
-    add(modulePanel, LayoutUtil.createPanelConstraints(1));
-    add(modelPanel, LayoutUtil.createPanelConstraints(1));
-    add(myClassesList, LayoutUtil.createPanelConstraints(1));
-    add(myMethodsList, LayoutUtil.createPanelConstraints(1));
+    add(kindPanel, LayoutUtil.createPanelConstraints(1));
     add(myInProcessCheckBox, LayoutUtil.createFieldConstraints(2));
+    add(myReuseCachesCheckBox, LayoutUtil.createFieldConstraints(3));
     add(saveCachesPanel, LayoutUtil.createFieldConstraints(4));
   }
 
@@ -153,14 +249,15 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     for (JComponent panel : Sequence.fromIterable(MapSequence.fromMap(myPanels).values())) {
       panel.setVisible(false);
     }
-    MapSequence.fromMap(myPanels).get(myCurrentRunType).setVisible(true);
+    JComponent component = MapSequence.fromMap(myPanels).get(myCurrentRunType);
+    component.setVisible(true);
   }
 
   public void apply(final JUnitSettings_Configuration configuration) {
     final List<ITestNodeWrapper> classes = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    ListSequence.fromList(classes).addSequence(ListSequence.fromList(myClassesList.getItems()));
+    ListSequence.fromList(classes).addSequence(ListSequence.fromList(myClassesChooser.getItems()));
     final List<ITestNodeWrapper> methods = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    ListSequence.fromList(methods).addSequence(ListSequence.fromList(myMethodsList.getItems()));
+    ListSequence.fromList(methods).addSequence(ListSequence.fromList(myMethodsChooser.getItems()));
     final ClonableList<String> testMethods = new ClonableList<String>();
     final ClonableList<String> testCases = new ClonableList<String>();
     final Wrappers._T<String> model = new Wrappers._T<String>();
@@ -188,7 +285,7 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
       });
 
     }
-    configuration.setRunType(myCurrentRunType);
+    configuration.setJUnitRunType(myCurrentRunType);
 
     configuration.setTestMethods(testMethods);
     configuration.setTestCases(testCases);
@@ -205,10 +302,10 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     myCurrentRunType = JUnitRunTypes.PROJECT;
 
     List<ITestNodeWrapper> classes = loadTestCasesFromPersistence(settings);
-    myClassesList.setData(classes);
+    myClassesChooser.setData(classes);
 
     List<ITestNodeWrapper> methods = loadMethodsFromPersistence(settings);
-    myMethodsList.setData(methods);
+    myMethodsChooser.setData(methods);
 
     if (settings.getModelReference() != null) {
       myModelChooser.setModel(settings.getModelReference());
