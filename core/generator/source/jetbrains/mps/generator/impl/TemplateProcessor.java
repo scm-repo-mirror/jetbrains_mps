@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -234,7 +234,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
       myNextMacro = next;
       myTemplateProcessor = templateProcessor;
       myMacroNodeRef = new SNodePointer(macro);
-      myMappingLabel = GeneratorUtilEx.getMappingName_NodeMacro(macro, null);
+      myMappingLabel = RuleUtil.getNodeMacroLabel(macro);
     }
 
     @Override

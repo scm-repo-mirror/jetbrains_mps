@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ public class TemplateContainer {
     List<SNode> fragments = extractTemplateFragments();
     List<Pair<SNode, String>> result = new ArrayList<>(fragments.size());
     for (SNode fragment : fragments) {
-      result.add(new Pair<>(fragment.getParent(), GeneratorUtilEx.getMappingName_TemplateFragment(fragment, null)));
+      result.add(new Pair<>(fragment.getParent(), RuleUtil.getTemplateFragmentLabel(fragment)));
     }
     myNodeAndMappingNamePairs = result;
   }
