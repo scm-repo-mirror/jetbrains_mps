@@ -272,6 +272,7 @@ public class NodeSubstituteChooser implements KeyboardHandler {
     doRebuildMenuEntries(matchingActions);
     activate(realUi);
     setUserChoseItem(false);
+    myPatternEditor.commit();
   }
 
   private void activate(boolean realUi) {
@@ -648,6 +649,7 @@ public class NodeSubstituteChooser implements KeyboardHandler {
   }
 
   private void doSubstituteSelection() {
+    myPatternEditor.commit();
     final String pattern = getPatternEditor().getPattern();
     final SubstituteAction action = mySubstituteActions.get(getSelectionIndex());
     setVisible(false);

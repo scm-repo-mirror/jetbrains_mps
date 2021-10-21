@@ -2207,6 +2207,35 @@
       <unit id="7688582785735223465" at="16,0,46,0" name="jetbrains.mps.lang.editor.menus.substitute.tests.tests.TestSubstitute_Single_SpecializedLink_Complete_PrimaryReplaceGroup_Test" />
     </file>
   </root>
+  <root nodeRef="r:62873c84-7a76-488a-9b84-4e0ffdbec8db(jetbrains.mps.lang.editor.menus.substitute.tests.tests@tests)/7994348364850630763">
+    <file name="TestSubstitute_RollbackChanges_Test.java">
+      <node id="7994348364850630763" at="21,48,22,25" concept="6" />
+      <node id="7994348364850630763" at="26,70,27,36" concept="1" />
+      <node id="7994348364850630763" at="32,52,33,19" concept="6" />
+      <node id="7994348364850630763" at="37,51,38,72" concept="1" />
+      <node id="7994348364850630765" at="38,72,39,71" concept="1" />
+      <node id="9162810504346776347" at="39,71,40,24" concept="1" />
+      <node id="7994348364850630767" at="40,24,41,83" concept="1" />
+      <node id="9162810504346793166" at="41,83,42,86" concept="1" />
+      <node id="7994348364850630763" at="18,0,20,0" concept="5" trace="ourParamCache" />
+      <node id="7994348364850630763" at="21,0,24,0" concept="0" trace="TestSubstitute_RollbackChanges_Test#()V" />
+      <node id="7994348364850630763" at="32,0,35,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="7994348364850630763" at="25,0,29,0" concept="2" trace="test_TestSubstitute_RollbackChanges#()V" />
+      <node id="7994348364850630763" at="36,0,44,0" concept="2" trace="testMethodImpl#()V" />
+      <scope id="7994348364850630763" at="21,48,22,25" />
+      <scope id="7994348364850630763" at="26,70,27,36" />
+      <scope id="7994348364850630763" at="32,52,33,19" />
+      <scope id="7994348364850630763" at="21,0,24,0" />
+      <scope id="7994348364850630763" at="32,0,35,0">
+        <var name="owner" id="7994348364850630763" />
+      </scope>
+      <scope id="7994348364850630763" at="25,0,29,0" />
+      <scope id="7994348364850630763" at="37,51,42,86" />
+      <scope id="7994348364850630763" at="36,0,44,0" />
+      <unit id="7994348364850630763" at="30,0,45,0" name="jetbrains.mps.lang.editor.menus.substitute.tests.tests.TestSubstitute_RollbackChanges_Test$TestBody" />
+      <unit id="7994348364850630763" at="16,0,46,0" name="jetbrains.mps.lang.editor.menus.substitute.tests.tests.TestSubstitute_RollbackChanges_Test" />
+    </file>
+  </root>
   <root nodeRef="r:62873c84-7a76-488a-9b84-4e0ffdbec8db(jetbrains.mps.lang.editor.menus.substitute.tests.tests@tests)/8032286684682627347">
     <file name="TestSubstitute_Group_Test.java">
       <node id="8032286684682627347" at="20,38,21,25" concept="6" />

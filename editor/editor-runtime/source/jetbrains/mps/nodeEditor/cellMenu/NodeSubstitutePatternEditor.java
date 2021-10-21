@@ -130,6 +130,7 @@ public class NodeSubstitutePatternEditor {
         mySavedCaretPosition = myTextLineOperations.getCaretPosition();
         myTextLineOperations.setCaretPosition(0);
       }
+      myTextLineOperations.saveCaretPosition();
       myTextLineOperations.repaint();
     } else {
       if (mySavedCaretPosition != 0) {
@@ -211,6 +212,10 @@ public class NodeSubstitutePatternEditor {
     return myTextLineOperations.getHeight();
   }
 
+  public void commit() {
+    myTextLineOperations.commit();
+  }
+
   public void done() {
     if (myEditorActivated) {
       myTextLineOperations.dispose();
@@ -230,6 +235,7 @@ public class NodeSubstitutePatternEditor {
   private interface TextLineOperations {
     void setText(String text);
     void setCaretPosition(int caretPosition);
+    void saveCaretPosition();
     void relayout();
     void repaint();
     int getCaretPosition();
@@ -238,6 +244,7 @@ public class NodeSubstitutePatternEditor {
     boolean processKeyTyped(KeyEvent keyEvent);
     void processTextChanged(TextChangeEvent event);
     void dispose();
+    void commit();
     void setLocation(Point point);
     int getHeight();
     Point getLocation();
@@ -248,12 +255,15 @@ public class NodeSubstitutePatternEditor {
 
   private class TextLineDelegate implements TextLineOperations {
     private final EditorComponent editorComponent;
+    private final String myOriginalText;
+    private int myOriginalCaretPosition;
     private String myText;
     private int myCaretPosition;
+    private boolean myCommitted;
 
     TextLineDelegate() {
-      myText = myCell.getText();
-      myCaretPosition = myCell.getCaretPosition();
+      myOriginalText = myText = myCell.getText();
+      myOriginalCaretPosition = myCaretPosition = myCell.getCaretPosition();
       editorComponent = (EditorComponent) myCell.getEditorComponent();
     }
 
@@ -318,7 +328,21 @@ public class NodeSubstitutePatternEditor {
     }
 
     @Override
+    public void saveCaretPosition() {
+      myOriginalCaretPosition = myCaretPosition;
+    }
+
+    @Override
+    public void commit() {
+      myCommitted = true;
+    }
+
+    @Override
     public void dispose() {
+      if (!myCommitted) {
+        myCell.setText(myOriginalText);
+        myCell.setCaretPosition(myOriginalCaretPosition);
+      }
     }
 
     @Override
@@ -407,6 +431,14 @@ public class NodeSubstitutePatternEditor {
       myTextLine = new TextLine("", settings);
       mySettings = settings;
       add(new EditorPanel());
+    }
+
+    @Override
+    public void saveCaretPosition() {
+    }
+
+    @Override
+    public void commit() {
     }
 
     @Override

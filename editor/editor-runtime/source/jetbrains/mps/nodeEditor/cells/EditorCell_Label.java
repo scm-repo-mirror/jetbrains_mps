@@ -630,9 +630,9 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     return label.isEditable() && label.isSelectable();
   }
 
-  private void deleteIfPossible(CellActionType actionType) {
+  private void deleteIfPossible(CellActionType actionType, boolean commit) {
     assert CellActionType.DELETE == actionType || CellActionType.BACKSPACE == actionType;
-    if (getText() != null && getText().isEmpty() && getStyle().get(StyleAttributes.AUTO_DELETABLE)) {
+    if (commit && getText() != null && getText().isEmpty() && getStyle().get(StyleAttributes.AUTO_DELETABLE)) {
       // TODO: just use delete action (do not call getSNode().delete()) in the end if acton was not found or is not applicable
       getEditorComponent().getActionHandler().executeAction(this, actionType);
     }
@@ -667,9 +667,15 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
     String myText = myTextLine.getText();
     int stSel = myTextLine.getStartTextSelectionPosition();
     int endSel = myTextLine.getEndTextSelectionPosition();
-    changeText(myText.substring(0, stSel) + myText.substring(endSel));
+    String newText = myText.substring(0, stSel) + myText.substring(endSel);
+
+    if (getEditorComponent().isAutomaticSubstitutionEnabled()) {
+      changeText(newText);
+      addChangeTextUndoableAction();
+    } else {
+      changeTextInternal(newText);
+    }
     myTextLine.setCaretPosition(stSel);
-    addChangeTextUndoableAction();
     fireSelectionChanged();
     ensureCaretVisible();
   }
@@ -1061,8 +1067,8 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
 
   private class ProcessTextActionCommand extends EditorComputable<Boolean> implements UndoRunnable {
 
-    private CellActionType myActionType;
-    private boolean myAllowErrors;
+    private final CellActionType myActionType;
+    private final boolean myAllowErrors;
 
     ProcessTextActionCommand(EditorContext context, CellActionType type, boolean allowErrors) {
       super(context);
@@ -1075,66 +1081,81 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
       String oldText = myTextLine.getText();
       int caretPosition = myTextLine.getCaretPosition();
 
-      if (myActionType == CellActionType.BACKSPACE) {
-        if (myTextLine.hasNonTrivialSelection()) {
-          deleteSelection();
-          deleteIfPossible(myActionType);
-          return true;
-        }
-
-        if (caretPosition > 0) {
-          String newText = oldText.substring(0, caretPosition - 1) + oldText.substring(caretPosition);
-          if (!myAllowErrors && !isValidText(newText)) {
-            return false;
-          }
-          changeText(newText);
-          addChangeTextUndoableAction();
-          if (!isCaretPositionAllowed(caretPosition - 1)) {
-            return false;
-          }
-          setCaretPosition(caretPosition - 1);
-          ensureCaretVisible();
-          deleteIfPossible(myActionType);
-          return true;
-        } else {
-          jetbrains.mps.openapi.editor.cells.EditorCell prevLeaf = CellTraversalUtil.getPrevLeaf(EditorCell_Label.this);
-          if (myAllowErrors && canDeleteFrom(prevLeaf)) {
-            EditorCell_Label label = (EditorCell_Label) prevLeaf;
-            getEditor().changeSelection(label);
-            label.end();
-            label.executeTextAction(myActionType, true);
-            return true;
-          }
-          return false;
-        }
-      } else if (myActionType == CellActionType.DELETE) {
-        if (myTextLine.hasNonTrivialSelection()) {
-          deleteSelection();
-          deleteIfPossible(myActionType);
-          return true;
-        } else if (caretPosition < oldText.length()) {
-          String newText = oldText.substring(0, caretPosition) + oldText.substring(caretPosition + 1);
-          if (!myAllowErrors && !isValidText(newText)) {
-            return false;
-          }
-          changeText(newText);
-          addChangeTextUndoableAction();
-          ensureCaretVisible();
-          deleteIfPossible(myActionType);
-          return true;
-        } else {
-          jetbrains.mps.openapi.editor.cells.EditorCell nextLeaf = CellTraversalUtil.getNextLeaf(EditorCell_Label.this);
-          if (myAllowErrors && canDeleteFrom(nextLeaf)) {
-            EditorCell_Label label = (EditorCell_Label) nextLeaf;
-            getEditor().changeSelection(label);
-            label.home();
-            label.executeTextAction(myActionType, true);
-            return true;
-          }
-          return false;
-        }
+      boolean commitChanges = getEditorComponent().isAutomaticSubstitutionEnabled();
+      if (myTextLine.hasNonTrivialSelection()) {
+        deleteSelection();
+        deleteIfPossible(myActionType, commitChanges);
+        return true;
       }
 
+      if (myActionType == CellActionType.BACKSPACE) {
+        return processBackspace(oldText, caretPosition, commitChanges);
+      } else if (myActionType == CellActionType.DELETE) {
+        return processDelete(oldText, caretPosition, commitChanges);
+      }
+
+      return false;
+    }
+
+    @NotNull
+    private Boolean processDelete(String oldText, int caretPosition, boolean commitChanges) {
+      if (caretPosition < oldText.length()) {
+        String newText = oldText.substring(0, caretPosition) + oldText.substring(caretPosition + 1);
+        if (!myAllowErrors && !isValidText(newText)) {
+          return false;
+        }
+        if (commitChanges) {
+          changeText(newText);
+          addChangeTextUndoableAction();
+        } else {
+          changeTextInternal(newText);
+        }
+        ensureCaretVisible();
+        deleteIfPossible(myActionType, commitChanges);
+        return true;
+      } else if (commitChanges) {
+        EditorCell nextLeaf = CellTraversalUtil.getNextLeaf(EditorCell_Label.this);
+        if (myAllowErrors && canDeleteFrom(nextLeaf)) {
+          EditorCell_Label label = (EditorCell_Label) nextLeaf;
+          getEditor().changeSelection(label);
+          label.home();
+          label.executeTextAction(myActionType, true);
+          return true;
+        }
+      }
+      return false;
+    }
+
+    @NotNull
+    private Boolean processBackspace(String oldText, int caretPosition, boolean commitChanges) {
+      if (caretPosition > 0) {
+        String newText = oldText.substring(0, caretPosition - 1) + oldText.substring(caretPosition);
+        if (!myAllowErrors && !isValidText(newText)) {
+          return false;
+        }
+        if (commitChanges) {
+          changeText(newText);
+          addChangeTextUndoableAction();
+        } else {
+          changeTextInternal(newText);
+        }
+        if (!isCaretPositionAllowed(caretPosition - 1)) {
+          return false;
+        }
+        setCaretPosition(caretPosition - 1);
+        ensureCaretVisible();
+        deleteIfPossible(myActionType, commitChanges);
+        return true;
+      } else if (commitChanges) {
+        EditorCell prevLeaf = CellTraversalUtil.getPrevLeaf(EditorCell_Label.this);
+        if (myAllowErrors && canDeleteFrom(prevLeaf)) {
+          EditorCell_Label label = (EditorCell_Label) prevLeaf;
+          getEditor().changeSelection(label);
+          label.end();
+          label.executeTextAction(myActionType, true);
+          return true;
+        }
+      }
       return false;
     }
 
