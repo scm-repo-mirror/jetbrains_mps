@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="4x8ulhk62yjvhpd7bq18679s5nnmydo">
+<product version="3" modelHash="-d2e21vuyse6rovqm6b61o8i4zlqpdc6">
   <files names="BaseVersionModelLoader.java:ChangesTracking.java:CurrentDifference.java:CurrentDifferenceAdapter.java:CurrentDifferenceBroadcaster.java:CurrentDifferenceListener.java:CurrentDifferenceRegistry.java:EventConsumingMapping.java:NodeFileStatusMapping.java:NodeFileStatusProvider.java:SModelCommandListener.java:SimpleCommandQueue.java" />
 </product>
 
