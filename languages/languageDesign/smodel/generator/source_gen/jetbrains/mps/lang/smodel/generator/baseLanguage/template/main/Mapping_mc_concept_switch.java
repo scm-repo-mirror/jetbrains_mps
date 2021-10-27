@@ -7,10 +7,12 @@ import jetbrains.mps.generator.runtime.MapConfigBase;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import java.util.Collection;
 import jetbrains.mps.generator.runtime.TemplateReductionRule;
+import jetbrains.mps.generator.runtime.LabelDeclaration;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.runtime.TemplateModel;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.runtime.TemplateUtil;
+import java.util.Arrays;
 import jetbrains.mps.generator.runtime.ReductionRuleBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.runtime.TemplateContext;
@@ -23,13 +25,20 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 @Generated
 public class Mapping_mc_concept_switch extends MapConfigBase implements TemplateMappingConfiguration {
   private final Collection<TemplateReductionRule> rules;
+  private final Collection<LabelDeclaration> myPrivateLabels;
   public Mapping_mc_concept_switch(@NotNull TemplateModel model) {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1717381292179408189"), "mc_concept_switch", model, false, new MO());
     rules = TemplateUtil.<TemplateReductionRule>asCollection(new ReductionRule0());
+    myPrivateLabels = Arrays.asList(this.label("switchVar", true));
   }
   @Override
   public Collection<TemplateReductionRule> getReductionRules() {
     return rules;
+  }
+  @NotNull
+  @Override
+  public Collection<LabelDeclaration> getLabels() {
+    return myPrivateLabels;
   }
   /*package*/ final class ReductionRule0 extends ReductionRuleBase {
     public ReductionRule0() {

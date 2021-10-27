@@ -292,6 +292,7 @@
       </concept>
       <concept id="1095672379244" name="jetbrains.mps.lang.generator.structure.TemplateFragment" flags="ng" index="raruj" />
       <concept id="1200911316486" name="jetbrains.mps.lang.generator.structure.MappingLabelDeclaration" flags="lg" index="2rT7sh">
+        <property id="7556128013608567747" name="private" index="2om86B" />
         <reference id="1200911342686" name="sourceConcept" index="2rTdP9" />
         <reference id="1200913004646" name="targetConcept" index="2rZz_L" />
       </concept>
@@ -9591,6 +9592,7 @@
     <property role="TrG5h" value="mc_concept_switch" />
     <node concept="2rT7sh" id="$2lu0GMAZL" role="2rTMjI">
       <property role="TrG5h" value="switchVar" />
+      <property role="2om86B" value="true" />
       <ref role="2rTdP9" to="tp25:59YAasRsvgH" resolve="ConceptSwitchStatement" />
       <ref role="2rZz_L" to="tpee:fz12cDC" resolve="FieldDeclaration" />
     </node>
