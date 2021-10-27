@@ -20,6 +20,7 @@ import jetbrains.mps.generator.ModelGenerationPlan.Checkpoint;
 import jetbrains.mps.generator.ModelGenerationPlan.Fork;
 import jetbrains.mps.generator.ModelGenerationPlan.Step;
 import jetbrains.mps.generator.ModelGenerationPlan.Transform;
+import jetbrains.mps.generator.runtime.LabelDeclaration;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import jetbrains.mps.generator.runtime.TemplateModel;
 import jetbrains.mps.generator.runtime.TemplateModule;
@@ -40,6 +41,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Holds information about active step of generation plan, like MCs selected for the step,
@@ -54,6 +56,7 @@ final class GenPlanActiveStep {
   private final LanguageRegistry myLanguageRegistry;
   private final RuleManager myActiveTransformations;
   private final Map<SModelReference, TemplateModel> myModelMap;
+  private final List<LabelDeclaration> myPrivateLabels;
 
   public GenPlanActiveStep(@NotNull ModelGenerationPlan plan, @NotNull Transform step, List<TemplateMappingConfiguration> applicableConfigurations,
                            LanguageRegistry languageRegistry) throws GenerationFailureException {
@@ -88,10 +91,21 @@ final class GenPlanActiveStep {
       }
     }
     myActiveTransformations = new RuleManager(applicableConfigurations, allTemplateModels);
+    myPrivateLabels = new ArrayList<>();
+    final Stream<LabelDeclaration> ldStream = applicableConfigurations.stream().map(TemplateMappingConfiguration::getLabels).flatMap(Collection::stream);
+    ldStream.filter(LabelDeclaration::isPrivate).forEach(myPrivateLabels::add);
   }
 
   public RuleManager getRuleManager() {
     return myActiveTransformations;
+  }
+
+  /**
+   * @return labels considered private (not deemed for export) at this transformation step (based on active MCs)
+   */
+  @NotNull
+  /*package*/ List<LabelDeclaration> getPrivateLabels() {
+    return myPrivateLabels;
   }
 
   /**

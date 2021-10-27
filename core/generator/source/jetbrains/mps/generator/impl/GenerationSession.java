@@ -253,7 +253,7 @@ class GenerationSession {
       return GenerationStatus.failure(myOriginalInputModel);
     } catch (Exception e) {
       myLogger.handleException(e);
-      myLogger.error(String.format("Generation failed for model '%s': %s", myOriginalInputModel.getName(), e.toString()));
+      myLogger.error(String.format("Generation failed for model '%s': %s", myOriginalInputModel.getName(), e));
       return GenerationStatus.failure(myOriginalInputModel);
     } finally {
       monitor.done();
@@ -264,7 +264,7 @@ class GenerationSession {
     SModel currInputModel = branchInfo.inputModel;
     List<Step> branchSteps = branchInfo.branch;
     final ModelTransitions transitionTrace = branchInfo.transitionTrace;
-    final ArrayDeque<GeneratorMappings> lastBigTransformStepMappings = new ArrayDeque<>(branchInfo.actualStateCopyOfLastBitTransformStepMappings);
+    final ArrayDeque<LMCollector> lastBigTransformStepMappings = new ArrayDeque<>(branchInfo.actualStateCopyOfLastBitTransformStepMappings);
 
     // FIXME refactor, next shall be part of PBI only, not fields of GS class
     myMajorStep = branchInfo.majorStepAtFork;
@@ -298,9 +298,8 @@ class GenerationSession {
         }
         if (transformStep.isLabeledTransformationsKept()) {
           // FIXME both transform and checkpoint steps need myStepArgument; need better sharing than just access to the field
-          // another method initialized and generously didn't clean.
-          // FIXME we don't need to keep complete GeneratorMappings, just a subset with labeled input->output and conditional roots
-          lastBigTransformStepMappings.push(myStepArguments.mappingLabels);
+          //       another method initialized and generously didn't clean.
+          lastBigTransformStepMappings.push(myStepArguments.mappingLabels.exposed());
         }
         currInputModel = currOutput;
       } else if (planStep instanceof Checkpoint) {
@@ -319,23 +318,29 @@ class GenerationSession {
         if (myStepArguments != null) {
           // Shall populate state with last generator's MappingLabels. Note, ML could have been added from post-processing scripts. Generator
           // instance could be different, we keep GeneratorMappings with step arguments, that span all pre/post scripts along with transformations.
-          GeneratorMappings stepLabels = myStepArguments.mappingLabels;
+          final LMCollector stepLabels = myStepArguments.mappingLabels.exposed();
           // stepLabels is likely the last one pushed into lastBigTransformStepMappings when previous Transform step had happened.
+          // FIXME however, this remove is no-op as GM#exposed() gives new instance each time, deal with that.
+          //       Likely, shall have transformStep#isLabeledTransformationsKept() == true for any Transform step that preceeds CP step,
+          //       not only the one with few MC sets
           lastBigTransformStepMappings.remove(stepLabels);
-          LMCollector lmCollector = new LMCollector();
           final Function<SNodeId, SNode> getCurrentInputNode = currInputModel::getNode;
-          for (GeneratorMappings prev : lastBigTransformStepMappings) {
-            for (String l : prev.getConditionalRootLabels()) {
-              for (SNode conditionalRoot : prev.getConditionalRoots(l)) {
-                SNode copiedRoot = getCurrentInputNode.apply(conditionalRoot.getNodeId());
-                if (copiedRoot != null) {
-                  lmCollector.add(l, copiedRoot);
+          for (LMCollector prev : lastBigTransformStepMappings) {
+            prev.forEachNoInput((l, conditionalRoot) -> {
+              SNode copiedRoot = getCurrentInputNode.apply(conditionalRoot.getNodeId());
+              if (copiedRoot != null) {
+                // if root is in the last model, add record unless there's already record for the label.
+                // seems that we can keep multiple (label, conditionalRoot) pairs, and findAny().isEmpty() here
+                // is just a dumb way not to deal with possible duplicates now. I.e. imagine 2 conditional roots under same ML,
+                // one added at transformStep1, another at transformStep2. Now I don't copy the one from
+                // transformStep1 (findAny.isEmpty == false), although used to do that with GM. Is that right?
+                if (stepLabels.streamNoInput(l).findAny().isEmpty()) {
+                  stepLabels.add(l, copiedRoot);
                 }
               }
-            }
-            for (String l : prev.getAvailableLabels()) {
-              final NodeMap lastStepMappings = stepLabels.getMappingsForLabel(l);
-              final NodeMap prevStepMappings = prev.getMappingsForLabel(l);
+            });
+            prev.forEachWithInput((l, prevStepMappings) -> {
+              final NodeMap lastStepMappings = stepLabels.streamWithInput(l).findAny().orElse(null);
               prevStepMappings.forEachRecord(r -> {
                 if (lastStepMappings != null && lastStepMappings.containsKey(r.key())) {
                   // there's already labeled transformation for the same input node, no reason to override with value from previous steps
@@ -346,17 +351,16 @@ class GenerationSession {
                   // and it's of no real use anyway as we don't restore x-model references in case there are multiple outputs.
                   SNode copiedOutput = getCurrentInputNode.apply(r.soleValue().getNodeId());
                   if (copiedOutput != null) {
-                    lmCollector.add(l, r.key(), copiedOutput);
+                    stepLabels.add(l, r.key(), copiedOutput);
                   }
                 }
-
               });
-            }
-            // record what we've collected so far so the next prev GM is examined, we would know LMs we've just pushed.
-            stepLabels.fillFrom(Collections.singletonList(lmCollector));
-            lmCollector.clear();
+            });
+            // FIXME what about composite labels here? Why don't we copy them?
           }
-          cpBuilder.addMappings(myOriginalInputModel, stepLabels);
+          GeneratorMappings fakeInstance = new GeneratorMappings(Collections.emptyList(), myLogger);
+          fakeInstance.fillFrom(Collections.singletonList(stepLabels));
+          cpBuilder.addMappings(myOriginalInputModel, fakeInstance);
         }
         CheckpointState cpState = cpBuilder.create(checkpointIdentity);
         xmodelEnv.publishCheckpoint(myOriginalInputModel.getReference(), cpState);
@@ -425,7 +429,8 @@ class GenerationSession {
     GenPlanActiveStep activeStep = new GenPlanActiveStep(myGenerationPlan, planStep, mappingConfigurations, myControlEnv.getLanguageRegistry());
 
     try {
-      myStepArguments = new StepArguments(activeStep, myNewTrace, new GeneratorMappings(myLogger), transitionTrace, myQuerySource, myRoleValidation, ttrace);
+      final GeneratorMappings gml = new GeneratorMappings(activeStep.getPrivateLabels(), myLogger);
+      myStepArguments = new StepArguments(activeStep, myNewTrace, gml, transitionTrace, myQuerySource, myRoleValidation, ttrace);
       SModel outputModel = executeMajorStepInternal(inputModel, progress);
       if (myLogger.getErrorCount() > 0) {
         myLogger.warning(String.format("model '%s' has been generated with errors", inputModel.getName()));

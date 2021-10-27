@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.generator.impl;
 import jetbrains.mps.generator.IGeneratorLogger;
 import jetbrains.mps.generator.IGeneratorLogger.ProblemDescription;
 import jetbrains.mps.generator.impl.cache.MappingsMemento;
+import jetbrains.mps.generator.runtime.LabelDeclaration;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.smodel.adapter.structure.concept.SConceptAdapterById;
 import jetbrains.mps.smodel.runtime.StaticScope;
@@ -52,6 +53,7 @@ import java.util.stream.Collectors;
  * Evgeny Gryaznov, Feb 16, 2010
  */
 public final class GeneratorMappings {
+  private final List<LabelDeclaration> myPrivateLabels;
   private final IGeneratorLogger myLog;
 
   /* input -> output */
@@ -62,7 +64,8 @@ public final class GeneratorMappings {
 
   private final LMCollector myLabeledMappings = new LMCollector();
 
-  public GeneratorMappings(IGeneratorLogger log) {
+  public GeneratorMappings(@NotNull List<LabelDeclaration> privateLabels, IGeneratorLogger log) {
+    myPrivateLabels = privateLabels;
     myLog = log;
   }
 
@@ -73,6 +76,7 @@ public final class GeneratorMappings {
       if (lmCollector.isEmpty()) {
         continue;
       }
+      // JFTR, #expose(), below, is sort of reverse operation
       lmCollector.forEachNoInput(myLabeledMappings::add);
       lmCollector.forEachWithInput(myLabeledMappings::add);
       // Bit of history:
@@ -412,6 +416,40 @@ public final class GeneratorMappings {
       });
     });
     myLabeledMappings.forEachNoInput(cp::record);
+  }
+
+  /**
+   * We don't need to keep complete GeneratorMappings, just a subset with labeled input->output
+   * and conditional roots, LMCollector is enough.
+   *
+   * @return set of labeled records to get exposed in checkpoint models (excluding MLs considered 'private')
+   */
+  /*package*/ LMCollector exposed() {
+    // this is a third iteration I believe to make "persistence snapshot" of GM,
+    // first one being MappingMemento, the next one unused GM#export(). Now GenerationSession
+    // needs to keep tack of LMs from few steps, that's why we expose state as an object, rather than
+    // encapsulate LM record processing in here. Besides, the way CheckpointStateBuilder+DebugMappingsBuilder
+    // work doesn't leave me too much room for creativity here.
+    // What is beneficial is that we now keep only labels we gonna need (i.e. not complete GM with
+    // copied/template nodes)
+    final LMCollector exposed = new LMCollector();
+    final Set<String> privateLabels = myPrivateLabels.stream().map(LabelDeclaration::getName).collect(Collectors.toUnmodifiableSet());
+    myLabeledMappings.forEachNoInput((l, n) -> {
+      if (!privateLabels.contains(l)) {
+        exposed.add(l, n);
+      }
+    });
+    myLabeledMappings.forEachWithInput((l, nm) -> {
+      if (!privateLabels.contains(l)) {
+        exposed.add(l, nm);
+      }
+    });
+    myLabeledMappings.forEachComposite(lr -> {
+      if (!privateLabels.contains(lr.label)) {
+        exposed.addComposite(lr);
+      }
+    });
+    return exposed;
   }
 
   private static final class TagNodeList {
