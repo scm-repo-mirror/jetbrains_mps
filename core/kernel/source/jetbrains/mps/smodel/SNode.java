@@ -287,19 +287,20 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
         return;
       }
 
-      for (int i = 0; i < myUserObjects.length; i += 2) {
+      final int curLen = myUserObjects.length;
+      for (int i = 0; i < curLen; i += 2) {
         if (myUserObjects[i].equals(key)) {
           Object[] newarr = new Object[myUserObjects.length];
-          System.arraycopy(myUserObjects, 0, newarr, 0, myUserObjects.length);
+          System.arraycopy(myUserObjects, 0, newarr, 0, curLen);
           newarr[i + 1] = value;
           myUserObjects = newarr;
           return;
         }
       }
-      Object[] newarr = new Object[myUserObjects.length + 2];
-      System.arraycopy(myUserObjects, 0, newarr, 2, myUserObjects.length);
-      newarr[0] = key;
-      newarr[1] = value;
+      Object[] newarr = new Object[curLen + 2];
+      System.arraycopy(myUserObjects, 0, newarr, 0, curLen);
+      newarr[curLen] = key;
+      newarr[curLen+1] = value;
       myUserObjects = newarr;
     }
   }
