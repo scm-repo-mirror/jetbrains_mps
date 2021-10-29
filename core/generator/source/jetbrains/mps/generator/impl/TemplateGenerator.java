@@ -1211,7 +1211,6 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
       } else {
         outputNode = myEnv.createOutputNode(inputNode.getConcept());
       }
-      myEnv.getGenerator().recordCopyInputTrace(inputNode, outputNode);
       myEnv.blockReductionsForCopiedNode(inputNode, outputNode); // prevent infinite applying of the same reduction to the 'same' node.
 
       // output node should be accessible via 'findCopiedNode'
@@ -1219,6 +1218,8 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
 
       CopyUtil.copyProperties(inputNode, outputNode);
       CopyUtil.copyUserObjects(inputNode, outputNode);
+
+      myEnv.getGenerator().recordCopyInputTrace(inputNode, outputNode);
 
       final List<ReferenceReductionRule> referenceRules = myEnv.getGenerator().getRuleManager().getReferenceReductionRules(inputNode);
       final Set<SReferenceLink> handledReferences;
