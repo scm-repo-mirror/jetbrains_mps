@@ -591,6 +591,10 @@
       </concept>
       <concept id="1165595910856" name="jetbrains.mps.baseLanguage.collections.structure.GetLastOperation" flags="nn" index="1yVyf7" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
+      <concept id="1197932370469" name="jetbrains.mps.baseLanguage.collections.structure.MapElement" flags="nn" index="3EllGN">
+        <child id="1197932505799" name="map" index="3ElQJh" />
+        <child id="1197932525128" name="key" index="3ElVtu" />
+      </concept>
       <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
       <concept id="1206655653991" name="jetbrains.mps.baseLanguage.collections.structure.MapInitializer" flags="ng" index="3Mi1_Z">
         <child id="1206655902276" name="entries" index="3MiYds" />
@@ -9587,12 +9591,12 @@
         </node>
         <node concept="3clFbF" id="6_TW7xVvskl" role="3cqZAp">
           <node concept="2OqwBi" id="6_TW7xVvskm" role="3clFbG">
-            <node concept="2YIFZM" id="6_TW7xVvskn" role="2Oq$k0">
-              <ref role="37wK5l" to="oh9p:2ONldth5FtA" resolve="getInstance" />
-              <ref role="1Pybhc" to="oh9p:2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
+            <node concept="2YIFZM" id="1rrVudG1bRe" role="2Oq$k0">
+              <ref role="37wK5l" node="2ONldth5FtA" resolve="getInstance" />
+              <ref role="1Pybhc" node="2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
             </node>
             <node concept="liA8E" id="6_TW7xVvsko" role="2OqNvi">
-              <ref role="37wK5l" to="oh9p:2ONldth5FtR" resolve="register" />
+              <ref role="37wK5l" node="2ONldth5FtR" resolve="register" />
               <node concept="37vLTw" id="6_TW7xVvskp" role="37wK5m">
                 <ref role="3cqZAo" node="6_TW7xVvsk5" resolve="nodeWithClosure" />
               </node>
@@ -9885,6 +9889,196 @@
     <node concept="3uibUv" id="7nWAV$2meaA" role="1zkMxy">
       <ref role="3uigEE" to="qq03:~MPSCommonDataKeys" resolve="MPSCommonDataKeys" />
     </node>
+  </node>
+  <node concept="312cEu" id="2ONldth5Ft3">
+    <property role="TrG5h" value="ClosureHoldingNodeUtil" />
+    <node concept="2tJIrI" id="2ONldth5Ft4" role="jymVt" />
+    <node concept="Wx3nA" id="2ONldth5Ft5" role="jymVt">
+      <property role="TrG5h" value="myInstance" />
+      <property role="3TUv4t" value="false" />
+      <node concept="3Tm6S6" id="2ONldth5Ft6" role="1B3o_S" />
+      <node concept="3uibUv" id="2ONldth5Ft7" role="1tU5fm">
+        <ref role="3uigEE" node="2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2ONldth5Ft8" role="jymVt" />
+    <node concept="312cEg" id="2ONldth5Ft9" role="jymVt">
+      <property role="34CwA1" value="false" />
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="allActions" />
+      <property role="3TUv4t" value="false" />
+      <node concept="3Tm6S6" id="2ONldth5Fta" role="1B3o_S" />
+      <node concept="3rvAFt" id="2ONldth5Ftb" role="1tU5fm">
+        <node concept="3uibUv" id="7B2vBh7fx5a" role="3rvSg0">
+          <ref role="3uigEE" to="wyt6:~Runnable" resolve="Runnable" />
+        </node>
+        <node concept="3Tqbb2" id="3D6DpvagwEp" role="3rvQeY">
+          <ref role="ehGHo" to="eynw:XHjpmeKJb6" resolve="NodeWithClosure" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2ONldth5Ftj" role="jymVt" />
+    <node concept="3clFbW" id="2ONldth5Ftk" role="jymVt">
+      <node concept="3cqZAl" id="2ONldth5Ftl" role="3clF45" />
+      <node concept="3clFbS" id="2ONldth5Ftm" role="3clF47">
+        <node concept="3clFbF" id="2ONldth5Ftn" role="3cqZAp">
+          <node concept="37vLTI" id="2ONldth5Fto" role="3clFbG">
+            <node concept="2ShNRf" id="2ONldth5Ftp" role="37vLTx">
+              <node concept="1pGfFk" id="MOQdGoUVeM" role="2ShVmc">
+                <ref role="37wK5l" to="33ny:~WeakHashMap.&lt;init&gt;()" resolve="WeakHashMap" />
+                <node concept="3Tqbb2" id="3D6DpvagA$A" role="1pMfVU">
+                  <ref role="ehGHo" to="eynw:XHjpmeKJb6" resolve="NodeWithClosure" />
+                </node>
+                <node concept="3uibUv" id="7B2vBh7fxn2" role="1pMfVU">
+                  <ref role="3uigEE" to="wyt6:~Runnable" resolve="Runnable" />
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2ONldth5Ftu" role="37vLTJ">
+              <ref role="3cqZAo" node="2ONldth5Ft9" resolve="allActions" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="2ONldth5Ft$" role="1B3o_S" />
+    </node>
+    <node concept="2tJIrI" id="2ONldth5Ft_" role="jymVt" />
+    <node concept="2YIFZL" id="2ONldth5FtA" role="jymVt">
+      <property role="TrG5h" value="getInstance" />
+      <property role="DiZV1" value="false" />
+      <property role="od$2w" value="false" />
+      <node concept="3clFbS" id="2ONldth5FtB" role="3clF47">
+        <node concept="3clFbJ" id="2ONldth5FtC" role="3cqZAp">
+          <node concept="3clFbS" id="2ONldth5FtD" role="3clFbx">
+            <node concept="3clFbF" id="2ONldth5FtE" role="3cqZAp">
+              <node concept="37vLTI" id="2ONldth5FtF" role="3clFbG">
+                <node concept="2ShNRf" id="2ONldth5FtG" role="37vLTx">
+                  <node concept="1pGfFk" id="2ONldth5FtH" role="2ShVmc">
+                    <ref role="37wK5l" node="2ONldth5Ftk" resolve="ClosureHoldingNodeUtil" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2ONldth5FtI" role="37vLTJ">
+                  <ref role="3cqZAo" node="2ONldth5Ft5" resolve="myInstance" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="2ONldth5FtJ" role="3clFbw">
+            <node concept="10Nm6u" id="2ONldth5FtK" role="3uHU7w" />
+            <node concept="37vLTw" id="2ONldth5FtL" role="3uHU7B">
+              <ref role="3cqZAo" node="2ONldth5Ft5" resolve="myInstance" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2ONldth5FtM" role="3cqZAp">
+          <node concept="37vLTw" id="2ONldth5FtN" role="3cqZAk">
+            <ref role="3cqZAo" node="2ONldth5Ft5" resolve="myInstance" />
+          </node>
+        </node>
+      </node>
+      <node concept="3uibUv" id="2ONldth5FtO" role="3clF45">
+        <ref role="3uigEE" node="2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
+      </node>
+      <node concept="3Tm1VV" id="2ONldth5FtP" role="1B3o_S" />
+    </node>
+    <node concept="2tJIrI" id="2ONldth5FtQ" role="jymVt" />
+    <node concept="3clFb_" id="2ONldth5FtR" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="register" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <node concept="3clFbS" id="2ONldth5FtS" role="3clF47">
+        <node concept="3clFbF" id="2ONldth5Fu8" role="3cqZAp">
+          <node concept="37vLTI" id="2ONldth5Fu9" role="3clFbG">
+            <node concept="37vLTw" id="2ONldth5Fua" role="37vLTx">
+              <ref role="3cqZAo" node="2ONldth5Fui" resolve="closure" />
+            </node>
+            <node concept="3EllGN" id="2ONldth5Fub" role="37vLTJ">
+              <node concept="37vLTw" id="2ONldth5Fud" role="3ElQJh">
+                <ref role="3cqZAo" node="2ONldth5Ft9" resolve="allActions" />
+              </node>
+              <node concept="37vLTw" id="3D6DpvagGI0" role="3ElVtu">
+                <ref role="3cqZAo" node="2ONldth5Fug" resolve="node" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="2ONldth5Fue" role="1B3o_S" />
+      <node concept="3cqZAl" id="2ONldth5Fuf" role="3clF45" />
+      <node concept="37vLTG" id="2ONldth5Fug" role="3clF46">
+        <property role="TrG5h" value="node" />
+        <node concept="3Tqbb2" id="2ONldth5Fuh" role="1tU5fm">
+          <ref role="ehGHo" to="eynw:XHjpmeKJb6" resolve="NodeWithClosure" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2ONldth5Fui" role="3clF46">
+        <property role="TrG5h" value="closure" />
+        <node concept="3uibUv" id="7B2vBh7fxxi" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~Runnable" resolve="Runnable" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2ONldth5Ful" role="jymVt" />
+    <node concept="3clFb_" id="2ONldth5Fum" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="getClosure" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <node concept="3clFbS" id="2ONldth5Fun" role="3clF47">
+        <node concept="3cpWs6" id="2ONldth5Fuo" role="3cqZAp">
+          <node concept="3EllGN" id="2ONldth5Fup" role="3cqZAk">
+            <node concept="37vLTw" id="2ONldth5Fur" role="3ElVtu">
+              <ref role="3cqZAo" node="2ONldth5Fux" resolve="node" />
+            </node>
+            <node concept="37vLTw" id="2ONldth5Fut" role="3ElQJh">
+              <ref role="3cqZAo" node="2ONldth5Ft9" resolve="allActions" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="2ONldth5Fuu" role="1B3o_S" />
+      <node concept="3uibUv" id="7B2vBh7fyQJ" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~Runnable" resolve="Runnable" />
+      </node>
+      <node concept="37vLTG" id="2ONldth5Fux" role="3clF46">
+        <property role="TrG5h" value="node" />
+        <node concept="3Tqbb2" id="2ONldth5Fuy" role="1tU5fm">
+          <ref role="ehGHo" to="eynw:XHjpmeKJb6" resolve="NodeWithClosure" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2ONldth5Fuz" role="jymVt" />
+    <node concept="3clFb_" id="2ONldth5Fu$" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="executeClosure" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <node concept="3clFbS" id="2ONldth5Fu_" role="3clF47">
+        <node concept="3clFbF" id="2ONldth5FuA" role="3cqZAp">
+          <node concept="2OqwBi" id="2ONldth5FuB" role="3clFbG">
+            <node concept="1rXfSq" id="2ONldth5FuC" role="2Oq$k0">
+              <ref role="37wK5l" node="2ONldth5Fum" resolve="getClosure" />
+              <node concept="37vLTw" id="2ONldth5FuD" role="37wK5m">
+                <ref role="3cqZAo" node="2ONldth5FuH" resolve="node" />
+              </node>
+            </node>
+            <node concept="liA8E" id="7B2vBh7fO$a" role="2OqNvi">
+              <ref role="37wK5l" to="wyt6:~Runnable.run()" resolve="run" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="2ONldth5FuF" role="1B3o_S" />
+      <node concept="3cqZAl" id="2ONldth5FuG" role="3clF45" />
+      <node concept="37vLTG" id="2ONldth5FuH" role="3clF46">
+        <property role="TrG5h" value="node" />
+        <node concept="3Tqbb2" id="2ONldth5FuI" role="1tU5fm">
+          <ref role="ehGHo" to="eynw:XHjpmeKJb6" resolve="NodeWithClosure" />
+        </node>
+      </node>
+    </node>
+    <node concept="3Tm1VV" id="2ONldth5FuJ" role="1B3o_S" />
   </node>
 </model>
 

@@ -461,7 +461,7 @@
     <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="jetbrains.mps.console.actions.ClosureHoldingNodeUtil" />
+    <classNode dependClassName="jetbrains.mps.console.tool.ClosureHoldingNodeUtil" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.AccessPrivileges" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodBuilder" />

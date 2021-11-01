@@ -152,6 +152,14 @@
     <classNode extendsClassName="com.intellij.openapi.Disposable" />
     <classNode extendsClassName="com.intellij.openapi.ui.SimpleToolWindowPanel" />
   </dependency>
+  <dependency className="jetbrains.mps.console.tool.ClosureHoldingNodeUtil">
+    <classNode dependClassName="java.lang.Runnable" />
+    <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="java.util.WeakHashMap" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+  </dependency>
   <dependency className="jetbrains.mps.console.tool.ConsoleContext">
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.console.tool.BaseConsoleTab" />
@@ -204,8 +212,8 @@
     <classNode dependClassName="java.util.Scanner" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
-    <classNode dependClassName="jetbrains.mps.console.actions.ClosureHoldingNodeUtil" />
     <classNode dependClassName="jetbrains.mps.console.tool.BaseConsoleTab" />
+    <classNode dependClassName="jetbrains.mps.console.tool.ClosureHoldingNodeUtil" />
     <classNode dependClassName="jetbrains.mps.console.tool.ConsoleUtil" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.commands.EditorCommand" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.model.SearchResults" />

@@ -23,7 +23,6 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
     <import index="3xdn" ref="r:935ba0ee-7291-4caa-a807-d76e8fc69391(jetbrains.mps.lang.smodel.query.structure)" />
-    <import index="oh9p" ref="r:ab572aa6-6e4f-43f3-8bc9-ad4a8ae29372(jetbrains.mps.console.actions)" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
@@ -2565,12 +2564,12 @@
       <node concept="3clFbS" id="3ob4OZ0k82b" role="3clF47">
         <node concept="3cpWs6" id="6oeD7bTtUda" role="3cqZAp">
           <node concept="2OqwBi" id="6oeD7bTtUdb" role="3cqZAk">
-            <node concept="2YIFZM" id="6oeD7bTtUdc" role="2Oq$k0">
-              <ref role="37wK5l" to="oh9p:2ONldth5FtA" resolve="getInstance" />
-              <ref role="1Pybhc" to="oh9p:2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
+            <node concept="2YIFZM" id="1rrVudG1bRf" role="2Oq$k0">
+              <ref role="37wK5l" to="qgo0:2ONldth5FtA" resolve="getInstance" />
+              <ref role="1Pybhc" to="qgo0:2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
             </node>
             <node concept="liA8E" id="6oeD7bTtUdd" role="2OqNvi">
-              <ref role="37wK5l" to="oh9p:2ONldth5Fum" resolve="getClosure" />
+              <ref role="37wK5l" to="qgo0:2ONldth5Fum" resolve="getClosure" />
               <node concept="13iPFW" id="6oeD7bTtUde" role="37wK5m" />
             </node>
           </node>
@@ -2597,12 +2596,12 @@
         <node concept="3cpWs6" id="r_OzKrcvMR" role="3cqZAp">
           <node concept="3y3z36" id="r_OzKrcvMS" role="3cqZAk">
             <node concept="2OqwBi" id="r_OzKrcvMT" role="3uHU7B">
-              <node concept="2YIFZM" id="r_OzKrcvMU" role="2Oq$k0">
-                <ref role="1Pybhc" to="oh9p:2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
-                <ref role="37wK5l" to="oh9p:2ONldth5FtA" resolve="getInstance" />
+              <node concept="2YIFZM" id="1rrVudG1bRg" role="2Oq$k0">
+                <ref role="37wK5l" to="qgo0:2ONldth5FtA" resolve="getInstance" />
+                <ref role="1Pybhc" to="qgo0:2ONldth5Ft3" resolve="ClosureHoldingNodeUtil" />
               </node>
               <node concept="liA8E" id="r_OzKrcvMV" role="2OqNvi">
-                <ref role="37wK5l" to="oh9p:2ONldth5Fum" resolve="getClosure" />
+                <ref role="37wK5l" to="qgo0:2ONldth5Fum" resolve="getClosure" />
                 <node concept="13iPFW" id="r_OzKrcvMW" role="37wK5m" />
               </node>
             </node>
