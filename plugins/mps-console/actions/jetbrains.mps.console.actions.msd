@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.console.actions" uuid="95b39faf-7eaf-4ae3-bd92-fbd3cc28bfab" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true" generatorOutputPath="${module}/actions/source_gen">
+<solution name="jetbrains.mps.console.actions" uuid="95b39faf-7eaf-4ae3-bd92-fbd3cc28bfab" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="true">
   <models>
     <modelRoot contentPath="${module}" type="default">
-      <sourceRoot location="actions/models" />
+      <sourceRoot location="models" />
     </modelRoot>
   </models>
   <facets>
     <facet type="java">
-      <classes generated="true" path="${module}/actions/classes_gen" />
+      <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
   <sourcePath />

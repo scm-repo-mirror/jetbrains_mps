@@ -592,8 +592,8 @@
         <exclude name="**/checkpoints" />
         <exclude name="**/*.mps" />
       </fileset>
-      <zipfileset file="${plugin_home}/jetbrains.mps.console.actions.msd" prefix="module" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/actions-models" prefix="module/actions/models" />
+      <zipfileset file="${plugin_home}/actions/jetbrains.mps.console.actions.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/actions-models" prefix="module/models" />
     </jar>
     <mkdir dir="${build.tmp}/default/jetbrains.mps.console.ideCommands.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.console.ideCommands.jar/META-INF" />
@@ -1245,7 +1245,7 @@
         <module file="${plugin_home}/lang/scriptsRuntime/jetbrains.mps.console.scripts.runtime.msd" />
       </chunk>
       <chunk>
-        <module file="${plugin_home}/jetbrains.mps.console.actions.msd" />
+        <module file="${plugin_home}/actions/jetbrains.mps.console.actions.msd" />
       </chunk>
       <jvmargs>
         <arg value="-ea" />

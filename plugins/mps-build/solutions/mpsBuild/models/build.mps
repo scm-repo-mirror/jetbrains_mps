@@ -48203,8 +48203,11 @@
       <property role="3LESm3" value="95b39faf-7eaf-4ae3-bd92-fbd3cc28bfab" />
       <node concept="398BVA" id="5kU0oYlfy5Q" role="3LF7KH">
         <ref role="398BVh" node="3E9C6pCXO$D" resolve="plugin_home" />
-        <node concept="2Ry0Ak" id="5kU0oYlfyNu" role="iGT6I">
-          <property role="2Ry0Am" value="jetbrains.mps.console.actions.msd" />
+        <node concept="2Ry0Ak" id="1KHr5AFa7hQ" role="iGT6I">
+          <property role="2Ry0Am" value="actions" />
+          <node concept="2Ry0Ak" id="1KHr5AFa7if" role="2Ry0An">
+            <property role="2Ry0Am" value="jetbrains.mps.console.actions.msd" />
+          </node>
         </node>
       </node>
       <node concept="1SiIV0" id="5kU0oYlfBeF" role="3bR37C">
