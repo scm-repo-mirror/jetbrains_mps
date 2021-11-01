@@ -253,21 +253,11 @@
     <classNode dependClassName="jetbrains.mps.baseLanguageInternal.textGen.InternalSuperMethodCallOperation_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguageInternal.textGen.InternalThisExpression_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguageInternal.textGen.InternalVariableReference_TextGen" />
-    <classNode dependClassName="jetbrains.mps.baseLanguageInternal.textGen.TypeHintExpression_TextGen" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenDescriptor" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenAspectBase" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguageInternal.textGen.TypeHintExpression_TextGen">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
-    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
-    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
 </dependenciesRoot>
 

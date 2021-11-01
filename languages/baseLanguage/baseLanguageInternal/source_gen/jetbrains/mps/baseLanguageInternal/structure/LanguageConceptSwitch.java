@@ -35,8 +35,7 @@ public final class LanguageConceptSwitch {
   public static final int InternalThisExpression = 23;
   public static final int InternalTypedStaticFieldReference = 24;
   public static final int InternalVariableReference = 25;
-  public static final int TypeHintExpression = 26;
-  public static final int WeakClassReference = 27;
+  public static final int WeakClassReference = 26;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L);
@@ -66,7 +65,6 @@ public final class LanguageConceptSwitch {
     builder.put(0x1180ebdd5b4L, InternalThisExpression);
     builder.put(0x7232370459dfc310L, InternalTypedStaticFieldReference);
     builder.put(0x111fb5bb1f2L, InternalVariableReference);
-    builder.put(0x11763791866L, TypeHintExpression);
     builder.put(0x7a00a2a7a8b080daL, WeakClassReference);
     myIndex = builder.seal();
   }

@@ -991,26 +991,6 @@
       <node concept="l2Vlx" id="i0NqBAq" role="2iSdaV" />
     </node>
   </node>
-  <node concept="24kQdi" id="htzumFf">
-    <ref role="1XX52x" to="tp68:htzuhxA" resolve="TypeHintExpression" />
-    <node concept="3EZMnI" id="htzunay" role="2wV5jI">
-      <node concept="3F0ifn" id="htzunul" role="3EZMnx">
-        <property role="3F0ifm" value="{" />
-        <ref role="1k5W1q" to="tpen:i177PM9" resolve="Matching" />
-      </node>
-      <node concept="3F1sOY" id="htzupwJ" role="3EZMnx">
-        <ref role="1NtTu8" to="tp68:htzukip" resolve="typeHint" />
-      </node>
-      <node concept="3F0ifn" id="htzupQg" role="3EZMnx">
-        <property role="3F0ifm" value="}" />
-        <ref role="1k5W1q" to="tpen:i177PM9" resolve="Matching" />
-      </node>
-      <node concept="3F1sOY" id="htzuqtm" role="3EZMnx">
-        <ref role="1NtTu8" to="tp68:htzuj6W" resolve="expression" />
-      </node>
-      <node concept="l2Vlx" id="i0Ns2Af" role="2iSdaV" />
-    </node>
-  </node>
   <node concept="24kQdi" id="hweJzY4">
     <ref role="1XX52x" to="tp68:hweJtmO" resolve="InternalThisExpression" />
     <node concept="3EZMnI" id="hweJ$AC" role="2wV5jI">

@@ -967,23 +967,6 @@
       </node>
     </node>
   </node>
-  <node concept="WtQ9Q" id="hZLgqHA">
-    <ref role="WuzLi" to="tp68:htzuhxA" resolve="TypeHintExpression" />
-    <node concept="11bSqf" id="hZLgqHB" role="11c4hB">
-      <node concept="3clFbS" id="hZLgqHC" role="2VODD2">
-        <node concept="lc7rE" id="i0uAwoQ" role="3cqZAp">
-          <node concept="l9hG8" id="i0uAwoS" role="lcghm">
-            <node concept="2OqwBi" id="hZLgsXJ" role="lb14g">
-              <node concept="117lpO" id="hZLgsSm" role="2Oq$k0" />
-              <node concept="3TrEf2" id="hZLgtiM" role="2OqNvi">
-                <ref role="3Tt5mk" to="tp68:htzuj6W" resolve="expression" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-  </node>
   <node concept="WtQ9Q" id="2XVui9ut6Ab">
     <ref role="WuzLi" to="tp68:2XVui9ut6w8" resolve="InternalAnonymousClassCreator" />
     <node concept="11bSqf" id="2XVui9ut6Ac" role="11c4hB">

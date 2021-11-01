@@ -502,34 +502,6 @@
       <ref role="1YaFvo" to="tp68:h8HPosR" resolve="InternalPartialFieldReference" />
     </node>
   </node>
-  <node concept="1YbPZF" id="htzusqn">
-    <property role="TrG5h" value="typeof_TypeHintExpression" />
-    <node concept="3clFbS" id="htzusqo" role="18ibNy">
-      <node concept="1Z5TYs" id="htzuvCa" role="3cqZAp">
-        <node concept="mw_s8" id="htzuwlC" role="1ZfhKB">
-          <node concept="2OqwBi" id="hxokjlm" role="mwGJk">
-            <node concept="1YBJjd" id="htzuwlD" role="2Oq$k0">
-              <ref role="1YBMHb" node="htzusqp" resolve="nodeToCheck" />
-            </node>
-            <node concept="3TrEf2" id="htzuxdS" role="2OqNvi">
-              <ref role="3Tt5mk" to="tp68:htzukip" resolve="typeHint" />
-            </node>
-          </node>
-        </node>
-        <node concept="mw_s8" id="htzuvCd" role="1ZfhK$">
-          <node concept="1Z2H0r" id="htzuuEP" role="mwGJk">
-            <node concept="1YBJjd" id="htzuv9R" role="1Z2MuG">
-              <ref role="1YBMHb" node="htzusqp" resolve="nodeToCheck" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="1YaCAy" id="htzusqp" role="1YuTPh">
-      <property role="TrG5h" value="nodeToCheck" />
-      <ref role="1YaFvo" to="tp68:htzuhxA" resolve="TypeHintExpression" />
-    </node>
-  </node>
   <node concept="1YbPZF" id="hweJEYA">
     <property role="TrG5h" value="typeof_InternalThisExpression" />
     <node concept="3clFbS" id="hweJEYB" role="18ibNy">

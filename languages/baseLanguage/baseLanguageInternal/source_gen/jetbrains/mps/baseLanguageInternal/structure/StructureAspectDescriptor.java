@@ -42,7 +42,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptInternalThisExpression = createDescriptorForInternalThisExpression();
   /*package*/ final ConceptDescriptor myConceptInternalTypedStaticFieldReference = createDescriptorForInternalTypedStaticFieldReference();
   /*package*/ final ConceptDescriptor myConceptInternalVariableReference = createDescriptorForInternalVariableReference();
-  /*package*/ final ConceptDescriptor myConceptTypeHintExpression = createDescriptorForTypeHintExpression();
   /*package*/ final ConceptDescriptor myConceptWeakClassReference = createDescriptorForWeakClassReference();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -59,7 +58,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptConstantValue, myConceptExtractStatementListExpression, myConceptExtractStatementListInnerExpression, myConceptExtractStaticInnerClassConcept, myConceptExtractStaticInnerClassCreator, myConceptExtractStaticInnerClassExpression, myConceptExtractStaticMethodExpression, myConceptExtractStaticMethod_CallExpression, myConceptExtractToConstantExpression, myConceptExtractToConstantRefExpression, myConceptExtractToSingleConstantExpression, myConceptInternalAnonymousClass, myConceptInternalAnonymousClassCreator, myConceptInternalClassCreator, myConceptInternalClassExpression, myConceptInternalClassifierType, myConceptInternalLambdaExpression, myConceptInternalNewExpression, myConceptInternalPartialFieldReference, myConceptInternalPartialInstanceMethodCall, myConceptInternalStaticFieldReference, myConceptInternalStaticMethodCall, myConceptInternalSuperMethodCallOperation, myConceptInternalThisExpression, myConceptInternalTypedStaticFieldReference, myConceptInternalVariableReference, myConceptTypeHintExpression, myConceptWeakClassReference);
+    return Arrays.asList(myConceptConstantValue, myConceptExtractStatementListExpression, myConceptExtractStatementListInnerExpression, myConceptExtractStaticInnerClassConcept, myConceptExtractStaticInnerClassCreator, myConceptExtractStaticInnerClassExpression, myConceptExtractStaticMethodExpression, myConceptExtractStaticMethod_CallExpression, myConceptExtractToConstantExpression, myConceptExtractToConstantRefExpression, myConceptExtractToSingleConstantExpression, myConceptInternalAnonymousClass, myConceptInternalAnonymousClassCreator, myConceptInternalClassCreator, myConceptInternalClassExpression, myConceptInternalClassifierType, myConceptInternalLambdaExpression, myConceptInternalNewExpression, myConceptInternalPartialFieldReference, myConceptInternalPartialInstanceMethodCall, myConceptInternalStaticFieldReference, myConceptInternalStaticMethodCall, myConceptInternalSuperMethodCallOperation, myConceptInternalThisExpression, myConceptInternalTypedStaticFieldReference, myConceptInternalVariableReference, myConceptWeakClassReference);
   }
 
   @Override
@@ -118,8 +117,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptInternalTypedStaticFieldReference;
       case LanguageConceptSwitch.InternalVariableReference:
         return myConceptInternalVariableReference;
-      case LanguageConceptSwitch.TypeHintExpression:
-        return myConceptTypeHintExpression;
       case LanguageConceptSwitch.WeakClassReference:
         return myConceptWeakClassReference;
       default:
@@ -445,17 +442,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("type", 0x111fb5c4f4cL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(false).ordered(true).multiple(false).origin("1176743202636").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("_<variable reference>");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForTypeHintExpression() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.baseLanguageInternal", "TypeHintExpression", 0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11763791866L);
-    b.class_(false, false, false);
-    b.super_("jetbrains.mps.baseLanguage.structure.Expression", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL);
-    b.origin("r:00000000-0000-4000-0000-011c895903ac(jetbrains.mps.baseLanguageInternal.structure)/1199964756070");
-    b.version(2);
-    b.aggregate("expression", 0x117637931bcL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("1199964762556").done();
-    b.aggregate("typeHint", 0x11763794499L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(false).ordered(true).multiple(false).origin("1199964767385").done();
-    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForWeakClassReference() {

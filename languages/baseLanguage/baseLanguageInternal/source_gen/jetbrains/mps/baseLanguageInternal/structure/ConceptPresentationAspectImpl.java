@@ -35,7 +35,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_InternalThisExpression;
   private ConceptPresentation props_InternalTypedStaticFieldReference;
   private ConceptPresentation props_InternalVariableReference;
-  private ConceptPresentation props_TypeHintExpression;
   private ConceptPresentation props_WeakClassReference;
 
   @Override
@@ -234,14 +233,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_InternalVariableReference = cpb.create();
         }
         return props_InternalVariableReference;
-      case LanguageConceptSwitch.TypeHintExpression:
-        if (props_TypeHintExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.rawPresentation("TypeHintExpression");
-          props_TypeHintExpression = cpb.create();
-        }
-        return props_TypeHintExpression;
       case LanguageConceptSwitch.WeakClassReference:
         if (props_WeakClassReference == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
