@@ -193,6 +193,11 @@
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
       </concept>
     </language>
+    <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
+      <concept id="4733039728785194814" name="jetbrains.mps.lang.modelapi.structure.NamedNodeReference" flags="ng" index="ZC_QK">
+        <reference id="7256306938026143658" name="target" index="2aWVGs" />
+      </concept>
+    </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
       <concept id="1176544042499" name="jetbrains.mps.lang.typesystem.structure.Node_TypeOperation" flags="nn" index="3JvlWi" />
       <concept id="1178870617262" name="jetbrains.mps.lang.typesystem.structure.CoerceExpression" flags="nn" index="1UaxmW">
@@ -215,6 +220,9 @@
         <child id="1144104376918" name="parameter" index="1xVPHs" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
+      <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
+        <child id="7400021826774799510" name="ref" index="2tJFKM" />
+      </concept>
       <concept id="1173122760281" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorsOperation" flags="nn" index="z$bX8" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
@@ -2238,8 +2246,10 @@
                     <ref role="cht4Q" to="tp25:5zEkxuKhqeM" resolve="AttributeAccess" />
                   </node>
                 </node>
-                <node concept="3B5_sB" id="5Vvmn_QkRHC" role="37wK5m">
-                  <ref role="3B5MYn" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+                <node concept="2tJFMh" id="7phNEaHxhiM" role="37wK5m">
+                  <node concept="ZC_QK" id="7phNEaHxhiL" role="2tJFKM">
+                    <ref role="2aWVGs" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2281,8 +2291,10 @@
                     <ref role="cht4Q" to="tp25:5zEkxuKhqeM" resolve="AttributeAccess" />
                   </node>
                 </node>
-                <node concept="3B5_sB" id="5Vvmn_QkRTx" role="37wK5m">
-                  <ref role="3B5MYn" to="tpck:2ULFgo8_XDh" resolve="LinkAttribute" />
+                <node concept="2tJFMh" id="7phNEaHxgS_" role="37wK5m">
+                  <node concept="ZC_QK" id="7phNEaHxgS$" role="2tJFKM">
+                    <ref role="2aWVGs" to="tpck:2ULFgo8_XDh" resolve="LinkAttribute" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2324,8 +2336,10 @@
                     <ref role="cht4Q" to="tp25:5zEkxuKhqeM" resolve="AttributeAccess" />
                   </node>
                 </node>
-                <node concept="3B5_sB" id="5Vvmn_QkRil" role="37wK5m">
-                  <ref role="3B5MYn" to="tpck:2ULFgo8_XDm" resolve="PropertyAttribute" />
+                <node concept="2tJFMh" id="7phNEaHxhzc" role="37wK5m">
+                  <node concept="ZC_QK" id="7phNEaHxhzb" role="2tJFKM">
+                    <ref role="2aWVGs" to="tpck:2ULFgo8_XDm" resolve="PropertyAttribute" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2733,8 +2747,10 @@
                     <ref role="cht4Q" to="tp25:5zEkxuKhqeM" resolve="AttributeAccess" />
                   </node>
                 </node>
-                <node concept="3B5_sB" id="5Vvmn_QkSum" role="37wK5m">
-                  <ref role="3B5MYn" to="tpck:BpxLfMhSxq" resolve="ChildAttribute" />
+                <node concept="2tJFMh" id="7phNEaHxgCb" role="37wK5m">
+                  <node concept="ZC_QK" id="7phNEaHxgCa" role="2tJFKM">
+                    <ref role="2aWVGs" to="tpck:BpxLfMhSxq" resolve="ChildAttribute" />
+                  </node>
                 </node>
               </node>
             </node>

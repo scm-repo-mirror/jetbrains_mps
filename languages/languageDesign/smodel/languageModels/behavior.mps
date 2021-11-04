@@ -5,7 +5,6 @@
     <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="2" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints" version="6" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -29,8 +28,6 @@
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
-    <import index="ncw5" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.util.annotation(Annotations/)" />
-    <import index="pjrh" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter(MPS.Core/)" />
     <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" />
     <import index="tpcz" ref="r:00000000-0000-4000-0000-011c895902bf(jetbrains.mps.baseLanguage.actions)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
@@ -3354,21 +3351,16 @@
     <node concept="13i0hz" id="5zEkxuKhyRq" role="13h7CS">
       <property role="TrG5h" value="getTargetConcept" />
       <property role="13i0it" value="true" />
+      <property role="13i0iv" value="true" />
       <node concept="3Tm1VV" id="5zEkxuKhyRr" role="1B3o_S" />
       <node concept="3Tqbb2" id="19B7r2JaEC" role="3clF45">
         <ref role="ehGHo" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
       </node>
-      <node concept="3clFbS" id="5zEkxuKhyRt" role="3clF47">
-        <node concept="3cpWs6" id="5zEkxuKhyRv" role="3cqZAp">
-          <node concept="3B5_sB" id="19B7r2JaGO" role="3cqZAk">
-            <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
-          </node>
-        </node>
-      </node>
+      <node concept="3clFbS" id="5zEkxuKhyRt" role="3clF47" />
       <node concept="P$JXv" id="19B7r2JaIR" role="lGtFl">
         <node concept="TZ5HA" id="19B7r2JaIS" role="TZ5H$">
           <node concept="1dT_AC" id="19B7r2JaIT" role="1dT_Ay">
-            <property role="1dT_AB" value="Must return an inheritir of Attribute concept" />
+            <property role="1dT_AB" value="Must return an Attribute sub-concept" />
           </node>
         </node>
       </node>
