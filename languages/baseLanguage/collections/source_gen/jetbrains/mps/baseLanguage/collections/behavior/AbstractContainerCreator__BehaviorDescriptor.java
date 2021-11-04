@@ -13,9 +13,6 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,9 +23,8 @@ public final class AbstractContainerCreator__BehaviorDescriptor extends BaseBHDe
   public static final SMethod<SNode> createType_idi0I0ppH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("i0I0ppH").build();
   public static final SMethod<Boolean> canHaveParameter_id1XyaNs207wP = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canHaveParameter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1XyaNs207wP").build();
   public static final SMethod<Boolean> hasInitSize_id1653mnvAgtY = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasInitSize").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1653mnvAgtY").build();
-  public static final SMethod<List<SNode>> getAvailableFor_id2D1PBM_bxHF = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAvailableFor").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2D1PBM_bxHF").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(createType_idi0I0ppH, canHaveParameter_id1XyaNs207wP, hasInitSize_id1653mnvAgtY, getAvailableFor_id2D1PBM_bxHF);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(createType_idi0I0ppH, canHaveParameter_id1XyaNs207wP, hasInitSize_id1653mnvAgtY);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -38,11 +34,6 @@ public final class AbstractContainerCreator__BehaviorDescriptor extends BaseBHDe
   }
   /*package*/ static boolean hasInitSize_id1653mnvAgtY(@NotNull SAbstractConcept __thisConcept__) {
     return false;
-  }
-  /*package*/ static List<SNode> getAvailableFor_id2D1PBM_bxHF(@NotNull SAbstractConcept __thisConcept__) {
-    List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
-    ListSequence.fromList(result).addElement(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)", "1151689724996"));
-    return result;
   }
 
   /*package*/ AbstractContainerCreator__BehaviorDescriptor() {
@@ -76,8 +67,6 @@ public final class AbstractContainerCreator__BehaviorDescriptor extends BaseBHDe
     switch (methodIndex) {
       case 2:
         return (T) ((Boolean) hasInitSize_id1653mnvAgtY(concept));
-      case 3:
-        return (T) ((List<SNode>) getAvailableFor_id2D1PBM_bxHF(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
