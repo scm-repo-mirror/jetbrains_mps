@@ -105,7 +105,16 @@ public class ModuleDescriptorPersistence {
     ArrayList<SModuleReference> deps = new ArrayList<SModuleReference>(depVer.keySet());
     Collections.sort(deps, new Comparator<SModuleReference>() {
       public int compare(SModuleReference p0, SModuleReference p1) {
-        return p0.getModuleName().compareTo(p1.getModuleName());
+        String n1 = p0.getModuleName();
+        String n2 = p1.getModuleName();
+        // null names last
+        if (n1 == null) {
+          return (n2 == null ? 0 : 1);
+        }
+        if (n2 == null) {
+          return -1;
+        }
+        return n1.compareTo(n2);
       }
     });
     Element dependencyVersions = new Element("dependencyVersions");
