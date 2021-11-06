@@ -329,13 +329,20 @@
   <root nodeRef="r:2b4fd559-cd7b-4f90-8197-013c655f64e4(jetbrains.mps.lang.aspect.editor)/3433054418424680617">
     <file name="SimpleLanguageAspectDescriptor_Editor.java">
       <node id="3433054418424680617" at="11,79,12,96" concept="6" />
+      <node id="3433054418424680617" at="14,82,15,99" concept="6" />
       <node id="3433054418424680617" at="11,0,14,0" concept="4" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="14,0,17,0" concept="4" trace="createInspectedCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <scope id="3433054418424680617" at="11,79,12,96" />
+      <scope id="3433054418424680617" at="14,82,15,99" />
       <scope id="3433054418424680617" at="11,0,14,0">
         <var name="editorContext" id="3433054418424680617" />
         <var name="node" id="3433054418424680617" />
       </scope>
-      <unit id="3433054418424680617" at="10,0,15,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_Editor" />
+      <scope id="3433054418424680617" at="14,0,17,0">
+        <var name="editorContext" id="3433054418424680617" />
+        <var name="node" id="3433054418424680617" />
+      </scope>
+      <unit id="3433054418424680617" at="10,0,18,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_Editor" />
     </file>
     <file name="SimpleLanguageAspectDescriptor_EditorBuilder_a.java">
       <node id="3433054418424680617" at="62,110,63,19" concept="9" />
@@ -1175,6 +1182,173 @@
       <unit id="3433054418424680617" at="350,0,423,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_EditorBuilder_a$mainLanguagesListHandler_rpszz1_b2b1a" />
       <unit id="3433054418424680617" at="455,0,531,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_EditorBuilder_a$additionalLanguagesListHandler_rpszz1_b3b1a" />
       <unit id="3433054418424680617" at="58,0,718,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_EditorBuilder_a" />
+    </file>
+    <file name="SimpleLanguageAspectDescriptor_InspectorBuilder_a.java">
+      <node id="3433054418424680617" at="42,113,43,19" concept="9" />
+      <node id="3433054418424680617" at="43,19,44,18" concept="1" />
+      <node id="3433054418424680617" at="49,26,50,18" concept="6" />
+      <node id="3433054418424680617" at="53,39,54,32" concept="6" />
+      <node id="3433054418424680617" at="57,43,58,120" concept="5" />
+      <node id="3433054418424680617" at="58,120,59,48" concept="1" />
+      <node id="3433054418424680617" at="59,48,60,28" concept="1" />
+      <node id="3433054418424680617" at="60,28,61,31" concept="1" />
+      <node id="8426907848585442649" at="61,31,62,51" concept="1" />
+      <node id="3433054418424680617" at="62,51,63,22" concept="6" />
+      <node id="3433054418424680617" at="65,43,66,122" concept="5" />
+      <node id="3433054418424680617" at="66,122,67,48" concept="1" />
+      <node id="3433054418424680617" at="67,48,68,34" concept="5" />
+      <node id="8426907848585442651" at="68,34,69,49" concept="1" />
+      <node id="3433054418424680617" at="69,49,70,40" concept="1" />
+      <node id="8426907848585442659" at="70,40,71,49" concept="1" />
+      <node id="8426907848585442665" at="71,49,72,48" concept="1" />
+      <node id="3433054418424680617" at="72,48,73,22" concept="6" />
+      <node id="8426907848585442659" at="75,41,76,131" concept="5" />
+      <node id="8426907848585442659" at="76,131,77,46" concept="1" />
+      <node id="8426907848585442659" at="77,46,78,34" concept="1" />
+      <node id="8426907848585442659" at="78,34,79,22" concept="6" />
+      <node id="3433054418424680617" at="81,40,82,62" concept="5" />
+      <node id="3433054418424680617" at="84,72,85,187" concept="5" />
+      <node id="3433054418424680617" at="85,187,86,60" concept="1" />
+      <node id="3433054418424680617" at="86,60,87,48" concept="1" />
+      <node id="3433054418424680617" at="87,48,88,54" concept="1" />
+      <node id="3433054418424680617" at="88,54,89,20" concept="6" />
+      <node id="3433054418424680617" at="91,6,92,0" concept="7" />
+      <node id="3433054418424680617" at="92,0,93,69" concept="1" />
+      <node id="3433054418424680617" at="93,69,94,50" concept="5" />
+      <node id="3433054418424680617" at="94,50,95,0" concept="7" />
+      <node id="3433054418424680617" at="96,40,97,40" concept="1" />
+      <node id="3433054418424680617" at="97,40,98,48" concept="1" />
+      <node id="3433054418424680617" at="99,5,100,90" concept="1" />
+      <node id="3433054418424680617" at="100,90,101,150" concept="5" />
+      <node id="3433054418424680617" at="103,39,104,113" concept="6" />
+      <node id="3433054418424680617" at="107,73,108,87" concept="5" />
+      <node id="3433054418424680617" at="108,87,109,145" concept="6" />
+      <node id="3433054418424680617" at="110,10,111,22" concept="6" />
+      <node id="8426907848585442667" at="116,0,117,0" concept="2" trace="myReferencingNode" />
+      <node id="8426907848585442667" at="118,109,119,21" concept="9" />
+      <node id="8426907848585442667" at="119,21,120,42" concept="1" />
+      <node id="8426907848585442667" at="120,42,121,20" concept="1" />
+      <node id="8426907848585442667" at="124,41,125,32" concept="6" />
+      <node id="8426907848585442667" at="130,28,131,20" concept="6" />
+      <node id="8426907848585442683" at="134,43,135,41" concept="1" />
+      <node id="8426907848585442683" at="136,11,137,51" concept="5" />
+      <node id="8426907848585442683" at="137,51,138,78" concept="1" />
+      <node id="8426907848585442683" at="138,78,139,150" concept="5" />
+      <node id="8426907848585442683" at="139,150,140,47" concept="1" />
+      <node id="8426907848585442683" at="140,47,141,46" concept="1" />
+      <node id="8426907848585442683" at="141,46,142,88" concept="1" />
+      <node id="8426907848585442683" at="142,88,143,35" concept="1" />
+      <node id="8426907848585442683" at="143,35,144,157" concept="5" />
+      <node id="8426907848585442683" at="146,43,147,120" concept="6" />
+      <node id="8426907848585442683" at="150,76,151,91" concept="5" />
+      <node id="8426907848585442683" at="151,91,152,147" concept="6" />
+      <node id="8426907848585442683" at="153,14,154,26" concept="6" />
+      <node id="8426907848585442683" at="155,17,156,42" concept="1" />
+      <node id="3433054418424680617" at="162,0,163,0" concept="8" trace="proponent$mChy" />
+      <node id="3433054418424680617" at="166,0,167,0" concept="8" trace="LinkAttribute$v_" />
+      <node id="3433054418424680617" at="167,0,168,0" concept="8" trace="PropertyAttribute$Gb" />
+      <node id="3433054418424680617" at="171,0,172,0" concept="8" trace="name$MnvL" />
+      <node id="3433054418424680617" at="39,0,41,0" concept="2" trace="myNode" />
+      <node id="8426907848585442667" at="114,0,116,0" concept="2" trace="myNode" />
+      <node id="3433054418424680617" at="53,0,56,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="103,0,106,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="8426907848585442667" at="124,0,127,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="8426907848585442683" at="146,0,149,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="3433054418424680617" at="42,0,46,0" concept="0" trace="SimpleLanguageAspectDescriptor_InspectorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="3433054418424680617" at="95,0,99,5" concept="3" />
+      <node id="3433054418424680617" at="47,0,52,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="3433054418424680617" at="101,150,106,7" concept="5" />
+      <node id="3433054418424680617" at="106,7,111,22" concept="3" />
+      <node id="8426907848585442667" at="118,0,123,0" concept="0" trace="Inline_Builder0#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="8426907848585442667" at="128,0,133,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="8426907848585442683" at="144,157,149,11" concept="5" />
+      <node id="8426907848585442683" at="149,11,154,26" concept="3" />
+      <node id="8426907848585442659" at="75,0,81,0" concept="4" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="84,0,91,0" concept="4" trace="createReferenceCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="57,0,65,0" concept="4" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="82,62,91,6" concept="5" />
+      <node id="3433054418424680617" at="65,0,75,0" concept="4" trace="createCollection_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="8426907848585442683" at="135,41,157,7" concept="10" />
+      <node id="8426907848585442683" at="134,0,159,0" concept="4" trace="createProperty_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <node id="3433054418424680617" at="81,0,113,0" concept="4" trace="createRefCell_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
+      <scope id="3433054418424680617" at="49,26,50,18" />
+      <scope id="3433054418424680617" at="53,39,54,32" />
+      <scope id="3433054418424680617" at="103,39,104,113" />
+      <scope id="8426907848585442667" at="124,41,125,32" />
+      <scope id="8426907848585442667" at="130,28,131,20" />
+      <scope id="8426907848585442683" at="146,43,147,120" />
+      <scope id="8426907848585442683" at="155,17,156,42" />
+      <scope id="3433054418424680617" at="42,113,44,18" />
+      <scope id="3433054418424680617" at="96,40,98,48" />
+      <scope id="3433054418424680617" at="107,73,109,145">
+        <var name="manager" id="3433054418424680617" />
+      </scope>
+      <scope id="8426907848585442683" at="150,76,152,147">
+        <var name="manager" id="8426907848585442683" />
+      </scope>
+      <scope id="3433054418424680617" at="53,0,56,0" />
+      <scope id="3433054418424680617" at="103,0,106,0">
+        <var name="it" id="3433054418424680617" />
+      </scope>
+      <scope id="8426907848585442667" at="118,109,121,20" />
+      <scope id="8426907848585442667" at="124,0,127,0" />
+      <scope id="8426907848585442683" at="146,0,149,0">
+        <var name="it" id="8426907848585442683" />
+      </scope>
+      <scope id="3433054418424680617" at="42,0,46,0">
+        <var name="context" id="3433054418424680617" />
+        <var name="node" id="3433054418424680617" />
+      </scope>
+      <scope id="8426907848585442659" at="75,41,79,22">
+        <var name="editorCell" id="8426907848585442659" />
+      </scope>
+      <scope id="3433054418424680617" at="47,0,52,0" />
+      <scope id="3433054418424680617" at="84,72,89,20">
+        <var name="cell" id="3433054418424680617" />
+      </scope>
+      <scope id="8426907848585442667" at="118,0,123,0">
+        <var name="context" id="8426907848585442667" />
+        <var name="node" id="8426907848585442667" />
+        <var name="referencingNode" id="8426907848585442667" />
+      </scope>
+      <scope id="8426907848585442667" at="128,0,133,0" />
+      <scope id="3433054418424680617" at="57,43,63,22">
+        <var name="editorCell" id="3433054418424680617" />
+      </scope>
+      <scope id="8426907848585442659" at="75,0,81,0" />
+      <scope id="3433054418424680617" at="84,0,91,0">
+        <var name="targetNode" id="3433054418424680617" />
+      </scope>
+      <scope id="3433054418424680617" at="57,0,65,0" />
+      <scope id="3433054418424680617" at="65,43,73,22">
+        <var name="editorCell" id="3433054418424680617" />
+        <var name="style" id="3433054418424680617" />
+      </scope>
+      <scope id="3433054418424680617" at="65,0,75,0" />
+      <scope id="8426907848585442683" at="136,11,154,26">
+        <var name="currentPropertyAttributes" id="8426907848585442683" />
+        <var name="editorCell" id="8426907848585442683" />
+        <var name="property" id="8426907848585442683" />
+        <var name="propertyAttributes" id="8426907848585442683" />
+      </scope>
+      <scope id="8426907848585442683" at="134,43,157,7" />
+      <scope id="8426907848585442683" at="134,0,159,0" />
+      <scope id="3433054418424680617" at="81,40,111,22">
+        <var name="currentReferenceAttributes" id="3433054418424680617" />
+        <var name="editorCell" id="3433054418424680617" />
+        <var name="provider" id="3433054418424680617" />
+        <var name="referenceAttributes" id="3433054418424680617" />
+        <var name="referenceLink" id="3433054418424680617" />
+      </scope>
+      <scope id="3433054418424680617" at="81,0,113,0" />
+      <unit id="3433054418424680617" at="161,0,164,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$LINKS" />
+      <unit id="3433054418424680617" at="170,0,173,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$PROPS" />
+      <unit id="3433054418424680617" at="102,102,106,5" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$2" />
+      <unit id="8426907848585442683" at="145,104,149,9" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$Inline_Builder0$1" />
+      <unit id="3433054418424680617" at="165,0,169,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$CONCEPTS" />
+      <unit id="3433054418424680617" at="83,42,91,5" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$1" />
+      <unit id="8426907848585442667" at="113,0,160,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a$Inline_Builder0" />
+      <unit id="3433054418424680617" at="38,0,174,0" name="jetbrains.mps.lang.aspect.editor.SimpleLanguageAspectDescriptor_InspectorBuilder_a" />
     </file>
   </root>
 </debug-info>

@@ -13,7 +13,9 @@
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
-      <concept id="1071666914219" name="jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration" flags="ig" index="24kQdi" />
+      <concept id="1071666914219" name="jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration" flags="ig" index="24kQdi">
+        <child id="1078153129734" name="inspectedCellModel" index="6VMZX" />
+      </concept>
       <concept id="1198489924438" name="jetbrains.mps.lang.editor.structure.CellModel_Block" flags="sg" stub="8104358048506730066" index="b$f91">
         <child id="1198489985045" name="header" index="b$u42" />
         <child id="1198489993734" name="body" index="b$wch" />
@@ -47,6 +49,7 @@
       </concept>
       <concept id="1088185857835" name="jetbrains.mps.lang.editor.structure.InlineEditorComponent" flags="ig" index="1sVBvm" />
       <concept id="1139848536355" name="jetbrains.mps.lang.editor.structure.CellModel_WithRole" flags="ng" index="1$h60E">
+        <property id="1139852716018" name="noTargetText" index="1$x2rV" />
         <property id="1140017977771" name="readOnly" index="1Intyy" />
         <reference id="1140103550593" name="relationDeclaration" index="1NtTu8" />
       </concept>
@@ -214,6 +217,26 @@
           <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
         </node>
       </node>
+    </node>
+    <node concept="3EZMnI" id="7jMp0D_SJli" role="6VMZX">
+      <node concept="3EZMnI" id="7jMp0D_SJlp" role="3EZMnx">
+        <node concept="VPM3Z" id="7jMp0D_SJlr" role="3F10Kt" />
+        <node concept="3F0ifn" id="7jMp0D_SJlz" role="3EZMnx">
+          <property role="3F0ifm" value="node to inject into @descriptor model:" />
+        </node>
+        <node concept="1iCGBv" id="7jMp0D_SJlD" role="3EZMnx">
+          <property role="1$x2rV" value="default to main languages as engaged" />
+          <ref role="1NtTu8" to="hfbu:7jMp0D_SJjp" resolve="proponent" />
+          <node concept="1sVBvm" id="7jMp0D_SJlF" role="1sWHZn">
+            <node concept="3F0A7n" id="7jMp0D_SJlV" role="2wV5jI">
+              <property role="1Intyy" value="true" />
+              <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+            </node>
+          </node>
+        </node>
+        <node concept="2iRfu4" id="7jMp0D_SJlu" role="2iSdaV" />
+      </node>
+      <node concept="2iRkQZ" id="7jMp0D_SJll" role="2iSdaV" />
     </node>
   </node>
   <node concept="24kQdi" id="22594Rb4Dot">

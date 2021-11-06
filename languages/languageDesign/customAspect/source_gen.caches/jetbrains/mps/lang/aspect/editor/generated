@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-6ad7y11kj6yax5z47tqqbyr3yfuz8pb">
-  <files names="EditorAspectDescriptorImpl.java:LanguageAspectDescriptor_Editor.java:LanguageAspectDescriptor_EditorBuilder_a.java:SimpleAspectOrderRef_Editor.java:SimpleAspectOrderRef_EditorBuilder_a.java:SimpleAspectOrderRef_SubstituteMenu.java:SimpleLanguageAspectDescriptor_Editor.java:SimpleLanguageAspectDescriptor_EditorBuilder_a.java" />
+<product version="3" modelHash="-81grm2q6qulhkmfvc6gk8ie95cfdacb">
+  <files names="EditorAspectDescriptorImpl.java:LanguageAspectDescriptor_Editor.java:LanguageAspectDescriptor_EditorBuilder_a.java:SimpleAspectOrderRef_Editor.java:SimpleAspectOrderRef_EditorBuilder_a.java:SimpleAspectOrderRef_SubstituteMenu.java:SimpleLanguageAspectDescriptor_Editor.java:SimpleLanguageAspectDescriptor_EditorBuilder_a.java:SimpleLanguageAspectDescriptor_InspectorBuilder_a.java" />
 </product>
 

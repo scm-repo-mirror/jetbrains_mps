@@ -18,7 +18,7 @@
       <unit at="10,0,34,0" name="jetbrains.mps.lang.aspect.structure.LanguageConceptSwitch" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <unit at="16,0,106,0" name="jetbrains.mps.lang.aspect.structure.StructureAspectDescriptor" />
+      <unit at="16,0,107,0" name="jetbrains.mps.lang.aspect.structure.StructureAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:2ea71bfd-fe13-4525-9346-023b05757b39(jetbrains.mps.lang.aspect.structure)/174635545557784815">
@@ -119,19 +119,20 @@
       <node id="3433054418424672374" at="93,71,94,76" concept="0" />
       <node id="3433054418424672374" at="94,76,95,112" concept="0" />
       <node id="3433054418424672374" at="95,112,96,17" concept="0" />
-      <node id="6106419185511570295" at="96,17,97,206" concept="0" />
-      <node id="6106419185511570301" at="97,206,98,211" concept="0" />
-      <node id="8222125370833980146" at="98,211,99,199" concept="0" />
-      <node id="3433054418425083029" at="99,199,100,197" concept="0" />
-      <node id="4726480899534753275" at="100,197,101,200" concept="0" />
-      <node id="2343319097654255233" at="101,200,102,198" concept="0" />
-      <node id="3433054418424672374" at="102,198,103,22" concept="4" />
-      <node id="3433054418424672374" at="90,0,105,0" concept="6" trace="createDescriptorForSimpleLanguageAspectDescriptor#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="8426907848585442521" at="96,17,97,166" concept="0" />
+      <node id="6106419185511570295" at="97,166,98,205" concept="0" />
+      <node id="6106419185511570301" at="98,205,99,211" concept="0" />
+      <node id="8222125370833980146" at="99,211,100,199" concept="0" />
+      <node id="3433054418425083029" at="100,199,101,197" concept="0" />
+      <node id="4726480899534753275" at="101,197,102,200" concept="0" />
+      <node id="2343319097654255233" at="102,200,103,198" concept="0" />
+      <node id="3433054418424672374" at="103,198,104,22" concept="4" />
+      <node id="3433054418424672374" at="90,0,106,0" concept="6" trace="createDescriptorForSimpleLanguageAspectDescriptor#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="3433054418424672374" at="53,64,54,55" />
-      <scope id="3433054418424672374" at="90,88,103,22">
+      <scope id="3433054418424672374" at="90,88,104,22">
         <var name="b" id="3433054418424672374" />
       </scope>
-      <scope id="3433054418424672374" at="90,0,105,0" />
+      <scope id="3433054418424672374" at="90,0,106,0" />
     </file>
   </root>
   <root nodeRef="r:2ea71bfd-fe13-4525-9346-023b05757b39(jetbrains.mps.lang.aspect.structure)/8921494878338859209">

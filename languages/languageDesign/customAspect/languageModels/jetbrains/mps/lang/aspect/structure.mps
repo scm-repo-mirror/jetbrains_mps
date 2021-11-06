@@ -75,11 +75,19 @@
     <property role="19KtqR" value="true" />
     <property role="EcuMT" value="3433054418424672374" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="7jMp0D_SJjp" role="1TKVEi">
+      <property role="IQ2ns" value="8426907848585442521" />
+      <property role="20kJfa" value="proponent" />
+      <ref role="20lvS9" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
+      <node concept="t5JxF" id="7jMp0D_SJjz" role="lGtFl">
+        <property role="t5JxN" value="instances of the concept added @descriptor model to activate respective language/generator" />
+      </node>
+    </node>
     <node concept="1TJgyj" id="5iYmYly31HR" role="1TKVEi">
       <property role="IQ2ns" value="6106419185511570295" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="mainLanguages" />
-      <property role="20lbJX" value="fLJekj6/1..n" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" to="tp25:34EJa6aIcco" resolve="LanguageIdentity" />
       <node concept="asaX9" id="78qQRpbikGe" role="lGtFl">
         <property role="YLPcu" value="2018.1" />
