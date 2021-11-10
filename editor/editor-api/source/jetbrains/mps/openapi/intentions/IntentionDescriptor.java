@@ -37,7 +37,9 @@ public interface IntentionDescriptor {
 
   boolean isAvailableInChildNodes();
 
-  boolean isApplicable(SNode node, EditorContext editorContext);
+  default boolean isApplicable(SNode node, EditorContext editorContext) {
+    return true;
+  }
 
   @Nullable
   SNodeReference getIntentionNodeReference();
