@@ -13,6 +13,7 @@ import jetbrains.mps.lang.util.order.behavior.Order__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.util.order.behavior.OrderDeclaration__BehaviorDescriptor;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.lang.aspect.behavior.LanguageAspectDescriptor__BehaviorDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
@@ -65,6 +66,9 @@ public class QueriesGenerated extends QueryProviderBase {
     // with intermediate node<LAD> in place.
     return "LanguageAspectsEP_extension";
   }
+  public static Object propertyMacro_GetValue_6_0(final PropertyMacroContext _context) {
+    return ((String) _context.getVariable("fqName"));
+  }
   public static Object referenceMacro_GetReferent_2_0(final ReferenceMacroContext _context) {
     return ((SNode) _context.getVariable("interfaceClass"));
   }
@@ -73,6 +77,12 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.proponent$mChy);
+  }
+  public static Object referenceMacro_GetReferent_6_0(final ReferenceMacroContext _context) {
+    return ((SNodeReference) _context.getVariable("interfaceClass"));
+  }
+  public static Object referenceMacro_GetReferent_6_1(final ReferenceMacroContext _context) {
+    return ((SNodeReference) _context.getVariable("interfaceClass"));
   }
   public static boolean ifMacro_Condition_3_0(final IfMacroContext _context) {
     return (LanguageAspectDescriptor__BehaviorDescriptor.getMethod_id7phNEaHi8Cl.invoke(_context.getNode(), new SNodePointer("r:10b498c7-d1bd-4b96-8a49-bb59f0e63af3(jetbrains.mps.lang.aspect.methods)", "2343319097654649472")) != null);
@@ -271,6 +281,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("8525822767670542325", new PVQ(i++, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11157a3736dL, 0x11157a64c91L, "fqClassName"), "OrderClass"));
     pvqMethods.put("3433054418425100044", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "name"));
     pvqMethods.put("8525822767670985658", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "LanguageAspectsEP_ext_SLAD"));
+    pvqMethods.put("6897150028702003066", new PVQ(i++, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11157a3736dL, 0x11157a64c91L, "fqClassName"), "AspectDescriptor"));
   }
   @NotNull
   @Override
@@ -299,6 +310,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.propertyMacro_GetValue_5_1(ctx);
         case 5:
           return QueriesGenerated.propertyMacro_GetValue_5_2(ctx);
+        case 6:
+          return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -374,6 +387,8 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("5700381506346614253", new RTQ(0, "Object"));
     rtqMethods.put("5700381506346613936", new RTQ(1, "Object"));
     rtqMethods.put("3771838123084615367", new RTQ(2, "SimpleLanguageAspectDescriptor"));
+    rtqMethods.put("6897150028702003045", new RTQ(3, "Object"));
+    rtqMethods.put("6897150028702003059", new RTQ(4, "Object"));
   }
   @NotNull
   @Override
@@ -396,6 +411,10 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.referenceMacro_GetReferent_2_1(ctx);
         case 2:
           return QueriesGenerated.referenceMacro_GetReferent_5_0(ctx);
+        case 3:
+          return QueriesGenerated.referenceMacro_GetReferent_6_0(ctx);
+        case 4:
+          return QueriesGenerated.referenceMacro_GetReferent_6_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
