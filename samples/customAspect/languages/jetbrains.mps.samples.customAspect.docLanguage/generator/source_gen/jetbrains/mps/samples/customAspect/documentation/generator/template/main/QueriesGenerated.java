@@ -6,12 +6,10 @@ import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.CreateRootRuleContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
-import jetbrains.mps.generator.template.BaseMappingRuleContext;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -21,13 +19,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Map;
-import jetbrains.mps.generator.impl.query.ReductionRuleCondition;
+import jetbrains.mps.generator.impl.query.CreateRootCondition;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.impl.query.QueryKey;
-import jetbrains.mps.generator.template.ReductionRuleQueryContext;
 import jetbrains.mps.generator.impl.GenerationFailureException;
-import jetbrains.mps.generator.impl.query.CreateRootCondition;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
 import java.util.Collection;
 import jetbrains.mps.util.IterableUtil;
@@ -48,13 +44,6 @@ public class QueriesGenerated extends QueryProviderBase {
   public static boolean createRootRule_Condition_0_0(final CreateRootRuleContext _context) {
     return SModuleOperations.isAspect(_context.getOriginalInputModel(), "documentation");
   }
-  public static boolean rule_Condition_2_0(final BaseMappingRuleContext _context) {
-    // unless we invoke this template once per root, can't use 
-    // isNotEmpty check alone, as it triggers for any model
-    boolean dp = ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), CONCEPTS.ModuleDescriptorDeputy$qv)).isNotEmpty();
-    // see MPS-24613
-    return SModuleOperations.isAspect(((SModel) _context.getVariable("model")), "documentation") && dp;
-  }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), CONCEPTS.ConceptDocumentation$mT)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -66,7 +55,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getNode();
   }
   public static Object templateArgumentQuery_2_0(final TemplateArgumentContext _context) {
-    return SModelOperations.getModelName(((SModel) _context.getVariable("model"))) + ".DocumentationDescriptor";
+    return SModelOperations.getModelName(_context.getInputModel()) + ".documentation.DocumentationDescriptor";
   }
   public static Object templateArgumentQuery_2_1(final TemplateArgumentContext _context) {
     return new SNodePointer("r:ed8e9175-44d1-47ad-9d2b-75c7b10d01f8(jetbrains.mps.samples.customAspect.documentation.runtime)", "2897519568668564140");
@@ -77,32 +66,6 @@ public class QueriesGenerated extends QueryProviderBase {
         return SLinkOperations.getTarget(it, LINKS.cncpt$CYFe);
       }
     }).distinct();
-  }
-  private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
-  {
-    int i = 0;
-    rrcMethods.put("1570228009929814969", new RRC(i++));
-  }
-  @Override
-  @NotNull
-  public ReductionRuleCondition getReductionRuleCondition(@NotNull QueryKey identity) {
-    ReductionRuleCondition query = identity.forTemplateNode(rrcMethods);
-    return (query != null ? query : super.getReductionRuleCondition(identity));
-  }
-  private static class RRC implements ReductionRuleCondition {
-    private final int methodKey;
-    public RRC(int methodKey) {
-      this.methodKey = methodKey;
-    }
-    @Override
-    public boolean check(ReductionRuleQueryContext ctx) throws GenerationFailureException {
-      switch (methodKey) {
-        case 0:
-          return QueriesGenerated.rule_Condition_2_0(ctx);
-        default:
-          throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
-      }
-    }
   }
   private final Map<String, CreateRootCondition> crcMethods = new HashMap<String, CreateRootCondition>();
   {
@@ -239,7 +202,6 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ModuleDescriptorDeputy$qv = MetaAdapterFactory.getConcept(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x5fb799688f5c99c4L, "jetbrains.mps.samples.customAspect.documentation.structure.ModuleDescriptorDeputy");
     /*package*/ static final SConcept ConceptDocumentation$mT = MetaAdapterFactory.getConcept(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, "jetbrains.mps.samples.customAspect.documentation.structure.ConceptDocumentation");
   }
 

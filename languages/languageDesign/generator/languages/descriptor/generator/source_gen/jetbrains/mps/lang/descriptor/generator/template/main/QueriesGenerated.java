@@ -41,6 +41,7 @@ import jetbrains.mps.lang.smodel.behavior.LanguageIdentity__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 @Generated
@@ -220,6 +221,9 @@ public class QueriesGenerated {
     });
   }
   public static Iterable<SNode> sourceNodesQuery_0_2(final SourceSubstituteMacroNodesContext _context) {
+    return SModelOperations.roots(_context.getInputModel(), CONCEPTS.AspectDescriptor$q);
+  }
+  public static Iterable<SNode> sourceNodesQuery_0_3(final SourceSubstituteMacroNodesContext _context) {
     // identical to the LOOPs above
     final SRepository repo = ((SRepository) _context.getVariable("var:repo"));
     return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.language$rnIG), LINKS.model$2Sf4)).sort(new ISelector<SNode, String>() {
@@ -404,6 +408,7 @@ public class QueriesGenerated {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept AspectDescriptor$q = MetaAdapterFactory.getInterfaceConcept(0xf4ad079dbc714ffbL, 0x96009328705cf998L, 0x5fc6cc5c84f4bddbL, "jetbrains.mps.lang.descriptor.structure.AspectDescriptor");
     /*package*/ static final SConcept Generator$zR = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe21L, "jetbrains.mps.lang.project.structure.Generator");
     /*package*/ static final SConcept Language$yT = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language");
     /*package*/ static final SConcept LanguageId$UR = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");

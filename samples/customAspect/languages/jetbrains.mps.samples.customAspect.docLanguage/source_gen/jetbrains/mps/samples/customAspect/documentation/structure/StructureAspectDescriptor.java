@@ -62,6 +62,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForModuleDescriptorDeputy() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.samples.customAspect.documentation", "ModuleDescriptorDeputy", 0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x5fb799688f5c99c4L);
     b.class_(false, false, false);
+    b.parent(0xf4ad079dbc714ffbL, 0x96009328705cf998L, 0x5fc6cc5c84f4bddbL);
     b.origin("r:554f8053-4df6-4aa3-9ecf-e71658269bf9(jetbrains.mps.samples.customAspect.documentation.structure)/6897150028702063044");
     b.version(2);
     return b.create();

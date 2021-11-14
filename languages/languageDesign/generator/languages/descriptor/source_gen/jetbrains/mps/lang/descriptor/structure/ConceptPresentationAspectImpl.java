@@ -9,6 +9,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_AspectDescriptor;
   private ConceptPresentation props_GeneratorDescriptor;
   private ConceptPresentation props_GeneratorInternal_Aspect;
   private ConceptPresentation props_LanguageDescriptor;
@@ -18,6 +19,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.AspectDescriptor:
+        if (props_AspectDescriptor == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_AspectDescriptor = cpb.create();
+        }
+        return props_AspectDescriptor;
       case LanguageConceptSwitch.GeneratorDescriptor:
         if (props_GeneratorDescriptor == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

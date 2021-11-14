@@ -247,6 +247,9 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
      */
     void updateGenerationLanguages() {
       jetbrains.mps.smodel.SModel m = getSModel();
+      ArrayList<SNode> roots = new ArrayList<>();
+      m.getRootNodes().forEach(roots::add);
+      roots.forEach(SNode::delete);
       m.addDevKit(BootstrapLanguages.getLanguageDescriptorDevKit());
       m.addEngagedOnGenerationLanguage(BootstrapLanguages.getLanguageDescriptorLang());
       for (LanguageAspectDescriptor lad : LanguageAspectSupport.collectAspects()) {

@@ -8,13 +8,13 @@ import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.runtime.ILanguageAspect;
 import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
-import jetbrains.mps.samples.customAspect.documentation.runtime.DocumentationAspectDescriptor;
-import jetbrains.mps.samples.customAspect.sampleLanguage.documentation.DocumentationDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.samples.customAspect.sampleLanguage.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptPresentationAspect;
 import jetbrains.mps.samples.customAspect.sampleLanguage.structure.ConceptPresentationAspectImpl;
+import jetbrains.mps.samples.customAspect.documentation.runtime.DocumentationAspectDescriptor;
+import jetbrains.mps.samples.customAspect.sampleLanguage.documentation.DocumentationDescriptor;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.smodel.language.LanguageExtensions;
 
@@ -48,9 +48,6 @@ public class Language extends LanguageRuntime {
     if (aspectClass == ConstraintsAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.samples.customAspect.sampleLanguage.constraints.ConstraintsAspectDescriptor());
     }
-    if (aspectClass == DocumentationAspectDescriptor.class) {
-      return aspectClass.cast(new DocumentationDescriptor());
-    }
     if (aspectClass == EditorAspectDescriptor.class) {
       return aspectClass.cast(new EditorAspectDescriptorImpl());
     }
@@ -59,6 +56,9 @@ public class Language extends LanguageRuntime {
     }
     if (aspectClass == ConceptPresentationAspect.class) {
       return aspectClass.cast(new ConceptPresentationAspectImpl());
+    }
+    if (aspectClass == DocumentationAspectDescriptor.class) {
+      return aspectClass.cast(new DocumentationDescriptor());
     }
     return null;
   }

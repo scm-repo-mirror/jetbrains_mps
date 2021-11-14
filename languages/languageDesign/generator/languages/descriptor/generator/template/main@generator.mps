@@ -148,6 +148,7 @@
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
       </concept>
+      <concept id="1068580123157" name="jetbrains.mps.baseLanguage.structure.Statement" flags="nn" index="3clFbH" />
       <concept id="1068580123159" name="jetbrains.mps.baseLanguage.structure.IfStatement" flags="nn" index="3clFbJ">
         <child id="1068580123160" name="condition" index="3clFbw" />
         <child id="1068580123161" name="ifTrue" index="3clFbx" />
@@ -371,6 +372,7 @@
       <concept id="1048903277984174662" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_VarRef2" flags="nn" index="1psM6Z">
         <reference id="1048903277984174663" name="vardecl" index="1psM6Y" />
       </concept>
+      <concept id="1217004708011" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetInputModel" flags="nn" index="1r8y6K" />
       <concept id="1217026863835" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOriginalInputModel" flags="nn" index="1st3f0" />
       <concept id="1217282130234" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputModel" flags="nn" index="1FEO0x" />
     </language>
@@ -415,7 +417,9 @@
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
-      <concept id="1171315804604" name="jetbrains.mps.lang.smodel.structure.Model_RootsOperation" flags="nn" index="2RRcyG" />
+      <concept id="1171315804604" name="jetbrains.mps.lang.smodel.structure.Model_RootsOperation" flags="nn" index="2RRcyG">
+        <child id="6750920497477046361" name="conceptArgument" index="3MHsoP" />
+      </concept>
       <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
         <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
         <property id="3542851458883439832" name="languageId" index="2V$B1T" />
@@ -917,6 +921,31 @@
           <node concept="2ZBi8u" id="5eRdIF_6g8I" role="lGtFl">
             <property role="34cw8o" value="Facilitate more than 1 aspect per model. Use output node to weave around additional aspects (e.g. constrainst.rules.skeleton for lang.constraints) " />
             <ref role="2rW$FS" node="81GU9xcJ5s" resolve="aspectLoop" />
+          </node>
+        </node>
+        <node concept="3clFbH" id="5Z6N5M4XcoH" role="3cqZAp">
+          <node concept="1WS0z7" id="5Z6N5M4XhRE" role="lGtFl">
+            <node concept="3JmXsc" id="5Z6N5M4XhRF" role="3Jn$fo">
+              <node concept="3clFbS" id="5Z6N5M4XhRG" role="2VODD2">
+                <node concept="3clFbF" id="5Z6N5M4XjEK" role="3cqZAp">
+                  <node concept="2OqwBi" id="5Z6N5M4XmSx" role="3clFbG">
+                    <node concept="2OqwBi" id="5Z6N5M4XkJY" role="2Oq$k0">
+                      <node concept="1iwH7S" id="5Z6N5M4XjEJ" role="2Oq$k0" />
+                      <node concept="1r8y6K" id="5Z6N5M4Xmql" role="2OqNvi" />
+                    </node>
+                    <node concept="2RRcyG" id="5Z6N5M4XnvB" role="2OqNvi">
+                      <node concept="chp4Y" id="5Z6N5M4Xoet" role="3MHsoP">
+                        <ref role="cht4Q" to="yv2q:5Z6N5M4XbRr" resolve="AspectDescriptor" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="1sPUBX" id="5Z6N5M4XfUO" role="lGtFl">
+            <property role="34cw8o" value="takes node&lt;AspectDescriptor&gt; instance and let extending switch inject instantiation code" />
+            <ref role="v9R2y" node="5Z6N5M4Xe2c" resolve="InstantiateAspectDescriptor_PerRoot" />
           </node>
         </node>
         <node concept="3cpWs6" id="NIUB61fjet" role="3cqZAp">
@@ -4035,6 +4064,10 @@
       <node concept="H_c77" id="2NYEivBO2Uk" role="1N15GL" />
     </node>
     <node concept="b5Tf3" id="B5CnDBi$8x" role="jxRDz" />
+  </node>
+  <node concept="jVnub" id="5Z6N5M4Xe2c">
+    <property role="TrG5h" value="AspectDescriptor_Instantiate" />
+    <node concept="b5Tf3" id="5Z6N5M4Xe2f" role="jxRDz" />
   </node>
 </model>
 
