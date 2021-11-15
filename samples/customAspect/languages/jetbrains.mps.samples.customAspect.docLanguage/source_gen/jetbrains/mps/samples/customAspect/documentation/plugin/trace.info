@@ -16,31 +16,32 @@
   </root>
   <root nodeRef="r:0b865d91-07c7-474d-b8a4-ec619adc5e54(jetbrains.mps.samples.customAspect.documentation.plugin)/2897519568668531956">
     <file name="LanguageAspectsEP_extension.java">
-      <node id="2897519568668531956" at="21,40,22,57" concept="5" />
-      <node id="2897519568668531956" at="29,55,30,199" concept="4" />
-      <node id="2897519568668531956" at="33,45,34,49" concept="4" />
-      <node id="2897519568668531956" at="37,102,38,239" concept="2" />
-      <node id="2897519568668531956" at="21,0,24,0" concept="1" trace="LanguageAspectsEP_extension#()V" />
-      <node id="2897519568668531956" at="32,0,36,0" concept="3" trace="getIconResource#()Ljetbrains/mps/smodel/runtime/IconResource;" />
-      <node id="2897519568668531956" at="36,0,40,0" concept="3" trace="configureDescriptorModel#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="2897519568668531956" at="27,0,32,0" concept="3" trace="getMainLanguages#()Ljava/util/Collection;" />
-      <node id="2897519568668531956" at="24,41,40,6" concept="4" />
-      <node id="2897519568668531956" at="24,0,42,0" concept="0" trace="get#()Ljetbrains/mps/smodel/language/LanguageAspectDescriptor;" />
-      <scope id="2897519568668531956" at="21,40,22,57" />
-      <scope id="2897519568668531956" at="29,55,30,199" />
-      <scope id="2897519568668531956" at="33,45,34,49" />
-      <scope id="2897519568668531956" at="37,102,38,239" />
-      <scope id="2897519568668531956" at="21,0,24,0" />
-      <scope id="2897519568668531956" at="32,0,36,0" />
-      <scope id="2897519568668531956" at="36,0,40,0">
+      <node id="2897519568668531956" at="22,40,23,57" concept="5" />
+      <node id="2897519568668531956" at="30,55,31,199" concept="4" />
+      <node id="2897519568668531956" at="34,45,35,49" concept="4" />
+      <node id="2897519568668531956" at="38,102,39,184" concept="2" />
+      <node id="2897519568668531956" at="39,184,40,239" concept="2" />
+      <node id="2897519568668531956" at="22,0,25,0" concept="1" trace="LanguageAspectsEP_extension#()V" />
+      <node id="2897519568668531956" at="33,0,37,0" concept="3" trace="getIconResource#()Ljetbrains/mps/smodel/runtime/IconResource;" />
+      <node id="2897519568668531956" at="28,0,33,0" concept="3" trace="getMainLanguages#()Ljava/util/Collection;" />
+      <node id="2897519568668531956" at="37,0,42,0" concept="3" trace="configureDescriptorModel#(Lorg/jetbrains/mps/openapi/module/SModule;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="2897519568668531956" at="25,41,42,6" concept="4" />
+      <node id="2897519568668531956" at="25,0,44,0" concept="0" trace="get#()Ljetbrains/mps/smodel/language/LanguageAspectDescriptor;" />
+      <scope id="2897519568668531956" at="22,40,23,57" />
+      <scope id="2897519568668531956" at="30,55,31,199" />
+      <scope id="2897519568668531956" at="34,45,35,49" />
+      <scope id="2897519568668531956" at="38,102,40,239" />
+      <scope id="2897519568668531956" at="22,0,25,0" />
+      <scope id="2897519568668531956" at="33,0,37,0" />
+      <scope id="2897519568668531956" at="28,0,33,0" />
+      <scope id="2897519568668531956" at="37,0,42,0">
         <var name="descriptorModel" id="2897519568668531956" />
         <var name="module" id="2897519568668531956" />
       </scope>
-      <scope id="2897519568668531956" at="27,0,32,0" />
-      <scope id="2897519568668531956" at="24,41,40,6" />
-      <scope id="2897519568668531956" at="24,0,42,0" />
-      <unit id="2897519568668531956" at="25,15,40,5" name="jetbrains.mps.samples.customAspect.documentation.plugin.LanguageAspectsEP_extension$1" />
-      <unit id="2897519568668531956" at="20,0,43,0" name="jetbrains.mps.samples.customAspect.documentation.plugin.LanguageAspectsEP_extension" />
+      <scope id="2897519568668531956" at="25,41,42,6" />
+      <scope id="2897519568668531956" at="25,0,44,0" />
+      <unit id="2897519568668531956" at="26,15,42,5" name="jetbrains.mps.samples.customAspect.documentation.plugin.LanguageAspectsEP_extension$1" />
+      <unit id="2897519568668531956" at="21,0,45,0" name="jetbrains.mps.samples.customAspect.documentation.plugin.LanguageAspectsEP_extension" />
     </file>
   </root>
 </debug-info>

@@ -456,6 +456,11 @@
             <ref role="3bR37D" to="ffeo:7Kfy9QB6LaO" resolve="jetbrains.mps.lang.structure" />
           </node>
         </node>
+        <node concept="1SiIV0" id="67Qu1vbayvF" role="3bR37C">
+          <node concept="3bR9La" id="67Qu1vbayvG" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6L68" resolve="jetbrains.mps.lang.descriptor" />
+          </node>
+        </node>
         <node concept="1BupzO" id="73GUf$umlXO" role="3bR31x">
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />

@@ -21,6 +21,8 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.generator.template.TemplateVarContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.SourceNodeQuery;
 import java.util.HashMap;
@@ -36,6 +38,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.generator.impl.query.IfMacroCondition;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
+import jetbrains.mps.generator.impl.query.VariableValueQuery;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -62,6 +65,12 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_5_2(final PropertyMacroContext _context) {
+    return SPropertyOperations.getString(((SNode) _context.getVariable("var:ul")), PROPS.namespace$oGs);
+  }
+  public static Object propertyMacro_GetValue_5_3(final PropertyMacroContext _context) {
+    return SPropertyOperations.getString(((SNode) _context.getVariable("var:ul")), PROPS.uuid$otr);
+  }
+  public static Object propertyMacro_GetValue_5_4(final PropertyMacroContext _context) {
     // this is a hack to get name of the compiled class the same as it used to be
     // with intermediate node<LAD> in place.
     return "LanguageAspectsEP_extension";
@@ -178,6 +187,14 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Iterable<SNode> sourceNodesQuery_5_1(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), LINKS.additionalLanguages$LptM);
   }
+  public static Object varMacro_Value_5_0(final TemplateVarContext _context) {
+    // XXX I'd love to avoid node<Module> and lang.project dependency,
+    // but alternative ways to accomplish imports are (a) LDMP to add imports after all
+    // configureDescriptorModel() did their job (but don't like this hidden assumption)
+    // (b) support #pound expr for `new root node` and extract node.proponent concept into 
+    // SConcept variable, take SLanguage from that SConcept var.
+    return SModelOperations.getModuleStub(SNodeOperations.getModel(SLinkOperations.getTarget(_context.getNode(), LINKS.proponent$mChy)));
+  }
   private final Map<String, SourceNodeQuery> snqMethods = new HashMap<String, SourceNodeQuery>();
   {
     int i = 0;
@@ -280,6 +297,8 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("7928419829770026435", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "name"));
     pvqMethods.put("8525822767670542325", new PVQ(i++, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11157a3736dL, 0x11157a64c91L, "fqClassName"), "OrderClass"));
     pvqMethods.put("3433054418425100044", new PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "name"));
+    pvqMethods.put("7058961509534301923", new PVQ(i++, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, 0x312abca18ab8ccd7L, "namespace"), "jetbrains.mps.lang.aspect"));
+    pvqMethods.put("7058961509534842411", new PVQ(i++, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, 0x312abca18ab8ccd8L, "languageId"), "f159adf4-3c93-40f9-9c5a-1f245a8697af"));
     pvqMethods.put("8525822767670985658", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "LanguageAspectsEP_ext_SLAD"));
     pvqMethods.put("6897150028702003066", new PVQ(i++, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11157a3736dL, 0x11157a64c91L, "fqClassName"), "AspectDescriptor"));
   }
@@ -311,6 +330,10 @@ public class QueriesGenerated extends QueryProviderBase {
         case 5:
           return QueriesGenerated.propertyMacro_GetValue_5_2(ctx);
         case 6:
+          return QueriesGenerated.propertyMacro_GetValue_5_3(ctx);
+        case 7:
+          return QueriesGenerated.propertyMacro_GetValue_5_4(ctx);
+        case 8:
           return QueriesGenerated.propertyMacro_GetValue_6_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -420,6 +443,31 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
+  private final Map<String, VariableValueQuery> vvqMethods = new HashMap<String, VariableValueQuery>();
+  {
+    vvqMethods.put("7058961509534772587", new VVQ(0));
+  }
+  @NotNull
+  @Override
+  public VariableValueQuery getVariableValueQuery(@NotNull QueryKey queryKey) {
+    VariableValueQuery query = queryKey.forTemplateNode(vvqMethods);
+    return (query != null ? query : super.getVariableValueQuery(queryKey));
+  }
+  private static class VVQ implements VariableValueQuery {
+    private final int methodKey;
+    /*package*/ VVQ(int methodKey) {
+      this.methodKey = methodKey;
+    }
+    @Nullable
+    public Object evaluate(@NotNull TemplateVarContext ctx) throws GenerationFailureException {
+      switch (methodKey) {
+        case 0:
+          return QueriesGenerated.varMacro_Value_5_0(ctx);
+        default:
+          throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
+      }
+    }
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink target$d3me = MetaAdapterFactory.getReferenceLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd7814bL, 0x22035699bdd7814cL, "target");
@@ -436,6 +484,8 @@ public class QueriesGenerated extends QueryProviderBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty namespace$oGs = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe23L, "namespace");
+    /*package*/ static final SProperty uuid$otr = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe22L, "uuid");
   }
 
   private static final class CONCEPTS {

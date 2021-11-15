@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 
 public class LanguageAspectsEP_extension extends Extension.Default<LanguageAspectDescriptor> {
@@ -35,6 +36,7 @@ public class LanguageAspectsEP_extension extends Extension.Default<LanguageAspec
       }
       @Override
       public void configureDescriptorModel(@NotNull SModule module, @NotNull SModel descriptorModel) {
+        new ModelImports(descriptorModel).addUsedLanguage(MetaAdapterFactory.getLanguage(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, "jetbrains.mps.samples.customAspect.documentation"));
         SModelOperations.createNewRootNode(descriptorModel, MetaAdapterFactory.getConcept(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x5fb799688f5c99c4L, "jetbrains.mps.samples.customAspect.documentation.structure.ModuleDescriptorDeputy"));
       }
     };
