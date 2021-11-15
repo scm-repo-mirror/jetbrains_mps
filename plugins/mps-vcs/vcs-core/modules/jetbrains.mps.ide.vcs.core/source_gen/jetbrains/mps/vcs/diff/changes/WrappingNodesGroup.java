@@ -12,6 +12,14 @@ import java.util.Arrays;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import java.util.Collection;
+import java.util.Map;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/719860250119790216", model = "r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)")
@@ -40,11 +48,13 @@ public final class WrappingNodesGroup extends ModifiedNodesGroup {
     ListSequence.fromList(wrappedGroups).visitAll(new IVisitor<ModifiedNodesGroup>() {
       public void visit(ModifiedNodesGroup it) {
         it.setWrappingGroup(WrappingNodesGroup.this);
+        it.setOppositeWrappingGroup(null);
       }
     });
     ListSequence.fromList(unwrappedGroups).visitAll(new IVisitor<ModifiedNodesGroup>() {
       public void visit(ModifiedNodesGroup it) {
         it.setOppositeWrappingGroup(WrappingNodesGroup.this);
+        it.setWrappingGroup(null);
       }
     });
   }
@@ -52,6 +62,79 @@ public final class WrappingNodesGroup extends ModifiedNodesGroup {
   @NotNull
   public List<ModifiedNodesGroup> getWrappedGroups() {
     return myWrappedGroups;
+  }
+
+  public void replaceWrappedGroup(ModifiedNodesGroup oldWrappedGroup, List<ModifiedNodesGroup> replacingGroups, final Collection<ModifiedNodesGroup> oppositeGroups) {
+    final int index = ListSequence.fromList(myWrappedGroups).indexOf(oldWrappedGroup);
+    ListSequence.fromList(replacingGroups).reversedList().visitAll(new IVisitor<ModifiedNodesGroup>() {
+      public void visit(ModifiedNodesGroup it) {
+        ListSequence.fromList(myWrappedGroups).insertElement(index, it);
+        it.setWrappingGroup(WrappingNodesGroup.this);
+        if (it instanceof WrappingNodesGroup) {
+          WrappingNodesGroup internalWrappingGroup = as_b2klyd_a0a0a2a0a0a0a1a9(it, WrappingNodesGroup.class);
+          ListSequence.fromList(internalWrappingGroup.getUnwrappedGroups()).visitAll(new IVisitor<ModifiedNodesGroup>() {
+            public void visit(ModifiedNodesGroup unwrappedGroup) {
+              addUnwrappedGroup(unwrappedGroup, oppositeGroups);
+            }
+          });
+        }
+      }
+    });
+    ListSequence.fromList(myWrappedGroups).removeElement(oldWrappedGroup);
+  }
+
+  private void addUnwrappedGroup(ModifiedNodesGroup unwrappedGroup, Collection<ModifiedNodesGroup> oppositeGroups) {
+
+    ListSequence.fromList(myUnwrappedGroups).addElement(unwrappedGroup);
+    final Map<SNodeId, Integer> idIndexMap = MapSequence.fromMap(new HashMap<SNodeId, Integer>());
+    List<SNodeId> unwrappedSiblings = ListSequence.fromList(myUnwrappedGroups).first().getSiblings();
+    for (int i = 0; i < ListSequence.fromList(unwrappedSiblings).count(); i++) {
+      MapSequence.fromMap(idIndexMap).put(ListSequence.fromList(unwrappedSiblings).getElement(i), i);
+    }
+
+    final Wrappers._T<List<ModifiedNodesGroup>> unwrappedGroups = new Wrappers._T<List<ModifiedNodesGroup>>(ListSequence.fromList(myUnwrappedGroups).sort(new ISelector<ModifiedNodesGroup, Integer>() {
+      public Integer select(ModifiedNodesGroup it) {
+        return MapSequence.fromMap(idIndexMap).get(it.getFirstNodeId());
+      }
+    }, true).toListSequence());
+
+    final int firstGroupBegin = MapSequence.fromMap(idIndexMap).get(ListSequence.fromList(unwrappedGroups.value).first().getFirstNodeId());
+    final int lastGroupBegin = MapSequence.fromMap(idIndexMap).get(ListSequence.fromList(unwrappedGroups.value).last().getFirstNodeId());
+    unwrappedGroups.value = CollectionSequence.fromCollection(oppositeGroups).where(new IWhereFilter<ModifiedNodesGroup>() {
+      public boolean accept(ModifiedNodesGroup it) {
+        return Objects.equals(ListSequence.fromList(unwrappedGroups.value).first().getParentId(), it.getParentId()) && Objects.equals(ListSequence.fromList(unwrappedGroups.value).first().getLink(), it.getLink()) && firstGroupBegin <= MapSequence.fromMap(idIndexMap).get(it.getFirstNodeId()) && lastGroupBegin >= MapSequence.fromMap(idIndexMap).get(it.getFirstNodeId());
+      }
+    }).sort(new ISelector<ModifiedNodesGroup, Integer>() {
+      public Integer select(ModifiedNodesGroup it) {
+        return it.getBegin();
+      }
+    }, true).toListSequence();
+
+    ListSequence.fromList(unwrappedGroups.value).where(new IWhereFilter<ModifiedNodesGroup>() {
+      public boolean accept(ModifiedNodesGroup it) {
+        return it.getOppositeWrappingGroup() == null;
+      }
+    }).visitAll(new IVisitor<ModifiedNodesGroup>() {
+      public void visit(ModifiedNodesGroup it) {
+        it.setOppositeWrappingGroup(WrappingNodesGroup.this);
+      }
+    });
+
+    ListSequence.fromList(myUnwrappedGroups).clear();
+    ListSequence.fromList(myUnwrappedGroups).addSequence(ListSequence.fromList(unwrappedGroups.value));
+
+    check_b2klyd_a71a11(getWrappingGroup(), unwrappedGroup, oppositeGroups, this);
+  }
+
+  public void replaceUnwrappedGroup(ModifiedNodesGroup oldUnwrappedGroup, List<ModifiedNodesGroup> replacingGroups) {
+    final int index = ListSequence.fromList(myUnwrappedGroups).indexOf(oldUnwrappedGroup);
+    ListSequence.fromList(replacingGroups).reversedList().visitAll(new IVisitor<ModifiedNodesGroup>() {
+      public void visit(ModifiedNodesGroup it) {
+        ListSequence.fromList(myUnwrappedGroups).insertElement(index, it);
+        it.setOppositeWrappingGroup(WrappingNodesGroup.this);
+      }
+    });
+    ListSequence.fromList(myUnwrappedGroups).removeElement(oldUnwrappedGroup);
   }
 
   @NotNull
@@ -77,5 +160,14 @@ public final class WrappingNodesGroup extends ModifiedNodesGroup {
   @NotNull
   public SContainmentLink getUnwrappedLink() {
     return ListSequence.fromList(myUnwrappedGroups).first().getLink();
+  }
+  private static void check_b2klyd_a71a11(WrappingNodesGroup checkedDotOperand, ModifiedNodesGroup unwrappedGroup, Collection<ModifiedNodesGroup> oppositeGroups, WrappingNodesGroup checkedDotThisExpression) {
+    if (null != checkedDotOperand) {
+      checkedDotOperand.addUnwrappedGroup(unwrappedGroup, oppositeGroups);
+    }
+
+  }
+  private static <T> T as_b2klyd_a0a0a2a0a0a0a1a9(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 }

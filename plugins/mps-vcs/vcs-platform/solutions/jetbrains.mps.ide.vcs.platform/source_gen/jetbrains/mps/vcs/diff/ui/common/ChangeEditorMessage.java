@@ -28,8 +28,8 @@ import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.vcs.diff.changes.NodeGroupWrapChange;
-import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.vcs.diff.changes.WrappingNodesGroup;
+import jetbrains.mps.vcs.diff.changes.NodeGroupMoveChange;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.vcs.diff.changes.ModifiedNodesGroup;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
@@ -112,16 +112,18 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     boolean baseCommentAttribute = SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$nv);
     for (EditorCell childCell : ((EditorCell_Collection) editorCell)) {
 
-      boolean commentedNode = baseCommentAttribute && childCell.isBig() && !(Objects.equals(childCell.getSNode(), getNode())) && !(Objects.equals(childCell.getParent().getSNode(), getNode()));
+      boolean isCommentedNodeCell = baseCommentAttribute && childCell.isBig() && !(Objects.equals(childCell.getSNode(), getNode())) && !(Objects.equals(childCell.getParent().getSNode(), getNode()));
 
-      boolean useBackgroundColor = Sequence.fromIterable(movedNodes).isNotEmpty() && color != backgroundColor && Sequence.fromIterable(movedNodes).contains(check_myu41h_a0a0a0d0e0v(editorCell.getSNode())) && (!(baseCommentAttribute) || commentedNode);
+      boolean isCommentCell = baseCommentAttribute && !(isCommentedNodeCell);
+      boolean isMoved = Sequence.fromIterable(movedNodes).contains(check_myu41h_a0a0e0e0v(childCell.getSNode()));
+      boolean useBackgroundColor = isMoved && !(isCommentCell);
 
       Color childCellColor = (useBackgroundColor ? backgroundColor : color);
 
       if (childCell instanceof EditorCell_Collection) {
         paintSelection(graphics, childCellColor, backgroundColor, movedNodes, ((EditorCell_Collection) childCell));
       } else {
-        if (SetSequence.fromSet(myDescendantIds).contains(check_myu41h_a0a0a0h0e0v(childCell.getSNode()))) {
+        if (SetSequence.fromSet(myDescendantIds).contains(check_myu41h_a0a0a0j0e0v(childCell.getSNode()))) {
           ((jetbrains.mps.nodeEditor.cells.EditorCell) childCell).paintSelection(graphics, childCellColor, false);
         }
       }
@@ -134,11 +136,12 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       return;
     }
     if (EditorCellMessageUtil.isDirectCell(cell, myMessageTarget, getNode())) {
-      ChangeType changeType;
+      ChangeType changeType = myChange.getType();
       if (myChange instanceof NodeGroupWrapChange) {
-        changeType = ListSequence.fromList(((NodeGroupWrapChange) myChange).getWrappingGroup().getModifiedNodes()).first().getType();
-      } else {
-        changeType = myChange.getType();
+        WrappingNodesGroup wrappingGroup = ((NodeGroupWrapChange) myChange).getWrappingGroup();
+        if (Objects.equals(ListSequence.fromList(wrappingGroup.getIds()).first(), getNode().getNodeId())) {
+          changeType = ListSequence.fromList(wrappingGroup.getModifiedNodes()).first().getType();
+        }
       }
       Color c = ChangeColors.getInstance().getDiffColor((isConflicted() ? ChangeType.CONFLICTED : changeType));
       Iterable<SNodeId> movedIds;
@@ -146,15 +149,19 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
         movedIds = myDescendantIds;
       } else if (myChange instanceof NodeGroupWrapChange) {
         WrappingNodesGroup wrappingGroup = ((NodeGroupWrapChange) myChange).getWrappingGroup();
-        movedIds = ListSequence.fromList(wrappingGroup.getWrappedGroups()).where(new IWhereFilter<ModifiedNodesGroup>() {
-          public boolean accept(ModifiedNodesGroup it) {
-            return it.isWrappedMove();
-          }
-        }).translate(new ITranslator2<ModifiedNodesGroup, SNodeId>() {
-          public Iterable<SNodeId> translate(ModifiedNodesGroup it) {
-            return it.getIds();
-          }
-        });
+        if (Objects.equals(ListSequence.fromList(wrappingGroup.getIds()).first(), getNode().getNodeId())) {
+          movedIds = ListSequence.fromList(wrappingGroup.getWrappedGroups()).where(new IWhereFilter<ModifiedNodesGroup>() {
+            public boolean accept(ModifiedNodesGroup it) {
+              return it.isWrappedMove();
+            }
+          }).translate(new ITranslator2<ModifiedNodesGroup, SNodeId>() {
+            public Iterable<SNodeId> translate(ModifiedNodesGroup it) {
+              return it.getIds();
+            }
+          });
+        } else {
+          movedIds = myDescendantIds;
+        }
       } else {
         movedIds = Sequence.fromIterable(Collections.<SNodeId>emptyList());
       }
@@ -453,13 +460,13 @@ __switch__:
   public interface ConflictChecker {
     boolean isChangeConflicted(ModelChange change);
   }
-  private static SNodeId check_myu41h_a0a0a0d0e0v(SNode checkedDotOperand) {
+  private static SNodeId check_myu41h_a0a0e0e0v(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNodeId();
     }
     return null;
   }
-  private static SNodeId check_myu41h_a0a0a0h0e0v(SNode checkedDotOperand) {
+  private static SNodeId check_myu41h_a0a0a0j0e0v(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNodeId();
     }

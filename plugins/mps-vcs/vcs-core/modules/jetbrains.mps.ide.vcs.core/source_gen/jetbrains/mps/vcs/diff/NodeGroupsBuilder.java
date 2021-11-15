@@ -508,20 +508,29 @@ __switch__:
     });
   }
 
-  /*package*/ List<ModifiedNodesGroup> getOppositeMovesFromSamePosition(ModifiedNodesGroup notMoveGroup) {
+  /*package*/ List<ModifiedNodesGroup> getOppositeGroupsFromSamePosition(ModifiedNodesGroup notMoveGroup) {
     assert notMoveGroup.isInsertOrDelete();
     final SNodeId parentId = getOppositeGroupParentId(notMoveGroup);
     final SContainmentLink link = getOppositeGroupLink(notMoveGroup);
     final SNodeId nextNodeId = getOppositeGroupNextNodeId(notMoveGroup);
     return CollectionSequence.fromCollection(getGroups(!(notMoveGroup.isNew()))).where(new IWhereFilter<ModifiedNodesGroup>() {
       public boolean accept(ModifiedNodesGroup it) {
-        return it.isMove() && Objects.equals(parentId, it.getParentId()) && Objects.equals(link, it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId());
+        return Objects.equals(parentId, it.getParentId()) && Objects.equals(link, it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId());
       }
     }).sort(new ISelector<ModifiedNodesGroup, Integer>() {
       public Integer select(ModifiedNodesGroup it) {
         return it.getBegin();
       }
     }, true).toListSequence();
+  }
+
+  /*package*/ List<ModifiedNodesGroup> getOppositeNotMoveGroupsWithSamePosition(final ModifiedNodesGroup notMoveGroup) {
+    assert notMoveGroup.isInsertOrDelete();
+    return ListSequence.fromList(getOppositeGroupsFromSamePosition(notMoveGroup)).where(new IWhereFilter<ModifiedNodesGroup>() {
+      public boolean accept(ModifiedNodesGroup it) {
+        return it.isInsertOrDelete() && it.isNotEmpty() && notMoveGroup.getWrappingGroup() == it.getOppositeWrappingGroup() && notMoveGroup.getOppositeWrappingGroup() == it.getWrappingGroup();
+      }
+    }).toListSequence();
   }
 
   /*package*/ ModifiedNodesGroup createEmptyGroup(ModifiedNodesGroup notMoveGroup) {
@@ -547,22 +556,6 @@ __switch__:
     }, true).toListSequence();
   }
 
-  /*package*/ List<ModifiedNodesGroup> getOppositeNotMoveGroupsWithSamePosition(final ModifiedNodesGroup notMovegroup) {
-    assert notMovegroup.isInsertOrDelete();
-    final SNodeId parentId = getOppositeGroupParentId(notMovegroup);
-    final SContainmentLink link = getOppositeGroupLink(notMovegroup);
-    final SNodeId nextNodeId = getOppositeGroupNextNodeId(notMovegroup);
-    return CollectionSequence.fromCollection(getGroups(!(notMovegroup.isNew()))).where(new IWhereFilter<ModifiedNodesGroup>() {
-      public boolean accept(ModifiedNodesGroup it) {
-        return it.isInsertOrDelete() && it.isNotEmpty() && Objects.equals(parentId, it.getParentId()) && Objects.equals(link, it.getLink()) && Objects.equals(nextNodeId, it.getActualNextNodeId()) && notMovegroup.getWrappingGroup() == it.getOppositeWrappingGroup() && notMovegroup.getOppositeWrappingGroup() == it.getWrappingGroup();
-      }
-    }).sort(new ISelector<ModifiedNodesGroup, Integer>() {
-      public Integer select(ModifiedNodesGroup it) {
-        return it.getBegin();
-      }
-    }, true).toListSequence();
-  }
-
   private SNodeId getOppositeGroupNextNodeId(ModifiedNodesGroup notMoveGroup) {
     assert notMoveGroup.isInsertOrDelete();
     ModifiedNodesGroup nextGroup = notMoveGroup.getNextGroup();
@@ -579,7 +572,19 @@ __switch__:
           return it.isWrappedMove();
         }
       }).first() == nextGroup) {
+        while (oppositeWrappingGroup.getWrappingGroup() != null) {
+          if (oppositeWrappingGroup.getWrappingGroup() == notMoveGroup.getOppositeWrappingGroup()) {
+            break;
+          }
+          oppositeWrappingGroup = oppositeWrappingGroup.getWrappingGroup();
+        }
         return oppositeWrappingGroup.getFirstNodeId();
+      }
+      if (oppositeWrappingGroup != null && notMoveGroup.getOppositeWrappingGroup() == oppositeWrappingGroup && nextGroup.isWrappedMove()) {
+        return nextGroup.getFirstNodeId();
+      }
+      if (nextGroup.getWrappingGroup() != null && notMoveGroup.getWrappingGroup() == nextGroup.getWrappingGroup() && nextGroup.isWrappedMove()) {
+        return nextGroup.getFirstNodeId();
       }
       nextGroup = nextGroup.getNextGroup();
     }
