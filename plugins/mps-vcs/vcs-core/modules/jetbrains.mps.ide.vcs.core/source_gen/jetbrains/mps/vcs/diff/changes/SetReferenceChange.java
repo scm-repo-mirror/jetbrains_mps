@@ -141,13 +141,21 @@ public class SetReferenceChange extends NodeChange {
     }
     String what = "target";
     _FunctionTypes._return_P1_E0<? extends String, ? super SReference> formatRef = null;
-    if (!(Objects.equals(oldRef.getTargetSModelReference(), newRef.getTargetSModelReference()))) {
+    SModelReference oldTargetModel = check_mgdhcs_a0h0ib(oldRef);
+    SModelReference newTargetModel = check_mgdhcs_a0i0ib(newRef);
+    SNode oldNode = getChangeSet().getOldModel().getNode(getAffectedNodeId(false));
+    SNode newNode = getChangeSet().getNewModel().getNode(getAffectedNodeId(true));
+    boolean modelsEquals = Objects.equals(oldTargetModel, newTargetModel) || (jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.getModel(oldNode).getReference().equals(oldTargetModel) && jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.getModel(newNode).getReference().equals(newTargetModel));
+
+    if (!(modelsEquals)) {
       formatRef = (SReference ref) -> String.format("[model=%s,\n  id=%s, resolveInfo=%s]", ref.getTargetSModelReference(), ref.getTargetNodeId(), SLinkOperations.getResolveInfo(ref));
     } else if (!(Objects.equals(oldRef.getTargetNodeId(), newRef.getTargetNodeId()))) {
       formatRef = (SReference ref) -> String.format("[id=%s, resolveInfo=%s]", ref.getTargetNodeId(), ref.getTargetNodeId());
     } else if (!(Objects.equals(SLinkOperations.getResolveInfo(oldRef), SLinkOperations.getResolveInfo(newRef)))) {
       what = "resolve info";
       formatRef = (SReference ref) -> String.format("'%s'", SLinkOperations.getResolveInfo(ref));
+      // resolve info change description is not too long so for convenience we can use full description in short descriptions mode as well
+      return String.format("Changed %s reference %s \nfrom %s to %s", myRole, what, formatRef.invoke(oldRef), formatRef.invoke(newRef));
     }
     if (formatRef == null) {
       return toString();
@@ -196,6 +204,18 @@ public class SetReferenceChange extends NodeChange {
   private static SReference check_mgdhcs_a0c0ib(SNode checkedDotOperand, SReferenceLink myRole, SetReferenceChange checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getReference(myRole);
+    }
+    return null;
+  }
+  private static SModelReference check_mgdhcs_a0h0ib(SReference checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getTargetSModelReference();
+    }
+    return null;
+  }
+  private static SModelReference check_mgdhcs_a0i0ib(SReference checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getTargetSModelReference();
     }
     return null;
   }
