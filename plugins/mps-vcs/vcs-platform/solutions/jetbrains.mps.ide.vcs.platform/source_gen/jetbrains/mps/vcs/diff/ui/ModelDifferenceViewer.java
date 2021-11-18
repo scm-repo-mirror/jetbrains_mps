@@ -133,6 +133,15 @@ public class ModelDifferenceViewer implements DataProvider {
     myProject.getRepository().getModelAccess().runWriteAction(new Runnable() {
       public void run() {
         try {
+          // create metamodels before renaming the models in order to avoid problems
+          // with stereotypes like in MPS-32651 and MPS-33991
+          SModel newMetaModel = MetadataUtil.createMetadataModel(newModel, "metadata_new", myEditable);
+          SModel oldMetaModel1 = MetadataUtil.createMetadataModel(oldModel1, "metadata_old1", false);
+          SModel oldMetaModel2 = null;
+          if (myIsThreePanelDiff) {
+            oldMetaModel2 = MetadataUtil.createMetadataModel(oldModel2, "metadata_old2", false);
+          }
+
           if (!(myNewRegistered)) {
             DiffModelUtil.renameModelAndRegister(newModel, "new", fixReferences);
           }
@@ -160,13 +169,9 @@ public class ModelDifferenceViewer implements DataProvider {
             myChangeSet2 = (ModelChangeSet) myChangeSet2.getOppositeChangeSet();
             myMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myChangeSet1, myChangeSet2);
           }
-          SModel newMetaModel = MetadataUtil.createMetadataModel(newModel, "metadata_new", myEditable);
-          SModel oldMetaModel1 = MetadataUtil.createMetadataModel(oldModel1, "metadata_old1", false);
           myMetadataChangeSet1 = ChangeSetBuilder.buildChangeSet(oldMetaModel1, newMetaModel, true);
-          SModel oldMetaModel2 = null;
           if (myIsThreePanelDiff) {
             myMetadataChangeSet1 = ((ModelChangeSet) myMetadataChangeSet1.getOppositeChangeSet());
-            oldMetaModel2 = MetadataUtil.createMetadataModel(oldModel2, "metadata_old2", false);
             myMetadataChangeSet2 = ((ModelChangeSet) ChangeSetBuilder.buildChangeSet(oldMetaModel2, newMetaModel, true).getOppositeChangeSet());
             myMetaDataMergeConflictBuilder = MergeConflictsBuilder.createOppositeConflictsBuilder(myMetadataChangeSet1, myMetadataChangeSet2);
           }

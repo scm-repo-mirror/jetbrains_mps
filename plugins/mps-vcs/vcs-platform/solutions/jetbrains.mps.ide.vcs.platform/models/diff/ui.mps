@@ -8201,6 +8201,141 @@
                   </node>
                 </node>
                 <node concept="3clFbS" id="7aiOwVxU3OH" role="1zxBo7">
+                  <node concept="3SKdUt" id="3oMsNY6SmzY" role="3cqZAp">
+                    <node concept="1PaTwC" id="3oMsNY6SmzZ" role="1aUNEU">
+                      <node concept="3oM_SD" id="3oMsNY6StRG" role="1PaTwD">
+                        <property role="3oM_SC" value="create" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6StRI" role="1PaTwD">
+                        <property role="3oM_SC" value="metamodels" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6SJP3" role="1PaTwD">
+                        <property role="3oM_SC" value="before" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6SMZ8" role="1PaTwD">
+                        <property role="3oM_SC" value="renaming" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6SMZd" role="1PaTwD">
+                        <property role="3oM_SC" value="the" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6SZA8" role="1PaTwD">
+                        <property role="3oM_SC" value="models" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6TeCv" role="1PaTwD">
+                        <property role="3oM_SC" value="in" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6Tm67" role="1PaTwD">
+                        <property role="3oM_SC" value="order" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6Tm6g" role="1PaTwD">
+                        <property role="3oM_SC" value="to" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6TtHY" role="1PaTwD">
+                        <property role="3oM_SC" value="avoid" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6TtI9" role="1PaTwD">
+                        <property role="3oM_SC" value="problems" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3SKdUt" id="3oMsNY6TRRY" role="3cqZAp">
+                    <node concept="1PaTwC" id="3oMsNY6TRRZ" role="1aUNEU">
+                      <node concept="3oM_SD" id="3oMsNY6TY7D" role="1PaTwD">
+                        <property role="3oM_SC" value="with" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6TY7F" role="1PaTwD">
+                        <property role="3oM_SC" value="stereotypes" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6UbRj" role="1PaTwD">
+                        <property role="3oM_SC" value="like" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6Uiug" role="1PaTwD">
+                        <property role="3oM_SC" value="in" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6Uiul" role="1PaTwD">
+                        <property role="3oM_SC" value="MPS-32651" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6UsZi" role="1PaTwD">
+                        <property role="3oM_SC" value="and" />
+                      </node>
+                      <node concept="3oM_SD" id="3oMsNY6UsZp" role="1PaTwD">
+                        <property role="3oM_SC" value="MPS-33991" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3cpWs8" id="5zPLqcHJBcc" role="3cqZAp">
+                    <node concept="3cpWsn" id="5zPLqcHJBcd" role="3cpWs9">
+                      <property role="TrG5h" value="newMetaModel" />
+                      <node concept="2YIFZM" id="5zPLqcHJBce" role="33vP2m">
+                        <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
+                        <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
+                        <node concept="37vLTw" id="5zPLqcHJBcf" role="37wK5m">
+                          <ref role="3cqZAo" node="7aiOwVxHKgs" resolve="newModel" />
+                        </node>
+                        <node concept="Xl_RD" id="5zPLqcHJBcg" role="37wK5m">
+                          <property role="Xl_RC" value="metadata_new" />
+                        </node>
+                        <node concept="37vLTw" id="5zPLqcHJBch" role="37wK5m">
+                          <ref role="3cqZAo" node="5zPLqcHJBa0" resolve="myEditable" />
+                        </node>
+                      </node>
+                      <node concept="H_c77" id="5zPLqcHJBci" role="1tU5fm" />
+                    </node>
+                  </node>
+                  <node concept="3cpWs8" id="5zPLqcHJBcj" role="3cqZAp">
+                    <node concept="3cpWsn" id="5zPLqcHJBck" role="3cpWs9">
+                      <property role="TrG5h" value="oldMetaModel1" />
+                      <node concept="2YIFZM" id="5zPLqcHJBcl" role="33vP2m">
+                        <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
+                        <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
+                        <node concept="37vLTw" id="5zPLqcHJBcm" role="37wK5m">
+                          <ref role="3cqZAo" node="7aiOwVxHKgq" resolve="oldModel1" />
+                        </node>
+                        <node concept="Xl_RD" id="5zPLqcHJBcn" role="37wK5m">
+                          <property role="Xl_RC" value="metadata_old1" />
+                        </node>
+                        <node concept="3clFbT" id="5zPLqcHJBco" role="37wK5m">
+                          <property role="3clFbU" value="false" />
+                        </node>
+                      </node>
+                      <node concept="H_c77" id="5zPLqcHJBcp" role="1tU5fm" />
+                    </node>
+                  </node>
+                  <node concept="3cpWs8" id="2B5VlMgciIb" role="3cqZAp">
+                    <node concept="3cpWsn" id="2B5VlMgciIc" role="3cpWs9">
+                      <property role="TrG5h" value="oldMetaModel2" />
+                      <node concept="H_c77" id="2B5VlMgciIh" role="1tU5fm" />
+                      <node concept="10Nm6u" id="3EekmlpDdUt" role="33vP2m" />
+                    </node>
+                  </node>
+                  <node concept="3clFbJ" id="3oMsNY6REdS" role="3cqZAp">
+                    <node concept="3clFbS" id="3oMsNY6REdU" role="3clFbx">
+                      <node concept="3clFbF" id="3EekmlpD46Y" role="3cqZAp">
+                        <node concept="37vLTI" id="3EekmlpD470" role="3clFbG">
+                          <node concept="2YIFZM" id="2B5VlMgciId" role="37vLTx">
+                            <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
+                            <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
+                            <node concept="37vLTw" id="2B5VlMgciIe" role="37wK5m">
+                              <ref role="3cqZAo" node="2B5VlMgbKqG" resolve="oldModel2" />
+                            </node>
+                            <node concept="Xl_RD" id="2B5VlMgciIf" role="37wK5m">
+                              <property role="Xl_RC" value="metadata_old2" />
+                            </node>
+                            <node concept="3clFbT" id="2B5VlMgciIg" role="37wK5m">
+                              <property role="3clFbU" value="false" />
+                            </node>
+                          </node>
+                          <node concept="37vLTw" id="3EekmlpD474" role="37vLTJ">
+                            <ref role="3cqZAo" node="2B5VlMgciIc" resolve="oldMetaModel2" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="3oMsNY6RNoO" role="3clFbw">
+                      <ref role="3cqZAo" node="3EekmlpfPF6" resolve="myIsThreePanelDiff" />
+                    </node>
+                  </node>
+                  <node concept="3clFbH" id="3oMsNY6T6W0" role="3cqZAp" />
                   <node concept="3clFbJ" id="5zPLqcHJBb9" role="3cqZAp">
                     <property role="TyiWK" value="false" />
                     <property role="TyiWL" value="true" />
@@ -8559,44 +8694,6 @@
                       <ref role="3cqZAo" node="3EekmlpfPF6" resolve="myIsThreePanelDiff" />
                     </node>
                   </node>
-                  <node concept="3cpWs8" id="5zPLqcHJBcc" role="3cqZAp">
-                    <node concept="3cpWsn" id="5zPLqcHJBcd" role="3cpWs9">
-                      <property role="TrG5h" value="newMetaModel" />
-                      <node concept="2YIFZM" id="5zPLqcHJBce" role="33vP2m">
-                        <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
-                        <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
-                        <node concept="37vLTw" id="5zPLqcHJBcf" role="37wK5m">
-                          <ref role="3cqZAo" node="7aiOwVxHKgs" resolve="newModel" />
-                        </node>
-                        <node concept="Xl_RD" id="5zPLqcHJBcg" role="37wK5m">
-                          <property role="Xl_RC" value="metadata_new" />
-                        </node>
-                        <node concept="37vLTw" id="5zPLqcHJBch" role="37wK5m">
-                          <ref role="3cqZAo" node="5zPLqcHJBa0" resolve="myEditable" />
-                        </node>
-                      </node>
-                      <node concept="H_c77" id="5zPLqcHJBci" role="1tU5fm" />
-                    </node>
-                  </node>
-                  <node concept="3cpWs8" id="5zPLqcHJBcj" role="3cqZAp">
-                    <node concept="3cpWsn" id="5zPLqcHJBck" role="3cpWs9">
-                      <property role="TrG5h" value="oldMetaModel1" />
-                      <node concept="2YIFZM" id="5zPLqcHJBcl" role="33vP2m">
-                        <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
-                        <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
-                        <node concept="37vLTw" id="5zPLqcHJBcm" role="37wK5m">
-                          <ref role="3cqZAo" node="7aiOwVxHKgq" resolve="oldModel1" />
-                        </node>
-                        <node concept="Xl_RD" id="5zPLqcHJBcn" role="37wK5m">
-                          <property role="Xl_RC" value="metadata_old1" />
-                        </node>
-                        <node concept="3clFbT" id="5zPLqcHJBco" role="37wK5m">
-                          <property role="3clFbU" value="false" />
-                        </node>
-                      </node>
-                      <node concept="H_c77" id="5zPLqcHJBcp" role="1tU5fm" />
-                    </node>
-                  </node>
                   <node concept="3clFbF" id="5zPLqcHJBcq" role="3cqZAp">
                     <node concept="37vLTI" id="5zPLqcHJBcr" role="3clFbG">
                       <node concept="2YIFZM" id="5zPLqcHJBcs" role="37vLTx">
@@ -8615,13 +8712,6 @@
                       <node concept="37vLTw" id="5zPLqcHJBcw" role="37vLTJ">
                         <ref role="3cqZAo" node="5zPLqcHJB98" resolve="myMetadataChangeSet1" />
                       </node>
-                    </node>
-                  </node>
-                  <node concept="3cpWs8" id="2B5VlMgciIb" role="3cqZAp">
-                    <node concept="3cpWsn" id="2B5VlMgciIc" role="3cpWs9">
-                      <property role="TrG5h" value="oldMetaModel2" />
-                      <node concept="H_c77" id="2B5VlMgciIh" role="1tU5fm" />
-                      <node concept="10Nm6u" id="3EekmlpDdUt" role="33vP2m" />
                     </node>
                   </node>
                   <node concept="3clFbJ" id="2B5VlMgciI0" role="3cqZAp">
@@ -8645,26 +8735,6 @@
                           </node>
                           <node concept="37vLTw" id="2B5VlMgciIa" role="37vLTJ">
                             <ref role="3cqZAo" node="5zPLqcHJB98" resolve="myMetadataChangeSet1" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3clFbF" id="3EekmlpD46Y" role="3cqZAp">
-                        <node concept="37vLTI" id="3EekmlpD470" role="3clFbG">
-                          <node concept="2YIFZM" id="2B5VlMgciId" role="37vLTx">
-                            <ref role="1Pybhc" node="444ZSQ06W$a" resolve="MetadataUtil" />
-                            <ref role="37wK5l" node="6TJYyPqxMdD" resolve="createMetadataModel" />
-                            <node concept="37vLTw" id="2B5VlMgciIe" role="37wK5m">
-                              <ref role="3cqZAo" node="2B5VlMgbKqG" resolve="oldModel2" />
-                            </node>
-                            <node concept="Xl_RD" id="2B5VlMgciIf" role="37wK5m">
-                              <property role="Xl_RC" value="metadata_old2" />
-                            </node>
-                            <node concept="3clFbT" id="2B5VlMgciIg" role="37wK5m">
-                              <property role="3clFbU" value="false" />
-                            </node>
-                          </node>
-                          <node concept="37vLTw" id="3EekmlpD474" role="37vLTJ">
-                            <ref role="3cqZAo" node="2B5VlMgciIc" resolve="oldMetaModel2" />
                           </node>
                         </node>
                       </node>
