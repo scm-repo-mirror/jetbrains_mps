@@ -354,13 +354,13 @@ public abstract class RootDifferencePaneBase implements RootDifferencePane, Prop
         if (changeSet != null) {
           DiffChangeGroupLayout.SplitterRepainter splitterRepainter = getSplitterRepainter(leftEditor, editor);
           layout = new DiffChangeGroupLayout(getConflictChecker(), changeSet, leftEditor, editor, splitterRepainter, inspector);
-          ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(layout, false));
-          ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(layout, true));
         }
         ListSequence.fromList(layouts).addElement(layout);
       }
       leftEditor = editor;
     }
+    ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).first(), true));
+    ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).last(), false));
     return layouts;
   }
 

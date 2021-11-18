@@ -3228,11 +3228,11 @@
       <node id="8817948936268471764" at="352,50,353,44" concept="11" />
       <node id="5939348756330009750" at="354,32,355,111" concept="11" />
       <node id="7095898554576765120" at="355,111,356,128" concept="5" />
-      <node id="3697948565746741995" at="356,128,357,111" concept="5" />
-      <node id="3697948565746742003" at="357,111,358,110" concept="5" />
-      <node id="8817948936268471777" at="359,9,360,58" concept="5" />
-      <node id="5939348756330009775" at="361,7,362,26" concept="5" />
-      <node id="5939348756330009779" at="363,5,364,19" concept="12" />
+      <node id="8817948936268471777" at="357,9,358,58" concept="5" />
+      <node id="5939348756330009775" at="359,7,360,26" concept="5" />
+      <node id="3697948565746741995" at="361,5,362,136" concept="5" />
+      <node id="3697948565746742003" at="362,136,363,136" concept="5" />
+      <node id="5939348756330009779" at="363,136,364,19" concept="12" />
       <node id="5939348756330616972" at="367,73,368,122" concept="11" />
       <node id="5939348756330616982" at="368,122,369,191" concept="11" />
       <node id="2417112769655068927" at="369,191,370,107" concept="11" />
@@ -3331,6 +3331,7 @@
       <node id="5939348756328679822" at="224,0,228,0" concept="3" trace="MyDividerPainter#(Ljetbrains/mps/vcs/diff/ui/common/DiffEditor;Ljetbrains/mps/vcs/diff/ui/common/DiffEditor;)V" />
       <node id="1973725742812731870" at="246,0,250,0" concept="10" trace="registerShortcuts#(Ljavax/swing/JComponent;)V" />
       <node id="1973725742812934966" at="251,0,255,0" concept="10" trace="unregisterShortcuts#(Ljavax/swing/JComponent;)V" />
+      <node id="7095898554576540544" at="353,44,357,9" concept="9" />
       <node id="5939348756327967358" at="148,42,153,24" concept="12" />
       <node id="2898534395425321309" at="175,0,180,0" concept="10" trace="setSelected#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Z)V" />
       <node id="2898534395425814502" at="180,0,185,0" concept="10" trace="update#(Lcom/intellij/openapi/actionSystem/AnActionEvent;)V" />
@@ -3344,7 +3345,6 @@
       <node id="3697948565746646982" at="436,22,441,7" concept="5" />
       <node id="5939348756334940509" at="449,38,454,7" concept="5" />
       <node id="5939348756335885888" at="457,49,462,7" concept="5" />
-      <node id="7095898554576540544" at="353,44,359,9" concept="9" />
       <node id="2991819792392120918" at="148,0,155,0" concept="10" trace="getTitles#()Ljava/util/List;" />
       <node id="3312434123649923000" at="229,0,236,0" concept="10" trace="paint#(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V" />
       <node id="2898534395426074371" at="310,0,317,0" concept="10" trace="enableEditorsScrollingSynchronization#(Z)V" />
@@ -3362,17 +3362,17 @@
       <node id="5939348756331091381" at="388,7,397,7" concept="5" />
       <node id="5939348756327040317" at="472,23,481,7" concept="21" />
       <node id="5939348756338520782" at="502,34,511,7" concept="5" />
+      <node id="5939348756330009735" at="349,67,359,7" concept="9" />
       <node id="4621883088125026995" at="402,0,412,0" concept="10" trace="getChangesToHighlight#(Ljetbrains/mps/vcs/diff/ModelChangeSet;)Ljava/lang/Iterable;" />
       <node id="5939348756338520780" at="502,0,513,0" concept="10" trace="updateLayouts#()V" />
       <node id="5939348756340240318" at="127,59,139,5" concept="8" />
       <node id="4481873561811042922" at="275,0,287,0" concept="10" trace="setRootId#(Lorg/jetbrains/mps/openapi/model/SNodeId;Z)V" />
-      <node id="5939348756330009735" at="349,67,361,7" concept="9" />
       <node id="5939348756335268096" at="413,0,425,0" concept="10" trace="changeIsVisible#(Ljetbrains/mps/vcs/diff/changes/ModelChange;)Z" />
       <node id="5435993593429927366" at="288,0,301,0" concept="10" trace="showInspector#(Z)V" />
       <node id="5781005874907526849" at="318,0,331,0" concept="10" trace="rehighlightInReadAction#(Z)V" />
+      <node id="5939348756330009731" at="348,89,361,5" concept="8" />
       <node id="4481873561810341094" at="435,0,448,0" concept="10" trace="dispose#()V" />
       <node id="4741060619084352847" at="194,46,208,6" concept="12" />
-      <node id="5939348756330009731" at="348,89,363,5" concept="8" />
       <node id="5939348756327040317" at="467,31,482,5" concept="1" />
       <node id="2898534395425160728" at="169,7,185,7" concept="5" />
       <node id="4741060619084352845" at="194,0,210,0" concept="10" trace="createRevertRootsAction#()Lcom/intellij/openapi/actionSystem/AnAction;" />
@@ -3450,6 +3450,9 @@
       <scope id="5939348756328679824" at="224,76,226,34" />
       <scope id="1973725742812731873" at="246,55,248,110" />
       <scope id="1973725742812934969" at="251,57,253,68" />
+      <scope id="7095898554576540546" at="354,32,356,128">
+        <var name="splitterRepainter" id="5939348756330009751" />
+      </scope>
       <scope id="8817948936280415730" at="432,0,434,0">
         <var name="rebuildChangeSet" id="1840805069821936297" />
       </scope>
@@ -3547,9 +3550,6 @@
       <scope id="1973725742812934966" at="251,0,255,0">
         <var name="component" id="1973725742812960046" />
       </scope>
-      <scope id="7095898554576540546" at="354,32,358,110">
-        <var name="splitterRepainter" id="5939348756330009751" />
-      </scope>
       <scope id="2991819792392120921" at="148,42,153,24" />
       <scope id="2898534395425321309" at="175,0,180,0">
         <var name="b" id="2898534395425321316" />
@@ -3599,6 +3599,10 @@
       <scope id="4481873561819654375" at="260,0,268,0">
         <var name="firstChange" id="4481873561819675374" />
       </scope>
+      <scope id="5939348756330009739" at="350,31,358,58">
+        <var name="changeSet" id="5939348756330009741" />
+        <var name="layout" id="8817948936268471765" />
+      </scope>
       <scope id="4621883088125026998" at="402,83,410,7" />
       <scope id="4481873561811042925" at="276,65,285,39">
         <var name="rebuild" id="822754608262063570" />
@@ -3607,15 +3611,12 @@
       <scope id="5781005874907526855" at="319,71,329,5">
         <var name="modelAccess" id="6653055391009528081" />
       </scope>
-      <scope id="5939348756330009739" at="350,31,360,58">
-        <var name="changeSet" id="5939348756330009741" />
-        <var name="layout" id="8817948936268471765" />
-      </scope>
       <scope id="4621883088125026995" at="402,0,412,0">
         <var name="changeSet" id="5939348756335417316" />
       </scope>
       <scope id="5939348756335268097" at="413,57,423,16" />
       <scope id="5435993593429927369" at="288,50,299,0" />
+      <scope id="5939348756330009734" at="349,67,360,26" />
       <scope id="4481873561810341096" at="435,25,446,33" />
       <scope id="5939348756338520780" at="502,0,513,0" />
       <scope id="5939348756340240318" at="127,59,139,5">
@@ -3634,7 +3635,9 @@
       <scope id="5781005874907526849" at="318,0,331,0">
         <var name="rebuildChangeSet" id="5781005874907526853" />
       </scope>
-      <scope id="5939348756330009734" at="349,67,362,26" />
+      <scope id="5939348756330009731" at="348,89,361,5">
+        <var name="editor" id="5939348756330009732" />
+      </scope>
       <scope id="4481873561810341094" at="435,0,448,0" />
       <scope id="5939348756327040317" at="468,5,481,7">
         <var name="model_it" id="5939348756327040318" />
@@ -3643,9 +3646,6 @@
         <var name="title_var" id="5939348756327040321" />
       </scope>
       <scope id="4741060619084352846" at="194,46,208,6" />
-      <scope id="5939348756330009731" at="348,89,363,5">
-        <var name="editor" id="5939348756330009732" />
-      </scope>
       <scope id="2692333158099617262" at="123,57,139,5">
         <var name="sourceSplitter" id="2692333158099710303" />
       </scope>

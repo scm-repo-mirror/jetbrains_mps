@@ -527,6 +527,7 @@
         <child id="1225711182005" name="list" index="1y566C" />
         <child id="1225711191269" name="index" index="1y58nS" />
       </concept>
+      <concept id="1165595910856" name="jetbrains.mps.baseLanguage.collections.structure.GetLastOperation" flags="nn" index="1yVyf7" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
       <concept id="1202128969694" name="jetbrains.mps.baseLanguage.collections.structure.SelectOperation" flags="nn" index="3$u5V9" />
       <concept id="9042586985346099698" name="jetbrains.mps.baseLanguage.collections.structure.MultiForEachStatement" flags="nn" index="1_o_46">
@@ -6525,46 +6526,6 @@
                         </node>
                       </node>
                     </node>
-                    <node concept="3clFbF" id="3dhKa32ZZbF" role="3cqZAp">
-                      <node concept="2OqwBi" id="3dhKa32ZZbG" role="3clFbG">
-                        <node concept="37vLTw" id="3dhKa32ZZbH" role="2Oq$k0">
-                          <ref role="3cqZAo" node="4v$0iiIJgCs" resolve="myGutterMessagesRebuilders" />
-                        </node>
-                        <node concept="TSZUe" id="3dhKa32ZZbI" role="2OqNvi">
-                          <node concept="2ShNRf" id="3dhKa32ZZbJ" role="25WWJ7">
-                            <node concept="1pGfFk" id="3dhKa32ZZbK" role="2ShVmc">
-                              <ref role="37wK5l" to="hdhb:D356mG1lCH" resolve="ChangeGroupMessages" />
-                              <node concept="37vLTw" id="3dhKa32ZZbL" role="37wK5m">
-                                <ref role="3cqZAo" node="7DvDtq9OdRl" resolve="layout" />
-                              </node>
-                              <node concept="3clFbT" id="3dhKa32ZZbM" role="37wK5m">
-                                <property role="3clFbU" value="false" />
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3clFbF" id="3dhKa32ZZbN" role="3cqZAp">
-                      <node concept="2OqwBi" id="3dhKa32ZZbO" role="3clFbG">
-                        <node concept="37vLTw" id="3dhKa32ZZbP" role="2Oq$k0">
-                          <ref role="3cqZAo" node="4v$0iiIJgCs" resolve="myGutterMessagesRebuilders" />
-                        </node>
-                        <node concept="TSZUe" id="3dhKa32ZZbQ" role="2OqNvi">
-                          <node concept="2ShNRf" id="3dhKa32ZZbR" role="25WWJ7">
-                            <node concept="1pGfFk" id="3dhKa32ZZbS" role="2ShVmc">
-                              <ref role="37wK5l" to="hdhb:D356mG1lCH" resolve="ChangeGroupMessages" />
-                              <node concept="37vLTw" id="3dhKa32ZZbT" role="37wK5m">
-                                <ref role="3cqZAo" node="7DvDtq9OdRl" resolve="layout" />
-                              </node>
-                              <node concept="3clFbT" id="3dhKa32ZZbU" role="37wK5m">
-                                <property role="3clFbU" value="true" />
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
                   </node>
                   <node concept="3y3z36" id="69TGyf3JIiB" role="3clFbw">
                     <node concept="10Nm6u" id="69TGyf3JMkB" role="3uHU7w" />
@@ -6594,6 +6555,50 @@
                 </node>
                 <node concept="37vLTw" id="59GNzBidliM" role="37vLTJ">
                   <ref role="3cqZAo" node="59GNzBidli0" resolve="leftEditor" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3dhKa32ZZbF" role="3cqZAp">
+          <node concept="2OqwBi" id="3dhKa32ZZbG" role="3clFbG">
+            <node concept="37vLTw" id="3dhKa32ZZbH" role="2Oq$k0">
+              <ref role="3cqZAo" node="4v$0iiIJgCs" resolve="myGutterMessagesRebuilders" />
+            </node>
+            <node concept="TSZUe" id="3dhKa32ZZbI" role="2OqNvi">
+              <node concept="2ShNRf" id="3dhKa32ZZbJ" role="25WWJ7">
+                <node concept="1pGfFk" id="3dhKa32ZZbK" role="2ShVmc">
+                  <ref role="37wK5l" to="hdhb:D356mG1lCH" resolve="ChangeGroupMessages" />
+                  <node concept="2OqwBi" id="3i07Vyv$6l2" role="37wK5m">
+                    <node concept="37vLTw" id="3i07Vyv$6l3" role="2Oq$k0">
+                      <ref role="3cqZAo" node="59GNzBidlhT" resolve="layouts" />
+                    </node>
+                    <node concept="1uHKPH" id="3i07Vyv$6l4" role="2OqNvi" />
+                  </node>
+                  <node concept="3clFbT" id="3dhKa32ZZbM" role="37wK5m">
+                    <property role="3clFbU" value="true" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3dhKa32ZZbN" role="3cqZAp">
+          <node concept="2OqwBi" id="3dhKa32ZZbO" role="3clFbG">
+            <node concept="37vLTw" id="3dhKa32ZZbP" role="2Oq$k0">
+              <ref role="3cqZAo" node="4v$0iiIJgCs" resolve="myGutterMessagesRebuilders" />
+            </node>
+            <node concept="TSZUe" id="3dhKa32ZZbQ" role="2OqNvi">
+              <node concept="2ShNRf" id="3dhKa32ZZbR" role="25WWJ7">
+                <node concept="1pGfFk" id="3dhKa32ZZbS" role="2ShVmc">
+                  <ref role="37wK5l" to="hdhb:D356mG1lCH" resolve="ChangeGroupMessages" />
+                  <node concept="2OqwBi" id="3i07Vyv$drx" role="37wK5m">
+                    <node concept="37vLTw" id="3i07Vyv$dry" role="2Oq$k0">
+                      <ref role="3cqZAo" node="59GNzBidlhT" resolve="layouts" />
+                    </node>
+                    <node concept="1yVyf7" id="3VUZPE8wkE9" role="2OqNvi" />
+                  </node>
+                  <node concept="3clFbT" id="3dhKa32ZZbU" role="37wK5m" />
                 </node>
               </node>
             </node>
