@@ -371,8 +371,12 @@ public abstract class RootDifferencePaneBase implements RootDifferencePane, Prop
       }
       leftEditor = editor;
     }
-    ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).first(), true));
-    ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).last(), false));
+    if (ListSequence.fromList(layouts).first() != null) {
+      ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).first(), true));
+    }
+    if (ListSequence.fromList(layouts).last() != null) {
+      ListSequence.fromList(myGutterMessagesRebuilders).addElement(new ChangeGroupMessages(ListSequence.fromList(layouts).last(), false));
+    }
     return layouts;
   }
 
