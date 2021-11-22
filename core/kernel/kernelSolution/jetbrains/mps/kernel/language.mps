@@ -409,24 +409,19 @@
             <node concept="3uibUv" id="66vxhH6jGdf" role="1tU5fm">
               <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
             </node>
-            <node concept="2OqwBi" id="66vxhH6jGdm" role="33vP2m">
-              <node concept="2EnYce" id="66vxhH6jGdn" role="2Oq$k0">
-                <node concept="2EnYce" id="66vxhH6jGdo" role="2Oq$k0">
-                  <node concept="2JrnkZ" id="66vxhH6jGdp" role="2Oq$k0">
-                    <node concept="37vLTw" id="5tLRH_t6RLW" role="2JrQYb">
-                      <ref role="3cqZAo" node="5tLRH_t6Rpa" resolve="n" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="66vxhH6jGdr" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SNode.getModel()" resolve="getModel" />
+            <node concept="2EnYce" id="5FKzHXcxCt4" role="33vP2m">
+              <node concept="2EnYce" id="66vxhH6jGdo" role="2Oq$k0">
+                <node concept="2JrnkZ" id="66vxhH6jGdp" role="2Oq$k0">
+                  <node concept="37vLTw" id="5tLRH_t6RLW" role="2JrQYb">
+                    <ref role="3cqZAo" node="5tLRH_t6Rpa" resolve="n" />
                   </node>
                 </node>
-                <node concept="liA8E" id="66vxhH6jGds" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                <node concept="liA8E" id="66vxhH6jGdr" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getModel()" resolve="getModel" />
                 </node>
               </node>
               <node concept="liA8E" id="66vxhH6jGdt" role="2OqNvi">
-                <ref role="37wK5l" to="lui2:~SModule.getRepository()" resolve="getRepository" />
+                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
               </node>
             </node>
           </node>
