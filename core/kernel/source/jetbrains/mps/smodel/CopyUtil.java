@@ -216,6 +216,11 @@ public final class CopyUtil {
       }
 
       for (SReference ref : inputNode.getReferences()) {
+        // FIXME stacktrace in MPS-29786 reveals we may copy a detached node with a dynamic reference -
+        //       there's no reason even to try to resolve such a reference, even 'silently'. OTOH, not sure
+        //       if it's reasonable to copy it bluntly with describeTarget(), what if its target is among
+        //       copied ancestors/descendants mapping (for a regular reference)? No idea how to tackle this properly,
+        //       without cast to DynamicReference and creepy ifs
         SNode inputTargetNode = cloneRefs ? null : jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref);
         if (inputTargetNode == null) { //broken reference or need to clone
           outputNode.setReference(ref.getLink(), ref.describeTarget());
