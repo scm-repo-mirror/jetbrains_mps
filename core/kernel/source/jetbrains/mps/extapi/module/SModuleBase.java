@@ -47,7 +47,7 @@ public abstract class SModuleBase implements SModule {
 
   private final List<SModuleListener> myListeners = new CopyOnWriteArrayList<>();
 
-  private final Set<SModelBase> myModels = new LinkedHashSet<>();
+  private final Set<SModel> myModels = new LinkedHashSet<>();
 
   /**
    * Sorted (!) list of models we return from {@link #getModels}, discarded on any change to myModels.
@@ -73,7 +73,7 @@ public abstract class SModuleBase implements SModule {
     assertCanRead();
     if (myCachedModelsList == null) {
       // I don't care to initialize/sort twice in parallel reads, either list is the same
-      final ArrayList<SModelBase> list = new ArrayList<>(myModels);
+      final ArrayList<SModel> list = new ArrayList<>(myModels);
       list.sort(MODEL_BY_NAME_COMPARATOR);
       myCachedModelsList = Collections.unmodifiableList(list);
     }
@@ -88,8 +88,10 @@ public abstract class SModuleBase implements SModule {
     repo.getModelAccess().checkWriteAccess();
 
     myRepository = repo;
-    for (SModelBase m : myModels) {
-      m.attach(repo);
+    for (SModel m : myModels) {
+      if (m instanceof SModelBase) {
+        ((SModelBase) m).attach(repo);
+      }
     }
   }
 
@@ -97,8 +99,10 @@ public abstract class SModuleBase implements SModule {
     assert myRepository != null;
     assertCanChange();
 
-    for (SModelBase m : myModels) {
-      m.detach();
+    for (SModel m : myModels) {
+      if (m instanceof SModelBase) {
+        ((SModelBase) m).detach();
+      }
     }
     myModels.clear();
     myCachedModelsList = null;
@@ -274,16 +278,16 @@ public abstract class SModuleBase implements SModule {
 
     myCachedModelsList = null;
     for (SModel model : filteredAdd) {
-      // FIXME I don't really need SModelBase, just need to refactor myModels uses
-      myModels.add((SModelBase) model);
+      myModels.add(model);
       myIdToModelMap.put(model.getModelId(), model);
       if (model instanceof SModelBase) {
-        // and this odd code here is just to remind how it's supposed to be - we shall take/add any SModel, and
-        // if it's SModelBase, then invoke attach()+setModule()
+        // Generally, any model is expected to be SModelBase, so that we can attach and setModule(),
+        // but I can imagine models that know their module at creation time and could
+        // live w/o 'attach' notification (e.g. @descriptor)
         if (myRepository != null) {
           ((SModelBase) model).attach(myRepository);
         }
-        ((SModelBase) model).setModule(this);
+        ((SModelBase) model).setModule(this); // XXX perhaps, ModelRoot could do this for us, instead?
       }
     }
 
