@@ -201,7 +201,14 @@ public abstract class ModelRootBase implements ModelRoot {
     assertCanChange();
     SModuleBase module = (SModuleBase) getModule();
     assert module != null;
+    final ModelDiscoveryDelta mdd = new ModelDiscoveryDelta(module);
+    doLoadModels(mdd);
+    mdd.apply();
+  }
 
+  // FIXME this seems to be an MR-independent code, close friend class to SModuleBase that is capable to take models loaded by a MR and
+  //       combine results with present SModuleBase state. I plan to switch to that code with the help of MDD.
+  private void doLoadModels(ModelDiscoveryDelta mdd) {
     Set<SModelId> loaded = new HashSet<>();
     Iterable<SModel> allModels = loadModels();
     for (SModel model : allModels) {
@@ -210,7 +217,7 @@ public abstract class ModelRootBase implements ModelRoot {
         continue;
       }
       loaded.add(model.getModelId());
-      SModel oldModel = module.getModel(model.getModelId());
+      SModel oldModel = mdd.module.getModel(model.getModelId());
       // in most scenarios, we are reloading exactly the same set of models we already have loaded in the module.
       if (oldModel != null) {
         // XXX not sure comment on loadModels() to return existing model, if possible, is reasonable. Perhaps, shall strive to have its
@@ -224,16 +231,16 @@ public abstract class ModelRootBase implements ModelRoot {
           } else {
             // case oldModel == model is here as well, no need to check explicitly
             // we are going to re-use oldModel instance just need to make sure listeners get notified about model reloaded
-            oldModel.unload();
+            mdd.unload(oldModel);
           }
-          model.unload(); // don't need to keep anything in memory for the instance I don't care about (doesn't hurt either when it's == oldModel).
+          mdd.unload(model); // don't need to keep anything in memory for the instance I don't care about (doesn't hurt either when it's == oldModel).
           continue;
         }
         // inv: oldModel.getModelRoot() != null (presumably, ==this); model.getModelRoot() == null; oldModel.modelID == model.modelID
         if (oldModel.getModelRoot() != this) {
           LOG.warn(String.format("Try loaded model `%s' which has been already contributed by another model root", model));
-          unregisterModel(oldModel);
-          registerModel(model);
+          mdd.unregisterModel(oldModel);
+          mdd.registerModel(model);
           continue;
         }
         // oldModel came from the same root. Need to replace its data, don't want to unregister/register as it breaks listener, editor and other clients
@@ -241,28 +248,28 @@ public abstract class ModelRootBase implements ModelRoot {
         final DataSource oldDS = oldModel.getSource();
         final DataSource newDS = model.getSource();
         if (oldDS.getClass() == newDS.getClass() && oldDS.getLocation().equals(newDS.getLocation()) && Objects.equals(oldDS.getType(), newDS.getType())) {
-          oldModel.unload(); // tell re-used instance to throw away any nodes. FIXME there are still at least 2 issues with that:
+          mdd.unload(oldModel); // tell re-used instance to throw away any nodes. FIXME there are still at least 2 issues with that:
           // FIXME (1) model.unload() doesn't necessarily do anything, model impl is not obliged to do anything about that, we'd better send out explicit event
           //       (2) model attributes are not part of unloaded SModelData (rather SModelHeader if there's one); and these could get changed as well
           //       Perhaps, need something like model.replaceWith(openapi.SModel) to address this in a generic fashion (so that model impl could extract
           //       what it needs from a newly loaded model instance, e.g. attributes
-          model.unload(); // discard instance I'm not gonna use
+          mdd.unload(model); // discard instance I'm not gonna use
           continue;
         }
         // same model but different datasource; perhaps, could do smth like SModelBase.replaceModelAndFireEvent, but stick to re-register for now
         // as I don't expect this to be common scenario (pure assumption)
         LOG.debug(String.format("loadModels(`%s') discovered an identical model with data source changed", model));
-        unregisterModel(oldModel);
-        registerModel(model);
+        mdd.unregisterModel(oldModel);
+        mdd.registerModel(model);
       } else {
         // oldModel == null; just go ahead and register a newly discovered one
-        registerModel(model);
+        mdd.registerModel(model);
       }
     }
     Collection<SModel> models = new ArrayList<>(getModels());
     for (SModel model : models) {
       if (!loaded.contains(model.getModelId())) {
-        unregisterModel(model);
+        mdd.unregisterModel(model);
       }
     }
   }
@@ -277,6 +284,30 @@ public abstract class ModelRootBase implements ModelRoot {
     public void beforeModelRemoved(@NotNull SModule module, @NotNull SModel model) {
       assert myModule == module;
       myModels.remove(model);
+    }
+  }
+
+  // WIP: towards batch model registration/un-registration under SModule's control
+  //      ModelRoot would serve as a mere source of models (one of many possible for a module, including other roots and direct
+  //      registration of a model w/o MR)
+  class ModelDiscoveryDelta {
+    private final SModuleBase module;
+
+    ModelDiscoveryDelta(SModuleBase module) {
+      this.module = module;
+    }
+
+    void unload(SModel model) {
+      model.unload();
+    }
+    void registerModel(SModel model) {
+      ModelRootBase.this.registerModel(model);
+    }
+    void unregisterModel(SModel model) {
+      ModelRootBase.this.unregisterModel(model);
+    }
+    void apply() {
+      // no-op
     }
   }
 }
