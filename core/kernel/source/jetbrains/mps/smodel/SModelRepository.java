@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.extapi.persistence.DataSourceBase;
 import jetbrains.mps.smodel.SModelId.ModelNameSModelId;
 import jetbrains.mps.util.IterableUtil;
 import org.apache.log4j.LogManager;
@@ -30,7 +29,6 @@ import org.jetbrains.mps.openapi.model.SaveOptions;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
-import org.jetbrains.mps.openapi.persistence.DataSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,17 +57,7 @@ public class SModelRepository {
    */
   private final GlobalRepositoriesListener myRepositoriesListener = new GlobalRepositoriesListener();
 
-  private static SModelRepository INSTANCE;
   private final MPSModuleRepository myRepository;
-
-  /**
-   * @deprecated global collection of SModels doesn't allow us to move forward. Do not use.
-   */
-@Deprecated(since = "3.3", forRemoval = true)
-  public static SModelRepository getInstance() {
-    LOG.error("SModelRepository.getInstance() has been deprecated since MPS 3.3 (4 years ago!) and will be removed in MPS 2019.3. Please refactor your code!");
-    return INSTANCE;
-  }
 
   /*package*/ SModelRepository(@NotNull MPSModuleRepository moduleRepository) {
     myRepository = moduleRepository;
@@ -77,17 +65,11 @@ public class SModelRepository {
 
   // open to our MPSModuleRepository friend only, to mimic SModelRepository.getInstance behavior for legacy code. MPS SHALL NOT USE SINGLETON ANY MORE!
   /*package*/ void init() {
-    if (INSTANCE != null) {
-      throw new IllegalStateException("double initialization");
-    }
-
-    INSTANCE = this;
     new RepoListenerRegistrar(myRepository, myRepositoriesListener).attach();
   }
 
   /*package*/ void dispose() {
     new RepoListenerRegistrar(myRepository, myRepositoriesListener).detach();
-    INSTANCE = null;
   }
 
   //----------------------------get-----------------------------

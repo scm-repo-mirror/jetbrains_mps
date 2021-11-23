@@ -39,7 +39,7 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
   private final Collection<TemplateReductionRule> rules;
   public Mapping_mc_main(@NotNull TemplateModel model) {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1139186732963"), "mc_main", model, false, new MO());
-    rules = TemplateUtil.<TemplateReductionRule>asCollection(new ReductionRule0(), new ReductionRule1(), new ReductionRule2(), new ReductionRule3(), new ReductionRule4(), new ReductionRule5(), new ReductionRule6(), new ReductionRule7(), new ReductionRule8(), new ReductionRule9(), new ReductionRule10(), new ReductionRule11(), new ReductionRule12(), new ReductionRule13(), new ReductionRule14(), new ReductionRule15(), new ReductionRule16(), new ReductionRule17(), new ReductionRule18(), new ReductionRule19(), new ReductionRule20(), new ReductionRule21(), new ReductionRule22(), new ReductionRule23(), new ReductionRule24(), new ReductionRule25(), new ReductionRule26(), new ReductionRule27(), new ReductionRule28(), new ReductionRule29(), new ReductionRule30(), new ReductionRule31(), new ReductionRule32(), new ReductionRule33(), new ReductionRule34(), new ReductionRule35(), new ReductionRule36(), new ReductionRule37(), new ReductionRule38(), new ReductionRule39(), new ReductionRule40(), new ReductionRule41(), new ReductionRule42(), new ReductionRule43(), new ReductionRule44(), new ReductionRule45(), new ReductionRule46());
+    rules = TemplateUtil.<TemplateReductionRule>asCollection(new ReductionRule0(), new ReductionRule1(), new ReductionRule2(), new ReductionRule3(), new ReductionRule4(), new ReductionRule5(), new ReductionRule6(), new ReductionRule7(), new ReductionRule8(), new ReductionRule9(), new ReductionRule10(), new ReductionRule11(), new ReductionRule12(), new ReductionRule13(), new ReductionRule14(), new ReductionRule15(), new ReductionRule16(), new ReductionRule17(), new ReductionRule18(), new ReductionRule19(), new ReductionRule20(), new ReductionRule21(), new ReductionRule22(), new ReductionRule23(), new ReductionRule24(), new ReductionRule25(), new ReductionRule26(), new ReductionRule27(), new ReductionRule28(), new ReductionRule29(), new ReductionRule30(), new ReductionRule31(), new ReductionRule32(), new ReductionRule33(), new ReductionRule34(), new ReductionRule35(), new ReductionRule36(), new ReductionRule37(), new ReductionRule38(), new ReductionRule39(), new ReductionRule40(), new ReductionRule41(), new ReductionRule42(), new ReductionRule43(), new ReductionRule44(), new ReductionRule45());
   }
   @Override
   public Collection<TemplateReductionRule> getReductionRules() {
@@ -1082,39 +1082,6 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
   }
   /*package*/ final class ReductionRule41 extends ReductionRuleBase {
     public ReductionRule41() {
-      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1839356140279226251"), CONCEPTS.ModelReferenceExpression$vc, false);
-    }
-    @Override
-    public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
-      final TemplateExecutionEnvironment environment = context.getEnvironment();
-      final SNode tnode1 = environment.createOutputNode(myConcepts[7]);
-      {
-        TemplateContext context1 = context.subContext();
-        {
-          final SNode tnode2 = environment.createOutputNode(myConcepts[2]);
-          environment.associate(tnode2, myAssociationLinks[3], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)", "~SModelRepository");
-          environment.associate(tnode2, myAssociationLinks[2], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)", "~SModelRepository.getInstance()");
-          environment.aggregate(tnode1, myAggregationLinks[6], tnode2);
-        }
-        {
-          final SNode tnode3 = environment.createOutputNode(myConcepts[8]);
-          {
-            environment.associate(tnode3, myAssociationLinks[2], "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)", "~SModelRepository.getModelDescriptor(java.lang.String)");
-            TemplateContext context2 = context1.subContext();
-            {
-              final SNode tnode4 = environment.createOutputNode(myConcepts[9]);
-              SNodeAccessUtil.setPropertyValue(tnode4, myProperties[0], QueriesGenerated.propertyMacro_GetValue_0_7(new PropertyMacroContext(context2, "model name", propertyMacro7)));
-              environment.aggregate(tnode3, myAggregationLinks[1], tnode4);
-            }
-          }
-          environment.aggregate(tnode1, myAggregationLinks[7], tnode3);
-        }
-      }
-      return TemplateUtil.singletonList(tnode1);
-    }
-  }
-  /*package*/ final class ReductionRule42 extends ReductionRuleBase {
-    public ReductionRule42() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8866923313516028910"), CONCEPTS.AsNodeOperation$Uq, false);
     }
     @Override
@@ -1135,8 +1102,8 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule43 extends ReductionRuleBase {
-    public ReductionRule43() {
+  /*package*/ final class ReductionRule42 extends ReductionRuleBase {
+    public ReductionRule42() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "334628810661478373"), CONCEPTS.AsSConcept$qr, false);
     }
     @Override
@@ -1157,8 +1124,8 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
       return TemplateUtil.singletonList(tnode1);
     }
   }
-  /*package*/ final class ReductionRule44 extends ReductionRuleBase {
-    public ReductionRule44() {
+  /*package*/ final class ReductionRule43 extends ReductionRuleBase {
+    public ReductionRule43() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "4497478346159792591"), CONCEPTS.LanguageRefExpression$PI, false);
     }
     @Override
@@ -1168,8 +1135,8 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule45 extends ReductionRuleBase {
-    public ReductionRule45() {
+  /*package*/ final class ReductionRule44 extends ReductionRuleBase {
+    public ReductionRule44() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1678062499343213432"), CONCEPTS.ModuleRefExpression$J0, false);
     }
     @Override
@@ -1179,8 +1146,8 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
       return tlist1;
     }
   }
-  /*package*/ final class ReductionRule46 extends ReductionRuleBase {
-    public ReductionRule46() {
+  /*package*/ final class ReductionRule45 extends ReductionRuleBase {
+    public ReductionRule45() {
       super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1863527487546135624"), CONCEPTS.ModelPointerExpression$R5, false);
     }
     @Override
@@ -1297,7 +1264,6 @@ public class Mapping_mc_main extends MapConfigBase implements TemplateMappingCon
   private static final SNodePointer propertyMacro5 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1883223317721112275");
   private static final SNodePointer copySrcMacro11 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1423104411233682003");
   private static final SNodePointer propertyMacro6 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1423104411233598292");
-  private static final SNodePointer propertyMacro7 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "1646444448732170741");
   private static final SNodePointer copySrcMacro12 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "2740771169147432398");
   private static final SNodePointer copySrcMacro13 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6677504323280518778");
 

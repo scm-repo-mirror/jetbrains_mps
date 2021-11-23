@@ -378,12 +378,6 @@ public class QueriesGenerated {
     }
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$bAf3) + "@" + SPropertyOperations.getString(_context.getNode(), PROPS.stereotype$Trmg);
   }
-  public static Object propertyMacro_GetValue_0_7(final PropertyMacroContext _context) {
-    if (isEmptyString(SPropertyOperations.getString(_context.getNode(), PROPS.stereotype$Trmg))) {
-      return SPropertyOperations.getString(_context.getNode(), PROPS.name$bAf3);
-    }
-    return SPropertyOperations.getString(_context.getNode(), PROPS.name$bAf3) + "@" + SPropertyOperations.getString(_context.getNode(), PROPS.stereotype$Trmg);
-  }
   public static Object propertyMacro_GetValue_17_0(final PropertyMacroContext _context) {
     return QueriesUtil.operationHasParm_Inclusion(_context.getNode());
   }
@@ -877,11 +871,11 @@ public class QueriesGenerated {
     return SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), LINKS.member$m3yw), PROPS.internalValue$1ost);
   }
   public static Object propertyMacro_GetValue_117_0(final PropertyMacroContext _context) {
-    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a612(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getHighBits();
+    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a512(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getHighBits();
     return "0x" + Long.toHexString(v) + 'L';
   }
   public static Object propertyMacro_GetValue_117_1(final PropertyMacroContext _context) {
-    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a712(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getLowBits();
+    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a612(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getLowBits();
     return "0x" + Long.toHexString(v) + 'L';
   }
   public static Object propertyMacro_GetValue_117_2(final PropertyMacroContext _context) {
@@ -989,9 +983,9 @@ public class QueriesGenerated {
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
     {
-      SNode coercedNode_x583g4_a0lj = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), LINKS.conceptArgument$lGRx)), CONCEPTS.SConceptType$pb);
-      if (coercedNode_x583g4_a0lj != null) {
-        SNode targetConcept = SLinkOperations.getTarget(coercedNode_x583g4_a0lj, LINKS.conceptDeclaraton$K4R0);
+      SNode coercedNode_x583g4_a0kj = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), LINKS.conceptArgument$lGRx)), CONCEPTS.SConceptType$pb);
+      if (coercedNode_x583g4_a0kj != null) {
+        SNode targetConcept = SLinkOperations.getTarget(coercedNode_x583g4_a0kj, LINKS.conceptDeclaraton$K4R0);
         if (AbstractConceptUtil.hasSurelyNoInterfacesBeneath(targetConcept)) {
           return new SNodePointer("r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)", "6410670351274205144");
         }
@@ -2644,10 +2638,10 @@ public class QueriesGenerated {
   private static boolean isEmptyString(String str) {
     return str == null || str.isEmpty();
   }
-  private static <T> T as_x583g4_a0a0a0a612(Object o, Class<T> type) {
+  private static <T> T as_x583g4_a0a0a0a512(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_x583g4_a0a0a0a712(Object o, Class<T> type) {
+  private static <T> T as_x583g4_a0a0a0a612(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
   private static boolean isNotEmptyString(String str) {
