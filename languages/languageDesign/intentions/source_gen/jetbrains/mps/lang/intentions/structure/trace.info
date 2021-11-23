@@ -228,8 +228,8 @@
       <node id="1240316299033" at="290,34,291,127" concept="0" />
       <node id="1240316299033" at="291,127,292,110" concept="0" />
       <node id="1240316299033" at="292,110,293,17" concept="0" />
-      <node id="1240393479918" at="293,17,294,185" concept="0" />
-      <node id="1240316299033" at="294,185,295,52" concept="0" />
+      <node id="1240393479918" at="293,17,294,186" concept="0" />
+      <node id="1240316299033" at="294,186,295,52" concept="0" />
       <node id="1240316299033" at="295,52,296,25" concept="0" />
       <node id="1240316299033" at="296,25,297,22" concept="4" />
       <node id="1240316299033" at="288,0,299,0" concept="6" trace="createDescriptorForQueryBlock#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
@@ -302,8 +302,8 @@
       <node id="1240395258925" at="279,33,280,135" concept="0" />
       <node id="1240395258925" at="280,135,281,110" concept="0" />
       <node id="1240395258925" at="281,110,282,17" concept="0" />
-      <node id="1240395532443" at="282,17,283,190" concept="0" />
-      <node id="1240395258925" at="283,190,284,54" concept="0" />
+      <node id="1240395532443" at="282,17,283,191" concept="0" />
+      <node id="1240395258925" at="283,191,284,54" concept="0" />
       <node id="1240395258925" at="284,54,285,39" concept="0" />
       <node id="1240395258925" at="285,39,286,22" concept="4" />
       <node id="1240395258925" at="277,0,288,0" concept="6" trace="createDescriptorForParameterizedIntentionDeclaration#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />

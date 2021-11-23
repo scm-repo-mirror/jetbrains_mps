@@ -6167,9 +6167,7 @@
                     </node>
                     <node concept="liA8E" id="zd" role="2OqNvi">
                       <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2$AggregationLinkBuilder.optional(boolean)" resolve="optional" />
-                      <node concept="3clFbT" id="zn" role="37wK5m">
-                        <property role="3clFbU" value="true" />
-                      </node>
+                      <node concept="3clFbT" id="zn" role="37wK5m" />
                     </node>
                   </node>
                   <node concept="liA8E" id="zb" role="2OqNvi">
@@ -6374,9 +6372,7 @@
                     </node>
                     <node concept="liA8E" id="$r" role="2OqNvi">
                       <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2$AggregationLinkBuilder.optional(boolean)" resolve="optional" />
-                      <node concept="3clFbT" id="$_" role="37wK5m">
-                        <property role="3clFbU" value="true" />
-                      </node>
+                      <node concept="3clFbT" id="$_" role="37wK5m" />
                     </node>
                   </node>
                   <node concept="liA8E" id="$p" role="2OqNvi">

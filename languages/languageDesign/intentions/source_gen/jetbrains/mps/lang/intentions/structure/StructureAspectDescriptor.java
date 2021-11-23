@@ -280,7 +280,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.lang.intentions.structure.IntentionDeclaration", 0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x115b81b652bL);
     b.origin("r:00000000-0000-4000-0000-011c89590353(jetbrains.mps.lang.intentions.structure)/1240395258925");
     b.version(2);
-    b.aggregate("queryFunction", 0x120cd55c89bL).target(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L).optional(true).ordered(true).multiple(false).origin("1240395532443").done();
+    b.aggregate("queryFunction", 0x120cd55c89bL).target(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L).optional(false).ordered(true).multiple(false).origin("1240395532443").done();
     b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
     b.alias("Parameterized Intention");
     return b.create();
@@ -291,7 +291,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.baseLanguage.structure.ConceptFunction", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L);
     b.origin("r:00000000-0000-4000-0000-011c89590353(jetbrains.mps.lang.intentions.structure)/1240316299033");
     b.version(2);
-    b.aggregate("paramType", 0x120cd3676eeL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(true).ordered(true).multiple(false).origin("1240393479918").done();
+    b.aggregate("paramType", 0x120cd3676eeL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(false).ordered(true).multiple(false).origin("1240393479918").done();
     b.kind(ConceptKind.INTERFACE, StaticScope.NONE);
     b.alias("parameter");
     return b.create();
