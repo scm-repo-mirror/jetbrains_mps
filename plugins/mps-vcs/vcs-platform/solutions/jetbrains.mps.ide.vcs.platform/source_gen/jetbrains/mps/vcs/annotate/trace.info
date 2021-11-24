@@ -59,72 +59,81 @@
   </root>
   <root nodeRef="r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/1354028796368172122">
     <file name="AnnotationEditorNotificationProvider.java">
-      <node id="1354028796368546085" at="21,0,22,0" concept="14" trace="KEY" />
-      <node id="1354028796368397510" at="25,52,26,15" concept="11" />
-      <node id="1354028796369779853" at="32,50,33,100" concept="9" />
-      <node id="1354028796370020765" at="33,100,34,93" concept="9" />
-      <node id="1354028796370336472" at="35,89,36,144" concept="9" />
-      <node id="1354028796370437098" at="36,144,37,49" concept="9" />
-      <node id="1354028796371040637" at="39,51,40,88" concept="3" />
-      <node id="1354028796371186178" at="40,88,41,18" concept="1" />
-      <node id="1354028796371350637" at="44,39,45,85" concept="9" />
-      <node id="1354028796371580576" at="46,90,47,69" concept="11" />
-      <node id="1354028796369392849" at="51,5,52,16" concept="11" />
-      <node id="1354028796369849421" at="54,68,55,47" concept="11" />
-      <node id="1354028796370357387" at="57,70,58,47" concept="11" />
-      <node id="1354028796371122999" at="60,74,61,47" concept="11" />
-      <node id="1354028796371467854" at="45,85,48,11" concept="7" />
-      <node id="1354028796369849421" at="54,0,57,0" concept="15" trace="as_u1t0po_a0a0a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
-      <node id="1354028796370357387" at="57,0,60,0" concept="15" trace="as_u1t0po_a0a0a2a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
-      <node id="1354028796371122999" at="60,0,63,0" concept="15" trace="as_u1t0po_a0a0a0a2a2a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
-      <node id="1354028796370927523" at="38,103,42,11" concept="7" />
-      <node id="1354028796368397500" at="23,0,28,0" concept="8" trace="getKey#()Lcom/intellij/openapi/util/Key;" />
-      <node id="1354028796370804700" at="37,49,43,9" concept="6" />
-      <node id="1354028796371231851" at="43,9,49,9" concept="7" />
-      <node id="1354028796370152282" at="34,93,50,7" concept="7" />
-      <node id="1354028796369448328" at="31,147,51,5" concept="7" />
-      <node id="1354028796368678616" at="29,0,54,0" concept="8" trace="createNotificationPanel#(Lcom/intellij/openapi/vfs/VirtualFile;Lcom/intellij/openapi/fileEditor/FileEditor;Lcom/intellij/openapi/project/Project;)Ljetbrains/mps/vcs/annotate/AnnotationNotificationPanel;" />
-      <scope id="1354028796368397507" at="25,52,26,15" />
-      <scope id="1354028796371467856" at="46,90,47,69" />
-      <scope id="1354028796369849421" at="54,68,55,47" />
-      <scope id="1354028796370357387" at="57,70,58,47" />
-      <scope id="1354028796371122999" at="60,74,61,47" />
-      <scope id="1354028796370927525" at="39,51,41,18" />
-      <scope id="1354028796369849421" at="54,0,57,0">
+      <node id="1354028796368546085" at="22,0,23,0" concept="14" trace="KEY" />
+      <node id="1354028796368397510" at="26,52,27,15" concept="11" />
+      <node id="1354028796369779853" at="33,50,34,100" concept="9" />
+      <node id="1354028796370020765" at="34,100,35,87" concept="9" />
+      <node id="1354028796370336472" at="36,89,37,144" concept="9" />
+      <node id="1354028796370437098" at="37,144,38,49" concept="9" />
+      <node id="1354028796371040637" at="40,51,41,88" concept="3" />
+      <node id="1354028796371186178" at="41,88,42,18" concept="1" />
+      <node id="1354028796371350637" at="45,39,46,85" concept="9" />
+      <node id="1354028796371580576" at="47,90,48,69" concept="11" />
+      <node id="1354028796369392849" at="52,5,53,16" concept="11" />
+      <node id="5236672514172233819" at="56,36,57,59" concept="11" />
+      <node id="5236672514172233819" at="58,5,59,16" concept="11" />
+      <node id="1354028796369849421" at="61,68,62,47" concept="11" />
+      <node id="1354028796370357387" at="64,70,65,47" concept="11" />
+      <node id="1354028796371122999" at="67,74,68,47" concept="11" />
+      <node id="1354028796371467854" at="46,85,49,11" concept="7" />
+      <node id="5236672514172233819" at="55,81,58,5" concept="7" />
+      <node id="1354028796369849421" at="61,0,64,0" concept="15" trace="as_u1t0po_a0a0a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
+      <node id="1354028796370357387" at="64,0,67,0" concept="15" trace="as_u1t0po_a0a0a2a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
+      <node id="1354028796371122999" at="67,0,70,0" concept="15" trace="as_u1t0po_a0a0a0a2a2a0a5#(Ljava/lang/Object;Ljava/lang/Class;)null" />
+      <node id="1354028796370927523" at="39,103,43,11" concept="7" />
+      <node id="1354028796368397500" at="24,0,29,0" concept="8" trace="getKey#()Lcom/intellij/openapi/util/Key;" />
+      <node id="1354028796370804700" at="38,49,44,9" concept="6" />
+      <node id="1354028796371231851" at="44,9,50,9" concept="7" />
+      <node id="5236672514172233819" at="55,0,61,0" concept="15" trace="check_u1t0po_a0b0a0f#(Ljetbrains/mps/openapi/editor/Editor;)Ljetbrains/mps/openapi/editor/EditorComponent;" />
+      <node id="1354028796370152282" at="35,87,51,7" concept="7" />
+      <node id="1354028796369448328" at="32,147,52,5" concept="7" />
+      <node id="1354028796368678616" at="30,0,55,0" concept="8" trace="createNotificationPanel#(Lcom/intellij/openapi/vfs/VirtualFile;Lcom/intellij/openapi/fileEditor/FileEditor;Lcom/intellij/openapi/project/Project;)Ljetbrains/mps/vcs/annotate/AnnotationNotificationPanel;" />
+      <scope id="1354028796368397507" at="26,52,27,15" />
+      <scope id="1354028796371467856" at="47,90,48,69" />
+      <scope id="5236672514172233819" at="56,36,57,59" />
+      <scope id="1354028796369849421" at="61,68,62,47" />
+      <scope id="1354028796370357387" at="64,70,65,47" />
+      <scope id="1354028796371122999" at="67,74,68,47" />
+      <scope id="1354028796370927525" at="40,51,42,18" />
+      <scope id="1354028796369849421" at="61,0,64,0">
         <var name="o" id="1354028796369849421" />
         <var name="type" id="1354028796369849421" />
       </scope>
-      <scope id="1354028796370357387" at="57,0,60,0">
+      <scope id="1354028796370357387" at="64,0,67,0">
         <var name="o" id="1354028796370357387" />
         <var name="type" id="1354028796370357387" />
       </scope>
-      <scope id="1354028796371122999" at="60,0,63,0">
+      <scope id="1354028796371122999" at="67,0,70,0">
         <var name="o" id="1354028796371122999" />
         <var name="type" id="1354028796371122999" />
       </scope>
-      <scope id="1354028796370804702" at="38,103,42,11" />
-      <scope id="1354028796371231853" at="44,39,48,11">
+      <scope id="1354028796370804702" at="39,103,43,11" />
+      <scope id="1354028796371231853" at="45,39,49,11">
         <var name="editorAnnotation" id="1354028796371350638" />
       </scope>
-      <scope id="1354028796368397500" at="23,0,28,0" />
-      <scope id="1354028796370804700" at="37,49,43,9">
+      <scope id="5236672514172233819" at="55,81,59,16" />
+      <scope id="1354028796368397500" at="24,0,29,0" />
+      <scope id="1354028796370804700" at="38,49,44,9">
         <var name="column" id="1354028796370804703" />
       </scope>
-      <scope id="1354028796370152284" at="35,89,49,9">
+      <scope id="5236672514172233819" at="55,0,61,0">
+        <var name="checkedDotOperand" id="5236672514172233819" />
+      </scope>
+      <scope id="1354028796370152284" at="36,89,50,9">
         <var name="annotationColumn" id="1354028796370437099" />
         <var name="editorComponent" id="1354028796370336473" />
       </scope>
-      <scope id="1354028796369448330" at="32,50,50,7">
+      <scope id="1354028796369448330" at="33,50,51,7">
         <var name="editor" id="1354028796370020766" />
         <var name="mpsFileNodeEditor" id="1354028796369779854" />
       </scope>
-      <scope id="1354028796368678631" at="31,147,52,16" />
-      <scope id="1354028796368678616" at="29,0,54,0">
+      <scope id="1354028796368678631" at="32,147,53,16" />
+      <scope id="1354028796368678616" at="30,0,55,0">
         <var name="file" id="1354028796368678621" />
         <var name="fileEditor" id="1354028796368678624" />
         <var name="project" id="1354028796368678627" />
       </scope>
-      <unit id="1354028796368172122" at="18,0,64,0" name="jetbrains.mps.vcs.annotate.AnnotationEditorNotificationProvider" />
+      <unit id="1354028796368172122" at="19,0,71,0" name="jetbrains.mps.vcs.annotate.AnnotationEditorNotificationProvider" />
     </file>
   </root>
   <root nodeRef="r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/1507597541852241756">

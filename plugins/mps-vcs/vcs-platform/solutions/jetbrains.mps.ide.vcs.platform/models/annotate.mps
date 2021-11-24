@@ -20892,8 +20892,8 @@
                 <node concept="3uibUv" id="1bauwgJieAv" role="1tU5fm">
                   <ref role="3uigEE" to="cj4x:~EditorComponent" resolve="EditorComponent" />
                 </node>
-                <node concept="2OqwBi" id="1bauwgJima1" role="33vP2m">
-                  <node concept="2OqwBi" id="1bauwgJima2" role="2Oq$k0">
+                <node concept="2EnYce" id="4yGpuwkiqxr" role="33vP2m">
+                  <node concept="2OqwBi" id="4yGpuwkiskU" role="2Oq$k0">
                     <node concept="37vLTw" id="1bauwgJima3" role="2Oq$k0">
                       <ref role="3cqZAo" node="1bauwgJhjMe" resolve="mpsFileNodeEditor" />
                     </node>

@@ -14,6 +14,7 @@ import jetbrains.mps.ide.editor.MPSFileNodeEditor;
 import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.nodeEditor.leftHighlighter.AbstractLeftColumn;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.openapi.editor.Editor;
 
 @GeneratedClass(node = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)/1354028796368172122", model = "r:f509a650-cbd9-47e7-b2a0-79f49c562c0b(jetbrains.mps.vcs.annotate)")
 public class AnnotationEditorNotificationProvider extends EditorNotifications.Provider<AnnotationNotificationPanel> {
@@ -31,7 +32,7 @@ public class AnnotationEditorNotificationProvider extends EditorNotifications.Pr
   public AnnotationNotificationPanel createNotificationPanel(@NotNull VirtualFile file, @NotNull FileEditor fileEditor, @NotNull Project project) {
     if (fileEditor instanceof MPSFileNodeEditor) {
       MPSFileNodeEditor mpsFileNodeEditor = as_u1t0po_a0a0a0a5(fileEditor, MPSFileNodeEditor.class);
-      EditorComponent editor = mpsFileNodeEditor.getNodeEditor().getCurrentEditorComponent();
+      EditorComponent editor = check_u1t0po_a0b0a0f(mpsFileNodeEditor.getNodeEditor());
       if (editor != null && editor instanceof jetbrains.mps.nodeEditor.EditorComponent) {
         jetbrains.mps.nodeEditor.EditorComponent editorComponent = as_u1t0po_a0a0a2a0a5(editor, jetbrains.mps.nodeEditor.EditorComponent.class);
         AnnotationColumn annotationColumn = null;
@@ -48,6 +49,12 @@ public class AnnotationEditorNotificationProvider extends EditorNotifications.Pr
           }
         }
       }
+    }
+    return null;
+  }
+  private static EditorComponent check_u1t0po_a0b0a0f(Editor checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getCurrentEditorComponent();
     }
     return null;
   }
