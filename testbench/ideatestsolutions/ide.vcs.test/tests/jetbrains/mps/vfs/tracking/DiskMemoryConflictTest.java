@@ -28,6 +28,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.DefaultSModel;
+import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.structure.concept.SConceptAdapterById;
@@ -281,7 +282,10 @@ public class DiskMemoryConflictTest implements EnvironmentAware {
     refreshVfs();
     waitForResolve();
 
-    Assert.assertNull(getModel());
+    // model read here is to to account for the fact there could be some modules with not yet loaded models,
+    // and ModelReference.resolve() doesn't grab model read automatically for GUID models
+    final boolean noModel = new ModelAccessHelper(myRepository).runReadAction(() -> getModel() == null);
+    Assert.assertTrue(noModel);
   }
 
   private void waitForResolve() {

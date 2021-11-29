@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -121,6 +121,10 @@ public final class SModelReference implements org.jetbrains.mps.openapi.model.SM
       }
     }
     if (myModelId.isGloballyUnique()) {
+      // XXX now with repo.getModel() capable to load models lazily, this code may fail with IMAE where it used to run ok.
+      //     the simplest fix is to wrap here with MR exactly as we do for non-guid case above (after all, what's the difference);
+      //     however, I plan to remove this additional read wrap, above, as it's plain wrong, given it provides access to SModel
+      //     instance. Therefore, my intention is rather to catch scenarios where we use this code without explicit MR.
       return repository.getModel(myModelId);
     }
     return null;
