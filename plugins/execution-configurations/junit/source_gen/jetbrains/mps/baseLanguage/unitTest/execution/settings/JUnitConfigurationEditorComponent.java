@@ -45,6 +45,12 @@ public final class JUnitConfigurationEditorComponent extends JComponent {
     myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
     myScopeAndPanels = new ScopeAndPanels(project);
     myPanel.add(myScopeAndPanels.getPanel());
+    myScopeAndPanels.addSelectionChangeListener(new ScopeAndPanels.SelectionChangeListener() {
+      @Override
+      public void selectionChanged() {
+        myScopeAndPanels.getCurrentInProcessCheckBox().forceUpdate();
+      }
+    });
     JBPanel checkboxPanel = new JBPanel(new BorderLayout());
     checkboxPanel.add(myReuseCachesCheckBox, BorderLayout.WEST);
     myPanel.add(checkboxPanel);

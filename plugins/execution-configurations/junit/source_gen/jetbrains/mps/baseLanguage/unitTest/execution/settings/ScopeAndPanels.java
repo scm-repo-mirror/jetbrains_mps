@@ -5,13 +5,13 @@ package jetbrains.mps.baseLanguage.unitTest.execution.settings;
 import com.intellij.openapi.ui.ComboBox;
 import jetbrains.mps.project.Project;
 import com.intellij.ui.components.JBPanel;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.project.ProjectHelper;
-import java.util.List;
-import java.util.ArrayList;
 import java.awt.GridBagConstraints;
 import com.intellij.util.ui.JBInsets;
 import com.intellij.util.ui.JBUI;
@@ -51,6 +51,8 @@ public final class ScopeAndPanels {
   private final JBPanel myPanel;
 
   private JUnitRunType myRunType = JUnitRunTypes.PROJECT;
+
+  private final List<SelectionChangeListener> mySelectionChangeListeners = new ArrayList<SelectionChangeListener>();
 
   private final Map<JUnitRunType, PanelPerScope> myScopePanels = MapSequence.fromMap(new HashMap<JUnitRunType, PanelPerScope>());
 
@@ -196,6 +198,13 @@ public final class ScopeAndPanels {
     return res;
   }
 
+  public interface SelectionChangeListener {
+    void selectionChanged();
+  }
+
+  public void addSelectionChangeListener(final SelectionChangeListener listener) {
+    mySelectionChangeListeners.add(listener);
+  }
 
   private void addKindActionListeners(ComboBox<JUnitRunType> box) {
     box.addItemListener(new ItemListener() {
@@ -204,6 +213,9 @@ public final class ScopeAndPanels {
         if (p1.getStateChange() == ItemEvent.SELECTED) {
           myRunType = (JUnitRunType) p1.getItem();
           updatePanels();
+          for (SelectionChangeListener listener : mySelectionChangeListeners) {
+            listener.selectionChanged();
+          }
         }
       }
     });

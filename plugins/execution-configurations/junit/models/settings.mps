@@ -5670,6 +5670,51 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="5QXtzFzJPJ9" role="3cqZAp">
+          <node concept="2OqwBi" id="5QXtzFzJR6J" role="3clFbG">
+            <node concept="37vLTw" id="5QXtzFzJPJ7" role="2Oq$k0">
+              <ref role="3cqZAo" node="1_3tIz4yTZA" resolve="myScopeAndPanels" />
+            </node>
+            <node concept="liA8E" id="5QXtzFzJS0M" role="2OqNvi">
+              <ref role="37wK5l" node="5QXtzFzIrzw" resolve="addSelectionChangeListener" />
+              <node concept="2ShNRf" id="5QXtzFzJSxO" role="37wK5m">
+                <node concept="YeOm9" id="5QXtzFzJVaa" role="2ShVmc">
+                  <node concept="1Y3b0j" id="5QXtzFzJVad" role="YeSDq">
+                    <property role="2bfB8j" value="true" />
+                    <ref role="1Y3XeK" node="5QXtzFzIPMx" resolve="ScopeAndPanels.SelectionChangeListener" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
+                    <node concept="3Tm1VV" id="5QXtzFzJVae" role="1B3o_S" />
+                    <node concept="3clFb_" id="5QXtzFzJVaj" role="jymVt">
+                      <property role="TrG5h" value="selectionChanged" />
+                      <node concept="3Tm1VV" id="5QXtzFzJVal" role="1B3o_S" />
+                      <node concept="3cqZAl" id="5QXtzFzJVam" role="3clF45" />
+                      <node concept="3clFbS" id="5QXtzFzJVan" role="3clF47">
+                        <node concept="3clFbF" id="5QXtzFzK7h$" role="3cqZAp">
+                          <node concept="2OqwBi" id="5QXtzFzK9iZ" role="3clFbG">
+                            <node concept="2OqwBi" id="5QXtzFzK82d" role="2Oq$k0">
+                              <node concept="37vLTw" id="5QXtzFzK7hz" role="2Oq$k0">
+                                <ref role="3cqZAo" node="1_3tIz4yTZA" resolve="myScopeAndPanels" />
+                              </node>
+                              <node concept="liA8E" id="5QXtzFzK8yA" role="2OqNvi">
+                                <ref role="37wK5l" node="1_3tIz4B82J" resolve="getCurrentInProcessCheckBox" />
+                              </node>
+                            </node>
+                            <node concept="liA8E" id="5QXtzFzKb09" role="2OqNvi">
+                              <ref role="37wK5l" node="59fG_Y4$$Sn" resolve="forceUpdate" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="2AHcQZ" id="5QXtzFzJVap" role="2AJF6D">
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="1_3tIz4M_0s" role="3cqZAp">
           <node concept="3cpWsn" id="1_3tIz4M_0t" role="3cpWs9">
             <property role="TrG5h" value="checkboxPanel" />
@@ -6559,7 +6604,6 @@
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
-      <node concept="2tJIrI" id="3qbI1lNk_M6" role="jymVt" />
     </node>
     <node concept="2tJIrI" id="4zlCqr6T8bn" role="jymVt" />
     <node concept="2YIFZL" id="4zlCqr6T2fF" role="jymVt">
@@ -8239,6 +8283,26 @@
       <node concept="Rm8GO" id="1_3tIz4ysT_" role="33vP2m">
         <ref role="Rm8GQ" node="5gyVhZ1bmql" resolve="PROJECT" />
         <ref role="1Px2BO" node="5gyVhZ1bmkR" resolve="JUnitRunTypes" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5QXtzFzLb3c" role="jymVt" />
+    <node concept="312cEg" id="5QXtzFzLlhW" role="jymVt">
+      <property role="TrG5h" value="mySelectionChangeListeners" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="5QXtzFzLbKM" role="1B3o_S" />
+      <node concept="3uibUv" id="5QXtzFzLka9" role="1tU5fm">
+        <ref role="3uigEE" to="33ny:~List" resolve="List" />
+        <node concept="3uibUv" id="5QXtzFzLkWA" role="11_B2D">
+          <ref role="3uigEE" node="5QXtzFzIPMx" resolve="ScopeAndPanels.SelectionChangeListener" />
+        </node>
+      </node>
+      <node concept="2ShNRf" id="5QXtzFzLrzl" role="33vP2m">
+        <node concept="1pGfFk" id="5QXtzFzLu_h" role="2ShVmc">
+          <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;()" resolve="ArrayList" />
+          <node concept="3uibUv" id="5QXtzFzLwe$" role="1pMfVU">
+            <ref role="3uigEE" node="5QXtzFzIPMx" resolve="ScopeAndPanels.SelectionChangeListener" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="1_3tIz4xscn" role="jymVt" />
@@ -10159,7 +10223,46 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="1_3tIz4PCJl" role="jymVt" />
+    <node concept="2tJIrI" id="5QXtzFzILcF" role="jymVt" />
+    <node concept="3HP615" id="5QXtzFzIPMx" role="jymVt">
+      <property role="2bfB8j" value="true" />
+      <property role="TrG5h" value="SelectionChangeListener" />
+      <node concept="3clFb_" id="5QXtzFzIY1L" role="jymVt">
+        <property role="TrG5h" value="selectionChanged" />
+        <node concept="3clFbS" id="5QXtzFzIY1O" role="3clF47" />
+        <node concept="3Tm1VV" id="5QXtzFzIY1P" role="1B3o_S" />
+        <node concept="3cqZAl" id="5QXtzFzIXGv" role="3clF45" />
+      </node>
+      <node concept="3Tm1VV" id="5QXtzFzIPMy" role="1B3o_S" />
+    </node>
+    <node concept="2tJIrI" id="5QXtzFzI9vG" role="jymVt" />
+    <node concept="3clFb_" id="5QXtzFzIrzw" role="jymVt">
+      <property role="TrG5h" value="addSelectionChangeListener" />
+      <node concept="3clFbS" id="5QXtzFzIrzz" role="3clF47">
+        <node concept="3clFbF" id="5QXtzFzLKOE" role="3cqZAp">
+          <node concept="2OqwBi" id="5QXtzFzLMbO" role="3clFbG">
+            <node concept="37vLTw" id="5QXtzFzLKOC" role="2Oq$k0">
+              <ref role="3cqZAo" node="5QXtzFzLlhW" resolve="mySelectionChangeListeners" />
+            </node>
+            <node concept="liA8E" id="5QXtzFzLNyB" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+              <node concept="37vLTw" id="5QXtzFzLO2V" role="37wK5m">
+                <ref role="3cqZAo" node="5QXtzFzIE3z" resolve="listener" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="5QXtzFzIlFv" role="1B3o_S" />
+      <node concept="3cqZAl" id="5QXtzFzIz49" role="3clF45" />
+      <node concept="37vLTG" id="5QXtzFzIE3z" role="3clF46">
+        <property role="TrG5h" value="listener" />
+        <property role="3TUv4t" value="true" />
+        <node concept="3uibUv" id="5QXtzFzIE3y" role="1tU5fm">
+          <ref role="3uigEE" node="5QXtzFzIPMx" resolve="ScopeAndPanels.SelectionChangeListener" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="1_3tIz4849X" role="jymVt" />
     <node concept="3clFb_" id="5dbgjIn9OTM" role="jymVt">
       <property role="TrG5h" value="addKindActionListeners" />
@@ -10230,6 +10333,29 @@
                             <node concept="3clFbF" id="1htmYMk1E_I" role="3cqZAp">
                               <node concept="1rXfSq" id="1htmYMk1E_G" role="3clFbG">
                                 <ref role="37wK5l" node="1_bTry1S$nN" resolve="updatePanels" />
+                              </node>
+                            </node>
+                            <node concept="1DcWWT" id="5QXtzFzLPHi" role="3cqZAp">
+                              <node concept="3clFbS" id="5QXtzFzLPHk" role="2LFqv$">
+                                <node concept="3clFbF" id="5QXtzFzLSRu" role="3cqZAp">
+                                  <node concept="2OqwBi" id="5QXtzFzLTiF" role="3clFbG">
+                                    <node concept="37vLTw" id="5QXtzFzLSRs" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="5QXtzFzLPHl" resolve="listener" />
+                                    </node>
+                                    <node concept="liA8E" id="5QXtzFzLTvN" role="2OqNvi">
+                                      <ref role="37wK5l" node="5QXtzFzIY1L" resolve="selectionChanged" />
+                                    </node>
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="3cpWsn" id="5QXtzFzLPHl" role="1Duv9x">
+                                <property role="TrG5h" value="listener" />
+                                <node concept="3uibUv" id="5QXtzFzLQrc" role="1tU5fm">
+                                  <ref role="3uigEE" node="5QXtzFzIPMx" resolve="ScopeAndPanels.SelectionChangeListener" />
+                                </node>
+                              </node>
+                              <node concept="37vLTw" id="5QXtzFzLRGu" role="1DdaDG">
+                                <ref role="3cqZAo" node="5QXtzFzLlhW" resolve="mySelectionChangeListeners" />
                               </node>
                             </node>
                           </node>
