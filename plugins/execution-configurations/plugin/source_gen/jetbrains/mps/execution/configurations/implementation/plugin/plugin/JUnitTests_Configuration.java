@@ -149,8 +149,8 @@ public final class JUnitTests_Configuration extends BaseMpsRunConfiguration impl
   @Override
   public JUnitTests_Configuration copy() {
     JUnitTests_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myJUnitSettings = ((Copyable<JUnitSettings_Configuration>) myJUnitSettings).copy();
     cloneTemplate.myJavaRunParameters = ((Copyable<JavaRunParameters_Configuration>) myJavaRunParameters).copy();
     cloneTemplate.myDeploySettings = ((Copyable<DeployPluginsSettings_Configuration>) myDeploySettings).copy();

@@ -90,8 +90,8 @@ public final class DemoApplication_Configuration extends BaseMpsRunConfiguration
   @Override
   public DemoApplication_Configuration copy() {
     DemoApplication_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myNode = ((Copyable<NodeByConcept_Configuration>) myNode).copy();
     return cloneTemplate;
   }

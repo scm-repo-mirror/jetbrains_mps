@@ -92,8 +92,8 @@ public final class MpsStartupSettings_Configuration implements IPersistentConfig
   @Override
   public MpsStartupSettings_Configuration copy() {
     MpsStartupSettings_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myState = (MyState) myState.copy();
     return cloneTemplate;
   }

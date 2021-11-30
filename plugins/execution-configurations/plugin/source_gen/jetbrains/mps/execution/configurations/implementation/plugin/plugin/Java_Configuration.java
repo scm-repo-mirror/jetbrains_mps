@@ -170,8 +170,8 @@ public final class Java_Configuration extends BaseMpsRunConfiguration implements
   @Override
   public Java_Configuration copy() {
     Java_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myNode = ((Copyable<NodeBySeveralConcepts_Configuration>) myNode).copy();
     cloneTemplate.myRunParameters = ((Copyable<JavaRunParameters_Configuration>) myRunParameters).copy();
     return cloneTemplate;

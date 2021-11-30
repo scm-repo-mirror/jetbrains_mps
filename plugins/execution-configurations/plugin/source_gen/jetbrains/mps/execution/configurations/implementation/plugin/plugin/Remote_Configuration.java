@@ -72,8 +72,8 @@ public final class Remote_Configuration extends BaseMpsRunConfiguration implemen
   @Override
   public Remote_Configuration copy() {
     Remote_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myState = (MyState) myState.copy();
     return cloneTemplate;
   }

@@ -121,8 +121,8 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
   @Override
   public DeployPlugins_Configuration copy() {
     DeployPlugins_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myState = (MyState) myState.copy();
     cloneTemplate.myPluginsSettings = ((Copyable<DeployPluginsSettings_Configuration>) myPluginsSettings).copy();
     return cloneTemplate;

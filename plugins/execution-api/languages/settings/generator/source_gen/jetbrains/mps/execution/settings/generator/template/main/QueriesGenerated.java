@@ -47,9 +47,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.generator.impl.query.IfMacroCondition;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
-import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -329,7 +327,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((Boolean) _context.getVariable("var:DoGenerateState"));
   }
   public static boolean ifMacro_Condition_2_1(final IfMacroContext _context) {
-    // see $IF$ [myState] 
+    // see $IF$ [myState]
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.persistentProperty$YKAP)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
@@ -337,7 +335,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }).isNotEmpty();
   }
   public static boolean ifMacro_Condition_2_2(final IfMacroContext _context) {
-    // see $IF$ [myState] 
+    // see $IF$ [myState]
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.persistentProperty$YKAP)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
@@ -345,7 +343,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }).isNotEmpty();
   }
   public static boolean ifMacro_Condition_2_3(final IfMacroContext _context) {
-    // see $IF$ [myState] 
+    // see $IF$ [myState]
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.persistentProperty$YKAP)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
@@ -353,7 +351,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }).isNotEmpty();
   }
   public static boolean ifMacro_Condition_2_4(final IfMacroContext _context) {
-    // see $IF$ [myState] 
+    // see $IF$ [myState]
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.persistentProperty$YKAP)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
@@ -636,7 +634,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "ConfigurationToClass");
   }
   public static Object varMacro_Value_2_0(final TemplateVarContext _context) {
-    //  There's myState field only when there are state values to persist 
+    //  There's myState field only when there are state values to persist
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.persistentProperty$YKAP)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
@@ -1213,8 +1211,8 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("5041115067675810107", new RTQ(3, "PersistentConfiguration_Template"));
     rtqMethods.put("5041115067675810469", new RTQ(4, "myTemplate"));
     rtqMethods.put("5041115067675810539", new RTQ(5, "myTemplate"));
-    rtqMethods.put("5041115067675810835", new RTQ(6, "myTemplate"));
-    rtqMethods.put("5041115067675810815", new RTQ(7, "myTemplate"));
+    rtqMethods.put("5041115067675810815", new RTQ(6, "myTemplate"));
+    rtqMethods.put("5041115067675810835", new RTQ(7, "myTemplate"));
     rtqMethods.put("1467430125256356188", new RTQ(8, "myTemplate"));
     rtqMethods.put("1467430125256356200", new RTQ(9, "myTemplate"));
     rtqMethods.put("5041115067675810609", new RTQ(10, "myPersistentProperty"));
@@ -1386,10 +1384,10 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
   private static SNode _quotation_createNode_x583g4_b0a0a59() {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
-    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
-    quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.structure.modules(MPS.Core/)"), facade.createNodeId("~Copyable")));
+    SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
+    quotedNode_1 = nb.getResult();
+    nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.structure.modules(MPS.Core/)/~Copyable");
     return quotedNode_1;
   }
 

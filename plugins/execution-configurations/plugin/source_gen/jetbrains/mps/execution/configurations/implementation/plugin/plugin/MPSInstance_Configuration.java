@@ -93,8 +93,8 @@ public final class MPSInstance_Configuration extends BaseMpsRunConfiguration imp
   @Override
   public MPSInstance_Configuration copy() {
     MPSInstance_Configuration cloneTemplate = createCloneTemplate();
-    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as 
-    // the value of myState, and != clone as regular Java passer-by would expect. 
+    // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
+    // the value of myState, and != clone as regular Java passer-by would expect.
     cloneTemplate.myMpsSettings = ((Copyable<MpsStartupSettings_Configuration>) myMpsSettings).copy();
     cloneTemplate.myPluginsSettings = ((Copyable<DeployPluginsSettings_Configuration>) myPluginsSettings).copy();
     return cloneTemplate;
