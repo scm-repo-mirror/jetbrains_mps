@@ -38,6 +38,8 @@ public interface IntentionDescriptor {
 
   boolean isAvailableInChildNodes();
 
+  @ToRemove(version = 2021.1)
+  @Deprecated
   default boolean isApplicable(SNode node, EditorContext editorContext) {
     return true;
   }
