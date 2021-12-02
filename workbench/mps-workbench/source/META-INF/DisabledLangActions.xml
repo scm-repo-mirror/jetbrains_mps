@@ -535,7 +535,5 @@
     <action id="TodoViewGroupByFlattenPackage" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
     <!--      </group>-->
     <!--    </group>-->
-
-    <action id="ProjectViewChangeView" class="com.intellij.openapi.actionSystem.EmptyAction" overrides="true"/>
   </actions>
 </idea-plugin>
