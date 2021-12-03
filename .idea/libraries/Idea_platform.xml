@@ -24,7 +24,7 @@
       <root url="jar://$PROJECT_DIR$/lib/dom-impl.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/dom-openapi.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/3rd-party.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/intellij-coverage.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/intellij-coverage-agent-1.0.613.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/intellij-test-discovery.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/kotlin-reflect.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/kotlinx.jar!/" />
