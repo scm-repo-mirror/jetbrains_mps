@@ -111,6 +111,9 @@
     <classNode dependClassName="java.lang.Integer" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.ArrayList" />
+    <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.LinkedHashSet" />
     <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
@@ -124,6 +127,7 @@
     <classNode dependClassName="jetbrains.mps.vcs.core.mergedriver.FileContent" />
     <classNode dependClassName="org.jdom.Document" />
     <classNode dependClassName="org.jdom.JDOMException" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.vcs.core.mergedriver.AbstractContentMerger" />
   </dependency>

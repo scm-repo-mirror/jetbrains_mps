@@ -15,6 +15,10 @@ import java.io.OutputStream;
 import org.jdom.Document;
 import jetbrains.mps.make.java.RootDependencies;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.LinkedHashSet;
+import org.jetbrains.annotations.NotNull;
+import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -27,20 +31,22 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
   @Override
   public Tuples._2<Integer, byte[]> mergeContents(FileContent baseContent, FileContent localContent, FileContent latestContent) {
     try {
-      ModelDependencies dependencies = loadDependencies(baseContent);
-      copyDependencies(loadDependencies(localContent), dependencies);
-      copyDependencies(loadDependencies(latestContent), dependencies);
+      ModelDependencies base = loadDependencies(baseContent);
+      ModelDependencies local = loadDependencies(localContent);
+      copyDependencies(local, base);
+      ModelDependencies remote = loadDependencies(latestContent);
+      copyDependencies(remote, base);
+
+      if (local.hasRuntimeDeps() || remote.hasRuntimeDeps()) {
+        base.setLanguageRuntimeModules(merge(union(local.getLanguageRuntimeModules(), remote.getLanguageRuntimeModules()), base.getLanguageRuntimeModules()));
+        base.setLanguages(merge(union(local.getLanguages(), remote.getLanguages()), base.getLanguages()));
+        base.setModuleDependencies(merge(union(local.getModuleDependencies(), remote.getModuleDependencies()), base.getModuleDependencies()));
+      }
 
       ByteArrayOutputStream out = new ByteArrayOutputStream();
-      saveDependencies(dependencies, out);
+      saveDependencies(base, out);
       return MultiTuple.<Integer,byte[]>from(MERGED, out.toByteArray());
-    } catch (IOException e) {
-      e.printStackTrace();
-      return null;
-    } catch (JDOMException e) {
-      e.printStackTrace();
-      return null;
-    } catch (MergeException e) {
+    } catch (IOException | JDOMException | MergeException e) {
       e.printStackTrace();
       return null;
     }
@@ -61,6 +67,25 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
       }
     }
   }
+
+  private static <T> LinkedHashSet<T> union(@NotNull Collection<T> c1, @NotNull Collection<T> c2) {
+    LinkedHashSet<T> rv = new LinkedHashSet<>(c1);
+    rv.addAll(c2);
+    return rv;
+  }
+
+  private static <T> Collection<T> merge(@NotNull LinkedHashSet<T> from, @NotNull Collection<T> to) {
+    // from has to be modifiable collection, that's why I go on with explicit class
+    LinkedHashSet<T> rv = new LinkedHashSet<>(to);
+    // remove those not present in source set
+    rv.retainAll(from);
+    // get ready to add those new in source set
+    from.removeAll(rv);
+    // add them to target
+    rv.addAll(from);
+    return new ArrayList<T>(rv);
+  }
+
   private static RootDependencies mergeRootDependencies(RootDependencies rd1, RootDependencies rd2) throws MergeException {
     if (!(Objects.equals(rd1.getClassName(), rd2.getClassName()))) {
       throw new MergeException("Different class names: " + rd1.getClassName() + " and " + rd2.getClassName());
