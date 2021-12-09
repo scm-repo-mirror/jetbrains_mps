@@ -16,7 +16,6 @@
 package jetbrains.mps.make;
 
 import jetbrains.mps.RuntimeFlags;
-import jetbrains.mps.compiler.EclipseJavaCompiler;
 import jetbrains.mps.compiler.JavaCompilerOptions;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
 import jetbrains.mps.make.ModuleAnalyzer.ModuleAnalyzerResult;

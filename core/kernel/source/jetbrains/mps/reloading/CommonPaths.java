@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,14 +53,16 @@ public final class CommonPaths {
 //    }
   }
 
-@Deprecated(since = "2019.1", forRemoval = true)
+  @Deprecated(since = "2019.1", forRemoval = true)
   //use getPaths
   public static List<String> getMPSPaths(ClassType type) {
     // there's only 1 use in Ant_Command with ClassType.JDK_TOOLS
     return getPaths(type).stream().map(qualifiedPath -> qualifiedPath.getPath()).collect(Collectors.toList());
   }
 
+  @Deprecated(since = "2021.3", forRemoval = true)
   public static List<String> getJDKPath() {
+    // XXX there's only 1 use of the method, does it justify its existence?
     return getJDKPathInternal().stream()
                                .map(QualifiedPath::getPath)
                                .collect(Collectors.toList());

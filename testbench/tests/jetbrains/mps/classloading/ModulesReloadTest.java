@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -98,8 +98,8 @@ public class ModulesReloadTest extends ModuleMpsTest {
   }
 
   @BeforeClass
-  public static void setUp() {
-    new TestClassFileCreator(CLASS_TO_LOAD, TEMP_DIR_PATH).create();
+  public static void setUp() throws IOException {
+    new TestClassFileCreator(CLASS_TO_LOAD, TEMP_DIR).create();
   }
 
   @AfterClass

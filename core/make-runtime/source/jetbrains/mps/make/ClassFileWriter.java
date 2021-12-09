@@ -96,23 +96,5 @@ public class ClassFileWriter {
       FileUtil.closeFileSafe(is);
       FileUtil.closeFileSafe(os);
     }
-
-  }
-
-  @NotNull
-  public static String convertCompoundToFqName(char[][] compoundName) {
-    return convertCompoundToStringWithSep(compoundName, '.');
-  }
-
-  private static String convertCompoundToStringWithSep(char[][] compoundName, char separator) {
-    StringBuilder result = new StringBuilder();
-    for (int i = 0; i < compoundName.length; i++) {
-      char[] part = compoundName[i];
-      result.append(part);
-      if (i != compoundName.length - 1) {
-        result.append(separator);
-      }
-    }
-    return result.toString();
   }
 }

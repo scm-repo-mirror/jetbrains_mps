@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class JDKFileSystem extends FileSystem {
+class JDKFileSystem extends FileSystem {
   public JDKFileSystem(Collection<String> classpath, String[] initialFileNames) {
     super(getFullClasspath(classpath), initialFileNames, false);
   }
