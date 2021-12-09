@@ -35,11 +35,10 @@ import java.util.List;
 /**
  * Weave support implementation
  *
- * Could be package-local once TemplateDeclarationInterpreted becomes sink-agnostic.
  * @author Artem Tikhomirov
  * @since 3.3
  */
-public final class NodeWeaveSupport implements ApplySink {
+/*package*/ final class NodeWeaveSupport implements ApplySink {
   private final TemplateContext myTemplateContext;
   private final SNode myContextParentNode;
   private final WeavingWithAnchor myAnchorQuery;
