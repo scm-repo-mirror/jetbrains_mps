@@ -48,6 +48,7 @@ public final class TemplateModelScanner {
   // JFTR, there's previous version of this class, named TemplateModelScanner, while this one was ModelScanner.
   private final Set<SLanguage> myTargetLanguages = new HashSet<>();
   private final Set<SLanguage> myQueryLanguages = new HashSet<>();
+  private boolean myHasDropRules;
 
   public TemplateModelScanner() {
   }
@@ -58,6 +59,15 @@ public final class TemplateModelScanner {
 
   public Set<SLanguage> getQueryLanguages() {
     return myQueryLanguages;
+  }
+
+  /**
+   * Some rules or consequences modify input model by removing certain nodes. As long as these rules don't
+   * have any target language and may go without a query, this special method helps to detect template models
+   * that may otherwise look empty (i.e. no target/query languages), but modify models nevertheless.
+   */
+  public boolean hasDropRules() {
+    return myHasDropRules;
   }
 
   public TemplateModelScanner scan(SModel model) {
@@ -81,6 +91,11 @@ public final class TemplateModelScanner {
     if (!fnf.getNodes(RuleUtil.concept_PatternExpression, true).isEmpty()) {
       myQueryLanguages.add(RuleUtil.getPatternLanguage());
     }
+    // see {@code #hasDropRules()}
+    boolean modifies = !fnf.getNodes(RuleUtil.concept_AbandonInput_RuleConsequence, false).isEmpty();
+    modifies = modifies || !fnf.getNodes(RuleUtil.concept_DropRootRule, false).isEmpty();
+    modifies = modifies || !fnf.getNodes(RuleUtil.concept_DropAttributeRule, false).isEmpty();
+    myHasDropRules = modifies;
     return this;
   }
 

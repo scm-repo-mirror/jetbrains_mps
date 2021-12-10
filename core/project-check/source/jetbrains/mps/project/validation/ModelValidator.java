@@ -20,13 +20,10 @@ import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.item.ModelReportItem;
 import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
-import jetbrains.mps.generator.impl.RuleUtil;
 import jetbrains.mps.generator.impl.plan.TemplateModelScanner;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DevKit;
-import jetbrains.mps.smodel.FastNodeFinder;
-import jetbrains.mps.smodel.FastNodeFinderManager;
 import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SModelOperations;
@@ -261,12 +258,8 @@ public final class ModelValidator {
     SModel model = myModel;
     TemplateModelScanner ms = new TemplateModelScanner().scan(model);
     if (ms.getTargetLanguages().isEmpty() && ms.getQueryLanguages().isEmpty()) {
-      FastNodeFinder fnf = FastNodeFinderManager.get(model);
-      boolean noModifyRules = fnf.getNodes(RuleUtil.concept_AbandonInput_RuleConsequence, false).isEmpty();
-      noModifyRules = noModifyRules && fnf.getNodes(RuleUtil.concept_DropRootRule, false).isEmpty();
-      noModifyRules = noModifyRules && fnf.getNodes(RuleUtil.concept_DropAttributeRule, false).isEmpty();
-      if (noModifyRules) {
-        String m = String.format("Generator Model %s got no target nor query language. No rules to modify an input. Is it empty?", model.getModelName());
+      if (!ms.hasDropRules()) {
+        String m = String.format("Generator Model %s got no target nor query language. No rules to modify an input. Is it empty?", model.getName());
         // TODO quickFix possible, remove model
         result.accept(new ModelValidationProblem(model, MessageStatus.WARNING, m));
       }
