@@ -89,16 +89,16 @@ public class QueriesGenerated extends QueryProviderBase {
     return (SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.TargetReferenceExpression$k4, false, false) == null);
   }
   public static boolean rule_Condition_11_0(final BaseMappingRuleContext _context) {
-    return (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.LocalParametersComponentExpression$4Q), LINKS.resource$pwdy) == null);
+    return (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.LocalParametersComponentExpression$4Q), LINKS.resource$pwdy) == null);
   }
   public static boolean rule_Condition_11_1(final BaseMappingRuleContext _context) {
-    return (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.LocalParametersComponentExpression$4Q), LINKS.resource$pwdy) != null);
+    return (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.LocalParametersComponentExpression$4Q), LINKS.resource$pwdy) != null);
   }
   public static boolean rule_Condition_11_2(final BaseMappingRuleContext _context) {
-    return (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ForeignParametersComponentExpression$33), LINKS.resource$pwdy) == null);
+    return (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ForeignParametersComponentExpression$33), LINKS.resource$pwdy) == null);
   }
   public static boolean rule_Condition_11_3(final BaseMappingRuleContext _context) {
-    return (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ForeignParametersComponentExpression$33), LINKS.resource$pwdy) != null);
+    return (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ForeignParametersComponentExpression$33), LINKS.resource$pwdy) != null);
   }
   public static boolean rule_Condition_12_0(final BaseMappingRuleContext _context) {
     return (TypecheckingFacade.getFromContext().coerceType(SLinkOperations.getTarget(_context.getNode(), LINKS.type$q$C9), CONCEPTS.PrimitiveType$sR) != null) || (TypecheckingFacade.getFromContext().coerceType(SLinkOperations.getTarget(_context.getNode(), LINKS.type$q$C9), CONCEPTS.StringType$uX) != null);
