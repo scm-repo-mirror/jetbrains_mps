@@ -7,8 +7,11 @@
   <!-- see mpsSmartRefAttrMigration.xml for additional details about migrate/@mpsHome -->
 
   <path id="path.mps.ant.path">
-    <pathelement location="${mps_home}/lib/ant/lib/ant-mps.jar"/>
-    <pathelement location="${mps_home}/lib/util.jar"/>
+    <pathelement location="${mps_home}/lib/ant/lib/ant-mps.jar" />
+    <fileset dir="${mps_home}/lib">
+      <include name="util.jar" />
+      <include name="3rd-party-rt.jar" />
+    </fileset>
   </path>
 
   <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path"/>

@@ -24,9 +24,12 @@
   <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore"/>
   <property name="artifacts.IDEA" location="${idea_home}"/>
 
-  <path id="path.mps.ant.path">
-    <pathelement location="${mps_build_home}/lib/ant/lib/ant-mps.jar"/>
-    <pathelement location="${mps_build_home}/lib/util.jar"/>
+ <path id="path.mps.ant.path">
+    <pathelement location="${mps_build_home}/lib/ant/lib/ant-mps.jar" />
+    <fileset dir="${mps_build_home}/lib">
+      <include name="util.jar" />
+      <include name="3rd-party-rt.jar" />
+    </fileset>
   </path>
 
   <path id="test_classpath">
