@@ -26,8 +26,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class TransientModelsComponent extends TransientModelsProvider implements ProjectComponent {
 
-  public TransientModelsComponent(com.intellij.openapi.project.Project ideaProject, MPSProject project, TransientSwapOwnerComponent swapOwner) {
-    super(project.getRepository(), swapOwner);
+  public TransientModelsComponent(com.intellij.openapi.project.Project ideaProject, MPSProject project) {
+    super(project.getRepository(), TransientSwapOwnerComponent.getInstance());
   }
 
   @Override

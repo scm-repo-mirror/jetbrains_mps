@@ -15,9 +15,6 @@
       <implementation-class>jetbrains.mps.ide.project.facets.IdeaPluginModuleFacetImplComponent</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.ide.generator.TransientSwapOwnerComponent</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.watching.WatchedRootsUpdater</implementation-class>
     </component>
     <component>
@@ -132,6 +129,8 @@
     <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.FileStatusChangeListener"/>
     <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"
                         serviceImplementation="jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer" />
+    <applicationService serviceImplementation="jetbrains.mps.ide.generator.TransientSwapOwnerComponent" />
+
     <notificationGroup id="jetbrains.mps.ide.make.StartupModuleMaker" displayType="STICKY_BALLOON" key="smm.group.name" bundle="jetbrains.mps.ide.make.Messages"/>
   </extensions>
 
