@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -86,16 +86,20 @@ class GensourcesModuleFile {
 
   public void updateGenSourcesIml(File... sourceDirs) throws IOException {
     for (File dir : sourceDirs) {
-      Element contentRoot = new Element(CONTENT);
-      contentRoot.setAttribute(URL, PATH_START_MODULE + dir);
-      myGeneratedModuleContentRoots.add(dir.getCanonicalPath());
-      myRootManagerElement.addContent(contentRoot);
-
       // generate lists of source gen and classes gen folders and add as source and excluded to content root
       List<String> sourceGenFolders = new ArrayList<>();
       List<String> classesGenFolders = new ArrayList<>();
       collectGeneratedSourcesAndClassesDirs(sourceGenFolders, classesGenFolders, dir);
       myGeneratedModuleSources.addAll(sourceGenFolders);
+
+      if (sourceGenFolders.isEmpty() && classesGenFolders.isEmpty()) {
+        continue;
+      }
+
+      Element contentRoot = new Element(CONTENT);
+      contentRoot.setAttribute(URL, PATH_START_MODULE + dir);
+      myGeneratedModuleContentRoots.add(dir.getCanonicalPath());
+      myRootManagerElement.addContent(contentRoot);
 
       for (String sourceGenFolder : sourceGenFolders) {
         Element sourceFolder = new Element(SOURCE_FOLDER);

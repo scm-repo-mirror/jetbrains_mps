@@ -2,7 +2,6 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../core" />
     <content url="file://$MODULE_DIR$/../../languages">
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/sandbox/source_gen" isTestSource="false" />
@@ -1231,8 +1230,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/source_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/simpleProject">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/simpleProject/solutions/simpleProject/source_gen" isTestSource="false" />
@@ -1278,12 +1275,21 @@
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/FACETS/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/PER_ROOT/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/XML/source_gen" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/languages/TestLanguage/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/languages/TestLanguage/generator/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/languages/TestLanguage_ACCESORIES/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/BINARY/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/FACETS/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/PER_ROOT/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCloneModule/solutions/XML/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testCompilation">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testCompilation/solutions/TestCompileSolution/source_gen" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCompilation/solutions/TestCompileSolution/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testCompilationJavaXmlConflict">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testCompilationJavaXmlConflict/source_gen" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testCompilationJavaXmlConflict/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testConsMigrations">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testConsMigrations/languages/jetbrains.mps.test.mainLang/generator/source_gen" isTestSource="false" />
@@ -1324,6 +1330,7 @@
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testFS">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testFS/solutions/solution1/source_gen" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/testFS/solutions/solution1/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/testFindUsages">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/testFindUsages/test_gen" isTestSource="false" />
