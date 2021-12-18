@@ -49,6 +49,7 @@
     <import index="wtoj" ref="r:42278aae-7cc0-4e00-9041-018f7301c362(jetbrains.mps.debugger.java.api.state.customViewers)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
+    <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" implicit="true" />
   </imports>
@@ -647,7 +648,7 @@
         <property role="TrG5h" value="mpsProject" />
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="Tb4PsnpCMw" role="1tU5fm">
-          <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
+          <ref role="3uigEE" to="z1c4:~MPSProject" resolve="MPSProject" />
         </node>
       </node>
       <node concept="37vLTG" id="2sgI38LNLaP" role="3clF46">
@@ -684,15 +685,11 @@
             <node concept="37vLTw" id="2BHiRxeuWPo" role="37vLTJ">
               <ref role="3cqZAo" node="N5Kj01sBLU" resolve="myHighlighter" />
             </node>
-            <node concept="2OqwBi" id="N5Kj01sBC3" role="37vLTx">
-              <node concept="37vLTw" id="2BHiRxglpEi" role="2Oq$k0">
+            <node concept="2YIFZM" id="1gzilxHNrOr" role="37vLTx">
+              <ref role="37wK5l" to="exr9:~Highlighter.getInstance(jetbrains.mps.project.MPSProject)" resolve="getInstance" />
+              <ref role="1Pybhc" to="exr9:~Highlighter" resolve="Highlighter" />
+              <node concept="37vLTw" id="1gzilxHNuPv" role="37wK5m">
                 <ref role="3cqZAo" node="N5Kj01tlV0" resolve="mpsProject" />
-              </node>
-              <node concept="liA8E" id="N5Kj01sBC5" role="2OqNvi">
-                <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
-                <node concept="3VsKOn" id="N5Kj01sBC6" role="37wK5m">
-                  <ref role="3VsUkX" to="exr9:~Highlighter" resolve="Highlighter" />
-                </node>
               </node>
             </node>
           </node>
@@ -709,6 +706,37 @@
           </node>
         </node>
         <node concept="3clFbH" id="N5Kj01sBDn" role="3cqZAp" />
+        <node concept="3SKdUt" id="1gzilxHNXP6" role="3cqZAp">
+          <node concept="1PaTwC" id="1gzilxHNXP7" role="1aUNEU">
+            <node concept="3oM_SD" id="1gzilxHNZUo" role="1PaTwD">
+              <property role="3oM_SC" value="FIXME" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUq" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUt" role="1PaTwD">
+              <property role="3oM_SC" value="it" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUx" role="1PaTwD">
+              <property role="3oM_SC" value="truly" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUA" role="1PaTwD">
+              <property role="3oM_SC" value="necessary" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUG" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUN" role="1PaTwD">
+              <property role="3oM_SC" value="have" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZUV" role="1PaTwD">
+              <property role="3oM_SC" value="command" />
+            </node>
+            <node concept="3oM_SD" id="1gzilxHNZV4" role="1PaTwD">
+              <property role="3oM_SC" value="here?" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="1KUoCiqb6bO" role="3cqZAp">
           <node concept="2OqwBi" id="1KUoCiqb6bP" role="3clFbG">
             <node concept="2OqwBi" id="Tb4PsnpCn8" role="2Oq$k0">

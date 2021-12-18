@@ -469,13 +469,6 @@
     <node concept="3uibUv" id="51NkKCgB399" role="1zkMxy">
       <ref role="3uigEE" node="51NkKCgB38Y" resolve="AbstractHierarchyView" />
     </node>
-    <node concept="312cEg" id="YlfeaJOSiT" role="jymVt">
-      <property role="TrG5h" value="myCoreComponents" />
-      <node concept="3Tm6S6" id="YlfeaJOSiU" role="1B3o_S" />
-      <node concept="3uibUv" id="YlfeaJOSiW" role="1tU5fm">
-        <ref role="3uigEE" to="3a50:~MPSCoreComponents" resolve="MPSCoreComponents" />
-      </node>
-    </node>
     <node concept="3clFbW" id="51NkKCgB39D" role="jymVt">
       <node concept="3Tm1VV" id="51NkKCgB39E" role="1B3o_S" />
       <node concept="3cqZAl" id="51NkKCgB39F" role="3clF45" />
@@ -483,12 +476,6 @@
         <property role="TrG5h" value="project" />
         <node concept="3uibUv" id="51NkKCgB39H" role="1tU5fm">
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="51NkKCgB39I" role="3clF46">
-        <property role="TrG5h" value="coreComponents" />
-        <node concept="3uibUv" id="1km689rLaQz" role="1tU5fm">
-          <ref role="3uigEE" to="3a50:~MPSCoreComponents" resolve="MPSCoreComponents" />
         </node>
       </node>
       <node concept="3clFbS" id="51NkKCgB39K" role="3clF47">
@@ -508,18 +495,9 @@
             <ref role="3cqZAo" to="z2i8:~AllIcons$Toolwindows.ToolWindowHierarchy" resolve="ToolWindowHierarchy" />
           </node>
         </node>
-        <node concept="3clFbF" id="YlfeaJOSiY" role="3cqZAp">
-          <node concept="37vLTI" id="YlfeaJOSjJ" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxglyIF" role="37vLTx">
-              <ref role="3cqZAo" node="51NkKCgB39I" resolve="coreComponents" />
-            </node>
-            <node concept="37vLTw" id="1ZFc3Q16H$Y" role="37vLTJ">
-              <ref role="3cqZAo" node="YlfeaJOSiT" resolve="myCoreComponents" />
-            </node>
-          </node>
-        </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="1gzilxHN1Yh" role="jymVt" />
     <node concept="3clFb_" id="51NkKCgB3aH" role="jymVt">
       <property role="TrG5h" value="createHierarchyTree" />
       <node concept="3Tmbuc" id="51NkKCgB3aI" role="1B3o_S" />
@@ -586,18 +564,6 @@
       </node>
       <node concept="2AHcQZ" id="3tYsUK_S53A" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="51NkKCgB3bw" role="jymVt">
-      <property role="TrG5h" value="getPriority" />
-      <node concept="3Tm1VV" id="51NkKCgB3bx" role="1B3o_S" />
-      <node concept="10Oyi0" id="51NkKCgB3by" role="3clF45" />
-      <node concept="3clFbS" id="51NkKCgB3bz" role="3clF47">
-        <node concept="3cpWs6" id="51NkKCgB3b$" role="3cqZAp">
-          <node concept="3cmrfG" id="51NkKCgB3b_" role="3cqZAk">
-            <property role="3cmrfH" value="2" />
-          </node>
-        </node>
       </node>
     </node>
   </node>

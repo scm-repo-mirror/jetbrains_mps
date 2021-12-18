@@ -6,7 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.ide.embeddableEditor.EmbeddableEditor;
 import jetbrains.mps.debugger.java.runtime.evaluation.container.IEvaluationContainer;
 import jetbrains.mps.nodeEditor.Highlighter;
-import jetbrains.mps.project.Project;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.debugger.java.runtime.state.DebugSession;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -24,12 +24,13 @@ public class EvaluationPanel extends EvaluationUi {
   private final IEvaluationContainer myEvaluationModel;
   private final Highlighter myHighlighter;
   private volatile boolean myIsDisposed = false;
-  public EvaluationPanel(final Project mpsProject, @NotNull DebugSession session, IEvaluationContainer evaluationModel, boolean autoUpdate) {
+  public EvaluationPanel(final MPSProject mpsProject, @NotNull DebugSession session, IEvaluationContainer evaluationModel, boolean autoUpdate) {
     super(session, autoUpdate);
-    myHighlighter = mpsProject.getComponent(Highlighter.class);
+    myHighlighter = Highlighter.getInstance(mpsProject);
 
     myEvaluationModel = evaluationModel;
 
+    // FIXME is it truly necessary to have command here?
     mpsProject.getModelAccess().executeCommand(() -> {
       SNode node = myEvaluationModel.getNode();
       myEditor = new EmbeddableEditor(mpsProject, true);

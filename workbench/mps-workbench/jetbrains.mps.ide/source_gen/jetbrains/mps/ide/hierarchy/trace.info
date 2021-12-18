@@ -737,31 +737,24 @@
   </root>
   <root nodeRef="r:8a82b7a4-1180-4262-8f18-8c96a5d3ac16(jetbrains.mps.ide.hierarchy)/5797068448049410631">
     <file name="HierarchyViewTool.java">
-      <node id="1122870626408957113" at="13,0,14,0" concept="6" trace="myCoreComponents" />
-      <node id="5797068448049410673" at="14,79,15,77" concept="16" />
-      <node id="1122870626408957118" at="15,77,16,38" concept="5" />
-      <node id="3499818918522404866" at="19,82,20,109" concept="11" />
-      <node id="2939130724184509476" at="20,109,21,32" concept="5" />
-      <node id="3499818918522415633" at="21,32,22,68" concept="5" />
-      <node id="5797068448049410740" at="22,68,23,16" concept="12" />
-      <node id="5797068448049410788" at="25,28,26,13" concept="12" />
-      <node id="5797068448049410784" at="25,0,28,0" concept="10" trace="getPriority#()I" />
-      <node id="5797068448049410665" at="14,0,18,0" concept="3" trace="HierarchyViewTool#(Lcom/intellij/openapi/project/Project;Ljetbrains/mps/ide/MPSCoreComponents;)V" />
-      <node id="5797068448049410733" at="18,0,25,0" concept="10" trace="createHierarchyTree#(Z)Ljetbrains/mps/ide/hierarchy/AbstractHierarchyTree;" />
-      <scope id="5797068448049410787" at="25,28,26,13" />
-      <scope id="5797068448049410672" at="14,79,16,38" />
-      <scope id="5797068448049410784" at="25,0,28,0" />
-      <scope id="5797068448049410665" at="14,0,18,0">
-        <var name="coreComponents" id="5797068448049410670" />
+      <node id="5797068448049410673" at="12,45,13,77" concept="16" />
+      <node id="3499818918522404866" at="17,82,18,109" concept="11" />
+      <node id="2939130724184509476" at="18,109,19,32" concept="5" />
+      <node id="3499818918522415633" at="19,32,20,68" concept="5" />
+      <node id="5797068448049410740" at="20,68,21,16" concept="12" />
+      <node id="5797068448049410665" at="12,0,15,0" concept="3" trace="HierarchyViewTool#(Lcom/intellij/openapi/project/Project;)V" />
+      <node id="5797068448049410733" at="16,0,23,0" concept="10" trace="createHierarchyTree#(Z)Ljetbrains/mps/ide/hierarchy/AbstractHierarchyTree;" />
+      <scope id="5797068448049410672" at="12,45,13,77" />
+      <scope id="5797068448049410665" at="12,0,15,0">
         <var name="project" id="5797068448049410668" />
       </scope>
-      <scope id="5797068448049410739" at="19,82,23,16">
+      <scope id="5797068448049410739" at="17,82,21,16">
         <var name="tree" id="3499818918522404867" />
       </scope>
-      <scope id="5797068448049410733" at="18,0,25,0">
+      <scope id="5797068448049410733" at="16,0,23,0">
         <var name="isParentHierarchy" id="5797068448049410737" />
       </scope>
-      <unit id="5797068448049410631" at="11,0,29,0" name="jetbrains.mps.ide.hierarchy.HierarchyViewTool" />
+      <unit id="5797068448049410631" at="10,0,24,0" name="jetbrains.mps.ide.hierarchy.HierarchyViewTool" />
     </file>
   </root>
   <root nodeRef="r:8a82b7a4-1180-4262-8f18-8c96a5d3ac16(jetbrains.mps.ide.hierarchy)/5797068448049411442">
