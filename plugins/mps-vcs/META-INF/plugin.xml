@@ -31,9 +31,6 @@
     <component>
       <implementation-class>jetbrains.mps.vcs.MPSVcsManager</implementation-class>
     </component>
-    <component>
-      <implementation-class>jetbrains.mps.vcs.integration.GeneratedFileConflictResolving</implementation-class>
-    </component>
   </project-components>
 
   <applicationListeners>
@@ -46,6 +43,9 @@
   <projectListeners>
     <listener class="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory$MyEditorComponentCreateListener"
               topic="jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener"
+              activeInHeadlessMode="false"/>
+    <listener class="jetbrains.mps.vcs.integration.GeneratedFileConflictResolving$FileListener"
+              topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"
               activeInHeadlessMode="false"/>
   </projectListeners>
 
