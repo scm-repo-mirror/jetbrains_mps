@@ -86,9 +86,6 @@
       <implementation-class>jetbrains.mps.ide.bookmark.BookmarkManager</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.ide.bookmark.BookmarksUIComponent</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.ide.vfs.DirectoryIndexExcludeUpdater</implementation-class>
     </component>
 
@@ -127,6 +124,7 @@
     <projectService serviceImplementation="jetbrains.mps.ide.findusages.view.optionseditor.DefaultSearchOptionsComponent"/>
     <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.RepoChangeListener"/>
     <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.FileStatusChangeListener"/>
+    <projectService serviceImplementation="jetbrains.mps.ide.bookmark.BookmarksUIComponent"/>
     <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"
                         serviceImplementation="jetbrains.mps.ide.vfs.WatchingFileSystemListenersContainer" />
     <applicationService serviceImplementation="jetbrains.mps.ide.generator.TransientSwapOwnerComponent" />
@@ -141,5 +139,11 @@
   <applicationListeners>
     <listener class="jetbrains.mps.watching.ModelFocusSynchronizer" topic="com.intellij.ide.FrameStateListener"/>
   </applicationListeners>
+  <projectListeners>
+    <listener class="jetbrains.mps.ide.bookmark.BookmarksUIComponent$EditorComponentListener"
+              topic="jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener"
+              activeInHeadlessMode="false"
+              activeInTestMode="false"/>
+  </projectListeners>
 
 </idea-plugin>

@@ -83,6 +83,10 @@ public class BookmarkManager implements ProjectComponent, PersistentStateCompone
   private Highlighter myHighlighter;
   private BookmarksHighlighter myChecker;
 
+  public static BookmarkManager getInstance(Project ideaProject) {
+    return ideaProject.getComponent(BookmarkManager.class);
+  }
+
   public BookmarkManager(Project ideaProject) {
     myProject = ProjectHelper.fromIdeaProjectOrFail(ideaProject);
   }
