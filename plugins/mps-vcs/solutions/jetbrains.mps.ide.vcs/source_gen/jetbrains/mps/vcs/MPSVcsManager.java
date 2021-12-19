@@ -17,17 +17,17 @@ import com.intellij.openapi.vcs.actions.VcsContextFactory;
 import com.intellij.openapi.vcs.changes.ChangeProvider;
 import com.intellij.openapi.progress.EmptyProgressIndicator;
 import com.intellij.openapi.vcs.VcsException;
-import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.vcs.platform.mergedriver.MergeDriverNotification;
 import com.intellij.openapi.vcs.VcsListener;
 import com.intellij.openapi.vcs.FileStatusManager;
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vcs.AbstractVcsHelper;
 import java.util.Arrays;
-import java.util.List;
-import com.intellij.openapi.vcs.changes.ChangeListManagerImpl;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.vcs.changes.ChangeListManagerGate;
+import java.util.List;
 import com.intellij.openapi.vcs.changes.LocalChangeList;
 import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
@@ -80,7 +80,7 @@ public class MPSVcsManager implements ProjectComponent {
 
   @Override
   public void projectOpened() {
-    if (ApplicationManager.getApplication().isUnitTestMode() || ApplicationManager.getApplication().isHeadlessEnvironment() || myProject.isDefault()) {
+    if (projectOpenCloseEventIgnored()) {
       return;
     }
     // XXX could be StartupActivity 
@@ -96,8 +96,16 @@ public class MPSVcsManager implements ProjectComponent {
 
   @Override
   public void projectClosed() {
+    if (projectOpenCloseEventIgnored()) {
+      return;
+    }
     FileStatusManager.getInstance(myProject).removeFileStatusListener(myFileStatusListener);
     myMessageBusConnection.disconnect();
+  }
+
+  private boolean projectOpenCloseEventIgnored() {
+    Application app = ApplicationManager.getApplication();
+    return app.isUnitTestMode() || app.isHeadlessEnvironment() || myProject.isDefault();
   }
 
   private void checkIfProjectIsConflicting() {
@@ -116,11 +124,6 @@ public class MPSVcsManager implements ProjectComponent {
       myLastProjectStatus = currentStatus;
     }
   }
-
-  public List<VirtualFile> getUnversionedFilesFromChangeListManager() {
-    return ChangeListManagerImpl.getInstanceImpl(myProject).getUnversionedFiles();
-  }
-
 
   public static MPSVcsManager getInstance(@NotNull Project project) {
     return project.getComponent(MPSVcsManager.class);

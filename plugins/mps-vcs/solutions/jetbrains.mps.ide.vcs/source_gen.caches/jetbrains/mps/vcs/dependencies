@@ -25,6 +25,7 @@
   <uses module="6fd1293f-7f65-4ffd-99dc-4719eca7c171(jetbrains.mps.ide.vcs.platform)" kind="dp" />
   <uses module="8fe4c62a-2020-4ff4-8eda-f322a55bdc9f(jetbrains.mps.refactoring.runtime)" kind="dp" />
   <dependency className="jetbrains.mps.vcs.MPSVcsManager">
+    <classNode dependClassName="com.intellij.openapi.application.Application" />
     <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.progress.EmptyProgressIndicator" />
     <classNode dependClassName="com.intellij.openapi.project.Project" />
@@ -43,7 +44,6 @@
     <classNode dependClassName="com.intellij.openapi.vcs.changes.Change" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ChangeList" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ChangeListManagerGate" />
-    <classNode dependClassName="com.intellij.openapi.vcs.changes.ChangeListManagerImpl" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ChangeProvider" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ContentRevision" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.EmptyChangelistBuilder" />

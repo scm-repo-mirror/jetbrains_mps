@@ -624,35 +624,8 @@
           <node concept="3clFbS" id="6OnFPjfFMG_" role="3clFbx">
             <node concept="3cpWs6" id="6OnFPjfFMO8" role="3cqZAp" />
           </node>
-          <node concept="22lmx$" id="6OnFPjfFMNZ" role="3clFbw">
-            <node concept="2OqwBi" id="6OnFPjfFMO3" role="3uHU7w">
-              <node concept="37vLTw" id="2BHiRxeunjW" role="2Oq$k0">
-                <ref role="3cqZAo" node="38_6U8fKv5Y" resolve="myProject" />
-              </node>
-              <node concept="liA8E" id="6OnFPjfFMO7" role="2OqNvi">
-                <ref role="37wK5l" to="4nm9:~Project.isDefault()" resolve="isDefault" />
-              </node>
-            </node>
-            <node concept="22lmx$" id="npQ_fH7e_E" role="3uHU7B">
-              <node concept="2OqwBi" id="npQ_fH7hA6" role="3uHU7w">
-                <node concept="2YIFZM" id="npQ_fH7htq" role="2Oq$k0">
-                  <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                  <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-                </node>
-                <node concept="liA8E" id="npQ_fH7hHI" role="2OqNvi">
-                  <ref role="37wK5l" to="bd8o:~Application.isHeadlessEnvironment()" resolve="isHeadlessEnvironment" />
-                </node>
-              </node>
-              <node concept="2OqwBi" id="6OnFPjfFMNU" role="3uHU7B">
-                <node concept="2YIFZM" id="6OnFPjfFMNT" role="2Oq$k0">
-                  <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-                  <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-                </node>
-                <node concept="liA8E" id="6OnFPjfFMNY" role="2OqNvi">
-                  <ref role="37wK5l" to="bd8o:~Application.isUnitTestMode()" resolve="isUnitTestMode" />
-                </node>
-              </node>
-            </node>
+          <node concept="1rXfSq" id="GzQDfj4JVD" role="3clFbw">
+            <ref role="37wK5l" node="GzQDfj4DLr" resolve="projectOpenCloseEventOfInterest" />
           </node>
         </node>
         <node concept="3SKdUt" id="3qzU$0Ebwj3" role="3cqZAp">
@@ -875,6 +848,14 @@
       <node concept="3Tm1VV" id="38_6U8fKv8_" role="1B3o_S" />
       <node concept="3cqZAl" id="38_6U8fKv8A" role="3clF45" />
       <node concept="3clFbS" id="38_6U8fKv8B" role="3clF47">
+        <node concept="3clFbJ" id="GzQDfj4VAc" role="3cqZAp">
+          <node concept="3clFbS" id="GzQDfj4VAd" role="3clFbx">
+            <node concept="3cpWs6" id="GzQDfj4VAe" role="3cqZAp" />
+          </node>
+          <node concept="1rXfSq" id="GzQDfj4VAf" role="3clFbw">
+            <ref role="37wK5l" node="GzQDfj4DLr" resolve="projectOpenCloseEventIgnored" />
+          </node>
+        </node>
         <node concept="3clFbF" id="78tlMyQ2NuJ" role="3cqZAp">
           <node concept="2OqwBi" id="78tlMyQ2NuK" role="3clFbG">
             <node concept="2YIFZM" id="78tlMyQ2NuL" role="2Oq$k0">
@@ -906,6 +887,56 @@
       <node concept="2AHcQZ" id="3tYsUK_RWdQ" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
+    </node>
+    <node concept="2tJIrI" id="GzQDfj4rey" role="jymVt" />
+    <node concept="3clFb_" id="GzQDfj4DLr" role="jymVt">
+      <property role="TrG5h" value="projectOpenCloseEventIgnored" />
+      <node concept="3clFbS" id="GzQDfj4DLu" role="3clF47">
+        <node concept="3cpWs8" id="GzQDfj4Pa1" role="3cqZAp">
+          <node concept="3cpWsn" id="GzQDfj4Pa2" role="3cpWs9">
+            <property role="TrG5h" value="app" />
+            <node concept="3uibUv" id="GzQDfj4OIQ" role="1tU5fm">
+              <ref role="3uigEE" to="bd8o:~Application" resolve="Application" />
+            </node>
+            <node concept="2YIFZM" id="GzQDfj4Pa3" role="33vP2m">
+              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
+              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="GzQDfj4Lyv" role="3cqZAp">
+          <node concept="22lmx$" id="6OnFPjfFMNZ" role="3clFbG">
+            <node concept="2OqwBi" id="6OnFPjfFMO3" role="3uHU7w">
+              <node concept="37vLTw" id="2BHiRxeunjW" role="2Oq$k0">
+                <ref role="3cqZAo" node="38_6U8fKv5Y" resolve="myProject" />
+              </node>
+              <node concept="liA8E" id="6OnFPjfFMO7" role="2OqNvi">
+                <ref role="37wK5l" to="4nm9:~Project.isDefault()" resolve="isDefault" />
+              </node>
+            </node>
+            <node concept="22lmx$" id="npQ_fH7e_E" role="3uHU7B">
+              <node concept="2OqwBi" id="npQ_fH7hA6" role="3uHU7w">
+                <node concept="37vLTw" id="GzQDfj4Pa5" role="2Oq$k0">
+                  <ref role="3cqZAo" node="GzQDfj4Pa2" resolve="application" />
+                </node>
+                <node concept="liA8E" id="npQ_fH7hHI" role="2OqNvi">
+                  <ref role="37wK5l" to="bd8o:~Application.isHeadlessEnvironment()" resolve="isHeadlessEnvironment" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="6OnFPjfFMNU" role="3uHU7B">
+                <node concept="37vLTw" id="GzQDfj4Pa4" role="2Oq$k0">
+                  <ref role="3cqZAo" node="GzQDfj4Pa2" resolve="application" />
+                </node>
+                <node concept="liA8E" id="6OnFPjfFMNY" role="2OqNvi">
+                  <ref role="37wK5l" to="bd8o:~Application.isUnitTestMode()" resolve="isUnitTestMode" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="GzQDfj4BEt" role="1B3o_S" />
+      <node concept="10P_77" id="GzQDfj4DID" role="3clF45" />
     </node>
     <node concept="2tJIrI" id="4_rZUNaXgYO" role="jymVt" />
     <node concept="3clFb_" id="78tlMyQ2NAc" role="jymVt">
@@ -1072,34 +1103,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="4_rZUNaXfum" role="jymVt" />
-    <node concept="3clFb_" id="38_6U8fKv9C" role="jymVt">
-      <property role="TrG5h" value="getUnversionedFilesFromChangeListManager" />
-      <node concept="3Tm1VV" id="38_6U8fKv9D" role="1B3o_S" />
-      <node concept="3uibUv" id="38_6U8fKv9E" role="3clF45">
-        <ref role="3uigEE" to="33ny:~List" resolve="List" />
-        <node concept="3uibUv" id="38_6U8fKv9F" role="11_B2D">
-          <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="38_6U8fKv9G" role="3clF47">
-        <node concept="3cpWs6" id="38_6U8fKv9H" role="3cqZAp">
-          <node concept="2OqwBi" id="38_6U8fKv9I" role="3cqZAk">
-            <node concept="2YIFZM" id="38_6U8fKv9J" role="2Oq$k0">
-              <ref role="1Pybhc" to="1037:~ChangeListManagerImpl" resolve="ChangeListManagerImpl" />
-              <ref role="37wK5l" to="1037:~ChangeListManagerImpl.getInstanceImpl(com.intellij.openapi.project.Project)" resolve="getInstanceImpl" />
-              <node concept="37vLTw" id="2BHiRxeuVca" role="37wK5m">
-                <ref role="3cqZAo" node="38_6U8fKv5Y" resolve="myProject" />
-              </node>
-            </node>
-            <node concept="liA8E" id="38_6U8fKv9L" role="2OqNvi">
-              <ref role="37wK5l" to="1037:~ChangeListManagerImpl.getUnversionedFiles()" resolve="getUnversionedFiles" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="4_rZUNaXdr1" role="jymVt" />
     <node concept="2tJIrI" id="4_rZUNaXeye" role="jymVt" />
     <node concept="2YIFZL" id="38_6U8fKv6t" role="jymVt">
       <property role="TrG5h" value="getInstance" />
