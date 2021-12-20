@@ -29,10 +29,11 @@ import jetbrains.mps.project.structure.modules.DevkitDescriptor;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import com.intellij.openapi.application.ApplicationManager;
+import org.jetbrains.annotations.Nullable;
 import javax.lang.model.SourceVersion;
+import jetbrains.mps.util.NameUtil;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
@@ -43,7 +44,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.LanguageAspect;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.persistence.DefaultModelRoot;
@@ -198,7 +198,7 @@ public class NewModuleUtil {
     });
   }
 
-  public static String check(MPSProject mpsProject, String extension, final String namespace, String rootPath) {
+  public static String check(@Nullable MPSProject mpsProject, String extension, final String namespace, String rootPath) {
     if (MPSExtentions.DOT_LANGUAGE.equals(extension) && !(SourceVersion.isName(namespace))) {
       return "Language namespace should be valid Java package";
     }
@@ -208,14 +208,17 @@ public class NewModuleUtil {
     if (namespace.length() == 0) {
       return "Namespace should be specified";
     }
+    if (NameUtil.shortNameFromLongName(namespace).length() == 0) {
+      return "Enter valid namespace";
+    }
+    if (mpsProject == null) {
+      return null;
+    }
     final SRepository repo = mpsProject.getRepository();
     // FIXME in fact, no reason to bother with identical name, it's module id that matters
     boolean duplicateName = new ModelAccessHelper(repo).runReadAction(() -> !(new ModuleRepositoryFacade(repo).getModulesByName(namespace).isEmpty()));
     if (duplicateName) {
       return "Module namespace already exists";
-    }
-    if (NameUtil.shortNameFromLongName(namespace).length() == 0) {
-      return "Enter valid namespace";
     }
     try {
       IFile moduleRoot = mpsProject.getFileSystem().getFile(rootPath);
