@@ -26,6 +26,7 @@
         <pathelement path="${build.tmp}/MPS ${mpsBootstrapCore.version}/lib/mps-workbench.jar"/>
         <pathelement path="${build.tmp}/MPS ${mpsBootstrapCore.version}/lib/mps-core.jar"/>
         <pathelement path="${build.tmp}/MPS ${mpsBootstrapCore.version}/lib/util.jar"/>
+        <pathelement path="${build.tmp}/MPS ${mpsBootstrapCore.version}/lib/3rd-party-rt.jar"/>
       </classpath>
     </java>
 
