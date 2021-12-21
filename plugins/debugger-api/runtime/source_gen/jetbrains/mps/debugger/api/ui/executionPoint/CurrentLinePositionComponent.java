@@ -9,7 +9,6 @@ import com.intellij.openapi.components.ProjectComponent;
 import jetbrains.mps.debug.api.SessionChangeListener;
 import jetbrains.mps.debug.api.DebugSessionManagerComponent;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -24,8 +23,8 @@ import jetbrains.mps.debug.api.SessionChangeAdapter;
 public class CurrentLinePositionComponent extends CurrentLinePositionComponentEx<AbstractDebugSession> implements ProjectComponent {
   private final SessionChangeListener myChangeListener = new MySessionChangeListener();
   private final DebugSessionManagerComponent.DebugSessionListener myCurrentDebugSessionListener = new MyCurrentDebugSessionListener();
-  public CurrentLinePositionComponent(Project project, FileEditorManager fileEditorManager) {
-    super(project, fileEditorManager);
+  public CurrentLinePositionComponent(Project project) {
+    super(project);
   }
   @Override
   public void projectOpened() {

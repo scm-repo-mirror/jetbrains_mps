@@ -35,6 +35,7 @@
     <import index="y49u" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.util(MPS.OpenAPI/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="kz9k" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.navigation(MPS.Editor/)" />
+    <import index="nvd4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.repository(MPS.OpenAPI/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -886,13 +887,7 @@
     <node concept="16euLQ" id="4U88gsho6o7" role="16eVyc">
       <property role="TrG5h" value="S" />
     </node>
-    <node concept="312cEg" id="4U88gsho6nv" role="jymVt">
-      <property role="TrG5h" value="myFileEditorManager" />
-      <node concept="3Tm6S6" id="4U88gsho6nw" role="1B3o_S" />
-      <node concept="3uibUv" id="4U88gsho6nx" role="1tU5fm">
-        <ref role="3uigEE" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
-      </node>
-    </node>
+    <node concept="2tJIrI" id="jKb6A_wE7v" role="jymVt" />
     <node concept="312cEg" id="4U88gsho6ny" role="jymVt">
       <property role="TrG5h" value="mySessionToContextPainterMap" />
       <property role="34CwA1" value="false" />
@@ -956,7 +951,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="4I7IQUWaSfX" role="1B3o_S" />
       <node concept="3uibUv" id="6mkTi9xDXfK" role="1tU5fm">
-        <ref role="3uigEE" to="w1kc:~CommandListenerAdapter" resolve="CommandListenerAdapter" />
+        <ref role="3uigEE" to="nvd4:~CommandListener" resolve="CommandListener" />
       </node>
       <node concept="2ShNRf" id="4I7IQUWbhOV" role="33vP2m">
         <node concept="HV5vD" id="4I7IQUWbzrL" role="2ShVmc">
@@ -964,6 +959,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="jKb6A_wIpN" role="jymVt" />
     <node concept="3clFbW" id="4U88gsho6nR" role="jymVt">
       <node concept="3cqZAl" id="4U88gsho6nS" role="3clF45" />
       <node concept="3Tm1VV" id="4U88gsho6nT" role="1B3o_S" />
@@ -978,16 +974,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4U88gsho6nZ" role="3cqZAp">
-          <node concept="37vLTI" id="4U88gsho6o0" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxghf7j" role="37vLTx">
-              <ref role="3cqZAo" node="4U88gsho6o5" resolve="fileEditorManager" />
-            </node>
-            <node concept="37vLTw" id="2BHiRxeut1d" role="37vLTJ">
-              <ref role="3cqZAo" node="4U88gsho6nv" resolve="myFileEditorManager" />
-            </node>
-          </node>
-        </node>
       </node>
       <node concept="37vLTG" id="4U88gsho6o3" role="3clF46">
         <property role="TrG5h" value="project" />
@@ -995,13 +981,8 @@
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
       </node>
-      <node concept="37vLTG" id="4U88gsho6o5" role="3clF46">
-        <property role="TrG5h" value="fileEditorManager" />
-        <node concept="3uibUv" id="4U88gsho6o6" role="1tU5fm">
-          <ref role="3uigEE" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
-        </node>
-      </node>
     </node>
+    <node concept="2tJIrI" id="jKb6A_wM72" role="jymVt" />
     <node concept="3clFb_" id="4U88gsho6fc" role="jymVt">
       <property role="TrG5h" value="init" />
       <node concept="3cqZAl" id="4U88gsho6fd" role="3clF45" />
@@ -1843,33 +1824,9 @@
                                   </node>
                                 </node>
                                 <node concept="3clFbH" id="7ZsPHXTrlnR" role="3cqZAp" />
-                                <node concept="3cpWs8" id="7ZsPHXTrjuU" role="3cqZAp">
-                                  <node concept="3cpWsn" id="7ZsPHXTrjuV" role="3cpWs9">
-                                    <property role="TrG5h" value="components" />
-                                    <node concept="3uibUv" id="7ZsPHXTrjuW" role="1tU5fm">
-                                      <ref role="3uigEE" to="33ny:~List" resolve="List" />
-                                      <node concept="3uibUv" id="7ZsPHXTrjuX" role="11_B2D">
-                                        <ref role="3uigEE" to="exr9:~EditorComponent" resolve="EditorComponent" />
-                                      </node>
-                                    </node>
-                                    <node concept="2YIFZM" id="7ZsPHXTrjuY" role="33vP2m">
-                                      <ref role="37wK5l" to="7lvn:3TltS6fENvn" resolve="findComponentForNode" />
-                                      <ref role="1Pybhc" to="7lvn:3TltS6fENti" resolve="EditorComponentUtil" />
-                                      <node concept="37vLTw" id="7ZsPHXTrkOy" role="37wK5m">
-                                        <ref role="3cqZAo" node="7ZsPHXTrkOs" resolve="node" />
-                                      </node>
-                                      <node concept="37vLTw" id="7ZsPHXTrjv2" role="37wK5m">
-                                        <ref role="3cqZAo" node="4U88gsho6nv" resolve="myFileEditorManager" />
-                                      </node>
-                                    </node>
-                                  </node>
-                                </node>
                                 <node concept="2Gpval" id="7ZsPHXTrjv3" role="3cqZAp">
                                   <node concept="2GrKxI" id="7ZsPHXTrjv4" role="2Gsz3X">
                                     <property role="TrG5h" value="component" />
-                                  </node>
-                                  <node concept="37vLTw" id="7ZsPHXTrjv5" role="2GsD0m">
-                                    <ref role="3cqZAo" node="7ZsPHXTrjuV" resolve="components" />
                                   </node>
                                   <node concept="3clFbS" id="7ZsPHXTrjv6" role="2LFqv$">
                                     <node concept="3clFbF" id="7ZsPHXTrjv7" role="3cqZAp">
@@ -1881,6 +1838,20 @@
                                         <node concept="2GrUjf" id="7ZsPHXTrjva" role="37wK5m">
                                           <ref role="2Gs0qQ" node="7ZsPHXTrjv4" resolve="component" />
                                         </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="2YIFZM" id="7ZsPHXTrjuY" role="2GsD0m">
+                                    <ref role="1Pybhc" to="7lvn:3TltS6fENti" resolve="EditorComponentUtil" />
+                                    <ref role="37wK5l" to="7lvn:3TltS6fENvn" resolve="findComponentForNode" />
+                                    <node concept="37vLTw" id="7ZsPHXTrkOy" role="37wK5m">
+                                      <ref role="3cqZAo" node="7ZsPHXTrkOs" resolve="node" />
+                                    </node>
+                                    <node concept="2YIFZM" id="jKb6A_wTYI" role="37wK5m">
+                                      <ref role="1Pybhc" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
+                                      <ref role="37wK5l" to="iwsx:~FileEditorManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                                      <node concept="37vLTw" id="jKb6A_x8z9" role="37wK5m">
+                                        <ref role="3cqZAo" node="4U88gsho6nF" resolve="myProject" />
                                       </node>
                                     </node>
                                   </node>
@@ -2015,8 +1986,12 @@
                           <node concept="2YIFZM" id="7ZsPHXTrNg0" role="1DdaDG">
                             <ref role="1Pybhc" to="7lvn:3TltS6fENti" resolve="EditorComponentUtil" />
                             <ref role="37wK5l" to="7lvn:3TltS6fENwY" resolve="getAllEditorComponents" />
-                            <node concept="37vLTw" id="7ZsPHXTrNg1" role="37wK5m">
-                              <ref role="3cqZAo" node="4U88gsho6nv" resolve="myFileEditorManager" />
+                            <node concept="2YIFZM" id="jKb6A_xbAg" role="37wK5m">
+                              <ref role="1Pybhc" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
+                              <ref role="37wK5l" to="iwsx:~FileEditorManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                              <node concept="37vLTw" id="jKb6A_xbAh" role="37wK5m">
+                                <ref role="3cqZAo" node="4U88gsho6nF" resolve="myProject" />
+                              </node>
                             </node>
                             <node concept="3clFbT" id="7ZsPHXTrNg2" role="37wK5m">
                               <property role="3clFbU" value="true" />
@@ -2381,8 +2356,12 @@
                           <node concept="2YIFZM" id="4U88gsho6mF" role="1DdaDG">
                             <ref role="1Pybhc" to="7lvn:3TltS6fENti" resolve="EditorComponentUtil" />
                             <ref role="37wK5l" to="7lvn:3TltS6fENwY" resolve="getAllEditorComponents" />
-                            <node concept="37vLTw" id="2BHiRxeuWTE" role="37wK5m">
-                              <ref role="3cqZAo" node="4U88gsho6nv" resolve="myFileEditorManager" />
+                            <node concept="2YIFZM" id="jKb6A_xEgE" role="37wK5m">
+                              <ref role="1Pybhc" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
+                              <ref role="37wK5l" to="iwsx:~FileEditorManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                              <node concept="37vLTw" id="jKb6A_xEgF" role="37wK5m">
+                                <ref role="3cqZAo" node="4U88gsho6nF" resolve="myProject" />
+                              </node>
                             </node>
                             <node concept="3clFbT" id="4U88gsho6mH" role="37wK5m">
                               <property role="3clFbU" value="true" />
@@ -2604,9 +2583,6 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="4I7IQUWbcE9" role="1B3o_S" />
-      <node concept="3uibUv" id="6mkTi9xDOOx" role="1zkMxy">
-        <ref role="3uigEE" to="w1kc:~CommandListenerAdapter" resolve="CommandListenerAdapter" />
-      </node>
       <node concept="3UR2Jj" id="6mkTi9xDVN7" role="lGtFl">
         <node concept="TZ5HA" id="6mkTi9xDVN8" role="TZ5H$">
           <node concept="1dT_AC" id="6mkTi9xDVN9" role="1dT_Ay">
@@ -2623,6 +2599,9 @@
             <property role="1dT_AB" value="so I wonder if there's a reason to keep it?" />
           </node>
         </node>
+      </node>
+      <node concept="3uibUv" id="jKb6A_w$cQ" role="EKbjA">
+        <ref role="3uigEE" to="nvd4:~CommandListener" resolve="CommandListener" />
       </node>
     </node>
   </node>

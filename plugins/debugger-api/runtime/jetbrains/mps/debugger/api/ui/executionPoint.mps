@@ -254,21 +254,11 @@
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
       </node>
-      <node concept="37vLTG" id="1ijklmZVTVi" role="3clF46">
-        <property role="TrG5h" value="fileEditorManager" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="1ijklmZVTVj" role="1tU5fm">
-          <ref role="3uigEE" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
-        </node>
-      </node>
       <node concept="3clFbS" id="1ijklmZVTVk" role="3clF47">
         <node concept="XkiVB" id="1ijklmZVTVl" role="3cqZAp">
           <ref role="37wK5l" to="tzxy:~CurrentLinePositionComponentEx.&lt;init&gt;(com.intellij.openapi.project.Project,com.intellij.openapi.fileEditor.FileEditorManager)" resolve="CurrentLinePositionComponentEx" />
           <node concept="37vLTw" id="2BHiRxgm7WG" role="37wK5m">
             <ref role="3cqZAo" node="1ijklmZVTVg" resolve="project" />
-          </node>
-          <node concept="37vLTw" id="2BHiRxglST5" role="37wK5m">
-            <ref role="3cqZAo" node="1ijklmZVTVi" resolve="fileEditorManager" />
           </node>
         </node>
       </node>
