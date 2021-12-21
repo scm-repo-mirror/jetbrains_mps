@@ -8,8 +8,8 @@ import jetbrains.mps.debug.api.SessionChangeListener;
 import jetbrains.mps.debug.api.DebugSessionManagerComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.util.messages.MessageBusConnection;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
@@ -38,11 +38,16 @@ public class InTextPositionComponent implements ProjectComponent {
   private final DebugSessionManagerComponent.DebugSessionListener myCurrentDebugSessionListener = new MyCurrentDebugSessionListener();
   private final Project myProject;
   private volatile RangeHighlighter myHighlighter;
-  private final FileEditorManager myEditorManager;
   private MessageBusConnection myConnection;
-  public InTextPositionComponent(Project project, FileEditorManager fileEditorManager) {
+
+  public InTextPositionComponent(Project project) {
     myProject = project;
-    myEditorManager = fileEditorManager;
+    if (FileEditorManager.getInstance(project) == null) {
+      // FIXME odd friendly reminder to switch FileEditorManagerListener of this component to <projectListener>
+      //      I assume the only reason for unused FEM argument here (153366f0) is to make sure this component
+      //      comes after FEM and thus doesn't miss any fileOpened(); although with Julia you can never be sure enough.
+      throw new IllegalStateException();
+    }
   }
   @Override
   public void projectOpened() {
