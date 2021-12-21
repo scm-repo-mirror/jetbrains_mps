@@ -18,11 +18,9 @@ import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.baseLanguage.closures.util.FunctionalInterfaceHelper;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.closures.constraints.ClassifierTypeUtil;
 import jetbrains.mps.baseLanguage.methodReferences.behavior.MethodReference__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.ITypeApplicable__BehaviorDescriptor;
@@ -39,7 +37,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_MethodReference_InferenceRule() {
@@ -95,16 +92,10 @@ public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_
                   SNode classifierType = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(targetType), CONCEPTS.ClassifierType$bL);
                   SNode classifier = SLinkOperations.getTarget(classifierType, LINKS.classifier$cxMr);
 
-                  Iterator<SNode> candidates = Sequence.fromIterable(Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(classifier)).where(new IWhereFilter<SNode>() {
-                    public boolean accept(SNode m) {
-                      return !("equals".equals(SPropertyOperations.getString(m, PROPS.name$MnvL))) && (boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(m);
-                    }
-                  }).iterator();
-                  targetMethod = candidates.next();
+                  Tuples._2<SNode, String> functionalMethod = FunctionalInterfaceHelper.getFunctionalMethod(classifier);
 
-                  if (candidates.hasNext()) {
-                    errorMsg = ": more than one abstract method";
-                  }
+                  targetMethod = functionalMethod._0();
+                  errorMsg = functionalMethod._1();
 
                   GenericHelper.collectGenerics(typeCheckingContext, classifierType, subs);
 
@@ -133,7 +124,7 @@ public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_
                   }));
 
                   if (ListSequence.fromList(refMethodParamTypes).count() != ListSequence.fromList(targetMethodParamTypes).count()) {
-                    errorMsg = ": wrong parameter number";
+                    errorMsg = "wrong parameter number";
                   } else {
                     // Check/infer parameters
                     {
@@ -167,7 +158,7 @@ public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_
                       }
 
                       if (SNodeOperations.isInstanceOf(returnType, CONCEPTS.VoidType$BF)) {
-                        errorMsg = ": method returns null";
+                        errorMsg = "method returns null";
                       }
 
                       {
@@ -202,13 +193,13 @@ public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_
                   }
 
                 } else if (errorMsg == null) {
-                  errorMsg = ": no method to substitute";
+                  errorMsg = "no method to substitute";
                 }
 
                 if (errorMsg != null) {
                   {
                     final MessageTarget errorTarget = new NodeMessageTarget();
-                    IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodRef, BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(methodRef) + " is not a subtype of " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(typeCheckingContext.getExpandedNode(targetType)) + errorMsg, "r:9a698d99-93bf-42e4-8ae2-c535d539938c(jetbrains.mps.baseLanguage.methodReferences.typesystem)", "4809526991095266437", null, errorTarget);
+                    IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodRef, BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(methodRef) + " is not a subtype of " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(typeCheckingContext.getExpandedNode(targetType)) + ": " + errorMsg, "r:9a698d99-93bf-42e4-8ae2-c535d539938c(jetbrains.mps.baseLanguage.methodReferences.typesystem)", "4809526991095266437", null, errorTarget);
                     {
                       BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.methodReferences.typesystem.WrapMethodRefIntoClosure_QuickFix", "4809526991095266438", false);
                       intentionProvider.putArgument("methodRef", methodRef);
@@ -286,9 +277,5 @@ public class typeof_MethodReference_InferenceRule extends AbstractInferenceRule_
     /*package*/ static final SContainmentLink returnType$5xoi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
     /*package*/ static final SContainmentLink throwsItem$CdW$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem");
     /*package*/ static final SContainmentLink targetType$3iY9 = MetaAdapterFactory.getContainmentLink(0xacfc188dd5d64598L, 0xb3706f4a983f05b2L, 0x6f392ce92f1d3d32L, 0x6f392ce92f1d3d33L, "targetType");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

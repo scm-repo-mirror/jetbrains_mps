@@ -26,7 +26,8 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.baseLanguage.closures.util.FunctionalInterfaceHelper;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -176,16 +177,13 @@ public class ClosureLiteralTarget {
     return ListSequence.fromList(SNodeOperations.getNodeDescendants(type, CONCEPTS.TypeVariableReference$WL, true, new SAbstractConcept[]{})).isNotEmpty();
   }
   private SNode getFunctionMethod(SNode literal, SNode targetIface) {
-    List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
-    for (SNode mth : Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(SLinkOperations.getTarget(targetIface, LINKS.classifier$cxMr))) {
-      if (!("equals".equals(SPropertyOperations.getString(mth, PROPS.name$MnvL))) && (boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(mth)) {
-        ListSequence.fromList(result).addElement(mth);
-      }
-    }
-    if (ListSequence.fromList(result).count() > 1) {
+    Tuples._2<SNode, String> functionalMethod = FunctionalInterfaceHelper.getFunctionalMethod(SLinkOperations.getTarget(targetIface, LINKS.classifier$cxMr));
+
+    if (functionalMethod._1() == FunctionalInterfaceHelper.MORE_THAN_ONE_METHOD) {
       genContext.showWarningMessage(literal, "The adaptation target interface has more than one method");
     }
-    return ListSequence.fromList(result).first();
+
+    return functionalMethod._0();
   }
 
   private static final class LINKS {
