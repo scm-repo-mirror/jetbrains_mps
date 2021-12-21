@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,6 @@ package jetbrains.mps.library;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
-import jetbrains.mps.ide.MPSCoreComponents;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -34,11 +32,10 @@ import java.util.Set;
   name = "AdditionalLibrariesManager",
   storages = @Storage("AdditionalLibrariesManager.xml")
 )
-public class AdditionalLibrariesManager extends BaseLibraryManager {
+public class AdditionalLibrariesManager extends BaseLibraryManager implements ApplicationComponent {
   private Map<String, Library> myCustomBuiltInLibraries = new HashMap<>();
 
-  public AdditionalLibrariesManager(MPSCoreComponents coreComponents) {
-    super(coreComponents);
+  public AdditionalLibrariesManager() {
   }
 
   @Override
@@ -56,6 +53,6 @@ public class AdditionalLibrariesManager extends BaseLibraryManager {
 
   @Override
   public String toString() {
-    return "AdditionalLibrariesManager";
+    return getClass().getSimpleName();
   }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,16 +34,24 @@ import java.io.File;
   storages = @Storage("libraries.xml")
 )
 public class ProjectLibraryManager extends BaseLibraryManager implements ProjectComponent {
-  private Project myProject;
+  private final Project myProject;
 
-  public ProjectLibraryManager(Project project, DumbService dumbService, MPSCoreComponents coreComponents) {
-    super(coreComponents);
+  public ProjectLibraryManager(Project project) {
+    // could not use MPSProject here as it depends from this component
     myProject = project;
+    if (null == DumbService.getInstance(project)) {
+      // DumbService dependency introduced in 90f537f7 to address MPS-12136.
+      // Likely, there's no such issue any more, but better safe than sorry, ask DS to get
+      // initialized before we get into super.initComponent()
+      throw new IllegalStateException();
+    }
   }
 
   @Override
   public void initComponent() {
     if (!myProject.isDefault()) {
+      // FIXME why is this check here? PLM is not denoted with {@code <loadForDefaultProject>}
+      //       and should not get activated when project.isDefault
       super.initComponent();
     }
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,8 @@ import java.util.regex.Matcher;
 public abstract class BaseLibraryManager implements BaseComponent, PersistentStateComponent<LibraryState>, LibraryContributor {
   private final LibraryInitializer myLibraryInitializer;
 
-  public BaseLibraryManager(MPSCoreComponents components) {
-    myLibraryInitializer = components.getLibraryInitializer();
+  public BaseLibraryManager() {
+    myLibraryInitializer = MPSCoreComponents.getInstance().getLibraryInitializer();
   }
 
   @Override
