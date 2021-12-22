@@ -10,6 +10,9 @@
         <include prefix="com.intellij.openapi.util" />
       </PackageScope>
     </modelRoot>
+    <modelRoot contentPath="${mps_home}/lib/" type="java_classes">
+      <sourceRoot location="mps-boot-util.jar" />
+    </modelRoot>
   </models>
   <facets>
     <facet type="java"/>
