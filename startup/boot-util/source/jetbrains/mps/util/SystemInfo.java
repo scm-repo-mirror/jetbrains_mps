@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.util;
 
+import com.intellij.util.text.VersionComparatorUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -22,34 +23,29 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Locale;
 
 /**
- * Some system properties are copied from the platform <code>SystemInfo</code>
+ * Some system fields are delegated to the platform <code>SystemInfo</code>
  *
  * Created by apyshkin on 06/07/16.
  */
-public class SystemInfo {
-  private final static Logger LOG = LogManager.getLogger(SystemInfo.class);
+public final class SystemInfo {
+  public static final String OS_NAME = com.intellij.openapi.util.SystemInfo.OS_NAME;
+  public static final String OS_VERSION = com.intellij.openapi.util.SystemInfo.OS_VERSION;
 
-  public static final String OS_NAME = System.getProperty("os.name");
-  public static final String OS_VERSION = System.getProperty("os.version").toLowerCase(Locale.US);
+  public static final boolean isWindows = com.intellij.openapi.util.SystemInfo.isWindows;
+  public static final boolean isMac = com.intellij.openapi.util.SystemInfo.isMac;
+  public static final boolean isLinux = com.intellij.openapi.util.SystemInfo.isLinux;
+  public static final boolean isFreeBSD = com.intellij.openapi.util.SystemInfo.isFreeBSD;
+  public static final boolean isSolaris = com.intellij.openapi.util.SystemInfo.isSolaris;
+  public static final boolean isUnix = com.intellij.openapi.util.SystemInfo.isUnix;
 
-  private static final String _OS_NAME = OS_NAME.toLowerCase(Locale.US);
-  public static final boolean isWindows = _OS_NAME.startsWith("windows");
-  public static final boolean isOS2 = _OS_NAME.startsWith("os/2") || _OS_NAME.startsWith("os2");
-  public static final boolean isMac = _OS_NAME.startsWith("mac");
-  public static final boolean isLinux = _OS_NAME.startsWith("linux");
-  public static final boolean isFreeBSD = _OS_NAME.startsWith("freebsd");
-  public static final boolean isSolaris = _OS_NAME.startsWith("sunos");
-  public static final boolean isUnix = !isWindows && !isOS2;
-
-  public static final String JAVA_RUNTIME_VERSION = System.getProperty("java.runtime.version");
-  private static final String JAVA_VERSION = System.getProperty("java.version").toLowerCase();
-  public static final boolean isFileSystemCaseSensitive = isUnix && !isMac || "true".equalsIgnoreCase(System.getProperty("idea.case.sensitive.fs"));
+  public static final String JAVA_RUNTIME_VERSION = com.intellij.openapi.util.SystemInfo.JAVA_RUNTIME_VERSION;
+  private static final String JAVA_VERSION = com.intellij.openapi.util.SystemInfo.JAVA_VERSION;
 
   public static boolean isOsVersionAtLeast(@NotNull String version) {
-    return VersionComparatorUtil.compare(OS_VERSION, version) >= 0;
+    return com.intellij.openapi.util.SystemInfo.isOsVersionAtLeast(version);
   }
 
   public static boolean isJavaVersionAtLeast(@NotNull String version) {
-    return VersionComparatorUtil.compare(JAVA_RUNTIME_VERSION, version) >= 0;
+    return com.intellij.openapi.util.SystemInfo.isJavaVersionAtLeast(version);
   }
 }
