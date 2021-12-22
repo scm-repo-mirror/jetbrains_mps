@@ -30,7 +30,6 @@ import java.util.stream.Collectors;
 
 /**
  * Utility to parse special idea.additional.classpath.txt file.
- * The paths in it points to the
  */
 public final class ClassPathReader {
   private static final Logger LOG = LogManager.getLogger(ClassPathReader.class);

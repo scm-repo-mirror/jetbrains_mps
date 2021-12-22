@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.reloading;
 
-import jetbrains.mps.util.ClassPathReader;
 import jetbrains.mps.util.ClassType;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.IFileSystem;
@@ -24,9 +23,7 @@ import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.util.PathUtil;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
