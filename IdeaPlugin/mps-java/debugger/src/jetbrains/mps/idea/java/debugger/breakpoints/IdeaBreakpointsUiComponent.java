@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,8 +59,8 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
   private DebuggerManagerEx myDebuggerManager;
   private final XBreakpointListener myBreakpointListener = new MyBreakpointListener();
 
-  public IdeaBreakpointsUiComponent(Project project, FileEditorManager manager) {
-    super(project, manager);
+  public IdeaBreakpointsUiComponent(Project project) {
+    super(project);
   }
 
   @Override
@@ -121,7 +121,7 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
       public List<EditorComponent> compute() {
         SNode node = BreakpointPainter.getNodeForBreakpoint(breakpoint, repository);
         if (node != null) {
-          return EditorComponentUtil.findComponentForNode(node, myFileEditorManager);
+          return EditorComponentUtil.findComponentForNode(node, FileEditorManager.getInstance(myProject));
         }
         return Collections.emptyList();
       }
@@ -190,7 +190,7 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
   }
 
   private void clearAllEditors() {
-    List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(myFileEditorManager, true);
+    List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(FileEditorManager.getInstance(myProject), true);
     for (EditorComponent component : allEditorComponents) {
       component.getLeftEditorHighlighter().removeAllIconRenderers(BreakpointIconRenderrer.TYPE);
       List<AdditionalPainter> additionalPainters = component.getAdditionalPainters();
@@ -231,7 +231,7 @@ public class IdeaBreakpointsUiComponent extends BreakpointsUiComponentEx<Breakpo
       ApplicationManager.getApplication().invokeLater(new Runnable() {
         @Override
         public void run() {
-          List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(myFileEditorManager, true);
+          List<EditorComponent> allEditorComponents = EditorComponentUtil.getAllEditorComponents(FileEditorManager.getInstance(myProject), true);
           for (EditorComponent component : allEditorComponents) {
             component.repaint();
           }

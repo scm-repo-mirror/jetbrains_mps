@@ -52,9 +52,14 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
+        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
+      </concept>
+      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
+        <reference id="1188214555875" name="key" index="2B6OnR" />
+        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -232,6 +237,7 @@
         <child id="8465538089690331502" name="body" index="TZ5H$" />
         <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
+      <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
       <concept id="8465538089690881930" name="jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag" flags="ng" index="TUZQ0">
         <property id="8465538089690881934" name="text" index="TUZQ4" />
         <child id="6832197706140518123" name="parameter" index="zr_5Q" />
@@ -239,7 +245,12 @@
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
-      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC" />
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
+      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
+        <property id="8970989240999019144" name="text" index="1dT_AB" />
+      </concept>
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -809,15 +820,6 @@
   <node concept="312cEu" id="2meLaIF5ltg">
     <property role="TrG5h" value="BreakpointsUiComponentEx" />
     <property role="1sVAO0" value="true" />
-    <node concept="312cEg" id="3SnNvqCbyEv" role="jymVt">
-      <property role="TrG5h" value="myFileEditorManager" />
-      <property role="34CwA1" value="false" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3uibUv" id="3SnNvqCbyEw" role="1tU5fm">
-        <ref role="3uigEE" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
-      </node>
-      <node concept="3Tmbuc" id="2meLaIF5nrV" role="1B3o_S" />
-    </node>
     <node concept="312cEg" id="2meLaIF5nk2" role="jymVt">
       <property role="TrG5h" value="myProject" />
       <property role="3TUv4t" value="true" />
@@ -911,16 +913,6 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="2meLaIF5mJX" role="3cqZAp">
-          <node concept="37vLTI" id="2meLaIF5mK5" role="3clFbG">
-            <node concept="37vLTw" id="2BHiRxgha5p" role="37vLTx">
-              <ref role="3cqZAo" node="2meLaIF5mJZ" resolve="manager" />
-            </node>
-            <node concept="37vLTw" id="2BHiRxeufQ5" role="37vLTJ">
-              <ref role="3cqZAo" node="3SnNvqCbyEv" resolve="myFileEditorManager" />
-            </node>
-          </node>
-        </node>
       </node>
       <node concept="37vLTG" id="2meLaIF5mKC" role="3clF46">
         <property role="TrG5h" value="project" />
@@ -929,12 +921,60 @@
         </node>
       </node>
       <node concept="37vLTG" id="2meLaIF5mJZ" role="3clF46">
-        <property role="TrG5h" value="manager" />
+        <property role="TrG5h" value="unused" />
         <node concept="3uibUv" id="2meLaIF5mK0" role="1tU5fm">
           <ref role="3uigEE" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
         </node>
       </node>
+      <node concept="P$JXv" id="7Tz7JMVGMQS" role="lGtFl">
+        <node concept="TZ5HI" id="7Tz7JMVGMQT" role="3nqlJM">
+          <node concept="TZ5HA" id="7Tz7JMVGMQU" role="3HnX3l">
+            <node concept="1dT_AC" id="7Tz7JMVGNbd" role="1dT_Ay">
+              <property role="1dT_AB" value="use single-argument constructor" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="7Tz7JMVGMQV" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <node concept="2B6LJw" id="7Tz7JMVHq8D" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+          <node concept="3clFbT" id="7Tz7JMVHqg2" role="2B70Vg">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+        <node concept="2B6LJw" id="7Tz7JMVHqgh" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+          <node concept="Xl_RD" id="7Tz7JMVHqiI" role="2B70Vg">
+            <property role="Xl_RC" value="2021.3" />
+          </node>
+        </node>
+      </node>
     </node>
+    <node concept="2tJIrI" id="7Tz7JMVH7C4" role="jymVt" />
+    <node concept="3clFbW" id="7Tz7JMVHdJY" role="jymVt">
+      <node concept="37vLTG" id="7Tz7JMVHjxd" role="3clF46">
+        <property role="TrG5h" value="project" />
+        <node concept="3uibUv" id="7Tz7JMVHjxe" role="1tU5fm">
+          <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
+        </node>
+      </node>
+      <node concept="3cqZAl" id="7Tz7JMVHdK0" role="3clF45" />
+      <node concept="3Tmbuc" id="7Tz7JMVHjiK" role="1B3o_S" />
+      <node concept="3clFbS" id="7Tz7JMVHdK2" role="3clF47">
+        <node concept="3clFbF" id="7Tz7JMVHjKA" role="3cqZAp">
+          <node concept="37vLTI" id="7Tz7JMVHjKB" role="3clFbG">
+            <node concept="37vLTw" id="7Tz7JMVHjKC" role="37vLTx">
+              <ref role="3cqZAo" node="7Tz7JMVHjxd" resolve="project" />
+            </node>
+            <node concept="37vLTw" id="7Tz7JMVHjKD" role="37vLTJ">
+              <ref role="3cqZAo" node="2meLaIF5nk2" resolve="myProject" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="7Tz7JMVGHl4" role="jymVt" />
     <node concept="3clFb_" id="2meLaIF5mKd" role="jymVt">
       <property role="TrG5h" value="init" />
       <node concept="3cqZAl" id="2meLaIF5mKe" role="3clF45" />
@@ -1001,8 +1041,12 @@
           <node concept="2YIFZM" id="JAe0ZgF6Id" role="1DdaDG">
             <ref role="37wK5l" to="7lvn:3TltS6fENwY" resolve="getAllEditorComponents" />
             <ref role="1Pybhc" to="7lvn:3TltS6fENti" resolve="EditorComponentUtil" />
-            <node concept="37vLTw" id="2BHiRxeuoSi" role="37wK5m">
-              <ref role="3cqZAo" node="3SnNvqCbyEv" resolve="myFileEditorManager" />
+            <node concept="2YIFZM" id="7Tz7JMVHsOb" role="37wK5m">
+              <ref role="37wK5l" to="iwsx:~FileEditorManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+              <ref role="1Pybhc" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
+              <node concept="37vLTw" id="7Tz7JMVHwGV" role="37wK5m">
+                <ref role="3cqZAo" node="2meLaIF5nk2" resolve="myProject" />
+              </node>
             </node>
             <node concept="3clFbT" id="JAe0ZgF6If" role="37wK5m">
               <property role="3clFbU" value="true" />
@@ -2366,8 +2410,12 @@
                             <node concept="2YIFZM" id="1VInrN6DoTO" role="33vP2m">
                               <ref role="1Pybhc" to="d155:~EditorComponentUtil" resolve="EditorComponentUtil" />
                               <ref role="37wK5l" to="d155:~EditorComponentUtil.getAllEditorComponents(com.intellij.openapi.fileEditor.FileEditorManager,boolean)" resolve="getAllEditorComponents" />
-                              <node concept="37vLTw" id="2BHiRxeuvy7" role="37wK5m">
-                                <ref role="3cqZAo" node="3SnNvqCbyEv" resolve="myFileEditorManager" />
+                              <node concept="2YIFZM" id="7Tz7JMVH$Yh" role="37wK5m">
+                                <ref role="37wK5l" to="iwsx:~FileEditorManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+                                <ref role="1Pybhc" to="iwsx:~FileEditorManager" resolve="FileEditorManager" />
+                                <node concept="37vLTw" id="7Tz7JMVH$Yi" role="37wK5m">
+                                  <ref role="3cqZAo" node="2meLaIF5nk2" resolve="myProject" />
+                                </node>
                               </node>
                               <node concept="3clFbT" id="1VInrN6DoTQ" role="37wK5m">
                                 <property role="3clFbU" value="true" />

@@ -11,11 +11,10 @@ import jetbrains.mps.logging.Logger;
 import org.apache.log4j.LogManager;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.debug.api.BreakpointManagerComponent;
-import jetbrains.mps.debug.api.breakpoints.BreakpointProvidersManager;
-import jetbrains.mps.debug.api.BreakpointCreatorsManager;
 import jetbrains.mps.debug.api.SessionChangeListener;
 import jetbrains.mps.debug.api.DebugSessionManagerComponent;
-import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.ide.project.ProjectHelper;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
 import java.util.Set;
@@ -29,14 +28,16 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.ide.editor.util.EditorComponentUtil;
 import java.util.List;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import java.util.Collections;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import jetbrains.mps.debug.api.BreakpointCreatorsManager;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointKind;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointsProvider;
+import jetbrains.mps.debug.api.breakpoints.BreakpointProvidersManager;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointIconRenderrerEx;
 import jetbrains.mps.debugger.core.breakpoints.BreakpointPainterEx;
-import com.intellij.openapi.project.Project;
 import org.jdom.Element;
 import org.jdom.Attribute;
 import jetbrains.mps.debug.api.breakpoints.IBreakpointListener;
@@ -50,18 +51,15 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   private static final String KIND_TAG = "kind";
   private final MPSProject myMPSProject;
   private final BreakpointManagerComponent myBreakpointsManagerComponent;
-  private final BreakpointProvidersManager myProvidersManager;
-  private final BreakpointCreatorsManager myDebugInfoManager;
+
   private final MyBreakpointManagerListener myBreakpointManagerListener = new MyBreakpointManagerListener();
   private final MyBreakpointListener myBreakpointListener = new MyBreakpointListener();
   private final SessionChangeListener myChangeListener = new MySessionChangeAdapter();
   private final DebugSessionManagerComponent.DebugSessionListener myDebugSessionListener = new MyDebugSessionAdapter();
-  public BreakpointsUiComponent(MPSProject project, BreakpointManagerComponent breakpointsManagerComponent, BreakpointCreatorsManager debugInfoManager, BreakpointProvidersManager providersManager, FileEditorManager fileEditorManager) {
-    super(project.getProject(), fileEditorManager);
-    myMPSProject = project;
-    myBreakpointsManagerComponent = breakpointsManagerComponent;
-    myDebugInfoManager = debugInfoManager;
-    myProvidersManager = providersManager;
+  public BreakpointsUiComponent(Project ideaProject) {
+    super(ideaProject);
+    myMPSProject = ProjectHelper.fromIdeaProjectOrFail(ideaProject);
+    myBreakpointsManagerComponent = BreakpointManagerComponent.getInstance(ideaProject);
   }
   @NotNull
   @Override
@@ -71,6 +69,9 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   @Override
   public void initComponent() {
     super.init();
+    // FIXME there seems to be no more reason to setBreakpointsIO in a different thread, as it no longer 
+    //      requires model read (see MPS-15134, and changes to BreakpointManagerComponent that ceased to 
+    //      obtain model read).
     ApplicationManager.getApplication().executeOnPooledThread(() -> myBreakpointsManagerComponent.setBreakpointsIO(new MyBreakpointsIO()));
     DebugSessionManagerComponent component = DebugSessionManagerComponent.getInstance(myProject);
     component.addDebugSessionListener(myDebugSessionListener);
@@ -137,7 +138,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     return new ModelAccessHelper(myMPSProject.getModelAccess()).runReadAction(() -> {
       SNode node = breakpoint.getLocation().getNodePointer().resolve(myMPSProject.getRepository());
       if (node != null) {
-        return EditorComponentUtil.findComponentForNode(node, myFileEditorManager);
+        return EditorComponentUtil.findComponentForNode(node, FileEditorManager.getInstance(myProject));
       }
       return Collections.emptyList();
     });
@@ -156,9 +157,10 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   }
   private EditorCell findDebuggableCell(EditorCell foundCell) {
     EditorCell cell = foundCell;
+    BreakpointCreatorsManager bcm = BreakpointCreatorsManager.getInstance();
     while (cell != null) {
       SNode node = cell.getSNode();
-      if (myDebugInfoManager.isDebuggableNode(node)) {
+      if (bcm.isDebuggableNode(node)) {
         return cell;
       }
       cell = cell.getParent();
@@ -178,11 +180,12 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     if (breakpoint != null) {
       myBreakpointsManagerComponent.removeBreakpoint(breakpoint);
     } else {
-      ILocationBreakpoint newBreakpoint = myDebugInfoManager.createBreakpoint(node, myProject);
+      BreakpointCreatorsManager bcm = BreakpointCreatorsManager.getInstance();
+      ILocationBreakpoint newBreakpoint = bcm.createBreakpoint(node, myProject);
       if (newBreakpoint != null) {
         myBreakpointsManagerComponent.addBreakpoint(newBreakpoint);
       } else
-      if (myDebugInfoManager.isDebuggableNode(node)) {
+      if (bcm.isDebuggableNode(node)) {
         LOG.error("Node is debuggable but created breakpoint is null.", node);
       } else {
         LOG.error("Trying to create breakpoint on non-debuggable node.", node);
@@ -190,7 +193,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     }
   }
   public void createFromUi(IBreakpointKind kind) {
-    IBreakpointsProvider provider = myProvidersManager.getProvider(kind);
+    IBreakpointsProvider provider = BreakpointProvidersManager.getInstance().getProvider(kind);
     if (provider == null) {
       Messages.showErrorDialog(myProject, "Can not create " + kind.getPresentation() + ". Provider was not found.", "Error Creating" + kind.getPresentation());
     } else {
@@ -224,11 +227,11 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     @Override
     public IBreakpoint readBreakpoint(@NotNull Element element) {
       String kindName = element.getAttributeValue(BreakpointsUiComponent.KIND_TAG);
-      IBreakpointKind kind = myProvidersManager.getKind(kindName);
+      IBreakpointKind kind = BreakpointProvidersManager.getInstance().getKind(kindName);
       if (kind == null) {
         return null;
       }
-      IBreakpointsProvider provider = myProvidersManager.getProvider(kind);
+      IBreakpointsProvider provider = BreakpointProvidersManager.getInstance().getProvider(kind);
       if (provider == null) {
         return null;
       }
@@ -241,7 +244,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     @Override
     public Element writeBreakpoint(@NotNull IBreakpoint breakpoint) {
       IBreakpointKind kind = breakpoint.getKind();
-      IBreakpointsProvider provider = myProvidersManager.getProvider(kind);
+      IBreakpointsProvider provider = BreakpointProvidersManager.getInstance().getProvider(kind);
       if (provider == null) {
         return null;
       }
@@ -305,7 +308,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
       ApplicationManager.getApplication().invokeLater((new Runnable() {
         @Override
         public void run() {
-          for (EditorComponent editorComponent : EditorComponentUtil.getAllEditorComponents(myFileEditorManager, true)) {
+          for (EditorComponent editorComponent : EditorComponentUtil.getAllEditorComponents(FileEditorManager.getInstance(myProject), true)) {
             editorComponent.repaintExternalComponent();
           }
         }
