@@ -35,7 +35,7 @@ public enum ClassType {
   WORKBENCH("workbench"),
   TEST("test");
 
-  private String myTypeString;
+  private final String myTypeString;
 
   ClassType(String type) {
     myTypeString = type;
