@@ -6,11 +6,11 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.smodel.LazyEditableSModelBase;
 import jetbrains.mps.logging.Logger;
 import org.apache.log4j.LogManager;
+import java.util.Collection;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.extapi.persistence.FolderSetDataSource;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.AbstractModule;
-import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
@@ -26,6 +26,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.java.stub.StubReferenceFactory;
 import jetbrains.mps.kotlin.stubs.common.KotlinLanguage;
 import java.io.InputStream;
@@ -51,6 +52,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2728382324535686216", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
 public class KotlinCommonStubModelDescriptor extends LazyEditableSModelBase {
   private static Logger LOG = Logger.wrap(LogManager.getLogger(KotlinCommonStubModelDescriptor.class));
+  private Collection<SModelReference> myImportsToAdd = null;
 
   public KotlinCommonStubModelDescriptor(SModelReference modelReference, FolderSetDataSource source) {
     super(modelReference, source);
@@ -105,6 +107,7 @@ public class KotlinCommonStubModelDescriptor extends LazyEditableSModelBase {
     }
   }
 
+  @Nullable
   protected Collection<SModelReference> loadDeep(SModel model) {
     try {
       StubReferenceFactory refFactory = new StubReferenceFactory(getModule(), this, KotlinLanguage.MODEL_STEREOTYPE);
@@ -133,15 +136,12 @@ public class KotlinCommonStubModelDescriptor extends LazyEditableSModelBase {
         model.addRootNode(root);
       }
 
-      // This + propagate?
-      // for
-
       return refFactory.getImports();
     } catch (IOException e) {
       LOG.error("error loading model " + this.getReference(), e);
     }
 
-    return Collections.emptyList();
+    return null;
   }
 
   protected Iterable<IFile> getTopFiles() {
@@ -168,12 +168,32 @@ public class KotlinCommonStubModelDescriptor extends LazyEditableSModelBase {
     if (state == ModelLoadingState.INTERFACE_LOADED) {
       loadInterface(model);
     } else {
-      loadDeep(model);
+      // Imports are saved so they can be added later on
+      myImportsToAdd = loadDeep(model);
     }
 
     return new ModelLoadResult<>(model, state);
   }
 
+  @Override
+  protected void fireModelStateChanged(ModelLoadingState oldState, ModelLoadingState newState) {
+    if (oldState == newState) {
+      return;
+    }
+
+    // Before fully loaded model escapes to the outside, we need to add imports to it if applicable
+    if (newState == ModelLoadingState.FULLY_LOADED && myImportsToAdd != null) {
+      final SModel sModel = getCurrentModelInternal();
+      sModel.enterUpdateMode();
+      for (SModelReference ref : CollectionSequence.fromCollection(myImportsToAdd)) {
+        sModel.addModelImport(new SModel.ImportElement(ref));
+      }
+      myImportsToAdd = null;
+      sModel.leaveUpdateMode();
+    }
+
+    super.fireModelStateChanged(oldState, newState);
+  }
 
   @Override
   public boolean isReadOnly() {

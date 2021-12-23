@@ -127,7 +127,7 @@ public class KotlinJvmCompile_Facet extends IFacet.Stub {
               });
 
               // Step 3: compile with kotlin and collecting results
-              progressMonitor.step(String.format("Building %d Kotlin Modules", modules.size()));
+              progressMonitor.step(String.format("Building %d Kotlin Modules", (modules == null ? 0 : modules.size())));
 
               MpsMessageCollector collector = new MpsMessageCollector(monitor.getSession().getMessageHandler());
               KotlinCompilerUtil.compile(modules, collector);

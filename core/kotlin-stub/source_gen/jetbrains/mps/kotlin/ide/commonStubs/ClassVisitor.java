@@ -185,18 +185,22 @@ public class ClassVisitor extends KmClassVisitor {
     return null;
   }
 
-  private void addClass(String name) {
+  private boolean addClass(String name) {
     SNode klass = context.getClass(name);
     {
       final SNode member = klass;
       if (SNodeOperations.isInstanceOf(member, CONCEPTS.IClassMemberDeclaration$LK)) {
         ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.members$gqdV)).addElement(member);
+        return true;
       }
     }
 
     if (SNodeOperations.isInstanceOf(klass, CONCEPTS.EnumEntry$ji) && SNodeOperations.isInstanceOf(getNode(), CONCEPTS.EnumClassDeclaration$xK)) {
       ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNode(), CONCEPTS.EnumClassDeclaration$xK), LINKS.entries$EB0i)).addElement(SNodeOperations.cast(klass, CONCEPTS.EnumEntry$ji));
+      return true;
     }
+
+    return false;
   }
 
   @Override
@@ -209,7 +213,14 @@ public class ClassVisitor extends KmClassVisitor {
   }
   @Override
   public void visitEnumEntry(@NotNull String name) {
-    addClass(name);
+    if (!(SNodeOperations.isInstanceOf(getNode(), CONCEPTS.EnumClassDeclaration$xK))) {
+      return;
+    }
+    if (!(addClass(name))) {
+      SNode entry = SLinkOperations.addNewChild(SNodeOperations.cast(getNode(), CONCEPTS.EnumClassDeclaration$xK), LINKS.entries$EB0i, null);
+      SPropertyOperations.assign(entry, PROPS.name$MnvL, name);
+      ((jetbrains.mps.smodel.SNode) entry).setId(KotlinId.kotlinId(fqName + "." + name));
+    }
   }
 
   @Override
