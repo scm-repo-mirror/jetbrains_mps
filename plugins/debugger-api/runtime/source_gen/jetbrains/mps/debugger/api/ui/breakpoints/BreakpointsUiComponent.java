@@ -15,8 +15,8 @@ import jetbrains.mps.debug.api.SessionChangeListener;
 import jetbrains.mps.debug.api.DebugSessionManagerComponent;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.project.ProjectHelper;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
+import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -56,16 +56,14 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
   private final MyBreakpointListener myBreakpointListener = new MyBreakpointListener();
   private final SessionChangeListener myChangeListener = new MySessionChangeAdapter();
   private final DebugSessionManagerComponent.DebugSessionListener myDebugSessionListener = new MyDebugSessionAdapter();
+
   public BreakpointsUiComponent(Project ideaProject) {
     super(ideaProject);
     myMPSProject = ProjectHelper.fromIdeaProjectOrFail(ideaProject);
     myBreakpointsManagerComponent = BreakpointManagerComponent.getInstance(ideaProject);
+    // Breakpoints UI Component
   }
-  @NotNull
-  @Override
-  public String getComponentName() {
-    return "Breakpoints Ui Component";
-  }
+
   @Override
   public void initComponent() {
     super.init();
@@ -84,6 +82,7 @@ public class BreakpointsUiComponent extends BreakpointsUiComponentEx<IBreakpoint
     component.removeDebugSessionListener(myDebugSessionListener);
     super.dispose();
   }
+
   public void editBreakpointProperties(final ILocationBreakpoint breakpoint) {
     final BreakpointsBrowserDialog breakpointsBrowserDialog = new BreakpointsBrowserDialog(myMPSProject);
     breakpointsBrowserDialog.show();

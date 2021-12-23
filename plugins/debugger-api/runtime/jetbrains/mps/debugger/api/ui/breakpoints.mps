@@ -7896,6 +7896,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="7QqFzpynrZR" role="jymVt" />
     <node concept="3clFbW" id="3SnNvqCbyFe" role="jymVt">
       <node concept="3Tm1VV" id="3SnNvqCbyFf" role="1B3o_S" />
       <node concept="3cqZAl" id="3SnNvqCbyFg" role="3clF45" />
@@ -7941,28 +7942,22 @@
             </node>
           </node>
         </node>
-      </node>
-    </node>
-    <node concept="3clFb_" id="3SnNvqCbyFQ" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getComponentName" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="3SnNvqCbyFR" role="1B3o_S" />
-      <node concept="17QB3L" id="2meLaIF5nr1" role="3clF45" />
-      <node concept="3clFbS" id="3SnNvqCbyFT" role="3clF47">
-        <node concept="3cpWs6" id="3SnNvqCbyFU" role="3cqZAp">
-          <node concept="Xl_RD" id="3SnNvqCbyFV" role="3cqZAk">
-            <property role="Xl_RC" value="Breakpoints Ui Component" />
+        <node concept="3SKdUt" id="7QqFzpynf2a" role="3cqZAp">
+          <node concept="1PaTwC" id="7QqFzpynf2b" role="1aUNEU">
+            <node concept="3oM_SD" id="7QqFzpynfH1" role="1PaTwD">
+              <property role="3oM_SC" value="Breakpoints" />
+            </node>
+            <node concept="3oM_SD" id="7QqFzpynfH2" role="1PaTwD">
+              <property role="3oM_SC" value="UI" />
+            </node>
+            <node concept="3oM_SD" id="7QqFzpynfH3" role="1PaTwD">
+              <property role="3oM_SC" value="Component" />
+            </node>
           </node>
         </node>
       </node>
-      <node concept="2AHcQZ" id="3SnNvqCbyFW" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="2AHcQZ" id="3SnNvqCbyFX" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
     </node>
+    <node concept="2tJIrI" id="7QqFzpynm2P" role="jymVt" />
     <node concept="3clFb_" id="3SnNvqCbyFY" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="initComponent" />
@@ -8255,6 +8250,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="7QqFzpynyix" role="jymVt" />
     <node concept="3clFb_" id="3SnNvqCbyH6" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="editBreakpointProperties" />
