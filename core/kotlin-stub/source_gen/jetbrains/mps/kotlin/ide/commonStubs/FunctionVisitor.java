@@ -16,7 +16,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import kotlinx.metadata.KmTypeVisitor;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import kotlinx.metadata.KmValueParameterVisitor;
 import kotlinx.metadata.internal.metadata.deserialization.Flags;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
@@ -41,32 +40,35 @@ public class FunctionVisitor extends KmFunctionVisitor {
   @Nullable
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
-    return new TypeParameterVisitor(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter"))), name, id, variance, context);
+    SNode param = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter")));
+
+    // Could have same fq name as parameter but should not happen as forbidden in the language
+    context.setChildId(param, name);
+    functionId.addTypeParameter();
+
+    return TypeParameterVisitor.create(param, name, id, variance, context);
   }
 
   @Nullable
   @Override
   public KmTypeVisitor visitReceiverParameterType(int flags) {
-    return new TypeVisitor(context, new _Adapters._return_P2_E0_to__void_P2_E0_adapter<SNode, String>(new _FunctionTypes._return_P2_E0<StringBuilder, SNode, String>() {
-      public StringBuilder invoke(SNode type, String name) {
-        SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_c5eo4r_a0a0b0a0a8(type));
-        return functionId.setReceiver(name);
-      }
-    }));
+    return new TypeVisitor(context, flags, (SNode type, String name) -> {
+      SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_c5eo4r_a0a0c0a0a8(type));
+      functionId.setReceiver(name);
+    });
   }
 
   @Nullable
   @Override
   public KmValueParameterVisitor visitValueParameter(int flags, @NotNull String name) {
     SNode param = SLinkOperations.addNewChild(node, LINKS.parameters$dfEr, null);
-    SPropertyOperations.assign(param, PROPS.name$MnvL, name);
-    return new ParameterVisitor(param, context, (String id) -> functionId.addArgument(id));
+    return ParameterVisitor.create(param, context, (String argumentId) -> functionId.addArgument(argumentId), name);
   }
 
   @Nullable
   @Override
   public KmTypeVisitor visitReturnType(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.returnType$fGYV, type));
+    return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.returnType$fGYV, type));
   }
 
   @Override
@@ -82,7 +84,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
     return new FunctionVisitor(func, receiverName, ctx);
   }
 
-  private static SNode createReceiverType_c5eo4r_a0a0b0a0a8(SNode p0) {
+  private static SNode createReceiverType_c5eo4r_a0a0c0a0a8(SNode p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReceiverType$$f);
     n0.forChild(LINKS.type$NVFj).initNode(p0, CONCEPTS.IType$Ni, true);
     return n0.getResult();

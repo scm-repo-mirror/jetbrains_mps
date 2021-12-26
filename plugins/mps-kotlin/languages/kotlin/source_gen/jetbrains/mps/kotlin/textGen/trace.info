@@ -2854,11 +2854,11 @@
     <file name="ClassDeclaration_TextGen.java">
       <node id="6153771967696099487" at="15,54,16,55" concept="8" />
       <node id="6153771967696818883" at="16,55,17,96" concept="3" />
-      <node id="6153771967696100163" at="17,96,18,93" concept="3" />
-      <node id="6683421192262787930" at="18,93,19,63" concept="3" />
+      <node id="6153771967696100163" at="17,96,18,100" concept="3" />
+      <node id="6683421192262787930" at="18,100,19,63" concept="3" />
       <node id="6153771967696743484" at="19,63,20,56" concept="3" />
       <node id="6153771967696099487" at="24,0,25,0" concept="12" trace="FinalInheritanceModifier$H5" />
-      <node id="6153771967696099487" at="28,0,29,0" concept="12" trace="constructor$QvZc" />
+      <node id="6153771967696099487" at="28,0,29,0" concept="12" trace="primaryConstructor$QvZc" />
       <node id="6153771967696099487" at="14,0,22,0" concept="7" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
       <scope id="6153771967696099487" at="15,54,20,56">
         <var name="tgs" id="6153771967696099487" />

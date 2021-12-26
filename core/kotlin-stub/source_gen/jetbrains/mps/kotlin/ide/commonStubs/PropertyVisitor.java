@@ -26,7 +26,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 public class PropertyVisitor extends KmPropertyVisitor {
   private final SNode node;
   private final VisitorContext context;
-  public PropertyVisitor(SNode prop, VisitorContext ctx) {
+  protected PropertyVisitor(SNode prop, VisitorContext ctx) {
     node = prop;
     context = ctx;
   }
@@ -39,27 +39,29 @@ public class PropertyVisitor extends KmPropertyVisitor {
   @Nullable
   @Override
   public KmTypeVisitor visitReceiverParameterType(int flags) {
-    return new TypeVisitor(context, new _Adapters._return_P2_E0_to__void_P2_E0_adapter<SNode, String>(new _FunctionTypes._return_P2_E0<SNode, SNode, String>() {
+    return new TypeVisitor(context, flags, new _Adapters._return_P2_E0_to__void_P2_E0_adapter<SNode, String>(new _FunctionTypes._return_P2_E0<SNode, SNode, String>() {
       public SNode invoke(SNode type, String id) {
-        return SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_qob524_a0a0b0a0a4(type));
+        return SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_qob524_a0a0c0a0a4(type));
       }
     }));
   }
   @Nullable
   @Override
   public KmValueParameterVisitor visitSetterParameter(int flags, @NotNull String name) {
+    // TODO implement
     return super.visitSetterParameter(flags, name);
   }
   @Nullable
   @Override
   public KmTypeVisitor visitReturnType(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.declaration$IdZv), LINKS.type$RmkT, type));
+    return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.declaration$IdZv), LINKS.type$RmkT, type));
   }
 
-  public static KmPropertyVisitor create(SNode decl, VisitorContext refFact, int flags, @NotNull String name, int getterFlags, int setterFlags) {
+  public static KmPropertyVisitor create(SNode decl, VisitorContext ctx, int flags, @NotNull String name, int getterFlags, int setterFlags, String receiverName) {
     // Declaration
     SLinkOperations.setNewChild(decl, LINKS.declaration$IdZv, null);
     SPropertyOperations.assign(SLinkOperations.getTarget(decl, LINKS.declaration$IdZv), PROPS.name$MnvL, name);
+    ctx.setId(SLinkOperations.getTarget(decl, LINKS.declaration$IdZv), receiverName + "." + name);
 
     // Parameters
     SLinkOperations.setTarget(decl, LINKS.visibility$vnSV, EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)));
@@ -68,10 +70,11 @@ public class PropertyVisitor extends KmPropertyVisitor {
     SPropertyOperations.assign(decl, PROPS.isConstant$zvIz, Flags.IS_CONST.get(flags));
     SPropertyOperations.assign(decl, PROPS.isReadonly$jzqd, !(Flags.IS_VAR.get(flags)));
     SPropertyOperations.assign(decl, PROPS.isLateInit$qFSS, Flags.IS_LATEINIT.get(flags));
-    return new PropertyVisitor(decl, refFact);
+
+    return new PropertyVisitor(decl, ctx);
   }
 
-  private static SNode createReceiverType_qob524_a0a0b0a0a4(SNode p0) {
+  private static SNode createReceiverType_qob524_a0a0c0a0a4(SNode p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReceiverType$$f);
     n0.forChild(LINKS.type$NVFj).initNode(p0, CONCEPTS.IType$Ni, true);
     return n0.getResult();

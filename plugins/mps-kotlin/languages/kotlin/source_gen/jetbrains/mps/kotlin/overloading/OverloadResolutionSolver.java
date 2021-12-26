@@ -24,8 +24,11 @@ import jetbrains.mps.scope.Scope;
 import java.util.Objects;
 import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * This class handles overload resolution based on Kotlin specifications.
@@ -35,7 +38,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
  */
 public class OverloadResolutionSolver {
   private final SNode myCall;
+  private final String myFunctionName;
   private final OverloadResolver overloadResolver;
+
   public OverloadResolutionSolver(final SNode call) {
     myCall = call;
     overloadResolver = Sequence.fromIterable(new ExtensionPoint<OverloadResolver>("jetbrains.mps.kotlin.OverloadResolverExtension").getObjects()).findFirst(new IWhereFilter<OverloadResolver>() {
@@ -43,6 +48,7 @@ public class OverloadResolutionSolver {
         return it.isAvailable(call);
       }
     });
+    myFunctionName = getFunctionName(call);
   }
 
   public FunctionDeclaration inspectNodeSet(Iterable<SNode> nodes) throws AmbiguousException {
@@ -83,6 +89,11 @@ public class OverloadResolutionSolver {
       return null;
     }
 
+    // Not-null function name required (otherwise would resolve to anything)
+    if (myFunctionName == null) {
+      return null;
+    }
+
     // https://kotlinlang.org/spec/overload-resolution.html#c-level-partition
     SNode receiver = IFunctionCallLike__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myCall);
     if ((receiver != null)) {
@@ -96,7 +107,7 @@ public class OverloadResolutionSolver {
     FunctionDeclaration result;
 
     // 1. Non-extension member callables named f of type T
-    OverloadedSignatureVisitor visitor = new OverloadedSignatureVisitor(myCall.getModel().getRepository(), IFunctionCallLike__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(myCall), IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
+    OverloadedSignatureVisitor visitor = new OverloadedSignatureVisitor(myCall.getModel().getRepository(), myFunctionName, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(receiverType, visitor);
     if ((result = inspectSet(ListSequence.fromList(visitor.getMembers()).ofType(SourcedFunctionSignature.class).select(new ISelector<SourcedFunctionSignature, FunctionDeclaration>() {
       public FunctionDeclaration select(SourcedFunctionSignature this0) {
@@ -132,12 +143,32 @@ public class OverloadResolutionSolver {
   }
 
   private Iterable<SNode> functionsOf(Scope scope) {
-    return SNodeOperations.ofConcept(scope.getAvailableElements(IFunctionCallLike__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(myCall)), CONCEPTS.IFunctionDeclaration$ZB);
+    // Has to filter on length as well because getAvailableElements works with startsWith (we need exact refs)
+    return Sequence.fromIterable(SNodeOperations.ofConcept(scope.getAvailableElements(myFunctionName), CONCEPTS.IFunctionDeclaration$ZB)).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return SPropertyOperations.getString(it, PROPS.name$MnvL).length() == myFunctionName.length();
+      }
+    });
+  }
+
+  /**
+   * Returns the name to use for resolving the method in the scope.
+   */
+  public static String getFunctionName(SNode node) {
+    String name = IFunctionCallLike__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(node);
+    if (name != null) {
+      return name;
+    }
+    return SLinkOperations.getResolveInfo(SNodeOperations.getReference(node, IFunctionCallLike__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(node)));
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
     /*package*/ static final SInterfaceConcept IFunctionIdentifier$K$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
     /*package*/ static final SInterfaceConcept IFunctionDeclaration$ZB = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

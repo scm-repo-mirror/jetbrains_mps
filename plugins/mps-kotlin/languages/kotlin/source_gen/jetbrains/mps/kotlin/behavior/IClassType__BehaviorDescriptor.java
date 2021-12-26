@@ -58,10 +58,14 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
       pres.append("<");
       pres.append(IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti)).select(new ISelector<SNode, String>() {
         public String select(SNode it) {
-          return ((it != null) ? BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(it) : "?");
+          return ((it != null) ? BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(it) : "?");
         }
       }), ", "));
       pres.append(">");
+    }
+    // TODO supported in kotlin, not in jvm erased signatures
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isNullable$KWwD)) {
+      pres.append("?");
     }
     return pres.toString();
   }
@@ -126,5 +130,6 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

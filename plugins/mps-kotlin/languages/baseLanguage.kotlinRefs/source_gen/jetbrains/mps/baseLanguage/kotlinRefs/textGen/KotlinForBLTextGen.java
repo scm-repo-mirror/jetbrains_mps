@@ -16,6 +16,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.baseLanguage.kotlinRefs.behavior.IKotlinFunctionLikeCall__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.List;
 import jetbrains.mps.kotlin.overloading.FunctionParamMapper;
 import jetbrains.mps.kotlin.overloading.ParamException;
@@ -88,6 +89,15 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
 
     // Re-ordered arguments
     Iterable<ParameterDeclaration> functionParameters = IKotlinFunctionLikeCall__BehaviorDescriptor.getFunctionParameters_idUG7NftR_2Q.invoke(call);
+    if (Sequence.fromIterable(functionParameters).any(new IWhereFilter<ParameterDeclaration>() {
+      public boolean accept(ParameterDeclaration it) {
+        return it == null;
+      }
+    })) {
+      // TODO more explicit error message?
+      tgs.reportError("expecting a parameter declaration");
+    }
+
     List<ParameterDeclaration> orderedParameters = null;
     try {
       FunctionParamMapper<String, ParamException> mapper = new FunctionParamMapper<String, ParamException>(ParamErrorHandler.THROW, (ParameterDeclaration node) -> SPropertyOperations.getString(node.getNode(), PROPS.name$MnvL), functionParameters);

@@ -11,6 +11,8 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import java.util.List;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -18,6 +20,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.kotlin.stubs.common.KotlinId;
+import java.util.ArrayList;
+import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -50,6 +54,7 @@ public class VisitorContext {
   }
   private final Map<Integer, SNode> parameters = MapSequence.fromMap(new HashMap<Integer, SNode>());
   private final Map<String, SNode> declarations = MapSequence.fromMap(new HashMap<String, SNode>());
+  private final Map<SNode, List<Tuples._2<SNode, String>>> lateInitIds = MapSequence.fromMap(new HashMap<SNode, List<Tuples._2<SNode, String>>>());
   private final SNode enclosingFile;
   private String myPackage;
   public String getPackage() {
@@ -73,10 +78,13 @@ public class VisitorContext {
     };
   }
 
-  public VisitorContext(ReferenceFactory factory, String packageName, SNode enclosing) {
+  public VisitorContext(ReferenceFactory factory, String moduleName, SNode enclosing) {
     setReferenceFactory(factory);
-    setPackage(packageName);
     enclosingFile = enclosing;
+
+    // Package name is expressed with / separated values while module name uses dots
+    int atIndex = moduleName.indexOf("@");
+    setPackage(((atIndex == -1 ? moduleName : moduleName.substring(0, atIndex))).replaceAll("\\.", "/"));
   }
 
   public void addClass(SNode classLike) {
@@ -137,8 +145,46 @@ public class VisitorContext {
     }
     if (!(fqName.startsWith(getPackage()))) {
       return fqName;
+    } else if (fqName.length() == getPackage().length()) {
+      return "";
     }
     return fqName.substring(getPackage().length() + 1);
+  }
+
+  public void setId(SNode node, String fqName) {
+    if ((node == null)) {
+      return;
+    }
+
+    // Set id of current node
+    ((jetbrains.mps.smodel.SNode) node).setId(KotlinId.kotlinId(fqName));
+
+    // If child node waiting for this id, set it
+    if (MapSequence.fromMap(lateInitIds).containsKey(node)) {
+      for (Tuples._2<SNode, String> pair : ListSequence.fromList(MapSequence.fromMap(lateInitIds).removeKey(node))) {
+        setId(pair._0(), fqName + "." + pair._1());
+      }
+    }
+  }
+
+  /**
+   * Set the id of the given node after the id of the parent node. Parent node id
+   * must be set afterwards through setId() method (which will trigger assignment of id).
+   * Otherwise, use known parent fqName with setId manually.
+   * 
+   * @param node node to assign the id to
+   * @param localName nested name of the node relative to the parent
+   */
+  public void setChildId(SNode node, String localName) {
+    SNode parent = SNodeOperations.getParent(node);
+    assert parent != null : "no parent defined";
+
+    if (!(MapSequence.fromMap(lateInitIds).containsKey(parent))) {
+      MapSequence.fromMap(lateInitIds).put(parent, ListSequence.fromList(new ArrayList<Tuples._2<SNode, String>>()));
+
+    }
+
+    ListSequence.fromList(MapSequence.fromMap(lateInitIds).get(parent)).addElement(MultiTuple.<SNode,String>from(node, localName));
   }
 
   private static final class PROPS {

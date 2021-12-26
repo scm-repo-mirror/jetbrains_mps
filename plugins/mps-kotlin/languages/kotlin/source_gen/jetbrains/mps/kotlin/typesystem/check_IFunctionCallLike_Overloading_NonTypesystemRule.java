@@ -26,7 +26,6 @@ public class check_IFunctionCallLike_Overloading_NonTypesystemRule extends Abstr
   }
   public void applyRule(final SNode call, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // TODO only apply when invalid call error on node?
-    // TODO enable when typechecking query is bound (too dangerous for now)
     FunctionDeclaration resolved = null;
     try {
       resolved = new OverloadResolutionSolver(call).resolve();

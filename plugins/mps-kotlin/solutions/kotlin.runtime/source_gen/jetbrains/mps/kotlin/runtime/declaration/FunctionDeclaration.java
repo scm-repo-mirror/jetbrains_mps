@@ -29,7 +29,9 @@ public interface FunctionDeclaration {
   SNode getNode();
 
   /**
-   * Returns the parameters of the function
+   * Returns the parameters of the function.
+   * 
+   * Any parameter in the list may be null (indicating error in declaration or unchecked parameter).
    * 
    * @see jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration 
    */

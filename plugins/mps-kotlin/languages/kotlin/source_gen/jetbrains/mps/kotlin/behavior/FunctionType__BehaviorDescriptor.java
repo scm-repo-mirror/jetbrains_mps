@@ -17,11 +17,10 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import java.util.ArrayList;
 import jetbrains.mps.kotlin.runtime.types.identifiers.FunctionType;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -64,22 +63,25 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
     if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isSuspend$O_58)) {
       builder.append("suspend ");
     }
-    builder.append("(");
-    builder.append(IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).select(new ISelector<SNode, String>() {
-      public String select(SNode it) {
-        if (erased) {
-          return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(it, LINKS.type$69zk), ((boolean) erased));
-        } else {
-          return BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(it);
-        }
-      }
-    }), ", "));
-    builder.append(") -> ");
-    builder.append(IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.returnType$jkY_), ((boolean) erased)));
 
+    if (erased) {
+      builder.append("kotlin.Function").append(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).count());
+    } else {
+      builder.append("(");
+      builder.append(IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).select(new ISelector<SNode, String>() {
+        public String select(SNode it) {
+          return (String) IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(it, LINKS.type$69zk), ((boolean) erased));
+        }
+      }), ", "));
+      builder.append(") -> ");
+      builder.append(IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.returnType$jkY_), ((boolean) erased)));
+    }
+
+    // TODO supported in kotlin, not in jvm erased signatures
     if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isNullable$KWwD)) {
       builder.append("?");
     }
+
     return builder.toString();
   }
   /*package*/ static List<SNode> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {

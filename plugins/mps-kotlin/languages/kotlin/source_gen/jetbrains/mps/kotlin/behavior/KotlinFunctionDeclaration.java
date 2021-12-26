@@ -26,8 +26,8 @@ public class KotlinFunctionDeclaration implements InferrableFunctionDeclaration 
   @Override
   public Iterable<ParameterDeclaration> getParameters() {
     return ListSequence.fromList(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(myDeclaration)).select(new ISelector<SNode, KotlinParameterDeclaration>() {
-      public KotlinParameterDeclaration select(SNode parameter) {
-        return new KotlinParameterDeclaration(parameter);
+      public KotlinParameterDeclaration select(SNode param) {
+        return KotlinParameterDeclaration.of(param);
       }
     });
   }

@@ -44,6 +44,11 @@ public final class JavaPackageModelId extends PackageModelId {
   }
 
   @Override
+  public boolean equals(Object obj) {
+    return obj instanceof JavaPackageModelId && myPackageName.equals(((JavaPackageModelId) obj).myPackageName);
+  }
+
+  @Override
   public String getType() {
     return LanguageID.JAVA;
   }

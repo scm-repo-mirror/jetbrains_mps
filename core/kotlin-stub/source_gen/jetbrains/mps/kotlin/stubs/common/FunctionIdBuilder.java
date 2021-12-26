@@ -4,6 +4,7 @@ package jetbrains.mps.kotlin.stubs.common;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.kotlin.ide.commonStubs.VisitorContext;
+import java.util.StringJoiner;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
@@ -14,31 +15,41 @@ public class FunctionIdBuilder {
   public static final String FUNCTION_ID_PREFIX = ".";
   public static final String CONSTRUCTOR_ID_PREFIX = ".new";
 
-  protected StringBuilder builder;
   protected final VisitorContext context;
   protected final String myName;
-  protected boolean hasArgumentBefore = false;
+  protected final String myHolderFqName;
+  protected String functionFqName;
+  protected int typeParameterCount = 0;
+  protected final StringJoiner parameters = new StringJoiner(",");
 
-  public FunctionIdBuilder(VisitorContext ctx, String prefixedName, String defaultReceiver) {
+  public FunctionIdBuilder(VisitorContext ctx, String prefixedName, String holder) {
     context = ctx;
     myName = prefixedName;
-    builder = setReceiver(defaultReceiver);
+    myHolderFqName = context.packageLocalName(holder);
+    functionFqName = myHolderFqName + myName;
   }
 
-  public StringBuilder setReceiver(String receiver) {
-    return builder = new StringBuilder(context.packageLocalName(receiver)).append(myName).append("(");
+  public void setReceiver(String receiver) {
+    functionFqName = myHolderFqName + "#" + context.packageLocalName(receiver) + myName;
+  }
+
+  public void addTypeParameter() {
+    typeParameterCount++;
   }
 
   public void addArgument(String argumentId) {
-    if (hasArgumentBefore) {
-      builder.append(",");
-    } else {
-      hasArgumentBefore = true;
-    }
-    builder.append(context.packageLocalName(argumentId));
+    parameters.add(context.packageLocalName(argumentId));
   }
 
   public void applyOn(SNode node) {
-    ((jetbrains.mps.smodel.SNode) node).setId(KotlinId.kotlinId(builder.append(")").toString()));
+    // Build function description
+    StringBuilder builder = new StringBuilder(functionFqName);
+    if (typeParameterCount > 0) {
+      builder.append("<").append(typeParameterCount).append(">");
+    }
+    builder.append("(").append(parameters.toString()).append(")");
+
+    // Set id
+    context.setId(node, builder.toString());
   }
 }

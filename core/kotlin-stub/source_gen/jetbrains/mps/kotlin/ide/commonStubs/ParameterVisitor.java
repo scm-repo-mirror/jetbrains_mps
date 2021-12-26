@@ -19,7 +19,10 @@ public class ParameterVisitor extends KmValueParameterVisitor {
   private final SNode myParameter;
   private final VisitorContext context;
   private final _FunctionTypes._void_P1_E0<? super String> myIdCallback;
-  public ParameterVisitor(SNode parameter, VisitorContext ctx, _FunctionTypes._void_P1_E0<? super String> idProvider) {
+  private String myType = null;
+  private String myVarargType = null;
+
+  /*package*/ ParameterVisitor(SNode parameter, VisitorContext ctx, _FunctionTypes._void_P1_E0<? super String> idProvider) {
     myParameter = parameter;
     context = ctx;
     myIdCallback = idProvider;
@@ -28,19 +31,36 @@ public class ParameterVisitor extends KmValueParameterVisitor {
   @Nullable
   @Override
   public KmTypeVisitor visitType(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> {
+    return new TypeVisitor(context, flags, (SNode type, String id) -> {
       SLinkOperations.setTarget(myParameter, LINKS.type$1aXr, type);
-      myIdCallback.invoke(id);
+      myType = id;
     });
   }
 
   @Nullable
   @Override
   public KmTypeVisitor visitVarargElementType(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> {
+    return new TypeVisitor(context, flags, (SNode type, String id) -> {
       SLinkOperations.setTarget(myParameter, LINKS.type$1aXr, type);
       SPropertyOperations.assign(myParameter, PROPS.isVararg$GaYv, true);
+      myVarargType = id;
     });
+  }
+
+  @Override
+  public void visitEnd() {
+    if (myVarargType != null) {
+      myIdCallback.invoke("*" + myVarargType);
+    } else {
+      myIdCallback.invoke(myType);
+    }
+  }
+
+  public static ParameterVisitor create(SNode param, VisitorContext ctx, _FunctionTypes._void_P1_E0<? super String> idProvider, String name) {
+    SPropertyOperations.assign(param, PROPS.name$MnvL, name);
+    ctx.setChildId(param, name);
+
+    return new ParameterVisitor(param, ctx, idProvider);
   }
 
   private static final class LINKS {
@@ -49,5 +69,6 @@ public class ParameterVisitor extends KmValueParameterVisitor {
 
   private static final class PROPS {
     /*package*/ static final SProperty isVararg$GaYv = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x2a5d340976790b94L, "isVararg");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

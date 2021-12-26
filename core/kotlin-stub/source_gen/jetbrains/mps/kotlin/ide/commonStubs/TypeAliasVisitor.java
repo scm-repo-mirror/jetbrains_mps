@@ -21,14 +21,20 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class TypeAliasVisitor extends KmTypeAliasVisitor {
   private final SNode node;
   private final VisitorContext context;
-  public TypeAliasVisitor(SNode alias, VisitorContext ctx) {
+  private final String myFqName;
+
+  /*package*/ TypeAliasVisitor(SNode alias, VisitorContext ctx, String fqName) {
     node = alias;
     context = ctx;
+    myFqName = fqName;
   }
+
   @Nullable
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
-    return new TypeParameterVisitor(SLinkOperations.addNewChild(node, LINKS.typeParameters$eq6K, null), name, id, variance, context);
+    SNode addNew = SLinkOperations.addNewChild(node, LINKS.typeParameters$eq6K, null);
+    context.setId(addNew, myFqName + "." + name);
+    return TypeParameterVisitor.create(addNew, name, id, variance, context);
   }
 
   @Nullable
@@ -41,7 +47,7 @@ public class TypeAliasVisitor extends KmTypeAliasVisitor {
   @Nullable
   @Override
   public KmTypeVisitor visitExpandedType(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.type$JuNU, type));
+    return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.type$JuNU, type));
   }
 
   @Override
@@ -49,9 +55,12 @@ public class TypeAliasVisitor extends KmTypeAliasVisitor {
     // TODO !
   }
 
-  public static KmTypeAliasVisitor create(SNode typeAlias, VisitorContext refFactory, int flags, @NotNull String name) {
+  public static KmTypeAliasVisitor create(SNode typeAlias, VisitorContext ctx, int flags, @NotNull String name, String receiverName) {
+    String fqName = receiverName + "." + name;
     SPropertyOperations.assign(typeAlias, PROPS.name$MnvL, name);
-    return new TypeAliasVisitor(typeAlias, refFactory);
+    ctx.setId(typeAlias, fqName);
+
+    return new TypeAliasVisitor(typeAlias, ctx, fqName);
   }
 
   private static final class LINKS {

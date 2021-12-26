@@ -16,9 +16,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-public class ConstructorDeclaration_Constraints extends BaseConstraintsDescriptor {
-  public ConstructorDeclaration_Constraints() {
-    super(CONCEPTS.ConstructorDeclaration$GC);
+public class AbstractConstructorDeclaration_Constraints extends BaseConstraintsDescriptor {
+  public AbstractConstructorDeclaration_Constraints() {
+    super(CONCEPTS.AbstractConstructorDeclaration$GC);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
@@ -38,7 +38,7 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ConstructorDeclaration$GC = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca482d827L, "jetbrains.mps.kotlin.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept AbstractConstructorDeclaration$GC = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca482d827L, "jetbrains.mps.kotlin.structure.AbstractConstructorDeclaration");
     /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
   }
 

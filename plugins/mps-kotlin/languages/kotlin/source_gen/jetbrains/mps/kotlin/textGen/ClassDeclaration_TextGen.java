@@ -15,7 +15,7 @@ public class ClassDeclaration_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.classHeader(ctx.getPrimaryInput(), CONCEPTS.FinalInheritanceModifier$H5, ctx);
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.constructor$QvZc));
+    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.primaryConstructor$QvZc));
     KotlinTextGen.classConstraints(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.classBody(ctx.getPrimaryInput(), ctx);
   }
@@ -25,6 +25,6 @@ public class ClassDeclaration_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
+    /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
   }
 }

@@ -40,13 +40,13 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4f4W8JpwgWV").build(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
-  public static final SMethod<String> getDetailedPresentation_id22G2W3WJ92t = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDetailedPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("22G2W3WJ92t").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<SNode> asProjection_idJmO2PmVt2A = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("asProjection").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmVt2A").build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""));
   public static final SMethod<SNode> asInvariantProjection_id2gj5XQXIqKf = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("asInvariantProjection").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2gj5XQXIqKf").build();
   public static final SMethod<Scope> getScope_id7ubb0gUcNKV = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7ubb0gUcNKV").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter(SRepository.class, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getDetailedPresentation_id22G2W3WJ92t, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getScope_id7ubb0gUcNKV, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getPresentation_idhEwIMiw, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getScope_id7ubb0gUcNKV, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -60,7 +60,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {
     // by default -> no substitutions
   }
-  /*package*/ static String getDetailedPresentation_id22G2W3WJ92t(@NotNull SNode __thisNode__) {
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(__thisNode__, ((boolean) false));
   }
   /*package*/ static SNode asProjection_idJmO2PmVt2A(@NotNull SNode __thisNode__, SEnumerationLiteral variance) {
@@ -96,7 +96,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
         populateSubstitutions_id4f4W8JpwgWV(node, (TypeVarSubs<SNode>) parameters[0]);
         return null;
       case 4:
-        return (T) ((String) getDetailedPresentation_id22G2W3WJ92t(node));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       case 5:
         return (T) ((SNode) asProjection_idJmO2PmVt2A(node, (SEnumerationLiteral) parameters[0]));
       case 6:

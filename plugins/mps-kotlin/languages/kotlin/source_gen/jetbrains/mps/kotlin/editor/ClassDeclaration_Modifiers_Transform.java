@@ -111,12 +111,12 @@ public class ClassDeclaration_Modifiers_Transform extends TransformationMenuBase
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeFactoryOperations.addNewChild(SLinkOperations.getTarget(_context.getNode(), LINKS.constructor$QvZc), LINKS.parameters$$EEQ, CONCEPTS.ClassParameter$wQ);
+        SNodeFactoryOperations.addNewChild(SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ, CONCEPTS.ClassParameter$wQ);
       }
 
       @Override
       public boolean canExecute(@NotNull String pattern) {
-        return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.constructor$QvZc), LINKS.parameters$$EEQ)).isEmpty();
+        return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ)).isEmpty();
       }
 
       @Override
@@ -166,7 +166,7 @@ public class ClassDeclaration_Modifiers_Transform extends TransformationMenuBase
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
+    /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
     /*package*/ static final SContainmentLink parameters$$EEQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, 0x28bef6d7551af6dfL, "parameters");
   }
 

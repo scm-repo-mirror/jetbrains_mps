@@ -30,19 +30,18 @@ import jetbrains.mps.nodeEditor.cells.SPropertyAccessor;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.kotlin.editor.KotlinKeyPack_KeyPack.METHOD_CALL_StyleKey;
-import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellMenu.CompositeSubstituteInfo;
 import jetbrains.mps.lang.editor.cellProviders.PropertyCellContext;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteInfoPartExt;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
-import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_ReplaceNode_CustomNodeConcept;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.nodeEditor.cellMenu.CellContext;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.LParenthesisStyleClass;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
@@ -56,6 +55,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandlerElementKeyMap;
+import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.RParenthesisStyleClass;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
@@ -166,7 +166,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         editorCell.setCellId("property_name");
         Style style = new StyleImpl();
         new METHOD_CALL_StyleKey().apply(style);
-        style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_q85ywq_a1a0a0());
         editorCell.getStyle().putAll(style);
         editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new ReplaceWith_IExpression_cellMenu_q85ywq_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
         setCellContext(editorCell);
@@ -184,9 +183,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       } finally {
         getCellFactory().popCellContext();
       }
-    }
-    private SNode _StyleParameter_QueryFunction_q85ywq_a1a0a0() {
-      return (SNode) IFunctionDeclaration__BehaviorDescriptor.getEditorNavigatableTarget_id2AtO9a4xtWa.invoke(getNode());
     }
     public static class ReplaceWith_IExpression_cellMenu_q85ywq_a0a0a0 extends AbstractCellMenuPart_ReplaceNode_CustomNodeConcept {
       public ReplaceWith_IExpression_cellMenu_q85ywq_a0a0a0() {

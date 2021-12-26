@@ -26,17 +26,6 @@ public abstract class PackageModelId implements SModelId {
   }
 
   @Override
-  public int hashCode() {
-    return this.getClass().hashCode() ^ myPackageName.hashCode();
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    // Consider all descendants as final
-    return obj.getClass() == this.getClass() && myPackageName.equals(((PackageModelId) obj).myPackageName);
-  }
-
-  @Override
   public String toString() {
     // FIXME add SModelIdFactory#asText(SModelId) and utilize it when serializing modelId
     // I don't want to know type is separated with colon, it's external knowledge (i.e. PersistenceRegistry)

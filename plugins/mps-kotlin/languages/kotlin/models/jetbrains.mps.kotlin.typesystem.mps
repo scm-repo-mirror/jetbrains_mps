@@ -15,6 +15,7 @@
     <import index="1p8r" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.runtime.declaration)" />
     <import index="vciu" ref="r:42fb31e7-122b-4950-aa58-2f5f6e5595ce(jetbrains.mps.kotlin.overloading)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
+    <import index="y4kr" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.kotlin.stubs.common(MPS.Core/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -473,7 +474,6 @@
               <ref role="1YBMHb" node="4ZsNJbI6Ljn" resolve="unresolved" />
             </node>
             <node concept="3Cnw8n" id="4ZsNJbI026o" role="1urrFz">
-              <property role="ARO6o" value="true" />
               <ref role="QpYPw" node="4caNtEtNmq3" resolve="RemoveUnresolvedRefMarker" />
               <node concept="3CnSsL" id="4ZsNJbI6M2T" role="3Coj4f">
                 <ref role="QkamJ" node="4ZsNJbI0z5M" resolve="ref" />
@@ -988,43 +988,6 @@
           </node>
           <node concept="3oM_SD" id="3ulTMGHTyG8" role="1PaTwD">
             <property role="3oM_SC" value="node?" />
-          </node>
-        </node>
-      </node>
-      <node concept="3SKdUt" id="6zWVWr1Wp6T" role="3cqZAp">
-        <node concept="1PaTwC" id="6zWVWr1Wp6U" role="1aUNEU">
-          <node concept="3oM_SD" id="6zWVWr1Wpkd" role="1PaTwD">
-            <property role="3oM_SC" value="TODO" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpkf" role="1PaTwD">
-            <property role="3oM_SC" value="enable" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpki" role="1PaTwD">
-            <property role="3oM_SC" value="when" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpkm" role="1PaTwD">
-            <property role="3oM_SC" value="typechecking" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpkr" role="1PaTwD">
-            <property role="3oM_SC" value="query" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpkx" role="1PaTwD">
-            <property role="3oM_SC" value="is" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1WpkC" role="1PaTwD">
-            <property role="3oM_SC" value="bound" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1WpkK" role="1PaTwD">
-            <property role="3oM_SC" value="(too" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1WpkT" role="1PaTwD">
-            <property role="3oM_SC" value="dangerous" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wplq" role="1PaTwD">
-            <property role="3oM_SC" value="for" />
-          </node>
-          <node concept="3oM_SD" id="6zWVWr1Wpl_" role="1PaTwD">
-            <property role="3oM_SC" value="now)" />
           </node>
         </node>
       </node>

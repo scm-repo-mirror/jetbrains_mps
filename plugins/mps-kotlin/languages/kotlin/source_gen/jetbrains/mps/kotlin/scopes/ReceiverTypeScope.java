@@ -17,6 +17,8 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.behavior.IWithReceiver__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -25,6 +27,7 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReceiverTypeScope extends Scope {
@@ -62,10 +65,10 @@ public class ReceiverTypeScope extends Scope {
   }
 
   @Override
-  public Iterable<SNode> getAvailableElements(@Nullable String prefix) {
+  public Iterable<SNode> getAvailableElements(@Nullable final String prefix) {
     // TODO optimize? is there some lazy loading to prevent 
     List<SNode> nodes = SModelOperations.nodesIncludingImported(myModel, CONCEPTS.ReceiverType$$f);
-    return ListSequence.fromList(nodes).select(new ISelector<SNode, SNode>() {
+    Iterable<SNode> identifiable = ListSequence.fromList(nodes).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode receiver) {
         return ReceiverTypeScope.this.getIdentifiableNode(receiver);
       }
@@ -74,6 +77,14 @@ public class ReceiverTypeScope extends Scope {
         return (it != null);
       }
     });
+    if (prefix != null) {
+      return Sequence.fromIterable(identifiable).where(new IWhereFilter<SNode>() {
+        public boolean accept(SNode it) {
+          return SPropertyOperations.getString(it, PROPS.name$MnvL).startsWith(prefix);
+        }
+      });
+    }
+    return identifiable;
   }
 
   protected SNode getIdentifiableNode(SNode receiver) {
@@ -104,6 +115,10 @@ public class ReceiverTypeScope extends Scope {
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SInterfaceConcept IWithReceiver$Eg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, "jetbrains.mps.kotlin.structure.IWithReceiver");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {

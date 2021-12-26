@@ -46,17 +46,17 @@ public class ModuleVisitor extends KmModuleFragmentVisitor {
       @Nullable
       @Override
       public KmFunctionVisitor visitFunction(int flags, @NotNull String name) {
-        return FunctionVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.FunctionDeclaration$oD), context, flags, name, null);
+        return FunctionVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.FunctionDeclaration$oD), context, flags, name, context.getPackage());
       }
       @Nullable
       @Override
       public KmPropertyVisitor visitProperty(int flags, @NotNull String name, int getterFlags, int setterFlags) {
-        return PropertyVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.PropertyDeclaration$SE), context, flags, name, getterFlags, setterFlags);
+        return PropertyVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.PropertyDeclaration$SE), context, flags, name, getterFlags, setterFlags, context.getPackage());
       }
       @Nullable
       @Override
       public KmTypeAliasVisitor visitTypeAlias(int flags, @NotNull String name) {
-        return TypeAliasVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.TypeAlias$qF), context, flags, name);
+        return TypeAliasVisitor.create(SLinkOperations.addNewChild(root, LINKS.declarations$NgHw, CONCEPTS.TypeAlias$qF), context, flags, name, context.getPackage());
       }
       @Nullable
       @Override

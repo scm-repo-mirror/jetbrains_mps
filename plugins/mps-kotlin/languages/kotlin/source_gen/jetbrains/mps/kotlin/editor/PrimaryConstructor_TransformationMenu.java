@@ -27,7 +27,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class ConstructorDeclaration_TransformationMenu extends TransformationMenuBase {
+public class PrimaryConstructor_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
   @Override
   public boolean isApplicableToLocation(@NotNull String location) {
@@ -38,7 +38,7 @@ public class ConstructorDeclaration_TransformationMenu extends TransformationMen
   @Override
   public List<TransformationMenuItem> createMenuItems(@NotNull TransformationMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default transformation menu for " + "ConstructorDeclaration", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "4595707979143990804")));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default transformation menu for " + "PrimaryConstructor", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "4595707979143990804")));
     try {
       return super.createMenuItems(context);
     } finally {
@@ -51,12 +51,12 @@ public class ConstructorDeclaration_TransformationMenu extends TransformationMen
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new TMP_Include_nt694z_a0());
+      result.add(new TMP_Include_gaq5c7_a0());
     }
     return result;
   }
 
-  public class TMP_Include_nt694z_a0 extends IncludeTransformationMenuTransformationMenuPart {
+  public class TMP_Include_gaq5c7_a0 extends IncludeTransformationMenuTransformationMenuPart {
     @NotNull
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {

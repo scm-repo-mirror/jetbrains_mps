@@ -83,7 +83,7 @@ public class EnumFlags {
       case INTERFACE:
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration"));
       case ENUM_CLASS:
-        return withConstructor(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, "jetbrains.mps.kotlin.structure.EnumClassDeclaration")));
+        return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, "jetbrains.mps.kotlin.structure.EnumClassDeclaration"));
       case ENUM_ENTRY:
         return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry"));
       case OBJECT:
@@ -93,17 +93,10 @@ public class EnumFlags {
       case ANNOTATION_CLASS:
         SNode klass = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration"));
         SLinkOperations.setTarget(klass, LINKS.modifier$C$4W, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af409L, "jetbrains.mps.kotlin.structure.AnnotationClassModifier")));
-        return withConstructor(klass);
+        return klass;
     }
 
-    return withConstructor(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration")));
-  }
-
-  private static SNode withConstructor(SNode classDecl) {
-    // Manually add constructor to prevent dependency on language
-    SNode constructor = SLinkOperations.setNewChild(classDecl, LINKS.constructor$QvZc, CONCEPTS.PrimaryConstructor$QJ);
-    SLinkOperations.setNewChild(constructor, LINKS.visibility$vnSV, CONCEPTS.PublicVisibility$Me);
-    return classDecl;
+    return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration"));
   }
 
   public static SEnumerationLiteral getVariance(ProtoBuf.Type.Argument.Projection projection) {
@@ -133,8 +126,6 @@ public class EnumFlags {
   private static final class LINKS {
     /*package*/ static final SContainmentLink modifiers$XKtM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d75568d1adL, "modifiers");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
-    /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
   }
 
   private static final class CONCEPTS {
@@ -145,7 +136,5 @@ public class EnumFlags {
     /*package*/ static final SConcept ExternalFunctionModifier$QG = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c3L, "jetbrains.mps.kotlin.structure.ExternalFunctionModifier");
     /*package*/ static final SConcept SuspendFunctionModifier$Rb = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c4L, "jetbrains.mps.kotlin.structure.SuspendFunctionModifier");
     /*package*/ static final SConcept ExpectPlatformModifier$YQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af474L, "jetbrains.mps.kotlin.structure.ExpectPlatformModifier");
-    /*package*/ static final SConcept PrimaryConstructor$QJ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, "jetbrains.mps.kotlin.structure.PrimaryConstructor");
-    /*package*/ static final SConcept PublicVisibility$Me = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af395L, "jetbrains.mps.kotlin.structure.PublicVisibility");
   }
 }

@@ -41,7 +41,7 @@ public final class AbstractFunctionCall__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ static boolean isResolved_id4MvRlgZCbFz(@NotNull SNode __thisNode__) {
-    return (SLinkOperations.getTarget(__thisNode__, LINKS.function$Weyv) == null);
+    return (SLinkOperations.getTarget(__thisNode__, LINKS.function$Weyv) != null);
   }
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.function$Weyv), PROPS.name$MnvL);

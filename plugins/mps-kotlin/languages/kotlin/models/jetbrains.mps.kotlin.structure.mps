@@ -54,8 +54,10 @@
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
+      <concept id="8842732777748464990" name="jetbrains.mps.lang.structure.structure.RefPresentationTemplate" flags="ng" index="ROjv2" />
       <concept id="8842732777748207592" name="jetbrains.mps.lang.structure.structure.SmartReferenceAttribute" flags="ng" index="RPilO">
         <reference id="8842732777748207597" name="charactersticReference" index="RPilL" />
+        <child id="8842732777748474935" name="refPresentationTemplate" index="ROhUF" />
       </concept>
       <concept id="418049251856799813" name="jetbrains.mps.lang.structure.structure.ExperimentalAPINodeAttribute" flags="ig" index="1AhYRh">
         <property id="418049251856799817" name="comment" index="1AhYRt" />
@@ -288,7 +290,7 @@
     <property role="34LRSv" value="constructor" />
     <property role="R4oN_" value="secondary constructor" />
     <property role="3GE5qa" value="declaration.function" />
-    <ref role="1TJDcQ" node="6f3juM$wHwB" resolve="ConstructorDeclaration" />
+    <ref role="1TJDcQ" node="6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
     <node concept="1TJgyj" id="2yYXHtl$9Dg" role="1TKVEi">
       <property role="IQ2ns" value="2936055411806083664" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
@@ -855,7 +857,7 @@
     <property role="TrG5h" value="PrimaryConstructor" />
     <property role="R4oN_" value="primary constructor" />
     <property role="3GE5qa" value="declaration.class.constructor" />
-    <ref role="1TJDcQ" node="6f3juM$wHwB" resolve="ConstructorDeclaration" />
+    <ref role="1TJDcQ" node="6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
     <node concept="1TJgyj" id="2yYXHtl6Jrv" role="1TKVEi">
       <property role="IQ2ns" value="2936055411798374111" />
       <property role="20kJfa" value="parameters" />
@@ -1128,13 +1130,15 @@
     </node>
     <node concept="1TJgyj" id="213J8cgT58_" role="1TKVEi">
       <property role="IQ2ns" value="2324909103763444261" />
-      <property role="20kJfa" value="constructor" />
+      <property role="20kJfa" value="primaryConstructor" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="2yYXHtl6Jgo" resolve="PrimaryConstructor" />
     </node>
     <node concept="PrWs8" id="2yYXHtlhVlO" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtlhVlH" resolve="IClassDeclaration" />
+    </node>
+    <node concept="PrWs8" id="71DDynMG8Rj" role="PzmwI">
+      <ref role="PrY4T" node="71DDynMG2ea" resolve="IConstructorDeclaration" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JhF">
@@ -1477,7 +1481,7 @@
       <property role="IQ2ns" value="2324909103760693884" />
       <property role="20kJfa" value="target" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="6f3juM$wHwB" resolve="ConstructorDeclaration" />
+      <ref role="20lvS9" node="6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JjU">
@@ -2849,14 +2853,14 @@
   <node concept="1TIwiD" id="6f3juM$wHwB">
     <property role="EcuMT" value="7188675108981102631" />
     <property role="3GE5qa" value="declaration.class.constructor" />
-    <property role="TrG5h" value="ConstructorDeclaration" />
+    <property role="TrG5h" value="AbstractConstructorDeclaration" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="PrWs8" id="6f3juM$wHwF" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
     </node>
     <node concept="PrWs8" id="2Dtd0_QziWQ" role="PzmwI">
-      <ref role="PrY4T" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
+      <ref role="PrY4T" node="71DDynMG2ea" resolve="IConstructorDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="6f3juM$y4fc">
@@ -3280,6 +3284,10 @@
     <node concept="t5JxF" id="42OKUkNAAjq" role="lGtFl">
       <property role="t5JxN" value="direct call of a function on instance" />
     </node>
+    <node concept="RPilO" id="59BW1R01OBk" role="lGtFl">
+      <ref role="RPilL" node="1Izr$$XyHjD" resolve="function" />
+      <node concept="ROjv2" id="59BW1R01OFR" role="ROhUF" />
+    </node>
   </node>
   <node concept="1TIwiD" id="42OKUkNAA_T">
     <property role="EcuMT" value="4662566628538083705" />
@@ -3292,6 +3300,10 @@
     </node>
     <node concept="t5JxF" id="42OKUkNAAA0" role="lGtFl">
       <property role="t5JxN" value="direct call of a function without receiver" />
+    </node>
+    <node concept="RPilO" id="59BW1R01PoM" role="lGtFl">
+      <ref role="RPilL" node="1Izr$$XyHjD" resolve="function" />
+      <node concept="ROjv2" id="59BW1R01Prj" role="ROhUF" />
     </node>
   </node>
   <node concept="PlHQZ" id="7Iv8Cw7qLdE">
@@ -3767,6 +3779,17 @@
     </node>
     <node concept="PrWs8" id="2AtO9a4YI6_" role="PzmwI">
       <ref role="PrY4T" node="5dNsAxXOVNq" resolve="IInheritable" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="71DDynMG2ea">
+    <property role="EcuMT" value="8100188086718178186" />
+    <property role="3GE5qa" value="declaration.class.constructor" />
+    <property role="TrG5h" value="IConstructorDeclaration" />
+    <node concept="PrWs8" id="71DDynMG2vD" role="PrDN$">
+      <ref role="PrY4T" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
+    </node>
+    <node concept="t5JxF" id="71DDynMGyaE" role="lGtFl">
+      <property role="t5JxN" value="node that can be referred to as a constructor" />
     </node>
   </node>
 </model>

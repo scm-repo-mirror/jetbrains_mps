@@ -6,16 +6,16 @@ import jetbrains.mps.annotations.GeneratedClass;
 import kotlinx.metadata.KmTypeParameterVisitor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.references.Reference;
-import kotlinx.metadata.KmVariance;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmTypeVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import kotlinx.metadata.KmVariance;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2993321679751251496", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
 public class TypeParameterVisitor extends KmTypeParameterVisitor {
@@ -40,27 +40,31 @@ public class TypeParameterVisitor extends KmTypeParameterVisitor {
       }
     };
   }
-
   private final VisitorContext context;
-  public TypeParameterVisitor(SNode param, String name, int id, KmVariance variance, VisitorContext ctx) {
+
+  protected TypeParameterVisitor(SNode param, VisitorContext ctx) {
     setNode(param);
     context = ctx;
-
-    // Initialize parameter
-    SPropertyOperations.assign(param, PROPS.name$MnvL, name);
-    SPropertyOperations.assignEnum(param, PROPS.variance$EPSy, EnumFlags.getVariance(variance));
-    ctx.declareParameter(id, param);
   }
 
   @Nullable
   @Override
   public KmTypeVisitor visitUpperBound(int flags) {
-    return new TypeVisitor(context, (SNode type, String id) -> SLinkOperations.setTarget(getNode(), LINKS.bound$KhhI, SNodeOperations.as(type, CONCEPTS.IType$Ni)));
+    return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(getNode(), LINKS.bound$KhhI, SNodeOperations.as(type, CONCEPTS.IType$Ni)));
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variance$EPSy = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x21e0c923289a58c0L, "variance");
+  /**
+   * Create type parameter visitor and initialize node with parameters.
+   * 
+   * The method do NOT set an id for the node.
+   */
+  public static TypeParameterVisitor create(SNode param, String name, int id, KmVariance variance, VisitorContext ctx) {
+    // Initialize parameter
+    SPropertyOperations.assign(param, PROPS.name$MnvL, name);
+    SPropertyOperations.assignEnum(param, PROPS.variance$EPSy, EnumFlags.getVariance(variance));
+    ctx.declareParameter(id, param);
+
+    return new TypeParameterVisitor(param, ctx);
   }
 
   private static final class LINKS {
@@ -69,5 +73,10 @@ public class TypeParameterVisitor extends KmTypeParameterVisitor {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty variance$EPSy = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x21e0c923289a58c0L, "variance");
   }
 }

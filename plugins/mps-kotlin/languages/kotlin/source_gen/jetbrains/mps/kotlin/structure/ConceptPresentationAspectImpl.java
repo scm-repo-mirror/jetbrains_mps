@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractConditionalLoop;
+  private ConceptPresentation props_AbstractConstructorDeclaration;
   private ConceptPresentation props_AbstractEqualityOperation;
   private ConceptPresentation props_AbstractFunctionCall;
   private ConceptPresentation props_AbstractInheritanceModifier;
@@ -38,7 +39,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_CompanionObject;
   private ConceptPresentation props_Conjunction;
   private ConceptPresentation props_ConstructorCall;
-  private ConceptPresentation props_ConstructorDeclaration;
   private ConceptPresentation props_ContainedOperation;
   private ConceptPresentation props_ContinueExpression;
   private ConceptPresentation props_CrossinslineParameterModifier;
@@ -88,6 +88,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_IClassReference;
   private ConceptPresentation props_IClassType;
   private ConceptPresentation props_IConditionalFlow;
+  private ConceptPresentation props_IConstructorDeclaration;
   private ConceptPresentation props_IConstructorDelegationCall;
   private ConceptPresentation props_IControlStructureBody;
   private ConceptPresentation props_IDataFlowSource;
@@ -268,6 +269,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_AbstractConditionalLoop = cpb.create();
         }
         return props_AbstractConditionalLoop;
+      case LanguageConceptSwitch.AbstractConstructorDeclaration:
+        if (props_AbstractConstructorDeclaration == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_AbstractConstructorDeclaration = cpb.create();
+        }
+        return props_AbstractConstructorDeclaration;
       case LanguageConceptSwitch.AbstractEqualityOperation:
         if (props_AbstractEqualityOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -486,12 +493,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConstructorCall = cpb.create();
         }
         return props_ConstructorCall;
-      case LanguageConceptSwitch.ConstructorDeclaration:
-        if (props_ConstructorDeclaration == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_ConstructorDeclaration = cpb.create();
-        }
-        return props_ConstructorDeclaration;
       case LanguageConceptSwitch.ContainedOperation:
         if (props_ContainedOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -854,6 +855,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_IConditionalFlow = cpb.create();
         }
         return props_IConditionalFlow;
+      case LanguageConceptSwitch.IConstructorDeclaration:
+        if (props_IConstructorDeclaration == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IConstructorDeclaration = cpb.create();
+        }
+        return props_IConstructorDeclaration;
       case LanguageConceptSwitch.IConstructorDelegationCall:
         if (props_IConstructorDelegationCall == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1346,7 +1353,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("kotlin file");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a551b0oj);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a651b0pj);
           props_KotlinFile = cpb.create();
         }
         return props_KotlinFile;
@@ -1355,7 +1362,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("script");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a651b0oj);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a751b0pj);
           props_KtScript = cpb.create();
         }
         return props_KtScript;

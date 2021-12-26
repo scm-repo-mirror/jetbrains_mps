@@ -68,7 +68,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_33ai62_a2a() {
-    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.annotations$bXtr)).isNotEmpty() || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.visibility$vnSV), CONCEPTS.PublicVisibility$Me));
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.parameters$$EEQ)).isEmpty() || ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.annotations$bXtr)).isNotEmpty() || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.visibility$vnSV), CONCEPTS.PublicVisibility$Me));
   }
   private boolean nodeCondition_33ai62_a3a() {
     return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.parameters$$EEQ)).isNotEmpty();
@@ -214,9 +214,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink parameters$$EEQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, 0x28bef6d7551af6dfL, "parameters");
     /*package*/ static final SContainmentLink annotations$bXtr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, 0x6e77b7e7a89e49fbL, "annotations");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
-    /*package*/ static final SContainmentLink parameters$$EEQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, 0x28bef6d7551af6dfL, "parameters");
   }
 
   private static final class CONCEPTS {

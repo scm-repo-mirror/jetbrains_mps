@@ -6,6 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import kotlinx.metadata.KmTypeVisitor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import java.util.StringJoiner;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -14,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmVariance;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import kotlinx.metadata.Flag;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -25,12 +27,15 @@ public class TypeVisitor extends KmTypeVisitor {
   private SNode node;
   private final _FunctionTypes._void_P2_E0<? super SNode, ? super String> myCallback;
   private final VisitorContext context;
+  private final int myFlags;
   private String typeIdentifier;
+  private StringJoiner typeArguments;
 
-  public TypeVisitor(VisitorContext ctx, _FunctionTypes._void_P2_E0<? super SNode, ? super String> callback) {
+  public TypeVisitor(VisitorContext ctx, int flags, _FunctionTypes._void_P2_E0<? super SNode, ? super String> callback) {
     // Cannot create the type from here alone, a callback is used to set it right once resolved
     myCallback = callback;
     context = ctx;
+    myFlags = flags;
   }
 
   @Override
@@ -42,7 +47,7 @@ public class TypeVisitor extends KmTypeVisitor {
       context.createReference(fqName, type, LINKS.class$ExdX);
       node = type;
     }
-    typeIdentifier = fqName;
+    typeIdentifier = context.packageLocalName(fqName);
   }
 
   @Override
@@ -50,7 +55,7 @@ public class TypeVisitor extends KmTypeVisitor {
     SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, "jetbrains.mps.kotlin.structure.TypeAliasType"));
     context.createReference(fqName, type, LINKS.typeAlias$NsaN);
     node = type;
-    typeIdentifier = fqName;
+    typeIdentifier = context.packageLocalName(fqName);
   }
 
   @Override
@@ -64,38 +69,45 @@ public class TypeVisitor extends KmTypeVisitor {
   @Nullable
   @Override
   public KmTypeVisitor visitArgument(int flags, @NotNull final KmVariance variance) {
-    // Type argument
-    {
-      final SNode type = node;
-      if (SNodeOperations.isInstanceOf(type, CONCEPTS.IProjectedTypeArguments$ql)) {
-        return new TypeVisitor(context, (SNode arg, String id) -> {
+    if (typeArguments == null) {
+      typeArguments = new StringJoiner(",");
+    }
+
+    return new TypeVisitor(context, flags, (SNode arg, String id) -> {
+      // Type argument
+      {
+        final SNode type = node;
+        if (SNodeOperations.isInstanceOf(type, CONCEPTS.IProjectedTypeArguments$ql)) {
           SNode proj = SLinkOperations.addNewChild(type, LINKS.typeProjections$vhti, CONCEPTS.TypeProjection$5e);
           SLinkOperations.setTarget(proj, LINKS.type$x3no, arg);
           SPropertyOperations.assignEnum(proj, PROPS.variance$9nw2, EnumFlags.getVariance(variance));
-        });
+        }
       }
-    }
 
-    {
-      final SNode fncType = node;
-      if (SNodeOperations.isInstanceOf(fncType, CONCEPTS.FunctionType$ig)) {
-        return new TypeVisitor(context, (SNode arg, String id) -> {
-          // Last arg is return type, previous types are parameters
+      // Last arg is return type, previous types are parameters
+      {
+        final SNode fncType = node;
+        if (SNodeOperations.isInstanceOf(fncType, CONCEPTS.FunctionType$ig)) {
           if ((SLinkOperations.getTarget(fncType, LINKS.returnType$jkY_) != null)) {
             SNode newParameter = SLinkOperations.addNewChild(fncType, LINKS.parameters$jkhy, null);
             SLinkOperations.setTarget(newParameter, LINKS.type$69zk, SLinkOperations.getTarget(fncType, LINKS.returnType$jkY_));
           }
 
           SLinkOperations.setTarget(fncType, LINKS.returnType$jkY_, arg);
-        });
+        }
       }
-    }
 
-    return null;
+      typeArguments.add(id);
+    });
   }
 
   @Override
   public void visitStarProjection() {
+    if (typeArguments == null) {
+      typeArguments = new StringJoiner(",");
+      typeArguments.add("*");
+    }
+
     {
       final SNode type = node;
       if (SNodeOperations.isInstanceOf(type, CONCEPTS.IProjectedTypeArguments$ql)) {
@@ -114,7 +126,26 @@ public class TypeVisitor extends KmTypeVisitor {
 
   @Override
   public void visitEnd() {
-    myCallback.invoke(node, typeIdentifier);
+    String id = typeIdentifier;
+
+    // Suspend
+    if (Flag.Type.IS_SUSPEND.invoke(myFlags)) {
+      SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.FunctionType$ig), PROPS.isSuspend$O_58, true);
+      id = "%" + id;
+    }
+
+    // Type arguments
+    if (typeArguments != null) {
+      id += "<" + typeArguments.toString() + ">";
+    }
+
+    // Nullability
+    if (Flag.Type.IS_NULLABLE.invoke(myFlags)) {
+      SPropertyOperations.assign(SNodeOperations.as(node, CONCEPTS.INullableType$$I), PROPS.isNullable$KWwD, true);
+      id += "?";
+    }
+
+    myCallback.invoke(node, id);
   }
 
   private static final class LINKS {
@@ -133,9 +164,12 @@ public class TypeVisitor extends KmTypeVisitor {
     /*package*/ static final SConcept TypeProjection$5e = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
     /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, "jetbrains.mps.kotlin.structure.FunctionType");
     /*package*/ static final SConcept StarProjection$5H = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");
+    /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty variance$9nw2 = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, 0x21e0c923289a222cL, "variance");
+    /*package*/ static final SProperty isSuspend$O_58 = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x5ed2c2ae17f045e9L, "isSuspend");
+    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

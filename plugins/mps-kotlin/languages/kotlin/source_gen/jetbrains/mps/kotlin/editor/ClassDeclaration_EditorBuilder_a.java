@@ -11,7 +11,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.behavior.ConstructorDeclaration__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
@@ -76,11 +75,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createComponent_2());
     editorCell.addEditorCell(createProperty_0());
     editorCell.addEditorCell(createComponent_3());
-    if (nodeCondition_yk1pkl_a7a()) {
-      editorCell.addEditorCell(createRefNode_2());
-    }
     editorCell.addEditorCell(createComponent_4());
     editorCell.addEditorCell(createComponent_5());
+    if (nodeCondition_yk1pkl_a9a()) {
+      editorCell.addEditorCell(createRefNode_2());
+    }
     editorCell.addEditorCell(createComponent_6());
     return editorCell;
   }
@@ -90,8 +89,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private boolean nodeCondition_yk1pkl_a3a() {
     return (SLinkOperations.getTarget(myNode, LINKS.modifier$C$4W) != null);
   }
-  private boolean nodeCondition_yk1pkl_a7a() {
-    return (boolean) ConstructorDeclaration__BehaviorDescriptor.isVisibleInEditor_id2AtO9a4wP1W.invoke(SLinkOperations.getTarget(myNode, LINKS.constructor$QvZc));
+  private boolean nodeCondition_yk1pkl_a9a() {
+    return (SLinkOperations.getTarget(myNode, LINKS.primaryConstructor$QvZc) != null);
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.Annotations_Component");
@@ -258,61 +257,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
   }
-  private EditorCell createRefNode_2() {
-    SingleRoleCellProvider provider = new constructorSingleRoleHandler_yk1pkl_h0(myNode, LINKS.constructor$QvZc, getEditorContext());
-    return provider.createCell();
-  }
-  private static class constructorSingleRoleHandler_yk1pkl_h0 extends SingleRoleCellProvider {
-    @NotNull
-    private SNode myNode;
-
-    public constructorSingleRoleHandler_yk1pkl_h0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
-      super(containmentLink, context);
-      myNode = ownerNode;
-    }
-
-    @Override
-    @NotNull
-    public SNode getNode() {
-      return myNode;
-    }
-
-    protected EditorCell createChildCell(SNode child) {
-      EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.constructor$QvZc, child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.constructor$QvZc, child));
-      installCellInfo(child, editorCell, false);
-      return editorCell;
-    }
-
-
-
-    private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
-      if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
-        editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
-      }
-      if (editorCell.getSRole() == null) {
-        editorCell.setSRole(LINKS.constructor$QvZc);
-      }
-    }
-    @Override
-    protected EditorCell createEmptyCell() {
-      getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.constructor$QvZc));
-      try {
-        EditorCell editorCell = super.createEmptyCell();
-        editorCell.setCellId("empty_constructor");
-        installCellInfo(null, editorCell, true);
-        setCellContext(editorCell);
-        return editorCell;
-      } finally {
-        getCellFactory().popCellContext();
-      }
-    }
-    protected String getNoTargetText() {
-      return "<no constructor>";
-    }
-  }
   private EditorCell createComponent_4() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.SuperClasses_Component");
     editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.ClassDeclaration$Jm, "jetbrains.mps.kotlin.editor.ClassDeclaration_Modifiers_Transform"));
@@ -325,6 +269,61 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
   }
+  private EditorCell createRefNode_2() {
+    SingleRoleCellProvider provider = new primaryConstructorSingleRoleHandler_yk1pkl_j0(myNode, LINKS.primaryConstructor$QvZc, getEditorContext());
+    return provider.createCell();
+  }
+  private static class primaryConstructorSingleRoleHandler_yk1pkl_j0 extends SingleRoleCellProvider {
+    @NotNull
+    private SNode myNode;
+
+    public primaryConstructorSingleRoleHandler_yk1pkl_j0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+      super(containmentLink, context);
+      myNode = ownerNode;
+    }
+
+    @Override
+    @NotNull
+    public SNode getNode() {
+      return myNode;
+    }
+
+    protected EditorCell createChildCell(SNode child) {
+      EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.primaryConstructor$QvZc, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.primaryConstructor$QvZc, child));
+      installCellInfo(child, editorCell, false);
+      return editorCell;
+    }
+
+
+
+    private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
+      if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
+        editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
+      }
+      if (editorCell.getSRole() == null) {
+        editorCell.setSRole(LINKS.primaryConstructor$QvZc);
+      }
+    }
+    @Override
+    protected EditorCell createEmptyCell() {
+      getCellFactory().pushCellContext();
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.primaryConstructor$QvZc));
+      try {
+        EditorCell editorCell = super.createEmptyCell();
+        editorCell.setCellId("empty_primaryConstructor");
+        installCellInfo(null, editorCell, true);
+        setCellContext(editorCell);
+        return editorCell;
+      } finally {
+        getCellFactory().popCellContext();
+      }
+    }
+    protected String getNoTargetText() {
+      return "<no primaryConstructor>";
+    }
+  }
   private EditorCell createComponent_6() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.ClassBody_Component");
     return editorCell;
@@ -333,7 +332,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private static final class LINKS {
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
+    /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
   }
 
   private static final class CONCEPTS {

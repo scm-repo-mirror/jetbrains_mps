@@ -9,6 +9,8 @@ import org.jetbrains.mps.openapi.model.SModelId;
 
 @GeneratedClass(node = "r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)/400506772121978370", model = "r:3391afe4-c131-4e6c-87cf-990834a43a93(jetbrains.mps.kotlin.stubs.common)")
 public final class KotlinPackageModelId extends PackageModelId {
+  private final int kotlinSalt = "kotlin".hashCode();
+
   public KotlinPackageModelId(String packageName) {
     super(packageName);
   }
@@ -20,6 +22,17 @@ public final class KotlinPackageModelId extends PackageModelId {
   @Override
   public String getType() {
     return KotlinLanguage.LANGUAGE_ID;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return obj instanceof KotlinPackageModelId && myPackageName.equals(((KotlinPackageModelId) obj).myPackageName);
+  }
+
+  @Override
+  public int hashCode() {
+    // Some xor to differentiate kotlin and java packages
+    return kotlinSalt ^ myPackageName.hashCode();
   }
 
   public static final class Factory implements SModelIdFactory {

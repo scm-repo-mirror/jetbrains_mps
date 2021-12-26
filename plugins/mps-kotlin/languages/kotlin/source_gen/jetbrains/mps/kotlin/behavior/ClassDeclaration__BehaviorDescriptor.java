@@ -14,8 +14,9 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,18 +27,21 @@ public final class ClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
 
   public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<List<SNode>> getParameters_id6f3juM$_Kx4 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6f3juM$_Kx4").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, getParameters_id6f3juM$_Kx4);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
-    if (filter.acceptDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.constructor$QvZc))) {
-      ListSequence.fromList(target).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.constructor$QvZc));
+    if (filter.acceptKind(CONCEPTS.IConstructorDeclaration$rR)) {
+      ListSequence.fromList(target).addElement(((SLinkOperations.getTarget(__thisNode__, LINKS.primaryConstructor$QvZc) == null) ? __thisNode__ : SLinkOperations.getTarget(__thisNode__, LINKS.primaryConstructor$QvZc)));
     }
-
-    IScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke0(__thisNode__, CONCEPTS.IClassDeclaration$bQ, filter, target);
+  }
+  /*package*/ static List<SNode> getParameters_id6f3juM$_Kx4(@NotNull SNode __thisNode__) {
+    // Default constructor: no parameters
+    return new ArrayList<SNode>();
   }
 
   /*package*/ ClassDeclaration__BehaviorDescriptor() {
@@ -58,6 +62,8 @@ public final class ClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       case 0:
         populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
         return null;
+      case 1:
+        return (T) ((List<SNode>) getParameters_id6f3juM$_Kx4(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -88,10 +94,10 @@ public final class ClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
+    /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
+    /*package*/ static final SInterfaceConcept IConstructorDeclaration$rR = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7069a625f2b0238aL, "jetbrains.mps.kotlin.structure.IConstructorDeclaration");
   }
 }

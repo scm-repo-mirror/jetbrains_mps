@@ -15,12 +15,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import java.util.Iterator;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
@@ -31,9 +36,9 @@ public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescri
   public static final SMethod<SNode> getReceiverType_id2gj5XQXMFhP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReceiverType").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2gj5XQXMFhP").build();
   public static final SMethod<SNode> getClass_id4vugIDehkCF = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClass").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4vugIDehkCF").build();
   public static final SMethod<Boolean> hasModifier_id5D4bOjrv7QE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasModifier").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrv7QE").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getEditorNavigatableTarget_id2AtO9a4xtWa = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditorNavigatableTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2AtO9a4xtWa").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameters_id6f3juM$_Kx4, getReturnType_id6QVUYzas5Of, getReturnExpression_id6yQJbFyGtec, getReceiverType_id2gj5XQXMFhP, getClass_id4vugIDehkCF, hasModifier_id5D4bOjrv7QE, getEditorNavigatableTarget_id2AtO9a4xtWa);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameters_id6f3juM$_Kx4, getReturnType_id6QVUYzas5Of, getReturnExpression_id6yQJbFyGtec, getReceiverType_id2gj5XQXMFhP, getClass_id4vugIDehkCF, hasModifier_id5D4bOjrv7QE, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -51,9 +56,21 @@ public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescri
 
     return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false);
   }
-  /*package*/ static SNode getEditorNavigatableTarget_id2AtO9a4xtWa(@NotNull SNode __thisNode__) {
-    // By default and in most case: the declaration
-    return __thisNode__;
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    StringBuilder builder = new StringBuilder(SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL));
+    builder.append("(");
+
+    Iterator<SNode> itr = ListSequence.fromList(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(__thisNode__)).iterator();
+    if (itr.hasNext()) {
+      builder.append(BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(itr.next()));
+    }
+    while (itr.hasNext()) {
+      builder.append(", ");
+      builder.append(BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(itr.next()));
+    }
+
+    builder.append(")");
+    return builder.toString();
   }
 
   /*package*/ IFunctionDeclaration__BehaviorDescriptor() {
@@ -76,7 +93,7 @@ public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescri
       case 4:
         return (T) ((SNode) getClass_id4vugIDehkCF(node));
       case 6:
-        return (T) ((SNode) getEditorNavigatableTarget_id2AtO9a4xtWa(node));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -113,5 +130,9 @@ public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescri
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink class$ExdX = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, 0x5c7be90f2440b37bL, "class");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

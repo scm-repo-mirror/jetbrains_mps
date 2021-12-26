@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.HashMap;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 
@@ -41,7 +42,18 @@ public class FunctionParamMapper<I, T extends Throwable> {
     }
   }
 
-  public void declareParameter(ParameterDeclaration parameter) throws T {
+  /**
+   * Declare a new parameter. Null is accepted as a value and can serve as parameter with
+   * unknown type or name.
+   */
+  public void declareParameter(@Nullable ParameterDeclaration parameter) throws T {
+    // Null parameter
+    if (parameter == null) {
+      parameters.add(null);
+      minimumSpecified++;
+      return;
+    }
+
     int index = parameters.size();
 
     if (parameter.isVararg()) {
@@ -52,9 +64,7 @@ public class FunctionParamMapper<I, T extends Throwable> {
       varArgIndex = index;
     }
 
-    if (parameter != null) {
-      namedParameters.put(nameKey.invoke(parameter), index);
-    }
+    namedParameters.put(nameKey.invoke(parameter), index);
 
     if (parameter.isOptional()) {
       withDefaults.add(index);
@@ -85,6 +95,9 @@ public class FunctionParamMapper<I, T extends Throwable> {
   /**
    * Check that the given list of arguments is conform with the function parameters and
    * returns the mapped parameters for each argument.
+   * 
+   * Depending on the state of the model, some parameters may be null, which indicates an error
+   * in usage (reported to the error handler) or in declaration (unreported).
    */
   public List<ParameterDeclaration> checkParameters(Iterable<SNode> arguments) throws T {
     List<ParameterDeclaration> matchedParams = ListSequence.fromList(new ArrayList<ParameterDeclaration>());

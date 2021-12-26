@@ -29,9 +29,9 @@ public final class TypeProjection__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, "jetbrains.mps.kotlin.structure.TypeProjection");
 
   public static final SMethod<SNode> substituteType_id27wMicCGGe5 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("substituteType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("27wMicCGGe5").build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(TypeParameterDeclaration.class, ""));
-  public static final SMethod<String> getDetailedPresentation_id22G2W3WJ92t = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDetailedPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("22G2W3WJ92t").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(substituteType_id27wMicCGGe5, getDetailedPresentation_id22G2W3WJ92t);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(substituteType_id27wMicCGGe5, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -39,7 +39,8 @@ public final class TypeProjection__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static SNode substituteType_id27wMicCGGe5(@NotNull SNode __thisNode__, SEnumerationLiteral variance, TypeParameterDeclaration parameter) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.type$x3no);
   }
-  /*package*/ static String getDetailedPresentation_id22G2W3WJ92t(@NotNull SNode __thisNode__) {
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    // Used in ClassType::toString, if needs to change, make into separate method
     return ((SEnumOperations.isMember(SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2), 0x21e0c923289a2222L) ? "" : SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2).toString() + " ")) + BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$x3no));
   }
 
@@ -61,7 +62,7 @@ public final class TypeProjection__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((SNode) substituteType_id27wMicCGGe5(node, (SEnumerationLiteral) parameters[0], (TypeParameterDeclaration) parameters[1]));
       case 1:
-        return (T) ((String) getDetailedPresentation_id22G2W3WJ92t(node));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -27,8 +27,9 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<SNode> substituteType_id27wMicCGGe5 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("substituteType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("27wMicCGGe5").build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(TypeParameterDeclaration.class, ""));
   public static final SMethod<SEnumerationLiteral> getVarianceAfterSubstitution_id27wMicCGKaq = new SMethodBuilder<SEnumerationLiteral>(new SJavaCompoundTypeImpl((Class<SEnumerationLiteral>) ((Class) Object.class))).name("getVarianceAfterSubstitution").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("27wMicCGKaq").build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""));
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(substituteType_id27wMicCGGe5, getVarianceAfterSubstitution_id27wMicCGKaq);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(substituteType_id27wMicCGGe5, getVarianceAfterSubstitution_id27wMicCGKaq, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -50,6 +51,10 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
       return SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c923289a2189L, "jetbrains.mps.kotlin.structure.VarianceModifier"), 0x21e0c923289a221fL, "out");
     }
   }
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    // Used in ClassType::toString, if needs to change, make into separate method
+    return "*";
+  }
 
   /*package*/ StarProjection__BehaviorDescriptor() {
   }
@@ -70,6 +75,8 @@ public final class StarProjection__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((SNode) substituteType_id27wMicCGGe5(node, (SEnumerationLiteral) parameters[0], (TypeParameterDeclaration) parameters[1]));
       case 1:
         return (T) ((SEnumerationLiteral) getVarianceAfterSubstitution_id27wMicCGKaq(node, (SEnumerationLiteral) parameters[0]));
+      case 2:
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

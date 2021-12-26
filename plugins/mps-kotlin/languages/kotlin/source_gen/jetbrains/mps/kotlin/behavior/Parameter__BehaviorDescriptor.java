@@ -13,22 +13,38 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, "jetbrains.mps.kotlin.structure.Parameter");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1vYW8S3rTh_").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
     return true;
+  }
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    StringBuilder sb = new StringBuilder();
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isVararg$GaYv)) {
+      sb.append("vararg ");
+    }
+
+    // Name omitted as not displayed in FunctionDeclaration presentation
+    // If it is necessary for other purposes, add it back and change FunctionDeclaration presentatation
+    sb.append(IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$1aXr), ((boolean) false)));
+    return sb.toString();
   }
 
   /*package*/ Parameter__BehaviorDescriptor() {
@@ -48,6 +64,8 @@ public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
+      case 1:
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -75,5 +93,13 @@ public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isVararg$GaYv = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x2a5d340976790b94L, "isVararg");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$1aXr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x63c34deca4888fe3L, "type");
   }
 }

@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class FunctionTypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca48843ccL, "jetbrains.mps.kotlin.structure.FunctionTypeParameter");
@@ -32,7 +32,7 @@ public final class FunctionTypeParameter__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ static String toString_id4nn3FPm0wCn(@NotNull SNode __thisNode__, boolean erased) {
-    if (erased) {
+    if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL))) {
       return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$69zk), ((boolean) erased));
     } else {
       return SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL) + ": " + IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$69zk), ((boolean) erased));
@@ -84,12 +84,15 @@ public final class FunctionTypeParameter__BehaviorDescriptor extends BaseBHDescr
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink type$69zk = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca48843ccL, 0x63c34deca48843d1L, "type");
+  private static boolean isEmptyString(String str) {
+    return str == null || str.isEmpty();
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$69zk = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca48843ccL, 0x63c34deca48843d1L, "type");
   }
 }

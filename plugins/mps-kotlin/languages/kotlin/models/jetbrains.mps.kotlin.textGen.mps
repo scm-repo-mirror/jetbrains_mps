@@ -4041,7 +4041,7 @@
             <node concept="2OqwBi" id="5lA_K0zi5H4" role="lb14g">
               <node concept="117lpO" id="5N0i2C192es" role="2Oq$k0" />
               <node concept="3TrEf2" id="5lA_K0zi5GZ" role="2OqNvi">
-                <ref role="3Tt5mk" to="hcm8:213J8cgT58_" resolve="constructor" />
+                <ref role="3Tt5mk" to="hcm8:213J8cgT58_" resolve="primaryConstructor" />
               </node>
             </node>
           </node>

@@ -14,6 +14,11 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -21,7 +26,6 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class FunctionCallExpression_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -37,7 +41,7 @@ public class FunctionCallExpression_SubstituteMenu extends SubstituteMenuBase {
   @Override
   public List<SubstituteMenuItem> createMenuItems(@NotNull SubstituteMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for FunctionCallExpression. Generated from implicit smart reference attribute.", new SNodePointer("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)", "4662566628538083705")));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for FunctionCallExpression. Generated from the smart reference attribute.", new SNodePointer("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)", "5937978644277712434")));
     try {
       return super.createMenuItems(context);
     } finally {
@@ -64,6 +68,36 @@ public class FunctionCallExpression_SubstituteMenu extends SubstituteMenuBase {
       }
     }
 
+    @Override
+    @NotNull
+    protected ReferenceScopeSubstituteMenuItem createItem(SubstituteMenuContext context, SNode referencedNode) {
+      return new Item(context, referencedNode, getSConcept(), getReferenceLink());
+    }
+    private class Item extends ReferenceScopeSubstituteMenuItem {
+      private final SubstituteMenuContext _context;
+      private final SNode referencedNode;
+      private EditorMenuTraceInfo myTraceInfo;
+
+      private Item(SubstituteMenuContext context, SNode refNode, SAbstractConcept concept, SReferenceLink referenceLink) {
+        super(concept, context, refNode, referenceLink);
+        _context = context;
+        referencedNode = refNode;
+        myTraceInfo = context.getEditorMenuTrace().getTraceInfo();
+      }
+      @Override
+      public String getMatchingText(String pattern) {
+        return "" + NodePresentationUtil.matchingText(getReferent(), getParentNode(), false) + "";
+      }
+      @Override
+      public String getVisibleMatchingText(String pattern) {
+        return getMatchingText(pattern);
+      }
+
+      @Override
+      public EditorMenuTraceInfo getTraceInfo() {
+        return myTraceInfo;
+      }
+    }
   }
   public class SMP_Subconcepts_lm8z5h_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {

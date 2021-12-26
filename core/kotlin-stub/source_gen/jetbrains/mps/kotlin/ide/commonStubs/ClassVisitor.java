@@ -99,7 +99,7 @@ public class ClassVisitor extends KmClassVisitor {
     }
 
     SPropertyOperations.assign(getNode(), PROPS.name$MnvL, KotlinId.simpleName(fqName));
-    ((jetbrains.mps.smodel.SNode) getNode()).setId(KotlinId.kotlinId(fqName));
+    context.setId(getNode(), fqName);
     this.fqName = fqName;
   }
 
@@ -107,7 +107,9 @@ public class ClassVisitor extends KmClassVisitor {
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
     assert SNodeOperations.isInstanceOf(getNode(), CONCEPTS.ITypeParameters$G$) : "node should carry type parameters";
-    return new TypeParameterVisitor(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNode(), CONCEPTS.ITypeParameters$G$), LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter"))), name, id, variance, context);
+    SNode node = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNode(), CONCEPTS.ITypeParameters$G$), LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter")));
+    context.setId(node, fqName + "." + name);
+    return TypeParameterVisitor.create(node, name, id, variance, context);
   }
 
   @Nullable
@@ -118,12 +120,12 @@ public class ClassVisitor extends KmClassVisitor {
   @Nullable
   @Override
   public KmPropertyVisitor visitProperty(int flags, @NotNull String name, int getterFlags, int setterFlags) {
-    return PropertyVisitor.create(SLinkOperations.addNewChild(getNode(), LINKS.members$gqdV, CONCEPTS.PropertyDeclaration$SE), context, flags, name, getterFlags, setterFlags);
+    return PropertyVisitor.create(SLinkOperations.addNewChild(getNode(), LINKS.members$gqdV, CONCEPTS.PropertyDeclaration$SE), context, flags, name, getterFlags, setterFlags, fqName);
   }
   @Nullable
   @Override
   public KmTypeAliasVisitor visitTypeAlias(int flags, @NotNull String name) {
-    return TypeAliasVisitor.create(SLinkOperations.addNewChild(getNode(), LINKS.members$gqdV, CONCEPTS.TypeAlias$qF), context, flags, name);
+    return TypeAliasVisitor.create(SLinkOperations.addNewChild(getNode(), LINKS.members$gqdV, CONCEPTS.TypeAlias$qF), context, flags, name, fqName);
   }
 
   @Nullable
@@ -132,7 +134,7 @@ public class ClassVisitor extends KmClassVisitor {
     {
       final SNode inheriting = getNode();
       if (SNodeOperations.isInstanceOf(inheriting, CONCEPTS.IInheritExplicitly$UG)) {
-        return new TypeVisitor(context, (SNode type, String id) -> {
+        return new TypeVisitor(context, flags, (SNode type, String id) -> {
           {
             final SNode superClass = type;
             if (SNodeOperations.isInstanceOf(superClass, CONCEPTS.IInheritanceSpecifier$PQ)) {
@@ -178,7 +180,7 @@ public class ClassVisitor extends KmClassVisitor {
     {
       final SNode classDecl = getNode();
       if (SNodeOperations.isInstanceOf(classDecl, CONCEPTS.ClassDeclaration$Jm)) {
-        return new ConstructorVisitor(SLinkOperations.getTarget(classDecl, LINKS.constructor$QvZc), fqName, flags, context);
+        return new ConstructorVisitor(SLinkOperations.setNewChild(classDecl, LINKS.primaryConstructor$QvZc, null), fqName, flags, context);
       }
     }
 
@@ -219,7 +221,7 @@ public class ClassVisitor extends KmClassVisitor {
     if (!(addClass(name))) {
       SNode entry = SLinkOperations.addNewChild(SNodeOperations.cast(getNode(), CONCEPTS.EnumClassDeclaration$xK), LINKS.entries$EB0i, null);
       SPropertyOperations.assign(entry, PROPS.name$MnvL, name);
-      ((jetbrains.mps.smodel.SNode) entry).setId(KotlinId.kotlinId(fqName + "." + name));
+      context.setId(entry, fqName + "." + name);
     }
   }
 
@@ -237,7 +239,7 @@ public class ClassVisitor extends KmClassVisitor {
   @Override
   public KmTypeVisitor visitInlineClassUnderlyingType(int flags) {
     // TODO ?
-    return new TypeVisitor(context, (SNode type, String id) -> {
+    return new TypeVisitor(context, flags, (SNode type, String id) -> {
     });
   }
 
@@ -279,7 +281,7 @@ public class ClassVisitor extends KmClassVisitor {
     /*package*/ static final SContainmentLink typeArguments$86s6 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, 0x5b1dd60162c9757cL, "typeArguments");
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
     /*package*/ static final SContainmentLink type$x3no = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3ccL, 0x28bef6d7551af67fL, "type");
-    /*package*/ static final SContainmentLink constructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "constructor");
+    /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
     /*package*/ static final SContainmentLink entries$EB0i = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, 0x2043bc8310a23f49L, "entries");
   }
 

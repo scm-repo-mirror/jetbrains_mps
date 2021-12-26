@@ -110,7 +110,7 @@ public class ValueArgument_SubstituteMenu extends SubstituteMenuBase {
       }
       @Override
       public String getDescriptionText(String pattern) {
-        return SPropertyOperations.getString(referencedNode, PROPS.name$MnvL) + " = <value>";
+        return "^parameter";
       }
 
       @Override

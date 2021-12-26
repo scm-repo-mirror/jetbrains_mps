@@ -18,10 +18,9 @@
   <dependency className="jetbrains.mps.kotlin.stubs.common.FunctionIdBuilder">
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.lang.StringBuilder" />
+    <classNode dependClassName="java.util.StringJoiner" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.stubs.common.KotlinId" />
-    <classNode dependClassName="jetbrains.mps.smodel.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.stubs.common.KotlinId">
@@ -41,6 +40,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.stubs.common.KotlinPackageModelId">
+    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />

@@ -41,7 +41,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.nodeEditor.cellMenu.CellContext;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.kotlin.behavior.ConstructorDeclaration__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.style.FocusPolicy;
 import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -105,9 +104,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       editorCell.setReferenceCell(true);
       editorCell.setSRole(LINKS.target$VUYb);
     }
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_m9n3my_a0a0());
-    editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(new SReferenceSubstituteInfo(editorCell, referenceLink));
     Iterable<SNode> referenceAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.LinkAttribute$v_);
     Iterable<SNode> currentReferenceAttributes = Sequence.fromIterable(referenceAttributes).where(new IWhereFilter<SNode>() {
@@ -179,12 +175,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       }
     }
   }
-  private SNode _StyleParameter_QueryFunction_m9n3my_a0a0() {
-    if ((boolean) ConstructorDeclaration__BehaviorDescriptor.isVisibleInEditor_id2AtO9a4wP1W.invoke(SLinkOperations.getTarget(getNode(), LINKS.target$VUYb))) {
-      return SLinkOperations.getTarget(getNode(), LINKS.target$VUYb);
-    }
-    return SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(getNode(), LINKS.target$VUYb), CONCEPTS.IClassLike$go, false, false);
-  }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.TypeArguments_Component");
     return editorCell;
@@ -209,7 +199,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     /*package*/ static final SConcept LinkAttribute$v_ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute");
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
     /*package*/ static final SInterfaceConcept IInheritanceSpecifier$PQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310c1c80cL, "jetbrains.mps.kotlin.structure.IInheritanceSpecifier");
-    /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
   }
 
   private static final class PROPS {
