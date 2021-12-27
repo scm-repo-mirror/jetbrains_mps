@@ -92,9 +92,11 @@ public class ClassVisitor extends KmClassVisitor {
       }
     }
 
+    if (Flags.IS_FUN_INTERFACE.get(flags)) {
+      SPropertyOperations.assign(SNodeOperations.as(getNode(), CONCEPTS.InterfaceDeclaration$fL), PROPS.isFunctional$pBP$, true);
+    }
 
-    if (Flags.IS_EXTERNAL_CLASS.get(flags) || Flags.IS_EXPECT_CLASS.get(flags) || Flags.IS_INLINE_CLASS.get(flags) || Flags.IS_FUN_INTERFACE.get(flags)) {
-      // TODO isFun -> function types?
+    if (Flags.IS_EXTERNAL_CLASS.get(flags) || Flags.IS_EXPECT_CLASS.get(flags) || Flags.IS_INLINE_CLASS.get(flags)) {
       context.unhandledPart("external, expect, inline or fun class modifier");
     }
 
@@ -255,6 +257,7 @@ public class ClassVisitor extends KmClassVisitor {
     /*package*/ static final SConcept ClassDeclaration$Jm = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
     /*package*/ static final SConcept InnerClassModifier$wL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40bL, "jetbrains.mps.kotlin.structure.InnerClassModifier");
     /*package*/ static final SConcept DataClassModifier$wi = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40aL, "jetbrains.mps.kotlin.structure.DataClassModifier");
+    /*package*/ static final SConcept InterfaceDeclaration$fL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration");
     /*package*/ static final SInterfaceConcept ITypeParameters$G$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, "jetbrains.mps.kotlin.structure.ITypeParameters");
     /*package*/ static final SConcept FunctionDeclaration$oD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, "jetbrains.mps.kotlin.structure.FunctionDeclaration");
     /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
@@ -286,6 +289,7 @@ public class ClassVisitor extends KmClassVisitor {
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty isFunctional$pBP$ = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, 0x468104f6aff8b6bcL, "isFunctional");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

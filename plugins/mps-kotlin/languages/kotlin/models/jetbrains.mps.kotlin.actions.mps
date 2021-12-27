@@ -330,7 +330,7 @@
                   <node concept="2OqwBi" id="2AtO9a4YGYB" role="37vLTx">
                     <node concept="2OqwBi" id="2AtO9a4YGYC" role="2Oq$k0">
                       <node concept="Jnkvi" id="2AtO9a4YGYD" role="2Oq$k0">
-                        <ref role="1M0zk5" node="2AtO9a4YGYJ" resolve="incomplete" />
+                        <ref role="1M0zk5" node="2AtO9a4YGYJ" resolve="inheritable" />
                       </node>
                       <node concept="3TrEf2" id="2AtO9a4YGYE" role="2OqNvi">
                         <ref role="3Tt5mk" to="hcm8:5dNsAxXOVNr" resolve="inheritance" />

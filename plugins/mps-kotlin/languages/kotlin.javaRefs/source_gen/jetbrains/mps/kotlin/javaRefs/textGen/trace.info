@@ -12,7 +12,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="TextGenAspectDescriptor.java">
-      <unit at="12,0,39,0" name="jetbrains.mps.kotlin.javaRefs.textGen.TextGenAspectDescriptor" />
+      <unit at="12,0,45,0" name="jetbrains.mps.kotlin.javaRefs.textGen.TextGenAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/1139611333303119047">
@@ -56,8 +56,51 @@
       <unit id="1139611333303139741" at="14,0,27,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaInterfaceInheritanceSpecifier_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="1139611333303139741" at="26,67,27,63" concept="5" />
-      <scope id="1139611333303139741" at="26,67,27,63" />
+      <node id="1139611333303139741" at="30,67,31,63" concept="5" />
+      <scope id="1139611333303139741" at="30,67,31,63" />
+    </file>
+  </root>
+  <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/1467822947166691088">
+    <file name="JavaDefaultConstructorCall_TextGen.java">
+      <node id="1467822947166691088" at="15,54,16,55" concept="4" />
+      <node id="1467822947166699810" at="16,55,17,114" concept="1" />
+      <node id="1467822947166698256" at="17,114,18,64" concept="1" />
+      <node id="1467822947166691088" at="22,0,23,0" concept="7" trace="classifier$yYTH" />
+      <node id="1467822947166691088" at="14,0,20,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="1467822947166691088" at="15,54,18,64">
+        <var name="tgs" id="1467822947166691088" />
+      </scope>
+      <scope id="1467822947166691088" at="14,0,20,0">
+        <var name="ctx" id="1467822947166691088" />
+      </scope>
+      <unit id="1467822947166691088" at="21,0,24,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaDefaultConstructorCall_TextGen$LINKS" />
+      <unit id="1467822947166691088" at="13,0,25,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaDefaultConstructorCall_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="1467822947166691088" at="26,60,27,56" concept="5" />
+      <scope id="1467822947166691088" at="26,60,27,56" />
+    </file>
+  </root>
+  <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/1467822947166706082">
+    <file name="JavaMemberTarget_TextGen.java">
+      <node id="1467822947166706082" at="16,54,17,55" concept="4" />
+      <node id="1467822947166707397" at="17,55,18,132" concept="1" />
+      <node id="1467822947166706082" at="22,0,23,0" concept="7" trace="member$UnLg" />
+      <node id="1467822947166706082" at="26,0,27,0" concept="7" trace="name$MnvL" />
+      <node id="1467822947166706082" at="15,0,20,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="1467822947166706082" at="16,54,18,132">
+        <var name="tgs" id="1467822947166706082" />
+      </scope>
+      <scope id="1467822947166706082" at="15,0,20,0">
+        <var name="ctx" id="1467822947166706082" />
+      </scope>
+      <unit id="1467822947166706082" at="21,0,24,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMemberTarget_TextGen$LINKS" />
+      <unit id="1467822947166706082" at="25,0,28,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMemberTarget_TextGen$PROPS" />
+      <unit id="1467822947166706082" at="14,0,29,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMemberTarget_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="1467822947166706082" at="32,50,33,46" concept="5" />
+      <scope id="1467822947166706082" at="32,50,33,46" />
     </file>
   </root>
   <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/5016903245542858914">
@@ -92,36 +135,33 @@
   </root>
   <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/5016903245542885412">
     <file name="JavaMethodCall_TextGen.java">
-      <node id="5016903245542885412" at="20,54,21,55" concept="4" />
-      <node id="6914775006802068001" at="22,144,23,183" concept="1" />
-      <node id="6914775006801253468" at="24,12,25,134" concept="1" />
-      <node id="6153771967696990442" at="26,5,27,113" concept="1" />
-      <node id="2228752951865667860" at="27,113,28,140" concept="1" />
-      <node id="5016903245542885412" at="32,0,33,0" concept="7" trace="method$yYmq" />
-      <node id="5016903245542885412" at="33,0,34,0" concept="7" trace="typeArguments$86s6" />
-      <node id="5016903245542885412" at="34,0,35,0" concept="7" trace="arguments$zJyV" />
-      <node id="5016903245542885412" at="38,0,39,0" concept="7" trace="Classifier$Ix" />
-      <node id="5016903245542885412" at="39,0,40,0" concept="7" trace="ConstructorDeclaration$yG" />
-      <node id="5016903245542885412" at="43,0,44,0" concept="7" trace="name$MnvL" />
-      <node id="6914775006802148823" at="24,10,26,5" concept="0" />
-      <node id="6914775006802019844" at="21,55,26,5" concept="2" />
-      <node id="5016903245542885412" at="19,0,30,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
-      <scope id="6914775006802019846" at="22,144,23,183" />
-      <scope id="6914775006802148824" at="24,12,25,134" />
-      <scope id="5016903245542885412" at="20,54,28,140">
+      <node id="5016903245542885412" at="19,54,20,55" concept="4" />
+      <node id="6914775006802068001" at="21,144,22,183" concept="1" />
+      <node id="6914775006801253468" at="23,12,24,134" concept="1" />
+      <node id="1467822947166694400" at="25,5,26,64" concept="1" />
+      <node id="5016903245542885412" at="30,0,31,0" concept="7" trace="method$yYmq" />
+      <node id="5016903245542885412" at="34,0,35,0" concept="7" trace="Classifier$Ix" />
+      <node id="5016903245542885412" at="35,0,36,0" concept="7" trace="ConstructorDeclaration$yG" />
+      <node id="5016903245542885412" at="39,0,40,0" concept="7" trace="name$MnvL" />
+      <node id="6914775006802148823" at="23,10,25,5" concept="0" />
+      <node id="6914775006802019844" at="20,55,25,5" concept="2" />
+      <node id="5016903245542885412" at="18,0,28,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="6914775006802019846" at="21,144,22,183" />
+      <scope id="6914775006802148824" at="23,12,24,134" />
+      <scope id="5016903245542885412" at="19,54,26,64">
         <var name="tgs" id="5016903245542885412" />
       </scope>
-      <scope id="5016903245542885412" at="19,0,30,0">
+      <scope id="5016903245542885412" at="18,0,28,0">
         <var name="ctx" id="5016903245542885412" />
       </scope>
-      <unit id="5016903245542885412" at="42,0,45,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$PROPS" />
-      <unit id="5016903245542885412" at="37,0,41,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$CONCEPTS" />
-      <unit id="5016903245542885412" at="31,0,36,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$LINKS" />
-      <unit id="5016903245542885412" at="18,0,46,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen" />
+      <unit id="5016903245542885412" at="29,0,32,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$LINKS" />
+      <unit id="5016903245542885412" at="38,0,41,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$PROPS" />
+      <unit id="5016903245542885412" at="33,0,37,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen$CONCEPTS" />
+      <unit id="5016903245542885412" at="17,0,42,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodCall_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="5016903245542885412" at="28,48,29,44" concept="5" />
-      <scope id="5016903245542885412" at="28,48,29,44" />
+      <node id="5016903245542885412" at="34,48,35,44" concept="5" />
+      <scope id="5016903245542885412" at="34,48,35,44" />
     </file>
   </root>
   <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/5016903245542913165">
@@ -170,8 +210,8 @@
       <unit id="5016903245543259836" at="13,0,24,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaMethodVariableReference_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="5016903245543259836" at="30,61,31,57" concept="5" />
-      <scope id="5016903245543259836" at="30,61,31,57" />
+      <node id="5016903245543259836" at="36,61,37,57" concept="5" />
+      <scope id="5016903245543259836" at="36,61,37,57" />
     </file>
   </root>
   <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/5016903245543283578">
@@ -192,8 +232,31 @@
       <unit id="5016903245543283578" at="14,0,29,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaVariableReference_TextGen" />
     </file>
     <file name="TextGenAspectDescriptor.java">
-      <node id="5016903245543283578" at="32,55,33,51" concept="5" />
-      <scope id="5016903245543283578" at="32,55,33,51" />
+      <node id="5016903245543283578" at="38,55,39,51" concept="5" />
+      <scope id="5016903245543283578" at="38,55,39,51" />
+    </file>
+  </root>
+  <root nodeRef="r:4e06517e-4d8c-476f-9ce6-a7838bcb0544(jetbrains.mps.kotlin.javaRefs.textGen)/6585624606750956032">
+    <file name="JavaDefaultConstructorInheritanceSpecifier_TextGen.java">
+      <node id="6585624606750956032" at="16,54,17,55" concept="4" />
+      <node id="6585624606750960168" at="17,55,18,114" concept="1" />
+      <node id="6585624606750960170" at="18,114,19,113" concept="1" />
+      <node id="6585624606750960179" at="19,113,20,21" concept="1" />
+      <node id="6585624606750956032" at="24,0,25,0" concept="7" trace="classifier$ZmfH" />
+      <node id="6585624606750956032" at="25,0,26,0" concept="7" trace="typeArguments$86s6" />
+      <node id="6585624606750956032" at="15,0,22,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="6585624606750956032" at="16,54,20,21">
+        <var name="tgs" id="6585624606750956032" />
+      </scope>
+      <scope id="6585624606750956032" at="15,0,22,0">
+        <var name="ctx" id="6585624606750956032" />
+      </scope>
+      <unit id="6585624606750956032" at="23,0,27,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaDefaultConstructorInheritanceSpecifier_TextGen$LINKS" />
+      <unit id="6585624606750956032" at="14,0,28,0" name="jetbrains.mps.kotlin.javaRefs.textGen.JavaDefaultConstructorInheritanceSpecifier_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="6585624606750956032" at="28,76,29,72" concept="5" />
+      <scope id="6585624606750956032" at="28,76,29,72" />
     </file>
   </root>
 </debug-info>

@@ -10,7 +10,7 @@ import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -23,14 +23,14 @@ public final class ITypeParameterReference__BehaviorDescriptor extends BaseBHDes
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4f0064de291cef24L, "jetbrains.mps.kotlin.structure.ITypeParameterReference");
 
   public static final SMethod<TypeParameterDeclaration> getParameter_id4W0pdSD7eWM = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getParameter").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4W0pdSD7eWM").build();
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameter_id4W0pdSD7eWM, populateSignatures_id5q426iHK5S9);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameter_id4W0pdSD7eWM, populateTypeSignatures_id5q426iHK5S9);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
     // Nothing to declare
     // TODO do we need to try bounds?
   }
@@ -51,7 +51,7 @@ public final class ITypeParameterReference__BehaviorDescriptor extends BaseBHDes
     }
     switch (methodIndex) {
       case 1:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

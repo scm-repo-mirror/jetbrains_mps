@@ -9,29 +9,34 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import java.util.Iterator;
+import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
-  public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
+  public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Boolean> hasExplicityType_id2n1mrwy6RU_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExplicityType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2n1mrwy6RU_").build();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVaXCH").build();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
@@ -42,20 +47,66 @@ public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescrip
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$NO1r) == null) && filter.acceptKind(CONCEPTS.VariableDeclaration$DF)) {
-      ListSequence.fromList(target).addElement(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv));
+  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
+    // Property outside of any class
+    if (context.isWithStandaloneDeclarations() && (SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$NO1r) == null) && (SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false) == null)) {
+      collector.declare(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv), PropertyAccessorSignature.class);
     }
   }
-  /*package*/ static void populateSignatures_id18X2O0FJBER(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
-    // TODO create proper signature
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$NO1r) == null) && visitor.acceptKind(PropertyAccessorSignature.class)) {
-      visitor.declareSignature(KotlinSignatures.forGetter(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv)));
+  /*package*/ static void populateSignatures_id18X2O0FJBER(@NotNull final SNode __thisNode__, SignatureCollector visitor) {
+    // Only members local to class
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$NO1r) == null)) {
+      visitor.addDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv), true, PropertyAccessorSignature.class, new _FunctionTypes._return_P0_E0<Iterable<PropertyAccessorSignature>>() {
+        public Iterable<PropertyAccessorSignature> invoke() {
+          return new Iterable<PropertyAccessorSignature>() {
+            public Iterator<PropertyAccessorSignature> iterator() {
+              return new YieldingIterator<PropertyAccessorSignature>() {
+                private int __CP__ = 0;
+                protected boolean moveToNext() {
+__loop__:
+                  do {
+__switch__:
+                    switch (this.__CP__) {
+                      case -1:
+                        assert false : "Internal error";
+                        return false;
+                      case 4:
+                        if (((boolean) IVariableDeclarationConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__))) {
+                          this.__CP__ = 5;
+                          break;
+                        }
+                        this.__CP__ = 1;
+                        break;
+                      case 2:
+                        this.__CP__ = 3;
+                        this.yield(KotlinSignatures.forGetter(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv)));
+                        return true;
+                      case 6:
+                        this.__CP__ = 1;
+                        this.yield(KotlinSignatures.forSetter(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv)));
+                        return true;
+                      case 0:
+                        this.__CP__ = 2;
+                        break;
+                      case 3:
 
-      // Only if not read only
-      if (((boolean) IVariableDeclarationConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__))) {
-        visitor.declareSignature(KotlinSignatures.forSetter(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv)));
-      }
+                        // Setter: only if not read only
+                        this.__CP__ = 4;
+                        break;
+                      case 5:
+                        this.__CP__ = 6;
+                        break;
+                      default:
+                        break __loop__;
+                    }
+                  } while (true);
+                  return false;
+                }
+              };
+            }
+          };
+        }
+      });
     }
   }
   /*package*/ static boolean hasExplicityType_id2n1mrwy6RU_(@NotNull SNode __thisNode__) {
@@ -89,10 +140,10 @@ public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescrip
     }
     switch (methodIndex) {
       case 0:
-        populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
+        populateDeclarations_id213J8cgCCAN(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
         return null;
       case 1:
-        populateSignatures_id18X2O0FJBER(node, (SignatureVisitor) parameters[0]);
+        populateSignatures_id18X2O0FJBER(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
         return (T) ((Boolean) hasExplicityType_id2n1mrwy6RU_(node));
@@ -138,7 +189,7 @@ public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescrip
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept VariableDeclaration$DF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
+    /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
   }
 
   private static final class PROPS {

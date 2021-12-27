@@ -17,7 +17,10 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myJavaClassInheritanceSpecifier__BehaviorDescriptor = new JavaClassInheritanceSpecifier__BehaviorDescriptor();
   private final BHDescriptor myJavaMethodVariableReference__BehaviorDescriptor = new JavaMethodVariableReference__BehaviorDescriptor();
   private final BHDescriptor myJavaVariableReference__BehaviorDescriptor = new JavaVariableReference__BehaviorDescriptor();
+  private final BHDescriptor myJavaDefaultConstructorCall__BehaviorDescriptor = new JavaDefaultConstructorCall__BehaviorDescriptor();
+  private final BHDescriptor myJavaDefaultConstructorInheritanceSpecifier__BehaviorDescriptor = new JavaDefaultConstructorInheritanceSpecifier__BehaviorDescriptor();
   private final BHDescriptor myJavaClassType__BehaviorDescriptor = new JavaClassType__BehaviorDescriptor();
+  private final BHDescriptor myJavaMemberTarget__BehaviorDescriptor = new JavaMemberTarget__BehaviorDescriptor();
   private final BHDescriptor myJavaTypeVariableReferenceType__BehaviorDescriptor = new JavaTypeVariableReferenceType__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
@@ -32,18 +35,24 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 1:
         return myJavaClassType__BehaviorDescriptor;
       case 2:
-        return myJavaInterfaceInheritanceSpecifier__BehaviorDescriptor;
+        return myJavaDefaultConstructorCall__BehaviorDescriptor;
       case 3:
-        return myJavaMethodCall__BehaviorDescriptor;
+        return myJavaDefaultConstructorInheritanceSpecifier__BehaviorDescriptor;
       case 4:
-        return myJavaMethodVariableReference__BehaviorDescriptor;
+        return myJavaInterfaceInheritanceSpecifier__BehaviorDescriptor;
       case 5:
-        return myJavaTypeVariableReferenceType__BehaviorDescriptor;
+        return myJavaMemberTarget__BehaviorDescriptor;
       case 6:
+        return myJavaMethodCall__BehaviorDescriptor;
+      case 7:
+        return myJavaMethodVariableReference__BehaviorDescriptor;
+      case 8:
+        return myJavaTypeVariableReferenceType__BehaviorDescriptor;
+      case 9:
         return myJavaVariableReference__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e83dbf9feL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x68fcefc6c20600f5L), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0xfd0b6783f85b1faL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e834d57ccL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x3569a755572a0ffbL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x729709d72e03236aL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e83dbf9feL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x68fcefc6c20600f5L), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d61fa7bL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d756286L), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0xfd0b6783f85b1faL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x7206852a8590b5efL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e834d57ccL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x3569a755572a0ffbL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x729709d72e03236aL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L)).seal();
 }

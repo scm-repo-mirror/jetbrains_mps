@@ -13,6 +13,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.kotlin.behavior.IKotlinRoot__BehaviorDescriptor;
@@ -211,6 +213,11 @@ public abstract class KotlinTextGen {
       tgs.appendNode(SLinkOperations.getTarget(node, LINKS.lambda$U$kC));
     }
   }
+  public static void functionArguments(SNode functionCall, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    KotlinTextGen.projections(SLinkOperations.getChildren(functionCall, LINKS.typeArguments$86s6), ctx);
+    KotlinTextGen.argumentsWithLambda(functionCall, SLinkOperations.getChildren(functionCall, LINKS.arguments$zJyV), ctx);
+  }
   public static void returnType(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if ((SLinkOperations.getTarget(node, LINKS.returnType$fGYV) != null)) {
@@ -248,9 +255,13 @@ public abstract class KotlinTextGen {
       tgs.append(" ");
     }
   }
-  public static void reference(SNode ref, final TextGenContext ctx) {
+  public static void reference(SNode ref, boolean nested, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append(SPropertyOperations.getString(ref, PROPS.name$MnvL));
+    if (nested) {
+      tgs.append(IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(ref, KtEnvironmentConfig.Kotlin));
+    } else {
+      tgs.append(SPropertyOperations.getString(ref, PROPS.name$MnvL));
+    }
     KotlinTextGen.require(ref, ctx);
   }
   public static void imports(final TextGenContext ctx) {
@@ -319,6 +330,8 @@ public abstract class KotlinTextGen {
     /*package*/ static final SContainmentLink annotations$bXtr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, 0x6e77b7e7a89e49fbL, "annotations");
     /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
     /*package*/ static final SContainmentLink lambda$U$kC = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6186632f85a74c27L, 0x28bef6d7551af77dL, "lambda");
+    /*package*/ static final SContainmentLink typeArguments$86s6 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, 0x5b1dd60162c9757cL, "typeArguments");
+    /*package*/ static final SContainmentLink arguments$zJyV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162ecf00bL, 0x5b1dd60162ecf00cL, "arguments");
     /*package*/ static final SContainmentLink returnType$fGYV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908cd887L, 0x11400bb7908cd888L, "returnType");
     /*package*/ static final SContainmentLink constraints$BRhr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75568d269L, 0x28bef6d75568d26aL, "constraints");
     /*package*/ static final SContainmentLink fileAnnotations$Q2t4 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, 0x28bef6d7551af886L, "fileAnnotations");

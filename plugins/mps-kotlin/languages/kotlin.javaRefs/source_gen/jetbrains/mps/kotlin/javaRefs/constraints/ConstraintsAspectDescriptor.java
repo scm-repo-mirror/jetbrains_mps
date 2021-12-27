@@ -21,14 +21,20 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
       case 0:
         return new JavaClassInheritanceSpecifier_Constraints();
       case 1:
-        return new JavaMethodCall_Constraints();
+        return new JavaDefaultConstructorCall_Constraints();
       case 2:
-        return new JavaMethodVariableReference_Constraints();
+        return new JavaDefaultConstructorInheritanceSpecifier_Constraints();
       case 3:
+        return new JavaMemberTarget_Constraints();
+      case 4:
+        return new JavaMethodCall_Constraints();
+      case 5:
+        return new JavaMethodVariableReference_Constraints();
+      case 6:
         return new JavaVariableReference_Constraints();
       default:
     }
     return new BaseConstraintsDescriptor(concept);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e83dbf9feL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e834d57ccL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x3569a755572a0ffbL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e83dbf9feL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d61fa7bL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d756286L), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x7206852a8590b5efL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e834d57ccL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x3569a755572a0ffbL), MetaIdFactory.conceptId(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L)).seal();
 }

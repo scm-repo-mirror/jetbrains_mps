@@ -24,8 +24,9 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1vYW8S3rTh_").build();
   public static final SMethod<SNode> getThisType_id46gC9M6gB68 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("46gC9M6gB68").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<SNode> getType_id6563FJLeSWZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6563FJLeSWZ").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getThisType_id46gC9M6gB68);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getThisType_id46gC9M6gB68, getType_id6563FJLeSWZ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -36,6 +37,9 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static SNode getThisType_id46gC9M6gB68(@NotNull SNode __thisNode__, boolean nullable) {
     // These classes are not resolved as objects, no signature from their only definition can be used
     return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.EnumClassDeclaration$xK), ((boolean) nullable));
+  }
+  /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false));
   }
 
   /*package*/ EnumEntry__BehaviorDescriptor() {
@@ -57,6 +61,8 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
       case 1:
         return (T) ((SNode) getThisType_id46gC9M6gB68(node, ((boolean) (Boolean) parameters[0])));
+      case 2:
+        return (T) ((SNode) getType_id6563FJLeSWZ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

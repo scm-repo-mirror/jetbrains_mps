@@ -26,8 +26,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public TextGenDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     switch (myIndex.index(concept)) {
-      case LanguageConceptSwitch.AbstractFunctionCall:
-        return new AbstractFunctionCall_TextGen();
       case LanguageConceptSwitch.AbstractInheritanceModifier:
         return new AbstractInheritanceModifier_TextGen();
       case LanguageConceptSwitch.ActualPlatformModifier:
@@ -116,6 +114,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ForStatement_TextGen();
       case LanguageConceptSwitch.FunctionBody:
         return new FunctionBody_TextGen();
+      case LanguageConceptSwitch.FunctionCallExpression:
+        return new FunctionCallExpression_TextGen();
+      case LanguageConceptSwitch.FunctionCallTarget:
+        return new FunctionCallTarget_TextGen();
       case LanguageConceptSwitch.FunctionDeclaration:
         return new FunctionDeclaration_TextGen();
       case LanguageConceptSwitch.FunctionMemberTarget:

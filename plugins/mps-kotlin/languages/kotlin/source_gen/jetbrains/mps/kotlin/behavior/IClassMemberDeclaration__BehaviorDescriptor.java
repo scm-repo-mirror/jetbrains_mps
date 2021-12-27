@@ -9,7 +9,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -21,14 +21,14 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class IClassMemberDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af30fL, "jetbrains.mps.kotlin.structure.IClassMemberDeclaration");
 
-  public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateSignatures_id18X2O0FJBER);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateSignatures_id18X2O0FJBER(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
+  /*package*/ static void populateSignatures_id18X2O0FJBER(@NotNull SNode __thisNode__, SignatureCollector visitor) {
     // no signature to provide by default
   }
 
@@ -48,7 +48,7 @@ public final class IClassMemberDeclaration__BehaviorDescriptor extends BaseBHDes
     }
     switch (methodIndex) {
       case 0:
-        populateSignatures_id18X2O0FJBER(node, (SignatureVisitor) parameters[0]);
+        populateSignatures_id18X2O0FJBER(node, (SignatureCollector) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);

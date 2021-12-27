@@ -15,7 +15,9 @@ public class ClassDeclaration_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.classHeader(ctx.getPrimaryInput(), CONCEPTS.FinalInheritanceModifier$H5, ctx);
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.primaryConstructor$QvZc));
+    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.primaryConstructor$QvZc) != null)) {
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.primaryConstructor$QvZc));
+    }
     KotlinTextGen.classConstraints(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.classBody(ctx.getPrimaryInput(), ctx);
   }

@@ -16,9 +16,10 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import jetbrains.mps.kotlin.scopes.ScopeHelper;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
@@ -45,12 +46,13 @@ public class VariableRefExpression_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            Tuples._3<Boolean, SNode, Boolean> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
+            Tuples._3<Boolean, SNode, ScopeContext> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
             // In navigation -> get from operand type if target
             if ((boolean) context._0()) {
               SNode type = context._1();
-              Scope scope = IType__BehaviorDescriptor.getScope_id7ubb0gUcNKV.invoke(type, ScopeFilter.forKind(CONCEPTS.IVariableIdentifier$v2, (boolean) context._2()), _context.getContextNode().getModel().getRepository());
+
+              Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IVariableIdentifier$v2), context._2(), _context.getContextNode().getModel().getRepository());
 
               // Also retrieve scope for receiver types
               ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type), CONCEPTS.IVariableIdentifier$v2);

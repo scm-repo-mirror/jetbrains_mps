@@ -280,19 +280,19 @@
   <root nodeRef="r:77d5d6f9-26b4-4cf8-adc6-7c4e21017b07(jetbrains.mps.baseLanguage.kotlinRefs.behavior)/1387846870919929643">
     <file name="KotlinFileClassifierType__BehaviorDescriptor.java">
       <node id="1387846870919929643" at="34,0,35,0" concept="11" trace="CONCEPT" />
-      <node id="1387846870919929643" at="36,0,37,0" concept="11" trace="populateSignatures_id5q426iHK5S9" />
+      <node id="1387846870919929643" at="36,0,37,0" concept="11" trace="populateTypeSignatures_id5q426iHK5S9" />
       <node id="1387846870919929643" at="37,0,38,0" concept="11" trace="toString_id4nn3FPlZH$r" />
       <node id="1387846870919929643" at="38,0,39,0" concept="11" trace="shallowId_idJmO2PmZtH5" />
       <node id="1387846870919929643" at="40,0,41,0" concept="11" trace="BH_METHODS" />
-      <node id="1387846870920044969" at="45,121,46,102" concept="9" />
+      <node id="1387846870920044969" at="45,127,46,102" concept="9" />
       <node id="1387846870919947361" at="48,35,49,105" concept="2" />
       <node id="1387846870919929987" at="53,97,54,123" concept="8" />
       <node id="1387846870919929998" at="56,82,57,84" concept="8" />
       <node id="1387846870919929643" at="64,114,65,21" concept="2" />
       <node id="1387846870919929643" at="69,114,70,49" concept="7" />
       <node id="1387846870919929643" at="71,26,72,56" concept="14" />
-      <node id="1387846870919929643" at="75,13,76,81" concept="2" />
-      <node id="1387846870919929643" at="76,81,77,20" concept="8" />
+      <node id="1387846870919929643" at="75,13,76,87" concept="2" />
+      <node id="1387846870919929643" at="76,87,77,20" concept="8" />
       <node id="1387846870919929643" at="78,13,79,96" concept="8" />
       <node id="1387846870919929643" at="80,13,81,60" concept="8" />
       <node id="1387846870919929643" at="82,14,83,58" concept="14" />
@@ -317,7 +317,7 @@
       <node id="1387846870919930794" at="46,102,51,7" concept="2" />
       <node id="1387846870919929643" at="99,0,104,0" concept="6" trace="getDeclaredMethods#()Ljava/util/List;" />
       <node id="1387846870919929643" at="105,0,110,0" concept="6" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1387846870919929643" at="45,0,53,0" concept="12" trace="populateSignatures_id5q426iHK5S9#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/runtime/members/SignatureVisitor;)V" />
+      <node id="1387846870919929643" at="45,0,53,0" concept="12" trace="populateTypeSignatures_id5q426iHK5S9#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/runtime/members/SignatureCollector;)V" />
       <node id="1387846870919929643" at="73,5,84,5" concept="13" />
       <node id="1387846870919929643" at="87,0,98,0" concept="6" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="1387846870919929643" at="68,0,86,0" concept="6" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
@@ -357,7 +357,7 @@
       </scope>
       <scope id="1387846870919929643" at="99,0,104,0" />
       <scope id="1387846870919929643" at="105,0,110,0" />
-      <scope id="1387846870919929972" at="45,121,51,7" />
+      <scope id="1387846870919929972" at="45,127,51,7" />
       <scope id="1387846870919929643" at="45,0,53,0">
         <var name="__thisNode__" id="1387846870919929643" />
         <var name="visitor" id="1387846870919929973" />

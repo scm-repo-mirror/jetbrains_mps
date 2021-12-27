@@ -40,7 +40,7 @@ public class OverloadResolverUtil {
    */
   public static Tuples._2<FunctionDeclaration, List<ParameterDeclaration>> mapParameters(SNode call, Iterable<SNode> arguments, FunctionDeclaration candidate) {
     // 1. check for the modifier
-    if (!(candidate.hasModifier(IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(call)))) {
+    if (!(FunctionDeclaration.hasModifier(candidate, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(call)))) {
       return null;
     }
 

@@ -11,19 +11,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import jetbrains.mps.scope.Scope;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
-import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
+import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
+import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -33,31 +33,39 @@ public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHD
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationScopeProvider");
 
   public static final SMethod<List<SNode>> getMembers_id213J8chg2xy = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2xy").build();
-  public static final SMethod<List<SNode>> getDeclarations_id213J8chg2jD = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2jD").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""));
+  public static final SMethod<Void> populateNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2jD").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Scope> getScope_id1pD7IS1FrZI = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1pD7IS1FrZI").build(SMethodBuilder.createJavaParameter(SignedDeclarationFilter.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMembers_id213J8chg2xy, getDeclarations_id213J8chg2jD, getScope_id52_Geb4QDV$);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMembers_id213J8chg2xy, populateNestedDeclarations_id213J8chg2jD, getScope_id52_Geb4QDV$, getScope_id1pD7IS1FrZI);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static List<SNode> getDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, final ScopeFilter filter) {
+  /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, final DeclarationCollector collector, final ScopeContext context) {
     // Declaration scope -> order does not matter
-    final List<SNode> declarations = new ArrayList<SNode>();
     ListSequence.fromList(IDeclarationScopeProvider__BehaviorDescriptor.getMembers_id213J8chg2xy.invoke(__thisNode__)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
-        IScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(it, filter, declarations);
+        IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(it, collector, context);
       }
     });
-    return declarations;
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
+    // Any kind of identifier
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg)) {
-      List<SNode> declarations = IDeclarationScopeProvider__BehaviorDescriptor.getDeclarations_id213J8chg2jD.invoke(__thisNode__, ScopeFilter.forKind((SAbstractConcept) kind));
-      return new HidingByNameScope(CONCEPTS.IIdentifier$wg, kind, new NamedElementsScope(declarations), ScopeUtils.lazyParentScope(__thisNode__, kind));
+      return IDeclarationScopeProvider__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE);
     }
 
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$aq, kind, child));
+  }
+  /*package*/ static Scope getScope_id1pD7IS1FrZI(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context) {
+    // Collect declarations
+    DeclarationCollector collector = filter.toCollector();
+    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
+
+    // Provide scope
+    // TODO [unrelated to kotlin] lazyParentScope is used as ScopeUtils.lazyParentScope(node<>,concept< >):Scope is not supposed to be here (see concept's typechecking rule), but adding it wouldn't raise error before compilation (todo: enhance parent scope to support any function provided with concept, or update typechecking rule to search for overrides definition rather than name?)
+    return new HidingByNameScope(CONCEPTS.IIdentifier$wg, filter.getConceptFilter(), collector.getScope(), ScopeUtils.lazyParentScope(__thisNode__, filter.getConceptFilter()));
   }
 
   /*package*/ IDeclarationScopeProvider__BehaviorDescriptor() {
@@ -76,9 +84,12 @@ public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHD
     }
     switch (methodIndex) {
       case 1:
-        return (T) ((List<SNode>) getDeclarations_id213J8chg2jD(node, (ScopeFilter) parameters[0]));
+        populateNestedDeclarations_id213J8chg2jD(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
+        return null;
       case 2:
         return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 3:
+        return (T) ((Scope) getScope_id1pD7IS1FrZI(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

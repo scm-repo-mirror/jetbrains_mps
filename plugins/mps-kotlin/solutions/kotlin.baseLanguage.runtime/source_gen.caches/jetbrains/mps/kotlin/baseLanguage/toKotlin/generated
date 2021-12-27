@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="aupxeyl1kasndssl8btkzdu1wa8nawl">
-  <files names="JavaClassFunctionReceiver.java:JavaMethodDeclaration.java:JavaParameterDeclaration.java:JavaToKtEngine.java:JavaTypeParameterDeclaration.java:JavaVariableHelper.java:KotlinClassTypeBuilder.java:KotlinGenericClassBuilder.java" />
+<product version="3" modelHash="b7cgf5n39xnv4wran9l5vjrfgajnthn">
+  <files names="JavaClassFunctionReceiver.java:JavaDefaultConstructorDeclaration.java:JavaMethodDeclaration.java:JavaParameterDeclaration.java:JavaToKtEngine.java:JavaTypeParameterDeclaration.java:JavaVariableHelper.java:KotlinClassTypeBuilder.java:KotlinGenericClassBuilder.java" />
 </product>
 

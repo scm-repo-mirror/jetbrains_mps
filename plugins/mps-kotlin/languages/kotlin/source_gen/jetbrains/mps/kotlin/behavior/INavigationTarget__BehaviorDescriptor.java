@@ -15,6 +15,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -44,7 +45,7 @@ public final class INavigationTarget__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static boolean acceptNullable_id5D4bOjqGpyn(@NotNull SNode __thisNode__) {
     // The navigation target can also be an expression
-    if (SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.NavigationOperation$4I), LINKS.target$C6zp) == __thisNode__) {
+    if (Objects.equals(SNodeOperations.getContainingLink(__thisNode__), LINKS.target$C6zp)) {
       return SPropertyOperations.getBoolean(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.NavigationOperation$4I), PROPS.nullSafe$Kx0o);
     }
 

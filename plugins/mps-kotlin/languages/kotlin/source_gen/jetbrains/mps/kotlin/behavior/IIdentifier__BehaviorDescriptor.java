@@ -24,7 +24,7 @@ public final class IIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
 
   public static final SMethod<Class<? extends MemberSignature>> getMemberSignatureKind_id5q426iHFtTk = new SMethodBuilder<Class<? extends MemberSignature>>(new SJavaCompoundTypeImpl(Class.class)).name("getMemberSignatureKind").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHFtTk").build();
-  public static final SMethod<String> getNestedName_id1d2BQ0ZyA$g = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1d2BQ0ZyA$g").build(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
+  public static final SMethod<String> getNestedName_id1d2BQ0ZyA$g = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1d2BQ0ZyA$g").build(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
   public static final SMethod<SNode> getImportRoot_id1d2BQ0ZAmKw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getImportRoot").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1d2BQ0ZAmKw").build(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMemberSignatureKind_id5q426iHFtTk, getNestedName_id1d2BQ0ZyA$g, getImportRoot_id1d2BQ0ZAmKw);

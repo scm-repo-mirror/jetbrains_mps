@@ -9,7 +9,13 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.scope.Scope;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import jetbrains.mps.kotlin.scopes.ConstructorScope;
+import jetbrains.mps.scope.CompositeScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -26,7 +32,24 @@ public class FunctionCallExpression_Constraints extends BaseConstraintsDescripto
       @Nullable
       @Override
       public ReferenceScopeProvider getScopeProvider() {
-        return ReferenceScopeProvider.fromHierarchy(CONCEPTS.IFunctionIdentifier$K$, new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "4662566628538084517"));
+        return new BaseScopeProvider() {
+          @Override
+          public SNodeReference getSearchScopeValidatorNode() {
+            return new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "6585624606753523622");
+          }
+          @Override
+          public Scope createScope(final ReferenceConstraintsContext _context) {
+            // Inherited scope for regular functions
+            final Scope s = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.IFunctionIdentifier$K$);
+
+            // + constructors
+            if (s == null) {
+              return ConstructorScope.create(_context.getContextNode());
+            } else {
+              return new CompositeScope(s, ConstructorScope.create(_context.getContextNode()));
+            }
+          }
+        };
       }
     };
     Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();

@@ -37,7 +37,7 @@ public class JavaInterfaceInheritanceSpecifier_SubstituteMenu extends Substitute
   @Override
   public List<SubstituteMenuItem> createMenuItems(@NotNull SubstituteMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for JavaInterfaceInheritanceSpecifier. Generated from implicit smart reference attribute.", new SNodePointer("r:13d34207-1d05-4df8-92a6-7cde496142db(jetbrains.mps.kotlin.javaRefs.structure)", "1139611333302792698")));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for JavaInterfaceInheritanceSpecifier. Generated from the smart reference attribute.", new SNodePointer("r:13d34207-1d05-4df8-92a6-7cde496142db(jetbrains.mps.kotlin.javaRefs.structure)", "6585624606750887337")));
     try {
       return super.createMenuItems(context);
     } finally {

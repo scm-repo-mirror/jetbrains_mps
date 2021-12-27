@@ -32,20 +32,10 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.SPropertyAccessor;
-import jetbrains.mps.nodeEditor.cellMenu.CompositeSubstituteInfo;
-import jetbrains.mps.lang.editor.cellProviders.PropertyCellContext;
-import jetbrains.mps.nodeEditor.cellMenu.SubstituteInfoPartExt;
-import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx;
+import jetbrains.mps.nodeEditor.cellMenu.SPropertySubstituteInfo;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
-import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_ReplaceNode_CustomNodeConcept;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
-import jetbrains.mps.nodeEditor.cellMenu.CellContext;
-import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 /*package*/ class JavaClassInheritanceSpecifier_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -142,12 +132,12 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     private EditorCell createProperty_0() {
       getCellFactory().pushCellContext();
       try {
-        final SProperty property = PROPS.name$MnvL;
+        final SProperty property = PROPS.nestedName$rT$z;
         getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
         EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, true, false), myNode);
-        editorCell.setDefaultText("<no name>");
-        editorCell.setCellId("property_name");
-        editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new ReplaceWith_IInheritanceSpecifier_cellMenu_dxxkhd_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
+        editorCell.setDefaultText("<no nestedName>");
+        editorCell.setCellId("property_nestedName");
+        editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
         setCellContext(editorCell);
         Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.PropertyAttribute$Gb);
         Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
@@ -162,17 +152,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
         return editorCell;
       } finally {
         getCellFactory().popCellContext();
-      }
-    }
-    public static class ReplaceWith_IInheritanceSpecifier_cellMenu_dxxkhd_a0a0a0 extends AbstractCellMenuPart_ReplaceNode_CustomNodeConcept {
-      public ReplaceWith_IInheritanceSpecifier_cellMenu_dxxkhd_a0a0a0() {
-      }
-      public SAbstractConcept getReplacementConcept() {
-        return CONCEPTS.IInheritanceSpecifier$PQ;
-      }
-      @Override
-      protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
-        return new EditorMenuDescriptorBase("replace node (custom node concept: " + "IInheritanceSpecifier" + ")", new SNodePointer("r:12420812-a86a-4269-8305-60120c560ef6(jetbrains.mps.kotlin.javaRefs.editor)", "4908873499998871107"));
       }
     }
   }
@@ -192,10 +171,9 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private static final class CONCEPTS {
     /*package*/ static final SConcept LinkAttribute$v_ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute");
     /*package*/ static final SConcept PropertyAttribute$Gb = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
-    /*package*/ static final SInterfaceConcept IInheritanceSpecifier$PQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310c1c80cL, "jetbrains.mps.kotlin.structure.IInheritanceSpecifier");
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty nestedName$rT$z = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, 0x11a135d952bL, "nestedName");
   }
 }

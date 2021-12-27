@@ -15,6 +15,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.scope.CompositeScope;
+import jetbrains.mps.kotlin.scopes.ClassScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -38,7 +39,7 @@ public class IClassReference_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
             // Unit is always included in this scope (it also doesn't make sense outside type system to refer other objects as type as they are unique instance)
-            return new CompositeScope(new UnitScope(_context.getContextNode().getModel().getRepository()), Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.IClassDeclaration$bQ));
+            return new CompositeScope(new UnitScope(_context.getContextNode().getModel().getRepository()), ClassScope.create(_context.getContextNode()));
           }
         };
       }
@@ -50,7 +51,6 @@ public class IClassReference_Constraints extends BaseConstraintsDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IClassReference$3H = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, "jetbrains.mps.kotlin.structure.IClassReference");
-    /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
   }
 
   private static final class LINKS {

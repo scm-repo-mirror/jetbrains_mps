@@ -7,6 +7,7 @@ import java.util.Objects;
 public abstract class IdBasedType<T> implements TypeKey {
   protected final T myKey;
   public IdBasedType(T key) {
+    // TODO find out what to do if this is null
     myKey = key;
   }
   @Override
@@ -14,13 +15,16 @@ public abstract class IdBasedType<T> implements TypeKey {
     if (this == o) {
       return true;
     }
-    if (o == null || this.getClass() != o.getClass()) {
+    if (this.myKey == null || o == null || this.getClass() != o.getClass()) {
       return false;
     }
     return Objects.equals(myKey, ((IdBasedType) o).myKey);
   }
   @Override
   public int hashCode() {
+    if (myKey == null) {
+      return super.hashCode();
+    }
     return myKey.hashCode();
   }
 

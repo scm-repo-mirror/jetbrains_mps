@@ -19,7 +19,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
 import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
 import java.util.HashMap;
@@ -46,13 +47,13 @@ public class FunctionMemberTarget_Constraints extends BaseConstraintsDescriptor 
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // TODO is companion object considered this way?
             final SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
 
             // Compute type in isolation, otherwise type may be null
             SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
 
-            Scope scope = IType__BehaviorDescriptor.getScope_id7ubb0gUcNKV.invoke(type, ScopeFilter.forKind(CONCEPTS.IFunctionIdentifier$K$), _context.getContextNode().getModel().getRepository());
+            // We consider instance even if on receiver
+            Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IFunctionIdentifier$K$), ScopeContext.REFERENCE, _context.getContextNode().getModel().getRepository());
 
             // Also retrieve scope for receiver types
             ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type), CONCEPTS.IFunctionIdentifier$K$);

@@ -75,6 +75,9 @@ public enum BuiltIn {
   }
 
   public boolean isReferedBy(SReference ref) {
+    if (ref == null) {
+      return false;
+    }
     return Objects.equals(pointer(), ref.getTargetNodeReference());
   }
 

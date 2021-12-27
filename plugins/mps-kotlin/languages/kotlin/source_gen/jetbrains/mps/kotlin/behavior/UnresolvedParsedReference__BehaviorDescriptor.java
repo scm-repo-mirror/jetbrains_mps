@@ -9,7 +9,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
@@ -28,22 +28,22 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public final class UnresolvedParsedReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x430acdda9dcb793eL, "jetbrains.mps.kotlin.structure.UnresolvedParsedReference");
 
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
   public static final SMethod<Boolean> isResolved_id4MvRlgZCbFz = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isResolved").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4MvRlgZCbFz").build();
   public static final SMethod<SNode> tryResolve_id4MvRlgZCbFB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("tryResolve").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4MvRlgZCbFB").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateSignatures_id5q426iHK5S9, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateTypeSignatures_id5q426iHK5S9, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
     {
       final SNode type = SLinkOperations.getTarget(__thisNode__, LINKS.nested$3t_j);
       if (SNodeOperations.isInstanceOf(type, CONCEPTS.IType$Ni)) {
-        IType__BehaviorDescriptor.populateSignatures_id5q426iHK5S9.invoke(type, visitor);
+        IType__BehaviorDescriptor.populateTypeSignatures_id5q426iHK5S9.invoke(type, visitor);
       }
     }
   }
@@ -98,7 +98,7 @@ public final class UnresolvedParsedReference__BehaviorDescriptor extends BaseBHD
     }
     switch (methodIndex) {
       case 0:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 1:
         return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));

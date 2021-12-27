@@ -6,6 +6,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 /**
  * Abstraction of a function declaration usable by the kotlin type system.
@@ -65,11 +70,24 @@ public interface FunctionDeclaration {
   FunctionReceiver getReceiver();
 
   /**
-   * Returns whether the method has the given modifier. If the provided modifier to test against is null, returns whether
-   * the function can be used in a general purpose call (should be true in most cases).
-   * 
-   * In Kotlin, for instance, operator functions can be used as regular calls (a.plus(b)), so if null is provided true
-   * is returned.
+   * Returns the list of modifiers applied to this method.
    */
-  boolean hasModifier(@Nullable SAbstractConcept modifier);
+  @NotNull
+  default Iterable<SAbstractConcept> getModifiers() {
+    return Sequence.fromIterable(Collections.<SAbstractConcept>emptyList());
+  }
+
+  /**
+   * Returns whether the method has the given modifier. If the provided modifier to test against is null, returns true.
+   * 
+   * In Kotlin, for instance, operator functions can be used as regular calls (a.plus(b)), so if null is provided there is
+   * not reason to prevent it (an operator function is a function after all).
+   */
+  static boolean hasModifier(@NotNull FunctionDeclaration declaration, @Nullable final SAbstractConcept modifier) {
+    return modifier == null || Sequence.fromIterable(declaration.getModifiers()).any(new IWhereFilter<SAbstractConcept>() {
+      public boolean accept(SAbstractConcept it) {
+        return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(it), SNodeOperations.asSConcept(modifier));
+      }
+    });
+  }
 }

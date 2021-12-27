@@ -16,10 +16,11 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import jetbrains.mps.kotlin.scopes.ScopeHelper;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
+import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.baseLanguage.scopes.VisibleClassConstructorsScope;
 import jetbrains.mps.scope.FilteringScope;
@@ -48,15 +49,14 @@ public class JavaMethodCall_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            Tuples._3<Boolean, SNode, Boolean> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
+            Tuples._3<Boolean, SNode, ScopeContext> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
             // Call on receiver
             if ((boolean) context._0()) {
               SNode type = context._1();
 
               // Here we seek function signatures from java concepts
-              ScopeFilter scopeFilter = new ScopeFilter(CONCEPTS.BaseMethodDeclaration$kD, FunctionSignature.class, (boolean) context._2());
-              Scope scope = IType__BehaviorDescriptor.getScope_id7ubb0gUcNKV.invoke(type, scopeFilter, _context.getContextNode().getModel().getRepository());
+              Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.BaseMethodDeclaration$kD, FunctionSignature.class), context._2(), _context.getContextNode().getModel().getRepository());
 
               return (scope == null ? new EmptyScope() : scope);
             }

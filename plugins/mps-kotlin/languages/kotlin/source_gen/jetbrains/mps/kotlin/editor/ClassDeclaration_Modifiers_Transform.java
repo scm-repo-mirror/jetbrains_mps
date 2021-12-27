@@ -22,7 +22,10 @@ import org.apache.log4j.Logger;
 import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
@@ -34,7 +37,6 @@ import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.editor.menus.transformation.IncludeTransformationMenuTransformationMenuPart;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLookup;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
@@ -68,12 +70,83 @@ public class ClassDeclaration_Modifiers_Transform extends TransformationMenuBase
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
       result.add(new TMP_Action_ct1dme_a0());
-      result.add(new TMP_Include_ct1dme_b0());
+      result.add(new TMP_Action_ct1dme_b0());
+      result.add(new TMP_Include_ct1dme_c0());
     }
     return result;
   }
 
   private class TMP_Action_ct1dme_a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
+    @Nullable
+    protected TransformationMenuItem createItem(TransformationMenuContext context) {
+      Item item = new Item(context);
+      String description;
+      try {
+        description = "single item: " + item.getLabelText("");
+      } catch (Throwable t) {
+        Logger.getLogger(getClass()).error("Exception while executing getText of the item " + item, t);
+        return null;
+      }
+      context.getEditorMenuTrace().pushTraceInfo();
+      try {
+        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "6585624606760787478")));
+        item.setTraceInfo(context.getEditorMenuTrace().getTraceInfo());
+      } finally {
+        context.getEditorMenuTrace().popTraceInfo();
+      }
+      return item;
+    }
+
+    private class Item extends ActionItemBase implements SideTransformCompletionActionItem {
+      private final TransformationMenuContext _context;
+      private EditorMenuTraceInfo myEditorMenuTraceInfo;
+      private Item(TransformationMenuContext context) {
+        _context = context;
+      }
+      private void setTraceInfo(EditorMenuTraceInfo info) {
+        myEditorMenuTraceInfo = info;
+      }
+      @Nullable
+      @Override
+      public String getLabelText(String pattern) {
+        return (pattern.equals(")") ? ")" : "(");
+      }
+
+      @Override
+      public void execute(@NotNull String pattern) {
+        SNode constructor = SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.primaryConstructor$QvZc, null);
+        SNode param = SNodeFactoryOperations.addNewChild(constructor, LINKS.parameters$$EEQ, CONCEPTS.ClassParameter$wQ);
+        SelectionUtil.selectCell(_context.getEditorContext(), param, SelectionManager.FIRST_EDITABLE_CELL);
+      }
+
+      @Override
+      public boolean canExecute(@NotNull String pattern) {
+        return (SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc) == null) || ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ)).isEmpty();
+      }
+
+      @Override
+      public String getShortDescriptionText(@NotNull String pattern) {
+        return "specify class constructor";
+      }
+
+
+      @Override
+      public EditorMenuTraceInfo getTraceInfo() {
+        return myEditorMenuTraceInfo;
+      }
+
+      public void customize(String pattern, EditorMenuItemStyle style) {
+        EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
+        SAbstractConcept outputConcept = null;
+        EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
+        for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
+          customizer.customize(style, compositeContext);
+        }
+      }
+    }
+
+  }
+  private class TMP_Action_ct1dme_b0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Nullable
     protected TransformationMenuItem createItem(TransformationMenuContext context) {
       Item item = new Item(context);
@@ -106,22 +179,23 @@ public class ClassDeclaration_Modifiers_Transform extends TransformationMenuBase
       @Nullable
       @Override
       public String getLabelText(String pattern) {
-        return (pattern.equals(")") ? ")" : "(");
+        return "constructor";
       }
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeFactoryOperations.addNewChild(SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ, CONCEPTS.ClassParameter$wQ);
+        SNode constructor = SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.primaryConstructor$QvZc, null);
+        SelectionUtil.selectCell(_context.getEditorContext(), constructor, SelectionManager.LAST_EDITABLE_CELL);
       }
 
       @Override
       public boolean canExecute(@NotNull String pattern) {
-        return ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ)).isEmpty();
+        return (SLinkOperations.getTarget(_context.getNode(), LINKS.primaryConstructor$QvZc) == null);
       }
 
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
-        return "specify class constructor";
+        return "add class constructor";
       }
 
 
@@ -141,7 +215,7 @@ public class ClassDeclaration_Modifiers_Transform extends TransformationMenuBase
     }
 
   }
-  public class TMP_Include_ct1dme_b0 extends IncludeTransformationMenuTransformationMenuPart {
+  public class TMP_Include_ct1dme_c0 extends IncludeTransformationMenuTransformationMenuPart {
     @NotNull
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {

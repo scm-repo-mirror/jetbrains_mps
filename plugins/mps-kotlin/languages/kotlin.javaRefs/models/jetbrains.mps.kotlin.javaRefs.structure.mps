@@ -12,6 +12,9 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
@@ -19,6 +22,13 @@
       </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
+      </concept>
+      <concept id="8842732777748464990" name="jetbrains.mps.lang.structure.structure.RefPresentationTemplate" flags="ng" index="ROjv2">
+        <property id="4307758654697524060" name="suffix" index="1W_73K" />
+      </concept>
+      <concept id="8842732777748207592" name="jetbrains.mps.lang.structure.structure.SmartReferenceAttribute" flags="ng" index="RPilO">
+        <reference id="8842732777748207597" name="charactersticReference" index="RPilL" />
+        <child id="8842732777748474935" name="refPresentationTemplate" index="ROhUF" />
       </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
@@ -38,6 +48,7 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
@@ -61,13 +72,16 @@
     <node concept="PrWs8" id="6zWVWr27oIK" role="PzmwI">
       <ref role="PrY4T" to="tpee:6r77ob2URXY" resolve="IClassifierType" />
     </node>
+    <node concept="RPilO" id="5H$PF0dzd01" role="lGtFl">
+      <ref role="RPilL" node="6zWVWr21w5T" resolve="javaClass" />
+    </node>
   </node>
   <node concept="1TIwiD" id="26mUjU3jlvc">
     <property role="EcuMT" value="2420378304458348492" />
     <property role="3GE5qa" value="" />
     <property role="TrG5h" value="JavaMethodCall" />
-    <node concept="PrWs8" id="26mUjU3jl$0" role="PzmwI">
-      <ref role="PrY4T" to="hcm8:5D4bOjrr8CG" resolve="IFunctionCallLike" />
+    <node concept="PrWs8" id="5H$PF0dZJMN" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:5H$PF0dZ_iR" resolve="IRegularFunctionCall" />
     </node>
     <node concept="PrWs8" id="26mUjU3jlzW" role="PzmwI">
       <ref role="PrY4T" to="hcm8:2yYXHtl6Jjg" resolve="IExpression" />
@@ -75,20 +89,14 @@
     <node concept="PrWs8" id="7an2tsIqJkW" role="PzmwI">
       <ref role="PrY4T" to="hcm8:2yYXHtl6JeQ" resolve="INavigationTarget" />
     </node>
-    <node concept="PrWs8" id="26mUjU3jWFX" role="PzmwI">
-      <ref role="PrY4T" to="hcm8:5GtPw5yVf0b" resolve="IArguments" />
-    </node>
-    <node concept="PrWs8" id="26mUjU3krIm" role="PzmwI">
-      <ref role="PrY4T" to="hcm8:2gj5XQXEpsk" resolve="ITypeArguments" />
-    </node>
-    <node concept="PrWs8" id="26mUjU3PnV2" role="PzmwI">
-      <ref role="PrY4T" to="hcm8:666oMY5DOKB" resolve="ILambdaAsArgument" />
-    </node>
     <node concept="1TJgyj" id="26mUjU3jlzY" role="1TKVEi">
       <property role="IQ2ns" value="2420378304458348798" />
       <property role="20kJfa" value="method" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="tpee:fzclF7W" resolve="BaseMethodDeclaration" />
+    </node>
+    <node concept="RPilO" id="5H$PF0dtlhv" role="lGtFl">
+      <ref role="RPilL" node="26mUjU3jlzY" resolve="method" />
     </node>
   </node>
   <node concept="1TIwiD" id="26mUjU3QZBY">
@@ -110,6 +118,9 @@
       <property role="20kJfa" value="constructor" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" to="tpee:fzclF84" resolve="ConstructorDeclaration" />
+    </node>
+    <node concept="RPilO" id="5H$PF0dtkqa" role="lGtFl">
+      <ref role="RPilL" node="26mUjU3R2JX" resolve="constructor" />
     </node>
   </node>
   <node concept="1TIwiD" id="7an2tsI0MdE">
@@ -156,6 +167,9 @@
       <property role="TrG5h" value="visibleName" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="RPilO" id="5H$PF0dtltk" role="lGtFl">
+      <ref role="RPilL" node="3lDDPlnaxtc" resolve="getter" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4mvBIJf3_Z2">
     <property role="EcuMT" value="5016903245542350786" />
@@ -176,6 +190,9 @@
     <node concept="PrWs8" id="4mvBIJf4zxp" role="PzmwI">
       <ref role="PrY4T" to="hcm8:2yYXHtl6JeQ" resolve="INavigationTarget" />
     </node>
+    <node concept="RPilO" id="5H$PF0dtlXt" role="lGtFl">
+      <ref role="RPilL" node="4mvBIJf3IdV" resolve="variable" />
+    </node>
   </node>
   <node concept="1TIwiD" id="ZgHBwZxr7U">
     <property role="EcuMT" value="1139611333302792698" />
@@ -193,6 +210,78 @@
     </node>
     <node concept="PrWs8" id="ZgHBwZxwTC" role="PzmwI">
       <ref role="PrY4T" to="hcm8:2gj5XQXEpsk" resolve="ITypeArguments" />
+    </node>
+    <node concept="RPilO" id="5H$PF0dtkQD" role="lGtFl">
+      <ref role="RPilL" node="ZgHBwZxuz3" resolve="interface" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5H$PF0dovDV">
+    <property role="EcuMT" value="6585624606749620859" />
+    <property role="3GE5qa" value="" />
+    <property role="TrG5h" value="JavaDefaultConstructorCall" />
+    <node concept="PrWs8" id="5H$PF0dovDW" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:5H$PF0dZ_iR" resolve="IRegularFunctionCall" />
+    </node>
+    <node concept="PrWs8" id="5H$PF0dovDX" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:2yYXHtl6Jjg" resolve="IExpression" />
+    </node>
+    <node concept="1TJgyj" id="5H$PF0dovE2" role="1TKVEi">
+      <property role="IQ2ns" value="6585624606749620866" />
+      <property role="20kJfa" value="classifier" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="tpee:g7pOWCK" resolve="Classifier" />
+    </node>
+    <node concept="RPilO" id="5H$PF0dtl6y" role="lGtFl">
+      <ref role="RPilL" node="5H$PF0dovE2" resolve="classifier" />
+      <node concept="ROjv2" id="5H$PF0dzdao" role="ROhUF">
+        <property role="1W_73K" value="()" />
+      </node>
+    </node>
+  </node>
+  <node concept="1TIwiD" id="5H$PF0dtma6">
+    <property role="EcuMT" value="6585624606750892678" />
+    <property role="3GE5qa" value="extends" />
+    <property role="TrG5h" value="JavaDefaultConstructorInheritanceSpecifier" />
+    <node concept="PrWs8" id="5H$PF0dtma7" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:213J8cgKswc" resolve="IInheritanceSpecifier" />
+    </node>
+    <node concept="PrWs8" id="5H$PF0dtmaa" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:5GtPw5yVf0b" resolve="IArguments" />
+    </node>
+    <node concept="PrWs8" id="5H$PF0dtmab" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:2gj5XQXEpsk" resolve="ITypeArguments" />
+    </node>
+    <node concept="1TJgyj" id="5H$PF0dtmad" role="1TKVEi">
+      <property role="IQ2ns" value="6585624606750892685" />
+      <property role="20kJfa" value="classifier" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="tpee:g7pOWCK" resolve="Classifier" />
+    </node>
+    <node concept="RPilO" id="5H$PF0dtmae" role="lGtFl">
+      <ref role="RPilL" node="5H$PF0dtmad" resolve="classifier" />
+      <node concept="ROjv2" id="5H$PF0dzdtF" role="ROhUF">
+        <property role="1W_73K" value="()" />
+      </node>
+    </node>
+  </node>
+  <node concept="1TIwiD" id="786xiE5$bnJ">
+    <property role="EcuMT" value="8216400987860022767" />
+    <property role="TrG5h" value="JavaMemberTarget" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="786xiE5$bNJ" role="1TKVEi">
+      <property role="IQ2ns" value="8216400987860024559" />
+      <property role="20kJfa" value="member" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="tpck:h0TrEE$" resolve="INamedConcept" />
+      <node concept="t5JxF" id="786xiE5$c8U" role="lGtFl">
+        <property role="t5JxN" value="member, constructor or class (for default constructor)" />
+      </node>
+    </node>
+    <node concept="PrWs8" id="786xiE5$bK2" role="PzmwI">
+      <ref role="PrY4T" to="hcm8:3xTUo83AQgz" resolve="IFunctionMemberTarget" />
+    </node>
+    <node concept="RPilO" id="786xiE5$d26" role="lGtFl">
+      <ref role="RPilL" node="786xiE5$bNJ" resolve="member" />
     </node>
   </node>
 </model>

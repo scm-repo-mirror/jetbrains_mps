@@ -82,6 +82,7 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -496,6 +497,19 @@
     <node concept="3clFb_" id="4XaBo_Yv$z2" role="jymVt">
       <property role="TrG5h" value="isReferedBy" />
       <node concept="3clFbS" id="4XaBo_Yv$z5" role="3clF47">
+        <node concept="3clFbJ" id="1pD7IS3$64F" role="3cqZAp">
+          <node concept="3clFbS" id="1pD7IS3$64H" role="3clFbx">
+            <node concept="3cpWs6" id="1pD7IS3$7nb" role="3cqZAp">
+              <node concept="3clFbT" id="1pD7IS3$7te" role="3cqZAk" />
+            </node>
+          </node>
+          <node concept="3clFbC" id="1pD7IS3$6CI" role="3clFbw">
+            <node concept="10Nm6u" id="1pD7IS3$72F" role="3uHU7w" />
+            <node concept="37vLTw" id="1pD7IS3$68_" role="3uHU7B">
+              <ref role="3cqZAo" node="4XaBo_Yv_03" resolve="ref" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="4XaBo_YvqjO" role="3cqZAp">
           <node concept="17R0WA" id="p7L9LLo68y" role="3cqZAk">
             <node concept="1rXfSq" id="p7L9LLo6aO" role="3uHU7B">

@@ -598,7 +598,7 @@
               </node>
               <node concept="1mIQ4w" id="1d2BQ0ZMTwU" role="2OqNvi">
                 <node concept="chp4Y" id="1d2BQ0ZMTwV" role="cj9EA">
-                  <ref role="cht4Q" to="hcm8:6f3juM$wHwB" resolve="ConstructorDeclaration" />
+                  <ref role="cht4Q" to="hcm8:6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
                 </node>
               </node>
             </node>

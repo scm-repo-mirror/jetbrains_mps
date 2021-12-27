@@ -96,7 +96,7 @@
     <property role="TrG5h" value="IClassMemberDeclaration" />
     <property role="3GE5qa" value="declaration.class.member" />
     <node concept="PrWs8" id="213J8cgCCDH" role="PrDN$">
-      <ref role="PrY4T" node="213J8cgCCAA" resolve="IScopePart" />
+      <ref role="PrY4T" node="213J8cgCCAA" resolve="IDeclarationScopePart" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jcw">
@@ -157,6 +157,9 @@
     </node>
     <node concept="PrWs8" id="6cg9X74Le1C" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
+    </node>
+    <node concept="PrWs8" id="7XiB41Mknac" role="PzmwI">
+      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
     </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JdA">
@@ -994,8 +997,8 @@
     <node concept="PrWs8" id="1502Vugzdzn" role="PzmwI">
       <ref role="PrY4T" node="1502Vugzdy7" resolve="IReturnType" />
     </node>
-    <node concept="PrWs8" id="1Izr$$XxD4H" role="PzmwI">
-      <ref role="PrY4T" node="1Izr$$XwuK2" resolve="ISimpleScopePart" />
+    <node concept="PrWs8" id="2QFnHPqtQON" role="PzmwI">
+      <ref role="PrY4T" node="213J8cgCCAA" resolve="IDeclarationScopePart" />
     </node>
     <node concept="PrWs8" id="6cg9X755LWz" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
@@ -1018,20 +1021,11 @@
     <property role="R4oN_" value="call expression" />
     <property role="3GE5qa" value="expression.function.call" />
     <property role="R5$K7" value="true" />
-    <node concept="PrWs8" id="1VI7K1k1QFw" role="PzmwI">
-      <ref role="PrY4T" node="5GtPw5yVf0b" resolve="IArguments" />
-    </node>
-    <node concept="PrWs8" id="2gj5XQXFnDo" role="PzmwI">
-      <ref role="PrY4T" node="2gj5XQXEpsk" resolve="ITypeArguments" />
-    </node>
-    <node concept="PrWs8" id="1VI7K1k1VYj" role="PzmwI">
-      <ref role="PrY4T" node="666oMY5DOKB" resolve="ILambdaAsArgument" />
+    <node concept="PrWs8" id="5H$PF0dZB$1" role="PzmwI">
+      <ref role="PrY4T" node="5H$PF0dZ_iR" resolve="IRegularFunctionCall" />
     </node>
     <node concept="PrWs8" id="4MvRlgZEPui" role="PzmwI">
       <ref role="PrY4T" node="4ZsNJbI6N2K" resolve="IResolvableReference" />
-    </node>
-    <node concept="PrWs8" id="7csM7imLWns" role="PzmwI">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
     </node>
     <node concept="1TJgyj" id="1Izr$$XyHjD" role="1TKVEi">
       <property role="IQ2ns" value="1991556721072067817" />
@@ -1040,13 +1034,8 @@
       <ref role="20lvS9" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
     </node>
     <node concept="t5JxF" id="1Izr$$XyHCf" role="lGtFl">
-      <property role="t5JxN" value="direct call of a function" />
+      <property role="t5JxN" value="direct call of a kotlin function" />
     </node>
-  </node>
-  <node concept="PlHQZ" id="2yYXHtl6Jh1">
-    <property role="EcuMT" value="2936055411798373441" />
-    <property role="TrG5h" value="IType" />
-    <property role="3GE5qa" value="type" />
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jha">
     <property role="EcuMT" value="2936055411798373450" />
@@ -1481,7 +1470,11 @@
       <property role="IQ2ns" value="2324909103760693884" />
       <property role="20kJfa" value="target" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
+      <ref role="20lvS9" node="71DDynMG2ea" resolve="IConstructorDeclaration" />
+    </node>
+    <node concept="RPilO" id="1pD7IS1O6BS" role="lGtFl">
+      <ref role="RPilL" node="213J8cgI_DW" resolve="target" />
+      <node concept="ROjv2" id="1pD7IS1O8_N" role="ROhUF" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JjU">
@@ -1753,6 +1746,9 @@
     </node>
     <node concept="PrWs8" id="6TRHYuCE24K" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
+    </node>
+    <node concept="PrWs8" id="7XiB41Mcpwo" role="PzmwI">
+      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JkU">
@@ -2176,9 +2172,6 @@
     <node concept="PrWs8" id="2yYXHtlfYZs" role="PrDN$">
       <ref role="PrY4T" node="2yYXHtl6Jgd" resolve="IElseExpression" />
     </node>
-    <node concept="PrWs8" id="1Izr$$XnJu0" role="PrDN$">
-      <ref role="PrY4T" node="213J8cgCCAA" resolve="IScopePart" />
-    </node>
     <node concept="PrWs8" id="auY8guWXgG" role="PrDN$">
       <ref role="PrY4T" node="2mD64u3yQho" resolve="IInferencePart" />
     </node>
@@ -2189,6 +2182,9 @@
     <property role="TrG5h" value="IClassDeclaration" />
     <node concept="PrWs8" id="6cg9X74gsdj" role="PrDN$">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
+    </node>
+    <node concept="PrWs8" id="213J8cgC$I4" role="PrDN$">
+      <ref role="PrY4T" node="2Aaqzls4g9O" resolve="IClassLike" />
     </node>
     <node concept="PrWs8" id="2yYXHtlhVm3" role="PrDN$">
       <ref role="PrY4T" node="2yYXHtl6Jjj" resolve="IDeclaration" />
@@ -2201,9 +2197,6 @@
     </node>
     <node concept="PrWs8" id="2yYXHtlq_o0" role="PrDN$">
       <ref role="PrY4T" node="2yYXHtlq$RP" resolve="ITypeParameters" />
-    </node>
-    <node concept="PrWs8" id="213J8cgC$I4" role="PrDN$">
-      <ref role="PrY4T" node="2Aaqzls4g9O" resolve="IClassLike" />
     </node>
     <node concept="PrWs8" id="5dNsAxXOVNt" role="PrDN$">
       <ref role="PrY4T" node="5dNsAxXOVNq" resolve="IInheritable" />
@@ -2244,6 +2237,11 @@
     <property role="TrG5h" value="InterfaceDeclaration" />
     <property role="34LRSv" value="interface" />
     <property role="R4oN_" value="interface declaration" />
+    <node concept="1TJgyi" id="4q11fqJYbqW" role="1TKVEl">
+      <property role="IQ2nx" value="5080347312211408572" />
+      <property role="TrG5h" value="isFunctional" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
     <node concept="PrWs8" id="213J8cgMj09" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtlhVlH" resolve="IClassDeclaration" />
     </node>
@@ -2572,7 +2570,10 @@
   <node concept="PlHQZ" id="213J8cgCCAA">
     <property role="EcuMT" value="2324909103759133094" />
     <property role="3GE5qa" value="scopes" />
-    <property role="TrG5h" value="IScopePart" />
+    <property role="TrG5h" value="IDeclarationScopePart" />
+    <node concept="PrWs8" id="2ZbCiJacDED" role="PrDN$">
+      <ref role="PrY4T" node="2ZbCiJacCSA" resolve="IStatementScopePart" />
+    </node>
   </node>
   <node concept="1TIwiD" id="213J8cgIr6k">
     <property role="EcuMT" value="2324909103760650644" />
@@ -2690,20 +2691,6 @@
       <ref role="PrY4T" node="2yYXHtl6Jcy" resolve="IStatement" />
     </node>
   </node>
-  <node concept="PlHQZ" id="1Izr$$XwuK2">
-    <property role="EcuMT" value="1991556721071483906" />
-    <property role="3GE5qa" value="scopes" />
-    <property role="TrG5h" value="ISimpleScopePart" />
-    <node concept="t5JxF" id="1Izr$$XwuK3" role="lGtFl">
-      <property role="t5JxN" value="element that register itself in the scope" />
-    </node>
-    <node concept="PrWs8" id="1Izr$$XwuKg" role="PrDN$">
-      <ref role="PrY4T" node="213J8cgCCAA" resolve="IScopePart" />
-    </node>
-    <node concept="PrWs8" id="1Izr$$XxCft" role="PrDN$">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="18X2O0FvKeM">
     <property role="EcuMT" value="1314219036497609650" />
     <property role="3GE5qa" value="expression.function" />
@@ -2784,6 +2771,9 @@
     </node>
     <node concept="PrWs8" id="18X2O0FAIfB" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6Jcy" resolve="IStatement" />
+    </node>
+    <node concept="PrWs8" id="2ZbCiJacQ0T" role="PzmwI">
+      <ref role="PrY4T" node="2ZbCiJacCSA" resolve="IStatementScopePart" />
     </node>
   </node>
   <node concept="PlHQZ" id="3r3AWMM3Orf">
@@ -3183,7 +3173,7 @@
     <property role="EcuMT" value="5032507314956342244" />
     <property role="TrG5h" value="ContainedOperation" />
     <property role="34LRSv" value="in" />
-    <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
+    <ref role="1TJDcQ" node="Ad0bnVTz7o" resolve="FlippedOverloadedBinaryExpression" />
     <node concept="PrWs8" id="4nn3FPlNEd8" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
     </node>
@@ -3193,7 +3183,7 @@
     <property role="EcuMT" value="5032507314956342259" />
     <property role="TrG5h" value="NotContainedOperation" />
     <property role="34LRSv" value="!in" />
-    <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
+    <ref role="1TJDcQ" node="Ad0bnVTz7o" resolve="FlippedOverloadedBinaryExpression" />
     <node concept="PrWs8" id="4nn3FPlNEdt" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
     </node>
@@ -3645,7 +3635,7 @@
       <property role="IQ2ns" value="7358760241248948562" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="lines" />
-      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" to="zqge:2cLqkTm6J5A" resolve="Line" />
     </node>
     <node concept="PrWs8" id="6ov$ndQYe55" role="PzmwI">
@@ -3765,7 +3755,7 @@
     <property role="EcuMT" value="2998782254613004746" />
     <property role="TrG5h" value="IncompleteDeclaration" />
     <property role="3GE5qa" value="edition" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyi" id="2AtO9a5ybKg" role="1TKVEl">
       <property role="IQ2nx" value="2998782254622751760" />
       <property role="TrG5h" value="isOverride" />
@@ -3788,9 +3778,50 @@
     <node concept="PrWs8" id="71DDynMG2vD" role="PrDN$">
       <ref role="PrY4T" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
     </node>
+    <node concept="PrWs8" id="2ZbCiJ9RhFK" role="PrDN$">
+      <ref role="PrY4T" node="213J8cgCCAA" resolve="IDeclarationScopePart" />
+    </node>
     <node concept="t5JxF" id="71DDynMGyaE" role="lGtFl">
       <property role="t5JxN" value="node that can be referred to as a constructor" />
     </node>
+  </node>
+  <node concept="PlHQZ" id="5H$PF0dZ_iR">
+    <property role="EcuMT" value="6585624606759867575" />
+    <property role="3GE5qa" value="expression.function.call" />
+    <property role="TrG5h" value="IRegularFunctionCall" />
+    <node concept="PrWs8" id="1VI7K1k1QFw" role="PrDN$">
+      <ref role="PrY4T" node="5GtPw5yVf0b" resolve="IArguments" />
+    </node>
+    <node concept="PrWs8" id="2gj5XQXFnDo" role="PrDN$">
+      <ref role="PrY4T" node="2gj5XQXEpsk" resolve="ITypeArguments" />
+    </node>
+    <node concept="PrWs8" id="1VI7K1k1VYj" role="PrDN$">
+      <ref role="PrY4T" node="666oMY5DOKB" resolve="ILambdaAsArgument" />
+    </node>
+    <node concept="PrWs8" id="7csM7imLWns" role="PrDN$">
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+    </node>
+    <node concept="t5JxF" id="5H$PF0dZ_M4" role="lGtFl">
+      <property role="t5JxN" value="function call that takes the form of a kotlin function call (type arguments, arguments, lambda as argument)" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="2ZbCiJacCSA">
+    <property role="EcuMT" value="3444023549502852646" />
+    <property role="3GE5qa" value="scopes" />
+    <property role="TrG5h" value="IStatementScopePart" />
+  </node>
+  <node concept="1TIwiD" id="Ad0bnVTz7o">
+    <property role="EcuMT" value="688207099672801752" />
+    <property role="3GE5qa" value="expression.operator.overloaded" />
+    <property role="TrG5h" value="FlippedOverloadedBinaryExpression" />
+    <property role="R4oN_" value="binary expresion whose right term is the call receiver" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
+  </node>
+  <node concept="PlHQZ" id="2yYXHtl6Jh1">
+    <property role="EcuMT" value="2936055411798373441" />
+    <property role="TrG5h" value="IType" />
+    <property role="3GE5qa" value="type" />
   </node>
 </model>
 

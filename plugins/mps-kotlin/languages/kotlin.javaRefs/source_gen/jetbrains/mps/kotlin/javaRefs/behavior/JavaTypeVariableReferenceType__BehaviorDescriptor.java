@@ -10,7 +10,7 @@ import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
@@ -31,11 +31,11 @@ public final class JavaTypeVariableReferenceType__BehaviorDescriptor extends Bas
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x729709d72e03236aL, "jetbrains.mps.kotlin.javaRefs.structure.JavaTypeVariableReferenceType");
 
   public static final SMethod<TypeParameterDeclaration> getParameter_id4W0pdSD7eWM = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getParameter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4W0pdSD7eWM").build();
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameter_id4W0pdSD7eWM, populateSignatures_id5q426iHK5S9, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameter_id4W0pdSD7eWM, populateTypeSignatures_id5q426iHK5S9, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -43,7 +43,7 @@ public final class JavaTypeVariableReferenceType__BehaviorDescriptor extends Bas
   /*package*/ static TypeParameterDeclaration getParameter_id4W0pdSD7eWM(@NotNull SNode __thisNode__) {
     return new JavaTypeParameterDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.typeVariable$LHQO), TypeConversionService.getInstance().getJavaToKt());
   }
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
   }
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.typeVariable$LHQO), PROPS.name$MnvL);
@@ -70,7 +70,7 @@ public final class JavaTypeVariableReferenceType__BehaviorDescriptor extends Bas
       case 0:
         return (T) ((TypeParameterDeclaration) getParameter_id4W0pdSD7eWM(node));
       case 1:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
         return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));

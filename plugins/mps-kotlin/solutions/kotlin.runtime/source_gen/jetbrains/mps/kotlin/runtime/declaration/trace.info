@@ -10,21 +10,35 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root nodeRef="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.runtime.declaration)/2420378304463060558">
     <file name="FunctionDeclaration.java">
-      <node id="2420378304463102437" at="29,0,30,0" concept="2" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="2420378304463060724" at="55,0,56,0" concept="2" trace="getReturnType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="2420378304463181815" at="74,0,75,0" concept="2" trace="hasModifier#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Z" />
-      <node id="2420378304463060831" at="38,0,40,0" concept="2" trace="getParameters#()Ljava/lang/Iterable;" />
-      <node id="2420378304463515326" at="46,0,48,0" concept="2" trace="getTypeParameters#()Ljava/lang/Iterable;" />
-      <node id="2420378304464264481" at="64,0,66,0" concept="2" trace="getReceiver#()Ljetbrains/mps/kotlin/runtime/declaration/FunctionReceiver;" />
-      <scope id="2420378304463102437" at="29,0,30,0" />
-      <scope id="2420378304463060724" at="55,0,56,0" />
-      <scope id="2420378304463181815" at="74,0,75,0">
+      <node id="2420378304463102437" at="34,0,35,0" concept="2" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2420378304463060724" at="60,0,61,0" concept="2" trace="getReturnType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="5080347312210577409" at="76,53,77,76" concept="4" />
+      <node id="5080347312210595251" at="88,50,89,119" concept="4" />
+      <node id="2420378304463060831" at="43,0,45,0" concept="2" trace="getParameters#()Ljava/lang/Iterable;" />
+      <node id="2420378304463515326" at="51,0,53,0" concept="2" trace="getTypeParameters#()Ljava/lang/Iterable;" />
+      <node id="2420378304464264481" at="69,0,71,0" concept="2" trace="getReceiver#()Ljetbrains/mps/kotlin/runtime/declaration/FunctionReceiver;" />
+      <node id="5080347312210594857" at="88,0,91,0" concept="2" trace="accept#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Z" />
+      <node id="5080347312210575157" at="75,0,79,0" concept="2" trace="getModifiers#()Ljava/lang/Iterable;" />
+      <node id="1060241541152023706" at="86,115,91,7" concept="4" />
+      <node id="5080347312210585786" at="86,0,93,0" concept="7" trace="hasModifier#(Ljetbrains/mps/kotlin/runtime/declaration/FunctionDeclaration;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Z" />
+      <scope id="2420378304463102437" at="34,0,35,0" />
+      <scope id="2420378304463060724" at="60,0,61,0" />
+      <scope id="5080347312210575160" at="76,53,77,76" />
+      <scope id="5080347312210594858" at="88,50,89,119" />
+      <scope id="2420378304463060831" at="43,0,45,0" />
+      <scope id="2420378304463515326" at="51,0,53,0" />
+      <scope id="2420378304464264481" at="69,0,71,0" />
+      <scope id="5080347312210594857" at="88,0,91,0">
+        <var name="it" id="5080347312210594857" />
+      </scope>
+      <scope id="5080347312210575157" at="75,0,79,0" />
+      <scope id="2420378304463181818" at="86,115,91,7" />
+      <scope id="5080347312210585786" at="86,0,93,0">
+        <var name="declaration" id="5080347312210587778" />
         <var name="modifier" id="2420378304463181897" />
       </scope>
-      <scope id="2420378304463060831" at="38,0,40,0" />
-      <scope id="2420378304463515326" at="46,0,48,0" />
-      <scope id="2420378304464264481" at="64,0,66,0" />
-      <unit id="2420378304463060558" at="23,0,76,0" name="jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration" />
+      <unit id="5080347312210594857" at="87,89,91,5" name="jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration$1" />
+      <unit id="2420378304463060558" at="28,0,94,0" name="jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration" />
     </file>
   </root>
   <root nodeRef="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.runtime.declaration)/2420378304463087960">

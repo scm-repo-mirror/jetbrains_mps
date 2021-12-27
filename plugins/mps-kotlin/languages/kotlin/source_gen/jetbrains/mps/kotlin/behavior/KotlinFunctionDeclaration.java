@@ -55,9 +55,11 @@ public class KotlinFunctionDeclaration implements InferrableFunctionDeclaration 
     }
     return new KotlinClassFunctionReceiver(klass);
   }
+
+
   @Override
-  public boolean hasModifier(SAbstractConcept modifier) {
-    return (boolean) IFunctionDeclaration__BehaviorDescriptor.hasModifier_id5D4bOjrv7QE.invoke(myDeclaration, modifier);
+  public Iterable<SAbstractConcept> getModifiers() {
+    return IFunctionDeclaration__BehaviorDescriptor.getModifiers_id4q11fqJUzWN.invoke(myDeclaration);
   }
 
   public static FunctionDeclaration of(SNode declaration) {

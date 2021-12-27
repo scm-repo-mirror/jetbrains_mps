@@ -11,4 +11,7 @@ public class CallOperation_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
     return new CallOperation_EditorBuilder_a(editorContext, node).createCell();
   }
+  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
+    return new CallOperation_InspectorBuilder_a(editorContext, node).createCell();
+  }
 }

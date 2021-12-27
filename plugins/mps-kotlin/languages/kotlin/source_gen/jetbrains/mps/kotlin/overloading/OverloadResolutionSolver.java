@@ -16,9 +16,11 @@ import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.kotlin.scopes.ClassMemberVisitor;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.kotlin.runtime.members.SourcedFunctionSignature;
+import jetbrains.mps.kotlin.runtime.members.SourcedSignature;
+import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import jetbrains.mps.scope.Scope;
 import java.util.Objects;
@@ -51,15 +53,15 @@ public class OverloadResolutionSolver {
     myFunctionName = getFunctionName(call);
   }
 
-  public FunctionDeclaration inspectNodeSet(Iterable<SNode> nodes) throws AmbiguousException {
+  public FunctionDeclaration inspectNodeSet(Iterable<SNode> nodes, SNode receiverType) throws AmbiguousException {
     return inspectSet(Sequence.fromIterable(nodes).select(new ISelector<SNode, FunctionDeclaration>() {
       public FunctionDeclaration select(SNode declaration) {
         return KotlinFunctionDeclaration.of(declaration);
       }
-    }).where(new NotNullWhereFilter<FunctionDeclaration>()));
+    }).where(new NotNullWhereFilter<FunctionDeclaration>()), receiverType);
   }
 
-  public FunctionDeclaration inspectSet(final Iterable<FunctionDeclaration> nodes) throws AmbiguousException {
+  public FunctionDeclaration inspectSet(final Iterable<FunctionDeclaration> nodes, SNode receiverType) throws AmbiguousException {
     if (Sequence.fromIterable(nodes).isEmpty()) {
       return null;
     }
@@ -71,7 +73,7 @@ public class OverloadResolutionSolver {
     }
 
     // Actual resolution
-    Tuples._2<FunctionDeclaration, Boolean> resolution = overloadResolver.resolve(myCall, nodes);
+    Tuples._2<FunctionDeclaration, Boolean> resolution = overloadResolver.resolve(myCall, receiverType, nodes);
 
     FunctionDeclaration res = resolution._0();
     if (res != null) {
@@ -107,13 +109,14 @@ public class OverloadResolutionSolver {
     FunctionDeclaration result;
 
     // 1. Non-extension member callables named f of type T
-    OverloadedSignatureVisitor visitor = new OverloadedSignatureVisitor(myCall.getModel().getRepository(), myFunctionName, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
+    ClassMemberVisitor visitor = OverloadedSignatureFilter.createVisitor(myCall.getModel().getRepository(), myFunctionName, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(receiverType, visitor);
-    if ((result = inspectSet(ListSequence.fromList(visitor.getMembers()).ofType(SourcedFunctionSignature.class).select(new ISelector<SourcedFunctionSignature, FunctionDeclaration>() {
-      public FunctionDeclaration select(SourcedFunctionSignature this0) {
-        return this0.getDescriptor();
+    Iterable<FunctionDeclaration> instances = ListSequence.fromList(visitor.getMembers()).select(new ISelector<SourcedSignature, FunctionDeclaration>() {
+      public FunctionDeclaration select(SourcedSignature it) {
+        return ((FunctionSignature) it.getSignature()).getFunctionDeclaration();
       }
-    }))) != null) {
+    });
+    if ((result = inspectSet(instances, receiverType)) != null) {
       return result;
     }
 
@@ -124,7 +127,7 @@ public class OverloadResolutionSolver {
         return Objects.equals(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(IFunctionDeclaration__BehaviorDescriptor.getReceiverType_id2gj5XQXMFhP.invoke(it)), receiverId);
       }
     });
-    if ((result = inspectNodeSet(local)) != null) {
+    if ((result = inspectNodeSet(local, receiverType)) != null) {
       return result;
     }
 
@@ -134,7 +137,7 @@ public class OverloadResolutionSolver {
     // 6. Implicitly imported extension callables named f (either from the Kotlin standard library or platform-specific ones), whose receiver type conforms to type T.
     // Well from this point it's all a bit mixed up in the following as import mechanism in MPS is not similar to text editors :')
     Iterable<SNode> imported = functionsOf(new ReceiverTypeScope(SNodeOperations.getModel(myCall), receiverId, CONCEPTS.IFunctionDeclaration$ZB));
-    if ((result = inspectNodeSet(imported)) != null) {
+    if ((result = inspectNodeSet(imported, receiverType)) != null) {
       return result;
     }
 

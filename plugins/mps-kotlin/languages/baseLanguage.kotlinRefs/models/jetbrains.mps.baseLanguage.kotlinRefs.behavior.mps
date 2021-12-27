@@ -1740,7 +1740,7 @@
     </node>
     <node concept="13i0hz" id="1d2BQ0ZOu1I" role="13h7CS">
       <property role="TrG5h" value="populateSignatures" />
-      <ref role="13i0hy" to="hez:5q426iHK5S9" resolve="populateSignatures" />
+      <ref role="13i0hy" to="hez:5q426iHK5S9" resolve="populateTypeSignatures" />
       <node concept="3Tm1VV" id="1d2BQ0ZOu1J" role="1B3o_S" />
       <node concept="3clFbS" id="1d2BQ0ZOu1O" role="3clF47">
         <node concept="3SKdUt" id="1d2BQ0ZOU6D" role="3cqZAp">
@@ -1841,7 +1841,7 @@
       <node concept="37vLTG" id="1d2BQ0ZOu1P" role="3clF46">
         <property role="TrG5h" value="visitor" />
         <node concept="3uibUv" id="1d2BQ0ZOu1Q" role="1tU5fm">
-          <ref role="3uigEE" to="2q9i:27wMicCZj8w" resolve="SignatureVisitor" />
+          <ref role="3uigEE" to="2q9i:27wMicCZj8w" resolve="SignatureCollector" />
         </node>
       </node>
       <node concept="3cqZAl" id="1d2BQ0ZOu1R" role="3clF45" />

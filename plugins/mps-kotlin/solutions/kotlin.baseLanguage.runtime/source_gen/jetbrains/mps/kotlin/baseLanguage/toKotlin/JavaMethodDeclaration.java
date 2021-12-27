@@ -13,7 +13,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -69,11 +68,6 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     }
 
     return null;
-  }
-  @Override
-  public boolean hasModifier(SAbstractConcept modifier) {
-    // No modifiers there :)
-    return modifier == null;
   }
 
   private static final class LINKS {

@@ -11,6 +11,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
@@ -22,6 +23,7 @@ import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.KeywordStyleClass;
 import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
@@ -70,6 +72,9 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     if (nodeCondition_6bvvxx_a2a()) {
       editorCell.addEditorCell(createRefNode_0());
     }
+    if (nodeCondition_6bvvxx_a3a()) {
+      editorCell.addEditorCell(createConstant_0());
+    }
     editorCell.addEditorCell(createComponent_2());
     editorCell.addEditorCell(createProperty_0());
     editorCell.addEditorCell(createComponent_3());
@@ -80,6 +85,9 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   }
   private boolean nodeCondition_6bvvxx_a2a() {
     return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(myNode, LINKS.inheritance$TFvr), CONCEPTS.AbstractInheritanceModifier$GA));
+  }
+  private boolean nodeCondition_6bvvxx_a3a() {
+    return SPropertyOperations.getBoolean(myNode, PROPS.isFunctional$pBP$);
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.Annotations_Component");
@@ -146,6 +154,15 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     protected String getNoTargetText() {
       return "<no inheritance>";
     }
+  }
+  private EditorCell createConstant_0() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "fun");
+    editorCell.setCellId("Constant_6bvvxx_d0");
+    Style style = new StyleImpl();
+    new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
+    editorCell.setDefaultText("");
+    return editorCell;
   }
   private EditorCell createComponent_2() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.core.editor.alias");
@@ -218,6 +235,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty isFunctional$pBP$ = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, 0x468104f6aff8b6bcL, "isFunctional");
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

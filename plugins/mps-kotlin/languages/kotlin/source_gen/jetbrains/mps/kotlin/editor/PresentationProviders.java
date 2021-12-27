@@ -5,18 +5,38 @@ package jetbrains.mps.kotlin.editor;
 import jetbrains.mps.smodel.action.IReferentPresentationProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PresentationProviders {
   public static final IReferentPresentationProvider PRESENTATION_ejnxzx_a0a0a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
+      return (String) IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(targetNode, KtEnvironmentConfig.Kotlin);
+    }
+  };
+  public static final IReferentPresentationProvider PRESENTATION_q3ghb3_a0a0a = new IReferentPresentationProvider() {
+    @NotNull
+    @Override
+    public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
+      // Only constructors
+      if (SNodeOperations.isInstanceOf(targetNode, CONCEPTS.IConstructorDeclaration$rR)) {
+        return IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(targetNode, KtEnvironmentConfig.Kotlin);
+      }
+
       return SPropertyOperations.getString(targetNode, PROPS.name$MnvL);
     }
   };
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IConstructorDeclaration$rR = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7069a625f2b0238aL, "jetbrains.mps.kotlin.structure.IConstructorDeclaration");
+  }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");

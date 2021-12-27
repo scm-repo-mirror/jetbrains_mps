@@ -3819,28 +3819,46 @@
           </node>
         </node>
         <node concept="3clFbH" id="2Aaqzls51M8" role="3cqZAp" />
-        <node concept="3clFbH" id="2Aaqzls4PMi" role="3cqZAp" />
-        <node concept="3clFbJ" id="2Aaqzls4ObW" role="3cqZAp">
-          <node concept="3clFbS" id="2Aaqzls4ObX" role="3clFbx">
-            <node concept="3SKdUt" id="2Aaqzls4ObY" role="3cqZAp">
-              <node concept="1PaTwC" id="2Aaqzls4ObZ" role="1aUNEU">
-                <node concept="3oM_SD" id="2Aaqzls4Oc0" role="1PaTwD">
-                  <property role="3oM_SC" value="TODO" />
+        <node concept="3clFbJ" id="4q11fqJYuVY" role="3cqZAp">
+          <node concept="3clFbS" id="4q11fqJYuW0" role="3clFbx">
+            <node concept="3clFbF" id="4q11fqJYG1R" role="3cqZAp">
+              <node concept="37vLTI" id="4q11fqJZ26F" role="3clFbG">
+                <node concept="3clFbT" id="4q11fqJZ5bf" role="37vLTx">
+                  <property role="3clFbU" value="true" />
                 </node>
-                <node concept="3oM_SD" id="2Aaqzls4Oc1" role="1PaTwD">
-                  <property role="3oM_SC" value="isFun" />
-                </node>
-                <node concept="3oM_SD" id="2Aaqzls4Oc2" role="1PaTwD">
-                  <property role="3oM_SC" value="-&gt;" />
-                </node>
-                <node concept="3oM_SD" id="2Aaqzls4Oc3" role="1PaTwD">
-                  <property role="3oM_SC" value="function" />
-                </node>
-                <node concept="3oM_SD" id="2Aaqzls4Oc4" role="1PaTwD">
-                  <property role="3oM_SC" value="types?" />
+                <node concept="2OqwBi" id="4q11fqJYUQ9" role="37vLTJ">
+                  <node concept="1PxgMI" id="4q11fqJYPnK" role="2Oq$k0">
+                    <property role="1BlNFB" value="true" />
+                    <node concept="chp4Y" id="4q11fqJYSU_" role="3oSUPX">
+                      <ref role="cht4Q" to="hcm8:2yYXHtli8qZ" resolve="InterfaceDeclaration" />
+                    </node>
+                    <node concept="338YkY" id="4q11fqJYG1P" role="1m5AlR">
+                      <ref role="338YkT" node="2Aaqzls34rJ" resolve="node" />
+                    </node>
+                  </node>
+                  <node concept="3TrcHB" id="4q11fqJYYz4" role="2OqNvi">
+                    <ref role="3TsBF5" to="hcm8:4q11fqJYbqW" resolve="isFunctional" />
+                  </node>
                 </node>
               </node>
             </node>
+          </node>
+          <node concept="2OqwBi" id="4q11fqJYB7O" role="3clFbw">
+            <node concept="10M0yZ" id="4q11fqJYB7P" role="2Oq$k0">
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+              <ref role="3cqZAo" to="b66x:~Flags.IS_FUN_INTERFACE" resolve="IS_FUN_INTERFACE" />
+            </node>
+            <node concept="liA8E" id="4q11fqJYB7Q" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="37vLTw" id="4q11fqJYB7R" role="37wK5m">
+                <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="2Aaqzls4PMi" role="3cqZAp" />
+        <node concept="3clFbJ" id="2Aaqzls4ObW" role="3cqZAp">
+          <node concept="3clFbS" id="2Aaqzls4ObX" role="3clFbx">
             <node concept="3clFbF" id="2Fzt74Rs3nu" role="3cqZAp">
               <node concept="2OqwBi" id="2Fzt74Rs6lY" role="3clFbG">
                 <node concept="37vLTw" id="2Fzt74Rs3ns" role="2Oq$k0">
@@ -3855,55 +3873,41 @@
               </node>
             </node>
           </node>
-          <node concept="22lmx$" id="2Aaqzls4Oca" role="3clFbw">
-            <node concept="22lmx$" id="2Aaqzls4Ocb" role="3uHU7B">
-              <node concept="22lmx$" id="2Aaqzls4Occ" role="3uHU7B">
-                <node concept="2OqwBi" id="2Aaqzls4Ocd" role="3uHU7B">
-                  <node concept="10M0yZ" id="2Aaqzls4Oce" role="2Oq$k0">
-                    <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-                    <ref role="3cqZAo" to="b66x:~Flags.IS_EXTERNAL_CLASS" resolve="IS_EXTERNAL_CLASS" />
-                  </node>
-                  <node concept="liA8E" id="2Aaqzls4Ocf" role="2OqNvi">
-                    <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-                    <node concept="37vLTw" id="2Aaqzls4Ocg" role="37wK5m">
-                      <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
-                    </node>
-                  </node>
+          <node concept="22lmx$" id="2Aaqzls4Ocb" role="3clFbw">
+            <node concept="22lmx$" id="2Aaqzls4Occ" role="3uHU7B">
+              <node concept="2OqwBi" id="2Aaqzls4Ocd" role="3uHU7B">
+                <node concept="10M0yZ" id="2Aaqzls4Oce" role="2Oq$k0">
+                  <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+                  <ref role="3cqZAo" to="b66x:~Flags.IS_EXTERNAL_CLASS" resolve="IS_EXTERNAL_CLASS" />
                 </node>
-                <node concept="2OqwBi" id="2Aaqzls4Och" role="3uHU7w">
-                  <node concept="10M0yZ" id="2Aaqzls4Oci" role="2Oq$k0">
-                    <ref role="3cqZAo" to="b66x:~Flags.IS_EXPECT_CLASS" resolve="IS_EXPECT_CLASS" />
-                    <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-                  </node>
-                  <node concept="liA8E" id="2Aaqzls4Ocj" role="2OqNvi">
-                    <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-                    <node concept="37vLTw" id="2Aaqzls4Ock" role="37wK5m">
-                      <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
-                    </node>
+                <node concept="liA8E" id="2Aaqzls4Ocf" role="2OqNvi">
+                  <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+                  <node concept="37vLTw" id="2Aaqzls4Ocg" role="37wK5m">
+                    <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
                   </node>
                 </node>
               </node>
-              <node concept="2OqwBi" id="2Aaqzls4Ocl" role="3uHU7w">
-                <node concept="10M0yZ" id="2Aaqzls4Ocm" role="2Oq$k0">
+              <node concept="2OqwBi" id="2Aaqzls4Och" role="3uHU7w">
+                <node concept="10M0yZ" id="2Aaqzls4Oci" role="2Oq$k0">
+                  <ref role="3cqZAo" to="b66x:~Flags.IS_EXPECT_CLASS" resolve="IS_EXPECT_CLASS" />
                   <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-                  <ref role="3cqZAo" to="b66x:~Flags.IS_INLINE_CLASS" resolve="IS_INLINE_CLASS" />
                 </node>
-                <node concept="liA8E" id="2Aaqzls4Ocn" role="2OqNvi">
+                <node concept="liA8E" id="2Aaqzls4Ocj" role="2OqNvi">
                   <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-                  <node concept="37vLTw" id="2Aaqzls4Oco" role="37wK5m">
+                  <node concept="37vLTw" id="2Aaqzls4Ock" role="37wK5m">
                     <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="2OqwBi" id="2Aaqzls4Ocp" role="3uHU7w">
-              <node concept="10M0yZ" id="2Aaqzls4Ocq" role="2Oq$k0">
+            <node concept="2OqwBi" id="2Aaqzls4Ocl" role="3uHU7w">
+              <node concept="10M0yZ" id="2Aaqzls4Ocm" role="2Oq$k0">
                 <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-                <ref role="3cqZAo" to="b66x:~Flags.IS_FUN_INTERFACE" resolve="IS_FUN_INTERFACE" />
+                <ref role="3cqZAo" to="b66x:~Flags.IS_INLINE_CLASS" resolve="IS_INLINE_CLASS" />
               </node>
-              <node concept="liA8E" id="2Aaqzls4Ocr" role="2OqNvi">
+              <node concept="liA8E" id="2Aaqzls4Ocn" role="2OqNvi">
                 <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-                <node concept="37vLTw" id="2Aaqzls4Ocs" role="37wK5m">
+                <node concept="37vLTw" id="2Aaqzls4Oco" role="37wK5m">
                   <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
                 </node>
               </node>

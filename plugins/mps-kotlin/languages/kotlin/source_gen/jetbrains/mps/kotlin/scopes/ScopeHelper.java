@@ -20,7 +20,7 @@ public class ScopeHelper {
    * If the node is used as target, first object in the tuple is true.
    * If the scope to resolve is about companion object / static scope, third object is true.
    */
-  public static Tuples._3<Boolean, SNode, Boolean> navigatableContext(SNode referenceNode, SNode contextNode, SContainmentLink containmentLink) {
+  public static Tuples._3<Boolean, SNode, ScopeContext> navigatableContext(SNode referenceNode, SNode contextNode, SContainmentLink containmentLink) {
     final SNode context = SNodeOperations.as((((referenceNode == null) ? contextNode : SNodeOperations.getParent(referenceNode))), CONCEPTS.NavigationOperation$4I);
 
     // In navigation -> get from operand type if used target
@@ -30,11 +30,13 @@ public class ScopeHelper {
 
       if (isTargetFromLink || isTargetFromNode) {
         SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> (SNode) NavigationOperation__BehaviorDescriptor.getContextType_id7ubb0gUcL0j.invoke(context));
-        return MultiTuple.<Boolean,SNode,Boolean>from(true, type, SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f));
+        ScopeContext scopeContext = (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f) ? ScopeContext.STATIC_RECEIVER : ScopeContext.INSTANCE_RECEIVER);
+        return MultiTuple.<Boolean,SNode,ScopeContext>from(true, type, scopeContext);
+
       }
     }
 
-    return MultiTuple.<Boolean,SNode,Boolean>from(false, (SNode) null, false);
+    return MultiTuple.<Boolean,SNode,ScopeContext>from(false, (SNode) null, ScopeContext.STANDALONE_OR_IMPLICIT_INSTANCE);
   }
 
   private static final class CONCEPTS {

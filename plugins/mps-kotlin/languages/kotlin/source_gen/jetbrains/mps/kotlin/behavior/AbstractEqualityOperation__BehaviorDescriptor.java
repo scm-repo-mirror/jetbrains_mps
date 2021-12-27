@@ -23,8 +23,9 @@ public final class AbstractEqualityOperation__BehaviorDescriptor extends BaseBHD
   public static final SMethod<Precedence> getPrecedenceLevel_id666oMY59eOv = new SMethodBuilder<Precedence>(new SJavaCompoundTypeImpl(Precedence.class)).name("getPrecedenceLevel").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("666oMY59eOv").build();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOperatorProviderName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlEjh5").build();
   public static final SMethod<Boolean> isNegation_id3n8adBhYudN = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isNegation").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("3n8adBhYudN").build();
+  public static final SMethod<Boolean> isNullSafe_idAd0bnVTsgC = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isNullSafe").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Ad0bnVTsgC").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, isNegation_id3n8adBhYudN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, isNegation_id3n8adBhYudN, isNullSafe_idAd0bnVTsgC);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -34,6 +35,9 @@ public final class AbstractEqualityOperation__BehaviorDescriptor extends BaseBHD
   }
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
     return "equals";
+  }
+  /*package*/ static boolean isNullSafe_idAd0bnVTsgC(@NotNull SNode __thisNode__) {
+    return true;
   }
 
   /*package*/ AbstractEqualityOperation__BehaviorDescriptor() {
@@ -55,6 +59,8 @@ public final class AbstractEqualityOperation__BehaviorDescriptor extends BaseBHD
         return (T) ((Precedence) getPrecedenceLevel_id666oMY59eOv(node));
       case 1:
         return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
+      case 3:
+        return (T) ((Boolean) isNullSafe_idAd0bnVTsgC(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

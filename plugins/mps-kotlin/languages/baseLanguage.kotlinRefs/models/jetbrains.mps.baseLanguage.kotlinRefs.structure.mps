@@ -136,7 +136,7 @@
       <property role="IQ2ns" value="1675356390019228812" />
       <property role="20kJfa" value="constructor" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" to="hcm8:6f3juM$wHwB" resolve="ConstructorDeclaration" />
+      <ref role="20lvS9" to="hcm8:6f3juM$wHwB" resolve="AbstractConstructorDeclaration" />
       <ref role="20ksaX" node="1t03Wazi3lp" resolve="function" />
     </node>
   </node>

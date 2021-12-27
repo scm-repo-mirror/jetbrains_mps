@@ -9,7 +9,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
 import jetbrains.mps.kotlin.runtime.generics.TypeVarSubs;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
@@ -27,19 +27,19 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, "jetbrains.mps.kotlin.structure.TypeAliasType");
 
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHtYvR").build(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4f4W8JpwgWV").build(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateTypeSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
-    IType__BehaviorDescriptor.populateSignatures_id5q426iHK5S9.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU), visitor);
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
+    IType__BehaviorDescriptor.populateTypeSignatures_id5q426iHK5S9.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU), visitor);
   }
   /*package*/ static void visitHierarchy_id5q426iHtYvR(@NotNull SNode __thisNode__, SuperTypesVisitor visitor) {
     // Enter class, return right away if already visited
@@ -75,7 +75,7 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 1:
         visitHierarchy_id5q426iHtYvR(node, (SuperTypesVisitor) parameters[0]);

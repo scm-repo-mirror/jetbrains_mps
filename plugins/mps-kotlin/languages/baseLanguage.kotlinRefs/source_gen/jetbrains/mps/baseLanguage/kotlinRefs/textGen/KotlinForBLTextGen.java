@@ -61,7 +61,7 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
   }
   public static void kotlinFunction(SNode call, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    boolean isConstructor = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(call, LINKS.target$7dy6), CONCEPTS.ConstructorDeclaration$GC);
+    boolean isConstructor = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(call, LINKS.target$7dy6), CONCEPTS.AbstractConstructorDeclaration$GC);
 
     // Name happens before of after type arguments depending if constructor
     if (isConstructor) {
@@ -146,7 +146,7 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IKotlinRoot$wS = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, "jetbrains.mps.kotlin.structure.IKotlinRoot");
-    /*package*/ static final SConcept ConstructorDeclaration$GC = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca482d827L, "jetbrains.mps.kotlin.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept AbstractConstructorDeclaration$GC = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca482d827L, "jetbrains.mps.kotlin.structure.AbstractConstructorDeclaration");
   }
 
   private static final class LINKS {

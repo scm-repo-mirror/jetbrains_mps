@@ -15,11 +15,11 @@ import jetbrains.mps.scope.Scope;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.ArrayList;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
 import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
@@ -48,7 +48,7 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
       child = SNodeOperations.getParent(child);
     }
 
-    List<SNode> declarations = new ArrayList<SNode>();
+    DeclarationCollector collector = new DeclarationCollector(new SignedDeclarationFilter(kind));
     Iterator<SNode> itr = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).iterator();
     while (itr.hasNext()) {
       SNode next = itr.next();
@@ -57,10 +57,15 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
       }
 
       // Let the child populate members, as many kind of concepts may be declared
-      IScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(next, ScopeFilter.forKind(kind), declarations);
+      {
+        final SNode scopePart = next;
+        if (SNodeOperations.isInstanceOf(scopePart, CONCEPTS.IStatementScopePart$Qc)) {
+          IStatementScopePart__BehaviorDescriptor.populateStatementDeclarations_id2ZbCiJacEjm.invoke(scopePart, collector);
+        }
+      }
     }
 
-    return declarations;
+    return collector.getCollected();
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg)) {
@@ -125,6 +130,7 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IStatementScopePart$Qc = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2fcba12bca328e26L, "jetbrains.mps.kotlin.structure.IStatementScopePart");
     /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
     /*package*/ static final SInterfaceConcept ScopeProvider$aq = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }

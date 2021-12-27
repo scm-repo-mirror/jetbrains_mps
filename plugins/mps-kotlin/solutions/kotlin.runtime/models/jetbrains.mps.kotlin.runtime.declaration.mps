@@ -16,10 +16,15 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
+      <concept id="2323553266850475941" name="jetbrains.mps.baseLanguage.structure.IHasModifiers" flags="ng" index="2frcj7">
+        <child id="2323553266850475953" name="modifiers" index="2frcjj" />
+      </concept>
+      <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
@@ -28,6 +33,7 @@
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
       </concept>
+      <concept id="4678410916365116210" name="jetbrains.mps.baseLanguage.structure.DefaultModifier" flags="ng" index="2JFqV2" />
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
@@ -133,6 +139,12 @@
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
       </concept>
     </language>
+    <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
+      <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
+        <child id="1199569906740" name="parameter" index="1bW2Oz" />
+        <child id="1199569916463" name="body" index="1bW5cS" />
+      </concept>
+    </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
       <concept id="6832197706140896242" name="jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment" flags="ng" index="z59LJ" />
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
@@ -159,12 +171,18 @@
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="1204834851141" name="jetbrains.mps.lang.smodel.structure.PoundExpression" flags="ng" index="25Kdxt">
+        <child id="1204834868751" name="expression" index="25KhWn" />
+      </concept>
       <concept id="7400021826771268254" name="jetbrains.mps.lang.smodel.structure.SNodePointerType" flags="ig" index="2sp9CU" />
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
+      </concept>
+      <concept id="1180031783296" name="jetbrains.mps.lang.smodel.structure.Concept_IsSubConceptOfOperation" flags="nn" index="2Zo12i">
+        <child id="1180031783297" name="conceptArgument" index="2Zo12j" />
       </concept>
       <concept id="1240170042401" name="jetbrains.mps.lang.smodel.structure.SEnumerationMemberType" flags="in" index="2ZThk1">
         <reference id="1240170836027" name="enum" index="2ZWj4r" />
@@ -189,12 +207,17 @@
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
+      <concept id="1204796164442" name="jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation" flags="nn" index="23sCx2">
+        <child id="1204796294226" name="closure" index="23t8la" />
+      </concept>
       <concept id="1224414427926" name="jetbrains.mps.baseLanguage.collections.structure.SequenceCreator" flags="nn" index="kMnCb">
         <child id="1224414456414" name="elementType" index="kMuH3" />
       </concept>
       <concept id="1151689724996" name="jetbrains.mps.baseLanguage.collections.structure.SequenceType" flags="in" index="A3Dl8">
         <child id="1151689745422" name="elementType" index="A3Ik2" />
       </concept>
+      <concept id="1235566554328" name="jetbrains.mps.baseLanguage.collections.structure.AnyOperation" flags="nn" index="2HwmR7" />
+      <concept id="1203518072036" name="jetbrains.mps.baseLanguage.collections.structure.SmartClosureParameterDeclaration" flags="ig" index="Rh6nW" />
     </language>
   </registry>
   <node concept="3HP615" id="26mUjU3_jTe">
@@ -341,12 +364,96 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
     </node>
+    <node concept="2tJIrI" id="4q11fqJV08$" role="jymVt" />
+    <node concept="3clFb_" id="4q11fqJUZWP" role="jymVt">
+      <property role="TrG5h" value="getModifiers" />
+      <node concept="3clFbS" id="4q11fqJUZWS" role="3clF47">
+        <node concept="3cpWs6" id="4q11fqJV0w1" role="3cqZAp">
+          <node concept="2ShNRf" id="4q11fqJV0Pv" role="3cqZAk">
+            <node concept="kMnCb" id="4q11fqJV0OK" role="2ShVmc">
+              <node concept="3bZ5Sz" id="4q11fqJV0OL" role="kMuH3">
+                <ref role="3bZ5Sy" to="hcm8:2yYXHtl6JeY" resolve="IFunctionModifier" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="4q11fqJUZWT" role="1B3o_S" />
+      <node concept="2JFqV2" id="4q11fqJUZQp" role="2frcjj" />
+      <node concept="A3Dl8" id="4q11fqJV061" role="3clF45">
+        <node concept="3bZ5Sz" id="4q11fqJV062" role="A3Ik2">
+          <ref role="3bZ5Sy" to="hcm8:2yYXHtl6JeY" resolve="IFunctionModifier" />
+        </node>
+      </node>
+      <node concept="P$JXv" id="4q11fqJV0ha" role="lGtFl">
+        <node concept="TZ5HA" id="4q11fqJV0hb" role="TZ5H$">
+          <node concept="1dT_AC" id="4q11fqJV0hc" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns the list of modifiers applied to this method." />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4q11fqJVHIR" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="bbFPPueD6v" role="jymVt" />
-    <node concept="3clFb_" id="26mUjU3_LvR" role="jymVt">
+    <node concept="2YIFZL" id="4q11fqJV2yU" role="jymVt">
       <property role="TrG5h" value="hasModifier" />
-      <node concept="3clFbS" id="26mUjU3_LvU" role="3clF47" />
-      <node concept="3Tm1VV" id="26mUjU3_LvV" role="1B3o_S" />
-      <node concept="10P_77" id="26mUjU3_LuN" role="3clF45" />
+      <node concept="3clFbS" id="26mUjU3_LvU" role="3clF47">
+        <node concept="3cpWs6" id="UQJ11OuEiq" role="3cqZAp">
+          <node concept="22lmx$" id="UQJ11OuJon" role="3cqZAk">
+            <node concept="3clFbC" id="UQJ11OuFot" role="3uHU7B">
+              <node concept="37vLTw" id="UQJ11OuELp" role="3uHU7B">
+                <ref role="3cqZAo" node="26mUjU3_Lx9" resolve="modifier" />
+              </node>
+              <node concept="10Nm6u" id="UQJ11OuFC3" role="3uHU7w" />
+            </node>
+            <node concept="2OqwBi" id="4q11fqJV4lb" role="3uHU7w">
+              <node concept="2OqwBi" id="4q11fqJV3Kr" role="2Oq$k0">
+                <node concept="37vLTw" id="4q11fqJV3DD" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4q11fqJV322" resolve="declaration" />
+                </node>
+                <node concept="liA8E" id="4q11fqJV47T" role="2OqNvi">
+                  <ref role="37wK5l" node="4q11fqJUZWP" resolve="getModifiers" />
+                </node>
+              </node>
+              <node concept="2HwmR7" id="4q11fqJV4KB" role="2OqNvi">
+                <node concept="1bVj0M" id="4q11fqJV4KD" role="23t8la">
+                  <node concept="3clFbS" id="4q11fqJV4KE" role="1bW5cS">
+                    <node concept="3clFbF" id="4q11fqJV4QN" role="3cqZAp">
+                      <node concept="2OqwBi" id="4q11fqJV52g" role="3clFbG">
+                        <node concept="37vLTw" id="4q11fqJV4QM" role="2Oq$k0">
+                          <ref role="3cqZAo" node="4q11fqJV4KF" resolve="it" />
+                        </node>
+                        <node concept="2Zo12i" id="4q11fqJV5wk" role="2OqNvi">
+                          <node concept="25Kdxt" id="4q11fqJV5HD" role="2Zo12j">
+                            <node concept="37vLTw" id="4q11fqJV5O2" role="25KhWn">
+                              <ref role="3cqZAo" node="26mUjU3_Lx9" resolve="modifier" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Rh6nW" id="4q11fqJV4KF" role="1bW2Oz">
+                    <property role="TrG5h" value="it" />
+                    <node concept="2jxLKc" id="4q11fqJV4KG" role="1tU5fm" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="4q11fqJV322" role="3clF46">
+        <property role="TrG5h" value="declaration" />
+        <node concept="3uibUv" id="4q11fqJV3kG" role="1tU5fm">
+          <ref role="3uigEE" node="26mUjU3_jTe" resolve="FunctionDeclaration" />
+        </node>
+        <node concept="2AHcQZ" id="4q11fqJV3v2" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
       <node concept="37vLTG" id="26mUjU3_Lx9" role="3clF46">
         <property role="TrG5h" value="modifier" />
         <node concept="3bZ5Sz" id="26mUjU3_Lx8" role="1tU5fm">
@@ -356,15 +463,11 @@
           <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
+      <node concept="10P_77" id="26mUjU3_LuN" role="3clF45" />
       <node concept="P$JXv" id="bbFPPueDcG" role="lGtFl">
         <node concept="TZ5HA" id="bbFPPueDcH" role="TZ5H$">
           <node concept="1dT_AC" id="bbFPPueDcI" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns whether the method has the given modifier. If the provided modifier to test against is null, returns whether" />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="bbFPPueDvm" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueDvn" role="1dT_Ay">
-            <property role="1dT_AB" value="the function can be used in a general purpose call (should be true in most cases)." />
+            <property role="1dT_AB" value="Returns whether the method has the given modifier. If the provided modifier to test against is null, returns true." />
           </node>
         </node>
         <node concept="TZ5HA" id="bbFPPueDqT" role="TZ5H$">
@@ -374,15 +477,16 @@
         </node>
         <node concept="TZ5HA" id="bbFPPueDr7" role="TZ5H$">
           <node concept="1dT_AC" id="bbFPPueDr8" role="1dT_Ay">
-            <property role="1dT_AB" value="In Kotlin, for instance, operator functions can be used as regular calls (a.plus(b)), so if null is provided true" />
+            <property role="1dT_AB" value="In Kotlin, for instance, operator functions can be used as regular calls (a.plus(b)), so if null is provided there is" />
           </node>
         </node>
-        <node concept="TZ5HA" id="bbFPPueDsw" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueDsx" role="1dT_Ay">
-            <property role="1dT_AB" value="is returned." />
+        <node concept="TZ5HA" id="4q11fqJVIyx" role="TZ5H$">
+          <node concept="1dT_AC" id="4q11fqJVIyy" role="1dT_Ay">
+            <property role="1dT_AB" value="not reason to prevent it (an operator function is a function after all)." />
           </node>
         </node>
       </node>
+      <node concept="3Tm1VV" id="26mUjU3_LvV" role="1B3o_S" />
     </node>
     <node concept="3Tm1VV" id="26mUjU3_jTf" role="1B3o_S" />
     <node concept="3UR2Jj" id="26mUjU3_u8N" role="lGtFl">
@@ -557,7 +661,7 @@
             </node>
             <node concept="3cpWs6" id="59BW1QZWVRx" role="3cqZAp">
               <node concept="37vLTw" id="59BW1QZWWTw" role="3cqZAk">
-                <ref role="3cqZAo" node="59BW1QZWWTs" resolve="toClassType" />
+                <ref role="3cqZAo" node="59BW1QZWWTs" resolve="clType" />
               </node>
             </node>
           </node>

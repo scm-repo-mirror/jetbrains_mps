@@ -14,6 +14,8 @@ import java.util.Collections;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import java.util.List;
+import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -72,9 +74,13 @@ public class FunctionTypeInvokeDeclaration implements FunctionDeclaration {
   }
 
   @Override
-  public boolean hasModifier(SAbstractConcept modifier) {
-    // TODO separate thing for suspend?
-    return modifier == null || (modifier.isSubConceptOf(CONCEPTS.SuspendFunctionModifier$Rb) && SPropertyOperations.getBoolean(functionType, PROPS.isSuspend$O_58));
+  public Iterable<SAbstractConcept> getModifiers() {
+    List<SAbstractConcept> modifiers = ListSequence.fromList(new ArrayList<SAbstractConcept>());
+    ListSequence.fromList(modifiers).addElement(CONCEPTS.OperatorFunctionModifier$Pf);
+    if (SPropertyOperations.getBoolean(functionType, PROPS.isSuspend$O_58)) {
+      ListSequence.fromList(modifiers).addElement(CONCEPTS.SuspendFunctionModifier$Rb);
+    }
+    return modifiers;
   }
 
   private static final class LINKS {
@@ -86,6 +92,7 @@ public class FunctionTypeInvokeDeclaration implements FunctionDeclaration {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassType$jI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
+    /*package*/ static final SConcept OperatorFunctionModifier$Pf = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c0L, "jetbrains.mps.kotlin.structure.OperatorFunctionModifier");
     /*package*/ static final SConcept SuspendFunctionModifier$Rb = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c4L, "jetbrains.mps.kotlin.structure.SuspendFunctionModifier");
   }
 

@@ -9,36 +9,33 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
 import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-public final class IScopePart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a289a6L, "jetbrains.mps.kotlin.structure.IScopePart");
+public final class IStatementScopePart__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2fcba12bca328e26L, "jetbrains.mps.kotlin.structure.IStatementScopePart");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2ZbCiJacEjm").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateStatementDeclarations_id2ZbCiJacEjm);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
-    // Nothing to add by default
-    if (filter.acceptDeclaration(__thisNode__)) {
-      ListSequence.fromList(target).addElement(SNodeOperations.cast(__thisNode__, CONCEPTS.INamedConcept$Kd));
-    }
+  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, DeclarationCollector collector) {
+    // Default behavior: current node is a standalone declaration
+    collector.declare(SNodeOperations.as(__thisNode__, CONCEPTS.IIdentifier$wg));
   }
 
-  /*package*/ IScopePart__BehaviorDescriptor() {
+  /*package*/ IStatementScopePart__BehaviorDescriptor() {
   }
 
   @Override
@@ -54,7 +51,7 @@ public final class IScopePart__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
+        populateStatementDeclarations_id2ZbCiJacEjm(node, (DeclarationCollector) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -86,6 +83,6 @@ public final class IScopePart__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept INamedConcept$Kd = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
   }
 }

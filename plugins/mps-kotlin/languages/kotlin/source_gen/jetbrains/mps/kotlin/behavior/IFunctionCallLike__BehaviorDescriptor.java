@@ -17,9 +17,11 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IFunctionCallLike__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCallLike");
@@ -32,8 +34,9 @@ public final class IFunctionCallLike__BehaviorDescriptor extends BaseBHDescripto
   public static final SMethod<Iterable<SNode>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
   public static final SMethod<Iterable<SNode>> getTypeArguments_id5JfKd21NW9H = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getTypeArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5JfKd21NW9H").build();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("26mUjU3xhgD").build();
+  public static final SMethod<Boolean> isNullSafe_idAd0bnVTsgC = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isNullSafe").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Ad0bnVTsgC").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, isReceiverExternal_id4bAAzIAVSHE, getModifierFilter_id5D4bOjruyUS, getArguments_id1VI7K1jROBX, getTypeArguments_id5JfKd21NW9H, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, isReceiverExternal_id4bAAzIAVSHE, getModifierFilter_id5D4bOjruyUS, getArguments_id1VI7K1jROBX, getTypeArguments_id5JfKd21NW9H, getFunctionDescriptor_id26mUjU3xhgD, isNullSafe_idAd0bnVTsgC);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -43,6 +46,16 @@ public final class IFunctionCallLike__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static Iterable<SNode> getTypeArguments_id5JfKd21NW9H(@NotNull SNode __thisNode__) {
     return Sequence.fromIterable(Collections.<SNode>emptyList());
+  }
+  /*package*/ static boolean isNullSafe_idAd0bnVTsgC(@NotNull SNode __thisNode__) {
+    {
+      final SNode navigationTarget = __thisNode__;
+      if (SNodeOperations.isInstanceOf(navigationTarget, CONCEPTS.INavigationTarget$Ae)) {
+        return (boolean) INavigationTarget__BehaviorDescriptor.acceptNullable_id5D4bOjqGpyn.invoke(navigationTarget);
+      }
+    }
+
+    return false;
   }
 
   /*package*/ IFunctionCallLike__BehaviorDescriptor() {
@@ -64,6 +77,8 @@ public final class IFunctionCallLike__BehaviorDescriptor extends BaseBHDescripto
         return (T) ((Boolean) isReceiverExternal_id4bAAzIAVSHE(node));
       case 6:
         return (T) ((Iterable<SNode>) getTypeArguments_id5JfKd21NW9H(node));
+      case 8:
+        return (T) ((Boolean) isNullSafe_idAd0bnVTsgC(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -91,5 +106,9 @@ public final class IFunctionCallLike__BehaviorDescriptor extends BaseBHDescripto
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INavigationTarget$Ae = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3b6L, "jetbrains.mps.kotlin.structure.INavigationTarget");
   }
 }

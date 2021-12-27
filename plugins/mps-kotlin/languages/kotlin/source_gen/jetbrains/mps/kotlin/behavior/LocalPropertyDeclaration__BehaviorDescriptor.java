@@ -9,39 +9,37 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.runtime.members.signature.VariableSignature;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90b9L, "jetbrains.mps.kotlin.structure.LocalPropertyDeclaration");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2ZbCiJacEjm").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""));
   public static final SMethod<Boolean> isDeconstructing_id7RZWrHVbnio = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDeconstructing").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVbnio").build();
   public static final SMethod<Boolean> hasExplicityType_id2n1mrwy6RU_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExplicityType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2n1mrwy6RU_").build();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVaXCH").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, isDeconstructing_id7RZWrHVbnio, hasExplicityType_id2n1mrwy6RU_, getDeclarations_id7RZWrHVaXCH);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateStatementDeclarations_id2ZbCiJacEjm, isDeconstructing_id7RZWrHVbnio, hasExplicityType_id2n1mrwy6RU_, getDeclarations_id7RZWrHVaXCH);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
-    if (filter.acceptKind(CONCEPTS.VariableDeclaration$DF)) {
-      ListSequence.fromList(target).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.declarations$pA8V)));
-    }
+  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, DeclarationCollector collector) {
+    collector.declareAll(SLinkOperations.getChildren(__thisNode__, LINKS.declarations$pA8V), VariableSignature.class);
   }
   /*package*/ static boolean isDeconstructing_id7RZWrHVbnio(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getBoolean(__thisNode__, PROPS.isDeconstructing$FQve) || ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.declarations$pA8V)).count() > 1;
@@ -73,7 +71,7 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
     }
     switch (methodIndex) {
       case 0:
-        populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
+        populateStatementDeclarations_id2ZbCiJacEjm(node, (DeclarationCollector) parameters[0]);
         return null;
       case 1:
         return (T) ((Boolean) isDeconstructing_id7RZWrHVbnio(node));
@@ -113,10 +111,6 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
   private static final class LINKS {
     /*package*/ static final SContainmentLink declarations$pA8V = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90b9L, 0x123d0b402b9ae3f5L, "declarations");
     /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept VariableDeclaration$DF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
   }
 
   private static final class PROPS {

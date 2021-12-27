@@ -9,10 +9,10 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -21,8 +21,9 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af364L, "jetbrains.mps.kotlin.structure.ObjectDeclaration");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1vYW8S3rTh_").build();
+  public static final SMethod<SNode> getType_id6563FJLeSWZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6563FJLeSWZ").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getType_id6563FJLeSWZ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -30,6 +31,9 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
   /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
     // TODO maybe?
     return false;
+  }
+  /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
+    return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false));
   }
 
   /*package*/ ObjectDeclaration__BehaviorDescriptor() {
@@ -49,6 +53,8 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
+      case 1:
+        return (T) ((SNode) getType_id6563FJLeSWZ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

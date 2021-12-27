@@ -187,7 +187,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IClassMemberDeclaration__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.SignatureVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.SignatureCollector" />
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.types.identifiers.ClassType" />
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />

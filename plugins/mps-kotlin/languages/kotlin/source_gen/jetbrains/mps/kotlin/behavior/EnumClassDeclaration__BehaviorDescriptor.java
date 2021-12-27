@@ -6,16 +6,19 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
+import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.runtime.members.signature.VariableSignature;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -25,22 +28,25 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, "jetbrains.mps.kotlin.structure.EnumClassDeclaration");
 
-  public static final SMethod<List<SNode>> getDeclarations_id213J8chg2jD = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2jD").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""));
+  public static final SMethod<Void> populateNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2jD").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
+  public static final SMethod<Boolean> hasModifier_id2NtWm0y2Y2A = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasModifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2NtWm0y2Y2A").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDeclarations_id213J8chg2jD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateNestedDeclarations_id213J8chg2jD, hasModifier_id2NtWm0y2Y2A);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static List<SNode> getDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, ScopeFilter filter) {
-    List<SNode> declarations = IDeclarationScopeProvider__BehaviorDescriptor.getDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, filter);
+  /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
+    // Regular declarations
+    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, collector, context);
 
-    // Entries belong to companion scope
-    if (filter.isCompanionScope() && filter.acceptKind(CONCEPTS.EnumEntry$ji)) {
-      ListSequence.fromList(declarations).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i)));
+    // Entries belong to non instantiated receiver scope
+    if (context.isWithCompanionMembers()) {
+      collector.declareAll(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i), VariableSignature.class);
     }
-
-    return declarations;
+  }
+  /*package*/ static boolean hasModifier_id2NtWm0y2Y2A(@NotNull SNode __thisNode__, SAbstractConcept modifier) {
+    return modifier == null || SConceptOperations.isExactly(SNodeOperations.asSConcept(modifier), CONCEPTS.EnumClassModifier$uP);
   }
 
   /*package*/ EnumClassDeclaration__BehaviorDescriptor() {
@@ -59,7 +65,10 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((List<SNode>) getDeclarations_id213J8chg2jD(node, (ScopeFilter) parameters[0]));
+        populateNestedDeclarations_id213J8chg2jD(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
+        return null;
+      case 1:
+        return (T) ((Boolean) hasModifier_id2NtWm0y2Y2A(node, (SAbstractConcept) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -91,7 +100,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassDeclaration$Jm = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
-    /*package*/ static final SConcept EnumEntry$ji = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry");
+    /*package*/ static final SConcept EnumClassModifier$uP = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af407L, "jetbrains.mps.kotlin.structure.EnumClassModifier");
   }
 
   private static final class LINKS {

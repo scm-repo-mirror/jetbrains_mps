@@ -8,11 +8,22 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
+import java.util.Map;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.scope.Scope;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import jetbrains.mps.kotlin.scopes.ConstructorScope;
+import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -36,6 +47,28 @@ public class ConstructorCall_Constraints extends BaseConstraintsDescriptor {
       }
     };
   }
+  @Override
+  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.target$VUYb, this, true, false) {
+      @Nullable
+      @Override
+      public ReferenceScopeProvider getScopeProvider() {
+        return new BaseScopeProvider() {
+          @Override
+          public SNodeReference getSearchScopeValidatorNode() {
+            return new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "1614855948999933303");
+          }
+          @Override
+          public Scope createScope(final ReferenceConstraintsContext _context) {
+            return ConstructorScope.create(_context.getContextNode());
+          }
+        };
+      }
+    };
+    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
+    references.put(d0.getReference(), d0);
+    return references;
+  }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return !(SNodeOperations.isInstanceOf(parentNode, CONCEPTS.InterfaceDeclaration$fL));
   }
@@ -44,5 +77,9 @@ public class ConstructorCall_Constraints extends BaseConstraintsDescriptor {
   private static final class CONCEPTS {
     /*package*/ static final SConcept ConstructorCall$SH = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f6L, "jetbrains.mps.kotlin.structure.ConstructorCall");
     /*package*/ static final SConcept InterfaceDeclaration$fL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$VUYb = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f6L, 0x2043bc8310ba5a7cL, "target");
   }
 }

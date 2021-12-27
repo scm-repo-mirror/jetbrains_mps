@@ -14,7 +14,7 @@ public class ClassType_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    KotlinTextGen.reference(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.class$ExdX), ctx);
+    KotlinTextGen.reference(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.class$ExdX), true, ctx);
     KotlinTextGen.projections(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.typeProjections$vhti), ctx);
     KotlinTextGen.nullable(ctx.getPrimaryInput(), ctx);
   }

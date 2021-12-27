@@ -9,33 +9,32 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
 import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-public final class ISimpleScopePart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x1ba36e493d81ec02L, "jetbrains.mps.kotlin.structure.ISimpleScopePart");
+public final class AbstractConstructorDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca482d827L, "jetbrains.mps.kotlin.structure.AbstractConstructorDeclaration");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<String> getNestedName_id1d2BQ0ZyA$g = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1d2BQ0ZyA$g").build(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getNestedName_id1d2BQ0ZyA$g);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
-    if (filter.acceptDeclaration(__thisNode__)) {
-      ListSequence.fromList(target).addElement(__thisNode__);
-    }
+  /*package*/ static String getNestedName_id1d2BQ0ZyA$g(@NotNull SNode __thisNode__, KtEnvironmentConfig configuration) {
+    // Name already depends on parent class name
+    return IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassDeclaration$bQ, false, false), configuration);
   }
 
-  /*package*/ ISimpleScopePart__BehaviorDescriptor() {
+  /*package*/ AbstractConstructorDeclaration__BehaviorDescriptor() {
   }
 
   @Override
@@ -51,8 +50,7 @@ public final class ISimpleScopePart__BehaviorDescriptor extends BaseBHDescriptor
     }
     switch (methodIndex) {
       case 0:
-        populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
-        return null;
+        return (T) ((String) getNestedName_id1d2BQ0ZyA$g(node, (KtEnvironmentConfig) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -80,5 +78,9 @@ public final class ISimpleScopePart__BehaviorDescriptor extends BaseBHDescriptor
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
   }
 }

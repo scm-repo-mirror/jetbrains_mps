@@ -35,7 +35,7 @@ public final class ConstructorCall__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ static SNode getInheritedType_id5q426iHvzD9(@NotNull SNode __thisNode__) {
-    return createClassType_ibed30_a0a0(SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb), CONCEPTS.IClassDeclaration$bQ, false, false), ITypeArguments__BehaviorDescriptor.getTypeProjections_idFn6l2JqIEF.invoke(__thisNode__));
+    return createClassType_ibed30_a0a0(SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb), CONCEPTS.IClassDeclaration$bQ, true, false), ITypeArguments__BehaviorDescriptor.getTypeProjections_idFn6l2JqIEF.invoke(__thisNode__));
   }
 
   /*package*/ ConstructorCall__BehaviorDescriptor() {

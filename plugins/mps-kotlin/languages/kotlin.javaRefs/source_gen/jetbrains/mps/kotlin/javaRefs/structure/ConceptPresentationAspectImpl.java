@@ -11,7 +11,10 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_JavaClassInheritanceSpecifier;
   private ConceptPresentation props_JavaClassType;
+  private ConceptPresentation props_JavaDefaultConstructorCall;
+  private ConceptPresentation props_JavaDefaultConstructorInheritanceSpecifier;
   private ConceptPresentation props_JavaInterfaceInheritanceSpecifier;
+  private ConceptPresentation props_JavaMemberTarget;
   private ConceptPresentation props_JavaMethodCall;
   private ConceptPresentation props_JavaMethodVariableReference;
   private ConceptPresentation props_JavaTypeVariableReferenceType;
@@ -36,6 +39,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_JavaClassType = cpb.create();
         }
         return props_JavaClassType;
+      case LanguageConceptSwitch.JavaDefaultConstructorCall:
+        if (props_JavaDefaultConstructorCall == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d61fa7bL, 0x5b64d6b00d61fa82L, "classifier", "", "()");
+          props_JavaDefaultConstructorCall = cpb.create();
+        }
+        return props_JavaDefaultConstructorCall;
+      case LanguageConceptSwitch.JavaDefaultConstructorInheritanceSpecifier:
+        if (props_JavaDefaultConstructorInheritanceSpecifier == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x5b64d6b00d756286L, 0x5b64d6b00d75628dL, "classifier", "", "()");
+          props_JavaDefaultConstructorInheritanceSpecifier = cpb.create();
+        }
+        return props_JavaDefaultConstructorInheritanceSpecifier;
       case LanguageConceptSwitch.JavaInterfaceInheritanceSpecifier:
         if (props_JavaInterfaceInheritanceSpecifier == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -43,6 +60,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_JavaInterfaceInheritanceSpecifier = cpb.create();
         }
         return props_JavaInterfaceInheritanceSpecifier;
+      case LanguageConceptSwitch.JavaMemberTarget:
+        if (props_JavaMemberTarget == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x7206852a8590b5efL, 0x7206852a8590bcefL, "member", "", "");
+          props_JavaMemberTarget = cpb.create();
+        }
+        return props_JavaMemberTarget;
       case LanguageConceptSwitch.JavaMethodCall:
         if (props_JavaMethodCall == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -53,7 +77,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.JavaMethodVariableReference:
         if (props_JavaMethodVariableReference == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("JavaMethodVariableReference");
+          cpb.presentationByReference(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x3569a755572a0ffbL, 0x3569a755572a174cL, "getter", "", "");
           props_JavaMethodVariableReference = cpb.create();
         }
         return props_JavaMethodVariableReference;

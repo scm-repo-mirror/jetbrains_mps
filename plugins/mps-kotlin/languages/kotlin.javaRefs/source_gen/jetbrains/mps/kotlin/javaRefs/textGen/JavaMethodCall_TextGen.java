@@ -11,7 +11,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.textGen.KotlinTextGen;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
@@ -24,14 +23,11 @@ public class JavaMethodCall_TextGen extends TextGenDescriptorBase {
     } else {
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.method$yYmq), PROPS.name$MnvL));
     }
-    KotlinTextGen.projections(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.typeArguments$86s6), ctx);
-    KotlinTextGen.argumentsWithLambda(ctx.getPrimaryInput(), SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.arguments$zJyV), ctx);
+    KotlinTextGen.functionArguments(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink method$yYmq = MetaAdapterFactory.getReferenceLink(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x2196e93e834d57ccL, 0x2196e93e834d58feL, "method");
-    /*package*/ static final SContainmentLink typeArguments$86s6 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, 0x5b1dd60162c9757cL, "typeArguments");
-    /*package*/ static final SContainmentLink arguments$zJyV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162ecf00bL, 0x5b1dd60162ecf00cL, "arguments");
   }
 
   private static final class CONCEPTS {

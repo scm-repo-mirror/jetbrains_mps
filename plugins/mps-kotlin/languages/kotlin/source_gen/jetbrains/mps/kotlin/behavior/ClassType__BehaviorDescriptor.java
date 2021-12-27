@@ -10,9 +10,10 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import jetbrains.mps.scope.Scope;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
@@ -25,7 +26,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -40,12 +41,12 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
 
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHtYvR").build(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignature").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
-  public static final SMethod<Scope> getScope_id7ubb0gUcNKV = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7ubb0gUcNKV").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter(SRepository.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignature").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
+  public static final SMethod<Scope> getTypeScope_id7ubb0gUcNKV = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getTypeScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7ubb0gUcNKV").build(SMethodBuilder.createJavaParameter(SignedDeclarationFilter.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""), SMethodBuilder.createJavaParameter(SRepository.class, ""));
   public static final SMethod<SNode> getClassifier_id7an2tsIdpk7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7an2tsIdpk7").build();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7an2tsIdpkM").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateSignatures_id5q426iHK5S9, getScope_id7ubb0gUcNKV, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, getTypeScope_id7ubb0gUcNKV, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -96,16 +97,21 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
 
     visitor.exitType(__thisNode__);
   }
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, final SignatureVisitor visitor) {
-    // Members
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, final SignatureCollector visitor) {
+    // Non members signatures
+    IClassLike__BehaviorDescriptor.populateNonMemberSignatures_id1pD7IS2T3rZ.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), visitor);
+
+    // Members signatures
     ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), LINKS.members$gqdV)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         IClassMemberDeclaration__BehaviorDescriptor.populateSignatures_id18X2O0FJBER.invoke(it, visitor);
       }
     });
   }
-  /*package*/ static Scope getScope_id7ubb0gUcNKV(@NotNull SNode __thisNode__, ScopeFilter filter, SRepository repository) {
-    return new NamedElementsScope(IDeclarationScopeProvider__BehaviorDescriptor.getDeclarations_id213J8chg2jD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter));
+  /*package*/ static Scope getTypeScope_id7ubb0gUcNKV(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context, SRepository repository) {
+    DeclarationCollector collector = new DeclarationCollector(filter);
+    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), collector, context);
+    return collector.getScope();
   }
   /*package*/ static SNode getClassifier_id7an2tsIdpk7(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX);
@@ -139,10 +145,10 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
         visitHierarchy_id5q426iHtYvR(node, (SuperTypesVisitor) parameters[0]);
         return null;
       case 1:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
-        return (T) ((Scope) getScope_id7ubb0gUcNKV(node, (ScopeFilter) parameters[0], (SRepository) parameters[1]));
+        return (T) ((Scope) getTypeScope_id7ubb0gUcNKV(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1], (SRepository) parameters[2]));
       case 3:
         return (T) ((SNode) getClassifier_id7an2tsIdpk7(node));
       case 4:

@@ -75,11 +75,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createComponent_2());
     editorCell.addEditorCell(createProperty_0());
     editorCell.addEditorCell(createComponent_3());
-    editorCell.addEditorCell(createComponent_4());
-    editorCell.addEditorCell(createComponent_5());
-    if (nodeCondition_yk1pkl_a9a()) {
+    if (nodeCondition_yk1pkl_a7a()) {
       editorCell.addEditorCell(createRefNode_2());
     }
+    editorCell.addEditorCell(createComponent_4());
+    editorCell.addEditorCell(createComponent_5());
     editorCell.addEditorCell(createComponent_6());
     return editorCell;
   }
@@ -89,7 +89,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private boolean nodeCondition_yk1pkl_a3a() {
     return (SLinkOperations.getTarget(myNode, LINKS.modifier$C$4W) != null);
   }
-  private boolean nodeCondition_yk1pkl_a9a() {
+  private boolean nodeCondition_yk1pkl_a7a() {
     return (SLinkOperations.getTarget(myNode, LINKS.primaryConstructor$QvZc) != null);
   }
   private EditorCell createComponent_0() {
@@ -257,27 +257,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
   }
-  private EditorCell createComponent_4() {
-    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.SuperClasses_Component");
-    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.ClassDeclaration$Jm, "jetbrains.mps.kotlin.editor.ClassDeclaration_Modifiers_Transform"));
-    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
-    return editorCell;
-  }
-  private EditorCell createComponent_5() {
-    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.TypeConstraints_Component");
-    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.ClassDeclaration$Jm, "jetbrains.mps.kotlin.editor.ClassDeclaration_Modifiers_Transform"));
-    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
-    return editorCell;
-  }
   private EditorCell createRefNode_2() {
-    SingleRoleCellProvider provider = new primaryConstructorSingleRoleHandler_yk1pkl_j0(myNode, LINKS.primaryConstructor$QvZc, getEditorContext());
+    SingleRoleCellProvider provider = new primaryConstructorSingleRoleHandler_yk1pkl_h0(myNode, LINKS.primaryConstructor$QvZc, getEditorContext());
     return provider.createCell();
   }
-  private static class primaryConstructorSingleRoleHandler_yk1pkl_j0 extends SingleRoleCellProvider {
+  private static class primaryConstructorSingleRoleHandler_yk1pkl_h0 extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public primaryConstructorSingleRoleHandler_yk1pkl_j0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public primaryConstructorSingleRoleHandler_yk1pkl_h0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -323,6 +311,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
     protected String getNoTargetText() {
       return "<no primaryConstructor>";
     }
+  }
+  private EditorCell createComponent_4() {
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.SuperClasses_Component");
+    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.ClassDeclaration$Jm, "jetbrains.mps.kotlin.editor.ClassDeclaration_Modifiers_Transform"));
+    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
+    return editorCell;
+  }
+  private EditorCell createComponent_5() {
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.TypeConstraints_Component");
+    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.ClassDeclaration$Jm, "jetbrains.mps.kotlin.editor.ClassDeclaration_Modifiers_Transform"));
+    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
+    return editorCell;
   }
   private EditorCell createComponent_6() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.ClassBody_Component");

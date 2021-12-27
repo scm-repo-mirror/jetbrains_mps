@@ -9,41 +9,32 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.ScopeFilter;
+import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class CompanionObject__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af57dL, "jetbrains.mps.kotlin.structure.CompanionObject");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(ScopeFilter.class, ""), SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""));
-  public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, populateSignatures_id18X2O0FJBER);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, ScopeFilter filter, List<SNode> target) {
+  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
+    IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke0(__thisNode__, CONCEPTS.IClassMemberDeclaration$LK, collector, context);
+
     // Companion object scope is exposed to above class scope
-    ListSequence.fromList(target).addSequence(ListSequence.fromList(IDeclarationScopeProvider__BehaviorDescriptor.getDeclarations_id213J8chg2jD.invoke(__thisNode__, filter)));
-  }
-  /*package*/ static void populateSignatures_id18X2O0FJBER(@NotNull SNode __thisNode__, final SignatureVisitor visitor) {
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.members$gqdV)).visitAll(new IVisitor<SNode>() {
-      public void visit(SNode it) {
-        IClassMemberDeclaration__BehaviorDescriptor.populateSignatures_id18X2O0FJBER.invoke(it, visitor);
-      }
-    });
+    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
   }
 
   /*package*/ CompanionObject__BehaviorDescriptor() {
@@ -62,10 +53,7 @@ public final class CompanionObject__BehaviorDescriptor extends BaseBHDescriptor 
     }
     switch (methodIndex) {
       case 0:
-        populateDeclarations_id213J8cgCCAN(node, (ScopeFilter) parameters[0], (List<SNode>) parameters[1]);
-        return null;
-      case 1:
-        populateSignatures_id18X2O0FJBER(node, (SignatureVisitor) parameters[0]);
+        populateDeclarations_id213J8cgCCAN(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -96,7 +84,7 @@ public final class CompanionObject__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IClassMemberDeclaration$LK = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af30fL, "jetbrains.mps.kotlin.structure.IClassMemberDeclaration");
   }
 }

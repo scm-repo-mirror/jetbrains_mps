@@ -37,7 +37,7 @@ public class JavaMethodCall_SubstituteMenu extends SubstituteMenuBase {
   @Override
   public List<SubstituteMenuItem> createMenuItems(@NotNull SubstituteMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for JavaMethodCall. Generated from implicit smart reference attribute.", new SNodePointer("r:13d34207-1d05-4df8-92a6-7cde496142db(jetbrains.mps.kotlin.javaRefs.structure)", "2420378304458348492")));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default substitute menu for JavaMethodCall. Generated from the smart reference attribute.", new SNodePointer("r:13d34207-1d05-4df8-92a6-7cde496142db(jetbrains.mps.kotlin.javaRefs.structure)", "6585624606750889055")));
     try {
       return super.createMenuItems(context);
     } finally {

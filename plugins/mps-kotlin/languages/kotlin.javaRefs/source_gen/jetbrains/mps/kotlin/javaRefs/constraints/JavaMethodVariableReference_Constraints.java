@@ -23,19 +23,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.kotlin.scopes.ScopeContext;
 import jetbrains.mps.kotlin.scopes.ScopeHelper;
 import jetbrains.mps.scope.EmptyScope;
-import jetbrains.mps.kotlin.scopes.ClassMemberVisitor;
-import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature;
+import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.kotlin.runtime.members.SourcedSignature;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.Objects;
-import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorKind;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -72,7 +64,7 @@ public class JavaMethodVariableReference_Constraints extends BaseConstraintsDesc
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            Tuples._3<Boolean, SNode, Boolean> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
+            Tuples._3<Boolean, SNode, ScopeContext> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
             // TODO static methods if context[2]
             if ((boolean) context._0()) {
@@ -82,22 +74,8 @@ public class JavaMethodVariableReference_Constraints extends BaseConstraintsDesc
               }
 
               // Here we seek property signatures from java methods
-              ClassMemberVisitor visitor = new ClassMemberVisitor(PropertyAccessorSignature.class, _context.getContextNode().getModel().getRepository());
-
-              IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(receiverType, visitor);
-
-              // Return retained nodes as named scope
-              Iterable<SNode> elements = ListSequence.fromList(visitor.getMembers()).where(new IWhereFilter<SourcedSignature>() {
-                public boolean accept(SourcedSignature it) {
-                  return SNodeOperations.isInstanceOf(it.getSource(), CONCEPTS.BaseMethodDeclaration$kD) && Objects.equals(((PropertyAccessorSignature) it.getSignature()).getKind(), PropertyAccessorKind.GETTER);
-                }
-              }).select(new ISelector<SourcedSignature, SNode>() {
-                public SNode select(SourcedSignature it) {
-                  return it.getSource();
-                }
-              });
-
-              return new NamedElementsScope(elements);
+              SignedDeclarationFilter filter = new SignedDeclarationFilter(CONCEPTS.BaseMethodDeclaration$kD, new GetterFilter());
+              return IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(receiverType, filter, context._2(), _context.getContextNode().getModel().getRepository());
             }
 
             // TODO context receiver scope in above context

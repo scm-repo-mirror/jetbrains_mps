@@ -9,21 +9,24 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class CallOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47fL, "jetbrains.mps.kotlin.structure.CallOperation");
 
   public static final SMethod<Precedence> getPrecedenceLevel_id666oMY59eOv = new SMethodBuilder<Precedence>(new SJavaCompoundTypeImpl(Precedence.class)).name("getPrecedenceLevel").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("666oMY59eOv").build();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOperatorProviderName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlEjh5").build();
+  public static final SMethod<Iterable<SNode>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, getArguments_id1VI7K1jROBX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -33,6 +36,9 @@ public final class CallOperation__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
     return "invoke";
+  }
+  /*package*/ static Iterable<SNode> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getChildren(__thisNode__, LINKS.arguments$cMSj);
   }
 
   /*package*/ CallOperation__BehaviorDescriptor() {
@@ -54,6 +60,8 @@ public final class CallOperation__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Precedence) getPrecedenceLevel_id666oMY59eOv(node));
       case 1:
         return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
+      case 2:
+        return (T) ((Iterable<SNode>) getArguments_id1VI7K1jROBX(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -81,5 +89,9 @@ public final class CallOperation__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink arguments$cMSj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47fL, 0x1eee1f00540796e0L, "arguments");
   }
 }

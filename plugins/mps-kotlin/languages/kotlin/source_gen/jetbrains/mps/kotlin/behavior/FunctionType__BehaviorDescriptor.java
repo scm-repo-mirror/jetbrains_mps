@@ -10,7 +10,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureVisitor;
+import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
 import java.util.List;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import java.util.Arrays;
@@ -35,14 +35,14 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, "jetbrains.mps.kotlin.structure.FunctionType");
 
   public static final SMethod<SNode> getInheritedType_id5q426iHvzD9 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInheritedType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHvzD9").build();
-  public static final SMethod<Void> populateSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureVisitor.class, ""));
+  public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<String> getDetailedPresentation_id22G2W3WJ92t = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDetailedPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("22G2W3WJ92t").build();
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<List<SNode>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1kLcNv").build();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
   public static final SMethod<SNode> getIdentifiable_idauY8guyXvs = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getIdentifiable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("auY8guyXvs").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInheritedType_id5q426iHvzD9, populateSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5, getIdentifiable_idauY8guyXvs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInheritedType_id5q426iHvzD9, populateTypeSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5, getIdentifiable_idauY8guyXvs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -50,10 +50,8 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static SNode getInheritedType_id5q426iHvzD9(@NotNull SNode __thisNode__) {
     return __thisNode__;
   }
-  /*package*/ static void populateSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureVisitor visitor) {
-    if (visitor.acceptKind(FunctionSignature.class)) {
-      visitor.declareSignature(KotlinSignatures.forFunctionType(__thisNode__));
-    }
+  /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull final SNode __thisNode__, SignatureCollector visitor) {
+    visitor.addSimpleDeclaration(__thisNode__, true, FunctionSignature.class, () -> KotlinSignatures.forFunctionType(__thisNode__));
   }
   /*package*/ static String getDetailedPresentation_id22G2W3WJ92t(@NotNull SNode __thisNode__) {
     return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(__thisNode__, ((boolean) false));
@@ -120,7 +118,7 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((SNode) getInheritedType_id5q426iHvzD9(node));
       case 1:
-        populateSignatures_id5q426iHK5S9(node, (SignatureVisitor) parameters[0]);
+        populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
         return (T) ((String) getDetailedPresentation_id22G2W3WJ92t(node));
