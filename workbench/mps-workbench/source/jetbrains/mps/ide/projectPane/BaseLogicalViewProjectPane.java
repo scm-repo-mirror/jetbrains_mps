@@ -32,7 +32,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.VirtualFileManagerListener;
-import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.ide.actions.CopyNode_Action;
@@ -69,7 +68,6 @@ import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.workbench.FileSystemModelHelper;
 import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.workbench.action.ActionUtils;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -85,7 +83,6 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -93,22 +90,22 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane {
-  private VirtualFileManagerListener myRefreshListener = new RefreshListener();
+  private final VirtualFileManagerListener myRefreshListener = new RefreshListener();
   private final MyRepositoryListener myRepositoryListener = new MyRepositoryListener();
   protected boolean myDisposed;
 
-  private DeployListener myClassesListener = new DeployListener() {
+  private final DeployListener myClassesListener = new DeployListener() {
     @Override
-    public void onUnloaded(Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
     }
 
     @Override
-    public void onLoaded(Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
+    public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       rebuild();
     }
   };
 
-  private IMakeNotificationListener myMakeNotificationListener = new Stub() {
+  private final IMakeNotificationListener myMakeNotificationListener = new Stub() {
     @Override
     public void sessionClosed(MakeNotification notification) {
       // rebuild tree in case of 'cancel' too (need to get 'transient models' node rebuilt)
@@ -141,22 +138,6 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
   }
 
   public abstract void rebuild();
-
-  // XXX likely can not make use of these keys reported, we'd likely to get traces from PreCachedDataContext only
-  private final HashSet<String> myReportedOldDataKeys = new HashSet<>();
-  @SuppressWarnings("UnstableApiUsage")
-  private void logDeprecatedDataKey(String dataId) {
-    if (!myReportedOldDataKeys.add(dataId)) {
-      return;
-    }
-    final Logger l = Logger.getLogger(getClass());
-    String m = String.format("Use of deprecated DataKey '%s'", dataId);
-    if (RuntimeFlags.isInternalMode()) {
-      l.error(m, new Throwable());
-    } else {
-      l.debug(m, new Throwable());
-    }
-  }
 
   @Override
   public Object getData(String dataId) {
@@ -207,36 +188,23 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
     //MPSDK
     if (MPSDataKeys.NODE.is(dataId)) {
-      final SNode node = getSelectedSNode();
-      if (node != null) {
-        // shall not log in case of empty selection, where null for SNodeActionData.KEY is perfectly legal
-        // and we get here through a fall-back path
-        logDeprecatedDataKey(dataId);
-      }
-      return node;
+      return getSelectedSNode();
     }
     if (MPSDataKeys.NODES.is(dataId)) {
       final List<SNode> selectedNodes = getSelectedSNodes();
       if (selectedNodes.isEmpty()) {
         return null;
       }
-      logDeprecatedDataKey(dataId);
       return selectedNodes;
     }
     if (MPSDataKeys.MODEL.is(dataId)) {
-      final SModel model = getSelectedModel();
-      if (model != null) {
-        // see MPSDataKeys.NODE case, above
-        logDeprecatedDataKey(dataId);
-      }
-      return model;
+      return getSelectedModel();
     }
     if (MPSDataKeys.MODELS.is(dataId)) {
       final List<SModel> selectedModels = getSelectedModels();
       if (selectedModels.isEmpty()) {
         return null;
       }
-      logDeprecatedDataKey(dataId);
       return selectedModels;
     }
 
@@ -320,7 +288,6 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     if (isComponentCreated()) {
       removeListeners();
     }
-    myReportedOldDataKeys.clear();
     myDisposed = true;
     super.dispose();
   }
