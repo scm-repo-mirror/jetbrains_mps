@@ -32,6 +32,7 @@ import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import jetbrains.mps.extapi.persistence.FolderDataSource;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
@@ -42,7 +43,6 @@ import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.dialogs.properties.MPSPropertiesConfigurable;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.idea.core.MPSDataKeys;
 import jetbrains.mps.idea.core.projectView.edit.SNodeCutCopyProvider;
@@ -57,7 +57,6 @@ import jetbrains.mps.idea.core.psi.impl.MPSPsiRootNode;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SModelFileTracker;
-import jetbrains.mps.util.ModelComputeRunnable;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -104,9 +103,9 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
         // if current dir is data source from some model
         FolderDataSource currentDirectoryDataSource = null;
 
-        if (treeNode instanceof ProjectViewNode && ((ProjectViewNode) treeNode).getVirtualFile() != null && ((ProjectViewNode) treeNode).getVirtualFile().isDirectory()) {
+        if (treeNode instanceof ProjectViewNode && ((ProjectViewNode<?>) treeNode).getVirtualFile() != null && ((ProjectViewNode<?>) treeNode).getVirtualFile().isDirectory()) {
           // let's see if we have a model built from this dir, e.g. in per-root persistence
-          SModel sModel = findModelByPsiDirNode(mpsProject, (ProjectViewNode) treeNode);
+          SModel sModel = findModel(mpsProject, ((ProjectViewNode<?>) treeNode).getVirtualFile());
           if (sModel != null) {
             // adding root nodes (removing their corresponding files' nodes from the tree is further below)
             List<MPSPsiElementTreeNode> rootsTreeNodes = new ArrayList<>();
@@ -133,16 +132,15 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
         }
 
         for (final AbstractTreeNode<?> child : children) {
-          if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && !((ProjectViewNode) child).getVirtualFile().isDirectory()) {
-            VirtualFile vFile = ((ProjectViewNode) child).getVirtualFile();
-
-            // check if it's a single file model
-            FileSystemBridge fs = mpsProject.getFileSystem();
-            if (!fs.canConvert(vFile)) {
-              continue;
-            }
-            final IFile modelFile = fs.fromVirtualFile(vFile);
-            final SModel sModel = SModelFileTracker.getInstance(mpsProject.getRepository()).findModel(modelFile);
+          if (!(child instanceof ProjectViewNode)) {
+            continue;
+          }
+          final VirtualFile vFile = ((ProjectViewNode<?>) child).getVirtualFile();
+          if (vFile == null) {
+            continue;
+          }
+          if (!vFile.isDirectory()) {
+            final SModel sModel = findModel(mpsProject, vFile);
             if (sModel != null) {
               if (updatedChildren == null) updatedChildren = new ArrayList<>(children);
               int idx = updatedChildren.indexOf(child);
@@ -151,7 +149,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
               continue;
             }
 
-            if (currentDirectoryDataSource != null && currentDirectoryDataSource.getStreamByName(modelFile.getName()) != null) {
+            if (currentDirectoryDataSource != null && currentDirectoryDataSource.getStreamByName(vFile.getName()) != null) {
               // it's a file that constitutes a FolderDataSource-backed model, remove it from the tree (root nodes are shown instead)
               if (updatedChildren == null) {
                 updatedChildren = new ArrayList<>(children);
@@ -159,15 +157,19 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
               updatedChildren.remove(child);
             }
 
-          } else if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && ((ProjectViewNode) child).getVirtualFile().isDirectory()) {
+          } else {
+            assert vFile.isDirectory();
             // below code only attaches our action to the directory and makes it show added children - our root nodes
-            final SModel perRootModel = findModelByPsiDirNode(mpsProject, (ProjectViewNode) child);
+            final SModel perRootModel = findModel(mpsProject, vFile);
             if (perRootModel != null) {
               if (updatedChildren == null) updatedChildren = new ArrayList<>(children);
 
               int idx = updatedChildren.indexOf(child);
               updatedChildren.remove(idx);
-              updatedChildren.add(idx, new PsiDirectoryNode(treeNode.getProject(), ((PsiDirectoryNode) child).getValue(), settings) {
+              // XXX here comes non-obvious assumption that ProjectViewNode with vf.isDirectory() is in fact
+              //     PsiDirectoryNode, with getValue of PsiDirectory. Prior to 37ccda1c change, there's `instanceof PsiDirectoryNode`
+              //     and PsiDirectoryNode.getValue() was PsiDirectory indeed; now it's not that certain.
+              updatedChildren.add(idx, new PsiDirectoryNode(treeNode.getProject(), (PsiDirectory) child.getValue(), settings) {
                 @Override
                 public boolean canNavigate() {
                   return true;
@@ -200,23 +202,21 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
   }
 
   /**
-   * @deprecated favor {@link #findModelReferenceByPsiDirNode}. Refactor two uses inside single model read to pass VF here, as this method
-   *             does not really care about ProjectViewNode.
+   * requires model read at least
    */
   @Nullable
-  @Deprecated
-  private SModel findModelByPsiDirNode(MPSProject p, ProjectViewNode dn) {
-    SModelFileTracker ft = SModelFileTracker.getInstance(p.getRepository());
-    FileSystemBridge fs = p.getFileSystem();
-    VirtualFile vf = dn.getVirtualFile();
-    return fs.canConvert(vf) ? ft.findModel(fs.fromVirtualFile(vf)) : null;
+  private SModel findModel(MPSProject p, VirtualFile vf) {
+    SModelReference mr = findModelReference(p, vf);
+    if (mr == null) {
+      return null;
+    }
+    return mr.resolve(p.getRepository());
   }
 
   @Nullable
-  private SModelReference findModelReferenceByPsiDirNode(MPSProject p, ProjectViewNode<?> dn) {
+  private SModelReference findModelReference(MPSProject p, VirtualFile vf) {
     SModelFileTracker ft = SModelFileTracker.getInstance(p.getRepository());
     FileSystemBridge fs = p.getFileSystem();
-    VirtualFile vf = dn.getVirtualFile();
     return fs.canConvert(vf) ? ft.modelFor(fs.fromVirtualFile(vf)) : null;
   }
 
@@ -435,14 +435,14 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
   private SModelReference getModel(AbstractTreeNode<?> selectedNode) {
     if (selectedNode instanceof MPSPsiElementTreeNode) {
       MPSPsiNodeBase value = ((MPSPsiElementTreeNode) selectedNode).getValue();
-      return value.getContainingModel().getSModelReference()
+      return value.getContainingModel().getSModelReference();
     } else if (selectedNode instanceof MPSPsiModelTreeNode) {
       MPSPsiModel psiModel = ((MPSPsiModelTreeNode) selectedNode).getModel();
       return psiModel.getSModelReference();
     } else if (selectedNode instanceof ProjectViewNode && ((ProjectViewNode<?>) selectedNode).getVirtualFile() != null && ((ProjectViewNode<?>) selectedNode).getVirtualFile().isDirectory()) {
       // XXX [artem] FWIW, I don't quite understand ProjectViewNode change by MB. Is it for per-root persistence?
       MPSProject mpsProject = ProjectHelper.fromIdeaProject(selectedNode.getProject());
-      return findModelReferenceByPsiDirNode(mpsProject, (ProjectViewNode<?>) selectedNode);
+      return findModelReference(mpsProject, ((ProjectViewNode<?>) selectedNode).getVirtualFile());
     }
     return null;
   }
