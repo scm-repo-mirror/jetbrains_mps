@@ -2861,7 +2861,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         return null;
       }
       Selection selection = mySelectionManager.getSelection();
-      final List<SNode> selectedNodes = selection.getSelectedNodes();
+      final List<SNode> selectedNodes = selection == null ? Collections.emptyList() : selection.getSelectedNodes();
       if (selection instanceof SingularSelection && selectedNodes.size() == 1) {
         return SNodeActionData.from(selectedNodes.get(0).getReference());
       }

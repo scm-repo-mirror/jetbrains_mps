@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import jetbrains.mps.openapi.editor.selection.SelectionStoreException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.ArrayList;
@@ -60,10 +61,12 @@ public class SelectionManagerImpl implements SelectionManager {
     doChangeSelection(oldSelection, null);
   }
 
+  @Nullable
   public Selection getSelection() {
     return mySelectionStack.isEmpty() ? null : mySelectionStack.getLast();
   }
 
+  @Nullable
   public Selection getDeepestSelection() {
     return mySelectionStack.isEmpty() ? null : mySelectionStack.getFirst();
   }
