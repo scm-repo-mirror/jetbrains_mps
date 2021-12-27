@@ -257,6 +257,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
 
     if (MPSDataKeys.VIRTUAL_PACKAGES.is(dataId)) {
+      // FIXME getSelectedPackages() requires model read (resolves model references)
       final List<Pair<SModel, String>> rv = getSelectedPackages();
       return rv.isEmpty() ? null : rv;
     }
@@ -425,15 +426,21 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
   }
 
   @Nullable
+  private <T extends TreeNode> T getContextTreeNodeFromSelection(Class<T> nodeClass) {
+    TreeNode treeNode = getSelectedTreeNode(TreeNode.class);
+    while (treeNode != null) {
+      if (nodeClass.isInstance(treeNode)) {
+        return nodeClass.cast(treeNode);
+      }
+      treeNode = treeNode.getParent();
+    }
+    return null;
+  }
+
+  @Nullable
   public SModel getContextModel() {
-    MPSTreeNode treeNode = (MPSTreeNode) getSelectedTreeNode(TreeNode.class);
-    while (treeNode != null && !(treeNode instanceof SModelTreeNode)) {
-      treeNode = (MPSTreeNode) treeNode.getParent();
-    }
-    if (treeNode == null) {
-      return null;
-    }
-    return ((SModelTreeNode) treeNode).getModel();
+    SModelTreeNode treeNode = getContextTreeNodeFromSelection(SModelTreeNode.class);
+    return treeNode == null ? null : treeNode.getModel();
   }
 
   @Nullable
@@ -447,14 +454,8 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
   @Nullable
   public SModule getContextModule() {
-    MPSTreeNode treeNode = (MPSTreeNode) getSelectedTreeNode(TreeNode.class);
-    while (treeNode != null && !(treeNode instanceof ProjectModuleTreeNode)) {
-      treeNode = (MPSTreeNode) treeNode.getParent();
-    }
-    if (treeNode == null) {
-      return null;
-    }
-    return ((ProjectModuleTreeNode) treeNode).getModule();
+    final ProjectModuleTreeNode treeNode = getContextTreeNodeFromSelection(ProjectModuleTreeNode.class);
+    return treeNode == null ? null : treeNode.getModule();
   }
 
   @NotNull
