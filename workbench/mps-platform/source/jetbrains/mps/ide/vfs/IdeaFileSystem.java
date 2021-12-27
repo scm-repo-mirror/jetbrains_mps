@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Deprecated(since = "2019.1", forRemoval = true)
-public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWriteRequestor, FileSystem, IFileSystem, CachingFileSystem {
+public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWriteRequestor, FileSystem, IFileSystem, CachingFileSystem, FileSystemBridge {
   private FileSystem myOldFileSystem;
 
   //all FSes should be registered before this one starts working
@@ -60,12 +60,14 @@ public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWrit
    * @param virtualFile IDEA's file abstraction
    * @return MPS file abstraction
    */
+  @Override
   @NotNull
   public IFile fromVirtualFile(@NotNull VirtualFile virtualFile) {
     assert canConvert(virtualFile) : "Only local/jar platform file systems are supported by IdeaFileSystem: " + virtualFile.getPath();
     return getFile(FileUtil.normalize(virtualFile.getPath()));
   }
 
+  @Override
   public boolean canConvert(@NotNull VirtualFile virtualFile) {
     return virtualFile.getFileSystem() instanceof LocalFileSystem || virtualFile.getFileSystem() instanceof JarFileSystem;
   }
@@ -76,6 +78,7 @@ public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWrit
    * @return IDEA's VirtualFile, if supplied IFile is tracked under project's file system.
    * @since 2021.1
    */
+  @Override
   @Nullable
   public VirtualFile asVirtualFile(@NotNull IFile file) {
     if (file instanceof IdeaFile) {
