@@ -17,6 +17,7 @@ package jetbrains.mps.workbench.action;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.progress.ProcessCanceledException;
@@ -38,6 +39,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SRepository;
 
@@ -169,7 +171,7 @@ public abstract class BaseAction extends AnAction {
         // for unknown reason, I can't get MPSCommonDataKeys.MPS_PROJECT from event's DataContext despite MPSProjectRule
         // being consulted (it fails to get CommonDataKeys.PROJECT, no idea how come). Therefore, need to pass
         // repository to resolve node/model/module pointers at explicitly
-        final AnActionEvent dcBridgeEvent = e.withDataContext(new LegacyDataContextBridge(repo, e.getDataContext()));
+        final AnActionEvent dcBridgeEvent = e.withDataContext(legacyWrap(repo, e.getDataContext()));
         if (!collectActionData(dcBridgeEvent, params)) {
           disable(e.getPresentation());
           return;
@@ -203,7 +205,7 @@ public abstract class BaseAction extends AnAction {
         Map<String, Object> params = new THashMap<>();
         // read action here is redundant always except ActionAccess.EmptyAccess; we're already within appropriate model lock
         final SRepository repo = getRepository(event);
-        final AnActionEvent dcBridgeEvent = event.withDataContext(new LegacyDataContextBridge(repo, event.getDataContext()));
+        final AnActionEvent dcBridgeEvent = event.withDataContext(legacyWrap(repo, event.getDataContext()));
         repo.getModelAccess().runReadAction(() -> collectActionData(dcBridgeEvent, params));
         doExecute(dcBridgeEvent, params);
       } catch (RuntimeException ex) {
@@ -233,6 +235,23 @@ public abstract class BaseAction extends AnAction {
   @Deprecated(forRemoval = true, since = "2021.3")
   protected static ModelAccess getModelAccess(AnActionEvent event) {
     return getRepository(event).getModelAccess();
+  }
+
+  /**
+   * Mechanism to transition from old code that needs {@code MPSCommonDataKeys.NODE}, {@code MPSCommonDataKeys.MODEL} and {{@code MPSCommonDataKeys.MODULE}
+   * from MPS {@code DataProviders} answering with {@code ActionData} subclasses.
+   *
+   * Check {@link LegacyDataContextBridge} for detailed explanation.
+   *
+   * Note, this method is exposed just in case clients need immediate workaround while migrating to {@code MPS 2021.3}. Do not expect this API to persist,
+   * once complete {@code MPS} adopts IDEA's async update, there's be no need for the converter code.
+   *
+   * @see AnActionEvent#withDataContext(DataContext)
+   * @return DataContext instance capable to translate old NODE, MODEL and MODULE requests to providers of {@link jetbrains.mps.ide.actions.ActionData}
+   */
+  @Internal
+  public static DataContext legacyWrap(@NotNull SRepository repository, @NotNull DataContext delegate) {
+    return new LegacyDataContextBridge(repository, delegate);
   }
 
   protected void disable(Presentation p) {
