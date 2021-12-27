@@ -29,7 +29,7 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.ide.actions.SModuleActionData;
 
 @GeneratedClass(node = "r:e9e5ee4e-8216-40bc-b13e-6f1480c626c5(jetbrains.mps.ide.depanalyzer)/3131436097929922645", model = "r:e9e5ee4e-8216-40bc-b13e-6f1480c626c5(jetbrains.mps.ide.depanalyzer)")
 public class DependencyTree extends MPSTree implements DataProvider {
@@ -176,12 +176,12 @@ public class DependencyTree extends MPSTree implements DataProvider {
     if (!(getCurrentNode() instanceof ModuleDependencyNode)) {
       return null;
     }
-    final ModuleDependencyNode current = (ModuleDependencyNode) getCurrentNode();
-    if (id.equals(MPSCommonDataKeys.TREE_NODE.getName())) {
+    ModuleDependencyNode current = (ModuleDependencyNode) getCurrentNode();
+    if (MPSCommonDataKeys.TREE_NODE.is(id)) {
       return current;
     }
-    if (id.equals(MPSCommonDataKeys.MODULE.getName())) {
-      return new ModelAccessHelper(myProject.getRepository()).runReadAction(() -> current.getModule().resolve(myModule.getRepository()));
+    if (SModuleActionData.KEY.is(id)) {
+      return SModuleActionData.from(current.getModule());
     }
     return null;
   }

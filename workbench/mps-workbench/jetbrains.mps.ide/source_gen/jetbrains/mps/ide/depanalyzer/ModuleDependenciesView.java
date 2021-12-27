@@ -95,7 +95,7 @@ public class ModuleDependenciesView extends JPanel implements DataProvider {
   @Nullable
   @Override
   public Object getData(@NonNls String dataId) {
-    if (dataId.equals(MPSCommonDataKeys.PLACE.getName())) {
+    if (MPSCommonDataKeys.PLACE.is(dataId)) {
       return ActionPlace.MODULE_DEPENDENCIES;
     }
     return null;

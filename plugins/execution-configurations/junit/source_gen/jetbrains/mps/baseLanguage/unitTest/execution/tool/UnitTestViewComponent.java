@@ -45,9 +45,9 @@ import java.awt.LayoutManager;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.workbench.MPSDataKeys;
+import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import jetbrains.mps.smodel.ModelAccessHelper;
 
 public class UnitTestViewComponent extends JPanel implements Disposable {
   private static final String SPLITTER_SIZE_PROPERTY = UnitTestOptions.PREFIX + ".UnitTestViewComponent" + ".splitter";
@@ -201,19 +201,21 @@ public class UnitTestViewComponent extends JPanel implements Disposable {
     @Nullable
     @Override
     public Object getData(@NonNls String dataId) {
+      // FIXME don't quite understand why would anyone need this intermediate JPanel as a DataProvider
+      // TestTree could answer with ITestNodeWrapper information, 
+      // and UnitTestViewComponent may answer with MPS_PROJECT (if necessary, although I doubt it is)
       if (MPSDataKeys.MPS_PROJECT.is(dataId)) {
         return myProject;
       }
-      if (MPSDataKeys.NODE.is(dataId)) {
+      if (SNodeActionData.KEY.is(dataId)) {
         MPSTreeNode currentNode = myTreeComponent.getCurrentNode();
         if (currentNode == null) {
           return null;
         }
-        final ITestNodeWrapper testWrapper = (ITestNodeWrapper) currentNode.getUserObject();
-        if (testWrapper == null) {
-          return null;
+        if (currentNode.getUserObject() instanceof ITestNodeWrapper) {
+          return SNodeActionData.from(((ITestNodeWrapper) currentNode.getUserObject()).getNodePointer());
         }
-        return new ModelAccessHelper(myProject.getRepository()).runReadAction(() -> testWrapper.getNodePointer().resolve(myProject.getRepository()));
+        return null;
       }
       return null;
     }

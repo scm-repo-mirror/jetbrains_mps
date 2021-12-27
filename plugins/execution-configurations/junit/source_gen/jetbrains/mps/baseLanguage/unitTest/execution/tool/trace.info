@@ -3170,21 +3170,23 @@
       <node id="8321286824326262968" at="191,7,192,0" concept="13" />
       <node id="8321286824326262969" at="192,0,193,39" concept="5" />
       <node id="8321286824326263009" at="197,47,198,21" concept="16" />
-      <node id="8113473988835078549" at="204,47,205,25" concept="11" />
-      <node id="8321286824326263027" at="207,40,208,67" concept="10" />
-      <node id="8321286824326263035" at="209,34,210,22" concept="11" />
-      <node id="8113473988835127781" at="211,9,212,92" concept="10" />
-      <node id="1813202875956498148" at="213,34,214,22" concept="11" />
-      <node id="8113473988835166398" at="215,9,216,149" concept="11" />
-      <node id="8321286824326263052" at="217,7,218,18" concept="11" />
+      <node id="6528382876620037260" at="203,50,204,102" concept="12" />
+      <node id="6528382876620078481" at="204,102,205,66" concept="12" />
+      <node id="6528382876620124038" at="205,66,206,101" concept="12" />
+      <node id="8113473988835078549" at="207,47,208,25" concept="11" />
+      <node id="8321286824326263027" at="210,43,211,67" concept="10" />
+      <node id="8321286824326263035" at="212,34,213,22" concept="11" />
+      <node id="8113473988835166398" at="215,70,216,105" concept="11" />
+      <node id="1813202875956498148" at="217,9,218,20" concept="11" />
+      <node id="8321286824326263052" at="219,7,220,18" concept="11" />
       <node id="5045411965802406001" at="116,0,119,0" concept="9" trace="setMinimumWidthOfTheProgressToZero#(Ljetbrains/mps/baseLanguage/unitTest/execution/tool/TestProgressLine;)V" />
       <node id="8321286824326262675" at="163,0,166,0" concept="9" trace="addCloseListener#(Ljetbrains/mps/baseLanguage/closures/runtime/_FunctionTypes/_void_P0_E0;)V" />
       <node id="8321286824326262691" at="167,38,170,5" concept="7" />
       <node id="8321286824326262946" at="186,61,189,9" concept="8" />
       <node id="8321286824326263005" at="197,0,200,0" concept="3" trace="MyTreePanel#(Ljava/awt/LayoutManager;)V" />
-      <node id="8113473988835034637" at="203,50,206,7" concept="8" />
-      <node id="8321286824326263033" at="208,67,211,9" concept="8" />
-      <node id="1813202875956448894" at="212,92,215,9" concept="8" />
+      <node id="8113473988835034637" at="206,101,209,7" concept="8" />
+      <node id="8321286824326263033" at="211,67,214,9" concept="8" />
+      <node id="1813202875956448894" at="214,9,217,9" concept="8" />
       <node id="8321286824326262917" at="177,48,181,7" concept="19" />
       <node id="8321286824326262687" at="167,0,172,0" concept="9" trace="invokeCloseListeners#()V" />
       <node id="8661792098256031846" at="120,0,126,0" concept="9" trace="addNotify#()V" />
@@ -3195,8 +3197,8 @@
       <node id="8321286824326262557" at="135,0,143,0" concept="9" trace="createTreePanel#(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)Ljavax/swing/JPanel;" />
       <node id="8321286824326262932" at="183,0,191,7" concept="5" />
       <node id="8321286824326262660" at="152,0,162,0" concept="9" trace="dispose#()V" />
-      <node id="8113473988835098407" at="206,7,217,7" concept="8" />
-      <node id="8321286824326263013" at="201,0,220,0" concept="9" trace="getData#(Ljava/lang/String;)Ljava/lang/Object;" />
+      <node id="8113473988835098407" at="209,7,219,7" concept="8" />
+      <node id="8321286824326263013" at="201,0,222,0" concept="9" trace="getData#(Ljava/lang/String;)Ljava/lang/Object;" />
       <node id="8321286824326262893" at="173,0,195,0" concept="9" trace="initSplitterProportion#(Lcom/intellij/openapi/ui/Splitter;FLjava/lang/String;)V" />
       <node id="8321286824326262355" at="66,0,115,0" concept="3" trace="UnitTestViewComponent#(Lcom/intellij/openapi/project/Project;Lcom/intellij/execution/configurations/RunConfiguration;Lcom/intellij/execution/Executor;Lcom/intellij/execution/ui/ConsoleView;Ljetbrains/mps/baseLanguage/unitTest/execution/client/TestRunState;Ljetbrains/mps/baseLanguage/closures/runtime/_FunctionTypes/_void_P0_E0;)V" />
       <scope id="8321286824326262927" at="180,46,180,46" />
@@ -3209,9 +3211,9 @@
       </scope>
       <scope id="8321286824326262947" at="187,71,188,138" />
       <scope id="8321286824326263008" at="197,47,198,21" />
-      <scope id="8113473988835034639" at="204,47,205,25" />
-      <scope id="8321286824326263034" at="209,34,210,22" />
-      <scope id="1813202875956448896" at="213,34,214,22" />
+      <scope id="8113473988835034639" at="207,47,208,25" />
+      <scope id="8321286824326263034" at="212,34,213,22" />
+      <scope id="1813202875956448896" at="215,70,216,105" />
       <scope id="5045411965802406001" at="116,0,119,0">
         <var name="myProgressLineComponent" id="5045411965802405818" />
       </scope>
@@ -3257,19 +3259,18 @@
         <var name="toolbar" id="8321286824326262558" />
         <var name="tree" id="8321286824326262560" />
       </scope>
-      <scope id="8113473988835098409" at="207,40,216,149">
+      <scope id="8113473988835098409" at="210,43,218,20">
         <var name="currentNode" id="8321286824326263028" />
-        <var name="testWrapper" id="8113473988835127782" />
       </scope>
       <scope id="8321286824326262660" at="152,0,162,0" />
-      <scope id="8321286824326263020" at="203,50,218,18" />
-      <scope id="8321286824326263013" at="201,0,220,0">
-        <var name="dataId" id="8321286824326263016" />
-      </scope>
+      <scope id="8321286824326263020" at="203,50,220,18" />
       <scope id="8321286824326262895" at="173,105,193,39">
         <var name="propertiesComponent" id="8321286824326262897" />
         <var name="proportion" id="8321286824326262912" />
         <var name="value" id="8321286824326262901" />
+      </scope>
+      <scope id="8321286824326263013" at="201,0,222,0">
+        <var name="dataId" id="8321286824326263016" />
       </scope>
       <scope id="8321286824326262893" at="173,0,195,0">
         <var name="defaultProportion" id="8321286824326262977" />
@@ -3295,8 +3296,8 @@
         <var name="testRunState" id="8321286824326262516" />
       </scope>
       <unit id="8321286824326262938" at="184,43,191,5" name="jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent$1" />
-      <unit id="8321286824326263001" at="196,0,221,0" name="jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent$MyTreePanel" />
-      <unit id="8321286824326262313" at="52,0,222,0" name="jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent" />
+      <unit id="8321286824326263001" at="196,0,223,0" name="jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent$MyTreePanel" />
+      <unit id="8321286824326262313" at="52,0,224,0" name="jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent" />
     </file>
   </root>
 </debug-info>

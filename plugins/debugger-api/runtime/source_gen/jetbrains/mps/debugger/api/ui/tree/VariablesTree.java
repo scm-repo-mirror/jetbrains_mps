@@ -44,9 +44,8 @@ import jetbrains.mps.ide.messages.Icons;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.tree.TreePath;
 import org.jetbrains.annotations.NonNls;
+import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
 
 @GeneratedClass(node = "r:a35795b4-c996-4cf6-bdbd-9ddbda25cde5(jetbrains.mps.debugger.api.ui.tree)/4474271214083118048", model = "r:a35795b4-c996-4cf6-bdbd-9ddbda25cde5(jetbrains.mps.debugger.api.ui.tree)")
 public class VariablesTree extends MPSTree implements DataProvider {
@@ -195,11 +194,10 @@ public class VariablesTree extends MPSTree implements DataProvider {
       return null;
     }
 
-    if (MPSCommonDataKeys.NODE.is(dataId)) {
-      final SNodeReference node = selectedNode.getNode();
+    if (SNodeActionData.KEY.is(dataId)) {
+      SNodeReference node = selectedNode.getNode();
       if (node != null) {
-        final SRepository repository = ProjectHelper.getProjectRepository(getProject());
-        return (repository != null ? new ModelAccessHelper(repository).runReadAction(() -> node.resolve(repository)) : null);
+        return SNodeActionData.from(node);
       }
     } else if (MPS_DEBUGGER_VALUE.is(dataId)) {
       if (selectedNode instanceof WatchableNode) {
