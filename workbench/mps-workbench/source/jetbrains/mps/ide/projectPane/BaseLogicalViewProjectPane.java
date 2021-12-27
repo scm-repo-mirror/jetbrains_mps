@@ -113,14 +113,6 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     }
   };
 
-  /**
-   * @deprecated use {@link #BaseLogicalViewProjectPane(Project)} instead
-   */
-  @Deprecated(since = "2020.3", forRemoval = true)
-  protected BaseLogicalViewProjectPane(Project project, ProjectView projectView) {
-    super(project);
-  }
-
   protected BaseLogicalViewProjectPane(Project project) {
     super(project);
   }
@@ -140,7 +132,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
   public abstract void rebuild();
 
   @Override
-  public Object getData(String dataId) {
+  public Object getData(@NotNull String dataId) {
     if (SNodeActionData.KEY.is(dataId)) {
       final List<MPSTreeNodeEx> selected = getSelectedTreeNodes(MPSTreeNodeEx.class);
       final List<SNodeReference> n = selected.stream().map(MPSTreeNodeEx::getNodePointer).dropWhile(Objects::isNull).collect(Collectors.toList());
@@ -219,7 +211,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
       return getSelectionSize();
     }
     if (MPSDataKeys.PLACE.is(dataId)) {
-      return getPlace();
+      return getPlace(getSelectedTreeNode(TreeNode.class));
     }
 
     //PDK
@@ -317,7 +309,9 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
   /**
    * expects model read lock at least
+   * @deprecated don't use, prefer {@code SNodeReference} and {@code DataContext.getData()}
    */
+  @Deprecated(forRemoval = true, since = "2021.3")
   public SNode getSelectedSNode() {
     List<SNode> result = getSelectedSNodes();
     if (result.size() != 1) {
@@ -328,8 +322,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
   /**
    * expects model read lock at least
+   * @deprecated don't use, prefer {@code SNodeReference} and {@code DataContext.getData()}
    */
   @NotNull
+  @Deprecated(forRemoval = true, since = "2021.3")
   public List<SNode> getSelectedSNodes() {
     final List<MPSTreeNodeEx> selectedTreeNodes = getSelectedTreeNodes(MPSTreeNodeEx.class);
     if (selectedTreeNodes.isEmpty()) {
@@ -441,18 +437,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     return selection == null ? 0 : selection.length;
   }
 
-  @Nullable
-  private <T extends TreeNode> T getSelectedTreeNode(Class<T> nodeClass) {
-    TreePath selectionPath = getTree().getSelectionPath();
-    if (selectionPath == null) {
-      return null;
-    }
-    Object selectedNode = selectionPath.getLastPathComponent();
-    return nodeClass.isInstance(selectedNode) ? nodeClass.cast(selectedNode) : null;
-  }
-
-  private ActionPlace getPlace() {
-    TreeNode treeNode = getSelectedTreeNode(TreeNode.class);
+  protected ActionPlace getPlace(@Nullable TreeNode treeNode) {
     if (treeNode instanceof SNodeTreeNode) {
       return ActionPlace.PROJECT_PANE_SNODE;
     } else if (treeNode instanceof SModelTreeNode) {
@@ -478,6 +463,19 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
       }
     }
     return ActionPlace.PROJECT_PANE;
+  }
+
+  /**
+   * simplified alternative to {@link #getSelectedTreeNodes(Class)}
+   */
+  @Nullable
+  protected final <T extends TreeNode> T getSelectedTreeNode(Class<T> nodeClass) {
+    TreePath selectionPath = getTree().getSelectionPath();
+    if (selectionPath == null) {
+      return null;
+    }
+    Object selectedNode = selectionPath.getLastPathComponent();
+    return nodeClass.isInstance(selectedNode) ? nodeClass.cast(selectedNode) : null;
   }
 
   @NotNull
