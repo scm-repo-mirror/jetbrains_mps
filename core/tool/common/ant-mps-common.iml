@@ -15,5 +15,6 @@
     <orderEntry type="library" exported="" name="3rd-party" level="project" />
     <orderEntry type="library" name="Util" level="project" />
     <orderEntry type="library" scope="TEST" name="JUnit4" level="project" />
+    <orderEntry type="module" module-name="boot-util" />
   </component>
 </module>

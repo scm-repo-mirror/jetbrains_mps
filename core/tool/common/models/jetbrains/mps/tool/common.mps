@@ -24,6 +24,8 @@
     <import index="lhc4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.annotations(MPS.OpenAPI/)" />
     <import index="ncw5" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.util.annotation(Annotations/)" />
     <import index="eoo2" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.nio.file(JDK/)" />
+    <import index="rfiq" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.file(MPS.Boot/)" />
+    <import index="18ew" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.util(MPS.Boot/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -8935,15 +8937,26 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbJ" id="4937uxYQn9n" role="3cqZAp">
-          <node concept="3y3z36" id="4937uxYQn9o" role="3clFbw">
-            <node concept="2YIFZM" id="4937uxYQn9p" role="3uHU7B">
+        <node concept="3cpWs8" id="U3wrC__q7$" role="3cqZAp">
+          <node concept="3cpWsn" id="U3wrC__q7_" role="3cpWs9">
+            <property role="TrG5h" value="property" />
+            <node concept="3uibUv" id="U3wrC__p_t" role="1tU5fm">
+              <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+            </node>
+            <node concept="2YIFZM" id="U3wrC__q7A" role="33vP2m">
               <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
               <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String)" resolve="getProperty" />
-              <node concept="10M0yZ" id="1nB28rYtM_" role="37wK5m">
-                <ref role="3cqZAo" node="4937uxYQn6Z" resolve="PROPERTY_HOME_PATH" />
+              <node concept="10M0yZ" id="U3wrC__q7B" role="37wK5m">
                 <ref role="1PxDUh" node="4937uxYQn6D" resolve="PathManager" />
+                <ref role="3cqZAo" node="4937uxYQn6Z" resolve="PROPERTY_HOME_PATH" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="4937uxYQn9n" role="3cqZAp">
+          <node concept="3y3z36" id="4937uxYQn9o" role="3clFbw">
+            <node concept="37vLTw" id="U3wrC__q7D" role="3uHU7B">
+              <ref role="3cqZAo" node="U3wrC__q7_" resolve="property" />
             </node>
             <node concept="10Nm6u" id="4937uxYQn9r" role="3uHU7w" />
           </node>
@@ -9379,16 +9392,11 @@
           <node concept="3clFbS" id="4937uxYQnaV" role="3clFbx">
             <node concept="3clFbF" id="4937uxYQnaW" role="3cqZAp">
               <node concept="37vLTI" id="4937uxYQnaX" role="3clFbG">
-                <node concept="2YIFZM" id="6eoPAc_Vgns" role="37vLTx">
-                  <ref role="1Pybhc" to="ddon:4wzCSi1lrrl" resolve="FileUtil" />
-                  <ref role="37wK5l" to="ddon:21bannvPFH9" resolve="getAbsolutePath" />
-                  <node concept="2YIFZM" id="4937uxYQnb0" role="37wK5m">
-                    <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
-                    <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String)" resolve="getProperty" />
-                    <node concept="10M0yZ" id="1nB28rYtMC" role="37wK5m">
-                      <ref role="1PxDUh" node="4937uxYQn6D" resolve="PathManager" />
-                      <ref role="3cqZAo" node="4937uxYQn6Z" resolve="PROPERTY_HOME_PATH" />
-                    </node>
+                <node concept="2YIFZM" id="U3wrC__uhx" role="37vLTx">
+                  <ref role="37wK5l" to="rfiq:~Files.getAbsolutePath(java.lang.String)" resolve="getAbsolutePath" />
+                  <ref role="1Pybhc" to="rfiq:~Files" resolve="Files" />
+                  <node concept="37vLTw" id="U3wrC__uS7" role="37wK5m">
+                    <ref role="3cqZAo" node="U3wrC__q7_" resolve="property" />
                   </node>
                 </node>
                 <node concept="10M0yZ" id="1nB28rYtMD" role="37vLTJ">
@@ -9403,9 +9411,9 @@
           <node concept="3clFbS" id="4937uxYQnb9" role="1zxBo7">
             <node concept="3clFbJ" id="4937uxYQnba" role="3cqZAp">
               <node concept="3fqX7Q" id="4937uxYQnbb" role="3clFbw">
-                <node concept="10M0yZ" id="4937uxYQnbc" role="3fr31v">
-                  <ref role="1PxDUh" to="ddon:7vzkp06ON77" resolve="SystemInfo" />
-                  <ref role="3cqZAo" to="ddon:7vzkp06ON9Y" resolve="isFileSystemCaseSensitive" />
+                <node concept="10M0yZ" id="4reaALv8Ybd" role="3fr31v">
+                  <ref role="3cqZAo" to="18ew:~SystemInfo.isFileSystemCaseSensitive" resolve="isFileSystemCaseSensitive" />
+                  <ref role="1PxDUh" to="18ew:~SystemInfo" resolve="SystemInfo" />
                 </node>
               </node>
               <node concept="3clFbS" id="4937uxYQnbd" role="3clFbx">
@@ -9709,16 +9717,16 @@
           <node concept="3clFbS" id="4937uxYQneS" role="3clFbx">
             <node concept="3clFbF" id="4937uxYQneT" role="3cqZAp">
               <node concept="37vLTI" id="4937uxYQneU" role="3clFbG">
-                <node concept="2YIFZM" id="6eoPAc_Vgnt" role="37vLTx">
-                  <ref role="1Pybhc" to="ddon:4wzCSi1lrrl" resolve="FileUtil" />
-                  <ref role="37wK5l" to="ddon:21bannvPFH9" resolve="getAbsolutePath" />
-                  <node concept="2YIFZM" id="6eoPAc_UoHh" role="37wK5m">
-                    <ref role="1Pybhc" to="ddon:4wzCSi1lrrl" resolve="FileUtil" />
-                    <ref role="37wK5l" to="ddon:21bannvPOBx" resolve="trimPathQuotes" />
-                    <node concept="2YIFZM" id="4937uxYQneY" role="37wK5m">
+                <node concept="2YIFZM" id="4reaALv8WhU" role="37vLTx">
+                  <ref role="37wK5l" to="rfiq:~Files.getAbsolutePath(java.lang.String)" resolve="getAbsolutePath" />
+                  <ref role="1Pybhc" to="rfiq:~Files" resolve="Files" />
+                  <node concept="2YIFZM" id="4reaALv8WhV" role="37wK5m">
+                    <ref role="37wK5l" to="rfiq:~Paths.trimPathQuotes(java.lang.String)" resolve="trimPathQuotes" />
+                    <ref role="1Pybhc" to="rfiq:~Paths" resolve="Paths" />
+                    <node concept="2YIFZM" id="4reaALv8WhW" role="37wK5m">
                       <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
                       <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String)" resolve="getProperty" />
-                      <node concept="10M0yZ" id="1nB28rYtMX" role="37wK5m">
+                      <node concept="10M0yZ" id="4reaALv8WhX" role="37wK5m">
                         <ref role="3cqZAo" node="4937uxYQn6P" resolve="PROPERTY_CONFIG_PATH" />
                         <ref role="1PxDUh" node="4937uxYQn6D" resolve="PathManager" />
                       </node>
@@ -9776,9 +9784,9 @@
           </node>
           <node concept="3clFbJ" id="3FVfMMI1uaj" role="9aQIa">
             <node concept="1Wc70l" id="3FVfMMI1uak" role="3clFbw">
-              <node concept="10M0yZ" id="3FVfMMI1vTx" role="3uHU7B">
-                <ref role="1PxDUh" to="ddon:7vzkp06ON77" resolve="SystemInfo" />
-                <ref role="3cqZAo" to="ddon:7vzkp06ON8T" resolve="isMac" />
+              <node concept="10M0yZ" id="4reaALv8YHy" role="3uHU7B">
+                <ref role="3cqZAo" to="18ew:~SystemInfo.isMac" resolve="isMac" />
+                <ref role="1PxDUh" to="18ew:~SystemInfo" resolve="SystemInfo" />
               </node>
               <node concept="3y3z36" id="3FVfMMI1uam" role="3uHU7w">
                 <node concept="37vLTw" id="3FVfMMI1uan" role="3uHU7B">

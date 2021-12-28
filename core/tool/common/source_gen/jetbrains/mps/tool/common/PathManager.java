@@ -4,16 +4,16 @@ package jetbrains.mps.tool.common;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.annotations.NonNls;
-import jetbrains.mps.core.tool.environment.common.FileUtil;
+import jetbrains.mps.file.Files;
 import java.io.File;
-import jetbrains.mps.core.tool.environment.common.SystemInfo;
+import jetbrains.mps.util.SystemInfo;
 import java.io.IOException;
+import jetbrains.mps.file.Paths;
 import org.jetbrains.annotations.Nullable;
 import java.net.URL;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import jetbrains.mps.core.tool.environment.common.StringUtil;
 import java.util.Properties;
 import java.util.Set;
@@ -66,8 +66,9 @@ public class PathManager {
     if (PathManager.ourHomePath != null) {
       return PathManager.ourHomePath;
     }
-    if (System.getProperty(PathManager.PROPERTY_HOME_PATH) != null) {
-      PathManager.ourHomePath = FileUtil.getAbsolutePath(System.getProperty(PathManager.PROPERTY_HOME_PATH));
+    String property = System.getProperty(PathManager.PROPERTY_HOME_PATH);
+    if (property != null) {
+      PathManager.ourHomePath = Files.getAbsolutePath(property);
     } else {
       // FIXME if this PathManager class is loaded through ant cp (lib/ant/lib/ant-mps.jar), home folder would be wrong!
       //       This means use of this method and related makes sense for the case when this PathManager is loaded through e.g. core.tool.environment
@@ -126,7 +127,7 @@ public class PathManager {
       return PathManager.ourConfigPath;
     }
     if (System.getProperty(PathManager.PROPERTY_CONFIG_PATH) != null) {
-      PathManager.ourConfigPath = FileUtil.getAbsolutePath(FileUtil.trimPathQuotes(System.getProperty(PathManager.PROPERTY_CONFIG_PATH)));
+      PathManager.ourConfigPath = Files.getAbsolutePath(Paths.trimPathQuotes(System.getProperty(PathManager.PROPERTY_CONFIG_PATH)));
     } else {
       PathManager.ourConfigPath = PathManager.getHomePath() + File.separator + "config";
     }
@@ -246,7 +247,7 @@ public class PathManager {
       log("cannot extract '" + resourcePath + "' from '" + resourceURL + "'");
       return null;
     }
-    return Paths.get(resultPath).normalize().toString();
+    return java.nio.file.Paths.get(resultPath).normalize().toString();
   }
 
   @Nullable
