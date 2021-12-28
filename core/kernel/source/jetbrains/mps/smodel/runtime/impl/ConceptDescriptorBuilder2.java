@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2021 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,9 @@ package jetbrains.mps.smodel.runtime.impl;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
+import jetbrains.mps.smodel.adapter.ids.SContainmentLinkId;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
+import jetbrains.mps.smodel.adapter.ids.SReferenceLinkId;
 import jetbrains.mps.smodel.adapter.ids.STypeId;
 import jetbrains.mps.smodel.runtime.BaseLinkDescriptor;
 import jetbrains.mps.smodel.runtime.BasePropertyDescriptor;
@@ -41,7 +43,7 @@ import java.util.ArrayList;
  */
 public class ConceptDescriptorBuilder2 {
 
-  private int myVersion = 1;
+  private int myVersion = 2; // see #version(int)
   private final String myConceptShortName;
   private final String myLanguageName;
   private final long myLanguageHighUUID;
@@ -57,7 +59,7 @@ public class ConceptDescriptorBuilder2 {
   private String myAlias;
   private SConceptId myStubConceptId;
   /*package*/ SNodeReference myOrigin;
-  private ArrayList<SConceptId> myParents = new ArrayList<>(4);
+  private final ArrayList<SConceptId> myParents = new ArrayList<>(4);
   private ArrayList<PropertyDescriptor> myProperties;
   private ArrayList<ReferenceDescriptor> myAssociations;
   private ArrayList<LinkDescriptor> myAggregations;
@@ -72,9 +74,12 @@ public class ConceptDescriptorBuilder2 {
     myConceptId = MetaIdFactory.conceptId(myLanguageHighUUID, myLanguageLowUUID, conceptId);
   }
 
-  /*
+  /**
+   * @deprecated no reason to keep conceptQualifiedName constants in class file; replace with a comment.
+   *             besides, I'd like to get rid of qualified name as means of identification
    * invoked [0..1] times
    */
+  @Deprecated(since = "2021.3", forRemoval = true)
   public ConceptDescriptorBuilder2 super_(String conceptQualifiedName, long langIdHigh, long langIdLow, long conceptId) {
     // no need to specify name of superconcept (conceptQualifiedName), it's not in use
     // we may supply a short name only, just as a hint
@@ -82,7 +87,16 @@ public class ConceptDescriptorBuilder2 {
     return this;
   }
 
-  /*
+  /**
+   * invoked [0..1] times
+   * @since 2021.3
+   */
+  public ConceptDescriptorBuilder2 super_(long langIdHigh, long langIdLow, long conceptId) {
+    mySuperConceptId = MetaIdFactory.conceptId(languageId(langIdHigh, langIdLow), conceptId);
+    return this;
+  }
+
+    /*
    * invoked [0..n] times
    */
   public ConceptDescriptorBuilder2 parent(long langIdHigh, long langIdLow, long conceptId) {
@@ -115,38 +129,11 @@ public class ConceptDescriptorBuilder2 {
   }
 
   /*
+   * FIXME is there template code to use this one?
    * invoked [0..n] times
    */
   public ConceptDescriptorBuilder2 prop(String name, long propertyId) {
     addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null,null));
-    return this;
-  }
-
-  /**
-   * invoked [0..n] times
-
-   * @param sourceNodeId as long as PropertyDeclaration doesn't have sourceNode reference, we use model of declared concept as
-   *        source model and PD's node id to identify its source node, hence the parameter that takes only relevant part (no reason
-   *        to pass model reference again and again).
-   *
-   * @deprecated use {@link #property(String, long)} instead.
-   */
-@Deprecated(since = "2018.3", forRemoval = true)
-  public ConceptDescriptorBuilder2 prop(String name, long propertyId, String sourceNodeId) {
-    SNodeReference srcNode = myOrigin != null && sourceNodeId != null ? new SNodePointer(myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(sourceNodeId)) : null;
-    addProperty(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null, srcNode));
-    return this;
-  }
-
-  /**
-   * invoked [0..n] times
-   *
-   * @deprecated use {@link #property(String, long)} instead.
-   */
-@Deprecated(since = "2018.3", forRemoval = true)
-  public ConceptDescriptorBuilder2 prop(String name, long propertyId, SNodeReference srcNode) {
-    myProperties.add(new BasePropertyDescriptor(MetaIdFactory.propId(myConceptId, propertyId), name, null, srcNode));
-    // perhaps, propertySourceNode(long,SNodeReference) instead of duplicated method? Same for optional(linkId) value?
     return this;
   }
 
@@ -271,13 +258,18 @@ public class ConceptDescriptorBuilder2 {
   }
 
   public static final class AssociationLinkBuilder extends LinkBuilder {
+    private SReferenceLinkId mySpecializedLink = null;
 
     /*package*/ AssociationLinkBuilder(ConceptDescriptorBuilder2 builder, String name, long linkId) {
       super(builder, name, linkId);
     }
 
     public ConceptDescriptorBuilder2 done() {
-      myBuilder.addAssociation(new BaseReferenceDescriptor(MetaIdFactory.refId(myBuilder.myConceptId, myId), myName, myTargetConcept, myIsOptional, myOrigin));
+      if (mySpecializedLink == null) {
+        // ignore specialized links for now
+        final SReferenceLinkId id = MetaIdFactory.refId(myBuilder.myConceptId, myId);
+        myBuilder.addAssociation(new BaseReferenceDescriptor(id, myName, myTargetConcept, myIsOptional, super.myOrigin));
+      }
       return myBuilder;
     }
 
@@ -292,17 +284,36 @@ public class ConceptDescriptorBuilder2 {
     }
 
     public AssociationLinkBuilder origin(SNodeReference srcNode) {
-      myOrigin = srcNode;
+      super.myOrigin = srcNode;
       return this;
     }
 
     /**
-     * @param srcNodeId see {@link ConceptDescriptorBuilder2#prop(String, long, String)} for explanation.
+     * @param srcNodeId see {@link PropertyBuilder#origin(String)} for explanation.
      */
     public AssociationLinkBuilder origin(String srcNodeId) {
       if (myBuilder.myOrigin != null && srcNodeId != null) {
-        myOrigin = new SNodePointer(myBuilder.myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(srcNodeId));
+        super.myOrigin = new SNodePointer(myBuilder.myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(srcNodeId));
       }
+      return this;
+    }
+
+    /**
+     * @since 2021.3
+     */
+    public AssociationLinkBuilder specialize(long langIdHigh, long langIdLow, long conceptId, long linkId) {
+      final SConceptId owner = MetaIdFactory.conceptId(myBuilder.languageId(langIdHigh, langIdLow), conceptId);
+      mySpecializedLink = MetaIdFactory.refId(owner, linkId);
+      return this;
+    }
+
+    /**
+     * Simplified alternative to {@link #specialize(long, long, long, long)} for same language concepts
+     * @since 2021.3
+     */
+    public AssociationLinkBuilder specialize(long conceptId, long linkId) {
+      final SConceptId owner = MetaIdFactory.conceptId(myBuilder.myConceptId.getLanguageId(), conceptId);
+      mySpecializedLink = MetaIdFactory.refId(owner, linkId);
       return this;
     }
   }
@@ -310,13 +321,18 @@ public class ConceptDescriptorBuilder2 {
   public static final class AggregationLinkBuilder extends LinkBuilder {
     private boolean myIsMultiple = false;
     private boolean myIsOrdered = true;
+    private SContainmentLinkId mySpecializedLink = null;
 
     /*package*/ AggregationLinkBuilder(ConceptDescriptorBuilder2 builder, String linkName, long linkId) {
       super(builder, linkName, linkId);
     }
 
     public ConceptDescriptorBuilder2 done() {
-      myBuilder.addAggregation(new BaseLinkDescriptor(MetaIdFactory.linkId(myBuilder.myConceptId, myId), myName, myTargetConcept, myIsOptional, myIsMultiple, !myIsOrdered, myOrigin));
+      if (mySpecializedLink == null) {
+        // XXX ignore specialized links for now
+        final SContainmentLinkId id = MetaIdFactory.linkId(myBuilder.myConceptId, myId);
+        myBuilder.addAggregation(new BaseLinkDescriptor(id, myName, myTargetConcept, myIsOptional, myIsMultiple, !myIsOrdered, super.myOrigin));
+      }
       return myBuilder;
     }
 
@@ -346,12 +362,30 @@ public class ConceptDescriptorBuilder2 {
     }
 
     /**
-     * @param srcNodeId see {@link ConceptDescriptorBuilder2#prop(String, long, String)} for explanation.
+     * @param srcNodeId see {@link PropertyBuilder#origin(String)} for explanation.
      */
     public AggregationLinkBuilder origin(String srcNodeId) {
       if (myBuilder.myOrigin != null && srcNodeId != null) {
         super.myOrigin = new SNodePointer(myBuilder.myOrigin.getModelReference(), PersistenceFacade.getInstance().createNodeId(srcNodeId));
       }
+      return this;
+    }
+
+    /**
+     * @since 2021.3
+     */
+    public AggregationLinkBuilder specialize(long langIdHigh, long langIdLow, long conceptId, long linkId) {
+      final SConceptId owner = MetaIdFactory.conceptId(myBuilder.languageId(langIdHigh, langIdLow), conceptId);
+      mySpecializedLink = MetaIdFactory.linkId(owner, linkId);
+      return this;
+    }
+
+    /**
+     * @since 2021.3
+     */
+    public AggregationLinkBuilder specialize(long conceptId, long linkId) {
+      final SConceptId owner = MetaIdFactory.conceptId(myBuilder.myConceptId.getLanguageId(), conceptId);
+      mySpecializedLink = MetaIdFactory.linkId(owner, linkId);
       return this;
     }
   }
@@ -379,7 +413,8 @@ public class ConceptDescriptorBuilder2 {
     }
 
     /**
-     * @param srcNodeId see {@link ConceptDescriptorBuilder2#prop(String, long, String)} for explanation.
+     * @param srcNodeId we use model of declared concept as source model and PD's node id to identify its source node,
+     *                  hence the parameter that takes only relevant part (no reason to pass model reference again and again).
      */
     public PropertyBuilder origin(String srcNodeId) {
       if (myBuilder.myOrigin != null && srcNodeId != null) {
