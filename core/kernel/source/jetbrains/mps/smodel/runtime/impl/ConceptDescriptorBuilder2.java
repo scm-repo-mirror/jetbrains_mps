@@ -180,6 +180,7 @@ public class ConceptDescriptorBuilder2 {
 
   // optional, version == 1 by default as this builder was introduced late in 3.4 cycle
   // code generated with 2018.2 shall set version to 2 once stubId is generated. Once 2018.2 is out, shall change default value in this class to 2
+  // version == 3 indicates addition of specialized links and use of super_() without qualified name.
   public ConceptDescriptorBuilder2 version(int version) {
     myVersion = version;
     return this;
