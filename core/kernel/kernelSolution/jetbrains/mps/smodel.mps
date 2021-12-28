@@ -32,6 +32,7 @@
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="gp7a" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.dependency(MPS.Core/)" />
     <import index="w0gx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.structure.modules(MPS.Core/)" />
+    <import index="18ex" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.util(MPS.Boot/)" />
     <import index="tpcb" ref="r:00000000-0000-4000-0000-011c89590297(jetbrains.mps.lang.editor.behavior)" implicit="true" />
   </imports>
   <registry>
@@ -1237,8 +1238,8 @@
         <node concept="3KaCP$" id="7HISxkF83us" role="3cqZAp">
           <node concept="3KbdKl" id="7HISxkF8jiL" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF8jvh" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.JDK" resolve="JDK" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.JDK" resolve="JDK" />
             </node>
             <node concept="3clFbS" id="7HISxkF8jiN" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF8jiO" role="3cqZAp">
@@ -1252,9 +1253,9 @@
             </node>
           </node>
           <node concept="3KbdKl" id="7HISxkF8jmN" role="3KbHQx">
-            <node concept="Rm8GO" id="7HISxkF8jyj" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.JDK_TOOLS" resolve="JDK_TOOLS" />
+            <node concept="Rm8GO" id="AiWF0MGa04" role="3Kbmr1">
+              <ref role="Rm8GQ" to="18ex:~ClassType.JDK_TOOLS" resolve="JDK_TOOLS" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
             </node>
             <node concept="3clFbS" id="7HISxkF8jmP" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF8jmQ" role="3cqZAp">
@@ -1272,8 +1273,8 @@
           </node>
           <node concept="3KbdKl" id="7HISxkF83Ld" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF83Le" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.ANNOTATIONS" resolve="ANNOTATIONS" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.ANNOTATIONS" resolve="ANNOTATIONS" />
             </node>
             <node concept="3clFbS" id="7HISxkF83Lf" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83Lg" role="3cqZAp">
@@ -1287,9 +1288,9 @@
             </node>
           </node>
           <node concept="3KbdKl" id="7HISxkF83uZ" role="3KbHQx">
-            <node concept="Rm8GO" id="7HISxkF83Si" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.OPENAPI" resolve="OPENAPI" />
+            <node concept="Rm8GO" id="AiWF0MG9ZC" role="3Kbmr1">
+              <ref role="Rm8GQ" to="18ex:~ClassType.OPENAPI" resolve="OPENAPI" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
             </node>
             <node concept="3clFbS" id="7HISxkF83v1" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83Fc" role="3cqZAp">
@@ -1303,9 +1304,9 @@
             </node>
           </node>
           <node concept="3KbdKl" id="7HISxkF83Ns" role="3KbHQx">
-            <node concept="Rm8GO" id="7HISxkF83VI" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.CORE" resolve="CORE" />
+            <node concept="Rm8GO" id="AiWF0MG9Zc" role="3Kbmr1">
+              <ref role="Rm8GQ" to="18ex:~ClassType.CORE" resolve="CORE" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
             </node>
             <node concept="3clFbS" id="7HISxkF83Nu" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83Nv" role="3cqZAp">
@@ -1320,8 +1321,8 @@
           </node>
           <node concept="3KbdKl" id="7HISxkF83NU" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF83Ze" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.EDITOR" resolve="EDITOR" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.EDITOR" resolve="EDITOR" />
             </node>
             <node concept="3clFbS" id="7HISxkF83NW" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83NX" role="3cqZAp">
@@ -1335,9 +1336,9 @@
             </node>
           </node>
           <node concept="3KbdKl" id="7HISxkF83Ou" role="3KbHQx">
-            <node concept="Rm8GO" id="7HISxkF842G" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.PLATFORM" resolve="PLATFORM" />
+            <node concept="Rm8GO" id="AiWF0MGa0w" role="3Kbmr1">
+              <ref role="Rm8GQ" to="18ex:~ClassType.PLATFORM" resolve="PLATFORM" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
             </node>
             <node concept="3clFbS" id="7HISxkF83Ow" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83Ox" role="3cqZAp">
@@ -1352,8 +1353,8 @@
           </node>
           <node concept="3KbdKl" id="7HISxkF848V" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF848W" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.IDEA" resolve="IDEA" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.IDEA" resolve="IDEA" />
             </node>
             <node concept="3clFbS" id="7HISxkF848X" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF848Y" role="3cqZAp">
@@ -1368,8 +1369,8 @@
           </node>
           <node concept="3KbdKl" id="7HISxkF84i6" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF84i7" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.WORKBENCH" resolve="WORKBENCH" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.WORKBENCH" resolve="WORKBENCH" />
             </node>
             <node concept="3clFbS" id="7HISxkF84i8" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF84i9" role="3cqZAp">
@@ -1384,8 +1385,8 @@
           </node>
           <node concept="3KbdKl" id="7HISxkF83P8" role="3KbHQx">
             <node concept="Rm8GO" id="7HISxkF84pa" role="3Kbmr1">
-              <ref role="1Px2BO" to="18ew:~ClassType" resolve="ClassType" />
-              <ref role="Rm8GQ" to="18ew:~ClassType.TEST" resolve="TEST" />
+              <ref role="1Px2BO" to="18ex:~ClassType" resolve="ClassType" />
+              <ref role="Rm8GQ" to="18ex:~ClassType.TEST" resolve="TEST" />
             </node>
             <node concept="3clFbS" id="7HISxkF83Pa" role="3Kbo56">
               <node concept="3cpWs6" id="7HISxkF83Pb" role="3cqZAp">
@@ -1412,7 +1413,7 @@
       <node concept="37vLTG" id="7HISxkF83qP" role="3clF46">
         <property role="TrG5h" value="classType" />
         <node concept="3uibUv" id="7HISxkF83rc" role="1tU5fm">
-          <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+          <ref role="3uigEE" to="18ex:~ClassType" resolve="ClassType" />
         </node>
       </node>
     </node>

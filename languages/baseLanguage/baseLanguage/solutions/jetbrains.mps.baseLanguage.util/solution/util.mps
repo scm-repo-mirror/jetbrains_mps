@@ -30,6 +30,7 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="i290" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.java.stub(MPS.Core/)" />
     <import index="9eha" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.annotations(Annotations/)" />
+    <import index="18ex" ref="3a8d80d2-32d9-f1f2-4443-6a1111e12ef3/java:jetbrains.mps.util(MPS.Boot/)" />
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" implicit="true" />
     <import index="if8w" ref="r:95397225-9080-48bc-b1aa-0ce7c4f3d2ce(jetbrains.mps.lang.traceable.behavior)" implicit="true" />
   </imports>
@@ -3279,7 +3280,7 @@
             </node>
           </node>
           <node concept="uiWXb" id="10TQBEP8N1V" role="2GsD0m">
-            <ref role="uiZuM" to="18ew:~ClassType" resolve="ClassType" />
+            <ref role="uiZuM" to="18ex:~ClassType" resolve="ClassType" />
           </node>
         </node>
         <node concept="3cpWs6" id="1WmYFrECyKs" role="3cqZAp">
