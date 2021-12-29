@@ -105,13 +105,11 @@ public class EnvironmentConfig {
   }
 
   public EnvironmentConfig withDefaultPlugins() {
-    addDistributedPlugin("mps-testing", "jetbrains.mps.testing");
-    addDistributedPlugin("mps-make", "jetbrains.mps.ide.make");
-    return withCorePlugin();
+    return withCorePlugin().withTestingPlugin().withMakePlugin();
   }
 
   public EnvironmentConfig withVcsPlugin() {
-    return addDistributedPlugin("mps-vcs", "jetbrains.mps.vcs").withGit4IdeaPlugin().withSubversionPlugin().withGit4IdeaStubsPlugin();
+    return addDistributedPlugin("mps-vcs", "jetbrains.mps.vcs").withGit4IdeaPlugin().withSubversionPlugin().withGit4IdeaStubsPlugin().withCorePlugin();
   }
 
   public EnvironmentConfig withSubversionPlugin() {
@@ -120,6 +118,14 @@ public class EnvironmentConfig {
 
   public EnvironmentConfig withCorePlugin() {
     return addDistributedPlugin("mps-core", "jetbrains.mps.core");
+  }
+
+  public EnvironmentConfig withMakePlugin() {
+    return withCorePlugin().addDistributedPlugin("mps-make", "jetbrains.mps.ide.make");
+  }
+
+  public EnvironmentConfig withTestingPlugin() {
+    return withCorePlugin().addDistributedPlugin("mps-testing", "jetbrains.mps.testing");
   }
 
   public EnvironmentConfig withGit4IdeaPlugin() {
@@ -131,24 +137,27 @@ public class EnvironmentConfig {
   }
 
   public EnvironmentConfig withBuildPlugin() {
-    return addDistributedPlugin("mps-build", "jetbrains.mps.build");
+    return addDistributedPlugin("mps-build", "jetbrains.mps.build").withCorePlugin();
   }
 
   public EnvironmentConfig withKotlinPlugin() {
-    return addDistributedPlugin("mps-kotlin", "jetbrains.mps.kotlin");
+    return addDistributedPlugin("mps-kotlin", "jetbrains.mps.kotlin").withCorePlugin();
   }
 
   public EnvironmentConfig withJavaPlugin() {
-    return addDistributedPlugin("mps-java", "jetbrains.mps.ide.java");
+    return addDistributedPlugin("mps-java", "jetbrains.mps.ide.java").withCorePlugin();
   }
 
   public EnvironmentConfig withDebuggerPlugin() {
     return addDistributedPlugin("debugger-api", "jetbrains.mps.debugger.api").addDistributedPlugin("debugger-java", "jetbrains.mps.debugger.java").addDistributedPlugin("execution-api", "jetbrains.mps.execution.api");
   }
+  public EnvironmentConfig withModelCheckerPlugin() {
+    return addDistributedPlugin("mps-modelchecker", "jetbrains.mps.ide.modelchecker").withTestingPlugin();
+  }
 
   public EnvironmentConfig withMigrationPlugin() {
     // migration plugin depends on modelchecker, add both
-    return addDistributedPlugin("mps-modelchecker", "jetbrains.mps.ide.modelchecker").addDistributedPlugin("mps-migration", "jetbrains.mps.ide.migration.workbench").addDistributedPlugin("mps-project-migrations", "jetbrains.mps.ide.mpsmigration");
+    return withModelCheckerPlugin().addDistributedPlugin("mps-migration", "jetbrains.mps.ide.migration.workbench").addDistributedPlugin("mps-project-migrations", "jetbrains.mps.ide.mpsmigration");
   }
 
   public EnvironmentConfig withBundledPlugins() {

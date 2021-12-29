@@ -19,6 +19,7 @@
   <name>Model Checker</name>
   <description>Settings and tooling to audit MPS models</description>
   <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
+  <depends>jetbrains.mps.testing</depends>
 
   <application-components>
     <component>
