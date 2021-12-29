@@ -222,7 +222,7 @@
     </javac2>
   </target>
   
-  <target name="java.compile.ant-mps" depends="java.compile.mps-annotations">
+  <target name="java.compile.ant-mps" depends="java.compile.mps-annotations, java.compile.mps-boot-util">
     <mkdir dir="${projectHome}/core/tool/ant/source_gen" />
     <mkdir dir="${projectHome}/core/tool/common/source_gen" />
     <mkdir dir="${build.tmp}/java/out/ant-mps" />
@@ -234,6 +234,7 @@
       </src>
       <classpath>
         <pathelement path="${build.tmp}/java/out/mps-annotations" />
+        <pathelement path="${build.tmp}/java/out/mps-boot-util" />
         <path refid="path.java.library.annotations-lib" />
         <path refid="path.java.library.util" />
         <path refid="path.java.library.idea-ant" />
@@ -298,12 +299,12 @@
   </target>
   
   <target name="java.compile.mps-boot-util" depends="java.compile.mps-annotations, java.compile.mps-logging">
-    <mkdir dir="${projectHome}/startup/startup-util/source" />
+    <mkdir dir="${projectHome}/startup/boot-util/source" />
     <mkdir dir="${build.tmp}/java/out/mps-boot-util" />
     <javac2 destdir="${build.tmp}/java/out/mps-boot-util" fork="true" encoding="utf8" memorymaximumsize="1024m" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
       <src>
-        <path location="${projectHome}/startup/startup-util/source" />
+        <path location="${projectHome}/startup/boot-util/source" />
       </src>
       <classpath>
         <pathelement path="${build.tmp}/java/out/mps-annotations" />

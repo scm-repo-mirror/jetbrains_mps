@@ -1049,6 +1049,8 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
         <fileset file="${mps_home}/lib/bootstrap.jar" />
         <fileset file="${mps_home}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/util.jar" />
+        <fileset file="${artifacts.IDEA}/lib/3rd-party-rt.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
