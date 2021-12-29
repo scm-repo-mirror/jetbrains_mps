@@ -111,8 +111,8 @@ public class ModuleLibrariesUtil {
           // Indeed, we don't check for xml file of a source module descriptor (available through DeploymentDescriptor). The reason is
           // we care about deployed modules only, therefore expect moduleXmlPaths to be filled only with 'module.xml' files of deployed modules and
           // straightforward IFile match against repository module's files shall suffice.
-          final VirtualFile f = ModuleXmlRootDetector.asOrderRoot((AbstractModule) m).getFile();
-          if (moduleXmlPaths.contains(f.getCanonicalFile())) {
+          final VirtualFile f = ((AbstractModule) m).getDescriptorFile() == null ? null : ModuleXmlRootDetector.asOrderRoot((AbstractModule) m).getFile();
+          if (f != null && moduleXmlPaths.contains(f.getCanonicalFile())) {
             modules.add(m.getModuleReference());
           }
         }
