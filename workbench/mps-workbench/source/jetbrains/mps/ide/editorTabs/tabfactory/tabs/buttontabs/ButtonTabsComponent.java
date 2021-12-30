@@ -89,19 +89,19 @@ public class ButtonTabsComponent extends BaseTabsComponent {
   @Override
   public void updateTabs() {
     // Emulate old behaviour - always update
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
+    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNodeRef;
     updateTabs(Collections.singletonList(reference));
   }
 
   @Override
   public void updateTabs(Collection<SNodeReference> changedRoots) {
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
+    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNodeRef;
     if (isDisposed() || !changedRoots.contains(reference)) {
       return;
     }
 
     if (getEditedNode() != null && getEditedNode().resolve(getProject().getRepository()) == null) {
-      editNode(myBaseNode);
+      editNode(myBaseNodeRef);
     }
 
     myRealTabs.clear();
@@ -139,7 +139,7 @@ public class ButtonTabsComponent extends BaseTabsComponent {
           break;
         }
       }
-      editNode(isTabExists ? getEditedNode() : myBaseNode);
+      editNode(isTabExists ? getEditedNode() : myBaseNodeRef);
     }
   }
 

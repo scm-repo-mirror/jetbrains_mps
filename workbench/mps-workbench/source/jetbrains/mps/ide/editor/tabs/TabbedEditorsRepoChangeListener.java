@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
 import org.jetbrains.mps.openapi.event.SNodeRemoveEvent;
 import org.jetbrains.mps.openapi.event.SPropertyChangeEvent;
+import org.jetbrains.mps.openapi.event.SReferenceChangeEvent;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -47,19 +48,19 @@ import java.util.HashSet;
  *
  * @author Artem Tikhomirov
  */
-class RepoChangeListener extends SRepositoryContentAdapter implements Disposable {
+class TabbedEditorsRepoChangeListener extends SRepositoryContentAdapter implements Disposable {
   private final Collection<SNodeReference> myChangedRoots = new HashSet<>();
   private final Collection<TabsComponent> myTabsComponents = new HashSet<>();
 
   private final Project myProject;
 
   @Nullable
-  static RepoChangeListener getInstance(jetbrains.mps.project.Project mpsProject) {
+  static TabbedEditorsRepoChangeListener getInstance(jetbrains.mps.project.Project mpsProject) {
     final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject(mpsProject);
-    return ideaProject == null ? null : ideaProject.getService(RepoChangeListener.class);
+    return ideaProject == null ? null : ideaProject.getService(TabbedEditorsRepoChangeListener.class);
   }
 
-  public RepoChangeListener(com.intellij.openapi.project.Project project) {
+  public TabbedEditorsRepoChangeListener(com.intellij.openapi.project.Project project) {
     myProject = ProjectHelper.fromIdeaProject(project);
   }
 
@@ -145,15 +146,22 @@ class RepoChangeListener extends SRepositoryContentAdapter implements Disposable
   }
 
   @Override
+  public void referenceChanged(@NotNull SReferenceChangeEvent event) {
+    if (event.getNewValue().getTargetNode().getParent() == null) {
+      myChangedRoots.add(event.getNewValue().getTargetNodeReference());
+    }
+  }
+
+  @Override
   public void commandStarted(SRepository repository) {
     myChangedRoots.clear();
   }
 
   @Override
   public void commandFinished(SRepository repository) {
-    if (!myChangedRoots.isEmpty() && !myTabsComponents.isEmpty()) {
+    if (!myChangedRoots.isEmpty()) {
       for (TabsComponent tabsComponent : myTabsComponents) {
-        tabsComponent.updateTabs(myChangedRoots);
+        tabsComponent.updateTabs();
       }
     }
     myChangedRoots.clear();

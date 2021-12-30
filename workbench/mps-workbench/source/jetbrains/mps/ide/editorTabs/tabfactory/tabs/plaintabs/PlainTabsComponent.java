@@ -55,8 +55,13 @@ public class PlainTabsComponent extends BaseTabsComponent {
 
   private final Disposable myJbTabsDisposable = Disposer.newDisposable(PlainTabsComponent.class.getName());
 
-  public PlainTabsComponent(SNodeReference baseNode, Set<RelationDescriptor> possibleTabs, JComponent editor, NodeChangeCallback callback, boolean showGrayed,
-      CreateModeCallback createModeCallback, Project project) {
+  public PlainTabsComponent(SNodeReference baseNode,
+                            Set<RelationDescriptor> possibleTabs,
+                            JComponent editor,
+                            NodeChangeCallback callback,
+                            boolean showGrayed,
+                            CreateModeCallback createModeCallback,
+                            Project project) {
     super(baseNode, possibleTabs, editor, callback, showGrayed, createModeCallback, project);
 
     myTabs = new JBTabsImpl(project, null, myJbTabsDisposable);
@@ -78,7 +83,7 @@ public class PlainTabsComponent extends BaseTabsComponent {
 
 
   private synchronized void onTabIndexChange(boolean userAction) {
-    if (isDisposed()) {
+    if (isDisposed() || myRebuilding) {
       return;
     }
 
@@ -178,13 +183,13 @@ public class PlainTabsComponent extends BaseTabsComponent {
   @Override
   public void updateTabs() {
     // Emulate old behaviour - always update
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
+    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNodeRef;
     updateTabs(Collections.singletonList(reference));
   }
 
   @Override
   public synchronized void updateTabs(Collection<SNodeReference> changedRoots) {
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
+    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNodeRef;
     if (isDisposed() || !changedRoots.contains(reference)) {
       return;
     }
@@ -213,17 +218,17 @@ public class PlainTabsComponent extends BaseTabsComponent {
             SNode node = pet.getNode().resolve(getProject().getRepository());
 
             TabInfo info = new TabInfo(getSpacer())
-                .setIcon(GlobalIconManager.getInstance().getIconFor(node))
-                .setText(node.getPresentation())
-                .setPreferredFocusableComponent(myEditor);
+                               .setIcon(GlobalIconManager.getInstance().getIconFor(node))
+                               .setText(node.getPresentation())
+                               .setPreferredFocusableComponent(myEditor);
             myTabs.addTab(info);
           }
         } else if (myShowGrayed) {
           myRealTabs.add(new PlainEditorTab(tab));
 
           TabInfo info = new TabInfo(getSpacer())
-              .setText(tab.getTitle()).setDefaultForeground(JBColor.GRAY)
-              .setPreferredFocusableComponent(myEditor);
+                             .setText(tab.getTitle()).setDefaultForeground(JBColor.GRAY)
+                             .setPreferredFocusableComponent(myEditor);
           myTabs.addTab(info);
         }
       }
@@ -257,7 +262,9 @@ public class PlainTabsComponent extends BaseTabsComponent {
   }
 
   private synchronized void selectNodeTab() {
-    if (isDisposed()) return;
+    if (isDisposed()) {
+      return;
+    }
 
     for (PlainEditorTab t : myRealTabs) {
       if (t.getNode() != null && t.getNode().equals(getEditedNode())) {

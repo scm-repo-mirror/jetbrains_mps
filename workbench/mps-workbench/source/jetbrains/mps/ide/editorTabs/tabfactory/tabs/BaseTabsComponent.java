@@ -52,7 +52,7 @@ public abstract class BaseTabsComponent implements TabsComponent {
 
   private final NodeChangeCallback myCallback;
   private final CreateModeCallback myCreateModeCallback;
-  protected final SNodeReference myBaseNode;
+  protected final SNodeReference myBaseNodeRef;
   protected final Collection<RelationDescriptor> myPossibleTabs;
   protected final JComponent myEditor;
   protected final boolean myShowGrayed;
@@ -62,14 +62,19 @@ public abstract class BaseTabsComponent implements TabsComponent {
   private List<Document> myEditedDocuments = new ArrayList<>();
   private SNodeReference myLastNode = null;
 
-  private JComponent myComponent;
+  private final JComponent myComponent;
   private volatile boolean myDisposed = false;
 
-  protected BaseTabsComponent(SNodeReference baseNode, Set<RelationDescriptor> possibleTabs, JComponent editor, NodeChangeCallback callback, boolean showGrayed,
-                              CreateModeCallback createModeCallback, Project project) {
-    myBaseNode = baseNode;
+  protected BaseTabsComponent(SNodeReference baseNodeRef,
+                              Set<RelationDescriptor> possibleTabs,
+                              JComponent editor,
+                              NodeChangeCallback callback,
+                              boolean showGrayed,
+                              CreateModeCallback createModeCallback,
+                              Project project) {
+    myBaseNodeRef = baseNodeRef;
     final ArrayList<RelationDescriptor> tabs = new ArrayList<>(possibleTabs);
-    Collections.sort(tabs, new RelationComparator());
+    tabs.sort(new RelationComparator());
     myPossibleTabs = Collections.unmodifiableList(tabs);
     myEditor = editor;
     myCallback = callback;
@@ -97,7 +102,7 @@ public abstract class BaseTabsComponent implements TabsComponent {
     return myComponent;
   }
 
-  protected void setContent(JComponent component) {
+  protected final void setContent(JComponent component) {
     myComponent.add(component, BorderLayout.CENTER);
   }
 
@@ -142,7 +147,7 @@ public abstract class BaseTabsComponent implements TabsComponent {
 
     TabEditorLayout result = new TabEditorLayout();
 
-    SNode baseNode = myBaseNode.resolve(getProject().getRepository());
+    SNode baseNode = myBaseNodeRef.resolve(getProject().getRepository());
     if (baseNode == null) {
       return result;
     }
