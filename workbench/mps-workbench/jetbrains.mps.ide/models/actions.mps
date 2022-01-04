@@ -16153,6 +16153,7 @@
     <property role="72QZ$" value="true" />
     <property role="2uzpH1" value="Rename Module" />
     <property role="3GE5qa" value="Menu.ProjectPane.Module.Solution.Actions" />
+    <property role="1teQrl" value="true" />
     <node concept="tkhdA" id="1Nr$iwO7VMr" role="tmbBb">
       <node concept="3clFbS" id="1Nr$iwO7VMs" role="2VODD2">
         <node concept="3cpWs8" id="6LmVZnH59D7" role="3cqZAp">

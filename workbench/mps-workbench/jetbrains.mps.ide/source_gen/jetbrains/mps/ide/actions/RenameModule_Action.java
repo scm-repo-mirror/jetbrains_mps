@@ -8,8 +8,9 @@ import javax.swing.Icon;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.project.AbstractModule;
 import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.refactoring.RenameModuleDialog;
 import jetbrains.mps.project.Solution;
@@ -33,8 +34,8 @@ public class RenameModule_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    boolean isApplicable = event.getData(MPSCommonDataKeys.MODULE) instanceof AbstractModule && !(event.getData(MPSCommonDataKeys.MODULE).isPackaged()) && !(event.getData(MPSCommonDataKeys.MODULE).isReadOnly());
-    event.getPresentation().setText(RenameModule_Action.this.getActionText(event.getData(MPSCommonDataKeys.MODULE), event));
+    boolean isApplicable = ((SModule) MapSequence.fromMap(_params).get("module")) instanceof AbstractModule && !(((SModule) MapSequence.fromMap(_params).get("module")).isPackaged()) && !(((SModule) MapSequence.fromMap(_params).get("module")).isReadOnly());
+    event.getPresentation().setText(RenameModule_Action.this.getActionText(((SModule) MapSequence.fromMap(_params).get("module")), _params));
     event.getPresentation().setEnabledAndVisible(isApplicable);
   }
   @Override
@@ -44,12 +45,14 @@ public class RenameModule_Action extends BaseAction {
     }
     {
       SModule p = event.getData(MPSCommonDataKeys.MODULE);
+      MapSequence.fromMap(_params).put("module", p);
       if (p == null) {
         return false;
       }
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -58,9 +61,9 @@ public class RenameModule_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new RenameModuleDialog(event.getData(MPSCommonDataKeys.MPS_PROJECT), ((AbstractModule) event.getData(MPSCommonDataKeys.MODULE))).show();
+    new RenameModuleDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), ((AbstractModule) ((SModule) MapSequence.fromMap(_params).get("module")))).show();
   }
-  public String getActionText(SModule module, final AnActionEvent event) {
+  public String getActionText(SModule module, final Map<String, Object> _params) {
     if (module instanceof Solution) {
       return IdeBundle.message("actions.module.rename.text.solution");
     }
