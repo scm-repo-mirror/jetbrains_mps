@@ -85,6 +85,9 @@ public final class ConstraintsRegistry implements CoreAspectRegistry {
       }
 
       myConstraintsDescriptors.put(concept, descriptor);
+      // FIXME perhaps, shall move BaseConstraintDescriptor initialization out of constructor into dedicated init(ConstraintsRegistry) method
+      //       so that (a) there's no getInstance() access; (b) predictable/controlled moment to access other registries; (c) no protected
+      //       overridden methods invoked from constructor. Drawback - non-final fields.
 
       return descriptor;
     } finally {
