@@ -66,6 +66,7 @@
     <classNode dependClassName="com.intellij.openapi.actionSystem.ShortcutSet" />
     <classNode dependClassName="com.intellij.openapi.fileEditor.FileEditor" />
     <classNode dependClassName="com.intellij.openapi.util.Disposer" />
+    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFile" />
     <classNode dependClassName="com.intellij.openapi.wm.IdeFocusManager" />
     <classNode dependClassName="java.awt.datatransfer.Transferable" />
     <classNode dependClassName="java.awt.datatransfer.UnsupportedFlavorException" />
@@ -114,6 +115,7 @@
     <classNode dependClassName="jetbrains.mps.nodeEditor.UIEditorComponent" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.commands.CommandContextImpl" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.datatransfer.NodePaster" />
+    <classNode dependClassName="jetbrains.mps.nodefs.NodeVirtualFileSystem" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.selection.SelectionManager" />
@@ -174,6 +176,7 @@
     <classNode dependClassName="com.intellij.openapi.fileEditor.FileEditorState" />
     <classNode dependClassName="com.intellij.openapi.fileEditor.FileEditorStateLevel" />
     <classNode dependClassName="com.intellij.openapi.util.Key" />
+    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFile" />
     <classNode dependClassName="java.beans.PropertyChangeListener" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />

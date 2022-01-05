@@ -82,6 +82,8 @@
     <import index="ud0o" ref="r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)" />
     <import index="ends" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.persistence(MPS.Core/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
+    <import index="jlff" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vfs(MPS.IDEA/)" />
+    <import index="kip1" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.nodefs(MPS.Platform/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
   </imports>
@@ -633,6 +635,14 @@
     <node concept="3uibUv" id="2Y6GhaXyBFC" role="EKbjA">
       <ref role="3uigEE" to="iwsx:~DocumentsEditor" resolve="DocumentsEditor" />
     </node>
+    <node concept="312cEg" id="7y8x4Vge2AL" role="jymVt">
+      <property role="TrG5h" value="myConsoleRootVirtualFile" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="7y8x4Vge2AM" role="1B3o_S" />
+      <node concept="3uibUv" id="7y8x4Vge2AO" role="1tU5fm">
+        <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="3NTPlNtrlcn" role="jymVt" />
     <node concept="312cEu" id="mFGiHOElcb" role="jymVt">
       <property role="TrG5h" value="MyFileEditorState" />
@@ -878,15 +888,53 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="7y8x4Vge2AP" role="3cqZAp">
+          <node concept="37vLTI" id="7y8x4Vge2AR" role="3clFbG">
+            <node concept="37vLTw" id="7y8x4Vge2AU" role="37vLTJ">
+              <ref role="3cqZAo" node="7y8x4Vge2AL" resolve="myConsoleRootVirtualFile" />
+            </node>
+            <node concept="37vLTw" id="7y8x4Vge2AV" role="37vLTx">
+              <ref role="3cqZAo" node="7y8x4VgdZcJ" resolve="consoleRootVirtualFile" />
+            </node>
+          </node>
+        </node>
       </node>
-      <node concept="3Tm1VV" id="2Y6GhaXyEhI" role="1B3o_S" />
+      <node concept="3Tm1VV" id="7y8x4Vge1YB" role="1B3o_S" />
       <node concept="37vLTG" id="2Y6GhaXyEuV" role="3clF46">
         <property role="TrG5h" value="editor" />
         <node concept="3uibUv" id="2Y6GhaXA2jX" role="1tU5fm">
           <ref role="3uigEE" to="exr9:~EditorComponent" resolve="EditorComponent" />
         </node>
       </node>
+      <node concept="37vLTG" id="7y8x4VgdZcJ" role="3clF46">
+        <property role="TrG5h" value="consoleRootVirtualFile" />
+        <node concept="3uibUv" id="7y8x4Vge1lN" role="1tU5fm">
+          <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
+        </node>
+      </node>
     </node>
+    <node concept="2tJIrI" id="7y8x4Vge9Z8" role="jymVt" />
+    <node concept="3clFb_" id="7y8x4VgebKH" role="jymVt">
+      <property role="TrG5h" value="getFile" />
+      <node concept="3Tm1VV" id="7y8x4VgebKJ" role="1B3o_S" />
+      <node concept="2AHcQZ" id="7y8x4VgebKL" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="7y8x4VgebKM" role="3clF45">
+        <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
+      </node>
+      <node concept="3clFbS" id="7y8x4VgebKO" role="3clF47">
+        <node concept="3clFbF" id="7y8x4Vgejbh" role="3cqZAp">
+          <node concept="37vLTw" id="7y8x4Vgejbg" role="3clFbG">
+            <ref role="3cqZAo" node="7y8x4Vge2AL" resolve="myConsoleRootVirtualFile" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="7y8x4VgebKP" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="7y8x4Vge5_Q" role="jymVt" />
     <node concept="3Tm1VV" id="3NTPlNtr9LC" role="1B3o_S" />
     <node concept="3clFb_" id="3NTPlNtrgVs" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -5257,6 +5305,34 @@
                       <ref role="37wK5l" node="4gO8GruXgql" resolve="createEditor" />
                     </node>
                   </node>
+                  <node concept="3cpWs8" id="7y8x4Vggn1L" role="3cqZAp">
+                    <node concept="3cpWsn" id="7y8x4Vggn1M" role="3cpWs9">
+                      <property role="TrG5h" value="file" />
+                      <node concept="3uibUv" id="7y8x4Vggn1N" role="1tU5fm">
+                        <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
+                      </node>
+                      <node concept="2OqwBi" id="7y8x4Vghk35" role="33vP2m">
+                        <node concept="2YIFZM" id="7y8x4VghcFn" role="2Oq$k0">
+                          <ref role="37wK5l" to="kip1:~NodeVirtualFileSystem.getInstance()" resolve="getInstance" />
+                          <ref role="1Pybhc" to="kip1:~NodeVirtualFileSystem" resolve="NodeVirtualFileSystem" />
+                        </node>
+                        <node concept="liA8E" id="7y8x4Vghx1t" role="2OqNvi">
+                          <ref role="37wK5l" to="kip1:~NodeVirtualFileSystem.getFileFor(org.jetbrains.mps.openapi.module.SRepository,org.jetbrains.mps.openapi.model.SNode)" resolve="getFileFor" />
+                          <node concept="2OqwBi" id="7y8x4VghZ2X" role="37wK5m">
+                            <node concept="37vLTw" id="7y8x4VghLlX" role="2Oq$k0">
+                              <ref role="3cqZAo" node="758rrhN1tVs" resolve="myProject" />
+                            </node>
+                            <node concept="liA8E" id="7y8x4Vgicsk" role="2OqNvi">
+                              <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                            </node>
+                          </node>
+                          <node concept="37vLTw" id="7y8x4VgiBbF" role="37wK5m">
+                            <ref role="3cqZAo" node="6ysF3v1j_8y" resolve="myRoot" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                   <node concept="3clFbF" id="6ysF3v1j_eO" role="3cqZAp">
                     <node concept="37vLTI" id="6ysF3v1j_eP" role="3clFbG">
                       <node concept="2ShNRf" id="6ysF3v1j_eQ" role="37vLTx">
@@ -5264,6 +5340,9 @@
                           <ref role="37wK5l" node="2Y6GhaXyEhE" resolve="ConsoleFileEditor" />
                           <node concept="37vLTw" id="6ysF3v1j_eS" role="37wK5m">
                             <ref role="3cqZAo" node="6ysF3v1j_8_" resolve="myEditor" />
+                          </node>
+                          <node concept="37vLTw" id="7y8x4Vgj3V1" role="37wK5m">
+                            <ref role="3cqZAo" node="7y8x4Vggn1M" resolve="file" />
                           </node>
                         </node>
                       </node>

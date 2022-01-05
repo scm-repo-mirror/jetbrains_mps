@@ -28,6 +28,8 @@ import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import org.apache.log4j.Level;
+import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.ActionManager;
@@ -206,7 +208,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
       addBuiltInImports();
       loadHistory(history);
       createEditor();
-      myFileEditor = new ConsoleFileEditor(myEditor);
+      VirtualFile file = NodeVirtualFileSystem.getInstance().getFileFor(myProject.getRepository(), myRoot);
+      myFileEditor = new ConsoleFileEditor(myEditor, file);
     });
 
     DefaultActionGroup group = new DefaultActionGroup();

@@ -5,12 +5,13 @@ package jetbrains.mps.console.tool;
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.fileEditor.DocumentsEditor;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import jetbrains.mps.openapi.editor.EditorComponentState;
 import com.intellij.openapi.fileEditor.FileEditorStateLevel;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import javax.swing.JComponent;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.beans.PropertyChangeListener;
@@ -26,6 +27,7 @@ import jetbrains.mps.ide.undo.MPSUndoUtil;
 public class ConsoleFileEditor implements DocumentsEditor {
   private EditorComponent myEditor;
   private boolean myDisposed = false;
+  private final VirtualFile myConsoleRootVirtualFile;
 
   private static class MyFileEditorState implements FileEditorState {
     private EditorComponentState memento;
@@ -59,9 +61,17 @@ public class ConsoleFileEditor implements DocumentsEditor {
     }
   }
 
-  public ConsoleFileEditor(EditorComponent editor) {
+  public ConsoleFileEditor(EditorComponent editor, VirtualFile consoleRootVirtualFile) {
     myEditor = editor;
+    myConsoleRootVirtualFile = consoleRootVirtualFile;
   }
+
+  @Nullable
+  @Override
+  public VirtualFile getFile() {
+    return myConsoleRootVirtualFile;
+  }
+
   @NotNull
   public JComponent getComponent() {
     return myEditor;
