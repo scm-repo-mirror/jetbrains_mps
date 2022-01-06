@@ -473,10 +473,11 @@ __switch__:
   }
 
   private void cleanup() {
-    final SRepository repository = myMpsProject.getRepository();
+    SRepository repository = myMpsProject.getRepository();
     repository.getModelAccess().runWriteAction(() -> {
       // here all the models accessible from project's repo should be unloaded
-      for (SModule module : Sequence.fromIterable(repository.getModules())) {
+      // repo.getModules() gives all the modules, including deployed.
+      for (SModule module : ListSequence.fromList(myMpsProject.getProjectModulesWithGenerators())) {
         for (SModel model : Sequence.fromIterable(module.getModels())) {
           model.unload();
         }

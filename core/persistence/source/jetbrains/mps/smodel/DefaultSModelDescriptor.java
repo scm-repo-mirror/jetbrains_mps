@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel;
 
+import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.extapi.model.GeneratableSModel;
 import jetbrains.mps.extapi.model.ModelWithAttributes;
 import jetbrains.mps.extapi.model.PersistenceProblem;
@@ -26,6 +27,7 @@ import jetbrains.mps.smodel.DefaultSModel.InvalidDefaultSModel;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
 import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel.Problem.Kind;
@@ -215,5 +217,15 @@ public class DefaultSModelDescriptor extends LazyEditableSModelBase implements G
 
   public SModelHeader getHeaderCopy() {
     return myHeader.createCopy();
+  }
+
+  @Override
+  public void setChanged(boolean changed) {
+    if (getRepository() != null && getSource().isReadOnly()) {
+      if (RuntimeFlags.isInternalMode() || LogManager.getLogger(DefaultSModelDescriptor.class).isEnabledFor(Priority.INFO)) {
+        LOG.error("Attempt to change a model with read-only data source; subsequent save() would fail!", new Throwable());
+      }
+    }
+    super.setChanged(changed);
   }
 }

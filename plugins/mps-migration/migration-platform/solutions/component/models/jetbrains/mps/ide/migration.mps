@@ -4027,16 +4027,41 @@
                   </node>
                 </node>
               </node>
+              <node concept="3SKdUt" id="4Ipa2Z9bhU" role="3cqZAp">
+                <node concept="1PaTwC" id="4Ipa2Z9bhV" role="1aUNEU">
+                  <node concept="3oM_SD" id="4Ipa2Z9bit" role="1PaTwD">
+                    <property role="3oM_SC" value="repo.getModules()" />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9oH4" role="1PaTwD">
+                    <property role="3oM_SC" value="gives" />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9oH7" role="1PaTwD">
+                    <property role="3oM_SC" value="all" />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9oHb" role="1PaTwD">
+                    <property role="3oM_SC" value="the" />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9ti6" role="1PaTwD">
+                    <property role="3oM_SC" value="modules," />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9vCw" role="1PaTwD">
+                    <property role="3oM_SC" value="including" />
+                  </node>
+                  <node concept="3oM_SD" id="4Ipa2Z9vCB" role="1PaTwD">
+                    <property role="3oM_SC" value="deployed." />
+                  </node>
+                </node>
+              </node>
               <node concept="2Gpval" id="3wDJmuvzX7f" role="3cqZAp">
                 <node concept="2GrKxI" id="3wDJmuvzX7g" role="2Gsz3X">
                   <property role="TrG5h" value="module" />
                 </node>
-                <node concept="2OqwBi" id="3wDJmuvzYq5" role="2GsD0m">
+                <node concept="2OqwBi" id="4Ipa2Z8OH5" role="2GsD0m">
                   <node concept="37vLTw" id="3wDJmuvzYhl" role="2Oq$k0">
-                    <ref role="3cqZAo" node="3wDJmuvzXlI" resolve="repository" />
+                    <ref role="3cqZAo" node="1AzqgyAfbh5" resolve="myMpsProject" />
                   </node>
-                  <node concept="liA8E" id="3wDJmuvzYwK" role="2OqNvi">
-                    <ref role="37wK5l" to="lui2:~SRepository.getModules()" resolve="getModules" />
+                  <node concept="liA8E" id="4Ipa2Z8UeL" role="2OqNvi">
+                    <ref role="37wK5l" to="z1c3:~Project.getProjectModulesWithGenerators()" resolve="getProjectModulesWithGenerators" />
                   </node>
                 </node>
                 <node concept="3clFbS" id="3wDJmuvzX7i" role="2LFqv$">
