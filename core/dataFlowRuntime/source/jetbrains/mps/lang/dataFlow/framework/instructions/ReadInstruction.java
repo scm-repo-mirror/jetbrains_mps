@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,18 @@ package jetbrains.mps.lang.dataFlow.framework.instructions;
 
 public class ReadInstruction extends Instruction {
   private final Object myVar;
+  private final String myVarText;
   private int myVariableIndex;
 
   public ReadInstruction(Object var) {
     myVar = var;
+    myVarText = presentationOf(var);
   }
 
   public ReadInstruction(String ruleNodeReference, Object var) {
     super(ruleNodeReference);
     myVar = var;
+    myVarText = presentationOf(var);
   }
 
   public Object getVariable() {
@@ -44,6 +47,6 @@ public class ReadInstruction extends Instruction {
 
   @Override
   public String commandPresentation() {
-    return "read " + myVar;
+    return "read " + myVarText;
   }
 }

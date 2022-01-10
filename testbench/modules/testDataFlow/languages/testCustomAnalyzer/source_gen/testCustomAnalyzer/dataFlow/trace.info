@@ -106,19 +106,19 @@
     </file>
     <file name="counterInstructionBInstruction.java">
       <node id="2955426575106079627" at="8,0,9,0" concept="3" trace="myPresentation" />
-      <node id="2955426575106079627" at="9,43,10,43" concept="7" />
-      <node id="2955426575106079627" at="10,43,11,37" concept="2" />
-      <node id="2955426575106079627" at="11,37,12,35" concept="2" />
-      <node id="2955426575106079627" at="15,39,16,26" concept="8" />
-      <node id="2955426575106079627" at="14,0,18,0" concept="6" trace="commandPresentation#()Ljava/lang/String;" />
-      <node id="2955426575106079627" at="9,0,14,0" concept="1" trace="counterInstructionBInstruction#()V" />
-      <scope id="2955426575106079627" at="15,39,16,26" />
-      <scope id="2955426575106079627" at="9,43,12,35">
+      <node id="2955426575106079627" at="10,43,11,43" concept="7" />
+      <node id="2955426575106079627" at="11,43,12,37" concept="2" />
+      <node id="2955426575106079627" at="12,37,13,35" concept="2" />
+      <node id="2955426575106079627" at="16,39,17,26" concept="8" />
+      <node id="2955426575106079627" at="15,0,19,0" concept="6" trace="commandPresentation#()Ljava/lang/String;" />
+      <node id="2955426575106079627" at="10,0,15,0" concept="1" trace="counterInstructionBInstruction#()V" />
+      <scope id="2955426575106079627" at="16,39,17,26" />
+      <scope id="2955426575106079627" at="10,43,13,35">
         <var name="sb" id="2955426575106079627" />
       </scope>
-      <scope id="2955426575106079627" at="14,0,18,0" />
-      <scope id="2955426575106079627" at="9,0,14,0" />
-      <unit id="2955426575106079627" at="7,0,19,0" name="testCustomAnalyzer.dataFlow.counterInstructionBInstruction" />
+      <scope id="2955426575106079627" at="15,0,19,0" />
+      <scope id="2955426575106079627" at="10,0,15,0" />
+      <unit id="2955426575106079627" at="7,0,20,0" name="testCustomAnalyzer.dataFlow.counterInstructionBInstruction" />
     </file>
   </root>
   <root nodeRef="r:11be8b48-b45e-48e5-98ad-b77dc1b202b1(testCustomAnalyzer.dataFlow)/2955426575106084979">
@@ -248,19 +248,19 @@
     </file>
     <file name="counterInstructionAInstruction.java">
       <node id="6628579460233829743" at="8,0,9,0" concept="3" trace="myPresentation" />
-      <node id="6628579460233829743" at="9,43,10,43" concept="7" />
-      <node id="6628579460233829743" at="10,43,11,37" concept="2" />
-      <node id="6628579460233829743" at="11,37,12,35" concept="2" />
-      <node id="6628579460233829743" at="15,39,16,26" concept="8" />
-      <node id="6628579460233829743" at="14,0,18,0" concept="6" trace="commandPresentation#()Ljava/lang/String;" />
-      <node id="6628579460233829743" at="9,0,14,0" concept="1" trace="counterInstructionAInstruction#()V" />
-      <scope id="6628579460233829743" at="15,39,16,26" />
-      <scope id="6628579460233829743" at="9,43,12,35">
+      <node id="6628579460233829743" at="10,43,11,43" concept="7" />
+      <node id="6628579460233829743" at="11,43,12,37" concept="2" />
+      <node id="6628579460233829743" at="12,37,13,35" concept="2" />
+      <node id="6628579460233829743" at="16,39,17,26" concept="8" />
+      <node id="6628579460233829743" at="15,0,19,0" concept="6" trace="commandPresentation#()Ljava/lang/String;" />
+      <node id="6628579460233829743" at="10,0,15,0" concept="1" trace="counterInstructionAInstruction#()V" />
+      <scope id="6628579460233829743" at="16,39,17,26" />
+      <scope id="6628579460233829743" at="10,43,13,35">
         <var name="sb" id="6628579460233829743" />
       </scope>
-      <scope id="6628579460233829743" at="14,0,18,0" />
-      <scope id="6628579460233829743" at="9,0,14,0" />
-      <unit id="6628579460233829743" at="7,0,19,0" name="testCustomAnalyzer.dataFlow.counterInstructionAInstruction" />
+      <scope id="6628579460233829743" at="15,0,19,0" />
+      <scope id="6628579460233829743" at="10,0,15,0" />
+      <unit id="6628579460233829743" at="7,0,20,0" name="testCustomAnalyzer.dataFlow.counterInstructionAInstruction" />
     </file>
   </root>
   <root nodeRef="r:11be8b48-b45e-48e5-98ad-b77dc1b202b1(testCustomAnalyzer.dataFlow)/7078910619969191664">

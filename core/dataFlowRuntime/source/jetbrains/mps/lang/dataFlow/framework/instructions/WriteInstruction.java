@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,17 +17,20 @@ package jetbrains.mps.lang.dataFlow.framework.instructions;
 
 public class WriteInstruction extends Instruction {
   private final Object myVar;
+  private final String myVarText;
   private int myIndex;
   private final  Object myValue;
 
   public WriteInstruction(Object var, Object value) {
     myVar = var;
+    myVarText = presentationOf(var);
     myValue = value;
   }
 
   public WriteInstruction(String ruleNodeReference, Object var, Object value) {
     super(ruleNodeReference);
     myVar = var;
+    myVarText = presentationOf(var);
     myValue = value;
   }
 
@@ -51,6 +54,6 @@ public class WriteInstruction extends Instruction {
 
   @Override
   public String commandPresentation() {
-    return "write " + myVar;
+    return "write " + myVarText;
   }
 }
