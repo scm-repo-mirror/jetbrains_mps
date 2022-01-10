@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,26 +34,6 @@ import java.util.stream.Stream;
 class ModuleAnalyzer {
 
   public ModuleAnalyzer() {
-  }
-
-  public ModuleAnalyzerResult analyze(Stream<JavaModule> javaModules) {
-    boolean hasJavaToCompile = false;
-    boolean hasResourcesToUpdate = false;
-    Set<BaseModuleContainer.JavaModule> modulesWithRemovals = new HashSet<>();
-    Set<File> filesToDelete = new HashSet<>();
-
-    for (JavaModule jm : javaModules.collect(Collectors.toList())) {
-      ModuleSources sources = jm.getSources();
-      hasResourcesToUpdate |= !sources.isResourcesUpToDate();
-      hasJavaToCompile |= !sources.isJavaUpToDate();
-      Collection<File> filesToDelete0 = sources.getFilesToDelete();
-      if (!filesToDelete0.isEmpty()) {
-        filesToDelete.addAll(filesToDelete0);
-        modulesWithRemovals.add(jm);
-      }
-    }
-
-    return ModuleAnalyzerResult.build(hasJavaToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
   }
 
   /**

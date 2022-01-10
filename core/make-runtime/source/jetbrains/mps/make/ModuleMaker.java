@@ -162,7 +162,7 @@ public final class ModuleMaker {
         if (monitor.isCanceled()) {
           break;
         }
-        if (!ModulesContainer.isExcluded(module)) {
+        if (!isExcluded(module)) {
           monitor.step(module.getModuleName());
           JavaModuleFacet facet = module.getFacet(JavaModuleFacet.class);
           assert facet != null && facet.getClassesGen() != null;
@@ -700,7 +700,7 @@ public final class ModuleMaker {
     myToCompile = Collections.emptyList();
     final CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
     tracer.start(String.format(CALCULATING_DEPENDENCIES_TO_COMPILE_MSG, modules.size()), 10);
-    final Predicate<SModule> isExcluded = ModulesContainer::isExcluded;
+    final Predicate<SModule> isExcluded = ModuleMaker::isExcluded;
     MC initial = new MC();
     for (SModule m : modules.stream().filter(isExcluded.negate()).collect(Collectors.toList())) {
       JM jm = initial.createJM(m);
@@ -909,4 +909,8 @@ public final class ModuleMaker {
     return new MPSCompilationResult(errorCount, warnCount, false, changedModules);
   }
 
+  /*package*/ static boolean isExcluded(@NotNull SModule m) {
+    JavaModuleFacet facet = m.getFacet(JavaModuleFacet.class);
+    return m.isReadOnly() || facet == null || facet.getClassesGen() == null || !facet.isCompileInMps();
+  }
 }
