@@ -14,8 +14,6 @@
   <sourcePath />
   <dependencies>
     <dependency reexport="false">af19274f-5f89-42dd-8f3c-c9932448f7f2(jetbrains.mps.analyzers.runtime)</dependency>
-    <dependency reexport="false">7fa12e9c-b949-4976-b4fa-19accbc320b4(jetbrains.mps.lang.dataFlow)</dependency>
-    <dependency reexport="false">f1af2340-2212-47dd-a65b-2d6ee9427e3e(jetbrains.mps.testCustomDataFlow)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="12" />
