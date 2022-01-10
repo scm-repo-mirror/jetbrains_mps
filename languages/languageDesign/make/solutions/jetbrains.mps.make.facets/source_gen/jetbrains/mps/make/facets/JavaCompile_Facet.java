@@ -31,6 +31,7 @@ import org.apache.log4j.LogManager;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.lang.core.plugin.TextGen_Facet.Target_textGen;
 import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.make.script.IFeedback;
 import jetbrains.mps.make.script.IConfig;
@@ -107,9 +108,8 @@ public class JavaCompile_Facet extends IFacet.Stub {
               final ModuleMaker mm = new ModuleMaker(msgHandler);
               mm.options(vars(pa.global()).options());
               new ModelAccessHelper(monitor.getSession().getProject().getModelAccess()).runReadAction(() -> {
-                // FIXME would be great to re-use deps known to textGen facet, however
-                //    can not compile code as this class lives in IDEA-compiled solution,
-                //    while TextGen facet is part of lang.core/plugin, managed by MPS
+                // re-use dependencies known to textGen facet (freshly built, in fact)
+                mm.dependencies(Target_textGen.vars(pa.global()).dependenciesCache());
                 mm.prepare(toCompile, false, progressMonitor.subTask(40));
               });
               MPSCompilationResult cr = mm.make(progressMonitor.subTask(60));
