@@ -29,7 +29,6 @@
     <orderEntry type="module" module-name="actions-runtime" />
     <orderEntry type="module" module-name="make-runtime" />
     <orderEntry type="module" module-name="refactoring-runtime" />
-    <orderEntry type="module" module-name="baseLanguage-util" />
     <orderEntry type="module" module-name="tuples-runtime" />
     <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="openapi" />

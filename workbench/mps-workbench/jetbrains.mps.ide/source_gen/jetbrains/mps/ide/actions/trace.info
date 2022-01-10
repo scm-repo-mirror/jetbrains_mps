@@ -4540,39 +4540,42 @@
       <node id="1818770337282928801" at="73,182,74,70" concept="12" />
       <node id="1818770337282928813" at="75,40,76,17" concept="13" />
       <node id="2085221578892609737" at="77,9,78,0" concept="15" />
-      <node id="2085221578892311424" at="78,0,79,68" concept="6" />
-      <node id="2085221578892612090" at="79,68,80,0" concept="15" />
-      <node id="7678112022081298402" at="80,0,81,75" concept="12" />
-      <node id="7678112022080723338" at="81,75,82,27" concept="12" />
-      <node id="7678112022081610318" at="83,157,84,163" concept="6" />
-      <node id="7678112022081539183" at="85,16,86,37" concept="6" />
-      <node id="3751861853747494833" at="87,9,88,38" concept="6" />
-      <node id="7678112022081937708" at="88,38,89,73" concept="6" />
-      <node id="1818770337282866379" at="95,0,96,0" concept="16" trace="ConceptBehavior$2" />
-      <node id="1818770337282866379" at="96,0,97,0" concept="16" trace="ConceptMethodDeclaration$N0" />
-      <node id="1818770337282866379" at="97,0,98,0" concept="16" trace="IMemberContainer$yM" />
-      <node id="1818770337282866379" at="98,0,99,0" concept="16" trace="BaseMethodDeclaration$kD" />
-      <node id="1818770337282866379" at="102,0,103,0" concept="16" trace="body$5xQk" />
-      <node id="1818770337282866379" at="103,0,104,0" concept="16" trace="statement$53DE" />
-      <node id="7678112022081538919" at="85,14,87,9" concept="1" />
+      <node id="8741374780833132301" at="78,0,79,128" concept="12" />
+      <node id="8741374780833306486" at="79,128,80,101" concept="14" />
+      <node id="8741374780832522067" at="80,101,81,60" concept="6" />
+      <node id="8741374780833228878" at="81,60,82,64" concept="6" />
+      <node id="2085221578892612090" at="82,64,83,0" concept="15" />
+      <node id="7678112022081298402" at="83,0,84,75" concept="12" />
+      <node id="7678112022080723338" at="84,75,85,27" concept="12" />
+      <node id="7678112022081610318" at="86,157,87,163" concept="6" />
+      <node id="7678112022081539183" at="88,16,89,37" concept="6" />
+      <node id="3751861853747494833" at="90,9,91,38" concept="6" />
+      <node id="7678112022081937708" at="91,38,92,73" concept="6" />
+      <node id="1818770337282866379" at="98,0,99,0" concept="16" trace="ConceptBehavior$2" />
+      <node id="1818770337282866379" at="99,0,100,0" concept="16" trace="ConceptMethodDeclaration$N0" />
+      <node id="1818770337282866379" at="100,0,101,0" concept="16" trace="IMemberContainer$yM" />
+      <node id="1818770337282866379" at="101,0,102,0" concept="16" trace="BaseMethodDeclaration$kD" />
+      <node id="1818770337282866379" at="105,0,106,0" concept="16" trace="body$5xQk" />
+      <node id="1818770337282866379" at="106,0,107,0" concept="16" trace="statement$53DE" />
+      <node id="7678112022081538919" at="88,14,90,9" concept="1" />
       <node id="6553315499318553511" at="48,196,51,7" concept="10" />
       <node id="1818770337282928773" at="69,0,72,0" concept="11" trace="select#(Lorg/jetbrains/mps/openapi/model/SNodeReference;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1818770337282928808" at="74,70,77,9" concept="10" />
       <node id="1818770337282920252" at="56,0,60,0" concept="11" trace="showInsertOverride#()Z" />
       <node id="1818770337282928766" at="67,60,72,28" concept="12" />
-      <node id="7678112022080774657" at="82,27,87,9" concept="10" />
+      <node id="7678112022080774657" at="85,27,90,9" concept="10" />
       <node id="1818770337282874348" at="33,0,39,0" concept="3" trace="OverrideConceptMethodsAction#(Ljetbrains/mps/project/Project;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Z)V" />
       <node id="1818770337282920242" at="54,0,60,6" concept="12" />
       <node id="2034046503361578246" at="44,0,53,7" concept="6" />
-      <node id="1818770337282928754" at="66,0,90,9" concept="6" />
-      <node id="1818770337282928741" at="63,0,91,5" concept="10" />
-      <node id="1818770337282874389" at="40,0,93,0" concept="11" trace="run#()V" />
+      <node id="1818770337282928754" at="66,0,93,9" concept="6" />
+      <node id="1818770337282928741" at="63,0,94,5" concept="10" />
+      <node id="1818770337282874389" at="40,0,96,0" concept="11" trace="run#()V" />
       <scope id="6553315499318553514" at="49,25,50,242" />
       <scope id="1818770337282920255" at="57,46,58,28" />
       <scope id="1818770337282928774" at="69,50,70,114" />
       <scope id="1818770337282928812" at="75,40,76,17" />
-      <scope id="7678112022080774660" at="83,157,84,163" />
-      <scope id="7678112022081538920" at="85,16,86,37" />
+      <scope id="7678112022080774660" at="86,157,87,163" />
+      <scope id="7678112022081538920" at="88,16,89,37" />
       <scope id="1818770337282928773" at="69,0,72,0">
         <var name="it" id="1818770337282928773" />
       </scope>
@@ -4587,28 +4590,29 @@
       <scope id="2034046503361578251" at="45,52,52,147">
         <var name="methodsToOverride" id="2034046503361578271" />
       </scope>
-      <scope id="5074773015936226052" at="67,60,89,73">
+      <scope id="5074773015936226052" at="67,60,92,73">
         <var name="firstMethod" id="7678112022081298403" />
         <var name="helper" id="1818770337282928785" />
         <var name="insertedMethods" id="1818770337282928802" />
+        <var name="mdu" id="8741374780833132302" />
         <var name="nodeToSelect" id="7678112022080723339" />
         <var name="selection" id="1818770337282928767" />
       </scope>
-      <scope id="1818770337282928742" at="64,24,90,9">
+      <scope id="1818770337282928742" at="64,24,93,9">
         <var name="selectedElements" id="1818770337282928744" />
       </scope>
-      <scope id="1818770337282874392" at="40,21,91,5">
+      <scope id="1818770337282874392" at="40,21,94,5">
         <var name="contextClass" id="1818770337282920188" />
         <var name="contextMethod" id="1818770337282920197" />
         <var name="dialog" id="1818770337282920243" />
         <var name="methods" id="1818770337282920208" />
       </scope>
-      <scope id="1818770337282874389" at="40,0,93,0" />
+      <scope id="1818770337282874389" at="40,0,96,0" />
       <unit id="1818770337282928773" at="68,83,72,9" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$2" />
-      <unit id="1818770337282866379" at="101,0,105,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$LINKS" />
+      <unit id="1818770337282866379" at="104,0,108,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$LINKS" />
       <unit id="1818770337282920247" at="55,52,60,5" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$1" />
-      <unit id="1818770337282866379" at="94,0,100,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$CONCEPTS" />
-      <unit id="1818770337282866379" at="26,0,106,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction" />
+      <unit id="1818770337282866379" at="97,0,103,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction$CONCEPTS" />
+      <unit id="1818770337282866379" at="26,0,109,0" name="jetbrains.mps.ide.actions.OverrideConceptMethodsAction" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1818770337282919436">

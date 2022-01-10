@@ -17,9 +17,9 @@ import jetbrains.mps.project.AbstractModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SDependency;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.smodel.ModelDependencyUpdate;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -62,14 +62,30 @@ public class MoveRefactoringUtils {
       ((AbstractModule) module).addDependency(module2import, false);
     }
   }
+  /**
+   * 
+   * @deprecated ineffective code, shall use some generic functionality like {@link jetbrains.mps.smodel.ModelDependencyUpdate }
+   */
+  @Deprecated
   public static void addNodeModelImportIfNeed(SNode node, SNode toImport) {
     addImportIfNeed(SNodeOperations.getModel(node), SNodeOperations.getModel(toImport));
   }
+  /**
+   * 
+   * 
+   * @deprecated use {@link jetbrains.mps.smodel.ModelDependencyUpdate } directly
+   */
+  @Deprecated(forRemoval = true, since = "2021.3")
   public static void fixImportsFromNode(SNode node) {
-    for (SNode descendant : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseConcept$gP, false, new SAbstractConcept[]{}))) {
-      for (SReference reference : ListSequence.fromList(SNodeOperations.getReferences(descendant))) {
-        addNodeModelImportIfNeed(node, SLinkOperations.getTargetNode(reference));
-      }
+    SModel mm = SNodeOperations.getModel(node);
+    if (mm == null) {
+      return;
+    }
+    SRepository repo = mm.getRepository();
+    ModelDependencyUpdate mdu = new ModelDependencyUpdate(mm, node);
+    mdu.updateImportedModels(repo);
+    if (repo != null && mm.getModule() != null) {
+      mdu.updateModuleDependencies(repo);
     }
   }
   public static boolean isReference(SNode node) {
@@ -79,6 +95,5 @@ public class MoveRefactoringUtils {
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept ClassifierMember$At = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept BaseConcept$gP = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

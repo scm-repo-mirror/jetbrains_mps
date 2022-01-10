@@ -24894,11 +24894,6 @@
             <ref role="3bR37D" node="7Kfy9QB6Lfd" resolve="jetbrains.mps.findUsages.runtime" />
           </node>
         </node>
-        <node concept="1SiIV0" id="5CvMq7Kdrzm" role="3bR37C">
-          <node concept="3bR9La" id="5CvMq7Kdrzn" role="1SiIV1">
-            <ref role="3bR37D" node="7Kfy9QB6KYK" resolve="jetbrains.mps.baseLanguage.util" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="5heN8wZRulQ" role="3bR37C">
           <node concept="3bR9La" id="5heN8wZRulR" role="1SiIV1">
             <ref role="3bR37D" node="2Qa9MYMHrcB" resolve="jetbrains.mps.editorlang.runtime" />

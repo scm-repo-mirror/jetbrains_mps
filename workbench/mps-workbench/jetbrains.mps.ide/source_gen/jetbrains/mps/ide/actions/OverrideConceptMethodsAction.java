@@ -16,7 +16,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.baseLanguage.util.plugin.refactorings.MoveRefactoringUtils;
+import jetbrains.mps.smodel.ModelDependencyUpdate;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -76,7 +76,10 @@ public class OverrideConceptMethodsAction {
           return;
         }
 
-        MoveRefactoringUtils.fixImportsFromNode(contextClass.value);
+        ModelDependencyUpdate mdu = new ModelDependencyUpdate(SNodeOperations.getModel(contextClass.value), contextClass.value);
+        // XXX MoveRefactoringUtils.fixImports didn't bother to update used languages, is it correct?
+        mdu.updateImportedModels(myProject.getRepository());
+        mdu.updateModuleDependencies(myProject.getRepository());
 
         SNode firstMethod = ListSequence.fromList(insertedMethods).first();
         SNode nodeToSelect;

@@ -152,7 +152,6 @@
     <import index="gkle" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.findusages.view.treeholder.tree(MPS.Platform/)" />
     <import index="mk90" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.progress(MPS.Platform/)" />
     <import index="cyln" ref="86441d7a-e194-42da-81a5-2161ec62a379/java:jetbrains.mps.ide.project.facets(MPS.Workbench/)" />
-    <import index="89o2" ref="r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)" />
     <import index="9erk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.ide.findusages.model(MPS.Core/)" />
     <import index="fwk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.textgen.trace(MPS.Core/)" />
     <import index="i5c6" ref="r:1e25de74-7cc0-4f15-8cec-3735c776efd2(jetbrains.mps.editor.runtime.style)" />
@@ -27617,12 +27616,99 @@
                         </node>
                       </node>
                       <node concept="3clFbH" id="1NKcvDvRSz9" role="3cqZAp" />
-                      <node concept="3clFbF" id="1NKcvDvQJI0" role="3cqZAp">
-                        <node concept="2YIFZM" id="1NKcvDvQKTF" role="3clFbG">
-                          <ref role="1Pybhc" to="89o2:4gx_mbDdW0b" resolve="MoveRefactoringUtils" />
-                          <ref role="37wK5l" to="89o2:1oZd4f_KMWC" resolve="fixImportsFromNode" />
-                          <node concept="37vLTw" id="1NKcvDvSb7R" role="37wK5m">
-                            <ref role="3cqZAo" node="1$X$vL9L0VW" resolve="contextClass" />
+                      <node concept="3cpWs8" id="7_fAwM$7uWd" role="3cqZAp">
+                        <node concept="3cpWsn" id="7_fAwM$7uWe" role="3cpWs9">
+                          <property role="TrG5h" value="mdu" />
+                          <node concept="3uibUv" id="7_fAwM$72Ge" role="1tU5fm">
+                            <ref role="3uigEE" to="w1kc:~ModelDependencyUpdate" resolve="ModelDependencyUpdate" />
+                          </node>
+                          <node concept="2ShNRf" id="7_fAwM$7uWf" role="33vP2m">
+                            <node concept="1pGfFk" id="7_fAwM$7uWg" role="2ShVmc">
+                              <property role="373rjd" value="true" />
+                              <ref role="37wK5l" to="w1kc:~ModelDependencyUpdate.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNode)" resolve="ModelDependencyUpdate" />
+                              <node concept="2OqwBi" id="7_fAwM$7uWh" role="37wK5m">
+                                <node concept="37vLTw" id="7_fAwM$7uWi" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="1$X$vL9L0VW" resolve="contextClass" />
+                                </node>
+                                <node concept="I4A8Y" id="7_fAwM$7uWj" role="2OqNvi" />
+                              </node>
+                              <node concept="37vLTw" id="7_fAwM$7uWk" role="37wK5m">
+                                <ref role="3cqZAo" node="1$X$vL9L0VW" resolve="contextClass" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3SKdUt" id="7_fAwM$89tQ" role="3cqZAp">
+                        <node concept="1PaTwC" id="7_fAwM$89tR" role="1aUNEU">
+                          <node concept="3oM_SD" id="7_fAwM$8bh0" role="1PaTwD">
+                            <property role="3oM_SC" value="XXX" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$9HwL" role="1PaTwD">
+                            <property role="3oM_SC" value="MoveRefactoringUtils.fixImports" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$8UeD" role="1PaTwD">
+                            <property role="3oM_SC" value="didn't" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$8Zzm" role="1PaTwD">
+                            <property role="3oM_SC" value="bother" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$8Zzq" role="1PaTwD">
+                            <property role="3oM_SC" value="to" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$96LO" role="1PaTwD">
+                            <property role="3oM_SC" value="update" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$9eti" role="1PaTwD">
+                            <property role="3oM_SC" value="used" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$9KGc" role="1PaTwD">
+                            <property role="3oM_SC" value="languages," />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$9Nji" role="1PaTwD">
+                            <property role="3oM_SC" value="is" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$9Qz$" role="1PaTwD">
+                            <property role="3oM_SC" value="it" />
+                          </node>
+                          <node concept="3oM_SD" id="7_fAwM$a0uJ" role="1PaTwD">
+                            <property role="3oM_SC" value="correct?" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbF" id="7_fAwM$59Xj" role="3cqZAp">
+                        <node concept="2OqwBi" id="7_fAwM$71Ib" role="3clFbG">
+                          <node concept="37vLTw" id="7_fAwM$7uWl" role="2Oq$k0">
+                            <ref role="3cqZAo" node="7_fAwM$7uWe" resolve="update" />
+                          </node>
+                          <node concept="liA8E" id="7_fAwM$73LB" role="2OqNvi">
+                            <ref role="37wK5l" to="w1kc:~ModelDependencyUpdate.updateImportedModels(org.jetbrains.mps.openapi.module.SRepository)" resolve="updateImportedModels" />
+                            <node concept="2OqwBi" id="7_fAwM$7eva" role="37wK5m">
+                              <node concept="37vLTw" id="7_fAwM$767y" role="2Oq$k0">
+                                <ref role="3cqZAo" node="1$X$vL9KPJw" resolve="myProject" />
+                              </node>
+                              <node concept="liA8E" id="7_fAwM$7nb8" role="2OqNvi">
+                                <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbF" id="7_fAwM$7Qxe" role="3cqZAp">
+                        <node concept="2OqwBi" id="7_fAwM$7YbQ" role="3clFbG">
+                          <node concept="37vLTw" id="7_fAwM$7Qxc" role="2Oq$k0">
+                            <ref role="3cqZAo" node="7_fAwM$7uWe" resolve="mdu" />
+                          </node>
+                          <node concept="liA8E" id="7_fAwM$801s" role="2OqNvi">
+                            <ref role="37wK5l" to="w1kc:~ModelDependencyUpdate.updateModuleDependencies(org.jetbrains.mps.openapi.module.SRepository)" resolve="updateModuleDependencies" />
+                            <node concept="2OqwBi" id="7_fAwM$80ZZ" role="37wK5m">
+                              <node concept="37vLTw" id="7_fAwM$8100" role="2Oq$k0">
+                                <ref role="3cqZAo" node="1$X$vL9KPJw" resolve="myProject" />
+                              </node>
+                              <node concept="liA8E" id="7_fAwM$8101" role="2OqNvi">
+                                <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                              </node>
+                            </node>
                           </node>
                         </node>
                       </node>
