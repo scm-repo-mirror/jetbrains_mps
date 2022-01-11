@@ -46,7 +46,6 @@
     <orderEntry type="module" module-name="actions-runtime" />
     <orderEntry type="module" module-name="ant-mps" />
     <orderEntry type="module" module-name="ant-mps-common" />
-    <orderEntry type="module" module-name="baseLanguage-util" />
     <orderEntry type="module" module-name="behavior-api" />
     <orderEntry type="module" module-name="behavior-runtime" />
     <orderEntry type="module" module-name="closures-runtime" />
