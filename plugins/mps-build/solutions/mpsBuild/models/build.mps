@@ -40054,11 +40054,6 @@
             <ref role="3bR37D" node="1TaHNgiIbIZ" resolve="MPS.Editor" />
           </node>
         </node>
-        <node concept="1SiIV0" id="5GUyf6ohXPv" role="3bR37C">
-          <node concept="3bR9La" id="5GUyf6ohXPw" role="1SiIV1">
-            <ref role="3bR37D" node="1TaHNgiIbJ$" resolve="jetbrains.mps.ide.editor" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="5GUyf6ohXPx" role="3bR37C">
           <node concept="3bR9La" id="5GUyf6ohXPy" role="1SiIV1">
             <ref role="3bR37D" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
