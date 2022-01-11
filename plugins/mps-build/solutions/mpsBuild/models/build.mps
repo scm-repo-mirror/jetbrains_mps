@@ -8016,6 +8016,11 @@
             <ref role="3bR37D" node="3HV74$ebibC" resolve="jetbrains.mps.lang.text" />
           </node>
         </node>
+        <node concept="1SiIV0" id="4K2KtwWHu$3" role="3bR37C">
+          <node concept="3bR9La" id="4K2KtwWHu$4" role="1SiIV1">
+            <ref role="3bR37D" node="1TaHNgiIbJt" resolve="jetbrains.mps.ide.platform" />
+          </node>
+        </node>
         <node concept="1BupzO" id="73GUf$ummfd" role="3bR31x">
           <property role="3ZfqAx" value="languageModels" />
           <property role="1Hdu6h" value="true" />

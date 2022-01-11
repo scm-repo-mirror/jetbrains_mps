@@ -77,6 +77,7 @@
     <import index="jkny" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm(MPS.IDEA/)" />
     <import index="89o2" ref="r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)" />
     <import index="dp1x" ref="r:84719e1a-99f6-4297-90ba-8ad2a947fa4a(jetbrains.mps.ide.datatransfer)" />
+    <import index="d2fo" ref="r:94b0657a-a0b5-4958-bad6-96a18d236e17(jetbrains.mps.ide.code)" />
     <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" implicit="true" />
     <import index="lwvz" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.selection(MPS.Editor/)" implicit="true" />
   </imports>
@@ -7927,11 +7928,11 @@
           <node concept="3cpWsn" id="6aMABdhBfpe" role="3cpWs9">
             <property role="TrG5h" value="codeStyleSettings" />
             <node concept="3uibUv" id="6aMABdhBfpf" role="1tU5fm">
-              <ref role="3uigEE" to="pz2c:1rCfCLmmtyy" resolve="CodeStyleSettings" />
+              <ref role="3uigEE" to="d2fo:1rCfCLmmtyy" resolve="CodeStyleSettings" />
             </node>
-            <node concept="2YIFZM" id="6aMABdhBfpg" role="33vP2m">
-              <ref role="37wK5l" to="pz2c:1rCfCLmmtyc" resolve="getSettings" />
-              <ref role="1Pybhc" to="pz2c:zKnfuIsqLL" resolve="CodeStyleSettingsRegistry" />
+            <node concept="2YIFZM" id="4Cp$eaaJRSf" role="33vP2m">
+              <ref role="37wK5l" to="d2fo:1rCfCLmmtyc" resolve="getSettings" />
+              <ref role="1Pybhc" to="d2fo:zKnfuIsqLL" resolve="CodeStyleSettingsRegistry" />
               <node concept="37vLTw" id="2BHiRxglkei" role="37wK5m">
                 <ref role="3cqZAo" node="6aMABdhBfqw" resolve="project" />
               </node>
@@ -7964,7 +7965,7 @@
             <node concept="3K4zz7" id="6aMABdhBfpt" role="33vP2m">
               <node concept="2OqwBi" id="6aMABdhBfpu" role="3K4GZi">
                 <node concept="2S8uIT" id="6aMABdhBfpv" role="2OqNvi">
-                  <ref role="2S8YL0" to="pz2c:6CHBy65Lp1V" resolve="parameterPrefix" />
+                  <ref role="2S8YL0" to="d2fo:6CHBy65Lp1V" resolve="parameterPrefix" />
                 </node>
                 <node concept="37vLTw" id="3GM_nagTyre" role="2Oq$k0">
                   <ref role="3cqZAo" node="6aMABdhBfpe" resolve="codeStyleSettings" />
@@ -7980,7 +7981,7 @@
                     <ref role="3cqZAo" node="6aMABdhBfpe" resolve="codeStyleSettings" />
                   </node>
                   <node concept="2S8uIT" id="6aMABdhBfpA" role="2OqNvi">
-                    <ref role="2S8YL0" to="pz2c:6CHBy65Lp1V" resolve="parameterPrefix" />
+                    <ref role="2S8YL0" to="d2fo:6CHBy65Lp1V" resolve="parameterPrefix" />
                   </node>
                 </node>
               </node>
@@ -7994,7 +7995,7 @@
             <node concept="3K4zz7" id="6aMABdhBfpE" role="33vP2m">
               <node concept="2OqwBi" id="6aMABdhBfpF" role="3K4GZi">
                 <node concept="2S8uIT" id="6aMABdhBfpG" role="2OqNvi">
-                  <ref role="2S8YL0" to="pz2c:6CHBy65Lp22" resolve="parameterSuffix" />
+                  <ref role="2S8YL0" to="d2fo:6CHBy65Lp22" resolve="parameterSuffix" />
                 </node>
                 <node concept="37vLTw" id="3GM_nagT$Ay" role="2Oq$k0">
                   <ref role="3cqZAo" node="6aMABdhBfpe" resolve="codeStyleSettings" />
@@ -8006,7 +8007,7 @@
               <node concept="3clFbC" id="6aMABdhBfpJ" role="3K4Cdx">
                 <node concept="2OqwBi" id="6aMABdhBfpK" role="3uHU7B">
                   <node concept="2S8uIT" id="6aMABdhBfpL" role="2OqNvi">
-                    <ref role="2S8YL0" to="pz2c:6CHBy65Lp22" resolve="parameterSuffix" />
+                    <ref role="2S8YL0" to="d2fo:6CHBy65Lp22" resolve="parameterSuffix" />
                   </node>
                   <node concept="37vLTw" id="3GM_nagT_w4" role="2Oq$k0">
                     <ref role="3cqZAo" node="6aMABdhBfpe" resolve="codeStyleSettings" />
@@ -8149,11 +8150,11 @@
           <node concept="3cpWsn" id="6aMABdhBfqU" role="3cpWs9">
             <property role="TrG5h" value="codeStyleSettings" />
             <node concept="3uibUv" id="6aMABdhBfqV" role="1tU5fm">
-              <ref role="3uigEE" to="pz2c:1rCfCLmmtyy" resolve="CodeStyleSettings" />
+              <ref role="3uigEE" to="d2fo:1rCfCLmmtyy" resolve="CodeStyleSettings" />
             </node>
-            <node concept="2YIFZM" id="6aMABdhBfqW" role="33vP2m">
-              <ref role="1Pybhc" to="pz2c:zKnfuIsqLL" resolve="CodeStyleSettingsRegistry" />
-              <ref role="37wK5l" to="pz2c:1rCfCLmmtyc" resolve="getSettings" />
+            <node concept="2YIFZM" id="4Cp$eaaJRSg" role="33vP2m">
+              <ref role="37wK5l" to="d2fo:1rCfCLmmtyc" resolve="getSettings" />
+              <ref role="1Pybhc" to="d2fo:zKnfuIsqLL" resolve="CodeStyleSettingsRegistry" />
               <node concept="37vLTw" id="2BHiRxgm8mo" role="37wK5m">
                 <ref role="3cqZAo" node="6aMABdhBfrg" resolve="project" />
               </node>
@@ -8183,7 +8184,7 @@
             </node>
             <node concept="2OqwBi" id="6aMABdhBfr8" role="37wK5m">
               <node concept="2S8uIT" id="6aMABdhBfr9" role="2OqNvi">
-                <ref role="2S8YL0" to="pz2c:6CHBy65LicN" resolve="fieldPrefix" />
+                <ref role="2S8YL0" to="d2fo:6CHBy65LicN" resolve="fieldPrefix" />
               </node>
               <node concept="37vLTw" id="3GM_nagT_U9" role="2Oq$k0">
                 <ref role="3cqZAo" node="6aMABdhBfqU" resolve="codeStyleSettings" />
@@ -8194,7 +8195,7 @@
                 <ref role="3cqZAo" node="6aMABdhBfqU" resolve="codeStyleSettings" />
               </node>
               <node concept="2S8uIT" id="6aMABdhBfrd" role="2OqNvi">
-                <ref role="2S8YL0" to="pz2c:6CHBy65Lp1A" resolve="fieldSuffix" />
+                <ref role="2S8YL0" to="d2fo:6CHBy65Lp1A" resolve="fieldSuffix" />
               </node>
             </node>
           </node>

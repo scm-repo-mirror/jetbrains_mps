@@ -16,7 +16,6 @@
     <orderEntry type="module" module-name="kernel" exported="" />
     <orderEntry type="module" module-name="collections-runtime" />
     <orderEntry type="module" module-name="editor-api" />
-    <orderEntry type="module" module-name="baseLanguage-util" />
     <orderEntry type="module" module-name="make-runtime" />
     <orderEntry type="module" module-name="closures-runtime" />
     <orderEntry type="module" module-name="mps-icons" />
