@@ -18,7 +18,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -41,7 +40,7 @@ public final class TypeProjection__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     // Used in ClassType::toString, if needs to change, make into separate method
-    return ((SEnumOperations.isMember(SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2), 0x21e0c923289a2222L) ? "" : SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2).toString() + " ")) + BaseConcept__BehaviorDescriptor.getDetailedPresentation_id22G2W3WJ92t.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$x3no));
+    return ((SEnumOperations.isMember(SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2), 0x21e0c923289a2222L) ? "" : SPropertyOperations.getEnum(__thisNode__, PROPS.variance$9nw2).toString() + " ")) + IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.type$x3no), ((boolean) false));
   }
 
   /*package*/ TypeProjection__BehaviorDescriptor() {

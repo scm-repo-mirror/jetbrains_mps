@@ -49,7 +49,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.kotlin.runtime.members.SignatureCollector" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.scopes.SuperClassesGenericVisitor" />
+    <classNode extendsClassName="jetbrains.mps.kotlin.scopes.SuperTypesGenericVisitor" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.scopes.ClassScope">
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor" />
@@ -104,6 +104,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IWithReceiver__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SuperTypesVisitor" />
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations" />
@@ -156,7 +157,7 @@
     <classNode dependClassName="jetbrains.mps.references.Reference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
   </dependency>
-  <dependency className="jetbrains.mps.kotlin.scopes.SuperClassesGenericVisitor">
+  <dependency className="jetbrains.mps.kotlin.scopes.SuperTypesGenericVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.HashSet" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
@@ -166,9 +167,10 @@
     <classNode dependClassName="jetbrains.mps.references.Reference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.scopes.SuperClassesVisitor" />
+    <classNode extendsClassName="jetbrains.mps.kotlin.scopes.SuperTypesVisitor" />
   </dependency>
-  <dependency className="jetbrains.mps.kotlin.scopes.SuperClassesVisitor">
+  <dependency className="jetbrains.mps.kotlin.scopes.SuperTypesVisitor">
+    <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.HashSet" />
     <classNode dependClassName="java.util.Set" />

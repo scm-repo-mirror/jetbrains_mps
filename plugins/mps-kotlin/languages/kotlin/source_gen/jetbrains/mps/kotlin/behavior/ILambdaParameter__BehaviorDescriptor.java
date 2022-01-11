@@ -17,22 +17,18 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class FunctionStubBody__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7e3b3b514406854aL, "jetbrains.mps.kotlin.structure.FunctionStubBody");
+public final class ILambdaParameter__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af479L, "jetbrains.mps.kotlin.structure.ILambdaParameter");
 
-  public static final SMethod<SNode> getType_id6563FJLeSWZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6563FJLeSWZ").build();
+  public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1xjvXvOr9B8").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id6563FJLeSWZ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariables_id1xjvXvOr9B8);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
-    // Unhandled
-    return null;
-  }
 
-  /*package*/ FunctionStubBody__BehaviorDescriptor() {
+  /*package*/ ILambdaParameter__BehaviorDescriptor() {
   }
 
   @Override
@@ -47,8 +43,6 @@ public final class FunctionStubBody__BehaviorDescriptor extends BaseBHDescriptor
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        return (T) ((SNode) getType_id6563FJLeSWZ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -496,11 +496,11 @@
           <node concept="3cpWsn" id="4L0QGs26QXh" role="3cpWs9">
             <property role="TrG5h" value="visitor" />
             <node concept="3uibUv" id="4L0QGs26QXi" role="1tU5fm">
-              <ref role="3uigEE" to="tbhz:27wMicCxyHB" resolve="SuperClassesGenericVisitor" />
+              <ref role="3uigEE" to="tbhz:27wMicCxyHB" resolve="SuperTypesGenericVisitor" />
             </node>
             <node concept="2ShNRf" id="4L0QGs26Tjt" role="33vP2m">
               <node concept="1pGfFk" id="4L0QGs26Th0" role="2ShVmc">
-                <ref role="37wK5l" to="tbhz:27wMicCJiuY" resolve="SuperClassesGenericVisitor" />
+                <ref role="37wK5l" to="tbhz:27wMicCJiuY" resolve="SuperTypesGenericVisitor" />
                 <node concept="2OqwBi" id="4L0QGs2793q" role="37wK5m">
                   <node concept="2OqwBi" id="4L0QGs273L6" role="2Oq$k0">
                     <node concept="2JrnkZ" id="4L0QGs272GO" role="2Oq$k0">

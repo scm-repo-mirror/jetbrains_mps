@@ -154,7 +154,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(LINKS.type$omaO);
       }
-      BinaryOperator_RemoveFromRight.setCellActions(editorCell, getNode(), getEditorContext());
+      UnaryExpression_RemoveFromSuffix.setCellActions(editorCell, getNode(), getEditorContext());
     }
     @Override
     protected EditorCell createEmptyCell() {

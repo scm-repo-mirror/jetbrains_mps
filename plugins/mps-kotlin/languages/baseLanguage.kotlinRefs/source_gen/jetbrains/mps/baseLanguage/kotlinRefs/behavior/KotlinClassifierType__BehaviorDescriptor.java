@@ -16,7 +16,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.scopes.SuperClassesGenericVisitor;
+import jetbrains.mps.kotlin.scopes.SuperTypesGenericVisitor;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService;
 import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine;
@@ -51,7 +51,7 @@ public final class KotlinClassifierType__BehaviorDescriptor extends BaseBHDescri
 
     // TODO this visitor/implementation may not handle raw types
     // Seems like expected behavior is to collects substitutions for all supertypes, we can use kotlin API for that
-    SuperClassesGenericVisitor visitor = new SuperClassesGenericVisitor(SLinkOperations.getTarget(__thisNode__, LINKS.classifier$5Cta).getModel().getRepository());
+    SuperTypesGenericVisitor visitor = new SuperTypesGenericVisitor(SLinkOperations.getTarget(__thisNode__, LINKS.classifier$5Cta).getModel().getRepository());
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(TypeConversionService.getInstance().getJavaToKt().convert(__thisNode__), visitor);
 
     // Then we convert it back to BL

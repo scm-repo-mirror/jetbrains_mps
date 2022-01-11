@@ -4,9 +4,9 @@ package jetbrains.mps.kotlin.runtime.members.signature;
 
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import jetbrains.mps.references.Reference;
-import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -35,23 +35,23 @@ public class FunctionSignature implements MemberSignature {
       }
     };
   }
-  private final int hashCode;
+  private final String signature;
 
   public FunctionSignature(FunctionDeclaration declaration, String parameterErasure) {
-    hashCode = Objects.hash(SPropertyOperations.getString(declaration.getNode(), PROPS.name$MnvL), Sequence.fromIterable(declaration.getParameters()).count(), parameterErasure);
+    signature = SPropertyOperations.getString(declaration.getNode(), PROPS.name$MnvL) + "#" + Sequence.fromIterable(declaration.getParameters()).count() + "#" + parameterErasure;
     setFunctionDeclaration(declaration);
   }
 
   @Override
   public int hashCode() {
-    return hashCode;
+    return signature.hashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof FunctionSignature) {
       FunctionSignature other = (FunctionSignature) obj;
-      return Objects.equals(this.hashCode, other.hashCode);
+      return Objects.equals(this.signature, other.signature);
     }
     return false;
   }

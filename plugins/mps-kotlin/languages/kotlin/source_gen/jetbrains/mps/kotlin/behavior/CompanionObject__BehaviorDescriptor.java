@@ -34,7 +34,7 @@ public final class CompanionObject__BehaviorDescriptor extends BaseBHDescriptor 
     IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke0(__thisNode__, CONCEPTS.IClassMemberDeclaration$LK, collector, context);
 
     // Companion object scope is exposed to above class scope
-    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
+    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
   }
 
   /*package*/ CompanionObject__BehaviorDescriptor() {

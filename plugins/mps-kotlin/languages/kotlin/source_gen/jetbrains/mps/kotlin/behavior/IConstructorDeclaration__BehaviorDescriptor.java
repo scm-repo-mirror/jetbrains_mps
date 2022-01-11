@@ -33,8 +33,9 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
   public static final SMethod<Iterable<SAbstractConcept>> getModifiers_id4q11fqJUzWN = new SMethodBuilder<Iterable<SAbstractConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SAbstractConcept>>) ((Class) Object.class))).name("getModifiers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4q11fqJUzWN").build();
   public static final SMethod<List<SNode>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1kLcNv").build();
   public static final SMethod<SNode> getReturnType_id6QVUYzas5Of = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6QVUYzas5Of").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiverType_id2gj5XQXMFhP, getConstructedClass_id7WpE6U5evQG, getClass_id4vugIDehkCF, getModifiers_id4q11fqJUzWN, getTypeParameters_id1VI7K1kLcNv, getReturnType_id6QVUYzas5Of);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiverType_id2gj5XQXMFhP, getConstructedClass_id7WpE6U5evQG, getClass_id4vugIDehkCF, getModifiers_id4q11fqJUzWN, getTypeParameters_id1VI7K1kLcNv, getReturnType_id6QVUYzas5Of, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -66,6 +67,10 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
     // Type parameters are not specified as it is up to the typesystem to figure them out (using type arguments of call)
     return IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(IConstructorDeclaration__BehaviorDescriptor.getConstructedClass_id7WpE6U5evQG.invoke(__thisNode__), ((boolean) false));
   }
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    // Used by method call
+    return IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(__thisNode__, KtEnvironmentConfig.Kotlin);
+  }
 
   /*package*/ IConstructorDeclaration__BehaviorDescriptor() {
   }
@@ -94,6 +99,8 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
         return (T) ((List<SNode>) getTypeParameters_id1VI7K1kLcNv(node));
       case 5:
         return (T) ((SNode) getReturnType_id6QVUYzas5Of(node));
+      case 6:
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

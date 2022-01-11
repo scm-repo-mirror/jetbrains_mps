@@ -14,8 +14,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class Block__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3e7L, "jetbrains.mps.kotlin.structure.Block");
+public final class IfExpression__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, "jetbrains.mps.kotlin.structure.IfExpression");
 
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
@@ -24,7 +24,7 @@ public final class Block__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
 
-  /*package*/ Block__BehaviorDescriptor() {
+  /*package*/ IfExpression__BehaviorDescriptor() {
   }
 
   @Override

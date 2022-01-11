@@ -49,13 +49,12 @@ public class AnonymousFunction_TextGen extends TextGenDescriptorBase {
       }
     }
 
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$UbWV));
+    KotlinTextGen.functionStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameters$UbfS = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af589L, 0x28bef6d7551af939L, "parameters");
     /*package*/ static final SContainmentLink returnType$fGYV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908cd887L, 0x11400bb7908cd888L, "returnType");
     /*package*/ static final SContainmentLink constraints$BRhr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75568d269L, 0x28bef6d75568d26aL, "constraints");
-    /*package*/ static final SContainmentLink body$UbWV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af589L, 0x28bef6d7551af93cL, "body");
   }
 }

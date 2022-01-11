@@ -46,8 +46,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new BinLiteral_TextGen();
       case LanguageConceptSwitch.BinaryExpression:
         return new BinaryExpression_TextGen();
-      case LanguageConceptSwitch.Block:
-        return new Block_TextGen();
       case LanguageConceptSwitch.BooleanLiteral:
         return new BooleanLiteral_TextGen();
       case LanguageConceptSwitch.BreakExpression:
@@ -72,6 +70,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new Comment_TextGen();
       case LanguageConceptSwitch.CompanionObject:
         return new CompanionObject_TextGen();
+      case LanguageConceptSwitch.CompiledStubStatement:
+        return new CompiledStubStatement_TextGen();
       case LanguageConceptSwitch.ConstructorCall:
         return new ConstructorCall_TextGen();
       case LanguageConceptSwitch.ContinueExpression:
@@ -110,10 +110,10 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new FinalInheritanceModifier_TextGen();
       case LanguageConceptSwitch.FinallyBlock:
         return new FinallyBlock_TextGen();
+      case LanguageConceptSwitch.FlexibleBlock:
+        return new FlexibleBlock_TextGen();
       case LanguageConceptSwitch.ForStatement:
         return new ForStatement_TextGen();
-      case LanguageConceptSwitch.FunctionBody:
-        return new FunctionBody_TextGen();
       case LanguageConceptSwitch.FunctionCallExpression:
         return new FunctionCallExpression_TextGen();
       case LanguageConceptSwitch.FunctionCallTarget:
@@ -124,8 +124,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new FunctionMemberTarget_TextGen();
       case LanguageConceptSwitch.FunctionParameter:
         return new FunctionParameter_TextGen();
-      case LanguageConceptSwitch.FunctionStubBody:
-        return new FunctionStubBody_TextGen();
       case LanguageConceptSwitch.FunctionType:
         return new FunctionType_TextGen();
       case LanguageConceptSwitch.FunctionTypeParameter:

@@ -65,7 +65,6 @@
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
@@ -87,6 +86,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.ClassMemberVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.ReceiverTypeScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SuperTypesVisitor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
@@ -97,6 +97,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SInterfaceConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.overloading.OverloadResolver">
     <classNode dependClassName="java.lang.Boolean" />

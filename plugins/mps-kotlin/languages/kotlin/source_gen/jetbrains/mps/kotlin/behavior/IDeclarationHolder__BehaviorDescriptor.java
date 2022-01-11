@@ -29,8 +29,8 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
-public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationScopeProvider");
+public final class IDeclarationHolder__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationHolder");
 
   public static final SMethod<List<SNode>> getMembers_id213J8chg2xy = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2xy").build();
   public static final SMethod<Void> populateNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8chg2jD").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
@@ -44,7 +44,7 @@ public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHD
 
   /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, final DeclarationCollector collector, final ScopeContext context) {
     // Declaration scope -> order does not matter
-    ListSequence.fromList(IDeclarationScopeProvider__BehaviorDescriptor.getMembers_id213J8chg2xy.invoke(__thisNode__)).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(IDeclarationHolder__BehaviorDescriptor.getMembers_id213J8chg2xy.invoke(__thisNode__)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(it, collector, context);
       }
@@ -53,7 +53,7 @@ public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHD
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     // Any kind of identifier
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg)) {
-      return IDeclarationScopeProvider__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE);
+      return IDeclarationHolder__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE);
     }
 
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$aq, kind, child));
@@ -61,14 +61,14 @@ public final class IDeclarationScopeProvider__BehaviorDescriptor extends BaseBHD
   /*package*/ static Scope getScope_id1pD7IS1FrZI(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context) {
     // Collect declarations
     DeclarationCollector collector = filter.toCollector();
-    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
+    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
 
     // Provide scope
     // TODO [unrelated to kotlin] lazyParentScope is used as ScopeUtils.lazyParentScope(node<>,concept< >):Scope is not supposed to be here (see concept's typechecking rule), but adding it wouldn't raise error before compilation (todo: enhance parent scope to support any function provided with concept, or update typechecking rule to search for overrides definition rather than name?)
     return new HidingByNameScope(CONCEPTS.IIdentifier$wg, filter.getConceptFilter(), collector.getScope(), ScopeUtils.lazyParentScope(__thisNode__, filter.getConceptFilter()));
   }
 
-  /*package*/ IDeclarationScopeProvider__BehaviorDescriptor() {
+  /*package*/ IDeclarationHolder__BehaviorDescriptor() {
   }
 
   @Override

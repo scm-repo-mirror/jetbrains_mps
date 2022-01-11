@@ -31,7 +31,7 @@ public class BinaryOperator_RemoveFromRight {
         }
 
         SNode left = SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.left$yQgK));
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, left, SelectionManager.FIRST_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, left, SelectionManager.LAST_CELL, -1);
       }
 
     };

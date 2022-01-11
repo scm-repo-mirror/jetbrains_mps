@@ -7,8 +7,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class FunctionStubBody_Editor extends DefaultNodeEditor {
+public class IInheritanceSpecifier_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new FunctionStubBody_EditorBuilder_a(editorContext, node).createCell();
+    return new IInheritanceSpecifier_EditorBuilder_a(editorContext, node).createCell();
   }
 }

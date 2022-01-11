@@ -4,6 +4,7 @@ package jetbrains.mps.kotlin.behavior;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -30,7 +31,8 @@ public class PrecedenceUtil {
       Precedence parent = IExpression__BehaviorDescriptor.getPrecedenceLevel_id666oMY59eOv.invoke(parentNode);
       float current = resultPrecedence.asNumber();
 
-      if (!(Precedence.isApplicable(parent)) || parent.asNumber() > current || (leftTransform && parent.asNumber() == current)) {
+      // Target concept of containing link is checked, as an expression node may be used in another context than regular expression tree (eg. navigation)
+      if (!(Precedence.isApplicable(parent)) || (parent.asNumber() >= current && SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(CONCEPTS.IExpression$2i), SNodeOperations.asSConcept(SNodeOperations.getContainingLink(targetNode).getTargetConcept())))) {
         break;
       }
 

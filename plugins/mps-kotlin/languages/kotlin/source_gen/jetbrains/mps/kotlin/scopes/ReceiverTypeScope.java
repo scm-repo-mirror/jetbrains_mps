@@ -6,8 +6,8 @@ import jetbrains.mps.scope.Scope;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -33,11 +33,15 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public class ReceiverTypeScope extends Scope {
   private final SModel myModel;
   private final SAbstractConcept myTargetConcept;
-  private final TypeKey myTargetType;
-  public ReceiverTypeScope(SModel model, TypeKey targetType, SAbstractConcept targetConcept) {
+  private final Iterable<TypeKey> myTargetTypes;
+  public ReceiverTypeScope(SModel model, SNode targetType, SAbstractConcept targetConcept) {
+    this(model, SuperTypesVisitor.getSupertypes(targetType, model.getRepository()), targetConcept);
+  }
+
+  public ReceiverTypeScope(SModel model, Iterable<TypeKey> targetTypes, SAbstractConcept targetConcept) {
     myModel = model;
     myTargetConcept = targetConcept;
-    myTargetType = targetType;
+    myTargetTypes = targetTypes;
   }
 
   @Nullable
@@ -93,7 +97,7 @@ public class ReceiverTypeScope extends Scope {
       if (SNodeOperations.isInstanceOf(parent, CONCEPTS.IWithReceiver$Eg)) {
         SNode identifiable = IWithReceiver__BehaviorDescriptor.getIdentifiable_idauY8guyXvs.invoke(parent);
 
-        if (SNodeOperations.isInstanceOf(identifiable, SNodeOperations.asSConcept(myTargetConcept)) && Objects.equals(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(receiver, LINKS.type$NVFj)), myTargetType)) {
+        if (SNodeOperations.isInstanceOf(identifiable, SNodeOperations.asSConcept(myTargetConcept)) && Sequence.fromIterable(myTargetTypes).contains(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(receiver, LINKS.type$NVFj)))) {
           return identifiable;
         }
       }

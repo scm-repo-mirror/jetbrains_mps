@@ -29,18 +29,16 @@ import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.EditorCell_RefPresentation;
+import jetbrains.mps.smodel.action.IReferentPresentationProvider;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.kotlin.editor.KotlinKeyPack_KeyPack.METHOD_CALL_StyleKey;
-import jetbrains.mps.nodeEditor.cellMenu.BasicCellContext;
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_ReplaceNode_CustomNodeConcept;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.nodeEditor.cellMenu.CellContext;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.lang.editor.generator.internal.PrimaryReferentMenuCellMenuPart;
-import jetbrains.mps.smodel.action.IReferentPresentationProvider;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -99,7 +97,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       editorCell.setReferenceCell(true);
       editorCell.setSRole(LINKS.function$Weyv);
     }
-    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new ReferenceCellContext(getNode(), getNode(), referenceLink), new SubstituteInfoPartExt[]{new FunctionCallExpression_function_cellMenu_q3ghb3_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
+    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new ReferenceCellContext(getNode(), getNode(), referenceLink), new SubstituteInfoPartExt[]{new ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
     Iterable<SNode> referenceAttributes = SNodeOperations.ofConcept(new IAttributeDescriptor.AllAttributes().list(myNode), CONCEPTS.LinkAttribute$v_);
     Iterable<SNode> currentReferenceAttributes = Sequence.fromIterable(referenceAttributes).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -134,38 +132,23 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     }
 
     private EditorCell createReferencePresentation_0() {
-      EditorCell_Property editorCell = EditorCell_RefPresentation.create(getEditorContext(), myNode, myReferencingNode, PresentationProviders.PRESENTATION_q3ghb3_a0a0a);
+      EditorCell_Property editorCell = EditorCell_RefPresentation.create(getEditorContext(), myNode, myReferencingNode, IReferentPresentationProvider.getDefaultPresentation(LINKS.function$Weyv));
       editorCell.setCellId("ReferencePresentation_q3ghb3_a0a0");
       Style style = new StyleImpl();
       new METHOD_CALL_StyleKey().apply(style);
       editorCell.getStyle().putAll(style);
-      editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
       return editorCell;
     }
-    public static class ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0a0 extends AbstractCellMenuPart_ReplaceNode_CustomNodeConcept {
-      public ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0a0() {
-      }
-      public SAbstractConcept getReplacementConcept() {
-        return CONCEPTS.IExpression$2i;
-      }
-      @Override
-      protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
-        return new EditorMenuDescriptorBase("replace node (custom node concept: " + "IExpression" + ")", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "8625556777609900406"));
-      }
-    }
   }
-  public static class FunctionCallExpression_function_cellMenu_q3ghb3_a0a0 extends PrimaryReferentMenuCellMenuPart {
-    public FunctionCallExpression_function_cellMenu_q3ghb3_a0a0() {
+  public static class ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0 extends AbstractCellMenuPart_ReplaceNode_CustomNodeConcept {
+    public ReplaceWith_IExpression_cellMenu_q3ghb3_a0a0() {
     }
-    @NotNull
-    @Override
-    protected IReferentPresentationProvider getMatchingTextProvider() {
-      return PresentationProviders.PRESENTATION_q3ghb3_a0a0a;
+    public SAbstractConcept getReplacementConcept() {
+      return CONCEPTS.IExpression$2i;
     }
-    @NotNull
     @Override
-    protected IReferentPresentationProvider getVisibleMatchingTextProvider() {
-      return PresentationProviders.PRESENTATION_q3ghb3_a0a0a;
+    protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
+      return new EditorMenuDescriptorBase("replace node (custom node concept: " + "IExpression" + ")", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "1752885245461413225"));
     }
   }
   private EditorCell createComponent_0() {

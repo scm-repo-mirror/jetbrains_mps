@@ -41,7 +41,6 @@
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="vqh0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make(MPS.Core/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="rk9m" ref="r:f8580193-afc4-4673-a635-d4757ca591cf(jetbrains.mps.internal.make.runtime.util)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
@@ -2159,6 +2158,40 @@
       <node concept="2aLE7I" id="5heFtF6aZjZ" role="ElM8M">
         <node concept="ElOhj" id="5heFtF6aZk0" role="2aLE7H">
           <node concept="3clFbS" id="5heFtF6aZk1" role="2VODD2">
+            <node concept="3SKdUt" id="44X6zjto7nd" role="3cqZAp">
+              <node concept="1PaTwC" id="44X6zjto7ne" role="1aUNEU">
+                <node concept="3oM_SD" id="44X6zjtoa9T" role="1PaTwD">
+                  <property role="3oM_SC" value="TODO" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoa9V" role="1PaTwD">
+                  <property role="3oM_SC" value="generation" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoa9Y" role="1PaTwD">
+                  <property role="3oM_SC" value="of" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaa2" role="1PaTwD">
+                  <property role="3oM_SC" value="facet" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaa7" role="1PaTwD">
+                  <property role="3oM_SC" value="language" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaad" role="1PaTwD">
+                  <property role="3oM_SC" value="make" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaak" role="1PaTwD">
+                  <property role="3oM_SC" value="its" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaas" role="1PaTwD">
+                  <property role="3oM_SC" value="use" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoaaU" role="1PaTwD">
+                  <property role="3oM_SC" value="not" />
+                </node>
+                <node concept="3oM_SD" id="44X6zjtoab4" role="1PaTwD">
+                  <property role="3oM_SC" value="null-safe" />
+                </node>
+              </node>
+            </node>
             <node concept="3clFbJ" id="3xTUo83XJcY" role="3cqZAp">
               <node concept="3clFbS" id="3xTUo83XJd0" role="3clFbx">
                 <node concept="3clFbJ" id="UG7NftJxXy" role="3cqZAp">
@@ -2238,7 +2271,7 @@
                 <node concept="liA8E" id="3xTUo843A4w" role="2OqNvi">
                   <ref role="37wK5l" to="yyf4:~ProgressMonitor.start(java.lang.String,int)" resolve="start" />
                   <node concept="Xl_RD" id="3xTUo843A5I" role="37wK5m">
-                    <property role="Xl_RC" value="Kotlin compilation" />
+                    <property role="Xl_RC" value="Compiling Kotlin/JVM" />
                   </node>
                   <node concept="3cmrfG" id="3xTUo843AaX" role="37wK5m">
                     <property role="3cmrfH" value="100" />
@@ -2401,6 +2434,41 @@
                     <ref role="37wK5l" to="w1kc:~ModelAccessHelper.runReadAction(jetbrains.mps.util.Computable)" resolve="runReadAction" />
                     <node concept="1bVj0M" id="1LzZ23Mdm4x" role="37wK5m">
                       <node concept="3clFbS" id="1LzZ23Mdm4y" role="1bW5cS">
+                        <node concept="3SKdUt" id="44X6zjtnBg1" role="3cqZAp">
+                          <node concept="1PaTwC" id="44X6zjtnBg2" role="1aUNEU">
+                            <node concept="3oM_SD" id="44X6zjtnDNO" role="1PaTwD">
+                              <property role="3oM_SC" value="Re-use" />
+                            </node>
+                            <node concept="3oM_SD" id="44X6zjtnLLJ" role="1PaTwD">
+                              <property role="3oM_SC" value="dependencies" />
+                            </node>
+                            <node concept="3oM_SD" id="44X6zjtnRjN" role="1PaTwD">
+                              <property role="3oM_SC" value="from" />
+                            </node>
+                            <node concept="3oM_SD" id="44X6zjtnRL2" role="1PaTwD">
+                              <property role="3oM_SC" value="textGen" />
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbF" id="44X6zjtnspN" role="3cqZAp">
+                          <node concept="2OqwBi" id="44X6zjtnuwA" role="3clFbG">
+                            <node concept="37vLTw" id="44X6zjtnspL" role="2Oq$k0">
+                              <ref role="3cqZAo" node="6SVxhiG6cys" resolve="mm" />
+                            </node>
+                            <node concept="liA8E" id="44X6zjtnw3J" role="2OqNvi">
+                              <ref role="37wK5l" to="vqh0:~ModuleMaker.dependencies(jetbrains.mps.make.java.BLDependenciesCache)" resolve="dependencies" />
+                              <node concept="2bn25q" id="44X6zjtnx6s" role="37wK5m">
+                                <node concept="2bn25r" id="44X6zjtnx6q" role="2Oq$k0">
+                                  <ref role="2bn25l" to="tpcq:5L5h3brvDHA" resolve="textGen" />
+                                </node>
+                                <node concept="2sxana" id="44X6zjtnx6r" role="2OqNvi">
+                                  <ref role="2sxfKC" to="tpcq:6SVxhiG5Qz5" resolve="dependenciesCache" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbH" id="44X6zjtnJJF" role="3cqZAp" />
                         <node concept="3SKdUt" id="2gWzrz3_emS" role="3cqZAp">
                           <node concept="1PaTwC" id="2gWzrz3_emT" role="1aUNEU">
                             <node concept="3oM_SD" id="2gWzrz3_nJX" role="1PaTwD">
@@ -2540,7 +2608,7 @@
                               <property role="3oM_SC" value="into" />
                             </node>
                             <node concept="3oM_SD" id="4pl9Fq0UHM8" role="1PaTwD">
-                              <property role="3oM_SC" value="java" />
+                              <property role="3oM_SC" value="kotlin" />
                             </node>
                             <node concept="3oM_SD" id="4pl9Fq0UHMr" role="1PaTwD">
                               <property role="3oM_SC" value="API)" />

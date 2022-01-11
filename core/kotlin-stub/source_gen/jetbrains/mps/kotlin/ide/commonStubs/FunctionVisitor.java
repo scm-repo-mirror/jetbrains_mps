@@ -32,7 +32,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
 
   public FunctionVisitor(SNode func, String receiver, VisitorContext ctx) {
     node = func;
-    SLinkOperations.setNewChild(node, LINKS.body$4ZBW, CONCEPTS.FunctionStubBody$ly);
+    SLinkOperations.addNewChild(node, LINKS.statements$R3pt, CONCEPTS.CompiledStubStatement$Af);
     context = ctx;
     functionId = new FunctionIdBuilder(ctx, FunctionIdBuilder.FUNCTION_ID_PREFIX + SPropertyOperations.getString(func, PROPS.name$MnvL), receiver);
   }
@@ -91,7 +91,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink body$4ZBW = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d755909986L, "body");
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
     /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
     /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
@@ -102,7 +102,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept FunctionStubBody$ly = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7e3b3b514406854aL, "jetbrains.mps.kotlin.structure.FunctionStubBody");
+    /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
   }

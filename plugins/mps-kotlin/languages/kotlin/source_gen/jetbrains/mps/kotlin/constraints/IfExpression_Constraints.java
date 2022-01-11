@@ -4,7 +4,7 @@ package jetbrains.mps.kotlin.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintFunction;
-import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
+import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -14,6 +14,8 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -24,25 +26,31 @@ public class IfExpression_Constraints extends BaseConstraintsDescriptor {
   }
 
   @Override
-  protected ConstraintFunction<ConstraintContext_CanBeChild, Boolean> calculateCanBeChildConstraint() {
-    return new ConstraintFunction<ConstraintContext_CanBeChild, Boolean>() {
+  protected ConstraintFunction<ConstraintContext_CanBeParent, Boolean> calculateCanBeParentConstraint() {
+    return new ConstraintFunction<ConstraintContext_CanBeParent, Boolean>() {
       @NotNull
-      public Boolean invoke(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
-        boolean result = staticCanBeAChild(context.getNode(), context.getParentNode(), context.getConcept(), context.getLink());
+      public Boolean invoke(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext checkingNodeContext) {
+        boolean result = staticCanBeAParent(context.getNode(), context.getChildNode(), context.getChildConcept(), context.getLink());
 
         if (!(result) && checkingNodeContext != null) {
-          checkingNodeContext.setBreakingNode(canBeChildBreakingPoint);
+          checkingNodeContext.setBreakingNode(canBeParentBreakingPoint);
         }
 
         return result;
       }
     };
   }
-  private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
+  private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
     // Forbid direct lambda child as the syntax is confusing (should be put in parenthesis)
-    return !(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.LambdaLiteral$Bd)) || (!(Objects.equals(link, LINKS.body$$TIK)) && !(Objects.equals(link, LINKS.else$$UEO)));
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.LambdaLiteral$Bd)) {
+      if (Objects.equals(link, LINKS.statements$R3pt)) {
+        return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.statements$R3pt)).count() > 1;
+      }
+      return !(Objects.equals(link, LINKS.else$$UEO));
+    }
+    return true;
   }
-  private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "7758491406788013509");
+  private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "7208671122139535111");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept IfExpression$TD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, "jetbrains.mps.kotlin.structure.IfExpression");
@@ -50,7 +58,7 @@ public class IfExpression_Constraints extends BaseConstraintsDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink body$$TIK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, 0x28bef6d7551af6f5L, "body");
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
     /*package*/ static final SContainmentLink else$$UEO = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, 0x28bef6d7551af6f9L, "else");
   }
 }

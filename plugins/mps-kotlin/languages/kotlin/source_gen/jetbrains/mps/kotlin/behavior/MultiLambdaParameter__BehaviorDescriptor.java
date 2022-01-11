@@ -13,25 +13,27 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public final class IFunctionBody__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7e3b3b5144068546L, "jetbrains.mps.kotlin.structure.IFunctionBody");
+public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47bL, "jetbrains.mps.kotlin.structure.MultiLambdaParameter");
 
-  public static final SMethod<SNode> getSingleExpression_id7SVeP544AZE = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSingleExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7SVeP544AZE").build();
+  public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1xjvXvOr9B8").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSingleExpression_id7SVeP544AZE);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariables_id1xjvXvOr9B8);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getSingleExpression_id7SVeP544AZE(@NotNull SNode __thisNode__) {
-    return null;
+  /*package*/ static Iterable<SNode> getVariables_id1xjvXvOr9B8(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getChildren(__thisNode__, LINKS.variables$CMsL);
   }
 
-  /*package*/ IFunctionBody__BehaviorDescriptor() {
+  /*package*/ MultiLambdaParameter__BehaviorDescriptor() {
   }
 
   @Override
@@ -47,7 +49,7 @@ public final class IFunctionBody__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getSingleExpression_id7SVeP544AZE(node));
+        return (T) ((Iterable<SNode>) getVariables_id1xjvXvOr9B8(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -75,5 +77,9 @@ public final class IFunctionBody__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink variables$CMsL = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47bL, 0x28bef6d7551af774L, "variables");
   }
 }

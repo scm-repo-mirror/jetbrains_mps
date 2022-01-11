@@ -16,18 +16,15 @@ public class DoWhileStatement_TextGen extends TextGenDescriptorBase {
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.label$EneV) != null)) {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.label$EneV));
     }
-    tgs.append("do");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$2bz9));
-    tgs.newLine();
-    tgs.indent();
-    tgs.append("while(");
+    tgs.append("do ");
+    KotlinTextGen.controlStructureStatements(ctx.getPrimaryInput(), ctx);
+    tgs.append(" while(");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$2cvd));
     tgs.append(")");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink label$EneV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c446692eL, 0x631027d1c446692fL, "label");
-    /*package*/ static final SContainmentLink body$2bz9 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x47de42ea4e1d0294L, 0x28bef6d7551af742L, "body");
     /*package*/ static final SContainmentLink condition$2cvd = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x47de42ea4e1d0294L, 0x28bef6d7551af746L, "condition");
   }
 }

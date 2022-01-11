@@ -1264,8 +1264,8 @@
       <node id="9095929092628855738" at="30,0,31,0" concept="6" trace="context" />
       <node id="7974320546218172405" at="31,0,32,0" concept="6" trace="functionId" />
       <node id="2993321679755857324" at="33,75,34,16" concept="5" />
-      <node id="9095929092624638455" at="34,16,35,85" concept="5" />
-      <node id="9095929092628855742" at="35,85,36,18" concept="5" />
+      <node id="9095929092624638455" at="34,16,35,96" concept="5" />
+      <node id="9095929092628855742" at="35,96,36,18" concept="5" />
       <node id="7974320546218184068" at="36,18,37,147" concept="5" />
       <node id="5397398146659689211" at="42,123,43,289" concept="10" />
       <node id="5397398146659719274" at="43,289,44,0" concept="13" />
@@ -1288,7 +1288,7 @@
       <node id="2993321679755932656" at="87,71,88,72" concept="10" />
       <node id="2993321679755932656" at="88,72,89,71" concept="5" />
       <node id="2993321679755932656" at="89,71,90,26" concept="11" />
-      <node id="2993321679755850504" at="94,0,95,0" concept="14" trace="body$4ZBW" />
+      <node id="2993321679755850504" at="94,0,95,0" concept="14" trace="statements$R3pt" />
       <node id="2993321679755850504" at="95,0,96,0" concept="14" trace="typeParameters$eq6K" />
       <node id="2993321679755850504" at="96,0,97,0" concept="14" trace="receiverType$NO1r" />
       <node id="2993321679755850504" at="97,0,98,0" concept="14" trace="parameters$dfEr" />
@@ -1296,7 +1296,7 @@
       <node id="2993321679755850504" at="99,0,100,0" concept="14" trace="visibility$vnSV" />
       <node id="2993321679755850504" at="100,0,101,0" concept="14" trace="inheritance$Geug" />
       <node id="2993321679755850504" at="101,0,102,0" concept="14" trace="type$NVFj" />
-      <node id="2993321679755850504" at="105,0,106,0" concept="14" trace="FunctionStubBody$ly" />
+      <node id="2993321679755850504" at="105,0,106,0" concept="14" trace="CompiledStubStatement$Af" />
       <node id="2993321679755850504" at="106,0,107,0" concept="14" trace="ReceiverType$$f" />
       <node id="2993321679755850504" at="107,0,108,0" concept="14" trace="IType$Ni" />
       <node id="2993321679755850504" at="111,0,112,0" concept="14" trace="name$MnvL" />
@@ -1457,32 +1457,35 @@
       <node id="2993321679756664806" at="69,24,70,87" concept="5" />
       <node id="2993321679756664815" at="70,87,71,88" concept="5" />
       <node id="2993321679756664825" at="71,88,72,90" concept="5" />
-      <node id="8100188086721361090" at="72,90,73,0" concept="13" />
-      <node id="2993321679756689565" at="73,0,74,42" concept="11" />
-      <node id="2993321679756707312" at="77,71,78,72" concept="10" />
-      <node id="2993321679756707312" at="78,72,79,71" concept="5" />
-      <node id="2993321679756707312" at="79,71,80,26" concept="11" />
-      <node id="2993321679756642481" at="84,0,85,0" concept="14" trace="receiverType$NO1r" />
-      <node id="2993321679756642481" at="85,0,86,0" concept="14" trace="declaration$IdZv" />
-      <node id="2993321679756642481" at="86,0,87,0" concept="14" trace="type$RmkT" />
-      <node id="2993321679756642481" at="87,0,88,0" concept="14" trace="visibility$vnSV" />
-      <node id="2993321679756642481" at="88,0,89,0" concept="14" trace="inheritance$TFvr" />
-      <node id="2993321679756642481" at="89,0,90,0" concept="14" trace="type$NVFj" />
-      <node id="2993321679756642481" at="93,0,94,0" concept="14" trace="name$MnvL" />
-      <node id="2993321679756642481" at="94,0,95,0" concept="14" trace="isConstant$zvIz" />
-      <node id="2993321679756642481" at="95,0,96,0" concept="14" trace="isReadonly$jzqd" />
-      <node id="2993321679756642481" at="96,0,97,0" concept="14" trace="isLateInit$qFSS" />
-      <node id="2993321679756642481" at="100,0,101,0" concept="14" trace="ReceiverType$$f" />
-      <node id="2993321679756642481" at="101,0,102,0" concept="14" trace="IType$Ni" />
+      <node id="7628279113498098209" at="72,90,73,96" concept="5" />
+      <node id="7628279113498112449" at="73,96,74,0" concept="13" />
+      <node id="2993321679756689565" at="74,0,75,42" concept="11" />
+      <node id="2993321679756707312" at="78,71,79,72" concept="10" />
+      <node id="2993321679756707312" at="79,72,80,71" concept="5" />
+      <node id="2993321679756707312" at="80,71,81,26" concept="11" />
+      <node id="2993321679756642481" at="85,0,86,0" concept="14" trace="receiverType$NO1r" />
+      <node id="2993321679756642481" at="86,0,87,0" concept="14" trace="declaration$IdZv" />
+      <node id="2993321679756642481" at="87,0,88,0" concept="14" trace="type$RmkT" />
+      <node id="2993321679756642481" at="88,0,89,0" concept="14" trace="visibility$vnSV" />
+      <node id="2993321679756642481" at="89,0,90,0" concept="14" trace="inheritance$TFvr" />
+      <node id="2993321679756642481" at="90,0,91,0" concept="14" trace="assignment$nl1j" />
+      <node id="2993321679756642481" at="91,0,92,0" concept="14" trace="type$NVFj" />
+      <node id="2993321679756642481" at="95,0,96,0" concept="14" trace="name$MnvL" />
+      <node id="2993321679756642481" at="96,0,97,0" concept="14" trace="isConstant$zvIz" />
+      <node id="2993321679756642481" at="97,0,98,0" concept="14" trace="isReadonly$jzqd" />
+      <node id="2993321679756642481" at="98,0,99,0" concept="14" trace="isLateInit$qFSS" />
+      <node id="2993321679756642481" at="102,0,103,0" concept="14" trace="CompiledStubStatement$Af" />
+      <node id="2993321679756642481" at="103,0,104,0" concept="14" trace="ReceiverType$$f" />
+      <node id="2993321679756642481" at="104,0,105,0" concept="14" trace="IType$Ni" />
       <node id="2993321679756701122" at="43,0,46,0" concept="9" trace="invoke#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="2993321679756699165" at="29,0,33,0" concept="3" trace="PropertyVisitor#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/ide/commonStubs/VisitorContext;)V" />
       <node id="2993321679756647284" at="41,62,46,8" concept="11" />
       <node id="2993321679756642828" at="54,0,59,0" concept="9" trace="visitReturnType#(I)Lkotlinx/metadata/KmTypeVisitor;" />
-      <node id="2993321679756707312" at="77,0,82,0" concept="15" trace="createReceiverType_qob524_a0a0c0a0a4#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2993321679756707312" at="78,0,83,0" concept="15" trace="createReceiverType_qob524_a0a0c0a0a4#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="2993321679756642777" at="33,0,39,0" concept="9" trace="visitTypeParameter#(ILjava/lang/String;ILkotlinx/metadata/KmVariance;)Lkotlinx/metadata/KmTypeParameterVisitor;" />
       <node id="2993321679756642812" at="48,0,54,0" concept="9" trace="visitSetterParameter#(ILjava/lang/String;)Lkotlinx/metadata/KmValueParameterVisitor;" />
       <node id="2993321679756642800" at="39,0,48,0" concept="9" trace="visitReceiverParameterType#(I)Lkotlinx/metadata/KmTypeVisitor;" />
-      <node id="2993321679756664760" at="60,0,76,0" concept="15" trace="create#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/ide/commonStubs/VisitorContext;ILjava/lang/String;IILjava/lang/String;)Lkotlinx/metadata/KmPropertyVisitor;" />
+      <node id="2993321679756664760" at="60,0,77,0" concept="15" trace="create#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/ide/commonStubs/VisitorContext;ILjava/lang/String;IILjava/lang/String;)Lkotlinx/metadata/KmPropertyVisitor;" />
       <scope id="2993321679756701124" at="43,50,44,116" />
       <scope id="2993321679756642835" at="56,51,57,177" />
       <scope id="2993321679756699169" at="29,61,31,18" />
@@ -1492,7 +1495,7 @@
         <var name="id" id="2993321679756701122" />
         <var name="type" id="2993321679756701122" />
       </scope>
-      <scope id="2993321679756707312" at="77,71,80,26">
+      <scope id="2993321679756707312" at="78,71,81,26">
         <var name="n0" id="2993321679756707312" />
       </scope>
       <scope id="2993321679756699165" at="29,0,33,0">
@@ -1503,7 +1506,7 @@
       <scope id="2993321679756642828" at="54,0,59,0">
         <var name="flags" id="2993321679756642833" />
       </scope>
-      <scope id="2993321679756707312" at="77,0,82,0">
+      <scope id="2993321679756707312" at="78,0,83,0">
         <var name="p0" id="2993321679756707312" />
       </scope>
       <scope id="2993321679756642777" at="33,0,39,0">
@@ -1519,8 +1522,8 @@
       <scope id="2993321679756642800" at="39,0,48,0">
         <var name="flags" id="2993321679756642805" />
       </scope>
-      <scope id="2993321679756664774" at="60,162,74,42" />
-      <scope id="2993321679756664760" at="60,0,76,0">
+      <scope id="2993321679756664774" at="60,162,75,42" />
+      <scope id="2993321679756664760" at="60,0,77,0">
         <var name="ctx" id="9095929092628903345" />
         <var name="decl" id="2993321679756674212" />
         <var name="flags" id="2993321679756664765" />
@@ -1530,10 +1533,10 @@
         <var name="setterFlags" id="2993321679756664772" />
       </scope>
       <unit id="2993321679756701122" at="42,113,46,5" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$1" />
-      <unit id="2993321679756642481" at="99,0,103,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$CONCEPTS" />
-      <unit id="2993321679756642481" at="92,0,98,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$PROPS" />
-      <unit id="2993321679756642481" at="83,0,91,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$LINKS" />
-      <unit id="2993321679756642481" at="25,0,104,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor" />
+      <unit id="2993321679756642481" at="101,0,106,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$CONCEPTS" />
+      <unit id="2993321679756642481" at="94,0,100,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$PROPS" />
+      <unit id="2993321679756642481" at="84,0,93,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor$LINKS" />
+      <unit id="2993321679756642481" at="25,0,107,0" name="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor" />
     </file>
   </root>
   <root nodeRef="r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/6505065053931584762">

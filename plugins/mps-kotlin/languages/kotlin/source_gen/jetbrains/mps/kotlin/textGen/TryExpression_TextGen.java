@@ -5,8 +5,8 @@ package jetbrains.mps.kotlin.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -14,8 +14,8 @@ public class TryExpression_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("try");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.block$N0hs));
+    tgs.append("try ");
+    KotlinTextGen.wrappedStatements(ctx.getPrimaryInput(), ctx);
     for (SNode item : SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.catches$NFTH)) {
       tgs.appendNode(item);
     }
@@ -26,7 +26,6 @@ public class TryExpression_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink block$N0hs = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51dL, 0x28bef6d7551af86eL, "block");
     /*package*/ static final SContainmentLink catches$NFTH = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51dL, 0x4cca44497651fd3aL, "catches");
     /*package*/ static final SContainmentLink finally$NG8I = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af51dL, 0x4cca44497651fd3bL, "finally");
   }

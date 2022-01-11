@@ -44,22 +44,20 @@ public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
     tgs.append("fun ");
     KotlinTextGen.typeParameters(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.receiver(ctx.getPrimaryInput(), ctx);
-
-
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append("(");
     KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.parameters$dfEr), ctx);
     tgs.append(")");
     KotlinTextGen.returnType(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.constraints(ctx.getPrimaryInput(), ctx);
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$4ZBW));
+    tgs.append(" ");
+    KotlinTextGen.functionStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink inheritance$Geug = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x441fd2709ecea6b9L, "inheritance");
     /*package*/ static final SContainmentLink modifiers$XKtM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d75568d1adL, "modifiers");
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
-    /*package*/ static final SContainmentLink body$4ZBW = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d755909986L, "body");
   }
 
   private static final class CONCEPTS {

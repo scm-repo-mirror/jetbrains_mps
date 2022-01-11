@@ -7640,12 +7640,12 @@
               <node concept="37vLTw" id="7SVeP54267P" role="2Oq$k0">
                 <ref role="3cqZAo" node="2AaqzlskGQC" resolve="node" />
               </node>
-              <node concept="3TrEf2" id="7SVeP5427ts" role="2OqNvi">
-                <ref role="3Tt5mk" to="hcm8:2yYXHtl$9A6" resolve="body" />
+              <node concept="3Tsc0h" id="1yTI8p9sf7D" role="2OqNvi">
+                <ref role="3TtcxE" to="hcm8:18X2O0Fy6BL" resolve="statements" />
               </node>
             </node>
-            <node concept="zfrQC" id="5zYAipSW1CT" role="2OqNvi">
-              <ref role="1A9B2P" to="hcm8:7SVeP541Cla" resolve="FunctionStubBody" />
+            <node concept="WFELt" id="1yTI8p9sfUX" role="2OqNvi">
+              <ref role="1A0vxQ" to="hcm8:1yTI8p9rQY3" resolve="CompiledCodeStatement" />
             </node>
           </node>
         </node>
@@ -9195,7 +9195,22 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbH" id="71DDynMSbj2" role="3cqZAp" />
+        <node concept="3clFbF" id="6Bt5QZR_vCx" role="3cqZAp">
+          <node concept="2OqwBi" id="6Bt5QZR_y6G" role="3clFbG">
+            <node concept="2OqwBi" id="6Bt5QZR_w7H" role="2Oq$k0">
+              <node concept="37vLTw" id="6Bt5QZR_vCv" role="2Oq$k0">
+                <ref role="3cqZAo" node="2AaqzlsnOi$" resolve="decl" />
+              </node>
+              <node concept="3TrEf2" id="6Bt5QZR_x0Z" role="2OqNvi">
+                <ref role="3Tt5mk" to="hcm8:2yYXHtl6JuU" resolve="assignment" />
+              </node>
+            </node>
+            <node concept="zfrQC" id="6Bt5QZR_yES" role="2OqNvi">
+              <ref role="1A9B2P" to="hcm8:1yTI8p9rQY3" resolve="CompiledStubStatement" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="6Bt5QZR_z71" role="3cqZAp" />
         <node concept="3cpWs6" id="2AaqzlsnS2t" role="3cqZAp">
           <node concept="2ShNRf" id="2AaqzlsnSAA" role="3cqZAk">
             <node concept="1pGfFk" id="2AaqzlsnYoj" role="2ShVmc">

@@ -30,6 +30,7 @@ import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.make.ModuleMaker;
 import org.jetbrains.kotlin.modules.Module;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.lang.core.plugin.TextGen_Facet.Target_textGen;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 import jetbrains.mps.make.MPSCompilationResult;
@@ -76,6 +77,7 @@ public class KotlinJvmCompile_Facet extends IFacet.Stub {
           final Iterable<TResource> input = (Iterable<TResource>) (Iterable) rawInput;
           switch (0) {
             case 0:
+              // TODO generation of facet language make its use not null-safe
               if (Target_compile.vars(pa.global()) != null) {
                 if (Boolean.TRUE.equals(Target_compile.vars(pa.global()).skipCompilation())) {
                   _output_xh4yll_a0a = Sequence.fromIterable(_output_xh4yll_a0a).concat(Sequence.fromIterable(input));
@@ -87,7 +89,7 @@ public class KotlinJvmCompile_Facet extends IFacet.Stub {
               }
 
               final Wrappers._T<ProgressMonitor> subTask = new Wrappers._T<ProgressMonitor>();
-              progressMonitor.start("Kotlin compilation", 100);
+              progressMonitor.start("Compiling Kotlin/JVM", 100);
 
               final Set<SModule> toCompile = SetSequence.fromSetWithValues(new HashSet<SModule>(), Sequence.fromIterable(input).select(new ISelector<TResource, SModule>() {
                 public SModule select(TResource it) {
@@ -108,16 +110,19 @@ public class KotlinJvmCompile_Facet extends IFacet.Stub {
               }
 
               List<Module> modules = new ModelAccessHelper(monitor.getSession().getProject().getModelAccess()).runReadAction(() -> {
+                // Re-use dependencies from textGen
+                mm.dependencies(Target_textGen.vars(pa.global()).dependenciesCache());
+
                 // Step 1: analyze modules
                 subTask.value = progressMonitor.subTask(30);
-                Stream<ModuleMaker.JM> javaModules = check_xh4yll_a0c0a0a0l0a0a(check_xh4yll_a0a2a0a0a11a0a0(mm.prepare(toCompile, false, subTask.value)));
+                Stream<ModuleMaker.JM> javaModules = check_xh4yll_a0f0a0a0m0a0a(check_xh4yll_a0a5a0a0a21a0a0(mm.prepare(toCompile, false, subTask.value)));
                 subTask.value.advance(0);
 
                 if (javaModules == null) {
                   return (List<Module>) null;
                 }
 
-                // Step 2: prepare kotlin compilation (extract knowledge into java API)
+                // Step 2: prepare kotlin compilation (extract knowledge into kotlin API)
                 return javaModules.map(KotlinCompilerUtil::prepareModule).filter((Module it) -> it != null).collect(Collectors.<Module>toList());
               });
 
@@ -215,13 +220,13 @@ public class KotlinJvmCompile_Facet extends IFacet.Stub {
       T t = createParameters(cls);
       return t;
     }
-    private static Stream<ModuleMaker.JM> check_xh4yll_a0c0a0a0l0a0a(Stream<List<ModuleMaker.JM>> checkedDotOperand) {
+    private static Stream<ModuleMaker.JM> check_xh4yll_a0f0a0a0m0a0a(Stream<List<ModuleMaker.JM>> checkedDotOperand) {
       if (null != checkedDotOperand) {
         return checkedDotOperand.flatMap(Collection::stream);
       }
       return null;
     }
-    private static Stream<List<ModuleMaker.JM>> check_xh4yll_a0a2a0a0a11a0a0(List<List<ModuleMaker.JM>> checkedDotOperand) {
+    private static Stream<List<ModuleMaker.JM>> check_xh4yll_a0a5a0a0a21a0a0(List<List<ModuleMaker.JM>> checkedDotOperand) {
       if (null != checkedDotOperand) {
         return checkedDotOperand.stream();
       }

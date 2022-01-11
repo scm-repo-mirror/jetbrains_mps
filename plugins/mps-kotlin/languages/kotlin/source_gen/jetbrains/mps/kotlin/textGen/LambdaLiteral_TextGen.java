@@ -7,6 +7,7 @@ import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -17,36 +18,40 @@ public class LambdaLiteral_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.label$EneV) != null)) {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.label$EneV));
-
     }
+
     tgs.append("{");
 
     if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.parameters$hLEY)).isNotEmpty()) {
       KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.parameters$hLEY), ctx);
-      tgs.append("->");
+      tgs.append("-> ");
     }
 
-    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$Kpvh)).count() > 1) {
-      tgs.newLine();
-    }
-
-    ctx.getBuffer().area().increaseIndent();
-    for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$Kpvh))) {
-      tgs.indent();
-      tgs.appendNode(statement);
-      if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$Kpvh)).count() > 1) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).isNotEmpty()) {
+      if ((boolean) IStatementHolder__BehaviorDescriptor.isOneLiner_idCy8Bus23OC.invoke(ctx.getPrimaryInput())) {
+        tgs.appendNode(ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).first());
+        tgs.append(" ");
+      } else {
         tgs.newLine();
+        ctx.getBuffer().area().increaseIndent();
+        for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt))) {
+          tgs.indent();
+          tgs.appendNode(statement);
+          if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).count() > 1) {
+            tgs.newLine();
+          }
+        }
+        ctx.getBuffer().area().decreaseIndent();
+        tgs.indent();
       }
     }
-    ctx.getBuffer().area().decreaseIndent();
 
-    tgs.indent();
     tgs.append("}");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink label$EneV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c446692eL, 0x631027d1c446692fL, "label");
     /*package*/ static final SContainmentLink parameters$hLEY = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af517L, 0x11400bb7909511ebL, "parameters");
-    /*package*/ static final SContainmentLink statements$Kpvh = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af517L, 0x28bef6d7551af85dL, "statements");
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
   }
 }

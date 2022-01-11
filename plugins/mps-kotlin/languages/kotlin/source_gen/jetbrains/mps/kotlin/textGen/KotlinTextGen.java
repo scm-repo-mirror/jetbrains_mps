@@ -13,6 +13,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -190,6 +191,35 @@ public abstract class KotlinTextGen {
         tgs.indent();
       }
     }
+  }
+  public static void controlStructureStatements(SNode node, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    KotlinTextGen.optionallyWrappedStatements(node, "", ";", ctx);
+  }
+  public static void functionStatements(SNode node, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    KotlinTextGen.optionallyWrappedStatements(node, "= ", "Unit", ctx);
+  }
+  public static void optionallyWrappedStatements(SNode node, String prependNonBlock, String emptyValue, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    SNode singleExpression = IStatementHolder__BehaviorDescriptor.asSingleExpression_id18X2O0FvKfA.invoke(node);
+    if ((singleExpression != null) && ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.statements$R3pt)).isNotEmpty()) {
+      tgs.append(prependNonBlock);
+      tgs.appendNode(singleExpression);
+    } else if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.statements$R3pt)).isNotEmpty()) {
+      KotlinTextGen.wrappedStatements(node, ctx);
+    } else {
+      tgs.append(prependNonBlock);
+      tgs.append(emptyValue);
+    }
+  }
+  public static void wrappedStatements(SNode node, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    tgs.append("{");
+    tgs.newLine();
+    KotlinTextGen.statements(node, ctx);
+    tgs.indent();
+    tgs.append("}");
   }
   public static void statements(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);

@@ -38,7 +38,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
 
   /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
     // Regular declarations
-    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, collector, context);
+    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, collector, context);
 
     // Entries belong to non instantiated receiver scope
     if (context.isWithCompanionMembers()) {

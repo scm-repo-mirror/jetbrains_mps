@@ -24,7 +24,7 @@ import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.SuperClassesVisitor;
+import jetbrains.mps.kotlin.scopes.SuperTypesVisitor;
 import jetbrains.mps.kotlin.runtime.members.signature.ClassSignature;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -63,9 +63,9 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static Set<TypeKey> getSuperClasses_id4gvOB2uSXgW(@NotNull SNode __thisNode__) {
     // Get the current repository as this node is supposed to be attached (while getThisType wont return an attached type)
-    SuperClassesVisitor visitor = new SuperClassesVisitor(__thisNode__.getModel().getRepository());
+    SuperTypesVisitor visitor = new SuperTypesVisitor(__thisNode__.getModel().getRepository());
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(IClassLike__BehaviorDescriptor.getThisType_id46gC9M6gB68.invoke(__thisNode__, ((boolean) false)), visitor);
-    return visitor.superClasses;
+    return visitor.superTypes;
   }
   /*package*/ static Class<? extends MemberSignature> getMemberSignatureKind_id5q426iHFtTk(@NotNull SAbstractConcept __thisConcept__) {
     return ClassSignature.class;
@@ -80,7 +80,7 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
     return thisType;
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL);
+    return IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(__thisNode__, KtEnvironmentConfig.Kotlin);
   }
   /*package*/ static List<SNode> getTypeParameters_idTmm2uCbI_X(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.typeParameters$eq6K);
@@ -161,6 +161,5 @@ public final class IClassDeclaration__BehaviorDescriptor extends BaseBHDescripto
 
   private static final class PROPS {
     /*package*/ static final SProperty variance$EPSy = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x21e0c923289a58c0L, "variance");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

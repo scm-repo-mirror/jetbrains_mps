@@ -98,6 +98,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.make.KotlinCompilerUtil" />
     <classNode dependClassName="jetbrains.mps.kotlin.make.MpsMessageCollector" />
+    <classNode dependClassName="jetbrains.mps.lang.core.plugin.TextGen_Facet.Target_textGen" />
     <classNode dependClassName="jetbrains.mps.make.MPSCompilationResult" />
     <classNode dependClassName="jetbrains.mps.make.ModuleMaker" />
     <classNode dependClassName="jetbrains.mps.make.facet.ITarget" />

@@ -30,14 +30,18 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
-public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, "jetbrains.mps.kotlin.structure.IStatementScopeProvider");
+public final class IStatementHolder__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, "jetbrains.mps.kotlin.structure.IStatementHolder");
 
   public static final SMethod<List<SNode>> getDeclarationsBefore_id18X2O0Fy9mO = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarationsBefore").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0Fy9mO").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Scope> getSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1yTI8p9qmpS").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> asSingleExpression_id18X2O0FvKfA = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("asSingleExpression").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FvKfA").build();
+  public static final SMethod<Boolean> isOneLiner_idCy8Bus23OC = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isOneLiner").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus23OC").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDeclarationsBefore_id18X2O0Fy9mO, getScope_id52_Geb4QDV$);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDeclarationsBefore_id18X2O0Fy9mO, getScope_id52_Geb4QDV$, getSpecificScope_id1yTI8p9qmpS, asSingleExpression_id18X2O0FvKfA, isOneLiner_idCy8Bus23OC);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -70,14 +74,41 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg)) {
       SAbstractConcept namedConcept = (SAbstractConcept) kind;
-      NamedElementsScope scope = new NamedElementsScope(IStatementScopeProvider__BehaviorDescriptor.getDeclarationsBefore_id18X2O0Fy9mO.invoke(__thisNode__, namedConcept, child));
+      Scope scope = new NamedElementsScope(IStatementHolder__BehaviorDescriptor.getDeclarationsBefore_id18X2O0Fy9mO.invoke(__thisNode__, namedConcept, child));
+
+      // Inject specific scope if provided
+      Scope specificScope = IStatementHolder__BehaviorDescriptor.getSpecificScope_id1yTI8p9qmpS.invoke(__thisNode__, namedConcept, child);
+      if (specificScope != null) {
+        scope = new HidingByNameScope(namedConcept, kind, scope, specificScope);
+      }
+
       return new HidingByNameScope(namedConcept, kind, scope, ScopeUtils.lazyParentScope(__thisNode__, kind));
     }
 
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$aq, kind, child));
   }
+  /*package*/ static Scope getSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
+    return null;
+  }
+  /*package*/ static SNode asSingleExpression_id18X2O0FvKfA(@NotNull SNode __thisNode__) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).isEmpty()) {
+      return null;
+    }
+    if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).getElement(0), CONCEPTS.IExpression$2i)) {
+      SNode expr = SNodeOperations.as(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).getElement(0), CONCEPTS.IExpression$2i);
+      if (ListSequence.fromList(SNodeOperations.getNodeDescendants(expr, CONCEPTS.ReturnExpression$c8, true, new SAbstractConcept[]{})).isNotEmpty()) {
+        return null;
+      }
+      return expr;
+    }
 
-  /*package*/ IStatementScopeProvider__BehaviorDescriptor() {
+    return null;
+  }
+  /*package*/ static boolean isOneLiner_idCy8Bus23OC(@NotNull SNode __thisNode__) {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statements$R3pt)).isEmpty() || (IStatementHolder__BehaviorDescriptor.asSingleExpression_id18X2O0FvKfA.invoke(__thisNode__) != null);
+  }
+
+  /*package*/ IStatementHolder__BehaviorDescriptor() {
   }
 
   @Override
@@ -96,6 +127,12 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
         return (T) ((List<SNode>) getDeclarationsBefore_id18X2O0Fy9mO(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
       case 1:
         return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 2:
+        return (T) ((Scope) getSpecificScope_id1yTI8p9qmpS(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 3:
+        return (T) ((SNode) asSingleExpression_id18X2O0FvKfA(node));
+      case 4:
+        return (T) ((Boolean) isOneLiner_idCy8Bus23OC(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -133,5 +170,7 @@ public final class IStatementScopeProvider__BehaviorDescriptor extends BaseBHDes
     /*package*/ static final SInterfaceConcept IStatementScopePart$Qc = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2fcba12bca328e26L, "jetbrains.mps.kotlin.structure.IStatementScopePart");
     /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
     /*package*/ static final SInterfaceConcept ScopeProvider$aq = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+    /*package*/ static final SInterfaceConcept IExpression$2i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression");
+    /*package*/ static final SConcept ReturnExpression$c8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af55eL, "jetbrains.mps.kotlin.structure.ReturnExpression");
   }
 }

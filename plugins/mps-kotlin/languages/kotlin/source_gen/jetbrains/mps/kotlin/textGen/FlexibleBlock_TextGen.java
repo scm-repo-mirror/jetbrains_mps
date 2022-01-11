@@ -6,10 +6,10 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 
-public class FunctionStubBody_TextGen extends TextGenDescriptorBase {
+public class FlexibleBlock_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    // no-op (not supposed to happen)
+    KotlinTextGen.controlStructureStatements(ctx.getPrimaryInput(), ctx);
   }
 }

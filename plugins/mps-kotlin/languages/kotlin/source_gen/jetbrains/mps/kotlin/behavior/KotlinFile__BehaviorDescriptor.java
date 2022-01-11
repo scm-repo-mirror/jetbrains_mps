@@ -57,7 +57,7 @@ public final class KotlinFile__BehaviorDescriptor extends BaseBHDescriptor {
     return composite;
   }
   /*package*/ static Scope getLocalScope_id46gC9M66Lsd(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.IDeclarationScopeProvider$mj, kind, child));
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.IDeclarationHolder$mj, kind, child));
   }
   /*package*/ static boolean isRunnable_idoITd3IthrB(@NotNull SNode __thisNode__) {
     return (KotlinFile__BehaviorDescriptor.getLocalScope_id46gC9M66Lsd.invoke(__thisNode__, CONCEPTS.IFunctionIdentifier$K$, __thisNode__).resolve(__thisNode__, "main") != null);
@@ -126,7 +126,7 @@ public final class KotlinFile__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept KotlinFile$4h = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af529L, "jetbrains.mps.kotlin.structure.KotlinFile");
-    /*package*/ static final SInterfaceConcept IDeclarationScopeProvider$mj = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationScopeProvider");
+    /*package*/ static final SInterfaceConcept IDeclarationHolder$mj = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationHolder");
     /*package*/ static final SInterfaceConcept IFunctionIdentifier$K$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
   }
 }

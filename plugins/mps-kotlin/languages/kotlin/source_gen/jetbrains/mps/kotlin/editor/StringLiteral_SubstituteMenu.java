@@ -23,6 +23,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -112,6 +114,10 @@ public class StringLiteral_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public EditorMenuTraceInfo getTraceInfo() {
         return myTraceInfo;
+      }
+      @Override
+      public void select(@NotNull SNode createdNode, @NotNull String pattern) {
+        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.LAST_CELL, -1);
       }
       @Nullable
       @Override

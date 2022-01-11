@@ -33,7 +33,7 @@ public class BinaryOperator_RemoveFromOperator {
         }
 
         SNodeOperations.replaceWithAnother(node, replacement);
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacement, SelectionManager.FIRST_CELL, 0);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacement, SelectionManager.LAST_CELL, 0);
       }
 
     };

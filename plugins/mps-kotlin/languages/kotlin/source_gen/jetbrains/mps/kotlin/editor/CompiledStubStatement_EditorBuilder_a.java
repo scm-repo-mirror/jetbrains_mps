@@ -8,12 +8,15 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.openapi.editor.style.Style;
+import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.CommentStyleClass;
 
-/*package*/ class FunctionStubBody_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class CompiledStubStatement_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public FunctionStubBody_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public CompiledStubStatement_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -29,10 +32,13 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
   }
 
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
-    editorCell.setCellId("Constant_c65pn6_a");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "/* compiled code */");
+    editorCell.setCellId("Constant_daovr2_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
+    Style style = new StyleImpl();
+    new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
   }

@@ -9,11 +9,8 @@ import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorKind;
 import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.runtime.members.signature.ClassSignature;
-import java.util.List;
-import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -50,16 +47,8 @@ public class KotlinSignatures {
   }
 
   public static FunctionSignature forMethod(SNode function) {
-    List<SNode> types = new ArrayList<SNode>();
-    ListSequence.fromList(types).addSequence(Sequence.fromIterable(SLinkOperations.collect(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(function), LINKS.type$1aXr)));
-
-    // If receiver, one additional type
-    SNode receiver = IFunctionDeclaration__BehaviorDescriptor.getReceiverType_id2gj5XQXMFhP.invoke(function);
-    if ((receiver != null)) {
-      ListSequence.fromList(types).addElement(receiver);
-    }
-
-    return new FunctionSignature(KotlinFunctionDeclaration.of(function), erasureOf(types));
+    // Receiver not included as we're using such signature to compare between different inheriting receiver aswell
+    return new FunctionSignature(KotlinFunctionDeclaration.of(function), erasureOf(SLinkOperations.collect(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(function), LINKS.type$1aXr)));
   }
 
   public static String erasureOf(Iterable<SNode> types) {

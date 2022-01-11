@@ -2191,5 +2191,71 @@
       <ref role="1YaFvo" to="hcm8:1Izr$$XgfU$" resolve="IObject" />
     </node>
   </node>
+  <node concept="1YbPZF" id="1yTI8p9sqo_">
+    <property role="TrG5h" value="typeof_ParameterWithOptionalType" />
+    <property role="3GE5qa" value="expression.function" />
+    <node concept="3clFbS" id="1yTI8p9sqoA" role="18ibNy">
+      <node concept="3SKdUt" id="1yTI8p9sxU$" role="3cqZAp">
+        <node concept="1PaTwC" id="1yTI8p9sxU_" role="1aUNEU">
+          <node concept="3oM_SD" id="1yTI8p9sxUA" role="1PaTwD">
+            <property role="3oM_SC" value="Stub" />
+          </node>
+          <node concept="3oM_SD" id="1yTI8p9sxUB" role="1PaTwD">
+            <property role="3oM_SC" value="typesystem:" />
+          </node>
+          <node concept="3oM_SD" id="1yTI8p9sxUC" role="1PaTwD">
+            <property role="3oM_SC" value="actual" />
+          </node>
+          <node concept="3oM_SD" id="1yTI8p9sxUD" role="1PaTwD">
+            <property role="3oM_SC" value="implementation" />
+          </node>
+          <node concept="3oM_SD" id="1yTI8p9sxUE" role="1PaTwD">
+            <property role="3oM_SC" value="with" />
+          </node>
+          <node concept="3oM_SD" id="1yTI8p9sxUF" role="1PaTwD">
+            <property role="3oM_SC" value="coderules" />
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbJ" id="1yTI8p9sqtI" role="3cqZAp">
+        <node concept="2OqwBi" id="1yTI8p9sryc" role="3clFbw">
+          <node concept="2OqwBi" id="1yTI8p9sqJr" role="2Oq$k0">
+            <node concept="1YBJjd" id="1yTI8p9sqzf" role="2Oq$k0">
+              <ref role="1YBMHb" node="1yTI8p9sqoC" resolve="parameterWithOptionalType" />
+            </node>
+            <node concept="3TrEf2" id="1yTI8p9sr7n" role="2OqNvi">
+              <ref role="3Tt5mk" to="hcm8:2yYXHtl6Jyd" resolve="type" />
+            </node>
+          </node>
+          <node concept="3x8VRR" id="1yTI8p9srLr" role="2OqNvi" />
+        </node>
+        <node concept="3clFbS" id="1yTI8p9sqtK" role="3clFbx">
+          <node concept="1Z5TYs" id="1yTI8p9ssiL" role="3cqZAp">
+            <node concept="mw_s8" id="1yTI8p9sspF" role="1ZfhKB">
+              <node concept="2OqwBi" id="1yTI8p9ss_J" role="mwGJk">
+                <node concept="1YBJjd" id="1yTI8p9sspD" role="2Oq$k0">
+                  <ref role="1YBMHb" node="1yTI8p9sqoC" resolve="parameterWithOptionalType" />
+                </node>
+                <node concept="3TrEf2" id="1yTI8p9ssY9" role="2OqNvi">
+                  <ref role="3Tt5mk" to="hcm8:2yYXHtl6Jyd" resolve="type" />
+                </node>
+              </node>
+            </node>
+            <node concept="mw_s8" id="1yTI8p9ssiO" role="1ZfhK$">
+              <node concept="1Z2H0r" id="1yTI8p9srVR" role="mwGJk">
+                <node concept="1YBJjd" id="1yTI8p9ss4g" role="1Z2MuG">
+                  <ref role="1YBMHb" node="1yTI8p9sqoC" resolve="parameterWithOptionalType" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="1yTI8p9sqoC" role="1YuTPh">
+      <property role="TrG5h" value="parameterWithOptionalType" />
+      <ref role="1YaFvo" to="hcm8:2yYXHtl6JkE" resolve="ParameterWithOptionalType" />
+    </node>
+  </node>
 </model>
 

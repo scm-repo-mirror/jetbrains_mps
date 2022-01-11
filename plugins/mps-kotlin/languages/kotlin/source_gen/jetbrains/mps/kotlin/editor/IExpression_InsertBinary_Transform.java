@@ -113,7 +113,7 @@ public class IExpression_InsertBinary_Transform extends TransformationMenuBase {
       @Override
       public void execute(@NotNull String pattern) {
         SNode createdNode = getSubstituteItem().createNode(pattern);
-        SelectionUtil.selectCell(_context.getEditorContext(), PrecedenceUtil.processTransform(_context.getNode(), createdNode, true), SelectionManager.FIRST_EDITABLE_CELL);
+        SelectionUtil.selectCell(_context.getEditorContext(), PrecedenceUtil.processTransform(_context.getNode(), createdNode, true), SelectionManager.FIRST_ERROR_CELL);
       }
 
       @Override
@@ -179,7 +179,7 @@ public class IExpression_InsertBinary_Transform extends TransformationMenuBase {
       @Override
       public void execute(@NotNull String pattern) {
         SNode createdNode = getSubstituteItem().createNode(pattern);
-        SelectionUtil.selectCell(_context.getEditorContext(), PrecedenceUtil.processTransform(_context.getNode(), createdNode, false), SelectionManager.LAST_EDITABLE_CELL);
+        SelectionUtil.selectCell(_context.getEditorContext(), PrecedenceUtil.processTransform(_context.getNode(), createdNode, false), SelectionManager.LAST_ERROR_CELL);
       }
 
       @Override

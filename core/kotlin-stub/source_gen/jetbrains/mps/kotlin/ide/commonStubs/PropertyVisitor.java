@@ -70,6 +70,7 @@ public class PropertyVisitor extends KmPropertyVisitor {
     SPropertyOperations.assign(decl, PROPS.isConstant$zvIz, Flags.IS_CONST.get(flags));
     SPropertyOperations.assign(decl, PROPS.isReadonly$jzqd, !(Flags.IS_VAR.get(flags)));
     SPropertyOperations.assign(decl, PROPS.isLateInit$qFSS, Flags.IS_LATEINIT.get(flags));
+    SLinkOperations.setNewChild(decl, LINKS.assignment$nl1j, CONCEPTS.CompiledStubStatement$Af);
 
     return new PropertyVisitor(decl, ctx);
   }
@@ -86,6 +87,7 @@ public class PropertyVisitor extends KmPropertyVisitor {
     /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
+    /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
     /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
   }
 
@@ -97,6 +99,7 @@ public class PropertyVisitor extends KmPropertyVisitor {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
   }

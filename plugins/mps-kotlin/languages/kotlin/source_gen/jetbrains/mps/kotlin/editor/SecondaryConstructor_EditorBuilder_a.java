@@ -57,16 +57,11 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     if (nodeCondition_ypapyr_a4a()) {
       editorCell.addEditorCell(createCollection_1());
     }
-    if (nodeCondition_ypapyr_a5a()) {
-      editorCell.addEditorCell(createRefNode_1());
-    }
+    editorCell.addEditorCell(createComponent_3());
     return editorCell;
   }
   private boolean nodeCondition_ypapyr_a4a() {
     return (SLinkOperations.getTarget(myNode, LINKS.delegationCall$bPqB) != null);
-  }
-  private boolean nodeCondition_ypapyr_a5a() {
-    return (SLinkOperations.getTarget(myNode, LINKS.body$jT7X) != null);
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.Annotations_Component");
@@ -166,64 +161,12 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       return "<no delegationCall>";
     }
   }
-  private EditorCell createRefNode_1() {
-    SingleRoleCellProvider provider = new bodySingleRoleHandler_ypapyr_f0(myNode, LINKS.body$jT7X, getEditorContext());
-    return provider.createCell();
-  }
-  private static class bodySingleRoleHandler_ypapyr_f0 extends SingleRoleCellProvider {
-    @NotNull
-    private SNode myNode;
-
-    public bodySingleRoleHandler_ypapyr_f0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
-      super(containmentLink, context);
-      myNode = ownerNode;
-    }
-
-    @Override
-    @NotNull
-    public SNode getNode() {
-      return myNode;
-    }
-
-    protected EditorCell createChildCell(SNode child) {
-      EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.body$jT7X, child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.body$jT7X, child));
-      installCellInfo(child, editorCell, false);
-      return editorCell;
-    }
-
-
-
-    private void installCellInfo(SNode child, EditorCell editorCell, boolean isEmpty) {
-      if (editorCell.getSubstituteInfo() == null || editorCell.getSubstituteInfo() instanceof DefaultSubstituteInfo) {
-        editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
-      }
-      if (editorCell.getSRole() == null) {
-        editorCell.setSRole(LINKS.body$jT7X);
-      }
-    }
-    @Override
-    protected EditorCell createEmptyCell() {
-      getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.body$jT7X));
-      try {
-        EditorCell editorCell = super.createEmptyCell();
-        editorCell.setCellId("empty_body");
-        installCellInfo(null, editorCell, true);
-        setCellContext(editorCell);
-        return editorCell;
-      } finally {
-        getCellFactory().popCellContext();
-      }
-    }
-    protected String getNoTargetText() {
-      return "<no body>";
-    }
+  private EditorCell createComponent_3() {
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.OptionalStatementBlockEditor");
+    return editorCell;
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink delegationCall$bPqB = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, 0x28bef6d755909a50L, "delegationCall");
-    /*package*/ static final SContainmentLink body$jT7X = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, 0x28bef6d7551af640L, "body");
   }
 }

@@ -5,6 +5,7 @@ package jetbrains.mps.kotlin.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -15,12 +16,13 @@ public class PropertyGetter_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.annotations(ctx.getPrimaryInput(), false, ctx);
     tgs.append("get()");
-    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$jE43) != null)) {
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$jE43));
+    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).isNotEmpty()) {
+      tgs.append(" ");
+      KotlinTextGen.functionStatements(ctx.getPrimaryInput(), ctx);
     }
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink body$jE43 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af38dL, 0x28bef6d7551af62aL, "body");
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
   }
 }

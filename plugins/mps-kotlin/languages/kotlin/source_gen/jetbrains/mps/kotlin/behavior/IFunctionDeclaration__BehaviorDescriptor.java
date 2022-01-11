@@ -57,11 +57,12 @@ public final class IFunctionDeclaration__BehaviorDescriptor extends BaseBHDescri
     return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassLike$go, false, false);
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return IFunctionDeclaration__BehaviorDescriptor.getFunctionPresentation_id7uO8z1BmwrX.invoke(__thisNode__, ((boolean) false));
+    // Used by method call
+    return SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL);
   }
   /*package*/ static String getFunctionPresentation_id7uO8z1BmwrX(@NotNull SNode __thisNode__, boolean erased) {
-    StringBuilder builder = new StringBuilder(SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL));
-    builder.append("(");
+    StringBuilder builder = new StringBuilder();
+    builder.append(SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL)).append("(");
 
     Iterator<SNode> itr = ListSequence.fromList(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(__thisNode__)).iterator();
     if (itr.hasNext()) {

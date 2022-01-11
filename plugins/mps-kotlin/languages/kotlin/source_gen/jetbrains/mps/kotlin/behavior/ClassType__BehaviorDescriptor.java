@@ -110,7 +110,7 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static Scope getTypeScope_id7ubb0gUcNKV(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context, SRepository repository) {
     DeclarationCollector collector = new DeclarationCollector(filter);
-    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), collector, context);
+    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), collector, context);
     return collector.getScope();
   }
   /*package*/ static SNode getClassifier_id7an2tsIdpk7(@NotNull SNode __thisNode__) {

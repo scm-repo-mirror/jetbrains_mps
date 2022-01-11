@@ -57,7 +57,7 @@ public class FunctionCallTarget_Constraints extends BaseConstraintsDescriptor {
             Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IFunctionIdentifier$K$), scopeContext, _context.getContextNode().getModel().getRepository());
 
             // Also retrieve scope for receiver types
-            ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type), CONCEPTS.IFunctionIdentifier$K$);
+            ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), type, CONCEPTS.IFunctionIdentifier$K$);
 
             if (scope == null) {
               return receiverTypeScope;

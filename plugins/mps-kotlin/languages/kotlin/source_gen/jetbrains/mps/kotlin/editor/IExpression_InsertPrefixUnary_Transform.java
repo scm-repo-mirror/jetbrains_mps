@@ -29,6 +29,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.kotlin.behavior.PrecedenceUtil;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
@@ -109,6 +111,7 @@ public class IExpression_InsertPrefixUnary_Transform extends TransformationMenuB
       public void execute(@NotNull String pattern) {
         SNode createdNode = getSubstituteItem().createNode(pattern);
         PrecedenceUtil.processUnaryTransform(_context.getNode(), createdNode, true);
+        SelectionUtil.selectCell(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL);
       }
 
       @Override

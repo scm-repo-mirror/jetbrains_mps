@@ -185,7 +185,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
-      return new EditorMenuDescriptorBase("replace node (custom node concept: " + "IType" + ")", new SNodePointer("r:12420812-a86a-4269-8305-60120c560ef6(jetbrains.mps.kotlin.javaRefs.editor)", "7545425736556785794"));
+      return new EditorMenuDescriptorBase("replace node (custom node concept: " + "IType" + ")", new SNodePointer("r:12420812-a86a-4269-8305-60120c560ef6(jetbrains.mps.kotlin.javaRefs.editor)", "1752885245461417100"));
     }
   }
   private EditorCell createComponent_0() {

@@ -17,12 +17,11 @@ public class PropertySetter_TextGen extends TextGenDescriptorBase {
     KotlinTextGen.visibility(ctx.getPrimaryInput(), ctx);
     tgs.append("set(");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.parameter$J_aM));
-    tgs.append(")");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$JAlR));
+    tgs.append(") ");
+    KotlinTextGen.wrappedStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameter$J_aM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e5L, 0x28bef6d7551af816L, "parameter");
-    /*package*/ static final SContainmentLink body$JAlR = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e5L, 0x28bef6d7551af81bL, "body");
   }
 }

@@ -14,6 +14,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrack
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.LeftBraceStyleClass;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBraceStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.baseLanguage.editor.BaseLanguageKeyPack_KeyPack.DOT_StyleKey;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.KeyWordStyleClass;
 import jetbrains.mps.kotlin.editor.KotlinKeyPack_KeyPack.DEFAULT_INSTANCE_FIELD_StyleKey;
 
@@ -158,6 +159,16 @@ public class KotlinStyles_StyleSheet {
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
     new FieldStyleClass(editorContext, node).apply(style, editorCell);
   }
+  /**
+   * 
+   * @deprecated Since MPS 3.5 use generated StyleClass
+   */
+  @Deprecated
+  public static void apply_Comment(Style style, EditorCell editorCell) {
+    SNode node = (editorCell == null ? null : editorCell.getSNode());
+    EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
+    new CommentStyleClass(editorContext, node).apply(style, editorCell);
+  }
 
   public static class LParenthesisStyleClass extends AbstractStyleClass {
     public LParenthesisStyleClass(EditorContext editorContext, SNode node) {
@@ -243,7 +254,9 @@ public class KotlinStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new DotStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      style.set(StyleAttributes.SELECTABLE, false);
+      new DOT_StyleKey().apply(style);
+      style.set(StyleAttributes.INDENT_LAYOUT_NO_WRAP, true);
     }
 
   }
@@ -312,6 +325,17 @@ public class KotlinStyles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       new DEFAULT_INSTANCE_FIELD_StyleKey().apply(style);
+    }
+
+  }
+  public static class CommentStyleClass extends AbstractStyleClass {
+    public CommentStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      new jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     }
 
   }

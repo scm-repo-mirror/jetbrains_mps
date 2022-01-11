@@ -6,6 +6,7 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -24,14 +25,15 @@ public class SecondaryConstructor_TextGen extends TextGenDescriptorBase {
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.delegationCall$bPqB));
     }
 
-    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$jT7X) != null)) {
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$jT7X));
+    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).isNotEmpty()) {
+      tgs.append(" ");
+      KotlinTextGen.wrappedStatements(ctx.getPrimaryInput(), ctx);
     }
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
     /*package*/ static final SContainmentLink delegationCall$bPqB = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, 0x28bef6d755909a50L, "delegationCall");
-    /*package*/ static final SContainmentLink body$jT7X = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, 0x28bef6d7551af640L, "body");
+    /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
   }
 }

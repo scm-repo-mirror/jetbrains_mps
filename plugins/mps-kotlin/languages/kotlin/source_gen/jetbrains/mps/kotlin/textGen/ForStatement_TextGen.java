@@ -41,14 +41,13 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
 
     tgs.append(" in ");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.in$_8gh));
-    tgs.append(")");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$_8Ij));
+    tgs.append(") ");
+    KotlinTextGen.controlStructureStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink label$EneV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c446692eL, 0x631027d1c446692fL, "label");
     /*package*/ static final SContainmentLink variables$_81g = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af707L, "variables");
     /*package*/ static final SContainmentLink in$_8gh = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af708L, "in");
-    /*package*/ static final SContainmentLink body$_8Ij = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af70aL, "body");
   }
 }

@@ -81,14 +81,14 @@ public final class IClassLike__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
     // Regular declarations
-    IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.IWithClassBody$QD, collector, context);
+    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.IWithClassBody$QD, collector, context);
 
     // Scope of the companion object
     if (context.isWithCompanionMembers()) {
       SNode companion = IClassLike__BehaviorDescriptor.getCompanion_id1dpU28wP77w.invoke(__thisNode__);
       if ((companion != null)) {
         // Type.<...> is like Type.Companion.<...> with Companion being an instance
-        IDeclarationScopeProvider__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(companion, collector, ScopeContext.INSTANCE_RECEIVER);
+        IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(companion, collector, ScopeContext.INSTANCE_RECEIVER);
         collector.declare(companion, ClassSignature.class);
       }
     }
@@ -103,7 +103,7 @@ public final class IClassLike__BehaviorDescriptor extends BaseBHDescriptor {
     // Unlike declaration scopes, class declaration allow to use their methods as implicit this call
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg) && ClassScope.hasAccessToInstanceScopeOf(child, __thisNode__)) {
       // Use parent generic abstraction of scopes
-      return IDeclarationScopeProvider__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE_OR_IMPLICIT_INSTANCE);
+      return IDeclarationHolder__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE_OR_IMPLICIT_INSTANCE);
     }
 
     // Otherwise, regular parent scope

@@ -9,11 +9,12 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -25,8 +26,9 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1vYW8S3rTh_").build();
   public static final SMethod<Boolean> isAssignable_idCy8Bus9oGm = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9oGm").build();
+  public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1xjvXvOr9B8").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm, getVariables_id1xjvXvOr9B8);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -44,6 +46,9 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
     }
 
     return ((boolean) IVariableIdentifier__BehaviorDescriptor.isAssignable_idCy8Bus9oGm.invoke0(__thisNode__, CONCEPTS.IVariableIdentifier$v2));
+  }
+  /*package*/ static Iterable<SNode> getVariables_id1xjvXvOr9B8(@NotNull SNode __thisNode__) {
+    return Sequence.<SNode>singleton(__thisNode__);
   }
 
   /*package*/ VariableDeclaration__BehaviorDescriptor() {
@@ -65,6 +70,8 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
       case 1:
         return (T) ((Boolean) isAssignable_idCy8Bus9oGm(node));
+      case 2:
+        return (T) ((Iterable<SNode>) getVariables_id1xjvXvOr9B8(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

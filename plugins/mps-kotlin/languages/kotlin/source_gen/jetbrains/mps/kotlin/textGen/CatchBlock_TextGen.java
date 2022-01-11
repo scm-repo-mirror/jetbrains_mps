@@ -17,7 +17,7 @@ public class CatchBlock_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append("catch(");
+    tgs.append(" catch(");
     {
       Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.annotations$bXtr);
       final SNode lastItem = Sequence.fromIterable(collection).last();
@@ -31,14 +31,13 @@ public class CatchBlock_TextGen extends TextGenDescriptorBase {
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
     tgs.append(":");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$fVtD));
-    tgs.append(")");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$g161));
+    tgs.append(") ");
+    KotlinTextGen.wrappedStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink annotations$bXtr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, 0x6e77b7e7a89e49fbL, "annotations");
     /*package*/ static final SContainmentLink type$fVtD = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af320L, 0x28bef6d7551af5c3L, "type");
-    /*package*/ static final SContainmentLink body$g161 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af320L, 0x28bef6d7551af5c6L, "body");
   }
 
   private static final class PROPS {

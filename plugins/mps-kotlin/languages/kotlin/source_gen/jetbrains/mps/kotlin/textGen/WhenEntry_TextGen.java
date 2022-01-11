@@ -25,12 +25,11 @@ public class WhenEntry_TextGen extends TextGenDescriptorBase {
         }
       }
     }
-    tgs.append("->");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$jLAv));
+    tgs.append(" -> ");
+    KotlinTextGen.controlStructureStatements(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink conditions$jFw5 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af391L, 0x28bef6d7551af630L, "conditions");
-    /*package*/ static final SContainmentLink body$jLAv = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af391L, 0x28bef6d7551af635L, "body");
   }
 }

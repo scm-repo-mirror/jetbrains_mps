@@ -26,7 +26,7 @@ import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
  * 
  * @see jetbrains.mps.baseLanguage.scopes.MembersPopulatingContext 
  */
-public class ClassMemberVisitor extends SuperClassesGenericVisitor implements SignatureCollector {
+public class ClassMemberVisitor extends SuperTypesGenericVisitor implements SignatureCollector {
   private final Map<MemberSignature, SNode> signaturesHolder = new HashMap<MemberSignature, SNode>();
   private List<SourcedSignature> myMembers;
   public List<SourcedSignature> getMembers() {

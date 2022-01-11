@@ -16,18 +16,15 @@ public class IfExpression_TextGen extends TextGenDescriptorBase {
     tgs.append("if (");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.condition$$T1H));
     tgs.append(") ");
-    tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.body$$TIK));
+    KotlinTextGen.controlStructureStatements(ctx.getPrimaryInput(), ctx);
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.else$$UEO) != null)) {
-      tgs.newLine();
-      tgs.indent();
-      tgs.append("else ");
+      tgs.append(" else ");
       tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.else$$UEO));
     }
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink condition$$T1H = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, 0x28bef6d7551af6f2L, "condition");
-    /*package*/ static final SContainmentLink body$$TIK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, 0x28bef6d7551af6f5L, "body");
     /*package*/ static final SContainmentLink else$$UEO = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af41eL, 0x28bef6d7551af6f9L, "else");
   }
 }

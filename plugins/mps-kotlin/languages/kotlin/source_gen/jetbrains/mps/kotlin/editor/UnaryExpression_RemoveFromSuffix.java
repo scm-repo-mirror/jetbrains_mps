@@ -31,7 +31,7 @@ public class UnaryExpression_RemoveFromSuffix {
         }
 
         SNode replaced = SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.operand$YS5t));
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replaced, SelectionManager.LAST_EDITABLE_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replaced, SelectionManager.LAST_CELL, -1);
       }
 
     };
@@ -47,7 +47,7 @@ public class UnaryExpression_RemoveFromSuffix {
         }
 
         SNode replaced = SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.operand$YS5t));
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replaced, SelectionManager.LAST_EDITABLE_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, replaced, SelectionManager.LAST_CELL, -1);
       }
 
     };

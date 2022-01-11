@@ -14,7 +14,7 @@ import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 /**
  * Visit superclasses but collect substitutions along the way
  */
-public class SuperClassesGenericVisitor extends SuperClassesVisitor {
+public class SuperTypesGenericVisitor extends SuperTypesVisitor {
   private NodeTypeVarSubs mySubstitutions;
   public NodeTypeVarSubs getSubstitutions() {
     return this.mySubstitutions;
@@ -37,7 +37,7 @@ public class SuperClassesGenericVisitor extends SuperClassesVisitor {
     };
   }
 
-  public SuperClassesGenericVisitor(SRepository repository) {
+  public SuperTypesGenericVisitor(SRepository repository) {
     super(repository);
     setSubstitutions(new NodeTypeVarSubs());
   }

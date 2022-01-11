@@ -16,14 +16,15 @@ import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.kotlin.scopes.ClassMemberVisitor;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.kotlin.runtime.members.SourcedSignature;
 import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.scopes.SuperTypesVisitor;
 import jetbrains.mps.scope.Scope;
-import java.util.Objects;
 import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -107,9 +108,10 @@ public class OverloadResolutionSolver {
 
   public FunctionDeclaration resolveWithExplicitReceiver(SNode receiverType) throws AmbiguousException {
     FunctionDeclaration result;
+    SRepository repository = myCall.getModel().getRepository();
 
     // 1. Non-extension member callables named f of type T
-    ClassMemberVisitor visitor = OverloadedSignatureFilter.createVisitor(myCall.getModel().getRepository(), myFunctionName, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
+    ClassMemberVisitor visitor = OverloadedSignatureFilter.createVisitor(repository, myFunctionName, IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myCall));
     IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(receiverType, visitor);
     Iterable<FunctionDeclaration> instances = ListSequence.fromList(visitor.getMembers()).select(new ISelector<SourcedSignature, FunctionDeclaration>() {
       public FunctionDeclaration select(SourcedSignature it) {
@@ -121,10 +123,10 @@ public class OverloadResolutionSolver {
     }
 
     // 2. Local extension callables named f, whose receiver type conforms to type T, in the current scope and its upwards-linked scopes, ordered by the size of the scope (smallest first), excluding the package scope
-    final TypeKey receiverId = (TypeKey) IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(receiverType);
+    final Iterable<TypeKey> receiverSupertypes = SuperTypesVisitor.getSupertypes(receiverType, repository);
     Iterable<SNode> local = Sequence.fromIterable(functionsOf(Scope.getScope(myCall, myCall, CONCEPTS.IFunctionIdentifier$K$))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(IFunctionDeclaration__BehaviorDescriptor.getReceiverType_id2gj5XQXMFhP.invoke(it)), receiverId);
+        return Sequence.fromIterable(receiverSupertypes).contains(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(IFunctionDeclaration__BehaviorDescriptor.getReceiverType_id2gj5XQXMFhP.invoke(it)));
       }
     });
     if ((result = inspectNodeSet(local, receiverType)) != null) {
@@ -136,7 +138,7 @@ public class OverloadResolutionSolver {
     // 5. Star-imported extension callables named f, whose receiver type conforms to type T
     // 6. Implicitly imported extension callables named f (either from the Kotlin standard library or platform-specific ones), whose receiver type conforms to type T.
     // Well from this point it's all a bit mixed up in the following as import mechanism in MPS is not similar to text editors :')
-    Iterable<SNode> imported = functionsOf(new ReceiverTypeScope(SNodeOperations.getModel(myCall), receiverId, CONCEPTS.IFunctionDeclaration$ZB));
+    Iterable<SNode> imported = functionsOf(new ReceiverTypeScope(SNodeOperations.getModel(myCall), receiverSupertypes, CONCEPTS.IFunctionDeclaration$ZB));
     if ((result = inspectNodeSet(imported, receiverType)) != null) {
       return result;
     }

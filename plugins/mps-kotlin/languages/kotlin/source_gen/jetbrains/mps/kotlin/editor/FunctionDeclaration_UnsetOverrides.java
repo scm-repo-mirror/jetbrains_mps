@@ -6,6 +6,8 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -23,6 +25,7 @@ public class FunctionDeclaration_UnsetOverrides {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         SPropertyOperations.set(node, PROPS.isOverride$Gfqk, false);
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "*" + CellIdManager.createPropertyId("name"), -1);
       }
 
     };

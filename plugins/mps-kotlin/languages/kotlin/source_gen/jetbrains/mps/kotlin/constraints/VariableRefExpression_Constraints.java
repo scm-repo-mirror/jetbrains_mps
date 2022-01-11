@@ -55,7 +55,7 @@ public class VariableRefExpression_Constraints extends BaseConstraintsDescriptor
               Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IVariableIdentifier$v2), context._2(), _context.getContextNode().getModel().getRepository());
 
               // Also retrieve scope for receiver types
-              ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(type), CONCEPTS.IVariableIdentifier$v2);
+              ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), type, CONCEPTS.IVariableIdentifier$v2);
 
               if (scope == null) {
                 return receiverTypeScope;
