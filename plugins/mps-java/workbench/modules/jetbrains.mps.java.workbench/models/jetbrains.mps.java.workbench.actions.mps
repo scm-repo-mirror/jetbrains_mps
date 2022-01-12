@@ -90,7 +90,6 @@
         <reference id="1203088061055" name="action" index="tCJdB" />
       </concept>
       <concept id="1203092361741" name="jetbrains.mps.lang.plugin.structure.ModificationStatement" flags="lg" index="tT9cl">
-        <reference id="1204992316090" name="point" index="2f8Tey" />
         <reference id="1203092736097" name="modifiedGroup" index="tU$_T" />
       </concept>
       <concept id="3205778618063718746" name="jetbrains.mps.lang.plugin.structure.IdeaConfigurationXml" flags="ng" index="yhzZL">
@@ -4493,14 +4492,14 @@
   <node concept="tC5Ba" id="2LI6gbES1fX">
     <property role="3GE5qa" value="Groups.TouchBar" />
     <property role="TrG5h" value="TouchBarDefault_shift" />
+    <property role="3OnEW4" value="true" />
     <node concept="ftmFs" id="2LI6gbES1g1" role="ftER_">
       <node concept="tCFHf" id="2LI6gbES1g4" role="ftvYc">
         <ref role="tCJdB" node="5U9rQri5GcF" resolve="ChangeMethodSignature" />
       </node>
     </node>
     <node concept="tT9cl" id="2LI6gbES1fZ" role="2f5YQi">
-      <ref role="tU$_T" to="tprs:2LI6gbERWMf" resolve="TouchBarDefault_shift" />
-      <ref role="2f8Tey" to="tprs:2LI6gbES1DO" resolve="refactoring" />
+      <ref role="tU$_T" to="tprs:2LI6gbERUSa" resolve="IDEATouchBarDefault_shift" />
     </node>
   </node>
   <node concept="yhzZL" id="5U9rQri5Gkz">
@@ -4518,6 +4517,9 @@
       </node>
       <node concept="2zDL_x" id="Ss5mQlo4wG" role="2zDL_s">
         <ref role="2zDL_u" node="1bRM4HyGOKM" resolve="SolutionActionsEx" />
+      </node>
+      <node concept="2zDL_x" id="11ZuOXFYPLr" role="2zDL_s">
+        <ref role="2zDL_u" node="2LI6gbES1fX" resolve="TouchBarDefault_shift" />
       </node>
       <node concept="2zDLo0" id="4LlSeg3Dss" role="2zDLrY">
         <ref role="2zDLo1" node="5U9rQri5Gky" resolve="Default" />

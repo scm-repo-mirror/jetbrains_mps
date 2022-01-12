@@ -19,5 +19,9 @@
     <group id="jetbrains.mps.java.workbench.actions.SolutionActionsEx_ActionGroup">
       <reference ref="jetbrains.mps.java.workbench.actions.MigrateSourcesToMPS_Action" />
     </group>
+    <group id="jetbrains.mps.java.workbench.actions.TouchBarDefault_shift_ActionGroup">
+      <reference ref="jetbrains.mps.java.workbench.actions.ChangeMethodSignature_Action" />
+      <add-to-group group-id="TouchBarDefault_shift" anchor="last" />
+    </group>
   </actions>
 </idea-plugin>
