@@ -10,7 +10,7 @@
   <uses module="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="65557aaa-5381-435d-b705-3f8d546e0f40(jetbrains.mps.java.core)" kind="dp" />
-  <dependency className="jetbrains.mps.java.workbench.extensions.JavaSourceStubsModelRootEntry">
+  <dependency className="jetbrains.mps.java.platform.extensions.JavaSourceStubsModelRootEntry">
     <classNode dependClassName="com.intellij.openapi.util.Disposer" />
     <classNode dependClassName="java.awt.Color" />
     <classNode dependClassName="java.lang.Override" />
@@ -26,13 +26,13 @@
     <classNode extendsClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry" />
     <classNode extendsClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntryExt" />
   </dependency>
-  <dependency className="jetbrains.mps.java.workbench.extensions.JavaSourceStubsModelRootEntryFactory">
+  <dependency className="jetbrains.mps.java.platform.extensions.JavaSourceStubsModelRootEntryFactory">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.ide.project.ProjectHelper" />
     <classNode dependClassName="jetbrains.mps.java.core.sourceStubs.JavaSourceStubModelRoot" />
-    <classNode dependClassName="jetbrains.mps.java.workbench.extensions.JavaSourceStubsModelRootEntry" />
+    <classNode dependClassName="jetbrains.mps.java.platform.extensions.JavaSourceStubsModelRootEntry" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry" />

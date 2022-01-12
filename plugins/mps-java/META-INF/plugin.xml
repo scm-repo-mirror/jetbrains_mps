@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2003-2020 JetBrains s.r.o.
+  ~ Copyright 2003-2022 JetBrains s.r.o.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@
   </application-components>
 
   <extensions defaultExtensionNs="com.intellij">
-    <mps.LanguageLibrary dir="" hide="true"/>
+    <mps.LanguageLibrary dir="/" hide="true"/>
     <mps.VisibleModuleMask mask="Ant"/>
     <mps.VisibleModuleMask mask="DiffUtils"/>
     <mps.VisibleModuleMask mask="Hamcrest"/>
@@ -44,7 +44,5 @@
     <mps.VisibleModuleMask mask="jetbrains\.mps\.ant"/>
     <mps.VisibleModuleMask mask="jetbrains\.mps\.baseLanguage.*"/>
     <mps.VisibleModuleMask mask="jetbrains\.mps\.devkit\.general-purpose"/>
-    <mps.modelRootFactory rootType="java_source_stubs" className="jetbrains.mps.java.core.sourceStubs.JavaSourceStubModelRootFactory"/>
-    <mps.modelRootEntry rootType="java_source_stubs" title="Java &amp;Sources" className="jetbrains.mps.java.workbench.extensions.JavaSourceStubsModelRootEntryFactory"/>
   </extensions>
 </idea-plugin>

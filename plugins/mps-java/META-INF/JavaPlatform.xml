@@ -21,5 +21,8 @@
     <fileBasedIndex implementation="jetbrains.mps.java.platform.index.ClassifierSuccessorsIndexer"/>
     <errorHandler implementation="jetbrains.mps.ide.blame.CharismaReporter"/>
     <projectService serviceImplementation="jetbrains.mps.java.platform.actions.OverrideImplementMethodComponent" />
+
+    <mps.modelRootFactory rootType="java_source_stubs" className="jetbrains.mps.java.core.sourceStubs.JavaSourceStubModelRootFactory"/>
+    <mps.modelRootEntry rootType="java_source_stubs" title="Java &amp;Sources" className="jetbrains.mps.java.platform.extensions.JavaSourceStubsModelRootEntryFactory"/>
   </extensions>
 </idea-plugin>
