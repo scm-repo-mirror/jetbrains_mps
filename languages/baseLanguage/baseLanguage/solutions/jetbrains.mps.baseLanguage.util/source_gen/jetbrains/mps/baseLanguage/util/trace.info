@@ -87,45 +87,6 @@
       <unit id="1870381088643884519" at="19,0,65,0" name="jetbrains.mps.baseLanguage.util.ReflectionUtil" />
     </file>
   </root>
-  <root nodeRef="r:2a308ea0-c7e3-4fa5-a624-ad74ee5cfab5(jetbrains.mps.baseLanguage.util)/1904418645612386202">
-    <file name="CheckingUtil.java">
-      <node id="5749030987683787910" at="16,363,17,18" concept="9" />
-      <node id="7970711249077251789" at="18,5,19,113" concept="8" />
-      <node id="7970711249077251803" at="20,29,21,19" concept="9" />
-      <node id="7970711249077251808" at="22,5,23,76" concept="8" />
-      <node id="2384678130019230146" at="24,25,25,18" concept="9" />
-      <node id="2384678130019351035" at="26,5,27,51" concept="8" />
-      <node id="2384678130019230180" at="28,210,29,18" concept="9" />
-      <node id="7970711249077251843" at="30,5,31,17" concept="9" />
-      <node id="1904418645612386202" at="35,0,36,0" concept="12" trace="UnaryMinus$na" />
-      <node id="1904418645612386202" at="36,0,37,0" concept="12" trace="AbstractUnaryNumberOperation$Q6" />
-      <node id="1904418645612386202" at="37,0,38,0" concept="12" trace="BaseAssignmentExpression$PA" />
-      <node id="1904418645612386202" at="38,0,39,0" concept="12" trace="DotExpression$yW" />
-      <node id="1904418645612386202" at="42,0,43,0" concept="12" trace="expression$uRUg" />
-      <node id="1904418645612386202" at="43,0,44,0" concept="12" trace="lValue$splI" />
-      <node id="1904418645612386202" at="44,0,45,0" concept="12" trace="operation$gs9E" />
-      <node id="5749030987683755344" at="15,48,18,5" concept="6" />
-      <node id="7970711249077251776" at="19,113,22,5" concept="6" />
-      <node id="2384678130019230137" at="23,76,26,5" concept="6" />
-      <node id="2384678130019230150" at="27,51,30,5" concept="6" />
-      <node id="7970711249077251770" at="15,0,33,0" concept="13" trace="isAssigned#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <scope id="5749030987683755345" at="16,363,17,18" />
-      <scope id="7970711249077251778" at="20,29,21,19" />
-      <scope id="2384678130019230138" at="24,25,25,18" />
-      <scope id="2384678130019230151" at="28,210,29,18" />
-      <scope id="7970711249077251773" at="15,48,31,17">
-        <var name="assignment" id="7970711249077251790" />
-        <var name="lValue" id="7970711249077251809" />
-        <var name="parent" id="2384678130019351036" />
-      </scope>
-      <scope id="7970711249077251770" at="15,0,33,0">
-        <var name="node" id="7970711249077251774" />
-      </scope>
-      <unit id="1904418645612386202" at="41,0,46,0" name="jetbrains.mps.baseLanguage.util.CheckingUtil$LINKS" />
-      <unit id="1904418645612386202" at="34,0,40,0" name="jetbrains.mps.baseLanguage.util.CheckingUtil$CONCEPTS" />
-      <unit id="1904418645612386202" at="13,0,47,0" name="jetbrains.mps.baseLanguage.util.CheckingUtil" />
-    </file>
-  </root>
   <root nodeRef="r:2a308ea0-c7e3-4fa5-a624-ad74ee5cfab5(jetbrains.mps.baseLanguage.util)/7024895274323235319">
     <file name="VariableInitializationUtil.java">
       <node id="6911873060800393681" at="20,61,21,15" concept="8" />

@@ -78,6 +78,7 @@
     <import index="89o2" ref="r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)" />
     <import index="dp1x" ref="r:84719e1a-99f6-4297-90ba-8ad2a947fa4a(jetbrains.mps.ide.datatransfer)" />
     <import index="d2fo" ref="r:94b0657a-a0b5-4958-bad6-96a18d236e17(jetbrains.mps.ide.code)" />
+    <import index="eqnv" ref="r:3617248a-3a59-4f8e-b825-e9a1ec1b53de(jetbrains.mps.java.refactoring)" />
     <import index="4hrd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.vfs(MPS.Platform/)" implicit="true" />
     <import index="lwvz" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.selection(MPS.Editor/)" implicit="true" />
   </imports>
@@ -20496,11 +20497,11 @@
           <node concept="3cpWsn" id="65XsgximDI0" role="3cpWs9">
             <property role="TrG5h" value="refactoring" />
             <node concept="3uibUv" id="65XsgximDGo" role="1tU5fm">
-              <ref role="3uigEE" to="89o2:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
+              <ref role="3uigEE" to="eqnv:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
             </node>
             <node concept="2ShNRf" id="65XsgximDI1" role="33vP2m">
               <node concept="HV5vD" id="65XsgximDI2" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
+                <ref role="HV5vE" to="eqnv:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
               </node>
             </node>
           </node>
@@ -20511,7 +20512,7 @@
               <ref role="3cqZAo" node="65XsgximDI0" resolve="refactoring" />
             </node>
             <node concept="liA8E" id="5dVt62m7B40" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:F2hJxqAVsV" resolve="isApplicable" />
+              <ref role="37wK5l" to="eqnv:F2hJxqAVsV" resolve="isApplicable" />
               <node concept="37vLTw" id="5dVt62m7B5s" role="37wK5m">
                 <ref role="3cqZAo" node="65Xsgxiit43" resolve="field" />
               </node>
@@ -20544,7 +20545,7 @@
                           <ref role="3cqZAo" node="65XsgximDI0" resolve="refactoring" />
                         </node>
                         <node concept="liA8E" id="5dVt62m7wIH" role="2OqNvi">
-                          <ref role="37wK5l" to="89o2:F2hJxqAVsJ" resolve="doesNotContainFieldInitialization" />
+                          <ref role="37wK5l" to="eqnv:F2hJxqAVsJ" resolve="doesNotContainFieldInitialization" />
                           <node concept="37vLTw" id="5dVt62m7xp6" role="37wK5m">
                             <ref role="3cqZAo" node="7Elgo5s$Y4g" resolve="it" />
                           </node>
@@ -20883,7 +20884,7 @@
               <ref role="3cqZAo" node="65XsgximDI0" resolve="refactoring" />
             </node>
             <node concept="liA8E" id="65XsgximIMi" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:65XsgxijBUZ" resolve="performRefactoring" />
+              <ref role="37wK5l" to="eqnv:65XsgxijBUZ" resolve="performRefactoring" />
               <node concept="37vLTw" id="65XsgximINb" role="37wK5m">
                 <ref role="3cqZAo" node="65Xsgxiit43" resolve="field" />
               </node>
@@ -20973,11 +20974,11 @@
           <node concept="2OqwBi" id="65Xsgxin$qn" role="3clFbG">
             <node concept="2ShNRf" id="65Xsgxinm_n" role="2Oq$k0">
               <node concept="HV5vD" id="65Xsgxins_r" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
+                <ref role="HV5vE" to="eqnv:65XsgxijxLt" resolve="InitializeFieldInConstructorRefactoring" />
               </node>
             </node>
             <node concept="liA8E" id="65XsgxinDfm" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:F2hJxqAVsV" resolve="isApplicable" />
+              <ref role="37wK5l" to="eqnv:F2hJxqAVsV" resolve="isApplicable" />
               <node concept="37vLTw" id="65XsgxinG$9" role="37wK5m">
                 <ref role="3cqZAo" node="65XsgxigaQS" resolve="field" />
               </node>
@@ -21073,11 +21074,11 @@
           <node concept="3cpWsn" id="F2hJxqCpGR" role="3cpWs9">
             <property role="TrG5h" value="refactoring" />
             <node concept="3uibUv" id="F2hJxqCT0K" role="1tU5fm">
-              <ref role="3uigEE" to="89o2:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
+              <ref role="3uigEE" to="eqnv:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
             </node>
             <node concept="2ShNRf" id="F2hJxqCpGT" role="33vP2m">
               <node concept="HV5vD" id="F2hJxqCpGU" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
+                <ref role="HV5vE" to="eqnv:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
               </node>
             </node>
           </node>
@@ -21088,7 +21089,7 @@
               <ref role="3cqZAo" node="F2hJxqCpGR" resolve="refactoring" />
             </node>
             <node concept="liA8E" id="F2hJxqCpGY" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:F2hJxqAVsV" resolve="isApplicable" />
+              <ref role="37wK5l" to="eqnv:F2hJxqAVsV" resolve="isApplicable" />
               <node concept="37vLTw" id="F2hJxqCpGZ" role="37wK5m">
                 <ref role="3cqZAo" node="F2hJxqCpGv" resolve="field" />
               </node>
@@ -21121,7 +21122,7 @@
                           <ref role="3cqZAo" node="F2hJxqCpGR" resolve="refactoring" />
                         </node>
                         <node concept="liA8E" id="F2hJxqCpHe" role="2OqNvi">
-                          <ref role="37wK5l" to="89o2:F2hJxqAVsJ" resolve="doesNotContainFieldInitialization" />
+                          <ref role="37wK5l" to="eqnv:F2hJxqAVsJ" resolve="doesNotContainFieldInitialization" />
                           <node concept="37vLTw" id="F2hJxqCpHf" role="37wK5m">
                             <ref role="3cqZAo" node="F2hJxqCpHg" resolve="it" />
                           </node>
@@ -21447,7 +21448,7 @@
               <ref role="3cqZAo" node="F2hJxqCpGR" resolve="refactoring" />
             </node>
             <node concept="liA8E" id="F2hJxqCpJw" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:F2hJxqCbPI" resolve="performRefactoring" />
+              <ref role="37wK5l" to="eqnv:F2hJxqCbPI" resolve="performRefactoring" />
               <node concept="37vLTw" id="F2hJxqCpJx" role="37wK5m">
                 <ref role="3cqZAo" node="F2hJxqCpGv" resolve="field" />
               </node>
@@ -21537,11 +21538,11 @@
           <node concept="2OqwBi" id="F2hJxqCpK6" role="3clFbG">
             <node concept="2ShNRf" id="F2hJxqCpK7" role="2Oq$k0">
               <node concept="HV5vD" id="F2hJxqCpK8" role="2ShVmc">
-                <ref role="HV5vE" to="89o2:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
+                <ref role="HV5vE" to="eqnv:F2hJxqCbPG" resolve="AddConstructorParameterRefactoring" />
               </node>
             </node>
             <node concept="liA8E" id="F2hJxqCpK9" role="2OqNvi">
-              <ref role="37wK5l" to="89o2:F2hJxqAVsV" resolve="isApplicable" />
+              <ref role="37wK5l" to="eqnv:F2hJxqAVsV" resolve="isApplicable" />
               <node concept="37vLTw" id="F2hJxqCpKa" role="37wK5m">
                 <ref role="3cqZAo" node="F2hJxqCpJY" resolve="field" />
               </node>

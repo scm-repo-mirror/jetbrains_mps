@@ -11,7 +11,7 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.baseLanguage.util.plugin.refactorings.AddConstructorParameterRefactoring;
+import jetbrains.mps.java.refactoring.AddConstructorParameterRefactoring;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;

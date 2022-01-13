@@ -22,7 +22,6 @@
     <dependency reexport="false">b55d8dfc-0d9d-43d5-886d-c644e7083bff(jetbrains.mps.java.stub)</dependency>
     <dependency reexport="false">e55e6749-03cb-4ea7-9695-2322bab791c1(jetbrains.mps.lang.test.matcher)</dependency>
     <dependency reexport="false">8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)</dependency>
-    <dependency reexport="false">fd392034-7849-419d-9071-12563d152375(jetbrains.mps.baseLanguage.closures)</dependency>
     <dependency reexport="false">7124e466-fc92-4803-a656-d7a6b7eb3910(MPS.TextGen)</dependency>
   </dependencies>
   <languageVersions>

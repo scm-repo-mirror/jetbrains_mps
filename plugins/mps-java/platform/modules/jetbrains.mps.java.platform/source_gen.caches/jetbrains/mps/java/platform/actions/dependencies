@@ -56,7 +56,6 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="javax.swing.Icon" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.util.plugin.refactorings.AddConstructorParameterRefactoring" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.util.plugin.refactorings.MemberInsertingUtils" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId" />
     <classNode dependClassName="jetbrains.mps.ide.actions.MPSCommonDataKeys" />
@@ -66,6 +65,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.java.platform.actions.SelectConstructorsDialog" />
+    <classNode dependClassName="jetbrains.mps.java.refactoring.AddConstructorParameterRefactoring" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
@@ -663,7 +663,6 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="javax.swing.Icon" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.util.plugin.refactorings.InitializeFieldInConstructorRefactoring" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.util.plugin.refactorings.MemberInsertingUtils" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId" />
     <classNode dependClassName="jetbrains.mps.ide.actions.MPSCommonDataKeys" />
@@ -673,6 +672,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.java.platform.actions.SelectConstructorsDialog" />
+    <classNode dependClassName="jetbrains.mps.java.refactoring.InitializeFieldInConstructorRefactoring" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
