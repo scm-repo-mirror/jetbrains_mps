@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -617,7 +617,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     final Object oldRoot = getModel().getRoot();
     if (oldRoot instanceof MPSTreeNode) {
       ((MPSTreeNode) oldRoot).removeThisAndChildren();
-      ((MPSTreeNode) oldRoot).setTree(null);
+      ((MPSTreeNode) oldRoot).setTree(null); // XXX removeThisAndChildren now clears myTree, do I want to keep this here?
     }
 
     if (root != null) {

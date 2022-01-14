@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -391,6 +391,15 @@ public abstract class SModuleBase implements SModule, SModuleExt {
       Collection<SModelReference> filteredForgetRefs = filteredForget.stream().map(SModel::getReference).collect(Collectors.toList());
 
       myCachedModelsList = null;
+
+      filteredForget.forEach(this::fireBeforeModelRemoved); // FIXME collection down there
+      for (SModel model : filteredForget) {
+        myModels.remove(model);
+        if (model instanceof SModelBase) {
+          ((SModelBase) model).detach(); // 'detach' is confusing as an act/verb; in fact it's 'onDetach' notification
+        }
+      }
+
       for (SModel model : filteredAdd) {
         myModels.add(model);
         if (model instanceof SModelBase) {
@@ -401,14 +410,6 @@ public abstract class SModuleBase implements SModule, SModuleExt {
             ((SModelBase) model).attach(myRepository);
           }
           ((SModelBase) model).setModule(this); // XXX perhaps, ModelRoot could do this for us, instead?
-        }
-      }
-
-      filteredForget.forEach(this::fireBeforeModelRemoved); // FIXME collection down there
-      for (SModel model : filteredForget) {
-        myModels.remove(model);
-        if (model instanceof SModelBase) {
-          ((SModelBase) model).detach(); // 'detach' is confusing as an act/verb; in fact it's 'onDetach' notification
         }
       }
 

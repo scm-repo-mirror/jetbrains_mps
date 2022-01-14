@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -192,7 +192,11 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
 
     InputStream in = null;
     try {
-      in = ((MultiStreamDataSource) dataSource).getStreamByNameOrFail(MPSExtentions.DOT_MODEL_HEADER).openInputStream();
+      final StreamDataSource dotModelStream = ((MultiStreamDataSource) dataSource).getStreamByName(MPSExtentions.DOT_MODEL_HEADER);
+      if (dotModelStream == null) {
+        throw new IOException(String.format("No model found at %s", dataSource.getLocation()));
+      }
+      in = dotModelStream.openInputStream();
       InputSource source = new InputSource(new InputStreamReader(in, FileUtil.DEFAULT_CHARSET));
 
       // FIXME replace with SingleStreamSource

@@ -48,6 +48,7 @@ public class ModelActions_ActionGroup extends GeneratedActionGroup {
     ModelActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.OptimizeModelImports_Action");
     ModelActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.FixModuleImports_Action");
     ModelActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.ConvertToFilePerRootPersistence_Action");
+    ModelActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.ConvertToDefaultPersistence_Action");
     ModelActions_ActionGroup.this.addParameterizedAction(new DeleteModels_Action(false), false);
     ModelActions_ActionGroup.this.addParameterizedAction(new DeleteModels_Action(true), true);
     ModelActions_ActionGroup.this.addSeparator();

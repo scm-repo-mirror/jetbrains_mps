@@ -33,19 +33,20 @@ import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import jetbrains.mps.persistence.DataSourceFactoryBridge;
+import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
 import java.io.IOException;
 import jetbrains.mps.persistence.ModelCannotBeCreatedException;
 import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 
-@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/3616898894718121639", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
-public class ConvertToFilePerRootPersistence_Action extends BaseAction implements UpdateInBackground {
-  private static final Logger LOG = LogManager.getLogger(ConvertToFilePerRootPersistence_Action.class);
+@GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/406842751034388332", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
+public class ConvertToDefaultPersistence_Action extends BaseAction implements UpdateInBackground {
+  private static final Logger LOG = LogManager.getLogger(ConvertToDefaultPersistence_Action.class);
   private static final Icon ICON = null;
 
-  public ConvertToFilePerRootPersistence_Action() {
-    super("Convert to File-Per-Root Format", "", ICON);
+  public ConvertToDefaultPersistence_Action() {
+    super("Convert to default XML format", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setActionAccess(ActionAccess.UNDO_PROJECT);
   }
@@ -55,8 +56,8 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    // FTR, doesn't need anything but SModel, therefore marked as capable of background update
-    final ModelFactoryType targetType = PreinstalledModelFactoryTypes.PER_ROOT_XML;
+    // XXX basically, the copy of ConvertToFilePerRootPersistence, with different target
+    final ModelFactoryType targetType = PreinstalledModelFactoryTypes.PLAIN_XML;
     ModelFactory filePerRootFactory = ((MPSProject) MapSequence.fromMap(_params).get("project")).getComponent(ModelFactoryService.class).getFactoryByType(targetType);
     if (filePerRootFactory == null) {
       return false;
@@ -70,7 +71,6 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
     })) {
       return false;
     }
-    // filter out those of unknown origin (i.e. without ModelFactory, same MF as the conversion target or non-file source)
     if (ListSequence.fromList(m).any(new IWhereFilter<SModel>() {
       public boolean accept(SModel it) {
         return false == it instanceof LoadedStrategyAware;
@@ -85,12 +85,12 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
     })) {
       return false;
     }
-    // not sure model root check is relevant, do we truly care about model root kind? 
     return ListSequence.fromList(m).all(new IWhereFilter<SModel>() {
       public boolean accept(SModel it) {
         return it.getSource() instanceof FileSystemBasedDataSource && it.getModelRoot() instanceof FileBasedModelRoot;
       }
     });
+
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -127,16 +127,18 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
 
     final DataSourceFactoryRuleService dsFactoryService = mpsProject.getComponent(DataSourceFactoryRuleService.class);
     final ModelFactoryService modelFactoryService = mpsProject.getComponent(ModelFactoryService.class);
-    final ModelFactory filePerRootFactory = modelFactoryService.getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
-    if (filePerRootFactory == null) {
+    ModelFactory modelFactory = modelFactoryService.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML);
+    if (modelFactory == null) {
+      // could not happen, but to keep code similar with other actions like that one
       if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("No ModelFactory for per-root persistence found");
+        LOG.error("No ModelFactory for 'default' persistence found");
       }
       return;
     }
 
     // see MPS-18743
     repo.saveAll();
+
     for (SModel smodel : ListSequence.fromList(((List<SModel>) MapSequence.fromMap(_params).get("models")))) {
       final SModelName name = smodel.getName();
       Iterable<SModel.Problem> problems = Sequence.fromIterable(((Iterable<SModel.Problem>) smodel.getProblems())).where(new IWhereFilter<SModel.Problem>() {
@@ -154,9 +156,9 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
       FileBasedModelRoot mr = (FileBasedModelRoot) smodel.getModelRoot();
 
       try {
-        DataSource newDataSource = new DataSourceFactoryBridge(mr, dsFactoryService).createPerRootDataSource(name, null).getDataSource();
+        DataSource newDataSource = new DataSourceFactoryBridge(mr, dsFactoryService).create(name, null, PreinstalledDataSourceTypes.MPS).getDataSource();
         SModule module = smodel.getModule();
-        filePerRootFactory.save(smodel, newDataSource);
+        modelFactory.save(smodel, newDataSource);
         // XXX here used to be direct unregister for the model, however, don't see a reason,
         //    provided we force model set update. Besides, there are FS listeners that have 
         //    to trigger model set update. 
