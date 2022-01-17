@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:6e42326f-4bc0-4b77-a711-f3d4535f48d5(jetbrains.mps.ide.script.plugin.migrationtool)">
+<model ref="r:32e8047a-a583-4fbb-80b1-97568e0452d0(jetbrains.mps.ide.script.migrationtool)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
-    <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
+    <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
   </languages>
   <imports>
     <import index="tp33" ref="r:00000000-0000-4000-0000-011c89590323(jetbrains.mps.lang.script.structure)" />
@@ -31,7 +32,6 @@
     <import index="nd9s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.wm.impl.status(MPS.IDEA/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
-    <import index="qk2s" ref="r:3275c448-5bfc-4d48-bc81-3a9535817eb1(jetbrains.mps.ide.script.plugin)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
@@ -45,6 +45,7 @@
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="b2d5" ref="r:1a2b3027-99d2-4946-917b-f185130ac75d(jetbrains.mps.ide.findusages.findalgorithm.finders)" />
+    <import index="s1c0" ref="r:c7b90b26-5425-42a5-94ed-8a6e81cc7a2d(jetbrains.mps.lang.script.pluginSolution.plugin)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -4341,9 +4342,9 @@
                 <node concept="2YIFZM" id="5HAesQVVhdd" role="37wK5m">
                   <ref role="37wK5l" to="33ny:~Collections.singletonList(java.lang.Object)" resolve="singletonList" />
                   <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
-                  <node concept="2YIFZM" id="4B2IQdOq$Wg" role="37wK5m">
-                    <ref role="1Pybhc" to="qk2s:6m98d5YYaKQ" resolve="AbstractMigrationScriptHelper" />
-                    <ref role="37wK5l" to="qk2s:4B2IQdOqyug" resolve="toExecutable" />
+                  <node concept="2YIFZM" id="3oEnFAV3QMl" role="37wK5m">
+                    <ref role="37wK5l" to="s1c0:4B2IQdOqyug" resolve="toExecutable" />
+                    <ref role="1Pybhc" to="s1c0:6m98d5YYaKQ" resolve="AbstractMigrationScriptHelper" />
                     <node concept="37vLTw" id="4B2IQdOqBmp" role="37wK5m">
                       <ref role="3cqZAo" node="4B2IQdOqAS0" resolve="scriptNode" />
                     </node>
@@ -4434,9 +4435,9 @@
                 <node concept="2ShNRf" id="5HAesQVVheJ" role="37wK5m">
                   <node concept="1pGfFk" id="5HAesQVVheK" role="2ShVmc">
                     <ref role="37wK5l" to="9erk:~SearchQuery.&lt;init&gt;(org.jetbrains.mps.openapi.module.SearchScope)" resolve="SearchQuery" />
-                    <node concept="2YIFZM" id="_5aXW7JVIS" role="37wK5m">
-                      <ref role="1Pybhc" to="qk2s:6m98d5YYaKQ" resolve="AbstractMigrationScriptHelper" />
-                      <ref role="37wK5l" to="qk2s:_5aXW7Iw3y" resolve="createMigrationScope" />
+                    <node concept="2YIFZM" id="3oEnFAV3QMq" role="37wK5m">
+                      <ref role="37wK5l" to="s1c0:_5aXW7Iw3y" resolve="createMigrationScope" />
+                      <ref role="1Pybhc" to="s1c0:6m98d5YYaKQ" resolve="AbstractMigrationScriptHelper" />
                       <node concept="1rXfSq" id="_5aXW7JWeD" role="37wK5m">
                         <ref role="37wK5l" node="5HAesQVVh7l" resolve="getMPSProject" />
                       </node>

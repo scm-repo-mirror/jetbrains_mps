@@ -38,7 +38,6 @@
     <orderEntry type="module" module-name="kernel-resources" />
     <orderEntry type="module" module-name="textgen" />
     <orderEntry type="module" module-name="debuginfo-impl" />
-    <orderEntry type="module" module-name="scripts-runtime" />
     <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="model" />
     <orderEntry type="module" module-name="module" />

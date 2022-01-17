@@ -9,7 +9,6 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
-import jetbrains.mps.ide.script.plugin.ScriptsActionGroupHelper;
 import jetbrains.mps.workbench.action.BaseGroup;
 
 /*package*/ final class ScriptsMenuBuilder {
