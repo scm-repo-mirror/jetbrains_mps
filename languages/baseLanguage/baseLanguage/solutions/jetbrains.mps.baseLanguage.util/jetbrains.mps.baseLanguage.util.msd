@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.baseLanguage.util" uuid="c7d01124-66d5-486d-8b50-7fdccb60b839" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="false">
-  <compileInIDEA />
+<solution name="jetbrains.mps.baseLanguage.util" uuid="c7d01124-66d5-486d-8b50-7fdccb60b839" moduleVersion="0" pluginKind="PLUGIN_CORE" compileInMPS="true">
   <models>
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="solution" />
     </modelRoot>
   </models>
   <facets>
-    <facet pluginId="com.intellij" type="ideaPlugin" />
     <facet type="java" languageLevel="JAVA_7">
-      <classes generated="true" />
+      <classes generated="true" path="${module}/classes_gen" />
     </facet>
   </facets>
-  <stubModelEntries>
-    <stubModelEntry path="${module}/classes" />
-  </stubModelEntries>
   <sourcePath />
   <dependencies>
     <dependency reexport="false">3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)</dependency>
