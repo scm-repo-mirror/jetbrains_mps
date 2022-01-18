@@ -45606,6 +45606,12 @@
                 <property role="2Ry0Am" value="mps-java" />
                 <node concept="2Ry0Ak" id="2ucthr8YCRG" role="2Ry0An">
                   <property role="2Ry0Am" value="workbench" />
+                  <node concept="2Ry0Ak" id="6a3O$tWqgR" role="2Ry0An">
+                    <property role="2Ry0Am" value="modules" />
+                    <node concept="2Ry0Ak" id="6a3O$tWqgW" role="2Ry0An">
+                      <property role="2Ry0Am" value="jetbrains.mps.java.workbench" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
