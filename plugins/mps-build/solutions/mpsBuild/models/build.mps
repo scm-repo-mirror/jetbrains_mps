@@ -28527,6 +28527,12 @@
         <ref role="3_I8Xa" node="5HYJdC4wsjv" />
       </node>
       <node concept="398223" id="3IKDaVZn4nh" role="39821P">
+        <node concept="3ygNvl" id="y7NRqLFzk1" role="39821P">
+          <ref role="3ygNvj" node="1diLdO26H7E" resolve="plugins" />
+        </node>
+        <node concept="3_I8Xc" id="1SFIfQkx0Yw" role="39821P">
+          <ref role="3_I8Xa" node="4EdAnGErOtx" resolve="mps-core" />
+        </node>
         <node concept="3_I8Xc" id="6qT2v0r302E" role="39821P">
           <ref role="3_I8Xa" node="6b4RkXS7XdG" resolve="mps-build" />
         </node>
@@ -28543,9 +28549,6 @@
           <node concept="3Mxwew" id="3IKDaVZn4nj" role="3MwsjC">
             <property role="3MwjfP" value="plugins" />
           </node>
-        </node>
-        <node concept="3ygNvl" id="y7NRqLFzk1" role="39821P">
-          <ref role="3ygNvj" node="1diLdO26H7E" resolve="plugins" />
         </node>
         <node concept="3_I8Xc" id="1Z_UwmOKEYK" role="39821P">
           <ref role="3_I8Xa" node="5xfzfY92wJr" resolve="mps-devkit" />
@@ -28801,6 +28804,9 @@
     </node>
     <node concept="2sgV4H" id="Ye$g8POb5q" role="1l3spa">
       <ref role="1l3spb" node="1fy59xXo9Yo" resolve="mpsKotlinPlugin" />
+    </node>
+    <node concept="2sgV4H" id="6I6BoQpnqyE" role="1l3spa">
+      <ref role="1l3spb" node="5D1dJ7xWer5" resolve="mpsCore" />
     </node>
   </node>
   <node concept="1l3spW" id="3IKDaVZoWUr">
@@ -40368,9 +40374,6 @@
     <node concept="2sgV4H" id="1diLdO26mQg" role="1l3spa">
       <ref role="1l3spb" node="6S1jmf0xDFC" resolve="mpsBootstrapCore" />
     </node>
-    <node concept="2sgV4H" id="1diLdO26H6V" role="1l3spa">
-      <ref role="1l3spb" node="5D1dJ7xWer5" resolve="mpsCore" />
-    </node>
     <node concept="2sgV4H" id="1diLdO26mQi" role="1l3spa">
       <ref role="1l3spb" node="2eDSGe9d1ot" resolve="mpsWorkbench" />
     </node>
@@ -40474,9 +40477,6 @@
         </node>
       </node>
       <node concept="398223" id="1diLdO26H7E" role="39821P">
-        <node concept="3_I8Xc" id="1SFIfQkx0Yw" role="39821P">
-          <ref role="3_I8Xa" node="4EdAnGErOtx" resolve="mps-core" />
-        </node>
         <node concept="398223" id="1Zf1t7r6_nr" role="39821P">
           <node concept="3_J27D" id="1Zf1t7r6_nt" role="Nbhlr">
             <node concept="3Mxwew" id="1Zf1t7r6_nK" role="3MwsjC">

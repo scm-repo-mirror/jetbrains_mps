@@ -5,7 +5,6 @@
   <property name="build.layout" location="${build.dir}/artifacts/mpsStandalone" />
   <property name="mps_home" location="${basedir}" />
   <property name="artifacts.mpsBootstrapCore" location="${build.dir}/artifacts/mpsBootstrapCore" />
-  <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore" />
   <property name="artifacts.mpsWorkbench" location="${build.dir}/artifacts/mpsWorkbench" />
   <property name="artifacts.IDEA" location="${mps_home}" />
   <property file="${artifacts.mpsBootstrapCore}/build.properties" prefix="import.mpsBootstrapCore" />
@@ -53,10 +52,6 @@
       <fileset file="${basedir}/LICENSE.txt" />
     </copy>
     <mkdir dir="${build.layout}/plugins" />
-    <mkdir dir="${build.layout}/plugins/mps-core" />
-    <copy todir="${build.layout}/plugins/mps-core">
-      <fileset dir="${artifacts.mpsCore}/mps-core" />
-    </copy>
     <mkdir dir="${build.layout}/plugins/github" />
     <copy todir="${build.layout}/plugins/github">
       <fileset dir="${basedir}/plugins/github" />

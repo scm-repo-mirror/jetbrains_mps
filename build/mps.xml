@@ -35,6 +35,7 @@
   <property name="artifacts.mpsContextActionsTool" location="${build.dir}/artifacts/mpsContextActionsTool" />
   <property name="artifacts.mpsSpellCheckPlugin" location="${build.dir}/artifacts/mpsSpellCheckPlugin" />
   <property name="artifacts.mpsKotlinPlugin" location="${build.dir}/artifacts/mpsKotlinPlugin" />
+  <property name="artifacts.mpsCore" location="${build.dir}/artifacts/mpsCore" />
   <property file="${artifacts.mpsBuild}/build.properties" prefix="import.mpsBuild" />
   <property name="mpsBootstrapCore.version.major" value="${import.mpsBuild.mpsBootstrapCore.version.major}" />
   <property name="mpsBootstrapCore.version.minor" value="${import.mpsBuild.mpsBootstrapCore.version.minor}" />
@@ -131,6 +132,13 @@
     </copy>
     <copy file="${artifacts.mpsStandalone}/LICENSE.txt" todir="${build.layout}" />
     <mkdir dir="${build.layout}/plugins" />
+    <copy todir="${build.layout}/plugins">
+      <fileset dir="${artifacts.mpsStandalone}/plugins" />
+    </copy>
+    <mkdir dir="${build.layout}/plugins/mps-core" />
+    <copy todir="${build.layout}/plugins/mps-core">
+      <fileset dir="${artifacts.mpsCore}/mps-core" />
+    </copy>
     <mkdir dir="${build.layout}/plugins/mps-build" />
     <copy todir="${build.layout}/plugins/mps-build">
       <fileset dir="${artifacts.mpsBuild}/mps-build" />
@@ -145,9 +153,6 @@
     <mkdir dir="${build.layout}/plugins/mps-java" />
     <copy todir="${build.layout}/plugins/mps-java">
       <fileset dir="${artifacts.mpsJava}/mps-java" />
-    </copy>
-    <copy todir="${build.layout}/plugins">
-      <fileset dir="${artifacts.mpsStandalone}/plugins" />
     </copy>
     <mkdir dir="${build.layout}/plugins/mps-devkit" />
     <copy todir="${build.layout}/plugins/mps-devkit">
