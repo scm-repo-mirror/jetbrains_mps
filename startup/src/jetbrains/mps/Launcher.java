@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps;
 
@@ -49,10 +49,6 @@ public class Launcher {
       if (!plugins.isEmpty()) {
         System.setProperty("plugin.path", String.join(File.pathSeparator, plugins));
       }
-    } else {
-      // Only enable legacy mode in distribution
-      System.setProperty("actionSystem.update.actions.async", Boolean.toString(false));
-      System.setProperty("actionSystem.update.actions.async.ui", Boolean.toString(false));
     }
 
     Main.main(args);
