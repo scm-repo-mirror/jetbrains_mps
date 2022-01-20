@@ -13315,6 +13315,12 @@
             <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
+        <node concept="1SiIV0" id="3kgyr$qvPCw" role="3bR37C">
+          <node concept="3bR9La" id="3kgyr$qvPCx" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
+          </node>
+        </node>
         <node concept="398BVA" id="72hUg2Ux6nx" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
           <node concept="2Ry0Ak" id="72hUg2Ux6ny" role="iGT6I">

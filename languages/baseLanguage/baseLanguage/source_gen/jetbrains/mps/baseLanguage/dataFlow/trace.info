@@ -2290,9 +2290,8 @@
       <node id="6868777471677432263" at="96,9,97,60" concept="4" />
       <node id="6868777471677432276" at="98,7,99,20" concept="10" />
       <node id="6868777471677432036" at="101,45,102,39" concept="10" />
-      <node id="6868777471677432036" at="110,34,111,60" concept="10" />
-      <node id="6868777471677432036" at="116,0,117,0" concept="13" trace="VariableReference$TC" />
-      <node id="6868777471677432036" at="120,0,121,0" concept="13" trace="variableDeclaration$N1XG" />
+      <node id="6868777471677432036" at="107,0,108,0" concept="13" trace="VariableReference$TC" />
+      <node id="6868777471677432036" at="111,0,112,0" concept="13" trace="variableDeclaration$N1XG" />
       <node id="6868777471677432036" at="43,0,45,0" concept="2" trace="NullableAnalyzer#()V" />
       <node id="6868777471677432036" at="31,0,34,0" concept="2" trace="NullableAnalyzerRunner#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="4212311917866530343" at="55,52,58,11" concept="7" />
@@ -2305,7 +2304,6 @@
       <node id="6868777471677432254" at="93,53,96,9" concept="7" />
       <node id="6868777471677432036" at="101,0,104,0" concept="8" trace="getDirection#()Ljetbrains/mps/lang/dataFlow/framework/AnalysisDirection;" />
       <node id="6868777471677432036" at="45,0,49,0" concept="8" trace="initial#(Ljetbrains/mps/lang/dataFlow/framework/Program;)Ljava/util/Map;" />
-      <node id="6868777471677432036" at="109,0,113,0" concept="14" trace="getId#()Ljava/lang/String;" />
       <node id="6868777471677432036" at="34,0,41,0" concept="2" trace="NullableAnalyzerRunner#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/lang/dataFlow/framework/ProgramFactory;)V" />
       <node id="4212311917866530318" at="51,60,60,9" concept="6" />
       <node id="4212311917866530301" at="50,77,61,7" concept="6" />
@@ -2324,7 +2322,6 @@
       <scope id="6868777471677432235" at="90,81,91,136" />
       <scope id="6868777471677432255" at="94,33,95,45" />
       <scope id="6868777471677432036" at="101,45,102,39" />
-      <scope id="6868777471677432036" at="110,34,111,60" />
       <scope id="6868777471677432036" at="43,0,45,0" />
       <scope id="6868777471677432057" at="45,63,47,20">
         <var name="result" id="6868777471677432059" />
@@ -2336,7 +2333,6 @@
       <scope id="6868777471677432036" at="45,0,49,0">
         <var name="program" id="6868777471677432036" />
       </scope>
-      <scope id="6868777471677432036" at="109,0,113,0" />
       <scope id="6868777471677432036" at="34,86,39,115" />
       <scope id="6868777471677432036" at="34,0,41,0">
         <var name="factory" id="6868777471677432036" />
@@ -2380,10 +2376,10 @@
         <var name="state" id="6868777471677432036" />
         <var name="stateValues" id="6868777471677432036" />
       </scope>
-      <unit id="6868777471677432036" at="115,0,118,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$CONCEPTS" />
-      <unit id="6868777471677432036" at="119,0,122,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$LINKS" />
-      <unit id="6868777471677432036" at="42,0,114,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$NullableAnalyzer" />
-      <unit id="6868777471677432036" at="29,0,123,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner" />
+      <unit id="6868777471677432036" at="106,0,109,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$CONCEPTS" />
+      <unit id="6868777471677432036" at="110,0,113,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$LINKS" />
+      <unit id="6868777471677432036" at="42,0,105,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner$NullableAnalyzer" />
+      <unit id="6868777471677432036" at="29,0,114,0" name="jetbrains.mps.baseLanguage.dataFlow.NullableAnalyzerRunner" />
     </file>
     <file name="notNullInstruction.java">
       <node id="6868777471677432048" at="9,0,10,0" concept="5" trace="myexpression" />

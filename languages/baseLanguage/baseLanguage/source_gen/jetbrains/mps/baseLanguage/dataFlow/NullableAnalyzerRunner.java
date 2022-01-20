@@ -101,15 +101,6 @@ public class NullableAnalyzerRunner extends CustomAnalyzerRunner<Map<SNode, Null
     public AnalysisDirection getDirection() {
       return AnalysisDirection.FORWARD;
     }
-
-    /**
-     * 
-     * @deprecated 
-     */
-    @Deprecated
-    public static String getId() {
-      return "jetbrains.mps.baseLanguage.dataFlow.Nullable";
-    }
   }
 
   private static final class CONCEPTS {
