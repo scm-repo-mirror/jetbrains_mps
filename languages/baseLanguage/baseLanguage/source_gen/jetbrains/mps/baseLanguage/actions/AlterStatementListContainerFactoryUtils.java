@@ -79,12 +79,13 @@ public class AlterStatementListContainerFactoryUtils {
         if (SNodeOperations.isInstanceOf(inputSequence, CONCEPTS.VariableReference$TC)) {
           inputSequenceDeclaration = SLinkOperations.getTarget(SNodeOperations.cast(inputSequence, CONCEPTS.VariableReference$TC), LINKS.variableDeclaration$N1XG);
         } else {
-          inputSequenceDeclaration = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclaration$41, null);
-          SLinkOperations.setTarget(inputSequenceDeclaration, LINKS.type$a1UY, TypecheckingFacade.getFromContext().getTypeOf(inputSequence));
-          SPropertyOperations.set(inputSequenceDeclaration, PROPS.name$MnvL, "inputCollection");
-          SLinkOperations.setTarget(inputSequenceDeclaration, LINKS.initializer$2twD, SNodeOperations.copyNode(inputSequence));
+          SNode lvd = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclaration$41, null);
+          inputSequenceDeclaration = lvd;
+          SLinkOperations.setTarget(lvd, LINKS.type$a1UY, TypecheckingFacade.getFromContext().getTypeOf(inputSequence));
+          SPropertyOperations.set(lvd, PROPS.name$MnvL, "inputCollection");
+          SLinkOperations.setTarget(lvd, LINKS.initializer$2twD, SNodeOperations.copyNode(inputSequence));
           SNode v = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclarationStatement$4w, null);
-          SLinkOperations.setTarget(v, LINKS.localVariableDeclaration$RpjM, inputSequenceDeclaration);
+          SLinkOperations.setTarget(v, LINKS.localVariableDeclaration$RpjM, lvd);
           SNodeOperations.insertPrevSiblingChild(sampleNode, v);
         }
         if (SNodeOperations.isInstanceOf(collectionType, CONCEPTS.ArrayType$rh)) {

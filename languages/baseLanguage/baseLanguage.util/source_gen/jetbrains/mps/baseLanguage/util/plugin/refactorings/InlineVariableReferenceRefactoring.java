@@ -35,10 +35,10 @@ public class InlineVariableReferenceRefactoring extends InlineVariableRefactorin
   }
   @Override
   public SNode doRefactoring() {
-    final SNode variable = SLinkOperations.getTarget(this.myReference, LINKS.variableDeclaration$N1XG);
+    final SNode variable = SNodeOperations.as(SLinkOperations.getTarget(this.myReference, LINKS.variableDeclaration$N1XG), CONCEPTS.LocalVariableDeclaration$41);
     SNode nodeToSelect;
     if (myAssignment == null) {
-      nodeToSelect = SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(this.myReference, LINKS.variableDeclaration$N1XG), LINKS.initializer$2twD));
+      nodeToSelect = SNodeOperations.copyNode(SLinkOperations.getTarget(variable, LINKS.initializer$2twD));
       SNodeOperations.replaceWithAnother(this.myReference, nodeToSelect);
     } else
     if (SNodeOperations.isInstanceOf(myAssignment, CONCEPTS.VariableDeclaration$Y0)) {

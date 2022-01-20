@@ -19,6 +19,7 @@
     <import index="qq03" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.actions(MPS.Platform/)" />
     <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
+    <import index="8qxk" ref="r:3dddb2c7-b2ba-4381-896a-2e702ca1fb6e(jetbrains.mps.lang.dataFlow.framework)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
@@ -175,7 +176,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="qrAFe9jSKs" role="2OqNvi">
-                <ref role="37wK5l" to="1fjm:~StructuralProgramBuilder.buildProgram(java.lang.Object)" resolve="buildProgram" />
+                <ref role="37wK5l" to="8qxk:3yaa4ph8umS" resolve="buildProgram" />
                 <node concept="2OqwBi" id="qrAFe9k9Hr" role="37wK5m">
                   <node concept="2WthIp" id="qrAFe9k9Hu" role="2Oq$k0" />
                   <node concept="3gHZIF" id="qrAFe9k9Hw" role="2OqNvi">
@@ -280,7 +281,7 @@
                     <node concept="37vLTI" id="1KUoCipvzhc" role="3clFbG">
                       <node concept="2OqwBi" id="1KUoCipvzhd" role="37vLTx">
                         <node concept="liA8E" id="1KUoCipvzhe" role="2OqNvi">
-                          <ref role="37wK5l" to="1fjm:~StructuralProgramBuilder.buildProgram(java.lang.Object)" resolve="buildProgram" />
+                          <ref role="37wK5l" to="8qxk:3yaa4ph8umS" resolve="buildProgram" />
                           <node concept="2OqwBi" id="1KUoCipvzhf" role="37wK5m">
                             <node concept="3gHZIF" id="1KUoCipvzhg" role="2OqNvi">
                               <ref role="2WH_rO" node="4KDfkUwM7El" resolve="node" />
@@ -394,7 +395,7 @@
             </node>
             <node concept="2OqwBi" id="4KDfkUwM7Ex" role="33vP2m">
               <node concept="liA8E" id="4KDfkUwM7Ey" role="2OqNvi">
-                <ref role="37wK5l" to="1fjm:~StructuralProgramBuilder.buildProgram(java.lang.Object)" resolve="buildProgram" />
+                <ref role="37wK5l" to="8qxk:3yaa4ph8umS" resolve="buildProgram" />
                 <node concept="2OqwBi" id="4KDfkUwM7Ez" role="37wK5m">
                   <node concept="3gHZIF" id="4KDfkUwM7E$" role="2OqNvi">
                     <ref role="2WH_rO" node="4KDfkUwM7ES" resolve="node" />
@@ -493,7 +494,7 @@
             </node>
             <node concept="2OqwBi" id="4KDfkUwM7F2" role="33vP2m">
               <node concept="liA8E" id="4KDfkUwM7F3" role="2OqNvi">
-                <ref role="37wK5l" to="1fjm:~StructuralProgramBuilder.buildProgram(java.lang.Object)" resolve="buildProgram" />
+                <ref role="37wK5l" to="8qxk:3yaa4ph8umS" resolve="buildProgram" />
                 <node concept="2OqwBi" id="4KDfkUwM7F4" role="37wK5m">
                   <node concept="3gHZIF" id="4KDfkUwM7F5" role="2OqNvi">
                     <ref role="2WH_rO" node="4KDfkUwM7Fo" resolve="node" />

@@ -9,12 +9,13 @@ import jetbrains.mps.lang.dataFlow.framework.AnalysisResult;
 import jetbrains.mps.lang.dataFlow.framework.VarSet;
 import java.util.Set;
 import jetbrains.mps.lang.dataFlow.framework.instructions.WriteInstruction;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.baseLanguage.behavior.IExtractMethodAvailable__BehaviorDescriptor;
 import jetbrains.mps.lang.dataFlow.MPSProgramBuilder;
 import jetbrains.mps.lang.dataFlow.framework.analyzers.ReachabilityAnalyzer;
 import jetbrains.mps.lang.dataFlow.framework.analyzers.LivenessAnalyzer;
 import jetbrains.mps.lang.dataFlow.framework.analyzers.ReachingDefinitionsAnalyzer;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -32,7 +33,6 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.LinkedHashMap;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.behavior.IParameter__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.behavior.IExtractMethodAvailable__BehaviorDescriptor;
 import jetbrains.mps.lang.dataFlow.framework.instructions.ReadInstruction;
 import jetbrains.mps.baseLanguage.behavior.VariableDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -48,13 +48,26 @@ public class ExtractMethodRefactoringAnalyzer {
   private AnalysisResult<Boolean> myReachability;
   private AnalysisResult<VarSet> myLiveVariables;
   private AnalysisResult<Set<WriteInstruction>> myReachingDefinitions;
-  private IExtractMethodRefactoringProcessor myProcessor;
+  private final IExtractMethodRefactoringProcessor myProcessor;
   private boolean shouldBeStatic;
   private boolean canBeStatic;
-  private boolean shouldChooseOuterContainer;
+  private final boolean shouldChooseOuterContainer;
   public ExtractMethodRefactoringAnalyzer(List<SNode> nodes) {
     this.myPartToExtract = nodes;
-    this.findExtractMethodRefactoringProcessor();
+    // find ExtractMethodRefactoringProcessor
+    SNode first = ListSequence.fromList(this.myPartToExtract).first();
+    SNode classConcept = SNodeOperations.getNodeAncestor(first, CONCEPTS.ClassConcept$bK, false, false);
+    if (classConcept != null) {
+      this.myProcessor = new ClassExtractMethodRefactoringProcessor(classConcept, this.myPartToExtract);
+      shouldChooseOuterContainer = false;
+    } else if (SNodeOperations.getNodeAncestor(first, CONCEPTS.IExtractMethodAvailable$hu, false, false) != null) {
+      SNode extractable = SNodeOperations.getNodeAncestor(first, CONCEPTS.IExtractMethodAvailable$hu, false, false);
+      this.myProcessor = IExtractMethodAvailable__BehaviorDescriptor.getExtractMethodRefactoringProcessor_idhLwHWdT.invoke(extractable, this.myPartToExtract);
+      shouldChooseOuterContainer = false;
+    } else {
+      this.myProcessor = new AbstractExtractMethodRefactoringProcessor(null, this.myPartToExtract);
+      shouldChooseOuterContainer = true;
+    }
     this.myProgram = new MPSProgramBuilder().buildProgram(this.myProcessor.getContainerMethod());
     this.myReachability = this.myProgram.analyze(new ReachabilityAnalyzer());
     this.myInternalExitPoints = this.calculateInternalExitPoints();
@@ -251,20 +264,6 @@ public class ExtractMethodRefactoringAnalyzer {
   public IExtractMethodRefactoringProcessor getExtractMethodReafactoringProcessor() {
     return this.myProcessor;
   }
-  private void findExtractMethodRefactoringProcessor() {
-    shouldChooseOuterContainer = false;
-    SNode first = ListSequence.fromList(this.myPartToExtract).first();
-    SNode classConcept = SNodeOperations.getNodeAncestor(first, CONCEPTS.ClassConcept$bK, false, false);
-    if (classConcept != null) {
-      this.myProcessor = new ClassExtractMethodRefactoringProcessor(classConcept, this.myPartToExtract);
-    } else if (SNodeOperations.getNodeAncestor(first, CONCEPTS.IExtractMethodAvailable$hu, false, false) != null) {
-      SNode extractable = SNodeOperations.getNodeAncestor(first, CONCEPTS.IExtractMethodAvailable$hu, false, false);
-      this.myProcessor = IExtractMethodAvailable__BehaviorDescriptor.getExtractMethodRefactoringProcessor_idhLwHWdT.invoke(extractable, this.myPartToExtract);
-    } else {
-      this.myProcessor = new AbstractExtractMethodRefactoringProcessor(null, this.myPartToExtract);
-      shouldChooseOuterContainer = true;
-    }
-  }
   private void addExternalParameters(Map<SNode, MethodParameter> result) {
     SNode list = SNodeOperations.getNodeAncestor(ListSequence.fromList(myPartToExtract).getElement(0), CONCEPTS.StatementList$m_, false, false);
     while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(list), CONCEPTS.Statement$P6)) {
@@ -340,6 +339,8 @@ public class ExtractMethodRefactoringAnalyzer {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SInterfaceConcept IExtractMethodAvailable$hu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c60bb0a14L, "jetbrains.mps.baseLanguage.structure.IExtractMethodAvailable");
     /*package*/ static final SConcept StaticMethodDeclaration$FJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
     /*package*/ static final SConcept ConceptMethodDeclaration$N0 = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
     /*package*/ static final SConcept VariableReference$TC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
@@ -357,8 +358,6 @@ public class ExtractMethodRefactoringAnalyzer {
     /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
     /*package*/ static final SInterfaceConcept IParameter$HE = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d486a1d9eL, "jetbrains.mps.baseLanguage.structure.IParameter");
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SInterfaceConcept IExtractMethodAvailable$hu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c60bb0a14L, "jetbrains.mps.baseLanguage.structure.IExtractMethodAvailable");
     /*package*/ static final SConcept StatementList$m_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
     /*package*/ static final SConcept Statement$P6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
     /*package*/ static final SConcept StaticFieldDeclaration$jR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
