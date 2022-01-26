@@ -292,6 +292,11 @@ public abstract class KotlinTextGen {
       tgs.append(" ");
     }
   }
+  public static void customReference(SNode ref, String customName, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    tgs.append(customName);
+    KotlinTextGen.require(ref, ctx);
+  }
   public static void reference(SNode ref, boolean nested, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if (nested) {

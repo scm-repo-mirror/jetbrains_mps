@@ -279,7 +279,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypehex = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af684L, "hex", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798374020", "[0-9a-fA-F_]+");
   /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypekotlinString = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4e07f19a410086fdL, "kotlinString", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/5622728304613164797", "[^$]*");
   /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypelong = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af68cL, "long", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798374028", "((([1-9](([0-9]|_))*[0-9])|[0-9])|((0[xX][0-9a-fA-F](([0-9a-fA-F]|_))*[0-9a-fA-F])|0[xX][0-9a-fA-F])|((0[bB][01](([01]|_))*[01])|0[bB][01]))[lL]");
-  /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypereal = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af68aL, "real", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798374026", "((((((((([0-9](([0-9]|_))*[0-9])|[0-9]))?\\.(([0-9](([0-9]|_))*[0-9])|[0-9])([eE]([+-])?(([0-9](([0-9]|_))*[0-9])|[0-9]))?)|((([0-9](([0-9]|_))*[0-9])|[0-9])[eE]([+-])?(([0-9](([0-9]|_))*[0-9])|[0-9])))[fF])|((([0-9](([0-9]|_))*[0-9])|[0-9])[fF])))|(((((([0-9](([0-9]|_))*[0-9])|[0-9]))?\\.(([0-9](([0-9]|_))*[0-9])|[0-9])([eE]([+-])?(([0-9](([0-9]|_))*[0-9])|[0-9]))?)|((([0-9](([0-9]|_))*[0-9])|[0-9])[eE]([+-])?(([0-9](([0-9]|_))*[0-9])|[0-9])))))");
+  /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypereal = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af68aL, "real", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798374026", "([-+]?((\\d+\\.\\d*)|(\\d*\\.\\d+))(?:[eE]([-+]?\\d+))?)|(\\d*[eE][-+]?\\d+)");
   /*package*/ final ConstrainedStringDatatypeDescriptor myCSDatatypeunsigned = new ConstrainedStringDatatypeDescriptorImpl(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af68eL, "unsigned", "r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798374030", "((([1-9](([0-9]|_))*[0-9])|[0-9])|((0[xX][0-9a-fA-F](([0-9a-fA-F]|_))*[0-9a-fA-F])|0[xX][0-9a-fA-F])|((0[bB][01](([01]|_))*[01])|0[bB][01]))[uU]([lL])?");
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -959,6 +959,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af30fL);
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL);
+    b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7b9f2288076b136aL);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/2936055411798373641");
     b.version(3);
     b.aggregate("block_", 0x28bef6d7551af84aL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3e7L).optional(true).ordered(true).multiple(false).origin("2936055411798374474").done();
@@ -1147,6 +1148,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af322L);
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af366L);
+    b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/1781658014498910083");
     b.version(3);
     return b.create();

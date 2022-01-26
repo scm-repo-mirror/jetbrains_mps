@@ -1041,5 +1041,23 @@
       </node>
     </node>
   </node>
+  <node concept="1M2fIO" id="1CYLv9VoQcM">
+    <property role="3GE5qa" value="functionCall" />
+    <ref role="1M2myG" to="48vp:UG7NftKIBi" resolve="KotlinClassCreator" />
+    <node concept="1N5Pfh" id="1CYLv9VoQh9" role="1Mr941">
+      <ref role="1N5Vy1" to="48vp:1t03WazhIic" resolve="constructor" />
+      <node concept="3dgokm" id="1CYLv9VoQsD" role="1N6uqs">
+        <node concept="3clFbS" id="1CYLv9VoQsF" role="2VODD2">
+          <node concept="3clFbF" id="1CYLv9VoQF9" role="3cqZAp">
+            <node concept="2YIFZM" id="1CYLv9VoQMq" role="3clFbG">
+              <ref role="37wK5l" to="tbhz:1pD7IS3$fm0" resolve="create" />
+              <ref role="1Pybhc" to="tbhz:1pD7IS3$eRv" resolve="ConstructorScope" />
+              <node concept="2rP1CM" id="1CYLv9VoQQH" role="37wK5m" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

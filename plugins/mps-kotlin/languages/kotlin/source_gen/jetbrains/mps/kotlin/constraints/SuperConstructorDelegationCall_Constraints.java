@@ -48,7 +48,7 @@ public class SuperConstructorDelegationCall_Constraints extends BaseConstraintsD
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            SNode parent = SNodeOperations.as((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.IInheritExplicitly$UG);
+            SNode parent = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.IInheritExplicitly$UG, true, false);
 
             // No primary, need super() scope
             if (!((boolean) IInheritExplicitly__BehaviorDescriptor.hasPrimaryConstructor_id1$jFvlEi5P5.invoke(parent))) {
