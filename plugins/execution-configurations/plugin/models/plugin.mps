@@ -1786,7 +1786,12 @@
   <node concept="3wDVqV" id="5gyVhZ17Jm9">
     <property role="TrG5h" value="Java Application" />
     <property role="3GE5qa" value="java" />
-    <node concept="1QGGSu" id="5gyVhZ17Jma" role="1bitO_" />
+    <node concept="1QGGSu" id="1sDdZ5$RWXl" role="1bitO_">
+      <node concept="10M0yZ" id="1sDdZ5$ScDH" role="3xaMm5">
+        <ref role="3cqZAo" to="z2i8:~AllIcons$RunConfigurations.Application" resolve="Application" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="RunConfigurations" />
+      </node>
+    </node>
   </node>
   <node concept="RBi3j" id="5gyVhZ17Jmb">
     <property role="35f5FB" value="true" />
@@ -2360,7 +2365,7 @@
     <property role="3GE5qa" value="junit" />
     <node concept="1QGGSu" id="4rA9Dd$P7z0" role="1bitO_">
       <node concept="10M0yZ" id="4rA9Dd$Pgjt" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="AllIcons.RunConfigurations" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="RunConfigurations" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$RunConfigurations.Junit" resolve="Junit" />
       </node>
     </node>
