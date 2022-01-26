@@ -8132,5 +8132,15 @@
     <property role="34LRSv" value="spellcheck" />
     <ref role="1TJDcQ" node="hgVOiwV" resolve="BooleanStyleSheetItem" />
   </node>
+  <node concept="1TIwiD" id="6m5Zb4otLWd">
+    <property role="R5$K7" value="false" />
+    <property role="R5$K2" value="false" />
+    <property role="TrG5h" value="SeparatorRightStyleClassItem" />
+    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
+    <property role="3GE5qa" value="Stylesheet" />
+    <property role="34LRSv" value="separator-right" />
+    <property role="EcuMT" value="7315531007283109645" />
+    <ref role="1TJDcQ" node="hgVOiwV" resolve="BooleanStyleSheetItem" />
+  </node>
 </model>
 

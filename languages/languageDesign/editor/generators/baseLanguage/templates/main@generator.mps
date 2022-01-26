@@ -22579,6 +22579,15 @@
         </node>
       </node>
     </node>
+    <node concept="3aamgX" id="44fripTbbMI" role="3aUrZf">
+      <ref role="30HIoZ" to="tpc2:6m5Zb4otLWd" resolve="SeparatorRightStyleClassItem" />
+      <node concept="gft3U" id="44fripTbd6G" role="1lVwrX">
+        <node concept="10M0yZ" id="44fripTbecx" role="gfFT$">
+          <ref role="3cqZAo" to="5ueo:~StyleAttributes.SEPARATOR_RIGHT" resolve="SEPARATOR_RIGHT" />
+          <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+        </node>
+      </node>
+    </node>
     <node concept="3aamgX" id="AV1oJuQPt0" role="3aUrZf">
       <ref role="30HIoZ" to="tpc2:AV1oJuQyTS" resolve="TransparentStyleSheetItem" />
       <node concept="gft3U" id="AV1oJuQRhP" role="1lVwrX">

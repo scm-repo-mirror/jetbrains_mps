@@ -27791,5 +27791,31 @@
       </node>
     </node>
   </node>
+  <node concept="13h7C7" id="6m5Zb4ou2O_">
+    <property role="3GE5qa" value="Stylesheet" />
+    <ref role="13h7C2" to="tpc2:6m5Zb4otLWd" resolve="SeparatorRightStyleClassItem" />
+    <node concept="13i0hz" id="6m5Zb4ou2YU" role="13h7CS">
+      <property role="TrG5h" value="getStyleAttribute" />
+      <ref role="13i0hy" node="3a0zHG4tjdX" resolve="getStyleAttribute" />
+      <node concept="3clFbS" id="6m5Zb4ou2YX" role="3clF47">
+        <node concept="3cpWs6" id="6m5Zb4ou48a" role="3cqZAp">
+          <node concept="10M0yZ" id="44fripSI6$H" role="3cqZAk">
+            <ref role="3cqZAo" to="5ueo:~StyleAttributes.SEPARATOR_RIGHT" resolve="SEPARATOR_RIGHT" />
+            <ref role="1PxDUh" to="5ueo:~StyleAttributes" resolve="StyleAttributes" />
+          </node>
+        </node>
+      </node>
+      <node concept="3uibUv" id="6m5Zb4ou3R9" role="3clF45">
+        <ref role="3uigEE" to="hox0:~StyleAttribute" resolve="StyleAttribute" />
+        <node concept="3uibUv" id="6m5Zb4ou3Ra" role="11_B2D">
+          <ref role="3uigEE" to="wyt6:~Boolean" resolve="Boolean" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="6m5Zb4ou3Rb" role="1B3o_S" />
+    </node>
+    <node concept="13hLZK" id="6m5Zb4ou2OA" role="13h7CW">
+      <node concept="3clFbS" id="6m5Zb4ou2OB" role="2VODD2" />
+    </node>
+  </node>
 </model>
 

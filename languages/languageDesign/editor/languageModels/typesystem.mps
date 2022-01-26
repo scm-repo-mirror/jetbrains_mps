@@ -324,6 +324,9 @@
         <reference id="1966870290088668516" name="memberDeclaration" index="2ViDtZ" />
       </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
+      <concept id="1180031783296" name="jetbrains.mps.lang.smodel.structure.Concept_IsSubConceptOfOperation" flags="nn" index="2Zo12i">
+        <child id="1180031783297" name="conceptArgument" index="2Zo12j" />
+      </concept>
       <concept id="3562215692195599741" name="jetbrains.mps.lang.smodel.structure.SLinkImplicitSelect" flags="nn" index="13MTOL">
         <reference id="3562215692195600259" name="link" index="13MTZf" />
       </concept>
@@ -7092,6 +7095,77 @@
     <node concept="1YaCAy" id="4xIYgBPSqLC" role="1YuTPh">
       <property role="TrG5h" value="menu" />
       <ref role="1YaFvo" to="tpc2:1quYWAD18Lj" resolve="IMenu_Concept" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="5s_LJTvDH6p">
+    <property role="TrG5h" value="check_SeparatorRightStyleClassItem" />
+    <property role="3GE5qa" value="Stylesheet" />
+    <node concept="3clFbS" id="5s_LJTvDH6q" role="18ibNy">
+      <node concept="3cpWs8" id="5s_LJTvDJ5A" role="3cqZAp">
+        <node concept="3cpWsn" id="5s_LJTvDJ5B" role="3cpWs9">
+          <property role="TrG5h" value="nodeList" />
+          <node concept="3Tqbb2" id="5s_LJTvDISI" role="1tU5fm">
+            <ref role="ehGHo" to="tpc2:fBF2Hee" resolve="CellModel_RefNodeList" />
+          </node>
+          <node concept="2OqwBi" id="5s_LJTvDJ5C" role="33vP2m">
+            <node concept="1YBJjd" id="5s_LJTvDJ5D" role="2Oq$k0">
+              <ref role="1YBMHb" node="5s_LJTvDH6s" resolve="node" />
+            </node>
+            <node concept="2Xjw5R" id="5s_LJTvDJ5E" role="2OqNvi">
+              <node concept="1xMEDy" id="5s_LJTvDJ5F" role="1xVPHs">
+                <node concept="chp4Y" id="5s_LJTvDJ5G" role="ri$Ld">
+                  <ref role="cht4Q" to="tpc2:fBF2Hee" resolve="CellModel_RefNodeList" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbJ" id="5s_LJTvDJkZ" role="3cqZAp">
+        <node concept="3clFbS" id="5s_LJTvDJl1" role="3clFbx">
+          <node concept="3clFbJ" id="5s_LJTvDOXu" role="3cqZAp">
+            <node concept="3clFbS" id="5s_LJTvDOXw" role="3clFbx">
+              <node concept="3cpWs6" id="5s_LJTvDPpV" role="3cqZAp" />
+            </node>
+            <node concept="2OqwBi" id="5s_LJTvDNLs" role="3clFbw">
+              <node concept="2OqwBi" id="5s_LJTvDNkG" role="2Oq$k0">
+                <node concept="2OqwBi" id="5s_LJTvDNkH" role="2Oq$k0">
+                  <node concept="37vLTw" id="5s_LJTvDNkI" role="2Oq$k0">
+                    <ref role="3cqZAo" node="5s_LJTvDJ5B" resolve="nodeList" />
+                  </node>
+                  <node concept="3TrEf2" id="5s_LJTvDNkJ" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpc2:gAczzzC" resolve="cellLayout" />
+                  </node>
+                </node>
+                <node concept="2yIwOk" id="5s_LJTvDNkK" role="2OqNvi" />
+              </node>
+              <node concept="2Zo12i" id="5s_LJTvDOc5" role="2OqNvi">
+                <node concept="chp4Y" id="5s_LJTvDOuJ" role="2Zo12j">
+                  <ref role="cht4Q" to="tpc2:g6iRkMY" resolve="CellLayout_Vertical" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3y3z36" id="5s_LJTvDJH4" role="3clFbw">
+          <node concept="10Nm6u" id="5s_LJTvDJIN" role="3uHU7w" />
+          <node concept="37vLTw" id="5s_LJTvDJpq" role="3uHU7B">
+            <ref role="3cqZAo" node="5s_LJTvDJ5B" resolve="nodeList" />
+          </node>
+        </node>
+      </node>
+      <node concept="2MkqsV" id="5s_LJTvDPDZ" role="3cqZAp">
+        <node concept="Xl_RD" id="5s_LJTvDPWv" role="2MkJ7o">
+          <property role="Xl_RC" value="Separator-right style is only applicable inside vertical collections" />
+        </node>
+        <node concept="1YBJjd" id="5s_LJTvDPNW" role="1urrMF">
+          <ref role="1YBMHb" node="5s_LJTvDH6s" resolve="node" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="5s_LJTvDH6s" role="1YuTPh">
+      <property role="TrG5h" value="node" />
+      <ref role="1YaFvo" to="tpc2:6m5Zb4otLWd" resolve="SeparatorRightStyleClassItem" />
     </node>
   </node>
 </model>

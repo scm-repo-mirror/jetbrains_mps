@@ -202,6 +202,8 @@ public class StyleAttributes {
   public static final StyleAttribute<Boolean> PUNCTUATION_LEFT = new SimpleStyleAttribute<>("punctuation-left", false, true);
   public static final StyleAttribute<Boolean> PUNCTUATION_RIGHT = new SimpleStyleAttribute<>("punctuation-right", false, true);
 
+  public static final StyleAttribute<Boolean> SEPARATOR_RIGHT = new SimpleStyleAttribute<>("position-right", false, true);
+
   public static final StyleAttribute<Padding> HORIZONTAL_GAP = new SimpleStyleAttribute<>("horizontal-gap", new Padding(1.0), true);
 
   public static final StyleAttribute<String> POSITION = new SimpleStyleAttribute<>("position", null, true);
