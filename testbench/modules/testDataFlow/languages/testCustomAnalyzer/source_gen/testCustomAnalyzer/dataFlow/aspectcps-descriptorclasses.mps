@@ -257,14 +257,10 @@
   <node concept="312cEu" id="0">
     <property role="TrG5h" value="ChildIntraModeRule" />
     <uo k="s:originTrace" v="n:2955426575106084979" />
-    <node concept="3uibUv" id="1" role="EKbjA">
-      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
+    <node concept="3Tm1VV" id="1" role="1B3o_S">
       <uo k="s:originTrace" v="n:2955426575106084979" />
     </node>
-    <node concept="3Tm1VV" id="2" role="1B3o_S">
-      <uo k="s:originTrace" v="n:2955426575106084979" />
-    </node>
-    <node concept="3clFb_" id="3" role="jymVt">
+    <node concept="3clFb_" id="2" role="jymVt">
       <property role="TrG5h" value="isApplicable" />
       <uo k="s:originTrace" v="n:2955426575106084979" />
       <node concept="37vLTG" id="7" role="3clF46">
@@ -312,7 +308,7 @@
               <uo k="s:originTrace" v="n:2955426575106084979" />
             </node>
             <node concept="1rXfSq" id="m" role="33vP2m">
-              <ref role="37wK5l" node="4" resolve="getApplicableConcept" />
+              <ref role="37wK5l" node="3" resolve="getApplicableConcept" />
               <uo k="s:originTrace" v="n:2955426575106084979" />
             </node>
           </node>
@@ -355,7 +351,7 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="4" role="jymVt">
+    <node concept="3clFb_" id="3" role="jymVt">
       <property role="TrG5h" value="getApplicableConcept" />
       <uo k="s:originTrace" v="n:2955426575106084979" />
       <node concept="3uibUv" id="w" role="3clF45">
@@ -376,7 +372,7 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="5" role="jymVt">
+    <node concept="3clFb_" id="4" role="jymVt">
       <property role="TrG5h" value="performActions" />
       <uo k="s:originTrace" v="n:2955426575106084979" />
       <node concept="3cqZAl" id="_" role="3clF45">
@@ -407,7 +403,7 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="6" role="jymVt">
+    <node concept="3clFb_" id="5" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getModes" />
       <property role="DiZV1" value="false" />
@@ -455,18 +451,18 @@
         <uo k="s:originTrace" v="n:2955426575106084979" />
       </node>
     </node>
+    <node concept="3uibUv" id="6" role="EKbjA">
+      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
+      <uo k="s:originTrace" v="n:2955426575106084979" />
+    </node>
   </node>
   <node concept="312cEu" id="S">
     <property role="TrG5h" value="ChildRule" />
     <uo k="s:originTrace" v="n:8332528989793339868" />
-    <node concept="3uibUv" id="T" role="EKbjA">
-      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
+    <node concept="3Tm1VV" id="T" role="1B3o_S">
       <uo k="s:originTrace" v="n:8332528989793339868" />
     </node>
-    <node concept="3Tm1VV" id="U" role="1B3o_S">
-      <uo k="s:originTrace" v="n:8332528989793339868" />
-    </node>
-    <node concept="3clFb_" id="V" role="jymVt">
+    <node concept="3clFb_" id="U" role="jymVt">
       <property role="TrG5h" value="isApplicable" />
       <uo k="s:originTrace" v="n:8332528989793339868" />
       <node concept="37vLTG" id="Y" role="3clF46">
@@ -514,7 +510,7 @@
               <uo k="s:originTrace" v="n:8332528989793339868" />
             </node>
             <node concept="1rXfSq" id="1d" role="33vP2m">
-              <ref role="37wK5l" node="W" resolve="getApplicableConcept" />
+              <ref role="37wK5l" node="V" resolve="getApplicableConcept" />
               <uo k="s:originTrace" v="n:8332528989793339868" />
             </node>
           </node>
@@ -557,7 +553,7 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="W" role="jymVt">
+    <node concept="3clFb_" id="V" role="jymVt">
       <property role="TrG5h" value="getApplicableConcept" />
       <uo k="s:originTrace" v="n:8332528989793339868" />
       <node concept="3uibUv" id="1n" role="3clF45">
@@ -578,7 +574,7 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="X" role="jymVt">
+    <node concept="3clFb_" id="W" role="jymVt">
       <property role="TrG5h" value="performActions" />
       <uo k="s:originTrace" v="n:8332528989793339868" />
       <node concept="3cqZAl" id="1s" role="3clF45">
@@ -806,6 +802,10 @@
           </node>
         </node>
       </node>
+    </node>
+    <node concept="3uibUv" id="X" role="EKbjA">
+      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
+      <uo k="s:originTrace" v="n:8332528989793339868" />
     </node>
   </node>
   <node concept="312cEu" id="2s">

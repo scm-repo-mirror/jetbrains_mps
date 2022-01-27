@@ -1651,9 +1651,6 @@
   </node>
   <node concept="312cEu" id="3OYWvKo5tAa">
     <property role="TrG5h" value="PatternRule" />
-    <node concept="3uibUv" id="3kgyr$qoh8f" role="EKbjA">
-      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
-    </node>
     <node concept="3Tm1VV" id="3OYWvKo5tAb" role="1B3o_S" />
     <node concept="n94m4" id="3OYWvKo5tAg" role="lGtFl">
       <ref role="n9lRv" to="bj1v:nUEAIXlVr8" resolve="Rule" />
@@ -1858,6 +1855,9 @@
           </node>
         </node>
       </node>
+    </node>
+    <node concept="3uibUv" id="3kgyr$qoh8f" role="EKbjA">
+      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
     </node>
   </node>
   <node concept="312cEu" id="7wwiZxTDPtN">
@@ -3180,9 +3180,6 @@
   </node>
   <node concept="312cEu" id="4ipeeu8Vzdo">
     <property role="TrG5h" value="ConceptRule" />
-    <node concept="3uibUv" id="3kgyr$qodl0" role="EKbjA">
-      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
-    </node>
     <node concept="3Tm1VV" id="4ipeeu8Vzdp" role="1B3o_S" />
     <node concept="n94m4" id="4ipeeu8Vzdu" role="lGtFl">
       <ref role="n9lRv" to="bj1v:nUEAIXlVr8" resolve="Rule" />
@@ -3396,6 +3393,9 @@
           </node>
         </node>
       </node>
+    </node>
+    <node concept="3uibUv" id="3kgyr$qodl0" role="EKbjA">
+      <ref role="3uigEE" to="8qxk:3yaa4ph8uRC" resolve="DataFlowConstructor" />
     </node>
   </node>
   <node concept="13MO4I" id="4ipeeu8X0PQ">
