@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,18 @@ package jetbrains.mps.lang.dataFlow.framework.instructions;
 
 
 import jetbrains.mps.lang.dataFlow.framework.Program;
-import jetbrains.mps.lang.dataFlow.framework.ProgramState;
 import jetbrains.mps.lang.dataFlow.framework.Program.TryFinallyInfo;
+import jetbrains.mps.lang.dataFlow.framework.ProgramState;
+import jetbrains.mps.smodel.SNodeUtil;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public abstract class Instruction {
   protected Program myProgram;
@@ -166,5 +174,22 @@ public abstract class Instruction {
 
   public void setRuleReference(String ruleReference) {
     myRuleReference = ruleReference;
+  }
+
+  /**
+   * for the purposes of {@link #commandPresentation()}, we might need string presentation of
+   * a {@code node<>}, and we can not affort to rely on {@code toString()} in this case
+   *
+   * @return string presentation of the argument, or {@code null} if argument is {@code null} (don't see a point to keep "null" string)
+   */
+  @Nullable
+  protected static String presentationOf(@Nullable Object v) {
+    if (v == null) {
+      return null;
+    }
+    if (v instanceof SNode) {
+      return SNodeUtil.getPresentation((SNode) v);
+    }
+    return String.valueOf(v);
   }
 }
