@@ -53,7 +53,7 @@ public final class PathFormatChecker {
   }
 
   public PathFormatChecker absolute() {
-    if (!(new File(myPath).isAbsolute())) {
+    if (!com.intellij.openapi.util.io.OSAgnosticPathUtil.isAbsolute(myPath)) {
       throw new PathFormatException(String.format("Path should be absolute: %s, os %s",
                                                   myPath,
                                                   System.getProperty("os.name")), myPath);
