@@ -29,30 +29,15 @@ import java.util.Collection;
  */
 @Singleton
 public final class PathManager {
-  private static final Logger LOG = LogManager.getLogger(PathManager.class);
-
 //  I am in doubt whether we need this (e.g in copymodels)
 //  private static final String PROPERTY_HOME_PATH = "mps.home.path";
 
   private static final String FILE = "file";
-  public static final String JAR = "jar";
-  private static final String JAR_DELIMITER = "!";
   public static final String DOT_JAR = ".jar";
 
-  private static final String PROTOCOL_DELIMITER = ":";
-  private static final String PLUGINS_PATH = "plugins";
-  private static final String PROPERTIES_FILE_NAME = "idea.properties";
+  private static final String PROPERTIES_FILE_NAME = com.intellij.openapi.application.PathManager.PROPERTIES_FILE_NAME;
 
   private static String ourHomePath;
-  private static String ourIdeaPath;
-  private static String ourPlatformLibPath;
-
-  /**
-   * @deprecated to be removed without replacement, just inline one if you care.
-   */
-  @ToRemove(version = 2019.2)
-  @Deprecated
-  public static final FilenameFilter JAR_FILE_FILTER = (dir, name) -> name.endsWith(DOT_JAR);
 
   private PathManager() {
   }
@@ -75,32 +60,28 @@ public final class PathManager {
       return ourHomePath;
     }
 
-//    if (System.getProperty(PathManager.PROPERTY_HOME_PATH) != null) {
-//      ourHomePath = FileUtil.getAbsolutePath(System.getProperty(PathManager.PROPERTY_HOME_PATH));
-//    } else {
-      String rootPath = getContainingJar(PathManager.class);
+    String rootPath = getContainingJar(PathManager.class);
 
-      File root = new File(rootPath);
-      root = root.getAbsoluteFile();
+    File root = new File(rootPath);
+    root = root.getAbsoluteFile();
 
-      if (rootPath.endsWith(DOT_JAR)) {
-        // {mps_home}/lib
+    if (rootPath.endsWith(DOT_JAR)) {
+      // {mps_home}/lib
+      root = root.getParentFile();
+      if (root != null) {
+        // {mps_home}
         root = root.getParentFile();
-        if (root != null) {
-          // {mps_home}
-          root = root.getParentFile();
-        }
-      } else {
-        while ((!isMpsDir(root)) && (root.getParentFile() != null)) {
-          root = root.getParentFile();
-        }
       }
+    } else {
+      while ((!isMpsDir(root)) && (root.getParentFile() != null)) {
+        root = root.getParentFile();
+      }
+    }
 
-      ourHomePath = root.getAbsolutePath();
-      if ("/".equals(ourHomePath)) {
-        throw new IllegalStateException("cannot detect MPS location");
-      }
-//    }
+    ourHomePath = root.getAbsolutePath();
+    if ("/".equals(ourHomePath)) {
+      throw new IllegalStateException("cannot detect MPS location");
+    }
     return ourHomePath;
   }
 
@@ -113,28 +94,12 @@ public final class PathManager {
     return launcherURL != null && launcherURL.getProtocol().equals(FILE);
   }
 
-  private static String getContainingJar(Class aClass) {
+  private static String getContainingJar(Class<?> aClass) {
     return getResourceRoot(aClass, "/" + aClass.getName().replace('.', '/') + ".class");
   }
 
   public static String getIdeaPath() {
-    if (ourIdeaPath != null) {
-      return ourIdeaPath;
-    }
-
-    // {idea_home}/lib
-    File root = new File(getPlatformLibPath());
-    root = root.getAbsoluteFile();
-    // {idea_home}
-    root = root.getParentFile();
-
-    if (root == null) {
-      ourIdeaPath = getHomePath();
-    } else {
-      ourIdeaPath = root.getAbsolutePath();
-    }
-
-    return ourIdeaPath;
+    return com.intellij.openapi.application.PathManager.getHomePath();
   }
 
   public static String getLibExtPath() {
@@ -145,23 +110,7 @@ public final class PathManager {
    * @return <MPS or IDEA home>/lib location, where IDEA platform jars reside. May be the same as {@link #getLibPath()}
    */
   public static String getPlatformLibPath() {
-    if (ourPlatformLibPath != null) {
-      return ourPlatformLibPath;
-    }
-
-    // {idea_home}/lib/util.jar
-    String rootPath = getContainingJar(Document.class);
-    if (rootPath != null) {
-      File root = new File(rootPath);
-      root = root.getAbsoluteFile();
-
-      // {idea_home}/lib
-      root = root.getParentFile();
-      if (root != null) {
-        return ourPlatformLibPath = root.getAbsolutePath();
-      }
-    }
-    return ourPlatformLibPath = getHomePath() + "/lib";
+    return com.intellij.openapi.application.PathManager.getLibPath();
   }
 
   public static String[] getHomePaths() {
@@ -222,114 +171,12 @@ public final class PathManager {
   /**
    * Attempts to detect classpath entry which contains given resource
    */
-  public static String getResourceRoot(Class context, String path) {
-    URL url = context.getResource(path);
-    if (url == null) {
-      url = ClassLoader.getSystemResource(path.substring(1));
-    }
-    if (url == null) {
-      return null;
-    }
-    return extractRoot(url, path);
-  }
-
-  /**
-   * Attempts to extract classpath entry part from passed URL.
-   */
-  private static String extractRoot(URL resourceURL, String resourcePath) {
-    if (resourcePath.length() == 0 || resourcePath.charAt(0) != '/' && resourcePath.charAt(0) != '\\') {
-      LOG.error("precondition failed: " + resourcePath);
-      return null;
-    }
-
-    String resultPath = null;
-    String protocol = resourceURL.getProtocol();
-    if (URLUtil.FILE_PROTOCOL.equals(protocol)) {
-      File result;
-      try {
-        result = new File(resourceURL.toURI().getSchemeSpecificPart());
-      }
-      catch (URISyntaxException e) {
-        throw new IllegalArgumentException("URL='" + resourceURL + "'", e);
-      }
-      String path = result.getPath();
-      String testPath = path.replace('\\', '/');
-      String testResourcePath = resourcePath.replace('\\', '/');
-      if (StringUtilRt.endsWithIgnoreCase(testPath, testResourcePath)) {
-        resultPath = path.substring(0, path.length() - resourcePath.length());
-      }
-    }
-    else if (URLUtil.JAR_PROTOCOL.equals(protocol)) {
-      // do not use URLUtil.splitJarUrl here - used in bootstrap
-      String jarPath = splitJarUrl(resourceURL.getFile());
-      if (jarPath != null) {
-        resultPath = jarPath;
-      }
-    }
-    else if (URLUtil.JRT_PROTOCOL.equals(protocol)) {
-      return null;
-    }
-
-    if (resultPath == null) {
-      LOG.error("cannot extract '" + resourcePath + "' from '" + resourceURL + "'");
-      return null;
-    }
-
-    return Paths.get(resultPath).normalize().toString();
-  }
-
-  private static @Nullable String splitJarUrl(@NotNull String url) {
-    int pivot = url.indexOf(URLUtil.JAR_SEPARATOR);
-    if (pivot < 0) {
-      return null;
-    }
-
-    String jarPath = url.substring(0, pivot);
-
-    boolean startsWithConcatenation = true;
-    int offset = 0;
-    for (String prefix : new String[]{URLUtil.JAR_PROTOCOL, ":"}) {
-      int prefixLen = prefix.length();
-      if (!jarPath.regionMatches(offset, prefix, 0, prefixLen)) {
-        startsWithConcatenation = false;
-        break;
-      }
-      offset += prefixLen;
-    }
-    if (startsWithConcatenation) {
-      jarPath = jarPath.substring(URLUtil.JAR_PROTOCOL.length() + 1);
-    }
-
-    if (!jarPath.startsWith(URLUtil.FILE_PROTOCOL)) {
-      return jarPath;
-    }
-
-    try {
-      File result;
-      URL parsedUrl = new URL(jarPath);
-      try {
-        result = new File(parsedUrl.toURI().getSchemeSpecificPart());
-      } catch (URISyntaxException e) {
-        throw new IllegalArgumentException("URL='" + parsedUrl + "'", e);
-      }
-      return result.getPath().replace('\\', '/');
-    }
-    catch (Exception e) {
-      jarPath = jarPath.substring(URLUtil.FILE_PROTOCOL.length());
-      if (jarPath.startsWith(URLUtil.SCHEME_SEPARATOR)) {
-        return jarPath.substring(URLUtil.SCHEME_SEPARATOR.length());
-      }
-      else if (!jarPath.isEmpty() && jarPath.charAt(0) == ':') {
-        return jarPath.substring(1);
-      }
-      else {
-        return jarPath;
-      }
-    }
+  public static String getResourceRoot(Class<?> context, String path) {
+    return com.intellij.openapi.application.PathManager.getResourceRoot(context, path);
   }
 
   public static String getPreInstalledPluginsPath() {
-    return getHomePath() + File.separator + PLUGINS_PATH;
+    return com.intellij.openapi.application.PathManager.getPreInstalledPluginsPath();
   }
 
   public static String getUserDir() {
