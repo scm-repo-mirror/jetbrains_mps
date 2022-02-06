@@ -54,6 +54,7 @@
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
+      <concept id="1215695189714" name="jetbrains.mps.baseLanguage.structure.PlusAssignmentExpression" flags="nn" index="d57v9" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="alternative" index="nSUat" />
@@ -1228,6 +1229,37 @@
         </node>
         <node concept="3clFbJ" id="1HNHfSAwfxM" role="3cqZAp">
           <node concept="3clFbS" id="1HNHfSAwfxO" role="3clFbx">
+            <node concept="3cpWs8" id="1HNHfSAxN59" role="3cqZAp">
+              <node concept="3cpWsn" id="1HNHfSAxN5a" role="3cpWs9">
+                <property role="TrG5h" value="val" />
+                <node concept="17QB3L" id="1HNHfSAxw2H" role="1tU5fm" />
+                <node concept="Xl_RD" id="1HNHfSAxN5f" role="33vP2m">
+                  <property role="Xl_RC" value="MPSCmdLine" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="1HNHfSAxXQ7" role="3cqZAp">
+              <node concept="3clFbS" id="1HNHfSAxXQ9" role="3clFbx">
+                <node concept="3clFbF" id="1HNHfSAybSE" role="3cqZAp">
+                  <node concept="d57v9" id="1HNHfSAyfhK" role="3clFbG">
+                    <node concept="Xl_RD" id="1HNHfSAyhuU" role="37vLTx">
+                      <property role="Xl_RC" value="Test" />
+                    </node>
+                    <node concept="37vLTw" id="1HNHfSAybSC" role="37vLTJ">
+                      <ref role="3cqZAo" node="1HNHfSAxN5a" resolve="val" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="1HNHfSAy3Jc" role="3clFbw">
+                <node concept="37vLTw" id="1HNHfSAy0kG" role="2Oq$k0">
+                  <ref role="3cqZAo" to="79ha:3eUNqOk7wUa" resolve="myConfig" />
+                </node>
+                <node concept="liA8E" id="1HNHfSAy6q7" role="2OqNvi">
+                  <ref role="37wK5l" to="79ha:28TMbOSF4Ad" resolve="isTestMode" />
+                </node>
+              </node>
+            </node>
             <node concept="3clFbF" id="1HNHfSAw$Vx" role="3cqZAp">
               <node concept="2YIFZM" id="1HNHfSAwBsS" role="3clFbG">
                 <ref role="37wK5l" to="wyt6:~System.setProperty(java.lang.String,java.lang.String)" resolve="setProperty" />
@@ -1236,19 +1268,8 @@
                   <ref role="1PxDUh" to="bd8o:~PathManager" resolve="PathManager" />
                   <ref role="3cqZAo" to="bd8o:~PathManager.PROPERTY_PATHS_SELECTOR" resolve="PROPERTY_PATHS_SELECTOR" />
                 </node>
-                <node concept="3cpWs3" id="1HNHfSAwZ4U" role="37wK5m">
-                  <node concept="2OqwBi" id="1HNHfSAxfuH" role="3uHU7w">
-                    <node concept="2YIFZM" id="1HNHfSAx6Dn" role="2Oq$k0">
-                      <ref role="37wK5l" to="bd8o:~ApplicationInfo.getInstance()" resolve="getInstance" />
-                      <ref role="1Pybhc" to="bd8o:~ApplicationInfo" resolve="ApplicationInfo" />
-                    </node>
-                    <node concept="liA8E" id="1HNHfSAxhIV" role="2OqNvi">
-                      <ref role="37wK5l" to="bd8o:~ApplicationInfo.getFullVersion()" resolve="getFullVersion" />
-                    </node>
-                  </node>
-                  <node concept="Xl_RD" id="1HNHfSAwJYy" role="3uHU7B">
-                    <property role="Xl_RC" value="MPSCmdLine" />
-                  </node>
+                <node concept="37vLTw" id="1HNHfSAxN5g" role="37wK5m">
+                  <ref role="3cqZAo" node="1HNHfSAxN5a" resolve="string" />
                 </node>
               </node>
             </node>

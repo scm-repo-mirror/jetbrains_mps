@@ -17,7 +17,6 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.PathManager;
-import com.intellij.openapi.application.ApplicationInfo;
 import java.awt.GraphicsEnvironment;
 import com.intellij.testFramework.TestApplicationManager;
 import jetbrains.mps.project.Project;
@@ -169,7 +168,11 @@ public final class IdeaEnvironment extends EnvironmentBase {
     System.setProperty("ide.new.project.model", Boolean.toString(false));
     System.setProperty("ide.open.readme.md.on.startup", Boolean.toString(false));
     if (System.getProperty(PathManager.PROPERTY_PATHS_SELECTOR) == null) {
-      System.setProperty(PathManager.PROPERTY_PATHS_SELECTOR, "MPSCmdLine" + ApplicationInfo.getInstance().getFullVersion());
+      String val = "MPSCmdLine";
+      if (myConfig.isTestMode()) {
+        val += "Test";
+      }
+      System.setProperty(PathManager.PROPERTY_PATHS_SELECTOR, val);
     }
     String oldValue = System.getProperty(IDEA_USE_CORE_CL);
     if (oldValue == null) {

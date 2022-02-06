@@ -2022,6 +2022,71 @@
             <property role="Xl_RC" value="Creating MPS environment" />
           </node>
         </node>
+        <node concept="3SKdUt" id="5KQbV2Rzfu$" role="3cqZAp">
+          <node concept="1PaTwC" id="5KQbV2Rzfu_" role="1aUNEU">
+            <node concept="3oM_SD" id="5KQbV2Rzgqv" role="1PaTwD">
+              <property role="3oM_SC" value="paths" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2Rzgsd" role="1PaTwD">
+              <property role="3oM_SC" value="selector" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgQ_" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgRF" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgRW" role="1PaTwD">
+              <property role="3oM_SC" value="single" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2Rzgt6" role="1PaTwD">
+              <property role="3oM_SC" value="property" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2Rzgu0" role="1PaTwD">
+              <property role="3oM_SC" value="allows" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzguV" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgvR" role="1PaTwD">
+              <property role="3oM_SC" value="define" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgGP" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgHO" role="1PaTwD">
+              <property role="3oM_SC" value="locations" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2Rzg$U" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgIO" role="1PaTwD">
+              <property role="3oM_SC" value="logs/caches/other" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgLx" role="1PaTwD">
+              <property role="3oM_SC" value="system" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgLH" role="1PaTwD">
+              <property role="3oM_SC" value="files" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgMK" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzgMY" role="1PaTwD">
+              <property role="3oM_SC" value="MPS" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="5KQbV2RzhGl" role="3cqZAp">
+          <node concept="1PaTwC" id="5KQbV2RzhGm" role="1aUNEU">
+            <node concept="3oM_SD" id="5KQbV2RzimN" role="1PaTwD">
+              <property role="3oM_SC" value="see" />
+            </node>
+            <node concept="3oM_SD" id="5KQbV2RzinI" role="1PaTwD">
+              <property role="3oM_SC" value="https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbJ" id="1HNHfSAwfxM" role="3cqZAp">
           <node concept="3clFbS" id="1HNHfSAwfxO" role="3clFbx">
             <node concept="3clFbF" id="1HNHfSAw$Vx" role="3cqZAp">

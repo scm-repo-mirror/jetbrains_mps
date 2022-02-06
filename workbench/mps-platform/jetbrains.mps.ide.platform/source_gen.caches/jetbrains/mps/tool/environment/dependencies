@@ -25,7 +25,6 @@
     <classNode dependClassName="com.intellij.ide.startup.StartupManagerEx" />
     <classNode dependClassName="com.intellij.openapi.Disposable" />
     <classNode dependClassName="com.intellij.openapi.application.Application" />
-    <classNode dependClassName="com.intellij.openapi.application.ApplicationInfo" />
     <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.application.ModalityState" />
     <classNode dependClassName="com.intellij.openapi.application.PathManager" />
