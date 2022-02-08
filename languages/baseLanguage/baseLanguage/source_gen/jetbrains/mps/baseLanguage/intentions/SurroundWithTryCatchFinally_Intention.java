@@ -123,6 +123,9 @@ public final class SurroundWithTryCatchFinally_Intention extends AbstractIntenti
       if (ListSequence.fromList(SLinkOperations.getChildren(tryStatement, LINKS.catchClause$Q4F)).isEmpty()) {
         SNodeFactoryOperations.addNewChild(tryStatement, LINKS.catchClause$Q4F, CONCEPTS.MultipleCatchClause$mR);
       }
+
+      SLinkOperations.setTarget(tryStatement, LINKS.finallyClause$KUl, SNodeFactoryOperations.createNewNode(CONCEPTS.FinallyClause$R5, null));
+
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, SLinkOperations.getTarget(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(tryStatement, LINKS.catchClause$Q4F)).first(), LINKS.throwable$UWM1), LINKS.type$a1UY), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
     }
 
@@ -149,6 +152,7 @@ public final class SurroundWithTryCatchFinally_Intention extends AbstractIntenti
     /*package*/ static final SConcept MultipleCatchClause$mR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2aefd560f401b9c6L, "jetbrains.mps.baseLanguage.structure.MultipleCatchClause");
     /*package*/ static final SConcept CatchVariable$zI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x44bbb37e796ac72eL, "jetbrains.mps.baseLanguage.structure.CatchVariable");
     /*package*/ static final SConcept AlternativeType$B$ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70a99a0b674a3895L, "jetbrains.mps.baseLanguage.structure.AlternativeType");
+    /*package*/ static final SConcept FinallyClause$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x72ddc71312b892acL, "jetbrains.mps.baseLanguage.structure.FinallyClause");
   }
 
   private static final class LINKS {
@@ -159,6 +163,7 @@ public final class SurroundWithTryCatchFinally_Intention extends AbstractIntenti
     /*package*/ static final SContainmentLink throwable$UWM1 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2aefd560f401b9c6L, 0x72ddc71311eda6f4L, "throwable");
     /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
     /*package*/ static final SContainmentLink alternative$IEPM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70a99a0b674a3895L, 0x70a99a0b674a3896L, "alternative");
+    /*package*/ static final SContainmentLink finallyClause$KUl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb115L, "finallyClause");
   }
 
   private static final class PROPS {

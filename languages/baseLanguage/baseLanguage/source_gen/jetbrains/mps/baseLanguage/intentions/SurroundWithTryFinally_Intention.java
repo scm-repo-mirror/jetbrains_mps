@@ -64,6 +64,7 @@ public final class SurroundWithTryFinally_Intention extends AbstractIntentionDes
       for (SNode selectedNode : ListSequence.fromList(selectedNodes)) {
         ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(tryStatement, LINKS.body$KFk), LINKS.statement$53DE)).addElement(SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.Statement$P6, true, false));
       }
+      SLinkOperations.setTarget(tryStatement, LINKS.finallyClause$KUl, SNodeFactoryOperations.createNewNode(CONCEPTS.FinallyClause$R5, null));
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, SLinkOperations.getTarget(SLinkOperations.getTarget(tryStatement, LINKS.finallyClause$KUl), LINKS.finallyBody$CRwI), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
     }
 
@@ -84,6 +85,7 @@ public final class SurroundWithTryFinally_Intention extends AbstractIntentionDes
   private static final class CONCEPTS {
     /*package*/ static final SConcept TryUniversalStatement$$M = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryUniversalStatement");
     /*package*/ static final SConcept Statement$P6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept FinallyClause$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x72ddc71312b892acL, "jetbrains.mps.baseLanguage.structure.FinallyClause");
   }
 
   private static final class LINKS {
