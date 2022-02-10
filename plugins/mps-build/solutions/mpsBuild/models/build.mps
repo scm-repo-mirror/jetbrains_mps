@@ -13315,12 +13315,6 @@
             <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
-        <node concept="1SiIV0" id="3kgyr$qvPCw" role="3bR37C">
-          <node concept="3bR9La" id="3kgyr$qvPCx" role="1SiIV1">
-            <property role="3bR36h" value="true" />
-            <ref role="3bR37D" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
-          </node>
-        </node>
         <node concept="398BVA" id="72hUg2Ux6nx" role="3LF7KH">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
           <node concept="2Ry0Ak" id="72hUg2Ux6ny" role="iGT6I">
@@ -13365,6 +13359,12 @@
             <node concept="3qWCbU" id="73GUf$ummw$" role="3LXTna">
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3kgyr$qvPCw" role="3bR37C">
+          <node concept="3bR9La" id="3kgyr$qvPCx" role="1SiIV1">
+            <property role="3bR36h" value="true" />
+            <ref role="3bR37D" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
           </node>
         </node>
       </node>
@@ -38385,6 +38385,9 @@
     <node concept="26Ea6D" id="4z969tcIApt" role="2hID6k">
       <property role="26Ea6C" value="-Didea.invalidate.caches.invalidates.vfs=true" />
     </node>
+    <node concept="26Ea6D" id="17JeiLQwvtJ" role="2hID6k">
+      <property role="26Ea6C" value="-Didea.trust.disabled=true" />
+    </node>
     <node concept="26Ea6D" id="2sJHcZ7KMn9" role="2hID6k">
       <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
     </node>
@@ -38501,6 +38504,9 @@
     </node>
     <node concept="26Ea6D" id="4z969tcIApT" role="26FZ21">
       <property role="26Ea6C" value="-Didea.invalidate.caches.invalidates.vfs=true" />
+    </node>
+    <node concept="26Ea6D" id="17JeiLQwvuK" role="26FZ21">
+      <property role="26Ea6C" value="-Didea.trust.disabled=true" />
     </node>
     <node concept="26Ea6D" id="2sJHcZ7KMnC" role="26FZ21">
       <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
