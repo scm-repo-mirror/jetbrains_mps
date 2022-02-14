@@ -13,12 +13,13 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class AddFinalModifierToAny_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -60,12 +61,18 @@ public final class AddFinalModifierToAny_Intention extends AbstractIntentionDesc
 
     @Override
     public boolean isApplicable(final SNode node, final EditorContext editorContext) {
+      if (!(isApplicableToNode(node, editorContext))) {
+        return false;
+      }
       if (editorContext.getSelectedNode() != node && !(isVisibleInChild(node, editorContext.getSelectedNode(), editorContext))) {
         return false;
       }
       return true;
     }
 
+    private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
+      return !(SNodeOperations.isInstanceOf(node, CONCEPTS.ResourceVariable$jq));
+    }
 
     private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
       // it should not be applicable inoside initializer
@@ -94,6 +101,10 @@ public final class AddFinalModifierToAny_Intention extends AbstractIntentionDesc
 
   private static final class PROPS {
     /*package*/ static final SProperty isFinal$gvTP = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ResourceVariable$jq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a546561eL, "jetbrains.mps.baseLanguage.structure.ResourceVariable");
   }
 
   private static final class LINKS {

@@ -517,19 +517,23 @@ public class FullASTConverter extends ASTConverterWithExpressions {
     return result;
   }
   /*package*/ SNode convertStatement(TryStatement x) throws JavaParseException {
+
     SNode tryBlock = convertStatement(x.tryBlock);
     List<SNode> catchArgs = new ArrayList<SNode>();
     List<SNode> catchBlocks = new ArrayList<SNode>();
     SNode finallyBlock = convertStatement(x.finallyBlock);
+    List<SNode> resources = ListSequence.fromList(new ArrayList<SNode>());
+    for (Statement stmt : x.resources) {
+      SNode var = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a546561eL, "jetbrains.mps.baseLanguage.structure.ResourceVariable"));
+      LocalDeclaration decl = ((LocalDeclaration) stmt);
+      SLinkOperations.setTarget(var, LINKS.type$a1UY, convertTypeReference(decl.type));
+      SPropertyOperations.assign(var, PROPS.name$MnvL, new String(decl.name));
+      SLinkOperations.setTarget(var, LINKS.initializer$2twD, convertExpressionWrap(decl.initialization));
+      ListSequence.fromList(resources).addElement(var);
+    }
     if (x.catchBlocks != null) {
       for (int i = 0, c = x.catchArguments.length; i < c; ++i) {
-
-
-
         SNode catchVar = convertCatchArgument(x.catchArguments[i]);
-
-
-
         ListSequence.fromList(catchArgs).addElement(catchVar);
       }
       for (int i = 0, c = x.catchBlocks.length; i < c; ++i) {
@@ -550,6 +554,7 @@ public class FullASTConverter extends ASTConverterWithExpressions {
       SLinkOperations.setTarget(finallyClause, LINKS.finallyBody$CRwI, getStatementListFromStatement(finallyBlock, x.finallyBlock));
       SLinkOperations.setTarget(tryStatement, LINKS.finallyClause$KUl, finallyClause);
       SLinkOperations.setTarget(tryStatement, LINKS.body$KFk, getStatementListFromStatement(tryBlock, x.tryBlock));
+      ListSequence.fromList(SLinkOperations.getChildren(tryStatement, LINKS.resource$hgXi)).addSequence(ListSequence.fromList(resources));
       return tryStatement;
     } else {
       SNode tryCatchStatement = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, "jetbrains.mps.baseLanguage.structure.TryUniversalStatement"));
@@ -562,6 +567,7 @@ public class FullASTConverter extends ASTConverterWithExpressions {
         SLinkOperations.setTarget(catchClause, LINKS.throwable$UWM1, lvd);
       }
       SLinkOperations.setTarget(tryCatchStatement, LINKS.body$KFk, getStatementListFromStatement(tryBlock, x.tryBlock));
+      ListSequence.fromList(SLinkOperations.getChildren(tryCatchStatement, LINKS.resource$hgXi)).addSequence(ListSequence.fromList(resources));
       return tryCatchStatement;
     }
   }
@@ -996,6 +1002,7 @@ public class FullASTConverter extends ASTConverterWithExpressions {
     /*package*/ static final SContainmentLink finallyBody$CRwI = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x72ddc71312b892acL, 0x72ddc71312b89bbaL, "finallyBody");
     /*package*/ static final SContainmentLink finallyClause$KUl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb115L, "finallyClause");
     /*package*/ static final SContainmentLink body$KFk = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x72ddc713115bb114L, "body");
+    /*package*/ static final SContainmentLink resource$hgXi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4a434b86a54515f2L, 0x4a434b86a54515feL, "resource");
     /*package*/ static final SContainmentLink condition$KEkM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, 0xfaa4bf0f30L, "condition");
     /*package*/ static final SContainmentLink parameter$b4Y3 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter");
     /*package*/ static final SContainmentLink body$Ujx2 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf0522fL, "body");

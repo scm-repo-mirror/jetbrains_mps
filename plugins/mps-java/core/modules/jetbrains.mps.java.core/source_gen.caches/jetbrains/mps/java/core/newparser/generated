@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-aeh049tzphodgjype7wd9k2hpgdjmcg">
+<product version="3" modelHash="-12j8k0hjz54rx5a61a18wi0jfnyon9e">
   <files names="ASTConverter.java:ASTConverterWithExpressions.java:CommentHelper.java:DirParser.java:FeatureKind.java:FullASTConverter.java:IncrementalModelAccess.java:IncrementalModelAccessBase.java:IncrementalModelAccessWithCommand.java:IncrementalModelAccessWithoutCommand.java:JavaConvertUtil.java:JavaParseException.java:JavaParser.java:JavaToMpsConverter.java:ParseDepth.java:YetUnknownResolver.java" />
 </product>
 
