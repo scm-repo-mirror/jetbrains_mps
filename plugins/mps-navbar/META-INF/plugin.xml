@@ -24,28 +24,6 @@
   <idea-version since-build="213.1" until-build="223.1"/>
   <depends>jetbrains.mps.core</depends>
 
-<!--  <application-components>-->
-<!--    <component>-->
-<!--      <implementation-class>jetbrains.mps.idea.core.navigation.NavigationSupportImpl</implementation-class>-->
-<!--    </component>-->
-<!--  </application-components>-->
-
-<!--  <project-components>-->
-<!--    <component>-->
-<!--      <implementation-class>jetbrains.mps.idea.core.psi.impl.MPSPsiProvider</implementation-class>-->
-<!--    </component>-->
-<!--    <component>-->
-<!--      <implementation-class>jetbrains.mps.idea.core.psi.impl.PsiModelReloadListener</implementation-class>-->
-<!--    </component>-->
-<!--  </project-components>-->
-
-<!--  <extensionPoints>-->
-<!--    <extensionPoint qualifiedName="com.intellij.mps.psiFactory"-->
-<!--                    interface="jetbrains.mps.idea.core.psi.MPSPsiNodeFactory"/>-->
-<!--    <extensionPoint qualifiedName="com.intellij.mps.psiSourceFinder"-->
-<!--                    interface="jetbrains.mps.idea.core.psi.MPS2PsiMapper"/>-->
-<!--  </extensionPoints>-->
-
   <extensions defaultExtensionNs="com.intellij">
     <errorHandler implementation="jetbrains.mps.ide.blame.CharismaReporter"/>
     <navbar implementation="jetbrains.mps.ide.navbar.MPSNavBarExtension" id="MPSNavbar"/>

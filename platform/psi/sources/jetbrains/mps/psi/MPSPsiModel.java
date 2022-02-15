@@ -10,11 +10,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.light.LightElement;
 import com.intellij.util.IncorrectOperationException;
-import jetbrains.mps.fileTypes.FileIcons;
 import jetbrains.mps.fileTypes.MPSLanguage;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -22,6 +22,7 @@ import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.Icon;
+import java.util.stream.StreamSupport;
 
 public class MPSPsiModel extends LightElement {
   private final SModelReference myModelReference;
@@ -62,12 +63,30 @@ public class MPSPsiModel extends LightElement {
     return "MPSPsiModel:" + myModelReference.toString();
   }
 
-//  @NotNull
-//  private VirtualFile getVirtualFile() {
-//    NodeVirtualFileSystem fs = NodeVirtualFileSystem.getInstance();
-//    // XXX MA here is a dubious fix for MPS-24402
-//    return new ModelAccessHelper(myRepo).runReadAction(() -> fs.getFileFor(myRepo, myModelReference));
-//  }
+  @NotNull
+  @Override
+  public PsiElement[] getChildren() {
+    return myRepo.getModelAccess().computeReadAction(() -> {
+      var m = myModelReference.resolve(myRepo);
+      if (m == null) {
+        return new PsiElement[0];
+      }
+      return StreamSupport.stream(m.getRootNodes().spliterator(), false)
+                          .map(x -> new MPSPsiNode(myManager, x))
+                          .toArray(PsiElement[]::new);
+    });
+  }
+
+  @Override
+  public boolean canNavigate() {
+    return true;
+  }
+
+  @Override
+  public void navigate(boolean requestFocus) {
+    var mpsProject = ProjectHelper.fromIdeaProject(myManager.getProject());
+    new ProjectPaneNavigator(mpsProject).shallFocus(requestFocus).select(myModelReference);
+  }
 
   @Override
   public final boolean isWritable() {
@@ -75,7 +94,7 @@ public class MPSPsiModel extends LightElement {
   }
 
   @Override
-  protected @Nullable Icon getElementIcon(int flags) {
+  protected Icon getBaseIcon() {
     return myRepo.getModelAccess().computeReadAction(() -> {
       var m = myModelReference.resolve(myRepo);
       if (m == null) {
@@ -86,9 +105,16 @@ public class MPSPsiModel extends LightElement {
   }
 
   @Override
+  protected @Nullable
+  Icon getElementIcon(int flags) {
+    return getBaseIcon();
+  }
+
+  @Override
   public PsiElement getParent() {
     if (myModelReference.getModuleReference() == null) {
-      return null;
+      var moduleRef = myRepo.getModelAccess().computeReadAction(() -> myModelReference.resolve(myRepo).getModule().getModuleReference());
+      return new MPSPsiModule(myManager, moduleRef);
     }
     return new MPSPsiModule(myManager, myModelReference.getModuleReference());
   }

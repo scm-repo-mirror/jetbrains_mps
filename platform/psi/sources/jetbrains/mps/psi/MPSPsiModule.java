@@ -5,24 +5,22 @@ package jetbrains.mps.psi;
 
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.openapi.util.Key;
-import com.intellij.openapi.util.Ref;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.light.LightElement;
 import com.intellij.util.IncorrectOperationException;
-import jetbrains.mps.fileTypes.FileIcons;
 import jetbrains.mps.fileTypes.MPSLanguage;
+import jetbrains.mps.ide.icons.GlobalIconManager;
+import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.util.JavaNameUtil;
+import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.Icon;
+import java.util.stream.StreamSupport;
 
 public class MPSPsiModule extends LightElement {
   private final SModuleReference myModuleReference;
@@ -72,6 +70,47 @@ public class MPSPsiModule extends LightElement {
     return null;
   }
 
+  @NotNull
+  @Override
+  public PsiElement[] getChildren() {
+    return myRepo.getModelAccess().computeReadAction(() -> {
+      var m = myModuleReference.resolve(myRepo);
+      if (m == null) {
+        return new PsiElement[0];
+      }
+      return StreamSupport.stream(m.getModels().spliterator(), false)
+                          .map(x -> new MPSPsiModel(myManager, x.getReference()))
+                          .toArray(PsiElement[]::new);
+    });
+  }
+
+  @Override
+  public boolean canNavigate() {
+    return true;
+  }
+
+  @Override
+  public void navigate(boolean requestFocus) {
+    var mpsProject = ProjectHelper.fromIdeaProject(myManager.getProject());
+    new ProjectPaneNavigator(mpsProject).shallFocus(requestFocus).select(myModuleReference);
+  }
+
+  @Override
+  protected @Nullable Icon getElementIcon(int flags) {
+    return getBaseIcon();
+  }
+
+  @Override
+  protected Icon getBaseIcon() {
+    return myRepo.getModelAccess().computeReadAction(() -> {
+      var m = myModuleReference.resolve(myRepo);
+      if (m == null) {
+        return IdeIcons.UNKNOWN_ICON;
+      }
+      return GlobalIconManager.getInstance().getIconFor(m);
+    });
+  }
+
   @Override
   public void delete() throws IncorrectOperationException {
     throw new IncorrectOperationException("not possible");
@@ -85,11 +124,6 @@ public class MPSPsiModule extends LightElement {
   @Override
   public void deleteChildRange(PsiElement first, PsiElement last) throws IncorrectOperationException {
     throw new IncorrectOperationException("not possible");
-  }
-
-  @Override
-  public @Nullable Icon getIcon(int flags) {
-    return super.getIcon(flags);
   }
 
   @Override

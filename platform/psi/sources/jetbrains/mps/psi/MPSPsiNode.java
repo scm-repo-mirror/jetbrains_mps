@@ -3,9 +3,8 @@
  */
 package jetbrains.mps.psi;
 
-import com.intellij.icons.AllIcons.Icons;
+import com.intellij.ide.ui.UISettings;
 import com.intellij.navigation.ItemPresentation;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.light.LightElement;
@@ -13,58 +12,45 @@ import jetbrains.mps.fileTypes.MPSLanguage;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.openapi.navigation.EditorNavigator;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.SModelReference;
-import jetbrains.mps.workbench.choose.NodePointerNavigationItem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.Icon;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.StreamSupport;
 
 public class MPSPsiNode extends LightElement {
   private static final Logger LOG = LogManager.getLogger(MPSPsiNode.class);
 
   private final SNodeReference myNodeReference;
   private final SRepository myRepo;
-  private final Future<String> myNodePresentationFuture;
 
   public MPSPsiNode(@NotNull PsiManager manager, @NotNull SNode node) {
     super(manager, MPSLanguage.INSTANCE);
     myRepo = ProjectHelper.getProjectRepository(manager.getProject());
     myRepo.getModelAccess().checkReadAccess();
     myNodeReference = node.getReference();
-    myNodePresentationFuture = CompletableFuture.completedFuture(node.getPresentation());
   }
 
   public MPSPsiNode(@NotNull PsiManager manager, SNodeReference nodeReference) {
     super(manager, MPSLanguage.INSTANCE);
     myRepo = ProjectHelper.getProjectRepository(manager.getProject());
     myNodeReference = nodeReference;
-    myNodePresentationFuture = getNodePresentationFuture();
-  }
-
-  private Future<String> getNodePresentationFuture() {
-    return ApplicationManager.getApplication().executeOnPooledThread(() -> myRepo.getModelAccess().computeReadAction(() -> {
-      SNode n = myNodeReference.resolve(myRepo);
-      return n.getPresentation();
-    }));
   }
 
   @Override
-  protected @Nullable Icon getElementIcon(int flags) {
+  @Nullable
+  protected Icon getElementIcon(int flags) {
     return myRepo.getModelAccess().computeReadAction(() -> {
       SNode n = myNodeReference.resolve(myRepo);
       if (n == null) {
@@ -76,22 +62,24 @@ public class MPSPsiNode extends LightElement {
 
   @Override
   public ItemPresentation getPresentation() {
-    if (myNodePresentationFuture.isDone()) {
-      return new NodePointerNavigationItem(myNodeReference, getString(), null);
-    }
-    return new NodePointerNavigationItem(myNodeReference, "loading...", null);
-  }
+    return new ItemPresentation() {
+      @Override
+      public String getPresentableText() {
+        return new ModelAccessHelper(myRepo).runReadAction(() -> {
+          SNode node = myNodeReference.resolve(myRepo);
+          if (node == null) {
+            return null;
+          }
+          return node.getPresentation();
+        });
+      }
 
-  private String getString() {
-    try {
-      return myNodePresentationFuture.get(100, TimeUnit.MILLISECONDS);
-    } catch (InterruptedException | ExecutionException e) {
-      LOG.error("problem while calculating the node presentation", e);
-      return "<error>";
-    } catch (TimeoutException e) {
-      LOG.error("timeout while calculating the node presentation", e);
-      return "<timeout error>";
-    }
+      @Override
+      @Nullable
+      public Icon getIcon(boolean unused) {
+        return null;
+      }
+    };
   }
 
   @Override
@@ -103,10 +91,6 @@ public class MPSPsiNode extends LightElement {
 
   @Override
   public PsiElement getParent() {
-    return getParent1();
-  }
-
-  private PsiElement getParent1() {
     return new ModelAccessHelper(myRepo).runReadAction(() -> {
       SNode node = myNodeReference.resolve(myRepo);
       if (node == null) {
@@ -123,8 +107,60 @@ public class MPSPsiNode extends LightElement {
     });
   }
 
+  public PsiElement getMPSPsiModel() {
+    return new ModelAccessHelper(myRepo).runReadAction(() -> {
+      SNode node = myNodeReference.resolve(myRepo);
+      if (node == null) {
+        return null;
+      }
+      var moduleReference = node.getModel().getModule().getModuleReference();
+      var modelReference = node.getReference().getModelReference();
+      var correctMRef = new SModelReference(moduleReference, modelReference.getModelId(), modelReference.getName());
+      return new MPSPsiModel(myManager, correctMRef);
+    });
+  }
+
+  @Override
+  @NotNull
+  public PsiElement[] getChildren() {
+    return myRepo.getModelAccess().computeReadAction(() -> {
+      var m = myNodeReference.resolve(myRepo);
+      if (m == null) {
+        return new PsiElement[0];
+      }
+      return StreamSupport.stream(m.getChildren().spliterator(), false)
+                          .map(x -> new MPSPsiNode(myManager, x))
+                          .toArray(PsiElement[]::new);
+    });
+  }
+
+  @Override
+  public void navigate(boolean requestFocus) {
+    MPSProject mpsProject = ProjectHelper.fromIdeaProject(myManager.getProject());
+    new EditorNavigator(mpsProject).shallFocus(requestFocus).selectIfChild().open(myNodeReference);
+  }
+
+  @Override
+  public boolean canNavigate() {
+    return true;
+  }
+
+  public PsiElement getMPSPsiRoot() {
+    return new ModelAccessHelper(myRepo).runReadAction(() -> {
+      SNode node = myNodeReference.resolve(myRepo);
+      if (node == null) {
+        return null;
+      }
+      if (node.getParent() == null) {
+        return this;
+      } else {
+        return new MPSPsiNode(myManager, node.getContainingRoot());
+      }
+    });
+  }
+
   @Override
   public String toString() {
-    return "MPSPSINode" + myNodeReference.toString();
+    return "MPSPsiNode" + myNodeReference.toString();
   }
 }

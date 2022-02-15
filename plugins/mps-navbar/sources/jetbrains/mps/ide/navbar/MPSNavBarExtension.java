@@ -4,19 +4,23 @@
 package jetbrains.mps.ide.navbar;
 
 import com.intellij.ide.navigationToolbar.NavBarModelExtension;
+import com.intellij.ide.ui.UISettings;
 import com.intellij.openapi.actionSystem.DataContext;
+import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.light.LightElement;
+import com.intellij.util.Processor;
 import jetbrains.mps.ide.actions.SModelActionData;
 import jetbrains.mps.ide.actions.SModuleActionData;
 import jetbrains.mps.psi.MPSPsiModel;
 import jetbrains.mps.psi.MPSPsiModule;
 import jetbrains.mps.psi.MPSPsiNode;
 import jetbrains.mps.ide.actions.SNodeActionData;
+import jetbrains.mps.psi.MPSPsiProject;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +51,22 @@ public class MPSNavBarExtension implements NavBarModelExtension {
   }
 
   @Override
+  public boolean processChildren(Object object, Object rootElement, Processor<Object> processor) {
+    if (object instanceof MPSPsiNode) {
+      if (!UISettings.getInstance().getShowMembersInNavigationBar()) {
+        return false; // otherwise, we do as we do with any psi element
+      }
+    }
+    if (object instanceof PsiElement) {
+      for (var c : ((PsiElement) object).getChildren()) {
+        processor.process(c);
+      }
+      return false;
+    }
+    return true;
+  }
+
+  @Override
   public PsiElement getLeafElement(@NotNull DataContext dataContext) {
     Project p = dataContext.getData(PlatformDataKeys.PROJECT);
     if (p == null) {
@@ -72,12 +92,20 @@ public class MPSNavBarExtension implements NavBarModelExtension {
   @Nullable
   @Override
   public PsiElement getParent(PsiElement psiElement) {
+    if (psiElement instanceof MPSPsiModule) {
+      return new MPSPsiProject(psiElement.getManager(), psiElement.getProject());
+    }
     return psiElement.getParent();
   }
 
   @Nullable
   @Override
   public PsiElement adjustElement(@NotNull PsiElement psiElement) {
+    if (!UISettings.getInstance().getShowMembersInNavigationBar()) {
+      if (psiElement instanceof MPSPsiNode) {
+        return ((MPSPsiNode) psiElement).getMPSPsiRoot();
+      }
+    }
     return psiElement;
   }
 
@@ -86,5 +114,4 @@ public class MPSNavBarExtension implements NavBarModelExtension {
   public Collection<VirtualFile> additionalRoots(Project project) {
     return Collections.emptyList();
   }
-
 }
