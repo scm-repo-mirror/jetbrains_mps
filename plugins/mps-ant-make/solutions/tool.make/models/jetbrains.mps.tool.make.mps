@@ -27,6 +27,7 @@
     <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
     <import index="1gam" ref="r:dc013bd4-6bcf-44c3-9e08-a65e07c88df7(jetbrains.mps.internal.make.cfg)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
+    <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -152,7 +153,6 @@
       <concept id="7812454656619025412" name="jetbrains.mps.baseLanguage.structure.LocalMethodCall" flags="nn" index="1rXfSq" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
-        <child id="1109201940907" name="parameter" index="11_B2D" />
       </concept>
       <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
@@ -160,6 +160,12 @@
       </concept>
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
+      </concept>
+      <concept id="1144226303539" name="jetbrains.mps.baseLanguage.structure.ForeachStatement" flags="nn" index="1DcWWT">
+        <child id="1144226360166" name="iterable" index="1DdaDG" />
+      </concept>
+      <concept id="1144230876926" name="jetbrains.mps.baseLanguage.structure.AbstractForStatement" flags="nn" index="1DupvO">
+        <child id="1144230900587" name="variable" index="1Duv9x" />
       </concept>
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
         <child id="1163668914799" name="condition" index="3K4Cdx" />
@@ -201,6 +207,12 @@
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
+      <concept id="1176906603202" name="jetbrains.mps.baseLanguage.collections.structure.BinaryOperation" flags="nn" index="56pJg">
+        <child id="1176906787974" name="rightExpression" index="576Qk" />
+      </concept>
+      <concept id="1151689724996" name="jetbrains.mps.baseLanguage.collections.structure.SequenceType" flags="in" index="A3Dl8">
+        <child id="1151689745422" name="elementType" index="A3Ik2" />
+      </concept>
       <concept id="1153943597977" name="jetbrains.mps.baseLanguage.collections.structure.ForEachStatement" flags="nn" index="2Gpval">
         <child id="1153944400369" name="variable" index="2Gsz3X" />
         <child id="1153944424730" name="inputSequence" index="2GsD0m" />
@@ -213,6 +225,7 @@
       <concept id="5686963296372573083" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType" flags="in" index="3O5elB">
         <child id="5686963296372573084" name="elementType" index="3O5elw" />
       </concept>
+      <concept id="1180964022718" name="jetbrains.mps.baseLanguage.collections.structure.ConcatOperation" flags="nn" index="3QWeyG" />
     </language>
   </registry>
   <node concept="312cEu" id="1nTn8MoNN3e">
@@ -1068,19 +1081,51 @@
                     <node concept="3cpWs8" id="3w1$bnwy4PN" role="3cqZAp">
                       <node concept="3cpWsn" id="3w1$bnwy4PO" role="3cpWs9">
                         <property role="TrG5h" value="projectModels" />
-                        <node concept="3uibUv" id="3w1$bnwy16n" role="1tU5fm">
-                          <ref role="3uigEE" to="wyt6:~Iterable" resolve="Iterable" />
-                          <node concept="3uibUv" id="3w1$bnwy16q" role="11_B2D">
+                        <node concept="A3Dl8" id="2E8IweencKn" role="1tU5fm">
+                          <node concept="3uibUv" id="2E8IweencKp" role="A3Ik2">
                             <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
                           </node>
                         </node>
-                        <node concept="2OqwBi" id="3w1$bnwy4PP" role="33vP2m">
-                          <node concept="37vLTw" id="3w1$bnwy4PQ" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3w1$bnwwaOv" resolve="project" />
+                        <node concept="10Nm6u" id="2E8Iweenk$J" role="33vP2m" />
+                      </node>
+                    </node>
+                    <node concept="1DcWWT" id="2E8IweemBtb" role="3cqZAp">
+                      <node concept="3clFbS" id="2E8IweemBtd" role="2LFqv$">
+                        <node concept="3clFbF" id="2E8IweemP6B" role="3cqZAp">
+                          <node concept="37vLTI" id="2E8IweemQfc" role="3clFbG">
+                            <node concept="2OqwBi" id="2E8IweemUv7" role="37vLTx">
+                              <node concept="37vLTw" id="2E8IweemSYK" role="2Oq$k0">
+                                <ref role="3cqZAo" node="3w1$bnwy4PO" resolve="projectModels" />
+                              </node>
+                              <node concept="3QWeyG" id="2E8IweemW0i" role="2OqNvi">
+                                <node concept="2OqwBi" id="2E8Iween0xE" role="576Qk">
+                                  <node concept="37vLTw" id="2E8IweemYKe" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="2E8IweemBte" resolve="module" />
+                                  </node>
+                                  <node concept="liA8E" id="2E8Iween1ES" role="2OqNvi">
+                                    <ref role="37wK5l" to="lui2:~SModule.getModels()" resolve="getModels" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="37vLTw" id="2E8IweemP6_" role="37vLTJ">
+                              <ref role="3cqZAo" node="3w1$bnwy4PO" resolve="projectModels" />
+                            </node>
                           </node>
-                          <node concept="liA8E" id="3w1$bnwy4PR" role="2OqNvi">
-                            <ref role="37wK5l" to="z1c3:~Project.getProjectModels()" resolve="getProjectModels" />
-                          </node>
+                        </node>
+                      </node>
+                      <node concept="3cpWsn" id="2E8IweemBte" role="1Duv9x">
+                        <property role="TrG5h" value="module" />
+                        <node concept="3uibUv" id="2E8IweemCpQ" role="1tU5fm">
+                          <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+                        </node>
+                      </node>
+                      <node concept="2OqwBi" id="3w1$bnwy4PP" role="1DdaDG">
+                        <node concept="37vLTw" id="3w1$bnwy4PQ" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3w1$bnwwaOv" resolve="project" />
+                        </node>
+                        <node concept="liA8E" id="3w1$bnwy4PR" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~Project.getProjectModulesWithGenerators()" resolve="getProjectModulesWithGenerators" />
                         </node>
                       </node>
                     </node>

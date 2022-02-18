@@ -16,6 +16,8 @@ import jetbrains.mps.make.script.IScriptController;
 import jetbrains.mps.make.dependencies.MakeSequence;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.resources.ModelsToResources;
 import jetbrains.mps.make.service.CoreMakeTask;
 import jetbrains.mps.progress.EmptyProgressMonitor;
@@ -68,7 +70,10 @@ public final class MakeExecutor implements Runnable {
     IScriptController ctl = new IScriptController.Stub2(session, jcfi);
     // resources from project
     MakeSequence seq = new ModelAccessHelper(project.getModelAccess()).runReadAction(() -> {
-      Iterable<SModel> projectModels = project.getProjectModels();
+      Iterable<SModel> projectModels = null;
+      for (SModule module : project.getProjectModulesWithGenerators()) {
+        projectModels = Sequence.fromIterable(projectModels).concat(Sequence.fromIterable(module.getModels()));
+      }
       // FIXME filter through MGSM if requested through params (share 'clean' for this?)
       //      better yet, reuse MakeActionImpl that already does that!
       return new MakeSequence(new ModelsToResources(projectModels).resources(), null, session);
