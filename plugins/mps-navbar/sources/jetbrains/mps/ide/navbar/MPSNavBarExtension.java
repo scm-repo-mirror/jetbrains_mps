@@ -85,7 +85,7 @@ public class MPSNavBarExtension implements NavBarModelExtension {
     if (moduleData != null) {
       return new MPSPsiModule(PsiManager.getInstance(p), moduleData.module());
     }
-    LOG.error("SNode action data was not found");
+    LOG.debug("SNode action data was not found");
     return null;
   }
 
