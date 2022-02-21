@@ -272,6 +272,14 @@
       <property role="IQ2nx" value="1476884141930130693" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="1TJgyi" id="77zDu6t_L80" role="1TKVEl">
+      <property role="IQ2nx" value="8206585334429323776" />
+      <property role="TrG5h" value="conditionalCompile" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="t5JxF" id="77zDu6t_LfT" role="lGtFl">
+        <property role="t5JxN" value="Experimental, see similar property of BuildSource_JavaModule" />
+      </node>
+    </node>
     <node concept="1TJgyj" id="6S1jmf0vFO_" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="sources" />

@@ -12,6 +12,7 @@
     <import index="73rs" ref="r:2f32078d-2a84-4fef-b050-97e346d25159(jetbrains.mps.core.xml.editor)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="nq57" ref="r:6da6c71a-0aac-4fb2-b0ad-1b3a207cc189(jetbrains.mps.build.workflow.behavior)" implicit="true" />
+    <import index="tpco" ref="r:00000000-0000-4000-0000-011c89590284(jetbrains.mps.lang.core.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -1155,6 +1156,24 @@
         <node concept="ljvvj" id="1hYW$Pu9NWb" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
+      </node>
+      <node concept="3F0ifn" id="77zDu6t_NmZ" role="3EZMnx">
+        <node concept="ljvvj" id="77zDu6t_Nz9" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="77zDu6t_Pbq" role="3EZMnx">
+        <property role="3F0ifm" value="Experimental functionality, use with care:" />
+        <ref role="1k5W1q" to="tpco:3VARyd8XcQs" resolve="Comment" />
+        <node concept="ljvvj" id="77zDu6t_Phr" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0ifn" id="77zDu6t_NW5" role="3EZMnx">
+        <property role="3F0ifm" value="compile under condition" />
+      </node>
+      <node concept="3F0A7n" id="77zDu6t_NKx" role="3EZMnx">
+        <ref role="1NtTu8" to="8xvf:77zDu6t_L80" resolve="conditionalCompile" />
       </node>
       <node concept="l2Vlx" id="1s8OwvM7pCm" role="2iSdaV" />
     </node>
