@@ -426,9 +426,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L);
     b.origin("r:ed179f4d-7cf2-479d-8348-50c1fc63b96a(jetbrains.mps.build.workflow.structure)/2769948622284546675");
     b.version(3);
-    b.associate("condition", 0x71e3a5e19d713d3bL).target(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x71e3a5e19d710d42L).optional(true).origin("8206585334426844475").done();
     b.aggregate("dependencies", 0x2670d5989d5ace5eL).target(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5ace56L).optional(true).ordered(true).multiple(true).origin("2769948622284574302").done();
     b.aggregate("subTasks", 0x2670d5989d5a6277L).target(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L).optional(true).ordered(true).multiple(true).origin("2769948622284546679").done();
+    b.aggregate("condition", 0x71e3a5e19d713d3bL).target(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x71e3a5e19d710d42L).optional(true).ordered(true).multiple(false).origin("8206585334426844475").done();
     b.alias("task");
     return b.create();
   }

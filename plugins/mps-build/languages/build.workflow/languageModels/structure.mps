@@ -103,14 +103,6 @@
     <property role="34LRSv" value="task" />
     <property role="EcuMT" value="2769948622284546675" />
     <ref role="1TJDcQ" node="2pKPpytmAa7" resolve="BwfProjectPart" />
-    <node concept="1TJgyj" id="77zDu6tsjOV" role="1TKVEi">
-      <property role="IQ2ns" value="8206585334426844475" />
-      <property role="20kJfa" value="condition" />
-      <ref role="20lvS9" node="77zDu6tsgP2" resolve="BwfTaskMacroCondition" />
-      <node concept="t5JxF" id="77zDu6tsk2p" role="lGtFl">
-        <property role="t5JxN" value="Provisional API to add if/unless condition to a task according to macro value. If necessary, could be generalized into BwfTaskCondition, with macro-specific sub-concept." />
-      </node>
-    </node>
     <node concept="1TJgyj" id="2pKPpytmGTu" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="dependencies" />
@@ -124,6 +116,15 @@
       <property role="20lbJX" value="fLJekj5/0..n" />
       <property role="IQ2ns" value="2769948622284546679" />
       <ref role="20lvS9" node="2pKPpytmA9P" resolve="BwfSubTask" />
+    </node>
+    <node concept="1TJgyj" id="77zDu6tsjOV" role="1TKVEi">
+      <property role="IQ2ns" value="8206585334426844475" />
+      <property role="20kJfa" value="condition" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <ref role="20lvS9" node="77zDu6tsgP2" resolve="BwfTaskMacroCondition" />
+      <node concept="t5JxF" id="77zDu6tsk2p" role="lGtFl">
+        <property role="t5JxN" value="Provisional API to add if/unless condition to a task according to macro value. If necessary, could be generalized into BwfTaskCondition, with macro-specific sub-concept." />
+      </node>
     </node>
     <node concept="PrWs8" id="2pKPpytmA9O" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
