@@ -299,6 +299,7 @@
     <language id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext">
       <concept id="1218047638031" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_CreateUniqueName" flags="nn" index="2piZGk">
         <child id="1218047638032" name="baseName" index="2piZGb" />
+        <child id="1218049772449" name="contextNode" index="2pr8EU" />
       </concept>
       <concept id="1216860049627" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabelAndInput" flags="nn" index="1iwH70">
         <reference id="1216860049628" name="label" index="1iwH77" />
@@ -343,6 +344,7 @@
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
+      <concept id="1171310072040" name="jetbrains.mps.lang.smodel.structure.Node_GetContainingRootOperation" flags="nn" index="2Rxl7S" />
       <concept id="1171323947159" name="jetbrains.mps.lang.smodel.structure.Model_NodesOperation" flags="nn" index="2SmgA7">
         <child id="1758937410080001570" name="conceptArgument" index="1dBWTz" />
       </concept>
@@ -1016,6 +1018,10 @@
                       </node>
                     </node>
                   </node>
+                  <node concept="2OqwBi" id="_HRJMEHesX" role="2pr8EU">
+                    <node concept="30H73N" id="_HRJMEHebh" role="2Oq$k0" />
+                    <node concept="2Rxl7S" id="_HRJMEHixd" role="2OqNvi" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -1086,6 +1092,10 @@
                 <node concept="2piZGk" id="i473YWp" role="2OqNvi">
                   <node concept="Xl_RD" id="i473YWq" role="2piZGb">
                     <property role="Xl_RC" value="checkbox" />
+                  </node>
+                  <node concept="2OqwBi" id="_HRJMEHiPn" role="2pr8EU">
+                    <node concept="30H73N" id="_HRJMEHiPo" role="2Oq$k0" />
+                    <node concept="2Rxl7S" id="_HRJMEHiPp" role="2OqNvi" />
                   </node>
                 </node>
               </node>
@@ -1176,6 +1186,10 @@
                 <node concept="2piZGk" id="5c4rtvXTNMr" role="2OqNvi">
                   <node concept="Xl_RD" id="5c4rtvXTNMs" role="2piZGb">
                     <property role="Xl_RC" value="table" />
+                  </node>
+                  <node concept="2OqwBi" id="_HRJMEHj2n" role="2pr8EU">
+                    <node concept="30H73N" id="_HRJMEHj2o" role="2Oq$k0" />
+                    <node concept="2Rxl7S" id="_HRJMEHj2p" role="2OqNvi" />
                   </node>
                 </node>
               </node>
@@ -2177,6 +2191,10 @@
                     <node concept="Xl_RD" id="49kBZ1LsQr3" role="2piZGb">
                       <property role="Xl_RC" value="group" />
                     </node>
+                    <node concept="2OqwBi" id="_HRJMEHjuM" role="2pr8EU">
+                      <node concept="30H73N" id="_HRJMEHjuN" role="2Oq$k0" />
+                      <node concept="2Rxl7S" id="_HRJMEHjuO" role="2OqNvi" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -2215,6 +2233,10 @@
                   <node concept="2piZGk" id="49kBZ1LsPPB" role="2OqNvi">
                     <node concept="Xl_RD" id="i473UEa" role="2piZGb">
                       <property role="Xl_RC" value="selector" />
+                    </node>
+                    <node concept="2OqwBi" id="_HRJMEHjBk" role="2pr8EU">
+                      <node concept="30H73N" id="_HRJMEHjBl" role="2Oq$k0" />
+                      <node concept="2Rxl7S" id="_HRJMEHjBm" role="2OqNvi" />
                     </node>
                   </node>
                 </node>

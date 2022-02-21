@@ -126,16 +126,16 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL).replaceAll(" ", "_");
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
-    return _context.createUniqueName((SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.InputField$41) ? "inputField" : "outputField"), null);
+    return _context.createUniqueName((SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.InputField$41) ? "inputField" : "outputField"), SNodeOperations.getContainingRoot(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_1_2(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
   }
   public static Object propertyMacro_GetValue_1_3(final PropertyMacroContext _context) {
-    return _context.createUniqueName("checkbox", null);
+    return _context.createUniqueName("checkbox", SNodeOperations.getContainingRoot(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_1_4(final PropertyMacroContext _context) {
-    return _context.createUniqueName("table", null);
+    return _context.createUniqueName("table", SNodeOperations.getContainingRoot(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_1_5(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);
@@ -159,10 +159,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return Helper.stringForKind(SPropertyOperations.getEnum(_context.getNode(), PROPS.value_kind$cL8P));
   }
   public static Object propertyMacro_GetValue_10_0(final PropertyMacroContext _context) {
-    return _context.createUniqueName("group", null);
+    return _context.createUniqueName("group", SNodeOperations.getContainingRoot(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_11_0(final PropertyMacroContext _context) {
-    return _context.createUniqueName("selector", null);
+    return _context.createUniqueName("selector", SNodeOperations.getContainingRoot(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_13_0(final PropertyMacroContext _context) {
     return SPropertyOperations.getString(_context.getNode(), PROPS.name$MnvL);

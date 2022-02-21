@@ -37,12 +37,12 @@ public class Mortgage_Simulation extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_a = new JTextField();
-  private JTextField inputField_b_0 = new JTextField();
-  private JTextField inputField_c_0 = new JTextField();
-  private JTextField outputField_h = new JTextField();
-  private JTextField outputField_i = new JTextField();
-  private JTable table_j = new JTable();
+  private JTextField inputField_q1t8n9_a = new JTextField();
+  private JTextField inputField_q1t8n9_b = new JTextField();
+  private JTextField inputField_q1t8n9_c = new JTextField();
+  private JTextField outputField_q1t8n9_h = new JTextField();
+  private JTextField outputField_q1t8n9_i = new JTextField();
+  private JTable table_q1t8n9_j = new JTable();
 
   private double Loan_ammount = 0;
   private double Interest_rate = 0;
@@ -60,21 +60,21 @@ public class Mortgage_Simulation extends CalculationFrame {
 
   public Mortgage_Simulation() {
     setTitle("Mortgage Simulation");
-    addToSmallPanel("Loan ammount", inputField_a, "$");
-    inputField_a.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Interest rate", inputField_b_0, "%");
-    inputField_b_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Monthly payment", inputField_c_0, "$");
+    addToSmallPanel("Loan ammount", inputField_q1t8n9_a, "$");
+    inputField_q1t8n9_a.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Interest rate", inputField_q1t8n9_b, "%");
+    inputField_q1t8n9_b.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Monthly payment", inputField_q1t8n9_c, "$");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_c_0.getDocument().addDocumentListener(this.listener);
+    inputField_q1t8n9_c.getDocument().addDocumentListener(this.listener);
 
 
-    addToSmallPanel("Number of months", this.outputField_h, "");
-    this.outputField_h.setEnabled(false);
-    addToSmallPanel("Accumulated interest", this.outputField_i, "");
-    this.outputField_i.setEnabled(false);
+    addToSmallPanel("Number of months", this.outputField_q1t8n9_h, "");
+    this.outputField_q1t8n9_h.setEnabled(false);
+    addToSmallPanel("Accumulated interest", this.outputField_q1t8n9_i, "");
+    this.outputField_q1t8n9_i.setEnabled(false);
     {
-      JTable table = this.table_j;
+      JTable table = this.table_q1t8n9_j;
       table.setModel(new DefaultTableModel());
       JScrollPane pane = new JScrollPane(table);
       table.setFillsViewportHeight(true);
@@ -88,27 +88,27 @@ public class Mortgage_Simulation extends CalculationFrame {
 
   public void update() {
     try {
-      Loan_ammount = Double.parseDouble(inputField_a.getText());
+      Loan_ammount = Double.parseDouble(inputField_q1t8n9_a.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Interest_rate = Double.parseDouble(inputField_b_0.getText());
+      Interest_rate = Double.parseDouble(inputField_q1t8n9_b.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Monthly_payment = Double.parseDouble(inputField_c_0.getText());
+      Monthly_payment = Double.parseDouble(inputField_q1t8n9_c.getText());
     } catch (NumberFormatException e) {
     }
     result = SimulationFunctions.simulateMortgage(Loan_ammount, Interest_rate / 100, Monthly_payment);
     {
-      JTable t = table_j;
+      JTable t = table_q1t8n9_j;
       CalculationTableModel model = new CalculationTableModel(new SimulationFunctions.MortgageDataWrapper(result));
       t.setModel(model);
     }
     Number_of_months = result.size();
-    outputField_h.setText("" + (Number_of_months));
+    outputField_q1t8n9_h.setText("" + (Number_of_months));
     Accumulated_interest = accumulated_interest();
-    outputField_i.setText("" + (Accumulated_interest));
+    outputField_q1t8n9_i.setText("" + (Accumulated_interest));
   }
 
   public static void main(String[] args) {

@@ -32,14 +32,14 @@ public class Salary extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_b = new JTextField();
-  private JTextField inputField_c = new JTextField();
-  private JTextField inputField_d = new JTextField();
-  private JTextField inputField_e_0 = new JTextField();
-  private JTextField inputField_g = new JTextField();
-  private JTextField outputField_i_0 = new JTextField();
-  private JTextField outputField_j = new JTextField();
-  private JCheckBox checkbox_f = new JCheckBox("student");
+  private JTextField inputField_kf0ut1_b = new JTextField();
+  private JTextField inputField_kf0ut1_c = new JTextField();
+  private JTextField inputField_kf0ut1_d = new JTextField();
+  private JTextField inputField_kf0ut1_e = new JTextField();
+  private JTextField inputField_kf0ut1_g = new JTextField();
+  private JTextField outputField_kf0ut1_i = new JTextField();
+  private JTextField outputField_kf0ut1_j = new JTextField();
+  private JCheckBox checkbox_kf0ut1_f = new JCheckBox("student");
 
   private double Design_Hours = 0;
   private double Implementatiion_Hours = 0;
@@ -53,28 +53,28 @@ public class Salary extends CalculationFrame {
   public Salary() {
     setTitle("Salary");
 
-    addToSmallPanel("Design Hours", inputField_b, "");
-    inputField_b.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Implementatiion Hours", inputField_c, "");
-    inputField_c.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Design Rate", inputField_d, "$");
-    inputField_d.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Implementation Rate", inputField_e_0, "$");
-    inputField_e_0.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Design Hours", inputField_kf0ut1_b, "");
+    inputField_kf0ut1_b.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Implementatiion Hours", inputField_kf0ut1_c, "");
+    inputField_kf0ut1_c.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Design Rate", inputField_kf0ut1_d, "$");
+    inputField_kf0ut1_d.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Implementation Rate", inputField_kf0ut1_e, "$");
+    inputField_kf0ut1_e.getDocument().addDocumentListener(this.listener);
     {
-      JCheckBox localBox = checkbox_f;
+      JCheckBox localBox = checkbox_kf0ut1_f;
       addToSmallPanel("", localBox, "");
       localBox.addActionListener(actionListener);
     }
-    inputField_g.setText("23");
-    addToSmallPanel("Income tax rate", inputField_g, "%");
+    inputField_kf0ut1_g.setText("23");
+    addToSmallPanel("Income tax rate", inputField_kf0ut1_g, "%");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_g.getDocument().addDocumentListener(this.listener);
+    inputField_kf0ut1_g.getDocument().addDocumentListener(this.listener);
 
-    addToSmallPanel("Gross Salary", this.outputField_i_0, "$");
-    this.outputField_i_0.setEnabled(false);
-    addToSmallPanel("Net Salary", this.outputField_j, "$");
-    this.outputField_j.setEnabled(false);
+    addToSmallPanel("Gross Salary", this.outputField_kf0ut1_i, "$");
+    this.outputField_kf0ut1_i.setEnabled(false);
+    addToSmallPanel("Net Salary", this.outputField_kf0ut1_j, "$");
+    this.outputField_kf0ut1_j.setEnabled(false);
     addToSmallPanel("", new JLabel(""), "");
 
 
@@ -92,30 +92,30 @@ public class Salary extends CalculationFrame {
 
   public void update() {
     try {
-      Design_Hours = Double.parseDouble(inputField_b.getText());
+      Design_Hours = Double.parseDouble(inputField_kf0ut1_b.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Implementatiion_Hours = Double.parseDouble(inputField_c.getText());
+      Implementatiion_Hours = Double.parseDouble(inputField_kf0ut1_c.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Design_Rate = Double.parseDouble(inputField_d.getText());
+      Design_Rate = Double.parseDouble(inputField_kf0ut1_d.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Implementation_Rate = Double.parseDouble(inputField_e_0.getText());
+      Implementation_Rate = Double.parseDouble(inputField_kf0ut1_e.getText());
     } catch (NumberFormatException e) {
     }
-    student = checkbox_f.isSelected();
+    student = checkbox_kf0ut1_f.isSelected();
     try {
-      Income_tax_rate = Double.parseDouble(inputField_g.getText());
+      Income_tax_rate = Double.parseDouble(inputField_kf0ut1_g.getText());
     } catch (NumberFormatException e) {
     }
     Gross_Salary = Design_Hours * Design_Rate + Implementatiion_Hours * Implementation_Rate;
-    outputField_i_0.setText("" + (Gross_Salary));
+    outputField_kf0ut1_i.setText("" + (Gross_Salary));
     Net_Salary = Gross_Salary - (Income_tax_rate / 100 / ((student ? 2 : 1)) * Gross_Salary);
-    outputField_j.setText("" + (Net_Salary));
+    outputField_kf0ut1_j.setText("" + (Net_Salary));
   }
 
   public static void main(String[] args) {

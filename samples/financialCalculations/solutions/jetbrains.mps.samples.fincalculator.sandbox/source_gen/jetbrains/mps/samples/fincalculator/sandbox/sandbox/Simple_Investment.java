@@ -32,17 +32,17 @@ public class Simple_Investment extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_a_0 = new JTextField();
-  private JTextField inputField_b_1 = new JTextField();
-  private JTextField inputField_c_1 = new JTextField();
-  private JTextField inputField_e = new JTextField();
-  private JTextField inputField_f = new JTextField();
-  private JTextField inputField_g_0 = new JTextField();
-  private JTextField inputField_h = new JTextField();
-  private JTextField outputField_j_0 = new JTextField();
-  private JTextField outputField_k = new JTextField();
-  private JTextField outputField_l_0 = new JTextField();
-  private JTextField outputField_m_0 = new JTextField();
+  private JTextField inputField_x16io0_a = new JTextField();
+  private JTextField inputField_x16io0_b = new JTextField();
+  private JTextField inputField_x16io0_c = new JTextField();
+  private JTextField inputField_x16io0_e = new JTextField();
+  private JTextField inputField_x16io0_f = new JTextField();
+  private JTextField inputField_x16io0_g = new JTextField();
+  private JTextField inputField_x16io0_h = new JTextField();
+  private JTextField outputField_x16io0_j = new JTextField();
+  private JTextField outputField_x16io0_k = new JTextField();
+  private JTextField outputField_x16io0_l = new JTextField();
+  private JTextField outputField_x16io0_m = new JTextField();
 
   private double Downpayment = 0;
   private double Monthly_payment = 0;
@@ -58,36 +58,36 @@ public class Simple_Investment extends CalculationFrame {
 
   public Simple_Investment() {
     setTitle("Simple Investment");
-    addToSmallPanel("Downpayment", inputField_a_0, "$");
-    inputField_a_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Monthly payment", inputField_b_1, "$");
-    inputField_b_1.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Length of the investment", inputField_c_1, "");
+    addToSmallPanel("Downpayment", inputField_x16io0_a, "$");
+    inputField_x16io0_a.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Monthly payment", inputField_x16io0_b, "$");
+    inputField_x16io0_b.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Length of the investment", inputField_x16io0_c, "");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_c_1.getDocument().addDocumentListener(this.listener);
+    inputField_x16io0_c.getDocument().addDocumentListener(this.listener);
 
-    inputField_e.setText("0");
-    addToSmallPanel("Initial fee", inputField_e, "$");
-    inputField_e.getDocument().addDocumentListener(this.listener);
-    inputField_f.setText("0");
-    addToSmallPanel("Monthly fee", inputField_f, "$");
-    inputField_f.getDocument().addDocumentListener(this.listener);
-    inputField_g_0.setText("3");
-    addToSmallPanel("Inflation", inputField_g_0, "%");
-    inputField_g_0.getDocument().addDocumentListener(this.listener);
-    inputField_h.setText("5");
-    addToSmallPanel("Interest", inputField_h, "%");
+    inputField_x16io0_e.setText("0");
+    addToSmallPanel("Initial fee", inputField_x16io0_e, "$");
+    inputField_x16io0_e.getDocument().addDocumentListener(this.listener);
+    inputField_x16io0_f.setText("0");
+    addToSmallPanel("Monthly fee", inputField_x16io0_f, "$");
+    inputField_x16io0_f.getDocument().addDocumentListener(this.listener);
+    inputField_x16io0_g.setText("3");
+    addToSmallPanel("Inflation", inputField_x16io0_g, "%");
+    inputField_x16io0_g.getDocument().addDocumentListener(this.listener);
+    inputField_x16io0_h.setText("5");
+    addToSmallPanel("Interest", inputField_x16io0_h, "%");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_h.getDocument().addDocumentListener(this.listener);
+    inputField_x16io0_h.getDocument().addDocumentListener(this.listener);
 
-    addToSmallPanel("Nominal profit", this.outputField_j_0, "$");
-    this.outputField_j_0.setEnabled(false);
-    addToSmallPanel("Nominal amount", this.outputField_k, "$");
-    this.outputField_k.setEnabled(false);
-    addToSmallPanel("Real profit", this.outputField_l_0, "$");
-    this.outputField_l_0.setEnabled(false);
-    addToSmallPanel("Real amount", this.outputField_m_0, "$");
-    this.outputField_m_0.setEnabled(false);
+    addToSmallPanel("Nominal profit", this.outputField_x16io0_j, "$");
+    this.outputField_x16io0_j.setEnabled(false);
+    addToSmallPanel("Nominal amount", this.outputField_x16io0_k, "$");
+    this.outputField_x16io0_k.setEnabled(false);
+    addToSmallPanel("Real profit", this.outputField_x16io0_l, "$");
+    this.outputField_x16io0_l.setEnabled(false);
+    addToSmallPanel("Real amount", this.outputField_x16io0_m, "$");
+    this.outputField_x16io0_m.setEnabled(false);
     update();
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     pack();
@@ -96,41 +96,41 @@ public class Simple_Investment extends CalculationFrame {
 
   public void update() {
     try {
-      Downpayment = Double.parseDouble(inputField_a_0.getText());
+      Downpayment = Double.parseDouble(inputField_x16io0_a.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Monthly_payment = Double.parseDouble(inputField_b_1.getText());
+      Monthly_payment = Double.parseDouble(inputField_x16io0_b.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Length_of_the_investment = Double.parseDouble(inputField_c_1.getText());
+      Length_of_the_investment = Double.parseDouble(inputField_x16io0_c.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Initial_fee = Double.parseDouble(inputField_e.getText());
+      Initial_fee = Double.parseDouble(inputField_x16io0_e.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Monthly_fee = Double.parseDouble(inputField_f.getText());
+      Monthly_fee = Double.parseDouble(inputField_x16io0_f.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Inflation = Double.parseDouble(inputField_g_0.getText());
+      Inflation = Double.parseDouble(inputField_x16io0_g.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Interest = Double.parseDouble(inputField_h.getText());
+      Interest = Double.parseDouble(inputField_x16io0_h.getText());
     } catch (NumberFormatException e) {
     }
     Nominal_profit = SimulationFunctions.compoundInterest(Downpayment - Initial_fee, Monthly_payment - Monthly_fee, Length_of_the_investment, Interest / 100);
-    outputField_j_0.setText("" + (Nominal_profit));
+    outputField_x16io0_j.setText("" + (Nominal_profit));
     Nominal_amount = Nominal_profit + Downpayment - Initial_fee + (Monthly_payment - Monthly_fee) * Length_of_the_investment;
-    outputField_k.setText("" + (Nominal_amount));
+    outputField_x16io0_k.setText("" + (Nominal_amount));
     Real_profit = Nominal_profit - Nominal_amount * Inflation / 100 * Length_of_the_investment;
-    outputField_l_0.setText("" + (Real_profit));
+    outputField_x16io0_l.setText("" + (Real_profit));
     Real_amount = Nominal_amount - Nominal_amount * Inflation / 100 * Length_of_the_investment;
-    outputField_m_0.setText("" + (Real_amount));
+    outputField_x16io0_m.setText("" + (Real_amount));
   }
 
   public static void main(String[] args) {
