@@ -191,18 +191,18 @@
       <node concept="3cpWs3" id="1Oh785uYgHP" role="70dZf">
         <node concept="17qRlL" id="1Oh785uYgHQ" role="3uHU7w">
           <node concept="70n5B" id="23xMseUOf7D" role="3uHU7w">
-            <ref role="70ssT" node="1Oh785v1JiM" resolve="PHP Rate" />
+            <ref role="70ssT" node="1Oh785v1JiM" resolve="Implementation Rate" />
           </node>
           <node concept="70n5B" id="1Oh785uYgHS" role="3uHU7B">
-            <ref role="70ssT" node="1Oh785uY8mm" resolve="PHP Hours" />
+            <ref role="70ssT" node="1Oh785uY8mm" resolve="Implementatiion Hours" />
           </node>
         </node>
         <node concept="17qRlL" id="1Oh785uYgHT" role="3uHU7B">
           <node concept="70n5B" id="1Oh785uYgHU" role="3uHU7w">
-            <ref role="70ssT" node="1Oh785uY8nH" resolve="Java Rate" />
+            <ref role="70ssT" node="1Oh785uY8nH" resolve="Design Rate" />
           </node>
           <node concept="70n5B" id="1Oh785uYgHV" role="3uHU7B">
-            <ref role="70ssT" node="1Oh785uY8lI" resolve="Java Hours" />
+            <ref role="70ssT" node="1Oh785uY8lI" resolve="Design Hours" />
           </node>
         </node>
       </node>

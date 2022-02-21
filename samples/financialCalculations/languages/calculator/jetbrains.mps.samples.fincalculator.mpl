@@ -79,6 +79,7 @@
         <module reference="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" version="0" />
         <module reference="26b3d6d5-b99a-4ed6-83be-d2ea6f3627c2(jetbrains.mps.samples.fincalculator)" version="0" />
         <module reference="08449a34-9b3a-444f-ab50-306e3fd12e6c(jetbrains.mps.samples.fincalculator#1241363159627)" version="0" />
+        <module reference="bce9778b-b491-4381-acea-8db7801e2744(jetbrains.mps.samples.fincalculator.generator01)" version="0" />
         <module reference="298d28d7-bb2d-438a-904e-7564fab4f23d(jetbrains.mps.samples.fincalculator.support)" version="0" />
       </dependencyVersions>
       <mapping-priorities />

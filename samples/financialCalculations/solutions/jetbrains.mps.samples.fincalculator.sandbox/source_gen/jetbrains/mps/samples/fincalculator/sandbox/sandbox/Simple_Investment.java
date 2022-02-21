@@ -32,10 +32,10 @@ public class Simple_Investment extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_a_2 = new JTextField();
-  private JTextField inputField_b_3 = new JTextField();
-  private JTextField inputField_c_2 = new JTextField();
-  private JTextField inputField_e_1 = new JTextField();
+  private JTextField inputField_a_0 = new JTextField();
+  private JTextField inputField_b_1 = new JTextField();
+  private JTextField inputField_c_1 = new JTextField();
+  private JTextField inputField_e = new JTextField();
   private JTextField inputField_f = new JTextField();
   private JTextField inputField_g_0 = new JTextField();
   private JTextField inputField_h = new JTextField();
@@ -58,17 +58,17 @@ public class Simple_Investment extends CalculationFrame {
 
   public Simple_Investment() {
     setTitle("Simple Investment");
-    addToSmallPanel("Downpayment", inputField_a_2, "$");
-    inputField_a_2.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Monthly payment", inputField_b_3, "$");
-    inputField_b_3.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Length of the investment", inputField_c_2, "");
+    addToSmallPanel("Downpayment", inputField_a_0, "$");
+    inputField_a_0.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Monthly payment", inputField_b_1, "$");
+    inputField_b_1.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Length of the investment", inputField_c_1, "");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_c_2.getDocument().addDocumentListener(this.listener);
+    inputField_c_1.getDocument().addDocumentListener(this.listener);
 
-    inputField_e_1.setText("0");
-    addToSmallPanel("Initial fee", inputField_e_1, "$");
-    inputField_e_1.getDocument().addDocumentListener(this.listener);
+    inputField_e.setText("0");
+    addToSmallPanel("Initial fee", inputField_e, "$");
+    inputField_e.getDocument().addDocumentListener(this.listener);
     inputField_f.setText("0");
     addToSmallPanel("Monthly fee", inputField_f, "$");
     inputField_f.getDocument().addDocumentListener(this.listener);
@@ -96,19 +96,19 @@ public class Simple_Investment extends CalculationFrame {
 
   public void update() {
     try {
-      Downpayment = Double.parseDouble(inputField_a_2.getText());
+      Downpayment = Double.parseDouble(inputField_a_0.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Monthly_payment = Double.parseDouble(inputField_b_3.getText());
+      Monthly_payment = Double.parseDouble(inputField_b_1.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Length_of_the_investment = Double.parseDouble(inputField_c_2.getText());
+      Length_of_the_investment = Double.parseDouble(inputField_c_1.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Initial_fee = Double.parseDouble(inputField_e_1.getText());
+      Initial_fee = Double.parseDouble(inputField_e.getText());
     } catch (NumberFormatException e) {
     }
     try {

@@ -37,9 +37,9 @@ public class Mortgage_Simulation extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_a_0 = new JTextField();
-  private JTextField inputField_b_1 = new JTextField();
-  private JTextField inputField_c_1 = new JTextField();
+  private JTextField inputField_a = new JTextField();
+  private JTextField inputField_b_0 = new JTextField();
+  private JTextField inputField_c_0 = new JTextField();
   private JTextField outputField_h = new JTextField();
   private JTextField outputField_i = new JTextField();
   private JTable table_j = new JTable();
@@ -60,13 +60,13 @@ public class Mortgage_Simulation extends CalculationFrame {
 
   public Mortgage_Simulation() {
     setTitle("Mortgage Simulation");
-    addToSmallPanel("Loan ammount", inputField_a_0, "$");
-    inputField_a_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Interest rate", inputField_b_1, "%");
-    inputField_b_1.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Monthly payment", inputField_c_1, "$");
+    addToSmallPanel("Loan ammount", inputField_a, "$");
+    inputField_a.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Interest rate", inputField_b_0, "%");
+    inputField_b_0.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Monthly payment", inputField_c_0, "$");
     addToSmallPanel("", new JLabel(""), "");
-    inputField_c_1.getDocument().addDocumentListener(this.listener);
+    inputField_c_0.getDocument().addDocumentListener(this.listener);
 
 
     addToSmallPanel("Number of months", this.outputField_h, "");
@@ -88,15 +88,15 @@ public class Mortgage_Simulation extends CalculationFrame {
 
   public void update() {
     try {
-      Loan_ammount = Double.parseDouble(inputField_a_0.getText());
+      Loan_ammount = Double.parseDouble(inputField_a.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Interest_rate = Double.parseDouble(inputField_b_1.getText());
+      Interest_rate = Double.parseDouble(inputField_b_0.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Monthly_payment = Double.parseDouble(inputField_c_1.getText());
+      Monthly_payment = Double.parseDouble(inputField_c_0.getText());
     } catch (NumberFormatException e) {
     }
     result = SimulationFunctions.simulateMortgage(Loan_ammount, Interest_rate / 100, Monthly_payment);

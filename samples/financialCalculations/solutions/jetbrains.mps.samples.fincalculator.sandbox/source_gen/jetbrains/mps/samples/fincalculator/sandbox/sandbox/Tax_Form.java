@@ -43,9 +43,9 @@ public class Tax_Form extends CalculationFrame {
 
   private JTextField inputField_a_1 = new JTextField();
   private JTextField inputField_b_2 = new JTextField();
-  private JTextField inputField_c_3 = new JTextField();
-  private JTextField inputField_d_1 = new JTextField();
-  private JTextField inputField_e_2 = new JTextField();
+  private JTextField inputField_c_2 = new JTextField();
+  private JTextField inputField_d_0 = new JTextField();
+  private JTextField inputField_e_1 = new JTextField();
   private JTextField inputField_f_0 = new JTextField();
   private JTextField outputField_l = new JTextField();
   private JTextField outputField_m = new JTextField();
@@ -89,12 +89,12 @@ public class Tax_Form extends CalculationFrame {
     inputField_a_1.getDocument().addDocumentListener(this.listener);
     addToSmallPanel("Gross income from employment", inputField_b_2, "$");
     inputField_b_2.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Gross income from renting out", inputField_c_3, "$");
-    inputField_c_3.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Capital gains", inputField_d_1, "$");
-    inputField_d_1.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Capital loss in previous year", inputField_e_2, "$");
-    inputField_e_2.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Gross income from renting out", inputField_c_2, "$");
+    inputField_c_2.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Capital gains", inputField_d_0, "$");
+    inputField_d_0.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Capital loss in previous year", inputField_e_1, "$");
+    inputField_e_1.getDocument().addDocumentListener(this.listener);
     addToSmallPanel("Paid towards taxes", inputField_f_0, "$");
     addToSmallPanel("", new JLabel(""), "");
     inputField_f_0.getDocument().addDocumentListener(this.listener);
@@ -189,15 +189,15 @@ public class Tax_Form extends CalculationFrame {
     } catch (NumberFormatException e) {
     }
     try {
-      Gross_income_from_renting_out = Double.parseDouble(inputField_c_3.getText());
+      Gross_income_from_renting_out = Double.parseDouble(inputField_c_2.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Capital_gains = Double.parseDouble(inputField_d_1.getText());
+      Capital_gains = Double.parseDouble(inputField_d_0.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Capital_loss_in_previous_year = Double.parseDouble(inputField_e_2.getText());
+      Capital_loss_in_previous_year = Double.parseDouble(inputField_e_1.getText());
     } catch (NumberFormatException e) {
     }
     try {

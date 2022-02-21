@@ -34,8 +34,8 @@ public class Salary extends CalculationFrame {
 
   private JTextField inputField_b = new JTextField();
   private JTextField inputField_c = new JTextField();
-  private JTextField inputField_d_0 = new JTextField();
-  private JTextField inputField_e = new JTextField();
+  private JTextField inputField_d = new JTextField();
+  private JTextField inputField_e_0 = new JTextField();
   private JTextField inputField_g = new JTextField();
   private JTextField outputField_i_0 = new JTextField();
   private JTextField outputField_j = new JTextField();
@@ -57,10 +57,10 @@ public class Salary extends CalculationFrame {
     inputField_b.getDocument().addDocumentListener(this.listener);
     addToSmallPanel("Implementatiion Hours", inputField_c, "");
     inputField_c.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Design Rate", inputField_d_0, "$");
-    inputField_d_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("Implementation Rate", inputField_e, "$");
-    inputField_e.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Design Rate", inputField_d, "$");
+    inputField_d.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("Implementation Rate", inputField_e_0, "$");
+    inputField_e_0.getDocument().addDocumentListener(this.listener);
     {
       JCheckBox localBox = checkbox_f;
       addToSmallPanel("", localBox, "");
@@ -100,11 +100,11 @@ public class Salary extends CalculationFrame {
     } catch (NumberFormatException e) {
     }
     try {
-      Design_Rate = Double.parseDouble(inputField_d_0.getText());
+      Design_Rate = Double.parseDouble(inputField_d.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      Implementation_Rate = Double.parseDouble(inputField_e.getText());
+      Implementation_Rate = Double.parseDouble(inputField_e_0.getText());
     } catch (NumberFormatException e) {
     }
     student = checkbox_f.isSelected();

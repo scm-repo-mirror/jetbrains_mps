@@ -43,11 +43,11 @@ public class Mortgage_Evaluation extends CalculationFrame {
     }
   };
 
-  private JTextField inputField_a = new JTextField();
-  private JTextField inputField_b_0 = new JTextField();
-  private JTextField inputField_c_0 = new JTextField();
-  private JTextField inputField_d = new JTextField();
-  private JTextField inputField_e_0 = new JTextField();
+  private JTextField inputField_a_2 = new JTextField();
+  private JTextField inputField_b_3 = new JTextField();
+  private JTextField inputField_c_3 = new JTextField();
+  private JTextField inputField_d_1 = new JTextField();
+  private JTextField inputField_e_2 = new JTextField();
   private JTextField inputField_m = new JTextField();
   private JTextField inputField_n = new JTextField();
   private JTextField inputField_o = new JTextField();
@@ -106,16 +106,16 @@ public class Mortgage_Evaluation extends CalculationFrame {
 
   public Mortgage_Evaluation() {
     setTitle("Mortgage Evaluation");
-    addToSmallPanel("age", inputField_a, "");
-    inputField_a.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("total monthly income", inputField_b_0, "$");
-    inputField_b_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("total debt", inputField_c_0, "$");
-    inputField_c_0.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("total monthly spendings", inputField_d, "$");
-    inputField_d.getDocument().addDocumentListener(this.listener);
-    addToSmallPanel("monthly payments towards other loans", inputField_e_0, "$");
-    inputField_e_0.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("age", inputField_a_2, "");
+    inputField_a_2.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("total monthly income", inputField_b_3, "$");
+    inputField_b_3.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("total debt", inputField_c_3, "$");
+    inputField_c_3.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("total monthly spendings", inputField_d_1, "$");
+    inputField_d_1.getDocument().addDocumentListener(this.listener);
+    addToSmallPanel("monthly payments towards other loans", inputField_e_2, "$");
+    inputField_e_2.getDocument().addDocumentListener(this.listener);
     {
       JComboBox localbox = selector_f;
       localbox.addItem(new SelectorItem<Double>("single", Double.parseDouble("1")));
@@ -214,23 +214,23 @@ public class Mortgage_Evaluation extends CalculationFrame {
 
   public void update() {
     try {
-      age = Double.parseDouble(inputField_a.getText());
+      age = Double.parseDouble(inputField_a_2.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      total_monthly_income = Double.parseDouble(inputField_b_0.getText());
+      total_monthly_income = Double.parseDouble(inputField_b_3.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      total_debt = Double.parseDouble(inputField_c_0.getText());
+      total_debt = Double.parseDouble(inputField_c_3.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      total_monthly_spendings = Double.parseDouble(inputField_d.getText());
+      total_monthly_spendings = Double.parseDouble(inputField_d_1.getText());
     } catch (NumberFormatException e) {
     }
     try {
-      monthly_payments_towards_other_loans = Double.parseDouble(inputField_e_0.getText());
+      monthly_payments_towards_other_loans = Double.parseDouble(inputField_e_2.getText());
     } catch (NumberFormatException e) {
     }
     marital_status = ((SelectorItem<Double>) ((JComboBox) selector_f).getSelectedItem()).getValue();

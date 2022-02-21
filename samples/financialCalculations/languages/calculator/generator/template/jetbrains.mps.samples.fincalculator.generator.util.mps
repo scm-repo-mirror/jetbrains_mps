@@ -6,7 +6,7 @@
     <devkit ref="a2eb3a43-fcc2-4200-80dc-c60110c4862d(jetbrains.mps.devkit.templates)" />
   </languages>
   <imports>
-    <import index="64en" ref="r:87765d2d-a756-4883-9acc-6a42e5bf6c24(jetbrains.mps.samples.fincalculator.structure)" implicit="true" />
+    <import index="64eg" ref="r:87765d2d-a756-4883-9acc-6a42e5bf6c24(jetbrains.mps.samples.fincalculator.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -92,10 +92,10 @@
           <node concept="17R0WA" id="1Oh785uVDZo" role="3clFbw">
             <node concept="2OqwBi" id="1Oh785uVDZp" role="3uHU7w">
               <node concept="1XH99k" id="1Oh785uVDZq" role="2Oq$k0">
-                <ref role="1XH99l" to="64en:1Oh785uUtIP" resolve="ValueKind" />
+                <ref role="1XH99l" to="64eg:1Oh785uUtIP" resolve="ValueKind" />
               </node>
               <node concept="2ViDtV" id="1Oh785uVDZr" role="2OqNvi">
-                <ref role="2ViDtZ" to="64en:1Oh785uUtIQ" resolve="amount" />
+                <ref role="2ViDtZ" to="64eg:1Oh785uUtIQ" resolve="amount" />
               </node>
             </node>
             <node concept="37vLTw" id="4qqfUlqpE0_" role="3uHU7B">
@@ -120,10 +120,10 @@
             <node concept="17R0WA" id="1Oh785uVDZA" role="3eO9$A">
               <node concept="2OqwBi" id="1Oh785uVDZB" role="3uHU7w">
                 <node concept="1XH99k" id="1Oh785uVDZC" role="2Oq$k0">
-                  <ref role="1XH99l" to="64en:1Oh785uUtIP" resolve="ValueKind" />
+                  <ref role="1XH99l" to="64eg:1Oh785uUtIP" resolve="ValueKind" />
                 </node>
                 <node concept="2ViDtV" id="1Oh785uVDZD" role="2OqNvi">
-                  <ref role="2ViDtZ" to="64en:1Oh785uUtIR" resolve="percent" />
+                  <ref role="2ViDtZ" to="64eg:1Oh785uUtIR" resolve="percent" />
                 </node>
               </node>
               <node concept="37vLTw" id="4qqfUlqpE6Q" role="3uHU7B">
