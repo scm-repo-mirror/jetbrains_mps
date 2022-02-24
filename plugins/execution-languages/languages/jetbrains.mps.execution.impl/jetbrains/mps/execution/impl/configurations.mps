@@ -335,12 +335,12 @@
         </node>
         <node concept="3clFbF" id="1s_TLxa8SZd" role="3cqZAp">
           <node concept="37vLTI" id="1s_TLxa8SZf" role="3clFbG">
+            <node concept="37vLTw" id="2BHiRxeuTpa" role="37vLTJ">
+              <ref role="3cqZAo" node="1s_TLxa8SZ8" resolve="myRegistry" />
+            </node>
             <node concept="2YIFZM" id="6CxxZgRrbzu" role="37vLTx">
               <ref role="37wK5l" to="y8sq:~PluginLoaderRegistry.getInstance()" resolve="getInstance" />
               <ref role="1Pybhc" to="y8sq:~PluginLoaderRegistry" resolve="PluginLoaderRegistry" />
-            </node>
-            <node concept="37vLTw" id="2BHiRxeuTpa" role="37vLTJ">
-              <ref role="3cqZAo" node="1s_TLxa8SZ8" resolve="myRegistry" />
             </node>
           </node>
         </node>
@@ -407,6 +407,9 @@
           </node>
         </node>
         <node concept="3clFbJ" id="4tDMPuHd$Q9" role="3cqZAp">
+          <node concept="3clFbS" id="4tDMPuHd$Qd" role="3clFbx">
+            <node concept="3cpWs6" id="4tDMPuHd$Qe" role="3cqZAp" />
+          </node>
           <node concept="22lmx$" id="1rm1p2$kT4v" role="3clFbw">
             <node concept="2OqwBi" id="1rm1p2$kY9X" role="3uHU7w">
               <node concept="37vLTw" id="1rm1p2$kWUN" role="2Oq$k0">
@@ -424,9 +427,6 @@
                 <ref role="37wK5l" to="1m72:~ComponentManager.isDisposed()" resolve="isDisposed" />
               </node>
             </node>
-          </node>
-          <node concept="3clFbS" id="4tDMPuHd$Qd" role="3clFbx">
-            <node concept="3cpWs6" id="4tDMPuHd$Qe" role="3cqZAp" />
           </node>
         </node>
         <node concept="3clFbH" id="4sfB6SDPOyl" role="3cqZAp" />
@@ -482,6 +482,9 @@
           </node>
         </node>
         <node concept="3clFbJ" id="7rb2_bmZtsK" role="3cqZAp">
+          <node concept="3clFbS" id="7rb2_bmZtsO" role="3clFbx">
+            <node concept="3cpWs6" id="7rb2_bmZtsP" role="3cqZAp" />
+          </node>
           <node concept="22lmx$" id="1rm1p2$l0IQ" role="3clFbw">
             <node concept="2OqwBi" id="1rm1p2$l2Vh" role="3uHU7w">
               <node concept="37vLTw" id="1rm1p2$l1Dm" role="2Oq$k0">
@@ -499,9 +502,6 @@
                 <ref role="37wK5l" to="1m72:~ComponentManager.isDisposed()" resolve="isDisposed" />
               </node>
             </node>
-          </node>
-          <node concept="3clFbS" id="7rb2_bmZtsO" role="3clFbx">
-            <node concept="3cpWs6" id="7rb2_bmZtsP" role="3cqZAp" />
           </node>
         </node>
         <node concept="3clFbH" id="7rb2_bmZsuW" role="3cqZAp" />

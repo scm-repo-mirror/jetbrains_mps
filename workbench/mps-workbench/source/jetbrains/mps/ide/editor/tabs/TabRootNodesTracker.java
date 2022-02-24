@@ -25,7 +25,9 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
 import org.jetbrains.mps.openapi.event.SNodeRemoveEvent;
 import org.jetbrains.mps.openapi.event.SPropertyChangeEvent;
+import org.jetbrains.mps.openapi.event.SReferenceChangeEvent;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -41,26 +43,27 @@ import java.util.HashSet;
  * Listener is shared between multiple editors (one for project) and available as project service
  * <p/>
  * FIXME for the time being, treats any model/root node removal as worth tab rebuild, perhaps shall respect actual documents (TabsComponent#getAllEditedDocuments())
- *
+ * <p>
  * FIXME I don't like the idea of idea service for an otherwise pure-MPS repo listener,
- *    can we address MPS-27686 (6df275a2) in less platform-dependent way?
+ * can we address MPS-27686 (6df275a2) in less platform-dependent way?
  *
  * @author Artem Tikhomirov
  */
-class RepoChangeListener extends SRepositoryContentAdapter implements Disposable {
+class TabRootNodesTracker extends SRepositoryContentAdapter implements Disposable {
   private final Collection<SNodeReference> myChangedRoots = new HashSet<>();
   private final Collection<TabsComponent> myTabsComponents = new HashSet<>();
 
   private final Project myProject;
 
   @Nullable
-  static RepoChangeListener getInstance(jetbrains.mps.project.Project mpsProject) {
+  static TabRootNodesTracker getInstance(jetbrains.mps.project.Project mpsProject) {
     final com.intellij.openapi.project.Project ideaProject = ProjectHelper.toIdeaProject(mpsProject);
-    return ideaProject == null ? null : ideaProject.getService(RepoChangeListener.class);
+    return ideaProject == null ? null : ideaProject.getService(TabRootNodesTracker.class);
   }
 
-  public RepoChangeListener(com.intellij.openapi.project.Project project) {
+  public TabRootNodesTracker(com.intellij.openapi.project.Project project) {
     myProject = ProjectHelper.fromIdeaProject(project);
+    attachRepoListener();
   }
 
   @Override
@@ -83,17 +86,11 @@ class RepoChangeListener extends SRepositoryContentAdapter implements Disposable
   }
 
   /*package*/ void addTabComponent(@NotNull TabsComponent tabsComponent) {
-    if (myTabsComponents.isEmpty()) {
-      attachRepoListener();
-    }
     myTabsComponents.add(tabsComponent);
   }
 
-  /*package*/ void removeTabComponent (@NotNull TabsComponent tabsComponent) {
+  /*package*/ void removeTabComponent(@NotNull TabsComponent tabsComponent) {
     myTabsComponents.remove(tabsComponent);
-    if (myTabsComponents.isEmpty()) {
-      detachRepoListener();
-    }
   }
 
   @Override
@@ -145,13 +142,21 @@ class RepoChangeListener extends SRepositoryContentAdapter implements Disposable
   }
 
   @Override
+  public void referenceChanged(@NotNull SReferenceChangeEvent event) {
+    SNode targetNode = event.getNewValue().getTargetNode();
+    if (targetNode != null && targetNode.getParent() == null) {
+      myChangedRoots.add(event.getNewValue().getTargetNodeReference());
+    }
+  }
+
+  @Override
   public void commandStarted(SRepository repository) {
     myChangedRoots.clear();
   }
 
   @Override
   public void commandFinished(SRepository repository) {
-    if (!myChangedRoots.isEmpty() && !myTabsComponents.isEmpty()) {
+    if (!myChangedRoots.isEmpty()) {
       for (TabsComponent tabsComponent : myTabsComponents) {
         tabsComponent.updateTabs(myChangedRoots);
       }
