@@ -1785,7 +1785,12 @@
   <node concept="3wDVqV" id="5gyVhZ17Jm9">
     <property role="TrG5h" value="Java Application" />
     <property role="3GE5qa" value="java" />
-    <node concept="1QGGSu" id="5gyVhZ17Jma" role="1bitO_" />
+    <node concept="1QGGSu" id="1sDdZ5$RWXl" role="1bitO_">
+      <node concept="10M0yZ" id="1sDdZ5$ScDH" role="3xaMm5">
+        <ref role="3cqZAo" to="z2i8:~AllIcons$RunConfigurations.Application" resolve="Application" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="RunConfigurations" />
+      </node>
+    </node>
   </node>
   <node concept="RBi3j" id="5gyVhZ17Jmb">
     <property role="35f5FB" value="true" />
@@ -2359,8 +2364,8 @@
     <property role="3GE5qa" value="junit" />
     <node concept="1QGGSu" id="4rA9Dd$P7z0" role="1bitO_">
       <node concept="10M0yZ" id="4rA9Dd$Pgjt" role="3xaMm5">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="AllIcons.RunConfigurations" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$RunConfigurations.Junit" resolve="Junit" />
+        <ref role="1PxDUh" to="z2i8:~AllIcons$RunConfigurations" resolve="RunConfigurations" />
       </node>
     </node>
   </node>
@@ -11036,12 +11041,12 @@
                 <ref role="37wK5l" node="79FiGkx5dQ7" resolve="DeployScript.TemporalModuleWithDescriptorFile" />
                 <node concept="2OqwBi" id="2OS1ucF1Xli" role="37wK5m">
                   <node concept="37vLTw" id="2OS1ucF1WBb" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2OS1ucF1SDe" resolve="pojoFS" />
+                    <ref role="3cqZAo" node="2OS1ucF1SDe" />
                   </node>
                   <node concept="liA8E" id="2OS1ucF1YdG" role="2OqNvi">
                     <ref role="37wK5l" to="3ju5:~IFileSystem.getFile(java.io.File)" resolve="getFile" />
                     <node concept="37vLTw" id="2OS1ucF2C5N" role="37wK5m">
-                      <ref role="3cqZAo" node="2OS1ucF2wfP" resolve="myModuleBaseDir" />
+                      <ref role="3cqZAo" node="2OS1ucF2wfP" />
                     </node>
                   </node>
                 </node>

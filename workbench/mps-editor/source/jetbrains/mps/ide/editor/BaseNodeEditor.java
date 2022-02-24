@@ -78,7 +78,7 @@ public abstract class BaseNodeEditor implements Editor {
 
   public abstract List<Document> getAllEditedDocuments();
 
-  public JComponent getComponent() {
+  public final JComponent getComponent() {
     return myComponent;
   }
 

@@ -119,7 +119,7 @@
     <postStartupActivity implementation="jetbrains.mps.workbench.findusages.StubModelsFastFindSupport$Plug" />
     <postStartupActivity implementation="jetbrains.mps.ide.make.StartupModuleMakerImpl" />
     <projectService serviceImplementation="jetbrains.mps.ide.findusages.view.optionseditor.DefaultSearchOptionsComponent"/>
-    <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.RepoChangeListener"/>
+    <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.TabRootNodesTracker"/>
     <projectService serviceImplementation="jetbrains.mps.ide.editor.tabs.FileStatusChangeListener"/>
     <projectService serviceImplementation="jetbrains.mps.ide.bookmark.BookmarksUIComponent"/>
     <applicationService serviceInterface="jetbrains.mps.ide.platform.watching.FileSystemListenersContainer"

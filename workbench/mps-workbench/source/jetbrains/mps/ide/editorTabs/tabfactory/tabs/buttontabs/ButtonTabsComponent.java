@@ -39,8 +39,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
-public class ButtonTabsComponent extends BaseTabsComponent {
+public class ButtonTabsComponent extends BaseTabsComponent<ButtonEditorTab> {
   private final List<ButtonEditorTab> myRealTabs = new ArrayList<>();
   private ActionToolbar myToolbar = null;
 
@@ -89,19 +90,24 @@ public class ButtonTabsComponent extends BaseTabsComponent {
   @Override
   public void updateTabs() {
     // Emulate old behaviour - always update
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
+    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNodeRef;
     updateTabs(Collections.singletonList(reference));
   }
 
   @Override
+  @NotNull
+  protected Stream<ButtonEditorTab> getRealTabs() {
+    return myRealTabs.stream();
+  }
+
+  @Override
   public void updateTabs(Collection<SNodeReference> changedRoots) {
-    final SNodeReference reference = getEditedNode() != null ? getEditedNode() : myBaseNode;
-    if (isDisposed() || !changedRoots.contains(reference)) {
+    if (!needUpdateTabs(changedRoots)) {
       return;
     }
 
     if (getEditedNode() != null && getEditedNode().resolve(getProject().getRepository()) == null) {
-      editNode(myBaseNode);
+      editNode(myBaseNodeRef);
     }
 
     myRealTabs.clear();
@@ -139,7 +145,7 @@ public class ButtonTabsComponent extends BaseTabsComponent {
           break;
         }
       }
-      editNode(isTabExists ? getEditedNode() : myBaseNode);
+      editNode(isTabExists ? getEditedNode() : myBaseNodeRef);
     }
   }
 

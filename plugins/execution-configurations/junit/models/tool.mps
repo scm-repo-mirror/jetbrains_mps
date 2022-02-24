@@ -15705,6 +15705,24 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="3x1jHtrHxEq" role="3cqZAp">
+          <node concept="2OqwBi" id="3x1jHtrHzuP" role="3clFbG">
+            <node concept="37vLTw" id="3x1jHtrHxEo" role="2Oq$k0">
+              <ref role="3cqZAo" node="7dV9$tm6IWa" resolve="toolbar" />
+            </node>
+            <node concept="liA8E" id="3x1jHtrHCZl" role="2OqNvi">
+              <ref role="37wK5l" to="qkt:~ActionToolbar.setTargetComponent(javax.swing.JComponent)" resolve="setTargetComponent" />
+              <node concept="2OqwBi" id="3x1jHtrHLx9" role="37wK5m">
+                <node concept="37vLTw" id="3x1jHtrHITj" role="2Oq$k0">
+                  <ref role="3cqZAo" node="7dV9$tm6IWr" resolve="console" />
+                </node>
+                <node concept="liA8E" id="3x1jHtrHNMf" role="2OqNvi">
+                  <ref role="37wK5l" to="jkm4:~ComponentContainer.getComponent()" resolve="getComponent" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="7dV9$tm6IWi" role="3cqZAp">
           <node concept="2OqwBi" id="7dV9$tm6IWj" role="3clFbG">
             <node concept="37vLTw" id="3GM_nagTzd9" role="2Oq$k0">
@@ -16567,15 +16585,15 @@
               </node>
             </node>
             <node concept="2OqwBi" id="72oQpGmSRF1" role="3clFbw">
-              <node concept="10M0yZ" id="5EpuqcIG7U4" role="2Oq$k0">
-                <ref role="3cqZAo" to="qq03:~SNodeActionData.KEY" resolve="KEY" />
-                <ref role="1PxDUh" to="qq03:~SNodeActionData" resolve="SNodeActionData" />
-              </node>
               <node concept="liA8E" id="72oQpGmSSgB" role="2OqNvi">
                 <ref role="37wK5l" to="qkt:~DataKey.is(java.lang.String)" resolve="is" />
                 <node concept="37vLTw" id="72oQpGmSTfK" role="37wK5m">
                   <ref role="3cqZAo" node="7dV9$tm6J3C" resolve="dataId" />
                 </node>
+              </node>
+              <node concept="10M0yZ" id="5EpuqcIG7U4" role="2Oq$k0">
+                <ref role="3cqZAo" to="qq03:~SNodeActionData.KEY" resolve="KEY" />
+                <ref role="1PxDUh" to="qq03:~SNodeActionData" resolve="SNodeActionData" />
               </node>
             </node>
           </node>
