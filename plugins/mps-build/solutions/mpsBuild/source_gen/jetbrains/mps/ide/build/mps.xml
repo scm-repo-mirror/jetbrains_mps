@@ -21,6 +21,7 @@
   <property name="artifacts.mpsJavaPlatform" location="${build.dir}/artifacts/mpsJavaPlatform" />
   <property name="artifacts.mpsJava" location="${build.dir}/artifacts/mpsJava" />
   <property name="artifacts.mpsHttpSupportPlugin" location="${build.dir}/artifacts/mpsHttpSupportPlugin" />
+  <property name="artifacts.mpsNavigationBar" location="${build.dir}/artifacts/mpsNavigationBar" />
   <property name="artifacts.mpsMakePlugin" location="${build.dir}/artifacts/mpsMakePlugin" />
   <property name="artifacts.mpsBuildUI" location="${build.dir}/artifacts/mpsBuildUI" />
   <property name="artifacts.mpsVcs" location="${build.dir}/artifacts/mpsVcs" />
@@ -217,6 +218,9 @@
       <fileset dir="${artifacts.mpsHttpSupportPlugin}" />
     </copy>
     <copy todir="${build.layout}/plugins">
+      <fileset dir="${artifacts.mpsNavigationBar}" />
+    </copy>
+    <copy todir="${build.layout}/plugins">
       <fileset dir="${artifacts.mpsContextActionsTool}" />
     </copy>
     <copy todir="${build.layout}/plugins">
@@ -282,6 +286,7 @@
     <ant antfile="build/mpsJava.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsPlugins.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsHttpSupportPlugin.xml" inheritAll="false" useNativeBasedir="true" />
+    <ant antfile="build/mpsNavigationBar.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsDebuggerPlugin.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsExecutionPlugin.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsBuildUI.xml" inheritAll="false" useNativeBasedir="true" />
