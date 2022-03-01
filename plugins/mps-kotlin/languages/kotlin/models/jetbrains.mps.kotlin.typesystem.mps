@@ -18,6 +18,7 @@
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -269,6 +270,9 @@
       </concept>
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
+      </concept>
+      <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
+        <reference id="1138056395725" name="property" index="3TsBF5" />
       </concept>
       <concept id="1138056143562" name="jetbrains.mps.lang.smodel.structure.SLinkAccess" flags="nn" index="3TrEf2">
         <reference id="1138056516764" name="link" index="3Tt5mk" />
@@ -2376,6 +2380,129 @@
     <node concept="1YaCAy" id="1$jFvlEWzBt" role="1YuTPh">
       <property role="TrG5h" value="specifier" />
       <ref role="1YaFvo" to="hcm8:1$jFvlEWaYg" resolve="IClassSuperSpecifier" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="7ZZRFA6PIFi">
+    <property role="TrG5h" value="check_DataClassModifier" />
+    <property role="3GE5qa" value="declaration.class.modifier" />
+    <node concept="3clFbS" id="7ZZRFA6PIFj" role="18ibNy">
+      <node concept="2Gpval" id="7ZZRFA6PMPl" role="3cqZAp">
+        <node concept="2GrKxI" id="7ZZRFA6PMPn" role="2Gsz3X">
+          <property role="TrG5h" value="param" />
+        </node>
+        <node concept="3clFbS" id="7ZZRFA6PMPr" role="2LFqv$">
+          <node concept="3clFbJ" id="7ZZRFA6PNGh" role="3cqZAp">
+            <node concept="3fqX7Q" id="7ZZRFA6POP2" role="3clFbw">
+              <node concept="2OqwBi" id="7ZZRFA6POP4" role="3fr31v">
+                <node concept="2GrUjf" id="7ZZRFA6POP5" role="2Oq$k0">
+                  <ref role="2Gs0qQ" node="7ZZRFA6PMPn" resolve="param" />
+                </node>
+                <node concept="3TrcHB" id="7ZZRFA6POP6" role="2OqNvi">
+                  <ref role="3TsBF5" to="hcm8:1502VugFRO8" resolve="isProperty" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbS" id="7ZZRFA6PNGj" role="3clFbx">
+              <node concept="2MkqsV" id="7ZZRFA6PP0U" role="3cqZAp">
+                <node concept="Xl_RD" id="7ZZRFA6PP2n" role="2MkJ7o">
+                  <property role="Xl_RC" value="Data class primary constructor must only have property (val / var) parameters" />
+                </node>
+                <node concept="2GrUjf" id="7ZZRFA6PPjk" role="1urrMF">
+                  <ref role="2Gs0qQ" node="7ZZRFA6PMPn" resolve="param" />
+                </node>
+                <node concept="3Cnw8n" id="7ZZRFA6PQXw" role="1urrFz">
+                  <ref role="QpYPw" node="7ZZRFA6PPFj" resolve="AddVarVarToParameter" />
+                  <node concept="3CnSsL" id="7ZZRFA6PR5A" role="3Coj4f">
+                    <ref role="QkamJ" node="7ZZRFA6PPOk" resolve="classParameter" />
+                    <node concept="2GrUjf" id="7ZZRFA6PR8P" role="3CoRuB">
+                      <ref role="2Gs0qQ" node="7ZZRFA6PMPn" resolve="param" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="7ZZRFA6PLUq" role="2GsD0m">
+          <node concept="2OqwBi" id="7ZZRFA6PK2r" role="2Oq$k0">
+            <node concept="1PxgMI" id="7ZZRFA6PJzb" role="2Oq$k0">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="7ZZRFA6PJDN" role="3oSUPX">
+                <ref role="cht4Q" to="hcm8:2yYXHtl6JhD" resolve="ClassDeclaration" />
+              </node>
+              <node concept="2OqwBi" id="7ZZRFA6PJ57" role="1m5AlR">
+                <node concept="1YBJjd" id="7ZZRFA6PIWh" role="2Oq$k0">
+                  <ref role="1YBMHb" node="7ZZRFA6PIFl" resolve="dataClassModifier" />
+                </node>
+                <node concept="1mfA1w" id="7ZZRFA6PJjN" role="2OqNvi" />
+              </node>
+            </node>
+            <node concept="3TrEf2" id="7ZZRFA6PKIf" role="2OqNvi">
+              <ref role="3Tt5mk" to="hcm8:213J8cgT58_" resolve="primaryConstructor" />
+            </node>
+          </node>
+          <node concept="3Tsc0h" id="7ZZRFA6PMus" role="2OqNvi">
+            <ref role="3TtcxE" to="hcm8:2yYXHtl6Jrv" resolve="parameters" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="7ZZRFA6PIFl" role="1YuTPh">
+      <property role="TrG5h" value="dataClassModifier" />
+      <ref role="1YaFvo" to="hcm8:2yYXHtl6Jga" resolve="DataClassModifier" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="7ZZRFA6PPFj">
+    <property role="3GE5qa" value="declaration.class.modifier" />
+    <property role="TrG5h" value="AddVarVarToParameter" />
+    <node concept="Q6JDH" id="7ZZRFA6PPOk" role="Q6Id_">
+      <property role="TrG5h" value="classParameter" />
+      <node concept="3Tqbb2" id="7ZZRFA6PPRm" role="Q6QK4">
+        <ref role="ehGHo" to="hcm8:2yYXHtl6JkU" resolve="ClassParameter" />
+      </node>
+    </node>
+    <node concept="Q5ZZ6" id="7ZZRFA6PPFk" role="Q6x$H">
+      <node concept="3clFbS" id="7ZZRFA6PPFl" role="2VODD2">
+        <node concept="3clFbF" id="7ZZRFA6PPXn" role="3cqZAp">
+          <node concept="37vLTI" id="7ZZRFA6PQB_" role="3clFbG">
+            <node concept="3clFbT" id="7ZZRFA6PQLO" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="2OqwBi" id="7ZZRFA6PPZY" role="37vLTJ">
+              <node concept="QwW4i" id="7ZZRFA6PPXm" role="2Oq$k0">
+                <ref role="QwW4h" node="7ZZRFA6PPOk" resolve="classParameter" />
+              </node>
+              <node concept="3TrcHB" id="7ZZRFA6PQg0" role="2OqNvi">
+                <ref role="3TsBF5" to="hcm8:1502VugFRO8" resolve="isProperty" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="QznSV" id="7ZZRFA6PRFd" role="QzAvj">
+      <node concept="3clFbS" id="7ZZRFA6PRFe" role="2VODD2">
+        <node concept="3clFbF" id="7ZZRFA6PRJU" role="3cqZAp">
+          <node concept="3cpWs3" id="7ZZRFA6PTqK" role="3clFbG">
+            <node concept="Xl_RD" id="7ZZRFA6PTCM" role="3uHU7w">
+              <property role="Xl_RC" value="'" />
+            </node>
+            <node concept="3cpWs3" id="7ZZRFA6PSDt" role="3uHU7B">
+              <node concept="Xl_RD" id="7ZZRFA6PRJT" role="3uHU7B">
+                <property role="Xl_RC" value="Add 'var'/'val' to parameter '" />
+              </node>
+              <node concept="2OqwBi" id="7ZZRFA6PSR3" role="3uHU7w">
+                <node concept="QwW4i" id="7ZZRFA6PSJp" role="2Oq$k0">
+                  <ref role="QwW4h" node="7ZZRFA6PPOk" resolve="classParameter" />
+                </node>
+                <node concept="3TrcHB" id="7ZZRFA6PT1z" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

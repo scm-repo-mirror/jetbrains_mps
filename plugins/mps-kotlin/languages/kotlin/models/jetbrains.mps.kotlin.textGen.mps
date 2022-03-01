@@ -1955,7 +1955,7 @@
     </node>
   </node>
   <node concept="WtQ9Q" id="5lA_K0zi36C">
-    <property role="3GE5qa" value="expression.function.call" />
+    <property role="3GE5qa" value="expression.function.call.regular" />
     <ref role="WuzLi" to="hcm8:42OKUkNAAjj" resolve="FunctionCallTarget" />
     <node concept="11bSqf" id="5lA_K0zi36D" role="11c4hB">
       <node concept="3clFbS" id="5lA_K0zi36E" role="2VODD2">
@@ -7472,7 +7472,7 @@
     </node>
   </node>
   <node concept="WtQ9Q" id="5H$PF0dVS9E">
-    <property role="3GE5qa" value="expression.function.call" />
+    <property role="3GE5qa" value="expression.function.call.regular" />
     <ref role="WuzLi" to="hcm8:42OKUkNAA_T" resolve="FunctionCallExpression" />
     <node concept="11bSqf" id="5H$PF0dVS9F" role="11c4hB">
       <node concept="3clFbS" id="5H$PF0dVS9G" role="2VODD2">
@@ -7607,6 +7607,50 @@
               </node>
             </node>
             <node concept="3GX2aA" id="4hE452S8xVh" role="2OqNvi" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="WtQ9Q" id="52XfVvNWoov">
+    <property role="3GE5qa" value="expression.function.call.dataclass" />
+    <ref role="WuzLi" to="hcm8:5Ms3qK7YHkN" resolve="ComponentFunctionCall" />
+    <node concept="11bSqf" id="52XfVvNWoow" role="11c4hB">
+      <node concept="3clFbS" id="52XfVvNWoox" role="2VODD2">
+        <node concept="lc7rE" id="52XfVvNWoGN" role="3cqZAp">
+          <node concept="l9hG8" id="52XfVvNWsMo" role="lcghm">
+            <node concept="2OqwBi" id="52XfVvNWt2_" role="lb14g">
+              <node concept="117lpO" id="52XfVvNWsSb" role="2Oq$k0" />
+              <node concept="2qgKlT" id="52XfVvNWtxh" role="2OqNvi">
+                <ref role="37wK5l" to="hez:4nn3FPlEjh5" resolve="getFunctionName" />
+              </node>
+            </node>
+          </node>
+          <node concept="1bDJIP" id="52XfVvNWoNz" role="lcghm">
+            <ref role="1rvKf6" node="5H$PF0e2RL8" resolve="functionArguments" />
+            <node concept="117lpO" id="52XfVvNWoZC" role="1ryhcI" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="WtQ9Q" id="4FIN$pCdia1">
+    <property role="3GE5qa" value="expression.function.call.dataclass" />
+    <ref role="WuzLi" to="hcm8:4FIN$pCd1tG" resolve="CopyFunctionCall" />
+    <node concept="11bSqf" id="4FIN$pCdia2" role="11c4hB">
+      <node concept="3clFbS" id="4FIN$pCdia3" role="2VODD2">
+        <node concept="lc7rE" id="4FIN$pCdiID" role="3cqZAp">
+          <node concept="l9hG8" id="4FIN$pCdiIE" role="lcghm">
+            <node concept="2OqwBi" id="4FIN$pCdiIF" role="lb14g">
+              <node concept="117lpO" id="4FIN$pCdiIG" role="2Oq$k0" />
+              <node concept="2qgKlT" id="4FIN$pCdiIH" role="2OqNvi">
+                <ref role="37wK5l" to="hez:4nn3FPlEjh5" resolve="getFunctionName" />
+              </node>
+            </node>
+          </node>
+          <node concept="1bDJIP" id="4FIN$pCdiII" role="lcghm">
+            <ref role="1rvKf6" node="5H$PF0e2RL8" resolve="functionArguments" />
+            <node concept="117lpO" id="4FIN$pCdiIJ" role="1ryhcI" />
           </node>
         </node>
       </node>

@@ -548,17 +548,12 @@
               </node>
             </node>
             <node concept="17R0WA" id="2QFnHPqzbTU" role="3uHU7B">
-              <node concept="2OqwBi" id="2QFnHPqzbTV" role="3uHU7B">
-                <node concept="2OqwBi" id="2QFnHPqzbTW" role="2Oq$k0">
-                  <node concept="37vLTw" id="2QFnHPqzbTX" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2QFnHPqz9er" resolve="declaration" />
-                  </node>
-                  <node concept="liA8E" id="2QFnHPqzbTY" role="2OqNvi">
-                    <ref role="37wK5l" to="1p8r:26mUjU3_u7_" resolve="getNode" />
-                  </node>
+              <node concept="2OqwBi" id="2QFnHPqzbTW" role="3uHU7B">
+                <node concept="37vLTw" id="2QFnHPqzbTX" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2QFnHPqz9er" resolve="declaration" />
                 </node>
-                <node concept="3TrcHB" id="2QFnHPqzbTZ" role="2OqNvi">
-                  <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                <node concept="liA8E" id="2QFnHPqzbTY" role="2OqNvi">
+                  <ref role="37wK5l" to="1p8r:7ZZRFA6PmSK" resolve="getName" />
                 </node>
               </node>
               <node concept="37vLTw" id="2QFnHPqzbU0" role="3uHU7w">

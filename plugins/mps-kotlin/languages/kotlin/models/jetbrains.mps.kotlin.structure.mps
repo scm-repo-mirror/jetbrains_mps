@@ -3345,7 +3345,7 @@
     <property role="EcuMT" value="4662566628538082515" />
     <property role="TrG5h" value="FunctionCallTarget" />
     <property role="R4oN_" value="call expression" />
-    <property role="3GE5qa" value="expression.function.call" />
+    <property role="3GE5qa" value="expression.function.call.regular" />
     <ref role="1TJDcQ" node="2yYXHtl6JgZ" resolve="AbstractFunctionCall" />
     <node concept="PrWs8" id="42OKUkNAAjl" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6JeQ" resolve="INavigationTarget" />
@@ -3361,7 +3361,7 @@
     <property role="EcuMT" value="4662566628538083705" />
     <property role="TrG5h" value="FunctionCallExpression" />
     <property role="R4oN_" value="call expression" />
-    <property role="3GE5qa" value="expression.function.call" />
+    <property role="3GE5qa" value="expression.function.call.regular" />
     <ref role="1TJDcQ" node="2yYXHtl6JgZ" resolve="AbstractFunctionCall" />
     <node concept="PrWs8" id="42OKUkNAA_U" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6Jjg" resolve="IExpression" />
@@ -4015,6 +4015,45 @@
     <property role="EcuMT" value="4929770680970630542" />
     <property role="3GE5qa" value="annotation" />
     <property role="TrG5h" value="IAnnotation" />
+  </node>
+  <node concept="1TIwiD" id="5Ms3qK7YHkN">
+    <property role="EcuMT" value="6673223780375647539" />
+    <property role="3GE5qa" value="expression.function.call.dataclass" />
+    <property role="TrG5h" value="ComponentFunctionCall" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="1TJgyj" id="5Ms3qK7YHQa" role="1TKVEi">
+      <property role="IQ2ns" value="6673223780375649674" />
+      <property role="20kJfa" value="classParameter" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="2yYXHtl6JkU" resolve="ClassParameter" />
+    </node>
+    <node concept="PrWs8" id="5Ms3qK7YJLz" role="PzmwI">
+      <ref role="PrY4T" node="5H$PF0dZ_iR" resolve="IRegularFunctionCall" />
+    </node>
+    <node concept="PrWs8" id="5Ms3qK7YJMO" role="PzmwI">
+      <ref role="PrY4T" node="2yYXHtl6JeQ" resolve="INavigationTarget" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4FIN$pCd1tG">
+    <property role="EcuMT" value="5399479805055080300" />
+    <property role="3GE5qa" value="expression.function.call.dataclass" />
+    <property role="TrG5h" value="CopyFunctionCall" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <node concept="PrWs8" id="4FIN$pCd3r4" role="PzmwI">
+      <ref role="PrY4T" node="5H$PF0dZ_iR" resolve="IRegularFunctionCall" />
+    </node>
+    <node concept="PrWs8" id="4FIN$pCd3r5" role="PzmwI">
+      <ref role="PrY4T" node="2yYXHtl6JeQ" resolve="INavigationTarget" />
+    </node>
+    <node concept="t5JxF" id="4FIN$pCd2Nh" role="lGtFl">
+      <property role="t5JxN" value="https://kotlinlang.org/docs/data-classes.html#copying" />
+    </node>
+    <node concept="1TJgyj" id="4FIN$pCd96F" role="1TKVEi">
+      <property role="IQ2ns" value="5399479805055111595" />
+      <property role="20kJfa" value="constructor" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="2yYXHtl6Jgo" resolve="PrimaryConstructor" />
+    </node>
   </node>
 </model>
 

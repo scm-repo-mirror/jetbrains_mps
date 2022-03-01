@@ -155,11 +155,6 @@
       </concept>
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
-    <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
-        <reference id="1138056395725" name="property" index="3TsBF5" />
-      </concept>
-    </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
@@ -209,17 +204,12 @@
               <node concept="3cpWs3" id="1xjvXvOQwJm" role="3uHU7B">
                 <node concept="3cpWs3" id="1xjvXvOQvtJ" role="3uHU7B">
                   <node concept="3cpWs3" id="1xjvXvOQuW6" role="3uHU7B">
-                    <node concept="2OqwBi" id="1xjvXvOQucc" role="3uHU7B">
-                      <node concept="2OqwBi" id="1xjvXvOQtMi" role="2Oq$k0">
-                        <node concept="37vLTw" id="1xjvXvOQtBa" role="2Oq$k0">
-                          <ref role="3cqZAo" node="1CCu0CNzm_l" resolve="declaration" />
-                        </node>
-                        <node concept="liA8E" id="1xjvXvOQu4x" role="2OqNvi">
-                          <ref role="37wK5l" to="1p8r:26mUjU3_u7_" resolve="getNode" />
-                        </node>
+                    <node concept="2OqwBi" id="1xjvXvOQtMi" role="3uHU7B">
+                      <node concept="37vLTw" id="1xjvXvOQtBa" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1CCu0CNzm_l" resolve="declaration" />
                       </node>
-                      <node concept="3TrcHB" id="1xjvXvOQuyD" role="2OqNvi">
-                        <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                      <node concept="liA8E" id="1xjvXvOQu4x" role="2OqNvi">
+                        <ref role="37wK5l" to="1p8r:7ZZRFA6PmSK" resolve="getName" />
                       </node>
                     </node>
                     <node concept="Xl_RD" id="1xjvXvOQv7n" role="3uHU7w">

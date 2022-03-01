@@ -70,6 +70,7 @@
       </concept>
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
+      <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
@@ -161,7 +162,14 @@
       <concept id="1204834851141" name="jetbrains.mps.lang.smodel.structure.PoundExpression" flags="ng" index="25Kdxt">
         <child id="1204834868751" name="expression" index="25KhWn" />
       </concept>
+      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
+        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
+      </concept>
       <concept id="7400021826771268254" name="jetbrains.mps.lang.smodel.structure.SNodePointerType" flags="ig" index="2sp9CU" />
+      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
+        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
+        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
+      </concept>
       <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
         <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
       </concept>
@@ -176,6 +184,9 @@
       </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz">
         <reference id="6677504323281689839" name="conceptDeclaraton" index="3bZ5Sy" />
+      </concept>
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
+        <property id="1238684351431" name="asCast" index="1BlNFB" />
       </concept>
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
@@ -214,26 +225,46 @@
       <property role="TrG5h" value="getNode" />
       <node concept="3clFbS" id="26mUjU3_u7C" role="3clF47" />
       <node concept="3Tm1VV" id="26mUjU3_u7D" role="1B3o_S" />
-      <node concept="3Tqbb2" id="26mUjU3_u5N" role="3clF45">
-        <ref role="ehGHo" to="tpck:h0TrEE$" resolve="INamedConcept" />
-      </node>
+      <node concept="3Tqbb2" id="26mUjU3_u5N" role="3clF45" />
       <node concept="P$JXv" id="bbFPPueB5I" role="lGtFl">
         <node concept="TZ5HA" id="bbFPPueB5J" role="TZ5H$">
           <node concept="1dT_AC" id="bbFPPueB5K" role="1dT_Ay">
             <property role="1dT_AB" value="Returns the node declaring the function." />
           </node>
         </node>
-        <node concept="TZ5HA" id="bbFPPueB79" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueB7a" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="bbFPPueB7j" role="TZ5H$">
-          <node concept="1dT_AC" id="bbFPPueB7k" role="1dT_Ay">
-            <property role="1dT_AB" value="Note: The name requirement could be dropped in favor of a getName() method." />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="7ZZRFA6Plpt" role="jymVt" />
+    <node concept="3clFb_" id="7ZZRFA6PmSK" role="jymVt">
+      <property role="TrG5h" value="getName" />
+      <node concept="3clFbS" id="7ZZRFA6PmSN" role="3clF47">
+        <node concept="3cpWs6" id="7ZZRFA6Poml" role="3cqZAp">
+          <node concept="2OqwBi" id="7ZZRFA6PpyX" role="3cqZAk">
+            <node concept="1PxgMI" id="7ZZRFA6PoHD" role="2Oq$k0">
+              <property role="1BlNFB" value="true" />
+              <node concept="chp4Y" id="7ZZRFA6PoOE" role="3oSUPX">
+                <ref role="cht4Q" to="tpck:h0TrEE$" resolve="INamedConcept" />
+              </node>
+              <node concept="1rXfSq" id="7ZZRFA6Pox0" role="1m5AlR">
+                <ref role="37wK5l" node="26mUjU3_u7_" resolve="getNode" />
+              </node>
+            </node>
+            <node concept="3TrcHB" id="7ZZRFA6PpRC" role="2OqNvi">
+              <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+            </node>
           </node>
         </node>
       </node>
+      <node concept="3Tm1VV" id="7ZZRFA6PmSO" role="1B3o_S" />
+      <node concept="17QB3L" id="7ZZRFA6Pmau" role="3clF45" />
+      <node concept="P$JXv" id="7ZZRFA6Pn8Q" role="lGtFl">
+        <node concept="TZ5HA" id="7ZZRFA6Pn8R" role="TZ5H$">
+          <node concept="1dT_AC" id="7ZZRFA6Pn8S" role="1dT_Ay">
+            <property role="1dT_AB" value="Returns the name of the function" />
+          </node>
+        </node>
+      </node>
+      <node concept="2JFqV2" id="7ZZRFA6Pofy" role="2frcjj" />
     </node>
     <node concept="2tJIrI" id="bbFPPueBcj" role="jymVt" />
     <node concept="3clFb_" id="26mUjU3_jXv" role="jymVt">
