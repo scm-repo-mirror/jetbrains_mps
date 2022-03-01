@@ -6,12 +6,12 @@ import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import java.util.List;
 import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
+import jetbrains.mps.kotlin.runtime.typesystem.KotlinTypesystem;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -24,7 +24,7 @@ public class OverloadResolverUtil {
    * @return list of candidates along with the parameters order to be mapped to the call parameters
    */
   public static Iterable<Tuples._2<FunctionDeclaration, List<ParameterDeclaration>>> filterByArguments(final FunctionCall call, Iterable<FunctionDeclaration> candidates) {
-    final Iterable<SNode> arguments = call.getArguments();
+    final Iterable<Argument> arguments = call.getArguments();
 
     return Sequence.fromIterable(candidates).select(new ISelector<FunctionDeclaration, Tuples._2<FunctionDeclaration, List<ParameterDeclaration>>>() {
       public Tuples._2<FunctionDeclaration, List<ParameterDeclaration>> select(FunctionDeclaration candidate) {
@@ -37,7 +37,7 @@ public class OverloadResolverUtil {
    * Check that arguments match with parameters. If so, returns the ordered list of parameters associated with arguments
    * (as order or parameters is not always equal to order of arguments). If not, returns null.
    */
-  public static Tuples._2<FunctionDeclaration, List<ParameterDeclaration>> mapParameters(FunctionCall call, Iterable<SNode> arguments, FunctionDeclaration candidate) {
+  public static Tuples._2<FunctionDeclaration, List<ParameterDeclaration>> mapParameters(FunctionCall call, Iterable<Argument> arguments, FunctionDeclaration candidate) {
     // 1. check for the modifier
     if (!(FunctionDeclaration.hasModifier(candidate, call.getModifierFilter()))) {
       return null;
@@ -63,7 +63,7 @@ public class OverloadResolverUtil {
    * 
    * @param availableSolver current available solver
    */
-  public static boolean canBeImproved(OverloadResolver availableSolver, FunctionCall call) {
+  public static boolean canBeImproved(KotlinTypesystem availableSolver, FunctionCall call) {
     // No overload resolution mechanism available -> no support
     return availableSolver != null;
   }

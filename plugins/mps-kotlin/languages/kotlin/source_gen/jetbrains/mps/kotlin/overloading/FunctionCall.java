@@ -13,7 +13,7 @@ import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 public interface FunctionCall {
   String getFunctionName();
   SAbstractConcept getModifierFilter();
-  Iterable<SNode> getArguments();
+  Iterable<Argument> getArguments();
   Iterable<SNode> getTypeArguments();
   SReferenceLink getTargetLink();
   SNode getReceiverType();

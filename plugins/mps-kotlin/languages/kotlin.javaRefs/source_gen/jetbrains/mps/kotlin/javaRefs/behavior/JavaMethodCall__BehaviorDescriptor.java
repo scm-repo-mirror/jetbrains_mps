@@ -10,14 +10,14 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.behavior.CallReceiver;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.behavior.INavigationTarget__BehaviorDescriptor;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -30,11 +30,10 @@ public final class JavaMethodCall__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlEjh5").build();
   public static final SMethod<SReferenceLink> getTargetLink_id5D4bOjrrcOr = new SMethodBuilder<SReferenceLink>(new SJavaCompoundTypeImpl(SReferenceLink.class)).name("getTargetLink").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrcOr").build();
-  public static final SMethod<SNode> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrgiZ").build();
-  public static final SMethod<Boolean> isReceiverExternal_id4bAAzIAVSHE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isReceiverExternal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4bAAzIAVSHE").build();
+  public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrgiZ").build();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("26mUjU3xhgD").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, isReceiverExternal_id4bAAzIAVSHE, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, getFunctionDescriptor_id26mUjU3xhgD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -45,12 +44,8 @@ public final class JavaMethodCall__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static SReferenceLink getTargetLink_id5D4bOjrrcOr(@NotNull SNode __thisNode__) {
     return LINKS.method$yYmq;
   }
-  /*package*/ static SNode getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return INavigationTarget__BehaviorDescriptor.getNavigationOperand_id2gj5XQXMv4y.invoke(__thisNode__);
-  }
-  /*package*/ static boolean isReceiverExternal_id4bAAzIAVSHE(@NotNull SNode __thisNode__) {
-    // May be not be true if used as expression, but in such case getReceiver returns null
-    return true;
+  /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return CallReceiver.ofNavTarget(__thisNode__);
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     if (SLinkOperations.getTarget(__thisNode__, LINKS.method$yYmq) == null) {
@@ -79,10 +74,8 @@ public final class JavaMethodCall__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         return (T) ((SReferenceLink) getTargetLink_id5D4bOjrrcOr(node));
       case 2:
-        return (T) ((SNode) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((CallReceiver) getReceiver_id5D4bOjrrgiZ(node));
       case 3:
-        return (T) ((Boolean) isReceiverExternal_id4bAAzIAVSHE(node));
-      case 4:
         return (T) ((FunctionDeclaration) getFunctionDescriptor_id26mUjU3xhgD(node));
       default:
         throw new BHMethodNotFoundException(this, method);

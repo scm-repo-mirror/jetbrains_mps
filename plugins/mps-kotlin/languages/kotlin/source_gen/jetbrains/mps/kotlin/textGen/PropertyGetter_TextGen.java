@@ -14,12 +14,16 @@ public class PropertyGetter_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
+    tgs.newLine();
+    ctx.getBuffer().area().increaseIndent();
+    tgs.indent();
     KotlinTextGen.annotations(ctx.getPrimaryInput(), false, ctx);
     tgs.append("get()");
     if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.statements$R3pt)).isNotEmpty()) {
       tgs.append(" ");
       KotlinTextGen.functionStatements(ctx.getPrimaryInput(), ctx);
     }
+    ctx.getBuffer().area().decreaseIndent();
   }
 
   private static final class LINKS {

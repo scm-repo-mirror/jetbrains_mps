@@ -5,6 +5,7 @@ package jetbrains.mps.kotlin.typesystem;
 import jetbrains.mps.kotlin.overloading.FunctionCall;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -30,8 +31,8 @@ public class NextFunctionCall implements FunctionCall {
     return CONCEPTS.OperatorFunctionModifier$Pf;
   }
   @Override
-  public Iterable<SNode> getArguments() {
-    return Sequence.fromIterable(Collections.<SNode>emptyList());
+  public Iterable<Argument> getArguments() {
+    return Sequence.fromIterable(Collections.<Argument>emptyList());
   }
   @Override
   public Iterable<SNode> getTypeArguments() {

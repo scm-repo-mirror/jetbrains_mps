@@ -26,6 +26,9 @@ import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
+import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -35,8 +38,6 @@ import jetbrains.mps.scope.CompositeScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -68,8 +69,11 @@ public final class ClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor
 
   /*package*/ static void populateNonMemberSignatures_id1pD7IS2T3rZ(@NotNull SNode __thisNode__, final SignatureCollector visitor) {
     // Primary constructor properties signature
-    if ((SLinkOperations.getTarget(__thisNode__, LINKS.primaryConstructor$QvZc) != null)) {
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.primaryConstructor$QvZc), LINKS.parameters$$EEQ)).visitAll(new IVisitor<SNode>() {
+    final SNode primary = SLinkOperations.getTarget(__thisNode__, LINKS.primaryConstructor$QvZc);
+
+    if ((primary != null)) {
+      // General properties
+      ListSequence.fromList(SLinkOperations.getChildren(primary, LINKS.parameters$$EEQ)).visitAll(new IVisitor<SNode>() {
         public void visit(final SNode it) {
           if (SPropertyOperations.getBoolean(it, PROPS.isProperty$MCKN)) {
             visitor.addDeclaration(it, true, PropertyAccessorSignature.class, new _FunctionTypes._return_P0_E0<Iterable<PropertyAccessorSignature>>() {
@@ -121,6 +125,26 @@ __switch__:
           }
         }
       });
+
+      // Data class: parameter also expose componentN functions
+      if (((boolean) IClassLike__BehaviorDescriptor.hasModifier_id2NtWm0y2Y2A.invoke(__thisNode__, CONCEPTS.DataClassModifier$wi))) {
+        // componentN() functions
+        ListSequence.fromList(SLinkOperations.getChildren(primary, LINKS.parameters$$EEQ)).visitAll(new IVisitor<SNode>() {
+          public void visit(final SNode it) {
+            // Should all be properties
+            visitor.addSimpleDeclaration(it, true, FunctionSignature.class, () -> {
+              String erasureOf = KotlinSignatures.erasureOf(Sequence.fromIterable(Collections.<SNode>emptyList()), visitor);
+              return new FunctionSignature(new ComponentFunction(it), erasureOf);
+            });
+          }
+        });
+
+        // copy() function
+        visitor.addSimpleDeclaration(primary, true, FunctionSignature.class, () -> {
+          String erasure = KotlinSignatures.erasureOf(SLinkOperations.collect(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(primary), LINKS.type$1aXr), visitor);
+          return new FunctionSignature(new CopyFunctionDeclaration(primary), erasure);
+        });
+      }
     }
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
@@ -282,8 +306,8 @@ __switch__:
   private static final class LINKS {
     /*package*/ static final SContainmentLink primaryConstructor$QvZc = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x2043bc8310e45225L, "primaryConstructor");
     /*package*/ static final SContainmentLink parameters$$EEQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, 0x28bef6d7551af6dfL, "parameters");
-    /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
     /*package*/ static final SContainmentLink type$1aXr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x63c34deca4888fe3L, "type");
+    /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");
   }
@@ -295,6 +319,7 @@ __switch__:
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept DataClassModifier$wi = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40aL, "jetbrains.mps.kotlin.structure.DataClassModifier");
     /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
     /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
     /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");

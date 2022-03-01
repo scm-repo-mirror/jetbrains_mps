@@ -32,7 +32,7 @@ public final class StringLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Iterable<SNode> getEvaluatedContent_id3cpjc8KvNhH(@NotNull SNode __thisNode__) {
-    return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.content$JVfe), CONCEPTS.StringExpressionEvaluation$dm), LINKS.expression$kfow);
+    return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.collectMany(SLinkOperations.getChildren(__thisNode__, LINKS.lines$FNV), LINKS.parts$AoNt), CONCEPTS.StringExpressionEvaluation$dm), LINKS.expression$kfow);
   }
 
   /*package*/ StringLiteral__BehaviorDescriptor() {
@@ -82,7 +82,8 @@ public final class StringLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink content$JVfe = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x28bef6d7551af833L, "content");
+    /*package*/ static final SContainmentLink lines$FNV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x58aa661f71960d41L, "lines");
+    /*package*/ static final SContainmentLink parts$AoNt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x58aa661f71960f30L, 0x58aa661f71961d35L, "parts");
     /*package*/ static final SContainmentLink expression$kfow = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3a3L, 0x28bef6d7551af65eL, "expression");
   }
 

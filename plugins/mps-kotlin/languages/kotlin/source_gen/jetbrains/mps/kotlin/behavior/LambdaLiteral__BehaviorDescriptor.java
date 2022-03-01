@@ -17,12 +17,10 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.Objects;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -36,8 +34,10 @@ public final class LambdaLiteral__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Scope> getSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1yTI8p9qmpS").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<ParameterDeclaration> getNamedTarget_id2PMtXoK3vgE = new SMethodBuilder<ParameterDeclaration>(new SJavaCompoundTypeImpl(ParameterDeclaration.class)).name("getNamedTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2PMtXoK3vgE").build();
+  public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1vYW8S3rTh_").build();
+  public static final SMethod<Object> getVariableTypeTarget_id4ioyjZZDftn = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("getVariableTypeTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4ioyjZZDftn").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSpecificScope_id1yTI8p9qmpS, getNamedTarget_id2PMtXoK3vgE);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSpecificScope_id1yTI8p9qmpS, getNamedTarget_id2PMtXoK3vgE, isLocal_id1vYW8S3rTh_, getVariableTypeTarget_id4ioyjZZDftn);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -45,14 +45,14 @@ public final class LambdaLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static Scope getSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IVariableIdentifier$v2)) {
       // TODO hiding by name with correct parent ordering (stmt, param, parent)
-      // Default parameter is accessible through 
-      return new NamedElementsScope(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$hLEY)).select(new ISelector<SNode, Iterable<SNode>>() {
-        public Iterable<SNode> select(SNode it) {
+      // Default parameter is accessible through lambda
+      if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$hLEY)).isEmpty()) {
+        return new NamedElementsScope(__thisNode__);
+      }
+
+      return new NamedElementsScope(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$hLEY)).translate(new ITranslator2<SNode, SNode>() {
+        public Iterable<SNode> translate(SNode it) {
           return (Iterable<SNode>) ILambdaParameter__BehaviorDescriptor.getVariables_id1xjvXvOr9B8.invoke(it);
-        }
-      }).reduceLeft(new ILeftCombinator<Iterable<SNode>, Iterable<SNode>>() {
-        public Iterable<SNode> combine(Iterable<SNode> a, Iterable<SNode> b) {
-          return Sequence.fromIterable(a).concat(Sequence.fromIterable(b));
         }
       }));
     }
@@ -65,6 +65,12 @@ public final class LambdaLiteral__BehaviorDescriptor extends BaseBHDescriptor {
       return FunctionParamHelper.LAST_PARAMETER;
     }
     return null;
+  }
+  /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
+    return true;
+  }
+  /*package*/ static Object getVariableTypeTarget_id4ioyjZZDftn(@NotNull SNode __thisNode__) {
+    return LambdaLiteralKeys.IT_TYPE;
   }
 
   /*package*/ LambdaLiteral__BehaviorDescriptor() {
@@ -86,6 +92,10 @@ public final class LambdaLiteral__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Scope) getSpecificScope_id1yTI8p9qmpS(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
       case 1:
         return (T) ((ParameterDeclaration) getNamedTarget_id2PMtXoK3vgE(node));
+      case 2:
+        return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
+      case 3:
+        return (T) ((Object) getVariableTypeTarget_id4ioyjZZDftn(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -12,7 +12,7 @@ import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
+import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -58,12 +58,13 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     }
     return result;
   }
+
   @Override
-  public FunctionReceiver getReceiver() {
+  public SNode getReceiverType() {
     {
       final SNode instanceMethod = method;
       if (SNodeOperations.isInstanceOf(instanceMethod, CONCEPTS.InstanceMethodDeclaration$39)) {
-        return new JavaClassFunctionReceiver(SNodeOperations.getNodeAncestor(instanceMethod, CONCEPTS.IClassifier$MF, false, false), converter);
+        return converter.convert(Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(SNodeOperations.getNodeAncestor(instanceMethod, CONCEPTS.Classifier$Ix, false, false)));
       }
     }
 
@@ -82,6 +83,7 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
     /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
     /*package*/ static final SConcept InstanceMethodDeclaration$39 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 
   private static final class PROPS {

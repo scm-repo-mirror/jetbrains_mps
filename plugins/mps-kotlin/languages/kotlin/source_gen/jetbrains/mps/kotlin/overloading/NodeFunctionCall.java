@@ -8,10 +8,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.kotlin.behavior.CallReceiver;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Function call implementation for a node. This implementation is almost delegating concept
@@ -37,8 +35,8 @@ public class NodeFunctionCall implements FunctionCall {
     return (SAbstractConcept) IFunctionCallLike__BehaviorDescriptor.getModifierFilter_id5D4bOjruyUS.invoke(myFunctionCall);
   }
   @Override
-  public Iterable<SNode> getArguments() {
-    return (Iterable<SNode>) IFunctionCallLike__BehaviorDescriptor.getArguments_id1VI7K1jROBX.invoke(myFunctionCall);
+  public Iterable<Argument> getArguments() {
+    return (Iterable<Argument>) IFunctionCallLike__BehaviorDescriptor.getArguments_id1VI7K1jROBX.invoke(myFunctionCall);
   }
   @Override
   public Iterable<SNode> getTypeArguments() {
@@ -50,13 +48,14 @@ public class NodeFunctionCall implements FunctionCall {
   }
   @Override
   public SNode getReceiverType() {
-    SNode receiver = IFunctionCallLike__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
-    if ((receiver == null)) {
-      return null;
-    }
     if ((receiverType == null)) {
-      receiverType = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(receiver), CONCEPTS.IType$Ni);
+      CallReceiver receiver = IFunctionCallLike__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
+      if (receiver == null) {
+        return null;
+      }
+      receiverType = receiver.computeType();
     }
+
     return receiverType;
   }
   @Override
@@ -66,9 +65,5 @@ public class NodeFunctionCall implements FunctionCall {
   @Override
   public FunctionDeclaration getFunctionDescriptor() {
     return IFunctionCallLike__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(myFunctionCall);
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
   }
 }

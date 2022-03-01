@@ -74,6 +74,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IKotlinRoot__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.FunctionParamHelper" />
+    <classNode dependClassName="jetbrains.mps.kotlin.overloading.NodeArgument" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.ParamException" />
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />

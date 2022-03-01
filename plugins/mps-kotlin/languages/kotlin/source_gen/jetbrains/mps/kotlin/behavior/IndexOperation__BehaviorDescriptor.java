@@ -9,32 +9,51 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.overloading.Argument;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class IndexOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af556L, "jetbrains.mps.kotlin.structure.IndexOperation");
 
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOperatorProviderName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlEjh5").build();
-  public static final SMethod<Iterable<SNode>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
+  public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
+  public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9niD").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getArguments_id1VI7K1jROBX);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionName_id4nn3FPlEjh5, getArguments_id1VI7K1jROBX, assignableState_idCy8Bus9niD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
-    return "get";
+    if (((boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(__thisNode__, __thisNode__))) {
+      return "set";
+    } else {
+      return "get";
+    }
   }
-  /*package*/ static Iterable<SNode> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(__thisNode__, LINKS.indexes$QKNQ);
+  /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
+    Iterable<Argument> indexes = NodeArgument.ofList(SLinkOperations.getChildren(__thisNode__, LINKS.indexes$QKNQ));
+    if (((boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(__thisNode__, __thisNode__))) {
+      // TODO find assigned node in a cleaner way?
+      return Sequence.fromIterable(indexes).concat(Sequence.fromIterable(NodeArgument.of(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Assignment$zN, false, false), LINKS.right$Uro5))));
+    }
+    return indexes;
+  }
+  /*package*/ static Assignable assignableState_idCy8Bus9niD(@NotNull SNode __thisNode__) {
+    // Assignable but as a custom operation (right hand side is handled by this operation through getArguments())
+    return Assignable.CUSTOM_TRUE;
   }
 
   /*package*/ IndexOperation__BehaviorDescriptor() {
@@ -55,7 +74,9 @@ public final class IndexOperation__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
       case 1:
-        return (T) ((Iterable<SNode>) getArguments_id1VI7K1jROBX(node));
+        return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
+      case 2:
+        return (T) ((Assignable) assignableState_idCy8Bus9niD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -87,5 +108,10 @@ public final class IndexOperation__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink indexes$QKNQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af556L, 0x28bef6d7551af8e3L, "indexes");
+    /*package*/ static final SContainmentLink right$Uro5 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af595L, 0x28bef6d7551af952L, "right");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Assignment$zN = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af595L, "jetbrains.mps.kotlin.structure.Assignment");
   }
 }

@@ -9,13 +9,15 @@ import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class KotlinFunctionDeclaration implements InferrableFunctionDeclaration {
-  private final SNode myDeclaration;
-  private KotlinFunctionDeclaration(@NotNull SNode declaration) {
+  protected final SNode myDeclaration;
+  protected KotlinFunctionDeclaration(@NotNull SNode declaration) {
     myDeclaration = declaration;
   }
 
@@ -48,12 +50,8 @@ public class KotlinFunctionDeclaration implements InferrableFunctionDeclaration 
     return IFunctionDeclaration__BehaviorDescriptor.getReturnExpression_id6yQJbFyGtec.invoke(myDeclaration);
   }
   @Override
-  public FunctionReceiver getReceiver() {
-    SNode klass = IFunctionDeclaration__BehaviorDescriptor.getClass_id4vugIDehkCF.invoke(myDeclaration);
-    if ((klass == null)) {
-      return null;
-    }
-    return new KotlinClassFunctionReceiver(klass);
+  public SNode getReceiverType() {
+    return IFunctionDeclaration__BehaviorDescriptor.getReceiverType_id2gj5XQXMFhP.invoke(myDeclaration);
   }
 
 
@@ -63,9 +61,16 @@ public class KotlinFunctionDeclaration implements InferrableFunctionDeclaration 
   }
 
   public static FunctionDeclaration of(SNode declaration) {
-    if ((declaration == null)) {
-      return null;
+    {
+      final SNode functionDecl = declaration;
+      if (SNodeOperations.isInstanceOf(functionDecl, CONCEPTS.IFunctionDeclaration$ZB)) {
+        return new KotlinFunctionDeclaration(functionDecl);
+      }
     }
-    return new KotlinFunctionDeclaration(declaration);
+    return null;
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IFunctionDeclaration$ZB = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
   }
 }

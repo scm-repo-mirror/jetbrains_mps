@@ -23,14 +23,19 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47bL, "jetbrains.mps.kotlin.structure.MultiLambdaParameter");
 
   public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1xjvXvOr9B8").build();
+  public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4FOkRjXx8jV").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariables_id1xjvXvOr9B8);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariables_id1xjvXvOr9B8, getVariablesReceiver_id4FOkRjXx8jV);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static Iterable<SNode> getVariables_id1xjvXvOr9B8(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(__thisNode__, LINKS.variables$CMsL);
+    return SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z);
+  }
+  /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
+    // Deconstruct on inferred type of lambda parameter
+    return CallReceiver.of(__thisNode__, true, null);
   }
 
   /*package*/ MultiLambdaParameter__BehaviorDescriptor() {
@@ -50,6 +55,8 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
     switch (methodIndex) {
       case 0:
         return (T) ((Iterable<SNode>) getVariables_id1xjvXvOr9B8(node));
+      case 1:
+        return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -80,6 +87,6 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink variables$CMsL = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af47bL, 0x28bef6d7551af774L, "variables");
+    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
   }
 }

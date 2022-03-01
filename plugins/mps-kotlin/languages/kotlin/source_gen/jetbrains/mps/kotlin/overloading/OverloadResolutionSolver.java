@@ -4,10 +4,9 @@ package jetbrains.mps.kotlin.overloading;
 
 import jetbrains.mps.kotlin.runtime.typesystem.KotlinTypesystem;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.smodel.structure.ExtensionPoint;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.kotlin.plugin.TypesystemHelper;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.behavior.KotlinFunctionDeclaration;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
@@ -22,6 +21,7 @@ import jetbrains.mps.kotlin.runtime.members.SourcedSignature;
 import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import jetbrains.mps.kotlin.scopes.SuperTypesVisitor;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -42,13 +42,9 @@ public class OverloadResolutionSolver {
   private final KotlinTypesystem overloadResolver;
   private final SNode myContextNode;
 
-  public OverloadResolutionSolver(FunctionCall call, final SNode contextNode) {
+  public OverloadResolutionSolver(FunctionCall call, SNode contextNode) {
     myCall = call;
-    overloadResolver = Sequence.fromIterable(new ExtensionPoint<KotlinTypesystem>("jetbrains.mps.kotlin.TypesystemExtension").getObjects()).findFirst(new IWhereFilter<KotlinTypesystem>() {
-      public boolean accept(KotlinTypesystem it) {
-        return it.isAvailable(contextNode);
-      }
-    });
+    overloadResolver = TypesystemHelper.get(contextNode);
     myFunctionName = call.getFunctionName();
     myContextNode = contextNode;
   }

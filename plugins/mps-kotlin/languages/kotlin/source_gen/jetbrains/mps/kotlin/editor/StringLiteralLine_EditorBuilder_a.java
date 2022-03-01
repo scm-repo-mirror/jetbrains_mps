@@ -9,12 +9,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
-import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
-import jetbrains.mps.openapi.editor.style.Style;
-import jetbrains.mps.editor.runtime.style.StyleImpl;
-import jetbrains.mps.kotlin.editor.KotlinKeyPack_KeyPack.STRING_StyleKey;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -24,14 +19,18 @@ import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.openapi.editor.style.Style;
+import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-/*package*/ class MultiLineStringLiteral_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class StringLiteralLine_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public MultiLineStringLiteral_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public StringLiteralLine_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -48,35 +47,25 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_qbob1p_a");
+    editorCell.setCellId("Collection_6g89al_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    editorCell.addEditorCell(createConstant_0());
     editorCell.addEditorCell(createRefNodeList_0());
-    editorCell.addEditorCell(createConstant_1());
-    return editorCell;
-  }
-  private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "\"\"\"");
-    editorCell.setCellId("Constant_qbob1p_a0");
-    Style style = new StyleImpl();
-    new STRING_StyleKey().apply(style);
-    editorCell.getStyle().putAll(style);
-    editorCell.setDefaultText("");
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new content___ListHandler_qbob1p_b0(myNode, getEditorContext());
-    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Horizontal(), false);
-    editorCell.setCellId("refNodeList_content___");
+    AbstractCellListHandler handler = new partsListHandler_6g89al_a0(myNode, getEditorContext());
+    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
+    editorCell.setCellId("refNodeList_parts");
+    StringLiteral_InsertLineRatherThanPart.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class content___ListHandler_qbob1p_b0 extends RefNodeListHandler {
+  private static class partsListHandler_6g89al_a0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public content___ListHandler_qbob1p_b0(SNode ownerNode, EditorContext context) {
+    public partsListHandler_6g89al_a0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -86,10 +75,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.content___$Cmtz;
+      return LINKS.parts$AoNt;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.IStringLiteralContent$ZO;
+      return CONCEPTS.IStringLiteralPart$ZO;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -99,10 +88,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(content___ListHandler_qbob1p_b0.this.getNode(), LINKS.content___$Cmtz));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(partsListHandler_6g89al_a0.this.getNode(), LINKS.parts$AoNt));
       try {
         EditorCell emptyCell = null;
-        emptyCell = super.createEmptyCell();
+        emptyCell = createConstant_0();
         installElementCellActions(null, emptyCell, true);
         setCellContext(emptyCell);
         return emptyCell;
@@ -138,22 +127,22 @@ import org.jetbrains.mps.openapi.language.SConcept;
         }
       }
     }
-  }
-  private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "\"\"\"");
-    editorCell.setCellId("Constant_qbob1p_c0");
-    Style style = new StyleImpl();
-    new STRING_StyleKey().apply(style);
-    editorCell.getStyle().putAll(style);
-    editorCell.setDefaultText("");
-    return editorCell;
+    private EditorCell createConstant_0() {
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+      editorCell.setCellId("Constant_6g89al_a0a");
+      Style style = new StyleImpl();
+      style.set(StyleAttributes.EDITABLE, true);
+      editorCell.getStyle().putAll(style);
+      editorCell.setDefaultText("");
+      return editorCell;
+    }
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink content___$Cmtz = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af45eL, 0x28bef6d7551af753L, "content___");
+    /*package*/ static final SContainmentLink parts$AoNt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x58aa661f71960f30L, 0x58aa661f71961d35L, "parts");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept IStringLiteralContent$ZO = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralContent");
+    /*package*/ static final SConcept IStringLiteralPart$ZO = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralPart");
   }
 }

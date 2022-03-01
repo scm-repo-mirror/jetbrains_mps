@@ -32,7 +32,7 @@ public class Inheritable_RemoveModifier {
         if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.inheritance$TFvr))) {
           return;
         }
-        SLinkOperations.setTarget(node, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node))))));
+        SLinkOperations.setTarget(node, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), node))));
         {
           final SNode named = node;
           if (SNodeOperations.isInstanceOf(named, CONCEPTS.INamedConcept$Kd)) {

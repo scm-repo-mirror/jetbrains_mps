@@ -13,16 +13,20 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, "jetbrains.mps.kotlin.structure.AbstractPropertyDeclaration");
 
-  public static final SMethod<Boolean> hasExplicityType_id2n1mrwy6RU_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExplicityType").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2n1mrwy6RU_").build();
+  public static final SMethod<Boolean> hasExplicityType_id2n1mrwy6RU_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExplicityType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2n1mrwy6RU_").build();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVaXCH").build();
   public static final SMethod<Boolean> isDeconstructing_id7RZWrHVbnio = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDeconstructing").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVbnio").build();
   public static final SMethod<Boolean> isChildVariableAssignable_idCy8Bus9qei = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isChildVariableAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9qei").build();
@@ -32,11 +36,18 @@ public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseB
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static boolean hasExplicityType_id2n1mrwy6RU_(@NotNull SNode __thisNode__) {
+    return ListSequence.fromList(AbstractPropertyDeclaration__BehaviorDescriptor.getDeclarations_id7RZWrHVaXCH.invoke(__thisNode__)).all(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return (SLinkOperations.getTarget(it, LINKS.type$RmkT) != null);
+      }
+    });
+  }
   /*package*/ static boolean isDeconstructing_id7RZWrHVbnio(@NotNull SNode __thisNode__) {
     return false;
   }
   /*package*/ static boolean isChildVariableAssignable_idCy8Bus9qei(@NotNull SNode __thisNode__) {
-    return !(SPropertyOperations.getBoolean(__thisNode__, PROPS.isReadonly$jzqd)) && !(SPropertyOperations.getBoolean(__thisNode__, PROPS.isConstant$zvIz));
+    return (!(SPropertyOperations.getBoolean(__thisNode__, PROPS.isReadonly$jzqd)) && !(SPropertyOperations.getBoolean(__thisNode__, PROPS.isConstant$zvIz))) || (SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j) == null);
   }
 
   /*package*/ AbstractPropertyDeclaration__BehaviorDescriptor() {
@@ -54,6 +65,8 @@ public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseB
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 0:
+        return (T) ((Boolean) hasExplicityType_id2n1mrwy6RU_(node));
       case 2:
         return (T) ((Boolean) isDeconstructing_id7RZWrHVbnio(node));
       case 3:
@@ -85,6 +98,11 @@ public final class AbstractPropertyDeclaration__BehaviorDescriptor extends BaseB
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
+    /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
   }
 
   private static final class PROPS {

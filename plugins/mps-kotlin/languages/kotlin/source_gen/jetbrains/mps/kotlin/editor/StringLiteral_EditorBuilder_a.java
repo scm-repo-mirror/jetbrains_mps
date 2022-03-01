@@ -9,13 +9,18 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
-import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
+import jetbrains.mps.nodeEditor.cells.ModelAccessor;
+import jetbrains.mps.openapi.editor.cells.CellActionType;
+import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.kotlin.editor.KotlinKeyPack_KeyPack.STRING_StyleKey;
-import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
-import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.CommentStyleClass;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -23,11 +28,10 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
-import jetbrains.mps.openapi.editor.cells.CellActionType;
+import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
-import jetbrains.mps.editor.runtime.style.StyleAttributes;
-import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class StringLiteral_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -53,34 +57,63 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     editorCell.setCellId("Collection_fgt3_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
-    editorCell.addEditorCell(createConstant_0());
+    editorCell.addEditorCell(createReadOnlyModelAccessor_0());
+    if (nodeCondition_fgt3_a1a()) {
+      editorCell.addEditorCell(createConstant_0());
+    }
     editorCell.addEditorCell(createRefNodeList_0());
-    editorCell.addEditorCell(createConstant_1());
+    editorCell.addEditorCell(createReadOnlyModelAccessor_1());
     return editorCell;
   }
-  private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "\"");
-    editorCell.setCellId("Constant_fgt3_a0");
+  private boolean nodeCondition_fgt3_a1a() {
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.lines$FNV)).count() > 1;
+  }
+  private EditorCell createReadOnlyModelAccessor_0() {
+    EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
+      public String getText() {
+        return (ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.lines$FNV)).count() > 1 ? "\"\"\"" : "\"");
+      }
+    }, myNode);
+    editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());
+    editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
+    editorCell.setCellId("ReadOnlyModelAccessor_fgt3_a0");
     Style style = new StyleImpl();
     new STRING_StyleKey().apply(style);
+    style.set(StyleAttributes.PUNCTUATION_RIGHT, _StyleParameter_QueryFunction_fgt3_a1a0());
+    style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
-    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.StringLiteral$V8, "jetbrains.mps.kotlin.editor.StringLiteral_InsertString"));
+    return editorCell;
+  }
+  private boolean _StyleParameter_QueryFunction_fgt3_a1a0() {
+    return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.lines$FNV)).count() <= 1;
+  }
+  private EditorCell createConstant_0() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "with trimIndent()");
+    editorCell.setCellId("Constant_fgt3_b0");
+    Style style = new StyleImpl();
+    new CommentStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    style.set(StyleAttributes.SELECTABLE, false);
+    editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
-    editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new contentListHandler_fgt3_b0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new linesListHandler_fgt3_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("refNodeList_content");
+    editorCell.setCellId("refNodeList_lines");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_CHILDREN_NEWLINE, _StyleParameter_QueryFunction_fgt3_a0c0());
+    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, _StyleParameter_QueryFunction_fgt3_a1c0());
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class contentListHandler_fgt3_b0 extends RefNodeListHandler {
+  private static class linesListHandler_fgt3_c0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public contentListHandler_fgt3_b0(SNode ownerNode, EditorContext context) {
+    public linesListHandler_fgt3_c0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -90,10 +123,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.content$JVfe;
+      return LINKS.lines$FNV;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.IStringLiteralContent$ZO;
+      return CONCEPTS.StringLiteralLine$E7;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -103,10 +136,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(contentListHandler_fgt3_b0.this.getNode(), LINKS.content$JVfe));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(linesListHandler_fgt3_c0.this.getNode(), LINKS.lines$FNV));
       try {
         EditorCell emptyCell = null;
-        emptyCell = super.createEmptyCell();
+        emptyCell = createConstant_1();
         installElementCellActions(null, emptyCell, true);
         setCellContext(emptyCell);
         return emptyCell;
@@ -142,24 +175,44 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
         }
       }
     }
+    private EditorCell createConstant_1() {
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+      editorCell.setCellId("Constant_fgt3_a2a");
+      Style style = new StyleImpl();
+      style.set(StyleAttributes.EDITABLE, true);
+      editorCell.getStyle().putAll(style);
+      editorCell.setDefaultText("");
+      return editorCell;
+    }
   }
-  private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "\"");
-    editorCell.setCellId("Constant_fgt3_c0");
+  private boolean _StyleParameter_QueryFunction_fgt3_a0c0() {
+    return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.lines$FNV)).count() > 1;
+  }
+  private boolean _StyleParameter_QueryFunction_fgt3_a1c0() {
+    return ListSequence.fromList(SLinkOperations.getChildren(getNode(), LINKS.lines$FNV)).count() > 1;
+  }
+  private EditorCell createReadOnlyModelAccessor_1() {
+    EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
+      public String getText() {
+        return (ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.lines$FNV)).count() > 1 ? "\"\"\"" : "\"");
+      }
+    }, myNode);
+    editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());
+    editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
+    editorCell.setCellId("ReadOnlyModelAccessor_fgt3_d0");
     Style style = new StyleImpl();
-    style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     new STRING_StyleKey().apply(style);
+    style.set(StyleAttributes.PUNCTUATION_LEFT, true);
+    style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
-    editorCell.setDefaultText("");
     return editorCell;
   }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept StringLiteral$V8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, "jetbrains.mps.kotlin.structure.StringLiteral");
-    /*package*/ static final SConcept IStringLiteralContent$ZO = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralContent");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lines$FNV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x58aa661f71960d41L, "lines");
   }
 
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink content$JVfe = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x28bef6d7551af833L, "content");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteralLine$E7 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x58aa661f71960f30L, "jetbrains.mps.kotlin.structure.StringLiteralLine");
   }
 }

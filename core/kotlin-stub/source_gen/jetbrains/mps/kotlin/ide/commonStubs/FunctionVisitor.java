@@ -79,7 +79,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
   public static KmFunctionVisitor create(SNode func, VisitorContext ctx, int flags, String name, String receiverName) {
     SPropertyOperations.assign(func, PROPS.name$MnvL, name);
     SLinkOperations.setTarget(func, LINKS.visibility$vnSV, EnumFlags.getVisibility(Flags.VISIBILITY.get(flags)));
-    SLinkOperations.setTarget(func, LINKS.inheritance$Geug, EnumFlags.getModality(Flags.MODALITY.get(flags)));
+    SLinkOperations.setTarget(func, LINKS.inheritance$TFvr, EnumFlags.getModality(Flags.MODALITY.get(flags)));
     EnumFlags.populateModifiers(func, flags);
     return new FunctionVisitor(func, receiverName, ctx);
   }
@@ -97,7 +97,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
     /*package*/ static final SContainmentLink returnType$fGYV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908cd887L, 0x11400bb7908cd888L, "returnType");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
-    /*package*/ static final SContainmentLink inheritance$Geug = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x441fd2709ecea6b9L, "inheritance");
+    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
   }
 

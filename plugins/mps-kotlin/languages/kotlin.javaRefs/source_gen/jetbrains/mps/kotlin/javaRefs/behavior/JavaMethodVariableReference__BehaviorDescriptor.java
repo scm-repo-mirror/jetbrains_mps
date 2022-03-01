@@ -11,20 +11,21 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.behavior.CallReceiver;
+import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.behavior.IStatement__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.behavior.INavigationTarget__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.Collections;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtEngine;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService;
+import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -39,12 +40,11 @@ public final class JavaMethodVariableReference__BehaviorDescriptor extends BaseB
   public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9niD").build();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlEjh5").build();
   public static final SMethod<SReferenceLink> getTargetLink_id5D4bOjrrcOr = new SMethodBuilder<SReferenceLink>(new SJavaCompoundTypeImpl(SReferenceLink.class)).name("getTargetLink").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrcOr").build();
-  public static final SMethod<SNode> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrgiZ").build();
-  public static final SMethod<Boolean> isReceiverExternal_id4bAAzIAVSHE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isReceiverExternal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4bAAzIAVSHE").build();
-  public static final SMethod<Iterable<SNode>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
+  public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5D4bOjrrgiZ").build();
+  public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("26mUjU3xhgD").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(assignableState_idCy8Bus9niD, getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, isReceiverExternal_id4bAAzIAVSHE, getArguments_id1VI7K1jROBX, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(assignableState_idCy8Bus9niD, getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX, getFunctionDescriptor_id26mUjU3xhgD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -70,33 +70,23 @@ public final class JavaMethodVariableReference__BehaviorDescriptor extends BaseB
       return LINKS.setter$pcqc;
     }
   }
-  /*package*/ static SNode getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return ((SNode) INavigationTarget__BehaviorDescriptor.getNavigationOperand_id2gj5XQXMv4y.invoke(__thisNode__));
+  /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
+    return CallReceiver.ofNavTarget(__thisNode__);
   }
-  /*package*/ static boolean isReceiverExternal_id4bAAzIAVSHE(@NotNull SNode __thisNode__) {
-    return true;
-  }
-  /*package*/ static Iterable<SNode> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
+  /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
     if (((boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(__thisNode__, __thisNode__))) {
       // TODO find assigned node in a cleaner way?
-      return Sequence.<SNode>singleton(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Assignment$zN, false, false), LINKS.right$Uro5));
+      return NodeArgument.of(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Assignment$zN, false, false), LINKS.right$Uro5));
     }
-
-    return Sequence.fromIterable(Collections.<SNode>emptyList());
+    return Argument.none;
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     JavaToKtEngine javaToKt = TypeConversionService.getInstance().getJavaToKt();
-    if (!(((boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(__thisNode__, __thisNode__)))) {
-      if (SLinkOperations.getTarget(__thisNode__, LINKS.getter$1vvk) == null) {
-        return null;
-      }
-      return new JavaMethodDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.getter$1vvk), javaToKt);
-    } else {
-      if (SLinkOperations.getTarget(__thisNode__, LINKS.setter$pcqc) == null) {
-        return null;
-      }
-      return new JavaMethodDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.setter$pcqc), javaToKt);
+    SNode node = __thisNode__.getReferenceTarget(IFunctionCallLike__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(__thisNode__));
+    if (node == null) {
+      return null;
     }
+    return new JavaMethodDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.getter$1vvk), javaToKt);
   }
 
   /*package*/ JavaMethodVariableReference__BehaviorDescriptor() {
@@ -121,12 +111,10 @@ public final class JavaMethodVariableReference__BehaviorDescriptor extends BaseB
       case 2:
         return (T) ((SReferenceLink) getTargetLink_id5D4bOjrrcOr(node));
       case 3:
-        return (T) ((SNode) getReceiver_id5D4bOjrrgiZ(node));
+        return (T) ((CallReceiver) getReceiver_id5D4bOjrrgiZ(node));
       case 4:
-        return (T) ((Boolean) isReceiverExternal_id4bAAzIAVSHE(node));
+        return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       case 5:
-        return (T) ((Iterable<SNode>) getArguments_id1VI7K1jROBX(node));
-      case 6:
         return (T) ((FunctionDeclaration) getFunctionDescriptor_id26mUjU3xhgD(node));
       default:
         throw new BHMethodNotFoundException(this, method);

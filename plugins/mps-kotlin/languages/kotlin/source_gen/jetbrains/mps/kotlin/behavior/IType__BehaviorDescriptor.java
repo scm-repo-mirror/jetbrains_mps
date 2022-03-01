@@ -6,6 +6,7 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
@@ -21,6 +22,8 @@ import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.kotlin.runtime.types.identifiers.UnmatchableType;
@@ -37,6 +40,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
 
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7an2tsIdpkM").build();
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHtYvR").build(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateTypeSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHK5S9").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4f4W8JpwgWV").build(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
@@ -47,11 +51,14 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Scope> getTypeScope_id7ubb0gUcNKV = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getTypeScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7ubb0gUcNKV").build(SMethodBuilder.createJavaParameter(SignedDeclarationFilter.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getPresentation_idhEwIMiw, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getTypeScope_id7ubb0gUcNKV, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTypeParameters_id7an2tsIdpkM, visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, getPresentation_idhEwIMiw, asProjection_idJmO2PmVt2A, asInvariantProjection_id2gj5XQXIqKf, getTypeScope_id7ubb0gUcNKV, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id7an2tsIdpkM(@NotNull SNode __thisNode__) {
+    return Sequence.fromIterable(Collections.<TypeParameterDeclaration>emptyList());
+  }
   /*package*/ static void visitHierarchy_id5q426iHtYvR(@NotNull SNode __thisNode__, SuperTypesVisitor visitor) {
     if (visitor.enterType(__thisNode__)) {
       // No recursion to declare -> visitor will call populateSignatures if needed
@@ -71,7 +78,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
     return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(__thisNode__, ((boolean) false));
   }
   /*package*/ static SNode asProjection_idJmO2PmVt2A(@NotNull SNode __thisNode__, SEnumerationLiteral variance) {
-    return createTypeProjection_7kdw5j_a0a5(__thisNode__, variance);
+    return createTypeProjection_7kdw5j_a0a6(__thisNode__, variance);
   }
   /*package*/ static SNode asInvariantProjection_id2gj5XQXIqKf(@NotNull SNode __thisNode__) {
     return IType__BehaviorDescriptor.asProjection_idJmO2PmVt2A.invoke(__thisNode__, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c923289a2189L, "jetbrains.mps.kotlin.structure.VarianceModifier"), 0x21e0c923289a2222L, "inv"));
@@ -100,25 +107,27 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
+        return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id7an2tsIdpkM(node));
+      case 1:
         visitHierarchy_id5q426iHtYvR(node, (SuperTypesVisitor) parameters[0]);
         return null;
-      case 1:
+      case 2:
         populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
-      case 2:
+      case 3:
         populateSubstitutions_id4f4W8JpwgWV(node, (TypeVarSubs<SNode>) parameters[0]);
         return null;
-      case 3:
-        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       case 4:
-        return (T) ((String) getPresentation_idhEwIMiw(node));
+        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       case 5:
-        return (T) ((SNode) asProjection_idJmO2PmVt2A(node, (SEnumerationLiteral) parameters[0]));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       case 6:
-        return (T) ((SNode) asInvariantProjection_id2gj5XQXIqKf(node));
+        return (T) ((SNode) asProjection_idJmO2PmVt2A(node, (SEnumerationLiteral) parameters[0]));
       case 7:
-        return (T) ((Scope) getTypeScope_id7ubb0gUcNKV(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1]));
+        return (T) ((SNode) asInvariantProjection_id2gj5XQXIqKf(node));
       case 8:
+        return (T) ((Scope) getTypeScope_id7ubb0gUcNKV(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1]));
+      case 9:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -148,7 +157,7 @@ public final class IType__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode createTypeProjection_7kdw5j_a0a5(SNode p0, SEnumerationLiteral p1) {
+  private static SNode createTypeProjection_7kdw5j_a0a6(SNode p0, SEnumerationLiteral p1) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.TypeProjection$5e);
     n0.forChild(LINKS.type$x3no).initNode(p0, CONCEPTS.IType$Ni, true);
     n0.setProperty(PROPS.variance$9nw2, SPropertyOperations.serializeEnummember(p1));

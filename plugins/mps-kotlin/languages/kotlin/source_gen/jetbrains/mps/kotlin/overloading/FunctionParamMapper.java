@@ -10,7 +10,6 @@ import java.util.HashMap;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 
 /**
@@ -97,7 +96,7 @@ public class FunctionParamMapper<I, T extends Throwable> {
    * Depending on the state of the model, some parameters may be null, which indicates an error
    * in usage (reported to the error handler) or in declaration (unreported).
    */
-  public List<ParameterDeclaration> checkArguments(Iterable<SNode> arguments) throws T {
+  public List<ParameterDeclaration> checkArguments(Iterable<Argument> arguments) throws T {
     List<ParameterDeclaration> matchedParams = ListSequence.fromList(new ArrayList<ParameterDeclaration>());
 
     // 1. simple check for arg count (eliminate simple cases)
@@ -105,7 +104,7 @@ public class FunctionParamMapper<I, T extends Throwable> {
 
     // 2. map arguments to their parameters
     FunctionParamIterator<I, T> it = iterator();
-    for (SNode arg : Sequence.fromIterable(arguments)) {
+    for (Argument arg : Sequence.fromIterable(arguments)) {
       ListSequence.fromList(matchedParams).addElement(it.nextFor(arg));
     }
     it.dispose();

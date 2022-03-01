@@ -19,6 +19,7 @@ import jetbrains.mps.baseLanguage.kotlinRefs.behavior.IKotlinFunctionLikeCall__B
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Collections;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
+import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.kotlin.overloading.ParamException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -96,7 +97,7 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
 
     try {
       // Reorder parameters (named args not supported in java)
-      arguments = FunctionParamHelper.toOrderedList(functionParameters, SLinkOperations.getChildren(call, LINKS.actualArgument$Q6nt));
+      arguments = FunctionParamHelper.toOrderedList(functionParameters, NodeArgument.ofList(SLinkOperations.getChildren(call, LINKS.actualArgument$Q6nt)));
     } catch (ParamException error) {
       tgs.reportError(error.getMessage());
     }

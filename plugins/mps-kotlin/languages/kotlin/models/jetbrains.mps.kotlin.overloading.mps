@@ -12,7 +12,6 @@
     <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
-    <use id="515552c7-fcc0-4ab4-9789-2f3c49344e85" name="jetbrains.mps.baseLanguage.varVariable" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -31,7 +30,6 @@
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="kdsm" ref="r:4d5ec8ef-7006-453c-a8cf-f9897337b08c(jetbrains.mps.kotlin.runtime.typesystem)" />
     <import index="ykok" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.constraints(MPS.Core/)" />
-    <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -635,7 +633,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="7KVUDZaGHCO" role="1B3o_S" />
       <node concept="3uibUv" id="7KVUDZaGIMn" role="1tU5fm">
-        <ref role="3uigEE" to="kdsm:7VTXQs1r_Rt" resolve="OverloadResolver" />
+        <ref role="3uigEE" to="kdsm:7VTXQs1r_Rt" resolve="KotlinTypesystem" />
       </node>
     </node>
     <node concept="312cEg" id="7mJe6tmA$vM" role="jymVt">
@@ -838,7 +836,7 @@
                 <ref role="3cqZAo" node="7KVUDZaGIPT" resolve="overloadResolver" />
               </node>
               <node concept="liA8E" id="7VTXQs1xHsk" role="2OqNvi">
-                <ref role="37wK5l" to="kdsm:7VTXQs1rCSE" resolve="resolve" />
+                <ref role="37wK5l" to="kdsm:7VTXQs1rCSE" resolve="selectOverloadCandidate" />
                 <node concept="37vLTw" id="7VTXQs1xHsl" role="37wK5m">
                   <ref role="3cqZAo" node="5D4bOjruQkl" resolve="myCall" />
                 </node>
@@ -5095,7 +5093,7 @@
       <node concept="37vLTG" id="7KVUDZaHgeK" role="3clF46">
         <property role="TrG5h" value="availableSolver" />
         <node concept="3uibUv" id="7KVUDZaHgeJ" role="1tU5fm">
-          <ref role="3uigEE" to="kdsm:7VTXQs1r_Rt" resolve="OverloadResolver" />
+          <ref role="3uigEE" to="kdsm:7VTXQs1r_Rt" resolve="KotlinTypesystem" />
         </node>
       </node>
       <node concept="37vLTG" id="7KVUDZaHggl" role="3clF46">
@@ -5133,68 +5131,6 @@
         </node>
       </node>
     </node>
-  </node>
-  <node concept="3HP615" id="7VTXQs1r_Rt">
-    <property role="TrG5h" value="OverloadResolver" />
-    <property role="3GE5qa" value="solver" />
-    <node concept="3clFb_" id="7VTXQs1rCSE" role="jymVt">
-      <property role="TrG5h" value="resolve" />
-      <node concept="37vLTG" id="7VTXQs1rItE" role="3clF46">
-        <property role="TrG5h" value="call" />
-        <node concept="3uibUv" id="7mJe6tm_DrM" role="1tU5fm">
-          <ref role="3uigEE" node="7mJe6tmz$Nk" resolve="FunctionCall" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="7nsCnXYhfhj" role="3clF46">
-        <property role="TrG5h" value="contextNode" />
-        <node concept="3Tqbb2" id="7nsCnXYhfhz" role="1tU5fm" />
-      </node>
-      <node concept="37vLTG" id="7VTXQs1rD5O" role="3clF46">
-        <property role="TrG5h" value="candidates" />
-        <node concept="A3Dl8" id="7VTXQs1rHGW" role="1tU5fm">
-          <node concept="3uibUv" id="7VTXQs1rIs8" role="A3Ik2">
-            <ref role="3uigEE" to="1p8r:26mUjU3_jTe" resolve="FunctionDeclaration" />
-          </node>
-        </node>
-      </node>
-      <node concept="3clFbS" id="7VTXQs1rCSH" role="3clF47" />
-      <node concept="3Tm1VV" id="7VTXQs1rCSI" role="1B3o_S" />
-      <node concept="1LlUBW" id="7VTXQs1rCMU" role="3clF45">
-        <node concept="3uibUv" id="7VTXQs1rLAW" role="1Lm7xW">
-          <ref role="3uigEE" to="1p8r:26mUjU3_jTe" resolve="FunctionDeclaration" />
-        </node>
-        <node concept="10P_77" id="7VTXQs1rLX_" role="1Lm7xW" />
-      </node>
-      <node concept="P$JXv" id="7KVUDZaBBlt" role="lGtFl">
-        <node concept="TZ5HA" id="7KVUDZaBBlu" role="TZ5H$">
-          <node concept="1dT_AC" id="7KVUDZaBBlv" role="1dT_Ay">
-            <property role="1dT_AB" value="Resolve the best candidate for the given call according to implementation." />
-          </node>
-        </node>
-        <node concept="x79VA" id="7KVUDZaBBlA" role="3nqlJM">
-          <property role="x79VB" value="function to apply or null, plus a boolean indicating ambiguity in case of failure" />
-        </node>
-      </node>
-    </node>
-    <node concept="2tJIrI" id="7KVUDZaN2_I" role="jymVt" />
-    <node concept="3clFb_" id="7KVUDZaN2C6" role="jymVt">
-      <property role="TrG5h" value="isAvailable" />
-      <node concept="37vLTG" id="7KVUDZaNbt9" role="3clF46">
-        <property role="TrG5h" value="contextNode" />
-        <node concept="3Tqbb2" id="7KVUDZaNbui" role="1tU5fm" />
-      </node>
-      <node concept="3clFbS" id="7KVUDZaN2C9" role="3clF47" />
-      <node concept="3Tm1VV" id="7KVUDZaN2Ca" role="1B3o_S" />
-      <node concept="10P_77" id="7KVUDZaN2Bh" role="3clF45" />
-      <node concept="P$JXv" id="7KVUDZaR93G" role="lGtFl">
-        <node concept="TZ5HA" id="7KVUDZaR93H" role="TZ5H$">
-          <node concept="1dT_AC" id="7KVUDZaR93I" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns whether the solver is available for resolution purposes." />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3Tm1VV" id="7VTXQs1r_Ru" role="1B3o_S" />
   </node>
   <node concept="3HP615" id="7mJe6tmz$Nk">
     <property role="TrG5h" value="FunctionCall" />
@@ -6233,7 +6169,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="28Q2rIHdFiQ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="7iropoGM8Va" role="jymVt" />

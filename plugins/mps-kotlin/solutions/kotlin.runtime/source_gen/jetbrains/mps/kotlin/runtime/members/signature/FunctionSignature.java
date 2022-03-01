@@ -4,11 +4,8 @@ package jetbrains.mps.kotlin.runtime.members.signature;
 
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import jetbrains.mps.references.Reference;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Signature of a function. Keeps a reference to function descriptor so it may be used later on.
@@ -38,7 +35,7 @@ public class FunctionSignature implements MemberSignature {
   private final String signature;
 
   public FunctionSignature(FunctionDeclaration declaration, String parameterErasure) {
-    signature = SPropertyOperations.getString(declaration.getNode(), PROPS.name$MnvL) + "#" + Sequence.fromIterable(declaration.getParameters()).count() + "#" + parameterErasure;
+    signature = declaration.getName() + "#" + Sequence.fromIterable(declaration.getParameters()).count() + "#" + parameterErasure;
     setFunctionDeclaration(declaration);
   }
 
@@ -54,9 +51,5 @@ public class FunctionSignature implements MemberSignature {
       return Objects.equals(this.signature, other.signature);
     }
     return false;
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

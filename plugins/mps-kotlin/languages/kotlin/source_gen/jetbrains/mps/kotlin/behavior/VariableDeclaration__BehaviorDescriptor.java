@@ -40,8 +40,8 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
   /*package*/ static boolean isAssignable_idCy8Bus9oGm(@NotNull SNode __thisNode__) {
     {
       final SNode constraintHolder = SNodeOperations.getParent(__thisNode__);
-      if (SNodeOperations.isInstanceOf(constraintHolder, CONCEPTS.IVariableDeclarationConstraintHolder$zF)) {
-        return (boolean) IVariableDeclarationConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(constraintHolder);
+      if (SNodeOperations.isInstanceOf(constraintHolder, CONCEPTS.IVariableConstraintHolder$zF)) {
+        return (boolean) IVariableConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(constraintHolder);
       }
     }
 
@@ -103,7 +103,7 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
-    /*package*/ static final SInterfaceConcept IVariableDeclarationConstraintHolder$zF = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableDeclarationConstraintHolder");
+    /*package*/ static final SInterfaceConcept IVariableConstraintHolder$zF = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableConstraintHolder");
     /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
   }
 }

@@ -7,8 +7,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class MultiLineStringLiteral_Editor extends DefaultNodeEditor {
+public class ComponentFunctionCall_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new MultiLineStringLiteral_EditorBuilder_a(editorContext, node).createCell();
+    return new ComponentFunctionCall_EditorBuilder_a(editorContext, node).createCell();
   }
 }

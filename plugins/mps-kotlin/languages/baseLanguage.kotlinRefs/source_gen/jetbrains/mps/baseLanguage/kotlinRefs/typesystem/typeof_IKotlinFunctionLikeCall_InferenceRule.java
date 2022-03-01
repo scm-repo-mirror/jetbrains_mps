@@ -27,6 +27,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
@@ -141,7 +142,7 @@ public class typeof_IKotlinFunctionLikeCall_InferenceRule extends AbstractInfere
             }
           }, (ParameterDeclaration node) -> SPropertyOperations.getString(node.getNode(), PROPS.name$MnvL), IKotlinFunctionLikeCall__BehaviorDescriptor.getFunctionParameters_idUG7NftR_2Q.invoke(fCall));
 
-          List<SNode> typel = ListSequence.fromList(mapper.checkArguments(SLinkOperations.getChildren(fCall, LINKS.actualArgument$Q6nt))).select(ParameterDeclaration::typeOf).select(converter::convert).toListSequence();
+          List<SNode> typel = ListSequence.fromList(mapper.checkArguments(NodeArgument.ofList(SLinkOperations.getChildren(fCall, LINKS.actualArgument$Q6nt)))).select(ParameterDeclaration::typeOf).select(converter::convert).toListSequence();
 
           for (SNode type : ListSequence.fromList(typel)) {
             if (SNodeOperations.isInstanceOf(type, CONCEPTS.IGenericType$13)) {

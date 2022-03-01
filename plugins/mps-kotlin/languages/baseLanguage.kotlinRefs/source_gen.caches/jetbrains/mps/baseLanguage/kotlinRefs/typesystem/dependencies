@@ -86,6 +86,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
     <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.FunctionParamMapper" />
+    <classNode dependClassName="jetbrains.mps.kotlin.overloading.NodeArgument" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.ParamErrorHandler" />
     <classNode dependClassName="jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />

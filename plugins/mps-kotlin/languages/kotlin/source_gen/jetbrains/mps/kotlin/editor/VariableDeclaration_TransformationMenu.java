@@ -23,10 +23,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.transformation.IncludeTransformationMenuTransformationMenuPart;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLookup;
-import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.lang.editor.menus.transformation.DefaultTransformationMenuLookup;
-import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -79,7 +75,7 @@ public class VariableDeclaration_TransformationMenu extends TransformationMenuBa
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
       context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("transformation menu group", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "2178249719432896133")));
+      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("transformation menu group", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "2465168547709957012")));
       try {
         return super.createItems(context);
       } finally {
@@ -95,7 +91,7 @@ public class VariableDeclaration_TransformationMenu extends TransformationMenuBa
       @Override
       public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
         context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include " + "default transformation menu for " + "AbstractPropertyDeclaration", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "2178249719432908252")));
+        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include default transformation menu", new SNodePointer("r:5e60d3fe-71b1-4c17-b38e-424792223875(jetbrains.mps.kotlin.editor)", "2465168547709957029")));
         try {
           return super.createItems(context);
         } finally {
@@ -103,14 +99,6 @@ public class VariableDeclaration_TransformationMenu extends TransformationMenuBa
         }
       }
 
-      @Nullable
-      @Override
-      protected TransformationMenuLookup getMenuLookup(TransformationMenuContext _context) {
-        final SNode node = _context.getNode();
-        final EditorContext editorContext = _context.getEditorContext();
-
-        return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.AbstractPropertyDeclaration$Xd);
-      }
       @Nullable
       @Override
       protected SNode getNode(TransformationMenuContext _context) {

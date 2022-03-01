@@ -43,13 +43,12 @@ public final class PropertyDeclaration__BehaviorDescriptor extends BaseBHDescrip
 
   public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("213J8cgCCAN").build(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
   public static final SMethod<Void> populateSignatures_id18X2O0FJBER = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("18X2O0FJBER").build(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
-  public static final SMethod<Boolean> hasExplicityType_id2n1mrwy6RU_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExplicityType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2n1mrwy6RU_").build();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7RZWrHVaXCH").build();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<SNode> getIdentifiable_idauY8guyXvs = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getIdentifiable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("auY8guyXvs").build();
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, populateSignatures_id18X2O0FJBER, hasExplicityType_id2n1mrwy6RU_, getDeclarations_id7RZWrHVaXCH, getPresentation_idhEwIMiw, getIdentifiable_idauY8guyXvs, getScope_id52_Geb4QDV$);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN, populateSignatures_id18X2O0FJBER, getDeclarations_id7RZWrHVaXCH, getPresentation_idhEwIMiw, getIdentifiable_idauY8guyXvs, getScope_id52_Geb4QDV$);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -78,7 +77,7 @@ __switch__:
                         assert false : "Internal error";
                         return false;
                       case 4:
-                        if (((boolean) IVariableDeclarationConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__))) {
+                        if (((boolean) IVariableConstraintHolder__BehaviorDescriptor.isChildVariableAssignable_idCy8Bus9qei.invoke(__thisNode__))) {
                           this.__CP__ = 5;
                           break;
                         }
@@ -115,9 +114,6 @@ __switch__:
         }
       });
     }
-  }
-  /*package*/ static boolean hasExplicityType_id2n1mrwy6RU_(@NotNull SNode __thisNode__) {
-    return (SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$IdZv), LINKS.type$RmkT) != null);
   }
   /*package*/ static List<SNode> getDeclarations_id7RZWrHVaXCH(@NotNull SNode __thisNode__) {
     List<SNode> nodes = new ArrayList<SNode>();
@@ -162,14 +158,12 @@ __switch__:
         populateSignatures_id18X2O0FJBER(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
-        return (T) ((Boolean) hasExplicityType_id2n1mrwy6RU_(node));
-      case 3:
         return (T) ((List<SNode>) getDeclarations_id7RZWrHVaXCH(node));
-      case 4:
+      case 3:
         return (T) ((String) getPresentation_idhEwIMiw(node));
-      case 5:
+      case 4:
         return (T) ((SNode) getIdentifiable_idauY8guyXvs(node));
-      case 6:
+      case 5:
         return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -203,7 +197,6 @@ __switch__:
   private static final class LINKS {
     /*package*/ static final SContainmentLink declaration$IdZv = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, 0x123d0b402b9ae3edL, "declaration");
     /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
-    /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
   }
 
   private static final class CONCEPTS {

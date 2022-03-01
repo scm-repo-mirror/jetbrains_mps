@@ -23,4 +23,6 @@ public interface InferrableFunctionDeclaration extends FunctionDeclaration {
     }
     return null;
   }
+
+
 }

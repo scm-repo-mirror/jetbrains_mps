@@ -21,12 +21,12 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
     }
     tgs.append("for (");
     KotlinTextGen.annotations(ctx.getPrimaryInput(), false, ctx);
-    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$_81g)).count() > 1) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$EO9Z)).count() > 1) {
       tgs.append("(");
     }
 
     {
-      Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$_81g);
+      Iterable<SNode> collection = SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$EO9Z);
       final SNode lastItem = Sequence.fromIterable(collection).last();
       for (SNode item : collection) {
         tgs.appendNode(item);
@@ -35,7 +35,7 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
         }
       }
     }
-    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$_81g)).count() > 1) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$EO9Z)).count() > 1) {
       tgs.append(")");
     }
 
@@ -47,7 +47,7 @@ public class ForStatement_TextGen extends TextGenDescriptorBase {
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink label$EneV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c446692eL, 0x631027d1c446692fL, "label");
-    /*package*/ static final SContainmentLink variables$_81g = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af707L, "variables");
+    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
     /*package*/ static final SContainmentLink in$_8gh = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af708L, "in");
   }
 }

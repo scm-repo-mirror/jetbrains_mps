@@ -9,33 +9,50 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
 import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.runtime.types.identifiers.ClassType;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
 
+  public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5q426iHtYvR").build(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<TypeParameterDeclaration> getParameter_id4W0pdSD7eWM = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getParameter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4W0pdSD7eWM").build();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toString_id4nn3FPlZH$r, getParameter_id4W0pdSD7eWM, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, toString_id4nn3FPlZH$r, getParameter_id4W0pdSD7eWM, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static void visitHierarchy_id5q426iHtYvR(@NotNull SNode __thisNode__, SuperTypesVisitor visitor) {
+    if (visitor.enterType(__thisNode__)) {
+      // Bound if any
+      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), LINKS.bound$KhhI) != null)) {
+        IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), LINKS.bound$KhhI), visitor);
+      } else {
+        IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(BuiltIn.ANY.toClassType(), visitor);
+      }
+
+      // No recursion to declare -> visitor will call populateSignatures if needed
+      visitor.exitType(__thisNode__);
+    }
+  }
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), PROPS.name$MnvL);
   }
@@ -62,10 +79,13 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
+        visitHierarchy_id5q426iHtYvR(node, (SuperTypesVisitor) parameters[0]);
+        return null;
       case 1:
-        return (T) ((TypeParameterDeclaration) getParameter_id4W0pdSD7eWM(node));
+        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       case 2:
+        return (T) ((TypeParameterDeclaration) getParameter_id4W0pdSD7eWM(node));
+      case 3:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -98,6 +118,7 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink parameter$ofYr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, 0x21e0c9232886358eL, "parameter");
+    /*package*/ static final SContainmentLink bound$KhhI = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x28bef6d7551af850L, "bound");
   }
 
   private static final class PROPS {

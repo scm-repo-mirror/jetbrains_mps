@@ -12,7 +12,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
-import jetbrains.mps.kotlin.behavior.IArgument__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -26,7 +25,7 @@ public class FunctionParamHelper {
    * Default values are not considered, in cases this method is used, some check should be implemented to ensure default values
    * are not used.
    */
-  public static Iterable<SNode> toOrderedList(Iterable<ParameterDeclaration> functionParameters, Iterable<SNode> arguments) throws ParamException {
+  public static Iterable<SNode> toOrderedList(Iterable<ParameterDeclaration> functionParameters, Iterable<Argument> arguments) throws ParamException {
     // Sequence seem to instantiate several times the parameters, so we do it once and for all
     List<ParameterDeclaration> parameters = Sequence.fromIterable(functionParameters).toListSequence();
 
@@ -36,14 +35,14 @@ public class FunctionParamHelper {
     // Zip parameters with their index
     List<Tuples._2<Integer, SNode>> zipped = ListSequence.fromList(new ArrayList<Tuples._2<Integer, SNode>>());
     {
-      Iterator<SNode> arg_it = Sequence.fromIterable(arguments).iterator();
+      Iterator<Argument> arg_it = Sequence.fromIterable(arguments).iterator();
       Iterator<ParameterDeclaration> param_it = ListSequence.fromList(orderedParameters).iterator();
-      SNode arg_var;
+      Argument arg_var;
       ParameterDeclaration param_var;
       while (arg_it.hasNext() && param_it.hasNext()) {
         arg_var = arg_it.next();
         param_var = param_it.next();
-        ListSequence.fromList(zipped).addElement(MultiTuple.<Integer,SNode>from(ListSequence.fromList(parameters).indexOf(param_var), IArgument__BehaviorDescriptor.getArgExpression_id26mUjU3EUyw.invoke(arg_var)));
+        ListSequence.fromList(zipped).addElement(MultiTuple.<Integer,SNode>from(ListSequence.fromList(parameters).indexOf(param_var), arg_var.getExpression()));
       }
     }
 

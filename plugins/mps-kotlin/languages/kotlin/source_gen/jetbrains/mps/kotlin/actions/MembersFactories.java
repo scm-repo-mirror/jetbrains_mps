@@ -7,6 +7,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -28,23 +30,15 @@ public class MembersFactories {
   }
   public static class NodeFactory_2998782254613448499 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
-      {
-        final SNode inheritable = sampleNode;
-        if (SNodeOperations.isInstanceOf(inheritable, CONCEPTS.IInheritable$pc)) {
-          SLinkOperations.setTarget(newNode, LINKS.inheritance$TFvr, SNodeOperations.copyNode(SLinkOperations.getTarget(inheritable, LINKS.inheritance$TFvr)));
-        }
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.IInheritable$pc)) {
+        SLinkOperations.setTarget(newNode, LINKS.inheritance$TFvr, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.as(sampleNode, CONCEPTS.IInheritable$pc), LINKS.inheritance$TFvr)));
+      } else {
+        SLinkOperations.setTarget(newNode, LINKS.inheritance$TFvr, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(newNode)), enclosingNode))));
       }
     }
   }
   public static class NodeFactory_2998782254621247415 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
-      {
-        final SNode inheritable = sampleNode;
-        if (SNodeOperations.isInstanceOf(inheritable, CONCEPTS.IInheritable$pc)) {
-          SLinkOperations.setTarget(newNode, LINKS.inheritance$Geug, SNodeOperations.copyNode(SLinkOperations.getTarget(inheritable, LINKS.inheritance$TFvr)));
-        }
-      }
-
       {
         final SNode incomplete = sampleNode;
         if (SNodeOperations.isInstanceOf(incomplete, CONCEPTS.IncompleteDeclaration$r_)) {
@@ -84,7 +78,6 @@ public class MembersFactories {
   private static final class LINKS {
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
-    /*package*/ static final SContainmentLink inheritance$Geug = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x441fd2709ecea6b9L, "inheritance");
     /*package*/ static final SContainmentLink modifiers$XKtM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x28bef6d75568d1adL, "modifiers");
     /*package*/ static final SContainmentLink funModifiers$vmCQ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x299dd09284f401caL, 0x1913adf568d1fd3dL, "funModifiers");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");

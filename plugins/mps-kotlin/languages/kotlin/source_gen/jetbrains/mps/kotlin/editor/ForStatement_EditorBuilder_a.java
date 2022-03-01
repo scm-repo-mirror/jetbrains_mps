@@ -79,10 +79,10 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     return editorCell;
   }
   private boolean nodeCondition_l9yc2b_a4a() {
-    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.variables$_81g)).count() > 1;
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.variables$EO9Z)).count() > 1;
   }
   private boolean nodeCondition_l9yc2b_a6a() {
-    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.variables$_81g)).count() > 1;
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.variables$EO9Z)).count() > 1;
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.kotlin.editor.Label_Component");
@@ -140,10 +140,10 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return LINKS.variables$_81g;
+      return LINKS.variables$EO9Z;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.VariableDeclaration$DF;
+      return CONCEPTS.ComponentDeclaration$qJ;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -153,7 +153,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(variablesListHandler_l9yc2b_f0.this.getNode(), LINKS.variables$_81g));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(variablesListHandler_l9yc2b_f0.this.getNode(), LINKS.variables$EO9Z));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -296,12 +296,12 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink variables$_81g = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af707L, "variables");
+    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
     /*package*/ static final SContainmentLink in$_8gh = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af708L, "in");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept VariableDeclaration$DF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
+    /*package*/ static final SConcept ComponentDeclaration$qJ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4af45374fd841d58L, "jetbrains.mps.kotlin.structure.ComponentDeclaration");
     /*package*/ static final SInterfaceConcept IStatementHolder$84 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, "jetbrains.mps.kotlin.structure.IStatementHolder");
   }
 }

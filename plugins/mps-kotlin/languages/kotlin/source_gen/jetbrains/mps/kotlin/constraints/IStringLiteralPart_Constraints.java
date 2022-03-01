@@ -6,9 +6,9 @@ import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class IStringLiteralContent_Constraints extends BaseConstraintsDescriptor {
-  public IStringLiteralContent_Constraints() {
-    super(CONCEPTS.IStringLiteralContent$ZO);
+public class IStringLiteralPart_Constraints extends BaseConstraintsDescriptor {
+  public IStringLiteralPart_Constraints() {
+    super(CONCEPTS.IStringLiteralPart$ZO);
   }
 
   @Override
@@ -17,7 +17,7 @@ public class IStringLiteralContent_Constraints extends BaseConstraintsDescriptor
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept IStringLiteralContent$ZO = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralContent");
+    /*package*/ static final SConcept IStringLiteralPart$ZO = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralPart");
     /*package*/ static final SConcept StringLiteralRaw$ar = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790af28ddL, "jetbrains.mps.kotlin.structure.StringLiteralRaw");
   }
 }

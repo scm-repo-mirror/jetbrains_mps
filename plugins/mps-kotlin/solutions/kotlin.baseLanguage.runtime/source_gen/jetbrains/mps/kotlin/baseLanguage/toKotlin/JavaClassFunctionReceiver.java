@@ -12,10 +12,16 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 
+/**
+ * 
+ * @deprecated 
+ */
+@Deprecated
 public class JavaClassFunctionReceiver implements FunctionReceiver {
   private final SNode myClassifier;
   private final JavaToKtEngine myJavaToKt;
 
+  @Deprecated
   public JavaClassFunctionReceiver(SNode classifier, JavaToKtEngine javaToKt) {
     myClassifier = classifier;
     myJavaToKt = javaToKt;

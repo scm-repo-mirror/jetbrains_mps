@@ -17,8 +17,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class IVariableDeclarationConstraintHolder__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableDeclarationConstraintHolder");
+public final class IVariableConstraintHolder__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableConstraintHolder");
 
   public static final SMethod<Boolean> isChildVariableAssignable_idCy8Bus9qei = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isChildVariableAssignable").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9qei").build();
 
@@ -28,7 +28,7 @@ public final class IVariableDeclarationConstraintHolder__BehaviorDescriptor exte
   }
 
 
-  /*package*/ IVariableDeclarationConstraintHolder__BehaviorDescriptor() {
+  /*package*/ IVariableConstraintHolder__BehaviorDescriptor() {
   }
 
   @Override

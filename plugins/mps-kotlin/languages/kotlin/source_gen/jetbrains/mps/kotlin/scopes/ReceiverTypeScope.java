@@ -100,6 +100,11 @@ public class ReceiverTypeScope extends Scope {
         if (SNodeOperations.isInstanceOf(identifiable, SNodeOperations.asSConcept(myTargetConcept)) && Sequence.fromIterable(myTargetTypes).contains(IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(receiver, LINKS.type$NVFj)))) {
           return identifiable;
         }
+
+        // Type parameter as receiver type, allow any
+        if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(receiver, LINKS.type$NVFj), CONCEPTS.TypeParameterReference$ya)) {
+          return identifiable;
+        }
       }
     }
 
@@ -119,6 +124,7 @@ public class ReceiverTypeScope extends Scope {
   private static final class CONCEPTS {
     /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SInterfaceConcept IWithReceiver$Eg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, "jetbrains.mps.kotlin.structure.IWithReceiver");
+    /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
   }
 
   private static final class PROPS {

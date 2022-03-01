@@ -10,8 +10,8 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
@@ -103,9 +103,10 @@ public abstract class KotlinTextGen {
       tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.targetLabel$iS7r), PROPS.name$MnvL));
     }
   }
-  public static void inheritance(SNode inheritance, SAbstractConcept defaultConcept, final TextGenContext ctx) {
+  public static void inheritance(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    if ((inheritance != null) && !(SNodeOperations.isInstanceOf(inheritance, SNodeOperations.asSConcept(defaultConcept)))) {
+    SNode inheritance = SLinkOperations.getTarget(node, LINKS.inheritance$TFvr);
+    if ((inheritance != null) && !(SNodeOperations.isInstanceOf(inheritance, SNodeOperations.asSConcept(IInheritable__BehaviorDescriptor.getDefaultInheritance_id7uO8z1Cfao7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), node))))) {
       tgs.appendNode(inheritance);
       tgs.append(" ");
     }
@@ -145,10 +146,10 @@ public abstract class KotlinTextGen {
     }
     ctx.getBuffer().area().decreaseIndent();
   }
-  public static void classHeader(SNode node, SAbstractConcept defaultInheritanceConcept, final TextGenContext ctx) {
+  public static void classHeader(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.annotations(node, true, ctx);
-    KotlinTextGen.inheritance(SLinkOperations.getTarget(node, LINKS.inheritance$TFvr), defaultInheritanceConcept, ctx);
+    KotlinTextGen.inheritance(node, ctx);
     KotlinTextGen.visibility(node, ctx);
 
     if (SNodeOperations.isInstanceOf(node, CONCEPTS.ClassDeclaration$Jm) && (SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.ClassDeclaration$Jm), LINKS.modifier$C$4W) != null)) {
@@ -390,10 +391,10 @@ public abstract class KotlinTextGen {
     /*package*/ static final SContainmentLink delegate$pKtK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x1913adf56af0af90L, 0x2043bc8310b9b197L, "delegate");
     /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
     /*package*/ static final SReferenceLink targetLabel$iS7r = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790af2908L, 0x11400bb790af2909L, "targetLabel");
+    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
     /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
-    /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");
     /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
     /*package*/ static final SContainmentLink annotations$bXtr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, 0x6e77b7e7a89e49fbL, "annotations");

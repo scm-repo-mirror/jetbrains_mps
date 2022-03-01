@@ -12,7 +12,10 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
  * No restrictions is set on classifier concept as Kotlin may encounter classes of external languages (java, javascript,
  * dsl...). Support for such concepts should be implemented in the typesystem (you may refer to baseLanguage/kotlin
  * interoperability languages for examples).
+ * 
+ * @deprecated should use IType instead
  */
+@Deprecated
 public interface FunctionReceiver {
   /**
    * Reference to the class hosting the function. No restriction is set of concept kind, but references should be usable

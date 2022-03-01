@@ -23,7 +23,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
 import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
-import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
+import jetbrains.mps.scope.CompositeScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -62,7 +62,7 @@ public class FunctionCallTarget_Constraints extends BaseConstraintsDescriptor {
             if (scope == null) {
               return receiverTypeScope;
             } else {
-              return new HidingByNameScope(CONCEPTS.IFunctionIdentifier$K$, CONCEPTS.IFunctionIdentifier$K$, scope, receiverTypeScope);
+              return new CompositeScope(scope, receiverTypeScope);
             }
           }
         };

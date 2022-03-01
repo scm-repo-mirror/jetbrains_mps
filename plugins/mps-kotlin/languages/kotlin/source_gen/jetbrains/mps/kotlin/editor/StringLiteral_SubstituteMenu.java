@@ -25,6 +25,7 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -105,9 +106,9 @@ public class StringLiteral_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode lit = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, "jetbrains.mps.kotlin.structure.StringLiteral"));
-        SNode content = SNodeFactoryOperations.addNewChild(lit, LINKS.content$JVfe, CONCEPTS.StringLiteralRaw$ar);
+        SNode content = SNodeFactoryOperations.addNewChild(lit, LINKS.lines$FNV, CONCEPTS.StringLiteralLine$E7);
         // TODO escape pattern
-        SPropertyOperations.assign(content, PROPS.content$3$6V, pattern);
+        SPropertyOperations.assign(SNodeFactoryOperations.addNewChild(content, LINKS.parts$AoNt, CONCEPTS.StringLiteralRaw$ar), PROPS.content$3$6V, pattern);
         return lit;
       }
 
@@ -122,6 +123,9 @@ public class StringLiteral_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public String getMatchingText(@NotNull String pattern) {
+        if (Objects.equals(pattern, "\"")) {
+          return null;
+        }
         return "\"" + pattern + "\"";
       }
     }
@@ -129,11 +133,13 @@ public class StringLiteral_SubstituteMenu extends SubstituteMenuBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept StringLiteral$V8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, "jetbrains.mps.kotlin.structure.StringLiteral");
+    /*package*/ static final SConcept StringLiteralLine$E7 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x58aa661f71960f30L, "jetbrains.mps.kotlin.structure.StringLiteralLine");
     /*package*/ static final SConcept StringLiteralRaw$ar = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790af28ddL, "jetbrains.mps.kotlin.structure.StringLiteralRaw");
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink content$JVfe = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x28bef6d7551af833L, "content");
+    /*package*/ static final SContainmentLink lines$FNV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4fbL, 0x58aa661f71960d41L, "lines");
+    /*package*/ static final SContainmentLink parts$AoNt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x58aa661f71960f30L, 0x58aa661f71961d35L, "parts");
   }
 
   private static final class PROPS {

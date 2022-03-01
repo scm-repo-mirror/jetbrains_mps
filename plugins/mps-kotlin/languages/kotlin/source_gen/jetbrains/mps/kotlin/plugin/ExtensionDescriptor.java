@@ -8,6 +8,6 @@ import jetbrains.mps.smodel.structure.ExtensionPoint;
 
 public class ExtensionDescriptor extends DefaultExtensionDescriptor {
   public ExtensionDescriptor() {
-    super(Arrays.asList(new ExtensionPoint("jetbrains.mps.kotlin.OverloadResolverExtension")), null);
+    super(Arrays.asList(new ExtensionPoint("jetbrains.mps.kotlin.TypesystemExtension")), null);
   }
 }

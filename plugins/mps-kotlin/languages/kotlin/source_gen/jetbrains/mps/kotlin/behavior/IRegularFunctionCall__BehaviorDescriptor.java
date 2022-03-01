@@ -10,6 +10,7 @@ import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.overloading.Argument;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
@@ -17,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
+import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +29,7 @@ public final class IRegularFunctionCall__BehaviorDescriptor extends BaseBHDescri
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b64d6b00dfe54b7L, "jetbrains.mps.kotlin.structure.IRegularFunctionCall");
 
   public static final SMethod<Iterable<ParameterDeclaration>> getAvailableParameters_id1$jFvlD0xqw = new SMethodBuilder<Iterable<ParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<ParameterDeclaration>>) ((Class) Object.class))).name("getAvailableParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1$jFvlD0xqw").build();
-  public static final SMethod<Iterable<SNode>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
+  public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1VI7K1jROBX").build();
   public static final SMethod<Iterable<SNode>> getTypeArguments_id5JfKd21NW9H = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getTypeArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("5JfKd21NW9H").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getAvailableParameters_id1$jFvlD0xqw, getArguments_id1VI7K1jROBX, getTypeArguments_id5JfKd21NW9H);
@@ -43,14 +45,14 @@ public final class IRegularFunctionCall__BehaviorDescriptor extends BaseBHDescri
     }
     return functionDescriptor.getParameters();
   }
-  /*package*/ static Iterable<SNode> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
-    Iterable<SNode> seq = SLinkOperations.getChildren(__thisNode__, LINKS.arguments$zJyV);
+  /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
+    Iterable<Argument> args = NodeArgument.ofList(SLinkOperations.getChildren(__thisNode__, LINKS.arguments$zJyV));
 
     if ((SLinkOperations.getTarget(__thisNode__, LINKS.lambda$U$kC) != null)) {
-      return Sequence.fromIterable(seq).concat(Sequence.fromIterable(Sequence.<SNode>singleton(SLinkOperations.getTarget(__thisNode__, LINKS.lambda$U$kC))));
+      return Sequence.fromIterable(args).concat(Sequence.fromIterable(NodeArgument.of(SLinkOperations.getTarget(__thisNode__, LINKS.lambda$U$kC))));
     }
 
-    return seq;
+    return args;
   }
   /*package*/ static Iterable<SNode> getTypeArguments_id5JfKd21NW9H(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.typeArguments$86s6);
@@ -74,7 +76,7 @@ public final class IRegularFunctionCall__BehaviorDescriptor extends BaseBHDescri
       case 0:
         return (T) ((Iterable<ParameterDeclaration>) getAvailableParameters_id1$jFvlD0xqw(node));
       case 1:
-        return (T) ((Iterable<SNode>) getArguments_id1VI7K1jROBX(node));
+        return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       case 2:
         return (T) ((Iterable<SNode>) getTypeArguments_id5JfKd21NW9H(node));
       default:

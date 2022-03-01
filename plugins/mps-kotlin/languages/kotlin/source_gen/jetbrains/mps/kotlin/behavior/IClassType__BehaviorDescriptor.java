@@ -10,7 +10,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import jetbrains.mps.kotlin.runtime.generics.TypeVarSubs;
 import java.util.List;
@@ -34,12 +33,11 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x729709d72e3594f9L, "jetbrains.mps.kotlin.structure.IClassType");
 
   public static final SMethod<SNode> getClassifier_id7an2tsIdpk7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifier").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7an2tsIdpk7").build();
-  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7an2tsIdpkM").build();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("JmO2PmZtH5").build();
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4f4W8JpwgWV").build(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4nn3FPlZH$r").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM, shallowId_idJmO2PmZtH5, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getClassifier_id7an2tsIdpk7, shallowId_idJmO2PmZtH5, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -48,7 +46,7 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
     return new ClassType(SNodeOperations.getPointer(IClassType__BehaviorDescriptor.getClassifier_id7an2tsIdpk7.invoke(__thisNode__)));
   }
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {
-    subs.populate(IClassType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke(__thisNode__), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
+    subs.populate(IType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke(__thisNode__), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
   }
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
     StringBuilder pres = new StringBuilder();
@@ -85,12 +83,12 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 2:
+      case 1:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
-      case 3:
+      case 2:
         populateSubstitutions_id4f4W8JpwgWV(node, (TypeVarSubs<SNode>) parameters[0]);
         return null;
-      case 4:
+      case 3:
         return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       default:
         throw new BHMethodNotFoundException(this, method);

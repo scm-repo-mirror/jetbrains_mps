@@ -30,8 +30,9 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
   public static final SMethod<Boolean> isResolved_id4MvRlgZCbFz = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isResolved").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4MvRlgZCbFz").build();
   public static final SMethod<SNode> tryResolve_id4MvRlgZCbFB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("tryResolve").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("4MvRlgZCbFB").build();
   public static final SMethod<Boolean> isLeftExpressionTarget_id69RFwVHPwd9 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeftExpressionTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("69RFwVHPwd9").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("Cy8Bus9niD").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContextType_id7ubb0gUcL0j, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB, isLeftExpressionTarget_id69RFwVHPwd9);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContextType_id7ubb0gUcL0j, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB, isLeftExpressionTarget_id69RFwVHPwd9, assignableState_idCy8Bus9niD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -52,6 +53,9 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
     }
 
     return false;
+  }
+  /*package*/ static Assignable assignableState_idCy8Bus9niD(@NotNull SNode __thisNode__) {
+    return ILeftExpression__BehaviorDescriptor.assignableState_idCy8Bus9niD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$C6zp));
   }
 
   /*package*/ NavigationOperation__BehaviorDescriptor() {
@@ -77,6 +81,8 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
         return (T) ((SNode) tryResolve_id4MvRlgZCbFB(node));
       case 3:
         return (T) ((Boolean) isLeftExpressionTarget_id69RFwVHPwd9(node, (SNode) parameters[0]));
+      case 4:
+        return (T) ((Assignable) assignableState_idCy8Bus9niD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -4,8 +4,6 @@ package jetbrains.mps.kotlin.overloading;
 
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.behavior.IArgument__BehaviorDescriptor;
 
 /**
  * Object that can iterate over the parameter to determine which one to compare with
@@ -79,8 +77,8 @@ public class FunctionParamIterator<I, T extends Throwable> {
   }
 
   @Nullable
-  public ParameterDeclaration nextFor(SNode arg) throws T {
-    ParameterDeclaration parameter = IArgument__BehaviorDescriptor.getNamedTarget_id2PMtXoK3vgE.invoke(arg);
+  public ParameterDeclaration nextFor(Argument arg) throws T {
+    ParameterDeclaration parameter = arg.getNamedTarget();
 
     // Substitute last parameter with the one declared
     if (parameter == FunctionParamHelper.LAST_PARAMETER) {

@@ -8,10 +8,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
 import java.util.Objects;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.scopes.ClassMemberVisitor;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class OverloadedSignatureFilter extends SignatureFilter<FunctionSignature> {
   private final String myTargetName;
@@ -27,14 +24,10 @@ public class OverloadedSignatureFilter extends SignatureFilter<FunctionSignature
   @Override
   protected boolean accept(FunctionSignature signature, SNode source) {
     FunctionDeclaration declaration = signature.getFunctionDeclaration();
-    return Objects.equals(SPropertyOperations.getString(declaration.getNode(), PROPS.name$MnvL), myTargetName) && FunctionDeclaration.hasModifier(declaration, myModifierFilter);
+    return Objects.equals(declaration.getName(), myTargetName) && FunctionDeclaration.hasModifier(declaration, myModifierFilter);
   }
 
   /*package*/ static ClassMemberVisitor createVisitor(String targetName, SAbstractConcept modifierFilter) {
     return new ClassMemberVisitor(new OverloadedSignatureFilter(targetName, modifierFilter));
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

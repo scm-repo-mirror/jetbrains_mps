@@ -10,8 +10,14 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
+/**
+ * 
+ * @deprecated 
+ */
+@Deprecated
 public class KotlinClassFunctionReceiver implements FunctionReceiver {
   private final SNode myDecl;
+  @Deprecated
   public KotlinClassFunctionReceiver(SNode decl) {
     myDecl = decl;
   }

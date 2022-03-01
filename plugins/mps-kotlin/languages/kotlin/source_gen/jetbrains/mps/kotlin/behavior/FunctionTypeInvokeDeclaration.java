@@ -11,15 +11,12 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
@@ -58,19 +55,8 @@ public class FunctionTypeInvokeDeclaration implements FunctionDeclaration {
   }
 
   @Override
-  public FunctionReceiver getReceiver() {
-    // TODO is that it?
-    SNode klass = null;
-    {
-      final SNode clType = SLinkOperations.getTarget(functionType, LINKS.receiverType$NO1r);
-      if (SNodeOperations.isInstanceOf(clType, CONCEPTS.ClassType$jI)) {
-        klass = SLinkOperations.getTarget(clType, LINKS.class$ExdX);
-      }
-    }
-    if ((klass == null)) {
-      return null;
-    }
-    return new KotlinClassFunctionReceiver(klass);
+  public SNode getReceiverType() {
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(functionType, LINKS.receiverType$NO1r), LINKS.type$NVFj);
   }
 
   @Override
@@ -87,11 +73,10 @@ public class FunctionTypeInvokeDeclaration implements FunctionDeclaration {
     /*package*/ static final SContainmentLink parameters$jkhy = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af60eL, "parameters");
     /*package*/ static final SContainmentLink returnType$jkY_ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af611L, "returnType");
     /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
-    /*package*/ static final SReferenceLink class$ExdX = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, 0x5c7be90f2440b37bL, "class");
+    /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ClassType$jI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
     /*package*/ static final SConcept OperatorFunctionModifier$Pf = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c0L, "jetbrains.mps.kotlin.structure.OperatorFunctionModifier");
     /*package*/ static final SConcept SuspendFunctionModifier$Rb = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c4L, "jetbrains.mps.kotlin.structure.SuspendFunctionModifier");
   }

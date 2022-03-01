@@ -6,7 +6,7 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.behavior.AbstractPropertyDeclaration__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IDeconstructingDeclarations__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -25,13 +25,13 @@ public class LocalPropertyDeclaration_TextGen extends TextGenDescriptorBase {
 
     KotlinTextGen.typeParameters(ctx.getPrimaryInput(), ctx);
 
-    if ((boolean) AbstractPropertyDeclaration__BehaviorDescriptor.isDeconstructing_id7RZWrHVbnio.invoke(ctx.getPrimaryInput())) {
+    if ((boolean) IDeconstructingDeclarations__BehaviorDescriptor.isDeconstructed_id4FOkRjXxnrt.invoke(ctx.getPrimaryInput())) {
       tgs.append("(");
     }
 
-    KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.declarations$pA8V), ctx);
+    KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.variables$EO9Z), ctx);
 
-    if ((boolean) AbstractPropertyDeclaration__BehaviorDescriptor.isDeconstructing_id7RZWrHVbnio.invoke(ctx.getPrimaryInput())) {
+    if ((boolean) IDeconstructingDeclarations__BehaviorDescriptor.isDeconstructed_id4FOkRjXxnrt.invoke(ctx.getPrimaryInput())) {
       tgs.append(")");
     }
 
@@ -48,7 +48,7 @@ public class LocalPropertyDeclaration_TextGen extends TextGenDescriptorBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink declarations$pA8V = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90b9L, 0x123d0b402b9ae3f5L, "declarations");
+    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
     /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
   }
 }

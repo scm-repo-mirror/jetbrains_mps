@@ -14,7 +14,6 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionReceiver;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -57,7 +56,7 @@ public class JavaDefaultConstructorDeclaration implements FunctionDeclaration {
     return result;
   }
   @Override
-  public FunctionReceiver getReceiver() {
+  public SNode getReceiverType() {
     return null;
   }
 

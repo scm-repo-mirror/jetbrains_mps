@@ -74,10 +74,14 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new CompanionObject_TextGen();
       case LanguageConceptSwitch.CompiledStubStatement:
         return new CompiledStubStatement_TextGen();
+      case LanguageConceptSwitch.ComponentFunctionCall:
+        return new ComponentFunctionCall_TextGen();
       case LanguageConceptSwitch.ConstructorSuperSpecifier:
         return new ConstructorSuperSpecifier_TextGen();
       case LanguageConceptSwitch.ContinueExpression:
         return new ContinueExpression_TextGen();
+      case LanguageConceptSwitch.CopyFunctionCall:
+        return new CopyFunctionCall_TextGen();
       case LanguageConceptSwitch.CrossinslineParameterModifier:
         return new CrossinslineParameterModifier_TextGen();
       case LanguageConceptSwitch.DataClassModifier:
@@ -184,6 +188,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new NullLiteral_TextGen();
       case LanguageConceptSwitch.ObjectDeclaration:
         return new ObjectDeclaration_TextGen();
+      case LanguageConceptSwitch.ObjectLiteral:
+        return new ObjectLiteral_TextGen();
       case LanguageConceptSwitch.OpenInheritanceModifier:
         return new OpenInheritanceModifier_TextGen();
       case LanguageConceptSwitch.OperatorFunctionModifier:
