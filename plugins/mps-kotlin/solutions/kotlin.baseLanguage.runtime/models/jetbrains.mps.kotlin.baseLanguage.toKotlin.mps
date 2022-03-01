@@ -9,6 +9,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -164,6 +165,16 @@
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
+    </language>
+    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
+      </concept>
+      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA" />
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
+      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
@@ -1961,11 +1972,12 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="5g3vQLJvk4q" role="jymVt" />
     <node concept="3clFb_" id="26mUjU3PqwO" role="jymVt">
-      <property role="TrG5h" value="getReceiver" />
+      <property role="TrG5h" value="getReceiverType" />
       <node concept="3Tm1VV" id="26mUjU3PqwQ" role="1B3o_S" />
-      <node concept="3uibUv" id="26mUjU3PqwR" role="3clF45">
-        <ref role="3uigEE" to="1p8r:26mUjU3_v7T" resolve="FunctionReceiver" />
+      <node concept="3Tqbb2" id="5g3vQLJvhsZ" role="3clF45">
+        <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
       </node>
       <node concept="3clFbS" id="26mUjU3PqwS" role="3clF47">
         <node concept="Jncv_" id="26mUjU3QJmT" role="3cqZAp">
@@ -1974,25 +1986,29 @@
             <ref role="3cqZAo" node="26mUjU3PttM" resolve="method" />
           </node>
           <node concept="3clFbS" id="26mUjU3QJmX" role="Jncv$">
-            <node concept="3cpWs6" id="26mUjU3RptS" role="3cqZAp">
-              <node concept="2ShNRf" id="26mUjU3RpwH" role="3cqZAk">
-                <node concept="1pGfFk" id="26mUjU3RqwF" role="2ShVmc">
-                  <property role="373rjd" value="true" />
-                  <ref role="37wK5l" node="26mUjU3QVq0" resolve="JavaClassFunctionReceiver" />
-                  <node concept="2OqwBi" id="26mUjU3QPfw" role="37wK5m">
-                    <node concept="Jnkvi" id="26mUjU3QPfx" role="2Oq$k0">
-                      <ref role="1M0zk5" node="26mUjU3QJmZ" resolve="instanceMethod" />
-                    </node>
-                    <node concept="2Xjw5R" id="26mUjU3QPfy" role="2OqNvi">
-                      <node concept="1xMEDy" id="26mUjU3QPfz" role="1xVPHs">
-                        <node concept="chp4Y" id="26mUjU3QPf$" role="ri$Ld">
-                          <ref role="cht4Q" to="tpee:6r77ob2UL4X" resolve="IClassifier" />
+            <node concept="3cpWs6" id="5g3vQLJvuuh" role="3cqZAp">
+              <node concept="2OqwBi" id="5g3vQLJvvL3" role="3cqZAk">
+                <node concept="37vLTw" id="5g3vQLJvuNo" role="2Oq$k0">
+                  <ref role="3cqZAo" node="26mUjU3PuMu" resolve="converter" />
+                </node>
+                <node concept="liA8E" id="5g3vQLJvwyj" role="2OqNvi">
+                  <ref role="37wK5l" to="d5k6:4mCQDm_nsqr" resolve="convert" />
+                  <node concept="2OqwBi" id="5g3vQLJvrZ5" role="37wK5m">
+                    <node concept="2OqwBi" id="26mUjU3QPfw" role="2Oq$k0">
+                      <node concept="Jnkvi" id="26mUjU3QPfx" role="2Oq$k0">
+                        <ref role="1M0zk5" node="26mUjU3QJmZ" resolve="instanceMethod" />
+                      </node>
+                      <node concept="2Xjw5R" id="26mUjU3QPfy" role="2OqNvi">
+                        <node concept="1xMEDy" id="26mUjU3QPfz" role="1xVPHs">
+                          <node concept="chp4Y" id="26mUjU3QPf$" role="ri$Ld">
+                            <ref role="cht4Q" to="tpee:g7pOWCK" resolve="Classifier" />
+                          </node>
                         </node>
                       </node>
                     </node>
-                  </node>
-                  <node concept="37vLTw" id="69s32WIWnAw" role="37wK5m">
-                    <ref role="3cqZAo" node="26mUjU3PuMu" resolve="converter" />
+                    <node concept="2qgKlT" id="5g3vQLJvsuo" role="2OqNvi">
+                      <ref role="37wK5l" to="tpek:2RtWPFZ12w7" resolve="getThisType" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -2393,6 +2409,14 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="3UR2Jj" id="5g3vQLJvg5D" role="lGtFl">
+      <node concept="TZ5HI" id="5g3vQLJvg5E" role="3nqlJM">
+        <node concept="TZ5HA" id="5g3vQLJvg5F" role="3HnX3l" />
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="5g3vQLJvg5G" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+    </node>
   </node>
   <node concept="312cEu" id="3lDDPlnaJYk">
     <property role="TrG5h" value="JavaVariableHelper" />
@@ -2769,10 +2793,10 @@
       </node>
     </node>
     <node concept="3clFb_" id="5H$PF0dpKai" role="jymVt">
-      <property role="TrG5h" value="getReceiver" />
+      <property role="TrG5h" value="getReceiverType" />
       <node concept="3Tm1VV" id="5H$PF0dpKaj" role="1B3o_S" />
-      <node concept="3uibUv" id="5H$PF0dpKak" role="3clF45">
-        <ref role="3uigEE" to="1p8r:26mUjU3_v7T" resolve="FunctionReceiver" />
+      <node concept="3Tqbb2" id="5g3vQLJuYlj" role="3clF45">
+        <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
       </node>
       <node concept="3clFbS" id="5H$PF0dpKal" role="3clF47">
         <node concept="3cpWs6" id="5H$PF0dpKa_" role="3cqZAp">

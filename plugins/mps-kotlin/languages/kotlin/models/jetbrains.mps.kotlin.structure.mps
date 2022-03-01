@@ -156,9 +156,6 @@
     <node concept="PrWs8" id="6cg9X74Le1C" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74Le0Z" resolve="IVisible" />
     </node>
-    <node concept="PrWs8" id="7XiB41Mknac" role="PzmwI">
-      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
-    </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6JdA">
     <property role="EcuMT" value="2936055411798373222" />
@@ -516,7 +513,7 @@
     <property role="EcuMT" value="2936055411798373327" />
     <property role="TrG5h" value="BooleanLiteral" />
     <property role="R4oN_" value="boolean literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <node concept="1TJgyi" id="2yYXHtl6Jq1" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374017" />
       <property role="TrG5h" value="value" />
@@ -534,7 +531,7 @@
     <property role="TrG5h" value="IntegerLiteral" />
     <property role="34LRSv" value="0d" />
     <property role="R4oN_" value="integer literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <ref role="1TJDcQ" node="6cg9X74s8o6" resolve="NumericBaseLiteral" />
     <node concept="1TJgyi" id="2yYXHtl6Jq3" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374019" />
@@ -550,7 +547,7 @@
     <property role="TrG5h" value="HexLiteral" />
     <property role="34LRSv" value="0x" />
     <property role="R4oN_" value="hex literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <ref role="1TJDcQ" node="6cg9X74s8o6" resolve="NumericBaseLiteral" />
     <node concept="1TJgyi" id="2yYXHtl6Jq5" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374021" />
@@ -566,7 +563,7 @@
     <property role="TrG5h" value="BinLiteral" />
     <property role="34LRSv" value="0b" />
     <property role="R4oN_" value="bin literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <ref role="1TJDcQ" node="6cg9X74s8o6" resolve="NumericBaseLiteral" />
     <node concept="1TJgyi" id="2yYXHtl6Jq7" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374023" />
@@ -592,7 +589,7 @@
     <property role="TrG5h" value="RealLiteral" />
     <property role="34LRSv" value="0.0" />
     <property role="R4oN_" value="real literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <node concept="1TJgyi" id="2yYXHtl6Jqb" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374027" />
       <property role="TrG5h" value="real" />
@@ -622,7 +619,7 @@
     <property role="EcuMT" value="2936055411798373334" />
     <property role="TrG5h" value="LongLiteral" />
     <property role="R4oN_" value="long literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <node concept="1TJgyi" id="2yYXHtl6Jqd" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374029" />
       <property role="TrG5h" value="value" />
@@ -640,7 +637,7 @@
     <property role="TrG5h" value="UnsignedLiteral" />
     <property role="34LRSv" value="unsigned" />
     <property role="R4oN_" value="unsigned literal" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <node concept="1TJgyi" id="2yYXHtl6Jqf" role="1TKVEl">
       <property role="IQ2nx" value="2936055411798374031" />
       <property role="TrG5h" value="value" />
@@ -1783,20 +1780,29 @@
     <property role="34LRSv" value="EnumEntry" />
     <property role="R4oN_" value="enum entry" />
     <property role="3GE5qa" value="declaration.class.enum" />
+    <node concept="PrWs8" id="11vq$BtP2c2" role="PzmwI">
+      <ref role="PrY4T" node="5GtPw5yVf0b" resolve="IArguments" />
+    </node>
+    <node concept="PrWs8" id="11vq$BtP2c3" role="PzmwI">
+      <ref role="PrY4T" node="2gj5XQXEpsk" resolve="ITypeArguments" />
+    </node>
+    <node concept="PrWs8" id="11vq$BtP2c5" role="PzmwI">
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+    </node>
     <node concept="PrWs8" id="5GtPw5yVk_u" role="PzmwI">
       <ref role="PrY4T" node="213J8chjiEQ" resolve="IVariableIdentifier" />
     </node>
     <node concept="PrWs8" id="2Aaqzls4gDf" role="PzmwI">
       <ref role="PrY4T" node="2Aaqzls4g9O" resolve="IClassLike" />
     </node>
-    <node concept="PrWs8" id="5GtPw5yVfPe" role="PzmwI">
-      <ref role="PrY4T" node="5GtPw5yVf0b" resolve="IArguments" />
-    </node>
     <node concept="PrWs8" id="6TRHYuCE24K" role="PzmwI">
       <ref role="PrY4T" node="6TRHYuCB$BU" resolve="IAnnotated" />
     </node>
-    <node concept="PrWs8" id="7XiB41Mcpwo" role="PzmwI">
-      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
+    <node concept="1TJgyj" id="5g3vQLKcgVQ" role="1TKVEi">
+      <property role="IQ2ns" value="6053822427831537398" />
+      <property role="20kJfa" value="constructor" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JkU">
@@ -2441,6 +2447,9 @@
       <property role="TrG5h" value="negation" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
+    <node concept="PrWs8" id="5g3vQLJK$qD" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1502Vug_kZk">
     <property role="EcuMT" value="1243006380186882004" />
@@ -2726,6 +2735,9 @@
     <node concept="PrWs8" id="6VSCWXCaksp" role="PrDN$">
       <ref role="PrY4T" node="6VSCWXCakph" resolve="IInheritExplicitly" />
     </node>
+    <node concept="PrWs8" id="5g3vQLJKyK7" role="PrDN$">
+      <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1Izr$$Xuy8l">
     <property role="EcuMT" value="1991556721070973461" />
@@ -2853,7 +2865,7 @@
   </node>
   <node concept="1TIwiD" id="6cg9X74s8o6">
     <property role="EcuMT" value="7138249191279592966" />
-    <property role="3GE5qa" value="expression.literal" />
+    <property role="3GE5qa" value="expression.literal.numeric" />
     <property role="TrG5h" value="NumericBaseLiteral" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
@@ -3114,6 +3126,9 @@
     <node concept="PrWs8" id="4nn3FPlNE8R" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
     </node>
+    <node concept="PrWs8" id="5g3vQLJKA29" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4nn3FPlxLde">
     <property role="3GE5qa" value="expression.operator.overloaded.binary" />
@@ -3123,6 +3138,9 @@
     <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
     <node concept="PrWs8" id="4nn3FPlNE9c" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
+    </node>
+    <node concept="PrWs8" id="5g3vQLJK__T" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
     </node>
   </node>
   <node concept="1TIwiD" id="4nn3FPlxLdt">
@@ -3134,6 +3152,9 @@
     <node concept="PrWs8" id="4nn3FPlNE9x" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
     </node>
+    <node concept="PrWs8" id="5g3vQLJKBmy" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4nn3FPlxLdG">
     <property role="3GE5qa" value="expression.operator.overloaded.binary" />
@@ -3143,6 +3164,9 @@
     <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
     <node concept="PrWs8" id="4nn3FPlNE9Q" role="PzmwI">
       <ref role="PrY4T" node="4nn3FPlEjgT" resolve="IOverloadableOperator" />
+    </node>
+    <node concept="PrWs8" id="5g3vQLJKAwJ" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
     </node>
   </node>
   <node concept="1TIwiD" id="4nn3FPlxLdV">
@@ -3865,6 +3889,9 @@
     <property role="R4oN_" value="binary expresion whose right term is the call receiver" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" node="3I4vn5LTHck" resolve="OverloadedBinaryExpression" />
+    <node concept="PrWs8" id="5g3vQLJKCuR" role="PzmwI">
+      <ref role="PrY4T" node="3n8adBivTU3" resolve="IConditionalFlow" />
+    </node>
   </node>
   <node concept="PlHQZ" id="2yYXHtl6Jh1">
     <property role="EcuMT" value="2936055411798373441" />

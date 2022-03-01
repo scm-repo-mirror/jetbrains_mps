@@ -30,6 +30,7 @@
     <import index="d5k6" ref="r:e9005ea6-e4e0-4b7f-8b34-6e6513630cda(jetbrains.mps.kotlin.baseLanguage.typeConversion)" />
     <import index="akzu" ref="r:13fdb710-e0ae-40a1-880c-e26a8ee8d411(jetbrains.mps.kotlin.baseLanguage.toKotlin)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -277,6 +278,9 @@
       </concept>
       <concept id="1883223317721008713" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVariable" flags="ng" index="JncvC" />
       <concept id="1883223317721107059" name="jetbrains.mps.lang.smodel.structure.IfInstanceOfVarReference" flags="nn" index="Jnkvi" />
+      <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
+        <child id="1145404616321" name="leftExpression" index="2JrQYb" />
+      </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="2644386474301421077" name="jetbrains.mps.lang.smodel.structure.LinkIdRefExpression" flags="nn" index="359W_D">
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
@@ -2533,7 +2537,6 @@
     <node concept="13i0hz" id="26mUjU3Ppxm" role="13h7CS">
       <property role="TrG5h" value="getFunctionDescriptor" />
       <ref role="13i0hy" to="hez:26mUjU3xhgD" resolve="getFunctionDescriptor" />
-      <node concept="3Tm1VV" id="26mUjU3Ppxn" role="1B3o_S" />
       <node concept="3clFbS" id="26mUjU3Ppxq" role="3clF47">
         <node concept="3clFbJ" id="7KVUDZaHT8k" role="3cqZAp">
           <node concept="3clFbS" id="7KVUDZaHT8m" role="3clFbx">
@@ -2578,6 +2581,7 @@
       <node concept="3uibUv" id="26mUjU3Ppxr" role="3clF45">
         <ref role="3uigEE" to="1p8r:26mUjU3_jTe" resolve="FunctionDeclaration" />
       </node>
+      <node concept="3Tm1VV" id="26mUjU3Ppxn" role="1B3o_S" />
     </node>
   </node>
   <node concept="13h7C7" id="26mUjU3QZC1">
@@ -3240,7 +3244,6 @@
     <node concept="13i0hz" id="7w_eVbhyxli" role="13h7CS">
       <property role="TrG5h" value="getFunctionDescriptor" />
       <ref role="13i0hy" to="hez:26mUjU3xhgD" resolve="getFunctionDescriptor" />
-      <node concept="3Tm1VV" id="7w_eVbhyxlj" role="1B3o_S" />
       <node concept="3clFbS" id="7w_eVbhyxlm" role="3clF47">
         <node concept="3cpWs8" id="7w_eVbhyXrD" role="3cqZAp">
           <node concept="3cpWsn" id="7w_eVbhyXrE" role="3cpWs9">
@@ -3259,82 +3262,52 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbJ" id="7w_eVbhySU3" role="3cqZAp">
-          <node concept="3clFbS" id="7w_eVbhySU4" role="3clFbx">
-            <node concept="3clFbJ" id="7KVUDZaHWcO" role="3cqZAp">
-              <node concept="3clFbS" id="7KVUDZaHWcQ" role="3clFbx">
-                <node concept="3cpWs6" id="7KVUDZaHXTx" role="3cqZAp">
-                  <node concept="10Nm6u" id="7KVUDZaHY0y" role="3cqZAk" />
-                </node>
-              </node>
-              <node concept="3clFbC" id="7KVUDZaHXzr" role="3clFbw">
-                <node concept="10Nm6u" id="7KVUDZaHXNI" role="3uHU7w" />
-                <node concept="2OqwBi" id="7KVUDZaHWAb" role="3uHU7B">
-                  <node concept="13iPFW" id="7KVUDZaHWgZ" role="2Oq$k0" />
-                  <node concept="3TrEf2" id="7KVUDZaHX6J" role="2OqNvi">
-                    <ref role="3Tt5mk" to="5m2i:3lDDPlnaxtc" resolve="getter" />
+        <node concept="3cpWs8" id="7ZZRFA6LrEF" role="3cqZAp">
+          <node concept="3cpWsn" id="7ZZRFA6LrEG" role="3cpWs9">
+            <property role="TrG5h" value="node" />
+            <node concept="2OqwBi" id="7ZZRFA6LrEH" role="33vP2m">
+              <node concept="liA8E" id="7ZZRFA6LrEI" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SNode.getReferenceTarget(org.jetbrains.mps.openapi.language.SReferenceLink)" resolve="getReferenceTarget" />
+                <node concept="2OqwBi" id="7ZZRFA6LrEJ" role="37wK5m">
+                  <node concept="13iPFW" id="7ZZRFA6LrEK" role="2Oq$k0" />
+                  <node concept="2qgKlT" id="7ZZRFA6LrEL" role="2OqNvi">
+                    <ref role="37wK5l" to="hez:5D4bOjrrcOr" resolve="getTargetLink" />
                   </node>
                 </node>
+              </node>
+              <node concept="2JrnkZ" id="7ZZRFA6LrEM" role="2Oq$k0">
+                <node concept="13iPFW" id="7ZZRFA6LrEN" role="2JrQYb" />
               </node>
             </node>
-            <node concept="3cpWs6" id="7w_eVbhyTe5" role="3cqZAp">
-              <node concept="2ShNRf" id="7w_eVbhyTpP" role="3cqZAk">
-                <node concept="1pGfFk" id="7w_eVbhyUlv" role="2ShVmc">
-                  <property role="373rjd" value="true" />
-                  <ref role="37wK5l" to="akzu:26mUjU3Ptd_" resolve="JavaMethodDeclaration" />
-                  <node concept="2OqwBi" id="7w_eVbhyUSN" role="37wK5m">
-                    <node concept="13iPFW" id="7w_eVbhyUw8" role="2Oq$k0" />
-                    <node concept="3TrEf2" id="7w_eVbhyVqP" role="2OqNvi">
-                      <ref role="3Tt5mk" to="5m2i:3lDDPlnaxtc" resolve="getter" />
-                    </node>
-                  </node>
-                  <node concept="37vLTw" id="7w_eVbhyYgs" role="37wK5m">
-                    <ref role="3cqZAo" node="7w_eVbhyXrE" resolve="javaToKt" />
-                  </node>
-                </node>
-              </node>
+            <node concept="3Tqbb2" id="7ZZRFA6LsS9" role="1tU5fm" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="7KVUDZaHWcO" role="3cqZAp">
+          <node concept="3clFbS" id="7KVUDZaHWcQ" role="3clFbx">
+            <node concept="3cpWs6" id="7KVUDZaHXTx" role="3cqZAp">
+              <node concept="10Nm6u" id="7KVUDZaHY0y" role="3cqZAk" />
             </node>
           </node>
-          <node concept="3fqX7Q" id="7w_eVbhySU7" role="3clFbw">
-            <node concept="BsUDl" id="7w_eVbhySU8" role="3fr31v">
-              <ref role="37wK5l" to="hez:69RFwVHPwd9" resolve="isLeftExpressionTarget" />
-              <node concept="13iPFW" id="7w_eVbhySU9" role="37wK5m" />
+          <node concept="3clFbC" id="7KVUDZaHXzr" role="3clFbw">
+            <node concept="10Nm6u" id="7KVUDZaHXNI" role="3uHU7w" />
+            <node concept="37vLTw" id="7ZZRFA6Lu3E" role="3uHU7B">
+              <ref role="3cqZAo" node="7ZZRFA6LrEG" resolve="node" />
             </node>
           </node>
-          <node concept="9aQIb" id="7w_eVbhySUa" role="9aQIa">
-            <node concept="3clFbS" id="7w_eVbhySUb" role="9aQI4">
-              <node concept="3clFbJ" id="7KVUDZaHYje" role="3cqZAp">
-                <node concept="3clFbS" id="7KVUDZaHYjf" role="3clFbx">
-                  <node concept="3cpWs6" id="7KVUDZaHYjg" role="3cqZAp">
-                    <node concept="10Nm6u" id="7KVUDZaHYjh" role="3cqZAk" />
-                  </node>
-                </node>
-                <node concept="3clFbC" id="7KVUDZaHYji" role="3clFbw">
-                  <node concept="10Nm6u" id="7KVUDZaHYjj" role="3uHU7w" />
-                  <node concept="2OqwBi" id="7KVUDZaHYjk" role="3uHU7B">
-                    <node concept="13iPFW" id="7KVUDZaHYjl" role="2Oq$k0" />
-                    <node concept="3TrEf2" id="7KVUDZaHYjm" role="2OqNvi">
-                      <ref role="3Tt5mk" to="5m2i:7w_eVbhwqKt" resolve="setter" />
-                    </node>
-                  </node>
+        </node>
+        <node concept="3cpWs6" id="7w_eVbhyTe5" role="3cqZAp">
+          <node concept="2ShNRf" id="7w_eVbhyTpP" role="3cqZAk">
+            <node concept="1pGfFk" id="7w_eVbhyUlv" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="akzu:26mUjU3Ptd_" resolve="JavaMethodDeclaration" />
+              <node concept="2OqwBi" id="7w_eVbhyUSN" role="37wK5m">
+                <node concept="13iPFW" id="7w_eVbhyUw8" role="2Oq$k0" />
+                <node concept="3TrEf2" id="7w_eVbhyVqP" role="2OqNvi">
+                  <ref role="3Tt5mk" to="5m2i:3lDDPlnaxtc" resolve="getter" />
                 </node>
               </node>
-              <node concept="3cpWs6" id="7w_eVbhyYUf" role="3cqZAp">
-                <node concept="2ShNRf" id="7w_eVbhyYUg" role="3cqZAk">
-                  <node concept="1pGfFk" id="7w_eVbhyYUh" role="2ShVmc">
-                    <property role="373rjd" value="true" />
-                    <ref role="37wK5l" to="akzu:26mUjU3Ptd_" resolve="JavaMethodDeclaration" />
-                    <node concept="2OqwBi" id="7w_eVbhyYUi" role="37wK5m">
-                      <node concept="13iPFW" id="7w_eVbhyYUj" role="2Oq$k0" />
-                      <node concept="3TrEf2" id="7w_eVbhyYUk" role="2OqNvi">
-                        <ref role="3Tt5mk" to="5m2i:7w_eVbhwqKt" resolve="setter" />
-                      </node>
-                    </node>
-                    <node concept="37vLTw" id="7w_eVbhyYUl" role="37wK5m">
-                      <ref role="3cqZAo" node="7w_eVbhyXrE" resolve="javaToKt" />
-                    </node>
-                  </node>
-                </node>
+              <node concept="37vLTw" id="7w_eVbhyYgs" role="37wK5m">
+                <ref role="3cqZAo" node="7w_eVbhyXrE" resolve="javaToKt" />
               </node>
             </node>
           </node>
@@ -3343,6 +3316,7 @@
       <node concept="3uibUv" id="7w_eVbhyxln" role="3clF45">
         <ref role="3uigEE" to="1p8r:26mUjU3_jTe" resolve="FunctionDeclaration" />
       </node>
+      <node concept="3Tm1VV" id="7w_eVbhyxlj" role="1B3o_S" />
     </node>
   </node>
   <node concept="13h7C7" id="4mvBIJf3NNp">
@@ -3693,7 +3667,6 @@
     <node concept="13i0hz" id="5H$PF0doyki" role="13h7CS">
       <property role="TrG5h" value="getFunctionDescriptor" />
       <ref role="13i0hy" to="hez:26mUjU3xhgD" resolve="getFunctionDescriptor" />
-      <node concept="3Tm1VV" id="5H$PF0doykj" role="1B3o_S" />
       <node concept="3clFbS" id="5H$PF0doykr" role="3clF47">
         <node concept="3clFbJ" id="5H$PF0dpEae" role="3cqZAp">
           <node concept="2OqwBi" id="5H$PF0dpFub" role="3clFbw">
@@ -3738,6 +3711,7 @@
       <node concept="3uibUv" id="5H$PF0doyks" role="3clF45">
         <ref role="3uigEE" to="1p8r:26mUjU3_jTe" resolve="FunctionDeclaration" />
       </node>
+      <node concept="3Tm1VV" id="5H$PF0doykj" role="1B3o_S" />
     </node>
   </node>
   <node concept="13h7C7" id="5H$PF0dtuQL">

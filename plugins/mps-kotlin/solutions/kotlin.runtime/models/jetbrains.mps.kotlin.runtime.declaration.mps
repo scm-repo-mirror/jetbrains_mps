@@ -142,6 +142,9 @@
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
       <concept id="2217234381367190443" name="jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag" flags="ng" index="VUp57">
         <property id="2217234381367190444" name="text" index="VUp50" />
         <child id="2217234381367190458" name="reference" index="VUp5m" />
@@ -319,22 +322,43 @@
     </node>
     <node concept="2tJIrI" id="bbFPPueCoa" role="jymVt" />
     <node concept="2tJIrI" id="bbFPPueCr0" role="jymVt" />
-    <node concept="3clFb_" id="26mUjU3DTOx" role="jymVt">
+    <node concept="3clFb_" id="5g3vQLJAYac" role="jymVt">
       <property role="TrG5h" value="getReceiver" />
+      <node concept="3clFbS" id="5g3vQLJAYaf" role="3clF47">
+        <node concept="3clFbF" id="5g3vQLJAYNA" role="3cqZAp">
+          <node concept="10Nm6u" id="5g3vQLJAYN_" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="5g3vQLJAYag" role="1B3o_S" />
+      <node concept="3uibUv" id="5g3vQLJAXZt" role="3clF45">
+        <ref role="3uigEE" node="26mUjU3_v7T" resolve="FunctionReceiver" />
+      </node>
+      <node concept="P$JXv" id="5g3vQLJAYr6" role="lGtFl">
+        <node concept="TZ5HI" id="5g3vQLJAYr7" role="3nqlJM">
+          <node concept="TZ5HA" id="5g3vQLJAYr8" role="3HnX3l">
+            <node concept="1dT_AC" id="5g3vQLJAYx_" role="1dT_Ay">
+              <property role="1dT_AB" value="replaced with getReceiverType" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5g3vQLJAYr9" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+      </node>
+      <node concept="2JFqV2" id="5g3vQLJAYCs" role="2frcjj" />
+    </node>
+    <node concept="2tJIrI" id="5g3vQLJAXPK" role="jymVt" />
+    <node concept="3clFb_" id="26mUjU3DTOx" role="jymVt">
+      <property role="TrG5h" value="getReceiverType" />
       <node concept="3clFbS" id="26mUjU3DTO$" role="3clF47" />
       <node concept="3Tm1VV" id="26mUjU3DTO_" role="1B3o_S" />
-      <node concept="3uibUv" id="26mUjU3DTMT" role="3clF45">
-        <ref role="3uigEE" node="26mUjU3_v7T" resolve="FunctionReceiver" />
+      <node concept="3Tqbb2" id="5g3vQLJuHSR" role="3clF45">
+        <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
       </node>
       <node concept="P$JXv" id="bbFPPueCtU" role="lGtFl">
         <node concept="TZ5HA" id="bbFPPueCtV" role="TZ5H$">
           <node concept="1dT_AC" id="bbFPPueCtW" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns the receiver of the function (the class that holds it) if applicable." />
-          </node>
-        </node>
-        <node concept="VUp57" id="bbFPPueCZW" role="3nqlJM">
-          <node concept="VXe08" id="bbFPPueD19" role="VUp5m">
-            <ref role="VXe09" node="26mUjU3_v7T" resolve="FunctionReceiver" />
+            <property role="1dT_AB" value="Returns the declared receiver type of the function if applicable." />
           </node>
         </node>
       </node>
@@ -768,6 +792,16 @@
           <property role="1dT_AB" value="interoperability languages for examples)." />
         </node>
       </node>
+      <node concept="TZ5HI" id="5g3vQLJuGSC" role="3nqlJM">
+        <node concept="TZ5HA" id="5g3vQLJuGSD" role="3HnX3l">
+          <node concept="1dT_AC" id="5g3vQLJuH07" role="1dT_Ay">
+            <property role="1dT_AB" value="should use IType instead" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="5g3vQLJuGSE" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
     </node>
   </node>
   <node concept="3HP615" id="26mUjU3_L7_">
@@ -918,6 +952,8 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
     </node>
+    <node concept="2tJIrI" id="5g3vQLJukes" role="jymVt" />
+    <node concept="2tJIrI" id="5g3vQLJukk7" role="jymVt" />
     <node concept="3Tm1VV" id="26mUjU3_STX" role="1B3o_S" />
     <node concept="3uibUv" id="26mUjU3_SVS" role="3HQHJm">
       <ref role="3uigEE" node="26mUjU3_jTe" resolve="FunctionDeclaration" />
