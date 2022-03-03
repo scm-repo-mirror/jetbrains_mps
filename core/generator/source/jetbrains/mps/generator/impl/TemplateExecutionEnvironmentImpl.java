@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,13 +62,12 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 /**
  * Evgeny Gryaznov, 11/10/10
@@ -507,11 +506,9 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
       warnCompositeLabelKeys(key1, key2, label);
       return null;
     }
-    SNode rv = myLabels.getLookup(label).findOutputRecordSingle((SNode) key1, (SNode) key2);
-    if (rv == null) {
-      rv = generator.getLabelMapLookup(label).findOutputRecordSingle((SNode) key1, (SNode) key2);
-    }
-    return rv;
+    final LMLookup local = myLabels.getLookup(label);
+    final LMLookup shared = generator.getLabelMapLookup(label);
+    return local.andThen(shared).findOutputRecordSingle((SNode) key1, (SNode) key2);
   }
 
   public List<SNode> findOutputRecordList(/*not null*/ String label, Object key1, Object key2) {
@@ -519,12 +516,9 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
       warnCompositeLabelKeys(key1, key2, label);
       return Collections.emptyList();
     }
-    ArrayList<SNode> rv = new ArrayList<>();
-    Stream<SNode> s1 = myLabels.getLookup(label).compositeLMValues((SNode) key1, (SNode) key2);
-    s1.forEach(rv::add);
-    Stream<SNode> s2 = generator.getLabelMapLookup(label).compositeLMValues((SNode) key1, (SNode) key2);
-    s2.forEach(rv::add);
-    return rv;
+    final LMLookup local = myLabels.getLookup(label);
+    final LMLookup shared = generator.getLabelMapLookup(label);
+    return local.andThen(shared).compositeLMValues((SNode) key1, (SNode) key2).collect(Collectors.toList());
   }
 
   @NotNull
