@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -731,23 +731,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
         return modelHistory.getLookup(targetPoint.getIdentity(), label).compositeLMValues(k1, k2);
       }
     };
-    return new LMLookup() {
-      @Override
-      public SNode findOutputRecordSingle(SNode k1, SNode k2) {
-        final SNode rv = first.findOutputRecordSingle(k1, k2);
-        if (rv != null) {
-          return rv;
-        }
-        return second.findOutputRecordSingle(k1, k2);
-      }
-
-      @Override
-      public Stream<SNode> compositeLMValues(SNode k1, SNode k2) {
-        // XXX don't like this method, do I care to provide combined stream at all? Perhaps, the method could be
-        //     protected so that I can have better chaining impl
-        return Stream.concat(first.compositeLMValues(k1, k2), second.compositeLMValues(k1, k2));
-      }
-    };
+    return first.andThen(second);
   }
 
   // in fact, it's reasonable to keep this method in TEEI (in ReductionTrack, actually), to reflect narrowing scope of
