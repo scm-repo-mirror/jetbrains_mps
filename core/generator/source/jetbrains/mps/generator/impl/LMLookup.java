@@ -59,6 +59,20 @@ public abstract class LMLookup {
     };
   }
 
+  public static LMLookup empty() {
+    return new LMLookup() {
+      @Override
+      public SNode findOutputRecordSingle(SNode k1, SNode k2) {
+        return null;
+      }
+
+      @Override
+      public Stream<SNode> compositeLMValues(SNode k1, SNode k2) {
+        return Stream.empty();
+      }
+    };
+  };
+
   public static LMLookup forPersisted(final String label, List<LabelRecordBase<InputKeyIdentity, SNode>> compositeKeyLabels) {
     return new LMLookup() {
       @Override
@@ -76,6 +90,11 @@ public abstract class LMLookup {
         return builder.build();
       }
     };
+  }
+
+  // here just to overcome package boundaries as long as MappingsMemento resides in .cache and has no access to LRB fields
+  public static boolean hasCompositeLM(final String label, List<LabelRecordBase<InputKeyIdentity, SNode>> compositeKeyLabels) {
+    return compositeKeyLabels.stream().anyMatch(r -> Objects.equals(r.label, label));
   }
 
   private static boolean nullSafeMatch(InputKeyIdentity i, SNode k) {
