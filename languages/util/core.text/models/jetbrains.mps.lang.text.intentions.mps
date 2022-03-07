@@ -668,7 +668,7 @@
     </node>
   </node>
   <node concept="2S6QgY" id="4ruP0NLfq5S">
-    <property role="3GE5qa" value="textual" />
+    <property role="3GE5qa" value="" />
     <property role="TrG5h" value="IncreaseIndentation" />
     <property role="2ZfUl0" value="true" />
     <ref role="2ZfgGC" to="zqge:4ruP0NLeIr4" resolve="IndentedPoint" />
@@ -710,7 +710,7 @@
     </node>
   </node>
   <node concept="2S6QgY" id="4ruP0NLfspn">
-    <property role="3GE5qa" value="textual" />
+    <property role="3GE5qa" value="" />
     <property role="TrG5h" value="DecreaseIndentation" />
     <property role="2ZfUl0" value="true" />
     <ref role="2ZfgGC" to="zqge:4ruP0NLeIr4" resolve="IndentedPoint" />

@@ -10,6 +10,9 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
         <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
       </concept>
@@ -167,6 +170,9 @@
     <property role="EcuMT" value="3213792450771277985" />
     <property role="3GE5qa" value="textual" />
     <property role="TrG5h" value="IHoldParagraphs" />
+    <node concept="t5JxF" id="6wegUVgtks3" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="Az7Fb" id="7Vz6ZmoXaVw">
     <property role="3F6X1D" value="9143182410139348704" />
@@ -193,12 +199,18 @@
     <node concept="PrWs8" id="2MpFNjy3sHi" role="PzmwI">
       <ref role="PrY4T" to="tpck:1V3wYmOJsDm" resolve="IDontApplyTypesystemRules" />
     </node>
+    <node concept="t5JxF" id="5Mky_DWK6m2" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1v077Wg3Chb">
     <property role="EcuMT" value="1711399190456599627" />
     <property role="3GE5qa" value="textual" />
     <property role="TrG5h" value="EmptyParagraphLetter" />
     <ref role="1TJDcQ" node="2MpFNjy3pNV" resolve="TextualElement" />
+    <node concept="t5JxF" id="6wegUVgtBRX" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2MpFNjy3pNV">
     <property role="EcuMT" value="3213792450771262715" />
@@ -206,6 +218,9 @@
     <property role="TrG5h" value="TextualElement" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="t5JxF" id="5Mky_DWK59Q" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7Vz6ZmoXeMu">
     <property role="EcuMT" value="9143182410139364510" />
@@ -221,6 +236,9 @@
     </node>
     <node concept="PrWs8" id="1uSfHaoPEi9" role="PzmwI">
       <ref role="PrY4T" node="1uSfHaoP$Vf" resolve="IParagraph" />
+    </node>
+    <node concept="t5JxF" id="5Mky_DWK67i" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
     </node>
   </node>
   <node concept="1TIwiD" id="7Vz6ZmoXaKt">
@@ -249,6 +267,9 @@
       <property role="TrG5h" value="underlined" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
+    <node concept="t5JxF" id="5Mky_DWK6KD" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7evo$BZb0qh">
     <property role="EcuMT" value="8331485905611916945" />
@@ -272,6 +293,9 @@
     <node concept="PrWs8" id="1iNeTGeZV0B" role="PzmwI">
       <ref role="PrY4T" node="2MpFNjy3tyx" resolve="IHoldParagraphs" />
     </node>
+    <node concept="t5JxF" id="5Mky_DWK61Y" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2HIX00NsA33">
     <property role="EcuMT" value="3129707072769384643" />
@@ -282,10 +306,13 @@
     <node concept="PrWs8" id="4ruP0NLeIv3" role="PzmwI">
       <ref role="PrY4T" node="4ruP0NLeIr4" resolve="IndentedPoint" />
     </node>
+    <node concept="t5JxF" id="6wegUVgtBWS" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="PlHQZ" id="4ruP0NLeIr4">
     <property role="EcuMT" value="5106752179536586436" />
-    <property role="3GE5qa" value="textual" />
+    <property role="3GE5qa" value="" />
     <property role="TrG5h" value="IndentedPoint" />
     <node concept="1TJgyi" id="4ruP0NLeIrV" role="1TKVEl">
       <property role="IQ2nx" value="5106752179536586491" />
@@ -302,11 +329,17 @@
     <node concept="PrWs8" id="5QuCpoxy2ee" role="PzmwI">
       <ref role="PrY4T" node="4ruP0NLeIr4" resolve="IndentedPoint" />
     </node>
+    <node concept="t5JxF" id="5Mky_DWK6fS" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="PlHQZ" id="1uSfHaoP$Vf">
     <property role="EcuMT" value="1709185132815339215" />
     <property role="3GE5qa" value="textual" />
     <property role="TrG5h" value="IParagraph" />
+    <node concept="t5JxF" id="5Mky_DWK6Pb" role="lGtFl">
+      <property role="t5JxN" value="Experimental. Use concepts such as TextConcept, Word, Line, etc. located outside of the &quot;textual&quot; virtual folder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="WJz9iAWEzU">
     <property role="EcuMT" value="1094247804558289146" />

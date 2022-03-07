@@ -4962,7 +4962,7 @@
     </node>
   </node>
   <node concept="13h7C7" id="fcFkhVQ0eg">
-    <property role="3GE5qa" value="textual" />
+    <property role="3GE5qa" value="" />
     <ref role="13h7C2" to="zqge:4ruP0NLeIr4" resolve="IndentedPoint" />
     <node concept="13i0hz" id="fcFkhVQ0er" role="13h7CS">
       <property role="13i0it" value="true" />
