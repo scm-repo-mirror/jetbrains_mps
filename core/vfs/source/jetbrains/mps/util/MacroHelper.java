@@ -16,15 +16,14 @@
 package jetbrains.mps.util;
 
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.MacroProcessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
 import java.util.regex.Pattern;
 
-public interface MacroHelper extends MacroProcessor {
-  Pattern MACRO_PATTERN = MacroProcessor.MACRO_PATTERN;
+public interface MacroHelper {
+  Pattern MACRO_PATTERN = Pattern.compile("(\\$\\{[^${]*})");
 
   String expandPath(@Nullable String path);
   String shrinkPath(@Nullable String absolutePath);
