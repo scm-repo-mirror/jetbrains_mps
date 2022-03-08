@@ -1236,7 +1236,7 @@
   <node concept="1TIwiD" id="2yYXHtl6JhV">
     <property role="EcuMT" value="2936055411798373499" />
     <property role="TrG5h" value="MultiLambdaParameter" />
-    <property role="34LRSv" value="&lt;param&gt;: &lt;type&gt;" />
+    <property role="34LRSv" value="(a,b,c)" />
     <property role="R4oN_" value="multi lambda parameter" />
     <property role="3GE5qa" value="expression.function" />
     <node concept="1TJgyj" id="2yYXHtl6JtO" role="1TKVEi">
@@ -1647,8 +1647,8 @@
     <node concept="PrWs8" id="6cg9X74hMGb" role="PzmwI">
       <ref role="PrY4T" node="6cg9X74hA$I" resolve="ILabelled" />
     </node>
-    <node concept="PrWs8" id="2t3z978jL_K" role="PzmwI">
-      <ref role="PrY4T" node="7Iv8Cw7qLdE" resolve="IDataFlowSource" />
+    <node concept="PrWs8" id="4ioyjZZ_kQZ" role="PzmwI">
+      <ref role="PrY4T" node="213J8chjiEQ" resolve="IVariableIdentifier" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jks">
