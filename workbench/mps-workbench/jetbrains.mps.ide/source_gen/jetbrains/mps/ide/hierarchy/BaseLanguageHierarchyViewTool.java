@@ -13,10 +13,17 @@ import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.module.FindUsagesFacade;
-import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.project.AllUserModelsScope;
 import java.util.Collections;
+import org.jetbrains.mps.openapi.util.Consumer;
+import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.progress.EmptyProgressMonitor;
+import org.jetbrains.mps.openapi.module.SearchScope;
+import jetbrains.mps.ide.findusages.model.scopes.GlobalScope;
+import org.jetbrains.mps.util.Condition;
+import org.jetbrains.mps.openapi.module.SModule;
+import jetbrains.mps.extapi.module.TransientSModule;
+import jetbrains.mps.smodel.tempmodel.TempModule;
+import jetbrains.mps.scope.ConditionalScope;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -97,32 +104,51 @@ public class BaseLanguageHierarchyViewTool extends AbstractHierarchyView {
       // FIXME there's ClassifierSuccessor index we can use here, although shall not use them directly
       // but rather through FindUsagesFacade, with dedicated 'successor' query, so that there'd be single HierarchyViewTool, and finders plug through
       // FindUsages to get accessed in a generic way.
-      Set<SReference> usages = fuFacade.findUsages(AllUserModelsScope.getInstance(), Collections.<SNode>singleton(node), new EmptyProgressMonitor());
-      Set<SNode> result = new HashSet<SNode>();
-      for (SReference usage : usages) {
-        SNode sourceNode = usage.getSourceNode();
-        if (LINKS.classifier$cxMr.equals(usage.getLink())) {
-          if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.ClassifierType$bL)) {
-            SNode classifierType = SNodeOperations.cast(sourceNode, CONCEPTS.ClassifierType$bL);
-            if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.ClassConcept$bK) && LINKS.superclass$Mp9$.equals(classifierType.getContainmentLink())) {
-              result.add(SNodeOperations.getParent(classifierType));
+      final Set<SNode> result = new HashSet<SNode>();
+      fuFacade.findUsages(decideSearchScope(), Collections.<SNode>singleton(node), new Consumer<SReference>() {
+        @Override
+        public void consume(SReference usage) {
+          SNode sourceNode = usage.getSourceNode();
+          if (LINKS.classifier$cxMr.equals(usage.getLink())) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.ClassifierType$bL)) {
+              SNode classifierType = SNodeOperations.cast(sourceNode, CONCEPTS.ClassifierType$bL);
+              if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.ClassConcept$bK) && LINKS.superclass$Mp9$.equals(classifierType.getContainmentLink())) {
+                result.add(SNodeOperations.getParent(classifierType));
+              }
+              if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.ClassConcept$bK) && LINKS.implementedInterface$rujG.equals(classifierType.getContainmentLink())) {
+                result.add(SNodeOperations.getParent(classifierType));
+              }
+              if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.Interface$db) && LINKS.extendedInterface$PDVO.equals(classifierType.getContainmentLink())) {
+                result.add(SNodeOperations.getParent(classifierType));
+              }
             }
-            if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.ClassConcept$bK) && LINKS.implementedInterface$rujG.equals(classifierType.getContainmentLink())) {
-              result.add(SNodeOperations.getParent(classifierType));
-            }
-            if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(classifierType), CONCEPTS.Interface$db) && LINKS.extendedInterface$PDVO.equals(classifierType.getContainmentLink())) {
-              result.add(SNodeOperations.getParent(classifierType));
+          }
+          if (LINKS.classifier$q_Y$.equals(usage.getLink())) {
+            if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.AnonymousClass$Bt)) {
+              SNode anonymousClass = SNodeOperations.cast(sourceNode, CONCEPTS.AnonymousClass$Bt);
+              result.add(anonymousClass);
             }
           }
         }
-        if (LINKS.classifier$q_Y$.equals(usage.getLink())) {
-          if (SNodeOperations.isInstanceOf(sourceNode, CONCEPTS.AnonymousClass$Bt)) {
-            SNode anonymousClass = SNodeOperations.cast(sourceNode, CONCEPTS.AnonymousClass$Bt);
-            result.add(anonymousClass);
-          }
-        }
-      }
+      }, new EmptyProgressMonitor());
       return result;
+    }
+    /**
+     * TODO let user control whether he needs to include transient/temporary models into the scope
+     *      FWIW, there's some rudimentary control in the superclass, shall unify.
+     */
+    private SearchScope decideSearchScope() {
+      // I think it's reasonable to use base scope that respects VisibleModulesRegistry, although
+      // could imagine an option to use a scope without any restriction as a base.
+      GlobalScope base = new GlobalScope(getHierarchyView().getMPSProject());
+      // FIXME this is just direct replacement of AllUserModelsScope logic
+      Condition<SModule> c = new Condition<SModule>() {
+        @Override
+        public boolean met(SModule m) {
+          return !(m instanceof TransientSModule) && !(m instanceof TempModule);
+        }
+      };
+      return new ConditionalScope(base, c, null);
     }
   }
 
