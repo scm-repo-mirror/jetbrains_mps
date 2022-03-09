@@ -24,15 +24,15 @@ import org.jetbrains.mps.openapi.persistence.StreamDataSource;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.intellij.openapi.vcs.changes.ChangeListManager;
+import jetbrains.mps.ide.vfs.FileSystemBridge;
 import java.util.function.Function;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.vfs.IFile;
 import com.intellij.openapi.vfs.VirtualFile;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.persistence.ByteArrayInputSource;
-import java.util.function.Predicate;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
-import com.intellij.openapi.vcs.changes.ChangeListManager;
 import com.intellij.openapi.vcs.changes.Change;
 import com.intellij.openapi.vcs.changes.ContentRevision;
 import com.intellij.openapi.vcs.changes.BinaryContentRevision;
@@ -103,16 +103,16 @@ import java.io.OutputStream;
   private static final class RedirectingDataSource extends MultiStreamDataSourceBase implements StreamDataSource {
     private final MultiStreamDataSource myOriginal;
     private final List<StreamDataSource> mySubs;
-    private final Project myProject;
 
     private RedirectingDataSource(@NotNull MultiStreamDataSource original, Project project) {
       super("IJ VCSVFS");
-      myProject = project;
       myOriginal = original;
-      mySubs = ((List<StreamDataSource>) convertSubStreams(original).collect(Collectors.toList()));
+      mySubs = convertSubStreams(original, project).collect(Collectors.<StreamDataSource>toList());
     }
 
-    private Stream<StreamDataSource> convertSubStreams(MultiStreamDataSource original) {
+    private static Stream<StreamDataSource> convertSubStreams(MultiStreamDataSource original, Project project) {
+      final ChangeListManager clManager = ChangeListManager.getInstance(project);
+      final FileSystemBridge fsBridge = ProjectHelper.fromIdeaProject(project).getFileSystem();
       return original.getSubStreams().flatMap(new Function<StreamDataSource, Stream<StreamDataSource>>() {
         @Override
         public Stream<StreamDataSource> apply(final StreamDataSource dataSource) {
@@ -126,25 +126,20 @@ import java.io.OutputStream;
                   }
                   return null;
                 }
-                VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(file);
+                VirtualFile vFile = fsBridge.asVirtualFile(file);
                 if (vFile == null) {
                   if (LOG.isEnabledFor(Level.WARN)) {
-                    LOG.warn("The vfile " + vFile + " is null");
+                    LOG.warn(String.format("No virtual file for %s", file));
                   }
                   return null;
                 }
-                byte[] data = getBaseVersionContent(vFile);
+                byte[] data = getBaseVersionContent(vFile, clManager);
                 if (data == null) {
                   return null;
                 }
                 return new ByteArrayInputSource(dataSource.getStreamName(), dataSource.getLocation(), data);
               }
-            }).filter(new Predicate<Object>() {
-              @Override
-              public boolean test(Object p1) {
-                return p1 != null;
-              }
-            });
+            }).filter(Objects::nonNull);
           }
           if (LOG.isEnabledFor(Level.WARN)) {
             LOG.warn("The ds " + dataSource + " is not file-based");
@@ -177,11 +172,10 @@ import java.io.OutputStream;
 
 
     @Nullable
-    private byte[] getBaseVersionContent(@NotNull VirtualFile file) {
+    private static byte[] getBaseVersionContent(@NotNull VirtualFile file, ChangeListManager clManager) {
       // returns the same content if file is not in changelist
       try {
-        ChangeListManager manager = ChangeListManager.getInstance(myProject);
-        Change change = manager.getChange(file);
+        Change change = clManager.getChange(file);
 
         if (change == null) {
           // no changes, use current file content
@@ -215,7 +209,7 @@ import java.io.OutputStream;
       }
     }
 
-    private byte[] loadCurrentFile(VirtualFile file) {
+    private static byte[] loadCurrentFile(VirtualFile file) {
       try {
         if (!(file.exists())) {
           if (LOG.isEnabledFor(Level.WARN)) {
@@ -241,7 +235,7 @@ import java.io.OutputStream;
     @NotNull
     @Override
     public InputStream openInputStream() throws IOException {
-      List<StreamDataSource> subs = (List<StreamDataSource>) getSubStreams().collect(Collectors.toList());
+      List<StreamDataSource> subs = getSubStreams().collect(Collectors.<StreamDataSource>toList());
       if (subs.size() != 1) {
         throw new IOException("The redirecting ds from " + myOriginal + " has multiple " + subs.size() + " substreams");
       }

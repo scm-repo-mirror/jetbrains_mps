@@ -1229,16 +1229,36 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs6" id="523_aD7XPAK" role="3cqZAp">
-          <node concept="2YIFZM" id="523_aD7XOzm" role="3cqZAk">
-            <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-            <ref role="37wK5l" to="4hrd:~VirtualFileUtils.getProjectVirtualFile(jetbrains.mps.vfs.IFile)" resolve="getProjectVirtualFile" />
-            <node concept="2OqwBi" id="6ww30ZnjX3n" role="37wK5m">
-              <node concept="37vLTw" id="6ww30ZnjUuv" role="2Oq$k0">
-                <ref role="3cqZAo" node="6ww30ZnjUup" resolve="anyFile" />
+        <node concept="3cpWs8" id="Jpw4evvoiZ" role="3cqZAp">
+          <node concept="3cpWsn" id="Jpw4evvoj0" role="3cpWs9">
+            <property role="TrG5h" value="fileSystem" />
+            <node concept="3uibUv" id="Jpw4evvmLI" role="1tU5fm">
+              <ref role="3uigEE" to="4hrd:~FileSystemBridge" resolve="FileSystemBridge" />
+            </node>
+            <node concept="2OqwBi" id="Jpw4evvoj1" role="33vP2m">
+              <node concept="37vLTw" id="Jpw4evvoj2" role="2Oq$k0">
+                <ref role="3cqZAo" node="523_aD7XB4m" resolve="myProject" />
               </node>
-              <node concept="liA8E" id="6ww30ZnjXjO" role="2OqNvi">
-                <ref role="37wK5l" to="33ny:~Optional.get()" resolve="get" />
+              <node concept="liA8E" id="Jpw4evvoj3" role="2OqNvi">
+                <ref role="37wK5l" to="z1c4:~MPSProject.getFileSystem()" resolve="getFileSystem" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="523_aD7XPAK" role="3cqZAp">
+          <node concept="2OqwBi" id="Jpw4evv$TU" role="3cqZAk">
+            <node concept="37vLTw" id="Jpw4evvynz" role="2Oq$k0">
+              <ref role="3cqZAo" node="Jpw4evvoj0" resolve="fileSystem" />
+            </node>
+            <node concept="liA8E" id="Jpw4evvB2L" role="2OqNvi">
+              <ref role="37wK5l" to="4hrd:~FileSystemBridge.asVirtualFile(jetbrains.mps.vfs.IFile)" resolve="asVirtualFile" />
+              <node concept="2OqwBi" id="6ww30ZnjX3n" role="37wK5m">
+                <node concept="37vLTw" id="6ww30ZnjUuv" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6ww30ZnjUup" resolve="anyFile" />
+                </node>
+                <node concept="liA8E" id="6ww30ZnjXjO" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Optional.get()" resolve="get" />
+                </node>
               </node>
             </node>
           </node>

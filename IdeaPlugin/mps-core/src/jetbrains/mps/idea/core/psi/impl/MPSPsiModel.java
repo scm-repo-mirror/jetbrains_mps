@@ -37,7 +37,6 @@ import com.intellij.util.containers.BidirectionalMap;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.icons.GlobalIconManager;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.persistence.FilePerRootDataSource;
@@ -48,7 +47,6 @@ import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.StaticReference;
 import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -345,10 +343,10 @@ public class MPSPsiModel extends MPSPsiNodeBase implements PsiDirectory {
         }
         DataSource source = model.getSource();
         if (source instanceof FileDataSource) {
-          mySourceVirtualFile = VirtualFileUtils.getProjectVirtualFile(((FileDataSource) source).getFile());
+          mySourceVirtualFile = projectVirtualFile(((FileDataSource) source).getFile());
         } else if (source instanceof FilePerRootDataSource) {
           // todo remove knowledge about particular PerRoot persistence, should be more generic
-          mySourceVirtualFile = VirtualFileUtils.getProjectVirtualFile(((FilePerRootDataSource) source).getFolder()).findChild(MPSExtentions.DOT_MODEL_HEADER);
+          mySourceVirtualFile = projectVirtualFile(((FilePerRootDataSource) source).getFolder()).findChild(MPSExtentions.DOT_MODEL_HEADER);
         }
       });
     }
@@ -387,7 +385,7 @@ public class MPSPsiModel extends MPSPsiNodeBase implements PsiDirectory {
       MPSPsiRootNode replacementRoot;
       if (sNode.getContainingRoot() == sNode && sNode.getModel().getSource() instanceof FilePerRootDataSource) {
         final String name = extractName(sNode);
-        final VirtualFile virtualFile = VirtualFileUtils.getProjectVirtualFile(((FilePerRootDataSource) sNode.getModel().getSource()).getFile(name + MPSExtentions.DOT_MODEL_ROOT));
+        final VirtualFile virtualFile = projectVirtualFile(((FilePerRootDataSource) sNode.getModel().getSource()).getFile(name + MPSExtentions.DOT_MODEL_ROOT));
         replacementRoot = new MPSPsiRootNode(sNode.getReference(), name, this, getManager(), virtualFile);
       } else {
         replacementRoot = new MPSPsiRootNode(sNode.getReference(), extractName(sNode), this, getManager());
@@ -583,6 +581,11 @@ public class MPSPsiModel extends MPSPsiNodeBase implements PsiDirectory {
       }
 
     }
+  }
+
+  /*package*/ static VirtualFile projectVirtualFile(IFile f) {
+    // I assume IFiles we get here are from project, and LFS is good enough
+    return LocalFileSystem.getInstance().findFileByPath(f.getPath());
   }
 
   @Override

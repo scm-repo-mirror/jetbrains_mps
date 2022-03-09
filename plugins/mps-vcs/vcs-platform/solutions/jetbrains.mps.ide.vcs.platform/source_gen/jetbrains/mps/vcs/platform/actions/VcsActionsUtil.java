@@ -15,7 +15,7 @@ import jetbrains.mps.persistence.DataLocationAwareModelFactory;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import java.util.Optional;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.vcs.diff.ui.common.Bounds;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.util.Reference;
@@ -54,6 +54,7 @@ import com.intellij.openapi.vcs.FileStatus;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
 import java.util.Collections;
+import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -110,7 +111,8 @@ public final class VcsActionsUtil {
     if (anyFile.isEmpty()) {
       return null;
     }
-    return VirtualFileUtils.getProjectVirtualFile(anyFile.get());
+    FileSystemBridge fileSystem = myProject.getFileSystem();
+    return fileSystem.asVirtualFile(anyFile.get());
   }
 
   public void showRootDifference(@Nullable final Bounds bounds) {

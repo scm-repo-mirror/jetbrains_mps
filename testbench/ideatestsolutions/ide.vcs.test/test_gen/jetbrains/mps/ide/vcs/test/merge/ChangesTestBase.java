@@ -54,7 +54,7 @@ import java.util.Collections;
 import com.intellij.openapi.vcs.rollback.RollbackProgressListener;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
@@ -269,8 +269,10 @@ public abstract class ChangesTestBase implements EnvironmentAware {
     return (EditableSModel) PersistenceFacade.getInstance().createModelReference("r:296ba97d-4b26-4d06-be61-297d86180cce(jetbrains.mps.ide.vcs.test.testModel)").resolve(ourProject.getRepository());
   }
 
-  protected VirtualFile getTestModelFile() {
-    return VirtualFileUtils.getProjectVirtualFile(((FileDataSource) getTestModel().getSource()).getFile());
+  protected final VirtualFile getTestModelFile() {
+    // XXX LocalFileSystem.findFileByPath might be a decent alternative.
+    FileSystemBridge fileSystem = ourProject.getFileSystem();
+    return fileSystem.asVirtualFile(((FileDataSource) getTestModel().getSource()).getFile());
   }
 
   protected String getChangeSetString(ChangeSet changeSet) {

@@ -17,21 +17,19 @@ import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import java.util.stream.Collectors;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.smodel.Generator;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.FileStatusManager;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.ide.vfs.FileSystemBridge;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 
 @GeneratedClass(node = "r:e4939376-be00-4167-9510-67715eca6425(jetbrains.mps.vcs.platform.util)/6933307669479741763", model = "r:e4939376-be00-4167-9510-67715eca6425(jetbrains.mps.vcs.platform.util)")
-public class ConflictsUtil {
-  public ConflictsUtil() {
+public final class ConflictsUtil {
+  private ConflictsUtil() {
   }
 
   public static boolean isModelOrModuleConflicting(EditableSModel emd, Project project) {
@@ -53,19 +51,14 @@ public class ConflictsUtil {
 
   @NotNull
   public static List<VirtualFile> getConflictingModuleFiles(@Nullable SModule module, @NotNull Project project) {
-    List<IFile> filesToCheck = ListSequence.fromList(new ArrayList<IFile>());
-    if (module instanceof Generator && ((Generator) module).getDescriptorFile() == null) {
-      SRepository projectRepository = ProjectHelper.getProjectRepository(project);
-      assert projectRepository != null;
-      module = ((Generator) module).sourceLanguage().getSourceModuleReference().resolve(projectRepository);
-    }
     if (module instanceof AbstractModule) {
       AbstractModule amodule = (AbstractModule) module;
       if (amodule.getDescriptorFile() != null) {
-        ListSequence.fromList(filesToCheck).addElement(amodule.getDescriptorFile());
+        return getConflictingFiles(Sequence.<IFile>singleton(amodule.getDescriptorFile()), project);
       }
     }
-    return getConflictingFiles(filesToCheck, project);
+    return ListSequence.fromList(new ArrayList<VirtualFile>());
+
   }
 
   private static boolean isConflictedFile(@NotNull VirtualFile vf, @NotNull Project project) {
@@ -74,9 +67,10 @@ public class ConflictsUtil {
   }
 
   private static List<VirtualFile> getConflictingFiles(Iterable<IFile> files, final Project project) {
+    final FileSystemBridge fsb = ProjectHelper.fromIdeaProject(project).getFileSystem();
     return Sequence.fromIterable(files).select(new ISelector<IFile, VirtualFile>() {
       public VirtualFile select(IFile f) {
-        return VirtualFileUtils.getProjectVirtualFile(f);
+        return fsb.asVirtualFile(f);
       }
     }).where(new NotNullWhereFilter<VirtualFile>()).where(new IWhereFilter<VirtualFile>() {
       public boolean accept(VirtualFile f) {

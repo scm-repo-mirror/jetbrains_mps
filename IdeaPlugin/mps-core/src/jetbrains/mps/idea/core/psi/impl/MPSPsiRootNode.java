@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.idea.core.projectView.edit.SNodeDeleteProvider;
 import jetbrains.mps.idea.core.psi.MPSNodeFileViewProvider;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
@@ -127,7 +126,7 @@ public class MPSPsiRootNode extends MPSPsiNodeBase implements PsiFile, PsiBinary
       SModel sModel = myModel.getSModelReference().resolve(repository);
       DataSource dataSource = sModel.getSource();
       if (dataSource instanceof FileDataSource) {
-        return VirtualFileUtils.getProjectVirtualFile(((FileDataSource) dataSource).getFile());
+        return MPSPsiModel.projectVirtualFile(((FileDataSource) dataSource).getFile());
       }
       return null;
     });

@@ -44,7 +44,6 @@ import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import java.util.function.Predicate;
 import jetbrains.mps.vfs.IFile;
 import com.intellij.openapi.vfs.VirtualFile;
-import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import com.intellij.openapi.vcs.FileStatusManager;
 import java.util.function.Function;
 import java.util.Objects;
@@ -65,6 +64,7 @@ import java.util.LinkedList;
 import jetbrains.mps.vcs.diff.changes.NodeChange;
 import jetbrains.mps.vcs.diff.changes.DeleteRootChange;
 import jetbrains.mps.vcs.diff.changes.HierarchicalNodeGroupChange;
+import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
 import java.util.Map;
 import java.util.HashMap;
@@ -290,7 +290,7 @@ public final class ChangesTracking {
     return ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().allMatch(new Predicate<IFile>() {
       @Override
       public boolean test(IFile f) {
-        VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(f);
+        VirtualFile vFile = asVirtualFile(f);
         return vFile != null && FileStatusManager.getInstance(myProject).getStatus(vFile) == FileStatus.ADDED;
       }
     });
@@ -313,7 +313,7 @@ public final class ChangesTracking {
     return ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().map(new Function<IFile, FileStatus>() {
       @Override
       public FileStatus apply(IFile f) {
-        VirtualFile file = VirtualFileUtils.getProjectVirtualFile(f);
+        VirtualFile file = asVirtualFile(f);
         if (file == null) {
           return FileStatus.DELETED;
         }
@@ -334,27 +334,7 @@ public final class ChangesTracking {
       if (!(isTracked())) {
         return FileStatus.UNKNOWN;
       }
-      List<FileStatus> statuses = (List<FileStatus>) ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().filter(new Predicate<IFile>() {
-        @Override
-        public boolean test(IFile obj) {
-          return Objects.nonNull(obj);
-        }
-      }).map(new Function<IFile, VirtualFile>() {
-        @Override
-        public VirtualFile apply(IFile file) {
-          return VirtualFileUtils.getProjectVirtualFile(file);
-        }
-      }).filter(new Predicate<VirtualFile>() {
-        @Override
-        public boolean test(VirtualFile obj) {
-          return Objects.nonNull(obj);
-        }
-      }).map(new Function<VirtualFile, FileStatus>() {
-        @Override
-        public FileStatus apply(VirtualFile file) {
-          return fsm.getStatus(file);
-        }
-      }).distinct().collect(Collectors.toList());
+      List<FileStatus> statuses = (List<FileStatus>) ((FileSystemBasedDataSource) ds).getAffectedFilesWithDirsExtracted().map(this::asVirtualFile).filter(Objects::nonNull).map(fsm::getStatus).distinct().collect(Collectors.toList());
       if (statuses.stream().anyMatch(new Predicate<FileStatus>() {
         @Override
         public boolean test(FileStatus st) {
@@ -523,6 +503,15 @@ public final class ChangesTracking {
     return null;
   }
 
+  @Nullable
+  /*package*/ VirtualFile asVirtualFile(IFile f) {
+    if (f == null) {
+      return null;
+    }
+    FileSystemBridge fileSystem = ProjectHelper.fromIdeaProject(myProject).getFileSystem();
+    return fileSystem.asVirtualFile(f);
+  }
+
   public class MyEventsCollector extends SModelEventVisitorAdapter implements SModelCommandListener {
     private Map<SNode, Set<SContainmentLink>> childChanged;
     private Set<SNodeId> rootsDeleted;
@@ -546,7 +535,7 @@ public final class ChangesTracking {
       }
       VcsFileStatusProvider provider = VcsFileStatusProvider.getInstance(myProject);
       for (IFile iFile : SetSequence.fromSet(affectedFiles)) {
-        VirtualFile vFile = VirtualFileUtils.getProjectVirtualFile(iFile);
+        VirtualFile vFile = asVirtualFile(iFile);
         if (vFile != null) {
           Document document = FileDocumentManager.getInstance().getDocument(vFile);
           if (document != null && provider != null) {
@@ -655,7 +644,7 @@ public final class ChangesTracking {
           SNode oldParentNode = getOldNode(parentId);
           if (oldParentNode != null && Sequence.fromIterable(childrenRightAfterEvent.value).all(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return check_5iuzi5_a0a0a0a0b0a0e0a0n0j16(check_5iuzi5_a0a0a0a0a0b0a0e0a0n0j16(myDifference.getChangeSet()), it) != null;
+              return check_5iuzi5_a0a0a0a0b0a0e0a0n0j36(check_5iuzi5_a0a0a0a0a0b0a0e0a0n0j36(myDifference.getChangeSet()), it) != null;
             }
           })) {
             b.buildForNodeRole(IterableUtil.asList(AttributeOperations.getChildNodesAndAttributes(oldParentNode, childRole)), IterableUtil.asList(childrenRightAfterEvent.value), parentId, parentId, childRole);
@@ -697,7 +686,7 @@ public final class ChangesTracking {
     @Override
     public void visitLanguageEvent(SModelLanguageEvent event) {
       final SLanguage eventLang = event.getEventLanguage();
-      final SModelInternal model = as_5iuzi5_a0a1a31kc(event.getModel(), SModelInternal.class);
+      final SModelInternal model = as_5iuzi5_a0a1a31mc(event.getModel(), SModelInternal.class);
       final boolean deleted = !(event.isAdded());
       runUpdateTask(() -> {
         // XXX I have no idea why we skip adding a change object if we successfully removed one or more queued earlier.
@@ -744,19 +733,19 @@ public final class ChangesTracking {
     }
     return null;
   }
-  private static SNode check_5iuzi5_a0a0a0a0b0a0e0a0n0j16(SModel checkedDotOperand, SNode it) {
+  private static SNode check_5iuzi5_a0a0a0a0b0a0e0a0n0j36(SModel checkedDotOperand, SNode it) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNode(it.getNodeId());
     }
     return null;
   }
-  private static SModel check_5iuzi5_a0a0a0a0a0b0a0e0a0n0j16(ChangeSet checkedDotOperand) {
+  private static SModel check_5iuzi5_a0a0a0a0a0b0a0e0a0n0j36(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNewModel();
     }
     return null;
   }
-  private static <T> T as_5iuzi5_a0a1a31kc(Object o, Class<T> type) {
+  private static <T> T as_5iuzi5_a0a1a31mc(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 

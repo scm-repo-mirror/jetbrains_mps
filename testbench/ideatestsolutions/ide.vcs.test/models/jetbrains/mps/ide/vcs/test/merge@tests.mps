@@ -2639,33 +2639,79 @@
     <node concept="2tJIrI" id="7HgS$Vk97pc" role="jymVt" />
     <node concept="3clFb_" id="7HgS$Vk99dG" role="jymVt">
       <property role="TrG5h" value="getTestModelFile" />
+      <property role="DiZV1" value="true" />
       <node concept="3Tmbuc" id="7HgS$Vk99dH" role="1B3o_S" />
       <node concept="3uibUv" id="7HgS$Vk9diu" role="3clF45">
         <ref role="3uigEE" to="jlff:~VirtualFile" resolve="VirtualFile" />
       </node>
       <node concept="3clFbS" id="7HgS$Vk99dJ" role="3clF47">
+        <node concept="3SKdUt" id="Jpw4evrA8E" role="3cqZAp">
+          <node concept="1PaTwC" id="Jpw4evrA8F" role="1aUNEU">
+            <node concept="3oM_SD" id="Jpw4evrA92" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBuS" role="1PaTwD">
+              <property role="3oM_SC" value="LocalFileSystem.findFileByPath" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBvN" role="1PaTwD">
+              <property role="3oM_SC" value="might" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBw7" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBwc" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBwi" role="1PaTwD">
+              <property role="3oM_SC" value="decent" />
+            </node>
+            <node concept="3oM_SD" id="Jpw4evrBwL" role="1PaTwD">
+              <property role="3oM_SC" value="alternative." />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="Jpw4evrdND" role="3cqZAp">
+          <node concept="3cpWsn" id="Jpw4evrdNE" role="3cpWs9">
+            <property role="TrG5h" value="fileSystem" />
+            <node concept="3uibUv" id="Jpw4evrddk" role="1tU5fm">
+              <ref role="3uigEE" to="4hrd:~FileSystemBridge" resolve="FileSystemBridge" />
+            </node>
+            <node concept="2OqwBi" id="Jpw4evrdNF" role="33vP2m">
+              <node concept="37vLTw" id="Jpw4evrdNG" role="2Oq$k0">
+                <ref role="3cqZAo" node="nUYGvAYA1H" resolve="ourProject" />
+              </node>
+              <node concept="liA8E" id="Jpw4evrdNH" role="2OqNvi">
+                <ref role="37wK5l" to="z1c4:~MPSProject.getFileSystem()" resolve="getFileSystem" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="7HgS$Vk9ccS" role="3cqZAp">
-          <node concept="2YIFZM" id="xMsFPn$$cD" role="3cqZAk">
-            <ref role="37wK5l" to="4hrd:~VirtualFileUtils.getProjectVirtualFile(jetbrains.mps.vfs.IFile)" resolve="getProjectVirtualFile" />
-            <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-            <node concept="2OqwBi" id="xMsFPn$$cE" role="37wK5m">
-              <node concept="1eOMI4" id="xMsFPn$$cF" role="2Oq$k0">
-                <node concept="10QFUN" id="xMsFPn$$cG" role="1eOMHV">
-                  <node concept="2OqwBi" id="xMsFPn$$cH" role="10QFUP">
-                    <node concept="1rXfSq" id="xMsFPn$$cI" role="2Oq$k0">
-                      <ref role="37wK5l" node="7HgS$VjLBXO" resolve="getTestModel" />
+          <node concept="2OqwBi" id="Jpw4evrmoJ" role="3cqZAk">
+            <node concept="37vLTw" id="Jpw4evrkYZ" role="2Oq$k0">
+              <ref role="3cqZAo" node="Jpw4evrdNE" resolve="fileSystem" />
+            </node>
+            <node concept="liA8E" id="Jpw4evroJb" role="2OqNvi">
+              <ref role="37wK5l" to="4hrd:~FileSystemBridge.asVirtualFile(jetbrains.mps.vfs.IFile)" resolve="asVirtualFile" />
+              <node concept="2OqwBi" id="xMsFPn$$cE" role="37wK5m">
+                <node concept="1eOMI4" id="xMsFPn$$cF" role="2Oq$k0">
+                  <node concept="10QFUN" id="xMsFPn$$cG" role="1eOMHV">
+                    <node concept="2OqwBi" id="xMsFPn$$cH" role="10QFUP">
+                      <node concept="1rXfSq" id="xMsFPn$$cI" role="2Oq$k0">
+                        <ref role="37wK5l" node="7HgS$VjLBXO" resolve="getTestModel" />
+                      </node>
+                      <node concept="liA8E" id="xMsFPn$$cJ" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~SModel.getSource()" resolve="getSource" />
+                      </node>
                     </node>
-                    <node concept="liA8E" id="xMsFPn$$cJ" role="2OqNvi">
-                      <ref role="37wK5l" to="mhbf:~SModel.getSource()" resolve="getSource" />
+                    <node concept="3uibUv" id="xMsFPn$$cK" role="10QFUM">
+                      <ref role="3uigEE" to="ends:~FileDataSource" resolve="FileDataSource" />
                     </node>
-                  </node>
-                  <node concept="3uibUv" id="xMsFPn$$cK" role="10QFUM">
-                    <ref role="3uigEE" to="ends:~FileDataSource" resolve="FileDataSource" />
                   </node>
                 </node>
-              </node>
-              <node concept="liA8E" id="xMsFPn$$cL" role="2OqNvi">
-                <ref role="37wK5l" to="ends:~FileDataSource.getFile()" resolve="getFile" />
+                <node concept="liA8E" id="xMsFPn$$cL" role="2OqNvi">
+                  <ref role="37wK5l" to="ends:~FileDataSource.getFile()" resolve="getFile" />
+                </node>
               </node>
             </node>
           </node>
