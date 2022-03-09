@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import org.jetbrains.mps.annotations.Mutable;
 import org.jetbrains.mps.annotations.Singleton;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
-import java.net.URL;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -67,18 +66,6 @@ public final class DataSourceFactoryRuleService implements CoreComponent  {
   public synchronized DataSourceFactoryFromName getFactory(@NotNull DataSourceType dataSourceType) {
     for (DataSourceFactoryRule rule : myFactoryRules) {
       DataSourceFactoryFromName result = rule.spawn(dataSourceType);
-      if (result != null) {
-        return result;
-      }
-    }
-    return null;
-  }
-
-  @Nullable
-  @Deprecated(since = "2021.1", forRemoval = true)
-  public synchronized DataSourceFactoryFromURL getFactory(@NotNull URL url) {
-    for (DataSourceFactoryRule rule : myFactoryRules) {
-      DataSourceFactoryFromURL result = rule.spawn(url);
       if (result != null) {
         return result;
       }

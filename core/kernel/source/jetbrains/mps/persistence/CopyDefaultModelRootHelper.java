@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import jetbrains.mps.extapi.model.GeneratableSModel;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRoot;
-import jetbrains.mps.extapi.persistence.datasource.URLNotSupportedException;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.vfs.IFile;
@@ -62,7 +61,7 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
         IFile targetModelFile = calculateTargetModelFile(sourceModelSourceRoot, targetModelSourceRoot, file);
         SModelBase modelData = (SModelBase) factory.load(dataSource, options.convertToLoadingOptions());
         createModelCopy(factory, targetModelFile, modelData);
-      } catch (URLNotSupportedException | IOException | ModelCannotBeCreatedException | ModelLoadException e) {
+      } catch (IOException | ModelCannotBeCreatedException | ModelLoadException e) {
         LOG.error("Could not create a model copy because of unexpected error", e);
       }
     }).traverse(sourceModelSourceRoot);
@@ -72,7 +71,6 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
   private SModel createModelCopy(@NotNull ModelFactory factory,
                                  @NotNull IFile targetModelFile,
                                  @NotNull SModelBase modelDataToCopy) throws IOException,
-                                                                             URLNotSupportedException,
                                                                              ModelCannotBeCreatedException {
     DataSource targetDataSource = FILE_OR_FOLDER.create(targetModelFile.toPath());
     ParametersCalculator prmCalculator = new ParametersCalculator(myTargetModelRoot);

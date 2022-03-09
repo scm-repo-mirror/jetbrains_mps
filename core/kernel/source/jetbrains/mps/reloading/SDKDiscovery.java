@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.reloading;
 
 import com.intellij.openapi.util.text.StringUtil;
 import jetbrains.mps.util.SystemInfo;
-import jetbrains.mps.vfs.Files;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.QualifiedPath;
 import jetbrains.mps.vfs.VFSManager;
@@ -42,7 +41,6 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -73,9 +71,9 @@ public class SDKDiscovery {
       }
 
       String jarPath = url.substring(prefix.length(), url.indexOf('!'));
-      // fixme: why to convert back and forth?
       jetbrains.mps.vfs.path.Path path = PathFormats.getCurrentSystemFormat().fromString(jarPath);
-      return new QualifiedPath(VFSManager.FILE_FS, Files.fromPath(path).getPath());
+      // toUnixPathFormat() is just an attempt to keep QP stable and to replace path conversion through IFile
+      return new QualifiedPath(VFSManager.FILE_FS, path.toUnixPathFormat().toText());
     } catch (ClassNotFoundException e) {
       LOG.warn("jar file for class " + toolsJarClass + " could not be found");
       return null;
