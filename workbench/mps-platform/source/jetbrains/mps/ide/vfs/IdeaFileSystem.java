@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWrit
   }
 
   /**
-   * Proper alternative to {@link VirtualFileUtils#toIFile(VirtualFile)}, gives MPS file abstraction for an IDEA's one.
+   * Proper alternative to {@code VirtualFileUtils#toIFile(VirtualFile)}, gives MPS file abstraction for an IDEA's one.
    *
    * @param virtualFile IDEA's file abstraction
    * @return MPS file abstraction

@@ -23,7 +23,6 @@ import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.util.annotation.Hack;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.QualifiedPath;
@@ -111,24 +110,6 @@ public final class VirtualFileUtils {
     } else {
       LOG.warn("Unknown file " + file);
     }
-    return null;
-  }
-
-  /**
-   * @deprecated Prefer {@link IdeaFileSystem#fromVirtualFile(VirtualFile)} instead.
-   *             This method relies on global FS singleton.
-   *             No uses in MPS code, will be removed after 2021.3 release
-   * @return null if current fs is not idea-based (it is very unlikely but still)
-   */
-  @Nullable
-  @Deprecated(forRemoval = true)
-  public static IFile toIFile(@NotNull VirtualFile f) {
-    LOG.error("VirtualFileUtils.toIFile will be removed in the next release", new Throwable());
-    FileSystem fs = FileSystemExtPoint.getFS();
-    if (fs instanceof IdeaFileSystem) {
-      return ((IdeaFileSystem) fs).fromVirtualFile(f);
-    }
-    LOG.warn("Current file system is not base on the IDEA VFS " + fs + ". Requested file is " + f);
     return null;
   }
 
