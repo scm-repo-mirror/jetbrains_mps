@@ -73,6 +73,18 @@ public class TransientModelsModule extends AbstractModule implements TransientSM
     setModuleReference(moduleReference);
   }
 
+  @Override
+  public boolean isReadOnly() {
+    // I treat this as an end-user POV; it's generator that modifies this module internally, but users don't need to
+    // deal with the module. This doesn't mean any [openapi]TransientSModule has to be read-only; only the one of Generator scenario.
+    return true;
+  }
+
+  @Override
+  public boolean isPackaged() {
+    return false;
+  }
+
   public boolean hasPublished() {
     return !myPublished.isEmpty();
   }

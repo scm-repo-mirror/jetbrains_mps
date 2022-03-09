@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ public class ModelGenerationStatusManager implements CoreComponent {
   private final SRepositoryContentAdapter myModelReloadListener = new SRepositoryContentAdapter() {
     @Override
     protected boolean isIncluded(SModule module) {
-      return !module.isPackaged() && !module.isReadOnly();
+      return !module.isReadOnly();
     }
 
     @Override

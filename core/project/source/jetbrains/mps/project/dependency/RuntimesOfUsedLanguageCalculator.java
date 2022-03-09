@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,7 @@ class RuntimesOfUsedLanguageCalculator {
 
   private static boolean isPackaged(SModule myModule) {
     if (myModule instanceof TempModule || myModule instanceof TransientSModule) {
+      // TempModule and TransientModelsModule (primary impl of TransientSModule) both tell isPackaged()==false now. Any reason to keep this?
       return false;
     }
     return myModule.isPackaged();

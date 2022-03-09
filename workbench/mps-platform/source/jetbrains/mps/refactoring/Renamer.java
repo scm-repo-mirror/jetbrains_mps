@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -433,8 +433,7 @@ public final class Renamer {
         }
 
         IFile moduleSourceDir = ((AbstractModule) repositoryModule).getModuleSourceDir();
-        if (moduleSourceDir == null || repositoryModule.isPackaged() || repositoryModule.isReadOnly() ||
-           repositoryModule.equals(module)) {
+        if (moduleSourceDir == null || repositoryModule.isReadOnly() || repositoryModule.equals(module)) {
           continue;
         }
 

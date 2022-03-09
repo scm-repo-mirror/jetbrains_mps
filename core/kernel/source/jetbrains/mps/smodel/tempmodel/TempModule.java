@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,6 @@ import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.smodel.MPSModuleOwner;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
@@ -38,7 +36,7 @@ import java.util.Set;
  *       track 'true' user modules only?
  * TODO: rewrite class loading functional : it must not extend ReloadableModuleBase and be maintained by ClassLoaderManager.
  * TODO: it does not belong to any repository
- * FIXME why does TempModule manifests itself as 'isPackaged() == true', anyone? Not to get asked about module source dir?
+ *       ^^ is this true?
  */
 public class TempModule extends ReloadableModuleBase implements SModule, MPSModuleOwner {
   private final ModuleDescriptor myDescriptor;
@@ -72,6 +70,11 @@ public class TempModule extends ReloadableModuleBase implements SModule, MPSModu
 
   @Override
   public boolean isReadOnly() {
+    return false;
+  }
+
+  @Override
+  public boolean isPackaged() {
     return false;
   }
 
