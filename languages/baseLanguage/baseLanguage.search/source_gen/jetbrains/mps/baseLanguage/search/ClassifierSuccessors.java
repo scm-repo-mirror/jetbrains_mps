@@ -4,17 +4,26 @@ package jetbrains.mps.baseLanguage.search;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.components.CoreComponent;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
+import java.util.Map;
 import jetbrains.mps.project.Project;
+import java.util.HashMap;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SearchScope;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.ArrayList;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.apache.log4j.Level;
 
 @GeneratedClass(node = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)/3896109655413979709", model = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)")
 public class ClassifierSuccessors implements CoreComponent {
+  private static final Logger LOG = LogManager.getLogger(ClassifierSuccessors.class);
   private static ClassifierSuccessors INSTANCE;
-  private Finder myFastFinder;
+
+  private final Map<Project, Finder> myFastFinders = new HashMap<>();
 
   public ClassifierSuccessors() {
   }
@@ -30,7 +39,8 @@ public class ClassifierSuccessors implements CoreComponent {
   }
 
   public boolean isIndexReady(Project project) {
-    return myFastFinder != null && myFastFinder.isIndexReady(project);
+    Finder f = myFastFinders.get(project);
+    return f != null && f.isIndexReady();
   }
 
   /**
@@ -38,16 +48,45 @@ public class ClassifierSuccessors implements CoreComponent {
    * @deprecated until we refactor our model indexer not to rely on IDEA's FileBasedIndex (which forces us to stick to their contract of VF and Project), use alternative that takes Project instance
    */
   @Deprecated(forRemoval = true)
-  public List<SNode> getDerivedClassifiers(SNode classifier, SearchScope scope) {
-    return getDerivedClassifiers(null, classifier, scope);
+  public List<SNode> getDerivedClassifiers(final SNode classifier, final SearchScope scope) {
+    Iterable<Finder> ff = myFastFinders.values();
+    return Sequence.fromIterable(ff).translate(new ITranslator2<Finder, SNode>() {
+      public Iterable<SNode> translate(Finder it) {
+        return it.getDerivedClassifiers(classifier, scope);
+      }
+    }).toListSequence();
   }
 
   public List<SNode> getDerivedClassifiers(Project project, SNode classifier, SearchScope scope) {
-    return (myFastFinder != null ? myFastFinder.getDerivedClassifiers(project, classifier, scope) : new ArrayList<SNode>());
+    if (project == null) {
+      return getDerivedClassifiers(classifier, scope);
+    }
+    Finder f = myFastFinders.get(project);
+    if (f == null) {
+      return new ArrayList<SNode>();
+    }
+
+    return f.getDerivedClassifiers(classifier, scope);
   }
 
-  public void setFinder(Finder finder) {
-    myFastFinder = finder;
+  public void addFinder(@NotNull Project project, @NotNull Finder finder) {
+    myFastFinders.put(project, finder);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug(String.format("Attached finder %s to project %s", finder, project));
+    }
+  }
+
+  public void removeFinder(@NotNull Project project, @NotNull Finder finder) {
+    Finder removed = myFastFinders.remove(project);
+    if (removed == null) {
+      if (LOG.isEnabledFor(Level.WARN)) {
+        LOG.warn(String.format("Attempt to remove unknown finder %s from project %s", finder, project));
+      }
+    } else if (removed != finder) {
+      if (LOG.isEnabledFor(Level.WARN)) {
+        LOG.warn(String.format("Removed finder %s from project %s while expected to get %s", removed, project, finder));
+      }
+    }
   }
 
   /**
@@ -60,7 +99,7 @@ public class ClassifierSuccessors implements CoreComponent {
   }
 
   public interface Finder {
-    List<SNode> getDerivedClassifiers(@Nullable Project project, SNode classifier, SearchScope scope);
-    boolean isIndexReady(Project project);
+    List<SNode> getDerivedClassifiers(SNode classifier, SearchScope scope);
+    boolean isIndexReady();
   }
 }
