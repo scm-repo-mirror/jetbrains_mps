@@ -3609,6 +3609,9 @@
         <property role="3F0ifm" value="[" />
         <ref role="1ERwB7" node="5GtPw5yJYlc" resolve="UnaryExpression_RemoveFromSuffix" />
         <ref role="1k5W1q" node="4gvOB2uY1$1" resolve="LBracket" />
+        <node concept="11L4FC" id="4HsGm__8QYt" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
       </node>
       <node concept="3F2HdR" id="1502Vug_o6g" role="3EZMnx">
         <property role="2czwfO" value="," />
@@ -3624,6 +3627,9 @@
         <ref role="1ERwB7" node="5GtPw5yJYlc" resolve="UnaryExpression_RemoveFromSuffix" />
         <ref role="1k5W1q" node="4gvOB2uY$QE" resolve="RBracket" />
       </node>
+    </node>
+    <node concept="PMmxH" id="4HsGm__8RaA" role="6VMZX">
+      <ref role="PMmxG" node="1pD7IS2Lpvh" resolve="Overloaded_Provider_Component" />
     </node>
   </node>
   <node concept="24kQdi" id="2yYXHtl6Kwz">
