@@ -206,6 +206,11 @@ public abstract class ProjectBase extends Project {
       for (SModuleReference mRef : myModuleLoader.activeModules()) {
         SModule resolved = mRef.resolve(repository);
         if (resolved != null) {
+          if (resolved instanceof Generator && !((Generator) resolved).getModuleDescriptor().isStandaloneModule()) {
+            // openapi.Project.getProjectModules states it gives 'top-level' modules only, without language-owned generators
+            // FIXME shall deprecate this method and stick to a new one, that gives all modules, including generators
+            continue;
+          }
           result.add(resolved);
         } else {
           LOG.error("Module " + mRef + " is not found in the project repository", new Throwable());
@@ -224,6 +229,7 @@ public abstract class ProjectBase extends Project {
     if (getPath(module) != null) {
       return true;
     }
+    // FIXME now myModuleLoader keeps ModulePath for each module, including Generator one, next code is no longer necessary
     if (module instanceof Generator) {
       // could be a generator owned by a language. Standalone generators from project would be discovered by getPath().
       final GeneratorDescriptor gmd = ((Generator) module).getModuleDescriptor();
