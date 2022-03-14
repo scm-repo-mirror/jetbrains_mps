@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
  * @author Alexey Pyshkin
  * @author Artem Tikhomirov
  */
-public final class ProjectModuleFileChangeListener implements ProjectModuleLoadingListener {
+/*package*/ final class ModuleFileChangeListener implements ProjectModuleLoadingListener {
   private final MPSProject myMpsProject;
 
   /*
@@ -127,7 +127,7 @@ public final class ProjectModuleFileChangeListener implements ProjectModuleLoadi
     }
   };
 
-  ProjectModuleFileChangeListener(@NotNull MPSProject mpsProject) {
+  ModuleFileChangeListener(@NotNull MPSProject mpsProject) {
     myMpsProject = mpsProject;
     myProjectModulesAndFiles = new ModuleFileTracker();
     // prefs copied from ModuleFileTracker;
@@ -147,24 +147,20 @@ public final class ProjectModuleFileChangeListener implements ProjectModuleLoadi
   @Override
   public void moduleLoaded(ModulePath modulePath, @NotNull SModule module) {
     // FIXME I see no reason for this instanceof check
-    if (module instanceof AbstractModule) {
-      final IFile file = getProjectFS().getFile(modulePath.getPath());
-      myProjectModulesAndFiles.track(file, module);
-      // Shall account for more than one module for the same path (e.g. if/when ProjectModuleLoader dispatches events for generators)
-      //   IFile.addListener implementation now adds given listener only once, we have to be careful when removing a listener, though.
-      file.addListener(myRedispatchListener);
-    }
+    final IFile file = getProjectFS().getFile(modulePath.getPath());
+    myProjectModulesAndFiles.track(file, module);
+    // Shall account for more than one module for the same path (e.g. if/when ProjectModuleLoader dispatches events for generators)
+    //   IFile.addListener implementation now adds given listener only once, we have to be careful when removing a listener, though.
+    file.addListener(myRedispatchListener);
   }
 
   @Override
   public void moduleRemoved(ModulePath modulePath, @NotNull SModule module) {
-    if (module instanceof AbstractModule) {
-      final IFile file = getProjectFS().getFile(modulePath.getPath());
-      myProjectModulesAndFiles.forget(file, module);
-      if (!myProjectModulesAndFiles.isAnyModuleTrackedFor(file)) {
-        // if there are few modules in a file, removal of one of them shall not leave us here without notifications for others.
-        file.removeListener(myRedispatchListener);
-      }
+    final IFile file = getProjectFS().getFile(modulePath.getPath());
+    myProjectModulesAndFiles.forget(file, module);
+    if (!myProjectModulesAndFiles.isAnyModuleTrackedFor(file)) {
+      // if there are few modules in a file, removal of one of them shall not leave us here without notifications for others.
+      file.removeListener(myRedispatchListener);
     }
   }
 

@@ -59,7 +59,7 @@ import java.io.IOException;
 )
 public class StandaloneMPSProject extends MPSProject implements PersistentStateComponent<Element> {
   private static final Logger LOG = LogManager.getLogger(StandaloneMPSProject.class);
-  private ProjectModuleFileChangeListener myListener;
+  private ModuleFileChangeListener myListener;
   private final VFSManager myManager;
 
   // AP fixme must be final, however StandaloneMpsProject exposes it (a client can publicly reset the project descriptor)
@@ -111,7 +111,7 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
 
   @Override
   public void initComponent() {
-    myListener = new ProjectModuleFileChangeListener(this);
+    myListener = new ModuleFileChangeListener(this);
     addListener(myListener);
     super.initComponent();
   }
