@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ public class MPSProject extends ProjectBase implements FileBasedProject, Project
   // with respect to shared model lock object from its smodel.ModelAccess superclass. Once each MA has own
   // model lock object and executeCommand* implementations, we won't need this WMA parameter
   public MPSProject(@NotNull com.intellij.openapi.project.Project project, MPSCoreComponents mpsCore, IdeaFileSystem ideaFS) {
-    super(new ProjectDescriptor(project.getName()), mpsCore.getPlatform(), false);
+    super(project.getName(), mpsCore.getPlatform(), false);
     myProject = project;
     myProjectFileSystem = ideaFS;
     project.getService(ProjectRootListenerComponent.class).boostProjectRead(ideaFS);

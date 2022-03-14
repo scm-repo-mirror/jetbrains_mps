@@ -146,6 +146,7 @@ public final class ProjectModuleFileChangeListener implements ProjectModuleLoadi
 
   @Override
   public void moduleLoaded(ModulePath modulePath, @NotNull SModule module) {
+    // FIXME I see no reason for this instanceof check
     if (module instanceof AbstractModule) {
       final IFile file = getProjectFS().getFile(modulePath.getPath());
       myProjectModulesAndFiles.track(file, module);

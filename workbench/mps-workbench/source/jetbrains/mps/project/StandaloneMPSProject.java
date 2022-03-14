@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
-import jetbrains.mps.ide.vfs.ProjectRootListenerComponent;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
@@ -42,8 +41,6 @@ import org.jetbrains.mps.openapi.module.SModule;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * This class is for MPS as a standalone IDE, while MPSProject is in use in MPS as IDEA plugin.
@@ -65,10 +62,14 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
   private ProjectModuleFileChangeListener myListener;
   private final VFSManager myManager;
 
+  // AP fixme must be final, however StandaloneMpsProject exposes it (a client can publicly reset the project descriptor)
+  private ProjectDescriptor myProjectDescriptor;
+
   @SuppressWarnings("UnusedParameters")
   public StandaloneMPSProject(final Project project, ProjectLibraryManager projectLibraryManager,
                               MPSCoreComponents mpsCore, IdeaFileSystem ideaFS) {
     super(project, mpsCore, ideaFS);
+    myProjectDescriptor = new ProjectDescriptor(project.getName());
     myManager = mpsCore.getPlatform().findComponent(VFSManager.class);
   }
 
@@ -92,7 +93,7 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
   public void loadState(@NotNull Element state) {
     LOG.info("Loading the project '" + getName() + "' from disk");
     if (!getProject().isDefault()) {
-      loadDescriptor(new ElementProjectDataSource(state, getProjectFile()));
+      myProjectDescriptor = new ElementProjectDataSource(state, getProjectFile()).loadDescriptor();
       if (ProjectManager.getInstance().getOpenedProjects().contains(this)) {
         update();
       }
@@ -121,11 +122,6 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
     removeListener(myListener);
   }
 
-  @NotNull
-  public List<ModulePath> getAllModulePaths() {
-    return Collections.unmodifiableList(myProjectDescriptor.getModulePaths());
-  }
-
   // todo remove; project descriptor is its internal substance which represents the persistence data
   @NotNull
   @Deprecated(since = "3.3", forRemoval = true)
@@ -149,7 +145,10 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
       if (progressIndicator != null) {
         progressIndicator.setText2("Loading project modules");
       }
-      super.update();
+      getModelAccess().runWriteAction(() -> {
+        loadModules(myProjectDescriptor.getModulePaths());
+        fireModulesLoaded();
+      });
       if (progressIndicator != null) {
         progressIndicator.setText2("");
       }

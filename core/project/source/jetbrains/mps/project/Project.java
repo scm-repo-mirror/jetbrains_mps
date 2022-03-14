@@ -28,7 +28,6 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
@@ -88,9 +87,12 @@ public abstract class Project implements MPSModuleOwner, IProject {
     return myRepository.getModelAccess();
   }
 
+  // FIXME why it's deprecated?! why there's name argument in the cons then?
   @NotNull
   @Deprecated(since = "3.4", forRemoval = true)
-  public abstract String getName();
+  public String getName() {
+    return myName;
+  }
 
   public abstract <T> T getComponent(Class<T> t);
 

@@ -10,13 +10,13 @@ import org.apache.log4j.LogManager;
 import java.io.File;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.platform.Platform;
-import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.util.MacrosFactory;
 import java.io.IOException;
 import org.apache.log4j.Level;
+import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
 import org.jetbrains.annotations.Nullable;
 import org.jdom.Element;
@@ -28,7 +28,7 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   private final File myProjectFile;
 
   public FileMPSProject(@NotNull File file, @NotNull Platform mpsPlatform) {
-    super(new ProjectDescriptor(file.getName()), mpsPlatform);
+    super(file.getName(), mpsPlatform);
     myProjectFile = file;
     init();
   }
@@ -36,7 +36,7 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   @NotNull
   private MacroHelper createMacroHelper() {
     // todo [MM] investigate why it fails when using just path (where those . and .. come from)
-    // XXX here uses to be LocalIoFileSystem.getInstance, therefore I stick to JAVA_IO_FILE_FS, not just FILE_FS, thoufh see no apparent reason to be that specific.
+    // XXX here uses to be LocalIoFileSystem.getInstance, therefore I stick to JAVA_IO_FILE_FS, not just FILE_FS, though see no apparent reason to be that specific.
     IFileSystem fs = getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.JAVA_IO_FILE_FS);
     return MacrosFactory.forProjectFile(fs.getFile(getProjectFile()));
   }
@@ -57,7 +57,9 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   @Override
   public void save() {
     MacroHelper helper = createMacroHelper();
-    new ProjectDescriptorPersistence(getProjectFile(), helper).save(myProjectDescriptor);
+    ProjectDescriptor pd = new ProjectDescriptor(getName());
+    allModulePaths().forEach(pd::addModulePath);
+    new ProjectDescriptorPersistence(getProjectFile(), helper).save(pd);
   }
 
   /**
@@ -70,15 +72,19 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   }
 
   private void init() {
-    loadProjectDescriptorWithMacros();
     update();
     projectOpened();
   }
 
-  private void loadProjectDescriptorWithMacros() {
-    loadDescriptor(new ElementProjectDataSource(getElement(), getProjectFile(), createMacroHelper()));
-  }
 
+  @Override
+  protected void update() {
+    getModelAccess().runWriteAction(() -> {
+      ProjectDescriptor pd = new ElementProjectDataSource(getElement(), getProjectFile(), createMacroHelper()).loadDescriptor();
+      loadModules(pd.getModulePaths());
+      fireModulesLoaded();
+    });
+  }
 
   @Override
   public void dispose() {
