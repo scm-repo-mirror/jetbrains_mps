@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -82,7 +82,7 @@ public final class ModuleDeleteHelper {
 
     // these generators to be removed along with their owning language
     ArrayList<Generator> ownedGenerators = new ArrayList<>();
-    // these generators either standalone (*FUTURE*) or part of a language that is not, perhaps (!), among those to be deleted
+    // these generators either standalone or part of a language that is not among those to be deleted
     // need special care not to remove owning language (if share .mpl/descriptor file)
     ArrayList<Generator> unascribedGenerators = new ArrayList<>();
     for (SModule m : modules) {
@@ -107,11 +107,8 @@ public final class ModuleDeleteHelper {
       modules.forEach(this::collectModuleFilesToDelete);
     }
 
-    // get a copy of project modules in advance, justin case any of unascribedGenerators is top-level standalone generator
-    // facade.unregister() for such a module makes project state invalid, subsequent getProjectModules() fails to resolve the module and reports an error
-    // FIXME this whole piece of code needs thorough rewrite with respect to changed logic in Project's addModule/removeModule methods, namely who is
-    //       responsible to register/unregister modules now.
-    final List<SModule> projectModulesNoNestedGenerators = myProject.getProjectModules();
+    // get a copy of all project modules in advance as project modules need special treatment and facade.unregisterModule is not enough for them
+    final List<SModule> projectModulesWithNestedGenerators = myProject.getProjectModulesWithGenerators();
 
     ModuleRepositoryFacade facade = new ModuleRepositoryFacade(myProject.getRepository());
 
@@ -131,7 +128,7 @@ public final class ModuleDeleteHelper {
           collectModelsAndArtifactsToDelete(g);
         }
       }
-      if (projectModulesNoNestedGenerators.contains(g)) {
+      if (projectModulesWithNestedGenerators.contains(g)) {
         myProject.removeModule(g);
       } else {
         facade.unregisterModule(g);
@@ -139,11 +136,12 @@ public final class ModuleDeleteHelper {
       unregisterGeneratorFromLanguage(generatorDescriptor);
     }
 
-    // owned generators are not "project modules", just report them to SRepository
-    ownedGenerators.forEach(facade::unregisterModule);
-    // while those in 'modules' might be part of the project and needs special treatment to get unregistered
+    // owned generators are now "project modules", add owned generators back to the collection
+    // for further processing. Those part of the project need special treatment to get unregistered.
+    modules.addAll(ownedGenerators);
+    // while those in 'modules'
     for (SModule m : modules) {
-      if (projectModulesNoNestedGenerators.contains(m)) {
+      if (projectModulesWithNestedGenerators.contains(m)) {
         // FIXME it's odd to have if/else to unregister a module. I'd prefer unconditional facade.unregisterModule() for every module
         //       with subsequent myProject.modulesRemoved(modules) notification so that the project can update its state. Is it feasible?
         myProject.removeModule(m);
