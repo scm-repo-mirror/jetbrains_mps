@@ -28363,5 +28363,249 @@
       </node>
     </node>
   </node>
+  <node concept="2S6QgY" id="2c6AtCMTWKJ">
+    <property role="3GE5qa" value="classifiers" />
+    <property role="TrG5h" value="ToggleIndividualDotExpressionLineStyle" />
+    <property role="2ZfUl0" value="true" />
+    <ref role="2ZfgGC" to="tpee:hqOqwz4" resolve="DotExpression" />
+    <node concept="2S6ZIM" id="2c6AtCMTWKK" role="2ZfVej">
+      <node concept="3clFbS" id="2c6AtCMTWKL" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCMTXHJ" role="3cqZAp">
+          <node concept="3cpWs3" id="2c6AtCN5b4Y" role="3clFbG">
+            <node concept="Xl_RD" id="2c6AtCN5b6Y" role="3uHU7B">
+              <property role="Xl_RC" value="Make Dot Expression " />
+            </node>
+            <node concept="1eOMI4" id="2c6AtCN5c3Y" role="3uHU7w">
+              <node concept="3K4zz7" id="2c6AtCMTXHF" role="1eOMHV">
+                <node concept="Xl_RD" id="2c6AtCMTYzh" role="3K4E3e">
+                  <property role="Xl_RC" value="Single-line" />
+                </node>
+                <node concept="Xl_RD" id="2c6AtCMTYT2" role="3K4GZi">
+                  <property role="Xl_RC" value="Multi-line" />
+                </node>
+                <node concept="2OqwBi" id="2c6AtCMTY49" role="3K4Cdx">
+                  <node concept="2Sf5sV" id="2c6AtCMTXOi" role="2Oq$k0" />
+                  <node concept="3TrcHB" id="2c6AtCMTYt6" role="2OqNvi">
+                    <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="2c6AtCMTWKM" role="2ZfgGD">
+      <node concept="3clFbS" id="2c6AtCMTWKN" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCMU1J0" role="3cqZAp">
+          <node concept="37vLTI" id="2c6AtCMU2Eg" role="3clFbG">
+            <node concept="3fqX7Q" id="2c6AtCMU3GX" role="37vLTx">
+              <node concept="2OqwBi" id="2c6AtCMU3GZ" role="3fr31v">
+                <node concept="2Sf5sV" id="2c6AtCMU3H0" role="2Oq$k0" />
+                <node concept="3TrcHB" id="2c6AtCMU3H1" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="2c6AtCMU1Vv" role="37vLTJ">
+              <node concept="2Sf5sV" id="2c6AtCMU1IZ" role="2Oq$k0" />
+              <node concept="3TrcHB" id="2c6AtCMU2eb" role="2OqNvi">
+                <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="zTJ1e" id="2c6AtCMTZH1" role="2ZfVeg">
+      <node concept="3clFbS" id="2c6AtCMTZH2" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCMTZP5" role="3cqZAp">
+          <node concept="17R0WA" id="2c6AtCMU0DN" role="3clFbG">
+            <node concept="2Sf5sV" id="2c6AtCMU0LA" role="3uHU7w" />
+            <node concept="2OqwBi" id="2c6AtCMTZYC" role="3uHU7B">
+              <node concept="zTJq_" id="2c6AtCMTZP4" role="2Oq$k0" />
+              <node concept="1mfA1w" id="2c6AtCMU0ks" role="2OqNvi" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="2c6AtCN5cfx">
+    <property role="3GE5qa" value="classifiers" />
+    <property role="TrG5h" value="SetMultilineDotExpressionLineStyle" />
+    <property role="2ZfUl0" value="true" />
+    <ref role="2ZfgGC" to="tpee:hqOqwz4" resolve="DotExpression" />
+    <node concept="2S6ZIM" id="2c6AtCN5cfy" role="2ZfVej">
+      <node concept="3clFbS" id="2c6AtCN5cfz" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN5cNs" role="3cqZAp">
+          <node concept="Xl_RD" id="2c6AtCN5cNr" role="3clFbG">
+            <property role="Xl_RC" value="Set Style for Dot Expressions to Multi-line" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="2c6AtCN5cf$" role="2ZfgGD">
+      <node concept="3clFbS" id="2c6AtCN5cf_" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN64Gq" role="3cqZAp">
+          <node concept="2OqwBi" id="2c6AtCN67Ta" role="3clFbG">
+            <node concept="2OqwBi" id="2c6AtCN64PI" role="2Oq$k0">
+              <node concept="2Sf5sV" id="2c6AtCN64Gp" role="2Oq$k0" />
+              <node concept="2qgKlT" id="2c6AtCN65pf" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:2c6AtCN58E1" resolve="getAllDots" />
+              </node>
+            </node>
+            <node concept="2es0OD" id="2c6AtCN6bNK" role="2OqNvi">
+              <node concept="1bVj0M" id="2c6AtCN6bNM" role="23t8la">
+                <node concept="3clFbS" id="2c6AtCN6bNN" role="1bW5cS">
+                  <node concept="3clFbF" id="2c6AtCN6bTK" role="3cqZAp">
+                    <node concept="37vLTI" id="2c6AtCN6dbY" role="3clFbG">
+                      <node concept="3clFbT" id="2c6AtCN6des" role="37vLTx">
+                        <property role="3clFbU" value="true" />
+                      </node>
+                      <node concept="2OqwBi" id="2c6AtCN6c4E" role="37vLTJ">
+                        <node concept="37vLTw" id="2c6AtCN6bTJ" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2c6AtCN6bNO" resolve="it" />
+                        </node>
+                        <node concept="3TrcHB" id="2c6AtCN6cwE" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="2c6AtCN6bNO" role="1bW2Oz">
+                  <property role="TrG5h" value="it" />
+                  <node concept="2jxLKc" id="2c6AtCN6bNP" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2SaL7w" id="2c6AtCN5iM4" role="2ZfVeh">
+      <node concept="3clFbS" id="2c6AtCN5iM5" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN5UYx" role="3cqZAp">
+          <node concept="2OqwBi" id="2c6AtCN5ZSb" role="3clFbG">
+            <node concept="2OqwBi" id="2c6AtCN5VdI" role="2Oq$k0">
+              <node concept="2Sf5sV" id="2c6AtCN5UYw" role="2Oq$k0" />
+              <node concept="2qgKlT" id="2c6AtCN5V$s" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:2c6AtCN58E1" resolve="getAllDots" />
+              </node>
+            </node>
+            <node concept="2HwmR7" id="2c6AtCN63p5" role="2OqNvi">
+              <node concept="1bVj0M" id="2c6AtCN63p7" role="23t8la">
+                <node concept="3clFbS" id="2c6AtCN63p8" role="1bW5cS">
+                  <node concept="3clFbF" id="2c6AtCN63z0" role="3cqZAp">
+                    <node concept="3fqX7Q" id="2c6AtCN64tB" role="3clFbG">
+                      <node concept="2OqwBi" id="2c6AtCN64tD" role="3fr31v">
+                        <node concept="37vLTw" id="2c6AtCN64tE" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2c6AtCN63p9" resolve="it" />
+                        </node>
+                        <node concept="3TrcHB" id="2c6AtCN64tF" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="2c6AtCN63p9" role="1bW2Oz">
+                  <property role="TrG5h" value="it" />
+                  <node concept="2jxLKc" id="2c6AtCN63pa" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="2S6QgY" id="2c6AtCN6doq">
+    <property role="3GE5qa" value="classifiers" />
+    <property role="TrG5h" value="SetSinglelineDotExpressionLineStyle" />
+    <property role="2ZfUl0" value="true" />
+    <ref role="2ZfgGC" to="tpee:hqOqwz4" resolve="DotExpression" />
+    <node concept="2S6ZIM" id="2c6AtCN6dor" role="2ZfVej">
+      <node concept="3clFbS" id="2c6AtCN6dos" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN6dot" role="3cqZAp">
+          <node concept="Xl_RD" id="2c6AtCN6dou" role="3clFbG">
+            <property role="Xl_RC" value="Set Style for Dot Expressions to Single-line" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2Sbjvc" id="2c6AtCN6dov" role="2ZfgGD">
+      <node concept="3clFbS" id="2c6AtCN6dow" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN6dox" role="3cqZAp">
+          <node concept="2OqwBi" id="2c6AtCN6doy" role="3clFbG">
+            <node concept="2OqwBi" id="2c6AtCN6doz" role="2Oq$k0">
+              <node concept="2Sf5sV" id="2c6AtCN6do$" role="2Oq$k0" />
+              <node concept="2qgKlT" id="2c6AtCN6do_" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:2c6AtCN58E1" resolve="getAllDots" />
+              </node>
+            </node>
+            <node concept="2es0OD" id="2c6AtCN6doA" role="2OqNvi">
+              <node concept="1bVj0M" id="2c6AtCN6doB" role="23t8la">
+                <node concept="3clFbS" id="2c6AtCN6doC" role="1bW5cS">
+                  <node concept="3clFbF" id="2c6AtCN6doD" role="3cqZAp">
+                    <node concept="37vLTI" id="2c6AtCN6doE" role="3clFbG">
+                      <node concept="3clFbT" id="2c6AtCN6doF" role="37vLTx" />
+                      <node concept="2OqwBi" id="2c6AtCN6doG" role="37vLTJ">
+                        <node concept="37vLTw" id="2c6AtCN6doH" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2c6AtCN6doJ" resolve="it" />
+                        </node>
+                        <node concept="3TrcHB" id="2c6AtCN6doI" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="2c6AtCN6doJ" role="1bW2Oz">
+                  <property role="TrG5h" value="it" />
+                  <node concept="2jxLKc" id="2c6AtCN6doK" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2SaL7w" id="2c6AtCN6doL" role="2ZfVeh">
+      <node concept="3clFbS" id="2c6AtCN6doM" role="2VODD2">
+        <node concept="3clFbF" id="2c6AtCN6doN" role="3cqZAp">
+          <node concept="2OqwBi" id="2c6AtCN6doO" role="3clFbG">
+            <node concept="2OqwBi" id="2c6AtCN6doP" role="2Oq$k0">
+              <node concept="2Sf5sV" id="2c6AtCN6doQ" role="2Oq$k0" />
+              <node concept="2qgKlT" id="2c6AtCN6doR" role="2OqNvi">
+                <ref role="37wK5l" to="tpek:2c6AtCN58E1" resolve="getAllDots" />
+              </node>
+            </node>
+            <node concept="2HwmR7" id="2c6AtCN6doS" role="2OqNvi">
+              <node concept="1bVj0M" id="2c6AtCN6doT" role="23t8la">
+                <node concept="3clFbS" id="2c6AtCN6doU" role="1bW5cS">
+                  <node concept="3clFbF" id="2c6AtCN6doV" role="3cqZAp">
+                    <node concept="2OqwBi" id="2c6AtCN6doX" role="3clFbG">
+                      <node concept="37vLTw" id="2c6AtCN6doY" role="2Oq$k0">
+                        <ref role="3cqZAo" node="2c6AtCN6dp0" resolve="it" />
+                      </node>
+                      <node concept="3TrcHB" id="2c6AtCN6doZ" role="2OqNvi">
+                        <ref role="3TsBF5" to="tpee:2c6AtCMTUS5" resolve="isMultiline" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="2c6AtCN6dp0" role="1bW2Oz">
+                  <property role="TrG5h" value="it" />
+                  <node concept="2jxLKc" id="2c6AtCN6dp1" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

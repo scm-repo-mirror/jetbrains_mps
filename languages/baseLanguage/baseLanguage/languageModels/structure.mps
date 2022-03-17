@@ -2358,6 +2358,11 @@
     <property role="3GE5qa" value="classifiers" />
     <property role="EcuMT" value="1197027756228" />
     <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
+    <node concept="1TJgyi" id="2c6AtCMTUS5" role="1TKVEl">
+      <property role="IQ2nx" value="2523873803623706117" />
+      <property role="TrG5h" value="isMultiline" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
     <node concept="PrWs8" id="1wHCnsn5Tm9" role="PzmwI">
       <ref role="PrY4T" node="1wHCnsn58oY" resolve="IBinaryLike" />
     </node>

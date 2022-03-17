@@ -16,6 +16,9 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -36,8 +39,9 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> getSyntacticallyLeftSideExpression_id1wHCnsn590c = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1wHCnsn590c").build();
   public static final SMethod<Void> setSyntacticallyLeftSideExpression_id1wHCnsn58ZK = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setSyntacticallyLeftSideExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1wHCnsn58ZK").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<PrecedenceUtil.Precedence> getPrecedenceLevel_id1O90zDONSxM = new SMethodBuilder<PrecedenceUtil.Precedence>(new SJavaCompoundTypeImpl(PrecedenceUtil.Precedence.class)).name("getPrecedenceLevel").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).id("1O90zDONSxM").build();
+  public static final SMethod<List<SNode>> getAllDots_id2c6AtCN58E1 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAllDots").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2c6AtCN58E1").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, getClassifier_idhEwIPI9, getOperandType_id7GulAc9z0dN, getVariableExpectedName_idhEwJgm_, isLegalAsStatement_idi26MfYG, allowsNullOperand_id3Yy2P0QQESt, lvalue_id1653mnvAgpj, getSyntacticallyLeftSideExpression_id1wHCnsn590c, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, getPrecedenceLevel_id1O90zDONSxM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwJgmE, getClassifier_idhEwIPI9, getOperandType_id7GulAc9z0dN, getVariableExpectedName_idhEwJgm_, isLegalAsStatement_idi26MfYG, allowsNullOperand_id3Yy2P0QQESt, lvalue_id1653mnvAgpj, getSyntacticallyLeftSideExpression_id1wHCnsn590c, setSyntacticallyLeftSideExpression_id1wHCnsn58ZK, getPrecedenceLevel_id1O90zDONSxM, getAllDots_id2c6AtCN58E1);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -72,6 +76,22 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static PrecedenceUtil.Precedence getPrecedenceLevel_id1O90zDONSxM(@NotNull SAbstractConcept __thisConcept__) {
     return PrecedenceUtil.Precedence.DOT_EXPRESSION;
   }
+  /*package*/ static List<SNode> getAllDots_id2c6AtCN58E1(@NotNull SNode __thisNode__) {
+    List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
+    SNode currentDot = __thisNode__;
+    ListSequence.fromList(result).addElement(currentDot);
+    while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(currentDot), CONCEPTS.DotExpression$yW)) {
+      currentDot = SNodeOperations.as(SNodeOperations.getParent(currentDot), CONCEPTS.DotExpression$yW);
+      ListSequence.fromList(result).addElement(currentDot);
+    }
+
+    currentDot = __thisNode__;
+    while (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(currentDot, LINKS.operand$w6IR), CONCEPTS.DotExpression$yW)) {
+      currentDot = SNodeOperations.as(SLinkOperations.getTarget(currentDot, LINKS.operand$w6IR), CONCEPTS.DotExpression$yW);
+      ListSequence.fromList(result).addElement(currentDot);
+    }
+    return result;
+  }
 
   /*package*/ DotExpression__BehaviorDescriptor() {
   }
@@ -105,6 +125,8 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
       case 8:
         setSyntacticallyLeftSideExpression_id1wHCnsn58ZK(node, (SNode) parameters[0]);
         return null;
+      case 10:
+        return (T) ((List<SNode>) getAllDots_id2c6AtCN58E1(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -146,5 +168,6 @@ public final class DotExpression__BehaviorDescriptor extends BaseBHDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept DotExpression$yW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
   }
 }
