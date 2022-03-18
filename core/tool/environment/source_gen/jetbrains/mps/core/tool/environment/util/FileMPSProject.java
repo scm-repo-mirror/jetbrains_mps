@@ -18,9 +18,6 @@ import java.io.IOException;
 import org.apache.log4j.Level;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
-import org.jetbrains.annotations.Nullable;
-import org.jdom.Element;
-import jetbrains.mps.project.ElementProjectDataSource;
 
 @GeneratedClass(node = "r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)/2546981710035458892", model = "r:a139668a-5a0e-46e2-a802-102190e497e5(jetbrains.mps.core.tool.environment.util)")
 public class FileMPSProject extends ProjectBase implements FileBasedProject {
@@ -56,19 +53,15 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
 
   @Override
   public void save() {
-    MacroHelper helper = createMacroHelper();
-    ProjectDescriptor pd = new ProjectDescriptor(getName());
-    allModulePaths().forEach(pd::addModulePath);
-    new ProjectDescriptorPersistence(getProjectFile(), helper).save(pd);
-  }
-
-  /**
-   * 
-   * @return the element with xml description of the project
-   */
-  @Nullable
-  private Element getElement() {
-    return new ProjectDescriptorPersistence(getProjectFile(), createMacroHelper()).loadProjectElement();
+    try {
+      MacroHelper helper = createMacroHelper();
+      ProjectDescriptor pd = new ProjectDescriptor(getName());
+      allModulePaths().forEach(pd::addModulePath);
+      new ProjectDescriptorPersistence(getProjectFile(), helper).saveToFile(pd);
+    } catch (IOException ex) {
+      // FIXME log or report otherwise
+      ex.printStackTrace();
+    }
   }
 
   private void init() {
@@ -80,7 +73,7 @@ public class FileMPSProject extends ProjectBase implements FileBasedProject {
   @Override
   protected void update() {
     getModelAccess().runWriteAction(() -> {
-      ProjectDescriptor pd = new ElementProjectDataSource(getElement(), getProjectFile(), createMacroHelper()).loadDescriptor();
+      ProjectDescriptor pd = new ProjectDescriptorPersistence(getProjectFile(), createMacroHelper()).loadFromFile();
       loadModules(pd.getModulePaths());
       fireModulesLoaded();
     });

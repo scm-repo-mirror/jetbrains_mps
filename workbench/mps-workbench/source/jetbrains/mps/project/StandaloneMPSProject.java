@@ -82,11 +82,11 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
     return new ModelAccessHelper(getModelAccess()).runReadAction(() -> {
       ProjectDescriptor descriptor = getProjectDescriptor();
 
-      String presentableUrl = getProject().getPresentableUrl();
-      assert presentableUrl != null; // by contract the project is default <=> url == null
-      File projectFile = new File(presentableUrl);
-      IFile file = myManager.getFileSystem(VFSManager.FILE_FS).getFile(projectFile);
-      return new ProjectDescriptorPersistence(projectFile, MacrosFactory.forProjectFile(file)).save(descriptor);
+      // getProjectFile() uses ideaProject.getPresentableUrl. By contract the project is default <=> presentable url == null
+      IFile projectFile = myManager.getFileSystem(VFSManager.FILE_FS).getFile(getProjectFile());
+      // IDEA expands $PROJECT_DIR$ for us in loadState, but here we need to give paths with the right macro, and
+      //      MacrosFactory.forProjectFile does this.
+      return new ProjectDescriptorPersistence(projectFile, MacrosFactory.forProjectFile(projectFile)).save(descriptor);
     });
   }
 
@@ -94,8 +94,9 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
   public void loadState(@NotNull Element state) {
     LOG.info("Loading the project '" + getName() + "' from disk");
     if (!getProject().isDefault()) {
+      IFile projectFile = myManager.getFileSystem(VFSManager.FILE_FS).getFile(getProjectFile());
       // here, global macro helper is ok, as it's IDEA's responsibility to expand $PROJECT_DIR$ in modules.xml
-      myProjectDescriptor = new ElementProjectDataSource(state, getProjectFile()).loadDescriptor();
+      myProjectDescriptor = new ProjectDescriptorPersistence(projectFile, MacrosFactory.getGlobal()).load(state);
       if (ProjectManager.getInstance().getOpenedProjects().contains(this)) {
         update();
       }

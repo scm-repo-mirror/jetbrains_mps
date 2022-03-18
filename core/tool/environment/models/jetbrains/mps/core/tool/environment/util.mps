@@ -15,7 +15,6 @@
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="mmaq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.jdom(MPS.Core/)" />
     <import index="y8s3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project.structure.project(MPS.Core/)" />
     <import index="4o98" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.core.platform(MPS.Core/)" />
     <import index="gn4j" ref="r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)" />
@@ -172,15 +171,6 @@
         <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
-    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
-      <concept id="5858074156537516430" name="jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag" flags="ng" index="x79VA">
-        <property id="5858074156537516431" name="text" index="x79VB" />
-      </concept>
-      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
-        <child id="5383422241790532083" name="tags" index="3nqlJM" />
-      </concept>
-      <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
-    </language>
     <language id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences">
       <concept id="237887375562511215" name="jetbrains.mps.baseLanguage.methodReferences.structure.MethodReference" flags="ng" index="37Ijox" />
       <concept id="3507059745126391419" name="jetbrains.mps.baseLanguage.methodReferences.structure.IMethodReference" flags="ng" index="3UZKCU">
@@ -196,9 +186,6 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
-      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
-        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
-      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
@@ -753,67 +740,112 @@
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="15VbAzMFkQj" role="3clF47">
-        <node concept="3cpWs8" id="3RkWhWCOZPE" role="3cqZAp">
-          <node concept="3cpWsn" id="3RkWhWCOZPF" role="3cpWs9">
-            <property role="TrG5h" value="helper" />
-            <node concept="3uibUv" id="3RkWhWCOZPG" role="1tU5fm">
-              <ref role="3uigEE" to="18ew:~MacroHelper" resolve="MacroHelper" />
+        <node concept="3J1_TO" id="3WnEHxCP63A" role="3cqZAp">
+          <node concept="3uVAMA" id="3WnEHxCP6Iw" role="1zxBo5">
+            <node concept="XOnhg" id="3WnEHxCP6Ix" role="1zc67B">
+              <property role="TrG5h" value="ex" />
+              <node concept="nSUau" id="3WnEHxCP6Iy" role="1tU5fm">
+                <node concept="3uibUv" id="3WnEHxCP7pG" role="nSUat">
+                  <ref role="3uigEE" to="guwi:~IOException" resolve="IOException" />
+                </node>
+              </node>
             </node>
-            <node concept="1rXfSq" id="3RkWhWCOZR_" role="33vP2m">
-              <ref role="37wK5l" node="3RkWhWCOXmb" resolve="createMacroHelper" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs8" id="6wBM5jhYytS" role="3cqZAp">
-          <node concept="3cpWsn" id="6wBM5jhYytT" role="3cpWs9">
-            <property role="TrG5h" value="pd" />
-            <node concept="3uibUv" id="6wBM5jhYytU" role="1tU5fm">
-              <ref role="3uigEE" to="y8s3:~ProjectDescriptor" resolve="ProjectDescriptor" />
-            </node>
-            <node concept="2ShNRf" id="6wBM5jhYzVa" role="33vP2m">
-              <node concept="1pGfFk" id="6wBM5jhYAZT" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="y8s3:~ProjectDescriptor.&lt;init&gt;(java.lang.String)" resolve="ProjectDescriptor" />
-                <node concept="1rXfSq" id="6wBM5jhYByu" role="37wK5m">
-                  <ref role="37wK5l" node="2doG_VG59H$" resolve="getName" />
+            <node concept="3clFbS" id="3WnEHxCP6Iz" role="1zc67A">
+              <node concept="3SKdUt" id="3WnEHxCPd6V" role="3cqZAp">
+                <node concept="1PaTwC" id="3WnEHxCPd6W" role="1aUNEU">
+                  <node concept="3oM_SD" id="3WnEHxCPdIM" role="1PaTwD">
+                    <property role="3oM_SC" value="FIXME" />
+                  </node>
+                  <node concept="3oM_SD" id="3WnEHxCPdIO" role="1PaTwD">
+                    <property role="3oM_SC" value="log" />
+                  </node>
+                  <node concept="3oM_SD" id="3WnEHxCPdIR" role="1PaTwD">
+                    <property role="3oM_SC" value="or" />
+                  </node>
+                  <node concept="3oM_SD" id="3WnEHxCPdIV" role="1PaTwD">
+                    <property role="3oM_SC" value="report" />
+                  </node>
+                  <node concept="3oM_SD" id="3WnEHxCPdJ0" role="1PaTwD">
+                    <property role="3oM_SC" value="otherwise" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbF" id="3WnEHxCPaiK" role="3cqZAp">
+                <node concept="2OqwBi" id="3WnEHxCPb7g" role="3clFbG">
+                  <node concept="37vLTw" id="3WnEHxCPaiJ" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3WnEHxCP6Ix" resolve="ex" />
+                  </node>
+                  <node concept="liA8E" id="3WnEHxCPbR6" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~Throwable.printStackTrace()" resolve="printStackTrace" />
+                  </node>
                 </node>
               </node>
             </node>
           </node>
-        </node>
-        <node concept="3clFbF" id="6wBM5jhYCrq" role="3cqZAp">
-          <node concept="2OqwBi" id="6wBM5jhYEHg" role="3clFbG">
-            <node concept="1rXfSq" id="6wBM5jhYCro" role="2Oq$k0">
-              <ref role="37wK5l" to="z1c3:~ProjectBase.allModulePaths()" resolve="allModulePaths" />
-            </node>
-            <node concept="liA8E" id="6wBM5jhYG_w" role="2OqNvi">
-              <ref role="37wK5l" to="1ctc:~Stream.forEach(java.util.function.Consumer)" resolve="forEach" />
-              <node concept="37Ijox" id="6wBM5jhYI0N" role="37wK5m">
-                <ref role="37Ijqf" to="y8s3:~ProjectDescriptor.addModulePath(jetbrains.mps.project.structure.project.ModulePath)" resolve="addModulePath" />
-                <node concept="37vLTw" id="6wBM5jhYHkP" role="wWaWy">
-                  <ref role="3cqZAo" node="6wBM5jhYytT" resolve="pd" />
+          <node concept="3clFbS" id="3WnEHxCP63C" role="1zxBo7">
+            <node concept="3cpWs8" id="3RkWhWCOZPE" role="3cqZAp">
+              <node concept="3cpWsn" id="3RkWhWCOZPF" role="3cpWs9">
+                <property role="TrG5h" value="helper" />
+                <node concept="3uibUv" id="3RkWhWCOZPG" role="1tU5fm">
+                  <ref role="3uigEE" to="18ew:~MacroHelper" resolve="MacroHelper" />
+                </node>
+                <node concept="1rXfSq" id="3RkWhWCOZR_" role="33vP2m">
+                  <ref role="37wK5l" node="3RkWhWCOXmb" resolve="createMacroHelper" />
                 </node>
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="3RkWhWCOZSK" role="3cqZAp">
-          <node concept="2OqwBi" id="3RkWhWCP0xm" role="3clFbG">
-            <node concept="2ShNRf" id="3RkWhWCOZSG" role="2Oq$k0">
-              <node concept="1pGfFk" id="3RkWhWCP0pI" role="2ShVmc">
-                <ref role="37wK5l" to="gn4j:4F07P_yBO_t" resolve="ProjectDescriptorPersistence" />
-                <node concept="1rXfSq" id="3RkWhWCP0rx" role="37wK5m">
-                  <ref role="37wK5l" node="15VbAzMFx6R" resolve="getProjectFile" />
+            <node concept="3cpWs8" id="6wBM5jhYytS" role="3cqZAp">
+              <node concept="3cpWsn" id="6wBM5jhYytT" role="3cpWs9">
+                <property role="TrG5h" value="pd" />
+                <node concept="3uibUv" id="6wBM5jhYytU" role="1tU5fm">
+                  <ref role="3uigEE" to="y8s3:~ProjectDescriptor" resolve="ProjectDescriptor" />
                 </node>
-                <node concept="37vLTw" id="3RkWhWCP0u8" role="37wK5m">
-                  <ref role="3cqZAo" node="3RkWhWCOZPF" resolve="helper" />
+                <node concept="2ShNRf" id="6wBM5jhYzVa" role="33vP2m">
+                  <node concept="1pGfFk" id="6wBM5jhYAZT" role="2ShVmc">
+                    <property role="373rjd" value="true" />
+                    <ref role="37wK5l" to="y8s3:~ProjectDescriptor.&lt;init&gt;(java.lang.String)" resolve="ProjectDescriptor" />
+                    <node concept="1rXfSq" id="6wBM5jhYByu" role="37wK5m">
+                      <ref role="37wK5l" node="2doG_VG59H$" resolve="getName" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
-            <node concept="liA8E" id="3RkWhWCP0$l" role="2OqNvi">
-              <ref role="37wK5l" to="gn4j:3v_OXaS41F3" resolve="save" />
-              <node concept="37vLTw" id="3RkWhWCP0AH" role="37wK5m">
-                <ref role="3cqZAo" node="6wBM5jhYytT" resolve="pd" />
+            <node concept="3clFbF" id="6wBM5jhYCrq" role="3cqZAp">
+              <node concept="2OqwBi" id="6wBM5jhYEHg" role="3clFbG">
+                <node concept="1rXfSq" id="6wBM5jhYCro" role="2Oq$k0">
+                  <ref role="37wK5l" to="z1c3:~ProjectBase.allModulePaths()" resolve="allModulePaths" />
+                </node>
+                <node concept="liA8E" id="6wBM5jhYG_w" role="2OqNvi">
+                  <ref role="37wK5l" to="1ctc:~Stream.forEach(java.util.function.Consumer)" resolve="forEach" />
+                  <node concept="37Ijox" id="6wBM5jhYI0N" role="37wK5m">
+                    <ref role="37Ijqf" to="y8s3:~ProjectDescriptor.addModulePath(jetbrains.mps.project.structure.project.ModulePath)" resolve="addModulePath" />
+                    <node concept="37vLTw" id="6wBM5jhYHkP" role="wWaWy">
+                      <ref role="3cqZAo" node="6wBM5jhYytT" resolve="pd" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="3RkWhWCOZSK" role="3cqZAp">
+              <node concept="2OqwBi" id="3RkWhWCP0xm" role="3clFbG">
+                <node concept="2ShNRf" id="3RkWhWCOZSG" role="2Oq$k0">
+                  <node concept="1pGfFk" id="3RkWhWCP0pI" role="2ShVmc">
+                    <ref role="37wK5l" to="gn4j:4F07P_yBO_t" resolve="ProjectDescriptorPersistence" />
+                    <node concept="1rXfSq" id="3RkWhWCP0rx" role="37wK5m">
+                      <ref role="37wK5l" node="15VbAzMFx6R" resolve="getProjectFile" />
+                    </node>
+                    <node concept="37vLTw" id="3RkWhWCP0u8" role="37wK5m">
+                      <ref role="3cqZAo" node="3RkWhWCOZPF" resolve="helper" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="liA8E" id="3RkWhWCP0$l" role="2OqNvi">
+                  <ref role="37wK5l" to="gn4j:3WnEHxCMpEi" resolve="saveToFile" />
+                  <node concept="37vLTw" id="3RkWhWCP0AH" role="37wK5m">
+                    <ref role="3cqZAo" node="6wBM5jhYytT" resolve="pd" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -823,46 +855,6 @@
       <node concept="3cqZAl" id="15VbAzMFkOH" role="3clF45" />
       <node concept="2AHcQZ" id="15VbAzMFluL" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="15VbAzMFjFI" role="jymVt" />
-    <node concept="3clFb_" id="15VbAzMFpdv" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getElement" />
-      <property role="od$2w" value="false" />
-      <property role="DiZV1" value="false" />
-      <property role="2aFKle" value="false" />
-      <node concept="3clFbS" id="15VbAzMFpdy" role="3clF47">
-        <node concept="3cpWs6" id="15VbAzMFpBF" role="3cqZAp">
-          <node concept="2OqwBi" id="15VbAzMFrbs" role="3cqZAk">
-            <node concept="2ShNRf" id="15VbAzMFpN_" role="2Oq$k0">
-              <node concept="1pGfFk" id="15VbAzMFqG1" role="2ShVmc">
-                <ref role="37wK5l" to="gn4j:4F07P_yBO_t" resolve="ProjectDescriptorPersistence" />
-                <node concept="1rXfSq" id="15VbAzMFqWx" role="37wK5m">
-                  <ref role="37wK5l" node="15VbAzMFx6R" resolve="getProjectFile" />
-                </node>
-                <node concept="1rXfSq" id="3RkWhWCP0Q7" role="37wK5m">
-                  <ref role="37wK5l" node="3RkWhWCOXmb" resolve="createMacroHelper" />
-                </node>
-              </node>
-            </node>
-            <node concept="liA8E" id="15VbAzMFrtd" role="2OqNvi">
-              <ref role="37wK5l" to="gn4j:15VbAzME8vk" resolve="loadProjectElement" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm6S6" id="15VbAzMFoR9" role="1B3o_S" />
-      <node concept="3uibUv" id="15VbAzMFpdt" role="3clF45">
-        <ref role="3uigEE" to="mmaq:~Element" resolve="Element" />
-      </node>
-      <node concept="2AHcQZ" id="15VbAzMFrH6" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="P$JXv" id="15VbAzMFscO" role="lGtFl">
-        <node concept="x79VA" id="15VbAzMFscR" role="3nqlJM">
-          <property role="x79VB" value="the element with xml description of the project" />
-        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="15VbAzMFoup" role="jymVt" />
@@ -908,22 +900,19 @@
                         <ref role="3uigEE" to="y8s3:~ProjectDescriptor" resolve="ProjectDescriptor" />
                       </node>
                       <node concept="2OqwBi" id="6wBM5jhYSN5" role="33vP2m">
-                        <node concept="2ShNRf" id="6wBM5jhYSN6" role="2Oq$k0">
-                          <node concept="1pGfFk" id="6wBM5jhYSN7" role="2ShVmc">
-                            <ref role="37wK5l" to="z1c3:~ElementProjectDataSource.&lt;init&gt;(org.jdom.Element,java.io.File,jetbrains.mps.util.MacroHelper)" resolve="ElementProjectDataSource" />
-                            <node concept="1rXfSq" id="6wBM5jhYSN8" role="37wK5m">
-                              <ref role="37wK5l" node="15VbAzMFpdv" resolve="getElement" />
-                            </node>
-                            <node concept="1rXfSq" id="6wBM5jhYSN9" role="37wK5m">
+                        <node concept="liA8E" id="6wBM5jhYSNb" role="2OqNvi">
+                          <ref role="37wK5l" to="gn4j:3WnEHxCMuT4" resolve="loadFromFile" />
+                        </node>
+                        <node concept="2ShNRf" id="3WnEHxCOCZP" role="2Oq$k0">
+                          <node concept="1pGfFk" id="3WnEHxCOCZQ" role="2ShVmc">
+                            <ref role="37wK5l" to="gn4j:4F07P_yBO_t" resolve="ProjectDescriptorPersistence" />
+                            <node concept="1rXfSq" id="3WnEHxCOCZR" role="37wK5m">
                               <ref role="37wK5l" node="15VbAzMFx6R" resolve="getProjectFile" />
                             </node>
-                            <node concept="1rXfSq" id="6wBM5jhYSNa" role="37wK5m">
+                            <node concept="1rXfSq" id="3WnEHxCOCZS" role="37wK5m">
                               <ref role="37wK5l" node="3RkWhWCOXmb" resolve="createMacroHelper" />
                             </node>
                           </node>
-                        </node>
-                        <node concept="liA8E" id="6wBM5jhYSNb" role="2OqNvi">
-                          <ref role="37wK5l" to="z1c3:~ElementProjectDataSource.loadDescriptor()" resolve="loadDescriptor" />
                         </node>
                       </node>
                     </node>

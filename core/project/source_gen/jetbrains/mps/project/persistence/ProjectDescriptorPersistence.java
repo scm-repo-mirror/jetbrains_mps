@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import java.io.File;
 import jetbrains.mps.util.MacroHelper;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.Nullable;
 import org.jdom.Element;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
@@ -15,9 +16,10 @@ import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.xml.XmlUtil;
-import jetbrains.mps.vfs.path.Path;
-import org.jdom.Document;
+import java.io.IOException;
 import jetbrains.mps.util.JDOMUtil;
+import org.jdom.Document;
+import jetbrains.mps.vfs.path.Path;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 
 @GeneratedClass(node = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)/842994667883032218", model = "r:a42e26eb-bbea-4e8d-a549-0d224ab71e57(jetbrains.mps.project.persistence)")
@@ -29,12 +31,34 @@ public class ProjectDescriptorPersistence {
   private static final String FOLDER_TAG = "folder";
   private static final String PROJECT_MODULES_TAG = "projectModules";
   private static final String PATH_TAG = "path";
+  /**
+   * Value of StandaloneMPSProject.@State.name
+   */
+  private static final String COMPONENT_NAME = "MPSProject";
 
   private final File myBaseDir;
   private final MacroHelper myMacroHelper;
 
   public ProjectDescriptorPersistence(@NotNull File baseDir, @NotNull MacroHelper macroHelper) {
     myBaseDir = baseDir.getAbsoluteFile();
+    myMacroHelper = macroHelper;
+  }
+
+
+  /**
+   * 
+   * 
+   * @param projectDir root of the project (location where .mps/ resides)
+   */
+  public ProjectDescriptorPersistence(@NotNull IFile projectDir, @NotNull MacroHelper macroHelper) {
+    if (projectDir.exists() && !(projectDir.isDirectory())) {
+      throw new IllegalArgumentException();
+    }
+    // FIXME provisional code while I deal with File cons
+    myBaseDir = new File(projectDir.getPath());
+    // FIXME introduce MacroHelper alternative that shrinks/expands IFile <-> PathOutcome (or just Path)
+    //     Besides, would be great to keep track of original macro to keep save/load consistent (in case
+    //     there's another macro that might affect the path). Would also help to show macro in UI (there's MPS-34199)
     myMacroHelper = macroHelper;
   }
 
@@ -54,27 +78,49 @@ public class ProjectDescriptorPersistence {
     return project;
   }
 
+  public void saveToFile(@NotNull ProjectDescriptor descriptor) throws IOException {
+    Element pd = save(descriptor);
+    if (pd == null) {
+      return;
+    }
+    File projectFile = findProjectFile();
+    Element top = new Element("project");
+    // version="4" is what I see as of this writing in my .mps/modules.xml
+    top.setAttribute("version", "4");
+    Element c = new Element("component");
+    c.setAttribute("name", COMPONENT_NAME);
+    top.addContent(c);
+    c.addContent(pd.getContent());
+    JDOMUtil.writeDocument(new Document(top), projectFile);
+  }
+
   private String shrinkPath(@NotNull ModulePath p) {
     String shrinkedPath = myMacroHelper.shrinkPath(p.getPath());
-    // fixme such filepath convertation is not supported by Path (IDEA stores windows paths as C:/smth !)
+    // fixme such filepath conversion is not supported by Path (IDEA stores windows paths as C:/smth !)
     return shrinkedPath.replace(Path.WIN_SEPARATOR, Path.UNIX_SEPARATOR);
   }
 
   @NotNull
   public ProjectDescriptor load(@Nullable Element root) {
+    // XXX is it intentional that we don't read project name from persistence?
     final String name = myBaseDir.getName();
     ProjectDescriptor descriptor = new ProjectDescriptor(name);
     if (root == null) {
       return descriptor;
     }
-    ProjectDescriptor result_jnk9az_a3a71 = descriptor;
+    ProjectDescriptor result_jnk9az_a4a32 = descriptor;
     for (Element moduleElement : Sequence.fromIterable(XmlUtil.children(XmlUtil.first(root, PROJECT_MODULES_TAG), MODULE_PATH_TAG))) {
       String path = myMacroHelper.expandPath(moduleElement.getAttributeValue(PATH_TAG));
       String virtualFolder = moduleElement.getAttributeValue(FOLDER_TAG);
       ModulePath modulePath = new ModulePath(path, virtualFolder);
-      result_jnk9az_a3a71.addModulePath(modulePath);
+      result_jnk9az_a4a32.addModulePath(modulePath);
     }
     return descriptor;
+  }
+
+  @NotNull
+  public ProjectDescriptor loadFromFile() {
+    return load(loadProjectElement());
   }
 
   @Nullable
@@ -89,7 +135,7 @@ public class ProjectDescriptorPersistence {
       Iterable<Element> components = document.getRootElement().getChildren("component");
       return Sequence.fromIterable(components).findFirst(new IWhereFilter<Element>() {
         public boolean accept(Element it) {
-          return it.getAttributeValue("name").equals("MPSProject");
+          return COMPONENT_NAME.equals(it.getAttributeValue("name"));
         }
       });
     } catch (Exception e) {
