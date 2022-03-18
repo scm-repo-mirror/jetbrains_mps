@@ -21,7 +21,6 @@ import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.RedispatchListener;
 import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileListeningPreferences;
@@ -138,16 +137,9 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
     myRedispatchListener = new RedispatchListener(this::update, prefs);
   }
 
-  private IFileSystem getProjectFS() {
-    // FIXME I would prefer ModulePath to keep IFile instead of String, rather than assume project modules come from FS associated with the project
-    //       It's not completely wrong assumption, yet not perfect.
-    return myMpsProject.getFileSystem();
-  }
-
   @Override
   public void moduleLoaded(ModulePath modulePath, @NotNull SModule module) {
-    // FIXME I see no reason for this instanceof check
-    final IFile file = getProjectFS().getFile(modulePath.getPath());
+    final IFile file = modulePath.getFile();
     myProjectModulesAndFiles.track(file, module);
     // Shall account for more than one module for the same path (e.g. if/when ProjectModuleLoader dispatches events for generators)
     //   IFile.addListener implementation now adds given listener only once, we have to be careful when removing a listener, though.
@@ -156,7 +148,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
   @Override
   public void moduleRemoved(ModulePath modulePath, @NotNull SModule module) {
-    final IFile file = getProjectFS().getFile(modulePath.getPath());
+    final IFile file = modulePath.getFile();
     myProjectModulesAndFiles.forget(file, module);
     if (!myProjectModulesAndFiles.isAnyModuleTrackedFor(file)) {
       // if there are few modules in a file, removal of one of them shall not leave us here without notifications for others.
@@ -166,7 +158,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
   @Override
   public void moduleNotFound(@NotNull final ModulePath modulePath) {
-    getProjectFS().getFile(modulePath.getPath()).addListener(myMissingFileListener);
+    modulePath.getFile().addListener(myMissingFileListener);
   }
 
   @Override

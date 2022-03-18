@@ -84,7 +84,7 @@ public class ProjectDescriptorPersistence {
   }
 
   private String shrinkPath(@NotNull ModulePath p) {
-    String shrinkedPath = myMacroHelper.shrinkPath(p.getPath());
+    String shrinkedPath = myMacroHelper.shrinkPath(p.getFile().getPath());
     // fixme such filepath conversion is not supported by Path (IDEA stores windows paths as C:/smth !)
     return shrinkedPath.replace(Path.WIN_SEPARATOR, Path.UNIX_SEPARATOR);
   }

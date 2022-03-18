@@ -9504,11 +9504,16 @@
               <node concept="liA8E" id="51Eu$gAeDFZ" role="2OqNvi">
                 <ref role="37wK5l" to="18ew:~MacroHelper.shrinkPath(java.lang.String)" resolve="shrinkPath" />
                 <node concept="2OqwBi" id="51Eu$gAeDG0" role="37wK5m">
-                  <node concept="37vLTw" id="51Eu$gAeDG1" role="2Oq$k0">
-                    <ref role="3cqZAo" node="51Eu$gAexPj" resolve="p" />
+                  <node concept="2OqwBi" id="6o$3cGSxqxj" role="2Oq$k0">
+                    <node concept="37vLTw" id="51Eu$gAeDG1" role="2Oq$k0">
+                      <ref role="3cqZAo" node="51Eu$gAexPj" resolve="p" />
+                    </node>
+                    <node concept="liA8E" id="6o$3cGSxr_o" role="2OqNvi">
+                      <ref role="37wK5l" to="y8s3:~ModulePath.getFile()" resolve="getFile" />
+                    </node>
                   </node>
                   <node concept="liA8E" id="51Eu$gAeDG2" role="2OqNvi">
-                    <ref role="37wK5l" to="y8s3:~ModulePath.getPath()" resolve="getPath" />
+                    <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
                   </node>
                 </node>
               </node>

@@ -30,18 +30,12 @@ import java.util.Objects;
  */
 @Immutable
 public final class ModulePath {
-  @NotNull
-  private final String myPath; // a path corresponding with the path format returned by IFile.getPath(): absolute, no odd "." and "..", straight slashes etc. FSes other than file/jar are not yet supported
-  @NotNull
+  private final IFile myPath;
   private final String myVirtualFolder; // virtual folder, optional, never null
 
-  public ModulePath(@NotNull String path, @Nullable String virtualFolder) {
-    myPath = path;
-    myVirtualFolder = StringUtil.emptyIfNull(virtualFolder);
-  }
-
   public ModulePath(@NotNull IFile file, @Nullable String virtualFolder) {
-    this(file.getPath(), virtualFolder);
+    myPath = file;
+    myVirtualFolder = StringUtil.emptyIfNull(virtualFolder);
   }
 
   // just a handy cons for ModulePath::new
@@ -50,8 +44,19 @@ public final class ModulePath {
   }
 
   @NotNull
-  public String getPath() {
+  public IFile getFile() {
     return myPath;
+  }
+
+  /**
+   * @deprecated Use {@link #getFile()}.
+   *             No uses in MPS or mbeddr
+   */
+  @NotNull
+  @Deprecated(since = "2022.1", forRemoval = true)
+  public String getPath() {
+    // a path corresponding with the path format returned by IFile.getPath(): absolute, no odd "." and "..", straight slashes etc. FSes other than file/jar are not yet supported
+    return myPath.getPath();
   }
 
   @NotNull

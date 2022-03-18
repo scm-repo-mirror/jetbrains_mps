@@ -866,58 +866,30 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="4Qup9OsFada" role="3cqZAp">
-          <node concept="3cpWsn" id="4Qup9OsFadb" role="3cpWs9">
-            <property role="TrG5h" value="fs" />
-            <property role="3TUv4t" value="true" />
-            <node concept="3uibUv" id="4Qup9OsF9BK" role="1tU5fm">
-              <ref role="3uigEE" to="3ju5:~IFileSystem" resolve="IFileSystem" />
-            </node>
-            <node concept="2OqwBi" id="4Qup9OsFadc" role="33vP2m">
-              <node concept="37vLTw" id="4Qup9OsFadd" role="2Oq$k0">
-                <ref role="3cqZAo" node="2LIxlaqyBFq" resolve="project" />
-              </node>
-              <node concept="liA8E" id="4Qup9OsFade" role="2OqNvi">
-                <ref role="37wK5l" to="z1c4:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="4Qup9OsFMqE" role="3cqZAp">
           <node concept="2OqwBi" id="4Qup9OsFQ8V" role="3clFbG">
-            <node concept="2OqwBi" id="4Qup9OsF_30" role="2Oq$k0">
-              <node concept="2OqwBi" id="4Qup9OsFoLj" role="2Oq$k0">
-                <node concept="2OqwBi" id="4Qup9OsFiYY" role="2Oq$k0">
-                  <node concept="2OqwBi" id="2LIxlaqyBG2" role="2Oq$k0">
-                    <node concept="liA8E" id="2LIxlaqyBG6" role="2OqNvi">
-                      <ref role="37wK5l" to="y8s3:~ProjectDescriptor.getModulePaths()" resolve="getModulePaths" />
-                    </node>
-                    <node concept="37vLTw" id="7gZx2pWIfhA" role="2Oq$k0">
-                      <ref role="3cqZAo" node="7gZx2pWIeBA" resolve="projectDescriptor" />
-                    </node>
+            <node concept="2OqwBi" id="4Qup9OsFoLj" role="2Oq$k0">
+              <node concept="2OqwBi" id="4Qup9OsFiYY" role="2Oq$k0">
+                <node concept="2OqwBi" id="2LIxlaqyBG2" role="2Oq$k0">
+                  <node concept="liA8E" id="2LIxlaqyBG6" role="2OqNvi">
+                    <ref role="37wK5l" to="y8s3:~ProjectDescriptor.getModulePaths()" resolve="getModulePaths" />
                   </node>
-                  <node concept="liA8E" id="4Qup9OsFnui" role="2OqNvi">
-                    <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
+                  <node concept="37vLTw" id="7gZx2pWIfhA" role="2Oq$k0">
+                    <ref role="3cqZAo" node="7gZx2pWIeBA" resolve="projectDescriptor" />
                   </node>
                 </node>
-                <node concept="liA8E" id="4Qup9OsFshy" role="2OqNvi">
-                  <ref role="37wK5l" to="1ctc:~Stream.map(java.util.function.Function)" resolve="map" />
-                  <node concept="37Ijox" id="4Qup9OsFw$O" role="37wK5m">
-                    <ref role="37Ijqf" to="y8s3:~ModulePath.getPath()" resolve="getPath" />
-                    <node concept="2FaPjH" id="4Qup9OsFw$Q" role="wWaWy">
-                      <node concept="3uibUv" id="4Qup9OsFw$R" role="2FaQuo">
-                        <ref role="3uigEE" to="y8s3:~ModulePath" resolve="ModulePath" />
-                      </node>
-                    </node>
-                  </node>
+                <node concept="liA8E" id="4Qup9OsFnui" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Collection.stream()" resolve="stream" />
                 </node>
               </node>
-              <node concept="liA8E" id="4Qup9OsFCoO" role="2OqNvi">
+              <node concept="liA8E" id="4Qup9OsFshy" role="2OqNvi">
                 <ref role="37wK5l" to="1ctc:~Stream.map(java.util.function.Function)" resolve="map" />
-                <node concept="37Ijox" id="4Qup9OsFGr0" role="37wK5m">
-                  <ref role="37Ijqf" to="3ju5:~IFileSystem.getFile(java.lang.String)" resolve="getFile" />
-                  <node concept="37vLTw" id="4Qup9OsFEFf" role="wWaWy">
-                    <ref role="3cqZAo" node="4Qup9OsFadb" resolve="fs" />
+                <node concept="37Ijox" id="4Qup9OsFw$O" role="37wK5m">
+                  <ref role="37Ijqf" to="y8s3:~ModulePath.getFile()" resolve="getFile" />
+                  <node concept="2FaPjH" id="4Qup9OsFw$Q" role="wWaWy">
+                    <node concept="3uibUv" id="4Qup9OsFw$R" role="2FaQuo">
+                      <ref role="3uigEE" to="y8s3:~ModulePath" resolve="ModulePath" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -1174,23 +1146,6 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="4Qup9OsQmqa" role="3cqZAp">
-          <node concept="3cpWsn" id="4Qup9OsQmqb" role="3cpWs9">
-            <property role="TrG5h" value="fs" />
-            <property role="3TUv4t" value="true" />
-            <node concept="3uibUv" id="4Qup9OsQmqc" role="1tU5fm">
-              <ref role="3uigEE" to="3ju5:~IFileSystem" resolve="IFileSystem" />
-            </node>
-            <node concept="2OqwBi" id="4Qup9OsQmqd" role="33vP2m">
-              <node concept="37vLTw" id="4Qup9OsQmqe" role="2Oq$k0">
-                <ref role="3cqZAo" node="2LIxlaqyBGG" resolve="project" />
-              </node>
-              <node concept="liA8E" id="4Qup9OsQmqf" role="2OqNvi">
-                <ref role="37wK5l" to="z1c4:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbH" id="4Qup9OsS9Nf" role="3cqZAp" />
         <node concept="3cpWs8" id="4Qup9OsPvdt" role="3cqZAp">
           <node concept="3cpWsn" id="4Qup9OsPvdz" role="3cpWs9">
@@ -1238,20 +1193,12 @@
                 <node concept="3uibUv" id="4Qup9OsRthr" role="1tU5fm">
                   <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
                 </node>
-                <node concept="2OqwBi" id="4Qup9OsRv0j" role="33vP2m">
-                  <node concept="37vLTw" id="4Qup9OsRv0k" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4Qup9OsQmqb" resolve="fs" />
+                <node concept="2OqwBi" id="4Qup9OsRv0m" role="33vP2m">
+                  <node concept="37vLTw" id="4Qup9OsRv0n" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2LIxlaqyBGV" resolve="mp" />
                   </node>
-                  <node concept="liA8E" id="4Qup9OsRv0l" role="2OqNvi">
-                    <ref role="37wK5l" to="3ju5:~IFileSystem.getFile(java.lang.String)" resolve="getFile" />
-                    <node concept="2OqwBi" id="4Qup9OsRv0m" role="37wK5m">
-                      <node concept="37vLTw" id="4Qup9OsRv0n" role="2Oq$k0">
-                        <ref role="3cqZAo" node="2LIxlaqyBGV" resolve="mp" />
-                      </node>
-                      <node concept="liA8E" id="4Qup9OsRv0o" role="2OqNvi">
-                        <ref role="37wK5l" to="y8s3:~ModulePath.getPath()" resolve="getPath" />
-                      </node>
-                    </node>
+                  <node concept="liA8E" id="4Qup9OsRv0o" role="2OqNvi">
+                    <ref role="37wK5l" to="y8s3:~ModulePath.getFile()" resolve="getFile" />
                   </node>
                 </node>
               </node>

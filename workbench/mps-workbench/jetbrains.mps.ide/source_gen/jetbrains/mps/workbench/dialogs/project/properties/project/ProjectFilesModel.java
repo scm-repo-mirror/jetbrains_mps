@@ -15,7 +15,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
-import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.project.StandaloneMPSProject;
 import java.util.HashSet;
@@ -88,8 +87,7 @@ import java.util.Comparator;
   public void loadFrom(MPSProject project) {
     ProjectDescriptor projectDescriptor = load(project);
     myModules.clear();
-    final IFileSystem fs = project.getFileSystem();
-    projectDescriptor.getModulePaths().stream().map(ModulePath::getPath).map(fs::getFile).forEach(myModules::add);
+    projectDescriptor.getModulePaths().stream().map(ModulePath::getFile).forEach(myModules::add);
     // FIXME WHY DO WE CARE TO SORT WITH VALIDITY CHECK????
     // To me, perfectly ok to show invalid files right at their sorted place.
     Collections.sort(myModules, PATH_VALID_COMPARATOR);
@@ -104,12 +102,11 @@ import java.util.Comparator;
 
   public void saveTo(MPSProject project) {
     ProjectDescriptor existingPD = load(project);
-    final IFileSystem fs = project.getFileSystem();
 
     HashSet<IFile> matched = new HashSet<>();
     ProjectDescriptor newPD = new ProjectDescriptor(project.getName());
     for (ModulePath mp : existingPD.getModulePaths()) {
-      IFile file = fs.getFile(mp.getPath());
+      IFile file = mp.getFile();
       // keep those known both in project and in our set intact (copy same ModulePath)
       if (known(file)) {
         matched.add(file);

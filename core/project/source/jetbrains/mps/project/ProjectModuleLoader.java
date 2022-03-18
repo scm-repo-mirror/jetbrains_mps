@@ -22,7 +22,6 @@ import jetbrains.mps.smodel.ModuleInstanceFactory;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.util.PathFormatChecker.PathFormatException;
 import org.apache.log4j.LogManager;
@@ -149,17 +148,15 @@ import java.util.stream.Stream;
     final ModulesMiner modulesMiner = new ModulesMiner(myProject.getPlatform());
     final Map<IFile, ModulePath> fileToPath = new HashMap<>();
     for (ModulePath modulePath : pathsToLoad) {
-      String descriptorPath = modulePath.getPath();
       try {
-        // fixme Michael Muhin
-        IFile descriptorFile = FileSystem.getInstance().getFile(descriptorPath);
+        IFile descriptorFile = modulePath.getFile();
         if (descriptorFile.exists()) {
           // there could be more than 1 module collected from a single file
           modulesMiner.collectModules(descriptorFile);
           // if there's more than 1 modulePath with the same IFile, I don't care, fine with the last one
           fileToPath.put(descriptorFile, modulePath);
         } else {
-          error(String.format("Can't load module from %s. File doesn't exist.", descriptorPath));
+          error(String.format("Can't load module from %s. File doesn't exist.", descriptorFile.getPath()));
           fireModuleNotFound(modulePath);
           myBrokenModules.add(modulePath);
         }
