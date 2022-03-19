@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -503,7 +503,7 @@ public final class CreateProjectWizard extends DialogWrapper {
       try {
         ProjectFactory factory = new ProjectFactory(myOptions);
         Project project = factory.createProject();
-        myCurrentTemplateItem.getTemplateFiller().fillProjectWithModules(project.getComponent(MPSProject.class));
+        myCurrentTemplateItem.fillProjectWithModules(project.getComponent(MPSProject.class));
         ApplicationManager.getApplication().executeOnPooledThread(factory::activate);
       } catch (ProjectNotCreatedException e) {
         final String message = e.getMessage() != null ? e.getMessage() : "No message was provided by exception";
@@ -544,8 +544,9 @@ public final class CreateProjectWizard extends DialogWrapper {
       return myTemplate.getSettings();
     }
 
-    TemplateFiller getTemplateFiller() {
-      return myTemplate.getTemplateFiller();
+    void fillProjectWithModules(MPSProject mpsProject) {
+      // FIXME TemplateFiller: bloody hell the name, the pattern (why object if runs immediately) and impl (post-startup->model command inside each one)
+      myTemplate.getTemplateFiller().fillProjectWithModules(mpsProject);
     }
 
     void setNewProjectPath(String newValue) {

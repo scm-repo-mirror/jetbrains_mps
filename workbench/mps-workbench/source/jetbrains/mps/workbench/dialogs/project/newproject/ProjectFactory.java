@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,9 +36,12 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.StandaloneMPSProject;
+import jetbrains.mps.project.modules.LanguageProducer;
+import jetbrains.mps.project.modules.SolutionProducer;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
@@ -104,11 +107,17 @@ public class ProjectFactory {
 
     StartupManager.getInstance(myCreatedProject).registerPostStartupActivity(() -> mpsProject.getModelAccess().executeCommand(() -> {
       if (myOptions.getCreateNewLanguage()) {
-        myCreatedLanguage = NewModuleUtil.createLanguage(myOptions.getLanguageNamespace(), myOptions.getLanguagePath(), mpsProject);
+        // see if for new solution, below
+        final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getLanguagePath()));
+        myCreatedLanguage = new LanguageProducer(mpsProject).create(myOptions.getLanguageNamespace(), path);
       }
 
       if (myOptions.getCreateNewSolution()) {
-        myCreatedSolution = NewModuleUtil.createSolution(myOptions.getSolutionNamespace(), myOptions.getSolutionPath(), mpsProject);
+        // FIXME here we can control whether to get controlled IFile instance (through VFSManager) or
+        //       rely on project fs. Since it's almost a dead code (CreateProjectWizard uses MPSProjectTemplate to fill the project)
+        //       I decided not to bother.
+        final IFile path = mpsProject.getFileSystem().getFile(new File(myOptions.getSolutionPath()));
+        myCreatedSolution = new SolutionProducer(mpsProject).create(myOptions.getSolutionNamespace(), path);
       }
 
       if (myOptions.getCreateNewDevkit()) {

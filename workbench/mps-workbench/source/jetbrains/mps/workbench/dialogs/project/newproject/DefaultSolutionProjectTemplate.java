@@ -20,6 +20,7 @@ import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.ide.ui.dialogs.modules.NameLocationPanel;
 import jetbrains.mps.project.MPSExtentions;
+import jetbrains.mps.project.modules.SolutionProducer;
 import jetbrains.mps.workbench.DocumentationHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -69,7 +70,7 @@ public class DefaultSolutionProjectTemplate implements SolutionProjectTemplate {
   @Override
   public TemplateFiller getTemplateFiller() {
     return project -> StartupManager.getInstance(project.getProject()).registerPostStartupActivity(() -> project.getModelAccess().executeCommand(
-        () -> NewModuleUtil.createSolution(myNewSolutionSettings.getModuleName(), myNewSolutionSettings.getModuleLocation().getAbsolutePath(), project)
+        () -> new SolutionProducer(project).create(myNewSolutionSettings.getModuleName(), project.getFileSystem().getFile(myNewSolutionSettings.getModuleLocation()))
     ));
   }
 
