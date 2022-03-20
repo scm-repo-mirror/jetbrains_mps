@@ -214,12 +214,12 @@ public class NewModuleUtil {
   }
 
   public static void createTemplateModelIfNoneYet(Generator newGenerator) {
-    // FIXME remove uses, add warn
+    traceDeprecatedUse();
     LanguageProducer.createTemplateModelIfNoneYet(newGenerator);
   }
 
   public static void createMainLanguageAspects(Language language) throws IOException {
-    // FIXME remove or at least warn uses
+    traceDeprecatedUse();
     assert language.getModelRoots().iterator().hasNext();
     ((EditableSModel) LanguageAspect.STRUCTURE.createNew(language)).save();
     ((EditableSModel) LanguageAspect.EDITOR.createNew(language)).save();
@@ -239,7 +239,7 @@ public class NewModuleUtil {
    */
   @NotNull
   public static GeneratorDescriptor createGeneratorDescriptor(String namespace, @NotNull IFile generatorModuleLocation, @Nullable IFile templateModelsLocation) {
-    // FIXME log warn once NewGeneratorDialog cease using the method
+    traceDeprecatedUse();
     return LanguageProducer.createGeneratorDescriptor(namespace, generatorModuleLocation, templateModelsLocation);
   }
 

@@ -28,8 +28,8 @@ import com.intellij.openapi.ui.ValidationInfo;
 import java.io.File;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
+import jetbrains.mps.project.modules.LanguageProducer;
 import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
@@ -171,17 +171,17 @@ public class NewGeneratorDialog extends DialogWrapper {
     String filePath = myModuleDir.getText();
     final String name = myGeneratorName.getText();
     final IFile generatorModuleLocation = myProjectFS.getFile(filePath);
-    NewModuleUtil.runModuleCreation(myProject, () -> {
+    myProject.getModelAccess().executeCommand(() -> {
       Generator newGenerator;
       try {
         // see MPS-18743
         myProject.getRepository().saveAll();
         // XXX why saveAll is not part of NewModuleUtil.runModuleCreation?
         generatorModuleLocation.mkdirs();
-        final GeneratorDescriptor generatorDescriptor = NewModuleUtil.createGeneratorDescriptor(newGeneratorNamespace(), generatorModuleLocation, null);
+        final GeneratorDescriptor generatorDescriptor = LanguageProducer.createGeneratorDescriptor(newGeneratorNamespace(), generatorModuleLocation, null);
         generatorDescriptor.setAlias(name);
         newGenerator = createNewGenerator(generatorDescriptor, generatorModuleLocation);
-        NewModuleUtil.createTemplateModelIfNoneYet(newGenerator);
+        LanguageProducer.createTemplateModelIfNoneYet(newGenerator);
       } catch (Exception e) {
         // XXX again, why it's not common for any runModuleCreation?
         if (LOG.isEnabledFor(Level.ERROR)) {

@@ -191,15 +191,15 @@
       <node id="6816610398204214130" at="170,71,171,44" concept="9" />
       <node id="1613125646032873037" at="171,44,172,50" concept="9" />
       <node id="1613125646032873011" at="172,50,173,72" concept="9" />
-      <node id="1613125646032873067" at="174,54,175,29" concept="9" />
+      <node id="1613125646032873067" at="174,53,175,29" concept="9" />
       <node id="711809809631293645" at="176,11,177,24" concept="11" />
       <node id="711809809631291355" at="177,24,178,44" concept="4" />
       <node id="255299930511778915" at="178,44,179,74" concept="11" />
       <node id="255299930511364322" at="179,74,180,41" concept="4" />
-      <node id="1613125646032873153" at="180,41,181,152" concept="9" />
-      <node id="1613125646032873164" at="181,152,182,43" concept="4" />
+      <node id="1613125646032873153" at="180,41,181,155" concept="9" />
+      <node id="1613125646032873164" at="181,155,182,43" concept="4" />
       <node id="1613125646032873432" at="182,43,183,88" concept="4" />
-      <node id="255299930511469298" at="183,88,184,65" concept="4" />
+      <node id="255299930511469298" at="183,88,184,68" concept="4" />
       <node id="255299930512786508" at="185,29,186,68" concept="11" />
       <node id="3818729150937331259" at="187,44,188,64" concept="4" />
       <node id="2990056072202845380" at="189,9,190,28" concept="4" />
@@ -252,7 +252,7 @@
       <node id="2990056072202845341" at="175,29,191,7" concept="17" />
       <node id="4815386055823026210" at="211,84,229,5" concept="7" />
       <node id="1613125646032872751" at="74,0,94,0" concept="8" trace="initContentPane#()V" />
-      <node id="5049856602248834912" at="173,72,193,7" concept="4" />
+      <node id="3527684416440418429" at="173,72,193,7" concept="4" />
       <node id="1613125646032873137" at="209,0,231,0" concept="8" trace="createNewGenerator#(Ljetbrains/mps/project/structure/modules/GeneratorDescriptor;Ljetbrains/mps/vfs/IFile;)Ljetbrains/mps/smodel/Generator;" />
       <node id="1939610764124496121" at="168,0,196,0" concept="8" trace="doOKAction#()V" />
       <node id="6476502593089578970" at="123,0,154,0" concept="8" trace="checkModuleDir#(Ljava/lang/String;)Lcom/intellij/openapi/ui/ValidationInfo;" />
@@ -287,7 +287,7 @@
       <scope id="3146730302383424883" at="158,41,165,14">
         <var name="vi" id="3146730302383453761" />
       </scope>
-      <scope id="2990056072202845342" at="176,11,184,65">
+      <scope id="2990056072202845342" at="176,11,184,68">
         <var name="generatorDescriptor" id="1613125646032873154" />
       </scope>
       <scope id="1613125646032872958" at="109,0,118,0">
@@ -322,7 +322,7 @@
       <scope id="1613125646032872754" at="74,34,92,30">
         <var name="fd" id="1733667484616129003" />
       </scope>
-      <scope id="5049856602248792142" at="174,54,192,30">
+      <scope id="5049856602248792142" at="174,53,192,30">
         <var name="newGenerator" id="1613125646032873068" />
       </scope>
       <scope id="1613125646032872751" at="74,0,94,0" />
