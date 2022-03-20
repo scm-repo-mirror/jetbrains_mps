@@ -89,6 +89,8 @@ public abstract class ProjectBase extends Project {
 
   @Nullable
   public final ModulePath getPath(@NotNull SModule module) {
+    // FIXME there's very limited use of the method outside of our own implementation
+    //       perhaps we can avoid from being exposed from MPSProject?
     return myModuleLoader.getPath(module.getModuleReference());
   }
 

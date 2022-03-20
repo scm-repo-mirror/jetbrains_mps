@@ -5,9 +5,12 @@ package jetbrains.mps.ide.actions;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
+import jetbrains.mps.workbench.action.ActionAccess;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import javax.swing.tree.TreeNode;
+import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.ide.IdeBundle;
 import com.intellij.openapi.project.Project;
@@ -15,7 +18,6 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import jetbrains.mps.project.MPSProject;
 import java.util.List;
 import com.intellij.openapi.ui.Messages;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/8444506158696382826", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
@@ -25,7 +27,7 @@ public class RemoveVirtualFolder_Action extends BaseAction {
   public RemoveVirtualFolder_Action() {
     super("Remove Virtual Folder", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(true);
+    this.setActionAccess(ActionAccess.NONE);
   }
   @Override
   public boolean isDumbAware() {
@@ -33,15 +35,25 @@ public class RemoveVirtualFolder_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    // project.isProjectModule says true for a generator under a language, and we don't want to set VF for it
-    // however, there's no easy way to tell nested from standalone generator here (don't want to use GD), and
-    // can no longer assume getPath() for nested generator gives null. FIXME either use namespace tree node here
-    // instead of SModule, introduce a method to tell top-level project module from a nested one, or factor 
-    // nested Generator knowledge into getVirtualFolder(), although that one won't help in case of multiple selection!
-    boolean isApplicable = !(event.getData(MPSCommonDataKeys.MODULES).isEmpty());
+    boolean isApplicable = !(event.getData(MPSCommonDataKeys.TREE_NODES).isEmpty());
     boolean hasVirtualFolder = false;
-    for (SModule module : event.getData(MPSCommonDataKeys.MODULES)) {
+    for (TreeNode tn : event.getData(MPSCommonDataKeys.TREE_NODES)) {
+      if (!(tn instanceof ProjectModuleTreeNode)) {
+        isApplicable = false;
+        break;
+      }
+      if (tn.getParent() instanceof ProjectModuleTreeNode) {
+        // project module nested under another project module (e.g. Generator inside a Language)
+        // is no go when selected explicitly (used to be limited with project.getPath() == null for such modules)
+        // I don't quite agree that's right, but don't want to deal with the change right now
+        isApplicable = false;
+        break;
+      }
+      SModule module = ((ProjectModuleTreeNode) tn).getModule();
+      // project.isProjectModule says true for a generator under a language
+      // perhaps, makes sense to have a method in PMTN or Project that tells if a module is top-level or a nested one?
       if (!(event.getData(MPSCommonDataKeys.MPS_PROJECT).isProjectModule(module))) {
+        // perhaps, isPackaged check is more effective to filter out PMTN from the Modules Pool?
         isApplicable = false;
         break;
       }
@@ -70,7 +82,7 @@ public class RemoveVirtualFolder_Action extends BaseAction {
       }
     }
     {
-      List<SModule> p = event.getData(MPSCommonDataKeys.MODULES);
+      List<TreeNode> p = event.getData(MPSCommonDataKeys.TREE_NODES);
       if (p == null) {
         return false;
       }
@@ -86,11 +98,8 @@ public class RemoveVirtualFolder_Action extends BaseAction {
       return;
     }
 
-    event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository().getModelAccess().executeCommand(() -> {
-      for (SModule module : ListSequence.fromList(event.getData(MPSCommonDataKeys.MODULES))) {
-        event.getData(MPSCommonDataKeys.MPS_PROJECT).setVirtualFolder(module, null);
-      }
-    });
+    final MPSProject mpsProject = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+    mpsProject.getRepository().getModelAccess().executeCommand(() -> event.getData(MPSCommonDataKeys.TREE_NODES).stream().map(ProjectModuleTreeNode.class::cast).map(ProjectModuleTreeNode::getModule).forEach((SModule m) -> mpsProject.setVirtualFolder(m, null)));
     ProjectPane.getInstance(event.getData(CommonDataKeys.PROJECT)).rebuild();
   }
 }
