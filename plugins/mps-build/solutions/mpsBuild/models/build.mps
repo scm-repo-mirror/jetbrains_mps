@@ -52206,6 +52206,9 @@
       <node concept="nCB5N" id="4GrD5ccamdi" role="nCB5Z">
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
+      <node concept="nCB5N" id="2iOoBk8yzWt" role="nCB5Z">
+        <ref role="nCB5Y" node="7KapL9OAx4G" resolve="mps-ui" />
+      </node>
       <node concept="2sjeV3" id="4GrD5ccammI" role="nCB5Z">
         <ref role="2sjeV2" node="16Vg0jOcomR" resolve="idea-libraries" />
       </node>

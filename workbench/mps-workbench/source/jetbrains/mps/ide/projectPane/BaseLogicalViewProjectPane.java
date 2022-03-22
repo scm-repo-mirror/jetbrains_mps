@@ -42,6 +42,7 @@ import jetbrains.mps.ide.actions.SModuleActionData;
 import jetbrains.mps.ide.actions.SNodeActionData;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.projectPane.fileSystem.nodes.ProjectTreeNode;
+import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
 import jetbrains.mps.ide.ui.tree.module.GeneratorTreeNode;
 import jetbrains.mps.ide.ui.tree.module.NamespaceTextNode;
@@ -136,7 +137,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
   public Object getData(@NotNull String dataId) {
     if (SNodeActionData.KEY.is(dataId)) {
       final List<MPSTreeNodeEx> selected = getSelectedTreeNodes(MPSTreeNodeEx.class);
-      final List<SNodeReference> n = selected.stream().map(MPSTreeNodeEx::getNodePointer).dropWhile(Objects::isNull).collect(Collectors.toList());
+      final List<SNodeReference> n = selected.stream()
+                                             .map(MPSTreeNodeEx::getNodePointer)
+                                             .dropWhile(Objects::isNull)
+                                             .collect(Collectors.toList());
       if (n.isEmpty()) {
         return null;
       }
@@ -152,7 +156,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
         return null;
       }
       // though SModelTreeNode.getModel() seems to be not null, doesn't hurt to account for null there
-      final List<SModel> m = selected.stream().map(SModelTreeNode::getModel).dropWhile(Objects::isNull).collect(Collectors.toList());
+      final List<SModel> m = selected.stream()
+                                     .map(SModelTreeNode::getModel)
+                                     .dropWhile(Objects::isNull)
+                                     .collect(Collectors.toList());
       if (m.isEmpty()) {
         return null;
       }
@@ -167,7 +174,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
       if (selected.isEmpty()) {
         return null;
       }
-      final List<SModule> m = selected.stream().map(ProjectModuleTreeNode::getModule).dropWhile(Objects::isNull).collect(Collectors.toList());
+      final List<SModule> m = selected.stream()
+                                      .map(ProjectModuleTreeNode::getModule)
+                                      .dropWhile(Objects::isNull)
+                                      .collect(Collectors.toList());
       if (m.isEmpty()) {
         return null;
       }
@@ -216,6 +226,11 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     }
 
     //PDK
+    // fixme doing that solely for navigation bar context, not sure that anyone would use it otherwise
+    //       starting with 2022.1 can be dropped
+    if (PlatformDataKeys.SELECTED_ITEMS.is(dataId)) {
+      return getSelectedTreeNodes(MPSTreeNode.class).toArray();
+    }
     if (PlatformDataKeys.COPY_PROVIDER.is(dataId)) {
       return new MyCopyProvider();
     }

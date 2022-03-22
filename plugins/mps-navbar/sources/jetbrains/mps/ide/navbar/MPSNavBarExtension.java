@@ -5,8 +5,8 @@ package jetbrains.mps.ide.navbar;
 
 import com.intellij.ide.navigationToolbar.NavBarModelExtension;
 import com.intellij.ide.ui.UISettings;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -16,11 +16,15 @@ import com.intellij.psi.impl.light.LightElement;
 import com.intellij.util.Processor;
 import jetbrains.mps.ide.actions.SModelActionData;
 import jetbrains.mps.ide.actions.SModuleActionData;
+import jetbrains.mps.ide.actions.SNodeActionData;
+import jetbrains.mps.ide.ui.tree.MPSTreeNode;
+import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
+import jetbrains.mps.ide.ui.tree.module.MPSModuleTreeNode;
+import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
+import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.psi.MPSPsiModel;
 import jetbrains.mps.psi.MPSPsiModule;
 import jetbrains.mps.psi.MPSPsiNode;
-import jetbrains.mps.ide.actions.SNodeActionData;
-import jetbrains.mps.psi.MPSPsiProject;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -85,7 +89,41 @@ public class MPSNavBarExtension implements NavBarModelExtension {
     if (moduleData != null) {
       return new MPSPsiModule(PsiManager.getInstance(p), moduleData.module());
     }
+    var legacyData = seekLegacy(p, dataContext);
+    if (legacyData != null) {
+      return legacyData;
+    }
     LOG.debug("SNode action data was not found");
+    return null;
+  }
+
+  /**
+   * NavBarModel does not support synchronous action system update (given datacontext does not contain the elements
+   * we expect, only predefined ones)
+   * see NavBarModel#wrapDataContext for the details.
+   *
+   * to be gone in 2022.1
+   */
+  @Nullable
+  @Deprecated
+  private LightElement seekLegacy(Project p, @NotNull DataContext dataContext) {
+    var psiFile = dataContext.getData(CommonDataKeys.VIRTUAL_FILE);
+    if (psiFile instanceof MPSNodeVirtualFile) {
+      return new MPSPsiNode(PsiManager.getInstance(p), ((MPSNodeVirtualFile) psiFile).getSNodePointer());
+    }
+    var selItemsArr = dataContext.getData(PlatformDataKeys.SELECTED_ITEMS);
+    if (selItemsArr != null && selItemsArr.length == 1) {
+      Object first = selItemsArr[0];
+      if (first instanceof MPSTreeNode) {
+        if (first instanceof MPSTreeNodeEx) {
+          return new MPSPsiNode(PsiManager.getInstance(p), ((MPSTreeNodeEx) first).getNodePointer());
+        } else if (first instanceof SModelTreeNode) {
+          return new MPSPsiModel(PsiManager.getInstance(p), ((SModelTreeNode) first).getModel().getReference());
+        } else if (first instanceof MPSModuleTreeNode) {
+          return new MPSPsiModule(PsiManager.getInstance(p), ((MPSModuleTreeNode) first).getModule().getModuleReference());
+        }
+      }
+    }
     return null;
   }
 

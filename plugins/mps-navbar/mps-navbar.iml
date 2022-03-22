@@ -13,5 +13,6 @@
     <orderEntry type="library" name="Idea-platform" level="project" />
     <orderEntry type="module" module-name="psi" />
     <orderEntry type="module" module-name="mps-platform" />
+    <orderEntry type="module" module-name="mps-ui" />
   </component>
 </module>
