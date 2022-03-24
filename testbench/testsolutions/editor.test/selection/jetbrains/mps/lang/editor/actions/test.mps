@@ -13457,5 +13457,69 @@
       </node>
     </node>
   </node>
+  <node concept="LiM7Y" id="5tNqSOtlcSC">
+    <property role="TrG5h" value="Subst_PreserveTail" />
+    <property role="3GE5qa" value="substitute" />
+    <property role="3YCmrE" value="MPS-33850 Typed letters lost after substitution happens" />
+    <node concept="3clFbS" id="5tNqSOtlcSD" role="LjaKd">
+      <node concept="2TK7Tu" id="5tNqSOtlcSE" role="3cqZAp">
+        <property role="2TTd_B" value="e" />
+      </node>
+      <node concept="2TK7Tu" id="5tNqSOtlcSF" role="3cqZAp">
+        <property role="2TTd_B" value="x" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="5tNqSOtlcSG" role="25YQCW">
+      <node concept="9aQIb" id="5tNqSOtlcSH" role="1qenE9">
+        <node concept="3clFbS" id="5tNqSOtlcSI" role="9aQI4">
+          <node concept="3cpWs8" id="5tNqSOtldcy" role="3cqZAp">
+            <node concept="3cpWsn" id="5tNqSOtldc_" role="3cpWs9">
+              <property role="TrG5h" value="e" />
+              <node concept="10Oyi0" id="5tNqSOtldcx" role="1tU5fm" />
+              <node concept="3cmrfG" id="5tNqSOtldd4" role="33vP2m">
+                <property role="3cmrfH" value="200" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbH" id="5tNqSOtlelG" role="3cqZAp">
+            <node concept="LIFWc" id="5tNqSOtlGoE" role="lGtFl">
+              <property role="ZRATv" value="true" />
+              <property role="OXtK3" value="true" />
+              <property role="p6zMq" value="0" />
+              <property role="p6zMs" value="0" />
+              <property role="LIFWd" value="Constant_7h2wce_a" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="5tNqSOtlcSQ" role="25YQFr">
+      <node concept="9aQIb" id="5tNqSOtlcSR" role="1qenE9">
+        <node concept="3clFbS" id="5tNqSOtlcSS" role="9aQI4">
+          <node concept="3cpWs8" id="5tNqSOtleBf" role="3cqZAp">
+            <node concept="3cpWsn" id="5tNqSOtleBi" role="3cpWs9">
+              <property role="TrG5h" value="e" />
+              <node concept="10Oyi0" id="5tNqSOtleBe" role="1tU5fm" />
+              <node concept="3cmrfG" id="5tNqSOtleCl" role="33vP2m">
+                <property role="3cmrfH" value="200" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="5tNqSOtlZRn" role="3cqZAp">
+            <node concept="37vLTw" id="5tNqSOtlZRl" role="3clFbG">
+              <ref role="3cqZAo" node="5tNqSOtleBi" resolve="e" />
+              <node concept="LIFWc" id="5tNqSOtm0i$" role="lGtFl">
+                <property role="ZRATv" value="true" />
+                <property role="OXtK3" value="true" />
+                <property role="p6zMq" value="2" />
+                <property role="p6zMs" value="2" />
+                <property role="LIFWd" value="property_name" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

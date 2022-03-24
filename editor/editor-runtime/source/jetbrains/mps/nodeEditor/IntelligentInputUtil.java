@@ -284,7 +284,7 @@ public class IntelligentInputUtil {
 
       if (rtAction == null || !hasSideActions) {
         final CellInfo cellInfo = cellForNewNode.getCellInfo();
-        putTextInErrorChild(cellInfo, smallPattern + tail, myEditorContext);
+        putTextInErrorChild(cellInfo, selectableLeaf, smallPattern + tail, myEditorContext);
         return false;
       }
 
@@ -405,7 +405,7 @@ public class IntelligentInputUtil {
       if (ltAction == null || !hasSideActions) {
         CellInfo cellInfo = cellForNewNode.getCellInfo();
         if (!sourceCellRemains) {
-          putTextInErrorChild(cellInfo, head + smallPattern, myEditorContext);
+          putTextInErrorChild(cellInfo, firstSelectableLeaf, head + smallPattern, myEditorContext);
           return false;
         } else {
           return false;
@@ -479,7 +479,7 @@ public class IntelligentInputUtil {
       return prepareSTCell(context, node, textToSet);
     }
 
-    private void putTextInErrorChild(CellInfo cellInfo, String textToSet, EditorContext editorContext) {
+    private void putTextInErrorChild(CellInfo cellInfo, EditorCell newCell, String textToSet, EditorContext editorContext) {
       editorContext.flushEvents();
       EditorComponent component = (EditorComponent) editorContext.getEditorComponent();
       EditorCell cellToSelect = cellInfo.findCell(component);
@@ -488,7 +488,13 @@ public class IntelligentInputUtil {
         if (label != null && label != cellToSelect && label.isEditable() && !(label instanceof EditorCell_Constant)) {
           label.changeText(textToSet);
           label.end();
+          return;
         }
+      }
+      if (newCell != cellToSelect && newCell instanceof EditorCell_Label && !(newCell instanceof EditorCell_Constant)) {
+        EditorCell_Label label = (EditorCell_Label) newCell;
+        label.changeText(textToSet);
+        label.end();
       }
     }
 
