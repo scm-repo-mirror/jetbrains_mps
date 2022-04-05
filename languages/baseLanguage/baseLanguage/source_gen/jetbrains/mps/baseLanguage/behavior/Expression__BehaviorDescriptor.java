@@ -95,7 +95,7 @@ public final class Expression__BehaviorDescriptor extends BaseBHDescriptor {
     SNode current = __thisNode__;
     while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), CONCEPTS.Expression$mB)) {
       SNode p = SNodeOperations.as(SNodeOperations.getParent(current), CONCEPTS.Expression$mB);
-      if (Objects.equals(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.as(p, CONCEPTS.IBinaryLike$eU)), current) || (SNodeOperations.isInstanceOf(p, CONCEPTS.NotExpression$Pc) && PrecedenceUtil.needsParensAroundNotExpression(SNodeOperations.as(p, CONCEPTS.NotExpression$Pc)))) {
+      if (Objects.equals(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.as(p, CONCEPTS.IBinaryLike$eU)), current)) {
         current = p;
       } else {
         return false;
@@ -119,7 +119,7 @@ public final class Expression__BehaviorDescriptor extends BaseBHDescriptor {
     SNode current = __thisNode__;
     while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), CONCEPTS.Expression$mB)) {
       SNode p = SNodeOperations.as(SNodeOperations.getParent(current), CONCEPTS.Expression$mB);
-      if (Objects.equals(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.as(p, CONCEPTS.IBinaryLike$eU)), current) || (SNodeOperations.isInstanceOf(p, CONCEPTS.NotExpression$Pc) && PrecedenceUtil.needsParensAroundNotExpression(SNodeOperations.as(p, CONCEPTS.NotExpression$Pc)))) {
+      if (Objects.equals(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.as(p, CONCEPTS.IBinaryLike$eU)), current)) {
         current = p;
       } else {
         return current;
@@ -204,6 +204,5 @@ public final class Expression__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SConcept CommentPart$KZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3bL, "jetbrains.mps.baseLanguage.structure.CommentPart");
     /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
     /*package*/ static final SInterfaceConcept IBinaryLike$eU = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x182da1771714863eL, "jetbrains.mps.baseLanguage.structure.IBinaryLike");
-    /*package*/ static final SConcept NotExpression$Pc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
   }
 }

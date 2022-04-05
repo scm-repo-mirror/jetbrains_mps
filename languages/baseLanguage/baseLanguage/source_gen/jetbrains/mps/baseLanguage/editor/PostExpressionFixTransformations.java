@@ -46,7 +46,6 @@ import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import java.util.Objects;
 import java.util.Arrays;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -645,7 +644,7 @@ public class PostExpressionFixTransformations extends TransformationMenuBase {
       }
       context.getEditorMenuTrace().pushTraceInfo();
       try {
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "7119036779770147767")));
+        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "8549027947292942933")));
         item.setTraceInfo(context.getEditorMenuTrace().getTraceInfo());
       } finally {
         context.getEditorMenuTrace().popTraceInfo();
@@ -670,30 +669,27 @@ public class PostExpressionFixTransformations extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode logicalExpr = ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getNode(), CONCEPTS.Expression$mB, true)).findFirst(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return !(SNodeOperations.isInstanceOf(it, CONCEPTS.NotExpression$Pc)) && (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(it), CONCEPTS.BooleanType$_u) || Objects.equals(SLinkOperations.getPointer(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(it), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Boolean")));
+        SNode p = Expression__BehaviorDescriptor.getExpressionWhereThisIsTheRightMost_id6bbTzIwEwNG.invoke(_context.getNode());
+        if (!(SNodeOperations.isInstanceOf(p, CONCEPTS.NotExpression$Pc))) {
+          SNode n = SNodeOperations.replaceWithNewChild(p, CONCEPTS.NotExpression$Pc);
+          SLinkOperations.setTarget(n, LINKS.expression$sv_H, p);
+          if (PrecedenceUtil.needsParensAroundNotExpression(n)) {
+            SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
+            SLinkOperations.setTarget(parens, LINKS.expression$TlhM, SLinkOperations.getTarget(n, LINKS.expression$sv_H));
+            SLinkOperations.setTarget(n, LINKS.expression$sv_H, parens);
           }
-        });
-
-        SNode n = SNodeOperations.replaceWithNewChild(logicalExpr, CONCEPTS.NotExpression$Pc);
-        SLinkOperations.setTarget(n, LINKS.expression$sv_H, logicalExpr);
-        if (PrecedenceUtil.needsParensAroundNotExpression(n)) {
-          SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
-          SLinkOperations.setTarget(parens, LINKS.expression$TlhM, SLinkOperations.getTarget(n, LINKS.expression$sv_H));
-          SLinkOperations.setTarget(n, LINKS.expression$sv_H, parens);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), n, SelectionManager.LAST_CELL, -1);
+        } else {
+          SNode expression = SLinkOperations.getTarget(SNodeOperations.as(p, CONCEPTS.NotExpression$Pc), LINKS.expression$sv_H);
+          SNodeOperations.replaceWithAnother(p, expression);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), expression, SelectionManager.LAST_CELL, -1);
         }
-        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), n, SelectionManager.LAST_CELL, -1);
       }
 
       @Override
       public boolean canExecute(@NotNull String pattern) {
-        SNode logicalExpr = ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getNode(), CONCEPTS.Expression$mB, true)).findFirst(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return !(SNodeOperations.isInstanceOf(it, CONCEPTS.NotExpression$Pc)) && (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(it), CONCEPTS.BooleanType$_u) || Objects.equals(SLinkOperations.getPointer(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(it), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Boolean")));
-          }
-        });
-        return (logicalExpr != null);
+        SNode p = Expression__BehaviorDescriptor.getExpressionWhereThisIsTheRightMost_id6bbTzIwEwNG.invoke(_context.getNode());
+        return SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(p), CONCEPTS.BooleanType$_u) || Objects.equals(SLinkOperations.getPointer(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(p), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Boolean"));
       }
 
       @Override
@@ -758,7 +754,6 @@ public class PostExpressionFixTransformations extends TransformationMenuBase {
     /*package*/ static final SConcept WhileStatement$Ay = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
     /*package*/ static final SConcept ForeachStatement$Po = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, "jetbrains.mps.baseLanguage.structure.ForeachStatement");
     /*package*/ static final SConcept ArrayType$rh = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
-    /*package*/ static final SConcept Expression$mB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
     /*package*/ static final SConcept NotExpression$Pc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
   }
 
