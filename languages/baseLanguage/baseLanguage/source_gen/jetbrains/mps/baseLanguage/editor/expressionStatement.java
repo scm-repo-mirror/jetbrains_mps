@@ -22,11 +22,12 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import java.util.Arrays;
+import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTransformationMenuPart;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.transformation.WrapSubstituteMenuTransformationMenuPart;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
@@ -108,9 +109,25 @@ public class expressionStatement extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_WrapSM_qgb0t7_a0a(), new TMP_Group_qgb0t7_b0a());
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_IncludeSM_qgb0t7_a0a(), new TMP_WrapSM_qgb0t7_b0a(), new TMP_Group_qgb0t7_c0a());
     }
-    public class TMP_WrapSM_qgb0t7_a0a extends WrapSubstituteMenuTransformationMenuPart {
+    public class TMP_IncludeSM_qgb0t7_a0a extends IncludeSubstituteMenuTransformationMenuPart {
+      @NotNull
+      @Override
+      public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
+        context.getEditorMenuTrace().pushTraceInfo();
+        try {
+          SAbstractConcept targetConcept = getTargetConcept(context);
+          String name = (targetConcept == null ? "" : targetConcept.getName());
+          context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("include substitute menu for the link target concept: " + name, new SNodePointer("r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)", "8549027947288905392")));
+          return super.createItems(context);
+        } finally {
+          context.getEditorMenuTrace().popTraceInfo();
+        }
+      }
+
+    }
+    public class TMP_WrapSM_qgb0t7_b0a extends WrapSubstituteMenuTransformationMenuPart {
       @NotNull
       @Override
       public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -182,7 +199,7 @@ public class expressionStatement extends TransformationMenuBase {
         return new SMIasTMI(item, targetNode, _context);
       }
     }
-    public class TMP_Group_qgb0t7_b0a extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
+    public class TMP_Group_qgb0t7_c0a extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Override
       protected boolean isApplicable(TransformationMenuContext _context) {
         return (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(stmt, LINKS.expression$5L7M)), CONCEPTS.BooleanType$_u) || Objects.equals(SLinkOperations.getPointer(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(stmt, LINKS.expression$5L7M)), CONCEPTS.ClassifierType$bL), LINKS.classifier$cxMr), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Boolean")));
@@ -202,9 +219,9 @@ public class expressionStatement extends TransformationMenuBase {
       }
       @Override
       protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_WrapSM_qgb0t7_a1a0(), new TMP_WrapSM_qgb0t7_b1a0());
+        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new TMP_WrapSM_qgb0t7_a2a0(), new TMP_WrapSM_qgb0t7_b2a0());
       }
-      public class TMP_WrapSM_qgb0t7_a1a0 extends WrapSubstituteMenuTransformationMenuPart {
+      public class TMP_WrapSM_qgb0t7_a2a0 extends WrapSubstituteMenuTransformationMenuPart {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -276,7 +293,7 @@ public class expressionStatement extends TransformationMenuBase {
           return new SMIasTMI(item, targetNode, _context);
         }
       }
-      public class TMP_WrapSM_qgb0t7_b1a0 extends WrapSubstituteMenuTransformationMenuPart {
+      public class TMP_WrapSM_qgb0t7_b2a0 extends WrapSubstituteMenuTransformationMenuPart {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {

@@ -41275,6 +41275,7 @@
         </node>
       </node>
       <node concept="aenpk" id="1wEcoXjIEVw" role="1Qtc8A">
+        <node concept="ulPW2" id="7q$fTYl2GqK" role="aenpr" />
         <node concept="1At2My" id="7q$fTYk8vw1" role="1b80Z_">
           <property role="TrG5h" value="stmt" />
           <node concept="23wN_R" id="7q$fTYk8vw2" role="23wLD5">
@@ -73259,6 +73260,67 @@
                   <node concept="3TrEf2" id="6bbTzIxQtNy" role="2OqNvi">
                     <ref role="3Tt5mk" to="tpee:f_0QFTc" resolve="expression" />
                   </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="7q$fTYkHSqU" role="3cqZAp">
+              <node concept="3clFbS" id="7q$fTYkHSqW" role="3clFbx">
+                <node concept="3cpWs8" id="7q$fTYkHV3U" role="3cqZAp">
+                  <node concept="3cpWsn" id="7q$fTYkHV3V" role="3cpWs9">
+                    <property role="TrG5h" value="parens" />
+                    <node concept="3Tqbb2" id="7q$fTYkHUY8" role="1tU5fm">
+                      <ref role="ehGHo" to="tpee:fHeOMHZ" resolve="ParenthesizedExpression" />
+                    </node>
+                    <node concept="2ShNRf" id="7q$fTYkHV3W" role="33vP2m">
+                      <node concept="3zrR0B" id="7q$fTYkHV3X" role="2ShVmc">
+                        <node concept="3Tqbb2" id="7q$fTYkHV3Y" role="3zrR0E">
+                          <ref role="ehGHo" to="tpee:fHeOMHZ" resolve="ParenthesizedExpression" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbF" id="7q$fTYkHSRH" role="3cqZAp">
+                  <node concept="37vLTI" id="7q$fTYkHVNd" role="3clFbG">
+                    <node concept="2OqwBi" id="7q$fTYkHW0t" role="37vLTx">
+                      <node concept="37vLTw" id="7q$fTYkHVNI" role="2Oq$k0">
+                        <ref role="3cqZAo" node="6bbTzIxQtNo" resolve="cast" />
+                      </node>
+                      <node concept="3TrEf2" id="7q$fTYkHWhp" role="2OqNvi">
+                        <ref role="3Tt5mk" to="tpee:f_0QFTc" resolve="expression" />
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="7q$fTYkHVkI" role="37vLTJ">
+                      <node concept="37vLTw" id="7q$fTYkHV3Z" role="2Oq$k0">
+                        <ref role="3cqZAo" node="7q$fTYkHV3V" resolve="parens" />
+                      </node>
+                      <node concept="3TrEf2" id="7q$fTYkHVzU" role="2OqNvi">
+                        <ref role="3Tt5mk" to="tpee:fHeOMI0" resolve="expression" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbF" id="7q$fTYkHWpm" role="3cqZAp">
+                  <node concept="37vLTI" id="7q$fTYkHXx2" role="3clFbG">
+                    <node concept="37vLTw" id="7q$fTYkHXyd" role="37vLTx">
+                      <ref role="3cqZAo" node="7q$fTYkHV3V" resolve="parens" />
+                    </node>
+                    <node concept="2OqwBi" id="7q$fTYkHW_D" role="37vLTJ">
+                      <node concept="37vLTw" id="7q$fTYkHWpk" role="2Oq$k0">
+                        <ref role="3cqZAo" node="6bbTzIxQtNo" resolve="cast" />
+                      </node>
+                      <node concept="3TrEf2" id="7q$fTYkHXjS" role="2OqNvi">
+                        <ref role="3Tt5mk" to="tpee:f_0QFTc" resolve="expression" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2YIFZM" id="7q$fTYkHSF8" role="3clFbw">
+                <ref role="37wK5l" to="tpcz:qIwpvNWfTr" resolve="needsParensInsideCastExpression" />
+                <ref role="1Pybhc" to="tpcz:18ik2d67g12" resolve="PrecedenceUtil" />
+                <node concept="37vLTw" id="7q$fTYkHSF9" role="37wK5m">
+                  <ref role="3cqZAo" node="6bbTzIxQtNo" resolve="cast" />
                 </node>
               </node>
             </node>

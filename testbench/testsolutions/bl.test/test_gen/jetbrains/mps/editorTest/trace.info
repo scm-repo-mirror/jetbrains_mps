@@ -25337,6 +25337,538 @@
       <unit id="8547191361978792978" at="14,0,41,0" name="jetbrains.mps.editorTest.DeleteClosingCurlyBrace_Test" />
     </file>
   </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282691628">
+    <file name="PrependWithIf_Test.java">
+      <node id="8549027947282691628" at="18,31,19,25" concept="11" />
+      <node id="8549027947282691628" at="23,53,24,36" concept="2" />
+      <node id="8549027947282691628" at="29,52,30,19" concept="11" />
+      <node id="8549027947282691628" at="34,51,35,72" concept="2" />
+      <node id="8549027947282698926" at="35,72,36,23" concept="2" />
+      <node id="8549027947282691628" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282691628" at="18,0,21,0" concept="1" trace="PrependWithIf_Test#()V" />
+      <node id="8549027947282691628" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282691628" at="22,0,26,0" concept="5" trace="test_PrependWithIf#()V" />
+      <node id="8549027947282691628" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282691628" at="18,31,19,25" />
+      <scope id="8549027947282691628" at="23,53,24,36" />
+      <scope id="8549027947282691628" at="29,52,30,19" />
+      <scope id="8549027947282691628" at="34,51,36,23" />
+      <scope id="8549027947282691628" at="18,0,21,0" />
+      <scope id="8549027947282691628" at="29,0,32,0">
+        <var name="owner" id="8549027947282691628" />
+      </scope>
+      <scope id="8549027947282691628" at="22,0,26,0" />
+      <scope id="8549027947282691628" at="33,0,38,0" />
+      <unit id="8549027947282691628" at="27,0,39,0" name="jetbrains.mps.editorTest.PrependWithIf_Test$TestBody" />
+      <unit id="8549027947282691628" at="13,0,40,0" name="jetbrains.mps.editorTest.PrependWithIf_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282833243">
+    <file name="PrependWithWhile_Test.java">
+      <node id="8549027947282833243" at="18,34,19,25" concept="11" />
+      <node id="8549027947282833243" at="23,56,24,36" concept="2" />
+      <node id="8549027947282833243" at="29,52,30,19" concept="11" />
+      <node id="8549027947282833243" at="34,51,35,72" concept="2" />
+      <node id="8549027947282833262" at="35,72,36,26" concept="2" />
+      <node id="8549027947282833243" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282833243" at="18,0,21,0" concept="1" trace="PrependWithWhile_Test#()V" />
+      <node id="8549027947282833243" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282833243" at="22,0,26,0" concept="5" trace="test_PrependWithWhile#()V" />
+      <node id="8549027947282833243" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282833243" at="18,34,19,25" />
+      <scope id="8549027947282833243" at="23,56,24,36" />
+      <scope id="8549027947282833243" at="29,52,30,19" />
+      <scope id="8549027947282833243" at="34,51,36,26" />
+      <scope id="8549027947282833243" at="18,0,21,0" />
+      <scope id="8549027947282833243" at="29,0,32,0">
+        <var name="owner" id="8549027947282833243" />
+      </scope>
+      <scope id="8549027947282833243" at="22,0,26,0" />
+      <scope id="8549027947282833243" at="33,0,38,0" />
+      <unit id="8549027947282833243" at="27,0,39,0" name="jetbrains.mps.editorTest.PrependWithWhile_Test$TestBody" />
+      <unit id="8549027947282833243" at="13,0,40,0" name="jetbrains.mps.editorTest.PrependWithWhile_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282834501">
+    <file name="PrependWithReturn_Test.java">
+      <node id="8549027947282834501" at="18,35,19,25" concept="11" />
+      <node id="8549027947282834501" at="23,57,24,36" concept="2" />
+      <node id="8549027947282834501" at="29,52,30,19" concept="11" />
+      <node id="8549027947282834501" at="34,51,35,72" concept="2" />
+      <node id="8549027947282834520" at="35,72,36,27" concept="2" />
+      <node id="8549027947282834501" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282834501" at="18,0,21,0" concept="1" trace="PrependWithReturn_Test#()V" />
+      <node id="8549027947282834501" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282834501" at="22,0,26,0" concept="5" trace="test_PrependWithReturn#()V" />
+      <node id="8549027947282834501" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282834501" at="18,35,19,25" />
+      <scope id="8549027947282834501" at="23,57,24,36" />
+      <scope id="8549027947282834501" at="29,52,30,19" />
+      <scope id="8549027947282834501" at="34,51,36,27" />
+      <scope id="8549027947282834501" at="18,0,21,0" />
+      <scope id="8549027947282834501" at="29,0,32,0">
+        <var name="owner" id="8549027947282834501" />
+      </scope>
+      <scope id="8549027947282834501" at="22,0,26,0" />
+      <scope id="8549027947282834501" at="33,0,38,0" />
+      <unit id="8549027947282834501" at="27,0,39,0" name="jetbrains.mps.editorTest.PrependWithReturn_Test$TestBody" />
+      <unit id="8549027947282834501" at="13,0,40,0" name="jetbrains.mps.editorTest.PrependWithReturn_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282839811">
+    <file name="AppendIf_Test.java">
+      <node id="8549027947282839811" at="18,26,19,25" concept="11" />
+      <node id="8549027947282839811" at="23,48,24,36" concept="2" />
+      <node id="8549027947282839811" at="29,52,30,19" concept="11" />
+      <node id="8549027947282839811" at="34,51,35,72" concept="2" />
+      <node id="8549027947282839830" at="35,72,36,23" concept="2" />
+      <node id="8549027947282839811" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282839811" at="18,0,21,0" concept="1" trace="AppendIf_Test#()V" />
+      <node id="8549027947282839811" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282839811" at="22,0,26,0" concept="5" trace="test_AppendIf#()V" />
+      <node id="8549027947282839811" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282839811" at="18,26,19,25" />
+      <scope id="8549027947282839811" at="23,48,24,36" />
+      <scope id="8549027947282839811" at="29,52,30,19" />
+      <scope id="8549027947282839811" at="34,51,36,23" />
+      <scope id="8549027947282839811" at="18,0,21,0" />
+      <scope id="8549027947282839811" at="29,0,32,0">
+        <var name="owner" id="8549027947282839811" />
+      </scope>
+      <scope id="8549027947282839811" at="22,0,26,0" />
+      <scope id="8549027947282839811" at="33,0,38,0" />
+      <unit id="8549027947282839811" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendIf_Test$TestBody" />
+      <unit id="8549027947282839811" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendIf_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282844660">
+    <file name="AppendWhile_Test.java">
+      <node id="8549027947282844660" at="18,29,19,25" concept="11" />
+      <node id="8549027947282844660" at="23,51,24,36" concept="2" />
+      <node id="8549027947282844660" at="29,52,30,19" concept="11" />
+      <node id="8549027947282844660" at="34,51,35,72" concept="2" />
+      <node id="8549027947282844670" at="35,72,36,26" concept="2" />
+      <node id="8549027947282844660" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282844660" at="18,0,21,0" concept="1" trace="AppendWhile_Test#()V" />
+      <node id="8549027947282844660" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282844660" at="22,0,26,0" concept="5" trace="test_AppendWhile#()V" />
+      <node id="8549027947282844660" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282844660" at="18,29,19,25" />
+      <scope id="8549027947282844660" at="23,51,24,36" />
+      <scope id="8549027947282844660" at="29,52,30,19" />
+      <scope id="8549027947282844660" at="34,51,36,26" />
+      <scope id="8549027947282844660" at="18,0,21,0" />
+      <scope id="8549027947282844660" at="29,0,32,0">
+        <var name="owner" id="8549027947282844660" />
+      </scope>
+      <scope id="8549027947282844660" at="22,0,26,0" />
+      <scope id="8549027947282844660" at="33,0,38,0" />
+      <unit id="8549027947282844660" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendWhile_Test$TestBody" />
+      <unit id="8549027947282844660" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendWhile_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947282849764">
+    <file name="AppendReturn_Test.java">
+      <node id="8549027947282849764" at="18,30,19,25" concept="11" />
+      <node id="8549027947282849764" at="23,52,24,36" concept="2" />
+      <node id="8549027947282849764" at="29,52,30,19" concept="11" />
+      <node id="8549027947282849764" at="34,51,35,72" concept="2" />
+      <node id="8549027947282849774" at="35,72,36,27" concept="2" />
+      <node id="8549027947282849764" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947282849764" at="18,0,21,0" concept="1" trace="AppendReturn_Test#()V" />
+      <node id="8549027947282849764" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947282849764" at="22,0,26,0" concept="5" trace="test_AppendReturn#()V" />
+      <node id="8549027947282849764" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947282849764" at="18,30,19,25" />
+      <scope id="8549027947282849764" at="23,52,24,36" />
+      <scope id="8549027947282849764" at="29,52,30,19" />
+      <scope id="8549027947282849764" at="34,51,36,27" />
+      <scope id="8549027947282849764" at="18,0,21,0" />
+      <scope id="8549027947282849764" at="29,0,32,0">
+        <var name="owner" id="8549027947282849764" />
+      </scope>
+      <scope id="8549027947282849764" at="22,0,26,0" />
+      <scope id="8549027947282849764" at="33,0,38,0" />
+      <unit id="8549027947282849764" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendReturn_Test$TestBody" />
+      <unit id="8549027947282849764" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendReturn_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283000227">
+    <file name="AppendNot1_Test.java">
+      <node id="8549027947283000227" at="18,28,19,25" concept="11" />
+      <node id="8549027947283000227" at="23,50,24,36" concept="2" />
+      <node id="8549027947283000227" at="29,52,30,19" concept="11" />
+      <node id="8549027947283000227" at="34,51,35,72" concept="2" />
+      <node id="8549027947283000237" at="35,72,36,24" concept="2" />
+      <node id="8549027947283000227" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283000227" at="18,0,21,0" concept="1" trace="AppendNot1_Test#()V" />
+      <node id="8549027947283000227" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283000227" at="22,0,26,0" concept="5" trace="test_AppendNot1#()V" />
+      <node id="8549027947283000227" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283000227" at="18,28,19,25" />
+      <scope id="8549027947283000227" at="23,50,24,36" />
+      <scope id="8549027947283000227" at="29,52,30,19" />
+      <scope id="8549027947283000227" at="34,51,36,24" />
+      <scope id="8549027947283000227" at="18,0,21,0" />
+      <scope id="8549027947283000227" at="29,0,32,0">
+        <var name="owner" id="8549027947283000227" />
+      </scope>
+      <scope id="8549027947283000227" at="22,0,26,0" />
+      <scope id="8549027947283000227" at="33,0,38,0" />
+      <unit id="8549027947283000227" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendNot1_Test$TestBody" />
+      <unit id="8549027947283000227" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendNot1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283017466">
+    <file name="AppendNot2_Test.java">
+      <node id="8549027947283017466" at="18,28,19,25" concept="11" />
+      <node id="8549027947283017466" at="23,50,24,36" concept="2" />
+      <node id="8549027947283017466" at="29,52,30,19" concept="11" />
+      <node id="8549027947283017466" at="34,51,35,72" concept="2" />
+      <node id="8549027947283017468" at="35,72,36,24" concept="2" />
+      <node id="8549027947283017466" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283017466" at="18,0,21,0" concept="1" trace="AppendNot2_Test#()V" />
+      <node id="8549027947283017466" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283017466" at="22,0,26,0" concept="5" trace="test_AppendNot2#()V" />
+      <node id="8549027947283017466" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283017466" at="18,28,19,25" />
+      <scope id="8549027947283017466" at="23,50,24,36" />
+      <scope id="8549027947283017466" at="29,52,30,19" />
+      <scope id="8549027947283017466" at="34,51,36,24" />
+      <scope id="8549027947283017466" at="18,0,21,0" />
+      <scope id="8549027947283017466" at="29,0,32,0">
+        <var name="owner" id="8549027947283017466" />
+      </scope>
+      <scope id="8549027947283017466" at="22,0,26,0" />
+      <scope id="8549027947283017466" at="33,0,38,0" />
+      <unit id="8549027947283017466" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendNot2_Test$TestBody" />
+      <unit id="8549027947283017466" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendNot2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283054079">
+    <file name="AppendVar1_Test.java">
+      <node id="8549027947283054079" at="18,28,19,25" concept="11" />
+      <node id="8549027947283054079" at="23,50,24,36" concept="2" />
+      <node id="8549027947283054079" at="29,52,30,19" concept="11" />
+      <node id="8549027947283054079" at="34,51,35,72" concept="2" />
+      <node id="8549027947283054081" at="35,72,36,24" concept="2" />
+      <node id="8549027947283054079" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283054079" at="18,0,21,0" concept="1" trace="AppendVar1_Test#()V" />
+      <node id="8549027947283054079" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283054079" at="22,0,26,0" concept="5" trace="test_AppendVar1#()V" />
+      <node id="8549027947283054079" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283054079" at="18,28,19,25" />
+      <scope id="8549027947283054079" at="23,50,24,36" />
+      <scope id="8549027947283054079" at="29,52,30,19" />
+      <scope id="8549027947283054079" at="34,51,36,24" />
+      <scope id="8549027947283054079" at="18,0,21,0" />
+      <scope id="8549027947283054079" at="29,0,32,0">
+        <var name="owner" id="8549027947283054079" />
+      </scope>
+      <scope id="8549027947283054079" at="22,0,26,0" />
+      <scope id="8549027947283054079" at="33,0,38,0" />
+      <unit id="8549027947283054079" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendVar1_Test$TestBody" />
+      <unit id="8549027947283054079" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendVar1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283065360">
+    <file name="AppendVar2_Test.java">
+      <node id="8549027947283065360" at="18,28,19,25" concept="11" />
+      <node id="8549027947283065360" at="23,50,24,36" concept="2" />
+      <node id="8549027947283065360" at="29,52,30,19" concept="11" />
+      <node id="8549027947283065360" at="34,51,35,72" concept="2" />
+      <node id="8549027947283065362" at="35,72,36,24" concept="2" />
+      <node id="8549027947283065360" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283065360" at="18,0,21,0" concept="1" trace="AppendVar2_Test#()V" />
+      <node id="8549027947283065360" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283065360" at="22,0,26,0" concept="5" trace="test_AppendVar2#()V" />
+      <node id="8549027947283065360" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283065360" at="18,28,19,25" />
+      <scope id="8549027947283065360" at="23,50,24,36" />
+      <scope id="8549027947283065360" at="29,52,30,19" />
+      <scope id="8549027947283065360" at="34,51,36,24" />
+      <scope id="8549027947283065360" at="18,0,21,0" />
+      <scope id="8549027947283065360" at="29,0,32,0">
+        <var name="owner" id="8549027947283065360" />
+      </scope>
+      <scope id="8549027947283065360" at="22,0,26,0" />
+      <scope id="8549027947283065360" at="33,0,38,0" />
+      <unit id="8549027947283065360" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendVar2_Test$TestBody" />
+      <unit id="8549027947283065360" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendVar2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283239724">
+    <file name="AppendParen1_Test.java">
+      <node id="8549027947283239724" at="18,30,19,25" concept="11" />
+      <node id="8549027947283239724" at="23,52,24,36" concept="2" />
+      <node id="8549027947283239724" at="29,52,30,19" concept="11" />
+      <node id="8549027947283239724" at="34,51,35,72" concept="2" />
+      <node id="8549027947283239726" at="35,72,36,26" concept="2" />
+      <node id="8549027947283239724" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283239724" at="18,0,21,0" concept="1" trace="AppendParen1_Test#()V" />
+      <node id="8549027947283239724" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283239724" at="22,0,26,0" concept="5" trace="test_AppendParen1#()V" />
+      <node id="8549027947283239724" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283239724" at="18,30,19,25" />
+      <scope id="8549027947283239724" at="23,52,24,36" />
+      <scope id="8549027947283239724" at="29,52,30,19" />
+      <scope id="8549027947283239724" at="34,51,36,26" />
+      <scope id="8549027947283239724" at="18,0,21,0" />
+      <scope id="8549027947283239724" at="29,0,32,0">
+        <var name="owner" id="8549027947283239724" />
+      </scope>
+      <scope id="8549027947283239724" at="22,0,26,0" />
+      <scope id="8549027947283239724" at="33,0,38,0" />
+      <unit id="8549027947283239724" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendParen1_Test$TestBody" />
+      <unit id="8549027947283239724" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendParen1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283249045">
+    <file name="AppendParen2_Test.java">
+      <node id="8549027947283249045" at="18,30,19,25" concept="11" />
+      <node id="8549027947283249045" at="23,52,24,36" concept="2" />
+      <node id="8549027947283249045" at="29,52,30,19" concept="11" />
+      <node id="8549027947283249045" at="34,51,35,72" concept="2" />
+      <node id="8549027947283249047" at="35,72,36,26" concept="2" />
+      <node id="8549027947283249045" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283249045" at="18,0,21,0" concept="1" trace="AppendParen2_Test#()V" />
+      <node id="8549027947283249045" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283249045" at="22,0,26,0" concept="5" trace="test_AppendParen2#()V" />
+      <node id="8549027947283249045" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283249045" at="18,30,19,25" />
+      <scope id="8549027947283249045" at="23,52,24,36" />
+      <scope id="8549027947283249045" at="29,52,30,19" />
+      <scope id="8549027947283249045" at="34,51,36,26" />
+      <scope id="8549027947283249045" at="18,0,21,0" />
+      <scope id="8549027947283249045" at="29,0,32,0">
+        <var name="owner" id="8549027947283249045" />
+      </scope>
+      <scope id="8549027947283249045" at="22,0,26,0" />
+      <scope id="8549027947283249045" at="33,0,38,0" />
+      <unit id="8549027947283249045" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendParen2_Test$TestBody" />
+      <unit id="8549027947283249045" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendParen2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283422513">
+    <file name="AppendCast1_Test.java">
+      <node id="8549027947283422513" at="18,29,19,25" concept="11" />
+      <node id="8549027947283422513" at="23,51,24,36" concept="2" />
+      <node id="8549027947283422513" at="29,52,30,19" concept="11" />
+      <node id="8549027947283422513" at="34,51,35,72" concept="2" />
+      <node id="8549027947283422515" at="35,72,36,25" concept="2" />
+      <node id="8549027947283422513" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283422513" at="18,0,21,0" concept="1" trace="AppendCast1_Test#()V" />
+      <node id="8549027947283422513" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283422513" at="22,0,26,0" concept="5" trace="test_AppendCast1#()V" />
+      <node id="8549027947283422513" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283422513" at="18,29,19,25" />
+      <scope id="8549027947283422513" at="23,51,24,36" />
+      <scope id="8549027947283422513" at="29,52,30,19" />
+      <scope id="8549027947283422513" at="34,51,36,25" />
+      <scope id="8549027947283422513" at="18,0,21,0" />
+      <scope id="8549027947283422513" at="29,0,32,0">
+        <var name="owner" id="8549027947283422513" />
+      </scope>
+      <scope id="8549027947283422513" at="22,0,26,0" />
+      <scope id="8549027947283422513" at="33,0,38,0" />
+      <unit id="8549027947283422513" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendCast1_Test$TestBody" />
+      <unit id="8549027947283422513" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendCast1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283431982">
+    <file name="AppendCast2_Test.java">
+      <node id="8549027947283431982" at="18,29,19,25" concept="11" />
+      <node id="8549027947283431982" at="23,51,24,36" concept="2" />
+      <node id="8549027947283431982" at="29,52,30,19" concept="11" />
+      <node id="8549027947283431982" at="34,51,35,72" concept="2" />
+      <node id="8549027947283431984" at="35,72,36,25" concept="2" />
+      <node id="8549027947283431982" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283431982" at="18,0,21,0" concept="1" trace="AppendCast2_Test#()V" />
+      <node id="8549027947283431982" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283431982" at="22,0,26,0" concept="5" trace="test_AppendCast2#()V" />
+      <node id="8549027947283431982" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283431982" at="18,29,19,25" />
+      <scope id="8549027947283431982" at="23,51,24,36" />
+      <scope id="8549027947283431982" at="29,52,30,19" />
+      <scope id="8549027947283431982" at="34,51,36,25" />
+      <scope id="8549027947283431982" at="18,0,21,0" />
+      <scope id="8549027947283431982" at="29,0,32,0">
+        <var name="owner" id="8549027947283431982" />
+      </scope>
+      <scope id="8549027947283431982" at="22,0,26,0" />
+      <scope id="8549027947283431982" at="33,0,38,0" />
+      <unit id="8549027947283431982" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendCast2_Test$TestBody" />
+      <unit id="8549027947283431982" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendCast2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947283436894">
+    <file name="AppendCast3_Test.java">
+      <node id="8549027947283436894" at="18,29,19,25" concept="11" />
+      <node id="8549027947283436894" at="23,51,24,36" concept="2" />
+      <node id="8549027947283436894" at="29,52,30,19" concept="11" />
+      <node id="8549027947283436894" at="34,51,35,72" concept="2" />
+      <node id="8549027947283436896" at="35,72,36,25" concept="2" />
+      <node id="8549027947283436894" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947283436894" at="18,0,21,0" concept="1" trace="AppendCast3_Test#()V" />
+      <node id="8549027947283436894" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947283436894" at="22,0,26,0" concept="5" trace="test_AppendCast3#()V" />
+      <node id="8549027947283436894" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947283436894" at="18,29,19,25" />
+      <scope id="8549027947283436894" at="23,51,24,36" />
+      <scope id="8549027947283436894" at="29,52,30,19" />
+      <scope id="8549027947283436894" at="34,51,36,25" />
+      <scope id="8549027947283436894" at="18,0,21,0" />
+      <scope id="8549027947283436894" at="29,0,32,0">
+        <var name="owner" id="8549027947283436894" />
+      </scope>
+      <scope id="8549027947283436894" at="22,0,26,0" />
+      <scope id="8549027947283436894" at="33,0,38,0" />
+      <unit id="8549027947283436894" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendCast3_Test$TestBody" />
+      <unit id="8549027947283436894" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendCast3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947285801493">
+    <file name="AppendFor1_Test.java">
+      <node id="8549027947285801493" at="18,28,19,25" concept="11" />
+      <node id="8549027947285801493" at="23,50,24,36" concept="2" />
+      <node id="8549027947285801493" at="29,52,30,19" concept="11" />
+      <node id="8549027947285801493" at="34,51,35,72" concept="2" />
+      <node id="8549027947285801495" at="35,72,36,24" concept="2" />
+      <node id="8549027947285887750" at="36,24,37,22" concept="2" />
+      <node id="8549027947285892982" at="37,22,38,71" concept="2" />
+      <node id="8549027947285893010" at="38,71,39,71" concept="2" />
+      <node id="8549027947285889217" at="39,71,40,24" concept="2" />
+      <node id="8549027947285801493" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947285801493" at="18,0,21,0" concept="1" trace="AppendFor1_Test#()V" />
+      <node id="8549027947285801493" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947285801493" at="22,0,26,0" concept="5" trace="test_AppendFor1#()V" />
+      <node id="8549027947285801493" at="33,0,42,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947285801493" at="18,28,19,25" />
+      <scope id="8549027947285801493" at="23,50,24,36" />
+      <scope id="8549027947285801493" at="29,52,30,19" />
+      <scope id="8549027947285801493" at="18,0,21,0" />
+      <scope id="8549027947285801493" at="29,0,32,0">
+        <var name="owner" id="8549027947285801493" />
+      </scope>
+      <scope id="8549027947285801493" at="22,0,26,0" />
+      <scope id="8549027947285801493" at="34,51,40,24" />
+      <scope id="8549027947285801493" at="33,0,42,0" />
+      <unit id="8549027947285801493" at="27,0,43,0" name="jetbrains.mps.editorTest.AppendFor1_Test$TestBody" />
+      <unit id="8549027947285801493" at="13,0,44,0" name="jetbrains.mps.editorTest.AppendFor1_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947286030913">
+    <file name="AppendFor2_Test.java">
+      <node id="8549027947286030913" at="18,28,19,25" concept="11" />
+      <node id="8549027947286030913" at="23,50,24,36" concept="2" />
+      <node id="8549027947286030913" at="29,52,30,19" concept="11" />
+      <node id="8549027947286030913" at="34,51,35,72" concept="2" />
+      <node id="8549027947286030915" at="35,72,36,24" concept="2" />
+      <node id="8549027947286030916" at="36,24,37,22" concept="2" />
+      <node id="8549027947286030917" at="37,22,38,71" concept="2" />
+      <node id="8549027947286030919" at="38,71,39,71" concept="2" />
+      <node id="8549027947286030921" at="39,71,40,24" concept="2" />
+      <node id="8549027947286030913" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947286030913" at="18,0,21,0" concept="1" trace="AppendFor2_Test#()V" />
+      <node id="8549027947286030913" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947286030913" at="22,0,26,0" concept="5" trace="test_AppendFor2#()V" />
+      <node id="8549027947286030913" at="33,0,42,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947286030913" at="18,28,19,25" />
+      <scope id="8549027947286030913" at="23,50,24,36" />
+      <scope id="8549027947286030913" at="29,52,30,19" />
+      <scope id="8549027947286030913" at="18,0,21,0" />
+      <scope id="8549027947286030913" at="29,0,32,0">
+        <var name="owner" id="8549027947286030913" />
+      </scope>
+      <scope id="8549027947286030913" at="22,0,26,0" />
+      <scope id="8549027947286030913" at="34,51,40,24" />
+      <scope id="8549027947286030913" at="33,0,42,0" />
+      <unit id="8549027947286030913" at="27,0,43,0" name="jetbrains.mps.editorTest.AppendFor2_Test$TestBody" />
+      <unit id="8549027947286030913" at="13,0,44,0" name="jetbrains.mps.editorTest.AppendFor2_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947286250556">
+    <file name="AppendFor3_Test.java">
+      <node id="8549027947286250556" at="18,28,19,25" concept="11" />
+      <node id="8549027947286250556" at="23,50,24,36" concept="2" />
+      <node id="8549027947286250556" at="29,52,30,19" concept="11" />
+      <node id="8549027947286250556" at="34,51,35,72" concept="2" />
+      <node id="8549027947286250558" at="35,72,36,24" concept="2" />
+      <node id="8549027947286250559" at="36,24,37,22" concept="2" />
+      <node id="8549027947286250560" at="37,22,38,71" concept="2" />
+      <node id="8549027947286250562" at="38,71,39,71" concept="2" />
+      <node id="8549027947286250564" at="39,71,40,24" concept="2" />
+      <node id="8549027947286250556" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947286250556" at="18,0,21,0" concept="1" trace="AppendFor3_Test#()V" />
+      <node id="8549027947286250556" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947286250556" at="22,0,26,0" concept="5" trace="test_AppendFor3#()V" />
+      <node id="8549027947286250556" at="33,0,42,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947286250556" at="18,28,19,25" />
+      <scope id="8549027947286250556" at="23,50,24,36" />
+      <scope id="8549027947286250556" at="29,52,30,19" />
+      <scope id="8549027947286250556" at="18,0,21,0" />
+      <scope id="8549027947286250556" at="29,0,32,0">
+        <var name="owner" id="8549027947286250556" />
+      </scope>
+      <scope id="8549027947286250556" at="22,0,26,0" />
+      <scope id="8549027947286250556" at="34,51,40,24" />
+      <scope id="8549027947286250556" at="33,0,42,0" />
+      <unit id="8549027947286250556" at="27,0,43,0" name="jetbrains.mps.editorTest.AppendFor3_Test$TestBody" />
+      <unit id="8549027947286250556" at="13,0,44,0" name="jetbrains.mps.editorTest.AppendFor3_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947286293663">
+    <file name="AppendFor4_Test.java">
+      <node id="8549027947286293663" at="18,28,19,25" concept="11" />
+      <node id="8549027947286293663" at="23,50,24,36" concept="2" />
+      <node id="8549027947286293663" at="29,52,30,19" concept="11" />
+      <node id="8549027947286293663" at="34,51,35,72" concept="2" />
+      <node id="8549027947286293671" at="35,72,36,24" concept="2" />
+      <node id="8549027947286293663" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947286293663" at="18,0,21,0" concept="1" trace="AppendFor4_Test#()V" />
+      <node id="8549027947286293663" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947286293663" at="22,0,26,0" concept="5" trace="test_AppendFor4#()V" />
+      <node id="8549027947286293663" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947286293663" at="18,28,19,25" />
+      <scope id="8549027947286293663" at="23,50,24,36" />
+      <scope id="8549027947286293663" at="29,52,30,19" />
+      <scope id="8549027947286293663" at="34,51,36,24" />
+      <scope id="8549027947286293663" at="18,0,21,0" />
+      <scope id="8549027947286293663" at="29,0,32,0">
+        <var name="owner" id="8549027947286293663" />
+      </scope>
+      <scope id="8549027947286293663" at="22,0,26,0" />
+      <scope id="8549027947286293663" at="33,0,38,0" />
+      <unit id="8549027947286293663" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendFor4_Test$TestBody" />
+      <unit id="8549027947286293663" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendFor4_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8549027947286454801">
+    <file name="AppendToCreator_Test.java">
+      <node id="8549027947286454801" at="18,33,19,25" concept="11" />
+      <node id="8549027947286454801" at="23,55,24,36" concept="2" />
+      <node id="8549027947286454801" at="29,52,30,19" concept="11" />
+      <node id="8549027947286454801" at="34,51,35,72" concept="2" />
+      <node id="8549027947286454803" at="35,72,36,24" concept="2" />
+      <node id="8549027947286454801" at="15,0,17,0" concept="9" trace="ourParamCache" />
+      <node id="8549027947286454801" at="18,0,21,0" concept="1" trace="AppendToCreator_Test#()V" />
+      <node id="8549027947286454801" at="29,0,32,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8549027947286454801" at="22,0,26,0" concept="5" trace="test_AppendToCreator#()V" />
+      <node id="8549027947286454801" at="33,0,38,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="8549027947286454801" at="18,33,19,25" />
+      <scope id="8549027947286454801" at="23,55,24,36" />
+      <scope id="8549027947286454801" at="29,52,30,19" />
+      <scope id="8549027947286454801" at="34,51,36,24" />
+      <scope id="8549027947286454801" at="18,0,21,0" />
+      <scope id="8549027947286454801" at="29,0,32,0">
+        <var name="owner" id="8549027947286454801" />
+      </scope>
+      <scope id="8549027947286454801" at="22,0,26,0" />
+      <scope id="8549027947286454801" at="33,0,38,0" />
+      <unit id="8549027947286454801" at="27,0,39,0" name="jetbrains.mps.editorTest.AppendToCreator_Test$TestBody" />
+      <unit id="8549027947286454801" at="13,0,40,0" name="jetbrains.mps.editorTest.AppendToCreator_Test" />
+    </file>
+  </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8551480281481326446">
     <file name="MissingTypeFocus1_Test.java">
       <node id="8551480281481326446" at="18,35,19,25" concept="11" />

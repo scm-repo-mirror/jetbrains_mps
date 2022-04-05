@@ -39,14 +39,14 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
+import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import java.util.Objects;
 import java.util.Arrays;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -340,6 +340,11 @@ public class PostExpressionFixTransformations extends TransformationMenuBase {
         SNode expr = Expression__BehaviorDescriptor.getExpressionWhereThisIsTheRightMost_id6bbTzIwEwNG.invoke(_context.getNode());
         SNode cast = SNodeFactoryOperations.replaceWithNewChild(expr, CONCEPTS.CastExpression$$8);
         SLinkOperations.setTarget(cast, LINKS.expression$XDmN, expr);
+        if (PrecedenceUtil.needsParensInsideCastExpression(cast)) {
+          SNode parens = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
+          SLinkOperations.setTarget(parens, LINKS.expression$TlhM, SLinkOperations.getTarget(cast, LINKS.expression$XDmN));
+          SLinkOperations.setTarget(cast, LINKS.expression$XDmN, parens);
+        }
         SelectionUtil.selectCell(_context.getEditorContext(), cast, SelectionManager.FIRST_EDITABLE_CELL);
       }
 
