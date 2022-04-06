@@ -11,9 +11,7 @@ import javax.swing.KeyStroke;
 @GeneratedClass(node = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)/4327451095998425293", model = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)")
 public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.vcs.plugin.ShowNodeDifference_Action", getShortcut("ctrl D"));
-    // simple parameterized
+    add("jetbrains.mps.vcs.plugin.ShowNodeDifference_Action", "ctrl D");
     // complex
   }
   public String getScheme() {

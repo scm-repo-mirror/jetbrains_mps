@@ -9,9 +9,7 @@ import javax.swing.KeyStroke;
 
 public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin.GoToMemberDeclaration_Action", getShortcut("ctrl U"));
-    // simple parameterized
+    add("jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin.GoToMemberDeclaration_Action", "ctrl U");
     // complex
   }
   public String getScheme() {

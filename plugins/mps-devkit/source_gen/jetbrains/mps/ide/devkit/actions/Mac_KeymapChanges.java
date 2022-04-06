@@ -11,10 +11,7 @@ import javax.swing.KeyStroke;
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/448482297237178280", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
 public class Mac_KeymapChanges extends BaseKeymapChanges {
   public Mac_KeymapChanges() {
-    // simple
-    // simple with remove/replace
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl X"), false, true));
-    // simple parameterized
+    replace("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "ctrl X");
     // complex
   }
   public String getScheme() {

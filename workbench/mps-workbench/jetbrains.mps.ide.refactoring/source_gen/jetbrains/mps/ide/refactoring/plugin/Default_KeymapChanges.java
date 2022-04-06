@@ -9,11 +9,9 @@ import javax.swing.KeyStroke;
 
 public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.MoveModel_Action", getShortcut(" F6"));
-    addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.MoveNodes_Action", getShortcut(" F6"));
-    addSimpleShortcut("jetbrains.mps.ide.refactoring.plugin.RenameNode_Action", getShortcut("shift F6"));
-    // simple parameterized
+    add("jetbrains.mps.ide.refactoring.plugin.MoveModel_Action", " F6");
+    add("jetbrains.mps.ide.refactoring.plugin.MoveNodes_Action", " F6");
+    add("jetbrains.mps.ide.refactoring.plugin.RenameNode_Action", "shift F6");
     // complex
   }
   public String getScheme() {

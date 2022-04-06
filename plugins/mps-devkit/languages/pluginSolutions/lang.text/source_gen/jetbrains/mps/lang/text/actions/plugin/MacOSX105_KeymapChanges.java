@@ -9,12 +9,9 @@ import javax.swing.KeyStroke;
 
 public class MacOSX105_KeymapChanges extends BaseKeymapChanges {
   public MacOSX105_KeymapChanges() {
-    // simple
-    // simple with remove/replace
-    addSimpleShortcut("jetbrains.mps.lang.text.actions.plugin.TurnBold_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl B"), false, true));
-    addSimpleShortcut("jetbrains.mps.lang.text.actions.plugin.TurnItalics_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl I"), false, true));
-    addSimpleShortcut("jetbrains.mps.lang.text.actions.plugin.TurnUnderlined_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl U"), false, true));
-    // simple parameterized
+    replace("jetbrains.mps.lang.text.actions.plugin.TurnBold_Action", "ctrl B");
+    replace("jetbrains.mps.lang.text.actions.plugin.TurnItalics_Action", "ctrl I");
+    replace("jetbrains.mps.lang.text.actions.plugin.TurnUnderlined_Action", "ctrl U");
     // complex
   }
   public String getScheme() {

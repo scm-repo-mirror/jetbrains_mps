@@ -11,9 +11,7 @@ import javax.swing.KeyStroke;
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/4944905275592622082", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class DependenciesKeyMap_KeymapChanges extends BaseKeymapChanges {
   public DependenciesKeyMap_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.ide.actions.SafeDeleteModuleDependency_Action", getShortcut("ctrl DELETE"));
-    // simple parameterized
+    add("jetbrains.mps.ide.actions.SafeDeleteModuleDependency_Action", "ctrl DELETE");
     // complex
   }
   public String getScheme() {

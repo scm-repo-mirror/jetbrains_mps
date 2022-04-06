@@ -11,21 +11,19 @@ import javax.swing.KeyStroke;
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8586967776370449212", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
 public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.DeleteGenerator_Action", getShortcut(" DELETE"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.FindLanguageConceptsUsages_Action", getShortcut("alt F8"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.FindModuleUsage_Action", getShortcut("alt F7"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", getShortcut("ctrl shift S"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.GoToEditorDeclaration_Action", getShortcut("alt shift E"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.GoToRules_Action", getShortcut("ctrl alt shift R"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.HighlightCellDependencies_Action", getShortcut("ctrl alt shift H"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", getShortcut("ctrl I"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.NavigateToGeneratedCode_Action", getShortcut("ctrl alt shift B"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", getShortcut("ctrl O"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowEditorMenuItemTrace_Action", getShortcut("ctrl alt B"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", getShortcut("alt X"));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowStructure_Action", getShortcut("ctrl F10"));
-    // simple parameterized
+    add("jetbrains.mps.ide.devkit.actions.DeleteGenerator_Action", " DELETE");
+    add("jetbrains.mps.ide.devkit.actions.FindLanguageConceptsUsages_Action", "alt F8");
+    add("jetbrains.mps.ide.devkit.actions.FindModuleUsage_Action", "alt F7");
+    add("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", "ctrl shift S");
+    add("jetbrains.mps.ide.devkit.actions.GoToEditorDeclaration_Action", "alt shift E");
+    add("jetbrains.mps.ide.devkit.actions.GoToRules_Action", "ctrl alt shift R");
+    add("jetbrains.mps.ide.devkit.actions.HighlightCellDependencies_Action", "ctrl alt shift H");
+    add("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", "ctrl I");
+    add("jetbrains.mps.ide.devkit.actions.NavigateToGeneratedCode_Action", "ctrl alt shift B");
+    add("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", "ctrl O");
+    add("jetbrains.mps.ide.devkit.actions.ShowEditorMenuItemTrace_Action", "ctrl alt B");
+    add("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "alt X");
+    add("jetbrains.mps.ide.devkit.actions.ShowStructure_Action", "ctrl F10");
     // complex
   }
   public String getScheme() {

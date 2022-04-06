@@ -9,18 +9,16 @@ import javax.swing.KeyStroke;
 
 public class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
-    // simple
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.ExtractMethod_Action", getShortcut("ctrl alt M"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineField_Action", getShortcut("ctrl alt N"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineLocalVariable_Action", getShortcut("ctrl alt N"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineMethod_Action", getShortcut("ctrl alt N"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceConstant_Action", getShortcut("ctrl alt C"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceField_Action", getShortcut("ctrl alt F"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceVariable_Action", getShortcut("ctrl alt V"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameMethod_Action", getShortcut("shift F6"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameVariable_Action", getShortcut("shift F6"));
-    addSimpleShortcut("jetbrains.mps.baseLanguage.pluginSolution.plugin.SafeDeleteConceptMethod_Action", getShortcut("alt DELETE"));
-    // simple parameterized
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.ExtractMethod_Action", "ctrl alt M");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineField_Action", "ctrl alt N");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineLocalVariable_Action", "ctrl alt N");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.InlineMethod_Action", "ctrl alt N");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceConstant_Action", "ctrl alt C");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceField_Action", "ctrl alt F");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.IntroduceVariable_Action", "ctrl alt V");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameMethod_Action", "shift F6");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameVariable_Action", "shift F6");
+    add("jetbrains.mps.baseLanguage.pluginSolution.plugin.SafeDeleteConceptMethod_Action", "alt DELETE");
     // complex
   }
   public String getScheme() {

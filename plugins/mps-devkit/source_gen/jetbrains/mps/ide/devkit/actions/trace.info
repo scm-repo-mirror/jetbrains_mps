@@ -1032,26 +1032,23 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2151742525039069961">
     <file name="DefaultForGNOME_KeymapChanges.java">
-      <node id="2151742525039069961" at="13,42,14,13" concept="10" />
-      <node id="2151742525039069961" at="14,13,15,33" concept="10" />
-      <node id="2151742525039069962" at="15,33,16,172" concept="3" />
-      <node id="5738289212619996225" at="16,172,17,161" concept="3" />
-      <node id="2151742525039069961" at="17,161,18,27" concept="10" />
-      <node id="2151742525039069961" at="18,27,19,14" concept="10" />
-      <node id="2151742525039069961" at="21,29,22,31" concept="9" />
-      <node id="2151742525039069961" at="24,53,25,70" concept="9" />
-      <node id="2151742525039069961" at="21,0,24,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
-      <node id="2151742525039069961" at="24,0,27,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="2151742525039069961" at="13,0,21,0" concept="2" trace="DefaultForGNOME_KeymapChanges#()V" />
-      <scope id="2151742525039069961" at="21,29,22,31" />
-      <scope id="2151742525039069961" at="24,53,25,70" />
-      <scope id="2151742525039069961" at="21,0,24,0" />
-      <scope id="2151742525039069961" at="24,0,27,0">
+      <node id="2151742525039069963" at="13,42,14,97" concept="3" />
+      <node id="5738289212619996226" at="14,97,15,86" concept="3" />
+      <node id="2151742525039069961" at="15,86,16,14" concept="10" />
+      <node id="2151742525039069961" at="18,29,19,31" concept="9" />
+      <node id="2151742525039069961" at="21,53,22,70" concept="9" />
+      <node id="2151742525039069961" at="18,0,21,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
+      <node id="2151742525039069961" at="21,0,24,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
+      <node id="2151742525039069961" at="13,0,18,0" concept="2" trace="DefaultForGNOME_KeymapChanges#()V" />
+      <scope id="2151742525039069961" at="18,29,19,31" />
+      <scope id="2151742525039069961" at="21,53,22,70" />
+      <scope id="2151742525039069961" at="13,42,16,14" />
+      <scope id="2151742525039069961" at="18,0,21,0" />
+      <scope id="2151742525039069961" at="21,0,24,0">
         <var name="stroke" id="2151742525039069961" />
       </scope>
-      <scope id="2151742525039069961" at="13,42,19,14" />
-      <scope id="2151742525039069961" at="13,0,21,0" />
-      <unit id="2151742525039069961" at="11,0,28,0" name="jetbrains.mps.ide.devkit.actions.DefaultForGNOME_KeymapChanges" />
+      <scope id="2151742525039069961" at="13,0,18,0" />
+      <unit id="2151742525039069961" at="11,0,25,0" name="jetbrains.mps.ide.devkit.actions.DefaultForGNOME_KeymapChanges" />
     </file>
     <file name="Mpsdevkit_ApplicationPlugin.java">
       <node id="2151742525039069961" at="125,92,126,79" concept="3" />
@@ -1059,28 +1056,25 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2151742525039104674">
     <file name="MacOSX105_KeymapChanges.java">
-      <node id="2151742525039104674" at="13,36,14,13" concept="10" />
-      <node id="2151742525039104674" at="14,13,15,33" concept="10" />
-      <node id="2151742525039104675" at="15,33,16,168" concept="3" />
-      <node id="2151742525039105820" at="16,168,17,164" concept="3" />
-      <node id="2151742525039106899" at="17,164,18,163" concept="3" />
-      <node id="448482297237178248" at="18,163,19,159" concept="3" />
-      <node id="2151742525039104674" at="19,159,20,27" concept="10" />
-      <node id="2151742525039104674" at="20,27,21,14" concept="10" />
-      <node id="2151742525039104674" at="23,29,24,28" concept="9" />
-      <node id="2151742525039104674" at="26,53,27,70" concept="9" />
-      <node id="2151742525039104674" at="23,0,26,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
-      <node id="2151742525039104674" at="26,0,29,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="2151742525039104674" at="13,0,23,0" concept="2" trace="MacOSX105_KeymapChanges#()V" />
-      <scope id="2151742525039104674" at="23,29,24,28" />
-      <scope id="2151742525039104674" at="26,53,27,70" />
-      <scope id="2151742525039104674" at="23,0,26,0" />
-      <scope id="2151742525039104674" at="26,0,29,0">
+      <node id="2151742525039104676" at="13,36,14,93" concept="3" />
+      <node id="2151742525039105821" at="14,93,15,89" concept="3" />
+      <node id="2151742525039106900" at="15,89,16,88" concept="3" />
+      <node id="448482297237178250" at="16,88,17,84" concept="3" />
+      <node id="2151742525039104674" at="17,84,18,14" concept="10" />
+      <node id="2151742525039104674" at="20,29,21,28" concept="9" />
+      <node id="2151742525039104674" at="23,53,24,70" concept="9" />
+      <node id="2151742525039104674" at="20,0,23,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
+      <node id="2151742525039104674" at="23,0,26,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
+      <node id="2151742525039104674" at="13,0,20,0" concept="2" trace="MacOSX105_KeymapChanges#()V" />
+      <scope id="2151742525039104674" at="20,29,21,28" />
+      <scope id="2151742525039104674" at="23,53,24,70" />
+      <scope id="2151742525039104674" at="20,0,23,0" />
+      <scope id="2151742525039104674" at="23,0,26,0">
         <var name="stroke" id="2151742525039104674" />
       </scope>
-      <scope id="2151742525039104674" at="13,36,21,14" />
-      <scope id="2151742525039104674" at="13,0,23,0" />
-      <unit id="2151742525039104674" at="11,0,30,0" name="jetbrains.mps.ide.devkit.actions.MacOSX105_KeymapChanges" />
+      <scope id="2151742525039104674" at="13,36,18,14" />
+      <scope id="2151742525039104674" at="13,0,20,0" />
+      <unit id="2151742525039104674" at="11,0,27,0" name="jetbrains.mps.ide.devkit.actions.MacOSX105_KeymapChanges" />
     </file>
     <file name="Mpsdevkit_ApplicationPlugin.java">
       <node id="2151742525039104674" at="127,71,128,73" concept="3" />
@@ -2293,25 +2287,22 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/448482297237178280">
     <file name="Mac_KeymapChanges.java">
-      <node id="448482297237178280" at="13,30,14,13" concept="10" />
-      <node id="448482297237178280" at="14,13,15,33" concept="10" />
-      <node id="448482297237178281" at="15,33,16,159" concept="3" />
-      <node id="448482297237178280" at="16,159,17,27" concept="10" />
-      <node id="448482297237178280" at="17,27,18,14" concept="10" />
-      <node id="448482297237178280" at="20,29,21,22" concept="9" />
-      <node id="448482297237178280" at="23,53,24,70" concept="9" />
-      <node id="448482297237178280" at="20,0,23,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
-      <node id="448482297237178280" at="23,0,26,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="448482297237178280" at="13,0,20,0" concept="2" trace="Mac_KeymapChanges#()V" />
-      <scope id="448482297237178280" at="20,29,21,22" />
-      <scope id="448482297237178280" at="23,53,24,70" />
-      <scope id="448482297237178280" at="20,0,23,0" />
-      <scope id="448482297237178280" at="23,0,26,0">
+      <node id="448482297237178282" at="13,30,14,84" concept="3" />
+      <node id="448482297237178280" at="14,84,15,14" concept="10" />
+      <node id="448482297237178280" at="17,29,18,22" concept="9" />
+      <node id="448482297237178280" at="20,53,21,70" concept="9" />
+      <node id="448482297237178280" at="17,0,20,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
+      <node id="448482297237178280" at="20,0,23,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
+      <node id="448482297237178280" at="13,0,17,0" concept="2" trace="Mac_KeymapChanges#()V" />
+      <scope id="448482297237178280" at="17,29,18,22" />
+      <scope id="448482297237178280" at="20,53,21,70" />
+      <scope id="448482297237178280" at="13,30,15,14" />
+      <scope id="448482297237178280" at="17,0,20,0" />
+      <scope id="448482297237178280" at="20,0,23,0">
         <var name="stroke" id="448482297237178280" />
       </scope>
-      <scope id="448482297237178280" at="13,30,18,14" />
-      <scope id="448482297237178280" at="13,0,20,0" />
-      <unit id="448482297237178280" at="11,0,27,0" name="jetbrains.mps.ide.devkit.actions.Mac_KeymapChanges" />
+      <scope id="448482297237178280" at="13,0,17,0" />
+      <unit id="448482297237178280" at="11,0,24,0" name="jetbrains.mps.ide.devkit.actions.Mac_KeymapChanges" />
     </file>
     <file name="Mpsdevkit_ApplicationPlugin.java">
       <node id="448482297237178280" at="128,73,129,67" concept="3" />
@@ -3379,24 +3370,22 @@
       <node id="8513716958726547010" at="129,67,130,69" concept="3" />
     </file>
     <file name="Trace_KeymapChanges.java">
-      <node id="8513716958726547010" at="13,32,14,13" concept="10" />
-      <node id="8513716958726604320" at="14,13,15,114" concept="3" />
-      <node id="8513716958726547010" at="15,114,16,27" concept="10" />
-      <node id="8513716958726547010" at="16,27,17,14" concept="10" />
-      <node id="8513716958726547010" at="19,29,20,22" concept="9" />
-      <node id="8513716958726547010" at="22,53,23,70" concept="9" />
-      <node id="8513716958726547010" at="19,0,22,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
-      <node id="8513716958726547010" at="22,0,25,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="8513716958726547010" at="13,0,19,0" concept="2" trace="Trace_KeymapChanges#()V" />
-      <scope id="8513716958726547010" at="19,29,20,22" />
-      <scope id="8513716958726547010" at="22,53,23,70" />
-      <scope id="8513716958726547010" at="19,0,22,0" />
-      <scope id="8513716958726547010" at="22,0,25,0">
+      <node id="8513716958726604321" at="13,32,14,87" concept="3" />
+      <node id="8513716958726547010" at="14,87,15,14" concept="10" />
+      <node id="8513716958726547010" at="17,29,18,22" concept="9" />
+      <node id="8513716958726547010" at="20,53,21,70" concept="9" />
+      <node id="8513716958726547010" at="17,0,20,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
+      <node id="8513716958726547010" at="20,0,23,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
+      <node id="8513716958726547010" at="13,0,17,0" concept="2" trace="Trace_KeymapChanges#()V" />
+      <scope id="8513716958726547010" at="17,29,18,22" />
+      <scope id="8513716958726547010" at="20,53,21,70" />
+      <scope id="8513716958726547010" at="13,32,15,14" />
+      <scope id="8513716958726547010" at="17,0,20,0" />
+      <scope id="8513716958726547010" at="20,0,23,0">
         <var name="stroke" id="8513716958726547010" />
       </scope>
-      <scope id="8513716958726547010" at="13,32,17,14" />
-      <scope id="8513716958726547010" at="13,0,19,0" />
-      <unit id="8513716958726547010" at="11,0,26,0" name="jetbrains.mps.ide.devkit.actions.Trace_KeymapChanges" />
+      <scope id="8513716958726547010" at="13,0,17,0" />
+      <unit id="8513716958726547010" at="11,0,24,0" name="jetbrains.mps.ide.devkit.actions.Trace_KeymapChanges" />
     </file>
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8513716958726547050">
@@ -3564,36 +3553,34 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8586967776370449212">
     <file name="Default_KeymapChanges.java">
-      <node id="8586967776370449212" at="13,34,14,13" concept="10" />
-      <node id="1683977858888862565" at="14,13,15,105" concept="3" />
-      <node id="6252705307027063905" at="15,105,16,115" concept="3" />
-      <node id="7219111183925631572" at="16,115,17,104" concept="3" />
-      <node id="1744445256079578764" at="17,104,18,117" concept="3" />
-      <node id="1744445256079578761" at="18,117,19,115" concept="3" />
-      <node id="1744445256079578827" at="19,115,20,108" concept="3" />
-      <node id="2662234144540707627" at="20,108,21,124" concept="3" />
-      <node id="5487985028841895871" at="21,124,22,112" concept="3" />
-      <node id="305616691112287342" at="22,112,23,122" concept="3" />
-      <node id="5487985028841895873" at="23,122,24,111" concept="3" />
-      <node id="8955832049992678453" at="24,111,25,116" concept="3" />
-      <node id="8970236339104100114" at="25,116,26,106" concept="3" />
-      <node id="5307017976806475305" at="26,106,27,104" concept="3" />
-      <node id="8586967776370449212" at="27,104,28,27" concept="10" />
-      <node id="8586967776370449212" at="28,27,29,14" concept="10" />
-      <node id="8586967776370449212" at="31,29,32,22" concept="9" />
-      <node id="8586967776370449212" at="34,53,35,70" concept="9" />
-      <node id="8586967776370449212" at="31,0,34,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
-      <node id="8586967776370449212" at="34,0,37,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="8586967776370449212" at="13,0,31,0" concept="2" trace="Default_KeymapChanges#()V" />
-      <scope id="8586967776370449212" at="31,29,32,22" />
-      <scope id="8586967776370449212" at="34,53,35,70" />
-      <scope id="8586967776370449212" at="31,0,34,0" />
-      <scope id="8586967776370449212" at="34,0,37,0">
+      <node id="1683977858888862566" at="13,34,14,78" concept="3" />
+      <node id="6573807532044017004" at="14,78,15,88" concept="3" />
+      <node id="7219111183925631607" at="15,88,16,77" concept="3" />
+      <node id="1744445256079578765" at="16,77,17,90" concept="3" />
+      <node id="8620300841413764531" at="17,90,18,88" concept="3" />
+      <node id="1744445256079578828" at="18,88,19,81" concept="3" />
+      <node id="2662234144540707628" at="19,81,20,97" concept="3" />
+      <node id="5487985028841895872" at="20,97,21,85" concept="3" />
+      <node id="305616691112287343" at="21,85,22,95" concept="3" />
+      <node id="5487985028841895874" at="22,95,23,84" concept="3" />
+      <node id="8955832049992678455" at="23,84,24,89" concept="3" />
+      <node id="8970236339104100115" at="24,89,25,79" concept="3" />
+      <node id="5307017976806475306" at="25,79,26,77" concept="3" />
+      <node id="8586967776370449212" at="26,77,27,14" concept="10" />
+      <node id="8586967776370449212" at="29,29,30,22" concept="9" />
+      <node id="8586967776370449212" at="32,53,33,70" concept="9" />
+      <node id="8586967776370449212" at="29,0,32,0" concept="7" trace="getScheme#()Ljava/lang/String;" />
+      <node id="8586967776370449212" at="32,0,35,0" concept="13" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
+      <node id="8586967776370449212" at="13,0,29,0" concept="2" trace="Default_KeymapChanges#()V" />
+      <scope id="8586967776370449212" at="29,29,30,22" />
+      <scope id="8586967776370449212" at="32,53,33,70" />
+      <scope id="8586967776370449212" at="29,0,32,0" />
+      <scope id="8586967776370449212" at="32,0,35,0">
         <var name="stroke" id="8586967776370449212" />
       </scope>
-      <scope id="8586967776370449212" at="13,34,29,14" />
-      <scope id="8586967776370449212" at="13,0,31,0" />
-      <unit id="8586967776370449212" at="11,0,38,0" name="jetbrains.mps.ide.devkit.actions.Default_KeymapChanges" />
+      <scope id="8586967776370449212" at="13,34,27,14" />
+      <scope id="8586967776370449212" at="13,0,29,0" />
+      <unit id="8586967776370449212" at="11,0,36,0" name="jetbrains.mps.ide.devkit.actions.Default_KeymapChanges" />
     </file>
     <file name="Mpsdevkit_ApplicationPlugin.java">
       <node id="8586967776370449212" at="126,79,127,71" concept="3" />

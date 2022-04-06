@@ -11,13 +11,10 @@ import javax.swing.KeyStroke;
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2151742525039104674", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
 public class MacOSX105_KeymapChanges extends BaseKeymapChanges {
   public MacOSX105_KeymapChanges() {
-    // simple
-    // simple with remove/replace
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("alt shift S"), false, true));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl I"), false, true));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl O"), false, true));
-    addSimpleShortcut("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl X"), false, true));
-    // simple parameterized
+    replace("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", "alt shift S");
+    replace("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", "ctrl I");
+    replace("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", "ctrl O");
+    replace("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "ctrl X");
     // complex
   }
   public String getScheme() {
