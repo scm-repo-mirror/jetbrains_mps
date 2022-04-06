@@ -4,21 +4,16 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2151742525039069961", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
-public class DefaultForGNOME_KeymapChanges extends BaseKeymapChanges {
+public final class DefaultForGNOME_KeymapChanges extends BaseKeymapChanges {
   public DefaultForGNOME_KeymapChanges() {
     replace("jetbrains.mps.ide.devkit.actions.FindLanguageConceptsUsages_Action", "alt shift 8");
     replace("jetbrains.mps.ide.devkit.actions.FindModuleUsage_Action", "alt shift 7");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "Default for GNOME";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

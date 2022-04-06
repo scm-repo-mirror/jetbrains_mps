@@ -4,20 +4,15 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/448482297237178280", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
-public class Mac_KeymapChanges extends BaseKeymapChanges {
+public final class Mac_KeymapChanges extends BaseKeymapChanges {
   public Mac_KeymapChanges() {
     replace("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "ctrl X");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "Mac OS X";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

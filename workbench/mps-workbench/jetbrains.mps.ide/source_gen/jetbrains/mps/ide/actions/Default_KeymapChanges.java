@@ -4,14 +4,9 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
-import java.util.List;
-import java.util.ArrayList;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2443880313834662249", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
-public class Default_KeymapChanges extends BaseKeymapChanges {
+public final class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
     add("jetbrains.mps.ide.actions.CloneModel_Action", "shift F5");
     add("jetbrains.mps.ide.actions.CloneModule_Action", "shift F5");
@@ -65,46 +60,47 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addTemplate("jetbrains.mps.ide.actions.GoToFile_Action", "ctrl shift N");
     addTemplate("jetbrains.mps.ide.actions.GoToNamedNode_Action", "ctrl alt shift N");
     addTemplate("jetbrains.mps.ide.actions.GoToRootNode_Action", "ctrl N");
-    // complex
-    addComplexShortcut("jetbrains.mps.ide.actions.DeleteModels_Action", new DeleteModels_ShortcutChange_qjewi8_g());
-    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new GoToBookmark_ShortcutChange_qjewi8_zb());
-    addComplexShortcut("jetbrains.mps.ide.actions.SetBookmark_Action", new SetBookmark_ShortcutChange_qjewi8_ac());
+    customTemplate("jetbrains.mps.ide.actions.DeleteModels_Action", new ShortcutChange0());
+    customTemplate("jetbrains.mps.ide.actions.GoToBookmark_Action", new ShortcutChange1());
+    customTemplate("jetbrains.mps.ide.actions.SetBookmark_Action", new ShortcutChange2());
   }
+  @Override
   public String getScheme() {
     return "$default";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
-  public class DeleteModels_ShortcutChange_qjewi8_g extends BaseKeymapChanges.ComplexShortcut {
-    public DeleteModels_ShortcutChange_qjewi8_g() {
+
+  private static class ShortcutChange0 extends BaseKeymapChanges.CustomChange {
+    public ShortcutChange0() {
+      super(false, false);
     }
-    public List<Shortcut> getShortcutsFor(Object... objects) {
-      List<Shortcut> _result = new ArrayList<Shortcut>();
-      if (((Boolean) objects[0])) {
-        _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("alt DELETE"), null));
+
+    @Override
+    protected void fill() {
+      if (((Boolean) getParameters()[0])) {
+        registerKeystroke("alt DELETE");
       } else {
-        _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("DELETE"), null));
+        registerKeystroke("DELETE");
       }
-      return _result;
     }
   }
-  public class GoToBookmark_ShortcutChange_qjewi8_zb extends BaseKeymapChanges.ComplexShortcut {
-    public GoToBookmark_ShortcutChange_qjewi8_zb() {
+  private static class ShortcutChange1 extends BaseKeymapChanges.CustomChange {
+    public ShortcutChange1() {
+      super(false, false);
     }
-    public List<Shortcut> getShortcutsFor(Object... objects) {
-      List<Shortcut> _result = new ArrayList<Shortcut>();
-      _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("ctrl " + ((Integer) objects[0])), null));
-      return _result;
+
+    @Override
+    protected void fill() {
+      registerKeystroke("ctrl " + ((Integer) getParameters()[0]));
     }
   }
-  public class SetBookmark_ShortcutChange_qjewi8_ac extends BaseKeymapChanges.ComplexShortcut {
-    public SetBookmark_ShortcutChange_qjewi8_ac() {
+  private static class ShortcutChange2 extends BaseKeymapChanges.CustomChange {
+    public ShortcutChange2() {
+      super(false, false);
     }
-    public List<Shortcut> getShortcutsFor(Object... objects) {
-      List<Shortcut> _result = new ArrayList<Shortcut>();
-      _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("ctrl shift " + ((Integer) objects[0])), null));
-      return _result;
+
+    @Override
+    protected void fill() {
+      registerKeystroke("ctrl shift " + ((Integer) getParameters()[0]));
     }
   }
 }

@@ -483,22 +483,15 @@
   </root>
   <root nodeRef="d43affd0-e5f9-482c-adc1-9400b73f2a8d/r:b2267b28-bfcc-40f1-8447-02c15480f0d2(jetbrains.mps.lang.classLike.pluginSolution/jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin)/4786287919262031781">
     <file name="Default_KeymapChanges.java">
-      <node id="4786287919262031792" at="11,34,12,114" concept="2" />
-      <node id="4786287919262031781" at="12,114,13,14" concept="9" />
-      <node id="4786287919262031781" at="15,29,16,22" concept="8" />
-      <node id="4786287919262031781" at="18,53,19,70" concept="8" />
-      <node id="4786287919262031781" at="15,0,18,0" concept="6" trace="getScheme#()Ljava/lang/String;" />
-      <node id="4786287919262031781" at="18,0,21,0" concept="12" trace="getShortcut#(Ljava/lang/String;)Lcom/intellij/openapi/actionSystem/Shortcut;" />
-      <node id="4786287919262031781" at="11,0,15,0" concept="1" trace="Default_KeymapChanges#()V" />
-      <scope id="4786287919262031781" at="15,29,16,22" />
-      <scope id="4786287919262031781" at="18,53,19,70" />
-      <scope id="4786287919262031781" at="11,34,13,14" />
-      <scope id="4786287919262031781" at="15,0,18,0" />
-      <scope id="4786287919262031781" at="18,0,21,0">
-        <var name="stroke" id="4786287919262031781" />
-      </scope>
+      <node id="4786287919262031792" at="8,34,9,114" concept="2" />
+      <node id="4786287919262031781" at="12,29,13,22" concept="8" />
+      <node id="4786287919262031781" at="8,0,11,0" concept="1" trace="Default_KeymapChanges#()V" />
+      <node id="4786287919262031781" at="11,0,15,0" concept="6" trace="getScheme#()Ljava/lang/String;" />
+      <scope id="4786287919262031781" at="8,34,9,114" />
+      <scope id="4786287919262031781" at="12,29,13,22" />
+      <scope id="4786287919262031781" at="8,0,11,0" />
       <scope id="4786287919262031781" at="11,0,15,0" />
-      <unit id="4786287919262031781" at="10,0,22,0" name="jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin.Default_KeymapChanges" />
+      <unit id="4786287919262031781" at="7,0,17,0" name="jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin.Default_KeymapChanges" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
       <node id="4786287919262031781" at="36,92,37,71" concept="2" />

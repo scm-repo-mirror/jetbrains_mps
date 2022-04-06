@@ -4,23 +4,18 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2151742525039104674", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
-public class MacOSX105_KeymapChanges extends BaseKeymapChanges {
+public final class MacOSX105_KeymapChanges extends BaseKeymapChanges {
   public MacOSX105_KeymapChanges() {
     replace("jetbrains.mps.ide.devkit.actions.GoToConceptDeclaration_Action", "alt shift S");
     replace("jetbrains.mps.ide.devkit.actions.ImplementBehaviorMethod_Action", "ctrl I");
     replace("jetbrains.mps.ide.devkit.actions.OverrideBehaviorMethod_Action", "ctrl O");
     replace("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "ctrl X");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "Mac OS X 10.5+";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

@@ -4,12 +4,9 @@ package jetbrains.mps.debugger.api.ui.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:01820806-c285-4459-a416-37590f94adc8(jetbrains.mps.debugger.api.ui.actions)/4073774232572770202", model = "r:01820806-c285-4459-a416-37590f94adc8(jetbrains.mps.debugger.api.ui.actions)")
-public class Debugger_KeymapChanges extends BaseKeymapChanges {
+public final class Debugger_KeymapChanges extends BaseKeymapChanges {
   public Debugger_KeymapChanges() {
     add("jetbrains.mps.debugger.api.ui.actions.EvaluateExpression_Action", "alt F8");
     add("jetbrains.mps.debugger.api.ui.actions.Resume_Action", " F9");
@@ -18,12 +15,10 @@ public class Debugger_KeymapChanges extends BaseKeymapChanges {
     add("jetbrains.mps.debugger.api.ui.actions.StepOver_Action", " F8");
     add("jetbrains.mps.debugger.api.ui.actions.ToggleBreakpoint_Action", "ctrl F8");
     add("jetbrains.mps.debugger.api.ui.actions.ViewBreakpoints_Action", "ctrl shift F8");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "$default";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

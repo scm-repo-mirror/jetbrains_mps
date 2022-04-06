@@ -4,21 +4,16 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1382572689121738550", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
-public class TraceActions_KeymapChanges extends BaseKeymapChanges {
+public final class TraceActions_KeymapChanges extends BaseKeymapChanges {
   public TraceActions_KeymapChanges() {
     add("jetbrains.mps.ide.actions.GoToNode_Action", " F3");
     add("jetbrains.mps.ide.actions.GoToRule_Action", " F4");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "$default";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

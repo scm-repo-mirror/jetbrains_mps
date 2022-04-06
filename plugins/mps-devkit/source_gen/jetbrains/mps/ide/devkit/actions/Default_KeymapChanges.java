@@ -4,12 +4,9 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8586967776370449212", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
-public class Default_KeymapChanges extends BaseKeymapChanges {
+public final class Default_KeymapChanges extends BaseKeymapChanges {
   public Default_KeymapChanges() {
     add("jetbrains.mps.ide.devkit.actions.DeleteGenerator_Action", " DELETE");
     add("jetbrains.mps.ide.devkit.actions.FindLanguageConceptsUsages_Action", "alt F8");
@@ -24,12 +21,10 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     add("jetbrains.mps.ide.devkit.actions.ShowEditorMenuItemTrace_Action", "ctrl alt B");
     add("jetbrains.mps.ide.devkit.actions.ShowNodeInExplorer_Action", "alt X");
     add("jetbrains.mps.ide.devkit.actions.ShowStructure_Action", "ctrl F10");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "$default";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }

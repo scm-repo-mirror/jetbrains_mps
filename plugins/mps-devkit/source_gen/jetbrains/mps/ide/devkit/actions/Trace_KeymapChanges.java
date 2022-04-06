@@ -4,20 +4,15 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
-import com.intellij.openapi.actionSystem.Shortcut;
-import com.intellij.openapi.actionSystem.KeyboardShortcut;
-import javax.swing.KeyStroke;
 
 @GeneratedClass(node = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/8513716958726547010", model = "r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)")
-public class Trace_KeymapChanges extends BaseKeymapChanges {
+public final class Trace_KeymapChanges extends BaseKeymapChanges {
   public Trace_KeymapChanges() {
     add("jetbrains.mps.ide.devkit.actions.ShowTypeSystemTrace_Action", "ctrl shift X");
-    // complex
   }
+  @Override
   public String getScheme() {
     return "$default";
   }
-  public static Shortcut getShortcut(String stroke) {
-    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
-  }
+
 }
