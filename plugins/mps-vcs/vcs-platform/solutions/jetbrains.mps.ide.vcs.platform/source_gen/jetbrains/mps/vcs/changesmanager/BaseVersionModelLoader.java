@@ -35,7 +35,7 @@ import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 import com.intellij.openapi.vcs.changes.Change;
 import com.intellij.openapi.vcs.changes.ContentRevision;
-import com.intellij.openapi.vcs.changes.BinaryContentRevision;
+import com.intellij.openapi.vcs.changes.ByteBackedContentRevision;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.vcs.VcsException;
 import java.io.IOException;
@@ -189,8 +189,8 @@ import java.io.OutputStream;
           }
           return loadCurrentFile(file);
         }
-        if (beforeRevision instanceof BinaryContentRevision) {
-          return ((BinaryContentRevision) beforeRevision).getBinaryContent();
+        if (beforeRevision instanceof ByteBackedContentRevision) {
+          return ((ByteBackedContentRevision) beforeRevision).getContentAsBytes();
         } else {
           String content = beforeRevision.getContent();
           if (content == null) {

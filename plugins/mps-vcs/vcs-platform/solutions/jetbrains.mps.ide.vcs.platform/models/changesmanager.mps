@@ -2787,7 +2787,7 @@
               <node concept="3clFbJ" id="tOur21PBVT" role="3cqZAp">
                 <node concept="2ZW3vV" id="tOur21PJK3" role="3clFbw">
                   <node concept="3uibUv" id="tOur21PLh7" role="2ZW6by">
-                    <ref role="3uigEE" to="1037:~BinaryContentRevision" resolve="BinaryContentRevision" />
+                    <ref role="3uigEE" to="1037:~ByteBackedContentRevision" resolve="ByteBackedContentRevision" />
                   </node>
                   <node concept="37vLTw" id="2bNoq9f5L9y" role="2ZW6bz">
                     <ref role="3cqZAo" node="2bNoq9f5K4l" resolve="beforeRevision" />
@@ -2797,12 +2797,12 @@
                   <node concept="3cpWs6" id="tOur21PMM3" role="3cqZAp">
                     <node concept="2OqwBi" id="tOur21PTAw" role="3cqZAk">
                       <node concept="liA8E" id="tOur21PWIe" role="2OqNvi">
-                        <ref role="37wK5l" to="1037:~BinaryContentRevision.getBinaryContent()" resolve="getBinaryContent" />
+                        <ref role="37wK5l" to="1037:~ByteBackedContentRevision.getContentAsBytes()" resolve="getContentAsBytes" />
                       </node>
                       <node concept="1eOMI4" id="tOur21PRH5" role="2Oq$k0">
                         <node concept="10QFUN" id="tOur21PRH2" role="1eOMHV">
                           <node concept="3uibUv" id="tOur21PRH7" role="10QFUM">
-                            <ref role="3uigEE" to="1037:~BinaryContentRevision" resolve="BinaryContentRevision" />
+                            <ref role="3uigEE" to="1037:~ByteBackedContentRevision" resolve="ByteBackedContentRevision" />
                           </node>
                           <node concept="37vLTw" id="2bNoq9f5LgD" role="10QFUP">
                             <ref role="3cqZAo" node="2bNoq9f5K4l" resolve="beforeRevision" />

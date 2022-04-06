@@ -35,7 +35,7 @@
   <dependency className="jetbrains.mps.vcs.changesmanager.BaseVersionModelLoader">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.intellij.openapi.vcs.VcsException" />
-    <classNode dependClassName="com.intellij.openapi.vcs.changes.BinaryContentRevision" />
+    <classNode dependClassName="com.intellij.openapi.vcs.changes.ByteBackedContentRevision" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.Change" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ChangeListManager" />
     <classNode dependClassName="com.intellij.openapi.vcs.changes.ContentRevision" />
