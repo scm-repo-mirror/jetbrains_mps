@@ -15,12 +15,14 @@
  */
 package jetbrains.mps.plugins.actions;
 
+import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.keymap.Keymap;
 import com.intellij.openapi.keymap.KeymapManager;
 import gnu.trove.THashMap;
 import gnu.trove.THashSet;
 
+import javax.swing.KeyStroke;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -116,7 +118,11 @@ public abstract class BaseKeymapChanges {
     ourClearedActions.clear();
   }
 
-  protected void addSimpleShortcut(String id, ShortcutWrapper... s) {
+  /**
+   * @see ShortcutWrapper
+   */
+  @Deprecated(since = "2022.1", forRemoval = true)
+  protected final void addSimpleShortcut(String id, ShortcutWrapper... s) {
     for (ShortcutWrapper w : s) {
       // Unlike ActionManagerImpl#processRemoveAndReplace(), we pick either remove or replace-all (it's enum in MPS, after all)
       // Let alone there's no reason to have both remove and replace-all
@@ -130,13 +136,38 @@ public abstract class BaseKeymapChanges {
     }
   }
 
-  protected void addSimpleShortcut(String id, Shortcut... s) {
+  /**
+   * @deprecated keep for a year for generated/compiled code to work, then remove. use #add() instead
+   */
+  @Deprecated(since = "2022.1", forRemoval = true)
+  protected final void addSimpleShortcut(String id, Shortcut... s) {
     for (Shortcut shortcut : s) {
       mySimpleShortcuts.add(new Add(id, shortcut));
     }
   }
 
-  protected void addComplexShortcut(String id, ComplexShortcut... s) {
+  /**
+   * @since 2022.1
+   */
+  protected final void add(String id, String keystroke) {
+    mySimpleShortcuts.add(new Add(id, kbShortcut(keystroke)));
+  }
+
+  /**
+   * @since 2022.1
+   */
+  protected final void remove(String id, String keystroke) {
+    mySimpleShortcuts.add(new Remove(id, kbShortcut(keystroke)));
+  }
+
+  /**
+   * @since 2022.1
+   */
+  protected final void replace(String id, String keystroke) {
+    mySimpleShortcuts.add(new Replace(id, kbShortcut(keystroke)));
+  }
+
+  protected final void addComplexShortcut(String id, ComplexShortcut... s) {
     Set<ComplexShortcut> shortcuts = myComplexShortcuts.get(id);
     if (shortcuts == null) {
       shortcuts = new THashSet<>();
@@ -179,6 +210,10 @@ public abstract class BaseKeymapChanges {
       myKeymap = KeymapManager.getInstance().getKeymap(getScheme());
     }
     return myKeymap;
+  }
+
+  private Shortcut kbShortcut(String stroke) {
+    return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
   }
 
   protected static abstract class ComplexShortcut {
@@ -233,7 +268,8 @@ public abstract class BaseKeymapChanges {
   }
 
   /**
-   * @deprecated way too verbose, and makes me feel OOP is JAA for MPS team
+   * @deprecated way too verbose, and makes me feel OOP is JAA for MPS team.
+   *             Shall keep for a full release year to make sure old compiled code still works
    */
   @Deprecated(since = "2022.1", forRemoval = true)
   protected static class ShortcutWrapper {
