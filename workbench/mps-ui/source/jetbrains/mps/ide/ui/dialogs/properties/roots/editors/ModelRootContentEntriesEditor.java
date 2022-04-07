@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.ide.ui.dialogs.properties.roots.editors;
 
@@ -204,7 +204,7 @@ public class ModelRootContentEntriesEditor implements Disposable {
     myEditorsListPanel.setBackground(UIUtil.getListBackground());
     JScrollPane scrollPane = ScrollPaneFactory.createScrollPane(myEditorsListPanel);
     scrollPane.setPreferredSize(new Dimension(250, 300));
-    entriesPanel.add(new ToolbarPanel(scrollPane, group, MPSActionPlaces.MODEL_ROOT_SETTINGS), BorderLayout.CENTER);
+    entriesPanel.add(new ToolbarPanel(scrollPane, group, MPSActionPlaces.MODEL_ROOT_SETTINGS, myMainPanel), BorderLayout.CENTER);
 
     Splitter splitter = new Splitter(false);
     splitter.setHonorComponentsMinimumSize(true);
