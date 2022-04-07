@@ -329,43 +329,37 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOriginalInputModel().getModule().getModuleName();
   }
   public static Object propertyMacro_GetValue_34_0(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_1(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_34_2(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_3(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_34_4(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_5(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_34_6(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_7(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_34_8(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_9(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_34_10(final PropertyMacroContext _context) {
-    SNode node = SNodeOperations.cast((SNode) _context.getVariable("loop:inputNode"), CONCEPTS.SimpleShortcutChange$R8);
-    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget(node, LINKS.action$wOJd));
+    return (String) ActionDeclaration__BehaviorDescriptor.getActionId_id2JiSCAPXEb8.invoke(SLinkOperations.getTarget((SNode) _context.getVariable("loop:inputNode"), LINKS.action$wOJd));
   }
   public static Object propertyMacro_GetValue_34_11(final PropertyMacroContext _context) {
     return (String) KeyMapKeystroke__BehaviorDescriptor.getKeyStroke_idhEwIlzu.invoke(_context.getNode());
@@ -3476,7 +3470,6 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SInterfaceConcept ActionParameter$bf = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, "jetbrains.mps.lang.plugin.structure.ActionParameter");
     /*package*/ static final SConcept ActionDataParameterDeclaration$Tg = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b69e025e0L, "jetbrains.mps.lang.plugin.structure.ActionDataParameterDeclaration");
     /*package*/ static final SConcept GroupAnchor$JV = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11840f36089L, "jetbrains.mps.lang.plugin.structure.GroupAnchor");
-    /*package*/ static final SConcept SimpleShortcutChange$R8 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb076L, "jetbrains.mps.lang.plugin.structure.SimpleShortcutChange");
     /*package*/ static final SConcept GetNodeBlock$Cm = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1184b2b7acbL, "jetbrains.mps.lang.plugin.structure.GetNodeBlock");
     /*package*/ static final SConcept KeymapChangesDeclaration$QD = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
     /*package*/ static final SConcept StringLiteral$xu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
@@ -3495,6 +3488,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept ParameterizedShortcutChange$S6 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e096c3aL, "jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange");
     /*package*/ static final SConcept ActionInstance$Zi = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da2ba57L, "jetbrains.mps.lang.plugin.structure.ActionInstance");
     /*package*/ static final SConcept Separator$fe = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1188a1ecd8aL, "jetbrains.mps.lang.plugin.structure.Separator");
+    /*package*/ static final SConcept SimpleShortcutChange$R8 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb076L, "jetbrains.mps.lang.plugin.structure.SimpleShortcutChange");
     /*package*/ static final SConcept ParenthesizedExpression$Ws = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
     /*package*/ static final SConcept CastExpression$$8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
     /*package*/ static final SConcept ConceptFunctionParameter_PreferencePage_component$yk = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e2cb827fL, "jetbrains.mps.lang.plugin.structure.ConceptFunctionParameter_PreferencePage_component");
