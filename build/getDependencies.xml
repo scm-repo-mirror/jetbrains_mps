@@ -74,11 +74,7 @@
   <target name="check-kotlinx-metadata" description="Check kotlinx-metadata library availability">
     <condition property="kotlinxmetadata.missing" value="true" else="false">
       <not>
-        <and>
-          <available file="${kotlinx.metadata}"/>
-          <available file="${kotlinx.metadata.src}"/>
-          <available file="${kotlinx.metadata.javadoc}"/>
-        </and>
+        <available file="${kotlinx.metadata.lib}"/>
       </not>
     </condition>
   </target>
