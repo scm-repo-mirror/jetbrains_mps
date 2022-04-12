@@ -10,10 +10,16 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmTypeVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import kotlinx.metadata.KmValueParameterExtensionVisitor;
+import org.jetbrains.annotations.NotNull;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import kotlinx.metadata.internal.metadata.deserialization.Flags;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2993321679752346832", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
@@ -49,6 +55,17 @@ public class ParameterVisitor extends KmValueParameterVisitor {
     });
   }
 
+
+  @Nullable
+  @Override
+  public KmValueParameterExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type) && SNodeOperations.isInstanceOf(myParameter, CONCEPTS.IAnnotated$X8)) {
+      return new AnnotationVisitorImpl(myParameter, context);
+    }
+
+    return super.visitExtensions(type);
+  }
+
   @Override
   public void visitEnd() {
     if (myVarargType != null) {
@@ -80,6 +97,7 @@ public class ParameterVisitor extends KmValueParameterVisitor {
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
     /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
   }
 }

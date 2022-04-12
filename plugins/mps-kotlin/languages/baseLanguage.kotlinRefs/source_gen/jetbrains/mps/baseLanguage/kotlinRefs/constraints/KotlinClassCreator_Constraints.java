@@ -14,10 +14,13 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.kotlin.scopes.ConstructorScope;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
+import jetbrains.mps.kotlin.scopes.signed.ConstructorsScope;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class KotlinClassCreator_Constraints extends BaseConstraintsDescriptor {
   public KotlinClassCreator_Constraints() {
@@ -37,7 +40,7 @@ public class KotlinClassCreator_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            return ConstructorScope.create(_context.getContextNode());
+            return new SignatureScopeAsScope(new ConstructorsScope(SNodeOperations.getModel(_context.getContextNode())), CONCEPTS.IConstructorDeclaration$rR);
           }
         };
       }
@@ -49,6 +52,7 @@ public class KotlinClassCreator_Constraints extends BaseConstraintsDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept KotlinClassCreator$HL = MetaAdapterFactory.getConcept(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0xeac1f33ddc2e9d2L, "jetbrains.mps.baseLanguage.kotlinRefs.structure.KotlinClassCreator");
+    /*package*/ static final SInterfaceConcept IConstructorDeclaration$rR = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7069a625f2b0238aL, "jetbrains.mps.kotlin.structure.IConstructorDeclaration");
   }
 
   private static final class LINKS {

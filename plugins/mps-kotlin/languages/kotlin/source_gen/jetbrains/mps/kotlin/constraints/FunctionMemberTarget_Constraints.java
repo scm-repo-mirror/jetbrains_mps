@@ -18,11 +18,15 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
+import java.util.List;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
-import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
-import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -51,18 +55,13 @@ public class FunctionMemberTarget_Constraints extends BaseConstraintsDescriptor 
 
             // Compute type in isolation, otherwise type may be null
             SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
+            SignatureFilter<FunctionSignature> filter = new SignatureFilter<>(FunctionSignature.class);
 
-            // We consider instance even if on receiver
-            Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IFunctionIdentifier$K$), ScopeContext.REFERENCE);
-
-            // Also retrieve scope for receiver types
-            ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), type, CONCEPTS.IFunctionIdentifier$K$);
-
-            if (scope == null) {
-              return receiverTypeScope;
-            } else {
-              return new HidingByNameScope(CONCEPTS.IFunctionIdentifier$K$, CONCEPTS.IFunctionIdentifier$K$, scope, receiverTypeScope);
-            }
+            // Regardless of using a static type or not, we need instance functions
+            List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))).toListSequence();
+            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter));
+            SignatureScope scope = HidingBySignatureScope.of(list);
+            return new SignatureScopeAsScope(scope, CONCEPTS.IFunctionDeclaration$ZB);
           }
         };
       }
@@ -76,7 +75,7 @@ public class FunctionMemberTarget_Constraints extends BaseConstraintsDescriptor 
     /*package*/ static final SConcept FunctionMemberTarget$It = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x47de42ea4e4162c9L, "jetbrains.mps.kotlin.structure.FunctionMemberTarget");
     /*package*/ static final SConcept MemberNavigationOperation$7I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790a3792dL, "jetbrains.mps.kotlin.structure.MemberNavigationOperation");
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
-    /*package*/ static final SInterfaceConcept IFunctionIdentifier$K$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
+    /*package*/ static final SInterfaceConcept IFunctionDeclaration$ZB = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
   }
 
   private static final class LINKS {

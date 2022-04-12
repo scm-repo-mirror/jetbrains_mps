@@ -13,6 +13,7 @@ public class CollectionLiteral_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
+    // TODO generate into *arrayOf call if outside of annotation
     tgs.append("[");
     KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.expressions$_AIQ), ctx);
     tgs.append("]");

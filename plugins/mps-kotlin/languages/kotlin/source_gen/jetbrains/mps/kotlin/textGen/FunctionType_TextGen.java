@@ -15,16 +15,25 @@ public class FunctionType_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
+    boolean isNullable = SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isNullable$KWwD);
+    if (isNullable) {
+      tgs.append("(");
+    }
+
     KotlinTextGen.modifier(SPropertyOperations.getBoolean(ctx.getPrimaryInput(), PROPS.isSuspend$O_58), "suspend", ctx);
     KotlinTextGen.receiver(ctx.getPrimaryInput(), ctx);
     tgs.append("(");
     KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.parameters$jkhy), ctx);
     tgs.append(")->");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.returnType$jkY_));
-    KotlinTextGen.nullable(ctx.getPrimaryInput(), ctx);
+
+    if (isNullable) {
+      tgs.append(")?");
+    }
   }
 
   private static final class PROPS {
+    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
     /*package*/ static final SProperty isSuspend$O_58 = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x5ed2c2ae17f045e9L, "isSuspend");
   }
 

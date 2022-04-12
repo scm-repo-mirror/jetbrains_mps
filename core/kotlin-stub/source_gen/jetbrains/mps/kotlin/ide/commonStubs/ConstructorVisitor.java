@@ -12,6 +12,9 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmValueParameterVisitor;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import kotlinx.metadata.KmConstructorExtensionVisitor;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -43,6 +46,15 @@ public class ConstructorVisitor extends KmConstructorVisitor {
     return ParameterVisitor.create(param, context, flags, (String argumentId) -> functionId.addArgument(argumentId), name);
   }
 
+  @Nullable
+  @Override
+  public KmConstructorExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type) && SNodeOperations.isInstanceOf(myConstructor, CONCEPTS.IAnnotated$X8)) {
+      return new AnnotationVisitorImpl(SNodeOperations.cast(myConstructor, CONCEPTS.IAnnotated$X8), context);
+    }
+
+    return super.visitExtensions(type);
+  }
   @Override
   public void visitEnd() {
     functionId.applyOn(myConstructor);
@@ -57,5 +69,6 @@ public class ConstructorVisitor extends KmConstructorVisitor {
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IFunctionParameters$xy = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, "jetbrains.mps.kotlin.structure.IFunctionParameters");
     /*package*/ static final SConcept PrimaryConstructor$QJ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af418L, "jetbrains.mps.kotlin.structure.PrimaryConstructor");
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
   }
 }

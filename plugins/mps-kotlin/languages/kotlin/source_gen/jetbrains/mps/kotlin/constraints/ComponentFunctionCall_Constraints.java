@@ -14,20 +14,10 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.scope.EmptyScope;
-import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.kotlin.behavior.NavigationOperation__BehaviorDescriptor;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
+import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ComponentFunctionCall_Constraints extends BaseConstraintsDescriptor {
   public ComponentFunctionCall_Constraints() {
@@ -47,19 +37,7 @@ public class ComponentFunctionCall_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            final SNode context = SNodeOperations.as((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.NavigationOperation$4I);
-            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f)) {
-              return new EmptyScope();
-            }
-
-            // Compute type in isolation, otherwise type may be null
-            SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> (SNode) NavigationOperation__BehaviorDescriptor.getContextType_id7ubb0gUcL0j.invoke(context));
-            if (type == null) {
-              return new EmptyScope();
-            }
-
-            // No receiver type scope here, we only care about class parameters
-            return IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.ClassParameter$wQ, FunctionSignature.class), ScopeContext.INSTANCE_RECEIVER);
+            return SignatureScopeHelper.getScopeForConstraints(CONCEPTS.ComponentFunctionCall$S1, _context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink(), CONCEPTS.ClassParameter$wQ);
           }
         };
       }
@@ -71,13 +49,10 @@ public class ComponentFunctionCall_Constraints extends BaseConstraintsDescriptor
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ComponentFunctionCall$S1 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c9c0dac07fad533L, "jetbrains.mps.kotlin.structure.ComponentFunctionCall");
-    /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
     /*package*/ static final SConcept ClassParameter$wQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af53aL, "jetbrains.mps.kotlin.structure.ClassParameter");
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink classParameter$QN8K = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c9c0dac07fad533L, 0x5c9c0dac07fadd8aL, "classParameter");
-    /*package*/ static final SContainmentLink operand$YS5t = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956f20L, 0x11400bb790956f23L, "operand");
   }
 }

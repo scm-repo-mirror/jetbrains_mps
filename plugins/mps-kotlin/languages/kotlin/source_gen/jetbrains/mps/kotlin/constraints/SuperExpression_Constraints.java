@@ -22,7 +22,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.scopes.SuperTypesVisitorImpl;
 import jetbrains.mps.kotlin.behavior.IClassLike__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import java.util.HashMap;

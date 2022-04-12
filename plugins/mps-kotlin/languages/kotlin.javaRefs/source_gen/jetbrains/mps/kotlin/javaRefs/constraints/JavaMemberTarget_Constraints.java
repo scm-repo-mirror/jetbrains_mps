@@ -18,10 +18,15 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
+import java.util.List;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
+import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -51,9 +56,12 @@ public class JavaMemberTarget_Constraints extends BaseConstraintsDescriptor {
             // Compute type in isolation, otherwise type may be null
             SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
 
-
             // Receiver scope is not handle here but on kotlin side (as java has no receiver function)
-            return IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.GenericDeclaration$bC, FunctionSignature.class), ScopeContext.REFERENCE);
+            SignatureFilter<FunctionSignature> filter = new SignatureFilter<FunctionSignature>(FunctionSignature.class);
+            List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false))).toListSequence();
+            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter));
+
+            return new SignatureScopeAsScope(CompositeSignatureScope.of(list), CONCEPTS.GenericDeclaration$bC);
           }
         };
       }

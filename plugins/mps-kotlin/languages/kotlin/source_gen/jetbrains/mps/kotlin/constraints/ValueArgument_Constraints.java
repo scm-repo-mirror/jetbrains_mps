@@ -14,18 +14,12 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.kotlin.behavior.IArguments__BehaviorDescriptor;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import jetbrains.mps.kotlin.behavior.ValueArgument__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ValueArgument_Constraints extends BaseConstraintsDescriptor {
   public ValueArgument_Constraints() {
@@ -45,11 +39,7 @@ public class ValueArgument_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            SNode provider = (SNodeOperations.isInstanceOf(_context.getContextNode(), CONCEPTS.IArguments$xj) ? SNodeOperations.cast(_context.getContextNode(), CONCEPTS.IArguments$xj) : SNodeOperations.as(SNodeOperations.getParent(_context.getContextNode()), CONCEPTS.IArguments$xj));
-            if ((provider == null)) {
-              return new EmptyScope();
-            }
-            return new NamedElementsScope(Sequence.fromIterable(IArguments__BehaviorDescriptor.getAvailableParameters_id1$jFvlD0xqw.invoke(provider)).select(ParameterDeclaration::getNode).where(new NotNullWhereFilter<SNode>()));
+            return new NamedElementsScope(ValueArgument__BehaviorDescriptor.getAvailableParameters_id7bIC29gIZM1.invoke(SNodeOperations.asSConcept(CONCEPTS.ValueArgument$RI), _context.getContextNode()));
           }
         };
       }
@@ -61,7 +51,6 @@ public class ValueArgument_Constraints extends BaseConstraintsDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ValueArgument$RI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af579L, "jetbrains.mps.kotlin.structure.ValueArgument");
-    /*package*/ static final SInterfaceConcept IArguments$xj = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162ecf00bL, "jetbrains.mps.kotlin.structure.IArguments");
   }
 
   private static final class LINKS {

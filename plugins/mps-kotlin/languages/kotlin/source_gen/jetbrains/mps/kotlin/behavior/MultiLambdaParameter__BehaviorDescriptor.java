@@ -35,7 +35,7 @@ public final class MultiLambdaParameter__BehaviorDescriptor extends BaseBHDescri
   }
   /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
     // Deconstruct on inferred type of lambda parameter
-    return CallReceiver.of(__thisNode__, true, null);
+    return CallReceiver.of(__thisNode__, true, false, null);
   }
 
   /*package*/ MultiLambdaParameter__BehaviorDescriptor() {

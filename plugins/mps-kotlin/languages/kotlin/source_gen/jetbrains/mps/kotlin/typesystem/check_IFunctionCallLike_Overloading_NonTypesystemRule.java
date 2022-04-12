@@ -7,65 +7,23 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
-import jetbrains.mps.kotlin.overloading.OverloadResolutionSolver;
 import jetbrains.mps.kotlin.overloading.NodeFunctionCall;
-import jetbrains.mps.kotlin.overloading.AmbiguousException;
-import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
-import jetbrains.mps.errors.IErrorReporter;
+import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.model.SReference;
-import java.util.Objects;
-import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_IFunctionCallLike_Overloading_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_IFunctionCallLike_Overloading_NonTypesystemRule() {
   }
   public void applyRule(final SNode call, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    // TODO only apply when invalid call error on node?
-    FunctionDeclaration resolved = null;
-    SReferenceLink targetLink = IFunctionCallLike__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(call);
-
-    // No need to solve it if there is no way to put it somewhere
-    if (targetLink != null) {
-      try {
-        resolved = new OverloadResolutionSolver(new NodeFunctionCall(call), call).resolve();
-      } catch (AmbiguousException error) {
-        {
-          final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(call, "ambiguous method call", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "1060241541153282468", null, errorTarget);
-        }
-      }
-
-      // TODO function types issued from typesystem/resolution most likely lost reference from original FunctionType declaration (they will be declared as function themselves and provide dead reference)
-      if (resolved != null && SNodeOperations.isInstanceOf(resolved.getNode(), CONCEPTS.FunctionType$ig) && (SNodeOperations.getParent(resolved.getNode()) == null)) {
-        return;
-      }
-
-      SReference reference = call.getReference(targetLink);
-      if (resolved != null && (reference == null || !(Objects.equals(resolved.getNode().getNodeId(), reference.getTargetNodeId())))) {
-        {
-          final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(call, "wrong overload target", "r:aff09eac-afd3-4057-bdd8-e02a572d1436(jetbrains.mps.kotlin.typesystem)", "4005361616257033225", null, errorTarget);
-          {
-            BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.kotlin.typesystem.FixMethodCallReference_QuickFix", "4005361616257034253", true);
-            intentionProvider.putArgument("call", call);
-            intentionProvider.putArgument("newTarget", resolved.getNode());
-            _reporter_2309309498.addIntentionProvider(intentionProvider);
-          }
-        }
-      }
-    }
+    // Resolve automatically the reference
+    AutomaticResolutionHelper.improveCall(typeCheckingContext, new NodeFunctionCall(call), call, IFunctionCall__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(call), () -> (Iterable<SignatureScope>) IFunctionCall__BehaviorDescriptor.getFunctionScopeParts_id6dAo8EmAhT7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(call)), call, call, SNodeOperations.getContainingLink(call)));
   }
   public SAbstractConcept getApplicableConcept() {
-    return CONCEPTS.IFunctionCallLike$Sf;
+    return CONCEPTS.IFunctionCall$Sf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -75,7 +33,6 @@ public class check_IFunctionCallLike_Overloading_NonTypesystemRule extends Abstr
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, "jetbrains.mps.kotlin.structure.FunctionType");
-    /*package*/ static final SInterfaceConcept IFunctionCallLike$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCallLike");
+    /*package*/ static final SInterfaceConcept IFunctionCall$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCall");
   }
 }

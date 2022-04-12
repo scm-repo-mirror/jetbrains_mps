@@ -9,8 +9,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -21,7 +21,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.kotlin.behavior.IClassMemberDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.runtime.types.identifiers.ClassType;
+import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -54,7 +54,7 @@ public final class KotlinFileClassifierType__BehaviorDescriptor extends BaseBHDe
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.file$5SpC), PROPS.name$MnvL) + "Kt";
   }
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
-    return new ClassType(SLinkOperations.getPointer(__thisNode__, LINKS.file$5SpC));
+    return new ClassTypeKey(SLinkOperations.getPointer(__thisNode__, LINKS.file$5SpC));
   }
 
   /*package*/ KotlinFileClassifierType__BehaviorDescriptor() {

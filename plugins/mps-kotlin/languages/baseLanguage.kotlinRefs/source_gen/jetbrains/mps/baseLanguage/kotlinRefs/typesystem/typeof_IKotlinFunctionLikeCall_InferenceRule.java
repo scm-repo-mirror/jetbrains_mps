@@ -17,15 +17,17 @@ import jetbrains.mps.baseLanguage.kotlinRefs.behavior.IKotlinFunctionLikeCall__B
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IGenericType__BehaviorDescriptor;
-import java.util.List;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Iterator;
+import java.util.List;
 import jetbrains.mps.kotlin.overloading.FunctionParamMapper;
 import jetbrains.mps.kotlin.overloading.ParamErrorHandler;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.errors.BaseQuickFixProvider;
@@ -88,16 +90,16 @@ public class typeof_IKotlinFunctionLikeCall_InferenceRule extends AbstractInfere
 
           // check the inference context
           // TODO implement for kotlin?
-          List<SNode> typeVariableDeclaration = IKotlinFunctionLikeCall__BehaviorDescriptor.getFunctionTypeParameters_id1t03WaySlJT.invoke(fCall);
-          if (ListSequence.fromList(SLinkOperations.getChildren(fCall, LINKS.typeArgument$Q6Au)).isEmpty() && ListSequence.fromList(typeVariableDeclaration).isNotEmpty()) {
-            for (SNode tvd : ListSequence.fromList(typeVariableDeclaration)) {
-              if (!(MapSequence.fromMap(subs).containsKey(tvd))) {
+          Iterable<TypeParameterDeclaration> typeVariableDeclaration = IKotlinFunctionLikeCall__BehaviorDescriptor.getFunctionTypeParameters_id1t03WaySlJT.invoke(fCall);
+          if (ListSequence.fromList(SLinkOperations.getChildren(fCall, LINKS.typeArgument$Q6Au)).isEmpty() && Sequence.fromIterable(typeVariableDeclaration).isNotEmpty()) {
+            for (TypeParameterDeclaration tvd : Sequence.fromIterable(typeVariableDeclaration)) {
+              if (!(MapSequence.fromMap(subs).containsKey(tvd.getNode()))) {
                 final SNode T_typevar_4695112407844173847 = typeCheckingContext.createNewRuntimeTypesVariable();
-                MapSequence.fromMap(subs).put(tvd, typeCheckingContext.getRepresentative(T_typevar_4695112407844173847));
+                MapSequence.fromMap(subs).put(tvd.getNode(), typeCheckingContext.getRepresentative(T_typevar_4695112407844173847));
               }
             }
-            for (SNode tvd : ListSequence.fromList(typeVariableDeclaration)) {
-              SNode bound = converter.convert(SLinkOperations.getTarget(tvd, LINKS.bound$KhhI));
+            for (TypeParameterDeclaration tvd : Sequence.fromIterable(typeVariableDeclaration)) {
+              SNode bound = converter.convert(ListSequence.fromList(tvd.getUpperBounds()).first());
               {
                 final SNode generic = bound;
                 if (SNodeOperations.isInstanceOf(generic, CONCEPTS.IGenericType$13)) {
@@ -105,7 +107,7 @@ public class typeof_IKotlinFunctionLikeCall_InferenceRule extends AbstractInfere
                   {
                     SNode _nodeToCheck_1029348928467 = fCall;
                     EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:6b6fe053-7210-4624-8790-609860b309f1(jetbrains.mps.baseLanguage.kotlinRefs.typesystem)", "5302270944911972807", 0, null);
-                    typeCheckingContext.createLessThanInequality((SNode) MapSequence.fromMap(subs).get(tvd), (SNode) IGenericType__BehaviorDescriptor.expandGenerics_id3zZky3wFPhu.invoke(SNodeOperations.copyNode(generic), subs), false, false, _info_12389875345);
+                    typeCheckingContext.createLessThanInequality((SNode) MapSequence.fromMap(subs).get(tvd.getNode()), (SNode) IGenericType__BehaviorDescriptor.expandGenerics_id3zZky3wFPhu.invoke(SNodeOperations.copyNode(generic), subs), false, false, _info_12389875345);
                   }
                 }
               }
@@ -113,14 +115,14 @@ public class typeof_IKotlinFunctionLikeCall_InferenceRule extends AbstractInfere
 
           } else {
             {
-              Iterator<SNode> tvd_it = ListSequence.fromList(typeVariableDeclaration).iterator();
+              Iterator<TypeParameterDeclaration> tvd_it = Sequence.fromIterable(typeVariableDeclaration).iterator();
               Iterator<SNode> targ_it = ListSequence.fromList(SLinkOperations.getChildren(fCall, LINKS.typeArgument$Q6Au)).iterator();
-              SNode tvd_var;
+              TypeParameterDeclaration tvd_var;
               SNode targ_var;
               while (tvd_it.hasNext() && targ_it.hasNext()) {
                 tvd_var = tvd_it.next();
                 targ_var = targ_it.next();
-                MapSequence.fromMap(subs).put(tvd_var, targ_var);
+                MapSequence.fromMap(subs).put(tvd_var.getNode(), targ_var);
                 if (SNodeOperations.isInstanceOf(targ_var, CONCEPTS.IGenericType$13)) {
                   IGenericType__BehaviorDescriptor.collectGenericSubstitutions_id3zZky3wF74h.invoke(SNodeOperations.cast(targ_var, CONCEPTS.IGenericType$13), subs);
                 }
@@ -233,7 +235,6 @@ public class typeof_IKotlinFunctionLikeCall_InferenceRule extends AbstractInfere
   private static final class LINKS {
     /*package*/ static final SReferenceLink target$7dy6 = MetaAdapterFactory.getReferenceLink(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0xeac1f33ddc380f3L, 0xf8c78301adL, "target");
     /*package*/ static final SContainmentLink typeArgument$Q6Au = MetaAdapterFactory.getContainmentLink(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0xeac1f33ddc380f3L, 0xeac1f33ddc3b0e0L, "typeArgument");
-    /*package*/ static final SContainmentLink bound$KhhI = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x28bef6d7551af850L, "bound");
     /*package*/ static final SContainmentLink actualArgument$Q6nt = MetaAdapterFactory.getContainmentLink(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0xeac1f33ddc380f3L, 0xeac1f33ddc3b0dfL, "actualArgument");
   }
 

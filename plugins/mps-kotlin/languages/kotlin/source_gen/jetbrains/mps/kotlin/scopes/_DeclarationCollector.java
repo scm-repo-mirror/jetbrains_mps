@@ -6,7 +6,7 @@ import jetbrains.mps.references.Reference;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.ArrayList;
-import jetbrains.mps.kotlin.runtime.members.signature.MemberSignature;
+import jetbrains.mps.kotlin.signatures.MemberSignature;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;

@@ -11,8 +11,8 @@ import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.kotlin.overloading.Argument;
 import java.util.List;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ public final class EnumEntry__BehaviorDescriptor extends BaseBHDescriptor {
   }
   @NotNull
   /*package*/ static Iterable<ParameterDeclaration> getAvailableParameters_id1$jFvlD0xqw(@NotNull SNode __thisNode__) {
-    FunctionDeclaration functionDescriptor = IFunctionCallLike__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(__thisNode__);
+    FunctionDeclaration functionDescriptor = IFunctionCall__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(__thisNode__);
     if (functionDescriptor == null) {
       return Sequence.fromIterable(Collections.<ParameterDeclaration>emptyList());
     }

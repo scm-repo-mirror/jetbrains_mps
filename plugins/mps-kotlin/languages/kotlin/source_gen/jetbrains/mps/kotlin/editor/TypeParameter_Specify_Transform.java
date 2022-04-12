@@ -139,7 +139,7 @@ public class TypeParameter_Specify_Transform extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.setEnum(_context.getNode(), PROPS.variance$EPSy, myParameterObject);
+          SPropertyOperations.setEnum(_context.getNode(), PROPS.variance$xP5D, myParameterObject);
         }
 
 
@@ -289,7 +289,7 @@ public class TypeParameter_Specify_Transform extends TransformationMenuBase {
   }
 
   private static final class PROPS {
-    /*package*/ static final SProperty variance$EPSy = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x21e0c923289a58c0L, "variance");
+    /*package*/ static final SProperty variance$xP5D = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, 0x22287f28953f8c9bL, "variance");
     /*package*/ static final SProperty isReified$AAd = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x56840864ad7e5da7L, "isReified");
   }
 

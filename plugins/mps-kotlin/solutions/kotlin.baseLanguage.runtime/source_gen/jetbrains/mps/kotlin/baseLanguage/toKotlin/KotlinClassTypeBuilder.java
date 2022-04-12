@@ -6,7 +6,7 @@ import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverter;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverterEngine;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;

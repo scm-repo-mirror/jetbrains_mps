@@ -23,7 +23,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorKind;
+import jetbrains.mps.kotlin.signatures.AccessorKind;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -60,7 +60,7 @@ public class KotlinPropertyGetterCall_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            return KotlinInBaseLanguageScopeHelper.getScopeForAccessor(_context.getReferenceNode(), _context.getContextNode(), PropertyAccessorKind.GETTER);
+            return KotlinInBaseLanguageScopeHelper.getScopeForAccessor(_context.getReferenceNode(), _context.getContextNode(), AccessorKind.GETTER);
           }
         };
       }

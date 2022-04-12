@@ -9,7 +9,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <root>
     <file name="ActionAspectDescriptorImpl.java">
-      <unit at="12,0,48,0" name="jetbrains.mps.kotlin.actions.ActionAspectDescriptorImpl" />
+      <unit at="12,0,50,0" name="jetbrains.mps.kotlin.actions.ActionAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:9eb3c98a-23c5-4e3d-a5e1-afeeb17e8674(jetbrains.mps.kotlin.actions)/2998782254608413844">
@@ -26,32 +26,40 @@
       <node id="1806979145075647797" at="47,81,48,196" concept="1" />
       <node id="4929770680975399567" at="55,7,56,42" concept="4" />
       <node id="4929770680975399570" at="57,77,58,188" concept="1" />
-      <node id="2998782254608413844" at="65,0,66,0" concept="6" trace="Parameter$o8" />
-      <node id="2998782254608413844" at="66,0,67,0" concept="6" trace="ClassParameter$wQ" />
-      <node id="2998782254608413844" at="67,0,68,0" concept="6" trace="ITypeArguments$p9" />
-      <node id="2998782254608413844" at="68,0,69,0" concept="6" trace="IArguments$xj" />
-      <node id="2998782254608413844" at="72,0,73,0" concept="6" trace="defaultValue$1bcs" />
-      <node id="2998782254608413844" at="73,0,74,0" concept="6" trace="type$1aXr" />
-      <node id="2998782254608413844" at="74,0,75,0" concept="6" trace="typeArguments$86s6" />
-      <node id="2998782254608413844" at="75,0,76,0" concept="6" trace="arguments$zJyV" />
-      <node id="2998782254608413844" at="79,0,80,0" concept="6" trace="name$MnvL" />
-      <node id="2998782254608413844" at="80,0,81,0" concept="6" trace="isVararg$GaYv" />
-      <node id="2998782254608413844" at="81,0,82,0" concept="6" trace="isReadOnly$MDeP" />
-      <node id="2998782254608413844" at="82,0,83,0" concept="6" trace="isProperty$MCKN" />
+      <node id="8889685123373027103" at="65,7,66,41" concept="4" />
+      <node id="8889685123373028226" at="67,83,68,119" concept="1" />
+      <node id="2998782254608413844" at="75,0,76,0" concept="6" trace="Parameter$o8" />
+      <node id="2998782254608413844" at="76,0,77,0" concept="6" trace="ClassParameter$wQ" />
+      <node id="2998782254608413844" at="77,0,78,0" concept="6" trace="ITypeArguments$p9" />
+      <node id="2998782254608413844" at="78,0,79,0" concept="6" trace="IArguments$xj" />
+      <node id="2998782254608413844" at="79,0,80,0" concept="6" trace="ILambdaAsArgument$MX" />
+      <node id="2998782254608413844" at="83,0,84,0" concept="6" trace="defaultValue$1bcs" />
+      <node id="2998782254608413844" at="84,0,85,0" concept="6" trace="type$1aXr" />
+      <node id="2998782254608413844" at="85,0,86,0" concept="6" trace="typeArguments$86s6" />
+      <node id="2998782254608413844" at="86,0,87,0" concept="6" trace="arguments$zJyV" />
+      <node id="2998782254608413844" at="87,0,88,0" concept="6" trace="lambda$U$kC" />
+      <node id="2998782254608413844" at="91,0,92,0" concept="6" trace="name$MnvL" />
+      <node id="2998782254608413844" at="92,0,93,0" concept="6" trace="isVararg$GaYv" />
+      <node id="2998782254608413844" at="93,0,94,0" concept="6" trace="isReadOnly$MDeP" />
+      <node id="2998782254608413844" at="94,0,95,0" concept="6" trace="isProperty$MCKN" />
       <node id="1806979145075647222" at="46,42,49,9" concept="2" />
       <node id="4929770680975399567" at="56,42,59,9" concept="2" />
+      <node id="8889685123373027103" at="66,41,69,9" concept="2" />
       <node id="2998782254610272879" at="35,43,39,9" concept="2" />
       <node id="2998782254608414142" at="22,43,28,9" concept="2" />
       <node id="1806979145075647222" at="44,102,50,7" concept="0" />
       <node id="4929770680975399567" at="54,102,60,7" concept="0" />
+      <node id="8889685123373027103" at="64,102,70,7" concept="0" />
       <node id="2998782254610272879" at="33,102,40,7" concept="0" />
       <node id="1806979145075646805" at="44,0,52,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="4929770680975399214" at="54,0,62,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="8889685123373025993" at="64,0,72,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="2998782254608414142" at="20,102,29,7" concept="0" />
       <node id="2998782254610272790" at="33,0,42,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <node id="2998782254608413845" at="20,0,31,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;ILorg/jetbrains/mps/openapi/model/SModel;)V" />
       <scope id="1806979145075647224" at="47,81,48,196" />
       <scope id="4929770680975399569" at="57,77,58,188" />
+      <scope id="8889685123373027105" at="67,83,68,119" />
       <scope id="2998782254610272881" at="36,82,38,132" />
       <scope id="2998782254608414144" at="23,77,27,131" />
       <scope id="1806979145075647222" at="45,7,49,9">
@@ -60,11 +68,15 @@
       <scope id="4929770680975399567" at="55,7,59,9">
         <var name="withArgs" id="4929770680975399567" />
       </scope>
+      <scope id="8889685123373027103" at="65,7,69,9">
+        <var name="withArg" id="8889685123373027103" />
+      </scope>
       <scope id="2998782254610272879" at="34,7,39,9">
         <var name="parameter" id="2998782254610272879" />
       </scope>
       <scope id="1806979145075646805" at="44,102,50,7" />
       <scope id="4929770680975399214" at="54,102,60,7" />
+      <scope id="8889685123373025993" at="64,102,70,7" />
       <scope id="2998782254608414142" at="21,7,28,9">
         <var name="parameter" id="2998782254608414142" />
       </scope>
@@ -83,6 +95,13 @@
         <var name="newNode" id="4929770680975399214" />
         <var name="sampleNode" id="4929770680975399214" />
       </scope>
+      <scope id="8889685123373025993" at="64,0,72,0">
+        <var name="enclosingNode" id="8889685123373025993" />
+        <var name="index" id="8889685123373025993" />
+        <var name="model" id="8889685123373025993" />
+        <var name="newNode" id="8889685123373025993" />
+        <var name="sampleNode" id="8889685123373025993" />
+      </scope>
       <scope id="2998782254608413845" at="20,102,29,7" />
       <scope id="2998782254610272790" at="33,0,42,0">
         <var name="enclosingNode" id="2998782254610272790" />
@@ -98,14 +117,15 @@
         <var name="newNode" id="2998782254608413845" />
         <var name="sampleNode" id="2998782254608413845" />
       </scope>
-      <unit id="2998782254608413844" at="64,0,70,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$CONCEPTS" />
-      <unit id="2998782254608413844" at="71,0,77,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$LINKS" />
-      <unit id="2998782254608413844" at="78,0,84,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$PROPS" />
+      <unit id="2998782254608413844" at="90,0,96,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$PROPS" />
+      <unit id="2998782254608413844" at="74,0,81,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$CONCEPTS" />
+      <unit id="2998782254608413844" at="82,0,89,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$LINKS" />
       <unit id="1806979145075646805" at="43,0,53,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$NodeFactory_1806979145075646805" />
       <unit id="4929770680975399214" at="53,0,63,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$NodeFactory_4929770680975399214" />
+      <unit id="8889685123373025993" at="63,0,73,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$NodeFactory_8889685123373025993" />
       <unit id="2998782254610272790" at="32,0,43,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$NodeFactory_2998782254610272790" />
       <unit id="2998782254608413845" at="19,0,32,0" name="jetbrains.mps.kotlin.actions.ParametersFactories$NodeFactory_2998782254608413845" />
-      <unit id="2998782254608413844" at="18,0,85,0" name="jetbrains.mps.kotlin.actions.ParametersFactories" />
+      <unit id="2998782254608413844" at="18,0,97,0" name="jetbrains.mps.kotlin.actions.ParametersFactories" />
     </file>
   </root>
   <root nodeRef="r:9eb3c98a-23c5-4e3d-a5e1-afeeb17e8674(jetbrains.mps.kotlin.actions)/2998782254613442269">

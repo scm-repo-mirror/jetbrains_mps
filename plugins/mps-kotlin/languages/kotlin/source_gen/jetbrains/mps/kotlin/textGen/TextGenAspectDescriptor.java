@@ -186,6 +186,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new NoinlineParameterModifier_TextGen();
       case LanguageConceptSwitch.NullLiteral:
         return new NullLiteral_TextGen();
+      case LanguageConceptSwitch.NullableType:
+        return new NullableType_TextGen();
       case LanguageConceptSwitch.ObjectDeclaration:
         return new ObjectDeclaration_TextGen();
       case LanguageConceptSwitch.ObjectLiteral:
@@ -218,6 +220,8 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new PropertyDelegateAssignement_TextGen();
       case LanguageConceptSwitch.PropertyGetter:
         return new PropertyGetter_TextGen();
+      case LanguageConceptSwitch.PropertyMemberTarget:
+        return new PropertyMemberTarget_TextGen();
       case LanguageConceptSwitch.PropertySetter:
         return new PropertySetter_TextGen();
       case LanguageConceptSwitch.PropertyUseSiteTarget:

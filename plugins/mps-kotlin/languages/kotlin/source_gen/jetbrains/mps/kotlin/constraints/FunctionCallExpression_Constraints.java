@@ -14,8 +14,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.kotlin.scopes.ConstructorScope;
-import jetbrains.mps.scope.CompositeScope;
+import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -39,15 +38,7 @@ public class FunctionCallExpression_Constraints extends BaseConstraintsDescripto
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            // Inherited scope for regular functions
-            final Scope s = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.IFunctionIdentifier$K$);
-
-            // + constructors
-            if (s == null) {
-              return ConstructorScope.create(_context.getContextNode());
-            } else {
-              return new CompositeScope(s, ConstructorScope.create(_context.getContextNode()));
-            }
+            return SignatureScopeHelper.getScopeForConstraints(CONCEPTS.FunctionCallExpression$EQ, _context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink(), CONCEPTS.IFunctionDeclaration$ZB);
           }
         };
       }
@@ -59,7 +50,7 @@ public class FunctionCallExpression_Constraints extends BaseConstraintsDescripto
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept FunctionCallExpression$EQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, "jetbrains.mps.kotlin.structure.FunctionCallExpression");
-    /*package*/ static final SInterfaceConcept IFunctionIdentifier$K$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
+    /*package*/ static final SInterfaceConcept IFunctionDeclaration$ZB = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
   }
 
   private static final class LINKS {

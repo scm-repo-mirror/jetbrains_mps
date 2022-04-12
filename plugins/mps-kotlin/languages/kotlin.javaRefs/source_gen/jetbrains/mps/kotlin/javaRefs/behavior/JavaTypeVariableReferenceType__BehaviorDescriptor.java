@@ -6,12 +6,12 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +20,7 @@ import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaTypeParameterDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.runtime.types.identifiers.ClassType;
+import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -49,7 +49,7 @@ public final class JavaTypeVariableReferenceType__BehaviorDescriptor extends Bas
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.typeVariable$LHQO), PROPS.name$MnvL);
   }
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
-    return new ClassType(SLinkOperations.getPointer(__thisNode__, LINKS.typeVariable$LHQO));
+    return new ClassTypeKey(SLinkOperations.getPointer(__thisNode__, LINKS.typeVariable$LHQO));
   }
 
   /*package*/ JavaTypeVariableReferenceType__BehaviorDescriptor() {

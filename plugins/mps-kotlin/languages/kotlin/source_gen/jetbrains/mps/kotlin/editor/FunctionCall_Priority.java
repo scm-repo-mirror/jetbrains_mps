@@ -30,7 +30,7 @@ public class FunctionCall_Priority implements EditorMenuItemCustomizer {
   private static class FunctionCall_PrioritySpecific implements EditorMenuItemCustomizer {
 
     public boolean matches(EditorMenuItemCustomizationContext context) {
-      return new EditorMenuItemCreatingConceptContextMatcher(CONCEPTS.IFunctionCallLike$Sf).matchesContext(context) && getCompletionItemInformation(context) != null;
+      return new EditorMenuItemCreatingConceptContextMatcher(CONCEPTS.IFunctionCall$Sf).matchesContext(context) && getCompletionItemInformation(context) != null;
     }
 
 
@@ -58,6 +58,6 @@ public class FunctionCall_Priority implements EditorMenuItemCustomizer {
 
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IFunctionCallLike$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCallLike");
+    /*package*/ static final SInterfaceConcept IFunctionCall$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCall");
   }
 }

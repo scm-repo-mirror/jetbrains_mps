@@ -18,12 +18,13 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.kotlin.scopes.ConstructorScope;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
+import jetbrains.mps.kotlin.scopes.signed.ConstructorsScope;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -60,7 +61,7 @@ public class ConstructorSuperSpecifier_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            return ConstructorScope.create(_context.getContextNode());
+            return new SignatureScopeAsScope(new ConstructorsScope(SNodeOperations.getModel(_context.getContextNode())));
           }
         };
       }

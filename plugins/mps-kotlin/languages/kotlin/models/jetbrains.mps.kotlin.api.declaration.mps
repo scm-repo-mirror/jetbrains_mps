@@ -1417,43 +1417,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="2J12cYioNE7" role="jymVt" />
-    <node concept="3clFb_" id="2J12cYioNH6" role="jymVt">
-      <property role="TrG5h" value="canReceive" />
-      <node concept="3clFbS" id="2J12cYioNH9" role="3clF47">
-        <node concept="3clFbF" id="2J12cYioOwT" role="3cqZAp">
-          <node concept="3clFbT" id="2J12cYioOwS" role="3clFbG">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="2J12cYioNHa" role="1B3o_S" />
-      <node concept="10P_77" id="2J12cYioNG4" role="3clF45" />
-      <node concept="37vLTG" id="2J12cYioNKl" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3Tqbb2" id="2J12cYioNKk" role="1tU5fm">
-          <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
-        </node>
-      </node>
-      <node concept="P$JXv" id="2J12cYioNPM" role="lGtFl">
-        <node concept="TZ5HA" id="2J12cYioJkG" role="TZ5H$">
-          <node concept="1dT_AC" id="2J12cYioJkH" role="1dT_Ay">
-            <property role="1dT_AB" value="Returns true if the given type can fit this type parameter used as receiver type." />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="2J12cYioKUw" role="TZ5H$">
-          <node concept="1dT_AC" id="2J12cYioKUx" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-        <node concept="TZ5HA" id="2J12cYioKV0" role="TZ5H$">
-          <node concept="1dT_AC" id="2J12cYioKV1" role="1dT_Ay">
-            <property role="1dT_AB" value="eg. in fun&lt;T&gt; T.do(), T can receive any type" />
-          </node>
-        </node>
-      </node>
-      <node concept="2JFqV2" id="2J12cYioOvr" role="2frcjj" />
-    </node>
     <node concept="3UR2Jj" id="26mUjU3B9Re" role="lGtFl">
       <node concept="TZ5HA" id="26mUjU3B9Rf" role="TZ5H$">
         <node concept="1dT_AC" id="26mUjU3B9Rg" role="1dT_Ay">

@@ -9,10 +9,10 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
-import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
-import jetbrains.mps.kotlin.runtime.generics.TypeVarSubs;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.api.members.SuperTypesVisitor;
+import jetbrains.mps.kotlin.api.generics.TypeVarSubs;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -50,7 +50,7 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
     visitor.exitType(__thisNode__);
   }
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {
-    subs.populate(KotlinTypeParameterDeclaration.of(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.typeParameters$eq6K)), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
+    subs.populate(ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN)), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
   }
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
     return "";
@@ -119,7 +119,6 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SReferenceLink typeAlias$NsaN = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, 0x6fcb81ab07dd8e21L, "typeAlias");
     /*package*/ static final SContainmentLink type$JuNU = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, 0x28bef6d7551af810L, "type");
-    /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
   }
 }

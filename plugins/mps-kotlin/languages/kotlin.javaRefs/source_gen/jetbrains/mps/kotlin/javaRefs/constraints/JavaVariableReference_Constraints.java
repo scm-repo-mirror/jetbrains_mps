@@ -16,11 +16,13 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
-import jetbrains.mps.kotlin.scopes.ScopeHelper;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature;
+import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
 import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -44,17 +46,23 @@ public class JavaVariableReference_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            Tuples._3<Boolean, SNode, ScopeContext> context = ScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
+            Tuples._2<SNode, Boolean> context = SignatureScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
             // Call on receiver
-            if ((boolean) context._0()) {
-              SNode type = context._1();
+            if (context != null) {
+              SNode type = context._0();
 
               // Here we seek function signatures from java concepts
-              SignedDeclarationFilter scopeFilter = new SignedDeclarationFilter(CONCEPTS.VariableDeclaration$Y0, PropertyAccessorSignature.class);
-              Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, scopeFilter, context._2());
+              SignatureFilter<PropertySignature> filter = new SignatureFilter<PropertySignature>(PropertySignature.class);
+              SignatureScope typeScope;
+              if ((boolean) context._1()) {
+                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter), IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter));
+              } else {
+                // No receiver methods (not handled here)
+                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false)));
+              }
 
-              return (scope == null ? new EmptyScope() : scope);
+              return new SignatureScopeAsScope(typeScope, CONCEPTS.VariableDeclaration$DF);
             }
 
             // Not called on a receiver
@@ -72,7 +80,7 @@ public class JavaVariableReference_Constraints extends BaseConstraintsDescriptor
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept JavaVariableReference$Eg = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L, "jetbrains.mps.kotlin.javaRefs.structure.JavaVariableReference");
-    /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept VariableDeclaration$DF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
   }
 
   private static final class LINKS {

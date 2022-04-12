@@ -7,7 +7,7 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import java.util.Collections;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;

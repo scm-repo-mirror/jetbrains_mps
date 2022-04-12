@@ -822,12 +822,12 @@
         <node concept="3clFbF" id="5q426iHsDUZ" role="3cqZAp">
           <node concept="37vLTI" id="5q426iHsEqR" role="3clFbG">
             <node concept="37vLTw" id="5q426iHsErO" role="37vLTx">
-              <ref role="3cqZAo" node="5Q5$eZnLbka" resolve="reference" />
+              <ref role="3cqZAo" node="5Q5$eZnLbka" resolve="name" />
             </node>
             <node concept="2OqwBi" id="5q426iHsE2o" role="37vLTJ">
               <node concept="Xjq3P" id="5q426iHsDUY" role="2Oq$k0" />
               <node concept="2S8uIT" id="5q426iHsEby" role="2OqNvi">
-                <ref role="2S8YL0" node="5q426iHsDNw" resolve="reference" />
+                <ref role="2S8YL0" node="5q426iHsDNw" resolve="name" />
               </node>
             </node>
           </node>
@@ -888,7 +888,7 @@
             <ref role="37wK5l" to="33ny:~Objects.hash(java.lang.Object...)" resolve="hash" />
             <ref role="1Pybhc" to="33ny:~Objects" resolve="Objects" />
             <node concept="338YkY" id="5q426iHsFvJ" role="37wK5m">
-              <ref role="338YkT" node="5q426iHsDNw" resolve="reference" />
+              <ref role="338YkT" node="5q426iHsDNw" resolve="name" />
             </node>
             <node concept="338YkY" id="5q426iHsF$R" role="37wK5m">
               <ref role="338YkT" node="5q426iHsDS9" resolve="kind" />

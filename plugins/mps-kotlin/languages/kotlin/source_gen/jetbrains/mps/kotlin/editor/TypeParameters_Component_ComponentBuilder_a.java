@@ -30,7 +30,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandlerElementKeyMap;
 import jetbrains.mps.kotlin.editor.KotlinStyles_StyleSheet.RDiamondStyleClass;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 /*package*/ class TypeParameters_Component_ComponentBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -109,7 +109,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.typeParameters$eq6K;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.TypeParameter$oc;
+      return CONCEPTS.ITypeParameter$fG;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -197,6 +197,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
+    /*package*/ static final SInterfaceConcept ITypeParameter$fG = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, "jetbrains.mps.kotlin.structure.ITypeParameter");
   }
 }

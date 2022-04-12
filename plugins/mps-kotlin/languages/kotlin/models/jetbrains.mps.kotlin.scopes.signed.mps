@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:8a99441d-539c-493f-b884-7b6b084d024b(jetbrains.mps.kotlin.scopes.signed)">
   <persistence version="9" />
+  <attribute name="doNotGenerate" value="false" />
   <languages>
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
@@ -8,7 +9,6 @@
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
-    <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -467,7 +467,7 @@
       <node concept="_YKpA" id="6Ijh6DJSKkH" role="1tU5fm">
         <node concept="3qUE_q" id="1pHfrwZ1mKY" role="_ZDj9">
           <node concept="3uibUv" id="1pHfrwZ1mKZ" role="3qUE_r">
-            <ref role="3uigEE" node="6Ijh6DJDHpd" />
+            <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
           </node>
         </node>
       </node>
@@ -493,7 +493,7 @@
         <node concept="_YKpA" id="1VgEGDnnc1F" role="1tU5fm">
           <node concept="3qUE_q" id="1pHfrwZ1mb2" role="_ZDj9">
             <node concept="3uibUv" id="1pHfrwZ1mvU" role="3qUE_r">
-              <ref role="3uigEE" node="6Ijh6DJDHpd" />
+              <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
             </node>
           </node>
         </node>
@@ -502,7 +502,7 @@
     </node>
     <node concept="3Tm1VV" id="6Ijh6DJSIpZ" role="1B3o_S" />
     <node concept="3uibUv" id="6Ijh6DJSIF2" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="2tJIrI" id="oA6vPIO7OP" role="jymVt" />
     <node concept="3clFb_" id="6Ijh6DJSJnH" role="jymVt">
@@ -528,7 +528,7 @@
                         <ref role="3cqZAo" node="6Ijh6DJSW2k" resolve="it" />
                       </node>
                       <node concept="liA8E" id="6Ijh6DJSZkg" role="2OqNvi">
-                        <ref role="37wK5l" node="6Ijh6DJDHKP" />
+                        <ref role="37wK5l" node="6Ijh6DJDHKP" resolve="getElements" />
                         <node concept="37vLTw" id="6Ijh6DJT0v0" role="37wK5m">
                           <ref role="3cqZAo" node="6Ijh6DJSJnI" resolve="prefix" />
                         </node>
@@ -558,7 +558,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="6Ijh6DJSJnW" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJSJnX" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJSJnY" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -598,7 +598,7 @@
                           <ref role="3cqZAo" node="6Ijh6DJTcWK" resolve="it" />
                         </node>
                         <node concept="liA8E" id="6Ijh6DJTcWJ" role="2OqNvi">
-                          <ref role="37wK5l" node="6Ijh6DJDUWG" />
+                          <ref role="37wK5l" node="6Ijh6DJDUWG" resolve="contains" />
                           <node concept="37vLTw" id="6Ijh6DJTm51" role="37wK5m">
                             <ref role="3cqZAo" node="6Ijh6DJSJnY" resolve="declaration" />
                           </node>
@@ -619,8 +619,8 @@
                   <node concept="3clFbF" id="6Ijh6DJTgsh" role="3cqZAp">
                     <node concept="3y3z36" id="6Ijh6DJTjJ9" role="3clFbG">
                       <node concept="Rm8GO" id="6Ijh6DJTlhh" role="3uHU7w">
-                        <ref role="Rm8GQ" node="6Ijh6DJER$Q" />
-                        <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                        <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
+                        <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
                       </node>
                       <node concept="37vLTw" id="6Ijh6DJTgsg" role="3uHU7B">
                         <ref role="3cqZAo" node="6Ijh6DJTfTr" resolve="it" />
@@ -683,7 +683,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$7uiC" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="oA6vPINbJs" role="jymVt" />
@@ -834,7 +834,7 @@
       <property role="TrG5h" value="delegated" />
       <node concept="3Tm6S6" id="1VgEGDniwtj" role="1B3o_S" />
       <node concept="3uibUv" id="1VgEGDniwwL" role="1tU5fm">
-        <ref role="3uigEE" node="6Ijh6DJDHpd" />
+        <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
       <node concept="10Nm6u" id="1VgEGDniwHV" role="33vP2m" />
     </node>
@@ -843,7 +843,7 @@
       <property role="TrG5h" value="buildScope" />
       <node concept="3clFbS" id="1VgEGDnivod" role="3clF47" />
       <node concept="3uibUv" id="1VgEGDnivif" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJDHpd" />
+        <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
       <node concept="P$JXv" id="1VgEGDnivvl" role="lGtFl">
         <node concept="TZ5HA" id="1VgEGDnivvm" role="TZ5H$">
@@ -886,12 +886,12 @@
       </node>
       <node concept="3Tm1VV" id="1VgEGDniw8S" role="1B3o_S" />
       <node concept="3uibUv" id="1VgEGDniwc9" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJDHpd" />
+        <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
     </node>
     <node concept="3Tm1VV" id="1VgEGDniuUs" role="1B3o_S" />
     <node concept="3uibUv" id="1VgEGDnixUZ" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="16euLQ" id="1VgEGDniyXb" role="16eVyc">
       <property role="TrG5h" value="T" />
@@ -914,7 +914,7 @@
               <ref role="37wK5l" node="1VgEGDniwhU" resolve="getDelegated" />
             </node>
             <node concept="liA8E" id="1VgEGDniBDB" role="2OqNvi">
-              <ref role="37wK5l" node="6Ijh6DJDHKP" />
+              <ref role="37wK5l" node="6Ijh6DJDHKP" resolve="getElements" />
               <node concept="37vLTw" id="1VgEGDniBDC" role="37wK5m">
                 <ref role="3cqZAo" node="1VgEGDnizXw" resolve="prefix" />
               </node>
@@ -934,7 +934,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="1VgEGDnizXI" role="1B3o_S" />
       <node concept="3uibUv" id="1VgEGDnizXJ" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="1VgEGDnizXK" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -949,7 +949,7 @@
               <ref role="37wK5l" node="1VgEGDniwhU" resolve="getDelegated" />
             </node>
             <node concept="liA8E" id="1VgEGDniAKJ" role="2OqNvi">
-              <ref role="37wK5l" node="6Ijh6DJDUWG" />
+              <ref role="37wK5l" node="6Ijh6DJDUWG" resolve="contains" />
               <node concept="37vLTw" id="1VgEGDniB4S" role="37wK5m">
                 <ref role="3cqZAo" node="1VgEGDnizXK" resolve="declaration" />
               </node>
@@ -985,7 +985,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$83TX" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
@@ -998,7 +998,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="27GSRRvUhcz" role="1B3o_S" />
       <node concept="3uibUv" id="27GSRRvUhc_" role="1tU5fm">
-        <ref role="3uigEE" node="6Ijh6DJDHpd" />
+        <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
     </node>
     <node concept="3clFbW" id="27GSRRvUgLp" role="jymVt">
@@ -1019,7 +1019,7 @@
       <node concept="37vLTG" id="27GSRRvUgU4" role="3clF46">
         <property role="TrG5h" value="nested" />
         <node concept="3uibUv" id="27GSRRvUgU3" role="1tU5fm">
-          <ref role="3uigEE" node="6Ijh6DJDHpd" />
+          <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
         </node>
       </node>
     </node>
@@ -1102,7 +1102,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="27GSRRvUhXl" role="1B3o_S" />
       <node concept="3uibUv" id="27GSRRvUhXm" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="27GSRRvUhXn" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -1116,7 +1116,7 @@
             <node concept="3cpWs6" id="27GSRRvUolz" role="3cqZAp">
               <node concept="Rm8GO" id="27GSRRvUoMu" role="3cqZAk">
                 <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
-                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               </node>
             </node>
           </node>
@@ -1166,7 +1166,7 @@
     <node concept="2tJIrI" id="ccTy7$896w" role="jymVt" />
     <node concept="3Tm1VV" id="27GSRRvUfpD" role="1B3o_S" />
     <node concept="3uibUv" id="27GSRRvUhOO" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="3clFb_" id="ccTy7$88Co" role="jymVt">
       <property role="TrG5h" value="contains" />
@@ -1205,7 +1205,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$88Cy" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="ccTy7$8O9J" role="jymVt" />
@@ -1252,7 +1252,7 @@
         <node concept="_YKpA" id="1VgEGDn_yAS" role="1tU5fm">
           <node concept="3qUE_q" id="1pHfrwZ1nIi" role="_ZDj9">
             <node concept="3uibUv" id="1pHfrwZ1nIj" role="3qUE_r">
-              <ref role="3uigEE" node="6Ijh6DJDHpd" />
+              <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
             </node>
           </node>
         </node>
@@ -1479,7 +1479,7 @@
     <node concept="2tJIrI" id="6Ijh6DJPD8U" role="jymVt" />
     <node concept="3Tm1VV" id="6Ijh6DJP7l7" role="1B3o_S" />
     <node concept="3uibUv" id="6Ijh6DJP7CO" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="3clFb_" id="6Ijh6DJP7F4" role="jymVt">
       <property role="TrG5h" value="getElements" />
@@ -1568,7 +1568,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="6Ijh6DJP7Fj" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJP7Fk" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJP7Fl" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -1742,7 +1742,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$8PU9" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
@@ -2048,7 +2048,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="6Ijh6DJGIPp" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJGIPq" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJGIPr" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -2061,8 +2061,8 @@
           <node concept="3clFbS" id="6Ijh6DJHzhH" role="3clFbx">
             <node concept="3cpWs6" id="6Ijh6DJHCJN" role="3cqZAp">
               <node concept="Rm8GO" id="6Ijh6DJHIa5" role="3cqZAk">
-                <ref role="Rm8GQ" node="6Ijh6DJERrW" />
-                <ref role="1Px2BO" node="6Ijh6DJERfO" />
+                <ref role="Rm8GQ" node="6Ijh6DJERrW" resolve="YES" />
+                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               </node>
             </node>
           </node>
@@ -2095,8 +2095,8 @@
         </node>
         <node concept="3cpWs6" id="6Ijh6DJHN6h" role="3cqZAp">
           <node concept="Rm8GO" id="6Ijh6DJHPvG" role="3cqZAk">
-            <ref role="Rm8GQ" node="6Ijh6DJER$Q" />
-            <ref role="1Px2BO" node="6Ijh6DJERfO" />
+            <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
+            <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
           </node>
         </node>
       </node>
@@ -2147,7 +2147,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$7AWE" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="6GKjEsr1BHR" role="jymVt" />
@@ -2305,7 +2305,7 @@
     </node>
     <node concept="3Tm1VV" id="1TQsu41XcTy" role="1B3o_S" />
     <node concept="3uibUv" id="6Ijh6DJDQMw" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
   </node>
   <node concept="312cEu" id="6Ijh6DJDVaA">
@@ -2503,7 +2503,7 @@
     <node concept="2tJIrI" id="1VgEGDny4aP" role="jymVt" />
     <node concept="3Tm1VV" id="6Ijh6DJDVaB" role="1B3o_S" />
     <node concept="3uibUv" id="6Ijh6DJDVy4" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="3clFb_" id="6Ijh6DJDV_c" role="jymVt">
       <property role="TrG5h" value="getElements" />
@@ -2715,7 +2715,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="6Ijh6DJFEBY" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJFEBZ" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJFEC0" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -2896,7 +2896,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$92cj" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
@@ -3550,6 +3550,9 @@
                   </node>
                 </node>
                 <node concept="3eOVzh" id="6nK3tk9BJ9m" role="3uHU7w">
+                  <node concept="37vLTw" id="6nK3tk9BGuo" role="3uHU7w">
+                    <ref role="3cqZAo" node="6nK3tk9CcmX" resolve="typeIndex" />
+                  </node>
                   <node concept="1LFfDK" id="4z6StV4zMgS" role="3uHU7B">
                     <node concept="3cmrfG" id="4z6StV4zMj0" role="1LF_Uc">
                       <property role="3cmrfH" value="1" />
@@ -3568,24 +3571,16 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="37vLTw" id="6nK3tk9BGuo" role="3uHU7w">
-                    <ref role="3cqZAo" node="6nK3tk9CcmX" resolve="typeIndex" />
-                  </node>
                 </node>
               </node>
             </node>
             <node concept="3clFbH" id="6nK3tk9EMgo" role="3cqZAp" />
             <node concept="3clFbF" id="6nK3tk9BM9W" role="3cqZAp">
               <node concept="37vLTI" id="6nK3tk9C18s" role="3clFbG">
-                <node concept="1Ls8ON" id="4z6StV4zN9g" role="37vLTx">
-                  <node concept="2GrUjf" id="4z6StV4zNiQ" role="1Lso8e">
-                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
-                  </node>
-                  <node concept="37vLTw" id="4z6StV4zPYc" role="1Lso8e">
-                    <ref role="3cqZAo" node="6nK3tk9CcmX" resolve="typeIndex" />
-                  </node>
-                </node>
                 <node concept="3EllGN" id="6nK3tk9BXmc" role="37vLTJ">
+                  <node concept="37vLTw" id="6nK3tk9BM9U" role="3ElQJh">
+                    <ref role="3cqZAo" node="6nK3tk9AHx0" resolve="hierarchy" />
+                  </node>
                   <node concept="2OqwBi" id="4z6StV4zNre" role="3ElVtu">
                     <node concept="2GrUjf" id="6nK3tk9XBSo" role="2Oq$k0">
                       <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
@@ -3594,8 +3589,13 @@
                       <ref role="2S8YL0" to="2q9i:5q426iHsllV" resolve="signature" />
                     </node>
                   </node>
-                  <node concept="37vLTw" id="6nK3tk9BM9U" role="3ElQJh">
-                    <ref role="3cqZAo" node="6nK3tk9AHx0" resolve="hierarchy" />
+                </node>
+                <node concept="1Ls8ON" id="4z6StV4zN9g" role="37vLTx">
+                  <node concept="2GrUjf" id="4z6StV4zNiQ" role="1Lso8e">
+                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                  </node>
+                  <node concept="37vLTw" id="4z6StV4zPYc" role="1Lso8e">
+                    <ref role="3cqZAo" node="6nK3tk9CcmX" resolve="typeIndex" />
                   </node>
                 </node>
               </node>
@@ -3640,7 +3640,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="1VgEGDnj65E" role="1B3o_S" />
       <node concept="3uibUv" id="1VgEGDnj65F" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="1VgEGDnj65G" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -3705,7 +3705,7 @@
           <node concept="3K4zz7" id="ccTy7$9hxP" role="3cqZAk">
             <node concept="Rm8GO" id="ccTy7$9hxQ" role="3K4E3e">
               <ref role="Rm8GQ" node="6Ijh6DJERrW" resolve="YES" />
-              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
             <node concept="1rXfSq" id="ccTy7$9iZo" role="3K4Cdx">
               <ref role="37wK5l" node="ccTy7$9dD6" resolve="contains" />
@@ -3720,7 +3720,7 @@
             </node>
             <node concept="Rm8GO" id="ccTy7$9hxX" role="3K4GZi">
               <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
-              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
           </node>
         </node>
@@ -3800,17 +3800,12 @@
             <node concept="3clFbC" id="6nK3tkaMoRq" role="3uHU7w">
               <node concept="1rXfSq" id="6nK3tk9DZ1_" role="3uHU7B">
                 <ref role="37wK5l" node="6nK3tk9CoPK" resolve="typeIndex" />
-                <node concept="2OqwBi" id="6nK3tkaMdQ9" role="37wK5m">
-                  <node concept="2OqwBi" id="3SuZL7z1Wkv" role="2Oq$k0">
-                    <node concept="37vLTw" id="3SuZL7z1VWi" role="2Oq$k0">
-                      <ref role="3cqZAo" node="3SuZL7z1T8s" resolve="ancestor" />
-                    </node>
-                    <node concept="3TrEf2" id="3SuZL7z1X1O" role="2OqNvi">
-                      <ref role="3Tt5mk" to="hcm8:1502Vugz7Wz" resolve="receiverType" />
-                    </node>
+                <node concept="2OqwBi" id="3SuZL7z1Wkv" role="37wK5m">
+                  <node concept="37vLTw" id="3SuZL7z1VWi" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3SuZL7z1T8s" resolve="ancestor" />
                   </node>
-                  <node concept="3TrEf2" id="6nK3tkaMfhz" role="2OqNvi">
-                    <ref role="3Tt5mk" to="hcm8:2yYXHtl6Jz0" resolve="type" />
+                  <node concept="3TrEf2" id="3SuZL7z1X1O" role="2OqNvi">
+                    <ref role="3Tt5mk" to="hcm8:7p20EYZLFR_" resolve="receiverType" />
                   </node>
                 </node>
               </node>
@@ -3987,7 +3982,7 @@
       <property role="TrG5h" value="wrapped" />
       <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="ccTy7$6WDI" role="1tU5fm">
-        <ref role="3uigEE" node="6Ijh6DJDHpd" />
+        <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
       <node concept="3Tm6S6" id="ccTy7$72xn" role="1B3o_S" />
     </node>
@@ -4004,7 +3999,7 @@
       <node concept="37vLTG" id="1VgEGDn$V6H" role="3clF46">
         <property role="TrG5h" value="wrapped" />
         <node concept="3uibUv" id="1VgEGDn$V6I" role="1tU5fm">
-          <ref role="3uigEE" node="6Ijh6DJDHpd" />
+          <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
         </node>
       </node>
       <node concept="37vLTG" id="1VgEGDn$V6J" role="3clF46">
@@ -4049,7 +4044,7 @@
       <node concept="37vLTG" id="1VgEGDnfNVQ" role="3clF46">
         <property role="TrG5h" value="wrapped" />
         <node concept="3uibUv" id="1VgEGDnfO5s" role="1tU5fm">
-          <ref role="3uigEE" node="6Ijh6DJDHpd" />
+          <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
         </node>
       </node>
       <node concept="3cqZAl" id="1VgEGDnfNN_" role="3clF45" />
@@ -4739,7 +4734,7 @@
     <node concept="2tJIrI" id="6nK3tkauVsu" role="jymVt" />
     <node concept="3Tm1VV" id="6Ijh6DJOXXP" role="1B3o_S" />
     <node concept="3uibUv" id="6Ijh6DJOYgi" role="EKbjA">
-      <ref role="3uigEE" node="6Ijh6DJDHpd" />
+      <ref role="3uigEE" node="6Ijh6DJDHpd" resolve="SignatureScope" />
     </node>
     <node concept="3clFbW" id="3HHsmlLGSpj" role="jymVt">
       <node concept="3cqZAl" id="3HHsmlLGSpn" role="3clF45" />
@@ -4778,7 +4773,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="6Ijh6DJOYin" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJOYio" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJOYip" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -4789,8 +4784,8 @@
       <node concept="3clFbS" id="6Ijh6DJOYis" role="3clF47">
         <node concept="3cpWs6" id="6Ijh6DJP0_0" role="3cqZAp">
           <node concept="Rm8GO" id="6Ijh6DJP0Ud" role="3cqZAk">
-            <ref role="Rm8GQ" node="6Ijh6DJER$Q" />
-            <ref role="1Px2BO" node="6Ijh6DJERfO" />
+            <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
+            <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
           </node>
         </node>
       </node>
@@ -4812,7 +4807,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="ccTy7$7tib" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>
@@ -4837,7 +4832,7 @@
       <node concept="3clFbS" id="6Ijh6DJDUWJ" role="3clF47" />
       <node concept="3Tm1VV" id="6Ijh6DJDUWK" role="1B3o_S" />
       <node concept="3uibUv" id="6Ijh6DJERZP" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="6Ijh6DJDV3a" role="3clF46">
         <property role="TrG5h" value="declaration" />

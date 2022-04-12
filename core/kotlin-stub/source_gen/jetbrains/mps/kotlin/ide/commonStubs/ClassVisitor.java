@@ -16,16 +16,19 @@ import jetbrains.mps.kotlin.stubs.common.KotlinId;
 import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmTypeParameterVisitor;
 import kotlinx.metadata.KmVariance;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import kotlinx.metadata.KmFunctionVisitor;
 import kotlinx.metadata.KmPropertyVisitor;
 import kotlinx.metadata.KmTypeAliasVisitor;
 import kotlinx.metadata.KmTypeVisitor;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import kotlinx.metadata.KmConstructorVisitor;
+import kotlinx.metadata.KmClassExtensionVisitor;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -96,9 +99,10 @@ public class ClassVisitor extends KmClassVisitor {
       SPropertyOperations.assign(SNodeOperations.as(getNode(), CONCEPTS.InterfaceDeclaration$fL), PROPS.isFunctional$pBP$, true);
     }
 
-    if (Flags.IS_EXTERNAL_CLASS.get(flags) || Flags.IS_EXPECT_CLASS.get(flags) || Flags.IS_INLINE_CLASS.get(flags)) {
-      context.unhandledPart("external, expect, inline or fun class modifier");
+    if (Flags.IS_EXTERNAL_CLASS.get(flags) || Flags.IS_EXPECT_CLASS.get(flags) || Flags.IS_VALUE_CLASS.get(flags)) {
+      context.unhandledPart("external, expect or value class modifier");
     }
+
 
     SPropertyOperations.assign(getNode(), PROPS.name$MnvL, KotlinId.simpleName(fqName));
     context.setId(getNode(), fqName);
@@ -109,7 +113,7 @@ public class ClassVisitor extends KmClassVisitor {
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
     assert SNodeOperations.isInstanceOf(getNode(), CONCEPTS.ITypeParameters$G$) : "node should carry type parameters";
-    SNode node = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNode(), CONCEPTS.ITypeParameters$G$), LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter")));
+    SNode node = SLinkOperations.addNewChild(SNodeOperations.cast(getNode(), CONCEPTS.ITypeParameters$G$), LINKS.typeParameters$eq6K, CONCEPTS.TypeParameter$oc);
     context.setId(node, fqName + "." + name);
     return TypeParameterVisitor.create(node, name, id, variance, context);
   }
@@ -241,6 +245,14 @@ public class ClassVisitor extends KmClassVisitor {
     });
   }
 
+  @Nullable
+  @Override
+  public KmClassExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type) && SNodeOperations.isInstanceOf(getNode(), CONCEPTS.IAnnotated$X8)) {
+      return new AnnotationVisitorImpl(SNodeOperations.cast(getNode(), CONCEPTS.IAnnotated$X8), context);
+    }
+    return super.visitExtensions(type);
+  }
 
   @Override
   public void visitEnd() {
@@ -255,6 +267,7 @@ public class ClassVisitor extends KmClassVisitor {
     /*package*/ static final SConcept DataClassModifier$wi = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40aL, "jetbrains.mps.kotlin.structure.DataClassModifier");
     /*package*/ static final SConcept InterfaceDeclaration$fL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7554886bfL, "jetbrains.mps.kotlin.structure.InterfaceDeclaration");
     /*package*/ static final SInterfaceConcept ITypeParameters$G$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, "jetbrains.mps.kotlin.structure.ITypeParameters");
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
     /*package*/ static final SConcept FunctionDeclaration$oD = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, "jetbrains.mps.kotlin.structure.FunctionDeclaration");
     /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
     /*package*/ static final SConcept TypeAlias$qF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, "jetbrains.mps.kotlin.structure.TypeAlias");
@@ -266,6 +279,7 @@ public class ClassVisitor extends KmClassVisitor {
     /*package*/ static final SInterfaceConcept IClassMemberDeclaration$LK = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af30fL, "jetbrains.mps.kotlin.structure.IClassMemberDeclaration");
     /*package*/ static final SConcept EnumClassDeclaration$xK = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, "jetbrains.mps.kotlin.structure.EnumClassDeclaration");
     /*package*/ static final SConcept EnumEntry$ji = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af533L, "jetbrains.mps.kotlin.structure.EnumEntry");
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
   }
 
   private static final class LINKS {

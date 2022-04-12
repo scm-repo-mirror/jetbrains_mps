@@ -13,7 +13,7 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.kotlin.behavior.CallReceiver;
 import jetbrains.mps.kotlin.overloading.Argument;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +25,7 @@ import jetbrains.mps.kotlin.overloading.NodeArgument;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtEngine;
 import jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService;
-import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -82,7 +82,7 @@ public final class JavaMethodVariableReference__BehaviorDescriptor extends BaseB
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     JavaToKtEngine javaToKt = TypeConversionService.getInstance().getJavaToKt();
-    SNode node = __thisNode__.getReferenceTarget(IFunctionCallLike__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(__thisNode__));
+    SNode node = __thisNode__.getReferenceTarget(IFunctionCall__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(__thisNode__));
     if (node == null) {
       return null;
     }

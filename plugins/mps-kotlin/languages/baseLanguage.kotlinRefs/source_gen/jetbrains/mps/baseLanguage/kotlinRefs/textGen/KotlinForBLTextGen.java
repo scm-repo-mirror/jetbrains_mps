@@ -14,12 +14,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.baseLanguage.kotlinRefs.behavior.IKotlinFunctionLikeCall__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Collections;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
 import jetbrains.mps.kotlin.overloading.NodeArgument;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.kotlin.overloading.ParamException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -97,7 +99,11 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
 
     try {
       // Reorder parameters (named args not supported in java)
-      arguments = FunctionParamHelper.toOrderedList(functionParameters, NodeArgument.ofList(SLinkOperations.getChildren(call, LINKS.actualArgument$Q6nt)));
+      arguments = Sequence.fromIterable(FunctionParamHelper.toOrderedList(functionParameters, NodeArgument.ofList(SLinkOperations.getChildren(call, LINKS.actualArgument$Q6nt)))).select(new ISelector<Argument, SNode>() {
+        public SNode select(Argument it) {
+          return it.getExpression();
+        }
+      });
     } catch (ParamException error) {
       tgs.reportError(error.getMessage());
     }

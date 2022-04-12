@@ -234,7 +234,7 @@
     </node>
   </node>
   <node concept="24kQdi" id="4mvBIJf3LL_">
-    <ref role="1XX52x" to="5m2i:4mvBIJf3_Z2" resolve="_JavaVariableReference" />
+    <ref role="1XX52x" to="5m2i:4mvBIJf3_Z2" resolve="JavaVariableReference" />
     <node concept="3EZMnI" id="4mvBIJf3Mdq" role="2wV5jI">
       <node concept="1iCGBv" id="4mvBIJf3Mm3" role="3EZMnx">
         <ref role="1NtTu8" to="5m2i:4mvBIJf3IdV" resolve="variable" />
@@ -250,7 +250,7 @@
     </node>
   </node>
   <node concept="22mcaB" id="4mvBIJf3ZX8">
-    <ref role="aqKnT" to="5m2i:4mvBIJf3_Z2" resolve="_JavaVariableReference" />
+    <ref role="aqKnT" to="5m2i:4mvBIJf3_Z2" resolve="JavaVariableReference" />
     <node concept="22hDWj" id="4mvBIJf402P" role="22hAXT" />
     <node concept="3XHNnq" id="4mvBIJf40f3" role="3ft7WO">
       <ref role="3XGfJA" to="5m2i:4mvBIJf3IdV" resolve="variable" />

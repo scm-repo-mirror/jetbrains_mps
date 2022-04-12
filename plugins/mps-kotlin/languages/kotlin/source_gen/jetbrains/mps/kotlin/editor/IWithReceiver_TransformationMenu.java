@@ -104,10 +104,10 @@ public class IWithReceiver_TransformationMenu extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        if ((SLinkOperations.getTarget(_context.getNode(), LINKS.receiverType$NO1r) == null)) {
-          SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.receiverType$NO1r, null);
+        if ((SLinkOperations.getTarget(_context.getNode(), LINKS.receiverType$7yLT) == null)) {
+          SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.receiverType$7yLT, null);
         }
-        SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), LINKS.receiverType$NO1r), SelectionManager.FIRST_EDITABLE_CELL);
+        SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), LINKS.receiverType$7yLT), SelectionManager.FIRST_EDITABLE_CELL);
       }
 
 
@@ -131,6 +131,6 @@ public class IWithReceiver_TransformationMenu extends TransformationMenuBase {
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
   }
 }

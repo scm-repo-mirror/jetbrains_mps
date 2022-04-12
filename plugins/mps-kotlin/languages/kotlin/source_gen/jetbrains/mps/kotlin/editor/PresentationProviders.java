@@ -36,6 +36,20 @@ public class PresentationProviders {
       return (String) IFunctionDeclaration__BehaviorDescriptor.getFunctionPresentation_id7uO8z1BmwrX.invoke(targetNode, ((boolean) false));
     }
   };
+  public static final IReferentPresentationProvider PRESENTATION_tonxax_a0a1a = new IReferentPresentationProvider() {
+    @NotNull
+    @Override
+    public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
+      return (String) IFunctionDeclaration__BehaviorDescriptor.getFunctionPresentation_id7uO8z1BmwrX.invoke(targetNode, ((boolean) false));
+    }
+  };
+  public static final IReferentPresentationProvider PRESENTATION_tonxax_a0a1a_0 = new IReferentPresentationProvider() {
+    @NotNull
+    @Override
+    public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
+      return (String) IFunctionDeclaration__BehaviorDescriptor.getFunctionPresentation_id7uO8z1BmwrX.invoke(targetNode, ((boolean) false));
+    }
+  };
   public static final IReferentPresentationProvider PRESENTATION_61pw62_a0a1a = new IReferentPresentationProvider() {
     @NotNull
     @Override

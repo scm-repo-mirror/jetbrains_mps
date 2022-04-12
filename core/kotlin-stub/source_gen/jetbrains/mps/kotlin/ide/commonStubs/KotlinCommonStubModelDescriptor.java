@@ -32,6 +32,8 @@ import jetbrains.mps.kotlin.stubs.common.KotlinLanguage;
 import java.io.InputStream;
 import kotlinx.metadata.internal.metadata.deserialization.BinaryVersion;
 import kotlinx.metadata.internal.metadata.builtins.BuiltInsBinaryVersion;
+import kotlinx.metadata.internal.protobuf.ExtensionRegistryLite;
+import kotlinx.metadata.internal.metadata.builtins.BuiltInsProtoBuf;
 import kotlinx.metadata.internal.metadata.ProtoBuf;
 import kotlinx.metadata.internal.metadata.deserialization.NameResolverImpl;
 import kotlinx.metadata.impl.ReadersKt;
@@ -124,8 +126,10 @@ public class KotlinCommonStubModelDescriptor extends LazyEditableSModelBase {
           }
         }
 
-        // Parse
-        ProtoBuf.PackageFragment pkg = ProtoBuf.PackageFragment.parseFrom(inputStream);
+        // Parse (registry with extensions allows to get annotations)
+        ExtensionRegistryLite registry = ExtensionRegistryLite.newInstance();
+        BuiltInsProtoBuf.registerAllExtensions(registry);
+        ProtoBuf.PackageFragment pkg = ProtoBuf.PackageFragment.parseFrom(inputStream, registry);
 
         // Visit
         SNode root = createFile(file);

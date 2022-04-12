@@ -12,14 +12,15 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmTypeParameterVisitor;
 import org.jetbrains.annotations.NotNull;
 import kotlinx.metadata.KmVariance;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import kotlinx.metadata.KmTypeVisitor;
 import kotlinx.metadata.KmValueParameterVisitor;
+import kotlinx.metadata.KmFunctionExtensionVisitor;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import kotlinx.metadata.internal.metadata.deserialization.Flags;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -40,7 +41,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
   @Nullable
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
-    SNode param = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameters$eq6K)).addElement(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter")));
+    SNode param = SLinkOperations.addNewChild(node, LINKS.typeParameters$eq6K, CONCEPTS.TypeParameter$oc);
 
     // Could have same fq name as parameter but should not happen as forbidden in the language
     context.setChildId(param, name);
@@ -53,7 +54,7 @@ public class FunctionVisitor extends KmFunctionVisitor {
   @Override
   public KmTypeVisitor visitReceiverParameterType(int flags) {
     return new TypeVisitor(context, flags, (SNode type, String name) -> {
-      SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_c5eo4r_a0a0c0a0a8(type));
+      SLinkOperations.setTarget(node, LINKS.receiverType$7yLT, type);
       functionId.setReceiver(name);
     });
   }
@@ -71,6 +72,14 @@ public class FunctionVisitor extends KmFunctionVisitor {
     return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.returnType$fGYV, type));
   }
 
+  @Nullable
+  @Override
+  public KmFunctionExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type) && SNodeOperations.isInstanceOf(node, CONCEPTS.IAnnotated$X8)) {
+      return new AnnotationVisitorImpl(SNodeOperations.cast(node, CONCEPTS.IAnnotated$X8), context);
+    }
+    return super.visitExtensions(type);
+  }
   @Override
   public void visitEnd() {
     functionId.applyOn(node);
@@ -84,27 +93,20 @@ public class FunctionVisitor extends KmFunctionVisitor {
     return new FunctionVisitor(func, receiverName, ctx);
   }
 
-  private static SNode createReceiverType_c5eo4r_a0a0c0a0a8(SNode p0) {
-    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReceiverType$$f);
-    n0.forChild(LINKS.type$NVFj).initNode(p0, CONCEPTS.IType$Ni, true);
-    return n0.getResult();
-  }
-
   private static final class LINKS {
     /*package*/ static final SContainmentLink statements$R3pt = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b8869eeL, 0x123d0b402b8869f1L, "statements");
     /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
-    /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
     /*package*/ static final SContainmentLink returnType$fGYV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908cd887L, 0x11400bb7908cd888L, "returnType");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
-    /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
-    /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
   }
 
   private static final class PROPS {

@@ -15,6 +15,11 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmVariance;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import kotlinx.metadata.KmTypeExtensionVisitor;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
+import kotlinx.metadata.KmAnnotation;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import kotlinx.metadata.Flag;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -105,8 +110,8 @@ public class TypeVisitor extends KmTypeVisitor {
   public void visitStarProjection() {
     if (typeArguments == null) {
       typeArguments = new StringJoiner(",");
-      typeArguments.add("*");
     }
+    typeArguments.add("*");
 
     {
       final SNode type = node;
@@ -122,6 +127,25 @@ public class TypeVisitor extends KmTypeVisitor {
     // Expected to be called after everything
     // TODO make myResult=flexible[upper=visitor, lower=myResult]
     return super.visitFlexibleTypeUpperBound(flags, typeFlexibilityId);
+  }
+
+  @Nullable
+  @Override
+  public KmTypeExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type)) {
+      return new AnnotationVisitor() {
+        @Override
+        public void visitAnnotation(@NotNull KmAnnotation annotation) {
+          // TODO move that clause to parameter visitor (doesn't work here)
+          if (Objects.equals(annotation.getClassName(), "kotlin/ExtensionFunctionType") && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.as(node, CONCEPTS.FunctionType$ig), LINKS.parameters$jkhy)).isNotEmpty()) {
+            SNode firstParameter = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(node, CONCEPTS.FunctionType$ig), LINKS.parameters$jkhy)).first();
+            SLinkOperations.setTarget(SNodeOperations.cast(node, CONCEPTS.FunctionType$ig), LINKS.receiverType$7yLT, SLinkOperations.getTarget(firstParameter, LINKS.type$69zk));
+            SNodeOperations.deleteNode(firstParameter);
+          }
+        }
+      };
+    }
+    return super.visitExtensions(type);
   }
 
   @Override
@@ -157,6 +181,7 @@ public class TypeVisitor extends KmTypeVisitor {
     /*package*/ static final SContainmentLink returnType$jkY_ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af611L, "returnType");
     /*package*/ static final SContainmentLink parameters$jkhy = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af60eL, "parameters");
     /*package*/ static final SContainmentLink type$69zk = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca48843ccL, 0x63c34deca48843d1L, "type");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
   }
 
   private static final class CONCEPTS {

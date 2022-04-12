@@ -14,21 +14,11 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.kotlin.behavior.NavigationOperation__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.scopes.ReceiverTypeScope;
-import jetbrains.mps.scope.CompositeScope;
+import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class FunctionCallTarget_Constraints extends BaseConstraintsDescriptor {
   public FunctionCallTarget_Constraints() {
@@ -48,22 +38,7 @@ public class FunctionCallTarget_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            final SNode context = SNodeOperations.as((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.NavigationOperation$4I);
-
-            // Compute type in isolation, otherwise type may be null
-            SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> (SNode) NavigationOperation__BehaviorDescriptor.getContextType_id7ubb0gUcL0j.invoke(context));
-
-            ScopeContext scopeContext = (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f) ? ScopeContext.STATIC_RECEIVER : ScopeContext.INSTANCE_RECEIVER);
-            Scope scope = IType__BehaviorDescriptor.getTypeScope_id7ubb0gUcNKV.invoke(type, new SignedDeclarationFilter(CONCEPTS.IFunctionIdentifier$K$), scopeContext);
-
-            // Also retrieve scope for receiver types
-            ReceiverTypeScope receiverTypeScope = new ReceiverTypeScope(SNodeOperations.getModel(_context.getContextNode()), type, CONCEPTS.IFunctionIdentifier$K$);
-
-            if (scope == null) {
-              return receiverTypeScope;
-            } else {
-              return new CompositeScope(scope, receiverTypeScope);
-            }
+            return SignatureScopeHelper.getScopeForConstraints(CONCEPTS.FunctionCallTarget$SS, _context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink(), CONCEPTS.IFunctionDeclaration$ZB);
           }
         };
       }
@@ -75,13 +50,10 @@ public class FunctionCallTarget_Constraints extends BaseConstraintsDescriptor {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept FunctionCallTarget$SS = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a64d3L, "jetbrains.mps.kotlin.structure.FunctionCallTarget");
-    /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
-    /*package*/ static final SInterfaceConcept IFunctionIdentifier$K$ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
+    /*package*/ static final SInterfaceConcept IFunctionDeclaration$ZB = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2a5d3409768d2f2bL, "jetbrains.mps.kotlin.structure.IFunctionDeclaration");
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink function$Weyv = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af43fL, 0x1ba36e493d8ad4e9L, "function");
-    /*package*/ static final SContainmentLink operand$YS5t = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956f20L, 0x11400bb790956f23L, "operand");
   }
 }

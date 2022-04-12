@@ -4,7 +4,7 @@ package jetbrains.mps.kotlin.overloading;
 
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import org.jetbrains.mps.openapi.model.SNode;
 
 public interface Argument {

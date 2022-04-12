@@ -9,17 +9,17 @@ import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.behavior.InferredTypeReference;
+import jetbrains.mps.kotlin.behavior.ForStatementKeys;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.kotlin.behavior.KotlinFunctionDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NextFunctionCall implements FunctionCall {
-  private final SNode myReceiverType;
   private final SNode myForStatement;
-  public NextFunctionCall(SNode receiverType, SNode forStatement) {
-    myReceiverType = receiverType;
+  public NextFunctionCall(SNode forStatement) {
     myForStatement = forStatement;
   }
   @Override
@@ -44,12 +44,15 @@ public class NextFunctionCall implements FunctionCall {
   }
   @Override
   public SNode getReceiverType() {
-    return myReceiverType;
+    // Get receiver type from the for statement
+    return new InferredTypeReference(myForStatement, ForStatementKeys.ITERATOR_FUNCTION_RET).compute();
   }
+
   @Override
   public boolean usesReceiver() {
     return true;
   }
+
   @Override
   public FunctionDeclaration getFunctionDescriptor() {
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(myForStatement, LINKS.nextFunction$fFHf));

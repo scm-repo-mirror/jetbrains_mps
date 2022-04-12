@@ -8,7 +8,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 
 /**
  * Visit superclasses but collect substitutions along the way

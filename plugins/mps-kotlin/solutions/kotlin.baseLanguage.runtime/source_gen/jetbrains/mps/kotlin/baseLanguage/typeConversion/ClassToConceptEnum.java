@@ -4,7 +4,7 @@ package jetbrains.mps.kotlin.baseLanguage.typeConversion;
 
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtEngine;
 import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.KotlinClassTypeBuilder;

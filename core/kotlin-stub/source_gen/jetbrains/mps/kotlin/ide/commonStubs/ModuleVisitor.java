@@ -22,6 +22,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 /**
  * Entry point of the visitor for the .kotlin_metadata files.
+ * 
+ * See https://github.com/JetBrains/kotlin/blob/master/core/metadata/src/metadata.proto
  */
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2993321679753603952", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
 public class ModuleVisitor extends KmModuleFragmentVisitor {

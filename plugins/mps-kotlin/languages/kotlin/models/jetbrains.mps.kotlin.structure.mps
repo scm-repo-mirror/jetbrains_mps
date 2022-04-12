@@ -1842,7 +1842,7 @@
       <ref role="PrY4T" node="2gj5XQXEpsk" resolve="ITypeArguments" />
     </node>
     <node concept="PrWs8" id="11vq$BtP2c5" role="PzmwI">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
     <node concept="PrWs8" id="5GtPw5yVk_u" role="PzmwI">
       <ref role="PrY4T" node="213J8chjiEQ" resolve="IVariableIdentifier" />
@@ -2405,8 +2405,17 @@
     <node concept="1TJgyj" id="1502Vugz7Wz" role="1TKVEi">
       <property role="IQ2ns" value="1243006380186304291" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="receiverType" />
+      <property role="20kJfa" value="_receiverType" />
       <ref role="20lvS9" node="2yYXHtl6Jl1" resolve="ReceiverType" />
+      <node concept="asaX9" id="7p20EYZLGLA" role="lGtFl">
+        <property role="YLQ7P" value="simplified into IType in receiverType" />
+      </node>
+    </node>
+    <node concept="1TJgyj" id="7p20EYZLFR_" role="1TKVEi">
+      <property role="IQ2ns" value="8521376398798405093" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="receiverType" />
+      <ref role="20lvS9" node="2yYXHtl6Jh1" resolve="IType" />
     </node>
   </node>
   <node concept="PlHQZ" id="1502Vugzdy7">
@@ -2549,7 +2558,7 @@
       <ref role="20lvS9" node="2yYXHtl6JgO" resolve="FunctionDeclaration" />
     </node>
     <node concept="PrWs8" id="rbYB7R3JjM" role="PzmwI">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
     <node concept="RPilO" id="rbYB7QUgrA" role="lGtFl">
       <ref role="RPilL" node="1502Vug_m78" resolve="function" />
@@ -3312,7 +3321,7 @@
       <ref role="20lvS9" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
     </node>
     <node concept="PrWs8" id="7csM7imLSkL" role="PrDN$">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
   </node>
   <node concept="1TIwiD" id="3I4vn5LTHck">
@@ -3805,7 +3814,7 @@
       <ref role="AX2Wp" node="1502Vug_kTF" resolve="AssignmentOperator" />
     </node>
     <node concept="PrWs8" id="7w_eVbh$TRD" role="PzmwI">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
   </node>
   <node concept="PlHQZ" id="3cpjc8KvMTX">
@@ -3910,7 +3919,7 @@
       <property role="t5JxN" value="function call that takes the form of a kotlin function call (type arguments, arguments, lambda as argument)" />
     </node>
     <node concept="PrWs8" id="7csM7imLWns" role="PrDN$">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
   </node>
   <node concept="PlHQZ" id="2ZbCiJacCSA">
@@ -4092,7 +4101,7 @@
       <ref role="20lvS9" node="2Dtd0_QziWF" resolve="IFunctionDeclaration" />
     </node>
     <node concept="PrWs8" id="4FOkRjXx6C3" role="PzmwI">
-      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" node="5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
   </node>
   <node concept="PlHQZ" id="xpyqH1FtXg">

@@ -7,13 +7,17 @@ import jetbrains.mps.references.Reference;
 /**
  * Defines a set of signature/member kinds. As several concepts use various combinations, this allows to unify all
  * resolution in a single scoping method which filters required members.
+ * 
+ * @deprecated 
  */
-public class ScopeContext {
-  public static final ScopeContext REFERENCE = new ScopeContext(true, true, false, false);
-  public static final ScopeContext INSTANCE_RECEIVER = new ScopeContext(true, false, false, false);
-  public static final ScopeContext STATIC_RECEIVER = new ScopeContext(false, true, true, false);
-  public static final ScopeContext STANDALONE = new ScopeContext(false, false, false, true);
-  public static final ScopeContext STANDALONE_OR_IMPLICIT_INSTANCE = new ScopeContext(true, false, true, true);
+@Deprecated
+public class _ScopeContext {
+  public static final _ScopeContext REFERENCE = new _ScopeContext(true, true, false, false);
+  public static final _ScopeContext INSTANCE_RECEIVER = new _ScopeContext(true, false, false, false);
+  public static final _ScopeContext STATIC_RECEIVER = new _ScopeContext(false, true, true, false);
+  public static final _ScopeContext STANDALONE = new _ScopeContext(false, false, false, true);
+  public static final _ScopeContext STANDALONE_OR_IMPLICIT_INSTANCE = new _ScopeContext(true, false, true, true);
+  public static final _ScopeContext RECEIVER_MEMBERS = new _ScopeContext(true, false, false, true);
 
   private boolean myWithInstanceMembers;
   public boolean isWithInstanceMembers() {
@@ -100,7 +104,8 @@ public class ScopeContext {
     };
   }
 
-  public ScopeContext(boolean fromInstance, boolean fromConstructors, boolean fromCompanion, boolean fromStandalone) {
+  @Deprecated
+  public _ScopeContext(boolean fromInstance, boolean fromConstructors, boolean fromCompanion, boolean fromStandalone) {
     // Instance members of current type
     this.setWithInstanceMembers(fromInstance);
 

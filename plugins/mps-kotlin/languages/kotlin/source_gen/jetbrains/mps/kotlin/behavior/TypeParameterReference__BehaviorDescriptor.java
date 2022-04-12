@@ -9,22 +9,22 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.members.SuperTypesVisitor;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.kotlin.runtime.types.identifiers.ClassType;
+import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDescriptor {
@@ -42,10 +42,13 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
 
   /*package*/ static void visitHierarchy_id5q426iHtYvR(@NotNull SNode __thisNode__, SuperTypesVisitor visitor) {
     if (visitor.enterType(__thisNode__)) {
-      // Bound if any
-      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), LINKS.bound$KhhI) != null)) {
-        IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), LINKS.bound$KhhI), visitor);
-      } else {
+      // Bounds if any
+      List<SNode> upperBounds = ITypeParameter__BehaviorDescriptor.getDescriptor_id28CvMylflrH.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr)).getUpperBounds();
+      for (SNode bound : ListSequence.fromList(upperBounds)) {
+        IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(bound, visitor);
+      }
+
+      if (ListSequence.fromList(upperBounds).isEmpty()) {
         IType__BehaviorDescriptor.visitHierarchy_id5q426iHtYvR.invoke(BuiltIn.ANY.toClassType(), visitor);
       }
 
@@ -57,10 +60,10 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr), PROPS.name$MnvL);
   }
   /*package*/ static TypeParameterDeclaration getParameter_id4W0pdSD7eWM(@NotNull SNode __thisNode__) {
-    return new KotlinTypeParameterDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr));
+    return ITypeParameter__BehaviorDescriptor.getDescriptor_id28CvMylflrH.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.parameter$ofYr));
   }
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
-    return new ClassType(SLinkOperations.getPointer(__thisNode__, LINKS.parameter$ofYr));
+    return new ClassTypeKey(SLinkOperations.getPointer(__thisNode__, LINKS.parameter$ofYr));
   }
 
   /*package*/ TypeParameterReference__BehaviorDescriptor() {
@@ -118,7 +121,6 @@ public final class TypeParameterReference__BehaviorDescriptor extends BaseBHDesc
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink parameter$ofYr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, 0x21e0c9232886358eL, "parameter");
-    /*package*/ static final SContainmentLink bound$KhhI = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x28bef6d7551af850L, "bound");
   }
 
   private static final class PROPS {

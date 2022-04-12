@@ -5,13 +5,13 @@ package jetbrains.mps.kotlin.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
 
 public class ComponentFunctionCall_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append(IFunctionCallLike__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(ctx.getPrimaryInput()));
+    tgs.append(IFunctionCall__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(ctx.getPrimaryInput()));
     KotlinTextGen.functionArguments(ctx.getPrimaryInput(), ctx);
   }
 }

@@ -13,6 +13,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class TypeParameterReference_Constraints extends BaseConstraintsDescriptor {
   public TypeParameterReference_Constraints() {
@@ -25,7 +26,7 @@ public class TypeParameterReference_Constraints extends BaseConstraintsDescripto
       @Nullable
       @Override
       public ReferenceScopeProvider getScopeProvider() {
-        return ReferenceScopeProvider.fromHierarchy(CONCEPTS.TypeParameter$oc, new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "355414832860241549"));
+        return ReferenceScopeProvider.fromHierarchy(CONCEPTS.ITypeParameter$fG, new SNodePointer("r:133e8cac-c6ad-447f-a90c-5146ca3b1aed(jetbrains.mps.kotlin.constraints)", "355414832860241549"));
       }
     };
     Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
@@ -35,7 +36,7 @@ public class TypeParameterReference_Constraints extends BaseConstraintsDescripto
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
-    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
+    /*package*/ static final SInterfaceConcept ITypeParameter$fG = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, "jetbrains.mps.kotlin.structure.ITypeParameter");
   }
 
   private static final class LINKS {

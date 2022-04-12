@@ -49,7 +49,13 @@ public class KtToJavaEngine extends TypeConverterEngineWithClass<SNode, SNode> {
     });
 
     // TypeParameterReference -> KtTypeParameterReference
-    this.declareMapping(CONCEPTS.TypeParameterReference$ya, (SNode it, TypeConverterEngine<SNode, SNode> converter) -> createKotlinTypeParameterReference_j03ock_a0a1a0j0a(SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.TypeParameterReference$ya), LINKS.parameter$ofYr)));
+    this.declareMapping(CONCEPTS.TypeParameterReference$ya, (SNode it, TypeConverterEngine<SNode, SNode> converter) -> {
+      SNode parameter = SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.TypeParameterReference$ya), LINKS.parameter$ofYr), CONCEPTS.TypeParameter$oc);
+      if (parameter == null) {
+        return null;
+      }
+      return createKotlinTypeParameterReference_j03ock_a2a1a0j0a(parameter);
+    });
 
     // JavaTypeVariableReference -> TypeVariableReference
     this.declareMapping(CONCEPTS.JavaTypeVariableReferenceType$TS, (SNode it, TypeConverterEngine<SNode, SNode> converter) -> createTypeVariableReference_j03ock_a0a1a0m0a(SLinkOperations.getTarget(SNodeOperations.as(it, CONCEPTS.JavaTypeVariableReferenceType$TS), LINKS.typeVariable$LHQO)));
@@ -91,7 +97,7 @@ public class KtToJavaEngine extends TypeConverterEngineWithClass<SNode, SNode> {
     return nested;
   }
 
-  private static SNode createKotlinTypeParameterReference_j03ock_a0a1a0j0a(SNode p0) {
+  private static SNode createKotlinTypeParameterReference_j03ock_a2a1a0j0a(SNode p0) {
     SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.KotlinTypeParameterReference$T7);
     n0.setReferenceTarget(LINKS.typeParameter$U125, p0);
     return n0.getResult();
@@ -110,6 +116,7 @@ public class KtToJavaEngine extends TypeConverterEngineWithClass<SNode, SNode> {
     /*package*/ static final SConcept ClassType$jI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4dfL, "jetbrains.mps.kotlin.structure.ClassType");
     /*package*/ static final SConcept JavaClassType$Gf = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x68fcefc6c20600f5L, "jetbrains.mps.kotlin.javaRefs.structure.JavaClassType");
     /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
     /*package*/ static final SConcept JavaTypeVariableReferenceType$TS = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x729709d72e03236aL, "jetbrains.mps.kotlin.javaRefs.structure.JavaTypeVariableReferenceType");
     /*package*/ static final SConcept KotlinFileClassifierType$M1 = MetaAdapterFactory.getConcept(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0x13429f603fcbe305L, "jetbrains.mps.baseLanguage.kotlinRefs.structure.KotlinFileClassifierType");
     /*package*/ static final SConcept StarProjection$5H = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3cdL, "jetbrains.mps.kotlin.structure.StarProjection");

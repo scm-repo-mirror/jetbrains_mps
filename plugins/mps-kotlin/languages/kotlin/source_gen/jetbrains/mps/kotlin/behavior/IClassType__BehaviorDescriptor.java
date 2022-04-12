@@ -10,12 +10,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
-import jetbrains.mps.kotlin.runtime.generics.TypeVarSubs;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.generics.TypeVarSubs;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kotlin.runtime.types.identifiers.ClassType;
+import jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -43,7 +43,7 @@ public final class IClassType__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
-    return new ClassType(SNodeOperations.getPointer(IClassType__BehaviorDescriptor.getClassifier_id7an2tsIdpk7.invoke(__thisNode__)));
+    return new ClassTypeKey(SNodeOperations.getPointer(IClassType__BehaviorDescriptor.getClassifier_id7an2tsIdpk7.invoke(__thisNode__)));
   }
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {
     subs.populate(IType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke(__thisNode__), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));

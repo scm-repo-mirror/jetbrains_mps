@@ -24,7 +24,6 @@
     <import index="tbhz" ref="r:7d051f7f-1a28-4ed6-9de6-95fd49d3fa23(jetbrains.mps.kotlin.scopes)" />
     <import index="sjya" ref="r:8a99441d-539c-493f-b884-7b6b084d024b(jetbrains.mps.kotlin.scopes.signed)" />
     <import index="nww" ref="r:f44f82b0-1fd9-4105-a80c-2fa6e5033003(jetbrains.mps.kotlin.signatures)" />
-    <import index="1p8r" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.api.declaration)" />
     <import index="2q9i" ref="r:764c4c95-d567-4a0e-99be-3892becb007f(jetbrains.mps.kotlin.api.members)" />
     <import index="wbbs" ref="r:63fc91b7-ce2b-43fd-a9e4-94a1182c5fb3(jetbrains.mps.kotlin.api.builtins)" />
     <import index="mx11" ref="r:fa9de6a8-90b7-4d2a-a9a9-a40c05cf603b(jetbrains.mps.kotlin.api.types.identifiers)" implicit="true" />
@@ -825,7 +824,7 @@
     <property role="3GE5qa" value="expression.reference" />
     <ref role="1M2myG" to="hcm8:4Nah4_QdulL" resolve="VariableRefExpression" />
     <node concept="1N5Pfh" id="4Nah4_QjYGO" role="1Mr941">
-      <ref role="1N5Vy1" to="hcm8:4Nah4_QdulM" resolve="_target" />
+      <ref role="1N5Vy1" to="hcm8:4Nah4_QdulM" resolve="target" />
       <node concept="3dgokm" id="5PZuH3fqvh6" role="1N6uqs">
         <node concept="3clFbS" id="5PZuH3fqvh7" role="2VODD2">
           <node concept="3cpWs8" id="ccTy7zC0yP" role="3cqZAp">
@@ -1470,7 +1469,7 @@
     <property role="3GE5qa" value="expression.operator.binary.infix" />
     <ref role="1M2myG" to="hcm8:1502Vug_m76" resolve="InfixCallOperator" />
     <node concept="1N5Pfh" id="5GtPw5y$Kwm" role="1Mr941">
-      <ref role="1N5Vy1" to="hcm8:1502Vug_m78" resolve="_function" />
+      <ref role="1N5Vy1" to="hcm8:1502Vug_m78" resolve="function" />
       <node concept="3dgokm" id="5GtPw5y$KzE" role="1N6uqs">
         <node concept="3clFbS" id="5GtPw5y$KzF" role="2VODD2">
           <node concept="3cpWs6" id="3HHsmlLWJkt" role="3cqZAp">
@@ -2081,7 +2080,7 @@
     <property role="3GE5qa" value="expression.operator.unary.postfix.navigation.member" />
     <ref role="1M2myG" to="hcm8:4vugIDegmb9" resolve="FunctionMemberTarget" />
     <node concept="1N5Pfh" id="bbFPPu4ZaZ" role="1Mr941">
-      <ref role="1N5Vy1" to="hcm8:4vugIDegmTY" resolve="_function" />
+      <ref role="1N5Vy1" to="hcm8:4vugIDegmTY" resolve="function" />
       <node concept="3dgokm" id="bbFPPu54lw" role="1N6uqs">
         <node concept="3clFbS" id="bbFPPu54lx" role="2VODD2">
           <node concept="3cpWs8" id="bbFPPu54ms" role="3cqZAp">
@@ -2873,7 +2872,7 @@
                           </node>
                         </node>
                         <node concept="2AHcQZ" id="ccTy7$f6lZ" role="2AJF6D">
-                          <ref role="2AI5Lk" to="wyt6:~Override" />
+                          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                         </node>
                       </node>
                     </node>

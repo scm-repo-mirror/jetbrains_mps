@@ -5,13 +5,6 @@ package jetbrains.mps.kotlin.scopes;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.kotlin.behavior.NavigationOperation__BehaviorDescriptor;
-import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NavigationScopeHelper {
   /**
@@ -19,33 +12,11 @@ public class NavigationScopeHelper {
    * 
    * If the node is used as target, first object in the tuple is true.
    * If the scope to resolve is about companion object / static scope, third object is true.
+   * 
+   * @deprecated replaced by InstanceScopeHelper.navigatableContext
    */
-  public static Tuples._3<Boolean, SNode, ScopeContext> navigatableContext(SNode referenceNode, SNode contextNode, SContainmentLink containmentLink) {
-    final SNode context = SNodeOperations.as((((referenceNode == null) ? contextNode : SNodeOperations.getParent(referenceNode))), CONCEPTS.NavigationOperation$4I);
-
-    // In navigation -> get from operand type if used target
-    if ((context != null)) {
-      boolean isTargetFromNode = (referenceNode != null) && SLinkOperations.getTarget(context, LINKS.target$C6zp) == referenceNode;
-      boolean isTargetFromLink = LINKS.target$C6zp.equals(containmentLink);
-
-      if (isTargetFromLink || isTargetFromNode) {
-        SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> (SNode) NavigationOperation__BehaviorDescriptor.getContextType_id7ubb0gUcL0j.invoke(context));
-        ScopeContext scopeContext = (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(context, LINKS.operand$YS5t), CONCEPTS.ReceiverType$$f) ? ScopeContext.STATIC_RECEIVER : ScopeContext.INSTANCE_RECEIVER);
-        return MultiTuple.<Boolean,SNode,ScopeContext>from(true, type, scopeContext);
-
-      }
-    }
-
-    return MultiTuple.<Boolean,SNode,ScopeContext>from(false, (SNode) null, ScopeContext.STANDALONE_OR_IMPLICIT_INSTANCE);
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept NavigationOperation$4I = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, "jetbrains.mps.kotlin.structure.NavigationOperation");
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink target$C6zp = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af450L, 0x28bef6d7551af73bL, "target");
-    /*package*/ static final SContainmentLink operand$YS5t = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956f20L, 0x11400bb790956f23L, "operand");
+  @Deprecated
+  public static Tuples._2<Boolean, SNode> navigatableContext(SNode referenceNode, SNode contextNode, SContainmentLink containmentLink) {
+    return null;
   }
 }

@@ -10,17 +10,19 @@ import kotlinx.metadata.KmTypeParameterVisitor;
 import org.jetbrains.annotations.NotNull;
 import kotlinx.metadata.KmVariance;
 import kotlinx.metadata.KmTypeVisitor;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import kotlinx.metadata.KmValueParameterVisitor;
+import kotlinx.metadata.KmPropertyExtensionVisitor;
+import kotlinx.metadata.KmExtensionType;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import kotlinx.metadata.internal.metadata.deserialization.Flags;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2993321679756642481", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
 public class PropertyVisitor extends KmPropertyVisitor {
@@ -39,11 +41,7 @@ public class PropertyVisitor extends KmPropertyVisitor {
   @Nullable
   @Override
   public KmTypeVisitor visitReceiverParameterType(int flags) {
-    return new TypeVisitor(context, flags, new _Adapters._return_P2_E0_to__void_P2_E0_adapter<SNode, String>(new _FunctionTypes._return_P2_E0<SNode, SNode, String>() {
-      public SNode invoke(SNode type, String id) {
-        return SLinkOperations.setTarget(node, LINKS.receiverType$NO1r, createReceiverType_qob524_a0a0c0a0a4(type));
-      }
-    }));
+    return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(node, LINKS.receiverType$7yLT, type));
   }
   @Nullable
   @Override
@@ -55,6 +53,15 @@ public class PropertyVisitor extends KmPropertyVisitor {
   @Override
   public KmTypeVisitor visitReturnType(int flags) {
     return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(SLinkOperations.getTarget(node, LINKS.declaration$IdZv), LINKS.type$RmkT, type));
+  }
+
+  @Nullable
+  @Override
+  public KmPropertyExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    if (Objects.equals(AnnotationVisitor.type, type) && SNodeOperations.isInstanceOf(node, CONCEPTS.IAnnotated$X8)) {
+      return new AnnotationVisitorImpl(SNodeOperations.cast(node, CONCEPTS.IAnnotated$X8), context);
+    }
+    return super.visitExtensions(type);
   }
 
   public static KmPropertyVisitor create(SNode decl, VisitorContext ctx, int flags, @NotNull String name, int getterFlags, int setterFlags, String receiverName) {
@@ -75,20 +82,18 @@ public class PropertyVisitor extends KmPropertyVisitor {
     return new PropertyVisitor(decl, ctx);
   }
 
-  private static SNode createReceiverType_qob524_a0a0c0a0a4(SNode p0) {
-    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReceiverType$$f);
-    n0.forChild(LINKS.type$NVFj).initNode(p0, CONCEPTS.IType$Ni, true);
-    return n0.getResult();
-  }
-
   private static final class LINKS {
-    /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
     /*package*/ static final SContainmentLink declaration$IdZv = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, 0x123d0b402b9ae3edL, "declaration");
     /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
-    /*package*/ static final SContainmentLink type$NVFj = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, 0x28bef6d7551af8c0L, "type");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IAnnotated$X8 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6e77b7e7a89e49faL, "jetbrains.mps.kotlin.structure.IAnnotated");
+    /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
   }
 
   private static final class PROPS {
@@ -96,11 +101,5 @@ public class PropertyVisitor extends KmPropertyVisitor {
     /*package*/ static final SProperty isConstant$zvIz = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x11400bb790cefb7dL, "isConstant");
     /*package*/ static final SProperty isReadonly$jzqd = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d75590b319L, "isReadonly");
     /*package*/ static final SProperty isLateInit$qFSS = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, 0x298a6a355c5a8ee4L, "isLateInit");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept CompiledStubStatement$Af = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x18b9b886496f6f83L, "jetbrains.mps.kotlin.structure.CompiledStubStatement");
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
-    /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
   }
 }

@@ -5,7 +5,7 @@ package jetbrains.mps.kotlin.overloading;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 
 /**
  * Abstraction of a function call, to be used for overload resolution.

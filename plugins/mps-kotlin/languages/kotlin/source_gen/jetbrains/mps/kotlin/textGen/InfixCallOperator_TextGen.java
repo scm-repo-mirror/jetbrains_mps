@@ -6,11 +6,9 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class InfixCallOperator_TextGen extends TextGenDescriptorBase {
   @Override
@@ -18,7 +16,7 @@ public class InfixCallOperator_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.left$yQgK));
     tgs.append(" ");
-    tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$i6$W), PROPS.name$MnvL));
+    KotlinTextGen.reference(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.function$i6$W), false, ctx);
     tgs.append(" ");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.right$yQIM));
   }
@@ -27,9 +25,5 @@ public class InfixCallOperator_TextGen extends TextGenDescriptorBase {
     /*package*/ static final SContainmentLink left$yQgK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790954edfL, 0x11400bb790954ee0L, "left");
     /*package*/ static final SReferenceLink function$i6$W = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7909561c6L, 0x11400bb7909561c8L, "function");
     /*package*/ static final SContainmentLink right$yQIM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790954edfL, 0x11400bb790954ee2L, "right");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

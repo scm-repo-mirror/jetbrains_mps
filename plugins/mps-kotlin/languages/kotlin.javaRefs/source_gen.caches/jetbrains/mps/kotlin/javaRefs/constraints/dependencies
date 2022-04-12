@@ -24,7 +24,6 @@
   <uses module="6b3888c1-9802-44d8-8baf-f8e6c33ed689(jetbrains.mps.kotlin)" kind="dp" />
   <uses module="ee552a53-f5a7-42c7-b209-42227f41a990(jetbrains.mps.kotlin.baseLanguage.runtime)" kind="dp" />
   <uses module="9e4ff22b-60f1-43ef-a50b-f9f0fcec22e0(jetbrains.mps.kotlin.javaRefs)" kind="dp" />
-  <uses module="e6477889-841a-4dd6-b8fa-21093ba0e76d(jetbrains.mps.kotlin.runtime)" kind="dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt+dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
   <uses module="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" kind="dp" />
@@ -61,8 +60,8 @@
   <dependency className="jetbrains.mps.kotlin.javaRefs.constraints.GetterFilter">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Objects" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorKind" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature" />
+    <classNode dependClassName="jetbrains.mps.kotlin.signatures.AccessorKind" />
+    <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
   </dependency>
@@ -138,11 +137,16 @@
   <dependency className="jetbrains.mps.kotlin.javaRefs.constraints.JavaMemberTarget_Constraints">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.HashMap" />
+    <classNode dependClassName="java.util.List" />
     <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignedDeclarationFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.signatures.FunctionSignature" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
@@ -172,13 +176,8 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.scopes.VisibleClassConstructorsScope" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeHelper" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignedDeclarationFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
-    <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
     <classNode dependClassName="jetbrains.mps.scope.FilteringScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
     <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
@@ -204,10 +203,14 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaVariableHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.javaRefs.constraints.GetterFilter" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeHelper" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignedDeclarationFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
@@ -236,10 +239,12 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.runtime.members.signature.PropertyAccessorSignature" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.ScopeHelper" />
-    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignedDeclarationFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />
     <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
     <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />

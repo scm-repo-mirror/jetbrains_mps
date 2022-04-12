@@ -154,7 +154,7 @@
       <ref role="PrY4T" to="hcm8:2yYXHtl6JeQ" resolve="INavigationTarget" />
     </node>
     <node concept="PrWs8" id="7w_eVbhyw_W" role="PzmwI">
-      <ref role="PrY4T" to="hcm8:5D4bOjrr8CG" resolve="IFunctionCallLike" />
+      <ref role="PrY4T" to="hcm8:5D4bOjrr8CG" resolve="IFunctionCall" />
     </node>
     <node concept="1TJgyi" id="3lDDPlnbuO8" role="1TKVEl">
       <property role="IQ2nx" value="3848791341541485832" />

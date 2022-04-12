@@ -15,6 +15,7 @@ import kotlinx.metadata.KmAnnotation;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(node = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)/2993321679756435601", model = "r:6c6710f1-72ef-4241-9ac5-bafd05beea2c(jetbrains.mps.kotlin.ide.commonStubs)")
@@ -32,7 +33,7 @@ public class TypeAliasVisitor extends KmTypeAliasVisitor {
   @Nullable
   @Override
   public KmTypeParameterVisitor visitTypeParameter(int flags, @NotNull String name, int id, @NotNull KmVariance variance) {
-    SNode addNew = SLinkOperations.addNewChild(node, LINKS.typeParameters$eq6K, null);
+    SNode addNew = SLinkOperations.addNewChild(node, LINKS.typeParameters$eq6K, CONCEPTS.TypeParameter$oc);
     context.setId(addNew, myFqName + "." + name);
     return TypeParameterVisitor.create(addNew, name, id, variance, context);
   }
@@ -66,6 +67,10 @@ public class TypeAliasVisitor extends KmTypeAliasVisitor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
     /*package*/ static final SContainmentLink type$JuNU = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, 0x28bef6d7551af810L, "type");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeParameter$oc = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
   }
 
   private static final class PROPS {

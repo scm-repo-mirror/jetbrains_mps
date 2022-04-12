@@ -60,12 +60,23 @@ public class ParametersFactories {
       }
     }
   }
+  public static class NodeFactory_8889685123373025993 implements NodeFactory {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, int index, SModel model) {
+      {
+        final SNode withArg = sampleNode;
+        if (SNodeOperations.isInstanceOf(withArg, CONCEPTS.ILambdaAsArgument$MX)) {
+          SLinkOperations.setTarget(newNode, LINKS.lambda$U$kC, SLinkOperations.getTarget(withArg, LINKS.lambda$U$kC));
+        }
+      }
+    }
+  }
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Parameter$o8 = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, "jetbrains.mps.kotlin.structure.Parameter");
     /*package*/ static final SConcept ClassParameter$wQ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af53aL, "jetbrains.mps.kotlin.structure.ClassParameter");
     /*package*/ static final SInterfaceConcept ITypeArguments$p9 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, "jetbrains.mps.kotlin.structure.ITypeArguments");
     /*package*/ static final SInterfaceConcept IArguments$xj = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162ecf00bL, "jetbrains.mps.kotlin.structure.IArguments");
+    /*package*/ static final SInterfaceConcept ILambdaAsArgument$MX = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6186632f85a74c27L, "jetbrains.mps.kotlin.structure.ILambdaAsArgument");
   }
 
   private static final class LINKS {
@@ -73,6 +84,7 @@ public class ParametersFactories {
     /*package*/ static final SContainmentLink type$1aXr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x63c34deca4888fe3L, "type");
     /*package*/ static final SContainmentLink typeArguments$86s6 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x241317ddbda99714L, 0x5b1dd60162c9757cL, "typeArguments");
     /*package*/ static final SContainmentLink arguments$zJyV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162ecf00bL, 0x5b1dd60162ecf00cL, "arguments");
+    /*package*/ static final SContainmentLink lambda$U$kC = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6186632f85a74c27L, 0x28bef6d7551af77dL, "lambda");
   }
 
   private static final class PROPS {

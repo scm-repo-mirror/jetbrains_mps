@@ -10,6 +10,9 @@ import org.jetbrains.annotations.Nullable;
 import kotlinx.metadata.KmTypeVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import kotlinx.metadata.KmTypeParameterExtensionVisitor;
+import org.jetbrains.annotations.NotNull;
+import kotlinx.metadata.KmExtensionType;
 import kotlinx.metadata.KmVariance;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -53,6 +56,13 @@ public class TypeParameterVisitor extends KmTypeParameterVisitor {
     return new TypeVisitor(context, flags, (SNode type, String id) -> SLinkOperations.setTarget(getNode(), LINKS.bound$KhhI, SNodeOperations.as(type, CONCEPTS.IType$Ni)));
   }
 
+  @Nullable
+  @Override
+  public KmTypeParameterExtensionVisitor visitExtensions(@NotNull KmExtensionType type) {
+    // TODO compatible with annotations it seems
+    return super.visitExtensions(type);
+  }
+
   /**
    * Create type parameter visitor and initialize node with parameters.
    * 
@@ -61,7 +71,7 @@ public class TypeParameterVisitor extends KmTypeParameterVisitor {
   public static TypeParameterVisitor create(SNode param, String name, int id, KmVariance variance, VisitorContext ctx) {
     // Initialize parameter
     SPropertyOperations.assign(param, PROPS.name$MnvL, name);
-    SPropertyOperations.assignEnum(param, PROPS.variance$EPSy, EnumFlags.getVariance(variance));
+    SPropertyOperations.assignEnum(param, PROPS.variance$xP5D, EnumFlags.getVariance(variance));
     ctx.declareParameter(id, param);
 
     return new TypeParameterVisitor(param, ctx);
@@ -77,6 +87,6 @@ public class TypeParameterVisitor extends KmTypeParameterVisitor {
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-    /*package*/ static final SProperty variance$EPSy = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x21e0c923289a58c0L, "variance");
+    /*package*/ static final SProperty variance$xP5D = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, 0x22287f28953f8c9bL, "variance");
   }
 }

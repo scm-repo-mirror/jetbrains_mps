@@ -17,7 +17,6 @@
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="4caf0310-491e-41f5-8a9b-2006b3a94898(jetbrains.mps.execution.util)" kind="dp" />
   <uses module="6b3888c1-9802-44d8-8baf-f8e6c33ed689(jetbrains.mps.kotlin)" kind="dp" />
-  <uses module="e6477889-841a-4dd6-b8fa-21093ba0e76d(jetbrains.mps.kotlin.runtime)" kind="dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt+dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
   <uses module="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" kind="dp" />
@@ -261,7 +260,7 @@
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.ComponentFunctionCall_TextGen">
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
@@ -287,7 +286,7 @@
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.CopyFunctionCall_TextGen">
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
@@ -483,12 +482,11 @@
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.FunctionMemberTarget_TextGen">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
@@ -604,13 +602,12 @@
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.InfixCallOperator_TextGen">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
@@ -691,16 +688,18 @@
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IKotlinRoot__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.KtEnvironmentConfig" />
+    <classNode dependClassName="jetbrains.mps.kotlin.overloading.Argument" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.FunctionParamHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.ParamException" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.ImportContext" />
@@ -822,6 +821,15 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.kotlin.textGen.NullableType_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.ObjectDeclaration_TextGen">
@@ -976,6 +984,16 @@
     <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.kotlin.textGen.PropertyMemberTarget_TextGen">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.kotlin.textGen.KotlinTextGen" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
+    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
   <dependency className="jetbrains.mps.kotlin.textGen.PropertySetter_TextGen">
@@ -1223,6 +1241,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.NavigationOperation_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.NoinlineParameterModifier_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.NullLiteral_TextGen" />
+    <classNode dependClassName="jetbrains.mps.kotlin.textGen.NullableType_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.ObjectDeclaration_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.ObjectLiteral_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.OpenInheritanceModifier_TextGen" />
@@ -1239,6 +1258,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertyDefaultAssignement_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertyDelegateAssignement_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertyGetter_TextGen" />
+    <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertyMemberTarget_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertySetter_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.PropertyUseSiteTarget_TextGen" />
     <classNode dependClassName="jetbrains.mps.kotlin.textGen.RealLiteral_TextGen" />

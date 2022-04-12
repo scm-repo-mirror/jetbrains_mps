@@ -11,7 +11,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
-import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 import jetbrains.mps.nodeEditor.cellMenu.CompositeSubstituteInfo;
@@ -63,7 +63,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor.ReadOnly() {
       public String getText() {
-        return (String) IFunctionCallLike__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(myNode);
+        return (String) IFunctionCall__BehaviorDescriptor.getFunctionName_id4nn3FPlEjh5.invoke(myNode);
       }
     }, myNode);
     editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());

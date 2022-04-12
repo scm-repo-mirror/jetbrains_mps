@@ -15,7 +15,9 @@ import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
-import jetbrains.mps.kotlin.behavior.IFunctionCallLike__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.kotlin.overloading.ParamException;
 import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
@@ -120,8 +122,8 @@ public abstract class KotlinTextGen {
   }
   public static void receiver(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    if ((SLinkOperations.getTarget(node, LINKS.receiverType$NO1r) != null)) {
-      tgs.appendNode(SLinkOperations.getTarget(node, LINKS.receiverType$NO1r));
+    if ((SLinkOperations.getTarget(node, LINKS.receiverType$7yLT) != null)) {
+      tgs.appendNode(SLinkOperations.getTarget(node, LINKS.receiverType$7yLT));
       tgs.append(".");
     }
   }
@@ -260,7 +262,11 @@ public abstract class KotlinTextGen {
     Iterable<SNode> list;
 
     try {
-      list = FunctionParamHelper.toOrderedList(IFunctionCallLike__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(functionCall).getParameters(), IFunctionCallLike__BehaviorDescriptor.getArguments_id1VI7K1jROBX.invoke(functionCall));
+      list = Sequence.fromIterable(FunctionParamHelper.toOrderedList(IFunctionCall__BehaviorDescriptor.getFunctionDescriptor_id26mUjU3xhgD.invoke(functionCall).getParameters(), IFunctionCall__BehaviorDescriptor.getArguments_id1VI7K1jROBX.invoke(functionCall))).select(new ISelector<Argument, SNode>() {
+        public SNode select(Argument it) {
+          return it.getExpression();
+        }
+      });
     } catch (ParamException e) {
       tgs.reportError(e.getMessage());
       return;
@@ -326,12 +332,16 @@ public abstract class KotlinTextGen {
   }
   public static void reference(SNode ref, boolean nested, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
+    KotlinTextGen.name(ref, nested, ctx);
+    KotlinTextGen.require(ref, ctx);
+  }
+  public static void name(SNode ref, boolean nested, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
     if (nested) {
       tgs.append(IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(ref, KtEnvironmentConfig.Kotlin));
     } else {
       tgs.append(SPropertyOperations.getString(ref, PROPS.name$MnvL));
     }
-    KotlinTextGen.require(ref, ctx);
   }
   public static void imports(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
@@ -393,7 +403,7 @@ public abstract class KotlinTextGen {
     /*package*/ static final SReferenceLink targetLabel$iS7r = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790af2908L, 0x11400bb790af2909L, "targetLabel");
     /*package*/ static final SContainmentLink inheritance$TFvr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x537372687dd3bcdaL, 0x537372687dd3bcdbL, "inheritance");
     /*package*/ static final SContainmentLink visibility$vnSV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4c4e03fL, 0x631027d1c4c4e040L, "visibility");
-    /*package*/ static final SContainmentLink receiverType$NO1r = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x11400bb7908c7f23L, "receiverType");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
     /*package*/ static final SContainmentLink modifier$C$4W = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, 0x28bef6d7551af762L, "modifier");
     /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
