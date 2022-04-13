@@ -36,13 +36,10 @@
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="tqvn" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.tempmodel(MPS.Core/)" />
     <import index="6bz1" ref="r:d3905048-7598-4a84-931a-cbbcbcda146d(jetbrains.mps.lang.intentions.methods)" />
-    <import index="w1kd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.smodel(MPS.Platform/)" />
-    <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
-    <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
-    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
   </imports>
   <registry>
     <language id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts">
@@ -1703,11 +1700,11 @@
           <node concept="3cpWsn" id="5yBbuOfBNq1" role="3cpWs9">
             <property role="TrG5h" value="project" />
             <node concept="3uibUv" id="5yBbuOfBNq2" role="1tU5fm">
-              <ref role="3uigEE" to="z1c4:~ProjectBase" resolve="ProjectBase" />
+              <ref role="3uigEE" to="z1c3:~ProjectBase" resolve="ProjectBase" />
             </node>
             <node concept="10QFUN" id="5yBbuOfC3nw" role="33vP2m">
               <node concept="3uibUv" id="5yBbuOfC3v5" role="10QFUM">
-                <ref role="3uigEE" to="z1c4:~ProjectBase" resolve="ProjectBase" />
+                <ref role="3uigEE" to="z1c3:~ProjectBase" resolve="ProjectBase" />
               </node>
               <node concept="2YIFZM" id="5yBbuOfC1LM" role="10QFUP">
                 <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
@@ -1728,7 +1725,7 @@
                     <ref role="3cqZAo" node="5yBbuOfBNq1" resolve="project" />
                   </node>
                   <node concept="liA8E" id="2KY_ZxSBSci" role="2OqNvi">
-                    <ref role="37wK5l" to="z1c4:~ProjectBase.getPlatform()" resolve="getPlatform" />
+                    <ref role="37wK5l" to="z1c3:~ProjectBase.getPlatform()" resolve="getPlatform" />
                   </node>
                 </node>
                 <node concept="37vLTw" id="5yBbuOfC3zh" role="37vLTJ">

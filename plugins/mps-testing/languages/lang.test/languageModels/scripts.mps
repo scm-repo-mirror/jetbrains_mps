@@ -19,10 +19,8 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="28m1" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.time(JDK/)" />
-    <import index="w1kd" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.smodel(MPS.Platform/)" />
-    <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
-    <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -247,11 +245,11 @@
                 <node concept="3cpWsn" id="3q9wAW4nzg4" role="3cpWs9">
                   <property role="TrG5h" value="mpsProject" />
                   <node concept="3uibUv" id="5yBbuOfwnvJ" role="1tU5fm">
-                    <ref role="3uigEE" to="z1c4:~ProjectBase" resolve="ProjectBase" />
+                    <ref role="3uigEE" to="z1c3:~ProjectBase" resolve="ProjectBase" />
                   </node>
                   <node concept="10QFUN" id="5yBbuOfwnxt" role="33vP2m">
                     <node concept="3uibUv" id="5yBbuOfwnBo" role="10QFUM">
-                      <ref role="3uigEE" to="z1c4:~ProjectBase" resolve="ProjectBase" />
+                      <ref role="3uigEE" to="z1c3:~ProjectBase" resolve="ProjectBase" />
                     </node>
                     <node concept="2YIFZM" id="5yBbuOfwmid" role="10QFUP">
                       <ref role="37wK5l" to="alof:~ProjectHelper.getProject(org.jetbrains.mps.openapi.module.SRepository)" resolve="getProject" />
@@ -277,7 +275,7 @@
                           <ref role="3cqZAo" node="3q9wAW4nzg4" resolve="mpsProject" />
                         </node>
                         <node concept="liA8E" id="5yBbuOfwoSj" role="2OqNvi">
-                          <ref role="37wK5l" to="z1c4:~ProjectBase.getPlatform()" resolve="getPlatform" />
+                          <ref role="37wK5l" to="z1c3:~ProjectBase.getPlatform()" resolve="getPlatform" />
                         </node>
                       </node>
                       <node concept="37vLTw" id="5yBbuOfwoiz" role="37vLTJ">
