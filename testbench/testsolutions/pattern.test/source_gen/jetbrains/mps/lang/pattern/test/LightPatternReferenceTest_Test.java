@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 public class LightPatternReferenceTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(LightPatternReferenceTest_Test.class, "${mps_home}", "r:ef0e231b-e6bd-436f-9003-b53de4081716(jetbrains.mps.lang.pattern.test)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public LightPatternReferenceTest_Test() {
     super(ourParamCache);
@@ -48,42 +44,48 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
     }
 
     public void test_patternSwitch4_matches() throws Exception {
-      addNodeById("8187773339868678967");
-      boolean matches;
-      SNode nodeToMatch = _quotation_createNode_9nn70n_a0c0d9();
-      if (new LightPattern_Reference_Test.Pattern1_Pattern().match(nodeToMatch)) {
-        matches = true;
-      } else {
-        matches = false;
-      }
-      Assert.assertTrue(matches);
+      runWithinCommand(() -> addNodeById("8187773339868678967"));
+      runWithinCommand(() -> {
+        boolean matches;
+        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0d8();
+        if (new LightPattern_Reference_Test.Pattern1_Pattern().match(nodeToMatch)) {
+          matches = true;
+        } else {
+          matches = false;
+        }
+        Assert.assertTrue(matches);
+      });
     }
     public void test_patternSwitch4_referenceMismatch() throws Exception {
-      addNodeById("8187773339868678967");
-      boolean matches;
-      SNode nodeToMatch = _quotation_createNode_9nn70n_a0c0e9(getNodeById("8187773339868709516"));
-      if (new LightPattern_Reference_Test.Pattern4_Pattern().match(nodeToMatch)) {
-        matches = true;
-      } else {
-        matches = false;
-      }
-      Assert.assertFalse(matches);
+      runWithinCommand(() -> addNodeById("8187773339868678967"));
+      runWithinCommand(() -> {
+        boolean matches;
+        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0e8(getNodeById("8187773339868709516"));
+        if (new LightPattern_Reference_Test.Pattern4_Pattern().match(nodeToMatch)) {
+          matches = true;
+        } else {
+          matches = false;
+        }
+        Assert.assertFalse(matches);
+      });
     }
     public void test_patternSwitch5_matchesWithReference() throws Exception {
-      addNodeById("8187773339868678967");
-      boolean matches;
-      SNode nodeToMatch = _quotation_createNode_9nn70n_a0c0f9(getNodeById("8187773339868709516"));
-      if (new LightPattern_Reference_Test.Pattern5_Pattern().match(nodeToMatch)) {
-        matches = LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch) == getNodeById("8187773339868709516");
-        System.out.println(LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch).getModel());
-        System.out.println(getNodeById("8187773339868709516").getModel());
-      } else {
-        matches = false;
-      }
-      Assert.assertTrue(matches);
+      runWithinCommand(() -> addNodeById("8187773339868678967"));
+      runWithinCommand(() -> {
+        boolean matches;
+        SNode nodeToMatch = _quotation_createNode_9nn70n_a0b0a0b0f8(getNodeById("8187773339868709516"));
+        if (new LightPattern_Reference_Test.Pattern5_Pattern().match(nodeToMatch)) {
+          matches = LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch) == getNodeById("8187773339868709516");
+          System.out.println(LightPattern_Reference_Test.Pattern5_Pattern.getVar(nodeToMatch).getModel());
+          System.out.println(getNodeById("8187773339868709516").getModel());
+        } else {
+          matches = false;
+        }
+        Assert.assertTrue(matches);
+      });
     }
 
-    private static SNode _quotation_createNode_9nn70n_a0c0d9() {
+    private static SNode _quotation_createNode_9nn70n_a0b0a0b0d8() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -98,7 +100,7 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_9nn70n_a0c0e9(Object parameter_1) {
+    private static SNode _quotation_createNode_9nn70n_a0b0a0b0e8(Object parameter_1) {
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
       SNode quotedNode_4 = null;
@@ -113,7 +115,7 @@ public class LightPatternReferenceTest_Test extends BaseTransformationTest {
       quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"), quotedNode_3);
       return quotedNode_2;
     }
-    private static SNode _quotation_createNode_9nn70n_a0c0f9(Object parameter_1) {
+    private static SNode _quotation_createNode_9nn70n_a0b0a0b0f8(Object parameter_1) {
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
       SNode quotedNode_4 = null;

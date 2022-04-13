@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -18,8 +16,6 @@ import jetbrains.mps.baseLanguage.util.plugin.refactorings.InlineMethodModel;
 public class CheckInlineCanBePerformed_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(CheckInlineCanBePerformed_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public CheckInlineCanBePerformed_Test() {
     super(ourParamCache);
@@ -37,17 +33,19 @@ public class CheckInlineCanBePerformed_Test extends BaseTransformationTest {
     }
 
     public void test_CheckInlineCanBePerformed() throws Exception {
-      addNodeById("1230053187318");
-      Assert.assertNull(new InlineMethodModel(getNodeById("1230053187326")).getErrors());
-      Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187332")).getErrors() != null);
-      Assert.assertNull(new InlineMethodModel(getNodeById("1230053187337")).getErrors());
-      Assert.assertNull(new InlineMethodModel(getNodeById("1230053187342")).getErrors());
-      Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187347")).getErrors() != null);
-      Assert.assertNull(new InlineMethodModel(getNodeById("1230053187351")).getErrors());
-      Assert.assertNotNull(new InlineMethodModel(getNodeById("4516930249753972654")).getErrors());
-      Assert.assertNotNull(new InlineMethodModel(getNodeById("8924724747233233998")).getErrors());
-      Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233354928")).getErrors());
-      Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233546124")).getErrors());
+      runWithinCommand(() -> addNodeById("1230053187318"));
+      runWithinCommand(() -> {
+        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187326")).getErrors());
+        Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187332")).getErrors() != null);
+        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187337")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187342")).getErrors());
+        Assert.assertTrue(new InlineMethodModel(getNodeById("1230053187347")).getErrors() != null);
+        Assert.assertNull(new InlineMethodModel(getNodeById("1230053187351")).getErrors());
+        Assert.assertNotNull(new InlineMethodModel(getNodeById("4516930249753972654")).getErrors());
+        Assert.assertNotNull(new InlineMethodModel(getNodeById("8924724747233233998")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233354928")).getErrors());
+        Assert.assertNull(new InlineMethodModel(getNodeById("8924724747233546124")).getErrors());
+      });
     }
 
   }

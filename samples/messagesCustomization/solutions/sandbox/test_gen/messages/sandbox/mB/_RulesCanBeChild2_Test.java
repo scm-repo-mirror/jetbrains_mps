@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.project.ProjectBase;
 public class _RulesCanBeChild2_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(_RulesCanBeChild2_Test.class, "${mps_home}", "r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public _RulesCanBeChild2_Test() {
     super(ourParamCache);
@@ -42,7 +38,11 @@ public class _RulesCanBeChild2_Test extends BaseTransformationTest {
     public void test_NodeUnknownRuleCheck2802122285522068052() throws Exception {
       SNode nodeToCheck = getRealNodeById("2802122285522027982");
       SNode operation = getRealNodeById("2802122285522068052");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351523037"), "The root name _RulesCanBeChild2 must start with 'Rules' or 'Feedback'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351523037"), "The root name _RulesCanBeChild2 must start with 'Rules' or 'Feedback'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
     }
 
   }

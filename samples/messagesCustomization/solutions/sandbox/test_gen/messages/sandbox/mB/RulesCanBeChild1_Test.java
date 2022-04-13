@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -24,8 +22,6 @@ import java.util.ArrayList;
 public class RulesCanBeChild1_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(RulesCanBeChild1_Test.class, "${mps_home}", "r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public RulesCanBeChild1_Test() {
     super(ourParamCache);
@@ -57,22 +53,38 @@ public class RulesCanBeChild1_Test extends BaseTransformationTest {
     public void test_NodeUnknownRuleCheck2884486869351397457() throws Exception {
       SNode nodeToCheck = getRealNodeById("3071492597344700470");
       SNode operation = getRealNodeById("2884486869351397457");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "Reference is out of scope: can not found the link 'link' in the node B", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "Reference is out of scope: can not found the link 'link' in the node B", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
     }
     public void test_ErrorMessagesCheck2884486869351538465() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2884486869351415706");
+      final SNode nodeToCheck = getRealNodeById("2884486869351415706");
       SNode operation = getRealNodeById("2884486869351538465");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
     }
     public void test_ErrorMessagesCheck2884486869351538492() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2884486869351538472");
+      final SNode nodeToCheck = getRealNodeById("2884486869351538472");
       SNode operation = getRealNodeById("2884486869351538492");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("2884486869351538475"), MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351404323"), "Parent B must be the prefix of As name", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("2884486869351538475"), MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351404323"), "Parent B must be the prefix of As name", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run());
     }
     public void test_NodeparentHasTheSameNameCheck2802122285521967426() throws Exception {
       SNode nodeToCheck = getRealNodeById("2884486869351538475");
       SNode operation = getRealNodeById("2802122285521967426");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351404323"), "Parent B must be the prefix of As name", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351404323"), "Parent B must be the prefix of As name", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
     }
 
   }

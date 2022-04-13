@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -28,8 +26,6 @@ import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
 public class EnumerationSwitch_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(EnumerationSwitch_Test.class, "${mps_home}", "r:3526f944-06ad-48b3-a2a1-fffa752849ed(jetbrains.mps.smodel.test.smodelOperations@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public EnumerationSwitch_Test() {
     super(ourParamCache);
@@ -87,115 +83,151 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
     }
 
     public void test_switchInStatement() throws Exception {
-      addNodeById("7978163097785993303");
-      addNodeById("7978163097786003045");
-      addNodeById("2877673685762481368");
-      addNodeById("2877673685762709492");
-      addNodeById("2877673685762713705");
-      addNodeById("2877673685762489194");
-      addNodeById("2877673685762690939");
-      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
-      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
-      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
-      try {
-        this.testSwitchInStatement(null);
-        Assert.fail("null");
-      } catch (IllegalArgumentException e) {
-        // expected exception
-      }
+      runWithinCommand(() -> {
+        addNodeById("7978163097785993303");
+        addNodeById("7978163097786003045");
+        addNodeById("2877673685762481368");
+        addNodeById("2877673685762709492");
+        addNodeById("2877673685762713705");
+        addNodeById("2877673685762489194");
+        addNodeById("2877673685762690939");
+      });
+      runWithinCommand(() -> {
+        Assert.assertEquals(TestBody.this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+        Assert.assertEquals(TestBody.this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+        Assert.assertEquals(TestBody.this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+        try {
+          TestBody.this.testSwitchInStatement(null);
+          Assert.fail("null");
+        } catch (IllegalArgumentException e) {
+          // expected exception
+        }
+      });
     }
     public void test_switchInReturn() throws Exception {
-      addNodeById("7978163097785993303");
-      addNodeById("7978163097786003045");
-      addNodeById("2877673685762481368");
-      addNodeById("2877673685762709492");
-      addNodeById("2877673685762713705");
-      addNodeById("2877673685762489194");
-      addNodeById("2877673685762690939");
-      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
-      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
-      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
-      try {
-        this.testSwitchInReturn(null);
-        Assert.fail("null");
-      } catch (IllegalArgumentException e) {
-        // expected exception
-      }
+      runWithinCommand(() -> {
+        addNodeById("7978163097785993303");
+        addNodeById("7978163097786003045");
+        addNodeById("2877673685762481368");
+        addNodeById("2877673685762709492");
+        addNodeById("2877673685762713705");
+        addNodeById("2877673685762489194");
+        addNodeById("2877673685762690939");
+      });
+      runWithinCommand(() -> {
+        Assert.assertEquals(TestBody.this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+        Assert.assertEquals(TestBody.this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+        Assert.assertEquals(TestBody.this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+        try {
+          TestBody.this.testSwitchInReturn(null);
+          Assert.fail("null");
+        } catch (IllegalArgumentException e) {
+          // expected exception
+        }
+      });
     }
     public void test_switchInAssignment() throws Exception {
-      addNodeById("7978163097785993303");
-      addNodeById("7978163097786003045");
-      addNodeById("2877673685762481368");
-      addNodeById("2877673685762709492");
-      addNodeById("2877673685762713705");
-      addNodeById("2877673685762489194");
-      addNodeById("2877673685762690939");
-      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
-      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
-      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
-      try {
-        this.testSwitchInAssignment(null);
-        Assert.fail("null");
-      } catch (IllegalArgumentException e) {
-        // expected exception
-      }
+      runWithinCommand(() -> {
+        addNodeById("7978163097785993303");
+        addNodeById("7978163097786003045");
+        addNodeById("2877673685762481368");
+        addNodeById("2877673685762709492");
+        addNodeById("2877673685762713705");
+        addNodeById("2877673685762489194");
+        addNodeById("2877673685762690939");
+      });
+      runWithinCommand(() -> {
+        Assert.assertEquals(TestBody.this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+        Assert.assertEquals(TestBody.this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+        Assert.assertEquals(TestBody.this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+        try {
+          TestBody.this.testSwitchInAssignment(null);
+          Assert.fail("null");
+        } catch (IllegalArgumentException e) {
+          // expected exception
+        }
+      });
     }
     public void test_switchInLVD() throws Exception {
-      addNodeById("7978163097785993303");
-      addNodeById("7978163097786003045");
-      addNodeById("2877673685762481368");
-      addNodeById("2877673685762709492");
-      addNodeById("2877673685762713705");
-      addNodeById("2877673685762489194");
-      addNodeById("2877673685762690939");
-      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
-      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
-      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
-      try {
-        this.testSwitchInLVD(null);
-        Assert.fail("null");
-      } catch (IllegalArgumentException e) {
-        // expected exception
-      }
+      runWithinCommand(() -> {
+        addNodeById("7978163097785993303");
+        addNodeById("7978163097786003045");
+        addNodeById("2877673685762481368");
+        addNodeById("2877673685762709492");
+        addNodeById("2877673685762713705");
+        addNodeById("2877673685762489194");
+        addNodeById("2877673685762690939");
+      });
+      runWithinCommand(() -> {
+        Assert.assertEquals(TestBody.this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+        Assert.assertEquals(TestBody.this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+        Assert.assertEquals(TestBody.this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+        try {
+          TestBody.this.testSwitchInLVD(null);
+          Assert.fail("null");
+        } catch (IllegalArgumentException e) {
+          // expected exception
+        }
+      });
     }
     public void test_ErrorMessagesCheck7978163097786003032() throws Exception {
-      SNode nodeToCheck = getRealNodeById("7978163097785996348");
+      final SNode nodeToCheck = getRealNodeById("7978163097785996348");
       SNode operation = getRealNodeById("7978163097786003032");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
     }
     public void test_ErrorMessagesCheck2877673685762596503() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762564970");
+      final SNode nodeToCheck = getRealNodeById("2877673685762564970");
       SNode operation = getRealNodeById("2877673685762596503");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
     }
     public void test_ErrorMessagesCheck2877673685762600678() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762600669");
+      final SNode nodeToCheck = getRealNodeById("2877673685762600669");
       SNode operation = getRealNodeById("2877673685762600678");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
     }
     public void test_NodeTypeCheck2877673685762780216() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762709506");
+      final SNode nodeToCheck = getRealNodeById("2877673685762709506");
       SNode operation = getRealNodeById("2877673685762780216");
-      addNodeById("2877673685762780254");
-      new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762780254"));
+
+      runWithinCommand(() -> addNodeById("2877673685762780254"));
+
+      runWithinCommand(() -> new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762780254")));
     }
     public void test_NodeTypeCheck2877673685762791490() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762713718");
+      final SNode nodeToCheck = getRealNodeById("2877673685762713718");
       SNode operation = getRealNodeById("2877673685762791490");
-      addNodeById("2663056186797888905");
-      new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2663056186797888905"));
+
+      runWithinCommand(() -> addNodeById("2663056186797888905"));
+
+      runWithinCommand(() -> new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2663056186797888905")));
     }
     public void test_NodeTypeCheck2877673685762756263() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762489208");
+      final SNode nodeToCheck = getRealNodeById("2877673685762489208");
       SNode operation = getRealNodeById("2877673685762756263");
-      addNodeById("2877673685762761440");
-      new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762761440"));
+
+      runWithinCommand(() -> addNodeById("2877673685762761440"));
+
+      runWithinCommand(() -> new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762761440")));
     }
     public void test_NodeTypeCheck2877673685762770603() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2877673685762690953");
+      final SNode nodeToCheck = getRealNodeById("2877673685762690953");
       SNode operation = getRealNodeById("2877673685762770603");
-      addNodeById("2877673685762770626");
-      new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762770626"));
+
+      runWithinCommand(() -> addNodeById("2877673685762770626"));
+
+      runWithinCommand(() -> new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762770626")));
     }
 
     public int testSwitchInStatement(SEnumerationLiteral testMember) {

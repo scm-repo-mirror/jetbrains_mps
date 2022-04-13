@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -18,8 +16,6 @@ import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescri
 public class hasSameSignatureTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(hasSameSignatureTest_Test.class, "${mps_home}", "r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public hasSameSignatureTest_Test() {
     super(ourParamCache);
@@ -37,8 +33,8 @@ public class hasSameSignatureTest_Test extends BaseTransformationTest {
     }
 
     public void test_list() throws Exception {
-      addNodeById("5157939743593407746");
-      Assert.assertTrue((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(getNodeById("5157939743593407754"), getNodeById("5157939743593407754")));
+      runWithinCommand(() -> addNodeById("5157939743593407746"));
+      runWithinCommand(() -> Assert.assertTrue((boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(getNodeById("5157939743593407754"), getNodeById("5157939743593407754"))));
     }
 
   }

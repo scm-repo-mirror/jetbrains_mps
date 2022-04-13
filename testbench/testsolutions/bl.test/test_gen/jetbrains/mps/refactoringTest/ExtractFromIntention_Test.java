@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -29,8 +27,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class ExtractFromIntention_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ExtractFromIntention_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ExtractFromIntention_Test() {
     super(ourParamCache);
@@ -48,23 +44,27 @@ public class ExtractFromIntention_Test extends BaseTransformationTest {
     }
 
     public void test_extractExpression() throws Exception {
-      addNodeById("1230052684510");
-      addNodeById("1230052684520");
-      addNodeById("1230052684528");
-      addNodeById("1230052684538");
-      SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.classConcept$M5BC, getNodeById("1230052684539"));
-      SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684540"));
-      ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684515")));
-      params.setName("foo");
-      params.setVisibilityLevel(VisibilityLevel.PUBLIC);
-      ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-      ref.setStaticContainer(getNodeById("1230052684521"));
-      ref.doRefactor();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684511"), getNodeById("1230052684521"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684529"), getNodeById("1230052684539"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("1230052684510");
+        addNodeById("1230052684520");
+        addNodeById("1230052684528");
+        addNodeById("1230052684538");
+      });
+      runWithinCommand(() -> {
+        SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.classConcept$M5BC, getNodeById("1230052684539"));
+        SLinkOperations.setTarget(getNodeById("1230052684533"), LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684540"));
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684515")));
+        params.setName("foo");
+        params.setVisibilityLevel(VisibilityLevel.PUBLIC);
+        ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
+        ref.setStaticContainer(getNodeById("1230052684521"));
+        ref.doRefactor();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684511"), getNodeById("1230052684521"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684529"), getNodeById("1230052684539"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

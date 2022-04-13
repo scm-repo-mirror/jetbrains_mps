@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -20,8 +18,6 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 public class TestTemporalPaths_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TestTemporalPaths_Test.class, "${mps_home}", "r:361d93bd-9223-4768-9e37-bcd7b8db1f40(jetbrains.mps.build.tests@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TestTemporalPaths_Test() {
     super(ourParamCache);
@@ -59,32 +55,36 @@ public class TestTemporalPaths_Test extends BaseTransformationTest {
     }
 
     public void test_topLevelJar() throws Exception {
-      addNodeById("4045247515868358884");
-      Assert.assertEquals(TestContext.DEPLOY + "/test.jar", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535266"), new TestContext(this.getBuildTestsModel())));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> Assert.assertEquals(TestContext.DEPLOY + "/test.jar", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535266"), new TestContext(TestBody.this.getBuildTestsModel()))));
     }
     public void test_topLevelFolder() throws Exception {
-      addNodeById("4045247515868358884");
-      Assert.assertEquals(TestContext.DEPLOY + "/folder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535287"), new TestContext(this.getBuildTestsModel())));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> Assert.assertEquals(TestContext.DEPLOY + "/folder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535287"), new TestContext(TestBody.this.getBuildTestsModel()))));
     }
     public void test_topInternalFolder() throws Exception {
-      addNodeById("4045247515868358884");
-      Assert.assertEquals(TestContext.DEPLOY + "/folder/internal", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("7422876504327290551"), new TestContext(this.getBuildTestsModel())));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> Assert.assertEquals(TestContext.DEPLOY + "/folder/internal", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("7422876504327290551"), new TestContext(TestBody.this.getBuildTestsModel()))));
     }
     public void test_jarInFolder() throws Exception {
-      addNodeById("4045247515868358884");
-      Assert.assertEquals(TestContext.DEPLOY + "/folder/test.jar", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535289"), new TestContext(this.getBuildTestsModel())));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> Assert.assertEquals(TestContext.DEPLOY + "/folder/test.jar", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("280273048052535289"), new TestContext(TestBody.this.getBuildTestsModel()))));
     }
     public void test_folderInJar() throws Exception {
-      addNodeById("4045247515868358884");
-      TestContext testContext = new TestContext(this.getBuildTestsModel());
-      Assert.assertEquals(TestContext.TEMP + "/default/test.jar/internalFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("8104754176559709900"), testContext));
-      Assert.assertEquals(TestContext.TEMP + "/default/test.jar/internalFolder/internalFolder2", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("8104754176559709938"), testContext));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> {
+        TestContext testContext = new TestContext(TestBody.this.getBuildTestsModel());
+        Assert.assertEquals(TestContext.TEMP + "/default/test.jar/internalFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("8104754176559709900"), testContext));
+        Assert.assertEquals(TestContext.TEMP + "/default/test.jar/internalFolder/internalFolder2", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("8104754176559709938"), testContext));
+      });
     }
     public void test_duplicatedNames() throws Exception {
-      addNodeById("4045247515868358884");
-      TestContext testContext = new TestContext(this.getBuildTestsModel());
-      Assert.assertEquals(TestContext.TEMP + "/default/some.jar/someFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("4209004860870558811"), testContext));
-      Assert.assertEquals(TestContext.TEMP + "/default/some.jar1/someFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("4209004860870558814"), testContext));
+      runWithinCommand(() -> addNodeById("4045247515868358884"));
+      runWithinCommand(() -> {
+        TestContext testContext = new TestContext(TestBody.this.getBuildTestsModel());
+        Assert.assertEquals(TestContext.TEMP + "/default/some.jar/someFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("4209004860870558811"), testContext));
+        Assert.assertEquals(TestContext.TEMP + "/default/some.jar1/someFolder", BuildLayout_NamedContainer__BehaviorDescriptor.getOutputPath_WithMacro_idfzIHCHip1Q.invoke(getNodeById("4209004860870558814"), testContext));
+      });
     }
 
     public SModel getBuildTestsModel() {

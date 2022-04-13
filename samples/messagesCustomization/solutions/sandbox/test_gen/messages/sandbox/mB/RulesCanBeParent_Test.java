@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -24,8 +22,6 @@ import jetbrains.mps.smodel.SNodePointer;
 public class RulesCanBeParent_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(RulesCanBeParent_Test.class, "${mps_home}", "r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public RulesCanBeParent_Test() {
     super(ourParamCache);
@@ -47,14 +43,22 @@ public class RulesCanBeParent_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck2802122285522113977() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2802122285522113964");
+      final SNode nodeToCheck = getRealNodeById("2802122285522113964");
       SNode operation = getRealNodeById("2802122285522113977");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("2802122285522113964"), MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2802122285522073500"), "children of the node LALALA are not allowed to contain 'ABACABA' in their names", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("2802122285522113964"), MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2802122285522073500"), "children of the node LALALA are not allowed to contain 'ABACABA' in their names", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run());
     }
     public void test_NodeUnknownRuleCheck2802122285522263628() throws Exception {
       SNode nodeToCheck = getRealNodeById("2802122285522113964");
       SNode operation = getRealNodeById("2802122285522263628");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2802122285522073500"), "children of the node LALALA are not allowed to contain 'ABACABA' in their names", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2802122285522073500"), "children of the node LALALA are not allowed to contain 'ABACABA' in their names", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
     }
 
   }

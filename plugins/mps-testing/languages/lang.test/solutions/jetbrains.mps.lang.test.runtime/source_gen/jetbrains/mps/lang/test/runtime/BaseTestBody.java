@@ -14,6 +14,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SNodeId;
+import jetbrains.mps.util.Reference;
 import jetbrains.mps.ide.ThreadUtils;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -62,15 +63,43 @@ public class BaseTestBody {
     return myModel.getNode(SNodeId.fromString(id));
   }
 
-  protected void runWithinCommand(final Runnable r) {
-    ThreadUtils.runInUIThreadAndWait(() -> {
+  protected void runWithinCommand(final ExceptionRunnable r) throws Exception {
+    final Reference<Exception> eRef = new Reference<Exception>();
+    Exception exc = ThreadUtils.runInUIThreadAndWait(() -> {
       // FIXME drop command, create test repo instead
-      myProject.getModelAccess().executeCommand(r);
+      myProject.getModelAccess().executeCommand(() -> {
+        try {
+          r.run();
+        } catch (Exception e) {
+          eRef.set(e);
+        }
+      });
     });
+    if (eRef.get() != null) {
+      throw eRef.get();
+    }
+    if (exc != null) {
+      throw exc;
+    }
   }
 
-  protected void runWithinRead(Runnable r) {
-    myProject.getModelAccess().runReadAction(r);
+  protected void runWithinRead(final ExceptionRunnable r) throws Exception {
+    final Reference<Exception> eRef = new Reference<Exception>();
+    myProject.getModelAccess().runReadAction(() -> {
+      try {
+        r.run();
+      } catch (Exception e) {
+        eRef.set(e);
+      }
+    });
+    if (eRef.get() != null) {
+      throw eRef.get();
+    }
+  }
+
+  @FunctionalInterface
+  public interface ExceptionRunnable {
+    void run() throws Exception;
   }
 
   private static final class CONCEPTS {

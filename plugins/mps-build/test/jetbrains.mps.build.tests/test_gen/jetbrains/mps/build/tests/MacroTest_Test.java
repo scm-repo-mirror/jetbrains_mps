@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class MacroTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(MacroTest_Test.class, "${mps_home}", "r:361d93bd-9223-4768-9e37-bcd7b8db1f40(jetbrains.mps.build.tests@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public MacroTest_Test() {
     super(ourParamCache);
@@ -64,47 +60,63 @@ public class MacroTest_Test extends BaseTransformationTest {
     }
 
     public void test_normalScope() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330636")).getAvailableElements("")).contains(getNodeById("193602448594330632")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330636")).getAvailableElements("")).contains(getNodeById("193602448594330632"))));
     }
     public void test_onlySeePreviouslyDeclaredMacro() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330632")).getAvailableElements("")).contains(getNodeById("193602448594330636")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("193602448594327348"), CONCEPTS.BuildMacro$qd, getNodeById("193602448594330632")).getAvailableElements("")).contains(getNodeById("193602448594330636"))));
     }
     public void test_doNotSeeItsefl() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("763409143595572705")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("763409143595572705"))));
     }
     public void test_doNotSeeImported() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330632")));
-      Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330636")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> {
+        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330632")));
+        Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("763409143595572705")).getAvailableElements("")).contains(getNodeById("193602448594330636")));
+      });
     }
     public void test_seeImportedVariableInScope() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153739")).getAvailableElements("")).contains(getNodeById("384280137912153734")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("763409143595572700"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153739")).getAvailableElements("")).contains(getNodeById("384280137912153734"))));
     }
     public void test_doNotSeeForwardVariabletInScope() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153758")).getAvailableElements("")).contains(getNodeById("384280137912153753")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertFalse(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153758")).getAvailableElements("")).contains(getNodeById("384280137912153753"))));
     }
     public void test_seeBackwardVariableInScope() throws Exception {
-      addNodeById("193602448594327347");
-      addNodeById("763409143595572699");
-      addNodeById("384280137912153748");
-      Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153762")).getAvailableElements("")).contains(getNodeById("384280137912153753")));
+      runWithinCommand(() -> {
+        addNodeById("193602448594327347");
+        addNodeById("763409143595572699");
+        addNodeById("384280137912153748");
+      });
+      runWithinCommand(() -> Assert.assertTrue(Sequence.fromIterable(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(getNodeById("384280137912153749"), CONCEPTS.BuildMacro$qd, getNodeById("384280137912153762")).getAvailableElements("")).contains(getNodeById("384280137912153753"))));
     }
 
   }

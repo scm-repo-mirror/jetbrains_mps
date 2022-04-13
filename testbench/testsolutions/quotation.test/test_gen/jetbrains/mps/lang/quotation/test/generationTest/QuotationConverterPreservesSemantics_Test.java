@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -36,8 +34,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class QuotationConverterPreservesSemantics_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(QuotationConverterPreservesSemantics_Test.class, "${mps_home}", "r:1cc42aa8-6d2d-49a0-9b1f-2e5f92988fc5(jetbrains.mps.lang.quotation.test.generationTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public QuotationConverterPreservesSemantics_Test() {
     super(ourParamCache);
@@ -91,98 +87,138 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
     }
 
     public void test_test1() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0d61();
-      SNode l = createPlusExpression_kv034b_a0b0d61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0d51();
+        SNode l = createPlusExpression_kv034b_a0b0a0b0d51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test2() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0e61();
-      SNode l = createClassifierType_kv034b_a0b0e61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0e51();
+        SNode l = createClassifierType_kv034b_a0b0a0b0e51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test3() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0f61();
-      SNode l = createStatementList_kv034b_a0b0f61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0f51();
+        SNode l = createStatementList_kv034b_a0b0a0b0f51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test4() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0g61(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")));
-      SNode l = createStatementList_kv034b_a0b0g61(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")));
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0g51(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")));
+        SNode l = createStatementList_kv034b_a0b0a0b0g51(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")));
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test5() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0h61(createBreakStatement_kv034b_a0a0a0a0h61());
-      SNode l = createStatementList_kv034b_a0b0h61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0h51(createBreakStatement_kv034b_a0a0a0a0a0b0h51());
+        SNode l = createStatementList_kv034b_a0b0a0b0h51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test6() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0i61(566, createBreakStatement_kv034b_a0b0a0a0a8q());
-      SNode l = createBlockStatement_kv034b_a0b0i61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0i51(566, createBreakStatement_kv034b_a0b0a0a0a0a1a8p());
+        SNode l = createBlockStatement_kv034b_a0b0a0b0i51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test7() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0j61(ListSequence.fromListAndArray(new ArrayList<SNode>(), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")), createBlockStatement_kv034b_b0a0b0a0a0a9q()));
-      SNode l = createBlockStatement_kv034b_a0b0j61(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), createExpressionStatement_kv034b_a0a0a0a0a0a0b0j61())).concat(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")), createBlockStatement_kv034b_b0a0a0a0a0a0a1a9q()))).concat(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), createReturnStatement_kv034b_a0a0a0a0a0a0b0j61()))));
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0j51(ListSequence.fromListAndArray(new ArrayList<SNode>(), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")), createBlockStatement_kv034b_b0a0b0a0a0a0a1a9p()));
+        SNode l = createBlockStatement_kv034b_a0b0a0b0j51(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), createExpressionStatement_kv034b_a0a0a0a0a0a0b0a0b0j51())).concat(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement")), createBlockStatement_kv034b_b0a0a0a0a0a0a1a0a1a9p()))).concat(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SNode>(), createReturnStatement_kv034b_a0a0a0a0a0a0b0a0b0j51()))));
 
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test8() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0k61();
-      SNode l = createGenericNewExpression_kv034b_a0b0k61(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c2dd1862L, "jetbrains.mps.baseLanguage.collections.structure.LinkedHashMapOrder"), 0x120c2ddcb5fL, "access_order"));
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0k51();
+        SNode l = createGenericNewExpression_kv034b_a0b0a0b0k51(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c2dd1862L, "jetbrains.mps.baseLanguage.collections.structure.LinkedHashMapOrder"), 0x120c2ddcb5fL, "access_order"));
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test9() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0l61();
-      SNode l = createGenericNewExpression_kv034b_a0b0l61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0l51();
+        SNode l = createGenericNewExpression_kv034b_a0b0a0b0l51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_test10() throws Exception {
-      SNode q = _quotation_createNode_kv034b_a0a0m61();
-      SNode l = createPlusExpression_kv034b_a0b0m61();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        SNode q = _quotation_createNode_kv034b_a0a0a0b0m51();
+        SNode l = createPlusExpression_kv034b_a0b0a0b0m51();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), q);
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), l);
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
-    private static SNode _quotation_createNode_kv034b_a0a0d61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0d51() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -196,26 +232,26 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_3);
       return quotedNode_1;
     }
-    private static SNode createPlusExpression_kv034b_a0b0d61() {
+    private static SNode createPlusExpression_kv034b_a0b0a0b0d51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.PlusExpression$k0);
       n0.forChild(LINKS.leftExpression$sEj).init(CONCEPTS.NullLiteral$QQ);
       n0.forChild(LINKS.rightExpression$nvX).init(CONCEPTS.NullLiteral$QQ);
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0e61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0e51() {
       SNode quotedNode_1 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"));
       quotedNode_1 = nb.getResult();
       nb.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), "6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)/~String");
       return quotedNode_1;
     }
-    private static SNode createClassifierType_kv034b_a0b0e61() {
+    private static SNode createClassifierType_kv034b_a0b0a0b0e51() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ClassifierType$bL);
       n0.setReference(LINKS.classifier$cxMr, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~String")));
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0f61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0f51() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b200L, "StatementList"));
@@ -225,14 +261,14 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode createStatementList_kv034b_a0b0f61() {
+    private static SNode createStatementList_kv034b_a0b0a0b0f51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.StatementList$m_);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.statement$53DE).init(CONCEPTS.ReturnStatement$lt);
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0g61(Object parameter_1) {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0g51(Object parameter_1) {
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b200L, "StatementList"));
@@ -243,14 +279,14 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return quotedNode_2;
     }
-    private static SNode createStatementList_kv034b_a0b0g61(SNode p0) {
+    private static SNode createStatementList_kv034b_a0b0a0b0g51(SNode p0) {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.StatementList$m_);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.statement$53DE).initNode(p0, CONCEPTS.Statement$P6, false);
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0h61(Object parameter_1) {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0h51(Object parameter_1) {
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b200L, "StatementList"));
@@ -261,18 +297,18 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return quotedNode_2;
     }
-    private static SNode createBreakStatement_kv034b_a0a0a0a0h61() {
+    private static SNode createBreakStatement_kv034b_a0a0a0a0a0b0h51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BreakStatement$WM);
       return n0.getResult();
     }
-    private static SNode createStatementList_kv034b_a0b0h61() {
+    private static SNode createStatementList_kv034b_a0b0a0b0h51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.StatementList$m_);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.statement$53DE).init(CONCEPTS.BreakStatement$WM);
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0i61(Object parameter_1, Object parameter_2) {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0i51(Object parameter_1, Object parameter_2) {
       SNode quotedNode_3 = null;
       SNode quotedNode_4 = null;
       SNode quotedNode_5 = null;
@@ -313,11 +349,11 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_4);
       return quotedNode_3;
     }
-    private static SNode createBreakStatement_kv034b_a0b0a0a0a8q() {
+    private static SNode createBreakStatement_kv034b_a0b0a0a0a0a1a8p() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BreakStatement$WM);
       return n0.getResult();
     }
-    private static SNode createBlockStatement_kv034b_a0b0i61() {
+    private static SNode createBlockStatement_kv034b_a0b0a0b0i51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BlockStatement$u4);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.statements$q65M).init(CONCEPTS.StatementList$m_);
@@ -341,7 +377,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0j61(Object parameter_1) {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0j51(Object parameter_1) {
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
       SNode quotedNode_4 = null;
@@ -381,12 +417,12 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_3);
       return quotedNode_2;
     }
-    private static SNode createBlockStatement_kv034b_b0a0b0a0a0a9q() {
+    private static SNode createBlockStatement_kv034b_b0a0b0a0a0a0a1a9p() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BlockStatement$u4);
       n0.forChild(LINKS.statements$q65M).init(CONCEPTS.StatementList$m_);
       return n0.getResult();
     }
-    private static SNode createBlockStatement_kv034b_a0b0j61(Iterable<? extends SNode> p0) {
+    private static SNode createBlockStatement_kv034b_a0b0a0b0j51(Iterable<? extends SNode> p0) {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BlockStatement$u4);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.statements$q65M).init(CONCEPTS.StatementList$m_);
@@ -394,7 +430,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return n0.getResult();
     }
-    private static SNode createExpressionStatement_kv034b_a0a0a0a0a0a0b0j61() {
+    private static SNode createExpressionStatement_kv034b_a0a0a0a0a0a0b0a0b0j51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ExpressionStatement$O8);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.expression$5L7M).init(CONCEPTS.PlusExpression$k0);
@@ -409,17 +445,17 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return n0.getResult();
     }
-    private static SNode createBlockStatement_kv034b_b0a0a0a0a0a0a1a9q() {
+    private static SNode createBlockStatement_kv034b_b0a0a0a0a0a0a1a0a1a9p() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.BlockStatement$u4);
       n0.forChild(LINKS.statements$q65M).init(CONCEPTS.StatementList$m_);
       return n0.getResult();
     }
-    private static SNode createReturnStatement_kv034b_a0a0a0a0a0a0b0j61() {
+    private static SNode createReturnStatement_kv034b_a0a0a0a0a0a0b0a0b0j51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ReturnStatement$lt);
       n0.forChild(LINKS.expression$eJ92).init(CONCEPTS.NullLiteral$QQ);
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0k61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0k51() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -438,7 +474,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode createGenericNewExpression_kv034b_a0b0k61(SEnumerationLiteral p0) {
+    private static SNode createGenericNewExpression_kv034b_a0b0a0b0k51(SEnumerationLiteral p0) {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GenericNewExpression$Fh);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.creator$BsHW).init(CONCEPTS.LinkedHashMapCreator$Fx);
@@ -448,7 +484,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0l61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0l51() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -466,7 +502,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode createGenericNewExpression_kv034b_a0b0l61() {
+    private static SNode createGenericNewExpression_kv034b_a0b0a0b0l51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.GenericNewExpression$Fh);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.creator$BsHW).init(CONCEPTS.LinkedHashMapCreator$Fx);
@@ -475,7 +511,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       }
       return n0.getResult();
     }
-    private static SNode _quotation_createNode_kv034b_a0a0m61() {
+    private static SNode _quotation_createNode_kv034b_a0a0a0b0m51() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -491,7 +527,7 @@ public class QuotationConverterPreservesSemantics_Test extends BaseTransformatio
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_3);
       return quotedNode_1;
     }
-    private static SNode createPlusExpression_kv034b_a0b0m61() {
+    private static SNode createPlusExpression_kv034b_a0b0a0b0m51() {
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.PlusExpression$k0);
       {
         SNodeBuilder n1 = n0.forChild(LINKS.leftExpression$sEj).init(CONCEPTS.BooleanConstant$n4);

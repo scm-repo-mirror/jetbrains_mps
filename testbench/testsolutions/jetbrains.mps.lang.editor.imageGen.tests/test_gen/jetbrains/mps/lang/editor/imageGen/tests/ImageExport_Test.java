@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -19,8 +17,6 @@ import java.io.IOException;
 public class ImageExport_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ImageExport_Test.class, "${mps_home}", "r:57812925-2ef0-43c6-8314-0222b2c13acf(jetbrains.mps.lang.editor.imageGen.tests@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ImageExport_Test() {
     super(ourParamCache);
@@ -42,22 +38,30 @@ public class ImageExport_Test extends BaseTransformationTest {
     }
 
     public void test_manuallyExportedImage() throws Exception {
-      ImageLoader imageloader = new ImageLoader("ManuallyExportedImage.gif");
-      try {
-        BufferedImage image = imageloader.getImage();
-        Assert.assertNotNull(image);
-      } catch (IOException e) {
-        Assert.fail("exception on loading image: " + e);
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        ImageLoader imageloader = new ImageLoader("ManuallyExportedImage.gif");
+        try {
+          BufferedImage image = imageloader.getImage();
+          Assert.assertNotNull(image);
+        } catch (IOException e) {
+          Assert.fail("exception on loading image: " + e);
+        }
+      });
     }
     public void test_imageExportedByGenerator() throws Exception {
-      ImageLoader imageloader = new ImageLoader(Cls.class.getSimpleName() + ".png");
-      try {
-        BufferedImage image = imageloader.getImage();
-        Assert.assertNotNull(image);
-      } catch (IOException e) {
-        Assert.fail("exception on loading image: " + e);
-      }
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        ImageLoader imageloader = new ImageLoader(Cls.class.getSimpleName() + ".png");
+        try {
+          BufferedImage image = imageloader.getImage();
+          Assert.assertNotNull(image);
+        } catch (IOException e) {
+          Assert.fail("exception on loading image: " + e);
+        }
+      });
     }
 
   }

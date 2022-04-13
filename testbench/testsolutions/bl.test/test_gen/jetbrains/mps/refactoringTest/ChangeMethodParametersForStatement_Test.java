@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -30,8 +28,6 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 public class ChangeMethodParametersForStatement_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ChangeMethodParametersForStatement_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ChangeMethodParametersForStatement_Test() {
     super(ourParamCache);
@@ -49,28 +45,32 @@ public class ChangeMethodParametersForStatement_Test extends BaseTransformationT
     }
 
     public void test_changeMethodParametersForStatement() throws Exception {
-      addNodeById("1230052406554");
-      addNodeById("1230052406581");
-      {
-        SNode c_ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference"));
-        SLinkOperations.setTarget(c_ref, LINKS.variableDeclaration$N1XG, getNodeById("1230052406612"));
-        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406572")));
-        ListSequence.fromList(params.getParameters()).getElement(0).setSelected(false);
-        MethodParameter p2 = ListSequence.fromList(params.getParameters()).getElement(1);
-        MethodParameter p1 = ListSequence.fromList(params.getParameters()).getElement(2);
-        ListSequence.fromList(params.getParameters()).setElement(1, p1);
-        ListSequence.fromList(params.getParameters()).setElement(2, p2);
-        p1.setName("p1");
-        p2.setName("p2");
-        params.setName("foo");
-        ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-        ref.doRefactor();
+      runWithinCommand(() -> {
+        addNodeById("1230052406554");
+        addNodeById("1230052406581");
+      });
+      runWithinCommand(() -> {
         {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406555"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406582"));
-          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+          SNode c_ref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference"));
+          SLinkOperations.setTarget(c_ref, LINKS.variableDeclaration$N1XG, getNodeById("1230052406612"));
+          ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406572")));
+          ListSequence.fromList(params.getParameters()).getElement(0).setSelected(false);
+          MethodParameter p2 = ListSequence.fromList(params.getParameters()).getElement(1);
+          MethodParameter p1 = ListSequence.fromList(params.getParameters()).getElement(2);
+          ListSequence.fromList(params.getParameters()).setElement(1, p1);
+          ListSequence.fromList(params.getParameters()).setElement(2, p2);
+          p1.setName("p1");
+          p2.setName("p2");
+          params.setName("foo");
+          ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
+          ref.doRefactor();
+          {
+            List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406555"));
+            List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052406582"));
+            Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+          }
         }
-      }
+      });
     }
 
   }

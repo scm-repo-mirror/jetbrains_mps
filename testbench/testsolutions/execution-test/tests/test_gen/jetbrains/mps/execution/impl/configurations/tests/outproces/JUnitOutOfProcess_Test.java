@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -41,8 +39,6 @@ import jetbrains.mps.baseLanguage.execution.api.JavaRunParameters;
 public class JUnitOutOfProcess_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitOutOfProcess_Test.class, "${mps_home}", "r:70ba7cf7-d705-4776-9784-5a0abc3ae48a(jetbrains.mps.execution.impl.configurations.tests.outproces@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public JUnitOutOfProcess_Test() {
     super(ourParamCache);
@@ -76,32 +72,52 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
     }
 
     public void test_startSimpleTestCase() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6937584626643047380"));
-      JUnitTests_Configuration junitRC = this.createDefaultJUnitRC();
-      this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6937584626643047380"));
+        JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
+        TestBody.this.runTestsWithSettings(junitRC, testsToSucceed, TestBody.this.emptyList());
+      });
     }
     public void test_startFailedTestCase() throws Exception {
-      List<ITestNodeWrapper> testsToFail = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6339244025082034140"));
-      this.runTestsWithSettings(this.createDefaultJUnitRC(), this.emptyList(), testsToFail);
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToFail = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6339244025082034140"));
+        TestBody.this.runTestsWithSettings(TestBody.this.createDefaultJUnitRC(), TestBody.this.emptyList(), testsToFail);
+      });
     }
     public void test_programParametersArePassedToTheTest() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "4414733712821357918"));
-      JUnitTests_Configuration junitRC = this.createDefaultJUnitRC();
-      String vmParams = "-D" + ReadingPropertyBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE + " " + junitRC.getJavaRunParameters().getJavaParameters().getVmOptions();
-      junitRC.getJavaRunParameters().getJavaParameters().setVmOptions(vmParams);
-      this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "4414733712821357918"));
+        JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
+        String vmParams = "-D" + ReadingPropertyBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE + " " + junitRC.getJavaRunParameters().getJavaParameters().getVmOptions();
+        junitRC.getJavaRunParameters().getJavaParameters().setVmOptions(vmParams);
+        TestBody.this.runTestsWithSettings(junitRC, testsToSucceed, TestBody.this.emptyList());
+      });
     }
     public void test_programParametersWithSpacesArePassedToTheTest() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
-      JUnitTests_Configuration junitRC = this.createDefaultJUnitRC();
-      String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
-      junitRC.getJavaRunParameters().getJavaParameters().setVmOptions(vmParams);
-      this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
+        JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
+        String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
+        junitRC.getJavaRunParameters().getJavaParameters().setVmOptions(vmParams);
+        TestBody.this.runTestsWithSettings(junitRC, testsToSucceed, TestBody.this.emptyList());
+      });
     }
     public void test_startUsingLangTestCase() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "3879137142820985113"));
-      JUnitTests_Configuration junitRC = this.createDefaultJUnitRC();
-      this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "3879137142820985113"));
+        JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
+        TestBody.this.runTestsWithSettings(junitRC, testsToSucceed, TestBody.this.emptyList());
+      });
     }
 
     public void runTestsWithSettings(JUnitTests_Configuration junit, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -35,8 +33,6 @@ import jetbrains.mps.internal.collections.runtime.IMapping;
 public class FileSwapOwnerTests_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(FileSwapOwnerTests_Test.class, "${mps_home}", "r:a8dd08c8-d222-4842-87dd-546039cb1959(jetbrains.mps.generator.impl.tests@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public FileSwapOwnerTests_Test() {
     super(ourParamCache);
@@ -90,95 +86,115 @@ public class FileSwapOwnerTests_Test extends BaseTransformationTest {
     }
 
     public void test_justWrite() throws Exception {
-      addNodeById("1732396662099564446");
-      try {
-        SNode node = FileSwapOwner.writeAndReadNode(getNodeById("1732396662099564449"));
-        {
-          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1732396662099564449"));
-          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), node);
-          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        try {
+          SNode node = FileSwapOwner.writeAndReadNode(getNodeById("1732396662099564449"));
+          {
+            List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1732396662099564449"));
+            List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), node);
+            Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+          }
+        } catch (IOException e) {
+          e.printStackTrace();
+          Assert.fail(e.getMessage());
         }
-      } catch (IOException e) {
-        e.printStackTrace();
-        Assert.fail(e.getMessage());
-      }
+      });
     }
     public void test_stringUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new HashMap<Object, Object>());
-      MapSequence.fromMap(userObjects).put("1", "1");
-      MapSequence.fromMap(userObjects).put("2", "2");
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new HashMap<Object, Object>());
+        MapSequence.fromMap(userObjects).put("1", "1");
+        MapSequence.fromMap(userObjects).put("2", "2");
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_intUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put(2, "2");
-      MapSequence.fromMap(userObjects).put("3", 3);
-      MapSequence.fromMap(userObjects).put(4, 4);
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put(2, "2");
+        MapSequence.fromMap(userObjects).put("3", 3);
+        MapSequence.fromMap(userObjects).put(4, 4);
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_charUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put('1', '1');
-      MapSequence.fromMap(userObjects).put('2', '2');
-      MapSequence.fromMap(userObjects).put('3', '3');
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put('1', '1');
+        MapSequence.fromMap(userObjects).put('2', '2');
+        MapSequence.fromMap(userObjects).put('3', '3');
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_numberUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put(0.5, 0.5);
-      MapSequence.fromMap(userObjects).put(((float) 1.5), ((float) 1.5));
-      MapSequence.fromMap(userObjects).put(((byte) 2), ((byte) 2));
-      MapSequence.fromMap(userObjects).put(((short) 3), ((short) 3));
-      MapSequence.fromMap(userObjects).put(Long.MAX_VALUE, Long.MAX_VALUE);
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put(0.5, 0.5);
+        MapSequence.fromMap(userObjects).put(((float) 1.5), ((float) 1.5));
+        MapSequence.fromMap(userObjects).put(((byte) 2), ((byte) 2));
+        MapSequence.fromMap(userObjects).put(((short) 3), ((short) 3));
+        MapSequence.fromMap(userObjects).put(Long.MAX_VALUE, Long.MAX_VALUE);
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_booleanUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put(false, false);
-      MapSequence.fromMap(userObjects).put(false, true);
-      MapSequence.fromMap(userObjects).put(true, false);
-      MapSequence.fromMap(userObjects).put(true, true);
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put(false, false);
+        MapSequence.fromMap(userObjects).put(false, true);
+        MapSequence.fromMap(userObjects).put(true, false);
+        MapSequence.fromMap(userObjects).put(true, true);
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_mpsUserObjects() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put(new SNodePointer(getNodeById("1732396662099564449")), new SNodePointer(getNodeById("1732396662099564449")));
-      MapSequence.fromMap(userObjects).put(SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))), PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"));
-      MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449").getNodeId(), new SNodePointer(getNodeById("1732396662099564449")));
-      MapSequence.fromMap(userObjects).put(SNodeOperations.getModel(getNodeById("1732396662099564449")).getModelId(), SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))));
-      this.testUserObjectsSaving(userObjects);
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put(new SNodePointer(getNodeById("1732396662099564449")), new SNodePointer(getNodeById("1732396662099564449")));
+        MapSequence.fromMap(userObjects).put(SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))), PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"));
+        MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449").getNodeId(), new SNodePointer(getNodeById("1732396662099564449")));
+        MapSequence.fromMap(userObjects).put(SNodeOperations.getModel(getNodeById("1732396662099564449")).getModelId(), SModelOperations.getPointer(SNodeOperations.getModel(getNodeById("1732396662099564449"))));
+        TestBody.this.testUserObjectsSaving(userObjects);
+      });
     }
     public void test_baseLanguageStructure() throws Exception {
-      addNodeById("1732396662099564446");
-      SModel sampleModel = PersistenceFacade.getInstance().createModelReference("r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)").resolve(myProject.getRepository());
-      SModel resultModel = FileSwapOwner.writeAndReadModel(sampleModel);
-      List<NodeDifference> diff = new NodesMatcher(SModelOperations.roots(sampleModel, null), SModelOperations.roots(resultModel, null)).diff();
-      Assert.assertTrue(diff.isEmpty());
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        SModel sampleModel = PersistenceFacade.getInstance().createModelReference("r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)").resolve(myProject.getRepository());
+        SModel resultModel = FileSwapOwner.writeAndReadModel(sampleModel);
+        List<NodeDifference> diff = new NodesMatcher(SModelOperations.roots(sampleModel, null), SModelOperations.roots(resultModel, null)).diff();
+        Assert.assertTrue(diff.isEmpty());
+      });
     }
     public void test_testOverloadedOperatorsSandbox() throws Exception {
-      addNodeById("1732396662099564446");
-      SModel sampleModel = PersistenceFacade.getInstance().createModelReference("r:3ad93d2f-47fe-4070-8a77-383dab3a6def(jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test)").resolve(myProject.getRepository());
-      SModel resultModel = FileSwapOwner.writeAndReadModel(sampleModel);
-      List<NodeDifference> diff = new NodesMatcher(SModelOperations.roots(sampleModel, null), SModelOperations.roots(resultModel, null)).diff();
-      Assert.assertTrue(diff.isEmpty());
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        SModel sampleModel = PersistenceFacade.getInstance().createModelReference("r:3ad93d2f-47fe-4070-8a77-383dab3a6def(jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test)").resolve(myProject.getRepository());
+        SModel resultModel = FileSwapOwner.writeAndReadModel(sampleModel);
+        List<NodeDifference> diff = new NodesMatcher(SModelOperations.roots(sampleModel, null), SModelOperations.roots(resultModel, null)).diff();
+        Assert.assertTrue(diff.isEmpty());
+      });
     }
     public void test_testSkipNodesWhileSaving() throws Exception {
-      addNodeById("1732396662099564446");
-      Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjects).put("1", "1");
-      MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
-      MapSequence.fromMap(userObjects).put("2", "2");
+      runWithinCommand(() -> addNodeById("1732396662099564446"));
+      runWithinCommand(() -> {
+        Map<Object, Object> userObjects = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjects).put("1", "1");
+        MapSequence.fromMap(userObjects).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
+        MapSequence.fromMap(userObjects).put("2", "2");
 
-      Map<Object, Object> userObjectsToSkip = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
-      MapSequence.fromMap(userObjectsToSkip).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
+        Map<Object, Object> userObjectsToSkip = MapSequence.fromMap(new LinkedHashMap<Object, Object>(16, (float) 0.75, false));
+        MapSequence.fromMap(userObjectsToSkip).put(getNodeById("1732396662099564449"), getNodeById("1732396662099564449"));
 
-      this.testUserObjectsSaving(userObjects, userObjectsToSkip);
+        TestBody.this.testUserObjectsSaving(userObjects, userObjectsToSkip);
+      });
     }
 
     public void testUserObjectsSaving(Map<Object, Object> userObjects, Map<Object, Object> userObjectsToLoose) {

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -30,8 +28,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public class PriorityCheckTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(PriorityCheckTest_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public PriorityCheckTest_Test() {
     super(ourParamCache);
@@ -49,20 +45,24 @@ public class PriorityCheckTest_Test extends BaseTransformationTest {
     }
 
     public void test_testRotation() throws Exception {
-      addNodeById("3852894662483441863");
-      addNodeById("3852894662483449708");
-      SNode op = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression"));
-      SNode constant = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant"));
-      SPropertyOperations.assign(constant, PROPS.value$jgCM, 3);
-      SLinkOperations.setTarget(op, LINKS.leftExpression$sEj, constant);
-      SNodeOperations.replaceWithAnother(getNodeById("3852894662483449704"), op);
-      SLinkOperations.setTarget(op, LINKS.rightExpression$nvX, getNodeById("3852894662483449704"));
-      ParenthesisUtil.checkOperationWRTPriority(op);
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483449711"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483449702"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("3852894662483441863");
+        addNodeById("3852894662483449708");
+      });
+      runWithinCommand(() -> {
+        SNode op = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression"));
+        SNode constant = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant"));
+        SPropertyOperations.assign(constant, PROPS.value$jgCM, 3);
+        SLinkOperations.setTarget(op, LINKS.leftExpression$sEj, constant);
+        SNodeOperations.replaceWithAnother(getNodeById("3852894662483449704"), op);
+        SLinkOperations.setTarget(op, LINKS.rightExpression$nvX, getNodeById("3852894662483449704"));
+        ParenthesisUtil.checkOperationWRTPriority(op);
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483449711"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483449702"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

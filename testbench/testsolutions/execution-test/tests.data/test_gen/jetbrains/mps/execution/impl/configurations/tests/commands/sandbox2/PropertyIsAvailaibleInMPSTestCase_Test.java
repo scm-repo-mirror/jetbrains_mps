@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -17,8 +15,6 @@ import org.junit.Assert;
 public class PropertyIsAvailaibleInMPSTestCase_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(PropertyIsAvailaibleInMPSTestCase_Test.class, "${mps_home}", "r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public PropertyIsAvailaibleInMPSTestCase_Test() {
     super(ourParamCache);
@@ -36,7 +32,9 @@ public class PropertyIsAvailaibleInMPSTestCase_Test extends BaseTransformationTe
     }
 
     public void test_test1() throws Exception {
-      Assert.assertEquals("TRUE", System.getProperty("MyProp"));
+      runWithinCommand(() -> {
+      });
+      runWithinCommand(() -> Assert.assertEquals("TRUE", System.getProperty("MyProp")));
     }
 
   }

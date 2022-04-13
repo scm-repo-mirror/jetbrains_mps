@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -30,8 +28,6 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 public class staticContainerClassTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(staticContainerClassTest_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public staticContainerClassTest_Test() {
     super(ourParamCache);
@@ -49,24 +45,28 @@ public class staticContainerClassTest_Test extends BaseTransformationTest {
     }
 
     public void test_staticContainerClassTest() throws Exception {
-      addNodeById("1230052684687");
-      addNodeById("1230052684697");
-      addNodeById("1230052684705");
-      addNodeById("1230052684709");
-      SNode call = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall"));
-      SLinkOperations.setTarget(call, LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684711"));
-      SLinkOperations.setTarget(call, LINKS.classConcept$M5BC, getNodeById("1230052684710"));
-      SNodeOperations.replaceWithAnother(getNodeById("1230052684702"), call);
-      ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684691"), getNodeById("6195342755327940882")));
-      params.setName("foo");
-      ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-      ref.setStaticContainer(getNodeById("1230052684706"));
-      ref.doRefactor();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684688"), getNodeById("1230052684706"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684698"), getNodeById("1230052684710"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("1230052684687");
+        addNodeById("1230052684697");
+        addNodeById("1230052684705");
+        addNodeById("1230052684709");
+      });
+      runWithinCommand(() -> {
+        SNode call = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall"));
+        SLinkOperations.setTarget(call, LINKS.baseMethodDeclaration$pyYw, getNodeById("1230052684711"));
+        SLinkOperations.setTarget(call, LINKS.classConcept$M5BC, getNodeById("1230052684710"));
+        SNodeOperations.replaceWithAnother(getNodeById("1230052684702"), call);
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684691"), getNodeById("6195342755327940882")));
+        params.setName("foo");
+        ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
+        ref.setStaticContainer(getNodeById("1230052684706"));
+        ref.doRefactor();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684688"), getNodeById("1230052684706"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052684698"), getNodeById("1230052684710"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

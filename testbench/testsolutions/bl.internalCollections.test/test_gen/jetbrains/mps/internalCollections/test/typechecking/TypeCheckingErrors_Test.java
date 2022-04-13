@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.checkers.SuppressErrorsChecker;
 public class TypeCheckingErrors_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TypeCheckingErrors_Test.class, "${mps_home}", "r:ea0833ca-e474-4ae3-b6d3-3f8d18af5a89(jetbrains.mps.internalCollections.test.typechecking@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TypeCheckingErrors_Test() {
     super(ourParamCache);
@@ -52,41 +48,57 @@ public class TypeCheckingErrors_Test extends BaseTransformationTest {
     }
 
     public void test_mps18720() throws Exception {
-      addNodeById("1301553664999174765");
-      addNodeById("3441689827373214227");
-      addNodeById("1089557578627272135");
-      addNodeById("360223900466871399");
-      addNodeById("5532302989585163343");
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1301553664997476018"), null)).isEmpty();
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("3441689827373215907"), null)).isEmpty();
+      runWithinCommand(() -> {
+        addNodeById("1301553664999174765");
+        addNodeById("3441689827373214227");
+        addNodeById("1089557578627272135");
+        addNodeById("360223900466871399");
+        addNodeById("5532302989585163343");
+      });
+      runWithinCommand(() -> {
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1301553664997476018"), null)).isEmpty();
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("3441689827373215907"), null)).isEmpty();
+      });
     }
     public void test_varar_raw() throws Exception {
-      addNodeById("1301553664999174765");
-      addNodeById("3441689827373214227");
-      addNodeById("1089557578627272135");
-      addNodeById("360223900466871399");
-      addNodeById("5532302989585163343");
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1089557578627275112"), null)).all(new IWhereFilter<NodeReportItem>() {
-        public boolean accept(NodeReportItem it) {
-          return SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it);
-        }
+      runWithinCommand(() -> {
+        addNodeById("1301553664999174765");
+        addNodeById("3441689827373214227");
+        addNodeById("1089557578627272135");
+        addNodeById("360223900466871399");
+        addNodeById("5532302989585163343");
+      });
+      runWithinCommand(() -> {
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("1089557578627275112"), null)).all(new IWhereFilter<NodeReportItem>() {
+          public boolean accept(NodeReportItem it) {
+            return SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it);
+          }
+        });
       });
     }
     public void test_lbt_subtypeof_param() throws Exception {
-      addNodeById("1301553664999174765");
-      addNodeById("3441689827373214227");
-      addNodeById("1089557578627272135");
-      addNodeById("360223900466871399");
-      addNodeById("5532302989585163343");
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("360223900466887047"), null)).isEmpty();
+      runWithinCommand(() -> {
+        addNodeById("1301553664999174765");
+        addNodeById("3441689827373214227");
+        addNodeById("1089557578627272135");
+        addNodeById("360223900466871399");
+        addNodeById("5532302989585163343");
+      });
+      runWithinCommand(() -> {
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("360223900466887047"), null)).isEmpty();
+      });
     }
     public void test_meet_with_variable_excluded_from_lcs() throws Exception {
-      addNodeById("1301553664999174765");
-      addNodeById("3441689827373214227");
-      addNodeById("1089557578627272135");
-      addNodeById("360223900466871399");
-      addNodeById("5532302989585163343");
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("6368058149914761648"), null)).isEmpty();
+      runWithinCommand(() -> {
+        addNodeById("1301553664999174765");
+        addNodeById("3441689827373214227");
+        addNodeById("1089557578627272135");
+        addNodeById("360223900466871399");
+        addNodeById("5532302989585163343");
+      });
+      runWithinCommand(() -> {
+        assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(getNodeById("6368058149914761648"), null)).isEmpty();
+      });
     }
 
   }

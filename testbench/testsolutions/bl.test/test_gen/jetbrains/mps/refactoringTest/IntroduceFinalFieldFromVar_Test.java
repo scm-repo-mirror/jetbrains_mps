@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -25,8 +23,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class IntroduceFinalFieldFromVar_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(IntroduceFinalFieldFromVar_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public IntroduceFinalFieldFromVar_Test() {
     super(ourParamCache);
@@ -44,20 +40,24 @@ public class IntroduceFinalFieldFromVar_Test extends BaseTransformationTest {
     }
 
     public void test_IntroduceFinalField() throws Exception {
-      addNodeById("8599380872150708412");
-      addNodeById("8599380872150708427");
-      IntroduceFieldRefactoring refactoring = new IntroduceFieldRefactoring();
-      refactoring.init(getNodeById("8599380872150708421"), null);
-      refactoring.setName("i");
-      refactoring.setIsFinal(true);
-      refactoring.setFieldInitializationPlace(FieldInitializationPlace.FIELD);
-      refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
-      refactoring.doRefactoring();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708413"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708428"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("8599380872150708412");
+        addNodeById("8599380872150708427");
+      });
+      runWithinCommand(() -> {
+        IntroduceFieldRefactoring refactoring = new IntroduceFieldRefactoring();
+        refactoring.init(getNodeById("8599380872150708421"), null);
+        refactoring.setName("i");
+        refactoring.setIsFinal(true);
+        refactoring.setFieldInitializationPlace(FieldInitializationPlace.FIELD);
+        refactoring.setVisibilityLevel(VisibilityLevel.PRIVATE);
+        refactoring.doRefactoring();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708413"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("8599380872150708428"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

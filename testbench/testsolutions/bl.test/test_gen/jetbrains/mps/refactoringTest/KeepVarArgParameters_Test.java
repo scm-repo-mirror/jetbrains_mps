@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -34,8 +32,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public class KeepVarArgParameters_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(KeepVarArgParameters_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public KeepVarArgParameters_Test() {
     super(ourParamCache);
@@ -53,44 +49,48 @@ public class KeepVarArgParameters_Test extends BaseTransformationTest {
     }
 
     public void test_AddParameterWithDefault() throws Exception {
-      addNodeById("6365792264556597658");
-      addNodeById("6365792264556597683");
-      ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("6365792264556597660"));
+      runWithinCommand(() -> {
+        addNodeById("6365792264556597658");
+        addNodeById("6365792264556597683");
+      });
+      runWithinCommand(() -> {
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("6365792264556597660"));
 
-      // Add params
-      SNode boolParam = _quotation_createNode_in913d_a0f0d7();
-      SNode intParam = _quotation_createNode_in913d_a0g0d7();
-      List<SNode> parameters = SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj);
-      parameters.add(1, boolParam);
-      parameters.add(2, intParam);
+        // Add params
+        SNode boolParam = _quotation_createNode_in913d_a0d0a0b0d6();
+        SNode intParam = _quotation_createNode_in913d_a0e0a0b0d6();
+        List<SNode> parameters = SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj);
+        parameters.add(1, boolParam);
+        parameters.add(2, intParam);
 
-      // Add default values
-      Map<SNode, SNode> defaultValues = MapSequence.fromMap(new HashMap<SNode, SNode>());
-      MapSequence.fromMap(defaultValues).put(boolParam, _quotation_createNode_in913d_a0n0d7());
-      MapSequence.fromMap(defaultValues).put(intParam, _quotation_createNode_in913d_a0o0d7());
+        // Add default values
+        Map<SNode, SNode> defaultValues = MapSequence.fromMap(new HashMap<SNode, SNode>());
+        MapSequence.fromMap(defaultValues).put(boolParam, _quotation_createNode_in913d_a0l0a0b0d6());
+        MapSequence.fromMap(defaultValues).put(intParam, _quotation_createNode_in913d_a0m0a0b0d6());
 
-      // Usages
-      List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
-      ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getNodeById("6365792264556597669"), LINKS.body$5xQk), LINKS.statement$53DE)).select(new ISelector<SNode, SNode>() {
-        public SNode select(SNode it) {
-          return SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT);
+        // Usages
+        List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
+        ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getNodeById("6365792264556597669"), LINKS.body$5xQk), LINKS.statement$53DE)).select(new ISelector<SNode, SNode>() {
+          public SNode select(SNode it) {
+            return SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT);
+          }
+        }));
+
+        // Create refactoring and add usages
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("6365792264556597660"), defaultValues);
+        ref.setUsages(usages);
+
+        ref.doRefactoring();
+
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6365792264556597659"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6365792264556597684"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
-      }));
-
-      // Create refactoring and add usages
-      ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("6365792264556597660"), defaultValues);
-      ref.setUsages(usages);
-
-      ref.doRefactoring();
-
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6365792264556597659"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6365792264556597684"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      });
     }
 
-    private static SNode _quotation_createNode_in913d_a0f0d7() {
+    private static SNode _quotation_createNode_in913d_a0d0a0b0d6() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e94L, "ParameterDeclaration"));
@@ -101,7 +101,7 @@ public class KeepVarArgParameters_Test extends BaseTransformationTest {
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_in913d_a0g0d7() {
+    private static SNode _quotation_createNode_in913d_a0e0a0b0d6() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e94L, "ParameterDeclaration"));
@@ -112,13 +112,13 @@ public class KeepVarArgParameters_Test extends BaseTransformationTest {
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_in913d_a0n0d7() {
+    private static SNode _quotation_createNode_in913d_a0l0a0b0d6() {
       SNode quotedNode_1 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b201L, "BooleanConstant"));
       quotedNode_1 = nb.getResult();
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_in913d_a0o0d7() {
+    private static SNode _quotation_createNode_in913d_a0m0a0b0d6() {
       SNode quotedNode_1 = null;
       SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"));
       quotedNode_1 = nb.getResult();

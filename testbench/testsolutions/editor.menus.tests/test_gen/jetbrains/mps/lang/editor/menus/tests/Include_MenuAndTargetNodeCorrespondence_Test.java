@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -33,8 +31,6 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(Include_MenuAndTargetNodeCorrespondence_Test.class, "${mps_home}", "r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public Include_MenuAndTargetNodeCorrespondence_Test() {
     super(ourParamCache);
@@ -60,26 +56,38 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
     }
 
     public void test_targetNodeForMenuShouldReturnMenuConcept() throws Exception {
-      addNodeById("2705676212747008271");
-      addNodeById("6903010549536712693");
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), createSNodeType_sxmjox_a0a0a0c0d9());
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(getNodeById("2705676212747008292")));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("2705676212747008271");
+        addNodeById("6903010549536712693");
+      });
+      runWithinCommand(() -> {
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), createSNodeType_sxmjox_a0a0a0a0a0b0d8());
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(getNodeById("2705676212747008292")));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_MatchingMenuForCurrentNode6903010549536714073() throws Exception {
-      SNode nodeToCheck = getRealNodeById("6903010549536713473");
+      final SNode nodeToCheck = getRealNodeById("6903010549536713473");
       SNode operation = getRealNodeById("6903010549536714073");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
     }
     public void test_NonMatchingMenuForCurrentNode6903010549536714075() throws Exception {
       SNode nodeToCheck = getRealNodeById("6903010549536712731");
       SNode operation = getRealNodeById("6903010549536714075");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+      });
+
+      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
     }
 
-    private static SNode createSNodeType_sxmjox_a0a0a0c0d9() {
+    private static SNode createSNodeType_sxmjox_a0a0a0a0a0b0d8() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.SNodeType$hR);
       n0.setReference(LINKS.concept$OMgE, new SNodePointer(facade.createModelReference("r:c6b5a119-ed4d-420e-b7df-fa1b4101c68f(jetbrains.mps.lang.editor.menus.testLanguage.structure)"), facade.createNodeId("2705676212746996052")));
