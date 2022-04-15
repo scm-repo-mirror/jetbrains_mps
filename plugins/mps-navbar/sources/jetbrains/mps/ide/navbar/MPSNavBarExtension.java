@@ -5,6 +5,8 @@ package jetbrains.mps.ide.navbar;
 
 import com.intellij.ide.navigationToolbar.NavBarModelExtension;
 import com.intellij.ide.ui.UISettings;
+import com.intellij.navigation.NavigationItem;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
@@ -16,6 +18,13 @@ import com.intellij.psi.impl.light.LightElement;
 import com.intellij.util.Processor;
 import jetbrains.mps.ide.actions.SModelActionData;
 import jetbrains.mps.ide.actions.SModuleActionData;
+import jetbrains.mps.ide.actions.SNodeActionData;
+import jetbrains.mps.ide.ui.tree.MPSTreeNode;
+import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
+import jetbrains.mps.ide.ui.tree.module.MPSModuleTreeNode;
+import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
+import jetbrains.mps.nodefs.MPSNodeVirtualFile;
+import jetbrains.mps.psi.MPSPsiElement;
 import jetbrains.mps.psi.MPSPsiModel;
 import jetbrains.mps.psi.MPSPsiModule;
 import jetbrains.mps.psi.MPSPsiNode;
@@ -40,14 +49,10 @@ public class MPSNavBarExtension implements NavBarModelExtension {
   @Nullable
   @Override
   public String getPresentableText(Object object) {
-    if (object instanceof Project) {
-      return ((Project)object).getName();
+    if (object instanceof MPSPsiElement) {
+      return ((MPSPsiElement) object).getPresentation().getPresentableText();
     }
-    if (object instanceof LightElement) {
-      return ((LightElement) object).getPresentation().getPresentableText();
-    }
-    // fixme
-    return object.toString();
+    return null;
   }
 
   @Override
