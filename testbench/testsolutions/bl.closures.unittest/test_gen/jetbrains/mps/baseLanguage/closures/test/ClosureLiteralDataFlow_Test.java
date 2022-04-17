@@ -48,13 +48,14 @@ public class ClosureLiteralDataFlow_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199366() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1227886714787");
-      SNode operation = getRealNodeById("2501421320959199366");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1227886714787");
+        SNode operation = getRealNodeById("2501421320959199366");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

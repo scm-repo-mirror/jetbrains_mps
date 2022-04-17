@@ -37,13 +37,14 @@ public class InternalClassifier_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck6293984074587251910() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1293230950168439296");
-      SNode operation = getRealNodeById("6293984074587251910");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1293230950168439296");
+        SNode operation = getRealNodeById("6293984074587251910");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

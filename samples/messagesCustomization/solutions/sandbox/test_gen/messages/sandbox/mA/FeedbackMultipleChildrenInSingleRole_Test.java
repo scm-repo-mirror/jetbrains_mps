@@ -35,13 +35,14 @@ public class FeedbackMultipleChildrenInSingleRole_Test extends BaseTransformatio
     }
 
     public void test_NodeErrorCheck4631579825415181488() throws Exception {
-      SNode nodeToCheck = getRealNodeById("7019192671317970806");
-      SNode operation = getRealNodeById("4631579825415181488");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Multiple children in the single role 'singleRoleChild':  [StringLiteral='one', StringLiteral='second']!!!", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7019192671317970806");
+        SNode operation = getRealNodeById("4631579825415181488");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Multiple children in the single role 'singleRoleChild':  [StringLiteral='one', StringLiteral='second']!!!", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

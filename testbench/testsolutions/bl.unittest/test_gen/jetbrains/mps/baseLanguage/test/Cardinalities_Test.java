@@ -43,31 +43,34 @@ public class Cardinalities_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck1875480895988114782() throws Exception {
-      SNode nodeToCheck = getRealNodeById("1875480895988095647");
-      SNode operation = getRealNodeById("1875480895988114782");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1875480895988095647");
+        SNode operation = getRealNodeById("1875480895988114782");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
     public void test_NodeErrorCheck1875480895987852095() throws Exception {
-      SNode nodeToCheck = getRealNodeById("1875480895987852074");
-      SNode operation = getRealNodeById("1875480895987852095");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1875480895987852074");
+        SNode operation = getRealNodeById("1875480895987852095");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
     public void test_NodeErrorCheck1875480895987615991() throws Exception {
-      SNode nodeToCheck = getRealNodeById("1875480895987615784");
-      SNode operation = getRealNodeById("1875480895987615991");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1875480895987615784");
+        SNode operation = getRealNodeById("1875480895987615991");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

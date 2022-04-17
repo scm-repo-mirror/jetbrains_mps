@@ -40,21 +40,23 @@ public class DiamondOperator_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTypeCheck2668602783496187514() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("2668602783496031829");
-      SNode operation = getRealNodeById("2668602783496187514");
-
       runWithinCommand(() -> addNodeById("2668602783496188412"));
 
-      runWithinCommand(() -> new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2668602783496188412")));
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2668602783496031829");
+        SNode operation = getRealNodeById("2668602783496187514");
+        new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2668602783496188412"));
+      });
     }
     public void test_NodeTypeSystemCheck2668602783496250965() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2668602783496238456");
-      SNode operation = getRealNodeById("2668602783496250965");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2668602783496238456");
+        SNode operation = getRealNodeById("2668602783496250965");
+        new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

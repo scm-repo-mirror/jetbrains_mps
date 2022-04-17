@@ -36,13 +36,14 @@ public class ActionMapImportConceptCompatibility_Test extends BaseTransformation
     }
 
     public void test_NodeImportedActionMapIsNotCheck2687536747038604396() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2687536747038601417");
-      SNode operation = getRealNodeById("2687536747038604396");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2687536747039599561"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2687536747038601417");
+        SNode operation = getRealNodeById("2687536747038604396");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2687536747039599561"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

@@ -37,13 +37,14 @@ public class StubClassifiers_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck3696922934671319151() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("3696922934668788475");
-      SNode operation = getRealNodeById("3696922934671319151");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, true, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("3696922934668788475");
+        SNode operation = getRealNodeById("3696922934671319151");
+        new CheckErrorMessagesRunnable(nodeToCheck, true, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

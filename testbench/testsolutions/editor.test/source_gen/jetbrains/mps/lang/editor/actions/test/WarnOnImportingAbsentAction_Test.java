@@ -36,13 +36,14 @@ public class WarnOnImportingAbsentAction_Test extends BaseTransformationTest {
     }
 
     public void test_NodeImportHasNoEffectCheck858085313517684344() throws Exception {
-      SNode nodeToCheck = getRealNodeById("1465006755395151322");
-      SNode operation = getRealNodeById("858085313517684344");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.WARNING, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2760718446999230123"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1465006755395151322");
+        SNode operation = getRealNodeById("858085313517684344");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.WARNING, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2760718446999230123"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

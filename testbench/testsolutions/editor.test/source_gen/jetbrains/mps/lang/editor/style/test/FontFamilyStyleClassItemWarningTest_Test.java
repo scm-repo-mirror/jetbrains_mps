@@ -35,13 +35,14 @@ public class FontFamilyStyleClassItemWarningTest_Test extends BaseTransformation
     }
 
     public void test_NodeWarningCheck1715298588355862323() throws Exception {
-      SNode nodeToCheck = getRealNodeById("1715298588355862320");
-      SNode operation = getRealNodeById("1715298588355862323");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.WARNING, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1715298588355862320");
+        SNode operation = getRealNodeById("1715298588355862323");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.WARNING, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

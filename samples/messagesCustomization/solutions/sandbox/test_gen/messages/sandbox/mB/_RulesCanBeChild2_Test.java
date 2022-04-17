@@ -36,13 +36,14 @@ public class _RulesCanBeChild2_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnknownRuleCheck2802122285522068052() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2802122285522027982");
-      SNode operation = getRealNodeById("2802122285522068052");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351523037"), "The root name _RulesCanBeChild2 must start with 'Rules' or 'Feedback'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2802122285522027982");
+        SNode operation = getRealNodeById("2802122285522068052");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "2884486869351523037"), "The root name _RulesCanBeChild2 must start with 'Rules' or 'Feedback'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

@@ -40,22 +40,24 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck7019192671317902489() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2802122285522027685");
-      SNode operation = getRealNodeById("7019192671317902489");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Unresolved reference: B", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2802122285522027685");
+        SNode operation = getRealNodeById("7019192671317902489");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Unresolved reference: B", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
     public void test_NodeUnknownRuleCheck7019192671317924833() throws Exception {
-      SNode nodeToCheck = getRealNodeById("7019192671317902494");
-      SNode operation = getRealNodeById("7019192671317924833");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "Reference is out of scope: can not found the link 'link' in the node A", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7019192671317902494");
+        SNode operation = getRealNodeById("7019192671317924833");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "Reference is out of scope: can not found the link 'link' in the node A", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

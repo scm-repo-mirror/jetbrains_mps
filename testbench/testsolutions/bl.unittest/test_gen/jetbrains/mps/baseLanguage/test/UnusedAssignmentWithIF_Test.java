@@ -37,13 +37,14 @@ public class UnusedAssignmentWithIF_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1217866439753() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1217866140840");
-      SNode operation = getRealNodeById("1217866439753");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1217866140840");
+        SNode operation = getRealNodeById("1217866439753");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

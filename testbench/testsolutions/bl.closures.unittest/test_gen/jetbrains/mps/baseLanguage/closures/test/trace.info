@@ -17,21 +17,21 @@
       <node id="1227886714778" at="43,57,44,59" concept="1" />
       <node id="2501421320959199349" at="45,30,46,55" concept="4" />
       <node id="2501421320959199358" at="46,55,47,58" concept="4" />
-      <node id="2501421320959199348" at="50,79,51,65" concept="3" />
-      <node id="2501421320959199348" at="51,65,52,63" concept="3" />
-      <node id="2501421320959199348" at="52,63,53,0" concept="5" />
-      <node id="2501421320959199348" at="55,9,56,0" concept="5" />
-      <node id="2501421320959199348" at="56,0,57,232" concept="1" />
+      <node id="2501421320959199348" at="52,9,53,0" concept="5" />
+      <node id="2501421320959199348" at="54,30,55,61" concept="3" />
+      <node id="2501421320959199348" at="55,61,56,65" concept="3" />
+      <node id="2501421320959199348" at="56,65,57,210" concept="1" />
       <node id="1227886714745" at="21,0,23,0" concept="6" trace="ourParamCache" />
-      <node id="2501421320959199348" at="53,0,55,9" concept="1" />
+      <node id="2501421320959199348" at="50,79,52,9" concept="1" />
       <node id="1227886714745" at="24,0,27,0" concept="0" trace="ClosureDataFlow_Test#()V" />
       <node id="1227886714745" at="39,0,42,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="1227886714778" at="28,0,32,0" concept="2" trace="test_ClosureDataFlow#()V" />
       <node id="2501421320959199348" at="32,0,36,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199348#()V" />
       <node id="1227886714778" at="44,59,48,9" concept="1" />
+      <node id="2501421320959199348" at="53,0,58,9" concept="1" />
       <node id="1227886714778" at="43,0,50,0" concept="2" trace="test_ClosureDataFlow#()V" />
-      <node id="2501421320959199348" at="50,0,59,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199348#()V" />
-      <scope id="2501421320959199348" at="54,30,54,30" />
+      <node id="2501421320959199348" at="50,0,60,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199348#()V" />
+      <scope id="2501421320959199348" at="51,30,51,30" />
       <scope id="1227886714745" at="24,33,25,25" />
       <scope id="1227886714778" at="29,55,30,46" />
       <scope id="2501421320959199348" at="33,77,34,68" />
@@ -41,17 +41,18 @@
       <scope id="1227886714745" at="39,0,42,0">
         <var name="owner" id="1227886714745" />
       </scope>
+      <scope id="2501421320959199348" at="54,30,57,210">
+        <var name="nodeToCheck" id="2501421320959199348" />
+        <var name="operation" id="2501421320959199348" />
+      </scope>
       <scope id="1227886714778" at="28,0,32,0" />
       <scope id="2501421320959199348" at="32,0,36,0" />
       <scope id="1227886714778" at="43,57,48,9" />
       <scope id="1227886714778" at="43,0,50,0" />
-      <scope id="2501421320959199348" at="50,79,57,232">
-        <var name="nodeToCheck" id="2501421320959199348" />
-        <var name="operation" id="2501421320959199348" />
-      </scope>
-      <scope id="2501421320959199348" at="50,0,59,0" />
-      <unit id="1227886714745" at="37,0,61,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureDataFlow_Test$TestBody" />
-      <unit id="1227886714745" at="19,0,62,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureDataFlow_Test" />
+      <scope id="2501421320959199348" at="50,79,58,9" />
+      <scope id="2501421320959199348" at="50,0,60,0" />
+      <unit id="1227886714745" at="37,0,62,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureDataFlow_Test$TestBody" />
+      <unit id="1227886714745" at="19,0,63,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureDataFlow_Test" />
     </file>
   </root>
   <root nodeRef="r:3d6db45f-d7e0-45ba-9835-ff824ffe21a1(jetbrains.mps.baseLanguage.closures.test@tests)/1227886714783">
@@ -63,21 +64,21 @@
       <node id="1227886714803" at="43,64,44,59" concept="1" />
       <node id="2501421320959199367" at="45,30,46,55" concept="4" />
       <node id="2501421320959199376" at="46,55,47,58" concept="4" />
-      <node id="2501421320959199366" at="50,79,51,65" concept="3" />
-      <node id="2501421320959199366" at="51,65,52,63" concept="3" />
-      <node id="2501421320959199366" at="52,63,53,0" concept="5" />
-      <node id="2501421320959199366" at="55,9,56,0" concept="5" />
-      <node id="2501421320959199366" at="56,0,57,232" concept="1" />
+      <node id="2501421320959199366" at="52,9,53,0" concept="5" />
+      <node id="2501421320959199366" at="54,30,55,61" concept="3" />
+      <node id="2501421320959199366" at="55,61,56,65" concept="3" />
+      <node id="2501421320959199366" at="56,65,57,210" concept="1" />
       <node id="1227886714783" at="21,0,23,0" concept="6" trace="ourParamCache" />
-      <node id="2501421320959199366" at="53,0,55,9" concept="1" />
+      <node id="2501421320959199366" at="50,79,52,9" concept="1" />
       <node id="1227886714783" at="24,0,27,0" concept="0" trace="ClosureLiteralDataFlow_Test#()V" />
       <node id="1227886714783" at="39,0,42,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="1227886714803" at="28,0,32,0" concept="2" trace="test_ClosureLiteralDataFlow#()V" />
       <node id="2501421320959199366" at="32,0,36,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199366#()V" />
       <node id="1227886714803" at="44,59,48,9" concept="1" />
+      <node id="2501421320959199366" at="53,0,58,9" concept="1" />
       <node id="1227886714803" at="43,0,50,0" concept="2" trace="test_ClosureLiteralDataFlow#()V" />
-      <node id="2501421320959199366" at="50,0,59,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199366#()V" />
-      <scope id="2501421320959199366" at="54,30,54,30" />
+      <node id="2501421320959199366" at="50,0,60,0" concept="2" trace="test_ErrorMessagesCheck2501421320959199366#()V" />
+      <scope id="2501421320959199366" at="51,30,51,30" />
       <scope id="1227886714783" at="24,40,25,25" />
       <scope id="1227886714803" at="29,62,30,53" />
       <scope id="2501421320959199366" at="33,77,34,68" />
@@ -87,17 +88,18 @@
       <scope id="1227886714783" at="39,0,42,0">
         <var name="owner" id="1227886714783" />
       </scope>
+      <scope id="2501421320959199366" at="54,30,57,210">
+        <var name="nodeToCheck" id="2501421320959199366" />
+        <var name="operation" id="2501421320959199366" />
+      </scope>
       <scope id="1227886714803" at="28,0,32,0" />
       <scope id="2501421320959199366" at="32,0,36,0" />
       <scope id="1227886714803" at="43,64,48,9" />
       <scope id="1227886714803" at="43,0,50,0" />
-      <scope id="2501421320959199366" at="50,79,57,232">
-        <var name="nodeToCheck" id="2501421320959199366" />
-        <var name="operation" id="2501421320959199366" />
-      </scope>
-      <scope id="2501421320959199366" at="50,0,59,0" />
-      <unit id="1227886714783" at="37,0,61,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureLiteralDataFlow_Test$TestBody" />
-      <unit id="1227886714783" at="19,0,62,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureLiteralDataFlow_Test" />
+      <scope id="2501421320959199366" at="50,79,58,9" />
+      <scope id="2501421320959199366" at="50,0,60,0" />
+      <unit id="1227886714783" at="37,0,62,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureLiteralDataFlow_Test$TestBody" />
+      <unit id="1227886714783" at="19,0,63,0" name="jetbrains.mps.baseLanguage.closures.test.ClosureLiteralDataFlow_Test" />
     </file>
   </root>
 </debug-info>

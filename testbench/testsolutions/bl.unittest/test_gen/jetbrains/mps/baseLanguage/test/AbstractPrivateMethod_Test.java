@@ -42,22 +42,24 @@ public class AbstractPrivateMethod_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck2834737865485399118() throws Exception {
-      SNode nodeToCheck = getRealNodeById("284804022098951626");
-      SNode operation = getRealNodeById("2834737865485399118");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("284804022098951626");
+        SNode operation = getRealNodeById("2834737865485399118");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
     public void test_ErrorMessagesCheck284804022098937155() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("284804022098937141");
-      SNode operation = getRealNodeById("284804022098937155");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("284804022098951626"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("284804022098937141");
+        SNode operation = getRealNodeById("284804022098937155");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("284804022098951626"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
+      });
     }
 
   }

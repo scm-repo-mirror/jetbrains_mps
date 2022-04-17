@@ -37,13 +37,14 @@ public class CommandDataflowWithReturn_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1229350096076() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1229349840377");
-      SNode operation = getRealNodeById("1229350096076");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1229349840377");
+        SNode operation = getRealNodeById("1229350096076");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

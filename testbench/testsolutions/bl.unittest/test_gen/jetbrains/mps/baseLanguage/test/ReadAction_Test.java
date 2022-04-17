@@ -46,13 +46,14 @@ public class ReadAction_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1216549241562() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1216549152296");
-      SNode operation = getRealNodeById("1216549241562");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1216549152296");
+        SNode operation = getRealNodeById("1216549241562");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

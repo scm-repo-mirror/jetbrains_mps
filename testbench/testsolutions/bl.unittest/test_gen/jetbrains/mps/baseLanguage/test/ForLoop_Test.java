@@ -48,13 +48,14 @@ public class ForLoop_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199424() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1215444253196");
-      SNode operation = getRealNodeById("2501421320959199424");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1215444253196");
+        SNode operation = getRealNodeById("2501421320959199424");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

@@ -69,22 +69,24 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
       });
     }
     public void test_MatchingMenuForCurrentNode6903010549536714073() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("6903010549536713473");
-      SNode operation = getRealNodeById("6903010549536714073");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("6903010549536713473");
+        SNode operation = getRealNodeById("6903010549536714073");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
     public void test_NonMatchingMenuForCurrentNode6903010549536714075() throws Exception {
-      SNode nodeToCheck = getRealNodeById("6903010549536712731");
-      SNode operation = getRealNodeById("6903010549536714075");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("6903010549536712731");
+        SNode operation = getRealNodeById("6903010549536714075");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
     private static SNode createSNodeType_sxmjox_a0a0a0a0a0b0d8() {

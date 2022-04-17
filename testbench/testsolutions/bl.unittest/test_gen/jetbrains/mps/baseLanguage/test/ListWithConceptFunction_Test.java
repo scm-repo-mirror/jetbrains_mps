@@ -37,13 +37,14 @@ public class ListWithConceptFunction_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1222443330005() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1222443280871");
-      SNode operation = getRealNodeById("1222443330005");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1222443280871");
+        SNode operation = getRealNodeById("1222443330005");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

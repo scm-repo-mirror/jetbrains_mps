@@ -37,13 +37,14 @@ public class ForBreakUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck9092976468699800071() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("9092976468699800032");
-      SNode operation = getRealNodeById("9092976468699800071");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("9092976468699800032");
+        SNode operation = getRealNodeById("9092976468699800071");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

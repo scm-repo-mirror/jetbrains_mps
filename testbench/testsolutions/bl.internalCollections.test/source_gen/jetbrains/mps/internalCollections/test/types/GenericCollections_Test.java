@@ -37,13 +37,14 @@ public class GenericCollections_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck6699137465481874845() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("6699137465481734232");
-      SNode operation = getRealNodeById("6699137465481874845");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("6699137465481734232");
+        SNode operation = getRealNodeById("6699137465481874845");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

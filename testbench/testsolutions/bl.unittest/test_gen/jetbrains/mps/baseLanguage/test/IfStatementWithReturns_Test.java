@@ -37,13 +37,14 @@ public class IfStatementWithReturns_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1220013512724() throws Exception {
-      final SNode nodeToCheck = getRealNodeById("1220013400783");
-      SNode operation = getRealNodeById("1220013512724");
-
       runWithinCommand(() -> {
       });
 
-      runWithinCommand(() -> new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run());
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("1220013400783");
+        SNode operation = getRealNodeById("1220013512724");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }
