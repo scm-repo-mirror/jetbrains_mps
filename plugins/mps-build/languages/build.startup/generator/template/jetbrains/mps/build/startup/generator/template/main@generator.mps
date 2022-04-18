@@ -2684,20 +2684,21 @@
     <node concept="2DRAP_" id="4eWOtEm1b1N" role="2DRAPQ">
       <property role="2DPR8u" value="IF EXIST &quot;%JRE%\jre&quot; SET JRE=%JDK%\jre" />
     </node>
-    <node concept="2DRAP_" id="4eWOtEm1ciI" role="2DRAPQ">
-      <property role="2DPR8u" value="IF EXIST &quot;%JRE%\lib\amd64&quot; (" />
+    <node concept="2DRAP_" id="3MPxqbC2T3D" role="2DRAPQ" />
+    <node concept="2DRAP_" id="3MPxqbC2IRD" role="2DRAPQ">
+      <property role="2DPR8u" value="SET BITS=" />
     </node>
-    <node concept="2DRAP_" id="2XRBtU2et_1" role="2DRAPQ">
-      <property role="2DPR8u" value="  SET BITS=64" />
+    <node concept="2DRAP_" id="3MPxqbC2KNC" role="2DRAPQ">
+      <property role="2DPR8u" value="FINDSTR /B /C:&quot;OS_ARCH=\&quot;x86_64\&quot;&quot; &quot;%JRE%\release&quot; &gt; NUL" />
     </node>
-    <node concept="2DRAP_" id="1w81suLSqse" role="2DRAPQ">
-      <property role="2DPR8u" value=") ELSE (" />
+    <node concept="2DRAP_" id="3MPxqbC2M_w" role="2DRAPQ">
+      <property role="2DPR8u" value="IF NOT ERRORLEVEL 1 SET BITS=64" />
     </node>
-    <node concept="2DRAP_" id="2XRBtU2euU1" role="2DRAPQ">
-      <property role="2DPR8u" value="  IF EXIST &quot;%JRE%\bin\windowsaccessbridge-64.dll&quot; SET BITS=64" />
+    <node concept="2DRAP_" id="3MPxqbC2OiA" role="2DRAPQ">
+      <property role="2DPR8u" value="FINDSTR /B /C:&quot;OS_ARCH=\&quot;amd64\&quot;&quot; &quot;%JRE%\release&quot; &gt; NUL" />
     </node>
-    <node concept="2DRAP_" id="2XRBtU2evEo" role="2DRAPQ">
-      <property role="2DPR8u" value=")" />
+    <node concept="2DRAP_" id="3MPxqbC2PWI" role="2DRAPQ">
+      <property role="2DPR8u" value="IF NOT ERRORLEVEL 1 SET BITS=64" />
     </node>
     <node concept="2DRAP_" id="2XRBtU2esOG" role="2DRAPQ" />
     <node concept="2DRAP_" id="4eWOtElZXuB" role="2DRAPQ">
@@ -3560,12 +3561,6 @@
     <node concept="2DRAP_" id="hoHCGhwkkX" role="2DRAPQ">
       <property role="2DPR8u" value="DIRNAME=$(command -v dirname)" />
     </node>
-    <node concept="2DRAP_" id="6bEF3_KQOqv" role="2DRAPQ">
-      <property role="2DPR8u" value="MKTEMP=$(command -v mktemp)" />
-    </node>
-    <node concept="2DRAP_" id="6bEF3_KQPyQ" role="2DRAPQ">
-      <property role="2DPR8u" value="RM=$(command -v rm)" />
-    </node>
     <node concept="2DRAP_" id="1SWE651AgzL" role="2DRAPQ">
       <property role="2DPR8u" value="CAT=$(command -v cat)" />
     </node>
@@ -3574,7 +3569,7 @@
     </node>
     <node concept="2DRAP_" id="1SWE651AigQ" role="2DRAPQ" />
     <node concept="2DRAP_" id="1SWE651Ai$1" role="2DRAPQ">
-      <property role="2DPR8u" value="if [ -z &quot;$UNAME&quot; ] || [ -z &quot;$GREP&quot; ] || [ -z &quot;$CUT&quot; ] || [ -z &quot;$DIRNAME&quot; ] || [ -z &quot;$MKTEMP&quot; ] || [ -z &quot;$RM&quot; ] || [ -z &quot;$CAT&quot; ] || [ -z &quot;$SED&quot; ]; then" />
+      <property role="2DPR8u" value="if [ -z &quot;$UNAME&quot; ] || [ -z &quot;$GREP&quot; ] || [ -z &quot;$CUT&quot; ] || [ -z &quot;$DIRNAME&quot; ] || [ -z &quot;$CAT&quot; ] || [ -z &quot;$SED&quot; ]; then" />
     </node>
     <node concept="2DRAP_" id="1SWE651AiRd" role="2DRAPQ">
       <property role="2DPR8u" value="  message &quot;Required tools are missing - check beginning of \&quot;$0\&quot; file for details.&quot;" />
@@ -4352,25 +4347,10 @@
       <property role="2DPR8u" value="fi" />
     </node>
     <node concept="2DRAP_" id="hoHCGht8gm" role="2DRAPQ" />
-    <node concept="2DRAP_" id="2lwFGYPiQ2J" role="2DRAPQ">
-      <property role="2DPR8u" value="VERSION_LOG=$(&quot;$MKTEMP&quot; -t java.version.log.XXXXXX)" />
+    <node concept="2DRAP_" id="3MPxqbC2fiE" role="2DRAPQ">
+      <property role="2DPR8u" value="&quot;$GREP&quot; -q -E -e &quot;OS_ARCH=\&quot;(x86_64|amd64)\&quot;&quot; &quot;$JDK/release&quot; 2&gt; /dev/null &amp;&amp; BITS=&quot;64&quot; || BITS=&quot;&quot;" />
     </node>
-    <node concept="2DRAP_" id="2lwFGYPiQQW" role="2DRAPQ">
-      <property role="2DPR8u" value="JAVA_TOOL_OPTIONS='' &quot;$JAVA_BIN&quot; -version 2&gt; &quot;$VERSION_LOG&quot;" />
-    </node>
-    <node concept="2DRAP_" id="2lwFGYPiRFm" role="2DRAPQ">
-      <property role="2DPR8u" value="&quot;$GREP&quot; &quot;64-Bit|x86_64|amd64&quot; &quot;$VERSION_LOG&quot; &gt; /dev/null" />
-    </node>
-    <node concept="2DRAP_" id="2lwFGYPiSvL" role="2DRAPQ">
-      <property role="2DPR8u" value="BITS=$?" />
-    </node>
-    <node concept="2DRAP_" id="2lwFGYPiTkd" role="2DRAPQ">
-      <property role="2DPR8u" value="&quot;$RM&quot; -f &quot;$VERSION_LOG&quot;" />
-    </node>
-    <node concept="2DRAP_" id="BsOHnjm8X6" role="2DRAPQ">
-      <property role="2DPR8u" value="test ${BITS} -eq 0 &amp;&amp; BITS=&quot;64&quot; || BITS=&quot;&quot;" />
-    </node>
-    <node concept="2DRAP_" id="2lwFGYPiVF1" role="2DRAPQ" />
+    <node concept="2DRAP_" id="3MPxqbC2iir" role="2DRAPQ" />
     <node concept="2DRAP_" id="7C7qUK4sR7A" role="2DRAPQ">
       <property role="2DPR8u" value="# ---------------------------------------------------------------------" />
     </node>
