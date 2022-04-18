@@ -180,7 +180,6 @@
       <concept id="1167756221419" name="jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_templatePropertyValue" flags="nn" index="3zGtF$" />
       <concept id="1167951910403" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery" flags="in" index="3JmXsc" />
       <concept id="1118786554307" name="jetbrains.mps.lang.generator.structure.LoopMacro" flags="ln" index="1WS0z7">
-        <property id="7430509679011668804" name="counterVarName" index="1qytDF" />
         <child id="1167952069335" name="sourceNodesQuery" index="3Jn$fo" />
       </concept>
     </language>
@@ -4087,15 +4086,6 @@
         </node>
       </node>
     </node>
-    <node concept="2DRAP_" id="BsOHnjlQtL" role="2DRAPQ">
-      <property role="2DPR8u" value="  if [ ! -d &quot;$USER_JRE&quot; ]; then" />
-    </node>
-    <node concept="2DRAP_" id="BsOHnjlRuS" role="2DRAPQ">
-      <property role="2DPR8u" value="    USER_JRE=&quot;$IDE_HOME/$USER_JRE&quot;" />
-    </node>
-    <node concept="2DRAP_" id="BsOHnjlPsF" role="2DRAPQ">
-      <property role="2DPR8u" value="  fi" />
-    </node>
     <node concept="2DRAP_" id="3O4ms4tAo_J" role="2DRAPQ">
       <property role="2DPR8u" value="  if [ -x &quot;$USER_JRE/bin/java&quot; ]; then" />
     </node>
@@ -4839,27 +4829,6 @@
     <node concept="2DRAP_" id="BsOHnjmChX" role="2DRAPQ">
       <property role="2DPR8u" value="  VM_OPTIONS=$(&quot;$CAT&quot; &quot;$VM_OPTIONS_FILE&quot; | &quot;$GREP&quot; -v &quot;^#.*&quot;)" />
     </node>
-    <node concept="2DRAP_" id="3O4ms4uhex$" role="2DRAPQ">
-      <property role="2DPR8u" value="  if { echo &quot;$VM_OPTIONS&quot; | &quot;$GREP&quot; -q &quot;agentlib:yjpagent&quot; - ; }; then" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhgyK" role="2DRAPQ">
-      <property role="2DPR8u" value="    if [ &quot;$OS_TYPE&quot; = &quot;Linux&quot; ]; then" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhizX" role="2DRAPQ">
-      <property role="2DPR8u" value="      VM_OPTIONS=$(echo &quot;$VM_OPTIONS&quot; | &quot;$SED&quot; -e &quot;s|-agentlib:yjpagent\(-linux\)\?\([^=]*\)|-agentpath:$IDE_BIN_HOME/libyjpagent-linux\2.so|&quot;)" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhjto" role="2DRAPQ">
-      <property role="2DPR8u" value="    else" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhluB" role="2DRAPQ">
-      <property role="2DPR8u" value="      VM_OPTIONS=$(echo &quot;$VM_OPTIONS&quot; | &quot;$SED&quot; -e &quot;s|-agentlib:yjpagent[^ ]*||&quot;)" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhmo4" role="2DRAPQ">
-      <property role="2DPR8u" value="    fi" />
-    </node>
-    <node concept="2DRAP_" id="3O4ms4uhopl" role="2DRAPQ">
-      <property role="2DPR8u" value="  fi" />
-    </node>
     <node concept="2DRAP_" id="7C7qUK4t34P" role="2DRAPQ">
       <property role="2DPR8u" value="else" />
     </node>
@@ -4873,7 +4842,6 @@
     <node concept="2DRAP_" id="3T7P3nAar1X" role="2DRAPQ">
       <property role="2DPR8u" value="CLASSPATH=&quot;$CLASSPATH:$IDE_HOME/" />
       <node concept="1WS0z7" id="3T7P3nAar6W" role="lGtFl">
-        <property role="1qytDF" value="" />
         <node concept="3JmXsc" id="3T7P3nAar6Z" role="3Jn$fo">
           <node concept="3clFbS" id="3T7P3nAar70" role="2VODD2">
             <node concept="3clFbF" id="3T7P3nAar76" role="3cqZAp">
