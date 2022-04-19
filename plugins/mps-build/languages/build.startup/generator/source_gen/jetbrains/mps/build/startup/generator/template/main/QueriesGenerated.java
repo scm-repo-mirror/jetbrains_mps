@@ -146,11 +146,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getTemplateValue() + MpsStartupScript__BehaviorDescriptor.getIdeaPathSelector_idBsOHnja5fe.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_2_2(final PropertyMacroContext _context) {
-    if ((SLinkOperations.getTarget(_context.getNode(), LINKS.branding$Eg1g) == null)) {
-      return _context.getTemplateValue();
-    }
-
-    return String.format("SET PRODUCT=\"%s\"", BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.branding$Eg1g), LINKS.product$RfQu), null));
+    return String.format(_context.getTemplateValue(), ((SLinkOperations.getTarget(_context.getNode(), LINKS.branding$Eg1g) == null) ? "MPS" : BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.branding$Eg1g), LINKS.product$RfQu), null)));
   }
   public static Object propertyMacro_GetValue_2_3(final PropertyMacroContext _context) {
     if ((SLinkOperations.getTarget(_context.getNode(), LINKS.branding$Eg1g) == null)) {
@@ -440,7 +436,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("8979762117546982097", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value"), "$APP_PACKAGE/Contents"));
     pvqMethods.put("4881006832912335166", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), ":: JetBrains MPS startup script."));
     pvqMethods.put("8793115184017727021", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), "SET IDEA_PATHS_SELECTOR="));
-    pvqMethods.put("2137654190566847662", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), "SET PRODUCT=\"MPS\""));
+    pvqMethods.put("2137654190566847662", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), "SET PRODUCT=%s"));
     pvqMethods.put("2604223389424352130", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), "  echo    You are trying to run MPS from generic distribution"));
     pvqMethods.put("2604223389424353193", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), "  echo and then run mps.bat from there"));
     pvqMethods.put("4881006832912615439", new PVQ(i++, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), ":: Try (in order): MPS_JDK, mps%BITS%.exe.jdk, ..\\jre, JDK_HOME, JAVA_HOME."));

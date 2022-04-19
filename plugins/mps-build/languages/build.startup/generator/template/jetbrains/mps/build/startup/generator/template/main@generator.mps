@@ -1921,51 +1921,46 @@
       </node>
     </node>
     <node concept="2DRAP_" id="1QEui$pn7AZ" role="2DRAPQ">
-      <property role="2DPR8u" value="SET PRODUCT=&quot;MPS&quot;" />
+      <property role="2DPR8u" value="SET PRODUCT=%s" />
       <node concept="17Uvod" id="1QEui$pnbiI" role="lGtFl">
         <property role="2qtEX9" value="text" />
         <property role="P4ACc" value="d5033cee-f632-44b6-b308-89d4fbde34ff/1731640411964205218/1731640411964798937" />
         <node concept="3zFVjK" id="1QEui$pnbiJ" role="3zH0cK">
           <node concept="3clFbS" id="1QEui$pnbiK" role="2VODD2">
-            <node concept="3clFbJ" id="1QEui$pne$T" role="3cqZAp">
-              <node concept="3clFbS" id="1QEui$pne$U" role="3clFbx">
-                <node concept="3cpWs6" id="1QEui$pne$V" role="3cqZAp">
-                  <node concept="3zGtF$" id="1QEui$pne$W" role="3cqZAk" />
-                </node>
-              </node>
-              <node concept="2OqwBi" id="1QEui$pne$X" role="3clFbw">
-                <node concept="2OqwBi" id="1QEui$pne$Y" role="2Oq$k0">
-                  <node concept="30H73N" id="1QEui$pne$Z" role="2Oq$k0" />
-                  <node concept="3TrEf2" id="1QEui$pne_0" role="2OqNvi">
-                    <ref role="3Tt5mk" to="s7om:32A7APlXEJ9" resolve="branding" />
-                  </node>
-                </node>
-                <node concept="3w_OXm" id="1QEui$pne_1" role="2OqNvi" />
-              </node>
-            </node>
-            <node concept="3clFbH" id="1QEui$pne_2" role="3cqZAp" />
-            <node concept="3clFbF" id="1QEui$pne_3" role="3cqZAp">
-              <node concept="2YIFZM" id="1QEui$pne_4" role="3clFbG">
-                <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
-                <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
-                <node concept="Xl_RD" id="1QEui$pne_5" role="37wK5m">
-                  <property role="Xl_RC" value="SET PRODUCT=\&quot;%s\&quot;" />
-                </node>
-                <node concept="2OqwBi" id="1QEui$pne_6" role="37wK5m">
-                  <node concept="2OqwBi" id="1QEui$pne_7" role="2Oq$k0">
-                    <node concept="2OqwBi" id="1QEui$pne_8" role="2Oq$k0">
-                      <node concept="30H73N" id="1QEui$pne_9" role="2Oq$k0" />
-                      <node concept="3TrEf2" id="1QEui$pne_a" role="2OqNvi">
-                        <ref role="3Tt5mk" to="s7om:32A7APlXEJ9" resolve="branding" />
+            <node concept="3clFbF" id="1_qxE7kNM52" role="3cqZAp">
+              <node concept="2OqwBi" id="1_qxE7kNMW4" role="3clFbG">
+                <node concept="3zGtF$" id="1_qxE7kNM51" role="2Oq$k0" />
+                <node concept="2cAKMz" id="1_qxE7kNNKe" role="2OqNvi">
+                  <node concept="3K4zz7" id="1_qxE7kNPp0" role="2cAKU6">
+                    <node concept="Xl_RD" id="1_qxE7kNPtd" role="3K4E3e">
+                      <property role="Xl_RC" value="MPS" />
+                    </node>
+                    <node concept="2OqwBi" id="1QEui$pne$X" role="3K4Cdx">
+                      <node concept="2OqwBi" id="1QEui$pne$Y" role="2Oq$k0">
+                        <node concept="30H73N" id="1QEui$pne$Z" role="2Oq$k0" />
+                        <node concept="3TrEf2" id="1QEui$pne_0" role="2OqNvi">
+                          <ref role="3Tt5mk" to="s7om:32A7APlXEJ9" resolve="branding" />
+                        </node>
+                      </node>
+                      <node concept="3w_OXm" id="1QEui$pne_1" role="2OqNvi" />
+                    </node>
+                    <node concept="2OqwBi" id="1QEui$pne_6" role="3K4GZi">
+                      <node concept="2OqwBi" id="1QEui$pne_7" role="2Oq$k0">
+                        <node concept="2OqwBi" id="1QEui$pne_8" role="2Oq$k0">
+                          <node concept="30H73N" id="1QEui$pne_9" role="2Oq$k0" />
+                          <node concept="3TrEf2" id="1QEui$pne_a" role="2OqNvi">
+                            <ref role="3Tt5mk" to="s7om:32A7APlXEJ9" resolve="branding" />
+                          </node>
+                        </node>
+                        <node concept="3TrEf2" id="1QEui$pne_b" role="2OqNvi">
+                          <ref role="3Tt5mk" to="kdzh:5j4USBYGz2J" resolve="product" />
+                        </node>
+                      </node>
+                      <node concept="2qgKlT" id="1QEui$pne_c" role="2OqNvi">
+                        <ref role="37wK5l" to="vbkb:3NagsOfTioI" resolve="getText" />
+                        <node concept="10Nm6u" id="1QEui$pne_d" role="37wK5m" />
                       </node>
                     </node>
-                    <node concept="3TrEf2" id="1QEui$pne_b" role="2OqNvi">
-                      <ref role="3Tt5mk" to="kdzh:5j4USBYGz2J" resolve="product" />
-                    </node>
-                  </node>
-                  <node concept="2qgKlT" id="1QEui$pne_c" role="2OqNvi">
-                    <ref role="37wK5l" to="vbkb:3NagsOfTioI" resolve="getText" />
-                    <node concept="10Nm6u" id="1QEui$pne_d" role="37wK5m" />
                   </node>
                 </node>
               </node>
