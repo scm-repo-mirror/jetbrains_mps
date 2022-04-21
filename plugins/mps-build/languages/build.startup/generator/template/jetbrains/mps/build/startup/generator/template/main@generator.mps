@@ -3017,17 +3017,17 @@
     <node concept="2DRAP_" id="3MPxqbC64Rf" role="2DRAPQ">
       <property role="2DPR8u" value=")" />
     </node>
-    <node concept="2DRAP_" id="3MPxqbC66y$" role="2DRAPQ">
-      <property role="2DPR8u" value="IF &quot;%VM_OPTIONS_FILE%&quot; == &quot;&quot; (" />
-    </node>
     <node concept="2DRAP_" id="3MPxqbC6OBr" role="2DRAPQ">
-      <property role="2DPR8u" value="  :: custom value from MPS team to reduce typo risk" />
+      <property role="2DPR8u" value=":: custom value from MPS team to reduce typo risk" />
     </node>
     <node concept="2DRAP_" id="3MPxqbC6Xdp" role="2DRAPQ">
-      <property role="2DPR8u" value="  SET &quot;VMOPTIONS_FNAME=%PRODUCT%%BITS%.exe.vmoptions&quot;" />
+      <property role="2DPR8u" value="SET &quot;VMOPTIONS_FNAME=%PRODUCT%%BITS%.exe.vmoptions&quot;" />
     </node>
     <node concept="2DRAP_" id="3MPxqbC6QEG" role="2DRAPQ">
-      <property role="2DPR8u" value="  ::" />
+      <property role="2DPR8u" value="::" />
+    </node>
+    <node concept="2DRAP_" id="3MPxqbC66y$" role="2DRAPQ">
+      <property role="2DPR8u" value="IF &quot;%VM_OPTIONS_FILE%&quot; == &quot;&quot; (" />
     </node>
     <node concept="2DRAP_" id="3MPxqbC6kSr" role="2DRAPQ">
       <property role="2DPR8u" value="  :: 2. &lt;IDE_HOME&gt;\bin\[win\]&lt;exe_name&gt;.vmoptions ..." />

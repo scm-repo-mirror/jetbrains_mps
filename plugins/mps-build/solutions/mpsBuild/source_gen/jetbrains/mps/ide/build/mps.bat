@@ -88,10 +88,10 @@ IF NOT "%MPS_VM_OPTIONS%" == "" (
   :: 1. %<IDE_NAME>_VM_OPTIONS%
   IF EXIST "%MPS_VM_OPTIONS%" SET "VM_OPTIONS_FILE=%MPS_VM_OPTIONS%"
 )
+:: custom value from MPS team to reduce typo risk
+SET "VMOPTIONS_FNAME=%PRODUCT%%BITS%.exe.vmoptions"
+::
 IF "%VM_OPTIONS_FILE%" == "" (
-  :: custom value from MPS team to reduce typo risk
-  SET "VMOPTIONS_FNAME=%PRODUCT%%BITS%.exe.vmoptions"
-  ::
   :: 2. <IDE_HOME>\bin\[win\]<exe_name>.vmoptions ...
   IF EXIST "%IDE_BIN_DIR%\%VMOPTIONS_FNAME%" (
     SET "VM_OPTIONS_FILE=%IDE_BIN_DIR%\%VMOPTIONS_FNAME%"
