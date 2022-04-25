@@ -9,6 +9,7 @@ import jetbrains.mps.project.MPSProject;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.JComponent;
+import com.intellij.openapi.ui.ValidationInfo;
 import java.io.File;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.project.ProjectKt;
@@ -42,7 +43,16 @@ public class NewModuleDialog<T extends SModule> extends DialogWrapper {
   @Override
   public void show() {
     init();
+    check();
     super.show();
+  }
+
+  @Override
+  protected boolean continuousValidation() {
+    // AFAIK, by default DialogWrapper checks validity (with doValidate()) periodically. 
+    // I decided to stick to on-demand check as it used to be. 
+    // Perhaps, eventually may switch to ComponentValidator and errors reported against individual fields.
+    return false;
   }
 
   @Nullable
@@ -64,14 +74,21 @@ public class NewModuleDialog<T extends SModule> extends DialogWrapper {
     return myValues;
   }
 
-  protected void check() {
-    if (myCheckCode == null) {
-      setErrorText(null);
+
+  @Nullable
+  @Override
+  protected ValidationInfo doValidate() {
+    String err = (myCheckCode == null ? null : myCheckCode.get());
+    if (err == null) {
+      return null;
     } else {
-      String err = myCheckCode.get();
-      setErrorText(err);
-      setOKActionEnabled(err == null);
+      return new ValidationInfo(err);
     }
+  }
+
+  protected void check() {
+    // Didn't find proper doc, but seems that initValidation() is the way to go when continuousValidation()==false
+    initValidation();
   }
 
 
