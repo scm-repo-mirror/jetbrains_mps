@@ -17,7 +17,6 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import java.util.Collections;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import java.util.Map;
@@ -26,9 +25,8 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/6803901086853929087", model = "r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)")
 public class ErrorReportHelper {
@@ -58,18 +56,12 @@ public class ErrorReportHelper {
   }
 
   public Iterable<SNode> getActiveSuppressors(final SNode node, final NodeReportItem reportItem) {
-    Iterable<SNode> possibleAncestors = ListSequence.fromList(getNodeAttributes(node)).concat(Sequence.fromIterable(Sequence.<SNode>singleton(node))).concat(ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).translate(new ITranslator2<SNode, SNode>() {
-      public Iterable<SNode> translate(SNode ancestor) {
-        if (SNodeOperations.getParent(ancestor) == null) {
-          return Sequence.fromIterable(Collections.<SNode>emptyList());
-        } else if (SNodeOperations.hasRole(ancestor, LINKS.smodelAttribute$KJ43)) {
-          return Sequence.<SNode>singleton(SNodeOperations.getParent(ancestor));
-        } else {
-          return ListSequence.fromList(getNodeAttributes(SNodeOperations.getParent(ancestor))).concat(Sequence.fromIterable(Sequence.<SNode>singleton(SNodeOperations.getParent(ancestor))));
-        }
+    Iterable<SNode> possibleSuppressors = ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).translate(new ITranslator2<SNode, SNode>() {
+      public Iterable<SNode> translate(SNode a) {
+        return ListSequence.fromList(getNodeAttributes(a)).concat(Sequence.fromIterable(Sequence.<SNode>singleton(a)));
       }
-    }));
-    return Sequence.fromIterable(SNodeOperations.ofConcept(possibleAncestors, CONCEPTS.ISuppressErrors$qB)).where(new IWhereFilter<SNode>() {
+    });
+    return Sequence.fromIterable(SNodeOperations.ofConcept(possibleSuppressors, CONCEPTS.ISuppressErrors$qB)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode attr) {
         boolean res = false;
         try {
@@ -91,10 +83,6 @@ public class ErrorReportHelper {
       MapSequence.fromMap(cachedNodeAttributes).put(node, ListSequence.fromListWithValues(new ArrayList<SNode>(), new IAttributeDescriptor.AllAttributes().list(node)));
     }
     return MapSequence.fromMap(cachedNodeAttributes).get(node);
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink smodelAttribute$KJ43 = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 
   private static final class CONCEPTS {
