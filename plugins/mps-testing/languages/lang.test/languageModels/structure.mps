@@ -429,6 +429,12 @@
       <property role="TrG5h" value="needsNoWriteAction" />
       <property role="IQ2nx" value="6339244025081158986" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="2hh8MJdVahQ" role="lGtFl" />
+    </node>
+    <node concept="1TJgyi" id="2hh8MJdUWcZ" role="1TKVEl">
+      <property role="IQ2nx" value="2616911529524314943" />
+      <property role="TrG5h" value="accessMode" />
+      <ref role="AX2Wp" node="2hh8MJdVwqS" resolve="ExecutionModelAccessMode" />
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJSw" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/nodesTest.png" />
@@ -1562,6 +1568,23 @@
   <node concept="PlHQZ" id="1Zcerrmzb_y">
     <property role="EcuMT" value="2291269767871117666" />
     <property role="TrG5h" value="TestProjectAware" />
+  </node>
+  <node concept="25R3W" id="2hh8MJdVwqS">
+    <property role="3F6X1D" value="2616911529524463288" />
+    <property role="TrG5h" value="ExecutionModelAccessMode" />
+    <ref role="1H5jkz" node="2hh8MJdVwqT" resolve="none" />
+    <node concept="25R33" id="2hh8MJdVwqT" role="25R1y">
+      <property role="3tVfz5" value="2616911529524463289" />
+      <property role="TrG5h" value="none" />
+    </node>
+    <node concept="25R33" id="2hh8MJdVwqU" role="25R1y">
+      <property role="3tVfz5" value="2616911529524463290" />
+      <property role="TrG5h" value="read" />
+    </node>
+    <node concept="25R33" id="2hh8MJdVwqX" role="25R1y">
+      <property role="3tVfz5" value="2616911529524463293" />
+      <property role="TrG5h" value="command" />
+    </node>
   </node>
 </model>
 

@@ -36,6 +36,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptPrepareMethod = createDescriptorForPrepareMethod();
   /*package*/ final ConceptDescriptor myConceptTestMethod = createDescriptorForTestMethod();
   /*package*/ final ConceptDescriptor myConceptTestMethodList = createDescriptorForTestMethodList();
+  /*package*/ final ConceptDescriptor myConcepttest = createDescriptorFortest();
+  /*package*/ final ConceptDescriptor myConcepttestImpl = createDescriptorFortestImpl();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -52,7 +54,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAfterTest, myConceptAssertEquals, myConceptAssertFalse, myConceptAssertIsNotNull, myConceptAssertIsNull, myConceptAssertSame, myConceptAssertThrows, myConceptAssertTrue, myConceptBTestCase, myConceptBeforeTest, myConceptBinaryAssert, myConceptFail, myConceptITestCase, myConceptITestMethod, myConceptITestable, myConceptMessage, myConceptMessageHolder, myConceptPrepareMethod, myConceptTestMethod, myConceptTestMethodList);
+    return Arrays.asList(myConceptAfterTest, myConceptAssertEquals, myConceptAssertFalse, myConceptAssertIsNotNull, myConceptAssertIsNull, myConceptAssertSame, myConceptAssertThrows, myConceptAssertTrue, myConceptBTestCase, myConceptBeforeTest, myConceptBinaryAssert, myConceptFail, myConceptITestCase, myConceptITestMethod, myConceptITestable, myConceptMessage, myConceptMessageHolder, myConceptPrepareMethod, myConceptTestMethod, myConceptTestMethodList, myConcepttest, myConcepttestImpl);
   }
 
   @Override
@@ -99,6 +101,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptTestMethod;
       case LanguageConceptSwitch.TestMethodList:
         return myConceptTestMethodList;
+      case LanguageConceptSwitch.test:
+        return myConcepttest;
+      case LanguageConceptSwitch.testImpl:
+        return myConcepttestImpl;
       default:
         return null;
     }
@@ -330,6 +336,22 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)/1171931858461");
     b.version(3);
     b.aggregate("testMethod", 0x110dc95061eL).target(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110dc92748eL).optional(true).ordered(true).multiple(true).origin("1171931858462").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorFortest() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.baseLanguage.unitTest", "test", 0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x7cb70b1d3df15d4L);
+    b.class_(false, true, false);
+    b.origin("r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)/561666487603893716");
+    b.version(3);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorFortestImpl() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.baseLanguage.unitTest", "testImpl", 0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x7cb70b1d3e052f6L);
+    b.class_(false, false, false);
+    // extends: jetbrains.mps.baseLanguage.unitTest.structure.test
+    b.super_(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x7cb70b1d3df15d4L);
+    b.origin("r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)/561666487603974902");
+    b.version(3);
     return b.create();
   }
 }

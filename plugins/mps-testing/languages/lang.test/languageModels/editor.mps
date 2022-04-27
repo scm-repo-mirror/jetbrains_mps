@@ -1912,6 +1912,9 @@
       <node concept="3EZMnI" id="5vTxdEzuMGJ" role="3EZMnx">
         <node concept="3F0ifn" id="5vTxdEzuMGK" role="3EZMnx">
           <property role="3F0ifm" value="Needs write action to run:" />
+          <node concept="3nxI2P" id="2hh8MJdXeHC" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
         </node>
         <node concept="2iRfu4" id="5vTxdEzuMGL" role="2iSdaV" />
         <node concept="XafU7" id="3AAOMCHeeWW" role="3EZMnx">
@@ -2057,6 +2060,18 @@
               </node>
             </node>
           </node>
+          <node concept="3nxI2P" id="2hh8MJdXePr" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+        </node>
+      </node>
+      <node concept="3EZMnI" id="2hh8MJdXcK6" role="3EZMnx">
+        <node concept="2iRfu4" id="2hh8MJdXcK7" role="2iSdaV" />
+        <node concept="3F0ifn" id="2hh8MJdXdis" role="3EZMnx">
+          <property role="3F0ifm" value="Model access mode:" />
+        </node>
+        <node concept="3F0A7n" id="2hh8MJdVC4n" role="3EZMnx">
+          <ref role="1NtTu8" to="tp5g:2hh8MJdUWcZ" resolve="accessMode" />
         </node>
       </node>
     </node>

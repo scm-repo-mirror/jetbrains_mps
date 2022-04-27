@@ -369,5 +369,16 @@
     <property role="EcuMT" value="8243879142738615226" />
     <ref role="1TJDcQ" to="tpee:gyVMwX8" resolve="ConceptFunction" />
   </node>
+  <node concept="1TIwiD" id="vbsb7jRLnk">
+    <property role="EcuMT" value="561666487603893716" />
+    <property role="TrG5h" value="test" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+  </node>
+  <node concept="1TIwiD" id="vbsb7jS5bQ">
+    <property role="EcuMT" value="561666487603974902" />
+    <property role="TrG5h" value="testImpl" />
+    <ref role="1TJDcQ" node="vbsb7jRLnk" resolve="test" />
+  </node>
 </model>
 

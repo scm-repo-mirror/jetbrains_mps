@@ -15,6 +15,68 @@
       <unit at="11,0,17,0" name="jetbrains.mps.lang.test.migration.MigrationDescriptor" />
     </file>
   </root>
+  <root nodeRef="r:d23dfab6-8d89-4872-a030-483768adf2c0(jetbrains.mps.lang.test.migration)/2616911529525180797">
+    <file name="ExecutionModeNodesTestCase.java">
+      <node id="2616911529525180797" at="21,0,22,0" concept="2" trace="description" />
+      <node id="2616911529525180797" at="22,30,23,23" concept="7" />
+      <node id="2616911529525180797" at="26,33,27,17" concept="7" />
+      <node id="2616911529525180797" at="29,41,30,17" concept="1" />
+      <node id="2616911529525180797" at="30,17,31,16" concept="7" />
+      <node id="2616911529525227124" at="34,5,35,64" concept="6" />
+      <node id="2616911529525227124" at="35,64,36,90" concept="6" />
+      <node id="2616911529525227124" at="38,52,39,36" concept="7" />
+      <node id="2616911529525185100" at="44,87,45,101" concept="1" />
+      <node id="2616911529525213369" at="46,18,47,98" concept="1" />
+      <node id="2616911529525180797" at="53,50,54,144" concept="7" />
+      <node id="2616911529525180797" at="58,0,59,0" concept="8" trace="NodesTestCase$nd" />
+      <node id="2616911529525180797" at="62,0,63,0" concept="8" trace="needsNoWriteAction$Edij" />
+      <node id="2616911529525180797" at="63,0,64,0" concept="8" trace="accessMode$uiyo" />
+      <node id="2616911529525212843" at="46,16,48,11" concept="0" />
+      <node id="2616911529525180797" at="22,0,25,0" concept="5" trace="getCaption#()Ljava/lang/String;" />
+      <node id="2616911529525227124" at="38,0,41,0" concept="5" trace="getDefaultSearchScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
+      <node id="2616911529525180797" at="53,0,56,0" concept="5" trace="getReference#()Ljetbrains/mps/lang/migration/runtime/base/MigrationScriptReference;" />
+      <node id="2616911529525180797" at="25,0,29,0" concept="5" trace="isRerunnable#()Z" />
+      <node id="2616911529525180797" at="29,0,33,0" concept="5" trace="execute#(Lorg/jetbrains/mps/openapi/module/SModule;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2616911529525227124" at="36,90,41,8" concept="6" />
+      <node id="2616911529525185093" at="43,39,48,11" concept="4" />
+      <node id="2616911529525185091" at="43,0,50,0" concept="5" trace="visit#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="2616911529525185074" at="41,8,50,9" concept="1" />
+      <node id="2616911529525227124" at="33,42,51,5" concept="0" />
+      <node id="2616911529525180797" at="33,0,53,0" concept="5" trace="doExecute#(Lorg/jetbrains/mps/openapi/module/SModule;)V" />
+      <scope id="2616911529525180797" at="22,30,23,23" />
+      <scope id="2616911529525180797" at="26,33,27,17" />
+      <scope id="2616911529525227124" at="38,52,39,36" />
+      <scope id="2616911529525185099" at="44,87,45,101" />
+      <scope id="2616911529525212844" at="46,18,47,98" />
+      <scope id="2616911529525180797" at="53,50,54,144" />
+      <scope id="2616911529525180797" at="29,41,31,16" />
+      <scope id="2616911529525180797" at="22,0,25,0" />
+      <scope id="2616911529525227124" at="38,0,41,0" />
+      <scope id="2616911529525180797" at="53,0,56,0" />
+      <scope id="2616911529525180797" at="25,0,29,0" />
+      <scope id="2616911529525180797" at="29,0,33,0">
+        <var name="m" id="2616911529525180797" />
+      </scope>
+      <scope id="2616911529525185092" at="43,39,48,11" />
+      <scope id="2616911529525185091" at="43,0,50,0">
+        <var name="node" id="2616911529525185091" />
+      </scope>
+      <scope id="2616911529525227124" at="34,5,50,9">
+        <var name="context" id="2616911529525227124" />
+        <var name="scope_l053oc_a0e" id="2616911529525227124" />
+        <var name="scope_l053oc_a0e_0" id="2616911529525227124" />
+      </scope>
+      <scope id="2616911529525180797" at="33,42,51,5" />
+      <scope id="2616911529525180797" at="33,0,53,0">
+        <var name="m" id="2616911529525180797" />
+      </scope>
+      <unit id="2616911529525180797" at="57,0,60,0" name="jetbrains.mps.lang.test.migration.ExecutionModeNodesTestCase$CONCEPTS" />
+      <unit id="2616911529525227124" at="37,42,41,7" name="jetbrains.mps.lang.test.migration.ExecutionModeNodesTestCase$1" />
+      <unit id="2616911529525180797" at="61,0,65,0" name="jetbrains.mps.lang.test.migration.ExecutionModeNodesTestCase$PROPS" />
+      <unit id="2616911529525185091" at="42,150,50,7" name="jetbrains.mps.lang.test.migration.ExecutionModeNodesTestCase$2" />
+      <unit id="2616911529525180797" at="20,0,66,0" name="jetbrains.mps.lang.test.migration.ExecutionModeNodesTestCase" />
+    </file>
+  </root>
   <root nodeRef="r:d23dfab6-8d89-4872-a030-483768adf2c0(jetbrains.mps.lang.test.migration)/284455749617423107">
     <file name="CheckNodeForErrors.java">
       <node id="284455749617423107" at="38,0,39,0" concept="2" trace="description" />

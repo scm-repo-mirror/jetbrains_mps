@@ -29,6 +29,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PrepareMethod;
   private ConceptPresentation props_TestMethod;
   private ConceptPresentation props_TestMethodList;
+  private ConceptPresentation props_test;
+  private ConceptPresentation props_testImpl;
 
   @Override
   @Nullable
@@ -95,7 +97,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_BTestCase == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a8b0v);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a8b0x);
           props_BTestCase = cpb.create();
         }
         return props_BTestCase;
@@ -170,6 +172,19 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_TestMethodList = cpb.create();
         }
         return props_TestMethodList;
+      case LanguageConceptSwitch.test:
+        if (props_test == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_test = cpb.create();
+        }
+        return props_test;
+      case LanguageConceptSwitch.testImpl:
+        if (props_testImpl == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("testImpl");
+          props_testImpl = cpb.create();
+        }
+        return props_testImpl;
     }
     return null;
   }
