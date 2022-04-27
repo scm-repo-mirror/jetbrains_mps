@@ -7,7 +7,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="b02ae39f-4c16-4545-8dfa-88df16804e7e" name="jetbrains.mps.lang.smodelTests" version="0" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
@@ -28,6 +28,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1216993439383" name="methods" index="1qtyYc" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
@@ -304,6 +305,7 @@
   </node>
   <node concept="1lH9Xt" id="7Ac3mvq_m$r">
     <property role="TrG5h" value="SNodeGetChildrenOperation" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="1SgqMXiuqAi" role="1qtyYc">
       <property role="TrG5h" value="addUnspecifiedChild" />
       <node concept="37vLTG" id="1SgqMXiuqAm" role="3clF46">
@@ -1133,6 +1135,7 @@
   </node>
   <node concept="1lH9Xt" id="2xk$X1Lbl_v">
     <property role="TrG5h" value="SNodeGetReferenceOperation" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="2xk$X1Lbl_A" role="1SL9yI">
       <property role="TrG5h" value="empty" />
       <node concept="3cqZAl" id="2xk$X1Lbl_B" role="3clF45" />
@@ -1544,6 +1547,7 @@
   </node>
   <node concept="1lH9Xt" id="2xk$X1LbP8u">
     <property role="TrG5h" value="SNodeGetReferencesOperation" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="2xk$X1LcD0H" role="1qtyYc">
       <property role="TrG5h" value="addUnspecifiedReference" />
       <node concept="37vLTG" id="2xk$X1LcD0I" role="3clF46">

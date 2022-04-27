@@ -11069,7 +11069,7 @@
                       <node concept="3clFbF" id="4AMCKbWT6sX" role="3cqZAp">
                         <node concept="37vLTI" id="4AMCKbWT6BF" role="3clFbG">
                           <node concept="37vLTw" id="6s5Rg4XmL1I" role="37vLTx">
-                            <ref role="3cqZAo" node="6s5Rg4XmL1E" resolve="node" />
+                            <ref role="3cqZAo" node="6s5Rg4XmL1E" resolve="lvd" />
                           </node>
                           <node concept="37vLTw" id="4AMCKbWT6sW" role="37vLTJ">
                             <ref role="3cqZAo" node="4AMCKbWReHa" resolve="inputSequenceDeclaration" />

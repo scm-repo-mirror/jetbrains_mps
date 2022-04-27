@@ -2,7 +2,7 @@
 <model ref="r:eb16dd70-ac3a-40ca-8c61-d7f237615dbf(messages.sandbox.mA@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="7cf7c95b-c81e-4da9-a056-45e480a7abd3" name="messages.customization" version="0" />
   </languages>
@@ -37,6 +37,7 @@
         <child id="8333855927548182241" name="errorRef" index="39rjcI" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -88,6 +89,7 @@
   </registry>
   <node concept="1lH9Xt" id="2Ew8zTEY7CQ">
     <property role="TrG5h" value="FeedbackPropConstraintsAreBroken" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2Ew8zTEY7CS" role="1SKRRt">
       <node concept="cMlWa" id="2Ew8zTEY7CR" role="1qenE9">
         <property role="TrG5h" value="AA" />
@@ -144,6 +146,7 @@
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0zR">
     <property role="TrG5h" value="FeedbackChildIsNotDefined" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInUtlG" role="1SKRRt">
       <node concept="3QzIQq" id="65DbCInUtlF" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -162,6 +165,7 @@
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0$4">
     <property role="TrG5h" value="FeedbackPropIsNotDefined" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInUtlL" role="1SKRRt">
       <node concept="3QzIQq" id="65DbCInUtlM" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -178,6 +182,7 @@
   </node>
   <node concept="1lH9Xt" id="2rz8PXlJKiz">
     <property role="TrG5h" value="FeedbackRefOutOfScope" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2rz8PXlJKi$" role="1SKRRt">
       <node concept="cMlWa" id="2rz8PXlJKi_" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -212,6 +217,7 @@
   </node>
   <node concept="1lH9Xt" id="65DbCInVpPy">
     <property role="TrG5h" value="FeedbackRefIsNotDefined" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInVqW5" role="1SKRRt">
       <node concept="3QzIQq" id="65DbCInVqW6" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -228,6 +234,7 @@
   </node>
   <node concept="1lH9Xt" id="65DbCInVC9A">
     <property role="TrG5h" value="FeedbackNoRefInObligatoryRole" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInVGrF" role="1SKRRt">
       <node concept="3Qw4bB" id="65DbCInVGD2" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -246,6 +253,7 @@
   </node>
   <node concept="1lH9Xt" id="65DbCInVGXA">
     <property role="TrG5h" value="FeedbackNoChildInObligatoryRole" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInVGXB" role="1SKRRt">
       <node concept="3Qw4bB" id="65DbCInVGXC" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -262,6 +270,7 @@
   </node>
   <node concept="1lH9Xt" id="65DbCInVGXO">
     <property role="TrG5h" value="FeedbackMultipleChildrenInSingleRole" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="65DbCInVGXP" role="1SKRRt">
       <node concept="3Qw4bB" id="65DbCInVGXQ" role="1qenE9">
         <property role="TrG5h" value="A" />
@@ -287,6 +296,7 @@
   </node>
   <node concept="1lH9Xt" id="6uBDHA8_7W">
     <property role="TrG5h" value="FeedbackIncorrectConceptInRole" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6uBDHA8LHS" role="1SKRRt">
       <node concept="1eZVc5" id="6uBDHA8LJ5" role="1qenE9">
         <property role="TrG5h" value="aux1" />

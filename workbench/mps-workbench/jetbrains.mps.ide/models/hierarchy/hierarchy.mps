@@ -3731,7 +3731,7 @@
                     <property role="2bfB8j" value="true" />
                     <property role="373rjd" value="true" />
                     <ref role="1Y3XeK" to="y49u:~Condition" resolve="Condition" />
-                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+                    <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
                     <node concept="3Tm1VV" id="Jpw4evep9Y" role="1B3o_S" />
                     <node concept="3clFb_" id="Jpw4evepac" role="jymVt">
                       <property role="TrG5h" value="met" />
@@ -3770,7 +3770,7 @@
                         </node>
                       </node>
                       <node concept="2AHcQZ" id="Jpw4evepak" role="2AJF6D">
-                        <ref role="2AI5Lk" to="wyt6:~Override" />
+                        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                       </node>
                     </node>
                     <node concept="3uibUv" id="Jpw4evepan" role="2Ghqu4">

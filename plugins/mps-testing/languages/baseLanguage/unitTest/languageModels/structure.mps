@@ -373,7 +373,7 @@
     <property role="EcuMT" value="561666487603893716" />
     <property role="TrG5h" value="test" />
     <property role="R5$K7" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="vbsb7jS5bQ">
     <property role="EcuMT" value="561666487603974902" />

@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="4eb772b0-4df3-414a-b894-63abeb912f56" name="jetbrains.mps.lang.editor.menus.testLanguage" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -98,6 +98,7 @@
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
       </concept>
@@ -1511,6 +1512,7 @@
   <node concept="1lH9Xt" id="478VZjcfCwL">
     <property role="TrG5h" value="FeaturesAndLocations" />
     <property role="3GE5qa" value="DesignTime" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="478VZjcfH3k" role="1SKRRt">
       <node concept="1Qtc8_" id="478VZjcfH3l" role="1qenE9">
         <node concept="IWgqT" id="478VZjcfH3m" role="1Qtc8A">
@@ -1802,6 +1804,7 @@
   <node concept="1lH9Xt" id="1RxYXnVXyhJ">
     <property role="TrG5h" value="NonexistentDefaultMenu" />
     <property role="3GE5qa" value="DesignTime" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1RxYXnVXz$e" role="1SKRRt">
       <node concept="3A5Wbc" id="1RxYXnVYpoz" role="1qenE9">
         <node concept="3A5S4R" id="1RxYXnVYpo$" role="3A5S36">
@@ -1826,6 +1829,7 @@
   <node concept="1lH9Xt" id="Vk$nhxzsTp">
     <property role="TrG5h" value="EditorCellMenuScopes" />
     <property role="3GE5qa" value="DesignTime" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="Vk$nhxzCx9" role="1SKRRt">
       <node concept="24kQdi" id="Vk$nhxzCxb" role="1qenE9">
         <ref role="1XX52x" to="wtc3:Vk$nhxzCwi" resolve="ScopesTestConceptBase" />
@@ -2030,6 +2034,7 @@
   <node concept="1lH9Xt" id="2mcvySy0$_d">
     <property role="TrG5h" value="Include_MenuAndTargetNodeCorrespondence" />
     <property role="3GE5qa" value="DesignTime" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="5ZcqSl_QO1a" role="1SL9yI">
       <property role="TrG5h" value="targetNodeForMenuShouldReturnMenuConcept" />
       <node concept="3cqZAl" id="5ZcqSl_QO1b" role="3clF45" />
@@ -2525,6 +2530,7 @@
   <node concept="1lH9Xt" id="71nXqLhl6By">
     <property role="TrG5h" value="IncludeDefaultMenu" />
     <property role="3GE5qa" value="DesignTime" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="71nXqLhl99S" role="1SKRRt">
       <node concept="mvV$s" id="71nXqLhl99U" role="1qenE9">
         <node concept="A1WHr" id="71nXqLhl99W" role="A14EM">

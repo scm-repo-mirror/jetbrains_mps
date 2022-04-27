@@ -2285,7 +2285,7 @@
       <ref role="3tTeZr" to="slm6:1JWcQ2VeXpD" resolve="check" />
     </node>
     <node concept="3uibUv" id="2hh8MJdYfAi" role="1zkMxy">
-      <ref role="3uigEE" to="slm6:5TUCQr2ybBO" />
+      <ref role="3uigEE" to="slm6:5TUCQr2ybBO" resolve="HasMigrationScriptReference" />
     </node>
   </node>
 </model>

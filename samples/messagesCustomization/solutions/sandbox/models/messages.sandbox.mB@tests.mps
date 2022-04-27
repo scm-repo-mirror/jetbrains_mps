@@ -2,7 +2,7 @@
 <model ref="r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="7cf7c95b-c81e-4da9-a056-45e480a7abd3" name="messages.customization" version="0" />
   </languages>
@@ -35,6 +35,7 @@
         <child id="8333855927548182241" name="errorRef" index="39rjcI" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -65,6 +66,7 @@
   </node>
   <node concept="1lH9Xt" id="2Ew8zTEYgwO">
     <property role="TrG5h" value="RulesCanBeChild1" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2Ew8zTEYgwP" role="1SKRRt">
       <node concept="cMlWa" id="2Ew8zTEYgwQ" role="1qenE9">
         <property role="TrG5h" value="B" />
@@ -127,6 +129,7 @@
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0Wb">
     <property role="TrG5h" value="RulesCanBeParent" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2rz8PXlK5mF" role="1SKRRt">
       <node concept="cMlWa" id="2rz8PXlK5mG" role="1qenE9">
         <property role="TrG5h" value="LALALA" />
@@ -154,6 +157,7 @@
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0Wv">
     <property role="TrG5h" value="RulesCanBeAncestor" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2rz8PXlK5ls" role="1SKRRt">
       <node concept="cMlWa" id="2rz8PXlK5lw" role="1qenE9">
         <property role="TrG5h" value="B" />
@@ -190,6 +194,7 @@
   </node>
   <node concept="1lH9Xt" id="2rz8PXlJKnc">
     <property role="TrG5h" value="_RulesCanBeChild2" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2rz8PXlJKnd" role="1SKRRt">
       <node concept="cMlWa" id="2rz8PXlJKne" role="1qenE9">
         <property role="TrG5h" value="B" />

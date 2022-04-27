@@ -2580,7 +2580,7 @@
     <property role="TrG5h" value="IsInstanceCondition" />
     <property role="34LRSv" value="is" />
     <property role="R4oN_" value="instance of check" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="571u0wtP$2x" role="1TKVEi">
       <property role="IQ2ns" value="5891121763832971425" />
       <property role="20kJfa" value="cls" />

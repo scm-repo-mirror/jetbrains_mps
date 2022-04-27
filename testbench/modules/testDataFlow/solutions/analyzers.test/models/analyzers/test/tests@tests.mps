@@ -4,7 +4,7 @@
   <languages>
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="b124c25e-1e16-4432-ad5e-0ac0ecae98f5" name="testCustomAnalyzer" version="0" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="3ac033a0-bffa-48e3-a843-a40cbdd89859" name="testExtendingAnalyzer" version="0" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
@@ -30,6 +30,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
       </concept>
@@ -170,6 +171,7 @@
   </registry>
   <node concept="1lH9Xt" id="7ez5JvPib_b">
     <property role="TrG5h" value="TestAnalyzerWithConstructorParameters" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7ez5JvPigUa" role="1SKRRt">
       <node concept="26Tpwz" id="7ez5JvPigUc" role="1qenE9">
         <property role="26UX6P" value="1" />
@@ -223,6 +225,7 @@
   <node concept="1lH9Xt" id="1eGlc3_m1cS">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="ExtendingNullableAnalyzer" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1eGlc3_m48d" role="1SKRRt">
       <node concept="312cEu" id="1eGlc3_m48g" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -290,6 +293,7 @@
   </node>
   <node concept="1lH9Xt" id="2$3McZ0VScA">
     <property role="TrG5h" value="TestProgramWithModeSpecified" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="2$3McZ0VSda" role="1SL9yI">
       <property role="TrG5h" value="testNonEmptyInstructionsWithModeSpecified" />
       <node concept="3cqZAl" id="2$3McZ0VSdb" role="3clF45" />
@@ -612,6 +616,7 @@
   </node>
   <node concept="1lH9Xt" id="2$3McZ0WOH3">
     <property role="TrG5h" value="TestAnalyzerWithModeSpecified" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2$3McZ0WOH4" role="1SKRRt">
       <node concept="26Tpwz" id="2$3McZ0WOH5" role="1qenE9">
         <property role="26UX6P" value="-100" />
@@ -649,6 +654,7 @@
   </node>
   <node concept="1lH9Xt" id="68XlVg3ZESP">
     <property role="TrG5h" value="TestProgramWithMoreSpecificMode" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="68XlVg3ZESQ" role="1SL9yI">
       <property role="TrG5h" value="testLessSpecificMode" />
       <node concept="3cqZAl" id="68XlVg3ZESR" role="3clF45" />

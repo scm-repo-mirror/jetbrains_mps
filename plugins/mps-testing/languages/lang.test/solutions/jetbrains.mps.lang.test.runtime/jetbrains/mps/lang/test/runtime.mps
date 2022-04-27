@@ -1894,7 +1894,7 @@
       <node concept="37vLTG" id="ZcWKOigHmL" role="3clF46">
         <property role="TrG5h" value="r" />
         <node concept="3uibUv" id="ZcWKOigHmK" role="1tU5fm">
-          <ref role="3uigEE" node="ZcWKOiCwiP" resolve="ExceptionRunnable" />
+          <ref role="3uigEE" node="ZcWKOiCwiP" resolve="BaseTestBody.ExceptionRunnable" />
         </node>
       </node>
       <node concept="3uibUv" id="ZcWKOiBywQ" role="Sfmx6">
@@ -2013,7 +2013,7 @@
       <node concept="37vLTG" id="ZcWKOihS4Z" role="3clF46">
         <property role="TrG5h" value="r" />
         <node concept="3uibUv" id="ZcWKOihS50" role="1tU5fm">
-          <ref role="3uigEE" node="ZcWKOiCwiP" resolve="ExceptionRunnable" />
+          <ref role="3uigEE" node="ZcWKOiCwiP" resolve="BaseTestBody.ExceptionRunnable" />
         </node>
       </node>
       <node concept="3uibUv" id="ZcWKOiBznt" role="Sfmx6">

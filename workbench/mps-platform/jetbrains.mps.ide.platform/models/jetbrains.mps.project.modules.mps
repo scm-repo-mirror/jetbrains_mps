@@ -309,7 +309,7 @@
         <node concept="3clFbF" id="1vFZXjbwKOx" role="3cqZAp">
           <node concept="37vLTI" id="1vFZXjbwKOz" role="3clFbG">
             <node concept="37vLTw" id="1vFZXjbwKOA" role="37vLTJ">
-              <ref role="3cqZAo" node="1vFZXjbwKOt" resolve="myMpsProject" />
+              <ref role="3cqZAo" node="1vFZXjbwKOt" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="1vFZXjbwKOB" role="37vLTx">
               <ref role="3cqZAo" node="1vFZXjbwKNX" resolve="mpsProject" />
@@ -872,7 +872,7 @@
         <node concept="3clFbF" id="1vFZXjbuUk_" role="3cqZAp">
           <node concept="37vLTI" id="1vFZXjbuUkB" role="3clFbG">
             <node concept="37vLTw" id="1vFZXjbuUkE" role="37vLTJ">
-              <ref role="3cqZAo" node="1vFZXjbuUkx" resolve="myMpsProject" />
+              <ref role="3cqZAo" node="1vFZXjbuUkx" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="1vFZXjbuUkF" role="37vLTx">
               <ref role="3cqZAo" node="1vFZXjbuUjc" resolve="mpsProject" />
@@ -3228,7 +3228,7 @@
         <node concept="3clFbF" id="42eHksA4aFF" role="3cqZAp">
           <node concept="37vLTI" id="42eHksA4aFH" role="3clFbG">
             <node concept="37vLTw" id="42eHksA4aFK" role="37vLTJ">
-              <ref role="3cqZAo" node="42eHksA4aFB" resolve="myMpsProject" />
+              <ref role="3cqZAo" node="42eHksA4aFB" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="42eHksA4aFL" role="37vLTx">
               <ref role="3cqZAo" node="42eHksA4aF4" resolve="mpsProject" />
@@ -3314,7 +3314,7 @@
               <ref role="3uigEE" to="w0gx:~DevkitDescriptor" resolve="DevkitDescriptor" />
             </node>
             <node concept="1rXfSq" id="42eHksA4uFj" role="33vP2m">
-              <ref role="37wK5l" node="1Yd98ZZnqIS" resolve="createNewDevkitDescriptor" />
+              <ref role="37wK5l" node="1Yd98ZZnqIS" resolve="createDevkitDescriptor" />
               <node concept="37vLTw" id="42eHksA4uNq" role="37wK5m">
                 <ref role="3cqZAo" node="42eHksA4bv_" resolve="namespace" />
               </node>
@@ -3517,7 +3517,7 @@
         <node concept="3clFbF" id="339vUuzOkWH" role="3cqZAp">
           <node concept="37vLTI" id="339vUuzOkWJ" role="3clFbG">
             <node concept="37vLTw" id="339vUuzOkWM" role="37vLTJ">
-              <ref role="3cqZAo" node="339vUuzOkWD" resolve="myMpsProject" />
+              <ref role="3cqZAo" node="339vUuzOkWD" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="339vUuzOkWN" role="37vLTx">
               <ref role="3cqZAo" node="339vUuzOkPc" resolve="mpsProject" />
@@ -3540,7 +3540,7 @@
               <ref role="3cqZAo" node="339vUuzOkUH" resolve="needRuntimeSolution" />
             </node>
             <node concept="37vLTw" id="339vUuzOlmR" role="37vLTJ">
-              <ref role="3cqZAo" node="339vUuzOl94" resolve="myRuntimeSolution" />
+              <ref role="3cqZAo" node="339vUuzOl94" resolve="myRuntime" />
             </node>
           </node>
         </node>
@@ -3702,10 +3702,10 @@
         <node concept="3clFbF" id="339vUuzOm1s" role="3cqZAp">
           <node concept="37vLTI" id="339vUuzOm1t" role="3clFbG">
             <node concept="37vLTw" id="339vUuzOm1u" role="37vLTx">
-              <ref role="3cqZAo" node="339vUuzOm1y" resolve="needRuntimeSolution" />
+              <ref role="3cqZAo" node="339vUuzOm1y" resolve="needSandboxSolution" />
             </node>
             <node concept="37vLTw" id="339vUuzOm1v" role="37vLTJ">
-              <ref role="3cqZAo" node="339vUuzOljW" resolve="mySandboxSolution" />
+              <ref role="3cqZAo" node="339vUuzOljW" resolve="mySandbox" />
             </node>
           </node>
         </node>
@@ -4027,7 +4027,7 @@
                   <node concept="liA8E" id="339vUuzOTJo" role="2OqNvi">
                     <ref role="37wK5l" node="1vFZXjbwL_e" resolve="create" />
                     <node concept="37vLTw" id="339vUuzPrFh" role="37wK5m">
-                      <ref role="3cqZAo" node="339vUuzPrFd" resolve="string" />
+                      <ref role="3cqZAo" node="339vUuzPrFd" resolve="moduleName" />
                     </node>
                     <node concept="3K4zz7" id="339vUuzPG7M" role="37wK5m">
                       <node concept="37vLTw" id="339vUuzPGq4" role="3K4E3e">
@@ -4331,7 +4331,7 @@
                     <ref role="3cqZAo" node="339vUuzPHa5" resolve="moduleName" />
                   </node>
                   <node concept="37vLTw" id="339vUuzRHlR" role="37wK5m">
-                    <ref role="3cqZAo" node="339vUuzRHlK" resolve="findChild" />
+                    <ref role="3cqZAo" node="339vUuzRHlK" resolve="descriptorFile" />
                   </node>
                 </node>
               </node>
@@ -4564,7 +4564,7 @@
                 <node concept="liA8E" id="2i$eN1h5hIy" role="2OqNvi">
                   <ref role="37wK5l" to="w1kc:~SModelInternal.addLanguage(org.jetbrains.mps.openapi.language.SLanguage)" resolve="addLanguage" />
                   <node concept="37vLTw" id="3DVVPRJG6hF" role="37wK5m">
-                    <ref role="3cqZAo" node="3DVVPRJG52F" resolve="l" />
+                    <ref role="3cqZAo" node="3DVVPRJG52F" resolve="ll" />
                   </node>
                 </node>
               </node>
@@ -4577,7 +4577,7 @@
                 <node concept="liA8E" id="524W4NzBUTC" role="2OqNvi">
                   <ref role="37wK5l" to="w1kc:~SModelInternal.setLanguageImportVersion(org.jetbrains.mps.openapi.language.SLanguage,int)" resolve="setLanguageImportVersion" />
                   <node concept="37vLTw" id="524W4NzBUTD" role="37wK5m">
-                    <ref role="3cqZAo" node="3DVVPRJG52F" resolve="l" />
+                    <ref role="3cqZAo" node="3DVVPRJG52F" resolve="ll" />
                   </node>
                   <node concept="2OqwBi" id="524W4NzBZES" role="37wK5m">
                     <node concept="37vLTw" id="524W4NzBZET" role="2Oq$k0">

@@ -351,7 +351,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4Qup9OsnyXu" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4Qup9OswcN3" role="jymVt" />
@@ -381,7 +381,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="4Qup9OsnyXI" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="cITrZbLVhP" role="jymVt" />
@@ -620,7 +620,7 @@
         <node concept="TUZQ0" id="29PqUnrSHIt" role="3nqlJM">
           <property role="TUZQ4" value="to add" />
           <node concept="zr_55" id="29PqUnrSHIv" role="zr_5Q">
-            <ref role="zr_51" node="7gZx2pWIkOu" resolve="path" />
+            <ref role="zr_51" node="7gZx2pWIkOu" resolve="files" />
           </node>
         </node>
         <node concept="x79VA" id="29PqUnrSHIw" role="3nqlJM">
@@ -672,7 +672,7 @@
                 <node concept="liA8E" id="4Qup9OsOm4I" role="2OqNvi">
                   <ref role="37wK5l" to="33ny:~List.remove(int)" resolve="remove" />
                   <node concept="37vLTw" id="4Qup9OsO$jp" role="37wK5m">
-                    <ref role="3cqZAo" node="4Qup9OsO$jl" resolve="i" />
+                    <ref role="3cqZAo" node="4Qup9OsO$jl" resolve="x" />
                   </node>
                 </node>
               </node>
@@ -791,7 +791,7 @@
             <node concept="2ShNRf" id="4Qup9OsEMpN" role="33vP2m">
               <node concept="1pGfFk" id="4Qup9OsEMpO" role="2ShVmc">
                 <property role="373rjd" value="true" />
-                <ref role="37wK5l" node="2LIxlaqyBDd" resolve="ProjectProperties" />
+                <ref role="37wK5l" node="2LIxlaqyBDd" resolve="ProjectFilesModel" />
               </node>
             </node>
           </node>
@@ -799,7 +799,7 @@
         <node concept="3clFbF" id="4Qup9OsEv7o" role="3cqZAp">
           <node concept="2OqwBi" id="4Qup9OsEFe_" role="3clFbG">
             <node concept="37vLTw" id="4Qup9OsEMpP" role="2Oq$k0">
-              <ref role="3cqZAo" node="4Qup9OsEMpM" resolve="properties" />
+              <ref role="3cqZAo" node="4Qup9OsEMpM" resolve="other" />
             </node>
             <node concept="liA8E" id="4Qup9OsEH2B" role="2OqNvi">
               <ref role="37wK5l" node="2LIxlaqyBFn" resolve="loadFrom" />
@@ -1468,7 +1468,7 @@
             <node concept="liA8E" id="2LIxlaqyBI7" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~StandaloneMPSProject.setProjectDescriptor(jetbrains.mps.project.structure.project.ProjectDescriptor)" resolve="setProjectDescriptor" />
               <node concept="37vLTw" id="7gZx2pWIi6V" role="37wK5m">
-                <ref role="3cqZAo" node="7gZx2pWIfSp" resolve="projectDescriptor" />
+                <ref role="3cqZAo" node="7gZx2pWIfSp" resolve="newPD" />
               </node>
             </node>
           </node>
@@ -1603,7 +1603,7 @@
       <node concept="3Tm6S6" id="3b6xVKVVOqs" role="1B3o_S" />
       <node concept="2ShNRf" id="3b6xVKW4Mjf" role="33vP2m">
         <node concept="1pGfFk" id="3b6xVKW4Mjg" role="2ShVmc">
-          <ref role="37wK5l" node="2LIxlaqyBDd" resolve="ProjectProperties" />
+          <ref role="37wK5l" node="2LIxlaqyBDd" resolve="ProjectFilesModel" />
         </node>
       </node>
     </node>
@@ -1649,7 +1649,7 @@
               <ref role="37wK5l" to="alof:~ProjectHelper.fromIdeaProject(com.intellij.openapi.project.Project)" resolve="fromIdeaProject" />
               <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
               <node concept="37vLTw" id="4Qup9OsvN37" role="37wK5m">
-                <ref role="3cqZAo" node="JucQl_UgvW" resolve="project" />
+                <ref role="3cqZAo" node="JucQl_UgvW" resolve="ideaProject" />
               </node>
             </node>
           </node>
@@ -1667,7 +1667,7 @@
         <node concept="3clFbF" id="3b6xVKW4NnX" role="3cqZAp">
           <node concept="2OqwBi" id="3b6xVKW4NnZ" role="3clFbG">
             <node concept="37vLTw" id="3b6xVKW4No0" role="2Oq$k0">
-              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myProperties" />
+              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myModuleFiles" />
             </node>
             <node concept="liA8E" id="3b6xVKW4No1" role="2OqNvi">
               <ref role="37wK5l" node="2LIxlaqyBFn" resolve="loadFrom" />
@@ -1867,7 +1867,7 @@
                 <property role="373rjd" value="true" />
                 <ref role="37wK5l" to="qqrq:~JBList.&lt;init&gt;(javax.swing.ListModel)" resolve="JBList" />
                 <node concept="37vLTw" id="4Qup9OstcL5" role="37wK5m">
-                  <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myProperties" />
+                  <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myModuleFiles" />
                 </node>
               </node>
             </node>
@@ -3146,7 +3146,7 @@
             <node concept="3fqX7Q" id="2LIxlaqyClY" role="3uHU7B">
               <node concept="2OqwBi" id="2LIxlaqyClZ" role="3fr31v">
                 <node concept="37vLTw" id="3b6xVKW7mqG" role="2Oq$k0">
-                  <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myProperties" />
+                  <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myModuleFiles" />
                 </node>
                 <node concept="liA8E" id="2LIxlaqyCm3" role="2OqNvi">
                   <ref role="37wK5l" node="2LIxlaqyBDY" resolve="isSame" />
@@ -3206,7 +3206,7 @@
                         <node concept="3clFbF" id="2LIxlaqyCmZ" role="3cqZAp">
                           <node concept="2OqwBi" id="2LIxlaqyCn0" role="3clFbG">
                             <node concept="37vLTw" id="3b6xVKW7nmn" role="2Oq$k0">
-                              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myProperties" />
+                              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myModuleFiles" />
                             </node>
                             <node concept="liA8E" id="2LIxlaqyCn4" role="2OqNvi">
                               <ref role="37wK5l" node="2LIxlaqyBGD" resolve="saveTo" />
@@ -3270,7 +3270,7 @@
         <node concept="3clFbF" id="2LIxlaqyCmC" role="3cqZAp">
           <node concept="2OqwBi" id="2LIxlaqyCmD" role="3clFbG">
             <node concept="37vLTw" id="3b6xVKW7n6m" role="2Oq$k0">
-              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myProperties" />
+              <ref role="3cqZAo" node="3b6xVKVVOqq" resolve="myModuleFiles" />
             </node>
             <node concept="liA8E" id="2LIxlaqyCmH" role="2OqNvi">
               <ref role="37wK5l" node="2LIxlaqyBFn" resolve="loadFrom" />
@@ -3749,7 +3749,7 @@
   <node concept="312cEu" id="1mBiRF0LAU1">
     <property role="TrG5h" value="PathRenderer" />
     <node concept="3uibUv" id="1X_jPewKJen" role="1zkMxy">
-      <ref role="3uigEE" to="qqrq:~JBList$StripedListCellRenderer" resolve="StripedListCellRenderer" />
+      <ref role="3uigEE" to="qqrq:~JBList$StripedListCellRenderer" resolve="JBList.StripedListCellRenderer" />
     </node>
     <node concept="3clFbW" id="1mBiRF0LAU4" role="jymVt">
       <node concept="3Tm1VV" id="1mBiRF0LAU5" role="1B3o_S" />
@@ -3845,7 +3845,7 @@
             <node concept="3fqX7Q" id="1BCSaZ6$DUz" role="3uHU7w">
               <node concept="2OqwBi" id="2_MQfvmltry" role="3fr31v">
                 <node concept="37vLTw" id="1X_jPewKyIx" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1mBiRF0LAUu" resolve="path" />
+                  <ref role="3cqZAo" node="1mBiRF0LAUu" resolve="file" />
                 </node>
                 <node concept="liA8E" id="2_MQfvmltIC" role="2OqNvi">
                   <ref role="37wK5l" to="3ju5:~IFile.exists()" resolve="exists" />
@@ -3867,7 +3867,7 @@
         </node>
         <node concept="3cpWs6" id="1mBiRF0LAUA" role="3cqZAp">
           <node concept="37vLTw" id="1X_jPewKmwb" role="3cqZAk">
-            <ref role="3cqZAo" node="1X_jPewKmw4" resolve="listCellRendererComponent" />
+            <ref role="3cqZAo" node="1X_jPewKmw4" resolve="rv" />
           </node>
         </node>
       </node>

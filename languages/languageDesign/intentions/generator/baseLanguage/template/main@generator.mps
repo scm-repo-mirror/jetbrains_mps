@@ -3491,7 +3491,7 @@
                       <node concept="2qgKlT" id="3_zGkPoGTLg" role="2OqNvi">
                         <ref role="37wK5l" to="9nqt:2gzehMfi1$l" resolve="find" />
                         <node concept="37vLTw" id="5cTG28skMAV" role="37wK5m">
-                          <ref role="3cqZAo" node="5cTG28skMAO" resolve="ancestor" />
+                          <ref role="3cqZAo" node="5cTG28skMAO" resolve="ancestorIntention" />
                         </node>
                       </node>
                     </node>

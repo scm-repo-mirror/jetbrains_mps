@@ -2,7 +2,7 @@
 <model ref="r:62acf462-bd7b-40b0-b72a-892ef900fe37(jetbrains.mps.ide.java.tests.madeUpCases@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -27,6 +27,7 @@
       </concept>
       <concept id="1225467090849" name="jetbrains.mps.lang.test.structure.ProjectExpression" flags="nn" index="1jxXqW" />
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1216993439383" name="methods" index="1qtyYc" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
@@ -287,6 +288,7 @@
   <node concept="1lH9Xt" id="4ackmjcdGr8">
     <property role="TrG5h" value="RoundTrip" />
     <property role="26Nn1l" value="true" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="1mbB$5PHimu" role="1SL9yI">
       <property role="TrG5h" value="Simple" />
       <node concept="3cqZAl" id="1mbB$5PHimv" role="3clF45" />
@@ -1213,6 +1215,7 @@
   <node concept="1lH9Xt" id="4ackmjcdW2w">
     <property role="TrG5h" value="JavaToMps" />
     <property role="26Nn1l" value="true" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="68ZF3WBB3I$" role="1qtyYc">
       <property role="TrG5h" value="testsLocation" />
       <node concept="3uibUv" id="68ZF3WBBdm_" role="3clF45">

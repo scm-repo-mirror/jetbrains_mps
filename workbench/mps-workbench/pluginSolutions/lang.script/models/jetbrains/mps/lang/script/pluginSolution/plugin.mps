@@ -3310,11 +3310,11 @@
           <node concept="3cpWsn" id="6m98d5YYc2Z" role="3cpWs9">
             <property role="TrG5h" value="tm" />
             <node concept="3uibUv" id="6m98d5YYc30" role="1tU5fm">
-              <ref role="3uigEE" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+              <ref role="3uigEE" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
             </node>
             <node concept="2ShNRf" id="6m98d5YYc31" role="33vP2m">
               <node concept="1pGfFk" id="6m98d5YYc32" role="2ShVmc">
-                <ref role="37wK5l" node="6m98d5YYbZ9" resolve="MySortingTableModel" />
+                <ref role="37wK5l" node="6m98d5YYbZ9" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
               </node>
             </node>
           </node>
@@ -4360,7 +4360,7 @@
                         </node>
                       </node>
                       <node concept="3uibUv" id="6m98d5YYc8h" role="10QFUM">
-                        <ref role="3uigEE" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                        <ref role="3uigEE" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                       </node>
                     </node>
                   </node>
@@ -4476,7 +4476,7 @@
                       </node>
                     </node>
                     <node concept="3uibUv" id="6m98d5YYc93" role="10QFUM">
-                      <ref role="3uigEE" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                      <ref role="3uigEE" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                     </node>
                   </node>
                 </node>
@@ -5045,7 +5045,7 @@
       <property role="2bfB8j" value="true" />
       <node concept="3Tm6S6" id="6m98d5YYbYO" role="1B3o_S" />
       <node concept="3uibUv" id="6m98d5YYbYP" role="1zkMxy">
-        <ref role="3uigEE" node="6m98d5YYbYg" resolve="MyTableModel" />
+        <ref role="3uigEE" node="6m98d5YYbYg" resolve="RunMigrationScriptsDialog.MyTableModel" />
       </node>
       <node concept="Wx3nA" id="6m98d5YYbYQ" role="jymVt">
         <property role="TrG5h" value="NONE" />
@@ -5607,7 +5607,7 @@
                                         <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                       </node>
                                       <node concept="10M0yZ" id="6m98d5YYcgv" role="3uHU7w">
-                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                         <ref role="3cqZAo" node="6m98d5YYbYT" resolve="ASC" />
                                       </node>
                                     </node>
@@ -5617,7 +5617,7 @@
                                           <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                         </node>
                                         <node concept="10M0yZ" id="6m98d5YYcgz" role="3uHU7w">
-                                          <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                          <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                           <ref role="3cqZAo" node="6m98d5YYbYW" resolve="DESC" />
                                         </node>
                                       </node>
@@ -5656,7 +5656,7 @@
                                               <ref role="37wK5l" to="dxuu:~JLabel.setIcon(javax.swing.Icon)" resolve="setIcon" />
                                               <node concept="2ShNRf" id="6m98d5YYcgO" role="37wK5m">
                                                 <node concept="1pGfFk" id="6m98d5YYcgP" role="2ShVmc">
-                                                  <ref role="37wK5l" node="6m98d5YYc0M" resolve="MyUpIcon" />
+                                                  <ref role="37wK5l" node="6m98d5YYc0M" resolve="RunMigrationScriptsDialog.MyUpIcon" />
                                                   <node concept="3cmrfG" id="6m98d5YYcgQ" role="37wK5m">
                                                     <property role="3cmrfH" value="8" />
                                                   </node>
@@ -5684,7 +5684,7 @@
                                             <ref role="37wK5l" to="dxuu:~JLabel.setIcon(javax.swing.Icon)" resolve="setIcon" />
                                             <node concept="2ShNRf" id="6m98d5YYcgZ" role="37wK5m">
                                               <node concept="1pGfFk" id="6m98d5YYch0" role="2ShVmc">
-                                                <ref role="37wK5l" node="6m98d5YYc0g" resolve="MyDownIcon" />
+                                                <ref role="37wK5l" node="6m98d5YYc0g" resolve="RunMigrationScriptsDialog.MyDownIcon" />
                                                 <node concept="3cmrfG" id="6m98d5YYch1" role="37wK5m">
                                                   <property role="3cmrfH" value="7" />
                                                 </node>
@@ -5819,7 +5819,7 @@
                               <property role="TrG5h" value="sortingOrder" />
                               <node concept="10Oyi0" id="6m98d5YYchv" role="1tU5fm" />
                               <node concept="10M0yZ" id="6m98d5YYchw" role="33vP2m">
-                                <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                 <ref role="3cqZAo" node="6m98d5YYbYT" resolve="ASC" />
                               </node>
                             </node>
@@ -5841,7 +5841,7 @@
                                       <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                     </node>
                                     <node concept="10M0yZ" id="6m98d5YYchE" role="3uHU7w">
-                                      <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                      <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                       <ref role="3cqZAo" node="6m98d5YYbYQ" resolve="NONE" />
                                     </node>
                                   </node>
@@ -5862,7 +5862,7 @@
                                           <ref role="3cqZAo" node="6m98d5YYchu" resolve="sortingOrder" />
                                         </node>
                                         <node concept="10M0yZ" id="6m98d5YYchN" role="37vLTx">
-                                          <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                          <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                           <ref role="3cqZAo" node="6m98d5YYbYT" resolve="ASC" />
                                         </node>
                                       </node>
@@ -5878,7 +5878,7 @@
                                     <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                   </node>
                                   <node concept="10M0yZ" id="6m98d5YYchS" role="3uHU7w">
-                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                     <ref role="3cqZAo" node="6m98d5YYbYQ" resolve="NONE" />
                                   </node>
                                 </node>
@@ -5889,7 +5889,7 @@
                                         <ref role="3cqZAo" node="6m98d5YYchu" resolve="sortingOrder" />
                                       </node>
                                       <node concept="10M0yZ" id="6m98d5YYchX" role="37vLTx">
-                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                         <ref role="3cqZAo" node="6m98d5YYbYT" resolve="ASC" />
                                       </node>
                                     </node>
@@ -5902,7 +5902,7 @@
                                     <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                   </node>
                                   <node concept="10M0yZ" id="6m98d5YYci1" role="3uHU7w">
-                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                     <ref role="3cqZAo" node="6m98d5YYbYT" resolve="ASC" />
                                   </node>
                                 </node>
@@ -5913,7 +5913,7 @@
                                         <ref role="3cqZAo" node="6m98d5YYchu" resolve="sortingOrder" />
                                       </node>
                                       <node concept="10M0yZ" id="6m98d5YYci6" role="37vLTx">
-                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                         <ref role="3cqZAo" node="6m98d5YYbYW" resolve="DESC" />
                                       </node>
                                     </node>
@@ -5926,7 +5926,7 @@
                                     <ref role="3cqZAo" node="6m98d5YYbZ2" resolve="mySortingOrder" />
                                   </node>
                                   <node concept="10M0yZ" id="6m98d5YYcia" role="3uHU7w">
-                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                    <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                     <ref role="3cqZAo" node="6m98d5YYbYW" resolve="DESC" />
                                   </node>
                                 </node>
@@ -5937,7 +5937,7 @@
                                         <ref role="3cqZAo" node="6m98d5YYchu" resolve="sortingOrder" />
                                       </node>
                                       <node concept="10M0yZ" id="6m98d5YYcif" role="37vLTx">
-                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                        <ref role="1PxDUh" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                                         <ref role="3cqZAo" node="6m98d5YYbYQ" resolve="NONE" />
                                       </node>
                                     </node>
@@ -6015,7 +6015,7 @@
                           <node concept="3clFbF" id="6m98d5YYciG" role="3cqZAp">
                             <node concept="2OqwBi" id="6m98d5YYciH" role="3clFbG">
                               <node concept="Xjq3P" id="6m98d5YYciI" role="2Oq$k0">
-                                <ref role="1HBi2w" node="6m98d5YYbYN" resolve="MySortingTableModel" />
+                                <ref role="1HBi2w" node="6m98d5YYbYN" resolve="RunMigrationScriptsDialog.MySortingTableModel" />
                               </node>
                               <node concept="liA8E" id="6m98d5YYciJ" role="2OqNvi">
                                 <ref role="37wK5l" node="6m98d5YYbZX" resolve="sort" />
@@ -8174,8 +8174,8 @@
                                 <node concept="YeOm9" id="6m98d5YYbEs" role="2ShVmc">
                                   <node concept="1Y3b0j" id="6m98d5YYbEt" role="YeSDq">
                                     <property role="TrG5h" value="" />
-                                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Modal" />
-                                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Modal" />
+                                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
+                                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
                                     <node concept="37vLTw" id="1wgDEmyimSF" role="37wK5m">
                                       <ref role="3cqZAo" node="1wgDEmyi2Wu" resolve="ideaProject" />
                                     </node>
@@ -8910,11 +8910,11 @@
           <node concept="3cpWsn" id="3pNk_u$v_CN" role="3cpWs9">
             <property role="TrG5h" value="searchAction" />
             <node concept="3uibUv" id="3pNk_u$v_CL" role="1tU5fm">
-              <ref role="3uigEE" to="ngmm:~UsagesView$RerunAction" resolve="RerunAction" />
+              <ref role="3uigEE" to="ngmm:~UsagesView$RerunAction" resolve="UsagesView.RerunAction" />
             </node>
             <node concept="2ShNRf" id="3pNk_u$v_CO" role="33vP2m">
               <node concept="1pGfFk" id="3pNk_u$v_CP" role="2ShVmc">
-                <ref role="37wK5l" to="ngmm:~UsagesView$RerunAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView,java.lang.String)" resolve="RerunAction" />
+                <ref role="37wK5l" to="ngmm:~UsagesView$RerunAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView,java.lang.String)" resolve="UsagesView.RerunAction" />
                 <node concept="37vLTw" id="3pNk_u$v_CQ" role="37wK5m">
                   <ref role="3cqZAo" node="6m98d5YYaVO" resolve="myUsagesView" />
                 </node>
@@ -8953,7 +8953,7 @@
               </node>
               <node concept="2ShNRf" id="3pNk_u$vn5q" role="37wK5m">
                 <node concept="1pGfFk" id="3pNk_u$vnJ4" role="2ShVmc">
-                  <ref role="37wK5l" to="ngmm:~UsagesView$RebuildAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView)" resolve="RebuildAction" />
+                  <ref role="37wK5l" to="ngmm:~UsagesView$RebuildAction.&lt;init&gt;(jetbrains.mps.ide.findusages.view.UsagesView)" resolve="UsagesView.RebuildAction" />
                   <node concept="37vLTw" id="3pNk_u$vnMz" role="37wK5m">
                     <ref role="3cqZAo" node="6m98d5YYaVO" resolve="myUsagesView" />
                   </node>
@@ -9001,7 +9001,7 @@
                       <property role="Xl_RC" value="" />
                     </node>
                     <node concept="10M0yZ" id="6Qwue3HJ8v8" role="37wK5m">
-                      <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="Actions" />
+                      <ref role="1PxDUh" to="z2i8:~AllIcons$Actions" resolve="AllIcons.Actions" />
                       <ref role="3cqZAo" to="z2i8:~AllIcons$Actions.Cancel" resolve="Cancel" />
                     </node>
                   </node>
@@ -9724,8 +9724,8 @@
               <node concept="YeOm9" id="1rNZ4ilyXS8" role="2ShVmc">
                 <node concept="1Y3b0j" id="1rNZ4ilyXSb" role="YeSDq">
                   <property role="2bfB8j" value="true" />
-                  <ref role="1Y3XeK" to="w1kc:~UndoRunnable$Base" resolve="Base" />
-                  <ref role="37wK5l" to="w1kc:~UndoRunnable$Base.&lt;init&gt;(java.lang.String,java.lang.String,boolean)" resolve="Base" />
+                  <ref role="1Y3XeK" to="w1kc:~UndoRunnable$Base" resolve="UndoRunnable.Base" />
+                  <ref role="37wK5l" to="w1kc:~UndoRunnable$Base.&lt;init&gt;(java.lang.String,java.lang.String,boolean)" resolve="UndoRunnable.Base" />
                   <node concept="3Tm1VV" id="1rNZ4ilyXSc" role="1B3o_S" />
                   <node concept="3clFb_" id="1rNZ4ilyXSd" role="jymVt">
                     <property role="1EzhhJ" value="false" />
@@ -9840,8 +9840,8 @@
                 <node concept="YeOm9" id="6m98d5YYbcc" role="2ShVmc">
                   <node concept="1Y3b0j" id="6m98d5YYbcd" role="YeSDq">
                     <property role="TrG5h" value="" />
-                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Modal" />
-                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Modal" />
+                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
+                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
                     <node concept="37vLTw" id="2Upo3$v3qH6" role="37wK5m">
                       <ref role="3cqZAo" node="6m98d5YYaW3" resolve="myProject" />
                     </node>

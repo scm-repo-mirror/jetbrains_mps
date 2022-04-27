@@ -21949,7 +21949,7 @@
             <node concept="2OqwBi" id="6JWgnvaxX6$" role="33vP2m">
               <node concept="2OqwBi" id="6JWgnvauLpb" role="2Oq$k0">
                 <node concept="37vLTw" id="6JWgnvauKbR" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1bauwgJp4p1" resolve="editorAnnotation" />
+                  <ref role="3cqZAo" node="1bauwgJp4p1" resolve="annotationColumn" />
                 </node>
                 <node concept="liA8E" id="6JWgnvauMtb" role="2OqNvi">
                   <ref role="37wK5l" node="7ep4mekw0PV" resolve="getHiddenRevisions" />
@@ -22072,7 +22072,7 @@
                     <node concept="3clFbF" id="QT51o6OvNW" role="3cqZAp">
                       <node concept="2OqwBi" id="QT51o6Oynu" role="3clFbG">
                         <node concept="37vLTw" id="QT51o6OvNV" role="2Oq$k0">
-                          <ref role="3cqZAo" node="1bauwgJp4p1" resolve="editorAnnotation" />
+                          <ref role="3cqZAo" node="1bauwgJp4p1" resolve="annotationColumn" />
                         </node>
                         <node concept="liA8E" id="QT51o6OzT0" role="2OqNvi">
                           <ref role="37wK5l" node="7ep4meksLLS" resolve="showHiddenRevisions" />
@@ -22105,7 +22105,7 @@
                       <node concept="3clFbF" id="16rf7lCD7x" role="3cqZAp">
                         <node concept="2OqwBi" id="16rf7lCFjc" role="3clFbG">
                           <node concept="37vLTw" id="16rf7lCD7w" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1bauwgJp4p1" resolve="editorAnnotation" />
+                            <ref role="3cqZAo" node="1bauwgJp4p1" resolve="annotationColumn" />
                           </node>
                           <node concept="liA8E" id="16rf7lCGld" role="2OqNvi">
                             <ref role="37wK5l" node="7ep4meksLLS" resolve="showHiddenRevisions" />
@@ -22127,7 +22127,7 @@
                       <node concept="3clFbF" id="59VhT$BfOTy" role="3cqZAp">
                         <node concept="2OqwBi" id="59VhT$BfOTz" role="3clFbG">
                           <node concept="37vLTw" id="59VhT$BfOT$" role="2Oq$k0">
-                            <ref role="3cqZAo" node="1bauwgJp4p1" resolve="editorAnnotation" />
+                            <ref role="3cqZAo" node="1bauwgJp4p1" resolve="annotationColumn" />
                           </node>
                           <node concept="liA8E" id="59VhT$BfOT_" role="2OqNvi">
                             <ref role="37wK5l" node="7ep4meksLM3" resolve="showLastHiddenRevision" />
