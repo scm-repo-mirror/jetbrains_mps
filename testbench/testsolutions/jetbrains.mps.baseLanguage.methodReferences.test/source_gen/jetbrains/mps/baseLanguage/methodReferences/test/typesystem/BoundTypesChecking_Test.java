@@ -47,8 +47,6 @@ public class BoundTypesChecking_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTypeSystemCheck8992394414549760433() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8992394414549684169");
@@ -57,8 +55,6 @@ public class BoundTypesChecking_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeIsNotSubtypeOfCheck8992394414549393023() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8992394414549282241");
@@ -67,8 +63,6 @@ public class BoundTypesChecking_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2448987392437264509() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8992394414549205640");

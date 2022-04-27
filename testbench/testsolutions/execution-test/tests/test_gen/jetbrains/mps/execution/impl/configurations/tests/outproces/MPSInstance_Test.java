@@ -40,8 +40,6 @@ public class MPSInstance_Test extends BaseTransformationTest {
 
     public void test_simpleConfigurationIsRunnable() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         // [NOTE] not to be run out of process from sources since
         // classpath is not very well-built for mps command being build from testmode MPS from sources
         // in this test we expect the run configruation MPSInstance to start

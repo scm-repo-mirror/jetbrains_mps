@@ -59,8 +59,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
     }
 
     public void test_NodeSupertypeMayNotSpecifyCheck6923385624927497212() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229706");
@@ -69,8 +67,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8187342170692700619() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8187342170692127762");
@@ -79,8 +75,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8187342170692700629() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8187342170692147339");
@@ -89,8 +83,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeSupertypeMayNotSpecifyCheck6923385624928818605() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230464");
@@ -99,8 +91,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8187342170694398489() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8187342170694398481");
@@ -109,8 +99,6 @@ public class WildCardsInTheClassDefinition_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8187342170692842210() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8187342170692678948");

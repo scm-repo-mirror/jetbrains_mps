@@ -50,8 +50,6 @@ public class QuotationConverterTest_Test extends BaseTransformationTest {
 
     public void test_compositeConvertDiffTest() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         List<SNode> testMethods = SLinkOperations.getChildren(SNodeOperations.getNode("r:1cc42aa8-6d2d-49a0-9b1f-2e5f92988fc5(jetbrains.mps.lang.quotation.test.generationTest@tests)", "3455411064017080199"), LINKS.testMethods$htrK);
         Assert.assertTrue(ListSequence.fromList(testMethods).isNotEmpty());
         for (SNode method : ListSequence.fromList(testMethods)) {

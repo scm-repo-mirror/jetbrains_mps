@@ -42,12 +42,8 @@ public class ReadAction_Test extends BaseTransformationTest {
 
     public void test_ReadAction() throws Exception {
       runWithinCommand(() -> addNodeById("1217271586326"));
-      runWithinCommand(() -> {
-      });
     }
     public void test_ErrorMessagesCheck1216549241562() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1216549152296");

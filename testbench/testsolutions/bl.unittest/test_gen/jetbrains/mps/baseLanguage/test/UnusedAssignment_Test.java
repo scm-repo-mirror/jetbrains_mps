@@ -58,8 +58,6 @@ public class UnusedAssignment_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928924551() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228055");
@@ -68,8 +66,6 @@ public class UnusedAssignment_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526513017421() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444198397");
@@ -78,8 +74,6 @@ public class UnusedAssignment_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199460() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444198388");

@@ -55,8 +55,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTheMethodCannotOverrideCheck6091751241368225336() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7471623575883489441");
@@ -65,8 +63,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck7471623575883346737() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7471623575883288428");
@@ -75,8 +71,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
       });
     }
     public void test_NodePackageProtectedMethodCheck6091751241368225027() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7471623575883519203");
@@ -85,8 +79,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTheMethodCannotOverrideCheck6091751241368225029() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7471623575883519203");
@@ -95,8 +87,6 @@ public class FinalMethodOverriding_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck7471623575883519712() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7471623575883519005");

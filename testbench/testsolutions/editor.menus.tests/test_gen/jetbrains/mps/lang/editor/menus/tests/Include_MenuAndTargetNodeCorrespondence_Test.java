@@ -69,8 +69,6 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
       });
     }
     public void test_MatchingMenuForCurrentNode6903010549536714073() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6903010549536713473");
@@ -79,8 +77,6 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
       });
     }
     public void test_NonMatchingMenuForCurrentNode6903010549536714075() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6903010549536712731");

@@ -59,8 +59,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
     }
 
     public void test_NodeNoEnclosingInstanceOfCheck6923385624927702653() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649719086733");
@@ -69,8 +67,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       });
     }
     public void test_NodeNoEnclosingInstanceOfCheck6923385624929324173() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649720650716");
@@ -79,8 +75,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       });
     }
     public void test_NodeNoEnclosingInstanceOfCheck6923385624929631137() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649722354537");
@@ -89,8 +83,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       });
     }
     public void test_NodeNoEnclosingInstanceOfCheck6923385624929879922() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649722379841");
@@ -99,8 +91,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       });
     }
     public void test_NodeNoEnclosingInstanceOfCheck6923385624929258956() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649720836439");
@@ -109,8 +99,6 @@ public class NonStaticInnerClassInstantiatedInStaticContext_Test extends BaseTra
       });
     }
     public void test_ErrorMessagesCheck966837649722301965() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("966837649722297928");

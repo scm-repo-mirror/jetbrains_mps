@@ -32,15 +32,11 @@ public class WaitingTestCase_Test_Test extends BaseTransformationTest {
     }
 
     public void test_test1() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinRead(() -> {
-        try {
-          Thread.sleep(5000);
-        } catch (InterruptedException e) {
-        }
-        Assert.assertFalse(false);
-      });
+      try {
+        Thread.sleep(5000);
+      } catch (InterruptedException e) {
+      }
+      Assert.assertFalse(false);
     }
 
   }

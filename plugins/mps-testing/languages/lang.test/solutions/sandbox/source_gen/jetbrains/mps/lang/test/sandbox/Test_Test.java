@@ -108,8 +108,6 @@ public class Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199196() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6594325605663831239");
@@ -127,8 +125,6 @@ public class Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199214() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6594325605663848570");
@@ -137,8 +133,6 @@ public class Test_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck6594325605663849637() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451224906");
@@ -147,8 +141,6 @@ public class Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199232() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6594325605663849632");
@@ -169,8 +161,6 @@ public class Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199250() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6594325605663849719");

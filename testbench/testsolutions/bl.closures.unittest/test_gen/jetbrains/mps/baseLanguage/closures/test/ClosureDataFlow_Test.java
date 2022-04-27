@@ -48,8 +48,6 @@ public class ClosureDataFlow_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199348() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1227886714749");

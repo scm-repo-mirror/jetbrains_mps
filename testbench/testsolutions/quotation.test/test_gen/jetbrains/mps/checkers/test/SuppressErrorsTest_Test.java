@@ -55,8 +55,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
     }
 
     public void test_NodeOperatorCannotBeAppliedCheck2472582545953979358() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6807933448482366660");
@@ -65,8 +63,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2472582545954064375() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6807933448482354120");
@@ -75,8 +71,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2472582545954064484() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6807933448480842040");
@@ -85,8 +79,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeOperatorCannotBeAppliedCheck2472582545953984250() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6807933448482399225");
@@ -95,8 +87,6 @@ public class SuppressErrorsTest_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2472582545954064584() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6807933448482338502");

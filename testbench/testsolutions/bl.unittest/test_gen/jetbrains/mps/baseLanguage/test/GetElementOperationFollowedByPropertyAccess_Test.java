@@ -37,8 +37,6 @@ public class GetElementOperationFollowedByPropertyAccess_Test extends BaseTransf
     }
 
     public void test_ErrorMessagesCheck5679018521759346994() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1654036798276541486");

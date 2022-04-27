@@ -297,8 +297,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTargetNodeNotFoundInRepositoryCheck535833678906728045() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905710102");
@@ -307,8 +305,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905879477() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905879473");
@@ -317,8 +313,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905721739() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905721167");
@@ -327,8 +321,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905852712() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905852708");
@@ -337,8 +329,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905854558() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905854554");
@@ -347,8 +337,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905860220() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905857278");
@@ -384,8 +372,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678905987697() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905985146");
@@ -403,8 +389,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck535833678906363602() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678906356748");
@@ -431,8 +415,6 @@ public class NodePointers_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck535833678905969550() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("535833678905714262");

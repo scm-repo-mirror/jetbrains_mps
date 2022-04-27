@@ -79,8 +79,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck4065852147261983404() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634534350");
@@ -89,8 +87,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorFromConceptaCheck8837437332635283262() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634534350");
@@ -99,8 +95,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983395() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634534356");
@@ -109,8 +103,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorFromConceptbCheck8837437332635283252() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634534356");
@@ -119,8 +111,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983386() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332635285048");
@@ -129,8 +119,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983377() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634535107");
@@ -139,8 +127,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorFromConceptcCheck8837437332635281731() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332634535107");
@@ -149,8 +135,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983368() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332635283271");
@@ -159,8 +143,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983359() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332635285133");
@@ -169,8 +151,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorFromConceptcCheck8837437332635285135() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332635285133");
@@ -179,8 +159,6 @@ public class OverridingRule_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4065852147261983349() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8837437332635285228");

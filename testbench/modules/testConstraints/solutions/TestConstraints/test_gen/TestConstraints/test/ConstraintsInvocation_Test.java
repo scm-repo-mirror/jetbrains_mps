@@ -40,8 +40,6 @@ public class ConstraintsInvocation_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnknownRuleCheck730305212589682236() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("730305212589577115");
@@ -50,8 +48,6 @@ public class ConstraintsInvocation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck730305212589682205() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("730305212589682202");

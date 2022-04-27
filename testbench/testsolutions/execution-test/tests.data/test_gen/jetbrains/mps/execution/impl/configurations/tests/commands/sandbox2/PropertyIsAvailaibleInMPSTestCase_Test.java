@@ -32,9 +32,7 @@ public class PropertyIsAvailaibleInMPSTestCase_Test extends BaseTransformationTe
     }
 
     public void test_test1() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinRead(() -> Assert.assertEquals("TRUE", System.getProperty("MyProp")));
+      Assert.assertEquals("TRUE", System.getProperty("MyProp"));
     }
 
   }

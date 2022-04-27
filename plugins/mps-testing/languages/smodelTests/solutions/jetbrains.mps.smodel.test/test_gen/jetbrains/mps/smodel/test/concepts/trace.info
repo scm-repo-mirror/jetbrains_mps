@@ -16,58 +16,52 @@
       <node id="5308535536686266820" at="35,59,36,50" concept="1" />
       <node id="5308535536686088778" at="39,59,40,50" concept="1" />
       <node id="359299525883788095" at="45,52,46,19" concept="8" />
-      <node id="6638738203687277589" at="52,30,53,141" concept="1" />
-      <node id="6638738203687278534" at="53,141,54,93" concept="1" />
-      <node id="6638738203687280475" at="54,93,55,142" concept="1" />
-      <node id="6638738203687284413" at="55,142,56,171" concept="1" />
-      <node id="359299525882683688" at="56,171,57,82" concept="1" />
-      <node id="5308535536686252678" at="57,82,58,112" concept="5" />
-      <node id="5308535536686099012" at="58,112,59,144" concept="1" />
-      <node id="5308535536686382585" at="65,30,66,79" concept="5" />
-      <node id="5308535536686460612" at="66,79,67,83" concept="5" />
-      <node id="5308535536686274909" at="67,83,68,55" concept="3" />
-      <node id="5308535536686451922" at="68,55,69,57" concept="1" />
-      <node id="5308535536686418046" at="69,57,70,82" concept="1" />
-      <node id="5308535536686362690" at="70,82,71,87" concept="1" />
-      <node id="5308535536686426859" at="71,87,72,101" concept="1" />
-      <node id="359299525883522055" at="78,30,79,170" concept="3" />
-      <node id="359299525883527475" at="79,170,80,137" concept="1" />
-      <node id="359299525883524125" at="80,137,81,135" concept="1" />
-      <node id="5308535536686485263" at="81,135,82,96" concept="5" />
-      <node id="359299525883533395" at="82,96,83,82" concept="1" />
-      <node id="5308535536686504261" at="83,82,84,133" concept="1" />
-      <node id="5308535536686507850" at="84,133,85,0" concept="6" />
-      <node id="2549667115980011350" at="85,0,86,42" concept="5" />
-      <node id="2549667115980008918" at="86,42,87,89" concept="1" />
-      <node id="5302237107384186928" at="87,89,88,0" concept="6" />
-      <node id="5302237107384220681" at="88,0,89,67" concept="1" />
-      <node id="5302237107384229502" at="89,67,90,110" concept="1" />
-      <node id="5302237107384317212" at="90,110,91,120" concept="1" />
-      <node id="5302237107384209108" at="91,120,92,133" concept="1" />
-      <node id="359299525883788095" at="99,0,100,0" concept="7" trace="INamedConcept$Kd" />
-      <node id="359299525883788095" at="100,0,101,0" concept="7" trace="BaseConcept$gP" />
-      <node id="359299525883788095" at="101,0,102,0" concept="7" trace="ImplementationWithStubPart$Lx" />
-      <node id="359299525883788095" at="102,0,103,0" concept="7" trace="ImplementationPart$LI" />
-      <node id="359299525883788095" at="103,0,104,0" concept="7" trace="Attribute$g1" />
-      <node id="359299525883788095" at="104,0,105,0" concept="7" trace="NodeAttribute$x2" />
+      <node id="6638738203687277589" at="50,30,51,141" concept="1" />
+      <node id="6638738203687278534" at="51,141,52,93" concept="1" />
+      <node id="6638738203687280475" at="52,93,53,142" concept="1" />
+      <node id="6638738203687284413" at="53,142,54,171" concept="1" />
+      <node id="359299525882683688" at="54,171,55,82" concept="1" />
+      <node id="5308535536686252678" at="55,82,56,112" concept="5" />
+      <node id="5308535536686099012" at="56,112,57,144" concept="1" />
+      <node id="5308535536686382585" at="61,30,62,79" concept="5" />
+      <node id="5308535536686460612" at="62,79,63,83" concept="5" />
+      <node id="5308535536686274909" at="63,83,64,55" concept="3" />
+      <node id="5308535536686451922" at="64,55,65,57" concept="1" />
+      <node id="5308535536686418046" at="65,57,66,82" concept="1" />
+      <node id="5308535536686362690" at="66,82,67,87" concept="1" />
+      <node id="5308535536686426859" at="67,87,68,101" concept="1" />
+      <node id="359299525883522055" at="72,30,73,170" concept="3" />
+      <node id="359299525883527475" at="73,170,74,137" concept="1" />
+      <node id="359299525883524125" at="74,137,75,135" concept="1" />
+      <node id="5308535536686485263" at="75,135,76,96" concept="5" />
+      <node id="359299525883533395" at="76,96,77,82" concept="1" />
+      <node id="5308535536686504261" at="77,82,78,133" concept="1" />
+      <node id="5308535536686507850" at="78,133,79,0" concept="6" />
+      <node id="2549667115980011350" at="79,0,80,42" concept="5" />
+      <node id="2549667115980008918" at="80,42,81,89" concept="1" />
+      <node id="5302237107384186928" at="81,89,82,0" concept="6" />
+      <node id="5302237107384220681" at="82,0,83,67" concept="1" />
+      <node id="5302237107384229502" at="83,67,84,110" concept="1" />
+      <node id="5302237107384317212" at="84,110,85,120" concept="1" />
+      <node id="5302237107384209108" at="85,120,86,133" concept="1" />
+      <node id="359299525883788095" at="93,0,94,0" concept="7" trace="INamedConcept$Kd" />
+      <node id="359299525883788095" at="94,0,95,0" concept="7" trace="BaseConcept$gP" />
+      <node id="359299525883788095" at="95,0,96,0" concept="7" trace="ImplementationWithStubPart$Lx" />
+      <node id="359299525883788095" at="96,0,97,0" concept="7" trace="ImplementationPart$LI" />
+      <node id="359299525883788095" at="97,0,98,0" concept="7" trace="Attribute$g1" />
+      <node id="359299525883788095" at="98,0,99,0" concept="7" trace="NodeAttribute$x2" />
       <node id="359299525883788095" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="359299525883788102" at="49,58,51,9" concept="1" />
-      <node id="5308535536686266820" at="62,61,64,9" concept="1" />
-      <node id="5308535536686088778" at="75,61,77,9" concept="1" />
       <node id="359299525883788095" at="26,0,29,0" concept="0" trace="SConceptHierarchy_Test#()V" />
       <node id="359299525883788095" at="45,0,48,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
       <node id="359299525883788102" at="30,0,34,0" concept="2" trace="test_conceptHierarchy#()V" />
       <node id="5308535536686266820" at="34,0,38,0" concept="2" trace="test_conceptSuperConcept#()V" />
       <node id="5308535536686088778" at="38,0,42,0" concept="2" trace="test_defaultIfaceConcept#()V" />
-      <node id="359299525883788102" at="51,9,60,9" concept="1" />
-      <node id="5308535536686266820" at="64,9,73,9" concept="1" />
-      <node id="359299525883788102" at="49,0,62,0" concept="2" trace="test_conceptHierarchy#()V" />
-      <node id="5308535536686266820" at="62,0,75,0" concept="2" trace="test_conceptSuperConcept#()V" />
-      <node id="5308535536686088778" at="77,9,93,9" concept="1" />
-      <node id="5308535536686088778" at="75,0,95,0" concept="2" trace="test_defaultIfaceConcept#()V" />
-      <scope id="359299525883788102" at="50,30,50,30" />
-      <scope id="5308535536686266820" at="63,30,63,30" />
-      <scope id="5308535536686088778" at="76,30,76,30" />
+      <node id="359299525883788102" at="49,58,58,9" concept="1" />
+      <node id="5308535536686266820" at="60,61,69,9" concept="1" />
+      <node id="359299525883788102" at="49,0,60,0" concept="2" trace="test_conceptHierarchy#()V" />
+      <node id="5308535536686266820" at="60,0,71,0" concept="2" trace="test_conceptSuperConcept#()V" />
+      <node id="5308535536686088778" at="71,61,87,9" concept="1" />
+      <node id="5308535536686088778" at="71,0,89,0" concept="2" trace="test_defaultIfaceConcept#()V" />
       <scope id="359299525883788095" at="26,35,27,25" />
       <scope id="359299525883788102" at="31,56,32,47" />
       <scope id="5308535536686266820" at="35,59,36,50" />
@@ -80,22 +74,22 @@
       <scope id="359299525883788102" at="30,0,34,0" />
       <scope id="5308535536686266820" at="34,0,38,0" />
       <scope id="5308535536686088778" at="38,0,42,0" />
-      <scope id="359299525883788102" at="52,30,59,144" />
-      <scope id="5308535536686266820" at="65,30,72,101">
+      <scope id="359299525883788102" at="50,30,57,144" />
+      <scope id="5308535536686266820" at="61,30,68,101">
         <var name="baseConcept" id="5308535536686274910" />
       </scope>
-      <scope id="359299525883788102" at="49,58,60,9" />
-      <scope id="5308535536686266820" at="62,61,73,9" />
-      <scope id="359299525883788102" at="49,0,62,0" />
-      <scope id="5308535536686266820" at="62,0,75,0" />
-      <scope id="5308535536686088778" at="78,30,92,133">
+      <scope id="359299525883788102" at="49,58,58,9" />
+      <scope id="5308535536686266820" at="60,61,69,9" />
+      <scope id="359299525883788102" at="49,0,60,0" />
+      <scope id="5308535536686266820" at="60,0,71,0" />
+      <scope id="5308535536686088778" at="72,30,86,133">
         <var name="defaultIfaceConcept" id="359299525883522056" />
       </scope>
-      <scope id="5308535536686088778" at="75,61,93,9" />
-      <scope id="5308535536686088778" at="75,0,95,0" />
-      <unit id="359299525883788095" at="98,0,106,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test$CONCEPTS" />
-      <unit id="359299525883788095" at="43,0,97,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test$TestBody" />
-      <unit id="359299525883788095" at="21,0,107,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test" />
+      <scope id="5308535536686088778" at="71,61,87,9" />
+      <scope id="5308535536686088778" at="71,0,89,0" />
+      <unit id="359299525883788095" at="92,0,100,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test$CONCEPTS" />
+      <unit id="359299525883788095" at="43,0,91,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test$TestBody" />
+      <unit id="359299525883788095" at="21,0,101,0" name="jetbrains.mps.smodel.test.concepts.SConceptHierarchy_Test" />
     </file>
   </root>
   <root nodeRef="r:783567bb-6a97-47d3-ab6c-d2a82efd2145(jetbrains.mps.smodel.test.concepts@tests)/6410670351276877495">

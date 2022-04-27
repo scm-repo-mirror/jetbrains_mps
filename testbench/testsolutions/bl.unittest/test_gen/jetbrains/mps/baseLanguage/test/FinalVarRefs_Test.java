@@ -67,8 +67,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck4705425356438246964() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4705425356438246926");
@@ -77,8 +75,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableHasNotBeenInitializedCheck6923385624929711095() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228255");
@@ -87,8 +83,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8129007564265886454() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6640766779612767800");
@@ -97,8 +91,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6923385624928162026() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228600");
@@ -107,8 +99,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6923385624929647060() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451226154");
@@ -117,8 +107,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6923385624929358438() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229008");
@@ -127,8 +115,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624927750488() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229128");
@@ -137,8 +123,6 @@ public class FinalVarRefs_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6923385624927704204() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230643");

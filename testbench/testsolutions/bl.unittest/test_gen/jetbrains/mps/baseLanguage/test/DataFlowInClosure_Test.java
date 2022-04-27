@@ -58,8 +58,6 @@ public class DataFlowInClosure_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928941627() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230032");
@@ -68,8 +66,6 @@ public class DataFlowInClosure_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526511672370() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1227876791315");
@@ -78,8 +74,6 @@ public class DataFlowInClosure_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199478() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444268405");

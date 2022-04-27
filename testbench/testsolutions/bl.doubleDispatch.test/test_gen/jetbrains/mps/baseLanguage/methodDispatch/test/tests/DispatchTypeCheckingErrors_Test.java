@@ -58,8 +58,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck3813896760029621933() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3813896760029575891");
@@ -68,8 +66,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3813896760029624351() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230420");
@@ -78,8 +74,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3813896760029586546() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231115");
@@ -88,8 +82,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck3813896760029627239() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3813896760029626826");
@@ -98,8 +90,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3813896760029637821() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231717");
@@ -108,8 +98,6 @@ public class DispatchTypeCheckingErrors_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck3813896760029629781() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3813896760029627241");

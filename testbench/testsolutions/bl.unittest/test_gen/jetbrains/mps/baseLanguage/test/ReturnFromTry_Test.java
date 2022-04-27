@@ -48,8 +48,6 @@ public class ReturnFromTry_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199550() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7209837885461546654");

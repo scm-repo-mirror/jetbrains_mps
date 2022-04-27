@@ -37,8 +37,6 @@ public class IfStatementWithReturns_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1220013512724() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1220013400783");

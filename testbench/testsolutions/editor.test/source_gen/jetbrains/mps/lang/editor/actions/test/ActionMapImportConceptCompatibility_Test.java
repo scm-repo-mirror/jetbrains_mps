@@ -36,8 +36,6 @@ public class ActionMapImportConceptCompatibility_Test extends BaseTransformation
     }
 
     public void test_NodeImportedActionMapIsNotCheck2687536747038604396() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2687536747038601417");

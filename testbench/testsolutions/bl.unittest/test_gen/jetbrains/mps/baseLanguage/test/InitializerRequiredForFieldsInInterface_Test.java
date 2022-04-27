@@ -46,8 +46,6 @@ public class InitializerRequiredForFieldsInInterface_Test extends BaseTransforma
     }
 
     public void test_NodeErrorCheck1187415722613141596() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1187415722601275233");
@@ -56,8 +54,6 @@ public class InitializerRequiredForFieldsInInterface_Test extends BaseTransforma
       });
     }
     public void test_NodeErrorCheck1187415722613794413() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1187415722613751356");
@@ -66,8 +62,6 @@ public class InitializerRequiredForFieldsInInterface_Test extends BaseTransforma
       });
     }
     public void test_ErrorMessagesCheck1187415722601361320() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1187415722601196320");

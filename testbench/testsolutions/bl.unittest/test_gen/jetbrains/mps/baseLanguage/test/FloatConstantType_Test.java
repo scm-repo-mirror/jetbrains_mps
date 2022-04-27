@@ -56,8 +56,6 @@ public class FloatConstantType_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck5868639094267614275() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5868639094257179249");

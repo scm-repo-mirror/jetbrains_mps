@@ -37,8 +37,6 @@ public class ForBreakUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck9092976468699800071() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("9092976468699800032");

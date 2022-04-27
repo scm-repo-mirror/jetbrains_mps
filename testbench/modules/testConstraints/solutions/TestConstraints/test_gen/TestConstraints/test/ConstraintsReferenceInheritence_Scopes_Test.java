@@ -50,8 +50,6 @@ public class ConstraintsReferenceInheritence_Scopes_Test extends BaseTransformat
     }
 
     public void test_ScopeOf_TestRefConstraints_SubReference_HandlerSuperScoping_target_2614955748379945979() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2614955748379945979");
@@ -60,8 +58,6 @@ public class ConstraintsReferenceInheritence_Scopes_Test extends BaseTransformat
       });
     }
     public void test_ScopeOf_TestRefConstraints_SubReference_ScopingSuperScoping_target_2614955748379963961() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2614955748379963961");
@@ -70,8 +66,6 @@ public class ConstraintsReferenceInheritence_Scopes_Test extends BaseTransformat
       });
     }
     public void test_ScopeOf_TestRefConstraints_SubReference_HandlerSuperHandler_target_2614955748380109408() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2614955748380109408");
@@ -80,8 +74,6 @@ public class ConstraintsReferenceInheritence_Scopes_Test extends BaseTransformat
       });
     }
     public void test_ScopeOf_TestRefConstraints_SubReference_ScopingSuperHandler_target_2614955748380109677() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2614955748380109677");

@@ -43,8 +43,6 @@ public class RulesCanBeAncestor_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck2802122285522113890() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2802122285522113888");
@@ -53,8 +51,6 @@ public class RulesCanBeAncestor_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck2802122285522273245() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2802122285522113906");

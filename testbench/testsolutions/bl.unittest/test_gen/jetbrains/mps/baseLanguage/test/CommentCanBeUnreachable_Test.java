@@ -43,8 +43,6 @@ public class CommentCanBeUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnusedVariableWarningCheck4056233746953876769() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227675");
@@ -53,8 +51,6 @@ public class CommentCanBeUnreachable_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1226936244308() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1226936071520");

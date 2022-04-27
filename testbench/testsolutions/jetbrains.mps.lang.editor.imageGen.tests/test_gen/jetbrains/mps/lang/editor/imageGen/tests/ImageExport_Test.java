@@ -39,8 +39,6 @@ public class ImageExport_Test extends BaseTransformationTest {
 
     public void test_manuallyExportedImage() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         ImageLoader imageloader = new ImageLoader("ManuallyExportedImage.gif");
         try {
           BufferedImage image = imageloader.getImage();
@@ -51,8 +49,6 @@ public class ImageExport_Test extends BaseTransformationTest {
       });
     }
     public void test_imageExportedByGenerator() throws Exception {
-      runWithinCommand(() -> {
-      });
       runWithinCommand(() -> {
         ImageLoader imageloader = new ImageLoader(Cls.class.getSimpleName() + ".png");
         try {

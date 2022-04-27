@@ -37,8 +37,6 @@ public class InternalClassifier_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck6293984074587251910() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1293230950168439296");

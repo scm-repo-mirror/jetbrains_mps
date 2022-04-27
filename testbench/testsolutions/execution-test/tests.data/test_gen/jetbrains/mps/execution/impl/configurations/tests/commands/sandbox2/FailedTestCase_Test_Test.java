@@ -32,9 +32,7 @@ public class FailedTestCase_Test_Test extends BaseTransformationTest {
     }
 
     public void test_test1() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinRead(() -> Assert.assertFalse(true));
+      Assert.assertFalse(true);
     }
 
   }

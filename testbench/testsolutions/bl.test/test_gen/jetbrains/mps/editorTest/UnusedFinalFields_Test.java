@@ -67,8 +67,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
     }
 
     public void test_NodeVariableHasNotBeenInitializedCheck2501421320960355491() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265890530");
@@ -77,8 +75,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldIsNeverAssignedCheck2501421320960355493() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265890530");
@@ -87,8 +83,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableHasNotBeenInitializedCheck2501421320960363987() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265890535");
@@ -97,8 +91,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldIsNeverAssignedCheck2501421320960363985() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265890535");
@@ -107,8 +99,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldUsedBeforeInitializedCheck2501421320960370065() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265899671");
@@ -117,8 +107,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldUsedBeforeInitializedCheck2501421320960374224() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265918142");
@@ -127,8 +115,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8129007564265890591() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265890529");
@@ -137,8 +123,6 @@ public class UnusedFinalFields_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldUsedBeforeInitializedCheck2501421320960379909() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8129007564265920779");

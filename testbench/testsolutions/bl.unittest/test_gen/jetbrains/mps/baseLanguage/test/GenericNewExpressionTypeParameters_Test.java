@@ -251,8 +251,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
     }
 
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927777191() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221205");
@@ -261,8 +259,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927838008() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231270");
@@ -271,8 +267,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624926980178() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228035");
@@ -281,8 +275,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929057845() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221242");
@@ -291,8 +283,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929879386() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228518");
@@ -301,8 +291,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927068829() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230292");
@@ -311,8 +299,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929808290() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230276");
@@ -321,8 +307,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928495811() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230411");
@@ -331,8 +315,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250315905() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4853049144093353403");
@@ -341,8 +323,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624929830247() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229863");
@@ -351,8 +331,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624928725186() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230263");
@@ -361,8 +339,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927414761() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230993");
@@ -371,8 +347,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928298412() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231470");
@@ -381,8 +355,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928766468() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229892");
@@ -391,8 +363,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927220129() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230720");
@@ -401,8 +371,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929780113() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230504");
@@ -411,8 +379,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928160475() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229052");
@@ -421,8 +387,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250416431() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4853049144094116632");
@@ -431,8 +395,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927674012() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229478");
@@ -441,8 +403,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927818606() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231170");
@@ -451,8 +411,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929688944() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231159");
@@ -461,8 +419,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927246785() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221347");
@@ -471,8 +427,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927744591() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230325");
@@ -481,8 +435,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928259092() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231481");
@@ -491,8 +443,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928182446() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221961");
@@ -501,8 +451,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929858529() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228727");
@@ -511,8 +459,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250456720() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4853049144093585463");
@@ -521,8 +467,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624927881541() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228360");
@@ -531,8 +475,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeWrongNumberOfTypeParametersCheck6923385624928891155() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229948");
@@ -541,8 +483,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928235880() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230513");
@@ -551,8 +491,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929431629() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227740");
@@ -561,8 +499,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928798159() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227684");
@@ -571,8 +507,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928202213() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231374");
@@ -581,8 +515,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928047836() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229991");
@@ -591,8 +523,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929208028() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227791");
@@ -601,8 +531,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250496419() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4853049144093931833");
@@ -611,8 +539,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929078226() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230285");
@@ -621,8 +547,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929286960() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221153");
@@ -631,8 +555,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250570119() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4853049144094844072");
@@ -641,8 +563,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929037513() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230764");
@@ -651,8 +571,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928015142() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230177");
@@ -661,8 +579,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928443950() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221160");
@@ -671,8 +587,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927860713() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231347");
@@ -681,8 +595,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928540412() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229439");
@@ -691,8 +603,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928091182() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231492");
@@ -701,8 +611,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927497000() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229404");
@@ -711,8 +619,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928330830() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229903");
@@ -721,8 +627,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927928136() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451225814");
@@ -731,8 +635,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928649513() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230043");
@@ -741,8 +643,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928818393() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228132");
@@ -751,8 +651,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928140797() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229496");
@@ -761,8 +659,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929356887() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230694");
@@ -771,8 +667,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928403065() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231703");
@@ -781,8 +675,6 @@ public class GenericNewExpressionTypeParameters_Test extends BaseTransformationT
       });
     }
     public void test_ErrorMessagesCheck6871159928250743705() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6871159928250503478");

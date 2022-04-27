@@ -47,8 +47,6 @@ public class UncaughtExceptionInTryCatch_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnnamedErrorCheck3032181451575013389() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3032181451575010670");
@@ -57,8 +55,6 @@ public class UncaughtExceptionInTryCatch_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnnamedErrorCheck3032181451575026941() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3032181451575018846");
@@ -67,8 +63,6 @@ public class UncaughtExceptionInTryCatch_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck3032181451575012024() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3032181451575002445");

@@ -67,8 +67,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
     }
 
     public void test_NodeFieldCanBeConvertedIntoCheck6923385624929411102() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229518");
@@ -77,8 +75,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldCanBeConvertedIntoCheck6923385624927778166() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230524");
@@ -87,8 +83,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldIsAssignedButNeverCheck6923385624927778168() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230524");
@@ -97,8 +91,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck6640766779615226140() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6640766779615024588");
@@ -107,8 +99,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4400998065754588523() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4400998065754588042");
@@ -117,8 +107,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldCanBeConvertedIntoCheck4400998065754643596() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4400998065754615248");
@@ -127,8 +115,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldCanBeConvertedIntoCheck4400998065754644137() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4400998065754615554");
@@ -137,8 +123,6 @@ public class FieldCanBeLocalVar_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeFieldCanBeConvertedIntoCheck4400998065754644682() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4400998065754615268");

@@ -171,8 +171,6 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck7978163097786003032() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7978163097785996348");
@@ -181,8 +179,6 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2877673685762596503() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2877673685762564970");
@@ -191,8 +187,6 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2877673685762600678() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2877673685762600669");

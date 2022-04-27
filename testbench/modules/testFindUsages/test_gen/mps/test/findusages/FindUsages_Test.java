@@ -58,8 +58,6 @@ public class FindUsages_Test extends BaseTransformationTest {
 
     public void test_FindLanguageConceptNodes() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         // LanguageScopeUsageFinder looks up references to concept declaration nodes of a language, this is what FindLanguageConceptsUsages_Action does
         Assert.assertNotNull(TestBody.this.m1());
         // m1 shall keep a node reference to some of BL concepts. SHALL NOT USE BL (i.e. instanceof), just a node reference.
@@ -74,8 +72,6 @@ public class FindUsages_Test extends BaseTransformationTest {
       });
     }
     public void test_FindLanguageModuleUsage() throws Exception {
-      runWithinCommand(() -> {
-      });
       runWithinCommand(() -> {
         // look up usages of a module (up to model imports) AND module as used language (again, up to imports), this is what FindModuleUsage_Action does for a Language module
         Assert.assertNotNull(TestBody.this.m2());

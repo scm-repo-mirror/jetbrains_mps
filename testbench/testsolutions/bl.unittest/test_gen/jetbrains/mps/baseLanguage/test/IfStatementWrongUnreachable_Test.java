@@ -47,8 +47,6 @@ public class IfStatementWrongUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1217864879944() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1217861284985");
@@ -57,8 +55,6 @@ public class IfStatementWrongUnreachable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck6923385624927388248() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228077");
@@ -67,8 +63,6 @@ public class IfStatementWrongUnreachable_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1217864892290() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1217864474226");

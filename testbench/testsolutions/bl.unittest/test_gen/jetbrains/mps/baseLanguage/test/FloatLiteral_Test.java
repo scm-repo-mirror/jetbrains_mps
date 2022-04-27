@@ -46,8 +46,6 @@ public class FloatLiteral_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck290469496750263895() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("290469496750221972");
@@ -56,8 +54,6 @@ public class FloatLiteral_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck290469496750368664() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("290469496750333050");
@@ -66,8 +62,6 @@ public class FloatLiteral_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck290469496750333115() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("290469496750333041");

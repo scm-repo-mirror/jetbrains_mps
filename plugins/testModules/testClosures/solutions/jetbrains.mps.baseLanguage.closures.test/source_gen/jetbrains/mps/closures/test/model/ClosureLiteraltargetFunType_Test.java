@@ -60,8 +60,6 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3981396688773519576() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6374750171056867612");

@@ -50,8 +50,6 @@ public class CaseInsensitiveDuplicatedClassifierName_Test extends BaseTransforma
     }
 
     public void test_NodeErrorCheck1005490780657563849() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1005490780655188848");
@@ -60,8 +58,6 @@ public class CaseInsensitiveDuplicatedClassifierName_Test extends BaseTransforma
       });
     }
     public void test_NodeErrorCheck1005490780657563829() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1005490780655189011");
@@ -70,8 +66,6 @@ public class CaseInsensitiveDuplicatedClassifierName_Test extends BaseTransforma
       });
     }
     public void test_NodeWarningCheck1005490780657563809() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1005490780655189178");
@@ -80,8 +74,6 @@ public class CaseInsensitiveDuplicatedClassifierName_Test extends BaseTransforma
       });
     }
     public void test_ErrorMessagesCheck1005490780655151764() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1005490780655151743");

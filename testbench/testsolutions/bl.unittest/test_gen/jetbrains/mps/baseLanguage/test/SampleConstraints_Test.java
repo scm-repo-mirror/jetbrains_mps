@@ -47,8 +47,6 @@ public class SampleConstraints_Test extends BaseTransformationTest {
     }
 
     public void test_NodeVariableHasNotBeenInitializedErrorCheck2675718132411786724() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7638302724810915512");
@@ -57,8 +55,6 @@ public class SampleConstraints_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck2675718132411786726() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7638302724810915512");
@@ -67,8 +63,6 @@ public class SampleConstraints_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck7638302724810894630() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7638302724810894536");

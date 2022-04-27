@@ -40,8 +40,6 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck7019192671317902489() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2802122285522027685");
@@ -50,8 +48,6 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck7019192671317924833() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7019192671317902494");

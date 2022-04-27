@@ -73,8 +73,6 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
 
     public void test_startSimpleTestCase() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6937584626643047380"));
         JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
         TestBody.this.runTestsWithSettings(junitRC, testsToSucceed, TestBody.this.emptyList());
@@ -82,15 +80,11 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
     }
     public void test_startFailedTestCase() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         List<ITestNodeWrapper> testsToFail = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6339244025082034140"));
         TestBody.this.runTestsWithSettings(TestBody.this.createDefaultJUnitRC(), TestBody.this.emptyList(), testsToFail);
       });
     }
     public void test_programParametersArePassedToTheTest() throws Exception {
-      runWithinCommand(() -> {
-      });
       runWithinCommand(() -> {
         List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "4414733712821357918"));
         JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
@@ -101,8 +95,6 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
     }
     public void test_programParametersWithSpacesArePassedToTheTest() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
         JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();
         String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
@@ -111,8 +103,6 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
       });
     }
     public void test_startUsingLangTestCase() throws Exception {
-      runWithinCommand(() -> {
-      });
       runWithinCommand(() -> {
         List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "3879137142820985113"));
         JUnitTests_Configuration junitRC = TestBody.this.createDefaultJUnitRC();

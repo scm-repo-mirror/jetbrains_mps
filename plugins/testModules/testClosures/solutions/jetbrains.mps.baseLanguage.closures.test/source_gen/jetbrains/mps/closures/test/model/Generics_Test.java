@@ -46,8 +46,6 @@ public class Generics_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck5462327771639049246() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5462327771639049241");
@@ -56,8 +54,6 @@ public class Generics_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck5419091611223712729() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7289865355732882896");
@@ -66,8 +62,6 @@ public class Generics_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1674014916759209386() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1674014916759207935");

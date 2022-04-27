@@ -35,8 +35,6 @@ public class FontFamilyLiteralWarningTest_Test extends BaseTransformationTest {
     }
 
     public void test_NodeWarningCheck1715298588355941914() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1715298588355941887");

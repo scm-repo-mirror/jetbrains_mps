@@ -36,8 +36,6 @@ public class NonexistentDefaultMenu_Test extends BaseTransformationTest {
     }
 
     public void test_NodeDefaultTransformationCheck2153278993334499810() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2153278993334090534");

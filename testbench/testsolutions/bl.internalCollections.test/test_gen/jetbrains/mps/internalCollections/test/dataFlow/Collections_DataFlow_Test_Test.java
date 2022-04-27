@@ -53,8 +53,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1140733686815042652() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1140733686814959179");
@@ -63,8 +61,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1140733686815050004() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1140733686815050001");
@@ -73,8 +69,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1140733686815044380() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1140733686815044377");
@@ -83,8 +77,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1140733686815060469() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1140733686815060466");
@@ -93,8 +85,6 @@ public class Collections_DataFlow_Test_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1140733686815070800() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1140733686815070797");

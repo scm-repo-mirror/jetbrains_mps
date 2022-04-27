@@ -37,8 +37,6 @@ public class StubClassifiers_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck3696922934671319151() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3696922934668788475");

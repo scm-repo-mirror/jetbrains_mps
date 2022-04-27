@@ -54,8 +54,6 @@ public class IfStatementDataFlow_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableHasNotBeenInitializedErrorCheck6923385624928604755() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228488");
@@ -64,8 +62,6 @@ public class IfStatementDataFlow_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199532() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444237453");

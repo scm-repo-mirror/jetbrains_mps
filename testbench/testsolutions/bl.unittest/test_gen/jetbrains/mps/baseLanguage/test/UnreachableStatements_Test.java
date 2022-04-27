@@ -107,8 +107,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnusedVariableWarningCheck4056233746953778755() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451236689");
@@ -117,8 +115,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck6923385624927474426() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221288");
@@ -127,8 +123,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1216895632608() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444211008");
@@ -137,8 +131,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableCodeCheck2557916264120514171() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2557916264120512956");
@@ -147,8 +139,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2557916264120514158() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2557916264120512203");
@@ -157,8 +147,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck8245314650935054824() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8245314650935053255");
@@ -167,8 +155,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8245314650935052537() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8245314650935052522");
@@ -177,8 +163,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck8768955936813176762() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813162949");
@@ -187,8 +171,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813173396() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813157560");
@@ -197,8 +179,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813179061() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813167653");
@@ -207,8 +187,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813180900() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813168086");
@@ -217,8 +195,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813186030() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813168547");
@@ -227,8 +203,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableCodeCheck2557916264120793751() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813182999");
@@ -237,8 +211,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813197377() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813182979");
@@ -247,8 +219,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8768955936813203327() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8768955936813188064");
@@ -257,8 +227,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck2575419463997245412() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2575419463997242568");
@@ -267,8 +235,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2575419463997245406() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2575419463997242549");
@@ -277,8 +243,6 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2575419463997271506() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7475692990582180654");

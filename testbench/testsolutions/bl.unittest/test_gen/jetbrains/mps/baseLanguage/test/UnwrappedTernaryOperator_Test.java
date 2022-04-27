@@ -47,8 +47,6 @@ public class UnwrappedTernaryOperator_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTernaryOperatorMustBeCheck818296778600411956() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("818296778600403614");
@@ -57,8 +55,6 @@ public class UnwrappedTernaryOperator_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTernaryOperatorMustBeCheck818296778609411375() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("818296778607007111");
@@ -67,8 +63,6 @@ public class UnwrappedTernaryOperator_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck818296778600411854() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("818296778600378579");

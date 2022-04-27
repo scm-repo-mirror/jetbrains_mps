@@ -67,8 +67,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
     }
 
     public void test_NodepropIsTrueCheck4999334160817530090() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817529595");
@@ -77,8 +75,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodechildConceptCheck4999334160817530092() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817529595");
@@ -87,8 +83,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodepropIsTrueCheck4999334160817530094() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817529595");
@@ -97,8 +91,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4999334160817530111() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817530089");
@@ -107,8 +99,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodetoleranceNotTooHighCheck4999334160817532120() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817532094");
@@ -117,8 +107,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodetoleranceNotTooLowCheck4999334160817532128() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817532101");
@@ -127,8 +115,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck4999334160817532069() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817532060");
@@ -137,8 +123,6 @@ public class CanBeChildParentWorksInRules_Test extends BaseTransformationTest {
       });
     }
     public void test_NodechildConceptCheck4999334160817531756() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4999334160817531720");

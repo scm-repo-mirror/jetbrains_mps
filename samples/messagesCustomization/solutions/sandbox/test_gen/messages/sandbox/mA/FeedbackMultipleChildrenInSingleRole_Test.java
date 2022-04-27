@@ -35,8 +35,6 @@ public class FeedbackMultipleChildrenInSingleRole_Test extends BaseTransformatio
     }
 
     public void test_NodeErrorCheck4631579825415181488() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7019192671317970806");

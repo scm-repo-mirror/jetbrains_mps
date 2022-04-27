@@ -62,8 +62,6 @@ public class NullProperties_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck8681827087508331151() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542537");
@@ -72,8 +70,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8681827087508331336() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542541");
@@ -82,8 +78,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck706089536802542545() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542527");
@@ -92,8 +86,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3029960565848077192() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542557");
@@ -102,8 +94,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck3029960565848077546() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542561");
@@ -112,8 +102,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck706089536802542565() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542547");
@@ -122,8 +110,6 @@ public class NullProperties_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck706089536802542585() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("706089536802542567");

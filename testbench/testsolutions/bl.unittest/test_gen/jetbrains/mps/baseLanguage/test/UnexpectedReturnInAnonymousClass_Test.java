@@ -62,8 +62,6 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       });
     }
     public void test_NodeReturnExpectedErrorCheck6923385624929494145() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230829");
@@ -72,8 +70,6 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       });
     }
     public void test_NodeTypeSystemCheck7854334384284976424() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7854334384284975454");
@@ -82,8 +78,6 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       });
     }
     public void test_NodeMissingReturnFromMethodCheck7854334384284977606() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7854334384284974179");
@@ -92,8 +86,6 @@ public class UnexpectedReturnInAnonymousClass_Test extends BaseTransformationTes
       });
     }
     public void test_ErrorMessagesCheck2501421320959199496() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444400359");

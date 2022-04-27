@@ -157,8 +157,6 @@ public class JavaToMps_Test extends BaseTransformationTest {
         addNodeById("1218582063869484737");
         addNodeById("8083368042256419833");
       });
-      runWithinCommand(() -> {
-      });
     }
     public void test_LittleSource() throws Exception {
       runWithinCommand(() -> {

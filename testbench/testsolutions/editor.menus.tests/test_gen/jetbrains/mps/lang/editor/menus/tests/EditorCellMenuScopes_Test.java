@@ -58,8 +58,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
     }
 
     public void test_ScopeOf_TransformationMenuReference_Default_concept_1068638940632614994() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1068638940632614994");
@@ -68,8 +66,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       });
     }
     public void test_ScopeOf_TransformationMenuReference_Named_menu_1068638940632808481() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1068638940632808481");
@@ -78,8 +74,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       });
     }
     public void test_ScopeOf_TransformationMenuReference_Default_concept_4091667478583379447() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4091667478583379447");
@@ -88,8 +82,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       });
     }
     public void test_ScopeOf_TransformationMenuReference_Named_menu_4091667478583467351() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4091667478583467351");
@@ -98,8 +90,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       });
     }
     public void test_ScopeOf_TransformationMenuReference_Default_concept_4091667478583467622() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4091667478583467622");
@@ -108,8 +98,6 @@ public class EditorCellMenuScopes_Test extends BaseTransformationTest {
       });
     }
     public void test_ScopeOf_TransformationMenuReference_Named_menu_4091667478583468879() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4091667478583468879");

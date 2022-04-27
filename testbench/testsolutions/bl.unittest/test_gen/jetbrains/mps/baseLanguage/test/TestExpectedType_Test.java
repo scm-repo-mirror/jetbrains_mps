@@ -62,8 +62,6 @@ public class TestExpectedType_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck4395293866213260523() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4395293866213195828");

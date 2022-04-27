@@ -52,8 +52,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
     }
 
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669727090() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8095208975669432956");
@@ -62,8 +60,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669728885() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8095208975669728882");
@@ -72,8 +68,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669729693() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8095208975669729682");
@@ -82,8 +76,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669729758() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8095208975669729747");
@@ -92,8 +84,6 @@ public class IncludeDefaultMenu_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeConceptShouldBeSpecifiedCheck8095208975669730924() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8095208975669730566");

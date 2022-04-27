@@ -47,8 +47,6 @@ public class OnlyStatementsCanUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTheConditionIsAlwaysCheck2857825852305743236() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451223910");
@@ -57,8 +55,6 @@ public class OnlyStatementsCanUnreachable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnreachableNodeErrorCheck2156906680117409679() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451223908");
@@ -67,8 +63,6 @@ public class OnlyStatementsCanUnreachable_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1216231238662() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1216231136440");

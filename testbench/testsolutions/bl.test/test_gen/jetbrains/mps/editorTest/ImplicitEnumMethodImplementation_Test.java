@@ -67,8 +67,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
     }
 
     public void test_ErrorMessagesCheck8841676161362742012() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362741848");
@@ -77,8 +75,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_ErrorMessagesCheck8841676161362742874() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362742700");
@@ -87,8 +83,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_ErrorMessagesCheck8841676161362737481() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362736760");
@@ -97,8 +91,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_NodeUnnamedErrorCheck6091751241367772282() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362736760");
@@ -107,8 +99,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_NodeUnnamedErrorCheck824450455580355889() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362737582");
@@ -117,8 +107,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_NodeUnnamedErrorCheck824450455580357478() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362737645");
@@ -127,8 +115,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_ErrorMessagesCheck8841676161362737639() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362737510");
@@ -137,8 +123,6 @@ public class ImplicitEnumMethodImplementation_Test extends BaseTransformationTes
       });
     }
     public void test_ErrorMessagesCheck8841676161362738093() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8841676161362738066");

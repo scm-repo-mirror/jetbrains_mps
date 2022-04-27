@@ -47,8 +47,6 @@ public class PrivateMethod_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck7938578788783487552() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7938578788783487531");
@@ -57,8 +55,6 @@ public class PrivateMethod_Test extends BaseTransformationTest {
       });
     }
     public void test_NodePrivateMethodIsNeverUsedCheck7938578788783488602() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7938578788783487570");
@@ -67,8 +63,6 @@ public class PrivateMethod_Test extends BaseTransformationTest {
       });
     }
     public void test_NodePrivateMethodIsNeverUsedCheck7938578788783495769() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7938578788783494684");

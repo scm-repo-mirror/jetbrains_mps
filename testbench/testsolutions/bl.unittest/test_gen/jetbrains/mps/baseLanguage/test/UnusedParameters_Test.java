@@ -47,8 +47,6 @@ public class UnusedParameters_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1220265437276() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1220265263160");
@@ -57,8 +55,6 @@ public class UnusedParameters_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnusedParameterWarningCheck6923385624929809514() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231454");
@@ -67,8 +63,6 @@ public class UnusedParameters_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnusedParameterWarningCheck6923385624927380174() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230984");

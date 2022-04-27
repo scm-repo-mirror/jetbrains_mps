@@ -47,8 +47,6 @@ public class CatchingUnthrownException_Test extends BaseTransformationTest {
     }
 
     public void test_NodeCaughtExceptionIsNeverCheck5351203823893584498() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230337");
@@ -57,8 +55,6 @@ public class CatchingUnthrownException_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCaughtExceptionIsNeverCheck5351203823893598918() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231641");
@@ -67,8 +63,6 @@ public class CatchingUnthrownException_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1220012521451() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1220012475941");

@@ -48,8 +48,6 @@ public class ForLoop_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2501421320959199424() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1215444253196");

@@ -78,8 +78,6 @@ public class TestPersistence_Test extends BaseTransformationTest {
 
     public void test_testLastVersionIndexing() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
         CollectCallback c = new CollectCallback();
         byte[] serialized = PersistenceUtil.modelAsBytes(helper.getTestModel(), myProject.getComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML));
@@ -99,8 +97,6 @@ public class TestPersistence_Test extends BaseTransformationTest {
     }
     public void test_testPersistenceReadWrite() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         // tests write and read in each supported persistence, check that model is not changed after write/read cycle
         TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
         for (int i = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; i <= ModelPersistence.LAST_VERSION; ++i) {
@@ -116,8 +112,6 @@ public class TestPersistence_Test extends BaseTransformationTest {
       });
     }
     public void test_testPersistenceUpgrade() throws Exception {
-      runWithinCommand(() -> {
-      });
       runWithinCommand(() -> {
         TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
 

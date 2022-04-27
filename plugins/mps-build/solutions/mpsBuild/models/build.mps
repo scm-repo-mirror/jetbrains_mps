@@ -42025,6 +42025,11 @@
               <ref role="3bR37D" node="7Kfy9QB6Lc2" resolve="jetbrains.mps.lang.typesystem" />
             </node>
           </node>
+          <node concept="1SiIV0" id="6ecjmP170HE" role="3bR37C">
+            <node concept="3bR9La" id="6ecjmP170HF" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6KZG" resolve="jetbrains.mps.baseLanguage.closures" />
+            </node>
+          </node>
         </node>
         <node concept="398BVA" id="ymnOULAU0I" role="3LF7KH">
           <ref role="398BVh" node="ymnOULASEN" resolve="mps_home" />

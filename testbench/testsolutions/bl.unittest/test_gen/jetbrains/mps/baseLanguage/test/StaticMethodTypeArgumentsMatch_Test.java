@@ -235,8 +235,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
     }
 
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624929474538() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229283");
@@ -245,8 +243,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526512923052() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7430872850877633660");
@@ -255,8 +251,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624929093688() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230618");
@@ -265,8 +259,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526512937850() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4817790028249076465");
@@ -275,8 +267,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624929759489() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229920");
@@ -285,8 +275,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526512967362() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4817790028256940104");
@@ -295,8 +283,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928064214() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451225105");
@@ -305,8 +291,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526512982160() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4817790028249115852");
@@ -315,8 +299,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeVariableInitializerIsRedundantWarningCheck6923385624928338237() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230436");
@@ -325,8 +307,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeUnusedVariableWarningCheck215889526512996959() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("4817790028256932366");
@@ -335,8 +315,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeIncorrectNumberOfTypeCheck6923385624927076212() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228013");
@@ -345,8 +323,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeIncorrectNumberOfTypeCheck6923385624929568518() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229336");
@@ -355,8 +331,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929085682() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229769");
@@ -365,8 +339,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928071609() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228716");
@@ -375,8 +347,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929887428() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231101");
@@ -385,8 +355,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927598052() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221131");
@@ -395,8 +363,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928310878() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227873");
@@ -405,8 +371,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929108750() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229068");
@@ -415,8 +379,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928705021() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229874");
@@ -425,8 +387,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929718802() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231427");
@@ -435,8 +395,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928278524() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231600");
@@ -445,8 +403,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929553520() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231531");
@@ -455,8 +411,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927168694() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229751");
@@ -465,8 +419,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929458730() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229715");
@@ -475,8 +427,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927571014() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221325");
@@ -485,8 +435,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927967241() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451223466");
@@ -495,8 +443,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928022542() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229314");
@@ -505,8 +451,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929696443() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230932");
@@ -515,8 +459,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928504098() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229927");
@@ -525,8 +467,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927017247() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227942");
@@ -535,8 +475,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928985887() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228607");
@@ -545,8 +483,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927265973() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229688");
@@ -555,8 +491,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929787619() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228625");
@@ -565,8 +499,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927360609() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229612");
@@ -575,8 +507,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927176656() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231230");
@@ -585,8 +515,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929116365() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451221113");
@@ -595,8 +523,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927698774() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227815");
@@ -605,8 +531,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929482011() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231248");
@@ -615,8 +539,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929403419() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229666");
@@ -625,8 +547,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927637065() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231181");
@@ -635,8 +555,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927622344() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228178");
@@ -645,8 +563,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927273298() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229086");
@@ -655,8 +571,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929123839() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231315");
@@ -665,8 +579,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927149353() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231658");
@@ -675,8 +587,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928919630() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230252");
@@ -685,8 +595,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927757855() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451227695");
@@ -695,8 +603,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624927387513() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229510");
@@ -705,8 +611,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624929225321() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230378");
@@ -715,8 +619,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_NodeTheTypeIsNotValidSubstituteCheck6923385624928353046() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451230120");
@@ -725,8 +627,6 @@ public class StaticMethodTypeArgumentsMatch_Test extends BaseTransformationTest 
       });
     }
     public void test_ErrorMessagesCheck7430872850884083577() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7430872850884069457");

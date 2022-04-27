@@ -112,8 +112,6 @@ public class WrappedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1252378774017462261() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1252378774017462175");
@@ -122,8 +120,6 @@ public class WrappedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1470921783545305313() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1470921783545304124");
@@ -132,8 +128,6 @@ public class WrappedType_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck1252378774017462295() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1252378774017439494");

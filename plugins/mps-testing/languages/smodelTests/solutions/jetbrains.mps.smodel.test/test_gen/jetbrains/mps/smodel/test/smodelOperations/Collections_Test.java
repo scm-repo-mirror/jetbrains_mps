@@ -47,8 +47,6 @@ public class Collections_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnnamedWarningCheck6405893568802055213() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6405539316368529261");
@@ -57,8 +55,6 @@ public class Collections_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnnamedWarningCheck9095983673872173449() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6405539316368545689");
@@ -67,8 +63,6 @@ public class Collections_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck6405539316368555030() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6405539316368482246");

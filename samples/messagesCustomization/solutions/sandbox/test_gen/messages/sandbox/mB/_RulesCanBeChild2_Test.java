@@ -36,8 +36,6 @@ public class _RulesCanBeChild2_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnknownRuleCheck2802122285522068052() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2802122285522027982");

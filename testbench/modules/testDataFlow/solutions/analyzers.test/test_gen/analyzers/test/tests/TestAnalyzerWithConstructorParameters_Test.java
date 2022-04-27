@@ -46,8 +46,6 @@ public class TestAnalyzerWithConstructorParameters_Test extends BaseTransformati
     }
 
     public void test_NodeErrorCheck8332528989793491523() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8332528989793488546");
@@ -56,8 +54,6 @@ public class TestAnalyzerWithConstructorParameters_Test extends BaseTransformati
       });
     }
     public void test_NodeErrorCheck8332528989793494654() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8332528989793494589");
@@ -66,8 +62,6 @@ public class TestAnalyzerWithConstructorParameters_Test extends BaseTransformati
       });
     }
     public void test_ErrorMessagesCheck8332528989793494697() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8332528989793494679");

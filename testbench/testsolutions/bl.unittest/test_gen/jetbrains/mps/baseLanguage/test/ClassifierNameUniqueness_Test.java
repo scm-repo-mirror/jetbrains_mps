@@ -63,8 +63,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTheNestedTypeCannotHideCheck2654404125187272997() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187259924");
@@ -73,8 +71,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicatedNameOfNestedCheck2654404125187273794() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187273267");
@@ -83,8 +79,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicatedNameOfNestedCheck2654404125187284431() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187273353");
@@ -93,8 +87,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicatedNameOfNestedCheck2654404125187284693() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187273443");
@@ -103,8 +95,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicatedNameOfNestedCheck2654404125187284994() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187273549");
@@ -113,8 +103,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicatedNameOfNestedCheck2654404125187285270() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187273673");
@@ -123,8 +111,6 @@ public class ClassifierNameUniqueness_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck2654404125187259971() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2654404125187242909");

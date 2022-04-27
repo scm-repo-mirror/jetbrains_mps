@@ -106,8 +106,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155382069() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3077325331580971297");
@@ -116,8 +114,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155452234() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8675420879155440104");
@@ -126,8 +122,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155453375() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8675420879155450086");
@@ -136,8 +130,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155482970() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8675420879155458663");
@@ -146,8 +138,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155484751() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8675420879155461594");
@@ -156,8 +146,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8675420879155485361() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8675420879155464922");
@@ -166,8 +154,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1470921783545427862() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1470921783545424960");
@@ -176,8 +162,6 @@ public class AnnotatedType_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8675420879155382183() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6405009306797629711");

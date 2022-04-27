@@ -63,8 +63,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
     }
 
     public void test_NodeCannotAssignValueToFinalCheck5706606249111788699() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5706606249110735306");
@@ -73,8 +71,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck5706606249111798505() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5706606249110712506");
@@ -83,8 +79,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6982528192101427028() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6982528192101427026");
@@ -93,8 +87,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6982528192101427038() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6982528192101427036");
@@ -103,8 +95,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeCannotAssignValueToFinalCheck6549739314330314428() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6549739314330314426");
@@ -113,8 +103,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeVariableHasNotBeenInitializedErrorCheck6549739314330060411() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6549739314330022596");
@@ -123,8 +111,6 @@ public class BaseAssignmentToFinalVariable_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck5706606249111739463() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5706606249111739408");

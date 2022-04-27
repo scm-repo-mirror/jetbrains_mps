@@ -59,8 +59,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
     }
 
     public void test_NodeDuplicateCaseCheck6427750727968830896() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6427750727968830706");
@@ -69,8 +67,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicateCaseCheck6427750727968830978() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6427750727968830812");
@@ -79,8 +75,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck6427750727968830833() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6427750727968817833");
@@ -89,8 +83,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicateCaseCheck8139570363454868788() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8139570363454868786");
@@ -99,8 +91,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeDuplicateCaseCheck8139570363454868798() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8139570363454868796");
@@ -109,8 +99,6 @@ public class SwitchStatementDuplicateCase_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8139570363454868804() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8139570363454868778");

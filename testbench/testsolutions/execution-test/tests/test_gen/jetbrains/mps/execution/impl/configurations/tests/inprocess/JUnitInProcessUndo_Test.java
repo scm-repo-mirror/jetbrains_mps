@@ -55,12 +55,8 @@ public class JUnitInProcessUndo_Test extends BaseTransformationTest {
     }
 
     public void test_startTrickyTestCase() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinRead(() -> {
-        List<ITestNodeWrapper> wrappedTests = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", "4177017564823046256"));
-        TestBody.this.checkTests(wrappedTests, ListSequence.fromList(new ArrayList<ITestNodeWrapper>()));
-      });
+      List<ITestNodeWrapper> wrappedTests = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", "4177017564823046256"));
+      this.checkTests(wrappedTests, ListSequence.fromList(new ArrayList<ITestNodeWrapper>()));
     }
 
     public SModel getMyModel() {

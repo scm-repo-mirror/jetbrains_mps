@@ -70,8 +70,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck6572489169071449300() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6572489169071448896");
@@ -80,8 +78,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck6572489169071450944() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6572489169071449521");
@@ -90,8 +86,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck6560794580689901218() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6560794580689896503");
@@ -100,8 +94,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck6560794580689901568() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6560794580689896696");
@@ -110,8 +102,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1870027727456331649() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1870027727456331642");
@@ -120,8 +110,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1870027727456349628() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1870027727456331652");
@@ -130,8 +118,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1870027727456331667() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1870027727456331660");
@@ -140,8 +126,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck1042936571392548556() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1042936571392547467");
@@ -150,8 +134,6 @@ public class OverridingInference_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck4113274076525493263() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6572489169071448436");

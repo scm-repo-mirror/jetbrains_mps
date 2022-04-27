@@ -46,8 +46,6 @@ public class DuplicitRoutineNameTest_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck8240600211257314592() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8240600211257311814");
@@ -56,8 +54,6 @@ public class DuplicitRoutineNameTest_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeErrorCheck8240600211257423129() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8240600211257311819");
@@ -66,8 +62,6 @@ public class DuplicitRoutineNameTest_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck8240600211257296170() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("8240600211257294411");

@@ -67,8 +67,6 @@ public class Validation_Test extends BaseTransformationTest {
     }
 
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929443716() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229135");
@@ -77,8 +75,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929443718() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229135");
@@ -87,8 +83,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck7868761255934329326() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7868761255934329296");
@@ -97,8 +91,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929451248() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229787");
@@ -107,8 +99,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929451250() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451229787");
@@ -117,8 +107,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929609456() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228860");
@@ -127,8 +115,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeRecursiveConstructorInvocationCheck6923385624929609458() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451228860");
@@ -137,8 +123,6 @@ public class Validation_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeIllegalCombinationOfModifiersCheck6923385624927426848() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("3951985765451231039");

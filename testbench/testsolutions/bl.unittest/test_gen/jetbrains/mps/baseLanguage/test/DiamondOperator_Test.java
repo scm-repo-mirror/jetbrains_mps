@@ -49,8 +49,6 @@ public class DiamondOperator_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTypeSystemCheck2668602783496250965() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2668602783496238456");

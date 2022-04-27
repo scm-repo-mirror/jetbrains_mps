@@ -52,8 +52,6 @@ public class JavaCommand_Test extends BaseTransformationTest {
 
     public void test_startJavaByNode() throws Exception {
       runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> {
         final Wrappers._T<SNodeReference> pointer = new Wrappers._T<SNodeReference>();
         myProject.getModelAccess().runReadAction(() -> {
           SModel model = PersistenceFacade.getInstance().createModelReference("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)").resolve(myProject.getRepository());

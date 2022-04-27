@@ -59,8 +59,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck2793586790994231859() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061227158484");
@@ -69,8 +67,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTryingToAssignWeakerPrivilegesCheck6115392061227170451() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061227159638");
@@ -79,8 +75,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTheMethodReturnTypeIsCheck6115392061227172643() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061227170557");
@@ -89,8 +83,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTryingToAssignWeakerPrivilegesCheck6115392061228741124() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061227172800");
@@ -99,8 +91,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnnamedErrorCheck6115392061228741318() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061227159373");
@@ -109,8 +99,6 @@ public class PropertyInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeTheMethodCannotOverrideCheck6115392061233415628() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("6115392061233268919");

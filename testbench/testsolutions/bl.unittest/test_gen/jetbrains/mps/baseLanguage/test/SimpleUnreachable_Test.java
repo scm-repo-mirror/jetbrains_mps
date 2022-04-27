@@ -37,8 +37,6 @@ public class SimpleUnreachable_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnreachableCheck3715262949174660907() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("2702384151998850297");

@@ -47,14 +47,10 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
     }
 
     public void test_testBitwisePriorities() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a1a3h(), 1 & 2 | 3 << 4 ^ 5 | 6));
+      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a0a3h(), 1 & 2 | 3 << 4 ^ 5 | 6));
     }
     public void test_testBooleanAndWithEqualsOperation() throws Exception {
-      runWithinCommand(() -> {
-      });
-      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a1a4h(), true || false == false));
+      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a0a4h(), true || false == false));
     }
 
     public void check(SNode expr, Object expectedValue) {
@@ -114,7 +110,7 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
 
       throw new UnsupportedOperationException(e.getPresentation());
     }
-    private static SNode _quotation_createNode_p8h609_a0a0a0a1a3h() {
+    private static SNode _quotation_createNode_p8h609_a0a0a0a0a3h() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -170,7 +166,7 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_p8h609_a0a0a0a1a4h() {
+    private static SNode _quotation_createNode_p8h609_a0a0a0a0a4h() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;

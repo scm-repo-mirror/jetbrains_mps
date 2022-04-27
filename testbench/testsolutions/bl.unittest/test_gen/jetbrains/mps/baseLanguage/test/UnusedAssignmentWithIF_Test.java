@@ -37,8 +37,6 @@ public class UnusedAssignmentWithIF_Test extends BaseTransformationTest {
     }
 
     public void test_ErrorMessagesCheck1217866439753() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("1217866140840");

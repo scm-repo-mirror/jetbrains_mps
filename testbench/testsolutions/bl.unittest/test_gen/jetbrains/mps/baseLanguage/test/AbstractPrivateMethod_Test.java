@@ -42,8 +42,6 @@ public class AbstractPrivateMethod_Test extends BaseTransformationTest {
     }
 
     public void test_NodeErrorCheck2834737865485399118() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("284804022098951626");
@@ -52,8 +50,6 @@ public class AbstractPrivateMethod_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck284804022098937155() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("284804022098937141");

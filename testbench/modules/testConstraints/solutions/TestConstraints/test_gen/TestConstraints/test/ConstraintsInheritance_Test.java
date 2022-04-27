@@ -59,8 +59,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
     }
 
     public void test_NodeUnknownRuleCheck5816870305080793796() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080550504");
@@ -69,8 +67,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck5816870305080793812() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080791974");
@@ -79,8 +75,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_ErrorMessagesCheck5816870305080792275() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080792242");
@@ -89,8 +83,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck5816870305080793804() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080792005");
@@ -99,8 +91,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck5816870305080793825() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080792099");
@@ -109,8 +99,6 @@ public class ConstraintsInheritance_Test extends BaseTransformationTest {
       });
     }
     public void test_NodeUnknownRuleCheck5816870305080793833() throws Exception {
-      runWithinCommand(() -> {
-      });
 
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("5816870305080792150");
