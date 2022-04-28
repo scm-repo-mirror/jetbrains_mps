@@ -423,10 +423,9 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
   }
 
   private CachingAppender installAppender() {
-    Logger rootLogger = Logger.getRootLogger();
-    CachingAppender appender = new CachingAppender(Level.ERROR);
+    CachingAppender appender = new CachingAppender();
     populateExpectedEvents(appender);
-    rootLogger.addAppender(appender);
+    appender.attach(Level.ERROR);
     return appender;
   }
 
@@ -435,7 +434,7 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
   }
 
   private void uninstallAppender(CachingAppender appender) {
-    Logger.getRootLogger().removeAppender(appender);
+    appender.detach();
   }
 
   private static final class CONCEPTS {

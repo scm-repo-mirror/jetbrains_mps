@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.ArrayList;
 import org.junit.runner.notification.StoppedByUserException;
 import org.junit.runner.notification.Failure;
-import org.apache.log4j.Logger;
 
 /**
  * fyodor, Aug 18, 2010
@@ -104,8 +103,8 @@ public class WatchingRunNotifier extends DelegatingRunNotifier {
 
   private void beforeTest(Description desc) {
     myErrorCachingStream.reRoute();
-    myCachingAppender = new CachingAppender(myWatchLevel);
-    Logger.getRootLogger().addAppender(myCachingAppender);
+    myCachingAppender = new CachingAppender();
+    myCachingAppender.attach(myWatchLevel);
 
     ExpectLogEvent expectEvent = desc.getAnnotation(ExpectLogEvent.class);
     if (expectEvent != null) {
@@ -126,7 +125,7 @@ public class WatchingRunNotifier extends DelegatingRunNotifier {
     myThreadWatcher.waitUntilSettled(15000);
     myErrorCachingStream.reset();
     myCachingAppender.sealEvents();
-    Logger.getRootLogger().removeAppender(myCachingAppender);
+    myCachingAppender.detach();
     Failure fail = null;
     if (!(myTestsToIgnore.containsKey(desc))) {
       if (myErrorCachingStream.isNotEmpty() || myCachingAppender.isNotEmpty() || myThreadWatcher.isNotEmpty()) {

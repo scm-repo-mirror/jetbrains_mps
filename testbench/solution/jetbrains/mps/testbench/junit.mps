@@ -1894,9 +1894,6 @@
             <node concept="2ShNRf" id="4_TMdeLliX9" role="37vLTx">
               <node concept="1pGfFk" id="4_TMdeLliXa" role="2ShVmc">
                 <ref role="37wK5l" to="ot0m:4_TMdeLkOYy" resolve="CachingAppender" />
-                <node concept="37vLTw" id="d4HXLLqvMu" role="37wK5m">
-                  <ref role="3cqZAo" node="d4HXLLqu1g" resolve="myWatchLevel" />
-                </node>
               </node>
             </node>
             <node concept="37vLTw" id="d4HXLLq8be" role="37vLTJ">
@@ -1904,16 +1901,15 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4_TMdeLkPu4" role="3cqZAp">
-          <node concept="2OqwBi" id="4_TMdeLkPu5" role="3clFbG">
-            <node concept="2YIFZM" id="4_TMdeLliXc" role="2Oq$k0">
-              <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-              <ref role="37wK5l" to="q7tw:~Logger.getRootLogger()" resolve="getRootLogger" />
+        <node concept="3clFbF" id="4lRieqsQ6NL" role="3cqZAp">
+          <node concept="2OqwBi" id="4lRieqsQ8mh" role="3clFbG">
+            <node concept="37vLTw" id="4lRieqsQ6NJ" role="2Oq$k0">
+              <ref role="3cqZAo" node="4_TMdeLkPqo" resolve="myCachingAppender" />
             </node>
-            <node concept="liA8E" id="4_TMdeLkPu8" role="2OqNvi">
-              <ref role="37wK5l" to="q7tw:~Category.addAppender(org.apache.log4j.Appender)" resolve="addAppender" />
-              <node concept="37vLTw" id="4_TMdeLkPu9" role="37wK5m">
-                <ref role="3cqZAo" node="4_TMdeLkPqo" resolve="myCachingAppender" />
+            <node concept="liA8E" id="4lRieqsQ9ON" role="2OqNvi">
+              <ref role="37wK5l" to="ot0m:4lRieqsMKp3" resolve="attach" />
+              <node concept="37vLTw" id="4lRieqsQbs_" role="37wK5m">
+                <ref role="3cqZAo" node="d4HXLLqu1g" resolve="myWatchLevel" />
               </node>
             </node>
           </node>
@@ -2099,17 +2095,13 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="4_TMdeLkPv8" role="3cqZAp">
-          <node concept="2OqwBi" id="4_TMdeLkPv9" role="3clFbG">
-            <node concept="2YIFZM" id="4_TMdeLliXI" role="2Oq$k0">
-              <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-              <ref role="37wK5l" to="q7tw:~Logger.getRootLogger()" resolve="getRootLogger" />
+        <node concept="3clFbF" id="4lRieqsQhUy" role="3cqZAp">
+          <node concept="2OqwBi" id="4lRieqsQiSO" role="3clFbG">
+            <node concept="37vLTw" id="4lRieqsQhUw" role="2Oq$k0">
+              <ref role="3cqZAo" node="4_TMdeLkPqo" resolve="myCachingAppender" />
             </node>
-            <node concept="liA8E" id="4_TMdeLkPvc" role="2OqNvi">
-              <ref role="37wK5l" to="q7tw:~Category.removeAppender(org.apache.log4j.Appender)" resolve="removeAppender" />
-              <node concept="37vLTw" id="4_TMdeLkPvd" role="37wK5m">
-                <ref role="3cqZAo" node="4_TMdeLkPqo" resolve="myCachingAppender" />
-              </node>
+            <node concept="liA8E" id="4lRieqsQkJd" role="2OqNvi">
+              <ref role="37wK5l" to="ot0m:4lRieqsN0bc" resolve="detach" />
             </node>
           </node>
         </node>
