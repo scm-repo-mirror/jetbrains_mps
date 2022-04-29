@@ -17,8 +17,6 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myITestable__BehaviorDescriptor = new ITestable__BehaviorDescriptor();
   private final BHDescriptor myITestCase__BehaviorDescriptor = new ITestCase__BehaviorDescriptor();
   private final BHDescriptor myITestMethod__BehaviorDescriptor = new ITestMethod__BehaviorDescriptor();
-  private final BHDescriptor mytest__BehaviorDescriptor = new test__BehaviorDescriptor();
-  private final BHDescriptor mytestImpl__BehaviorDescriptor = new testImpl__BehaviorDescriptor();
   private final BHDescriptor myBeforeTest__BehaviorDescriptor = new BeforeTest__BehaviorDescriptor();
   private final BHDescriptor myAfterTest__BehaviorDescriptor = new AfterTest__BehaviorDescriptor();
 
@@ -43,13 +41,9 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
         return myITestable__BehaviorDescriptor;
       case 6:
         return myTestMethod__BehaviorDescriptor;
-      case 7:
-        return mytest__BehaviorDescriptor;
-      case 8:
-        return mytestImpl__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x72682467022fd3ddL), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110dc94e923L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x72682467022fc039L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b27438a3dL), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b08a01119L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110dc92748eL), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x7cb70b1d3df15d4L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x7cb70b1d3e052f6L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x72682467022fd3ddL), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110dc94e923L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x72682467022fc039L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b27438a3dL), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b08a01119L), MetaIdFactory.conceptId(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110dc92748eL)).seal();
 }

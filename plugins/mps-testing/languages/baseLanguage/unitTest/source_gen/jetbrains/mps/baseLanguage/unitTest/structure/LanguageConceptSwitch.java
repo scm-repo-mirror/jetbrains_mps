@@ -29,8 +29,6 @@ public final class LanguageConceptSwitch {
   public static final int PrepareMethod = 17;
   public static final int TestMethod = 18;
   public static final int TestMethodList = 19;
-  public static final int test = 20;
-  public static final int testImpl = 21;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L);
@@ -54,8 +52,6 @@ public final class LanguageConceptSwitch {
     builder.put(0x72682467022fdbbaL, PrepareMethod);
     builder.put(0x110dc92748eL, TestMethod);
     builder.put(0x110dc95061dL, TestMethodList);
-    builder.put(0x7cb70b1d3df15d4L, test);
-    builder.put(0x7cb70b1d3e052f6L, testImpl);
     myIndex = builder.seal();
   }
 

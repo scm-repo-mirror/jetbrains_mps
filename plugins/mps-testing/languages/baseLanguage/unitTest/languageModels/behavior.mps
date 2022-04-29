@@ -1153,32 +1153,5 @@
       <node concept="3Tqbb2" id="$yZ68hBirq" role="3clF45" />
     </node>
   </node>
-  <node concept="13h7C7" id="vbsb7jS4LJ">
-    <ref role="13h7C2" to="tpe3:vbsb7jRLnk" resolve="test" />
-    <node concept="13i0hz" id="vbsb7jS4Pa" role="13h7CS">
-      <property role="TrG5h" value="foo" />
-      <property role="13i0it" value="true" />
-      <property role="13i0iv" value="true" />
-      <node concept="3Tm1VV" id="vbsb7jS4Pb" role="1B3o_S" />
-      <node concept="3cqZAl" id="vbsb7jS4Qs" role="3clF45" />
-      <node concept="3clFbS" id="vbsb7jS4Pd" role="3clF47" />
-    </node>
-    <node concept="13hLZK" id="vbsb7jS4LK" role="13h7CW">
-      <node concept="3clFbS" id="vbsb7jS4LL" role="2VODD2" />
-    </node>
-  </node>
-  <node concept="13h7C7" id="vbsb7jS5w_">
-    <ref role="13h7C2" to="tpe3:vbsb7jS5bQ" resolve="testImpl" />
-    <node concept="13hLZK" id="vbsb7jS5wA" role="13h7CW">
-      <node concept="3clFbS" id="vbsb7jS5wB" role="2VODD2" />
-    </node>
-    <node concept="13i0hz" id="vbsb7jS5_C" role="13h7CS">
-      <property role="TrG5h" value="foo" />
-      <ref role="13i0hy" node="vbsb7jS4Pa" resolve="foo" />
-      <node concept="3Tm1VV" id="vbsb7jS5_D" role="1B3o_S" />
-      <node concept="3clFbS" id="vbsb7jS5_G" role="3clF47" />
-      <node concept="3cqZAl" id="vbsb7jS5_H" role="3clF45" />
-    </node>
-  </node>
 </model>
 
