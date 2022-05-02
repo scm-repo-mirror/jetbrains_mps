@@ -312,7 +312,6 @@
         <child id="1167945861827" name="conditionFunction" index="3IZSJc" />
       </concept>
       <concept id="1118786554307" name="jetbrains.mps.lang.generator.structure.LoopMacro" flags="ln" index="1WS0z7">
-        <property id="7430509679011668804" name="counterVarName" index="1qytDF" />
         <child id="1167952069335" name="sourceNodesQuery" index="3Jn$fo" />
       </concept>
       <concept id="1088761943574" name="jetbrains.mps.lang.generator.structure.ReferenceMacro" flags="ln" index="1ZhdrF">
@@ -1966,7 +1965,6 @@
             </node>
           </node>
           <node concept="1WS0z7" id="1Gd1YUjESva" role="lGtFl">
-            <property role="1qytDF" value="" />
             <node concept="3JmXsc" id="1Gd1YUjESvd" role="3Jn$fo">
               <node concept="3clFbS" id="1Gd1YUjESve" role="2VODD2">
                 <node concept="3SKdUt" id="7zRBRvFHEqM" role="3cqZAp">
@@ -2090,7 +2088,6 @@
         <property role="TrG5h" value="orClause" />
         <node concept="3Tqbb2" id="1Gd1YUjFhOA" role="1tU5fm" />
         <node concept="1WS0z7" id="1Gd1YUjFvIj" role="lGtFl">
-          <property role="1qytDF" value="" />
           <ref role="2rW$FS" node="1Gd1YUjFi0$" resolve="disjunctToPatternNode" />
           <node concept="3JmXsc" id="1Gd1YUjFvIr" role="3Jn$fo">
             <node concept="3clFbS" id="1Gd1YUjFvIz" role="2VODD2">
@@ -5011,7 +5008,6 @@
               </node>
             </node>
             <node concept="1WS0z7" id="64p9aapTuTR" role="lGtFl">
-              <property role="1qytDF" value="" />
               <node concept="3JmXsc" id="64p9aapTuTU" role="3Jn$fo">
                 <node concept="3clFbS" id="64p9aapTuTV" role="2VODD2">
                   <node concept="3clFbF" id="64p9aapTuU1" role="3cqZAp">
@@ -5647,7 +5643,6 @@
                         </node>
                       </node>
                       <node concept="1WS0z7" id="PFUECvRgTv" role="lGtFl">
-                        <property role="1qytDF" value="" />
                         <ref role="2rW$FS" to="tp3k:hG0dD_T" resolve="parametersFromExpressionsL" />
                         <node concept="3JmXsc" id="PFUECvRgTw" role="3Jn$fo">
                           <node concept="3clFbS" id="PFUECvRgTx" role="2VODD2">

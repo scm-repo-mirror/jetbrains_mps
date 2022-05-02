@@ -336,7 +336,6 @@
         <child id="1167945861827" name="conditionFunction" index="3IZSJc" />
       </concept>
       <concept id="1118786554307" name="jetbrains.mps.lang.generator.structure.LoopMacro" flags="ln" index="1WS0z7">
-        <property id="7430509679011668804" name="counterVarName" index="1qytDF" />
         <child id="1167952069335" name="sourceNodesQuery" index="3Jn$fo" />
       </concept>
       <concept id="1088761943574" name="jetbrains.mps.lang.generator.structure.ReferenceMacro" flags="ln" index="1ZhdrF">
@@ -940,7 +939,6 @@
                   </node>
                 </node>
                 <node concept="1WS0z7" id="1CTTqHRbp7U" role="lGtFl">
-                  <property role="1qytDF" value="" />
                   <node concept="3JmXsc" id="1CTTqHRbp7W" role="3Jn$fo">
                     <node concept="3clFbS" id="1CTTqHRbp7Y" role="2VODD2">
                       <node concept="3clFbF" id="1CTTqHRbraj" role="3cqZAp">
@@ -1025,7 +1023,6 @@
                   </node>
                 </node>
                 <node concept="1WS0z7" id="1CTTqHRbuTh" role="lGtFl">
-                  <property role="1qytDF" value="" />
                   <node concept="3JmXsc" id="1CTTqHRbuTi" role="3Jn$fo">
                     <node concept="3clFbS" id="1CTTqHRbuTj" role="2VODD2">
                       <node concept="3clFbF" id="1CTTqHRbuTk" role="3cqZAp">
@@ -1339,7 +1336,6 @@
             </node>
           </node>
           <node concept="1WS0z7" id="4E$B1NvPzhi" role="lGtFl">
-            <property role="1qytDF" value="" />
             <node concept="3JmXsc" id="4E$B1NvPzhj" role="3Jn$fo">
               <node concept="3clFbS" id="4E$B1NvPzhk" role="2VODD2">
                 <node concept="3clFbF" id="4E$B1NvPAhS" role="3cqZAp">
@@ -1434,7 +1430,6 @@
             </node>
           </node>
           <node concept="1WS0z7" id="7Okl0NV9a9e" role="lGtFl">
-            <property role="1qytDF" value="" />
             <node concept="3JmXsc" id="7Okl0NV9a9f" role="3Jn$fo">
               <node concept="3clFbS" id="7Okl0NV9a9g" role="2VODD2">
                 <node concept="3clFbF" id="7Okl0NV9a9h" role="3cqZAp">
