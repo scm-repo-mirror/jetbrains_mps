@@ -82,23 +82,6 @@
       <unit id="1244156871960204835" at="10,0,57,0" name="jetbrains.mps.ide.migration.MigrationSessionImpl" />
     </file>
   </root>
-  <root nodeRef="a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1458839180077459547">
-    <file name="ProjectMigrationProgress.java">
-      <node id="1458839180077471590" at="22,0,23,0" concept="7" trace="myWereRun" />
-      <node id="1458839180077570525" at="28,33,29,19" concept="13" />
-      <node id="1458839180077581663" at="30,5,31,22" concept="6" />
-      <node id="1458839180077590563" at="31,22,32,34" concept="13" />
-      <node id="1458839180077561575" at="27,59,30,5" concept="10" />
-      <node id="1458839180077559342" at="27,0,34,0" concept="11" trace="consider#(Ljetbrains/mps/migration/global/ProjectMigration;Ljetbrains/mps/project/Project;)Z" />
-      <scope id="1458839180077561577" at="28,33,29,19" />
-      <scope id="1458839180077559345" at="27,59,32,34" />
-      <scope id="1458839180077559342" at="27,0,34,0">
-        <var name="p" id="1458839180077578153" />
-        <var name="pm" id="1458839180077560110" />
-      </scope>
-      <unit id="1458839180077459547" at="19,0,35,0" name="jetbrains.mps.ide.migration.ProjectMigrationProgress" />
-    </file>
-  </root>
   <root nodeRef="a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/1847435758021779296">
     <file name="SilentModuleVersionUpdater.java">
       <node id="2632090902169261310" at="32,0,33,0" concept="7" trace="myMpsProject" />
