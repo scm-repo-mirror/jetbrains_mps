@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,11 +108,11 @@ public class ProjectMigrationsRegistry {
     final int applied = getAppliedMigrationsVersion(mpsProject, getProjectBaselineVersion(mpsProject, defaultBaselineVersionWhenUnspecified));
     final int actual = getCurrentPlatformBaselineVersion();
     // applied == actual case is fine, regular bugfix releases are on the same platform
+    final String m = String.format("Actual platform version %d.%d, project migrated to version %d.%d", actual / 10, actual % 10, applied / 10, applied % 10);
     if (actual < applied) {
-      final String m = String.format("Actual platform version %d, project migrated to version %d", actual, applied);
       return new Status.ERROR(m);
     } else {
-      return new Status.OK();
+      return new Status.OK(m);
     }
   }
 
