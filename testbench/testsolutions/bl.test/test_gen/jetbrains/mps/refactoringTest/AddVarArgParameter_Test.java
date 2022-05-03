@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -31,8 +29,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public class AddVarArgParameter_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(AddVarArgParameter_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public AddVarArgParameter_Test() {
     super(ourParamCache);
@@ -50,37 +46,41 @@ public class AddVarArgParameter_Test extends BaseTransformationTest {
     }
 
     public void test_AddParameterWithDefault() throws Exception {
-      addNodeById("3053244449233869680");
-      addNodeById("3053244449233869717");
-      ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("3053244449233869682"));
+      runWithinCommand(() -> {
+        addNodeById("3053244449233869680");
+        addNodeById("3053244449233869717");
+      });
+      runWithinCommand(() -> {
+        ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(getNodeById("3053244449233869682"));
 
-      // Add params
-      SNode intArityParam = _quotation_createNode_os1acc_a0f0d7();
-      List<SNode> parameters = SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj);
-      parameters.add(intArityParam);
+        // Add params
+        SNode intArityParam = _quotation_createNode_os1acc_a0d0a0b0d6();
+        List<SNode> parameters = SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$5xBj);
+        parameters.add(intArityParam);
 
-      // Usages
-      List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
-      ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getNodeById("3053244449233869694"), LINKS.body$5xQk), LINKS.statement$53DE)).select(new ISelector<SNode, SNode>() {
-        public SNode select(SNode it) {
-          return SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT);
+        // Usages
+        List<SNode> usages = ListSequence.fromList(new ArrayList<SNode>(2));
+        ListSequence.fromList(usages).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getNodeById("3053244449233869694"), LINKS.body$5xQk), LINKS.statement$53DE)).select(new ISelector<SNode, SNode>() {
+          public SNode select(SNode it) {
+            return SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ExpressionStatement$O8), LINKS.expression$5L7M), CONCEPTS.LocalMethodCall$zT);
+          }
+        }));
+
+        // Create refactoring and add usages
+        ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3053244449233869682"));
+        ref.setUsages(usages);
+
+        ref.doRefactoring();
+
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869681"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869718"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
         }
-      }));
-
-      // Create refactoring and add usages
-      ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, getNodeById("3053244449233869682"));
-      ref.setUsages(usages);
-
-      ref.doRefactoring();
-
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869681"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3053244449233869718"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      });
     }
 
-    private static SNode _quotation_createNode_os1acc_a0f0d7() {
+    private static SNode _quotation_createNode_os1acc_a0d0a0b0d6() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;

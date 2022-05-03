@@ -8900,7 +8900,7 @@
         <node concept="3clFbF" id="3WnEHxCM6NB" role="3cqZAp">
           <node concept="37vLTI" id="3WnEHxCM6NC" role="3clFbG">
             <node concept="37vLTw" id="3WnEHxCM6NG" role="37vLTJ">
-              <ref role="3cqZAo" node="3v_OXaS3ZEG" resolve="myBaseDir" />
+              <ref role="3cqZAo" node="3v_OXaS3ZEG" resolve="myProjectDir" />
             </node>
             <node concept="37vLTw" id="3WnEHxCM6NE" role="37vLTx">
               <ref role="3cqZAo" node="3WnEHxCM6Nu" resolve="projectDir" />
@@ -9656,7 +9656,7 @@
             <node concept="17QB3L" id="15VbAzME23Y" role="1tU5fm" />
             <node concept="2OqwBi" id="7$05BAoP0AX" role="33vP2m">
               <node concept="37vLTw" id="15VbAzME24R" role="2Oq$k0">
-                <ref role="3cqZAo" node="3v_OXaS3ZEG" resolve="myBaseDir" />
+                <ref role="3cqZAo" node="3v_OXaS3ZEG" resolve="myProjectDir" />
               </node>
               <node concept="liA8E" id="7$05BAoP1Gw" role="2OqNvi">
                 <ref role="37wK5l" to="3ju5:~IFile.getName()" resolve="getName" />

@@ -2,7 +2,7 @@
 <model ref="r:a7360bf3-0305-4b0f-a849-53283ec620bf(jetbrains.mps.build.stripping.tests.implementationStrippingTests@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="049a08c5-1fe5-43cc-bd99-8b46d641d7f5" name="jetbrains.mps.samples.Kaja" version="0" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
   </languages>
@@ -43,6 +43,7 @@
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -486,6 +487,7 @@
   </node>
   <node concept="1lH9Xt" id="4$ezt8YY7EK">
     <property role="TrG5h" value="RepetitionTest" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4$ezt8YY7EL" role="1SKRRt">
       <node concept="1x_AGo" id="4$ezt8YY7EN" role="1qenE9">
         <property role="TrG5h" value="ScriptFoo" />
@@ -517,6 +519,7 @@
   </node>
   <node concept="1lH9Xt" id="79svzH7ZZLt">
     <property role="TrG5h" value="DuplicitRoutineNameTest" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="79svzH7ZZLu" role="1SKRRt">
       <node concept="2zTg$P" id="79svzH7ZZTb" role="1qenE9">
         <property role="TrG5h" value="LibFoo" />

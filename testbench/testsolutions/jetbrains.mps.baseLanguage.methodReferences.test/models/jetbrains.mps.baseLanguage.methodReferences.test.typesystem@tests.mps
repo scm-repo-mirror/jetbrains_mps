@@ -2,7 +2,7 @@
 <model ref="r:7020d7a5-058d-4e72-b598-cff9d9582d11(jetbrains.mps.baseLanguage.methodReferences.test.typesystem@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="acfc188d-d5d6-4598-b370-6f4a983f05b2" name="jetbrains.mps.baseLanguage.methodReferences" version="0" />
@@ -41,6 +41,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -238,6 +239,7 @@
   </registry>
   <node concept="1lH9Xt" id="4aYRP41VBVA">
     <property role="TrG5h" value="TypeChecking" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="27WzgVxDquL" role="1SKRRt">
       <node concept="312cEu" id="27WzgVxDqD3" role="1qenE9">
         <property role="TrG5h" value="SomeMethodRefs" />
@@ -658,6 +660,7 @@
   </node>
   <node concept="1lH9Xt" id="27WzgVxPulx">
     <property role="TrG5h" value="Throws" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="27WzgVxPulY" role="1SKRRt">
       <node concept="312cEu" id="27WzgVxPum2" role="1qenE9">
         <property role="TrG5h" value="ThrowTest" />
@@ -1085,6 +1088,7 @@
   </node>
   <node concept="1lH9Xt" id="7GF94ZpbWR_">
     <property role="TrG5h" value="BoundTypesChecking" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7NbpLe7qoa4" role="1SKRRt">
       <node concept="312cEu" id="7NbpLe7qoa8" role="1qenE9">
         <property role="TrG5h" value="Bounds" />

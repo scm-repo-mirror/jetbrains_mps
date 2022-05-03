@@ -2,7 +2,7 @@
 <model ref="r:63c35524-f256-4fdd-b128-2c53748bdd7c(TestConstraints.test@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="2b800570-3758-4c14-86fb-871266fb9d11" name="constraints.test" version="-1" />
   </languages>
   <imports>
@@ -44,6 +44,7 @@
         <child id="8333855927548182241" name="errorRef" index="39rjcI" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -106,6 +107,7 @@
   </registry>
   <node concept="1lH9Xt" id="52TFb$IPN3$">
     <property role="TrG5h" value="ConstraintsInheritance" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="52TFb$IPN3C" role="1SKRRt">
       <node concept="1YrDLd" id="52TFb$IQ2he" role="1qenE9">
         <property role="1YrDQh" value="true" />
@@ -192,6 +194,7 @@
   </node>
   <node concept="1lH9Xt" id="7gSQnpLgxs1">
     <property role="TrG5h" value="ConstraintsInvocation" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7gSQnpLgxs2" role="1SKRRt">
       <node concept="5uJEq" id="Cy$byQ19er" role="1qenE9">
         <node concept="2W9wcp" id="Cy$byQ19CX" role="5uJEe" />
@@ -219,6 +222,7 @@
   <node concept="1lH9Xt" id="2hac6o5z27T">
     <property role="TrG5h" value="ConstraintsReferenceInheritence_Scopes" />
     <property role="3GE5qa" value="ref constraints inheritence" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2hac6o5z2fw" role="1SKRRt">
       <node concept="xbyMT" id="2hac6o5z2fy" role="1qenE9">
         <node concept="xbyKi" id="2hac6o5z2fA" role="xbyM5">

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -34,8 +32,6 @@ import java.util.Collections;
 public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitBTestCaseTest_Test.class, "${mps_home}", "r:e2bad6d6-3029-4bc3-b44d-49863f32d863(jetbrains.mps.execution.impl.configurations.tests.commands@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public JUnitBTestCaseTest_Test() {
     super(ourParamCache);
@@ -65,23 +61,29 @@ public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
     }
 
     public void test_startSimpleBTestCase() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "8128243960970299078"));
-      this.checkTests(null, null, testsToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "8128243960970299078"));
+        TestBody.this.checkTests(null, null, testsToSucceed, TestBody.this.emptyList());
+      });
     }
     public void test_startFailedBTestCase() throws Exception {
-      this.checkTests(null, null, this.emptyList(), new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "7120092006645143730")));
+      runWithinCommand(() -> TestBody.this.checkTests(null, null, TestBody.this.emptyList(), new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "7120092006645143730"))));
     }
     public void test_programParametersArePassedToTheTest() throws Exception {
-      List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992591799"));
-      String vmParams = "-D" + ReadingPropertyBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE;
-      this.checkTests(vmParams, null, testToSucceed, this.emptyList());
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992591799"));
+        String vmParams = "-D" + ReadingPropertyBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE;
+        TestBody.this.checkTests(vmParams, null, testToSucceed, TestBody.this.emptyList());
+      });
     }
     public void test_programParametersWithSpacesArePassedToTheTest() throws Exception {
-      List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
-      String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
+      runWithinCommand(() -> {
+        List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
+        String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
 
 
-      this.checkTests(vmParams, null, testToSucceed, this.emptyList());
+        TestBody.this.checkTests(vmParams, null, testToSucceed, TestBody.this.emptyList());
+      });
     }
 
     public void checkTests(@Nullable String vmParams, @Nullable File workingDir, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class FindAndMoveFromIfForIntroduceLocalVar_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(FindAndMoveFromIfForIntroduceLocalVar_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public FindAndMoveFromIfForIntroduceLocalVar_Test() {
     super(ourParamCache);
@@ -42,18 +38,22 @@ public class FindAndMoveFromIfForIntroduceLocalVar_Test extends BaseTransformati
     }
 
     public void test_SimpleFindAndMoveForIntroduceLocalVarTest() throws Exception {
-      addNodeById("7568753874916244225");
-      addNodeById("7568753874916244315");
-      IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-      refactoring.init(getNodeById("7568753874916244242"), null);
-      refactoring.setName("s");
-      refactoring.setReplacingAll(true);
-      refactoring.doRefactoring();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244226"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244316"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("7568753874916244225");
+        addNodeById("7568753874916244315");
+      });
+      runWithinCommand(() -> {
+        IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
+        refactoring.init(getNodeById("7568753874916244242"), null);
+        refactoring.setName("s");
+        refactoring.setReplacingAll(true);
+        refactoring.doRefactoring();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244226"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("7568753874916244316"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

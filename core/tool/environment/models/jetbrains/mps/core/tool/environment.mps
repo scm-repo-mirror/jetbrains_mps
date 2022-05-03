@@ -5570,7 +5570,7 @@
               <ref role="1Pybhc" to="eoo2:~Paths" resolve="Paths" />
               <ref role="37wK5l" to="eoo2:~Paths.get(java.lang.String,java.lang.String...)" resolve="get" />
               <node concept="37vLTw" id="2519QBqd9fp" role="37wK5m">
-                <ref role="3cqZAo" node="2519QBqd1nB" resolve="configPath" />
+                <ref role="3cqZAo" node="2519QBqd1nB" resolve="logXmlPathStr" />
               </node>
             </node>
           </node>
@@ -5580,7 +5580,7 @@
             <node concept="3clFbF" id="2519QBqd1nW" role="3cqZAp">
               <node concept="37vLTI" id="2519QBqd1nX" role="3clFbG">
                 <node concept="37vLTw" id="2519QBqd1nY" role="37vLTJ">
-                  <ref role="3cqZAo" node="2519QBqd1nM" resolve="configFile" />
+                  <ref role="3cqZAo" node="2519QBqd1nM" resolve="logXmlPath" />
                 </node>
                 <node concept="2OqwBi" id="2519QBqd1nZ" role="37vLTx">
                   <node concept="2YIFZM" id="2519QBqd98A" role="2Oq$k0">
@@ -5593,7 +5593,7 @@
                   <node concept="liA8E" id="2519QBqd1o2" role="2OqNvi">
                     <ref role="37wK5l" to="eoo2:~Path.resolve(java.lang.String)" resolve="resolve" />
                     <node concept="37vLTw" id="2519QBqd1o3" role="37wK5m">
-                      <ref role="3cqZAo" node="2519QBqd1nB" resolve="configPath" />
+                      <ref role="3cqZAo" node="2519QBqd1nB" resolve="logXmlPathStr" />
                     </node>
                   </node>
                 </node>
@@ -5637,7 +5637,7 @@
           <node concept="3fqX7Q" id="2519QBqd1nS" role="3clFbw">
             <node concept="2OqwBi" id="2519QBqd3hC" role="3fr31v">
               <node concept="37vLTw" id="2519QBqd3hB" role="2Oq$k0">
-                <ref role="3cqZAo" node="2519QBqd1nM" resolve="configFile" />
+                <ref role="3cqZAo" node="2519QBqd1nM" resolve="logXmlPath" />
               </node>
               <node concept="liA8E" id="2519QBqd3hD" role="2OqNvi">
                 <ref role="37wK5l" to="eoo2:~Path.isAbsolute()" resolve="isAbsolute" />
@@ -5650,7 +5650,7 @@
             <ref role="1Pybhc" to="eoo2:~Files" resolve="Files" />
             <ref role="37wK5l" to="eoo2:~Files.exists(java.nio.file.Path,java.nio.file.LinkOption...)" resolve="exists" />
             <node concept="37vLTw" id="2519QBqd3kR" role="37wK5m">
-              <ref role="3cqZAo" node="2519QBqd1nM" resolve="configFile" />
+              <ref role="3cqZAo" node="2519QBqd1nM" resolve="logXmlPath" />
             </node>
           </node>
           <node concept="3clFbS" id="2519QBqd1o8" role="3clFbx">
@@ -5658,7 +5658,7 @@
               <node concept="1rXfSq" id="2519QBqd1oa" role="3clFbG">
                 <ref role="37wK5l" node="2519QBqdbRW" resolve="configureFromXmlFile" />
                 <node concept="37vLTw" id="2519QBqd1ob" role="37wK5m">
-                  <ref role="3cqZAo" node="2519QBqd1nM" resolve="configFile" />
+                  <ref role="3cqZAo" node="2519QBqd1nM" resolve="logXmlPath" />
                 </node>
               </node>
             </node>
@@ -5675,7 +5675,7 @@
                   </node>
                   <node concept="2OqwBi" id="6JG_W6gcyF" role="37wK5m">
                     <node concept="37vLTw" id="6JG_W6gbZS" role="2Oq$k0">
-                      <ref role="3cqZAo" node="2519QBqd1nM" resolve="configFile" />
+                      <ref role="3cqZAo" node="2519QBqd1nM" resolve="logXmlPath" />
                     </node>
                     <node concept="liA8E" id="6JG_W6gd4x" role="2OqNvi">
                       <ref role="37wK5l" to="eoo2:~Path.toAbsolutePath()" resolve="toAbsolutePath" />

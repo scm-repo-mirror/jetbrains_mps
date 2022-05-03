@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class MoveMethodWithMethods_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(MoveMethodWithMethods_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public MoveMethodWithMethods_Test() {
     super(ourParamCache);
@@ -42,17 +38,21 @@ public class MoveMethodWithMethods_Test extends BaseTransformationTest {
     }
 
     public void test_MoveMethodWithMethods() throws Exception {
-      addNodeById("1230053302584");
-      addNodeById("1230053302601");
-      addNodeById("1230053302605");
-      addNodeById("1230053302613");
-      MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getNodeById("1230053302586"), getNodeById("1230053302602"));
-      ref.doRefactoring();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302585"), getNodeById("1230053302602"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302606"), getNodeById("1230053302614"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("1230053302584");
+        addNodeById("1230053302601");
+        addNodeById("1230053302605");
+        addNodeById("1230053302613");
+      });
+      runWithinCommand(() -> {
+        MoveStaticMethodRefactoring ref = new MoveStaticMethodRefactoring(getNodeById("1230053302586"), getNodeById("1230053302602"));
+        ref.doRefactoring();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302585"), getNodeById("1230053302602"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230053302606"), getNodeById("1230053302614"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

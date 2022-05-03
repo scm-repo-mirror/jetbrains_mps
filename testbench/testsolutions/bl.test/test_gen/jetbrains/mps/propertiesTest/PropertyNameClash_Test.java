@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.project.ProjectBase;
 public class PropertyNameClash_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(PropertyNameClash_Test.class, "${mps_home}", "r:a7e6c515-be7c-48fa-b7c6-1ffad39a5d77(jetbrains.mps.propertiesTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public PropertyNameClash_Test() {
     super(ourParamCache);
@@ -40,9 +36,12 @@ public class PropertyNameClash_Test extends BaseTransformationTest {
     }
 
     public void test_NodeThePropertySetterIsHidingCheck6115392061228789467() throws Exception {
-      SNode nodeToCheck = getRealNodeById("6115392061228765227");
-      SNode operation = getRealNodeById("6115392061228789467");
-      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915680442"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("6115392061228765227");
+        SNode operation = getRealNodeById("6115392061228789467");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915680442"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

@@ -375,7 +375,7 @@
       <node concept="2tJIrI" id="5YiFMyhwGp1" role="jymVt" />
       <node concept="3Tm1VV" id="5YiFMyhwxV4" role="1B3o_S" />
       <node concept="3uibUv" id="5YiFMyhwFNX" role="EKbjA">
-        <ref role="3uigEE" to="v27p:~StartupActivity$Background" resolve="Background" />
+        <ref role="3uigEE" to="v27p:~StartupActivity$Background" resolve="StartupActivity.Background" />
       </node>
       <node concept="3clFb_" id="5YiFMyhwGWo" role="jymVt">
         <property role="TrG5h" value="runActivity" />
@@ -898,7 +898,7 @@
         <node concept="3clFbF" id="4dwvagLzbPF" role="3cqZAp">
           <node concept="37vLTI" id="4dwvagLzbPH" role="3clFbG">
             <node concept="37vLTw" id="4dwvagLzbPK" role="37vLTJ">
-              <ref role="3cqZAo" node="4dwvagLzbPB" resolve="myMpsProject" />
+              <ref role="3cqZAo" node="4dwvagLzbPB" resolve="myProject" />
             </node>
             <node concept="37vLTw" id="4dwvagLzbPL" role="37vLTx">
               <ref role="3cqZAo" node="4dwvagLzbyJ" resolve="mpsProject" />

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 public class BreakStatement_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(BreakStatement_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public BreakStatement_Test() {
     super(ourParamCache);
@@ -52,20 +48,20 @@ public class BreakStatement_Test extends BaseTransformationTest {
     }
 
     public void test_noBreaks() throws Exception {
-      addNodeById("1230052480264");
-      Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480270"))));
+      runWithinCommand(() -> addNodeById("1230052480264"));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480270")))));
     }
     public void test_oneBreak() throws Exception {
-      addNodeById("1230052480264");
-      Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275"))));
+      runWithinCommand(() -> addNodeById("1230052480264"));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275")))));
     }
     public void test_oneContionue() throws Exception {
-      addNodeById("1230052480264");
-      Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480282"))));
+      runWithinCommand(() -> addNodeById("1230052480264"));
+      runWithinCommand(() -> Assert.assertNull(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480282")))));
     }
     public void test_breakAndContinue() throws Exception {
-      addNodeById("1230052480264");
-      Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275"), getNodeById("1230052480282"))) != null);
+      runWithinCommand(() -> addNodeById("1230052480264"));
+      runWithinCommand(() -> Assert.assertTrue(ExtractMethodFactory.getErrors(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1230052480275"), getNodeById("1230052480282"))) != null));
     }
 
   }

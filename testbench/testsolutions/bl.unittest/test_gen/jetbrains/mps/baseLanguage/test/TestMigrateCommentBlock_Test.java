@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -24,8 +22,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class TestMigrateCommentBlock_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TestMigrateCommentBlock_Test.class, "${mps_home}", "r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TestMigrateCommentBlock_Test() {
     super(ourParamCache);
@@ -43,14 +39,18 @@ public class TestMigrateCommentBlock_Test extends BaseTransformationTest {
     }
 
     public void test_MigrateBlock() throws Exception {
-      addNodeById("494962652073944659");
-      addNodeById("494962652073944777");
-      new ReplaceOldCommentWithGenericComment_CommentedStatementsBlock().execute(SNodeOperations.getModel(getNodeById("494962652073871560")).getModule());
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073871560"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073944890"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("494962652073944659");
+        addNodeById("494962652073944777");
+      });
+      runWithinCommand(() -> {
+        new ReplaceOldCommentWithGenericComment_CommentedStatementsBlock().execute(SNodeOperations.getModel(getNodeById("494962652073871560")).getModule());
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073871560"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("494962652073944890"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

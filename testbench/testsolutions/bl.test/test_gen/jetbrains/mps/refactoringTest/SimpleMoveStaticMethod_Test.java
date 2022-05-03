@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.ide.findusages.model.SearchResult;
 public class SimpleMoveStaticMethod_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(SimpleMoveStaticMethod_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public SimpleMoveStaticMethod_Test() {
     super(ourParamCache);
@@ -40,14 +36,18 @@ public class SimpleMoveStaticMethod_Test extends BaseTransformationTest {
     }
 
     public void test_SimpleMoveStaticMethod() throws Exception {
-      addNodeById("3014415391767789120");
-      addNodeById("3014415391767789149");
-      addNodeById("3014415391767789154");
-      addNodeById("3014415391767789181");
-      MoveStaticMethodRefactoring refactoring = new MoveStaticMethodRefactoring(getNodeById("3014415391767789137"), getNodeById("3014415391767789150"));
-      SearchResults<SNode> results = new SearchResults(Collections.emptyList(), Collections.singletonList(new SearchResult(getNodeById("3014415391767789131"), "usage")));
-      refactoring.setUsages(results);
-      refactoring.doRefactoring();
+      runWithinCommand(() -> {
+        addNodeById("3014415391767789120");
+        addNodeById("3014415391767789149");
+        addNodeById("3014415391767789154");
+        addNodeById("3014415391767789181");
+      });
+      runWithinCommand(() -> {
+        MoveStaticMethodRefactoring refactoring = new MoveStaticMethodRefactoring(getNodeById("3014415391767789137"), getNodeById("3014415391767789150"));
+        SearchResults<SNode> results = new SearchResults(Collections.emptyList(), Collections.singletonList(new SearchResult(getNodeById("3014415391767789131"), "usage")));
+        refactoring.setUsages(results);
+        refactoring.doRefactoring();
+      });
     }
 
   }

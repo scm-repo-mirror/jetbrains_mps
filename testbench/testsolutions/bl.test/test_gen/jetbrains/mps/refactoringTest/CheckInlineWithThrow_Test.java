@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -18,8 +16,6 @@ import jetbrains.mps.baseLanguage.util.plugin.refactorings.InlineMethodModel;
 public class CheckInlineWithThrow_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(CheckInlineWithThrow_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public CheckInlineWithThrow_Test() {
     super(ourParamCache);
@@ -37,8 +33,8 @@ public class CheckInlineWithThrow_Test extends BaseTransformationTest {
     }
 
     public void test_CheckInlineWithThrow() throws Exception {
-      addNodeById("1230053187489");
-      Assert.assertNull(new InlineMethodModel(getNodeById("1230053187517")).getErrors());
+      runWithinCommand(() -> addNodeById("1230053187489"));
+      runWithinCommand(() -> Assert.assertNull(new InlineMethodModel(getNodeById("1230053187517")).getErrors()));
     }
 
   }

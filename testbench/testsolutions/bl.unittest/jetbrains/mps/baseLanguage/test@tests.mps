@@ -95,6 +95,7 @@
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
       </concept>
@@ -606,6 +607,7 @@
   <node concept="1lH9Xt" id="hHF2_EK">
     <property role="TrG5h" value="OnlyStatementsCanUnreachable" />
     <property role="3GE5qa" value="dataFlow.unreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_EM" role="1SKRRt">
       <node concept="312cEu" id="hGH1_MQ" role="1qenE9">
         <property role="TrG5h" value="C1" />
@@ -651,6 +653,7 @@
   <node concept="1lH9Xt" id="hHF2_FN">
     <property role="TrG5h" value="ForLoop" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_FP" role="1SKRRt">
       <node concept="312cEu" id="hFY7RCb" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -787,6 +790,7 @@
   <node concept="1lH9Xt" id="hHF2_HD">
     <property role="TrG5h" value="MethodParametersTest" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_HF" role="1SKRRt">
       <node concept="312cEu" id="hFY7K_p" role="1qenE9">
         <property role="TrG5h" value="Class1" />
@@ -907,6 +911,7 @@
   <node concept="1lH9Xt" id="hHF2_Is">
     <property role="TrG5h" value="UnusedAssignment" />
     <property role="3GE5qa" value="dataFlow.unusedAssignment" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_Iu" role="1SKRRt">
       <node concept="312cEu" id="hFY7EfM" role="1qenE9">
         <property role="TrG5h" value="Class1" />
@@ -1019,6 +1024,7 @@
   <node concept="1lH9Xt" id="hHF2_Pq">
     <property role="TrG5h" value="UnreachableStatements" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_Ps" role="1SKRRt">
       <node concept="312cEu" id="hFY7HkY" role="1qenE9">
         <property role="TrG5h" value="Class1" />
@@ -1979,6 +1985,7 @@
   <node concept="1lH9Xt" id="hHF2_Sk">
     <property role="TrG5h" value="ReadAction" />
     <property role="3GE5qa" value="dataFlow.unusedAssignment" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_Sm" role="1SKRRt">
       <node concept="312cEu" id="hGZYFWQ" role="1qenE9">
         <property role="TrG5h" value="class1" />
@@ -2050,6 +2057,7 @@
   <node concept="1lH9Xt" id="hHF2_TF">
     <property role="TrG5h" value="DataFlowInClosure" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_TH" role="1SKRRt">
       <node concept="312cEu" id="hFY7VlN" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -2193,6 +2201,7 @@
   <node concept="1lH9Xt" id="hHF2_Wp">
     <property role="TrG5h" value="UnexpectedReturnInAnonymousClass" />
     <property role="3GE5qa" value="dataFlow.anonymous" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2_Wr" role="1SKRRt">
       <node concept="312cEu" id="hFY8rzB" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -2352,6 +2361,7 @@
   <node concept="1lH9Xt" id="hHF2A3f">
     <property role="TrG5h" value="UnusedVariableDeclaration" />
     <property role="3GE5qa" value="dataFlow.unusedVariableDeaclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2A3h" role="1SKRRt">
       <node concept="312cEu" id="hHkhkWp" role="1qenE9">
         <property role="TrG5h" value="Test" />
@@ -2510,6 +2520,7 @@
   <node concept="1lH9Xt" id="hHF2A42">
     <property role="TrG5h" value="AnonymousClass" />
     <property role="3GE5qa" value="dataFlow.anonymous" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2A44" role="1SKRRt">
       <node concept="312cEu" id="hFY8lEk" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -2675,6 +2686,7 @@
   <node concept="1lH9Xt" id="hHF2Ad8">
     <property role="TrG5h" value="VariableUninitialized" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2Ada" role="1SKRRt">
       <node concept="312cEu" id="hFY7w69" role="1qenE9">
         <property role="TrG5h" value="c1" />
@@ -2744,6 +2756,7 @@
   <node concept="1lH9Xt" id="hHF2Ahe">
     <property role="TrG5h" value="IfStatementDataFlow" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hHF2Ahg" role="1SKRRt">
       <node concept="312cEu" id="hFY7NMb" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -2886,6 +2899,7 @@
   <node concept="1lH9Xt" id="hIebNEf">
     <property role="TrG5h" value="IfStatementWrongUnreachable" />
     <property role="3GE5qa" value="dataFlow.unreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hIebUnt" role="1SKRRt">
       <node concept="312cEu" id="hIec7hR" role="1qenE9">
         <property role="TrG5h" value="Class1" />
@@ -3085,6 +3099,7 @@
   <node concept="1lH9Xt" id="hIeukjc">
     <property role="TrG5h" value="UnusedAssignmentWithIF" />
     <property role="3GE5qa" value="dataFlow.unusedVariableDeaclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hIeuBXB" role="1SKRRt">
       <node concept="312cEu" id="hIeuCMA" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -3169,6 +3184,7 @@
   <node concept="1lH9Xt" id="hKeq2bL">
     <property role="TrG5h" value="CatchingUnthrownException" />
     <property role="3GE5qa" value="dataFlow.unusedVariableDeaclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hKeqcdR" role="1SKRRt">
       <node concept="312cEu" id="hKeqdG7" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -3262,6 +3278,7 @@
   <node concept="1lH9Xt" id="hKetExn">
     <property role="TrG5h" value="IfStatementWithReturns" />
     <property role="3GE5qa" value="dataFlow.unreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hKetIM5" role="1SKRRt">
       <node concept="312cEu" id="hKetJt4" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -3325,6 +3342,7 @@
   <node concept="1lH9Xt" id="hKtuj8b">
     <property role="TrG5h" value="UnusedParameters" />
     <property role="3GE5qa" value="dataFlow.unusedVariableDeaclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hKtuyYu" role="1SKRRt">
       <node concept="312cEu" id="hKtu$0S" role="1qenE9">
         <property role="TrG5h" value="Test" />
@@ -3409,6 +3427,7 @@
   <node concept="1lH9Xt" id="hMviCBz">
     <property role="TrG5h" value="ListWithConceptFunction" />
     <property role="3GE5qa" value="dataFlow.unreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hMviOOp" role="1SKRRt">
       <node concept="312cEu" id="hMviPuE" role="1qenE9">
         <property role="TrG5h" value="Clazz" />
@@ -3485,6 +3504,7 @@
   <node concept="1lH9Xt" id="hQF5y1U">
     <property role="TrG5h" value="CommentCanBeUnreachable" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hQF5CRF" role="1SKRRt">
       <node concept="312cEu" id="hQF5DOI" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -3540,6 +3560,7 @@
   <node concept="1lH9Xt" id="hSUXgAu">
     <property role="TrG5h" value="CommandDataflowWithReturn" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="hSUXs1Y" role="1SKRRt">
       <node concept="3clFb_" id="hSUXunT" role="1qenE9">
         <property role="TrG5h" value="method" />
@@ -3648,6 +3669,7 @@
   <node concept="1lH9Xt" id="5dHXnb3qyzv">
     <property role="TrG5h" value="NullableAnalyzer" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5dHXnb3qyzw" role="1SKRRt">
       <node concept="312cEu" id="5dHXnb3qyzx" role="1qenE9">
         <property role="TrG5h" value="F" />
@@ -9230,6 +9252,7 @@
   <node concept="1lH9Xt" id="7SKJuJJPA7s">
     <property role="TrG5h" value="ForBreakUnreachable" />
     <property role="3GE5qa" value="dataFlow.unreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7SKJuJJPA7t" role="1SKRRt">
       <node concept="312cEu" id="7SKJuJJPA7u" role="1qenE9">
         <property role="TrG5h" value="Class1" />
@@ -9282,6 +9305,7 @@
   <node concept="1lH9Xt" id="6UtDUq0tdsS">
     <property role="TrG5h" value="PrivateField" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6UtDUq0tdsT" role="1SKRRt">
       <node concept="312cEu" id="6UtDUq0tdsU" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -9398,6 +9422,7 @@
   <node concept="1lH9Xt" id="INLPXP3Q8f">
     <property role="TrG5h" value="FinalFieldTests" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="INLPXP3Q8g" role="1SKRRt">
       <node concept="312cEu" id="INLPXP3Q8h" role="1qenE9">
         <property role="TrG5h" value="FinalFieldsClass" />
@@ -9622,6 +9647,7 @@
   <node concept="1lH9Xt" id="6ONtaJUkC7e">
     <property role="TrG5h" value="Validation" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6ONtaJUkC7f" role="1SKRRt">
       <node concept="312cEu" id="6ONtaJUkC7g" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -9769,6 +9795,7 @@
   <node concept="1lH9Xt" id="4rPEBgnO58b">
     <property role="TrG5h" value="TypesTest_BL" />
     <property role="3GE5qa" value="typeSystem" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4rPEBgnO58c" role="1SKRRt">
       <node concept="2YIFZL" id="4rPEBgnO58d" role="1qenE9">
         <property role="TrG5h" value="testBinaryOp" />
@@ -11422,6 +11449,7 @@
   <node concept="1lH9Xt" id="5KzMV0dY_93">
     <property role="TrG5h" value="hasSameSignatureTest" />
     <property role="3GE5qa" value="typeSystem" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="5KzMV0dY_9j" role="1SL9yI">
       <property role="TrG5h" value="list" />
       <node concept="3cqZAl" id="5KzMV0dY_9k" role="3clF45" />
@@ -11480,6 +11508,7 @@
     <property role="TrG5h" value="TestExpectedType" />
     <property role="3GE5qa" value="typeSystem" />
     <property role="26Nn1l" value="false" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3NZe7JF5O0N" role="1SKRRt">
       <node concept="312cEu" id="3NZe7JF5O0O" role="1qenE9">
         <property role="TrG5h" value="ExpectedTest" />
@@ -11643,6 +11672,7 @@
   <node concept="1lH9Xt" id="45d1QTBBxoc">
     <property role="TrG5h" value="FinalVarRefs" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="45d1QTBBxod" role="1SKRRt">
       <node concept="312cEu" id="45d1QTBBxoe" role="1qenE9">
         <property role="TrG5h" value="F" />
@@ -11992,6 +12022,7 @@
   <node concept="1lH9Xt" id="3FJ0r$qNVQl">
     <property role="TrG5h" value="Generics" />
     <property role="3GE5qa" value="generics" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3FJ0r$qNVQm" role="1SKRRt">
       <node concept="312cEu" id="3FJ0r$qNVQn" role="1qenE9">
         <property role="TrG5h" value="MPS_15027" />
@@ -13996,6 +14027,7 @@
   <node concept="1lH9Xt" id="6gevlI39e7l">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="ReturnFromTry" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6gevlI35Gqt" role="1SKRRt">
       <node concept="3clFb_" id="6gevlI35Gqu" role="1qenE9">
         <property role="TrG5h" value="testIfTry" />
@@ -14128,6 +14160,7 @@
   <node concept="1lH9Xt" id="419W870m6vz">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="InvalidUseOfBoundTypes" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="419W870ma3$" role="1SKRRt">
       <node concept="312cEu" id="419W870mbDv" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -14364,6 +14397,7 @@
   <node concept="1lH9Xt" id="76vi5dEFwt_">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="WildCardsInTheClassDefinition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="76vi5dEFwKg" role="1SKRRt">
       <node concept="312cEu" id="76vi5dEFwKi" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -14472,6 +14506,7 @@
   <node concept="1lH9Xt" id="4bseC54zI9u">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="InstanceMethodTypeArgumentMatch" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4bseC54zI9O" role="1SKRRt">
       <node concept="312cEu" id="4bseC54zJlI" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -15517,6 +15552,7 @@
   <node concept="1lH9Xt" id="5KCJzeBaHNW">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="FieldCanBeLocalVar" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5KCJzeBaIyz" role="1SKRRt">
       <node concept="312cEu" id="5KCJzeBaLnc" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -15984,6 +16020,7 @@
   <node concept="1lH9Xt" id="4dpvBJBcBY2">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="GenericNewExpressionTypeParameters" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4dpvBJBcD6H" role="1SKRRt">
       <node concept="312cEu" id="4dpvBJBcD6J" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -17559,6 +17596,7 @@
   <node concept="1lH9Xt" id="r6MbqgwxDl">
     <property role="3GE5qa" value="generics" />
     <property role="TrG5h" value="TypeInference" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="r6MbqgwBSt" role="1SKRRt">
       <node concept="312cEu" id="r6MbqgwBSv" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -18632,6 +18670,7 @@
   <node concept="1lH9Xt" id="2$UQ0luCr10">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="typeParameterDuplicationAndMisorder" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2$UQ0luCs7$" role="1SKRRt">
       <node concept="312cEu" id="2$UQ0luCs7A" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -18794,6 +18833,7 @@
   <node concept="1lH9Xt" id="76vi5dEOrTC">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="WildCardsInAnonymousClassCreators" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="76vi5dEOrTD" role="1SKRRt">
       <node concept="3cpWs8" id="76vi5dEOt6g" role="1qenE9">
         <node concept="3cpWsn" id="76vi5dEOt6h" role="3cpWs9">
@@ -18944,6 +18984,7 @@
   <node concept="1lH9Xt" id="4gOrSexHyLs">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="FieldDeclarationCanBeLocalVariable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4gOrSexH$BO" role="1SKRRt">
       <node concept="312cEu" id="4gOrSexH$BQ" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -19343,6 +19384,7 @@
   <node concept="1lH9Xt" id="6svKRN82y8i">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="UnusedMethodTypeVariableDeclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6svKRN82y8j" role="1SKRRt">
       <node concept="312cEu" id="6svKRN82y8l" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -19416,6 +19458,7 @@
   <node concept="1lH9Xt" id="1SNaoof65EP">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="BoundedTypeOnIllegalPositions" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1SNaoof65EQ" role="1SKRRt">
       <node concept="312cEu" id="1SNaoof65ES" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -19666,6 +19709,7 @@
   <node concept="1lH9Xt" id="6svKRN82vIQ">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="StaticMethodTypeArgumentsMatch" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6svKRN82wxf" role="1SKRRt">
       <node concept="312cEu" id="6svKRN82wxh" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -21320,6 +21364,7 @@
   <node concept="1lH9Xt" id="4VfVk6YkMmL">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="GetElementOperationFollowedByPropertyAccess" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4VfVk6YkNab" role="1SKRRt">
       <node concept="312cEu" id="4VfVk6YkNad" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -21407,6 +21452,7 @@
   <node concept="1lH9Xt" id="2m0N162pZYT">
     <property role="3GE5qa" value="dataFlow.unreachable" />
     <property role="TrG5h" value="SimpleUnreachable" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2m0N162xbO_" role="1SKRRt">
       <node concept="312cEu" id="2m0N162xbOA" role="1qenE9">
         <property role="TrG5h" value="Class" />
@@ -21444,6 +21490,7 @@
   <node concept="1lH9Xt" id="PETrxbaUJa">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="NonStaticInnerClassInstantiatedInStaticContext" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="PETrxbaWck" role="1SKRRt">
       <node concept="312cEu" id="PETrxbaWT8" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -21741,6 +21788,7 @@
   <node concept="1lH9Xt" id="3t6zZhTapSu">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="InstanceMethodDeclarationThrownExceptions" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3t6zZhTapSv" role="1SKRRt">
       <node concept="312cEu" id="3t6zZhTapSx" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -22017,6 +22065,7 @@
   <node concept="1lH9Xt" id="6C0GXJng4on">
     <property role="TrG5h" value="SampleConstraints" />
     <property role="3GE5qa" value="constraints" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6C0GXJng6N7" role="1SKRRt">
       <node concept="312cEu" id="6C0GXJng6N8" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -22103,6 +22152,7 @@
   <node concept="1lH9Xt" id="2jmlBNW7vIq">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="ClassifierNameUniqueness" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2jmlBNW7vIr" role="1SKRRt">
       <node concept="312cEu" id="2jmlBNW7vIt" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -22191,6 +22241,7 @@
   <node concept="1lH9Xt" id="g7X7vzSvgw">
     <property role="3GE5qa" value="constraints" />
     <property role="TrG5h" value="FloatLiteral" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="g7X7vzSyEi" role="1SKRRt">
       <node concept="2YIFZL" id="g7X7vzSyEk" role="1qenE9">
         <property role="TrG5h" value="doubleConstants" />
@@ -22540,6 +22591,7 @@
   <node concept="1lH9Xt" id="X70sDCE7IU">
     <property role="3GE5qa" value="constraints" />
     <property role="TrG5h" value="ArrayCreatorTest" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="X70sDCE9wJ" role="1SKRRt">
       <node concept="2YIFZL" id="X70sDCE9wL" role="1qenE9">
         <property role="TrG5h" value="testArrayCreatorDimensions" />
@@ -22794,6 +22846,7 @@
   <node concept="1lH9Xt" id="Hrb9mDk_fr">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="UnwrappedTernaryOperator" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="Hrb9mDkB3h" role="1SKRRt">
       <node concept="2YIFZL" id="Hrb9mDkB3j" role="1qenE9">
         <property role="TrG5h" value="ternaryShouldBeWrapped" />
@@ -22935,6 +22988,7 @@
   <node concept="1lH9Xt" id="6uKywTfXbbi">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="FinalMethodOverriding" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6uKywTfXgXE" role="1SKRRt">
       <node concept="312cEu" id="6uKywTfXgXG" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23178,6 +23232,7 @@
   <node concept="1lH9Xt" id="x4PZ8MQSAD">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="WildCardTypeIsAValidSubstituteForBoundedParameter" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="x4PZ8MR0ul" role="1SKRRt">
       <node concept="312cEu" id="x4PZ8MR0un" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23326,6 +23381,7 @@
   <node concept="1lH9Xt" id="50rBX$krOw_">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="PropertySetterReturn" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="50rBX$krQyo" role="1SKRRt">
       <node concept="312cEu" id="50rBX$krQyq" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23507,6 +23563,7 @@
   <node concept="1lH9Xt" id="fNOVZ7NMpi">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="AbstractPrivateMethod" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="fNOVZ7NOkN" role="1SKRRt">
       <node concept="312cEu" id="fNOVZ7NOkP" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23564,6 +23621,7 @@
   <node concept="1lH9Xt" id="55LA2AKaNhV">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="FloatConstantType" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="55LA2AKbeIH" role="1SL9yI">
       <property role="TrG5h" value="testTypes" />
       <node concept="3cqZAl" id="55LA2AKbeII" role="3clF45" />
@@ -23915,6 +23973,7 @@
   <node concept="1lH9Xt" id="11Uz4VUmRyg">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="InitializerRequiredForFieldsInInterface" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="11Uz4VUmUGu" role="1SKRRt">
       <node concept="3HP615" id="11Uz4VUmUGw" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23947,6 +24006,7 @@
   <node concept="1lH9Xt" id="4h_NvYnN3DI">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="FreshStaticFieldWithAbstractInitializerHasNoErrorOnType" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4h_NvYnN3DJ" role="1SKRRt">
       <node concept="3HP615" id="4h_NvYnN70$" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -23983,6 +24043,7 @@
   <node concept="1lH9Xt" id="1C72Z0GmWpB">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="Cardinalities" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1C72Z0Gn8tk" role="1SKRRt">
       <node concept="3fqX7Q" id="1C72Z0GpHEv" role="1qenE9">
         <node concept="7CXmI" id="1C72Z0GpMlt" role="lGtFl">
@@ -24013,6 +24074,7 @@
   <node concept="1lH9Xt" id="6_1qUe3MTtm">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="ByteTypeOfIntegerConstant" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6_1qUe3MVv3" role="1SKRRt">
       <node concept="312cEu" id="6_1qUe3MVv5" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -24692,6 +24754,7 @@
   <node concept="1lH9Xt" id="6_1qUe4d6JS">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="ShortTypeOfIntegerConstant" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6_1qUe4d6JT" role="1SKRRt">
       <node concept="312cEu" id="6_1qUe4d6JU" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -25372,6 +25435,7 @@
   <node concept="1lH9Xt" id="ROe8A_SmDX">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="CaseInsensitiveDuplicatedClassifierName" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="ROe8A_SmDY" role="1SKRRt">
       <node concept="312cEu" id="ROe8A_SmDZ" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -25411,6 +25475,7 @@
   <node concept="1lH9Xt" id="2uD2ny$MxnW">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="SimplifyExpression" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2uD2ny$Mxpt" role="1SKRRt">
       <node concept="9aQIb" id="2uD2ny$Mxpv" role="1qenE9">
         <node concept="3clFbS" id="2uD2ny$Mxpw" role="9aQI4">
@@ -28122,6 +28187,7 @@
   <node concept="1lH9Xt" id="6gZBjbXWPp4">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="CharAssignmentConversion" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6gZBjbXWPqm" role="1SKRRt">
       <node concept="312cEu" id="6gZBjbXWPqo" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -28637,6 +28703,7 @@
   <node concept="1lH9Xt" id="rutuztWYnj">
     <property role="TrG5h" value="TestMigrateCommentBlock" />
     <property role="3GE5qa" value="migrations" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="rutuztWYpj" role="1SKRRt">
       <node concept="3clFb_" id="rutuztWGz8" role="1qenE9">
         <property role="TrG5h" value="abc" />
@@ -28844,6 +28911,7 @@
   <node concept="1lH9Xt" id="rutuztX2OS">
     <property role="TrG5h" value="TestMigrateCommentLines" />
     <property role="3GE5qa" value="migrations" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="rutuztX2OT" role="1SKRRt">
       <node concept="3clFb_" id="rutuztX2OU" role="1qenE9">
         <property role="TrG5h" value="abc" />
@@ -29023,6 +29091,7 @@
   <node concept="1lH9Xt" id="2xtTpu$2807">
     <property role="3GE5qa" value="constraints" />
     <property role="TrG5h" value="NestedNewExpression" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2xtTpu$280Y" role="1SKRRt">
       <node concept="312cEu" id="2xtTpu$2810" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -29443,6 +29512,7 @@
   <node concept="1lH9Xt" id="6iGg45HP_hX">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="GenericMethodCall" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6iGg45HP_hY" role="1SKRRt">
       <node concept="312cEu" id="6iGg45HP_i0" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -29605,6 +29675,7 @@
   <node concept="1lH9Xt" id="5L7DT9mffhM">
     <property role="3GE5qa" value="constraints" />
     <property role="TrG5h" value="AnonymousClassJavaName" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="5L7DT9mfx$Z" role="1SL9yI">
       <property role="TrG5h" value="testJavaNames" />
       <node concept="3cqZAl" id="5L7DT9mfx_0" role="3clF45" />
@@ -29900,6 +29971,7 @@
   <node concept="1lH9Xt" id="bYZA5Eylc7">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="UnusedLocalVariableDeclaration" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="bYZA5El28Q" role="1SKRRt">
       <node concept="3clFb_" id="bYZA5El292" role="1qenE9">
         <property role="DiZV1" value="false" />
@@ -30222,6 +30294,7 @@
   <node concept="1lH9Xt" id="6SFvP$mT8e8">
     <property role="TrG5h" value="PackageProtectedField" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6SFvP$mT8e9" role="1SKRRt">
       <node concept="312cEu" id="6SFvP$mT8ea" role="1qenE9">
         <property role="TrG5h" value="Class222" />
@@ -30359,6 +30432,7 @@
   <node concept="1lH9Xt" id="6SFvP$mSZCD">
     <property role="TrG5h" value="PrivateMethod" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6SFvP$mSZCE" role="1SKRRt">
       <node concept="312cEu" id="6SFvP$mSZCF" role="1qenE9">
         <property role="TrG5h" value="Class2" />
@@ -30427,6 +30501,7 @@
   <node concept="1lH9Xt" id="6SFvP$mT1Zy">
     <property role="TrG5h" value="PackageProtectedMethod" />
     <property role="3GE5qa" value="dataFlow" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6SFvP$mT2e3" role="1SKRRt">
       <node concept="312cEu" id="6SFvP$mT2eR" role="1qenE9">
         <property role="TrG5h" value="Using" />
@@ -30640,6 +30715,7 @@
   <node concept="1lH9Xt" id="3rj45ZVC6eI">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="MethodInheritanceChecks" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3rj45ZVC6eJ" role="1SKRRt">
       <node concept="312cEu" id="3rj45ZVC6eK" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -31779,6 +31855,7 @@
   <node concept="1lH9Xt" id="2ChE0k8eOTt">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="DuplicatesInClassifierChecks" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2ChE0k8eOTP" role="1SKRRt">
       <node concept="312cEu" id="2ChE0k8eOTQ" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -31926,6 +32003,7 @@
   <node concept="1lH9Xt" id="3de6X9F50sS">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="StubClassifiers" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3de6X9F50sZ" role="1SKRRt">
       <node concept="312cEu" id="3de6X9EVobV" role="1qenE9">
         <property role="TrG5h" value="M" />
@@ -32175,6 +32253,7 @@
   <node concept="1lH9Xt" id="1GyyBA1YZ3_">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="IncompatibleMethodSignature" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1GyyBA1YZ3C" role="1SKRRt">
       <node concept="312cEu" id="1GyyBA1YZ3A" role="1qenE9">
         <property role="TrG5h" value="StaticMethodHolder" />
@@ -33255,6 +33334,7 @@
   <node concept="1lH9Xt" id="7k2oRj$QnSK">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="AbstractFinalClass" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7k2oRj$QnSN" role="1SKRRt">
       <node concept="312cEu" id="7k2oRj$QnSL" role="1qenE9">
         <property role="TrG5h" value="Foo" />
@@ -33277,6 +33357,7 @@
   <node concept="1lH9Xt" id="5$NXjGXlKaC">
     <property role="TrG5h" value="SwitchStatementDuplicateCase" />
     <property role="3GE5qa" value="typeSystem" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5$NXjGXlKaF" role="1SKRRt">
       <node concept="9aQIb" id="5$NXjGXlKaD" role="1qenE9">
         <node concept="3clFbS" id="5$NXjGXlKaE" role="9aQI4">
@@ -33418,6 +33499,7 @@
   <node concept="1lH9Xt" id="6WH019FmBIW">
     <property role="TrG5h" value="DoWhileCondition" />
     <property role="3GE5qa" value="dataFlow.condition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6WH019FmBKD" role="1SKRRt">
       <node concept="2YIFZL" id="6WH019FmHvp" role="1qenE9">
         <property role="TrG5h" value="dummy" />
@@ -33801,6 +33883,7 @@
   <node concept="1lH9Xt" id="6WH019FnXig">
     <property role="TrG5h" value="WhileCondition" />
     <property role="3GE5qa" value="dataFlow.condition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6WH019FnXih" role="1SKRRt">
       <node concept="2YIFZL" id="6WH019FnXii" role="1qenE9">
         <property role="TrG5h" value="dummy" />
@@ -34176,6 +34259,7 @@
   <node concept="1lH9Xt" id="6WH019Fo1vE">
     <property role="TrG5h" value="ForStatementCondition" />
     <property role="3GE5qa" value="dataFlow.condition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6WH019Fo1vF" role="1SKRRt">
       <node concept="2YIFZL" id="6WH019Fo1vG" role="1qenE9">
         <property role="TrG5h" value="dummy" />
@@ -34587,6 +34671,7 @@
   <node concept="1lH9Xt" id="6WH019FoacP">
     <property role="TrG5h" value="ElseIfCondition" />
     <property role="3GE5qa" value="dataFlow.condition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6WH019FoacQ" role="1SKRRt">
       <node concept="2YIFZL" id="6WH019FoacR" role="1qenE9">
         <property role="TrG5h" value="dummy" />
@@ -35030,6 +35115,7 @@
   <node concept="1lH9Xt" id="6WH019Foks4">
     <property role="TrG5h" value="IfCondition" />
     <property role="3GE5qa" value="dataFlow.condition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6WH019Foks5" role="1SKRRt">
       <node concept="2YIFZL" id="6WH019Foks6" role="1qenE9">
         <property role="TrG5h" value="dummy" />
@@ -35479,6 +35565,7 @@
   <node concept="1lH9Xt" id="2k8M1uWT$t3">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="DiamondOperator" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2k8M1uWT$t4" role="1SKRRt">
       <node concept="312cEu" id="2k8M1uWT$t8" role="1qenE9">
         <property role="TrG5h" value="Test" />
@@ -35639,6 +35726,7 @@
   <node concept="1lH9Xt" id="2okrWkjbmfL">
     <property role="3GE5qa" value="dataFlow" />
     <property role="TrG5h" value="EffectivelyFinalCondition" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2okrWkjbmfO" role="1SKRRt">
       <node concept="312cEu" id="2okrWkjbmfM" role="1qenE9">
         <property role="TrG5h" value="EffectivelyFinalDemo" />
@@ -35981,6 +36069,7 @@
   <node concept="1lH9Xt" id="2CkufsbDxYe">
     <property role="3GE5qa" value="typeSystem" />
     <property role="TrG5h" value="UncaughtExceptionInTryCatch" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2CkufsbE0iF" role="1SKRRt">
       <node concept="312cEu" id="2CkufsbE0ld" role="1qenE9">
         <property role="TrG5h" value="Foo" />
@@ -35994,8 +36083,8 @@
                 <node concept="3clFbF" id="2CkufsbE1c7" role="3cqZAp">
                   <node concept="2OqwBi" id="2CkufsbE1c4" role="3clFbG">
                     <node concept="10M0yZ" id="2CkufsbE1c5" role="2Oq$k0">
-                      <ref role="1PxDUh" to="wyt6:~System" />
-                      <ref role="3cqZAo" to="wyt6:~System.out" />
+                      <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+                      <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
                     </node>
                     <node concept="liA8E" id="2CkufsbE1c6" role="2OqNvi">
                       <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.Object)" resolve="println" />

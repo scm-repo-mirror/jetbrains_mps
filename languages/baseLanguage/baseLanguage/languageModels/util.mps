@@ -807,13 +807,13 @@
             </node>
             <node concept="2ShNRf" id="1WmYFrECLHY" role="33vP2m">
               <node concept="1pGfFk" id="1WmYFrECLHZ" role="2ShVmc">
-                <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.&lt;init&gt;(java.lang.String)" resolve="Foreign" />
+                <ref role="37wK5l" to="w1kc:~SNodeId$Foreign.&lt;init&gt;(java.lang.String)" resolve="SNodeId.Foreign" />
                 <node concept="3cpWs3" id="1WmYFrECLI0" role="37wK5m">
                   <node concept="37vLTw" id="2zzdvBy4QOe" role="3uHU7w">
                     <ref role="3cqZAo" node="2zzdvBy4QOb" resolve="nestedShortName" />
                   </node>
                   <node concept="10M0yZ" id="1WmYFrECLI3" role="3uHU7B">
-                    <ref role="1PxDUh" to="w1kc:~SNodeId$Foreign" resolve="Foreign" />
+                    <ref role="1PxDUh" to="w1kc:~SNodeId$Foreign" resolve="SNodeId.Foreign" />
                     <ref role="3cqZAo" to="w1kc:~SNodeId$Foreign.ID_PREFIX" resolve="ID_PREFIX" />
                   </node>
                 </node>
@@ -1041,7 +1041,7 @@
                   <node concept="liA8E" id="6byQs8uPmr0" role="2OqNvi">
                     <ref role="37wK5l" to="gp7a:~GlobalModuleDependenciesManager.getModules(jetbrains.mps.project.dependency.GlobalModuleDependenciesManager$Deptype)" resolve="getModules" />
                     <node concept="Rm8GO" id="6byQs8uPqAr" role="37wK5m">
-                      <ref role="1Px2BO" to="gp7a:~GlobalModuleDependenciesManager$Deptype" resolve="Deptype" />
+                      <ref role="1Px2BO" to="gp7a:~GlobalModuleDependenciesManager$Deptype" resolve="GlobalModuleDependenciesManager.Deptype" />
                       <ref role="Rm8GQ" to="gp7a:~GlobalModuleDependenciesManager$Deptype.VISIBLE" resolve="VISIBLE" />
                     </node>
                   </node>

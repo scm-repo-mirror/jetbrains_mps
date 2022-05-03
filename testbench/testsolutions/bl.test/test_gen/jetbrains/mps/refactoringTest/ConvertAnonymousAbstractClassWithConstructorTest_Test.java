@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class ConvertAnonymousAbstractClassWithConstructorTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ConvertAnonymousAbstractClassWithConstructorTest_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ConvertAnonymousAbstractClassWithConstructorTest_Test() {
     super(ourParamCache);
@@ -42,15 +38,19 @@ public class ConvertAnonymousAbstractClassWithConstructorTest_Test extends BaseT
     }
 
     public void test_AbstractClassWithConstructorTest() throws Exception {
-      addNodeById("3145818413497245832");
-      addNodeById("3145818413497245858");
-      addNodeById("3145818413497257580");
-      new ConvertAnonymousRefactoring(getNodeById("3145818413497246005"), "MyAConst").doRefactor();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3145818413497245980"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3145818413497698452"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("3145818413497245832");
+        addNodeById("3145818413497245858");
+        addNodeById("3145818413497257580");
+      });
+      runWithinCommand(() -> {
+        new ConvertAnonymousRefactoring(getNodeById("3145818413497246005"), "MyAConst").doRefactor();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3145818413497245980"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3145818413497698452"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class SurroundWithParenthesisTest_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(SurroundWithParenthesisTest_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public SurroundWithParenthesisTest_Test() {
     super(ourParamCache);
@@ -46,31 +42,39 @@ public class SurroundWithParenthesisTest_Test extends BaseTransformationTest {
     }
 
     public void test_noBinaryOperation() throws Exception {
-      addNodeById("3852894662483077200");
-      addNodeById("3852894662483077206");
-      addNodeById("3852894662483228699");
-      addNodeById("3852894662483230132");
-      ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("2329139814027568804"));
-      ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("2329139814027568804"));
+      runWithinCommand(() -> {
+        addNodeById("3852894662483077200");
+        addNodeById("3852894662483077206");
+        addNodeById("3852894662483228699");
+        addNodeById("3852894662483230132");
+      });
+      runWithinCommand(() -> {
+        ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("2329139814027568804"));
+        ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("2329139814027568804"));
 
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027569571"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027568774"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027569571"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("2329139814027568774"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
     public void test_thereIsAlreadyParenthesis() throws Exception {
-      addNodeById("3852894662483077200");
-      addNodeById("3852894662483077206");
-      addNodeById("3852894662483228699");
-      addNodeById("3852894662483230132");
-      ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("3852894662483230127"));
-      ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("3852894662483230127"));
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230135"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230126"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("3852894662483077200");
+        addNodeById("3852894662483077206");
+        addNodeById("3852894662483228699");
+        addNodeById("3852894662483230132");
+      });
+      runWithinCommand(() -> {
+        ParenthesisUtil.createUnmatchedLeftParenthesis(getNodeById("3852894662483230127"));
+        ParenthesisUtil.createUnmatchedRightParenthesis(getNodeById("3852894662483230127"));
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230135"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("3852894662483230126"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

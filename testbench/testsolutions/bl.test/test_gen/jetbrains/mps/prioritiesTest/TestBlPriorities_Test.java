@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -28,8 +26,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public class TestBlPriorities_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TestBlPriorities_Test.class, "${mps_home}", "r:3c49ab36-1271-439f-ac5d-2df7deb7394d(jetbrains.mps.prioritiesTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TestBlPriorities_Test() {
     super(ourParamCache);
@@ -51,10 +47,10 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
     }
 
     public void test_testBitwisePriorities() throws Exception {
-      this.check(_quotation_createNode_p8h609_a0a0a3i(), 1 & 2 | 3 << 4 ^ 5 | 6);
+      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a0a3h(), 1 & 2 | 3 << 4 ^ 5 | 6));
     }
     public void test_testBooleanAndWithEqualsOperation() throws Exception {
-      this.check(_quotation_createNode_p8h609_a0a0a4i(), true || false == false);
+      runWithinCommand(() -> TestBody.this.check(_quotation_createNode_p8h609_a0a0a0a0a4h(), true || false == false));
     }
 
     public void check(SNode expr, Object expectedValue) {
@@ -114,7 +110,7 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
 
       throw new UnsupportedOperationException(e.getPresentation());
     }
-    private static SNode _quotation_createNode_p8h609_a0a0a3i() {
+    private static SNode _quotation_createNode_p8h609_a0a0a0a0a3h() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;
@@ -170,7 +166,7 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
       quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), quotedNode_2);
       return quotedNode_1;
     }
-    private static SNode _quotation_createNode_p8h609_a0a0a4i() {
+    private static SNode _quotation_createNode_p8h609_a0a0a0a0a4h() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;

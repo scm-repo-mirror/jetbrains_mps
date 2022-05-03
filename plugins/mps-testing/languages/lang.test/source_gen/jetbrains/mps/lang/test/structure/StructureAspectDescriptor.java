@@ -103,6 +103,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptVariableAlive = createDescriptorForVariableAlive();
   /*package*/ final ConceptDescriptor myConceptVariableInitialized = createDescriptorForVariableInitialized();
   /*package*/ final ConceptDescriptor myConceptWarningStatementReference = createDescriptorForWarningStatementReference();
+  /*package*/ final EnumerationDescriptor myEnumerationExecutionModelAccessMode = new EnumerationDescriptor_ExecutionModelAccessMode();
   /*package*/ final EnumerationDescriptor myEnumerationLevel = new EnumerationDescriptor_Level();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -308,7 +309,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<DataTypeDescriptor> getDataTypeDescriptors() {
-    return Arrays.asList(myEnumerationLevel);
+    return Arrays.asList(myEnumerationExecutionModelAccessMode, myEnumerationLevel);
   }
 
   /*package*/ int internalIndex(SAbstractConcept c) {
@@ -976,6 +977,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)/1216913645126");
     b.version(3);
     b.property("needsNoWriteAction", 0x57f984daa37add4aL).type(PrimitiveTypeId.BOOLEAN).origin("6339244025081158986").done();
+    b.property("accessMode", 0x2451232bcdebc33fL).type(MetaIdFactory.dataTypeId(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2451232bcdee06b8L)).origin("2616911529524314943").done();
     b.aggregate("nodesToCheck", 0x11b78c37cc6L).target(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L).optional(true).ordered(true).multiple(true).origin("1217501822150").done();
     b.aggregate("beforeTests", 0x2045125020efb661L).target(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2045125020ec2847L).optional(true).ordered(true).multiple(false).origin("2325284917965993569").done();
     b.aggregate("afterTests", 0x2045125020efb66cL).target(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2045125020ec2848L).optional(true).ordered(true).multiple(false).origin("2325284917965993580").done();

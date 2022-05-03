@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -28,8 +26,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ClosureLiteraltargetFunType_Test.class, "${mps_home}", "r:115773d0-1d8a-4cef-9476-a19eb511afc3(jetbrains.mps.closures.test.model)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ClosureLiteraltargetFunType_Test() {
     super(ourParamCache);
@@ -51,18 +47,25 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
     }
 
     public void test_throwsOrder() throws Exception {
-      addNodeById("6374750171056867594");
-      addNodeById("6374750171056867606");
-      TemplateQueryContext genContext = this.getContext();
-      SNode literal = getNodeById("6374750171056867612");
-      SNode funtype = getNodeById("6374750171056867639");
-      new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype));
-      this.assertLiteralTarget(genContext, literal, _quotation_createNode_7325qm_c0a6a3i());
+      runWithinCommand(() -> {
+        addNodeById("6374750171056867594");
+        addNodeById("6374750171056867606");
+      });
+      runWithinCommand(() -> {
+        TemplateQueryContext genContext = TestBody.this.getContext();
+        SNode literal = getNodeById("6374750171056867612");
+        SNode funtype = getNodeById("6374750171056867639");
+        new ClosureLiteralTarget(genContext).setTarget(literal, FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(funtype));
+        TestBody.this.assertLiteralTarget(genContext, literal, _quotation_createNode_7325qm_c0a4a0a1a3h());
+      });
     }
     public void test_NodeErrorCheck3981396688773519576() throws Exception {
-      SNode nodeToCheck = getRealNodeById("6374750171056867612");
-      SNode operation = getRealNodeById("3981396688773519576");
-      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("6374750171056867612");
+        SNode operation = getRealNodeById("3981396688773519576");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
     public TemplateQueryContext getContext() {
@@ -73,7 +76,7 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
 
       Assert.assertTrue(MatchingUtil.matchNodes(expected, target));
     }
-    private static SNode _quotation_createNode_7325qm_c0a6a3i() {
+    private static SNode _quotation_createNode_7325qm_c0a4a0a1a3h() {
       SNode quotedNode_1 = null;
       SNode quotedNode_2 = null;
       SNode quotedNode_3 = null;

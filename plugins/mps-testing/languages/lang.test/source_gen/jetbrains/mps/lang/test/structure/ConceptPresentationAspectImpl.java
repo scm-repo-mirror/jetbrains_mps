@@ -535,10 +535,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_NodeWarningCheckOperation;
       case LanguageConceptSwitch.NodesTestCase:
         if (props_NodesTestCase == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L);
+          cpb.deprecateProperty(0x57f984daa37add4aL, "needsNoWriteAction");
           cpb.presentationByName();
           cpb.helpUrl(HELP_URL2);
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a16b0id);
+          cpb.icon(IconContainer.RESOURCE_a0a4a0a16b0id);
           props_NodesTestCase = cpb.create();
         }
         return props_NodesTestCase;

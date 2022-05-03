@@ -2,7 +2,7 @@
 <model ref="r:f6873416-2681-4a14-803b-33f9e8bdd0a6(testSubtypingTest.model)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="36a4d1c5-6ec1-426f-8192-1875a7cc48de" name="testSubtypingA" version="0" />
     <use id="65611934-24fb-470c-813e-a9df6058b93a" name="testSubtypingB" version="0" />
     <use id="8a53c705-15e4-4f87-8796-457845605512" name="testPrimitiveType" version="0" />
@@ -23,6 +23,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -132,6 +133,7 @@
   </registry>
   <node concept="1lH9Xt" id="1NmRLF_DeDu">
     <property role="TrG5h" value="Subtyping" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1NmRLF_DGzH" role="1SKRRt">
       <node concept="312cEu" id="1NmRLF_DGzJ" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -284,6 +286,7 @@
   </node>
   <node concept="1lH9Xt" id="Bcyb5kJ5eX">
     <property role="TrG5h" value="NullProperties" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="Bcyb5kJ5eY" role="1SKRRt">
       <node concept="2YIFZL" id="Bcyb5kJ5eZ" role="1qenE9">
         <property role="TrG5h" value="test_str" />

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -18,8 +16,6 @@ import org.junit.Assert;
 public class CheckStaticVisibility_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(CheckStaticVisibility_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public CheckStaticVisibility_Test() {
     super(ourParamCache);
@@ -37,13 +33,17 @@ public class CheckStaticVisibility_Test extends BaseTransformationTest {
     }
 
     public void test_CheckStaticVisibility() throws Exception {
-      addNodeById("1230053114802");
-      addNodeById("1230053114815");
-      addNodeById("1230053114829");
-      InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053114810"));
-      Assert.assertTrue(ref.getProblems().length() > 0);
-      ref = new InlineMethodRefactoring(getNodeById("1230053114813"));
-      Assert.assertTrue(ref.getProblems().length() > 0);
+      runWithinCommand(() -> {
+        addNodeById("1230053114802");
+        addNodeById("1230053114815");
+        addNodeById("1230053114829");
+      });
+      runWithinCommand(() -> {
+        InlineMethodRefactoring ref = new InlineMethodRefactoring(getNodeById("1230053114810"));
+        Assert.assertTrue(ref.getProblems().length() > 0);
+        ref = new InlineMethodRefactoring(getNodeById("1230053114813"));
+        Assert.assertTrue(ref.getProblems().length() > 0);
+      });
     }
 
   }

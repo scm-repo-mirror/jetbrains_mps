@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -20,8 +18,6 @@ import jetbrains.mps.project.ProjectBase;
 public class FeedbackNoChildInObligatoryRole_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(FeedbackNoChildInObligatoryRole_Test.class, "${mps_home}", "r:eb16dd70-ac3a-40ca-8c61-d7f237615dbf(messages.sandbox.mA@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public FeedbackNoChildInObligatoryRole_Test() {
     super(ourParamCache);
@@ -39,9 +35,12 @@ public class FeedbackNoChildInObligatoryRole_Test extends BaseTransformationTest
     }
 
     public void test_NodeErrorCheck7019192671317970800() throws Exception {
-      SNode nodeToCheck = getRealNodeById("7019192671317970792");
-      SNode operation = getRealNodeById("7019192671317970800");
-      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "No child in the very obligatory role 'obligatorychild'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7019192671317970792");
+        SNode operation = getRealNodeById("7019192671317970800");
+        new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "No child in the very obligatory role 'obligatorychild'", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

@@ -9885,7 +9885,7 @@
             </node>
             <node concept="2ShNRf" id="24vhJwibxNJ" role="37wK5m">
               <node concept="1pGfFk" id="24vhJwibyaV" role="2ShVmc">
-                <ref role="37wK5l" node="24vhJwibJPO" resolve="ShortcutChange" />
+                <ref role="37wK5l" node="24vhJwibJPO" resolve="KeymapChanges.ShortcutChange" />
               </node>
             </node>
           </node>
@@ -10062,14 +10062,14 @@
       </node>
       <node concept="3Tm1VV" id="5suWGB1j_uI" role="1B3o_S" />
       <node concept="2AHcQZ" id="6jPV8_$orOc" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="6jPV8_$o_nT" role="jymVt" />
     <node concept="312cEu" id="24vhJwibJPM" role="jymVt">
       <property role="TrG5h" value="ShortcutChange" />
       <node concept="3uibUv" id="6jPV8_$lONn" role="1zkMxy">
-        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="CustomChange" />
+        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="BaseKeymapChanges.CustomChange" />
       </node>
       <node concept="1WS0z7" id="24vhJwibJQu" role="lGtFl">
         <node concept="3JmXsc" id="24vhJwibJQv" role="3Jn$fo">
@@ -10127,7 +10127,7 @@
         <node concept="3Tm1VV" id="24vhJwibJPQ" role="1B3o_S" />
         <node concept="3clFbS" id="24vhJwibJPR" role="3clF47">
           <node concept="XkiVB" id="6jPV8_$lW8m" role="3cqZAp">
-            <ref role="37wK5l" to="obo9:~BaseKeymapChanges$CustomChange.&lt;init&gt;(boolean,boolean)" resolve="CustomChange" />
+            <ref role="37wK5l" to="obo9:~BaseKeymapChanges$CustomChange.&lt;init&gt;(boolean,boolean)" resolve="BaseKeymapChanges.CustomChange" />
             <node concept="3clFbT" id="SiyzqGRjsM" role="37wK5m">
               <node concept="17Uvod" id="SiyzqGRkez" role="lGtFl">
                 <property role="2qtEX9" value="value" />
@@ -10218,7 +10218,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="6jPV8_$mTdj" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>
@@ -11983,7 +11983,7 @@
       </node>
       <node concept="3Tm1VV" id="6K_R5XuIjuJ" role="1B3o_S" />
       <node concept="3uibUv" id="6jPV8_$rpA1" role="1zkMxy">
-        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="CustomChange" />
+        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="BaseKeymapChanges.CustomChange" />
       </node>
     </node>
   </node>
@@ -11997,7 +11997,7 @@
         <node concept="3cqZAl" id="6jPV8_$rDEt" role="3clF45" />
         <node concept="3clFbS" id="6jPV8_$rDEv" role="3clF47">
           <node concept="XkiVB" id="6jPV8_$rDQu" role="3cqZAp">
-            <ref role="37wK5l" to="obo9:~BaseKeymapChanges$CustomChange.&lt;init&gt;(boolean,boolean)" resolve="CustomChange" />
+            <ref role="37wK5l" to="obo9:~BaseKeymapChanges$CustomChange.&lt;init&gt;(boolean,boolean)" resolve="BaseKeymapChanges.CustomChange" />
             <node concept="3clFbT" id="6jPV8_$rDU7" role="37wK5m" />
             <node concept="3clFbT" id="6jPV8_$rE4F" role="37wK5m" />
           </node>
@@ -12011,7 +12011,7 @@
       </node>
       <node concept="3Tm1VV" id="6jPV8_$rAvD" role="1B3o_S" />
       <node concept="3uibUv" id="6jPV8_$rBeN" role="1zkMxy">
-        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="CustomChange" />
+        <ref role="3uigEE" to="obo9:~BaseKeymapChanges$CustomChange" resolve="BaseKeymapChanges.CustomChange" />
       </node>
       <node concept="3clFb_" id="6jPV8_$rBxL" role="jymVt">
         <property role="TrG5h" value="fill" />

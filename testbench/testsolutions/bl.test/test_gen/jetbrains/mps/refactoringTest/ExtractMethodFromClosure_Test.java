@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -29,8 +27,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class ExtractMethodFromClosure_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(ExtractMethodFromClosure_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public ExtractMethodFromClosure_Test() {
     super(ourParamCache);
@@ -48,23 +44,27 @@ public class ExtractMethodFromClosure_Test extends BaseTransformationTest {
     }
 
     public void test_ExtractMethodFromClosure() throws Exception {
-      addNodeById("5161277940733600914");
-      addNodeById("5161277940733600960");
-      ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600941"), getNodeById("5161277940733600950")));
-      params.setName("foo");
-      MethodParameter p0 = ListSequence.fromList(params.getParameters()).getElement(0);
-      MethodParameter p1 = ListSequence.fromList(params.getParameters()).getElement(1);
-      if (SNodeOperations.isInstanceOf(p0.getDeclaration(), CONCEPTS.LocalVariableDeclaration$41)) {
-        ListSequence.fromList(params.getParameters()).setElement(0, p1);
-        ListSequence.fromList(params.getParameters()).setElement(1, p0);
-      }
-      ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-      ref.doRefactor();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600919"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600997"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("5161277940733600914");
+        addNodeById("5161277940733600960");
+      });
+      runWithinCommand(() -> {
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600941"), getNodeById("5161277940733600950")));
+        params.setName("foo");
+        MethodParameter p0 = ListSequence.fromList(params.getParameters()).getElement(0);
+        MethodParameter p1 = ListSequence.fromList(params.getParameters()).getElement(1);
+        if (SNodeOperations.isInstanceOf(p0.getDeclaration(), CONCEPTS.LocalVariableDeclaration$41)) {
+          ListSequence.fromList(params.getParameters()).setElement(0, p1);
+          ListSequence.fromList(params.getParameters()).setElement(1, p0);
+        }
+        ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
+        ref.doRefactor();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600919"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("5161277940733600997"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

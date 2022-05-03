@@ -2,7 +2,7 @@
 <model ref="r:0f4db6eb-148d-44cb-ac9d-a618b0bc8a92(testSubstituteType.model)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="2f74e72e-3e3d-480e-bae1-cc709d588366" name="testAnnotatedType" version="-1" />
     <use id="9290638e-635b-4ec6-bcad-945ecb88a928" name="testWrappedType" version="-1" />
     <use id="394e3857-3256-4e8b-9601-5abe7ad354d9" name="testOverridingType" version="-1" />
@@ -37,6 +37,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -197,6 +198,7 @@
   </registry>
   <node concept="1lH9Xt" id="5zzawu2JA4c">
     <property role="TrG5h" value="AnnotatedType" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5zzawu2JA4d" role="1SKRRt">
       <node concept="312cEu" id="5zzawu2JA4f" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -717,6 +719,7 @@
   </node>
   <node concept="1lH9Xt" id="15xlXKdz7s3">
     <property role="TrG5h" value="WrappedType" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="15xlXKdz7s4" role="1SKRRt">
       <node concept="312cEu" id="15xlXKdz7s6" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -971,6 +974,7 @@
   </node>
   <node concept="1lH9Xt" id="5GQb1e$A8qA">
     <property role="TrG5h" value="OverridingInference" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5GQb1e$AM5M" role="1SKRRt">
       <node concept="312cEu" id="5GQb1e$AM5O" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -1343,6 +1347,7 @@
   </node>
   <node concept="1lH9Xt" id="7E$SATCteMu">
     <property role="TrG5h" value="OverridingRule" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="7E$SATCtg6X" role="1SKRRt">
       <node concept="iO2xv" id="7E$SATCtg7e" role="1qenE9">
         <property role="iO2wq" value="valueA" />

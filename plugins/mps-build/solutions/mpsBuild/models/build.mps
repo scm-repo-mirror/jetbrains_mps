@@ -28485,10 +28485,10 @@
       </node>
       <node concept="398223" id="3IKDaVZn4nh" role="39821P">
         <node concept="3ygNvl" id="y7NRqLFzk1" role="39821P">
-          <ref role="3ygNvj" node="1diLdO26H7E" />
+          <ref role="3ygNvj" node="1diLdO26H7E" resolve="plugins" />
         </node>
         <node concept="3_I8Xc" id="1SFIfQkx0Yw" role="39821P">
-          <ref role="3_I8Xa" node="4EdAnGErOtx" />
+          <ref role="3_I8Xa" node="4EdAnGErOtx" resolve="mps-core" />
         </node>
         <node concept="3_I8Xc" id="6qT2v0r302E" role="39821P">
           <ref role="3_I8Xa" node="6b4RkXS7XdG" resolve="mps-build" />
@@ -36107,7 +36107,7 @@
         </node>
         <node concept="1SiIV0" id="6IZ_b08qDG0" role="3bR37C">
           <node concept="3bR9La" id="6IZ_b08qDG1" role="1SiIV1">
-            <ref role="3bR37D" node="1ia2VB5guYy" />
+            <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
         <node concept="1SiIV0" id="2a9bszgrvtA" role="3bR37C">
@@ -42023,6 +42023,11 @@
           <node concept="1SiIV0" id="dDnKVI30yf" role="3bR37C">
             <node concept="3bR9La" id="dDnKVI30yg" role="1SiIV1">
               <ref role="3bR37D" node="7Kfy9QB6Lc2" resolve="jetbrains.mps.lang.typesystem" />
+            </node>
+          </node>
+          <node concept="1SiIV0" id="6ecjmP170HE" role="3bR37C">
+            <node concept="3bR9La" id="6ecjmP170HF" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6KZG" resolve="jetbrains.mps.baseLanguage.closures" />
             </node>
           </node>
         </node>
@@ -52124,7 +52129,7 @@
     </node>
     <node concept="1l3spV" id="1nTn8MoO6pe" role="1l3spN">
       <node concept="m$_wl" id="1nTn8MoO6pf" role="39821P">
-        <ref role="m_rDy" node="1nTn8MoO6oQ" resolve="jetbrains.mps.editor.spellcheck" />
+        <ref role="m_rDy" node="1nTn8MoO6oQ" resolve="jetbrains.mps.tool.make" />
         <node concept="pUk6x" id="1nTn8MoO6pg" role="pUk7w" />
       </node>
     </node>
@@ -52243,7 +52248,7 @@
     </node>
     <node concept="1l3spV" id="4GrD5cc9OR8" role="1l3spN">
       <node concept="m$_wl" id="4GrD5cc9OR9" role="39821P">
-        <ref role="m_rDy" node="4GrD5cc9OQK" resolve="jetbrains.mps.editor.tooltips" />
+        <ref role="m_rDy" node="4GrD5cc9OQK" resolve="jetbrains.mps.navbar" />
         <node concept="398223" id="4GrD5ccamYW" role="39821P">
           <node concept="3_J27D" id="4GrD5ccamYX" role="Nbhlr">
             <node concept="3Mxwew" id="4GrD5ccamYY" role="3MwsjC">

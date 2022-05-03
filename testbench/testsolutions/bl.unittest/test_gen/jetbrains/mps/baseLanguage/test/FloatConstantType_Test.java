@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -26,8 +24,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class FloatConstantType_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(FloatConstantType_Test.class, "${mps_home}", "r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public FloatConstantType_Test() {
     super(ourParamCache);
@@ -49,18 +45,23 @@ public class FloatConstantType_Test extends BaseTransformationTest {
     }
 
     public void test_testTypes() throws Exception {
-      addNodeById("5868639094257179247");
-      assert SNodeOperations.isInstanceOf(getNodeById("5868639094257266015"), CONCEPTS.FloatingPointConstant$3o);
-      assert SNodeOperations.isInstanceOf(getNodeById("5868639094257283261"), CONCEPTS.FloatingPointConstant$3o);
-      assert SNodeOperations.isInstanceOf(getNodeById("5868639094257285927"), CONCEPTS.FloatingPointFloatConstant$Qh);
-      assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257266015")), CONCEPTS.DoubleType$x0);
-      assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257283261")), CONCEPTS.DoubleType$x0);
-      assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257285927")), CONCEPTS.FloatType$up);
+      runWithinCommand(() -> addNodeById("5868639094257179247"));
+      runWithinCommand(() -> {
+        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257266015"), CONCEPTS.FloatingPointConstant$3o);
+        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257283261"), CONCEPTS.FloatingPointConstant$3o);
+        assert SNodeOperations.isInstanceOf(getNodeById("5868639094257285927"), CONCEPTS.FloatingPointFloatConstant$Qh);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257266015")), CONCEPTS.DoubleType$x0);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257283261")), CONCEPTS.DoubleType$x0);
+        assert SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(getNodeById("5868639094257285927")), CONCEPTS.FloatType$up);
+      });
     }
     public void test_ErrorMessagesCheck5868639094267614275() throws Exception {
-      SNode nodeToCheck = getRealNodeById("5868639094257179249");
-      SNode operation = getRealNodeById("5868639094267614275");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("5868639094257179249");
+        SNode operation = getRealNodeById("5868639094267614275");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

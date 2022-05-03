@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -22,8 +20,6 @@ import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 public class UnaryNumberOperationUsesVariable_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(UnaryNumberOperationUsesVariable_Test.class, "${mps_home}", "r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public UnaryNumberOperationUsesVariable_Test() {
     super(ourParamCache);
@@ -41,9 +37,12 @@ public class UnaryNumberOperationUsesVariable_Test extends BaseTransformationTes
     }
 
     public void test_ErrorMessagesCheck5706606249115952859() throws Exception {
-      SNode nodeToCheck = getRealNodeById("5706606249115952801");
-      SNode operation = getRealNodeById("5706606249115952859");
-      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("5706606249115952801");
+        SNode operation = getRealNodeById("5706606249115952859");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
     }
 
   }

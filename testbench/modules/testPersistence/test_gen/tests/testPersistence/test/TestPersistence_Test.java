@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -54,8 +52,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class TestPersistence_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TestPersistence_Test.class, "${mps_home}", "r:8ef4c1fc-fb61-4d5c-806c-7a971cfb9392(tests.testPersistence.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TestPersistence_Test() {
     super(ourParamCache);
@@ -81,62 +77,68 @@ public class TestPersistence_Test extends BaseTransformationTest {
     }
 
     public void test_testLastVersionIndexing() throws Exception {
-      TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
-      CollectCallback c = new CollectCallback();
-      byte[] serialized = PersistenceUtil.modelAsBytes(helper.getTestModel(), myProject.getComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML));
+      runWithinCommand(() -> {
+        TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
+        CollectCallback c = new CollectCallback();
+        byte[] serialized = PersistenceUtil.modelAsBytes(helper.getTestModel(), myProject.getComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML));
 
-      try {
-        ModelPersistence.index(new ByteArrayInputStream(serialized), c);
-      } catch (IOException e) {
-        Assert.fail(e.getMessage());
-      }
+        try {
+          ModelPersistence.index(new ByteArrayInputStream(serialized), c);
+        } catch (IOException e) {
+          Assert.fail(e.getMessage());
+        }
 
-      Assert.assertTrue(c.myConcepts.contains(((SConceptAdapterById) CONCEPTS.ClassConcept$bK).getId()));
-      Assert.assertTrue(c.myImports.contains(new JavaPackageNameStub("java.io").asModelReference(PersistenceFacade.getInstance().createModuleReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)"))));
-      Assert.assertTrue(c.myExtRefs.contains(new SNodeId.Foreign("~System")));
-      Assert.assertTrue(c.myLocalRefs.contains(new SNodePointer("r:b44bed60-e0f0-4d48-bb29-e0fdb2041a66(tests.testPersistence.testModel)", "3895553186365322355").getNodeId()));
-      Assert.assertTrue(c.myPropertyValues.contains("instance of ClassConcept"));
+        Assert.assertTrue(c.myConcepts.contains(((SConceptAdapterById) CONCEPTS.ClassConcept$bK).getId()));
+        Assert.assertTrue(c.myImports.contains(new JavaPackageNameStub("java.io").asModelReference(PersistenceFacade.getInstance().createModuleReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)"))));
+        Assert.assertTrue(c.myExtRefs.contains(new SNodeId.Foreign("~System")));
+        Assert.assertTrue(c.myLocalRefs.contains(new SNodePointer("r:b44bed60-e0f0-4d48-bb29-e0fdb2041a66(tests.testPersistence.testModel)", "3895553186365322355").getNodeId()));
+        Assert.assertTrue(c.myPropertyValues.contains("instance of ClassConcept"));
+      });
     }
     public void test_testPersistenceReadWrite() throws Exception {
-      // tests write and read in each supported persistence, check that model is not changed after write/read cycle
-      TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
-      for (int i = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; i <= ModelPersistence.LAST_VERSION; ++i) {
-        PersistenceUtil.InMemoryStreamDataSource dataSource = new PersistenceUtil.InMemoryStreamDataSource();
-        helper.saveTestModelInPersistence(dataSource, i);
-        byte[] content = dataSource.getContentBytes();
-        ModelLoadResult result = ModelPersistence.readModel(SModelHeader.create(i), new ByteArrayInputSource(content), ModelLoadingState.FULLY_LOADED);
+      runWithinCommand(() -> {
+        // tests write and read in each supported persistence, check that model is not changed after write/read cycle
+        TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
+        for (int i = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; i <= ModelPersistence.LAST_VERSION; ++i) {
+          PersistenceUtil.InMemoryStreamDataSource dataSource = new PersistenceUtil.InMemoryStreamDataSource();
+          helper.saveTestModelInPersistence(dataSource, i);
+          byte[] content = dataSource.getContentBytes();
+          ModelLoadResult result = ModelPersistence.readModel(SModelHeader.create(i), new ByteArrayInputSource(content), ModelLoadingState.FULLY_LOADED);
 
-        Assert.assertTrue(result.getState() == ModelLoadingState.FULLY_LOADED);
-        this.assertDeepModelEquals(helper.getTestModel().getSModel(), result.getModel());
-        result.getModel().dispose();
-      }
+          Assert.assertTrue(result.getState() == ModelLoadingState.FULLY_LOADED);
+          TestBody.this.assertDeepModelEquals(helper.getTestModel().getSModel(), result.getModel());
+          result.getModel().dispose();
+        }
+      });
     }
     public void test_testPersistenceUpgrade() throws Exception {
-      TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
+      runWithinCommand(() -> {
+        TestPersistenceHelper helper = new TestPersistenceHelper(myProject.getRepository());
 
-      final ModelFactoryService mfsvc = myProject.getComponent(ModelFactoryService.class);
-      // tests that it's possible to upgrade to the latest persistence from any supported persistence
-      for (int fromVersion = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; fromVersion < ModelPersistence.LAST_VERSION; fromVersion++) {
-        // prepare data source in requested version
-        PersistenceUtil.InMemoryStreamDataSource notUpgradedData = new PersistenceUtil.InMemoryStreamDataSource();
-        helper.saveTestModelInPersistence(notUpgradedData, fromVersion);
+        final ModelFactoryService mfsvc = myProject.getComponent(ModelFactoryService.class);
+        // tests that it's possible to upgrade to the latest persistence from any supported persistence
+        for (int fromVersion = TestPersistenceHelper.START_PERSISTENCE_TEST_VERSION; fromVersion < ModelPersistence.LAST_VERSION; fromVersion++) {
+          // prepare data source in requested version
+          PersistenceUtil.InMemoryStreamDataSource notUpgradedData = new PersistenceUtil.InMemoryStreamDataSource();
+          helper.saveTestModelInPersistence(notUpgradedData, fromVersion);
 
-        // load model from source version
-        SModelBase notUpgradedModel = ((SModelBase) PersistenceUtil.loadModel(notUpgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
+          // load model from source version
+          SModelBase notUpgradedModel = ((SModelBase) PersistenceUtil.loadModel(notUpgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
 
-        // save model in last persistence
-        PersistenceUtil.InMemoryStreamDataSource upgradedData = new PersistenceUtil.InMemoryStreamDataSource();
-        ModelPersistence.saveModel(notUpgradedModel.getSModel(), upgradedData, ModelPersistence.LAST_VERSION);
+          // save model in last persistence
+          PersistenceUtil.InMemoryStreamDataSource upgradedData = new PersistenceUtil.InMemoryStreamDataSource();
+          ModelPersistence.saveModel(notUpgradedModel.getSModel(), upgradedData, ModelPersistence.LAST_VERSION);
 
-        // load model in last persistence from saved
-        SModelBase upgradedModel = ((SModelBase) PersistenceUtil.loadModel(upgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
+          // load model in last persistence from saved
+          SModelBase upgradedModel = ((SModelBase) PersistenceUtil.loadModel(upgradedData.getContentBytes(), mfsvc.getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML)));
 
-        // do test
-        this.assertDeepModelEquals(notUpgradedModel.getSModel(), upgradedModel.getSModel());
+          // do test
+          TestBody.this.assertDeepModelEquals(notUpgradedModel.getSModel(), upgradedModel.getSModel());
 
-        notUpgradedModel.getSModel().dispose();
-        upgradedModel.getSModel().dispose();
-      }
+          notUpgradedModel.getSModel().dispose();
+          upgradedModel.getSModel().dispose();
+        }
+      });
     }
 
     public void assertDeepModelEquals(SModel expectedModel, SModel actualModel) {

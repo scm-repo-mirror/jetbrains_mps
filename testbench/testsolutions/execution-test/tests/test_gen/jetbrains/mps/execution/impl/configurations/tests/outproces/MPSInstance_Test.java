@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -24,8 +22,6 @@ import java.util.concurrent.TimeUnit;
 public class MPSInstance_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(MPSInstance_Test.class, "${mps_home}", "r:70ba7cf7-d705-4776-9784-5a0abc3ae48a(jetbrains.mps.execution.impl.configurations.tests.outproces@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public MPSInstance_Test() {
     super(ourParamCache);
@@ -43,20 +39,22 @@ public class MPSInstance_Test extends BaseTransformationTest {
     }
 
     public void test_simpleConfigurationIsRunnable() throws Exception {
-      // [NOTE] not to be run out of process from sources since
-      // classpath is not very well-built for mps command being build from testmode MPS from sources
-      // in this test we expect the run configruation MPSInstance to start
-      // as for 191 we just pass headless flag to the system, which is not tolerated by IDEA platform, so
-      // the launch of MPS Instance rc is actually all we test here (for now)
-      ProcessHandler process = new Mps_Command().setVirtualMachineParameters_String("-Djava.awt.headless=true").createProcess("./tmpsettings");
-      List<Pattern> patternsWeExpect = Collections.singletonList(Pattern.compile(".*INFO.*com.intellij.idea.Main.*IDE SHUTDOWN.*\n"));
+      runWithinCommand(() -> {
+        // [NOTE] not to be run out of process from sources since
+        // classpath is not very well-built for mps command being build from testmode MPS from sources
+        // in this test we expect the run configruation MPSInstance to start
+        // as for 191 we just pass headless flag to the system, which is not tolerated by IDEA platform, so
+        // the launch of MPS Instance rc is actually all we test here (for now)
+        ProcessHandler process = new Mps_Command().setVirtualMachineParameters_String("-Djava.awt.headless=true").createProcess("./tmpsettings");
+        List<Pattern> patternsWeExpect = Collections.singletonList(Pattern.compile(".*INFO.*com.intellij.idea.Main.*IDE SHUTDOWN.*\n"));
 
-      // fixme filter BindException (the only exception in std-err which stops us from filtering errors)
-      Pattern any = Pattern.compile(".*", Pattern.DOTALL);
-      Pattern warnings = Pattern.compile(".*WARN.*\n");
-      List<Pattern> allowedErrors = Arrays.asList(any);
-      ProcessRunnerForConfigurationTests processRunner = new ProcessRunnerForConfigurationTests.Builder(process).addAllowedErrorPaterns(allowedErrors).addExpectedPaterns(patternsWeExpect).exitCodeMustBeZero(false).setTimeOut(TimeUnit.SECONDS.toMillis(15)).build();
-      processRunner.startAndCheckProcess();
+        // fixme filter BindException (the only exception in std-err which stops us from filtering errors)
+        Pattern any = Pattern.compile(".*", Pattern.DOTALL);
+        Pattern warnings = Pattern.compile(".*WARN.*\n");
+        List<Pattern> allowedErrors = Arrays.asList(any);
+        ProcessRunnerForConfigurationTests processRunner = new ProcessRunnerForConfigurationTests.Builder(process).addAllowedErrorPaterns(allowedErrors).addExpectedPaterns(patternsWeExpect).exitCodeMustBeZero(false).setTimeOut(TimeUnit.SECONDS.toMillis(15)).build();
+        processRunner.startAndCheckProcess();
+      });
     }
 
   }

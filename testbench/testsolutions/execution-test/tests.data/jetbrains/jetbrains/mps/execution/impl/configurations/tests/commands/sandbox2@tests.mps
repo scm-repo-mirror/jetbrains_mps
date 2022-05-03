@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="2e4f876d-c394-4f48-93c5-b5f4c0ec9b51" name="testLangWithRT" version="0" />
   </languages>
@@ -107,6 +107,7 @@
   </registry>
   <node concept="1lH9Xt" id="617g7o6hhfk">
     <property role="TrG5h" value="SimpleTestCase_Test" />
+    <property role="3OwPAg" value="true" />
     <node concept="1LZb2c" id="617g7o6hiNn" role="1SL9yI">
       <property role="TrG5h" value="test1" />
       <node concept="3cqZAl" id="617g7o6hiNo" role="3clF45" />
@@ -119,6 +120,7 @@
   </node>
   <node concept="1lH9Xt" id="5vTxdEzy3vs">
     <property role="TrG5h" value="FailedTestCase_Test" />
+    <property role="3OwPAg" value="true" />
     <node concept="1LZb2c" id="5vTxdEzy8JZ" role="1SL9yI">
       <property role="TrG5h" value="test1" />
       <node concept="3cqZAl" id="5vTxdEzy8K0" role="3clF45" />
@@ -176,6 +178,7 @@
   </node>
   <node concept="1lH9Xt" id="4rbJdZOxa1h">
     <property role="TrG5h" value="PropertyIsAvailaibleInMPSTestCase" />
+    <property role="3OwPAg" value="true" />
     <node concept="1LZb2c" id="4rbJdZOxa1i" role="1SL9yI">
       <property role="TrG5h" value="test1" />
       <node concept="3cqZAl" id="4rbJdZOxa1j" role="3clF45" />
@@ -197,6 +200,7 @@
   </node>
   <node concept="1lH9Xt" id="3P4ieJEE8Pu">
     <property role="TrG5h" value="ReadingPropertyTestCase_Test" />
+    <property role="3OwPAg" value="true" />
     <node concept="1LZb2c" id="3P4ieJEE8Pv" role="1SL9yI">
       <property role="TrG5h" value="test1" />
       <node concept="3cqZAl" id="3P4ieJEE8Pw" role="3clF45" />
@@ -225,6 +229,7 @@
   </node>
   <node concept="1lH9Xt" id="3nltER8R_$p">
     <property role="TrG5h" value="UsingLangTestCase" />
+    <property role="3OwPAg" value="true" />
     <node concept="1LZb2c" id="3nltER8R__a" role="1SL9yI">
       <property role="TrG5h" value="asdf" />
       <node concept="3cqZAl" id="3nltER8R__b" role="3clF45" />

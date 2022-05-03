@@ -7,7 +7,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="2" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
     <use id="ed6d7656-532c-4bc2-81d1-af945aeb8280" name="jetbrains.mps.baseLanguage.blTypes" version="0" />
@@ -38,6 +38,7 @@
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1216993439383" name="methods" index="1qtyYc" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
@@ -425,6 +426,7 @@
   </node>
   <node concept="1lH9Xt" id="6eup$H2Z1gM">
     <property role="TrG5h" value="ClosureLiteraltargetIface" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="6eup$H2Z7lN" role="1qtyYc">
       <property role="TrG5h" value="getContext" />
       <node concept="1iwH7U" id="6eup$H2Z7lR" role="3clF45" />
@@ -787,6 +789,7 @@
   </node>
   <node concept="1lH9Xt" id="5xREo5PH8yl">
     <property role="TrG5h" value="ClosureLiteraltargetFunType" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="5xREo5PH8ym" role="1qtyYc">
       <property role="TrG5h" value="getContext" />
       <node concept="1iwH7U" id="5xREo5PH8yn" role="3clF45" />
@@ -1082,6 +1085,7 @@
   </node>
   <node concept="1lH9Xt" id="6kENuFGSCUR">
     <property role="TrG5h" value="Generics" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="6kENuFGSDne" role="1SKRRt">
       <node concept="312cEu" id="6kENuFGSDng" role="1qenE9">
         <property role="2bfB8j" value="true" />

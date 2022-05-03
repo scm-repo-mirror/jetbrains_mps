@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -34,8 +32,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(NodeOperationsApplicableFlags_Test.class, "${mps_home}", "r:3deabf90-227b-4dd7-a1b3-e4735e4a0270(jetbrains.mps.lang.smodel.test)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public NodeOperationsApplicableFlags_Test() {
     super(ourParamCache);
@@ -57,33 +53,37 @@ public class NodeOperationsApplicableFlags_Test extends BaseTransformationTest {
     }
 
     public void test_testApplicableSetsDoNotIntersect() throws Exception {
-      addNodeById("6410670351275222996");
-      List<SConcept> allConcepts = Sequence.fromIterable(this.getAllNodeOperations()).select(new ISelector<SAbstractConcept, SConcept>() {
-        public SConcept select(SAbstractConcept it) {
-          return SNodeOperations.castConcept(it, CONCEPTS.SNodeOperation$pA);
+      runWithinCommand(() -> addNodeById("6410670351275222996"));
+      runWithinCommand(() -> {
+        List<SConcept> allConcepts = Sequence.fromIterable(TestBody.this.getAllNodeOperations()).select(new ISelector<SAbstractConcept, SConcept>() {
+          public SConcept select(SAbstractConcept it) {
+            return SNodeOperations.castConcept(it, CONCEPTS.SNodeOperation$pA);
+          }
+        }).toListSequence();
+        for (SConcept c : ListSequence.fromList(allConcepts)) {
+          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.SNodeOperation$pA)) {
+            continue;
+          }
+          boolean toProperty = (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843")) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "4241665505353447573")) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1084199179703"));
+          boolean toModel = (boolean) SNodeOperation__BehaviorDescriptor.applicableToModel_id1653mnvAf1y.invoke(SNodeOperations.asSConcept(c));
+          boolean toLinkList = (boolean) SNodeOperation__BehaviorDescriptor.applicableToLinkList_id1653mnvAgwe.invoke(SNodeOperations.asSConcept(c));
+          boolean toSingleLink = (boolean) SNodeOperation__BehaviorDescriptor.applicableToLink_id1653mnvAgvK.invoke(SNodeOperations.asSConcept(c));
+          boolean toConceptOrNode = (boolean) SNodeOperation__BehaviorDescriptor.applicableToSConcept_id7E3Sw0HhwkZ.invoke(SNodeOperations.asSConcept(c)) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToNode_id1653mnvAgrs.invoke(SNodeOperations.asSConcept(c));
+          Assert.assertTrue(c.getQualifiedName(), TestBody.this.countFlags(ListSequence.fromListAndArray(new ArrayList<Boolean>(), toProperty, toModel, toSingleLink, toLinkList, toConceptOrNode)) == 1);
+          Assert.assertTrue(c.getQualifiedName(), SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.AsSConcept$qr) || SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.Node_ConceptMethodCall$mz) || TestBody.this.countFlags(ListSequence.fromListAndArray(new ArrayList<Boolean>(), (boolean) SNodeOperation__BehaviorDescriptor.applicableToSConcept_id7E3Sw0HhwkZ.invoke(SNodeOperations.asSConcept(c)), (boolean) SNodeOperation__BehaviorDescriptor.applicableToNode_id1653mnvAgrs.invoke(SNodeOperations.asSConcept(c)))) <= 1);
         }
-      }).toListSequence();
-      for (SConcept c : ListSequence.fromList(allConcepts)) {
-        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.SNodeOperation$pA)) {
-          continue;
-        }
-        boolean toProperty = (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843")) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "4241665505353447573")) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(c), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)", "1084199179703"));
-        boolean toModel = (boolean) SNodeOperation__BehaviorDescriptor.applicableToModel_id1653mnvAf1y.invoke(SNodeOperations.asSConcept(c));
-        boolean toLinkList = (boolean) SNodeOperation__BehaviorDescriptor.applicableToLinkList_id1653mnvAgwe.invoke(SNodeOperations.asSConcept(c));
-        boolean toSingleLink = (boolean) SNodeOperation__BehaviorDescriptor.applicableToLink_id1653mnvAgvK.invoke(SNodeOperations.asSConcept(c));
-        boolean toConceptOrNode = (boolean) SNodeOperation__BehaviorDescriptor.applicableToSConcept_id7E3Sw0HhwkZ.invoke(SNodeOperations.asSConcept(c)) || (boolean) SNodeOperation__BehaviorDescriptor.applicableToNode_id1653mnvAgrs.invoke(SNodeOperations.asSConcept(c));
-        Assert.assertTrue(c.getQualifiedName(), this.countFlags(ListSequence.fromListAndArray(new ArrayList<Boolean>(), toProperty, toModel, toSingleLink, toLinkList, toConceptOrNode)) == 1);
-        Assert.assertTrue(c.getQualifiedName(), SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.AsSConcept$qr) || SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.Node_ConceptMethodCall$mz) || this.countFlags(ListSequence.fromListAndArray(new ArrayList<Boolean>(), (boolean) SNodeOperation__BehaviorDescriptor.applicableToSConcept_id7E3Sw0HhwkZ.invoke(SNodeOperations.asSConcept(c)), (boolean) SNodeOperation__BehaviorDescriptor.applicableToNode_id1653mnvAgrs.invoke(SNodeOperations.asSConcept(c)))) <= 1);
-      }
+      });
     }
     public void test_allConceptsAreIncludedInTest() throws Exception {
-      addNodeById("6410670351275222996");
-      Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository()).getAllLanguages());
-      Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel")));
-      Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor")));
-      Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, "jetbrains.mps.lang.typesystem")));
-      Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, "jetbrains.mps.lang.actions")));
-      Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x69b8a9939b874d96L, 0xbf0c3559f4bb0c63L, "jetbrains.mps.lang.slanguage")));
+      runWithinCommand(() -> addNodeById("6410670351275222996"));
+      runWithinCommand(() -> {
+        Set<SLanguage> allLanguages = SetSequence.fromSetWithValues(new HashSet<SLanguage>(), LanguageRegistry.getInstance(SNodeOperations.getModel(getNodeById("6410670351275225853")).getRepository()).getAllLanguages());
+        Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel")));
+        Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, "jetbrains.mps.lang.editor")));
+        Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, "jetbrains.mps.lang.typesystem")));
+        Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, "jetbrains.mps.lang.actions")));
+        Assert.assertTrue(SetSequence.fromSet(allLanguages).contains(MetaAdapterFactory.getLanguage(0x69b8a9939b874d96L, 0xbf0c3559f4bb0c63L, "jetbrains.mps.lang.slanguage")));
+      });
     }
 
     public Iterable<SAbstractConcept> getAllNodeOperations() {

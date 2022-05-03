@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 public class TestDepViewer_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(TestDepViewer_Test.class, "${mps_home}", "r:819dd2c2-a64b-45e6-ae94-42a9c653de39(tests.testDepViewer.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public TestDepViewer_Test() {
     super(ourParamCache);
@@ -58,46 +54,56 @@ public class TestDepViewer_Test extends BaseTransformationTest {
     }
 
     public void test_testPrecondition() throws Exception {
-      SModel testModel1 = this.model1();
-      SModel testModel2 = this.model2();
-      Assert.assertNotNull(testModel1);
-      Assert.assertNotNull(testModel2);
+      runWithinCommand(() -> {
+        SModel testModel1 = TestBody.this.model1();
+        SModel testModel2 = TestBody.this.model2();
+        Assert.assertNotNull(testModel1);
+        Assert.assertNotNull(testModel2);
+      });
     }
     public void test_testModel1DependsOnSomething() throws Exception {
-      DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
-      testScope.add(this.model1());
+      runWithinCommand(() -> {
+        DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
+        testScope.add(TestBody.this.model1());
 
-      ReferencesFinder finder = new ReferencesFinder(testScope);
-      SearchResults targetSearchResults = finder.findRefsFromScopeToOuter(testScope, null, new EmptyProgressMonitor());
-      Assert.assertFalse(targetSearchResults.getSearchResults2().isEmpty());
+        ReferencesFinder finder = new ReferencesFinder(testScope);
+        SearchResults targetSearchResults = finder.findRefsFromScopeToOuter(testScope, null, new EmptyProgressMonitor());
+        Assert.assertFalse(targetSearchResults.getSearchResults2().isEmpty());
+      });
     }
     public void test_testModel3DoesntDependOnAnything() throws Exception {
-      DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
-      testScope.add(this.model3());
+      runWithinCommand(() -> {
+        DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
+        testScope.add(TestBody.this.model3());
 
-      ReferencesFinder finder = new ReferencesFinder(testScope);
-      SearchResults targetSearchResults = finder.findRefsFromScopeToOuter(testScope, null, new EmptyProgressMonitor());
-      Assert.assertTrue(targetSearchResults.getSearchResults2().isEmpty());
+        ReferencesFinder finder = new ReferencesFinder(testScope);
+        SearchResults targetSearchResults = finder.findRefsFromScopeToOuter(testScope, null, new EmptyProgressMonitor());
+        Assert.assertTrue(targetSearchResults.getSearchResults2().isEmpty());
+      });
     }
     public void test_testModel1DependsOnModel2() throws Exception {
-      DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
-      testScope.add(this.model1());
-      DependencyViewerScope targetScope = new DependencyViewerScope(myProject.getRepository());
-      targetScope.add(this.model2());
+      runWithinCommand(() -> {
+        DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
+        testScope.add(TestBody.this.model1());
+        DependencyViewerScope targetScope = new DependencyViewerScope(myProject.getRepository());
+        targetScope.add(TestBody.this.model2());
 
-      ReferencesFinder finder = new ReferencesFinder(testScope);
-      SearchResults refSearchResults = finder.getRefsBetweenScopes(testScope, targetScope, new EmptyProgressMonitor());
-      Assert.assertFalse(refSearchResults.getSearchResults2().isEmpty());
+        ReferencesFinder finder = new ReferencesFinder(testScope);
+        SearchResults refSearchResults = finder.getRefsBetweenScopes(testScope, targetScope, new EmptyProgressMonitor());
+        Assert.assertFalse(refSearchResults.getSearchResults2().isEmpty());
+      });
     }
     public void test_testModel1DoesntDependOnModel3() throws Exception {
-      DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
-      testScope.add(this.model1());
-      DependencyViewerScope targetScope = new DependencyViewerScope(myProject.getRepository());
-      targetScope.add(this.model3());
+      runWithinCommand(() -> {
+        DependencyViewerScope testScope = new DependencyViewerScope(myProject.getRepository());
+        testScope.add(TestBody.this.model1());
+        DependencyViewerScope targetScope = new DependencyViewerScope(myProject.getRepository());
+        targetScope.add(TestBody.this.model3());
 
-      ReferencesFinder finder = new ReferencesFinder(testScope);
-      SearchResults refSearchResults = finder.getRefsBetweenScopes(testScope, targetScope, new EmptyProgressMonitor());
-      Assert.assertTrue(refSearchResults.getSearchResults2().isEmpty());
+        ReferencesFinder finder = new ReferencesFinder(testScope);
+        SearchResults refSearchResults = finder.getRefsBetweenScopes(testScope, targetScope, new EmptyProgressMonitor());
+        Assert.assertTrue(refSearchResults.getSearchResults2().isEmpty());
+      });
     }
 
     public SModel model1() {

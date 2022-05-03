@@ -2835,7 +2835,7 @@
       <node concept="3clFbS" id="3ufQioQQtnO" role="3clF47">
         <node concept="3clFbF" id="g9$9d2BuAC" role="3cqZAp">
           <node concept="1rXfSq" id="g9$9d2BuAA" role="3clFbG">
-            <ref role="37wK5l" node="g9$9d2AipS" resolve="finalizeSciptSettings" />
+            <ref role="37wK5l" node="g9$9d2AipS" resolve="finalizeScriptSettings" />
             <node concept="37vLTw" id="g9$9d2BCBJ" role="37wK5m">
               <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
             </node>
@@ -11905,7 +11905,7 @@
         </node>
         <node concept="3clFbF" id="1nTn8MoVXC8" role="3cqZAp">
           <node concept="3nyPlj" id="1nTn8MoVXC7" role="3clFbG">
-            <ref role="37wK5l" node="g9$9d2AipS" resolve="finalizeSciptSettings" />
+            <ref role="37wK5l" node="g9$9d2AipS" resolve="finalizeScriptSettings" />
             <node concept="37vLTw" id="1nTn8MoVXC6" role="37wK5m">
               <ref role="3cqZAo" node="1nTn8MoVXBQ" resolve="whatToDo" />
             </node>
@@ -12037,7 +12037,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="1nTn8MoVXC5" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="1nTn8MoWHki" role="jymVt" />
@@ -12122,7 +12122,7 @@
         </node>
       </node>
       <node concept="2AHcQZ" id="1nTn8MoWHvQ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" />
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
   </node>

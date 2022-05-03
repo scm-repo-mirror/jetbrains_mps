@@ -1269,7 +1269,7 @@
                   <ref role="3cqZAo" to="bd8o:~PathManager.PROPERTY_PATHS_SELECTOR" resolve="PROPERTY_PATHS_SELECTOR" />
                 </node>
                 <node concept="37vLTw" id="1HNHfSAxN5g" role="37wK5m">
-                  <ref role="3cqZAo" node="1HNHfSAxN5a" resolve="string" />
+                  <ref role="3cqZAo" node="1HNHfSAxN5a" resolve="val" />
                 </node>
               </node>
             </node>

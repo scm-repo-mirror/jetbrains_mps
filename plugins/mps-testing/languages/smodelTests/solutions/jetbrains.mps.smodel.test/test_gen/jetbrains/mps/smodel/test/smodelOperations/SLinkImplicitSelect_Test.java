@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -26,8 +24,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class SLinkImplicitSelect_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(SLinkImplicitSelect_Test.class, "${mps_home}", "r:3526f944-06ad-48b3-a2a1-fffa752849ed(jetbrains.mps.smodel.test.smodelOperations@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public SLinkImplicitSelect_Test() {
     super(ourParamCache);
@@ -65,49 +61,69 @@ public class SLinkImplicitSelect_Test extends BaseTransformationTest {
     }
 
     public void test_empty() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_1$IWEt)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_n$IX8v)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_1$IWTu)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_1_n$IXnw)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_1$IWEt)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_n$IX8v)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_1$IWTu)).isEmpty());
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_1_n$IXnw)).isEmpty());
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> {
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_1$IWEt)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_n$IX8v)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_1$IWTu)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_0_n$IY7t), LINKS.grandChild_1_n$IXnw)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_1$IWEt)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_n$IX8v)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_1$IWTu)).isEmpty());
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("278471160714368808"), LINKS.child_1_n$IYmu), LINKS.grandChild_1_n$IXnw)).isEmpty());
+      });
     }
     public void test_singleChild() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_1$IWEt)).isEmpty());
-      this.assertEquals(Sequence.<SNode>singleton(getNodeById("7551657168186489235")), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_1$IWTu));
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_n$IX8v)).isEmpty());
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489236"), getNodeById("7551657168186489238")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_1_n$IXnw));
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> {
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_1$IWEt)).isEmpty());
+        TestBody.this.assertEquals(Sequence.<SNode>singleton(getNodeById("7551657168186489235")), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_1$IWTu));
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_0_n$IX8v)).isEmpty());
+        TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489236"), getNodeById("7551657168186489238")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_0_n$IY7t), LINKS.grandChild_1_n$IXnw));
+      });
     }
     public void test_multipleChildren() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_1$IWEt)).isEmpty());
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489231"), getNodeById("7551657168186611648")}), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_1$IWTu));
-      this.assertEquals(Sequence.<SNode>singleton(getNodeById("7551657168186611659")), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_n$IX8v));
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489232"), getNodeById("7551657168186611655"), getNodeById("7551657168186611649"), getNodeById("7551657168186611661")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_1_n$IXnw));
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> {
+        Assert.assertTrue(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_1$IWEt)).isEmpty());
+        TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489231"), getNodeById("7551657168186611648")}), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_1$IWTu));
+        TestBody.this.assertEquals(Sequence.<SNode>singleton(getNodeById("7551657168186611659")), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_0_n$IX8v));
+        TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489232"), getNodeById("7551657168186611655"), getNodeById("7551657168186611649"), getNodeById("7551657168186611661")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu), LINKS.grandChild_1_n$IXnw));
+      });
     }
     public void test_operationsOnList() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      List<SNode> list = ListSequence.fromList(new ArrayList<SNode>());
-      ListSequence.fromList(list).addSequence(ListSequence.fromList(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu)));
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489231"), getNodeById("7551657168186611648")}), SLinkOperations.collect(list, LINKS.grandChild_1$IWTu));
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> {
+        List<SNode> list = ListSequence.fromList(new ArrayList<SNode>());
+        ListSequence.fromList(list).addSequence(ListSequence.fromList(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.child_1_n$IYmu)));
+        TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("7551657168186489231"), getNodeById("7551657168186611648")}), SLinkOperations.collect(list, LINKS.grandChild_1$IWTu));
+      });
     }
     public void test_specializedLinks() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("34342663958911397"), getNodeById("34342663958911401")}), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.childSubConcept_0_n$apX), LINKS.grandChild_0_1$IWEt));
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("34342663958911397"), getNodeById("34342663958911401")}), SLinkOperations.collect(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.childSubConcept_0_n$apX), LINKS.grandChild_0_1$IWEt)));
     }
     public void test_inheritedLinks() throws Exception {
-      addNodeById("278471160714368807");
-      addNodeById("7551657168186489228");
-      this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("34342663959152983"), getNodeById("34342663959152984"), getNodeById("34342663959152985")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.childSubConcept_0_n$apX), LINKS.grandChild_0_n$IX8v));
+      runWithinCommand(() -> {
+        addNodeById("278471160714368807");
+        addNodeById("7551657168186489228");
+      });
+      runWithinCommand(() -> TestBody.this.assertEquals(Sequence.fromArray(new SNode[]{getNodeById("34342663959152983"), getNodeById("34342663959152984"), getNodeById("34342663959152985")}), SLinkOperations.collectMany(SLinkOperations.getChildren(getNodeById("7551657168186489229"), LINKS.childSubConcept_0_n$apX), LINKS.grandChild_0_n$IX8v)));
     }
 
     public void assertEquals(Iterable<SNode> expected, final Iterable<SNode> actual) {

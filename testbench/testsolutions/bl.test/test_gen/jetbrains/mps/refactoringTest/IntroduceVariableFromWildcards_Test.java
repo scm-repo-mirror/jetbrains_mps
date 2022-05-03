@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -23,8 +21,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class IntroduceVariableFromWildcards_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(IntroduceVariableFromWildcards_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public IntroduceVariableFromWildcards_Test() {
     super(ourParamCache);
@@ -42,26 +38,30 @@ public class IntroduceVariableFromWildcards_Test extends BaseTransformationTest 
     }
 
     public void test_IntroduceVariableFromWildcardsTest() throws Exception {
-      addNodeById("6974242407276767366");
-      addNodeById("6974242407276777253");
-      IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
-      refactoring.init(getNodeById("6974242407276767373"), null);
-      refactoring.setName("b");
-      refactoring.setReplacingAll(true);
-      refactoring.doRefactoring();
-      refactoring.init(getNodeById("6974242407276767385"), null);
-      refactoring.setName("b");
-      refactoring.setReplacingAll(true);
-      refactoring.doRefactoring();
-      refactoring.init(getNodeById("6974242407276767398"), null);
-      refactoring.setName("b");
-      refactoring.setReplacingAll(true);
-      refactoring.doRefactoring();
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276767367"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276777254"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("6974242407276767366");
+        addNodeById("6974242407276777253");
+      });
+      runWithinCommand(() -> {
+        IntroduceLocalVariableRefactoring refactoring = new IntroduceLocalVariableRefactoring();
+        refactoring.init(getNodeById("6974242407276767373"), null);
+        refactoring.setName("b");
+        refactoring.setReplacingAll(true);
+        refactoring.doRefactoring();
+        refactoring.init(getNodeById("6974242407276767385"), null);
+        refactoring.setName("b");
+        refactoring.setReplacingAll(true);
+        refactoring.doRefactoring();
+        refactoring.init(getNodeById("6974242407276767398"), null);
+        refactoring.setName("b");
+        refactoring.setReplacingAll(true);
+        refactoring.doRefactoring();
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276767367"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("6974242407276777254"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }

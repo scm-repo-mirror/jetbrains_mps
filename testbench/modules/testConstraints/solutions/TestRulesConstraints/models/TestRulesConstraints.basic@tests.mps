@@ -2,7 +2,7 @@
 <model ref="r:aca600c4-c2ff-4395-8294-417b84791061(TestRulesConstraints.basic@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="fc39d726-4089-464a-8fc1-5f71edfdf03b" name="constraints.rules.test" version="0" />
   </languages>
@@ -31,6 +31,7 @@
         <child id="8333855927548182241" name="errorRef" index="39rjcI" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -58,6 +59,7 @@
   </registry>
   <node concept="1lH9Xt" id="4lxcYU10ibU">
     <property role="TrG5h" value="CanBeChildParentWorksInRules" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="4lxcYU10ibW" role="1SKRRt">
       <node concept="2ouw3J" id="4lxcYU10ibV" role="1qenE9">
         <property role="TrG5h" value="P1" />

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -21,8 +19,6 @@ import jetbrains.mps.project.ProjectBase;
 public class DiamondOperator_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(DiamondOperator_Test.class, "${mps_home}", "r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public DiamondOperator_Test() {
     super(ourParamCache);
@@ -44,15 +40,21 @@ public class DiamondOperator_Test extends BaseTransformationTest {
     }
 
     public void test_NodeTypeCheck2668602783496187514() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2668602783496031829");
-      SNode operation = getRealNodeById("2668602783496187514");
-      addNodeById("2668602783496188412");
-      new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2668602783496188412"));
+      runWithinCommand(() -> addNodeById("2668602783496188412"));
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2668602783496031829");
+        SNode operation = getRealNodeById("2668602783496187514");
+        new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2668602783496188412"));
+      });
     }
     public void test_NodeTypeSystemCheck2668602783496250965() throws Exception {
-      SNode nodeToCheck = getRealNodeById("2668602783496238456");
-      SNode operation = getRealNodeById("2668602783496250965");
-      new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("2668602783496238456");
+        SNode operation = getRealNodeById("2668602783496250965");
+        new CheckExpectedMessageRunnable.CheckExpectedTypesystemMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
     }
 
   }

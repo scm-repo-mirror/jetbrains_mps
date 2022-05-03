@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="81f0abb8-d71e-4d13-a0c1-d2291fbb28b7" name="jetbrains.mps.lang.editor.editorTest" version="0" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="e7808658-592b-442e-9770-511bd6bd751d" name="jetbrains.mps.lang.editor.editorTest.extension" version="0" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -77,6 +77,7 @@
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
       </concept>
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
@@ -9779,6 +9780,7 @@
   <node concept="1lH9Xt" id="3Ds1Q8AohV8">
     <property role="3GE5qa" value="actionMapImports" />
     <property role="TrG5h" value="ActionMapImportCycleDetection" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="3Ds1Q8AouUN" role="1SKRRt">
       <node concept="1h_SRR" id="3Ds1Q8Aox39" role="1qenE9">
         <property role="TrG5h" value="First" />
@@ -9930,6 +9932,7 @@
   <node concept="1lH9Xt" id="2lc36UC2R2v">
     <property role="3GE5qa" value="actionMapImports" />
     <property role="TrG5h" value="ActionMapImportConceptCompatibility" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="2lc36UC2R2w" role="1SKRRt">
       <node concept="1h_SRR" id="2lc36UC2R2y" role="1qenE9">
         <property role="TrG5h" value="MapForBar" />
@@ -10062,6 +10065,7 @@
   <node concept="1lH9Xt" id="1hkJY7hbV_P">
     <property role="3GE5qa" value="actionMapImports" />
     <property role="TrG5h" value="ActionMapImportNullConceptCompatibility" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1hkJY7hbV_Q" role="1SKRRt">
       <node concept="1h_SRR" id="1hkJY7hbV_S" role="1qenE9">
         <property role="TrG5h" value="BaseMap" />
@@ -10129,6 +10133,7 @@
   <node concept="1lH9Xt" id="1hkJY7gS2mE">
     <property role="3GE5qa" value="actionMapImports.individual" />
     <property role="TrG5h" value="WarnOnImportingAbsentAction" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1hkJY7gS2mF" role="1SKRRt">
       <node concept="1h_SRR" id="1hkJY7gS2mH" role="1qenE9">
         <property role="TrG5h" value="AM1" />

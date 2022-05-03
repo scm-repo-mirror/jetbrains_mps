@@ -7,7 +7,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="b02ae39f-4c16-4545-8dfa-88df16804e7e" name="jetbrains.mps.lang.smodelTests" version="0" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="6" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
@@ -58,6 +58,7 @@
       </concept>
       <concept id="1225467090849" name="jetbrains.mps.lang.test.structure.ProjectExpression" flags="nn" index="1jxXqW" />
       <concept id="1216913645126" name="jetbrains.mps.lang.test.structure.NodesTestCase" flags="lg" index="1lH9Xt">
+        <property id="2616911529524314943" name="accessMode" index="3DII0k" />
         <child id="1216993439383" name="methods" index="1qtyYc" />
         <child id="1217501822150" name="nodesToCheck" index="1SKRRt" />
         <child id="1217501895093" name="testMethods" index="1SL9yI" />
@@ -476,6 +477,7 @@
   </registry>
   <node concept="1lH9Xt" id="ftl0ImzNmd">
     <property role="TrG5h" value="SLinkImplicitSelect" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="n87RU9rDZI" role="1SL9yI">
       <property role="TrG5h" value="empty" />
       <node concept="3cqZAl" id="n87RU9rDZJ" role="3clF45" />
@@ -1200,6 +1202,7 @@
   </node>
   <node concept="1lH9Xt" id="1YIxz0TA89S">
     <property role="TrG5h" value="SLinkListAccess_ListModifyingOperaions" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="1YIxz0TA89Z" role="1SKRRt">
       <node concept="2lkWJe" id="1YIxz0TA8a0" role="1qenE9">
         <property role="TrG5h" value="root" />
@@ -3236,6 +3239,7 @@
   </node>
   <node concept="1lH9Xt" id="5z_317UWhJq">
     <property role="TrG5h" value="Collections" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1qefOq" id="5z_317UWhZ4" role="1SKRRt">
       <node concept="312cEu" id="5z_317UWhZ6" role="1qenE9">
         <property role="2bfB8j" value="true" />
@@ -3346,6 +3350,7 @@
   </node>
   <node concept="1lH9Xt" id="19rKoRTOZOB">
     <property role="TrG5h" value="EnumerationDatatypes" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="1LZb2c" id="19rKoRTPgKd" role="1SL9yI">
       <property role="TrG5h" value="enumMemberPresentation" />
       <node concept="3cqZAl" id="19rKoRTPgKe" role="3clF45" />
@@ -4361,6 +4366,7 @@
   </node>
   <node concept="1lH9Xt" id="tJEuhpR5Iw">
     <property role="TrG5h" value="NodePointers" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="tJEuhq0$$L" role="1qtyYc">
       <property role="TrG5h" value="resolveData" />
       <node concept="3Tqbb2" id="tJEuhq0$EM" role="3clF45">
@@ -5572,6 +5578,7 @@
   </node>
   <node concept="1lH9Xt" id="6US8h4VEwxm">
     <property role="TrG5h" value="EnumerationSwitch" />
+    <property role="3DII0k" value="2hh8MJdVwqX/command" />
     <node concept="2XrIbr" id="6d1XgPygKy3" role="1qtyYc">
       <property role="TrG5h" value="testSwitchInStatement" />
       <node concept="10Oyi0" id="6d1XgPygKy4" role="3clF45" />

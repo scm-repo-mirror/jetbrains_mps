@@ -490,7 +490,7 @@
             </node>
             <node concept="2ShNRf" id="29N7xYwTFNr" role="33vP2m">
               <node concept="1pGfFk" id="29N7xYwTFNs" role="2ShVmc">
-                <ref role="37wK5l" node="29N7xYwTFLZ" resolve="MyRefactoringViewItem" />
+                <ref role="37wK5l" node="29N7xYwTFLZ" resolve="RefactoringView.MyRefactoringViewItem" />
                 <node concept="37vLTw" id="2BHiRxgmub3" role="37wK5m">
                   <ref role="3cqZAo" node="29N7xYwTFNe" resolve="refactoringContext" />
                 </node>
@@ -686,7 +686,7 @@
             <ref role="37wK5l" to="71xd:~BaseTabbedProjectTool.addTab(javax.swing.JComponent,java.lang.String,javax.swing.Icon,jetbrains.mps.plugins.tool.IComponentDisposer,boolean)" resolve="addTab" />
             <node concept="2OqwBi" id="29N7xYwTFOm" role="37wK5m">
               <node concept="37vLTw" id="3GM_nagTwMd" role="2Oq$k0">
-                <ref role="3cqZAo" node="29N7xYwTFO7" resolve="refactoringViewItem" />
+                <ref role="3cqZAo" node="29N7xYwTFO7" resolve="item" />
               </node>
               <node concept="liA8E" id="29N7xYwTFOo" role="2OqNvi">
                 <ref role="37wK5l" node="29N7xYwTG1g" resolve="getComponent" />
@@ -702,7 +702,7 @@
                   <property role="2bfB8j" value="true" />
                   <property role="373rjd" value="true" />
                   <ref role="1Y3XeK" to="eqyk:~IComponentDisposer" resolve="IComponentDisposer" />
-                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+                  <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
                   <node concept="3Tm1VV" id="3kgyr$qD3eB" role="1B3o_S" />
                   <node concept="3clFb_" id="3kgyr$qD3eP" role="jymVt">
                     <property role="TrG5h" value="disposeComponent" />
@@ -747,7 +747,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="3kgyr$qD3eX" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3uibUv" id="3kgyr$qD4kX" role="2Ghqu4">

@@ -6,8 +6,6 @@ import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
-import org.junit.Rule;
-import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
@@ -26,8 +24,6 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 public class SimpleFindForExtractWithReturn_Test extends BaseTransformationTest {
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(SimpleFindForExtractWithReturn_Test.class, "${mps_home}", "r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)", false);
-  @Rule
-  public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
   public SimpleFindForExtractWithReturn_Test() {
     super(ourParamCache);
@@ -45,21 +41,25 @@ public class SimpleFindForExtractWithReturn_Test extends BaseTransformationTest 
     }
 
     public void test_SimpleFindForExtractWithReturnTest() throws Exception {
-      addNodeById("1998477585418805538");
-      addNodeById("1998477585418805601");
-      ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805553")));
-      params.setName("ret");
-      ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
-      SNode res = ref.doRefactor();
-      for (MethodMatch match : ListSequence.fromList(ref.getMatches())) {
-        ExtractMethodRefactoring matchRef = ExtractMethodFactory.createRefactoring(ExtractMethodFactory.createParameters(match.getNodes()));
-        matchRef.replaceMatch(match, res);
-      }
-      {
-        List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805539"));
-        List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805637"));
-        Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
-      }
+      runWithinCommand(() -> {
+        addNodeById("1998477585418805538");
+        addNodeById("1998477585418805601");
+      });
+      runWithinCommand(() -> {
+        ExtractMethodRefactoringParameters params = ExtractMethodFactory.createParameters(ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805553")));
+        params.setName("ret");
+        ExtractMethodRefactoring ref = ExtractMethodFactory.createRefactoring(params);
+        SNode res = ref.doRefactor();
+        for (MethodMatch match : ListSequence.fromList(ref.getMatches())) {
+          ExtractMethodRefactoring matchRef = ExtractMethodFactory.createRefactoring(ExtractMethodFactory.createParameters(match.getNodes()));
+          matchRef.replaceMatch(match, res);
+        }
+        {
+          List<SNode> nodesBefore = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805539"));
+          List<SNode> nodesAfter = ListSequence.fromListAndArray(new ArrayList<SNode>(), getNodeById("1998477585418805637"));
+          Assert.assertTrue("The nodes '" + nodesBefore + "' and '" + nodesAfter + "' do not match!", new NodesMatcher(nodesBefore, nodesAfter).diff().isEmpty());
+        }
+      });
     }
 
   }
