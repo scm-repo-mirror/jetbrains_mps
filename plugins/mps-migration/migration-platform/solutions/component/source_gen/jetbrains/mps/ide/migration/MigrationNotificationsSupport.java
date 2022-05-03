@@ -14,7 +14,6 @@ import com.intellij.notification.NotificationType;
 import com.intellij.notification.NotificationListener;
 import org.jetbrains.annotations.NotNull;
 import javax.swing.event.HyperlinkEvent;
-import com.intellij.notification.Notifications;
 import com.intellij.notification.NotificationGroup;
 import com.intellij.notification.NotificationGroupManager;
 import java.util.Set;
@@ -32,6 +31,11 @@ import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import com.intellij.openapi.ui.popup.Balloon;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.util.IStatus;
+import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/2632090902167058889", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
 /*package*/ abstract class MigrationNotificationsSupport {
@@ -58,7 +62,12 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
   }
 
   public void showNotRequired() {
-    Messages.showMessageDialog(myIdeaProject, "Project doesn't need to be migrated.\n" + "Migration assistant will not be started.", "Migration Not Required", null);
+    if (myLastNotification != null) {
+      myLastNotification.expire();
+    }
+    myLastNotification = getNofifyGroup().createNotification("No migration required", "<p>This project doesn't need migration." + "<p>Migration Assistant will not start.", NotificationType.INFORMATION);
+    myLastNotification.addAction(new ShowProjectDetails());
+    myLastNotification.notify(myIdeaProject);
   }
 
   public void showPreUpdateCheckOk() {
@@ -66,10 +75,18 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
   }
 
   public boolean showRequired() {
-    if (myLastNotification != null && !(myLastNotification.isExpired())) {
-      return false;
+    if (myLastNotification != null) {
+      if (myLastNotification.getType() == NotificationType.INFORMATION) {
+        myLastNotification.expire();
+        // fall-through
+      } else {
+        // FIXME there's single use of return value; I'd prefer just to expire() any notification and show the new one
+        // but perhaps there's a reason for this false?
+        return false;
+      }
     }
-    myLastNotification = getNofifyGroup().createNotification("Migration required", "<p>This project requires migration.</p><p><a href=\"" + REF_RUN_MIGRATION + "\">Migrate</a></p>", NotificationType.INFORMATION, new NotificationListener() {
+    myLastNotification = getNofifyGroup().createNotification("Migration required", "<p>This project requires migration.</p><p><a href=\"" + REF_RUN_MIGRATION + "\">Migrate</a></p>", NotificationType.INFORMATION);
+    myLastNotification.setListener(new NotificationListener() {
       @Override
       public void hyperlinkUpdate(@NotNull Notification notification, @NotNull HyperlinkEvent e) {
         if (e.getEventType() != HyperlinkEvent.EventType.ACTIVATED) {
@@ -81,7 +98,8 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
         notification.expire();
       }
     });
-    Notifications.Bus.notify(myLastNotification, myIdeaProject);
+    myLastNotification.addAction(new ShowProjectDetails());
+    myLastNotification.notify(myIdeaProject);
     return true;
   }
 
@@ -97,8 +115,8 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
       }
       myLastNotification.expire();
     }
-    myLastNotification = getNofifyGroup().createNotification("Migrations", "Project has been migrated with a newer MPS version<br/>" + extraInfo, NotificationType.ERROR, null);
-    Notifications.Bus.notify(myLastNotification, myIdeaProject);
+    myLastNotification = getNofifyGroup().createNotification("Migrations", "Project has been migrated with a newer MPS version<br/>" + extraInfo, NotificationType.ERROR);
+    myLastNotification.notify(myIdeaProject);
   }
 
   public void showDeployWarn(boolean hasCleanups) {
@@ -115,7 +133,7 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
     }
 
     myLastDeployWarning = createDeployWarn(problems, hasCleanups);
-    Notifications.Bus.notify(myLastDeployWarning, myIdeaProject);
+    myLastDeployWarning.notify(myIdeaProject);
   }
 
   public void setRebuildHandler(Consumer<Iterable<SModuleReference>> rebuildHandler) {
@@ -213,6 +231,21 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
         }
       });
       myHasCleanups = hasCleanups;
+    }
+  }
+
+  private static class ShowProjectDetails extends AnAction {
+    /*package*/ ShowProjectDetails() {
+      super("Show Details");
+    }
+    @Override
+    public void update(@NotNull AnActionEvent e) {
+      e.getPresentation().setEnabled(e.getProject() != null && ProjectHelper.fromIdeaProject(e.getProject()) != null);
+    }
+    @Override
+    public void actionPerformed(@NotNull AnActionEvent event) {
+      IStatus m = ProjectMigrationsRegistry.getInstance().checkMigratedToNewerVersion(ProjectHelper.fromIdeaProject(event.getProject()));
+      Messages.showInfoMessage(event.getProject(), m.getMessage(), "Project Details");
     }
   }
 }

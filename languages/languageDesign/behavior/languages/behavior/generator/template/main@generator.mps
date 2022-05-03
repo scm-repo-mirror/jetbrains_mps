@@ -327,7 +327,6 @@
         <child id="1167945861827" name="conditionFunction" index="3IZSJc" />
       </concept>
       <concept id="1118786554307" name="jetbrains.mps.lang.generator.structure.LoopMacro" flags="ln" index="1WS0z7">
-        <property id="7430509679011668804" name="counterVarName" index="1qytDF" />
         <child id="1167952069335" name="sourceNodesQuery" index="3Jn$fo" />
       </concept>
       <concept id="1088761943574" name="jetbrains.mps.lang.generator.structure.ReferenceMacro" flags="ln" index="1ZhdrF">
@@ -845,7 +844,6 @@
         <ref role="3uigEE" to="9r19:~BHDescriptor" resolve="BHDescriptor" />
       </node>
       <node concept="1WS0z7" id="4S$eeoaFbsB" role="lGtFl">
-        <property role="1qytDF" value="" />
         <ref role="2rW$FS" node="Lp4O$ODjvz" resolve="BHDescriptorField" />
         <node concept="3JmXsc" id="4S$eeoaFbsC" role="3Jn$fo">
           <node concept="3clFbS" id="4S$eeoaFbsD" role="2VODD2">
@@ -2797,7 +2795,6 @@
         </node>
       </node>
       <node concept="1WS0z7" id="2Km$7e2swTk" role="lGtFl">
-        <property role="1qytDF" value="" />
         <ref role="2rW$FS" node="1Am6JRr4yGK" resolve="BHMethodInDescriptor" />
         <node concept="3JmXsc" id="2Km$7e2swTl" role="3Jn$fo">
           <node concept="3clFbS" id="2Km$7e2swTm" role="2VODD2">
@@ -3226,7 +3223,6 @@
         </node>
       </node>
       <node concept="1WS0z7" id="5jWiLvuem4p" role="lGtFl">
-        <property role="1qytDF" value="" />
         <ref role="2rW$FS" node="78MdKhpEC37" resolve="BHMethodImpl" />
         <node concept="3JmXsc" id="5jWiLvuem4s" role="3Jn$fo">
           <node concept="3clFbS" id="5jWiLvuem4t" role="2VODD2">
@@ -3546,7 +3542,6 @@
               </node>
             </node>
             <node concept="1WS0z7" id="6UOODqO0n2Z" role="lGtFl">
-              <property role="1qytDF" value="" />
               <node concept="3JmXsc" id="6UOODqO0n30" role="3Jn$fo">
                 <node concept="3clFbS" id="6UOODqO0n31" role="2VODD2">
                   <node concept="3clFbF" id="6UOODqO0n32" role="3cqZAp">
@@ -3820,7 +3815,6 @@
               </node>
             </node>
             <node concept="1WS0z7" id="5WXskL2e7_J" role="lGtFl">
-              <property role="1qytDF" value="" />
               <node concept="3JmXsc" id="5WXskL2e7_K" role="3Jn$fo">
                 <node concept="3clFbS" id="5WXskL2e7_L" role="2VODD2">
                   <node concept="3clFbF" id="5WXskL2e7_M" role="3cqZAp">
@@ -4159,7 +4153,6 @@
                 </node>
               </node>
               <node concept="1WS0z7" id="3HzlNjB8a7A" role="lGtFl">
-                <property role="1qytDF" value="" />
                 <node concept="3JmXsc" id="3HzlNjB8a7D" role="3Jn$fo">
                   <node concept="3clFbS" id="3HzlNjB8a7E" role="2VODD2">
                     <node concept="3clFbF" id="3HzlNjB8a7K" role="3cqZAp">
