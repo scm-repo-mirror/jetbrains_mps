@@ -7,6 +7,7 @@ import jetbrains.mps.kotlin.api.extension.KotlinTypesystem;
 import jetbrains.mps.kotlin.plugin.ExtensionsHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -49,6 +50,14 @@ public class InferredTypeReference implements TypeReference {
   @Override
   public boolean isTrivial() {
     return false;
+  }
+  @Override
+  public String toString() {
+    String start = "typeOf[" + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(myNode);
+    if (myIntermediateKey != null) {
+      return start + "@" + myIntermediateKey + "]";
+    }
+    return start + "]";
   }
 
   private static final class CONCEPTS {

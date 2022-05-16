@@ -7,11 +7,14 @@ import java.util.Objects;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.behavior.IVariableIdentifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ISequenceClosure;
 import java.util.Iterator;
@@ -95,11 +98,12 @@ public class PropertySignature implements MemberSignature {
   }
 
   public static void declareAllTo(Iterable<SNode> named, final boolean mutable, SNode receiver, final SignatureCollector collector) {
-    collector.addDeclarations(named, receiver, PropertySignature.class, (SNode it) -> signaturesOf(it, mutable));
+    Iterable<SNode> nonNullNamed = Sequence.fromIterable(named).where(new NotNullWhereFilter<SNode>());
+    collector.addDeclarations(nonNullNamed, receiver, PropertySignature.class, (SNode it) -> signaturesOf(it, mutable));
 
     // Enforce null receiver to prevent infinite recursion
     if (receiver == null) {
-      Sequence.fromIterable(named).visitAll(new IVisitor<SNode>() {
+      Sequence.fromIterable(nonNullNamed).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
           declaredReceivedFunctionType(it, collector);
         }
@@ -107,7 +111,7 @@ public class PropertySignature implements MemberSignature {
     }
   }
 
-  private static void declaredReceivedFunctionType(SNode var, SignatureCollector collector) {
+  private static void declaredReceivedFunctionType(@NotNull SNode var, SignatureCollector collector) {
     TypeReference typeRef = IVariableIdentifier__BehaviorDescriptor.getType_id1TQsu41FTV5.invoke(var);
     if (typeRef.isTrivial()) {
       SNode actual = typeRef.compute();
@@ -118,11 +122,16 @@ public class PropertySignature implements MemberSignature {
       }
     }
   }
-  public static void declareTo(SNode named, SNode receiver, SignatureCollector collector) {
+
+  public static void declareTo(@Nullable SNode named, SNode receiver, SignatureCollector collector) {
     declareMutableTo(named, false, receiver, collector);
   }
 
-  public static void declareMutableTo(final SNode named, final boolean mutable, SNode receiver, SignatureCollector collector) {
+  public static void declareMutableTo(@Nullable final SNode named, final boolean mutable, SNode receiver, SignatureCollector collector) {
+    if ((named == null)) {
+      return;
+    }
+
     collector.addDeclaration(named, receiver, PropertySignature.class, () -> signaturesOf(named, mutable));
     if (receiver == null) {
       declaredReceivedFunctionType(named, collector);

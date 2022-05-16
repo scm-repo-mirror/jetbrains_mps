@@ -838,7 +838,7 @@
               </node>
               <node concept="2YIFZM" id="3HHsmlLEVLO" role="33vP2m">
                 <ref role="37wK5l" to="hez:3lDDPlndeEE" resolve="navigatableContext" />
-                <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="InstanceScopeHelper" />
+                <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="SignatureScopeHelper" />
                 <node concept="3kakTB" id="3HHsmlLEVLP" role="37wK5m" />
                 <node concept="2rP1CM" id="3HHsmlLEVLQ" role="37wK5m" />
                 <node concept="3dgs5T" id="3HHsmlLEVLR" role="37wK5m" />
@@ -963,7 +963,7 @@
                             <ref role="3cqZAo" node="ccTy7zC0zb" resolve="type" />
                           </node>
                           <node concept="2qgKlT" id="3HHsmlLFh7u" role="2OqNvi">
-                            <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getNestedConstructorsScope" />
+                            <ref role="37wK5l" to="hez:1ODRHGtufGw" resolve="getStaticScope" />
                             <node concept="37vLTw" id="3HHsmlLFh7v" role="37wK5m">
                               <ref role="3cqZAo" node="5Q5$eZnNqFs" resolve="filter" />
                             </node>
@@ -1405,7 +1405,7 @@
                 </node>
                 <node concept="2YIFZM" id="2NtWm0xV1AH" role="37wK5m">
                   <ref role="37wK5l" to="tbhz:2NtWm0xUVc4" resolve="create" />
-                  <ref role="1Pybhc" to="tbhz:2NtWm0xUV09" resolve="ClassScope" />
+                  <ref role="1Pybhc" to="tbhz:2NtWm0xUV09" resolve="ClassScopeHelper" />
                   <node concept="2rP1CM" id="2NtWm0xV1AI" role="37wK5m" />
                 </node>
               </node>
@@ -1735,7 +1735,7 @@
           <node concept="3cpWs6" id="1TQsu41S5_e" role="3cqZAp">
             <node concept="2YIFZM" id="3HHsmlLWPAx" role="3cqZAk">
               <ref role="37wK5l" to="hez:3HHsmlLWFc$" resolve="getScopeForConstraints" />
-              <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="InstanceScopeHelper" />
+              <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="SignatureScopeHelper" />
               <node concept="35c_gC" id="6dAo8EmA_7G" role="37wK5m">
                 <ref role="35c_gD" to="hcm8:42OKUkNAA_T" resolve="FunctionCallExpression" />
               </node>
@@ -3461,7 +3461,7 @@
         <node concept="3clFbF" id="1oDhglvUf4S" role="3cqZAp">
           <node concept="37vLTI" id="1oDhglvUf4U" role="3clFbG">
             <node concept="37vLTw" id="1oDhglvUf4X" role="37vLTJ">
-              <ref role="3cqZAo" node="1oDhglvUf4O" resolve="myScope" />
+              <ref role="3cqZAo" node="1oDhglvUf4O" resolve="nestedScope" />
             </node>
             <node concept="37vLTw" id="1oDhglvUf4Y" role="37vLTx">
               <ref role="3cqZAo" node="1oDhglvUak3" resolve="scope" />
@@ -3471,10 +3471,10 @@
         <node concept="3clFbF" id="5p_0HFeZ2i_" role="3cqZAp">
           <node concept="37vLTI" id="5p_0HFeZ2iB" role="3clFbG">
             <node concept="37vLTw" id="5p_0HFeZ2iE" role="37vLTJ">
-              <ref role="3cqZAo" node="5p_0HFeZ2ix" resolve="myPriority" />
+              <ref role="3cqZAo" node="5p_0HFeZ2ix" resolve="priority" />
             </node>
             <node concept="37vLTw" id="5p_0HFeZ2iF" role="37vLTx">
-              <ref role="3cqZAo" node="5p_0HFeZ1fA" resolve="priority" />
+              <ref role="3cqZAo" node="5p_0HFeZ1fA" resolve="prioritized" />
             </node>
           </node>
         </node>
@@ -3650,7 +3650,7 @@
                         <node concept="3clFbF" id="1oDhglvUbLc" role="3cqZAp">
                           <node concept="2OqwBi" id="1oDhglvUbLd" role="3clFbG">
                             <node concept="37vLTw" id="1oDhglvUbLe" role="2Oq$k0">
-                              <ref role="3cqZAo" node="1oDhglvUbKk" resolve="getters" />
+                              <ref role="3cqZAo" node="1oDhglvUbKk" resolve="lowPriority" />
                             </node>
                             <node concept="TSZUe" id="1oDhglvUbLf" role="2OqNvi">
                               <node concept="37vLTw" id="1oDhglvUbLg" role="25WWJ7">
@@ -3710,7 +3710,7 @@
             <node concept="3QWeyG" id="1oDhglvUbL_" role="2OqNvi">
               <node concept="2OqwBi" id="1oDhglvUbLA" role="576Qk">
                 <node concept="37vLTw" id="1oDhglvUbLB" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1oDhglvUbKk" resolve="getters" />
+                  <ref role="3cqZAo" node="1oDhglvUbKk" resolve="lowPriority" />
                 </node>
                 <node concept="3zZkjj" id="1oDhglvUbLC" role="2OqNvi">
                   <node concept="1bVj0M" id="1oDhglvUbLD" role="23t8la">
@@ -3766,7 +3766,7 @@
       <property role="TrG5h" value="contains" />
       <node concept="3Tm1VV" id="1oDhglvUbLW" role="1B3o_S" />
       <node concept="3uibUv" id="1oDhglvUbLX" role="3clF45">
-        <ref role="3uigEE" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+        <ref role="3uigEE" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
       <node concept="37vLTG" id="1oDhglvUbLY" role="3clF46">
         <property role="TrG5h" value="declaration" />
@@ -3904,7 +3904,7 @@
                 </node>
                 <node concept="3cpWs6" id="1oDhglvVdZj" role="3cqZAp">
                   <node concept="Rm8GO" id="1oDhglvVeSE" role="3cqZAk">
-                    <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+                    <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                     <ref role="Rm8GQ" to="sjya:6Ijh6DJER$Q" resolve="NO" />
                   </node>
                 </node>
@@ -3912,7 +3912,7 @@
               <node concept="3y3z36" id="1oDhglvV8IJ" role="3clFbw">
                 <node concept="Rm8GO" id="1oDhglvVb9a" role="3uHU7w">
                   <ref role="Rm8GQ" to="sjya:6Ijh6DJER$Q" resolve="NO" />
-                  <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+                  <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                 </node>
                 <node concept="1rXfSq" id="1oDhglvUKI7" role="3uHU7B">
                   <ref role="37wK5l" node="1oDhglvUbLV" resolve="contains" />
@@ -4092,7 +4092,7 @@
           <node concept="3cpWsn" id="1oDhglvWkAz" role="3cpWs9">
             <property role="TrG5h" value="hasWithPriority" />
             <node concept="3uibUv" id="1oDhglvWknH" role="1tU5fm">
-              <ref role="3uigEE" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="3uigEE" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
             <node concept="2OqwBi" id="1oDhglvWkA$" role="33vP2m">
               <node concept="37vLTw" id="1oDhglvWkA_" role="2Oq$k0">
@@ -4137,20 +4137,20 @@
           <node concept="3clFbC" id="1oDhglvWpTx" role="3clFbw">
             <node concept="Rm8GO" id="1oDhglvWsVL" role="3uHU7w">
               <ref role="Rm8GQ" to="sjya:6Ijh6DJERrW" resolve="YES" />
-              <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
             <node concept="37vLTw" id="1oDhglvWoR8" role="3uHU7B">
-              <ref role="3cqZAo" node="1oDhglvWkAz" resolve="setter" />
+              <ref role="3cqZAo" node="1oDhglvWkAz" resolve="hasWithPriority" />
             </node>
           </node>
           <node concept="3eNFk2" id="1oDhglvWvug" role="3eNLev">
             <node concept="3clFbC" id="1oDhglvWy1C" role="3eO9$A">
               <node concept="Rm8GO" id="1oDhglvW$cI" role="3uHU7w">
                 <ref role="Rm8GQ" to="sjya:6Ijh6DJERJ3" resolve="SIGNATURE" />
-                <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+                <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               </node>
               <node concept="37vLTw" id="1oDhglvWwsP" role="3uHU7B">
-                <ref role="3cqZAo" node="1oDhglvWkAz" resolve="setter" />
+                <ref role="3cqZAo" node="1oDhglvWkAz" resolve="hasWithPriority" />
               </node>
             </node>
             <node concept="3clFbS" id="1oDhglvWvui" role="3eOfB_">
@@ -4285,7 +4285,7 @@
                           <ref role="3cqZAo" node="1oDhglvWDI9" resolve="name" />
                         </node>
                         <node concept="37vLTw" id="5p_0HFeZilU" role="37wK5m">
-                          <ref role="3cqZAo" node="5p_0HFeZilS" resolve="kind" />
+                          <ref role="3cqZAo" node="5p_0HFeZilS" resolve="lowPriorityKind" />
                         </node>
                       </node>
                     </node>
@@ -4295,7 +4295,7 @@
               </node>
             </node>
             <node concept="Rm8GO" id="1oDhglvWIOX" role="3uHU7w">
-              <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="1Px2BO" to="sjya:6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               <ref role="Rm8GQ" to="sjya:6Ijh6DJERrW" resolve="YES" />
             </node>
           </node>

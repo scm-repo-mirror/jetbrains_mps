@@ -565,7 +565,7 @@
           <node concept="3clFbS" id="5p_0HFf4jGp" role="3clFbx">
             <node concept="3cpWs6" id="5p_0HFf4nMg" role="3cqZAp">
               <node concept="Rm8GO" id="5p_0HFf4oXi" role="3cqZAk">
-                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                 <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
               </node>
             </node>
@@ -1575,7 +1575,7 @@
           <node concept="3cpWsn" id="3HHsmlN3BXf" role="3cpWs9">
             <property role="TrG5h" value="status" />
             <node concept="3uibUv" id="3HHsmlN3BL6" role="1tU5fm">
-              <ref role="3uigEE" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
             <node concept="2OqwBi" id="3HHsmlN3BXg" role="33vP2m">
               <node concept="2OqwBi" id="3HHsmlN3BXh" role="2Oq$k0">
@@ -1636,7 +1636,7 @@
                               <node concept="3cpWs6" id="3HHsmlN3BXH" role="3cqZAp">
                                 <node concept="Rm8GO" id="3HHsmlN3BXI" role="3cqZAk">
                                   <ref role="Rm8GQ" node="6Ijh6DJERrW" resolve="YES" />
-                                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                                 </node>
                               </node>
                             </node>
@@ -1646,7 +1646,7 @@
                               <node concept="3cpWs6" id="3HHsmlN3BXL" role="3cqZAp">
                                 <node concept="Rm8GO" id="3HHsmlN3BXM" role="3cqZAk">
                                   <ref role="Rm8GQ" node="6Ijh6DJERJ3" resolve="SIGNATURE" />
-                                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                                 </node>
                               </node>
                             </node>
@@ -1680,7 +1680,7 @@
             </node>
             <node concept="Rm8GO" id="3HHsmlN3FFh" role="3K4E3e">
               <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
-              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+              <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
             </node>
           </node>
         </node>
@@ -2735,7 +2735,7 @@
             <node concept="3cpWs6" id="5p_0HFftQ35" role="3cqZAp">
               <node concept="Rm8GO" id="5p_0HFftSNU" role="3cqZAk">
                 <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
-                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               </node>
             </node>
           </node>
@@ -2933,16 +2933,6 @@
       <node concept="3Tm6S6" id="5p_0HFfckYP" role="1B3o_S" />
       <node concept="3Tqbb2" id="5p_0HFfckYR" role="1tU5fm" />
     </node>
-    <node concept="312cEg" id="3HHsmlLrypq" role="jymVt">
-      <property role="TrG5h" value="cachedSignatures" />
-      <node concept="3Tm6S6" id="3HHsmlLrvC3" role="1B3o_S" />
-      <node concept="_YKpA" id="3HHsmlLrxS0" role="1tU5fm">
-        <node concept="3uibUv" id="3HHsmlLrydY" role="_ZDj9">
-          <ref role="3uigEE" to="2q9i:18X2O0FJIBL" resolve="SourcedSignature" />
-        </node>
-      </node>
-      <node concept="10Nm6u" id="3HHsmlLr$M8" role="33vP2m" />
-    </node>
     <node concept="2tJIrI" id="1VgEGDnkA8d" role="jymVt" />
     <node concept="3clFbW" id="1VgEGDngi_Z" role="jymVt">
       <node concept="3cqZAl" id="1VgEGDngiA0" role="3clF45" />
@@ -2951,10 +2941,10 @@
         <node concept="1VxSAg" id="1VgEGDngiA3" role="3cqZAp">
           <ref role="37wK5l" node="1VgEGDngiAf" resolve="ReceiverTypeScope" />
           <node concept="37vLTw" id="1VgEGDngiA4" role="37wK5m">
-            <ref role="3cqZAo" node="1VgEGDngiA8" resolve="model" />
+            <ref role="3cqZAo" node="1VgEGDngiA8" resolve="contextNode" />
           </node>
           <node concept="2YIFZM" id="1VgEGDngiA5" role="37wK5m">
-            <ref role="1Pybhc" to="tbhz:4gvOB2uQVGE" resolve="SuperTypesVisitor" />
+            <ref role="1Pybhc" to="tbhz:4gvOB2uQVGE" resolve="SuperTypesVisitorImpl" />
             <ref role="37wK5l" to="tbhz:1xjvXvOgriK" resolve="getSupertypes" />
             <node concept="37vLTw" id="1VgEGDngiA6" role="37wK5m">
               <ref role="3cqZAo" node="1VgEGDngiAa" resolve="targetType" />
@@ -3266,7 +3256,7 @@
                 <node concept="2ShNRf" id="7p20EZ0vD_A" role="37wK5m">
                   <node concept="1pGfFk" id="7p20EZ0vFLL" role="2ShVmc">
                     <property role="373rjd" value="true" />
-                    <ref role="37wK5l" node="3HHsmlLs8I9" resolve="ReceiverTypeFilter" />
+                    <ref role="37wK5l" node="3HHsmlLs8I9" resolve="ReceiverTypeScope.ReceiverTypeFilter" />
                   </node>
                 </node>
               </node>
@@ -3412,7 +3402,7 @@
                             <ref role="37wK5l" node="6nK3tk9CoPK" resolve="typeIndex" />
                             <node concept="2OqwBi" id="2PF5mrp$5_y" role="37wK5m">
                               <node concept="2GrUjf" id="2PF5mrp$5kO" role="2Oq$k0">
-                                <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                                <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="sig" />
                               </node>
                               <node concept="2S8uIT" id="2PF5mrp$5Tn" role="2OqNvi">
                                 <ref role="2S8YL0" to="2q9i:5$XWI2QcdnZ" resolve="receiver" />
@@ -3477,7 +3467,7 @@
                               <node concept="2Nt0df" id="4z6StV4zJ6h" role="2OqNvi">
                                 <node concept="2OqwBi" id="4z6StV4zKP2" role="38cxEo">
                                   <node concept="2GrUjf" id="4z6StV4zJ6i" role="2Oq$k0">
-                                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="sig" />
                                   </node>
                                   <node concept="2S8uIT" id="4z6StV4zMf3" role="2OqNvi">
                                     <ref role="2S8YL0" to="2q9i:5q426iHsllV" resolve="signature" />
@@ -3497,7 +3487,7 @@
                               <node concept="3EllGN" id="6nK3tk9BGul" role="1LFl5Q">
                                 <node concept="2OqwBi" id="4z6StV4DeYx" role="3ElVtu">
                                   <node concept="2GrUjf" id="6nK3tk9XBRf" role="2Oq$k0">
-                                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                                    <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="sig" />
                                   </node>
                                   <node concept="2S8uIT" id="4z6StV4DgyR" role="2OqNvi">
                                     <ref role="2S8YL0" to="2q9i:5q426iHsllV" resolve="signature" />
@@ -3520,7 +3510,7 @@
                             </node>
                             <node concept="2OqwBi" id="4z6StV4zNre" role="3ElVtu">
                               <node concept="2GrUjf" id="6nK3tk9XBSo" role="2Oq$k0">
-                                <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                                <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="sig" />
                               </node>
                               <node concept="2S8uIT" id="4z6StV4zPIZ" role="2OqNvi">
                                 <ref role="2S8YL0" to="2q9i:5q426iHsllV" resolve="signature" />
@@ -3529,7 +3519,7 @@
                           </node>
                           <node concept="1Ls8ON" id="4z6StV4zN9g" role="37vLTx">
                             <node concept="2GrUjf" id="4z6StV4zNiQ" role="1Lso8e">
-                              <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="it" />
+                              <ref role="2Gs0qQ" node="6nK3tk9XrGT" resolve="sig" />
                             </node>
                             <node concept="37vLTw" id="4z6StV4zPYc" role="1Lso8e">
                               <ref role="3cqZAo" node="6nK3tk9CcmX" resolve="typeIndex" />
@@ -4571,7 +4561,7 @@
                     <ref role="3cqZAo" node="5$XWI2QgAAe" resolve="signature" />
                   </node>
                   <node concept="37vLTw" id="6nK3tkaszr6" role="37wK5m">
-                    <ref role="3cqZAo" node="6nK3tkarVLW" resolve="key" />
+                    <ref role="3cqZAo" node="6nK3tkarVLW" resolve="receiverType" />
                   </node>
                 </node>
               </node>
@@ -5001,7 +4991,7 @@
           <node concept="2ShNRf" id="5p_0HFfuFo6" role="37wK5m">
             <node concept="1pGfFk" id="5p_0HFfuGG4" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" node="5p_0HFfuytR" resolve="OneSignatureFilter" />
+              <ref role="37wK5l" node="5p_0HFfuytR" resolve="SignatureSeekerVisitor.OneSignatureFilter" />
               <node concept="37vLTw" id="5p_0HFfuHqt" role="37wK5m">
                 <ref role="3cqZAo" node="5p_0HFfuH4Z" resolve="signature" />
               </node>
@@ -5073,7 +5063,7 @@
             <node concept="3cpWs6" id="5p_0HFfuW5s" role="3cqZAp">
               <node concept="Rm8GO" id="5p_0HFfuWRN" role="3cqZAk">
                 <ref role="Rm8GQ" node="6Ijh6DJER$Q" resolve="NO" />
-                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
               </node>
             </node>
           </node>
@@ -5123,7 +5113,7 @@
               <node concept="3cpWs6" id="5p_0HFfv6r$" role="3cqZAp">
                 <node concept="Rm8GO" id="5p_0HFfv7i0" role="3cqZAk">
                   <ref role="Rm8GQ" node="6Ijh6DJERrW" resolve="YES" />
-                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                 </node>
               </node>
             </node>
@@ -5133,7 +5123,7 @@
               <node concept="3cpWs6" id="5p_0HFfv8hd" role="3cqZAp">
                 <node concept="Rm8GO" id="5p_0HFfv8ES" role="3cqZAk">
                   <ref role="Rm8GQ" node="6Ijh6DJERJ3" resolve="SIGNATURE" />
-                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+                  <ref role="1Px2BO" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
                 </node>
               </node>
             </node>
@@ -5142,7 +5132,7 @@
       </node>
       <node concept="3Tm1VV" id="5p_0HFfuPXZ" role="1B3o_S" />
       <node concept="3uibUv" id="5p_0HFfuQvb" role="3clF45">
-        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="ContainmentStatus" />
+        <ref role="3uigEE" node="6Ijh6DJERfO" resolve="SignatureScope.ContainmentStatus" />
       </node>
     </node>
     <node concept="2tJIrI" id="5p_0HFfuEzy" role="jymVt" />
@@ -5202,7 +5192,7 @@
               <node concept="2OqwBi" id="5p_0HFfuBzI" role="37vLTJ">
                 <node concept="Xjq3P" id="5p_0HFfuBk5" role="2Oq$k0" />
                 <node concept="2OwXpG" id="5p_0HFfuCGn" role="2OqNvi">
-                  <ref role="2Oxat5" node="5p_0HFfuAPD" resolve="signature" />
+                  <ref role="2Oxat5" node="5p_0HFfuAPD" resolve="mySignature" />
                 </node>
               </node>
             </node>
@@ -5240,7 +5230,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="5p_0HFfu$7P" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>

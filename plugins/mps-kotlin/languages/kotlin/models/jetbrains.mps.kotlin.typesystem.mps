@@ -38,7 +38,6 @@
       <concept id="8118189177080264853" name="jetbrains.mps.baseLanguage.structure.AlternativeType" flags="ig" index="nSUau">
         <child id="8118189177080264854" name="alternative" index="nSUat" />
       </concept>
-      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="nn" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
       </concept>
@@ -1027,7 +1026,7 @@
                     <node concept="2yIwOk" id="6dAo8EmKR9$" role="2OqNvi" />
                   </node>
                   <node concept="2qgKlT" id="6dAo8EmKRRL" role="2OqNvi">
-                    <ref role="37wK5l" to="hez:6dAo8EmAhT7" resolve="getFunctionScope" />
+                    <ref role="37wK5l" to="hez:6dAo8EmAhT7" resolve="getFunctionScopeParts" />
                     <node concept="1YBJjd" id="6dAo8EmKS0B" role="37wK5m">
                       <ref role="1YBMHb" node="3ulTMGHTyF3" resolve="call" />
                     </node>
@@ -1209,13 +1208,13 @@
               </node>
               <node concept="3clFbF" id="6dAo8EmKWWH" role="3cqZAp">
                 <node concept="2YIFZM" id="6dAo8EmAqnT" role="3clFbG">
-                  <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="InstanceScopeHelper" />
-                  <ref role="37wK5l" to="hez:2t96AMoH$Wl" resolve="getFunctionScope" />
+                  <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="SignatureScopeHelper" />
+                  <ref role="37wK5l" to="hez:2t96AMoH$Wl" resolve="getFunctionScopeParts" />
                   <node concept="2ShNRf" id="6dAo8EmL1r8" role="37wK5m">
                     <node concept="1pGfFk" id="6dAo8EmL1js" role="2ShVmc">
                       <ref role="37wK5l" to="hez:1pHfrwZyNdJ" resolve="CallReceiver" />
                       <node concept="37vLTw" id="6dAo8EmL4Hd" role="37wK5m">
-                        <ref role="3cqZAo" node="6dAo8EmL4H8" resolve="reference" />
+                        <ref role="3cqZAo" node="6dAo8EmL4H8" resolve="typeRef" />
                       </node>
                       <node concept="3clFbT" id="6dAo8EmL2xP" role="37wK5m">
                         <property role="3clFbU" value="true" />
@@ -1374,8 +1373,8 @@
     <node concept="3clFb_" id="7mJe6tmB6wY" role="jymVt">
       <property role="TrG5h" value="getReceiverType" />
       <node concept="3Tm1VV" id="7mJe6tmB6x0" role="1B3o_S" />
-      <node concept="3Tqbb2" id="7mJe6tmB6x1" role="3clF45">
-        <ref role="ehGHo" to="hcm8:2yYXHtl6Jh1" resolve="IType" />
+      <node concept="3uibUv" id="5w5RuSg4wAf" role="3clF45">
+        <ref role="3uigEE" to="hez:xpyqH1Fxzs" resolve="TypeReference" />
       </node>
       <node concept="3clFbS" id="7mJe6tmB6x2" role="3clF47">
         <node concept="3SKdUt" id="2t96AMo8Dd8" role="3cqZAp">
@@ -1403,23 +1402,18 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="5$XWI2Q2ax2" role="3cqZAp">
-          <node concept="2OqwBi" id="5$XWI2Q2cHv" role="3clFbG">
-            <node concept="2ShNRf" id="5$XWI2Q2awY" role="2Oq$k0">
-              <node concept="1pGfFk" id="5$XWI2Q2baa" role="2ShVmc">
-                <property role="373rjd" value="true" />
-                <ref role="37wK5l" to="hez:1pHfrwZyJA0" resolve="InferredTypeReference" />
-                <node concept="37vLTw" id="5$XWI2Q2bz$" role="37wK5m">
-                  <ref role="3cqZAo" node="7mJe6tmBcjS" resolve="myForStatement" />
-                </node>
-                <node concept="10M0yZ" id="2t96AMo8x6L" role="37wK5m">
-                  <ref role="3cqZAo" to="hez:7iropoGZe_F" resolve="ITERATOR_FUNCTION_RET" />
-                  <ref role="1PxDUh" to="hez:7iropoGZe3T" resolve="ForStatementKeys" />
-                </node>
+        <node concept="3cpWs6" id="5w5RuSg4w4i" role="3cqZAp">
+          <node concept="2ShNRf" id="5w5RuSg4w4j" role="3cqZAk">
+            <node concept="1pGfFk" id="5w5RuSg4w4k" role="2ShVmc">
+              <property role="373rjd" value="true" />
+              <ref role="37wK5l" to="hez:1pHfrwZyJA0" resolve="InferredTypeReference" />
+              <node concept="37vLTw" id="5w5RuSg4w4l" role="37wK5m">
+                <ref role="3cqZAo" node="7mJe6tmBcjS" resolve="myForStatement" />
               </node>
-            </node>
-            <node concept="liA8E" id="5$XWI2Q2dbV" role="2OqNvi">
-              <ref role="37wK5l" to="hez:1pHfrwZyJd2" resolve="compute" />
+              <node concept="10M0yZ" id="5w5RuSg4w4m" role="37wK5m">
+                <ref role="3cqZAo" to="hez:7iropoGZe_F" resolve="ITERATOR_FUNCTION_RET" />
+                <ref role="1PxDUh" to="hez:7iropoGZe3T" resolve="ForStatementKeys" />
+              </node>
             </node>
           </node>
         </node>
@@ -1428,23 +1422,6 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
-    <node concept="2tJIrI" id="2t96AMo8FKL" role="jymVt" />
-    <node concept="3clFb_" id="c49tPrwv9i" role="jymVt">
-      <property role="TrG5h" value="usesReceiver" />
-      <node concept="3Tm1VV" id="c49tPrwv9k" role="1B3o_S" />
-      <node concept="10P_77" id="c49tPrwv9l" role="3clF45" />
-      <node concept="3clFbS" id="c49tPrwv9m" role="3clF47">
-        <node concept="3clFbF" id="c49tPrwvxy" role="3cqZAp">
-          <node concept="3clFbT" id="c49tPrwvxx" role="3clFbG">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="c49tPrwv9n" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2t96AMo8GA0" role="jymVt" />
     <node concept="3clFb_" id="7mJe6tmB6x4" role="jymVt">
       <property role="TrG5h" value="getFunctionDescriptor" />
       <node concept="3Tm1VV" id="7mJe6tmB6x6" role="1B3o_S" />
@@ -2145,12 +2122,12 @@
                   <property role="373rjd" value="true" />
                   <ref role="37wK5l" to="vciu:7mJe6tm_2uF" resolve="NodeFunctionCall" />
                   <node concept="1YBJjd" id="2t96AMoeXUL" role="37wK5m">
-                    <ref role="1YBMHb" node="2t96AMoeTCl" resolve="componentDeclaration" />
+                    <ref role="1YBMHb" node="2t96AMoeTCl" resolve="component" />
                   </node>
                 </node>
               </node>
               <node concept="1YBJjd" id="2t96AMoeYVR" role="37wK5m">
-                <ref role="1YBMHb" node="2t96AMoeTCl" resolve="componentDeclaration" />
+                <ref role="1YBMHb" node="2t96AMoeTCl" resolve="component" />
               </node>
               <node concept="359W_D" id="2t96AMoeZn0" role="37wK5m">
                 <ref role="359W_E" to="hcm8:4FOkRjXx1Po" resolve="ComponentDeclaration" />
@@ -2167,7 +2144,7 @@
                         <node concept="2yIwOk" id="6dAo8EmKTfF" role="2OqNvi" />
                       </node>
                       <node concept="2qgKlT" id="6dAo8EmKTfG" role="2OqNvi">
-                        <ref role="37wK5l" to="hez:6dAo8EmAhT7" resolve="getFunctionScope" />
+                        <ref role="37wK5l" to="hez:6dAo8EmAhT7" resolve="getFunctionScopeParts" />
                         <node concept="1YBJjd" id="6dAo8EmKTfH" role="37wK5m">
                           <ref role="1YBMHb" node="2t96AMoeTCl" resolve="component" />
                         </node>
@@ -2197,7 +2174,7 @@
             <node concept="2OqwBi" id="4FOkRjXKRYa" role="1m5AlR">
               <node concept="1mfA1w" id="4FOkRjXKRYc" role="2OqNvi" />
               <node concept="1YBJjd" id="2t96AMoeVA8" role="2Oq$k0">
-                <ref role="1YBMHb" node="2t96AMoeTCl" resolve="componentDeclaration" />
+                <ref role="1YBMHb" node="2t96AMoeTCl" resolve="component" />
               </node>
             </node>
           </node>

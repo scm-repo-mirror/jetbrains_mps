@@ -46,6 +46,7 @@ public class JavaMethodCall_Constraints extends BaseConstraintsDescriptor {
           public Scope createScope(final ReferenceConstraintsContext _context) {
             Tuples._2<SNode, Boolean> context = SignatureScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
+            // Call on receiver
             if (context != null) {
               // Defined there
               return SignatureScopeHelper.getScopeForConstraints(CONCEPTS.JavaMethodCall$gD, _context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink(), CONCEPTS.BaseMethodDeclaration$kD);

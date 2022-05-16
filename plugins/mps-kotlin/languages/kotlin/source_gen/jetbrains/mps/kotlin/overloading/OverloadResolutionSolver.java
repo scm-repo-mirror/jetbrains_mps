@@ -9,6 +9,7 @@ import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.kotlin.plugin.ExtensionsHelper;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -29,6 +30,9 @@ public class OverloadResolutionSolver {
   private final SNode myContextNode;
   private final _FunctionTypes._return_P0_E0<? extends Iterable<SignatureScope>> myScopeProvider;
 
+  private SNode myCachedReceiverType = null;
+  private boolean isReceiverTypeComputed = false;
+
   public OverloadResolutionSolver(FunctionCall call, SNode contextNode, _FunctionTypes._return_P0_E0<? extends Iterable<SignatureScope>> scopeProvider) {
     myCall = call;
     overloadResolver = ExtensionsHelper.getTypesystem(contextNode);
@@ -47,8 +51,17 @@ public class OverloadResolutionSolver {
       return null;
     }
 
+    // Compute receiver type before as inside typesystem it may break
+    if (!(isReceiverTypeComputed)) {
+      isReceiverTypeComputed = true;
+      TypeReference receiverType = myCall.getReceiverType();
+      if (receiverType != null) {
+        myCachedReceiverType = receiverType.compute();
+      }
+    }
+
     // Actual resolution
-    Tuples._3<FunctionDeclaration, Boolean, Boolean> resolution = overloadResolver.selectOverloadCandidate(myCall, myContextNode, nodes);
+    Tuples._3<FunctionDeclaration, Boolean, Boolean> resolution = overloadResolver.selectOverloadCandidate(myCall, myCachedReceiverType, myContextNode, nodes);
 
     FunctionDeclaration res = resolution._0();
     if (res != null) {

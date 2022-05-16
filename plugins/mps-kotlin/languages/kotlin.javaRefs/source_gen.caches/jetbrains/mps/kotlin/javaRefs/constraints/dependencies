@@ -242,6 +242,7 @@
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />

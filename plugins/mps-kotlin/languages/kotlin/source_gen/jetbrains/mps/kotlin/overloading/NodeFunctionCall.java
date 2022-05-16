@@ -8,6 +8,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.behavior.CallReceiver;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 
@@ -47,20 +48,12 @@ public class NodeFunctionCall implements FunctionCall {
     return (SReferenceLink) IFunctionCall__BehaviorDescriptor.getTargetLink_id5D4bOjrrcOr.invoke(myFunctionCall);
   }
   @Override
-  public SNode getReceiverType() {
-    if ((receiverType == null)) {
-      CallReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
-      if (receiver == null) {
-        return null;
-      }
-      receiverType = receiver.getTypeReference().compute();
+  public TypeReference getReceiverType() {
+    CallReceiver receiver = IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall);
+    if (receiver == null) {
+      return null;
     }
-
-    return receiverType;
-  }
-  @Override
-  public boolean usesReceiver() {
-    return IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(myFunctionCall) != null;
+    return receiver.getTypeReference();
   }
   @Override
   public FunctionDeclaration getFunctionDescriptor() {

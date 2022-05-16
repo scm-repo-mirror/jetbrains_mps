@@ -5,6 +5,7 @@ package jetbrains.mps.kotlin.behavior;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 public class ConcreteTypeReference implements TypeReference {
   private final SNode myType;
@@ -22,5 +23,10 @@ public class ConcreteTypeReference implements TypeReference {
       return AnyTypeReference.INSTANCE;
     }
     return new ConcreteTypeReference(type);
+  }
+
+  @Override
+  public String toString() {
+    return "typeIs[" + SNodeOperations.present(myType) + "]";
   }
 }

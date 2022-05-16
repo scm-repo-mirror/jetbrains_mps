@@ -9,6 +9,7 @@ import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.kotlin.behavior.ForStatementKeys;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
@@ -43,16 +44,10 @@ public class NextFunctionCall implements FunctionCall {
     return LINKS.nextFunction$fFHf;
   }
   @Override
-  public SNode getReceiverType() {
+  public TypeReference getReceiverType() {
     // Get receiver type from the for statement
-    return new InferredTypeReference(myForStatement, ForStatementKeys.ITERATOR_FUNCTION_RET).compute();
+    return new InferredTypeReference(myForStatement, ForStatementKeys.ITERATOR_FUNCTION_RET);
   }
-
-  @Override
-  public boolean usesReceiver() {
-    return true;
-  }
-
   @Override
   public FunctionDeclaration getFunctionDescriptor() {
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(myForStatement, LINKS.nextFunction$fFHf));

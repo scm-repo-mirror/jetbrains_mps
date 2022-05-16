@@ -17,13 +17,14 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
+import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
-import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -48,22 +49,24 @@ public class JavaVariableReference_Constraints extends BaseConstraintsDescriptor
           public Scope createScope(final ReferenceConstraintsContext _context) {
             Tuples._2<SNode, Boolean> context = SignatureScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
 
-            // Call on receiver
             if (context != null) {
               SNode type = context._0();
+              if (type == null) {
+                return new EmptyScope();
+              }
 
-              // Here we seek function signatures from java concepts
-              SignatureFilter<PropertySignature> filter = new SignatureFilter<PropertySignature>(PropertySignature.class);
+              // Here we seek property signatures from java methods
+              SignatureFilter<PropertySignature> filter = new SignatureFilter<>(PropertySignature.class);
               SignatureScope typeScope;
               if ((boolean) context._1()) {
                 typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter), IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter));
               } else {
-                // No receiver methods (not handled here)
-                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false)));
+                typeScope = HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false)));
               }
 
-              return new SignatureScopeAsScope(typeScope, CONCEPTS.VariableDeclaration$DF);
+              return new SignatureScopeAsScope(typeScope, CONCEPTS.VariableDeclaration$Y0);
             }
+
 
             // Not called on a receiver
             // TODO add scope for inherited methods without receiver (this.parentJavaProp without this)
@@ -80,7 +83,7 @@ public class JavaVariableReference_Constraints extends BaseConstraintsDescriptor
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept JavaVariableReference$Eg = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L, "jetbrains.mps.kotlin.javaRefs.structure.JavaVariableReference");
-    /*package*/ static final SConcept VariableDeclaration$DF = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
+    /*package*/ static final SConcept VariableDeclaration$Y0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
   }
 
   private static final class LINKS {

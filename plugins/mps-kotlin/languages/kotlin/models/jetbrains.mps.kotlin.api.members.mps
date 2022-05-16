@@ -329,7 +329,7 @@
         <node concept="TUZQ0" id="5$XWI2Qcf7_" role="3nqlJM">
           <property role="TUZQ4" value="receiver of the signature (if it is implicitely the receiver for 'this', can be null)" />
           <node concept="zr_55" id="5$XWI2Qcf7B" role="zr_5Q">
-            <ref role="zr_51" node="6nK3tkasHrA" resolve="node" />
+            <ref role="zr_51" node="6nK3tkasHrA" resolve="receiver" />
           </node>
         </node>
       </node>
@@ -580,7 +580,7 @@
               <ref role="3cqZAo" node="1CCu0CNwt0s" resolve="source" />
             </node>
             <node concept="37vLTw" id="2QFnHPqjofS" role="37wK5m">
-              <ref role="3cqZAo" node="2QFnHPqjn4C" resolve="isInstance" />
+              <ref role="3cqZAo" node="2QFnHPqjn4C" resolve="receiverType" />
             </node>
             <node concept="37vLTw" id="1CCu0CNwwKZ" role="37wK5m">
               <ref role="3cqZAo" node="1CCu0CNwwez" resolve="signatureKind" />
@@ -748,7 +748,7 @@
         <node concept="TUZQ0" id="2QFnHPqjoym" role="3nqlJM">
           <property role="TUZQ4" value="explicit receiver type if not induced from context (collector is responsible for knowing the context type)" />
           <node concept="zr_55" id="2QFnHPqjoFy" role="zr_5Q">
-            <ref role="zr_51" node="2QFnHPqjloC" resolve="isInstance" />
+            <ref role="zr_51" node="2QFnHPqjloC" resolve="explicitReceiver" />
           </node>
         </node>
         <node concept="TUZQ0" id="2QFnHPqiIgZ" role="3nqlJM">
@@ -846,7 +846,7 @@
                   <ref role="2Gs0qQ" node="5$XWI2QfA9q" resolve="node" />
                 </node>
                 <node concept="37vLTw" id="5$XWI2QfBjK" role="37wK5m">
-                  <ref role="3cqZAo" node="5$XWI2Qdo9M" resolve="isInstance" />
+                  <ref role="3cqZAo" node="5$XWI2Qdo9M" resolve="explicitReceiver" />
                 </node>
                 <node concept="37vLTw" id="5$XWI2QfBD7" role="37wK5m">
                   <ref role="3cqZAo" node="5$XWI2Qdo9O" resolve="signatureKind" />

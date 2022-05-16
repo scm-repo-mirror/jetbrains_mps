@@ -5,6 +5,7 @@ package jetbrains.mps.kotlin.overloading;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 
 /**
@@ -16,12 +17,6 @@ public interface FunctionCall {
   Iterable<Argument> getArguments();
   Iterable<SNode> getTypeArguments();
   SReferenceLink getTargetLink();
-  SNode getReceiverType();
-  /**
-   * Returns true if the call has a receiver. Might be true even if receiverType is
-   * null in case of typesystem issues.
-   */
-  boolean usesReceiver();
+  TypeReference getReceiverType();
   FunctionDeclaration getFunctionDescriptor();
-
 }

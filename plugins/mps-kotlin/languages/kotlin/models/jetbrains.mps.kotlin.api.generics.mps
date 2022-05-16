@@ -9,7 +9,7 @@
   </languages>
   <imports>
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
-    <import index="g9sx" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.api.declaration)" />
+    <import index="1p8r" ref="r:966de44c-de72-437f-889f-78347a061f0c(jetbrains.mps.kotlin.api.declaration)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -157,7 +157,7 @@
       <node concept="3uibUv" id="27wMicDoixF" role="1tU5fm">
         <ref role="3uigEE" to="33ny:~HashMap" resolve="HashMap" />
         <node concept="3uibUv" id="4W0pdSD7zgj" role="11_B2D">
-          <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+          <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
         </node>
         <node concept="16syzq" id="27wMicDoixH" role="11_B2D">
           <ref role="16sUi3" node="27wMicDl9RZ" resolve="T" />
@@ -171,7 +171,7 @@
         <property role="TrG5h" value="parameters" />
         <node concept="A3Dl8" id="4W0pdSD7ZcK" role="1tU5fm">
           <node concept="3uibUv" id="4W0pdSD7ZcM" role="A3Ik2">
-            <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+            <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
           </node>
         </node>
       </node>
@@ -225,7 +225,7 @@
       <node concept="37vLTG" id="27wMicDlgPO" role="3clF46">
         <property role="TrG5h" value="parameter" />
         <node concept="3uibUv" id="4W0pdSD7AIk" role="1tU5fm">
-          <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+          <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
         </node>
       </node>
       <node concept="37vLTG" id="27wMicDlhnw" role="3clF46">
@@ -280,7 +280,7 @@
       <node concept="37vLTG" id="27wMicDmzP1" role="3clF46">
         <property role="TrG5h" value="parameter" />
         <node concept="3uibUv" id="4W0pdSD83xx" role="1tU5fm">
-          <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+          <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
         </node>
       </node>
     </node>
@@ -307,7 +307,7 @@
       <node concept="37vLTG" id="27wMicDmFjX" role="3clF46">
         <property role="TrG5h" value="parameter" />
         <node concept="3uibUv" id="4W0pdSD86zV" role="1tU5fm">
-          <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+          <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
         </node>
       </node>
     </node>
@@ -325,7 +325,7 @@
       <node concept="3uibUv" id="1SUGDgQYte5" role="3clF45">
         <ref role="3uigEE" to="33ny:~HashMap" resolve="HashMap" />
         <node concept="3uibUv" id="4W0pdSD7CGN" role="11_B2D">
-          <ref role="3uigEE" to="g9sx:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
+          <ref role="3uigEE" to="1p8r:26mUjU3_L7_" resolve="TypeParameterDeclaration" />
         </node>
         <node concept="16syzq" id="1SUGDgQYte7" role="11_B2D">
           <ref role="16sUi3" node="27wMicDl9RZ" resolve="T" />

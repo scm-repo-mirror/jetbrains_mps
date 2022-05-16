@@ -4,6 +4,11 @@ package jetbrains.mps.kotlin.behavior;
 
 import org.jetbrains.mps.openapi.model.SNode;
 
+/**
+ * Reference to a type. Its usage is recommended when a type might be computed from both
+ * in and outside typesystem context (as getting the type of a node outside typesystem will
+ * call typesystem API, while inside the typesystem it may use its internal API).
+ */
 public interface TypeReference {
   /**
    * Compute the type using typesystem API. Is method is no meant to be used by the typesystem itself,

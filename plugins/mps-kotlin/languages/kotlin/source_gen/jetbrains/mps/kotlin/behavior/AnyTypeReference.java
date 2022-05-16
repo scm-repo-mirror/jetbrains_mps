@@ -21,6 +21,10 @@ public class AnyTypeReference implements TypeReference {
     }
     return cached;
   }
+  @Override
+  public String toString() {
+    return "Any?";
+  }
 
   private static final class PROPS {
     /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");

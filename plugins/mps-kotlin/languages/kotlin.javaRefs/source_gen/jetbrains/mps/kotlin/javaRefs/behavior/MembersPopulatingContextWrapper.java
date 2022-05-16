@@ -76,7 +76,7 @@ public class MembersPopulatingContextWrapper extends MembersPopulatingContext {
 
     // Mere conversion of one language's signature into another, it ain't pretty but hard to do better
     if (signature instanceof ClassifierSignature) {
-      JavaSignatures.declareClass(signatureDelegate, named);
+      // no-op
     } else if (signature instanceof FieldSignature) {
       JavaSignatures.declareField(signatureDelegate, SNodeOperations.as(named, CONCEPTS.VariableDeclaration$Y0));
     } else if (signature instanceof MethodSignature && SNodeOperations.isInstanceOf(named, CONCEPTS.BaseMethodDeclaration$kD)) {

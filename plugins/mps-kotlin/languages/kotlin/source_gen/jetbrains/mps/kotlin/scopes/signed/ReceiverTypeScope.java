@@ -6,7 +6,6 @@ import java.util.List;
 import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.api.members.SourcedSignature;
 import jetbrains.mps.kotlin.scopes.SuperTypesVisitorImpl;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -15,6 +14,7 @@ import jetbrains.mps.kotlin.behavior.ITypeParameterReference__BehaviorDescriptor
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
+import jetbrains.mps.kotlin.api.members.SourcedSignature;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.Map;
 import jetbrains.mps.kotlin.signatures.MemberSignature;
@@ -33,7 +33,6 @@ public class ReceiverTypeScope implements SignatureScope {
   private final List<TypeKey> myTargetTypes;
   private final SignatureFilter<?> mySignatureFilter;
   private final SNode myContextNode;
-  private List<SourcedSignature> cachedSignatures = null;
 
   public ReceiverTypeScope(SNode contextNode, SNode targetType, SignatureFilter<?> signatureFilter) {
     this(contextNode, SuperTypesVisitorImpl.getSupertypes(targetType), signatureFilter);

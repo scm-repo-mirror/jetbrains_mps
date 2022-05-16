@@ -10,7 +10,6 @@ import java.util.Iterator;
 import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.signatures.AccessorKind;
-import jetbrains.mps.kotlin.signatures.ClassSignature;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtEngine;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaDefaultConstructorDeclaration;
@@ -77,10 +76,6 @@ __switch__:
       }
     });
   }
-  public static void declareClass(SignatureCollector collector, final SNode method) {
-    // TODO if kotlin has equivalent class, ignore?
-    collector.addSimpleDeclaration(method, null, ClassSignature.class, () -> new ClassSignature(SPropertyOperations.getString(method, PROPS.name$MnvL)));
-  }
 
   public static void declareConstructor(SignatureCollector collector, final JavaToKtEngine converter, final SNode method) {
     collector.addSimpleDeclaration(method, null, FunctionSignature.class, () -> new FunctionSignature(new JavaDefaultConstructorDeclaration(method, converter), (TypeExpander) null));
@@ -91,17 +86,69 @@ __switch__:
 
     collector.addSimpleDeclaration(method, null, FunctionSignature.class, () -> new FunctionSignature(new JavaMethodDeclaration(method, converter), collector));
 
-    // Getter
-    if (paramCount == 0 && SPropertyOperations.getString(method, PROPS.name$MnvL).startsWith("get") && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.returnType$5xoi), CONCEPTS.VoidType$BF))) {
-      collector.addSimpleDeclaration(method, null, PropertySignature.class, () -> new PropertySignature(JavaVariableHelper.accessorNameOf(method), AccessorKind.GETTER));
-    }
+    // Method accessed as properties
+    final boolean hasGetter = paramCount == 0 && SPropertyOperations.getString(method, PROPS.name$MnvL).startsWith("get") && !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.returnType$5xoi), CONCEPTS.VoidType$BF));
+    final boolean hasSetter = paramCount == 1 && SPropertyOperations.getString(method, PROPS.name$MnvL).startsWith("set") && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.returnType$5xoi), CONCEPTS.VoidType$BF);
 
-    // Setter
-    if (paramCount == 1 && SPropertyOperations.getString(method, PROPS.name$MnvL).startsWith("set") && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.returnType$5xoi), CONCEPTS.VoidType$BF)) {
-      collector.addSimpleDeclaration(method, null, PropertySignature.class, () -> {
-        // Provide method both as getter and setter
-        return new PropertySignature(JavaVariableHelper.accessorNameOf(method), AccessorKind.SETTER);
+    // Declare method once as accessor
+    if (hasGetter || hasSetter) {
+      collector.addDeclaration(method, null, PropertySignature.class, new _FunctionTypes._return_P0_E0<Iterable<PropertySignature>>() {
+        public Iterable<PropertySignature> invoke() {
+          return new Iterable<PropertySignature>() {
+            public Iterator<PropertySignature> iterator() {
+              return new YieldingIterator<PropertySignature>() {
+                private int __CP__ = 0;
+                protected boolean moveToNext() {
+__loop__:
+                  do {
+__switch__:
+                    switch (this.__CP__) {
+                      case -1:
+                        assert false : "Internal error";
+                        return false;
+                      case 2:
+                        if (hasGetter) {
+                          this.__CP__ = 3;
+                          break;
+                        }
+                        this.__CP__ = 4;
+                        break;
+                      case 4:
+                        if (hasSetter) {
+                          this.__CP__ = 6;
+                          break;
+                        }
+                        this.__CP__ = 1;
+                        break;
+                      case 5:
+                        this.__CP__ = 4;
+                        this.yield(new PropertySignature(JavaVariableHelper.accessorNameOf(method), AccessorKind.GETTER));
+                        return true;
+                      case 7:
+                        this.__CP__ = 1;
+                        this.yield(new PropertySignature(JavaVariableHelper.accessorNameOf(method), AccessorKind.SETTER));
+                        return true;
+                      case 0:
+                        this.__CP__ = 2;
+                        break;
+                      case 3:
+                        this.__CP__ = 5;
+                        break;
+                      case 6:
+                        this.__CP__ = 7;
+                        break;
+                      default:
+                        break __loop__;
+                    }
+                  } while (true);
+                  return false;
+                }
+              };
+            }
+          };
+        }
       });
+
     }
   }
 
