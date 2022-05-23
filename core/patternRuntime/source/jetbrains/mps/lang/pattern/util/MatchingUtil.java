@@ -15,14 +15,11 @@
  */
 package jetbrains.mps.lang.pattern.util;
 
-import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.SNodeHashStrategy;
 import jetbrains.mps.smodel.SNodeMatcher;
 import jetbrains.mps.smodel.SNodeMatcher.AssociationMatchStrategy;
 import jetbrains.mps.smodel.SNodeMatcher.IdenticalTargetNode;
 import jetbrains.mps.smodel.SNodeMatcher.SameOrderChildMatch;
-import jetbrains.mps.util.IterableUtil;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -41,7 +38,6 @@ import java.util.function.BiPredicate;
 // FIXME seems to be the only class in patternRuntime to use [kernel], not [openapi]. Perhaps, worth moving into [kernel]?
 @Deprecated(since = "2022.2", forRemoval = true)
 public class MatchingUtil {
-  private static final Logger LOG = Logger.wrap(LogManager.getLogger(MatchingUtil.class));
 
   public static boolean matchNodes(SNode node1, SNode node2) {
     // IMatchModifier.DEFAULT does nothing, no need to care for its methods
@@ -73,19 +69,15 @@ public class MatchingUtil {
     // (assuming NodeId is different and nodes otherwise match).
     String stringValue1 = node1.getProperty(property);
     String stringValue2 = node2.getProperty(property);
-    Object propertyValue1 = stringValue1;
-    Object propertyValue2 = stringValue2;
-    if (!IterableUtil.asCollection(node1.getConcept().getProperties()).contains(property)) {
-      SNode diagnosticsNode = stringValue1 != null ? node1 : node2;
-      LOG.warning("can't find a property declaration for property `" + property.getName() + "` in a concept " + diagnosticsNode.getConcept().getQualifiedName(), diagnosticsNode);
-      LOG.warning("try to compare just properties' internal values");
-    } else {
+    Object propertyValue1;
+    Object propertyValue2;
+    if (property.isValid()) {
       SDataType dataType = property.getType();
-      // FIXME dataType never null, need another mechanism to make this decision
-      if (dataType != null) {
-        propertyValue1 = dataType.fromString(stringValue1);
-        propertyValue2 = dataType.fromString(stringValue2);
-      }
+      propertyValue1 = dataType.fromString(stringValue1);
+      propertyValue2 = dataType.fromString(stringValue2);
+    } else {
+      propertyValue1 = stringValue1;
+      propertyValue2 = stringValue2;
     }
     return Objects.equals(propertyValue1, propertyValue2);
   }
