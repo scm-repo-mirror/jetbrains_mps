@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.smodel.SNodeMatcher;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -75,8 +75,9 @@ public class MethodMatch {
     if (ListSequence.fromList(nodes).isEmpty()) {
       return true;
     }
-    for (int i = 0; i < ListSequence.fromList(nodes).count() - 1; i++) {
-      if (!(MatchingUtil.matchNodes(ListSequence.fromList(nodes).getElement(i), ListSequence.fromList(nodes).getElement(i + 1)))) {
+    final SNodeMatcher nm = new SNodeMatcher();
+    for (int i = 0, x = ListSequence.fromList(nodes).count() - 1; i < x; i++) {
+      if (!(nm.match(ListSequence.fromList(nodes).getElement(i), ListSequence.fromList(nodes).getElement(i + 1)))) {
         return false;
       }
     }

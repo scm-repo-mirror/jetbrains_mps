@@ -32,10 +32,10 @@ import jetbrains.mps.smodel.constraints.ModelConstraints;
 import java.util.Objects;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.SNodeHashStrategy;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
-import jetbrains.mps.lang.pattern.util.IMatchModifier;
+import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -393,7 +393,7 @@ with_next_t:
   }
 
   private static boolean hasEqualsFQName(SModel model1, SModel model2) {
-    return jetbrains.mps.util.SNodeOperations.getModelLongName(model1).equals(jetbrains.mps.util.SNodeOperations.getModelLongName(model2));
+    return Objects.equals(SModelOperations.getModelName(model1), SModelOperations.getModelName(model2));
   }
 
   public static SNode getTypeWithResolvedTypeVars(SNode type, Map<SNode, SNode> typeByTypeVar) {
@@ -456,7 +456,7 @@ with_next_t:
         return false;
       }
       // ignore attributes while matching types
-      return MatchingUtil.matchNodes(this.myNode, ((NodeWrapper) that).myNode, IMatchModifier.DEFAULT, false);
+      return new SNodeMatcher().withAttributes(false).match(this.myNode, ((NodeWrapper) that).myNode);
     }
   }
 

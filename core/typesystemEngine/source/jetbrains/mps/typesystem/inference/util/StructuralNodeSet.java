@@ -15,9 +15,8 @@
  */
 package jetbrains.mps.typesystem.inference.util;
 
-import jetbrains.mps.lang.pattern.util.IMatchModifier;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.smodel.SNodeHashStrategy;
+import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -183,7 +182,7 @@ public class StructuralNodeSet<T> implements Set<SNode> {
         return false;
       }
       SNodeWrapper wrapper = (SNodeWrapper) obj;
-      return MatchingUtil.matchNodes(wrapper.myNode, myNode, IMatchModifier.DEFAULT, false);
+      return new SNodeMatcher().withAttributes(false).match(wrapper.myNode, myNode);
     }
 
   }

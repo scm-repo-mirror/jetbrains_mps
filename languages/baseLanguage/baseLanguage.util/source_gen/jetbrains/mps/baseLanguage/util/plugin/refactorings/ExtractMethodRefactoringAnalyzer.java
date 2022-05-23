@@ -26,7 +26,7 @@ import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedHashSet;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.smodel.SNodeMatcher;
 import jetbrains.mps.lang.dataFlow.framework.instructions.EndInstruction;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -201,8 +201,9 @@ public class ExtractMethodRefactoringAnalyzer {
   }
   /*package*/ boolean isExitPointsDifferent() {
     List<SNode> exits = this.myInternalExitPoints;
-    for (int i = 1; i < ListSequence.fromList(exits).count(); i++) {
-      if (!(MatchingUtil.matchNodes(ListSequence.fromList(exits).getElement(i - 1), ListSequence.fromList(exits).getElement(i)))) {
+    final SNodeMatcher nm = new SNodeMatcher();
+    for (int i = 1, x = ListSequence.fromList(exits).count(); i < x; i++) {
+      if (!(nm.match(ListSequence.fromList(exits).getElement(i - 1), ListSequence.fromList(exits).getElement(i)))) {
         return true;
       }
     }

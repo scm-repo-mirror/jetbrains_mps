@@ -15,9 +15,8 @@
  */
 package jetbrains.mps.typesystem.inference.util;
 
-import jetbrains.mps.lang.pattern.util.IMatchModifier;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.smodel.SNodeHashStrategy;
+import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.lang.ref.WeakReference;
@@ -45,7 +44,7 @@ public class CacheNodeHandler {
       if (getNode() == null || anotherHandler.getNode() == null) {
         return false;
       }
-      return MatchingUtil.matchNodes(this.getNode(), anotherHandler.getNode(), IMatchModifier.DEFAULT, false);
+      return new SNodeMatcher().withAttributes(false).match(this.getNode(), anotherHandler.getNode());
     } else {
       return false;
     }

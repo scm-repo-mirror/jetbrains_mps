@@ -16,7 +16,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.behavior.ClassifierMember__BehaviorDescriptor;
 import java.util.Iterator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -82,13 +82,14 @@ public class ExtractMethodRefactoringParameters extends MethodModel {
   }
   private boolean isParametersMatch(SNode method) {
     Iterator<SNode> parameters = ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$5xBj)).iterator();
+    final SNodeMatcher nm = new SNodeMatcher();
     for (MethodParameter p1 : this.myParameters) {
       if (p1.isSelected()) {
         if (!(parameters.hasNext())) {
           return false;
         }
         SNode p2 = parameters.next();
-        if (!(MatchingUtil.matchNodes(p1.getType(), SLinkOperations.getTarget(p2, LINKS.type$a1UY)))) {
+        if (!(nm.match(p1.getType(), SLinkOperations.getTarget(p2, LINKS.type$a1UY)))) {
           return false;
         }
       }

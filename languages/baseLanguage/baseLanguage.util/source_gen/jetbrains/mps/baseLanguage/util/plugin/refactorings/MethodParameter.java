@@ -20,8 +20,7 @@ import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodeHashStrategy;
-import jetbrains.mps.lang.pattern.util.MatchingUtil;
-import jetbrains.mps.lang.pattern.util.IMatchModifier;
+import jetbrains.mps.smodel.SNodeMatcher;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -127,7 +126,7 @@ public class MethodParameter extends MethodParameterModel {
         return false;
       }
       // ignore attributes while matching types
-      return MatchingUtil.matchNodes(this.myNode, ((NodeWrapper) that).myNode, IMatchModifier.DEFAULT, false);
+      return new SNodeMatcher().withAttributes(false).match(this.myNode, ((NodeWrapper) that).myNode);
     }
   }
 
