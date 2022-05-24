@@ -21,6 +21,8 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.ide.platform.refactoring.MoveNodesDialog;
 import jetbrains.mps.smodel.ModelAccessHelper;
+import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.refactoring.participant.plugin)/1929018697514204727", model = "r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.refactoring.participant.plugin)")
 public class MoveNodesActionBase implements MoveNodesAction {
@@ -59,6 +61,13 @@ public class MoveNodesActionBase implements MoveNodesAction {
   }
 
   public void execute(final MPSProject project, final List<SNode> nodesToMove) {
+    project.getRepository().getModelAccess().runReadAction(() -> {
+      if (ListSequence.fromList(nodesToMove).count() == 1 && SNodeOperations.isInstanceOf(SNodeOperations.getParent(ListSequence.fromList(nodesToMove).first()), CONCEPTS.BaseCommentAttribute$nv)) {
+        ListSequence.fromList(nodesToMove).addElement(SNodeOperations.getParent(ListSequence.fromList(nodesToMove).first()));
+        nodesToMove.remove(0);
+      }
+    });
+
     final NodeLocation newLocation = askLocation(project, nodesToMove);
     if (newLocation == null) {
       return;
@@ -93,5 +102,9 @@ public class MoveNodesActionBase implements MoveNodesAction {
         }
       }
     });
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$nv = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }
