@@ -5,8 +5,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
 import org.jdom.Element;
@@ -31,7 +30,7 @@ import com.intellij.execution.BeforeRunTask;
 import java.io.File;
 
 public final class MPSInstance_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration, Copyable<MPSInstance_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(MPSInstance_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(MPSInstance_Configuration.class);
   private MpsStartupSettings_Configuration myMpsSettings = new MpsStartupSettings_Configuration();
   private DeployPluginsSettings_Configuration myPluginsSettings = new DeployPluginsSettings_Configuration(this.getProject());
 
@@ -64,7 +63,7 @@ public final class MPSInstance_Configuration extends BaseMpsRunConfiguration imp
       if (fieldElement != null) {
         myMpsSettings.readExternal(fieldElement);
       } else {
-        if (LOG.isDebugEnabled()) {
+        if (LOG.isDebugLevel()) {
           LOG.debug("Element " + "myMpsSettings" + " in " + this.getClass().getName() + " was null.");
         }
       }
@@ -74,7 +73,7 @@ public final class MPSInstance_Configuration extends BaseMpsRunConfiguration imp
       if (fieldElement != null) {
         myPluginsSettings.readExternal(fieldElement);
       } else {
-        if (LOG.isDebugEnabled()) {
+        if (LOG.isDebugLevel()) {
           LOG.debug("Element " + "myPluginsSettings" + " in " + this.getClass().getName() + " was null.");
         }
       }

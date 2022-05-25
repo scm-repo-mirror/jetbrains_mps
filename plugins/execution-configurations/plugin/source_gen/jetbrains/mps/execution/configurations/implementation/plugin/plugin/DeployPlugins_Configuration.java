@@ -5,8 +5,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -22,7 +21,6 @@ import com.intellij.openapi.project.Project;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import org.apache.log4j.Level;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.RunProfileState;
@@ -39,7 +37,7 @@ import com.intellij.openapi.util.Key;
 import com.intellij.execution.BeforeRunTask;
 
 public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration, Copyable<DeployPlugins_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(DeployPlugins_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(DeployPlugins_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
   private DeployPluginsSettings_Configuration myPluginsSettings = new DeployPluginsSettings_Configuration(this.getProject());
@@ -72,7 +70,7 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
       if (fieldElement != null) {
         myPluginsSettings.readExternal(fieldElement);
       } else {
-        if (LOG.isDebugEnabled()) {
+        if (LOG.isDebugLevel()) {
           LOG.debug("Element " + "myPluginsSettings" + " in " + this.getClass().getName() + " was null.");
         }
       }
@@ -110,7 +108,7 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
       // the value of myState, and != clone as regular Java passer-by would expect.
       clone.myState = (MyState) myState.clone();
     } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("", ex);
       }
     }
@@ -166,7 +164,7 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
       try {
         return (MyState) clone();
       } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
         return null;

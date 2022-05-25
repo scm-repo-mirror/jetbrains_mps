@@ -5,7 +5,7 @@ package jetbrains.mps.plugin;
 import jetbrains.mps.annotations.GeneratedClass;
 import java.rmi.server.UnicastRemoteObject;
 import com.intellij.openapi.components.ProjectComponent;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.apache.log4j.LogManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.execution.rmi.RemoteServer;
@@ -26,7 +26,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import jetbrains.mps.textgen.trace.DebugInfo;
 import jetbrains.mps.textgen.trace.TraceInfo;
-import org.apache.log4j.Level;
 import jetbrains.mps.smodel.SNodePointer;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.WindowManager;
@@ -73,8 +72,8 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
  */
 @GeneratedClass(node = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)/8632185942131071134", model = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)")
 public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDEHandler, ProjectComponent {
-  private static final Logger LOG_1373119566 = LogManager.getLogger(MPSProjectIDEHandler.class);
-  private static final Logger LOG = LogManager.getLogger(MPSProjectIDEHandler.class);
+  private static final Logger LOG_1373119566 = Logger.getLogger(MPSProjectIDEHandler.class);
+  private static final org.apache.log4j.Logger LOG = LogManager.getLogger(MPSProjectIDEHandler.class);
   private Project myProject;
 
   static {
@@ -162,8 +161,8 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
       for (SModel model : QueueSequence.fromQueue(modelsByName)) {
         DebugInfo di = new TraceInfo().getDebugInfo(model);
         if (di == null) {
-          if (LOG_1373119566.isEnabledFor(Level.WARN)) {
-            LOG_1373119566.warn("Debug info not found for model " + SModelOperations.getModelName(model));
+          if (LOG_1373119566.isWarningLevel()) {
+            LOG_1373119566.warning("Debug info not found for model " + SModelOperations.getModelName(model));
           }
           continue;
         }

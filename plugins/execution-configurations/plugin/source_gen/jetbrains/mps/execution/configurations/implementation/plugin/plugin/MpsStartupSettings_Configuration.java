@@ -4,8 +4,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -18,10 +17,9 @@ import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.util.PathUtil;
 import com.intellij.openapi.application.PathManager;
 import java.io.File;
-import org.apache.log4j.Level;
 
 public final class MpsStartupSettings_Configuration implements IPersistentConfiguration, Copyable<MpsStartupSettings_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(MpsStartupSettings_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(MpsStartupSettings_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
 
@@ -82,7 +80,7 @@ public final class MpsStartupSettings_Configuration implements IPersistentConfig
       // the value of myState, and != clone as regular Java passer-by would expect.
       clone.myState = (MyState) myState.clone();
     } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("", ex);
       }
     }
@@ -138,7 +136,7 @@ public final class MpsStartupSettings_Configuration implements IPersistentConfig
       try {
         return (MyState) clone();
       } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
         return null;

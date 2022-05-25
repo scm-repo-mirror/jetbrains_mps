@@ -5,8 +5,7 @@ package jetbrains.mps.workbench.findusages;
 import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.persistence.FindUsagesParticipant;
 import com.intellij.openapi.Disposable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.workbench.ProjectModelFilter;
 import com.intellij.openapi.startup.StartupActivity;
@@ -50,7 +49,6 @@ import gnu.trove.THashSet;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
 import jetbrains.mps.vfs.IFile;
 import java.util.ArrayList;
-import org.apache.log4j.Level;
 import java.util.Arrays;
 import com.intellij.util.indexing.FileBasedIndex;
 import com.intellij.psi.impl.cache.impl.id.IdIndex;
@@ -61,7 +59,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 @GeneratedClass(node = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)/2810982631457564914", model = "r:9e8a9ffa-c450-4841-b749-c11aa0f49452(jetbrains.mps.workbench.findusages)")
 public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposable {
-  private static final Logger LOG = LogManager.getLogger(StubModelsFastFindSupport.class);
+  private static final Logger LOG = Logger.getLogger(StubModelsFastFindSupport.class);
   private final PersistenceRegistry myRegistry;
   private final ProjectModelFilter myModelFilter;
 
@@ -206,8 +204,8 @@ public class StubModelsFastFindSupport implements FindUsagesParticipant, Disposa
         // FIXME see MPSModelsFastFindSupport.findCandidates, there's need for additional VF check
         final VirtualFile vf = fsBridge.asVirtualFile(path);
         if (vf == null) {
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn("File " + path + ", which belows to model source of model " + sm.getReference().toString() + ", was not found in VFS. Assuming no usages in this file.");
+          if (LOG.isWarningLevel()) {
+            LOG.warning("File " + path + ", which belows to model source of model " + sm.getReference().toString() + ", was not found in VFS. Assuming no usages in this file.");
           }
           continue;
         }

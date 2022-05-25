@@ -4,8 +4,7 @@ package jetbrains.mps.ide.dialogs.project.creation;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.ui.DialogWrapper;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.ui.components.JBTextField;
@@ -30,7 +29,6 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.modules.LanguageProducer;
-import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.MPSExtentions;
@@ -39,7 +37,7 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 
 @GeneratedClass(node = "r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)/1613125646032872003", model = "r:478bf62d-84fb-4fba-aeda-183fb2769e64(jetbrains.mps.ide.dialogs.project.creation)")
 public class NewGeneratorDialog extends DialogWrapper {
-  private static final Logger LOG = LogManager.getLogger(NewGeneratorDialog.class);
+  private static final Logger LOG = Logger.getLogger(NewGeneratorDialog.class);
   private final JBPanel myContentPane;
   private TextFieldWithBrowseButton myModuleDir;
   private JBTextField myGeneratorName;
@@ -184,7 +182,7 @@ public class NewGeneratorDialog extends DialogWrapper {
         LanguageProducer.createTemplateModelIfNoneYet(newGenerator);
       } catch (Exception e) {
         // XXX again, why it's not common for any runModuleCreation?
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("Failed to create new generator module", e);
         }
         newGenerator = null;

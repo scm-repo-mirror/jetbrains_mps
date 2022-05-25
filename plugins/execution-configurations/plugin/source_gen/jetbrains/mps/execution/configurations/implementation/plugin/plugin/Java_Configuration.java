@@ -5,8 +5,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.execution.lib.NodeBySeveralConcepts_Configuration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class Java_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration, Copyable<Java_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(Java_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(Java_Configuration.class);
   private NodeBySeveralConcepts_Configuration myNode = new NodeBySeveralConcepts_Configuration(ListSequence.fromListAndArray(new ArrayList<NodesDescriptor>(), new NodesDescriptor(CONCEPTS.ClassConcept$bK, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
     public Boolean invoke(SNode node) {
       return (ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$bK)) != null);
@@ -108,7 +107,7 @@ public final class Java_Configuration extends BaseMpsRunConfiguration implements
       if (fieldElement != null) {
         myNode.readExternal(fieldElement);
       } else {
-        if (LOG.isDebugEnabled()) {
+        if (LOG.isDebugLevel()) {
           LOG.debug("Element " + "myNode" + " in " + this.getClass().getName() + " was null.");
         }
       }
@@ -118,7 +117,7 @@ public final class Java_Configuration extends BaseMpsRunConfiguration implements
       if (fieldElement != null) {
         myRunParameters.readExternal(fieldElement);
       } else {
-        if (LOG.isDebugEnabled()) {
+        if (LOG.isDebugLevel()) {
           LOG.debug("Element " + "myRunParameters" + " in " + this.getClass().getName() + " was null.");
         }
       }

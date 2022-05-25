@@ -5,8 +5,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -14,7 +13,6 @@ import org.jdom.Element;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.xmlb.XmlSerializer;
 import com.intellij.openapi.util.InvalidDataException;
-import org.apache.log4j.Level;
 import jetbrains.mps.debugger.java.api.settings.RemoteConnectionSettings;
 import com.intellij.openapi.project.Project;
 import com.intellij.execution.configurations.ConfigurationFactory;
@@ -33,7 +31,7 @@ import com.intellij.openapi.util.Key;
 import com.intellij.execution.BeforeRunTask;
 
 public final class Remote_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration, Copyable<Remote_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(Remote_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(Remote_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
 
@@ -62,7 +60,7 @@ public final class Remote_Configuration extends BaseMpsRunConfiguration implemen
       // the value of myState, and != clone as regular Java passer-by would expect.
       clone.myState = (MyState) myState.clone();
     } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("", ex);
       }
     }
@@ -102,7 +100,7 @@ public final class Remote_Configuration extends BaseMpsRunConfiguration implemen
       try {
         return (MyState) clone();
       } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
         return null;

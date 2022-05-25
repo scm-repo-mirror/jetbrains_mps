@@ -4,8 +4,7 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import javax.swing.Icon;
 import jetbrains.mps.icons.MPSIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -20,7 +19,6 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import jetbrains.mps.project.MPSProject;
 import javax.swing.tree.TreeNode;
 import org.jetbrains.mps.openapi.model.SModelName;
-import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 import java.util.List;
@@ -31,7 +29,7 @@ import jetbrains.mps.util.SModelNameComparator;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/2721881173282450312", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class NewSubTestModel_Action extends BaseAction {
-  private static final Logger LOG = LogManager.getLogger(NewSubTestModel_Action.class);
+  private static final Logger LOG = Logger.getLogger(NewSubTestModel_Action.class);
   private static final Icon ICON = MPSIcons.Nodes.TestModel;
 
   public NewSubTestModel_Action() {
@@ -98,8 +96,8 @@ public class NewSubTestModel_Action extends BaseAction {
       SModel parentModel = event.getData(MPSCommonDataKeys.CONTEXT_MODEL);
       SModel createdModel = parentModel.getModelRoot().createModel(testModelName.getValue());
       if (createdModel == null) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn(String.format("Can't create sub-model %s for model %s", testModelName, parentModel.getName()));
+        if (LOG.isWarningLevel()) {
+          LOG.warning(String.format("Can't create sub-model %s for model %s", testModelName, parentModel.getName()));
         }
         return;
       }

@@ -5,8 +5,7 @@ package jetbrains.mps.console.tool;
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
 import com.intellij.openapi.Disposable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.fileEditor.FileEditor;
@@ -27,7 +26,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
-import org.apache.log4j.Level;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
@@ -91,7 +89,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 @GeneratedClass(node = "r:de40a5a4-f08c-4c67-ac43-e1f5c384f7d6(jetbrains.mps.console.tool)/4914591330900787311", model = "r:de40a5a4-f08c-4c67-ac43-e1f5c384f7d6(jetbrains.mps.console.tool)")
 public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Disposable {
-  private static final Logger LOG = LogManager.getLogger(BaseConsoleTab.class);
+  private static final Logger LOG = Logger.getLogger(BaseConsoleTab.class);
   private ConsoleTool myTool;
   private SModel myModel;
   private MPSProject myProject;
@@ -191,7 +189,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
   protected void createConsoleModel() {
     this.myModel = TemporaryModels.getInstance().createLongTerm("ConsoleModel", TempModuleOptions.forDefaultModuleWithSourceAndClassesGen());
     if (myModel == null) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("Error: could not create console model");
       }
       return;
@@ -259,7 +257,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
   protected void addBuiltInImports() {
     final DevKit consoleDevkit = new ModuleRepositoryFacade(myProject).getModule(PersistenceFacade.getInstance().createModuleReference("70d3d6da-af63-483d-a75f-9c8acf8de332(jetbrains.mps.console.devkit)"), DevKit.class);
     if (consoleDevkit == null) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("Could not find console devkit in current repository");
       }
       return;
@@ -405,8 +403,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
       try {
         result.value = (myModel == null ? null : PersistenceUtil.saveModelToXml(myModel, myProject.getComponent(ModelFactoryService.class)));
       } catch (Exception e) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("Error on console model saving", e);
+        if (LOG.isWarningLevel()) {
+          LOG.warning("Error on console model saving", e);
         }
       }
     });
@@ -428,12 +426,12 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         public void visit(SNode it) {
           if ((SNodeOperations.getNodeAncestor(it, CONCEPTS.HistoryItem$vj, false, false) != null)) {
             SNodeOperations.deleteNode(SNodeOperations.getNodeAncestor(it, CONCEPTS.HistoryItem$vj, false, false));
-            if (LOG.isEnabledFor(Level.ERROR)) {
+            if (LOG.isErrorLevel()) {
               LOG.error("Unknown concept on loading console history: removing enclosing history item");
             }
           } else {
             loadedModel.value = null;
-            if (LOG.isEnabledFor(Level.ERROR)) {
+            if (LOG.isErrorLevel()) {
               LOG.error("Unknown concept on loading console history: not loading history");
             }
           }
@@ -441,12 +439,12 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
       });
       return loadedModel.value;
     } catch (RuntimeException e) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("Console history was not loaded. Maybe you are opening project from previous MPS versions?");
       }
       return null;
     } catch (Throwable e) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("Error on loading console history.", e);
       }
       return null;

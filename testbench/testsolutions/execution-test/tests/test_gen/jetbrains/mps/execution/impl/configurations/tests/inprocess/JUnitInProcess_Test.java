@@ -4,8 +4,7 @@ package jetbrains.mps.execution.impl.configurations.tests.inprocess;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
@@ -33,7 +32,7 @@ import com.intellij.execution.ExecutionException;
 
 @MPSLaunch
 public class JUnitInProcess_Test extends BaseTransformationTest {
-  private static final Logger LOG = LogManager.getLogger(JUnitInProcess_Test.class);
+  private static final Logger LOG = Logger.getLogger(JUnitInProcess_Test.class);
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitInProcess_Test.class, "${mps_home}", "r:ff98d12f-bc65-4639-94c3-dee022b33791(jetbrains.mps.execution.impl.configurations.tests.inprocess@tests)", false);
 
@@ -72,7 +71,7 @@ public class JUnitInProcess_Test extends BaseTransformationTest {
         Project ideaProject = ((MPSProject) myProject).getProject();
         JUnitTests_Configuration junitRC = new JUnitTests_Configuration(ideaProject, null, "dummyRCInitializer");
         JUnitProcessStarter processExecutor = new JUnitInProcessRunStarter(myProject, junitRC, testNodes);
-        if (LOG.isInfoEnabled()) {
+        if (LOG.isInfoLevel()) {
           LOG.info("Starting in-process-execution");
         }
         ProcessHandler process = processExecutor.execute();

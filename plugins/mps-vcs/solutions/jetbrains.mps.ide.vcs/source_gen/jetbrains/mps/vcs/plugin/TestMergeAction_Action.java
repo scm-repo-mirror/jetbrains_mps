@@ -4,8 +4,7 @@ package jetbrains.mps.vcs.plugin;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
@@ -31,11 +30,10 @@ import jetbrains.mps.fileTypes.MPSFileTypeFactory;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.diff.DiffManager;
 import com.intellij.diff.InvalidDiffRequestException;
-import org.apache.log4j.Level;
 
 @GeneratedClass(node = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)/5047908084943665620", model = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)")
 public class TestMergeAction_Action extends BaseAction {
-  private static final Logger LOG = LogManager.getLogger(TestMergeAction_Action.class);
+  private static final Logger LOG = Logger.getLogger(TestMergeAction_Action.class);
   private static final Icon ICON = null;
 
   public TestMergeAction_Action() {
@@ -92,7 +90,7 @@ public class TestMergeAction_Action extends BaseAction {
         MergeRequest request = DiffRequestFactory.getInstance().createMergeRequest(((Project) MapSequence.fromMap(_params).get("project")), MPSFileTypeFactory.MPS_FILE_TYPE, FileDocumentManager.getInstance().getDocument(resFile), contents, "Merge files from " + vFile + " and save result to " + resFilePath, titles, null);
         DiffManager.getInstance().showMerge(((Project) MapSequence.fromMap(_params).get("project")), request);
       } catch (InvalidDiffRequestException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
       }

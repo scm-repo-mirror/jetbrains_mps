@@ -4,8 +4,7 @@ package jetbrains.mps.vcs.plugin;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
@@ -42,7 +41,6 @@ import com.intellij.diff.DiffRequestFactory;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.diff.DiffManager;
 import java.io.IOException;
-import org.apache.log4j.Level;
 import com.intellij.diff.InvalidDiffRequestException;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.vfs.IFile;
@@ -50,7 +48,7 @@ import jetbrains.mps.generator.ModelDigestUtil;
 
 @GeneratedClass(node = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)/7545884443035896082", model = "r:5ec7bf64-acd2-448b-8f9b-ce1b8d920038(jetbrains.mps.vcs.plugin)")
 public class ReRunMergeFromBackup_Action extends BaseAction {
-  private static final Logger LOG = LogManager.getLogger(ReRunMergeFromBackup_Action.class);
+  private static final Logger LOG = Logger.getLogger(ReRunMergeFromBackup_Action.class);
   private static final Icon ICON = null;
 
   public ReRunMergeFromBackup_Action() {
@@ -154,13 +152,13 @@ public class ReRunMergeFromBackup_Action extends BaseAction {
         DiffManager.getInstance().showMerge(((Project) MapSequence.fromMap(_params).get("project")), request);
         return;
       } catch (IOException e) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("", e);
+        if (LOG.isWarningLevel()) {
+          LOG.warning("", e);
         }
         // Skip this backup
         continue;
       } catch (InvalidDiffRequestException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
       }

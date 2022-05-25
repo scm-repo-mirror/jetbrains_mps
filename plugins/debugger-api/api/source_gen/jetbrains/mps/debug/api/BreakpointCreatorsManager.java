@@ -4,8 +4,7 @@ package jetbrains.mps.debug.api;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.components.ApplicationComponent;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
@@ -18,14 +17,13 @@ import jetbrains.mps.debug.api.breakpoints.ILocationBreakpoint;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import org.apache.log4j.Level;
 import jetbrains.mps.textgen.trace.TraceablePositionInfo;
 import jetbrains.mps.textgen.trace.TraceInfo;
 import com.intellij.openapi.application.ApplicationManager;
 
 @GeneratedClass(node = "r:c02662c0-67c5-4c3a-8d3a-cd7ffe189340(jetbrains.mps.debug.api)/4474271214082914913", model = "r:c02662c0-67c5-4c3a-8d3a-cd7ffe189340(jetbrains.mps.debug.api)")
 public class BreakpointCreatorsManager implements ApplicationComponent {
-  private static final Logger LOG = LogManager.getLogger(BreakpointCreatorsManager.class);
+  private static final Logger LOG = Logger.getLogger(BreakpointCreatorsManager.class);
   private Set<BreakpointCreator> myCreators = SetSequence.fromSet(new LinkedHashSet<BreakpointCreator>());
 
   public BreakpointCreatorsManager() {
@@ -59,8 +57,8 @@ public class BreakpointCreatorsManager implements ApplicationComponent {
       if (creator._0().invoke(concept, node)) {
         _FunctionTypes._return_P2_E0<? extends ILocationBreakpoint, ? super SNode, ? super Project> function = creator._1();
         if (function == null) {
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn("Could not create breakpoint for node " + SNodeOperations.present(node));
+          if (LOG.isWarningLevel()) {
+            LOG.warning("Could not create breakpoint for node " + SNodeOperations.present(node));
           }
           return null;
         }

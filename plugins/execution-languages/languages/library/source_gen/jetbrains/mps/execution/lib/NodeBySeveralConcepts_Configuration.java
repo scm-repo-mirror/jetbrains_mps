@@ -4,8 +4,7 @@ package jetbrains.mps.execution.lib;
 
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -26,11 +25,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import org.apache.log4j.Level;
 import java.util.List;
 
 public final class NodeBySeveralConcepts_Configuration implements IPersistentConfiguration, Copyable<NodeBySeveralConcepts_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(NodeBySeveralConcepts_Configuration.class);
+  private static final Logger LOG = Logger.getLogger(NodeBySeveralConcepts_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
 
@@ -115,7 +113,7 @@ public final class NodeBySeveralConcepts_Configuration implements IPersistentCon
       // the value of myState, and != clone as regular Java passer-by would expect.
       clone.myState = (MyState) myState.clone();
     } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("", ex);
       }
     }
@@ -163,7 +161,7 @@ public final class NodeBySeveralConcepts_Configuration implements IPersistentCon
       try {
         return (MyState) clone();
       } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("", e);
         }
         return null;
