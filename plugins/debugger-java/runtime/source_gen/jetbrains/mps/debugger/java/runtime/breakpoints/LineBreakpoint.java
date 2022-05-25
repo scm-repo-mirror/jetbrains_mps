@@ -19,7 +19,6 @@ import com.sun.jdi.request.BreakpointRequest;
 import com.sun.jdi.ClassNotPreparedException;
 import com.sun.jdi.ObjectCollectedException;
 import com.sun.jdi.InvalidLineNumberException;
-import com.sun.jdi.InternalException;
 import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
@@ -72,7 +71,7 @@ public class LineBreakpoint extends JavaBreakpoint implements ILocationBreakpoin
     } catch (InvalidLineNumberException ex) {
       requestManager.setInvalid(this, "no executable code found");
       LOG.warning("InvalidLineNumberException: " + ex.getMessage());
-    } catch (InternalException | Exception ex) {
+    } catch (Exception ex) {
       LOG.error(ex);
     }
   }

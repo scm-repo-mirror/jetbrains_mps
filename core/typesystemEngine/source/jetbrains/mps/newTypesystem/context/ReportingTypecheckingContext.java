@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.QuickFixProvider;
 import jetbrains.mps.errors.SimpleErrorReporter;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.newTypesystem.EquationErrorReporterNew;
 import jetbrains.mps.newTypesystem.context.component.SimpleTypecheckingComponent;
 import jetbrains.mps.newTypesystem.context.typechecking.ReportingTypechecking;
@@ -28,8 +29,6 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typesystem.inference.TypeCheckerHelper;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.util.SNodeOperations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -42,7 +41,7 @@ public abstract class ReportingTypecheckingContext<
     TCHECK extends ReportingTypechecking<STATE, ? extends SimpleTypecheckingComponent<STATE>>>
   extends SimpleTypecheckingContext<STATE, TCHECK> {
 
-  private static Logger LOG = LogManager.getLogger(ReportingTypecheckingContext.class);
+  private static Logger LOG = Logger.getLogger(ReportingTypecheckingContext.class);
 
   public ReportingTypecheckingContext(SNode rootNode, TypeCheckerHelper typeCheckerHelper) {
     super(rootNode, typeCheckerHelper);

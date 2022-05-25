@@ -4298,8 +4298,7 @@
                         <ref role="3cqZAo" node="7Lv9a5UcAoC" resolve="LOG" />
                       </node>
                       <node concept="liA8E" id="7Lv9a5UcApR" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                        <node concept="10Nm6u" id="4t57iE9VLs$" role="37wK5m" />
+                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                         <node concept="37vLTw" id="3GM_nagTwkt" role="37wK5m">
                           <ref role="3cqZAo" node="7Lv9a5UcApT" resolve="t" />
                         </node>
@@ -4375,8 +4374,7 @@
                         <ref role="3cqZAo" node="7Lv9a5UcAoC" resolve="LOG" />
                       </node>
                       <node concept="liA8E" id="7Lv9a5UcAqi" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                        <node concept="10Nm6u" id="4t57iE9VL$J" role="37wK5m" />
+                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                         <node concept="37vLTw" id="3GM_nagTul3" role="37wK5m">
                           <ref role="3cqZAo" node="7Lv9a5UcAqk" resolve="t" />
                         </node>
@@ -4452,8 +4450,7 @@
                         <ref role="3cqZAo" node="7Lv9a5UcAoC" resolve="LOG" />
                       </node>
                       <node concept="liA8E" id="7Lv9a5UcAqI" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                        <node concept="10Nm6u" id="4t57iE9VLGZ" role="37wK5m" />
+                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                         <node concept="37vLTw" id="3GM_nagTzZn" role="37wK5m">
                           <ref role="3cqZAo" node="7Lv9a5UcAqK" resolve="t" />
                         </node>
@@ -4537,8 +4534,7 @@
                         <ref role="3cqZAo" node="7Lv9a5UcAoC" resolve="LOG" />
                       </node>
                       <node concept="liA8E" id="7Lv9a5UcArc" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                        <node concept="10Nm6u" id="4t57iE9VLPj" role="37wK5m" />
+                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                         <node concept="37vLTw" id="3GM_nagTz45" role="37wK5m">
                           <ref role="3cqZAo" node="7Lv9a5UcAre" resolve="t" />
                         </node>
@@ -4614,8 +4610,7 @@
                         <ref role="3cqZAo" node="7Lv9a5UcAoC" resolve="LOG" />
                       </node>
                       <node concept="liA8E" id="7Lv9a5UcArD" role="2OqNvi">
-                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                        <node concept="10Nm6u" id="4t57iE9VLk2" role="37wK5m" />
+                        <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                         <node concept="37vLTw" id="3GM_nagTyeP" role="37wK5m">
                           <ref role="3cqZAo" node="7Lv9a5UcArF" resolve="t" />
                         </node>

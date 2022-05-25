@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,10 @@ package jetbrains.mps.core.aspects.constraints.rules;
 
 import jetbrains.mps.core.aspects.behaviour.SConceptC3StarMRO;
 import jetbrains.mps.core.context.Context;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.language.ConceptInLoadingStorage;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -39,7 +38,6 @@ import static java.util.Objects.requireNonNull;
  * @author apyshkin
  */
 public final class RulesConstraintsRegistry {
-  private static final Logger LOG = LogManager.getLogger(RulesConstraintsRegistry.class);
 
   private final LanguageRegistry myLanguageRegistry;
   private final SConceptC3StarMRO myMro;
@@ -64,7 +62,7 @@ public final class RulesConstraintsRegistry {
     try {
       LanguageRuntime conceptLang = myLanguageRegistry.getLanguage(concept.getLanguage());
       if (conceptLang == null) {
-        LOG.warn("No language for: " + concept + ", while looking for constraints descriptor.");
+        Logger.getLogger(RulesConstraintsRegistry.class).warning("No language for: " + concept + ", while looking for constraints descriptor.");
       } else {
         RulesConstraintsAspect aspect = conceptLang.getAspect(RulesConstraintsAspect.class);
         if (aspect != null) {

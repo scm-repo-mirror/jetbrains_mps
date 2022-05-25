@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,11 @@ import jetbrains.mps.newTypesystem.context.CachingTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.HoleTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.InferenceTypecheckingContext;
-import jetbrains.mps.newTypesystem.context.TargetTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.TracingTypecheckingContext;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.ITypechecking.Computation;
 import jetbrains.mps.typesystem.inference.util.SubtypingCache;
 import jetbrains.mps.util.Computable;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -39,8 +36,6 @@ import org.jetbrains.mps.openapi.model.SNode;
  */
 @Deprecated (forRemoval = true)
 public class TypeContextManager implements CoreComponent {
-
-  private static final Logger LOG = LogManager.getLogger(TypeContextManager.class);
 
   private static TypeContextManager INSTANCE;
 

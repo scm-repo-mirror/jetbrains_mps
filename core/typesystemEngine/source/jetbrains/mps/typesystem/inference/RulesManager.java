@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,35 +30,31 @@ import jetbrains.mps.lang.typesystem.runtime.OverloadedOperationsManager;
 import jetbrains.mps.lang.typesystem.runtime.RuleSet;
 import jetbrains.mps.lang.typesystem.runtime.SubstituteType_Runtime;
 import jetbrains.mps.lang.typesystem.runtime.SubtypingRule_Runtime;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.util.Pair;
-import jetbrains.mps.util.containers.MultiMap;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class RulesManager {
 
-  private RuleSet<InferenceRule_Runtime> myInferenceRules = new CheckingRuleSet<>();
-  private RuleSet<SubtypingRule_Runtime> mySubtypingRules = new RuleSet<>();
-  private RuleSet<SubstituteType_Runtime> mySubstituteTypeRules = new RuleSet<>();
-  private DoubleRuleSet<ComparisonRule_Runtime> myComparisonRules = new DoubleRuleSet<>();
-  private DoubleRuleSet<InequationReplacementRule_Runtime> myReplacementRules = new DoubleRuleSet<>();
-  private RuleSet<NonTypesystemRule_Runtime> myNonTypeSystemRules = new CheckingRuleSet<>();
+  private final RuleSet<InferenceRule_Runtime> myInferenceRules = new CheckingRuleSet<>();
+  private final RuleSet<SubtypingRule_Runtime> mySubtypingRules = new RuleSet<>();
+  private final RuleSet<SubstituteType_Runtime> mySubstituteTypeRules = new RuleSet<>();
+  private final DoubleRuleSet<ComparisonRule_Runtime> myComparisonRules = new DoubleRuleSet<>();
+  private final DoubleRuleSet<InequationReplacementRule_Runtime> myReplacementRules = new DoubleRuleSet<>();
+  private final RuleSet<NonTypesystemRule_Runtime> myNonTypeSystemRules = new CheckingRuleSet<>();
 
-  private Set<IVariableConverter_Runtime> myVariableConverters = new THashSet<>();
+  private final Set<IVariableConverter_Runtime> myVariableConverters = new THashSet<>();
 
-  private OverloadedOperationsManager myOverloadedOperationsManager;
+  private final OverloadedOperationsManager myOverloadedOperationsManager;
 
-  private static final Logger LOG = LogManager.getLogger(RulesManager.class);
+  private static final Logger LOG = Logger.getLogger(RulesManager.class);
   private volatile boolean myNeedsLoading = false;
   private Set<LanguageRuntime> myLoadedLanguages = new HashSet<>();
   private Set<LanguageRuntime> myLanguagesToLoad = new HashSet<>();
@@ -92,7 +88,7 @@ public class RulesManager {
         try {
           typesystem = language.getAspect(IHelginsDescriptor.class);
         } catch (LinkageError linkageError) {
-          LOG.warn("Problems with creating typesystem descriptor " + linkageError.getMessage());
+          LOG.warning("Problems with creating typesystem descriptor " + linkageError.getMessage());
         } catch (Throwable t) {
           LOG.error("Error while loading language: " + language.getNamespace(), t);
         }
@@ -110,6 +106,7 @@ public class RulesManager {
           myNonTypeSystemRules.addRuleSetItem(typesystem.getNonTypesystemRules());
           myOverloadedOperationsManager.addOverloadedOperationsTypeProviders(typesystem.getOverloadedOperationsTypesProviders());
         } catch (RuntimeException t) {
+          // ignore ?!
         }
       }
 

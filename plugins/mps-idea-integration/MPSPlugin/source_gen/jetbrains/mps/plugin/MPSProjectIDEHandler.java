@@ -71,7 +71,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
  */
 @GeneratedClass(node = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)/8632185942131071134", model = "r:20925211-384c-4c5f-b751-56b79dd3b32e(jetbrains.mps.plugin)")
 public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDEHandler, ProjectComponent {
-  private static final Logger LOG_1373119566 = Logger.getLogger(MPSProjectIDEHandler.class);
   private static final Logger LOG = Logger.getLogger(MPSProjectIDEHandler.class);
   private Project myProject;
 
@@ -116,7 +115,9 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
           try {
             handler.removeIdeHandler(MPSProjectIDEHandler.this);
           } catch (RemoteException e) {
-            MPSProjectIDEHandler.LOG.error(null, e);
+            if (LOG.isErrorLevel()) {
+              LOG.error("", e);
+            }
           }
         }
         try {
@@ -160,8 +161,8 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
       for (SModel model : QueueSequence.fromQueue(modelsByName)) {
         DebugInfo di = new TraceInfo().getDebugInfo(model);
         if (di == null) {
-          if (LOG_1373119566.isWarningLevel()) {
-            LOG_1373119566.warning("Debug info not found for model " + SModelOperations.getModelName(model));
+          if (LOG.isWarningLevel()) {
+            LOG.warning("Debug info not found for model " + SModelOperations.getModelName(model));
           }
           continue;
         }
@@ -265,7 +266,9 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
         SearchScope scope = new GlobalScope(mpsProject.getRepository());
         SNode cls = findClassByName(scope, fqName);
         if (cls == null) {
-          MPSProjectIDEHandler.LOG.error("Can't find a class " + fqName);
+          if (LOG.isErrorLevel()) {
+            LOG.error("Can't find a class " + fqName);
+          }
           return;
         }
         ProjectUtil.focusProjectWindow(myProject, true);
@@ -280,14 +283,18 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
       @Override
       public void run() {
         if (classFqName == null || methodName == null) {
-          MPSProjectIDEHandler.LOG.error("Can't find a method " + classFqName + "." + methodName);
+          if (LOG.isErrorLevel()) {
+            LOG.error(String.format("Can't find a method %s.%s", classFqName, methodName));
+          }
           return;
 
         }
         SearchScope scope = new GlobalScope(mpsProject.getRepository());
         SNode cls = findClassByName(scope, classFqName);
         if (cls == null) {
-          MPSProjectIDEHandler.LOG.error("Can't find a class " + classFqName);
+          if (LOG.isErrorLevel()) {
+            LOG.error("Can't find a class " + classFqName);
+          }
           return;
         }
         Iterable<SNode> allMethods = SNodeOperations.ofConcept(SNodeOperations.getChildren(cls), CONCEPTS.BaseMethodDeclaration$kD);
@@ -297,7 +304,9 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
           }
         });
         if (method == null) {
-          MPSProjectIDEHandler.LOG.error("Can't find a method " + classFqName + "." + methodName);
+          if (LOG.isErrorLevel()) {
+            LOG.error(String.format("Can't find a method %s.%s", classFqName, methodName));
+          }
           return;
         }
         ProjectUtil.focusProjectWindow(myProject, true);

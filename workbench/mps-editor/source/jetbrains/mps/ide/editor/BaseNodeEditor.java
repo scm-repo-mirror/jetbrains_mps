@@ -24,6 +24,7 @@ import com.intellij.util.ui.JBUI;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.nodeEditor.EditorPanelManagerImpl;
 import jetbrains.mps.nodeEditor.InspectorTool;
@@ -36,8 +37,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import jetbrains.mps.project.Project;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -55,7 +54,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public abstract class BaseNodeEditor implements Editor {
-  private static final Logger LOG = LogManager.getLogger(BaseNodeEditor.class);
+  private static final Logger LOG = Logger.getLogger(BaseNodeEditor.class);
 
   private NodeEditorComponent myEditorComponent;
   private final JComponent myComponent = new EditorPanel();

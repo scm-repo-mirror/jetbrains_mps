@@ -14,7 +14,7 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="frkw" ref="b387285c-3448-452c-b3bb-a3f8de8eaf08/java:com.sun.jdi(JDK-tools/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -2152,21 +2152,6 @@
         </node>
       </node>
     </node>
-    <node concept="Wx3nA" id="46sxDGTfoic" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="2YIFZM" id="3AvZeSkP3lS" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-        <node concept="3VsKOn" id="3AvZeSkP3lT" role="37wK5m">
-          <ref role="3VsUkX" node="46sxDGTfoi9" resolve="TargetVMEvaluationException" />
-        </node>
-      </node>
-      <node concept="3Tm6S6" id="46sxDGTfoie" role="1B3o_S" />
-      <node concept="3uibUv" id="3AvZeSkP3lK" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-    </node>
     <node concept="3clFbW" id="46sxDGTfoih" role="jymVt">
       <node concept="3Tm1VV" id="46sxDGTfoii" role="1B3o_S" />
       <node concept="3cqZAl" id="46sxDGTfoij" role="3clF45" />
@@ -2509,16 +2494,19 @@
                 <node concept="3uibUv" id="46sxDGTfoiZ" role="nSUat">
                   <ref role="3uigEE" to="wyt6:~ClassCastException" resolve="ClassCastException" />
                 </node>
+                <node concept="3uibUv" id="2hdoiXP3m6B" role="nSUat">
+                  <ref role="3uigEE" node="46sxDGTfogQ" resolve="EvaluationException" />
+                </node>
               </node>
             </node>
             <node concept="3clFbS" id="46sxDGTfoiP" role="1zc67A">
               <node concept="3clFbF" id="46sxDGTfoiQ" role="3cqZAp">
                 <node concept="2OqwBi" id="3AvZeSkP3m1" role="3clFbG">
                   <node concept="liA8E" id="3AvZeSkP3m2" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.warn(java.lang.Object,java.lang.Throwable)" resolve="warn" />
+                    <ref role="37wK5l" to="wwqx:~Logger.warning(java.lang.String,java.lang.Throwable)" resolve="warning" />
                     <node concept="3cpWs3" id="46sxDGTfoiU" role="37wK5m">
                       <node concept="Xl_RD" id="46sxDGTfoiV" role="3uHU7B">
-                        <property role="Xl_RC" value="Cant create TargetVMEvaluationException for " />
+                        <property role="Xl_RC" value="Can't create TargetVMEvaluationException for " />
                       </node>
                       <node concept="37vLTw" id="2BHiRxglKXL" role="3uHU7w">
                         <ref role="3cqZAo" node="46sxDGTfoiu" resolve="e" />
@@ -2528,42 +2516,12 @@
                       <ref role="3cqZAo" node="46sxDGTfoiY" resolve="exception" />
                     </node>
                   </node>
-                  <node concept="37vLTw" id="2BHiRxeoie4" role="2Oq$k0">
-                    <ref role="3cqZAo" node="46sxDGTfoic" resolve="LOG" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3uVAMA" id="46sxDGTfoj0" role="1zxBo5">
-            <node concept="XOnhg" id="46sxDGTfoja" role="1zc67B">
-              <property role="3TUv4t" value="false" />
-              <property role="TrG5h" value="exception" />
-              <node concept="nSUau" id="xvs04dGZbQ" role="1tU5fm">
-                <node concept="3uibUv" id="46sxDGTfojb" role="nSUat">
-                  <ref role="3uigEE" node="46sxDGTfogQ" resolve="EvaluationException" />
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbS" id="46sxDGTfoj1" role="1zc67A">
-              <node concept="3clFbF" id="46sxDGTfoj2" role="3cqZAp">
-                <node concept="2OqwBi" id="3AvZeSkP3mf" role="3clFbG">
-                  <node concept="liA8E" id="3AvZeSkP3mg" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.warn(java.lang.Object,java.lang.Throwable)" resolve="warn" />
-                    <node concept="3cpWs3" id="46sxDGTfoj6" role="37wK5m">
-                      <node concept="Xl_RD" id="46sxDGTfoj7" role="3uHU7B">
-                        <property role="Xl_RC" value="Cant create TargetVMEvaluationException for " />
-                      </node>
-                      <node concept="37vLTw" id="2BHiRxgm6Pn" role="3uHU7w">
-                        <ref role="3cqZAo" node="46sxDGTfoiu" resolve="e" />
-                      </node>
+                  <node concept="2YIFZM" id="2hdoiXP3r_C" role="2Oq$k0">
+                    <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                    <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                    <node concept="3VsKOn" id="3AvZeSkP3lT" role="37wK5m">
+                      <ref role="3VsUkX" node="46sxDGTfoi9" resolve="TargetVMEvaluationException" />
                     </node>
-                    <node concept="37vLTw" id="3GM_nagTzOW" role="37wK5m">
-                      <ref role="3cqZAo" node="46sxDGTfoja" resolve="exception" />
-                    </node>
-                  </node>
-                  <node concept="37vLTw" id="2BHiRxeoqzY" role="2Oq$k0">
-                    <ref role="3cqZAo" node="46sxDGTfoic" resolve="LOG" />
                   </node>
                 </node>
               </node>

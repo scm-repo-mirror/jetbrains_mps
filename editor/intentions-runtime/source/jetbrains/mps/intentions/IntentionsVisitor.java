@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,15 @@
  */
 package jetbrains.mps.intentions;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.intentions.IntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionFactory;
 import jetbrains.mps.openapi.intentions.Kind;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +36,6 @@ interface IntentionsVisitor {
 
   class CollectAvailableIntentionsVisitor implements IntentionsVisitor {
 
-    private static final Logger LOG = LogManager.getLogger(IntentionsManager.class);
     private final EditorContext myEditorContext;
     private final Map<IntentionExecutable, Kind> result = new HashMap<>();
 
@@ -54,7 +51,7 @@ interface IntentionsVisitor {
             result.put(executable, intentionFactory.getKind());
           }
         } catch (Throwable t) {
-          LOG.error("Exception during parameterized intentions instantiation", t);
+          Logger.getLogger(IntentionsVisitor.class).error("Exception during parameterized intentions instantiation", t);
         }
       }
       return true;
@@ -84,7 +81,7 @@ interface IntentionsVisitor {
             break;
           }
         } catch (Throwable t) {
-          LogManager.getLogger(IntentionsVisitor.class).error("Exception during parameterized intentions instantiation", t);
+          Logger.getLogger(IntentionsVisitor.class).error("Exception during parameterized intentions instantiation", t);
         }
       }
       if (!isEmpty) {

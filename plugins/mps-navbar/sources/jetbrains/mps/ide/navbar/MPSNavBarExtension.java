@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.ide.navbar;
 
@@ -11,18 +11,15 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
-import com.intellij.psi.impl.light.LightElement;
 import com.intellij.util.Processor;
 import jetbrains.mps.ide.actions.SModelActionData;
 import jetbrains.mps.ide.actions.SModuleActionData;
+import jetbrains.mps.ide.actions.SNodeActionData;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.psi.MPSPsiElement;
 import jetbrains.mps.psi.MPSPsiModel;
 import jetbrains.mps.psi.MPSPsiModule;
 import jetbrains.mps.psi.MPSPsiNode;
-import jetbrains.mps.ide.actions.SNodeActionData;
-import jetbrains.mps.psi.MPSPsiProject;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,7 +32,7 @@ import java.util.Collections;
  * @author apyshkin
  */
 public class MPSNavBarExtension implements NavBarModelExtension {
-  private static final Logger LOG = LogManager.getLogger(MPSNavBarExtension.class);
+  private static final Logger LOG = Logger.getLogger(MPSNavBarExtension.class);
 
   @Nullable
   @Override
@@ -66,7 +63,7 @@ public class MPSNavBarExtension implements NavBarModelExtension {
   public PsiElement getLeafElement(@NotNull DataContext dataContext) {
     Project p = dataContext.getData(PlatformDataKeys.PROJECT);
     if (p == null) {
-      LOG.warn("the project is not located");
+      LOG.warning("the project is not located");
       return null;
     }
     SNodeActionData data = dataContext.getData(SNodeActionData.KEY);

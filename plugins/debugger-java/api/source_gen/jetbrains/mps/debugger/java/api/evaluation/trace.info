@@ -392,55 +392,49 @@
   </root>
   <root nodeRef="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)/4727801710070563977">
     <file name="TargetVMEvaluationException.java">
-      <node id="4727801710070563980" at="22,0,23,0" concept="9" trace="LOG" />
-      <node id="4727801710070563992" at="23,70,24,18" concept="13" />
-      <node id="4727801710070564005" at="26,113,27,48" concept="11" />
-      <node id="4727801710070564018" at="28,34,29,13" concept="8" />
-      <node id="7157912897227775558" at="31,9,32,115" concept="7" />
-      <node id="4727801710070564055" at="32,115,33,153" concept="7" />
-      <node id="4727801710070564065" at="33,153,34,42" concept="7" />
-      <node id="4727801710070564071" at="34,42,35,72" concept="7" />
-      <node id="4727801710070564090" at="36,40,37,93" concept="7" />
-      <node id="4727801710070564099" at="37,93,38,336" concept="2" />
-      <node id="4727801710070564138" at="39,7,40,35" concept="2" />
-      <node id="4727801710070564022" at="41,44,42,78" concept="2" />
-      <node id="4727801710070564034" at="43,45,44,78" concept="2" />
-      <node id="4727801710070563985" at="23,0,26,0" concept="1" trace="TargetVMEvaluationException#(Lcom/sun/jdi/InvocationException;)V" />
-      <node id="4727801710070564013" at="27,48,30,5" concept="5" />
-      <node id="4727801710070564080" at="35,72,39,7" concept="4" />
-      <node id="4727801710070564019" at="30,5,45,5" concept="15" />
-      <node id="4727801710070563995" at="26,0,47,0" concept="1" trace="TargetVMEvaluationException#(Lcom/sun/jdi/InvocationException;Lcom/sun/jdi/ThreadReference;)V" />
-      <scope id="4727801710070563991" at="23,70,24,18" />
-      <scope id="4727801710070564017" at="28,34,29,13" />
-      <scope id="4727801710070564021" at="41,44,42,78" />
-      <scope id="4727801710070564033" at="43,45,44,78" />
-      <scope id="4727801710070564089" at="36,40,38,336">
+      <node id="4727801710070563992" at="21,70,22,18" concept="13" />
+      <node id="4727801710070564005" at="24,113,25,48" concept="11" />
+      <node id="4727801710070564018" at="26,34,27,13" concept="8" />
+      <node id="7157912897227775558" at="29,9,30,115" concept="7" />
+      <node id="4727801710070564055" at="30,115,31,153" concept="7" />
+      <node id="4727801710070564065" at="31,153,32,42" concept="7" />
+      <node id="4727801710070564071" at="32,42,33,72" concept="7" />
+      <node id="4727801710070564090" at="34,40,35,93" concept="7" />
+      <node id="4727801710070564099" at="35,93,36,336" concept="2" />
+      <node id="4727801710070564138" at="37,7,38,35" concept="2" />
+      <node id="4727801710070564022" at="39,66,40,130" concept="2" />
+      <node id="4727801710070563985" at="21,0,24,0" concept="1" trace="TargetVMEvaluationException#(Lcom/sun/jdi/InvocationException;)V" />
+      <node id="4727801710070564013" at="25,48,28,5" concept="5" />
+      <node id="4727801710070564080" at="33,72,37,7" concept="4" />
+      <node id="4727801710070564019" at="28,5,41,5" concept="15" />
+      <node id="4727801710070563995" at="24,0,43,0" concept="1" trace="TargetVMEvaluationException#(Lcom/sun/jdi/InvocationException;Lcom/sun/jdi/ThreadReference;)V" />
+      <scope id="4727801710070563991" at="21,70,22,18" />
+      <scope id="4727801710070564017" at="26,34,27,13" />
+      <scope id="4727801710070564021" at="39,66,40,130" />
+      <scope id="4727801710070564089" at="34,40,36,336">
         <var name="stackTraceElement" id="4727801710070564091" />
       </scope>
-      <scope id="4727801710070564020" at="41,5,43,5">
+      <scope id="4727801710070564020" at="39,5,41,5">
         <var name="exception" id="4727801710070564030" />
       </scope>
-      <scope id="4727801710070564032" at="43,5,45,5">
-        <var name="exception" id="4727801710070564042" />
-      </scope>
-      <scope id="4727801710070563985" at="23,0,26,0">
+      <scope id="4727801710070563985" at="21,0,24,0">
         <var name="e" id="4727801710070563988" />
       </scope>
-      <scope id="4727801710070564080" at="35,72,39,7">
+      <scope id="4727801710070564080" at="33,72,37,7">
         <var name="i" id="4727801710070564084" />
       </scope>
-      <scope id="4727801710070564044" at="31,9,40,35">
+      <scope id="4727801710070564044" at="29,9,38,35">
         <var name="exceptionProxy" id="7157912897227775559" />
         <var name="length" id="4727801710070564066" />
         <var name="newStackTrace" id="4727801710070564072" />
         <var name="stackTrace" id="4727801710070564056" />
       </scope>
-      <scope id="4727801710070564004" at="26,113,45,5" />
-      <scope id="4727801710070563995" at="26,0,47,0">
+      <scope id="4727801710070564004" at="24,113,41,5" />
+      <scope id="4727801710070563995" at="24,0,43,0">
         <var name="e" id="4727801710070563998" />
         <var name="threadReference" id="4727801710070564001" />
       </scope>
-      <unit id="4727801710070563977" at="20,0,48,0" name="jetbrains.mps.debugger.java.api.evaluation.TargetVMEvaluationException" />
+      <unit id="4727801710070563977" at="19,0,44,0" name="jetbrains.mps.debugger.java.api.evaluation.TargetVMEvaluationException" />
     </file>
   </root>
   <root nodeRef="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)/4727801710070564141">

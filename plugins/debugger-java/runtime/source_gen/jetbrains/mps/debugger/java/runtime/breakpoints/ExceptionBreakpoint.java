@@ -11,7 +11,6 @@ import jetbrains.mps.debugger.java.runtime.engine.RequestManager;
 import com.sun.jdi.request.ExceptionRequest;
 import com.sun.jdi.ClassNotPreparedException;
 import com.sun.jdi.ObjectCollectedException;
-import com.sun.jdi.InternalException;
 import jetbrains.mps.debugger.java.runtime.engine.events.EventContext;
 import com.sun.jdi.event.LocatableEvent;
 import org.jetbrains.annotations.NotNull;
@@ -41,7 +40,7 @@ public class ExceptionBreakpoint extends JavaBreakpoint {
     } catch (ObjectCollectedException ex) {
       LOG.warning("ObjectCollectedException: " + ex.getMessage());
       //  there's a chance to add a breakpoint when the class is prepared
-    } catch (InternalException | Exception ex) {
+    } catch (Exception ex) {
       LOG.error(ex);
     }
   }

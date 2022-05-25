@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,18 +23,15 @@ import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.project.MPSProject;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 public class MPSFileNodeEditorProvider implements FileEditorProvider, DumbAware {
-  private static final Logger LOG = LogManager.getLogger(MPSFileNodeEditorProvider.class);
-
   private static final String CLASS = "class";
 
   @Override
@@ -66,8 +63,8 @@ public class MPSFileNodeEditorProvider implements FileEditorProvider, DumbAware 
     }
 
     try {
-      Class<?> cls = Class.forName(className);
-      EditorState instance = (EditorState) cls.newInstance();
+      Class<? extends EditorState> cls = (Class<EditorState>) Class.forName(className);
+      EditorState instance = cls.getDeclaredConstructor().newInstance();
       instance.load(sourceElement);
       MPSEditorStateWrapper result = new MPSEditorStateWrapper();
       result.setEditorState(instance);
@@ -75,7 +72,7 @@ public class MPSFileNodeEditorProvider implements FileEditorProvider, DumbAware 
     } catch (ClassNotFoundException e) {
       //do nothing - class is not there anymore
     } catch (Throwable t) {
-      LOG.error(null, t);
+      Logger.getLogger(MPSFileNodeEditorProvider.class).error(t);
     }
 
     return FileEditorState.INSTANCE;

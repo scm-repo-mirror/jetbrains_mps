@@ -16,6 +16,7 @@
 package jetbrains.mps.module;
 
 import jetbrains.mps.extapi.persistence.DisposableDataSource;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.project.ProjectBase;
@@ -27,8 +28,6 @@ import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -44,7 +43,7 @@ import java.util.List;
 import java.util.Set;
 
 public final class ModuleDeleteHelper {
-  private static final Logger LOG = LogManager.getLogger(ModuleDeleteHelper.class);
+  private static final Logger LOG = Logger.getLogger(ModuleDeleteHelper.class);
 
   @NotNull
   private final Project myProject;
@@ -234,7 +233,7 @@ public final class ModuleDeleteHelper {
     for (Iterator<SModule> iterator = modules.iterator(); iterator.hasNext(); ) {
       SModule module = iterator.next();
       if (!projectModulesWithGenerators.contains(module)) {
-        LOG.warn(String.format(NON_PROJECT_MODULES_MSG, module));
+        LOG.warning(String.format(NON_PROJECT_MODULES_MSG, module));
         iterator.remove();
       }
     }

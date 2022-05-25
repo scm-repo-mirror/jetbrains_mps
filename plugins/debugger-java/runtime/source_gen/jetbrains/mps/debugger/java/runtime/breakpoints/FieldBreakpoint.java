@@ -22,7 +22,6 @@ import com.sun.jdi.request.AccessWatchpointRequest;
 import com.sun.jdi.request.ModificationWatchpointRequest;
 import com.sun.jdi.ClassNotPreparedException;
 import com.sun.jdi.ObjectCollectedException;
-import com.sun.jdi.InternalException;
 import java.util.Objects;
 
 @GeneratedClass(node = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)/2891782949125147574", model = "r:b4441af2-7d93-477f-8f98-ff1136374539(jetbrains.mps.debugger.java.runtime.breakpoints)")
@@ -81,7 +80,7 @@ public class FieldBreakpoint extends JavaBreakpoint implements ILocationBreakpoi
       //  there's a chance to add a breakpoint when the class is prepared
     } catch (ObjectCollectedException ex) {
       LOG.warning("ObjectCollectedException: " + ex.getMessage());
-    } catch (InternalException | Exception ex) {
+    } catch (Exception ex) {
       LOG.error(ex);
     }
   }

@@ -93,6 +93,9 @@
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
       </concept>
+      <concept id="7485977462274819189" name="jetbrains.mps.baseLanguage.structure.FormatOperation" flags="ng" index="2cAKMz">
+        <child id="7485977462274819664" name="arguments" index="2cAKU6" />
+      </concept>
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
         <child id="1068498886295" name="lValue" index="37vLTJ" />
@@ -371,6 +374,7 @@
     <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
       <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
         <property id="2034914114981261751" name="severity" index="RRSoG" />
+        <child id="2034914114981261755" name="throwable" index="RRSow" />
         <child id="2034914114981261753" name="message" index="RRSoy" />
       </concept>
     </language>
@@ -975,21 +979,6 @@
     <node concept="3uibUv" id="7vbFQ4bPX_I" role="EKbjA">
       <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
     </node>
-    <node concept="Wx3nA" id="7vbFQ4bPX_J" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="2YIFZM" id="Hn0$Mvc240" role="33vP2m">
-        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-        <node concept="3VsKOn" id="Hn0$Mvc241" role="37wK5m">
-          <ref role="3VsUkX" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-        </node>
-      </node>
-      <node concept="3Tm6S6" id="7vbFQ4bPX_L" role="1B3o_S" />
-      <node concept="3uibUv" id="Hn0$Mvc23S" role="1tU5fm">
-        <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
-      </node>
-    </node>
     <node concept="312cEg" id="7vbFQ4bPX_O" role="jymVt">
       <property role="TrG5h" value="myProject" />
       <node concept="3uibUv" id="7vbFQ4bPX_P" role="1tU5fm">
@@ -1319,19 +1308,11 @@
                                 </node>
                               </node>
                               <node concept="3clFbS" id="7vbFQ4bPXDN" role="1zc67A">
-                                <node concept="3clFbF" id="7vbFQ4bPXDO" role="3cqZAp">
-                                  <node concept="2OqwBi" id="7vbFQ4bPXDP" role="3clFbG">
-                                    <node concept="10M0yZ" id="7vbFQ4bPXDQ" role="2Oq$k0">
-                                      <ref role="1PxDUh" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-                                      <ref role="3cqZAo" node="7vbFQ4bPX_J" resolve="LOG" />
-                                    </node>
-                                    <node concept="liA8E" id="7vbFQ4bPXDR" role="2OqNvi">
-                                      <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
-                                      <node concept="10Nm6u" id="4t57iE9W_jx" role="37wK5m" />
-                                      <node concept="37vLTw" id="3GM_nagTtTB" role="37wK5m">
-                                        <ref role="3cqZAo" node="7vbFQ4bPXDT" resolve="e" />
-                                      </node>
-                                    </node>
+                                <node concept="RRSsy" id="3q9lwXn9N3K" role="3cqZAp">
+                                  <property role="RRSoG" value="gZ5fh_4/error" />
+                                  <node concept="Xl_RD" id="3q9lwXn9N3M" role="RRSoy" />
+                                  <node concept="37vLTw" id="3q9lwXn9St8" role="RRSow">
+                                    <ref role="3cqZAo" node="7vbFQ4bPXDT" resolve="e" />
                                   </node>
                                 </node>
                               </node>
@@ -2974,22 +2955,14 @@
                             <node concept="10Nm6u" id="7vbFQ4bPXGe" role="3uHU7w" />
                           </node>
                           <node concept="3clFbS" id="7vbFQ4bPXGf" role="3clFbx">
-                            <node concept="3clFbF" id="7vbFQ4bPXGg" role="3cqZAp">
-                              <node concept="2OqwBi" id="7vbFQ4bPXGh" role="3clFbG">
-                                <node concept="10M0yZ" id="7vbFQ4bPXGi" role="2Oq$k0">
-                                  <ref role="1PxDUh" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-                                  <ref role="3cqZAo" node="7vbFQ4bPX_J" resolve="LOG" />
+                            <node concept="RRSsy" id="3q9lwXna7ob" role="3cqZAp">
+                              <property role="RRSoG" value="gZ5fh_4/error" />
+                              <node concept="3cpWs3" id="7vbFQ4bPXGk" role="RRSoy">
+                                <node concept="Xl_RD" id="7vbFQ4bPXGl" role="3uHU7B">
+                                  <property role="Xl_RC" value="Can't find a class " />
                                 </node>
-                                <node concept="liA8E" id="7vbFQ4bPXGj" role="2OqNvi">
-                                  <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
-                                  <node concept="3cpWs3" id="7vbFQ4bPXGk" role="37wK5m">
-                                    <node concept="Xl_RD" id="7vbFQ4bPXGl" role="3uHU7B">
-                                      <property role="Xl_RC" value="Can't find a class " />
-                                    </node>
-                                    <node concept="37vLTw" id="2BHiRxgheFk" role="3uHU7w">
-                                      <ref role="3cqZAo" node="7vbFQ4bPXCg" resolve="fqName" />
-                                    </node>
-                                  </node>
+                                <node concept="37vLTw" id="2BHiRxgheFk" role="3uHU7w">
+                                  <ref role="3cqZAo" node="7vbFQ4bPXCg" resolve="fqName" />
                                 </node>
                               </node>
                             </node>
@@ -3108,31 +3081,18 @@
                       <node concept="3clFbS" id="7vbFQ4bPXGz" role="3clF47">
                         <node concept="3clFbJ" id="2_fK5i$2U7e" role="3cqZAp">
                           <node concept="3clFbS" id="2_fK5i$2U7f" role="3clFbx">
-                            <node concept="3clFbF" id="2_fK5i$2U7$" role="3cqZAp">
-                              <node concept="2OqwBi" id="2_fK5i$2U7_" role="3clFbG">
-                                <node concept="10M0yZ" id="2_fK5i$2U7A" role="2Oq$k0">
-                                  <ref role="1PxDUh" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-                                  <ref role="3cqZAo" node="7vbFQ4bPX_J" resolve="LOG" />
+                            <node concept="RRSsy" id="3q9lwXnaukg" role="3cqZAp">
+                              <property role="RRSoG" value="gZ5fh_4/error" />
+                              <node concept="2OqwBi" id="3q9lwXnaKoy" role="RRSoy">
+                                <node concept="Xl_RD" id="2_fK5i$2U7F" role="2Oq$k0">
+                                  <property role="Xl_RC" value="Can't find a method %s.%s" />
                                 </node>
-                                <node concept="liA8E" id="2_fK5i$2U7B" role="2OqNvi">
-                                  <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
-                                  <node concept="3cpWs3" id="2_fK5i$2U7C" role="37wK5m">
-                                    <node concept="3cpWs3" id="2_fK5i$2U7D" role="3uHU7B">
-                                      <node concept="3cpWs3" id="2_fK5i$2U7E" role="3uHU7B">
-                                        <node concept="Xl_RD" id="2_fK5i$2U7F" role="3uHU7B">
-                                          <property role="Xl_RC" value="Can't find a method " />
-                                        </node>
-                                        <node concept="37vLTw" id="2BHiRxgmgpB" role="3uHU7w">
-                                          <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
-                                        </node>
-                                      </node>
-                                      <node concept="Xl_RD" id="2_fK5i$2U7H" role="3uHU7w">
-                                        <property role="Xl_RC" value="." />
-                                      </node>
-                                    </node>
-                                    <node concept="37vLTw" id="2BHiRxgmqTE" role="3uHU7w">
-                                      <ref role="3cqZAo" node="7vbFQ4bPXCz" resolve="methodName" />
-                                    </node>
+                                <node concept="2cAKMz" id="3q9lwXnaOGb" role="2OqNvi">
+                                  <node concept="37vLTw" id="3q9lwXnaV1U" role="2cAKU6">
+                                    <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
+                                  </node>
+                                  <node concept="37vLTw" id="3q9lwXnb3z1" role="2cAKU6">
+                                    <ref role="3cqZAo" node="7vbFQ4bPXCz" resolve="methodName" />
                                   </node>
                                 </node>
                               </node>
@@ -3201,22 +3161,14 @@
                             <node concept="10Nm6u" id="7vbFQ4bPXGI" role="3uHU7w" />
                           </node>
                           <node concept="3clFbS" id="7vbFQ4bPXGJ" role="3clFbx">
-                            <node concept="3clFbF" id="7vbFQ4bPXGK" role="3cqZAp">
-                              <node concept="2OqwBi" id="7vbFQ4bPXGL" role="3clFbG">
-                                <node concept="10M0yZ" id="7vbFQ4bPXGM" role="2Oq$k0">
-                                  <ref role="1PxDUh" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-                                  <ref role="3cqZAo" node="7vbFQ4bPX_J" resolve="LOG" />
+                            <node concept="RRSsy" id="3q9lwXnbrYq" role="3cqZAp">
+                              <property role="RRSoG" value="gZ5fh_4/error" />
+                              <node concept="3cpWs3" id="7vbFQ4bPXGO" role="RRSoy">
+                                <node concept="Xl_RD" id="7vbFQ4bPXGP" role="3uHU7B">
+                                  <property role="Xl_RC" value="Can't find a class " />
                                 </node>
-                                <node concept="liA8E" id="7vbFQ4bPXGN" role="2OqNvi">
-                                  <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
-                                  <node concept="3cpWs3" id="7vbFQ4bPXGO" role="37wK5m">
-                                    <node concept="Xl_RD" id="7vbFQ4bPXGP" role="3uHU7B">
-                                      <property role="Xl_RC" value="Can't find a class " />
-                                    </node>
-                                    <node concept="37vLTw" id="2BHiRxglYEU" role="3uHU7w">
-                                      <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
-                                    </node>
-                                  </node>
+                                <node concept="37vLTw" id="2BHiRxglYEU" role="3uHU7w">
+                                  <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
                                 </node>
                               </node>
                             </node>
@@ -3313,31 +3265,18 @@
                             <node concept="10Nm6u" id="7vbFQ4bPXHq" role="3uHU7w" />
                           </node>
                           <node concept="3clFbS" id="7vbFQ4bPXHr" role="3clFbx">
-                            <node concept="3clFbF" id="7vbFQ4bPXHs" role="3cqZAp">
-                              <node concept="2OqwBi" id="7vbFQ4bPXHt" role="3clFbG">
-                                <node concept="10M0yZ" id="7vbFQ4bPXHu" role="2Oq$k0">
-                                  <ref role="1PxDUh" node="7vbFQ4bPXyu" resolve="MPSProjectIDEHandler" />
-                                  <ref role="3cqZAo" node="7vbFQ4bPX_J" resolve="LOG" />
+                            <node concept="RRSsy" id="3q9lwXnbISH" role="3cqZAp">
+                              <property role="RRSoG" value="gZ5fh_4/error" />
+                              <node concept="2OqwBi" id="3q9lwXnbISI" role="RRSoy">
+                                <node concept="Xl_RD" id="3q9lwXnbISJ" role="2Oq$k0">
+                                  <property role="Xl_RC" value="Can't find a method %s.%s" />
                                 </node>
-                                <node concept="liA8E" id="7vbFQ4bPXHv" role="2OqNvi">
-                                  <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
-                                  <node concept="3cpWs3" id="7vbFQ4bPXHw" role="37wK5m">
-                                    <node concept="3cpWs3" id="7vbFQ4bPXHx" role="3uHU7B">
-                                      <node concept="3cpWs3" id="7vbFQ4bPXHy" role="3uHU7B">
-                                        <node concept="Xl_RD" id="7vbFQ4bPXHz" role="3uHU7B">
-                                          <property role="Xl_RC" value="Can't find a method " />
-                                        </node>
-                                        <node concept="37vLTw" id="2BHiRxgmJfG" role="3uHU7w">
-                                          <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
-                                        </node>
-                                      </node>
-                                      <node concept="Xl_RD" id="7vbFQ4bPXH_" role="3uHU7w">
-                                        <property role="Xl_RC" value="." />
-                                      </node>
-                                    </node>
-                                    <node concept="37vLTw" id="2BHiRxgm6et" role="3uHU7w">
-                                      <ref role="3cqZAo" node="7vbFQ4bPXCz" resolve="methodName" />
-                                    </node>
+                                <node concept="2cAKMz" id="3q9lwXnbISK" role="2OqNvi">
+                                  <node concept="37vLTw" id="3q9lwXnbISL" role="2cAKU6">
+                                    <ref role="3cqZAo" node="7vbFQ4bPXCx" resolve="classFqName" />
+                                  </node>
+                                  <node concept="37vLTw" id="3q9lwXnbISM" role="2cAKU6">
+                                    <ref role="3cqZAo" node="7vbFQ4bPXCz" resolve="methodName" />
                                   </node>
                                 </node>
                               </node>

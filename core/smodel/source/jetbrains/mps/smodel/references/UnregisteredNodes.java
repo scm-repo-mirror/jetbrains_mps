@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.smodel.references;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class UnregisteredNodes {
-  private static final Logger LOG = LogManager.getLogger(UnregisteredNodes.class);
+  private static final Logger LOG = Logger.getLogger(UnregisteredNodes.class);
 
   private final Map<SNodeId, SNode> myMap = new HashMap<>();
 
@@ -81,7 +80,7 @@ public final class UnregisteredNodes {
           LOG.error(ex, ex);
           break;
         case WARNING:
-          LOG.warn("attempt to put another node with same key: " + myModelReference + "#" + id + ". Undo can be broken.");
+          LOG.warning("attempt to put another node with same key: " + myModelReference + "#" + id + ". Undo can be broken.");
           myWarningLevel = WarningLevel.SILENT;
           break;
         case SILENT:

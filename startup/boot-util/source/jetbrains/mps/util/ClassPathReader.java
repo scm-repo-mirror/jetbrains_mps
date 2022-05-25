@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.util;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import com.intellij.openapi.diagnostic.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -32,7 +31,7 @@ import java.util.stream.Collectors;
  * Utility to parse special idea.additional.classpath.txt file.
  */
 public final class ClassPathReader {
-  private static final Logger LOG = LogManager.getLogger(ClassPathReader.class);
+  private static final Logger LOG = Logger.getInstance(ClassPathReader.class);
 
   private final File myAdditionalCPFile;
   private final List<String> myTypes;

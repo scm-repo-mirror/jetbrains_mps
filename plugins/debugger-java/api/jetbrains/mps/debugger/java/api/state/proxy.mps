@@ -17,11 +17,11 @@
     <import index="frkw" ref="b387285c-3448-452c-b3bb-a3f8de8eaf08/java:com.sun.jdi(JDK-tools/)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="qgwr" ref="r:f326a98e-32f7-47a0-ba29-239107a89ca4(jetbrains.mps.debugger.java.api.evaluation)" />
     <import index="wtoj" ref="r:42278aae-7cc0-4e00-9041-018f7301c362(jetbrains.mps.debugger.java.api.state.customViewers)" />
     <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
     <import index="1l1h" ref="r:c02662c0-67c5-4c3a-8d3a-cd7ffe189340(jetbrains.mps.debug.api)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -60,7 +60,6 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
-      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475354124" name="jetbrains.mps.baseLanguage.structure.ThisExpression" flags="nn" index="Xjq3P" />
       <concept id="1070475587102" name="jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" flags="nn" index="XkiVB" />
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
@@ -1585,21 +1584,6 @@
     <node concept="3uibUv" id="2g7jLxixq8w" role="EKbjA">
       <ref role="3uigEE" to="pry4:3SnNvqCaJt9" resolve="IStackFrame" />
     </node>
-    <node concept="Wx3nA" id="2Y$mRnICmoN" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="2YIFZM" id="Hn0$MvbXWZ" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-        <node concept="3VsKOn" id="Hn0$MvbXX0" role="37wK5m">
-          <ref role="3VsUkX" node="2Y$mRnICmoJ" resolve="JavaStackFrame" />
-        </node>
-      </node>
-      <node concept="3Tm6S6" id="2Y$mRnICmoP" role="1B3o_S" />
-      <node concept="3uibUv" id="Hn0$MvbXWR" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-    </node>
     <node concept="312cEg" id="2Y$mRnICmoV" role="jymVt">
       <property role="TrG5h" value="myIndex" />
       <property role="34CwA1" value="false" />
@@ -1847,14 +1831,17 @@
             <node concept="3clFbS" id="2Y$mRnICmqg" role="1zc67A">
               <node concept="3clFbF" id="2Y$mRnICmqh" role="3cqZAp">
                 <node concept="2OqwBi" id="2Y$mRnICmqi" role="3clFbG">
-                  <node concept="37vLTw" id="2BHiRxeoq8W" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2Y$mRnICmoN" resolve="LOG" />
-                  </node>
                   <node concept="liA8E" id="2Y$mRnICmqk" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
-                    <node concept="10Nm6u" id="4t57iE9Vy0A" role="37wK5m" />
+                    <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                     <node concept="37vLTw" id="3GM_nagT_Un" role="37wK5m">
                       <ref role="3cqZAo" node="2Y$mRnICmqo" resolve="t" />
+                    </node>
+                  </node>
+                  <node concept="2YIFZM" id="2hdoiXP3HHZ" role="2Oq$k0">
+                    <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                    <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                    <node concept="3VsKOn" id="2hdoiXP3P3r" role="37wK5m">
+                      <ref role="3VsUkX" node="2Y$mRnICmoJ" resolve="JavaStackFrame" />
                     </node>
                   </node>
                 </node>

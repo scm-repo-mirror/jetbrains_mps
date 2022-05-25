@@ -17,8 +17,7 @@ package jetbrains.mps.ide.memtool;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -29,7 +28,7 @@ import java.util.function.Consumer;
 import static com.intellij.openapi.util.io.FileUtilRt.MEGABYTE;
 
 /*package*/ final class UnloadModelsActivity implements Runnable {
-  private static final Logger LOG = LogManager.getLogger(MemManager.class);
+  private static final Logger LOG = Logger.getLogger(MemManager.class);
   private final SRepository myRepo;
 
   /*package*/ UnloadModelsActivity(@NotNull SRepository repo) {

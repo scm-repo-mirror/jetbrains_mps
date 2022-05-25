@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2013 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.extapi.module;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,7 +33,7 @@ import java.util.function.Consumer;
  * fixme not thread-safe
  */
 public abstract class ModuleFacetBase implements SModuleFacet, DetachableFacet {
-  private static final Logger LOG = LogManager.getLogger(ModuleFacetBase.class);
+  private static final Logger LOG = Logger.getLogger(ModuleFacetBase.class);
 
   private final String myFacetType;
   private final AtomicReference<SModule> myModule = new AtomicReference<>();

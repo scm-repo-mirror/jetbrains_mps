@@ -17,7 +17,6 @@ import com.sun.jdi.request.MethodEntryRequest;
 import com.sun.jdi.request.MethodExitRequest;
 import com.sun.jdi.ClassNotPreparedException;
 import com.sun.jdi.ObjectCollectedException;
-import com.sun.jdi.InternalException;
 import jetbrains.mps.textgen.trace.TraceablePositionInfo;
 import jetbrains.mps.debugger.java.runtime.engine.events.EventContext;
 import com.sun.jdi.event.LocatableEvent;
@@ -80,7 +79,7 @@ public class MethodBreakpoint extends JavaBreakpoint implements ILocationBreakpo
       //  there's a chance to add a breakpoint when the class is prepared
     } catch (ObjectCollectedException ex) {
       LOG.warning("ObjectCollectedException: " + ex.getMessage());
-    } catch (InternalException | Exception ex) {
+    } catch (Exception ex) {
       LOG.error(ex);
     }
   }

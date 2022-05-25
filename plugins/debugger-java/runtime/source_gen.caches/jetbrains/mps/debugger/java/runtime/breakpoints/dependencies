@@ -81,7 +81,6 @@
   <dependency className="jetbrains.mps.debugger.java.runtime.breakpoints.ExceptionBreakpoint">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.sun.jdi.ClassNotPreparedException" />
-    <classNode dependClassName="com.sun.jdi.InternalException" />
     <classNode dependClassName="com.sun.jdi.ObjectCollectedException" />
     <classNode dependClassName="com.sun.jdi.ReferenceType" />
     <classNode dependClassName="com.sun.jdi.event.LocatableEvent" />
@@ -105,7 +104,6 @@
     <classNode dependClassName="com.sun.jdi.ClassNotPreparedException" />
     <classNode dependClassName="com.sun.jdi.ClassType" />
     <classNode dependClassName="com.sun.jdi.Field" />
-    <classNode dependClassName="com.sun.jdi.InternalException" />
     <classNode dependClassName="com.sun.jdi.ObjectCollectedException" />
     <classNode dependClassName="com.sun.jdi.ReferenceType" />
     <classNode dependClassName="com.sun.jdi.request.AccessWatchpointRequest" />
@@ -213,7 +211,6 @@
   <dependency className="jetbrains.mps.debugger.java.runtime.breakpoints.LineBreakpoint">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.sun.jdi.ClassNotPreparedException" />
-    <classNode dependClassName="com.sun.jdi.InternalException" />
     <classNode dependClassName="com.sun.jdi.InvalidLineNumberException" />
     <classNode dependClassName="com.sun.jdi.Location" />
     <classNode dependClassName="com.sun.jdi.ObjectCollectedException" />
@@ -243,7 +240,6 @@
   <dependency className="jetbrains.mps.debugger.java.runtime.breakpoints.MethodBreakpoint">
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.sun.jdi.ClassNotPreparedException" />
-    <classNode dependClassName="com.sun.jdi.InternalException" />
     <classNode dependClassName="com.sun.jdi.Method" />
     <classNode dependClassName="com.sun.jdi.ObjectCollectedException" />
     <classNode dependClassName="com.sun.jdi.ReferenceType" />

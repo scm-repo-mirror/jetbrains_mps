@@ -4,8 +4,7 @@ package jetbrains.mps.debugger.java.customViewers.plugin.plugin;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import java.util.Set;
 import jetbrains.mps.debug.api.BreakpointCreator;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -22,13 +21,12 @@ import jetbrains.mps.debug.api.breakpoints.ILocationBreakpoint;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.debug.api.Debuggers;
 import jetbrains.mps.debug.api.DebuggerNotPresentException;
-import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @GeneratedClass(node = "r:9d33947d-45a8-4aa4-b61a-9c874e4614d7(jetbrains.mps.debugger.java.customViewers.plugin.plugin)/2244048449136669030", model = "r:9d33947d-45a8-4aa4-b61a-9c874e4614d7(jetbrains.mps.debugger.java.customViewers.plugin.plugin)")
 public class DebugInfoProvider_AppPluginPart extends ApplicationPluginPart {
-  private static final Logger LOG = LogManager.getLogger(DebugInfoProvider_AppPluginPart.class);
+  private static final Logger LOG = Logger.getLogger(DebugInfoProvider_AppPluginPart.class);
   private Set<BreakpointCreator> myCreators = SetSequence.fromSet(new HashSet<BreakpointCreator>());
   public DebugInfoProvider_AppPluginPart() {
   }
@@ -63,8 +61,8 @@ public class DebugInfoProvider_AppPluginPart extends ApplicationPluginPart {
           try {
             return Debuggers.getInstance().getDebuggerByNameSafe("Java").createBreakpoint(debuggableNode, "JAVA_LINE_BREAKPOINT", project);
           } catch (DebuggerNotPresentException e) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("Exception while creating breakpoint for node" + SNodeOperations.present(debuggableNode), e);
+            if (LOG.isWarningLevel()) {
+              LOG.warning("Exception while creating breakpoint for node" + SNodeOperations.present(debuggableNode), e);
             }
             return null;
           }
@@ -93,8 +91,8 @@ public class DebugInfoProvider_AppPluginPart extends ApplicationPluginPart {
           try {
             return Debuggers.getInstance().getDebuggerByNameSafe("Java").createBreakpoint(debuggableNode, "JAVA_FIELD_BREAKPOINT", project);
           } catch (DebuggerNotPresentException e) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("Exception while creating breakpoint for node" + SNodeOperations.present(debuggableNode), e);
+            if (LOG.isWarningLevel()) {
+              LOG.warning("Exception while creating breakpoint for node" + SNodeOperations.present(debuggableNode), e);
             }
             return null;
           }
