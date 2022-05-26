@@ -24,6 +24,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.persistence.ProjectDescriptorPersistence;
 import jetbrains.mps.project.structure.project.ModulePath;
 import jetbrains.mps.project.structure.project.ProjectDescriptor;
@@ -31,15 +32,12 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.VFSManager;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -58,7 +56,7 @@ import java.io.IOException;
   storages = @Storage("modules.xml")
 )
 public class StandaloneMPSProject extends MPSProject implements PersistentStateComponent<Element> {
-  private static final Logger LOG = LogManager.getLogger(StandaloneMPSProject.class);
+  private static final Logger LOG = Logger.getLogger(StandaloneMPSProject.class);
   private ModuleFileChangeListener myListener;
   private final VFSManager myManager;
 
@@ -185,7 +183,7 @@ public class StandaloneMPSProject extends MPSProject implements PersistentStateC
     if (modulePath != null) {
       return modulePath.getVirtualFolder();
     } else {
-      LOG.warn("Could not find module path for the module " + module);
+      LOG.warning("Could not find module path for the module " + module);
       return null;
     }
   }

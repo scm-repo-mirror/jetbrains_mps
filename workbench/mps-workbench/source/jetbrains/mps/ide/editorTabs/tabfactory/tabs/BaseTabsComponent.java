@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.ide.editorTabs.tabfactory.tabs;
 
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.extensions.Extensions;
 import com.intellij.openapi.fileEditor.ex.IdeDocumentHistory;
@@ -26,10 +25,9 @@ import jetbrains.mps.ide.editorTabs.tabfactory.TabsComponent;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.relations.RelationComparator;
 import jetbrains.mps.ide.undo.MPSUndoUtil;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.util.containers.MultiMap;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
@@ -51,7 +49,6 @@ import java.util.stream.Stream;
  * manages layout constraints of the only child itself. Method {@link #getComponent()} is for external consumers or child unrelated activities.
  */
 public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> implements TabsComponent {
-  private static final Logger LOG = LogManager.getLogger(BaseTabsComponent.class);
 
   private final NodeChangeCallback myCallback;
   private final CreateModeCallback myCreateModeCallback;
@@ -167,7 +164,7 @@ public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> imple
 
   protected void executeNavigation(Runnable navigation) {
     getProject().getModelAccess().executeCommandInEDT(() -> {
-      IdeDocumentHistory documentHistory = ServiceManager.getService(myProject, IdeDocumentHistory.class);
+      IdeDocumentHistory documentHistory = IdeDocumentHistory.getInstance(myProject);
       documentHistory.includeCurrentCommandAsNavigation();
       documentHistory.setCurrentCommandHasMoves();
       navigation.run();
@@ -207,7 +204,7 @@ public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> imple
       try {
         nodes = d.getNodes(baseNode);
       } catch (Throwable t) {
-        LOG.error("Exception in extension: ", t);
+        Logger.getLogger(BaseTabsComponent.class).error("Exception in extension: ", t);
         nodes = Collections.emptyList();
       }
 
@@ -216,7 +213,8 @@ public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> imple
           continue;
         }
         SNodeReference reference = n.getContainingRoot().getReference();
-        assert reference.resolve(getProject().getRepository()) != null : "Cannot resolve node by reference: " + reference.toString();
+        // XXX assert, really?
+        assert reference.resolve(getProject().getRepository()) != null : "Cannot resolve node by reference: " + reference;
         topToUses.putValue(reference, n.getReference());
       }
       if (topToUses.isEmpty()) {
@@ -239,7 +237,7 @@ public abstract class BaseTabsComponent<TabImpl extends AbstractEditorTab> imple
   }
 
   protected final jetbrains.mps.project.Project getProject() {
-    return ProjectHelper.toMPSProject(myProject);
+    return ProjectHelper.fromIdeaProject(myProject);
   }
 
 }

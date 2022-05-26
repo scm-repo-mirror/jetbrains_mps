@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.plugins;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +37,7 @@ import java.util.stream.Collectors;
  *           @see jetbrains.mps.plugins.projectplugins.BaseProjectPlugin
  */
 public abstract class BasePluginManager<T> implements PluginLoader {
-  private static final Logger LOG = LogManager.getLogger(BasePluginManager.class);
+  private static final Logger LOG = Logger.getLogger(BasePluginManager.class);
 
   protected final Object myPluginsLock = new Object(); //guarding my fields
 

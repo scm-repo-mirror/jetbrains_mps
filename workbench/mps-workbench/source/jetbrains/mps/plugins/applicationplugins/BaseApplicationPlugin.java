@@ -22,6 +22,7 @@ import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
 import com.intellij.openapi.extensions.PluginId;
 import jetbrains.mps.core.platform.Platform;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 import jetbrains.mps.util.Pair;
@@ -29,7 +30,6 @@ import jetbrains.mps.workbench.action.ApplicationPlugin;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.workbench.action.BaseGroup;
 import jetbrains.mps.workbench.action.MPSActions;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class BaseApplicationPlugin implements ApplicationPlugin {
-  private static final Logger LOG = org.apache.log4j.LogManager.getLogger(BaseApplicationPlugin.class);
+  private static final Logger LOG = Logger.getLogger(BaseApplicationPlugin.class);
 
   private List<ApplicationPluginPart> myCustomParts;
   private final List<BaseGroup> myGroups = new ArrayList<>(4);
@@ -91,11 +91,11 @@ public abstract class BaseApplicationPlugin implements ApplicationPlugin {
     DefaultActionGroup gTo = (DefaultActionGroup) ActionManager.getInstance().getAction(toId);
     DefaultActionGroup gWhat = (DefaultActionGroup) ActionManager.getInstance().getAction(whatId);
     if (gTo == null) {
-      LOG.warn("Destination group was not found id: " + toId + ". Trying to insert " + whatId);
+      LOG.warning("Destination group was not found id: " + toId + ". Trying to insert " + whatId);
       return;
     }
     if (gWhat == null) {
-      LOG.warn("Group to insert was not found id: " + whatId + ". Trying to insert into " + toId);
+      LOG.warning("Group to insert was not found id: " + whatId + ". Trying to insert into " + toId);
       return;
     }
     if (!(gTo instanceof BaseGroup) && !(gWhat instanceof BaseGroup)) {

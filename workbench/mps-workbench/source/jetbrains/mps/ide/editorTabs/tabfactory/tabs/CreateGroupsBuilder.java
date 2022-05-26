@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,14 +22,13 @@ import jetbrains.mps.ide.editorTabs.tabfactory.NodeChangeCallback;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.relations.RelationComparator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.ConceptPresentation;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -43,7 +42,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class CreateGroupsBuilder {
-  private static final Logger LOG = LogManager.getLogger(CreateGroupsBuilder.class);
 
   private final Project myProject;
   private final SNodeReference myBaseNode;
@@ -72,7 +70,7 @@ public class CreateGroupsBuilder {
         try {
           nodes = d.getNodes(myBaseNode.resolve(myProject.getRepository()));
         } catch (Throwable t) {
-          LOG.error("Exception in extension: ", t);
+          Logger.getLogger(CreateGroupsBuilder.class).error("Exception in extension: ", t);
           continue;
         }
         if (!nodes.isEmpty() && d.isSingle()) {

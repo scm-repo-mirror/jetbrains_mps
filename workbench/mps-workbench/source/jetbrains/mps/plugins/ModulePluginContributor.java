@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.plugins;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import jetbrains.mps.plugins.projectplugins.BaseProjectPlugin;
@@ -24,8 +25,6 @@ import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.util.ModuleNameUtil;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -35,7 +34,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ModulePluginContributor extends PluginContributor {
-  private static final Logger LOG = LogManager.getLogger(ModulePluginContributor.class);
+  private static final Logger LOG = Logger.getLogger(ModulePluginContributor.class);
   private static final String PLUGIN_STRING = ".plugin.";
   private static final String PROJECT_PLUGIN_SUFFIX = "_ProjectPlugin";
   private static final String APP_PLUGIN_SUFFIX = "_ApplicationPlugin";
@@ -96,7 +95,7 @@ public class ModulePluginContributor extends PluginContributor {
         // we try almost any Solution, and all Language modules (see PluginLoaderRegistry.isPluginModule),
         // and we might end up with a lot of CNFE for modules that don't even consider being pluginSolution.
         // However, when class name is explicitly specified, someone may be wondering why nothing is loaded, report.
-        LOG.warn(String.format("Missing %s contributed by %s: %s", className, myModule.getModuleName(), e.getMessage()));
+        LOG.warning(String.format("Missing %s contributed by %s: %s", className, myModule.getModuleName(), e.getMessage()));
       }
       return null;
     } catch (Throwable t) {
@@ -128,7 +127,7 @@ public class ModulePluginContributor extends PluginContributor {
       return rv;
     } catch (IOException ex) {
       String m = "Failed to read startup.properties for module %s from location %s";
-      LOG.warn(String.format(m, myModule.getModuleName(), cfgFullPath), ex);
+      LOG.warning(String.format(m, myModule.getModuleName(), cfgFullPath), ex);
     } finally {
       if (is != null) {
         try {

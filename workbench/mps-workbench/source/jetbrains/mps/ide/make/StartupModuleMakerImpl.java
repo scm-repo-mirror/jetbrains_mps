@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,15 +31,15 @@ import jetbrains.mps.icons.MPSIcons;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.ReloadManager;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.make.ModuleMaker;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ProjectLibraryManager;
 import jetbrains.mps.util.PathManager;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
@@ -50,9 +50,8 @@ import java.util.Collection;
 /**
  * Compiles all project modules at startup
  */
-@SuppressWarnings("UnstableApiUsage")
 public final class StartupModuleMakerImpl extends StartupModuleMaker implements StartupActivity.Background {
-  private static final Logger LOG = LogManager.getLogger(StartupModuleMakerImpl.class);
+  private static final Logger LOG = Logger.getLogger(StartupModuleMakerImpl.class);
 
   private MPSProject myMPSProject;
   private MPSCoreComponents myComponents;
@@ -74,7 +73,13 @@ public final class StartupModuleMakerImpl extends StartupModuleMaker implements 
     @SuppressWarnings("unused")
     final ProjectLibraryManager plm = project.getComponent(ProjectLibraryManager.class);
     myComponents = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
-    DumbService.getInstance(project).queueTask(new DumbModeTask(this) {
+    DumbService.getInstance(project).queueTask(new DumbModeTask() {
+      @Override
+      public @Nullable DumbModeTask tryMergeWith(@NotNull DumbModeTask taskFromQueue) {
+        // there could be only one
+        return getClass() == taskFromQueue.getClass() ? this : null;
+      }
+
       @Override
       public void performInDumbMode(@NotNull ProgressIndicator indicator) {
         doBuild(new ProgressMonitorAdapter(indicator));
