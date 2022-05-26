@@ -13,8 +13,8 @@ import jetbrains.mps.baseLanguage.logging.util.LoggingGenerationUtil;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
@@ -42,8 +42,8 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.generator.impl.query.IfMacroCondition;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import jetbrains.mps.generator.impl.query.VariableValueQuery;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
@@ -52,7 +52,7 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
-    return SNodeOperations.getParent(_context.getNode()) == null && ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.IMessage$D6, false, new SAbstractConcept[]{})).isNotEmpty();
+    return SNodeOperations.getParent(_context.getNode()) == null && ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.LogLowLevelStatement$3g, false, new SAbstractConcept[]{})).isNotEmpty();
   }
   public static boolean rule_Condition_0_1(final BaseMappingRuleContext _context) {
     return (SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, false) != null);
@@ -64,24 +64,24 @@ public class QueriesGenerated extends QueryProviderBase {
     return LoggingGenerationUtil.generateUniqueFieldName(_context.getNode(), _context.getTemplateValue());
   }
   public static Object referenceMacro_GetReferent_4_0(final ReferenceMacroContext _context) {
-    if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53ae114L)) {
-      return "FATAL";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53d1944L)) {
-      return "ERROR";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53d472aL)) {
-      return "WARN";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x1104a510496L)) {
-      return "INFO";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53da2b7L)) {
-      return "DEBUG";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53db5d2L)) {
-      return "TRACE";
-    } else {
-      return "INFO";
-    }
+    return SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, true);
   }
   public static Object referenceMacro_GetReferent_4_1(final ReferenceMacroContext _context) {
-    return SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.ClassConcept$bK, false, true);
+    if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53ae114L)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455932153");
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53d1944L)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455932668");
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53d472aL)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455933114");
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x1104a510496L)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455933420");
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53da2b7L)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455933812");
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.severity$lcf9), 0x10fc53db5d2L)) {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455934290");
+    } else {
+      return new SNodePointer("r:cc7bd7ff-ad7f-43d6-97d1-d660e55b3d10(jetbrains.mps.baseLanguage.logging.rt)", "3679134236455933420");
+    }
   }
   public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(((SNode) _context.getVariable("fieldHolder")), "logFieldDeclaration");
@@ -136,13 +136,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return LoggingGenerationUtil.toPlus(SLinkOperations.getChildren(_context.getNode(), LINKS.textExpression$SldK));
   }
   public static SNode sourceNodeQuery_4_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$I3Bb);
-  }
-  public static SNode sourceNodeQuery_4_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.throwable$I3Qc);
   }
-  public static SNode sourceNodeQuery_4_2(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_4_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.project$OYlE);
+  }
+  public static SNode sourceNodeQuery_4_2(final SourceSubstituteMacroNodeContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.message$I3Bb);
   }
   public static SNode sourceNodeQuery_6_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.message$TfWL);
@@ -151,16 +151,14 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(_context.getNode(), LINKS.throwable$TgqN);
   }
   public static SNode weavingRule_ContextQuery_0_0(final WeavingMappingRuleContext _context) {
-    SNode logStatement = ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.IMessage$D6, false, new SAbstractConcept[]{})).first();
-    SNode usage = _context.getOutputNodeByInputNodeAndMappingLabel(logStatement, "logFieldUsage");
-    SNode ancestor = SNodeOperations.getNodeAncestor(usage, CONCEPTS.ClassConcept$bK, false, true);
-    if (ancestor != null) {
-      return ancestor;
-    }
-
+    // reduce_LogLowLevelStatement resorts to top-most ClassConcept ancestor which 
+    // is assumed to be root (parent == null in the condition of the weaving rule)
     SNode outputNode = _context.getCopiedOutputNodeForInputNode(_context.getNode());
     if (outputNode == null) {
-      _context.showErrorMessage(_context.getNode(), "Can't find copy of the class concept in the target model");
+      // not that I think this code is necessary, just decided to keep old logic
+      SNode logStatement = ListSequence.fromList(SNodeOperations.getNodeDescendants(_context.getNode(), CONCEPTS.LogLowLevelStatement$3g, false, new SAbstractConcept[]{})).first();
+      SNode usage = _context.getOutputNodeByInputNodeAndMappingLabel(logStatement, "logFieldUsage");
+      return ListSequence.fromList(SNodeOperations.getNodeAncestors(usage, CONCEPTS.ClassConcept$bK, false)).last();
     }
     return outputNode;
   }
@@ -290,9 +288,9 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     snqMethods.put("1168402886104", new SNQ(i++));
-    snqMethods.put("6332851714983837164", new SNQ(i++));
-    snqMethods.put("6332851714983837172", new SNQ(i++));
-    snqMethods.put("2082074084068714543", new SNQ(i++));
+    snqMethods.put("3679134236456128502", new SNQ(i++));
+    snqMethods.put("3679134236456128522", new SNQ(i++));
+    snqMethods.put("3679134236455966537", new SNQ(i++));
     snqMethods.put("4663968267002877822", new SNQ(i++));
     snqMethods.put("4663968267002877830", new SNQ(i++));
   }
@@ -358,8 +356,8 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     imcMethods.put("4663968267002902090", new IfMC(i++));
-    imcMethods.put("2896129823880313742", new IfMC(i++));
-    imcMethods.put("2082074084068714531", new IfMC(i++));
+    imcMethods.put("3679134236456128490", new IfMC(i++));
+    imcMethods.put("3679134236456128510", new IfMC(i++));
   }
   @NotNull
   @Override
@@ -388,8 +386,8 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
-    rtqMethods.put("2082074084068700339", new RTQ(0, "TRACE"));
-    rtqMethods.put("2082074084068711058", new RTQ(1, "ClassWithLog"));
+    rtqMethods.put("3679134236456128479", new RTQ(0, "ClassSender"));
+    rtqMethods.put("3679134236455977443", new RTQ(1, "info"));
     rtqMethods.put("4663968266991950549", new RTQ(2, "LOG"));
     rtqMethods.put("4663968266991973473", new RTQ(3, "isInfoLevel"));
     rtqMethods.put("4663968267002877805", new RTQ(4, "LOG"));
@@ -454,9 +452,10 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IMessage$D6 = MetaAdapterFactory.getInterfaceConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5eeb6L, "jetbrains.mps.baseLanguage.logging.structure.IMessage");
+    /*package*/ static final SConcept LogLowLevelStatement$3g = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1c3d779b2be2f0b9L, "jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement");
     /*package*/ static final SConcept ClassConcept$bK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
     /*package*/ static final SConcept PrintStatement$TU = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1100a2cc320L, "jetbrains.mps.baseLanguage.logging.structure.PrintStatement");
+    /*package*/ static final SInterfaceConcept IMessage$D6 = MetaAdapterFactory.getInterfaceConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5eeb6L, "jetbrains.mps.baseLanguage.logging.structure.IMessage");
   }
 
   private static final class PROPS {

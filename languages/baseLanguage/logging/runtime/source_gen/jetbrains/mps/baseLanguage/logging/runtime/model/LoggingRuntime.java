@@ -14,14 +14,15 @@ public final class LoggingRuntime {
   private static final String MSG_VIEW_TOKEN = "###MESSAGES_VIEW_TOKEN###";
   private static final Logger MSG_VIEW_LOG = LogManager.getLogger(MSG_VIEW_TOKEN);
 
-  @Deprecated
-  public static void legacyLog(@NotNull Level level, Object msg, @NotNull Class<?> sender, @Nullable Throwable throwable) {
-    LogManager.getLogger(sender).log(level, msg, throwable);
-    logMsgView(level, msg, sender, throwable, null);
-  }
-
+  /**
+   * 
+   * 
+   * @deprecated left for compatibility with code generated in earlier MPS versions. With 22.2, we don't generate uses of this method. Keep for some time for transition. 
+   */
+  @Deprecated(forRemoval = true, since = "2022.2")
   public static void logMsgView(@NotNull Level level, Object msg, @NotNull Class<?> sender, @Nullable Throwable throwable, @Nullable Project project) {
     MessageObject msgObject = new MessageObject(msg.toString(), null, sender.toString(), project);
+    // XXX may want to use reflection and level.name to delegate to rt.Log method
     MSG_VIEW_LOG.log(level, msgObject, throwable);
   }
 }
