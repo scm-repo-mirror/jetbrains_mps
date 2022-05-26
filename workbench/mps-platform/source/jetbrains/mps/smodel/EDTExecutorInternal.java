@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,10 @@ import com.intellij.openapi.application.TransactionGuardImpl;
 import com.intellij.util.ConcurrencyUtil;
 import com.intellij.util.ReflectionUtil;
 import jetbrains.mps.ide.ThreadUtils;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.EDTExecutor.Task;
 import jetbrains.mps.smodel.EDTExecutor.TaskIsOutdated;
-import jetbrains.mps.util.NamedThreadFactory;
 import jetbrains.mps.util.annotation.Hack;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
@@ -37,10 +35,8 @@ import org.jetbrains.mps.annotations.Internal;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -61,7 +57,7 @@ import static jetbrains.mps.smodel.EDTExecutor.MAX_SINGLE_EXECUTION_TIME_MS;
  * @author apyshkin
  */
 final class EDTExecutorInternal implements Disposable {
-  private static final Logger LOG = LogManager.getLogger(EDTExecutorInternal.class);
+  private static final Logger LOG = Logger.getLogger(EDTExecutorInternal.class);
   private static final String EXECUTOR_NAME = "MPS EDT Executor";
 
   private final ScheduledExecutorService EXECUTOR_SERVICE = ConcurrencyUtil.newSingleScheduledThreadExecutor(EXECUTOR_NAME);
@@ -125,7 +121,7 @@ final class EDTExecutorInternal implements Disposable {
   }
 
   private void traceTheCaller() {
-    if (LOG.isTraceEnabled()) {
+    if (LOG.isTraceLevel()) {
       LOG.trace("schedule task:" + callersString());
     }
   }
@@ -155,7 +151,7 @@ final class EDTExecutorInternal implements Disposable {
   @Internal
   @Deprecated(since = "201", forRemoval = true)
   public void forceScheduleFlushEDT() {
-    if (LOG.isTraceEnabled()) {
+    if (LOG.isTraceLevel()) {
       LOG.trace("flushing the queue: " + callersString() + " : context transaction " + TransactionGuard.getInstance().getContextTransaction());
     }
     // here we are tricking IJ modality policy
@@ -240,7 +236,7 @@ final class EDTExecutorInternal implements Disposable {
         LOG.trace("exiting by timer");
         return;
       }
-      if (LOG.isTraceEnabled()) {
+      if (LOG.isTraceLevel()) {
         LOG.trace(String.format("flush tasks: %d ms left", timer.getDelay(TimeUnit.MILLISECONDS)));
       }
       tryToRunTopTask();
@@ -265,7 +261,7 @@ final class EDTExecutorInternal implements Disposable {
     try (CloseableLock ignored = myLock.lock()) {
       int queueSize = myTaskQueue.size();
       if (queueSize > EDTExecutor.QUEUE_MAX_EXPECTED_VALUE) {
-        LOG.warn("Tasks queue size is " + queueSize + " which is above the expected");
+        LOG.warning("Tasks queue size is " + queueSize + " which is above the expected");
       } else {
         LOG.trace("flushing the queue with " + queueSize + " tasks in it");
       }
@@ -293,7 +289,7 @@ final class EDTExecutorInternal implements Disposable {
         LOG.debug("refused in the task execution: " + task);
       }
     } catch (TaskIsOutdated ex) {
-      LOG.warn(ex.getMessage());
+      LOG.warning(ex.getMessage());
     } catch (LinkageError | AssertionError | RuntimeException e) {
       LOG.error("run in EDT failure", e);
       taskFailedWithError = true;
@@ -335,7 +331,7 @@ final class EDTExecutorInternal implements Disposable {
         try {
           myQueueWasEmptyCondition.await(200, TimeUnit.MILLISECONDS);
         } catch (InterruptedException ie) {
-          LOG.warn("Interrupted while waiting for flush", ie);
+          LOG.warning("Interrupted while waiting for flush", ie);
           Thread.currentThread().interrupt();
           return;
         }

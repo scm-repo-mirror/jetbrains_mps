@@ -42,7 +42,6 @@
     <import index="2r90" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.platform.watching(MPS.Platform/)" />
     <import index="snbe" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.io(MPS.IDEA/)" />
     <import index="82uw" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.function(JDK/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="7nyy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.refresh(MPS.Core/)" />
     <import index="eurq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.path(MPS.Core/)" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
@@ -52,6 +51,8 @@
     <import index="zdap" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.text(MPS.IDEA/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
     <import index="w8cm" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.dependencies(MPS.Generator/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
+    <import index="t6h5" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang.reflect(JDK/)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -8627,11 +8628,16 @@
                   <node concept="3clFbS" id="hwfPVmjvXB" role="1zxBo7">
                     <node concept="3cpWs6" id="hwfPVmjyYS" role="3cqZAp">
                       <node concept="2OqwBi" id="hwfPVmjqa7" role="3cqZAk">
-                        <node concept="37vLTw" id="hwfPVmjq1U" role="2Oq$k0">
-                          <ref role="3cqZAo" node="491od_XK1Qj" resolve="participantClass" />
+                        <node concept="2OqwBi" id="6V2p7Iuk9dx" role="2Oq$k0">
+                          <node concept="37vLTw" id="hwfPVmjq1U" role="2Oq$k0">
+                            <ref role="3cqZAo" node="491od_XK1Qj" resolve="participantClass" />
+                          </node>
+                          <node concept="liA8E" id="6V2p7Iuk9Xg" role="2OqNvi">
+                            <ref role="37wK5l" to="wyt6:~Class.getDeclaredConstructor(java.lang.Class...)" resolve="getDeclaredConstructor" />
+                          </node>
                         </node>
                         <node concept="liA8E" id="hwfPVmjqmC" role="2OqNvi">
-                          <ref role="37wK5l" to="wyt6:~Class.newInstance()" resolve="newInstance" />
+                          <ref role="37wK5l" to="t6h5:~Constructor.newInstance(java.lang.Object...)" resolve="newInstance" />
                         </node>
                       </node>
                     </node>
@@ -8650,22 +8656,14 @@
                       <node concept="3clFbF" id="hwfPVmjwpE" role="3cqZAp">
                         <node concept="2OqwBi" id="hwfPVmjwOC" role="3clFbG">
                           <node concept="2YIFZM" id="hwfPVmjwys" role="2Oq$k0">
-                            <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-                            <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
+                            <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                            <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
                             <node concept="1rXfSq" id="hwfPVmjwB3" role="37wK5m">
                               <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
                             </node>
                           </node>
                           <node concept="liA8E" id="hwfPVmjxyn" role="2OqNvi">
-                            <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
-                            <node concept="2OqwBi" id="hwfPVmjA9P" role="37wK5m">
-                              <node concept="37vLTw" id="hwfPVmj_8$" role="2Oq$k0">
-                                <ref role="3cqZAo" node="hwfPVmjvXE" resolve="ex" />
-                              </node>
-                              <node concept="liA8E" id="hwfPVmjA$C" role="2OqNvi">
-                                <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
-                              </node>
-                            </node>
+                            <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                             <node concept="37vLTw" id="hwfPVmjxI6" role="37wK5m">
                               <ref role="3cqZAo" node="hwfPVmjvXE" resolve="ex" />
                             </node>

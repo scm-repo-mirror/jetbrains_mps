@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,9 @@ import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.workbench.ActionPlace;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
@@ -50,7 +48,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
-@SuppressWarnings("UnstableApiUsage")
 public abstract class BaseAction extends AnAction {
   private boolean myIsAlwaysVisible = true;
   private ActionAccess myActionAccess = null;
@@ -183,8 +180,8 @@ public abstract class BaseAction extends AnAction {
         disable(e.getPresentation());
         return;
       } catch (RuntimeException ex) {
-        final Logger log = LogManager.getLogger(getClass());
-        if (log.isEnabledFor(Level.ERROR)) {
+        final Logger log = Logger.getLogger(getClass());
+        if (log.isErrorLevel()) {
           log.error(String.format("User's action doUpdate method failed. Action: %s. Class: %s", getTemplatePresentation().getText(),
                                   BaseAction.this.getClass().getName()), ex);
         }
@@ -210,8 +207,8 @@ public abstract class BaseAction extends AnAction {
         repo.getModelAccess().runReadAction(() -> collectActionData(dcBridgeEvent, params));
         doExecute(dcBridgeEvent, params);
       } catch (RuntimeException ex) {
-        final Logger log = LogManager.getLogger(getClass());
-        if (log.isEnabledFor(Level.ERROR)) {
+        final Logger log = Logger.getLogger(getClass());
+        if (log.isErrorLevel()) {
           log.error(String.format("User's action execute method failed. Action: %s. Class: %s", event.getPresentation().getText(),
                                   BaseAction.this.getClass().getName()), ex);
         }

@@ -4,7 +4,7 @@ package jetbrains.mps.ide.platform.watching;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.function.Supplier;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.Computable;
 
 @GeneratedClass(node = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)/4774203567223337882", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
@@ -15,9 +15,9 @@ public abstract class ReloadManager {
   public final <T extends ReloadParticipant> void runReload(final Class<T> participantClass, ReloadAction<T> reloadAction) {
     runReload(participantClass, () -> {
       try {
-        return participantClass.newInstance();
+        return participantClass.getDeclaredConstructor().newInstance();
       } catch (Exception ex) {
-        Logger.getLogger(getClass()).error(ex.getMessage(), ex);
+        Logger.getLogger(getClass()).error(ex);
       }
       return null;
     }, reloadAction);

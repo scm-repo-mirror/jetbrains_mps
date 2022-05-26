@@ -31,6 +31,7 @@ import jetbrains.mps.findUsages.NodeUsageLookup;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.vfs.FileSystemBridge;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.FilePerRootDataSource;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.progress.EmptyProgressMonitor;
@@ -224,7 +225,7 @@ public class MPSModelsFastFindSupport implements FindUsagesParticipant, Disposab
         //       unless it is in the index.
         VirtualFile vf = fsBridge.asVirtualFile(modelFile);
         if (vf == null) {
-          LogManager.getLogger(MPSModelsFastFindSupport.class).warn(
+          Logger.getLogger(MPSModelsFastFindSupport.class).warning(
               String.format("Model %s: virtual file not found for model file. Model file: %s", sm.getName(), modelFile.getPath()));
           continue;
         }

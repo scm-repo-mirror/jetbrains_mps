@@ -4,8 +4,7 @@ package jetbrains.mps.ide.platform.refactoring;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.refactoring.runtime.access.RefactoringFacade;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.refactoring.framework.RefactoringContext;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.refactoring.framework.IRefactoring;
@@ -26,7 +25,7 @@ import java.util.ArrayList;
 
 @GeneratedClass(node = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/2183214647889839513", model = "r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)")
 public class RefactoringFacadeImpl implements RefactoringFacade {
-  protected Logger myLog = LogManager.getLogger(this.getClass());
+  protected final Logger myLog = Logger.getLogger(this.getClass());
   public RefactoringFacadeImpl() {
   }
   public void executeSimple(final RefactoringContext context) {
@@ -36,7 +35,7 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
       try {
         refactoring.refactor(context);
       } catch (Throwable t) {
-        myLog.error("An exception occured while trying to execute refactoring " + refactoring.getUserFriendlyName() + ". Models could have been corrupted.", t);
+        myLog.error("An exception occurred while trying to execute refactoring " + refactoring.getUserFriendlyName() + ". Models could have been corrupted.", t);
       }
     });
     try {
@@ -83,7 +82,7 @@ public class RefactoringFacadeImpl implements RefactoringFacade {
           result.value = new SearchResults();
         }
       } catch (Throwable t) {
-        myLog.error(null, t);
+        myLog.error(t);
       }
     });
     return result.value;

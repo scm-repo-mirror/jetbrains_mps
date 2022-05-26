@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,7 @@ import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.WindowManager;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,7 +30,7 @@ import javax.swing.JFrame;
 import java.awt.Window;
 
 public class FrameRule implements GetDataRule {
-  private static final Logger LOG = LogManager.getLogger(FrameRule.class);
+  private static final Logger LOG = Logger.getLogger(FrameRule.class);
 
   @Override
   @Nullable
@@ -44,7 +43,7 @@ public class FrameRule implements GetDataRule {
       //     wasn't supposed to cover.
       // fixme this branch in 202/203 leads to not currently active frame and I do not know of the correct api
       //       #deduceFromActive window is the correct approach but there is no Frame there so I am lost
-      LOG.warn("incorrect frame might be returned");
+      LOG.warning("incorrect frame might be returned");
       return WindowManager.getInstance().findVisibleFrame();
     }
     return WindowManager.getInstance().getFrame(project);

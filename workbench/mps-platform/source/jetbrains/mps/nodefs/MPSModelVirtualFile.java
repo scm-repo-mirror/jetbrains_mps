@@ -19,9 +19,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.extapi.persistence.FolderDataSource;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -36,7 +35,7 @@ import java.io.OutputStream;
  * Date: 3/6/13
  */
 public final class MPSModelVirtualFile extends VirtualFile {
-  private static final Logger LOG = LogManager.getLogger(MPSModelVirtualFile.class);
+  private static final Logger LOG = Logger.getLogger(MPSModelVirtualFile.class);
   private static final byte[] ZERO_BYTES = new byte[0];
   public static final String MODEL_PREFIX = "model://";
 
@@ -56,7 +55,7 @@ public final class MPSModelVirtualFile extends VirtualFile {
     myRepoFiles.getRepository().getModelAccess().runReadAction(() -> {
       SModel model = myModelReference.resolve(myRepoFiles.getRepository());
       if (model == null) {
-        LOG.error("Model resolve failed for SModelReference: " + myModelReference.toString(), new Throwable());
+        LOG.error("Model resolve failed for SModelReference: " + myModelReference, new Throwable());
         myName = "";
         myPath = "";
       } else {
@@ -153,6 +152,7 @@ public final class MPSModelVirtualFile extends VirtualFile {
   public void refresh(boolean asynchronous, boolean recursive, @Nullable Runnable postRunnable) {
   }
 
+  @NotNull
   @Override
   public InputStream getInputStream() {
     throw new UnsupportedOperationException();

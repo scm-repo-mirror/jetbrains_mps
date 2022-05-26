@@ -16,10 +16,10 @@
 package jetbrains.mps.migration.global;
 
 import com.intellij.openapi.application.ApplicationInfo;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.util.IStatus;
 import jetbrains.mps.util.Status;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class ProjectMigrationsRegistry {
   private static final String MIGRATION_BASELINE_KEY = "project.baseline.version";
   private static final String MIGRATION_APPLIED_KEY = "project.migrated.version";
   private static ProjectMigrationsRegistry ourInstance = new ProjectMigrationsRegistry();
-  // don't expect to see projects older than those coming from MPS 2018.1; 3 years old seems sufficient enough.
+  // don't expect to see projects older than those coming from MPS 2018.1; 3 years old seems good enough.
   private static final int defaultBaselineVersionWhenUnspecified = 181;
 
   public static ProjectMigrationsRegistry getInstance() {
@@ -139,7 +139,7 @@ public class ProjectMigrationsRegistry {
       final String v = getMigrationProperties(mpsProject).getProperty(MIGRATION_BASELINE_KEY);
       return v == null ? defaultBaselineVersion : Integer.parseInt(v);
     } catch (Exception ex) {
-      Logger.getLogger(getClass()).warn("Bad project baseline version for migration", ex);
+      Logger.getLogger(getClass()).warning("Bad project baseline version for migration", ex);
       return defaultBaselineVersion;
     }
   }

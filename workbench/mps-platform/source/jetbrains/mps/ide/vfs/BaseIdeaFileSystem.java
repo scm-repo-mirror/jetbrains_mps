@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.util.ThrowableRunnable;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
@@ -35,8 +36,6 @@ import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.vfs.util.PathFormatChecker;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,7 +43,6 @@ import java.util.Collection;
 import java.util.Objects;
 
 public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSystem, Disposable {
-  private static final Logger LOG = LogManager.getLogger(IdeaFileSystem.class);
 
   private final MPSCoreComponents myCoreComponents;
   private FileSystemListenersContainer myListenersContainer;
@@ -121,7 +119,7 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
       WriteAction.runAndWait(tr);
       return true;
     } catch (Exception ex) {
-      LOG.error(ex.getMessage(), ex);
+      Logger.getLogger(IdeaFileSystem.class).error(ex);
       return false;
     }
   }

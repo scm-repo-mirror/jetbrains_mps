@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @since 28/03/2020
  */
 public class EDTExecutorInternalTest {
-  private final static Logger LOG = LogManager.getLogger(EDTExecutorInternalTest.class);
+  private final static Logger LOG = Logger.getLogger(EDTExecutorInternalTest.class);
 
   private final static long TIME_OUT_MS = 60000;
 
@@ -57,7 +57,7 @@ public class EDTExecutorInternalTest {
 
   @BeforeClass
   public static void setup() {
-    Logger logger = LogManager.getLogger(EDTExecutorInternal.class);
+    Logger logger = Logger.getLogger(EDTExecutorInternal.class);
     logger.setLevel(Level.TRACE);
   }
 
@@ -133,9 +133,11 @@ public class EDTExecutorInternalTest {
   // fixme the test fails with 15% probability and does not test much I think
   //       EDTExecutorInternal needs to be rewritten using a separate thread for events processing (a scheduler I guess?)
   public void contractForFlagBruteForceTest() throws InterruptedException {
-    LogManager.getLogger(EDTExecutorInternal.class).setLevel(Level.TRACE);
-    LOG.removeAllAppenders();
-    LOG.addAppender(new ConsoleAppender(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN)));
+    // next code was commented out when working on log4j removal as the test is not functional and I don't
+    // want to spend time fixing this code. If/once test is live, ping me for details what to do here
+//    LogManager.getLogger(EDTExecutorInternal.class).setLevel(Level.TRACE);
+//    LOG.removeAllAppenders();
+//    LOG.addAppender(new ConsoleAppender(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN)));
     EDTExecutorInternal edtExecutorInternal = new EDTExecutorInternal();
     int nThreads = Runtime.getRuntime().availableProcessors();
     ExecutorService pool = Executors.newFixedThreadPool(nThreads);

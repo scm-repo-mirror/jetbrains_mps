@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,21 +15,17 @@
  */
 package jetbrains.mps.ide.persistence;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.openapi.extensions.PluginDescriptor;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.persistence.SModelIdFactory;
 
 /*
  * XXX likely shall get merged into ModelFactoryRegister, no reason for a distinct
  */
 public class PersistenceComponent implements ApplicationComponent {
-  private static final Logger LOG = LogManager.getLogger(PersistenceComponent.class);
+  private static final Logger LOG = Logger.getLogger(PersistenceComponent.class);
 
 
   public PersistenceComponent() {
@@ -59,10 +55,6 @@ public class PersistenceComponent implements ApplicationComponent {
         LOG.error(m);
       }
     }
-  }
-
-  @Override
-  public void disposeComponent() {
   }
 
   @NotNull

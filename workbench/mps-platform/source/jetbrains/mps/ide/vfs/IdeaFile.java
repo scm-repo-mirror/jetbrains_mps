@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem;
 import com.intellij.openapi.vfs.newvfs.NewVirtualFile;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer.ListenersForPath;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
@@ -41,8 +42,6 @@ import jetbrains.mps.vfs.refresh.FileListenerAdapter;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import jetbrains.mps.vfs.util.PathUtil;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
@@ -67,7 +66,7 @@ import java.util.List;
  */
 @Immutable
 public class IdeaFile implements IFile, CachingFile {
-  private final static Logger LOG = LogManager.getLogger(IdeaFile.class);
+  private final static Logger LOG = Logger.getLogger(IdeaFile.class);
   private final BaseIdeaFileSystem myFS;
 
   /*
@@ -125,7 +124,7 @@ public class IdeaFile implements IFile, CachingFile {
     VirtualFile virtualFile = findVirtualFile();
     try {
       if (virtualFile == null) {
-        LOG.warn("Could not find the virtual file for " + this);
+        LOG.warning("Could not find the virtual file for " + this);
         return guessURLForPath(myPath);
       }
       return VirtualFileUtils.extractURLFromVirtualFile(virtualFile);
@@ -349,11 +348,11 @@ public class IdeaFile implements IFile, CachingFile {
         virtualFile.delete(getFileSystem());
         return true;
       } catch (IOException e) {
-        LOG.warn("Could not delete the file: ", e);
+        LOG.warning("Could not delete the file: ", e);
         return false;
       }
     } else {
-      LOG.warn("Could not find the file to delete: " + myPath, new Throwable());
+      LOG.warning("Could not find the file to delete: " + myPath, new Throwable());
       return false;
     }
   }
@@ -370,7 +369,7 @@ public class IdeaFile implements IFile, CachingFile {
         return false;
       }
     } catch (IOException e) {
-      LOG.warn("Could not rename the file: ", e);
+      LOG.warning("Could not rename the file: ", e);
       return false;
     }
   }
@@ -380,7 +379,7 @@ public class IdeaFile implements IFile, CachingFile {
     ListenersForPath listenersForPath = container.getListenersForPath(myPath);
     List<FileSystemListener> all = listenersForPath.getMeAndDescendants();
     if (!all.isEmpty()) {
-      LOG.warn(String.format("%d listener(s) have not been unregistered for the path '%s':", all.size(), getPath()));
+      LOG.warning(String.format("%d listener(s) have not been unregistered for the path '%s':", all.size(), getPath()));
       for (FileSystemListener listener : all) {
         myFS.removeListener(listener);
       }
@@ -402,7 +401,7 @@ public class IdeaFile implements IFile, CachingFile {
         virtualFile.rename(getFileSystem(), newName);
         return getParent().findChild(newName);
       } else {
-        LOG.warn("Could not find the file: " + myPath);
+        LOG.warning("Could not find the file: " + myPath);
         return this;
       }
     } catch (IOException e) {
@@ -428,7 +427,7 @@ public class IdeaFile implements IFile, CachingFile {
           return null;
         }
       } catch (IOException e) {
-        LOG.warn("Could not copy file: ", e);
+        LOG.warning("Could not copy file: ", e);
         return null;
       }
     }
@@ -452,7 +451,7 @@ public class IdeaFile implements IFile, CachingFile {
           return false;
         }
       } catch (IOException e) {
-        LOG.warn("Could not rename file: ", e);
+        LOG.warning("Could not rename file: ", e);
         return false;
       }
     }
@@ -479,7 +478,7 @@ public class IdeaFile implements IFile, CachingFile {
           return this;
         }
       } catch (IOException e) {
-        LOG.warn("Could not rename file: ", e);
+        LOG.warning("Could not rename file: ", e);
         return this;
       }
     }
@@ -543,7 +542,7 @@ public class IdeaFile implements IFile, CachingFile {
         ((NewVirtualFile) virtualFile).setTimeStamp(time);
         return true;
       } catch (IOException e) {
-        LOG.warn("", e);
+        LOG.warning("", e);
       }
     }
     return false;
@@ -576,7 +575,7 @@ public class IdeaFile implements IFile, CachingFile {
   public boolean isZipArchive() {
     var virtualFile = findVirtualFile();
     if (virtualFile == null) {
-      LOG.warn("could not find the virtual find for " + this);
+      LOG.warning("could not find the virtual find for " + this);
     }
     return virtualFile != null && virtualFile.exists() && virtualFile.getFileType() == FileTypes.ARCHIVE;
   }
@@ -650,7 +649,7 @@ public class IdeaFile implements IFile, CachingFile {
   @Override
   public void addListener(@NotNull FileListener listener) {
     if (isInZipArchive()) {
-      LOG.warn("There might be a problem when adding file listener for the files inside the archive: '" + getPath() + "'");
+      LOG.warning("There might be a problem when adding file listener for the files inside the archive: '" + getPath() + "'");
     }
     getFileSystem().addListener(FileListenerAdapter.adapt(this, listener));
   }

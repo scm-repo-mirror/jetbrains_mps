@@ -20,6 +20,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRule;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.logging.Logger;
 import org.apache.log4j.LogManager;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.annotations.Internal;
@@ -53,7 +54,7 @@ public final class DataSourceFactoryRuleRegistrar implements Disposable {
         String message = String.format("Failed to load %s in the plugin %s",
                                        provider.getImplementationClass(),
                                        provider.getPluginDescriptor().getPluginId());
-        LogManager.getLogger(DataSourceFactoryRuleRegistrar.class).error(message, e);
+        Logger.getLogger(DataSourceFactoryRuleRegistrar.class).error(message, e);
       }
     }
   }

@@ -11,7 +11,6 @@
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
     <import index="4rvk" ref="r:7cb72aee-d3e2-47e9-9964-3abda6a73a9a(jetbrains.mps.make.service)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="i9so" ref="r:9e5578e0-37f0-4c9b-a301-771bcb453678(jetbrains.mps.make.script)" />
@@ -41,6 +40,7 @@
     <import index="mk8z" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.progress(MPS.Platform/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -97,7 +97,6 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
-      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475354124" name="jetbrains.mps.baseLanguage.structure.ThisExpression" flags="nn" index="Xjq3P">
         <reference id="1182955020723" name="classConcept" index="1HBi2w" />
       </concept>
@@ -346,21 +345,6 @@
       <ref role="3uigEE" to="4rvk:1Z_kCIGSOD4" resolve="AbstractMakeService" />
     </node>
     <node concept="2tJIrI" id="5rIhWKNSIUA" role="jymVt" />
-    <node concept="Wx3nA" id="9D0Ba05uYm" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <node concept="2YIFZM" id="Hn0$MvbYKq" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-        <node concept="3VsKOn" id="Hn0$MvbYKr" role="37wK5m">
-          <ref role="3VsUkX" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="Hn0$MvbYKi" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-      <node concept="3Tm6S6" id="9D0Ba05uYn" role="1B3o_S" />
-    </node>
-    <node concept="2tJIrI" id="5rIhWKNSExt" role="jymVt" />
     <node concept="312cEg" id="9D0Ba05vmg" role="jymVt">
       <property role="TrG5h" value="currentSessionStickyMark" />
       <node concept="3Tm6S6" id="9D0Ba05vmh" role="1B3o_S" />
@@ -2484,14 +2468,17 @@
                 </node>
               </node>
               <node concept="3clFbS" id="9D0Ba05v3O" role="1zc67A">
-                <node concept="3clFbF" id="9D0Ba05v3P" role="3cqZAp">
-                  <node concept="2OqwBi" id="9D0Ba05v3Q" role="3clFbG">
-                    <node concept="10M0yZ" id="9D0Ba05v3R" role="2Oq$k0">
-                      <ref role="1PxDUh" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
-                      <ref role="3cqZAo" node="9D0Ba05uYm" resolve="LOG" />
+                <node concept="3clFbF" id="6V2p7Iulbwq" role="3cqZAp">
+                  <node concept="2OqwBi" id="6V2p7IulvAl" role="3clFbG">
+                    <node concept="2YIFZM" id="6V2p7IulgSM" role="2Oq$k0">
+                      <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                      <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                      <node concept="3VsKOn" id="6V2p7Iulq$v" role="37wK5m">
+                        <ref role="3VsUkX" node="9D0Ba05uYl" resolve="WorkbenchMakeService" />
+                      </node>
                     </node>
-                    <node concept="liA8E" id="9D0Ba05v3S" role="2OqNvi">
-                      <ref role="37wK5l" to="q7tw:~Category.debug(java.lang.Object,java.lang.Throwable)" resolve="debug" />
+                    <node concept="liA8E" id="6V2p7Iul$Jo" role="2OqNvi">
+                      <ref role="37wK5l" to="wwqx:~Logger.debug(java.lang.String,java.lang.Throwable)" resolve="debug" />
                       <node concept="Xl_RD" id="9D0Ba05v3T" role="37wK5m">
                         <property role="Xl_RC" value="Error running job" />
                       </node>
