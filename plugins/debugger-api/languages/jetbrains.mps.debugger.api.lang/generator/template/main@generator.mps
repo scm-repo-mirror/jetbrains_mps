@@ -271,11 +271,6 @@
         <child id="2034914114981261753" name="message" index="RRSoy" />
       </concept>
     </language>
-    <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
-      <concept id="8791205313600585946" name="jetbrains.mps.baseLanguageInternal.structure.WeakClassReference" flags="nn" index="3iG29X">
-        <reference id="8791205313600585947" name="classifier" index="3iG29W" />
-      </concept>
-    </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
@@ -580,32 +575,6 @@
     </node>
     <node concept="2uRRBj" id="16yMc0k$9qZ" role="2uRRBE">
       <node concept="3clFbS" id="16yMc0k$9r0" role="2VODD2">
-        <node concept="3cpWs8" id="56ID84F0kSo" role="3cqZAp">
-          <node concept="3cpWsn" id="56ID84F0kSp" role="3cpWs9">
-            <property role="TrG5h" value="debuggerPlugin" />
-            <node concept="3uibUv" id="56ID84F0kSq" role="1tU5fm">
-              <ref role="3uigEE" to="9ti4:~PluginId" resolve="PluginId" />
-            </node>
-            <node concept="2YIFZM" id="56ID84F0kSr" role="33vP2m">
-              <ref role="1Pybhc" to="ctgy:~PluginManager" resolve="PluginManager" />
-              <ref role="37wK5l" to="ctgy:~PluginManager.getPluginByClassName(java.lang.String)" resolve="getPluginByClassName" />
-              <node concept="3iG29X" id="56ID84F0kSs" role="37wK5m">
-                <ref role="3iG29W" to="1l1h:3SnNvqCaJDx" resolve="BreakpointCreatorsManager" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="56ID84F0kSL" role="3cqZAp">
-          <node concept="3clFbS" id="56ID84F0kSM" role="3clFbx">
-            <node concept="3cpWs6" id="56ID84F0kT0" role="3cqZAp" />
-          </node>
-          <node concept="3clFbC" id="56ID84F0kSW" role="3clFbw">
-            <node concept="10Nm6u" id="56ID84F0kSZ" role="3uHU7w" />
-            <node concept="37vLTw" id="3GM_nagTwgf" role="3uHU7B">
-              <ref role="3cqZAo" node="56ID84F0kSp" resolve="debuggerPlugin" />
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs8" id="16yMc0k$9r2" role="3cqZAp">
           <node concept="3cpWsn" id="16yMc0k$9r3" role="3cpWs9">
             <property role="TrG5h" value="manager" />
@@ -1069,32 +1038,6 @@
     </node>
     <node concept="2uRRBI" id="16yMc0k$9s6" role="2uRRBF">
       <node concept="3clFbS" id="16yMc0k$9s7" role="2VODD2">
-        <node concept="3cpWs8" id="56ID84F0kT4" role="3cqZAp">
-          <node concept="3cpWsn" id="56ID84F0kT5" role="3cpWs9">
-            <property role="TrG5h" value="debuggerPlugin" />
-            <node concept="3uibUv" id="56ID84F0kT6" role="1tU5fm">
-              <ref role="3uigEE" to="9ti4:~PluginId" resolve="PluginId" />
-            </node>
-            <node concept="2YIFZM" id="56ID84F0kT7" role="33vP2m">
-              <ref role="1Pybhc" to="ctgy:~PluginManager" resolve="PluginManager" />
-              <ref role="37wK5l" to="ctgy:~PluginManager.getPluginByClassName(java.lang.String)" resolve="getPluginByClassName" />
-              <node concept="3iG29X" id="56ID84F0kT8" role="37wK5m">
-                <ref role="3iG29W" to="1l1h:3SnNvqCaJDx" resolve="BreakpointCreatorsManager" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbJ" id="56ID84F0kT9" role="3cqZAp">
-          <node concept="3clFbS" id="56ID84F0kTa" role="3clFbx">
-            <node concept="3cpWs6" id="56ID84F0kTb" role="3cqZAp" />
-          </node>
-          <node concept="3clFbC" id="56ID84F0kTc" role="3clFbw">
-            <node concept="10Nm6u" id="56ID84F0kTd" role="3uHU7w" />
-            <node concept="37vLTw" id="3GM_nagTBNJ" role="3uHU7B">
-              <ref role="3cqZAo" node="56ID84F0kT5" resolve="debuggerPlugin" />
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs8" id="16yMc0k$9sb" role="3cqZAp">
           <node concept="3cpWsn" id="16yMc0k$9sc" role="3cpWs9">
             <property role="TrG5h" value="manager" />
