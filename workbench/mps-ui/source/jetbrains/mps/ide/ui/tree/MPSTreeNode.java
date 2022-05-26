@@ -16,8 +16,7 @@
 package jetbrains.mps.ide.ui.tree;
 
 import com.intellij.icons.AllIcons;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.intellij.lang.annotations.MagicConstant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -49,7 +48,7 @@ import java.util.stream.Stream;
  */
 //todo[MM]: unimplement iterable after 2019.1, use getChildren()
 public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPSTreeNode> {
-  private static final Logger LOG = LogManager.getLogger(MPSTreeNode.class);
+  private static final Logger LOG = Logger.getLogger(MPSTreeNode.class);
 
   private MPSTree myTree;
   private boolean myAdded;

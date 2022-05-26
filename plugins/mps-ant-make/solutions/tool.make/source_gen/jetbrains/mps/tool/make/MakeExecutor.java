@@ -7,7 +7,7 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.messages.IMessageHandler;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.messages.LogHandler;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.make.MakeSession;
 import jetbrains.mps.internal.make.cfg.JavaCompileFacetInitializer;

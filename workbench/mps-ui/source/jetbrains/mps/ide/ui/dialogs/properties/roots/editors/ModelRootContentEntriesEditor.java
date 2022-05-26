@@ -35,6 +35,7 @@ import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.ide.actions.MPSActionPlaces;
 import jetbrains.mps.ide.ui.dialogs.properties.PropertiesBundle;
 import jetbrains.mps.ide.ui.dialogs.properties.roots.editors.ModelRootEntryContainer.ContentEntryEditorListener;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.persistence.java.library.JavaClassStubsModelRoot;
@@ -45,8 +46,6 @@ import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -80,10 +79,9 @@ import static com.intellij.openapi.vfs.VfsUtilCore.isAncestor;
  * UIComponent which contains all the module roots.
  * It is located in the module properties dialog.
  */
-@SuppressWarnings("UnstableApiUsage")
 public class ModelRootContentEntriesEditor implements Disposable {
 
-  private final static Logger LOG = LogManager.getLogger(ModelRootContentEntriesEditor.class);
+  private final static Logger LOG = Logger.getLogger(ModelRootContentEntriesEditor.class);
 
   @Nullable
   private ModuleDescriptor myModuleDescriptor;
@@ -123,7 +121,7 @@ public class ModelRootContentEntriesEditor implements Disposable {
         container.addContentEntryEditorListener(myEditorListener);
         myModelRootEntries.add(container);
       } else {
-        LOG.warn(
+        LOG.warning(
             String.format("Can't create editor for '%s' model root type in module %s. Check that plugin, where this model root type is registered, is enabled.",
                           descriptor.getType(), moduleName));
       }

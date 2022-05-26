@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import com.intellij.icons.AllIcons.Modules;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.SystemInfo;
-import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.Gray;
 import com.intellij.ui.HoverHyperlinkLabel;
 import com.intellij.ui.JBColor;
@@ -37,9 +36,9 @@ import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKind;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry;
@@ -87,7 +86,7 @@ public final class FileBasedModelRootEntry implements ModelRootEntry<FileBasedMo
   @Deprecated
   public FileBasedModelRootEntry(@NotNull FileBasedModelRoot modelRoot) {
     //noinspection UnstableApiUsage
-    Logger.getLogger(FileBasedModelRootEntry.class).warn("Use FileBasedModelRootEntry cons with project argument", new Throwable());
+    Logger.getLogger(FileBasedModelRootEntry.class).warning("Use FileBasedModelRootEntry cons with project argument", new Throwable());
     MPSProject p = null;
     for (Project ideaProject : ProjectManager.getInstance().getOpenProjects()) {
       if (ideaProject.isDisposed()) {
