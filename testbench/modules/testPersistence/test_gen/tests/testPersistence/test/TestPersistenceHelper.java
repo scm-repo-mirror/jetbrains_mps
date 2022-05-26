@@ -32,13 +32,6 @@ import java.util.Arrays;
    */
   public static final int START_PERSISTENCE_TEST_VERSION = 9;
 
-  public TestOutputFilter filter = new TestOutputFilter() {
-    @Override
-    protected boolean isLineOK(String line) {
-      return line != null && !((line.contains("attribute") && line.contains("undeclared child role:")));
-    }
-  };
-
   private final SModelBase myTestModel;
 
   /*package*/ TestPersistenceHelper(final SRepository repo) {
@@ -63,13 +56,10 @@ import java.util.Arrays;
 
   /*package*/ void saveTestModelInPersistence(PersistenceUtil.InMemoryStreamDataSource dataSource, int persistence) {
     try {
-      filter.start();
       ModelPersistence.saveModel(myTestModel.getSModel(), dataSource, persistence);
     } catch (Exception e) {
       e.printStackTrace();
       Assert.fail("Exception during test. See log for details");
-    } finally {
-      filter.stop();
     }
   }
 
