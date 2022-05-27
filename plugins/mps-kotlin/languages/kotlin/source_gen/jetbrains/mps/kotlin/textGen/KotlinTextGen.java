@@ -8,8 +8,8 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -24,10 +24,10 @@ import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.kotlin.behavior.IKotlinRoot__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public abstract class KotlinTextGen {
@@ -53,6 +53,15 @@ public abstract class KotlinTextGen {
         }
       }
       tgs.append(">");
+    }
+  }
+  public static void numberFlags(SNode number, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    if (SPropertyOperations.getBoolean(number, PROPS.unsigned$iUpc)) {
+      tgs.append("u");
+    }
+    if (SPropertyOperations.getBoolean(number, PROPS.long$1NZg)) {
+      tgs.append("L");
     }
   }
   public static void delegate(SNode node, final TextGenContext ctx) {
@@ -397,6 +406,13 @@ public abstract class KotlinTextGen {
     return new ImportContext(primaryInputNode);
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty unsigned$iUpc = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4708606L, 0x4a002b656d675c88L, "unsigned");
+    /*package*/ static final SProperty long$1NZg = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4708606L, 0x4a002b656d67aa05L, "long");
+    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
   private static final class LINKS {
     /*package*/ static final SContainmentLink delegate$pKtK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x1913adf56af0af90L, 0x2043bc8310b9b197L, "delegate");
     /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
@@ -417,11 +433,6 @@ public abstract class KotlinTextGen {
     /*package*/ static final SContainmentLink fileAnnotations$Q2t4 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, 0x28bef6d7551af886L, "fileAnnotations");
     /*package*/ static final SContainmentLink header$Q2G5 = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, 0x28bef6d7551af887L, "header");
     /*package*/ static final SContainmentLink imports$BOfg = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, 0x11400bb790e02796L, "imports");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class CONCEPTS {

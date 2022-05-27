@@ -16,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -36,14 +35,12 @@ public final class IThisReceiverProvider__BehaviorDescriptor extends BaseBHDescr
   /*package*/ static boolean collectScope_id7DyvjiA20yV(@NotNull SNode __thisNode__, final ScopeCollector collector, final SNode childNode) {
     // Declare all scopes
     Sequence.fromIterable(IThisReceiverProvider__BehaviorDescriptor.getThisTypeReferences_idxpyqH1FuA0.invoke(__thisNode__)).visitAll(new IVisitor<TypeReference>() {
-      public void visit(final TypeReference it) {
-        TypecheckingFacade.getFromContext().runIsolated(() -> {
-          // Get instance scope with receivers
-          Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(it.compute(), collector.getFilter(), childNode, ((boolean) true))).visitAll(new IVisitor<SignatureScope>() {
-            public void visit(SignatureScope it) {
-              collector.declareScope(it);
-            }
-          });
+      public void visit(TypeReference it) {
+        // Get instance scope with receivers
+        Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(it.compute(), collector.getFilter(), childNode, ((boolean) true))).visitAll(new IVisitor<SignatureScope>() {
+          public void visit(SignatureScope it) {
+            collector.declareScope(it);
+          }
         });
       }
     });

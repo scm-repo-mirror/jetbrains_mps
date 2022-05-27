@@ -15,6 +15,7 @@ public class HexLiteral_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append("0x");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.value$x9Je));
+    KotlinTextGen.numberFlags(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class PROPS {

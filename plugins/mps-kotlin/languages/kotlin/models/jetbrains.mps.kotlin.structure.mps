@@ -634,6 +634,9 @@
     <node concept="PrWs8" id="5G5goncbChs" role="PzmwI">
       <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
     </node>
+    <node concept="asaX9" id="4C0aQlHpZIm" role="lGtFl">
+      <property role="YLQ7P" value="replaced with a 'long' marker in int expressions (NumericalBaseLiteral)" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jfn">
     <property role="EcuMT" value="2936055411798373335" />
@@ -648,6 +651,9 @@
     </node>
     <node concept="PrWs8" id="4gvOB2uWefF" role="PzmwI">
       <ref role="PrY4T" node="2yYXHtl6Jjg" resolve="IExpression" />
+    </node>
+    <node concept="asaX9" id="4C0aQlHpYI3" role="lGtFl">
+      <property role="YLQ7P" value="replaced with a 'unsigned' marker in int expressions (NumericalBaseLiteral)" />
     </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6Jfy">
@@ -2966,6 +2972,16 @@
     </node>
     <node concept="PrWs8" id="6563FJLeXcW" role="PzmwI">
       <ref role="PrY4T" node="6563FJLeShn" resolve="IStaticType" />
+    </node>
+    <node concept="1TJgyi" id="4C0aQlHpPM8" role="1TKVEl">
+      <property role="IQ2nx" value="5332309673433848968" />
+      <property role="TrG5h" value="unsigned" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+    </node>
+    <node concept="1TJgyi" id="4C0aQlHpUC5" role="1TKVEl">
+      <property role="IQ2nx" value="5332309673433868805" />
+      <property role="TrG5h" value="long" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
   <node concept="PlHQZ" id="6cg9X74Le0Z">

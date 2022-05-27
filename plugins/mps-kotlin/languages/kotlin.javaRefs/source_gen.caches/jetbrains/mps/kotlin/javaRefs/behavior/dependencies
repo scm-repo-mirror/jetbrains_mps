@@ -302,10 +302,10 @@
     <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.CallReceiver" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.signatures.FunctionSignature" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />

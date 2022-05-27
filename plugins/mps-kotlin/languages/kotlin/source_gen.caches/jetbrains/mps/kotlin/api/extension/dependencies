@@ -27,6 +27,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.FunctionDeclaration" />
     <classNode dependClassName="jetbrains.mps.kotlin.overloading.FunctionCall" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
   </dependency>
 </dependenciesRoot>

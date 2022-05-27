@@ -2711,6 +2711,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x61460ebbf13b8457L);
     b.origin("r:72a7bf00-0175-42ca-b99b-fe8519b6a16f(jetbrains.mps.kotlin.structure)/7138249191279592966");
     b.version(3);
+    b.property("unsigned", 0x4a002b656d675c88L).type(PrimitiveTypeId.BOOLEAN).origin("5332309673433848968").done();
+    b.property("long", 0x4a002b656d67aa05L).type(PrimitiveTypeId.BOOLEAN).origin("5332309673433868805").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForObjectDeclaration() {

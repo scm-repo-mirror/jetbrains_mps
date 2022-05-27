@@ -51,15 +51,15 @@ public class JavaMemberTarget_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            final SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
+            SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
 
             // Compute type in isolation, otherwise type may be null
-            SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
+            SNode type = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni);
 
             // Receiver scope is not handled here but on kotlin side (as java has no receiver function)
             SignatureFilter<FunctionSignature> filter = new SignatureFilter<FunctionSignature>(FunctionSignature.class);
             List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false))).toListSequence();
-            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter));
+            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()));
 
             return new SignatureScopeAsScope(CompositeSignatureScope.of(list), CONCEPTS.GenericDeclaration$bC);
           }

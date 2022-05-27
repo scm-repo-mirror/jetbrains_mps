@@ -12,9 +12,13 @@ import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -52,11 +56,26 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     SNode returnType = (isConstructor ? SNodeOperations.as(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.getNodeAncestor(method, CONCEPTS.IClassifier$MF, false, false)), CONCEPTS.Type$bu) : SLinkOperations.getTarget(method, LINKS.returnType$5xoi));
     SNode result = converter.convert(returnType);
 
-    if (isConstructor && SNodeOperations.isInstanceOf(result, CONCEPTS.INullableType$$I)) {
-      // Rare exception where the result is not nullable for sure
-      SPropertyOperations.assign(SNodeOperations.cast(result, CONCEPTS.INullableType$$I), PROPS.isNullable$KWwD, false);
+    // TODO make a clear nullable API call
+    boolean nullable = isReturnTypeNullable(returnType, isConstructor);
+    if (SNodeOperations.isInstanceOf(result, CONCEPTS.INullableType$$I)) {
+      SPropertyOperations.assign(SNodeOperations.cast(result, CONCEPTS.INullableType$$I), PROPS.isNullable$KWwD, nullable);
+    } else if (nullable) {
+      SNode nullableType = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28b83021333e575L, "jetbrains.mps.kotlin.structure.NullableType"));
+      SLinkOperations.setTarget(nullableType, LINKS.type$Tm0J, result);
+      result = nullableType;
     }
+
     return result;
+  }
+
+  public boolean isReturnTypeNullable(SNode originalType, boolean isConstructor) {
+    // Constructors are non nullable for sure, NotNull annotation is also considered, primitive types are non nullable
+    return !(isConstructor) && !(SNodeOperations.isInstanceOf(originalType, CONCEPTS.PrimitiveType$sR)) && ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.annotation$K49I)).all(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return !(SLinkOperations.hasPointer(it, LINKS.annotation$12Ek, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~NotNull")));
+      }
+    });
   }
 
   @Override
@@ -75,6 +94,9 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
     /*package*/ static final SContainmentLink typeVariableDeclaration$Lipp = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
     /*package*/ static final SContainmentLink returnType$5xoi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
+    /*package*/ static final SContainmentLink type$Tm0J = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28b83021333e575L, 0x28b83021333ef14L, "type");
+    /*package*/ static final SContainmentLink annotation$K49I = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SReferenceLink annotation$12Ek = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
   }
 
   private static final class CONCEPTS {
@@ -82,6 +104,7 @@ public class JavaMethodDeclaration implements FunctionDeclaration {
     /*package*/ static final SInterfaceConcept IClassifier$MF = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x66c71d82c2eb113dL, "jetbrains.mps.baseLanguage.structure.IClassifier");
     /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
     /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
+    /*package*/ static final SConcept PrimitiveType$sR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
     /*package*/ static final SConcept InstanceMethodDeclaration$39 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }

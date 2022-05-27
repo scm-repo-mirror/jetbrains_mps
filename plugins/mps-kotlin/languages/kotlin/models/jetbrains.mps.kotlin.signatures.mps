@@ -887,6 +887,39 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="LTtTkxKjRt" role="jymVt" />
+    <node concept="3clFbW" id="LTtTkxKfjT" role="jymVt">
+      <node concept="3cqZAl" id="LTtTkxKfjV" role="3clF45" />
+      <node concept="3Tm1VV" id="LTtTkxKfjW" role="1B3o_S" />
+      <node concept="3clFbS" id="LTtTkxKfjX" role="3clF47">
+        <node concept="1VxSAg" id="LTtTkxKgzf" role="3cqZAp">
+          <ref role="37wK5l" node="5q426iHsDiy" resolve="PropertySignature" />
+          <node concept="2OqwBi" id="LTtTkxKgZS" role="37wK5m">
+            <node concept="37vLTw" id="LTtTkxKgKj" role="2Oq$k0">
+              <ref role="3cqZAo" node="LTtTkxKfXQ" resolve="namedNode" />
+            </node>
+            <node concept="3TrcHB" id="LTtTkxKi4j" role="2OqNvi">
+              <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+            </node>
+          </node>
+          <node concept="37vLTw" id="LTtTkxKhwT" role="37wK5m">
+            <ref role="3cqZAo" node="LTtTkxKg6Q" resolve="kind" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="LTtTkxKfXQ" role="3clF46">
+        <property role="TrG5h" value="namedNode" />
+        <node concept="3Tqbb2" id="LTtTkxKfXP" role="1tU5fm">
+          <ref role="ehGHo" to="tpck:h0TrEE$" resolve="INamedConcept" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="LTtTkxKg6Q" role="3clF46">
+        <property role="TrG5h" value="kind" />
+        <node concept="3uibUv" id="LTtTkxKgk5" role="1tU5fm">
+          <ref role="3uigEE" node="5q426iHsD7S" resolve="AccessorKind" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="3BHOJ8Mbs7y" role="jymVt" />
     <node concept="3clFb_" id="3BHOJ8MbrQ6" role="jymVt">
       <property role="TrG5h" value="getDescriptionText" />

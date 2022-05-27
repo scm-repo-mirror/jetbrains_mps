@@ -16,85 +16,113 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root nodeRef="r:13fdb710-e0ae-40a1-880c-e26a8ee8d411(jetbrains.mps.kotlin.baseLanguage.toKotlin)/2420378304467281848">
     <file name="JavaMethodDeclaration.java">
-      <node id="2420378304467294066" at="23,0,24,0" concept="3" trace="method" />
-      <node id="2420378304467299486" at="24,0,25,0" concept="3" trace="converter" />
-      <node id="2420378304467294070" at="25,76,26,29" concept="2" />
-      <node id="2420378304467299490" at="26,29,27,31" concept="2" />
-      <node id="2420378304467295333" at="30,26,31,18" concept="8" />
-      <node id="2420378304467597864" at="36,56,37,59" concept="8" />
-      <node id="5692660834327493358" at="44,60,45,63" concept="8" />
-      <node id="8257079261608148074" at="50,32,51,101" concept="7" />
-      <node id="2420378304474329574" at="51,101,52,283" concept="7" />
-      <node id="8257079261608145212" at="52,283,53,49" concept="7" />
-      <node id="8257079261608235469" at="53,49,54,0" concept="10" />
-      <node id="8257079261608240534" at="55,91,56,65" concept="9" />
-      <node id="8257079261608213696" at="56,65,57,120" concept="2" />
-      <node id="2420378304467436563" at="58,5,59,18" concept="8" />
-      <node id="2420378304467629497" at="64,5,65,42" concept="7" />
-      <node id="6053822427819796369" at="66,96,67,185" concept="8" />
-      <node id="2420378304467663311" at="69,5,70,0" concept="10" />
-      <node id="2420378304467622565" at="70,0,71,16" concept="8" />
-      <node id="2420378304467281848" at="75,0,76,0" concept="11" trace="parameter$5xBj" />
-      <node id="2420378304467281848" at="76,0,77,0" concept="11" trace="typeVariableDeclaration$Lipp" />
-      <node id="2420378304467281848" at="77,0,78,0" concept="11" trace="returnType$5xoi" />
-      <node id="2420378304467281848" at="81,0,82,0" concept="11" trace="ConstructorDeclaration$yG" />
-      <node id="2420378304467281848" at="82,0,83,0" concept="11" trace="IClassifier$MF" />
-      <node id="2420378304467281848" at="83,0,84,0" concept="11" trace="Type$bu" />
-      <node id="2420378304467281848" at="84,0,85,0" concept="11" trace="INullableType$$I" />
-      <node id="2420378304467281848" at="85,0,86,0" concept="11" trace="InstanceMethodDeclaration$39" />
-      <node id="2420378304467281848" at="86,0,87,0" concept="11" trace="Classifier$Ix" />
-      <node id="2420378304467281848" at="90,0,91,0" concept="11" trace="isNullable$KWwD" />
-      <node id="2420378304467596222" at="36,0,39,0" concept="6" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaParameterDeclaration;" />
-      <node id="5692660834327491187" at="44,0,47,0" concept="6" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaTypeParameterDeclaration;" />
-      <node id="2420378304467629497" at="65,42,68,7" concept="5" />
-      <node id="2420378304467293029" at="25,0,29,0" concept="1" trace="JavaMethodDeclaration#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaToKtEngine;)V" />
-      <node id="2420378304467281946" at="29,0,33,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="8257079261608196875" at="54,0,58,5" concept="5" />
-      <node id="2420378304467505172" at="34,57,39,7" concept="8" />
-      <node id="2420378304467450995" at="42,65,47,7" concept="8" />
-      <node id="2420378304467629497" at="63,34,69,5" concept="0" />
-      <node id="2420378304467281952" at="33,0,41,0" concept="6" trace="getParameters#()Ljava/lang/Iterable;" />
-      <node id="2420378304467281959" at="41,0,49,0" concept="6" trace="getTypeParameters#()Ljava/lang/Iterable;" />
-      <node id="2420378304467281972" at="62,0,73,0" concept="6" trace="getReceiverType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="2420378304467281966" at="49,0,61,0" concept="6" trace="getReturnType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="2420378304467281950" at="30,26,31,18" />
-      <scope id="2420378304467596223" at="36,56,37,59" />
-      <scope id="5692660834327491188" at="44,60,45,63" />
-      <scope id="2420378304467629501" at="66,96,67,185" />
-      <scope id="2420378304467293033" at="25,76,27,31" />
-      <scope id="8257079261608196877" at="55,91,57,120" />
-      <scope id="2420378304467596222" at="36,0,39,0">
+      <node id="2420378304467294066" at="27,0,28,0" concept="3" trace="method" />
+      <node id="2420378304467299486" at="28,0,29,0" concept="3" trace="converter" />
+      <node id="2420378304467294070" at="29,76,30,29" concept="2" />
+      <node id="2420378304467299490" at="30,29,31,31" concept="2" />
+      <node id="2420378304467295333" at="34,26,35,18" concept="8" />
+      <node id="2420378304467597864" at="40,56,41,59" concept="8" />
+      <node id="5692660834327493358" at="48,60,49,63" concept="8" />
+      <node id="8257079261608148074" at="54,32,55,101" concept="7" />
+      <node id="2420378304474329574" at="55,101,56,283" concept="7" />
+      <node id="8257079261608145212" at="56,283,57,49" concept="7" />
+      <node id="8257079261608235469" at="57,49,58,0" concept="10" />
+      <node id="9182535150792216900" at="58,0,59,42" concept="9" />
+      <node id="9182535150792124648" at="59,42,60,71" concept="7" />
+      <node id="9182535150791936185" at="61,74,62,123" concept="2" />
+      <node id="9182535150792172833" at="63,26,64,200" concept="7" />
+      <node id="9182535150792180319" at="64,200,65,71" concept="2" />
+      <node id="9182535150792227970" at="65,71,66,28" concept="2" />
+      <node id="9182535150792122896" at="67,5,68,0" concept="10" />
+      <node id="2420378304467436563" at="68,0,69,18" concept="8" />
+      <node id="9182535150791966561" at="72,82,73,118" concept="9" />
+      <node id="9182535150792885435" at="75,39,76,187" concept="8" />
+      <node id="2420378304467629497" at="83,5,84,42" concept="7" />
+      <node id="6053822427819796369" at="85,96,86,185" concept="8" />
+      <node id="2420378304467663311" at="88,5,89,0" concept="10" />
+      <node id="2420378304467622565" at="89,0,90,16" concept="8" />
+      <node id="2420378304467281848" at="94,0,95,0" concept="11" trace="parameter$5xBj" />
+      <node id="2420378304467281848" at="95,0,96,0" concept="11" trace="typeVariableDeclaration$Lipp" />
+      <node id="2420378304467281848" at="96,0,97,0" concept="11" trace="returnType$5xoi" />
+      <node id="2420378304467281848" at="97,0,98,0" concept="11" trace="type$Tm0J" />
+      <node id="2420378304467281848" at="98,0,99,0" concept="11" trace="annotation$K49I" />
+      <node id="2420378304467281848" at="99,0,100,0" concept="11" trace="annotation$12Ek" />
+      <node id="2420378304467281848" at="103,0,104,0" concept="11" trace="ConstructorDeclaration$yG" />
+      <node id="2420378304467281848" at="104,0,105,0" concept="11" trace="IClassifier$MF" />
+      <node id="2420378304467281848" at="105,0,106,0" concept="11" trace="Type$bu" />
+      <node id="2420378304467281848" at="106,0,107,0" concept="11" trace="INullableType$$I" />
+      <node id="2420378304467281848" at="107,0,108,0" concept="11" trace="PrimitiveType$sR" />
+      <node id="2420378304467281848" at="108,0,109,0" concept="11" trace="InstanceMethodDeclaration$39" />
+      <node id="2420378304467281848" at="109,0,110,0" concept="11" trace="Classifier$Ix" />
+      <node id="2420378304467281848" at="113,0,114,0" concept="11" trace="isNullable$KWwD" />
+      <node id="2420378304467596222" at="40,0,43,0" concept="6" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaParameterDeclaration;" />
+      <node id="5692660834327491187" at="48,0,51,0" concept="6" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaTypeParameterDeclaration;" />
+      <node id="9182535150792885433" at="75,0,78,0" concept="6" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="2420378304467629497" at="84,42,87,7" concept="5" />
+      <node id="2420378304467293029" at="29,0,33,0" concept="1" trace="JavaMethodDeclaration#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/kotlin/baseLanguage/toKotlin/JavaToKtEngine;)V" />
+      <node id="2420378304467281946" at="33,0,37,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2420378304467505172" at="38,57,43,7" concept="8" />
+      <node id="2420378304467450995" at="46,65,51,7" concept="8" />
+      <node id="9182535150792893718" at="73,118,78,7" concept="8" />
+      <node id="2420378304467629497" at="82,34,88,5" concept="0" />
+      <node id="9182535150792133129" at="60,71,67,5" concept="5" />
+      <node id="2420378304467281952" at="37,0,45,0" concept="6" trace="getParameters#()Ljava/lang/Iterable;" />
+      <node id="2420378304467281959" at="45,0,53,0" concept="6" trace="getTypeParameters#()Ljava/lang/Iterable;" />
+      <node id="9182535150792882541" at="72,0,80,0" concept="6" trace="isReturnTypeNullable#(Lorg/jetbrains/mps/openapi/model/SNode;Z)Z" />
+      <node id="2420378304467281972" at="81,0,92,0" concept="6" trace="getReceiverType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2420378304467281966" at="53,0,71,0" concept="6" trace="getReturnType#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="2420378304467281950" at="34,26,35,18" />
+      <scope id="2420378304467596223" at="40,56,41,59" />
+      <scope id="5692660834327491188" at="48,60,49,63" />
+      <scope id="9182535150792133131" at="61,74,62,123" />
+      <scope id="9182535150792885434" at="75,39,76,187" />
+      <scope id="2420378304467629501" at="85,96,86,185" />
+      <scope id="2420378304467293033" at="29,76,31,31" />
+      <scope id="2420378304467596222" at="40,0,43,0">
         <var name="it" id="2420378304467596222" />
       </scope>
-      <scope id="5692660834327491187" at="44,0,47,0">
+      <scope id="5692660834327491187" at="48,0,51,0">
         <var name="it" id="5692660834327491187" />
       </scope>
-      <scope id="2420378304467293029" at="25,0,29,0">
+      <scope id="9182535150792169499" at="63,26,66,28">
+        <var name="nullableType" id="9182535150792172834" />
+      </scope>
+      <scope id="9182535150792885433" at="75,0,78,0">
+        <var name="it" id="9182535150792885433" />
+      </scope>
+      <scope id="2420378304467293029" at="29,0,33,0">
         <var name="baseMethod" id="2420378304467293501" />
         <var name="converter" id="2420378304467297443" />
       </scope>
-      <scope id="2420378304467281946" at="29,0,33,0" />
-      <scope id="2420378304467629497" at="64,5,68,7">
+      <scope id="2420378304467281946" at="33,0,37,0" />
+      <scope id="2420378304467629497" at="83,5,87,7">
         <var name="instanceMethod" id="2420378304467629497" />
       </scope>
-      <scope id="2420378304467281957" at="34,57,39,7" />
-      <scope id="2420378304467281964" at="42,65,47,7" />
-      <scope id="2420378304467281952" at="33,0,41,0" />
-      <scope id="2420378304467281959" at="41,0,49,0" />
-      <scope id="2420378304467281976" at="63,34,71,16" />
-      <scope id="2420378304467281970" at="50,32,59,18">
+      <scope id="2420378304467281957" at="38,57,43,7" />
+      <scope id="2420378304467281964" at="46,65,51,7" />
+      <scope id="9182535150792882544" at="72,82,78,7" />
+      <scope id="2420378304467281952" at="37,0,45,0" />
+      <scope id="2420378304467281959" at="45,0,53,0" />
+      <scope id="9182535150792882541" at="72,0,80,0">
+        <var name="isConstructor" id="9182535150792883517" />
+        <var name="originalType" id="9182535150792883760" />
+      </scope>
+      <scope id="2420378304467281976" at="82,34,90,16" />
+      <scope id="2420378304467281972" at="81,0,92,0" />
+      <scope id="2420378304467281970" at="54,32,69,18">
         <var name="isConstructor" id="8257079261608148077" />
+        <var name="nullable" id="9182535150792124649" />
         <var name="result" id="8257079261608145213" />
         <var name="returnType" id="2420378304474329575" />
       </scope>
-      <scope id="2420378304467281972" at="62,0,73,0" />
-      <scope id="2420378304467281966" at="49,0,61,0" />
-      <unit id="2420378304467281848" at="89,0,92,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$PROPS" />
-      <unit id="2420378304467596222" at="35,103,39,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$1" />
-      <unit id="5692660834327491187" at="43,117,47,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$2" />
-      <unit id="2420378304467281848" at="74,0,79,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$LINKS" />
-      <unit id="2420378304467281848" at="80,0,88,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$CONCEPTS" />
-      <unit id="2420378304467281848" at="22,0,93,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration" />
+      <scope id="2420378304467281966" at="53,0,71,0" />
+      <unit id="2420378304467281848" at="112,0,115,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$PROPS" />
+      <unit id="2420378304467596222" at="39,103,43,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$1" />
+      <unit id="5692660834327491187" at="47,117,51,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$2" />
+      <unit id="9182535150792885433" at="74,197,78,5" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$3" />
+      <unit id="2420378304467281848" at="93,0,101,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$LINKS" />
+      <unit id="2420378304467281848" at="102,0,111,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration$CONCEPTS" />
+      <unit id="2420378304467281848" at="26,0,116,0" name="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaMethodDeclaration" />
     </file>
   </root>
   <root nodeRef="r:13fdb710-e0ae-40a1-880c-e26a8ee8d411(jetbrains.mps.kotlin.baseLanguage.toKotlin)/2420378304467493805">

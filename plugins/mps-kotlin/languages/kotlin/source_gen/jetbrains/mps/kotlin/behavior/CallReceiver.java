@@ -4,9 +4,6 @@ package jetbrains.mps.kotlin.behavior;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Node whose type computation gives the receiver type of a function call.
@@ -46,11 +43,11 @@ public class CallReceiver {
 
   public static CallReceiver ofNavTarget(SNode target) {
     SNode navigationOperand = INavigationTarget__BehaviorDescriptor.getNavigationOperand_id2gj5XQXMv4y.invoke(target);
-    return of(navigationOperand, true, SNodeOperations.isInstanceOf(navigationOperand, CONCEPTS.ReceiverType$$f), null);
+    return of(navigationOperand, true, ReceiverTypeHelper.isStaticReceiver(navigationOperand), null);
   }
 
   public static CallReceiver of(SNode host) {
-    return of(host, false, SNodeOperations.isInstanceOf(host, CONCEPTS.ReceiverType$$f), null);
+    return of(host, false, ReceiverTypeHelper.isStaticReceiver(host), null);
   }
 
   public static CallReceiver of(SNode host, boolean external, boolean staticReceiver, Object intermediateKey) {
@@ -58,9 +55,5 @@ public class CallReceiver {
       return new CallReceiver(new InferredTypeReference(host, intermediateKey), external, staticReceiver);
     }
     return null;
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept ReceiverType$$f = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af541L, "jetbrains.mps.kotlin.structure.ReceiverType");
   }
 }

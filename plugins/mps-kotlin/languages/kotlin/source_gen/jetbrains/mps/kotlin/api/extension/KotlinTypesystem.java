@@ -6,6 +6,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.kotlin.overloading.FunctionCall;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Interface that provides common typesystem operations of kotlin typesystem.
@@ -23,7 +24,7 @@ public interface KotlinTypesystem {
    * 
    * Can be used to retrieve, for instance, type of "it" of a lambda literal.
    */
-  SNode getIntermediateType(SNode target, Object key);
+  SNode getIntermediateType(SNode target, @NotNull Object key);
 
   /**
    * Returns whether that typesystem is currently available.

@@ -14,18 +14,10 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
-import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
-import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
-import jetbrains.mps.kotlin.signatures.AccessorKind;
-import jetbrains.mps.kotlin.behavior.VariableRefExpression__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -50,30 +42,10 @@ public class VariableRefExpression_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            Tuples._2<SNode, Boolean> context = SignatureScopeHelper.navigatableContext(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink());
             SignatureFilter<PropertySignature> filter = new SignatureFilter<>(PropertySignature.class);
+            SignatureScope scope = SignatureScopeHelper.getVariablesScope(_context.getReferenceNode(), _context.getContextNode(), _context.getContainmentLink(), filter, null);
 
-            // In navigation -> get from operand type if target
-            SignatureScope scope;
-            if (context != null) {
-              SNode type = context._0();
-
-              if ((boolean) context._1()) {
-                // TODO + static scope?
-                scope = HidingBySignatureScope.of(IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter), IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter));
-              } else {
-                scope = HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true)));
-              }
-            } else {
-              // Scope from context (should include scopes from subsequent "this")
-              scope = SignatureScope.getScope(_context.getContextNode(), filter);
-            }
-
-            // We do not enforce setter at setter position (it is beneficial the user can type refs to read only property, perhaps to change nested values), but this scope should aim to prioritize setters in setter position, when available
-            // Checking for validity (getter at setter position or the opposite) should occur in a checking rule.
-            AccessorKind prioritizedKind = VariableRefExpression__BehaviorDescriptor.getAccessorKindFor_idccTy7zCyKH.invoke(SNodeOperations.asSConcept(CONCEPTS.VariableRefExpression$J$), _context.getReferenceNode(), _context.getContextNode(), (SContainmentLink) _context.getContainmentLink());
-
-            return new SignatureScopeAsScope(KindPriorityPropertyScope.of(scope, prioritizedKind), CONCEPTS.IVariableIdentifier$v2);
+            return new SignatureScopeAsScope(scope, CONCEPTS.IVariableIdentifier$v2);
           }
         };
       }

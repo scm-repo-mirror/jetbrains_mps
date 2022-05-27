@@ -9,7 +9,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.kotlin.behavior.InferredTypeReference;
 import jetbrains.mps.kotlin.behavior.ForStatementKeys;
-import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
 import jetbrains.mps.kotlin.behavior.CallReceiver;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;

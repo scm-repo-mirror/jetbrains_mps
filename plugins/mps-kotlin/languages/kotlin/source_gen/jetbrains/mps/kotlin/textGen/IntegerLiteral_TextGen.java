@@ -14,6 +14,7 @@ public class IntegerLiteral_TextGen extends TextGenDescriptorBase {
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append(Integer.toString(SPropertyOperations.getInteger(ctx.getPrimaryInput(), PROPS.value$x4lo)));
+    KotlinTextGen.numberFlags(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class PROPS {

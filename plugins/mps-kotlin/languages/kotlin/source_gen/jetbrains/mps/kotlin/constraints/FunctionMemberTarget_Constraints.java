@@ -51,15 +51,15 @@ public class FunctionMemberTarget_Constraints extends BaseConstraintsDescriptor 
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
-            final SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
+            SNode context = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
 
             // Compute type in isolation, otherwise type may be null
-            SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
+            SNode type = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(context, CONCEPTS.MemberNavigationOperation$7I), LINKS.operand$YS5t)), CONCEPTS.IType$Ni);
             SignatureFilter<FunctionSignature> filter = new SignatureFilter<>(FunctionSignature.class);
 
             // Regardless of using a static type or not, we need instance functions
             List<SignatureScope> list = Sequence.fromIterable(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))).toListSequence();
-            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter));
+            ListSequence.fromList(list).addElement(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()));
             SignatureScope scope = HidingBySignatureScope.of(list);
             return new SignatureScopeAsScope(scope, CONCEPTS.IFunctionDeclaration$ZB);
           }

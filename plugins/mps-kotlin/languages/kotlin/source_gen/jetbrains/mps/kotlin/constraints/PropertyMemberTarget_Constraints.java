@@ -15,12 +15,13 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.kotlin.scopes.signed.KindPriorityPropertyScope;
 import jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope;
 import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.kotlin.signatures.AccessorKind;
@@ -50,12 +51,12 @@ public class PropertyMemberTarget_Constraints extends BaseConstraintsDescriptor 
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
             // Compute type in isolation, otherwise type may be null
-            SNode type = TypecheckingFacade.getFromContext().computeIsolated(() -> SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MemberNavigationOperation$7I, true, false), LINKS.operand$YS5t)), CONCEPTS.IType$Ni));
+            SNode type = SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MemberNavigationOperation$7I, true, false), LINKS.operand$YS5t)), CONCEPTS.IType$Ni);
 
             SignatureFilter<PropertySignature> filter = new SignatureFilter<PropertySignature>(PropertySignature.class);
 
             // Return a custom scope that prioritize setter over getters (if setter: type is MutableProperty rather than just Property)
-            SignatureScope sigScope = KindPriorityPropertyScope.of(HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))), AccessorKind.SETTER);
+            SignatureScope sigScope = KindPriorityPropertyScope.of(HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) true))), AccessorKind.SETTER, null);
 
             return new SignatureScopeAsScope(sigScope, CONCEPTS.IVariableIdentifier$v2);
           }

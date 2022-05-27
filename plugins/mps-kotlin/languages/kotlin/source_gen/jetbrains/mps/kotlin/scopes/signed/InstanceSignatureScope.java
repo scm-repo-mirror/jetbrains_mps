@@ -5,7 +5,6 @@ package jetbrains.mps.kotlin.scopes.signed;
 import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.kotlin.api.members.SourcedSignature;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
@@ -33,7 +32,7 @@ public class InstanceSignatureScope implements SignatureScope {
   /*package*/ SNode getInstanceType() {
     if (myConcreteType == null) {
       // Compute type in isolation, otherwise type may be null
-      myConcreteType = TypecheckingFacade.getFromContext().computeIsolated(() -> myTypeReference.compute());
+      myConcreteType = myTypeReference.compute();
     }
 
     return myConcreteType;

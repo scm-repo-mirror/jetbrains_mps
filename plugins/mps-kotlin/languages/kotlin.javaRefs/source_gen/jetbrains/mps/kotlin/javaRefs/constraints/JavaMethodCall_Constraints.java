@@ -16,7 +16,7 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
 import jetbrains.mps.baseLanguage.scopes.VisibleClassConstructorsScope;
 import jetbrains.mps.scope.FilteringScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;

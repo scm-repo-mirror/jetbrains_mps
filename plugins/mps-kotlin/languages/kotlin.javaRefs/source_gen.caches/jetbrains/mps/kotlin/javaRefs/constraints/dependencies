@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <uses language="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
-  <uses language="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
   <uses language="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
   <uses language="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" />
   <uses language="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
@@ -176,7 +175,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.scopes.VisibleClassConstructorsScope" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.scope.FilteringScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
@@ -203,13 +202,13 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaVariableHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.javaRefs.constraints.GetterFilter" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
@@ -239,12 +238,12 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.behavior.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.SignatureFilter" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.HidingBySignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScope" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeAsScope" />
+    <classNode dependClassName="jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper" />
     <classNode dependClassName="jetbrains.mps.kotlin.signatures.PropertySignature" />
     <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />

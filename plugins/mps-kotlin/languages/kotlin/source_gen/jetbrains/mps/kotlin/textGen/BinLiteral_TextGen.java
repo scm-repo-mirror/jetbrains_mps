@@ -15,6 +15,7 @@ public class BinLiteral_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     tgs.append("0b");
     tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.value$xanU));
+    KotlinTextGen.numberFlags(ctx.getPrimaryInput(), ctx);
   }
 
   private static final class PROPS {

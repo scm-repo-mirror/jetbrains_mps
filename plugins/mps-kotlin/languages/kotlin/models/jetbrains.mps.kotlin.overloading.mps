@@ -1187,11 +1187,14 @@
                 <ref role="3uigEE" to="sjya:6Ijh6DJDHpd" resolve="SignatureScope" />
               </node>
             </node>
-            <node concept="2OqwBi" id="oA6vPIP8jG" role="33vP2m">
-              <node concept="37vLTw" id="oA6vPIP8jH" role="2Oq$k0">
-                <ref role="3cqZAo" node="6dAo8EmBgxo" resolve="myScopeProvider" />
+            <node concept="2OqwBi" id="7XIUL68hkCP" role="33vP2m">
+              <node concept="2OqwBi" id="oA6vPIP8jG" role="2Oq$k0">
+                <node concept="37vLTw" id="oA6vPIP8jH" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6dAo8EmBgxo" resolve="myScopeProvider" />
+                </node>
+                <node concept="1Bd96e" id="oA6vPIP8jI" role="2OqNvi" />
               </node>
-              <node concept="1Bd96e" id="oA6vPIP8jI" role="2OqNvi" />
+              <node concept="1KnU$U" id="7XIUL68hmKK" role="2OqNvi" />
             </node>
           </node>
         </node>

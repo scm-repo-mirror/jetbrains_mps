@@ -23,7 +23,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
-import jetbrains.mps.kotlin.behavior.SignatureScopeHelper;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import jetbrains.mps.kotlin.signatures.PropertySignature;
@@ -80,7 +80,7 @@ public class JavaMethodVariableReference_Constraints extends BaseConstraintsDesc
               SignatureFilter<PropertySignature> filter = new GetterFilter();
               SignatureScope typeScope;
               if ((boolean) context._1()) {
-                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter), IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter));
+                typeScope = CompositeSignatureScope.of(IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(type, filter, _context.getContextNode()), IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(type, filter, _context.getContextNode()));
               } else {
                 typeScope = HidingBySignatureScope.of(IType__BehaviorDescriptor.getInstanceScopes_id1ODRHGtuist.invoke(type, filter, _context.getContextNode(), ((boolean) false)));
               }

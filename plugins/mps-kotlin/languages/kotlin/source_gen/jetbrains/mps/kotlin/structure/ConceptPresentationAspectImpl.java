@@ -1529,6 +1529,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.LongLiteral:
         if (props_LongLiteral == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.shortDesc("long literal");
           cpb.rawPresentation("LongLiteral");
           props_LongLiteral = cpb.create();
@@ -2154,6 +2155,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.UnsignedLiteral:
         if (props_UnsignedLiteral == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.shortDesc("unsigned literal");
           cpb.rawPresentation("unsigned");
           props_UnsignedLiteral = cpb.create();

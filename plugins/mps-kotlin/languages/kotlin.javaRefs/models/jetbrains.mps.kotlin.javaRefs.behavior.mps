@@ -1269,6 +1269,10 @@
           <node concept="3qTvmN" id="3dMaGAcbNJb" role="11_B2D" />
         </node>
       </node>
+      <node concept="37vLTG" id="5TR7730mKGP" role="3clF46">
+        <property role="TrG5h" value="contextNode" />
+        <node concept="3Tqbb2" id="5TR7730mKWX" role="1tU5fm" />
+      </node>
       <node concept="3uibUv" id="3dMaGAcbNJc" role="3clF45">
         <ref role="3uigEE" to="sjya:6Ijh6DJDHpd" resolve="SignatureScope" />
       </node>
@@ -1563,6 +1567,10 @@
           <ref role="3uigEE" to="tbhz:2ZbCiJaofwM" resolve="SignatureFilter" />
           <node concept="3qTvmN" id="3dMaGAcepag" role="11_B2D" />
         </node>
+      </node>
+      <node concept="37vLTG" id="43crDgAE4g5" role="3clF46">
+        <property role="TrG5h" value="contextNode" />
+        <node concept="3Tqbb2" id="43crDgAE4g6" role="1tU5fm" />
       </node>
       <node concept="3uibUv" id="3dMaGAcepah" role="3clF45">
         <ref role="3uigEE" to="sjya:6Ijh6DJDHpd" resolve="SignatureScope" />
@@ -2311,8 +2319,8 @@
               <node concept="10P_77" id="3lDDPlndk0J" role="1Lm7xW" />
             </node>
             <node concept="2YIFZM" id="3dMaGAcfvfs" role="33vP2m">
-              <ref role="37wK5l" to="hez:3lDDPlndeEE" resolve="navigatableContext" />
-              <ref role="1Pybhc" to="hez:2t96AMoHiRy" resolve="SignatureScopeHelper" />
+              <ref role="1Pybhc" to="sjya:2t96AMoHiRy" resolve="SignatureScopeHelper" />
+              <ref role="37wK5l" to="sjya:7XIUL68Cqb9" resolve="navigatableContext" />
               <node concept="37vLTw" id="3dMaGAcfvBO" role="37wK5m">
                 <ref role="3cqZAo" node="3dMaGAcftDf" resolve="referenceNode" />
               </node>
@@ -2425,6 +2433,9 @@
                             <node concept="37vLTw" id="3dMaGAcfHOQ" role="37wK5m">
                               <ref role="3cqZAo" node="3dMaGAcfAqC" resolve="filter" />
                             </node>
+                            <node concept="37vLTw" id="43crDgAEeRy" role="37wK5m">
+                              <ref role="3cqZAo" node="3dMaGAcftDh" resolve="contextNode" />
+                            </node>
                           </node>
                         </node>
                         <node concept="2OqwBi" id="3dMaGAcfIpZ" role="37wK5m">
@@ -2435,6 +2446,9 @@
                             <ref role="37wK5l" to="hez:1ODRHGtugRP" resolve="getCompanionInstanceScope" />
                             <node concept="37vLTw" id="3dMaGAcfJb8" role="37wK5m">
                               <ref role="3cqZAo" node="3dMaGAcfAqC" resolve="filter" />
+                            </node>
+                            <node concept="37vLTw" id="43crDgAEfDy" role="37wK5m">
+                              <ref role="3cqZAo" node="3dMaGAcftDh" resolve="contextNode" />
                             </node>
                           </node>
                         </node>

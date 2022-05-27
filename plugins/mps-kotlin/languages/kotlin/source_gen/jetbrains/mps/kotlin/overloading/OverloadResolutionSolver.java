@@ -11,6 +11,7 @@ import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.kotlin.behavior.TypeReference;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.api.members.SourcedSignature;
@@ -87,7 +88,7 @@ public class OverloadResolutionSolver {
     }
 
     // Use the scope provider for the element to get the result
-    Iterable<SignatureScope> scopes = myScopeProvider.invoke();
+    Iterable<SignatureScope> scopes = Sequence.fromIterable(myScopeProvider.invoke()).where(new NotNullWhereFilter<SignatureScope>());
     for (SignatureScope scope : Sequence.fromIterable(scopes)) {
       Iterable<FunctionSignature> signatures = Sequence.fromIterable(scope.getElements(myFunctionName)).select(new ISelector<SourcedSignature, MemberSignature>() {
         public MemberSignature select(SourcedSignature it) {

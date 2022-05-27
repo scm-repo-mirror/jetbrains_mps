@@ -13,10 +13,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class NumericBaseLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4708606L, "jetbrains.mps.kotlin.structure.NumericBaseLiteral");
@@ -31,7 +33,12 @@ public final class NumericBaseLiteral__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
-    return BuiltIn.INT.toClassType();
+    // ULong, UInt, Int, Long depending on flags
+    String className = (SPropertyOperations.getBoolean(__thisNode__, PROPS.long$1NZg) ? "Long" : "Int");
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.unsigned$iUpc)) {
+      className = "U" + className;
+    }
+    return BuiltIn.classTypeOf(BuiltIn.pointerOf("kotlin/" + className));
   }
 
   /*package*/ NumericBaseLiteral__BehaviorDescriptor() {
@@ -78,5 +85,10 @@ public final class NumericBaseLiteral__BehaviorDescriptor extends BaseBHDescript
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty long$1NZg = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4708606L, 0x4a002b656d67aa05L, "long");
+    /*package*/ static final SProperty unsigned$iUpc = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x631027d1c4708606L, 0x4a002b656d675c88L, "unsigned");
   }
 }
