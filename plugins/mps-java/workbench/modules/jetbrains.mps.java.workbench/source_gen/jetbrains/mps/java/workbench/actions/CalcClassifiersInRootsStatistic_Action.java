@@ -30,9 +30,8 @@ import java.util.ArrayList;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
@@ -113,15 +112,7 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
     }
 
     final Set<SNode> classifiers = SetSequence.fromSet(new HashSet<SNode>());
-    SetSequence.fromSet(classifiers).addSequence(ListSequence.fromList(types.value).select(new ISelector<SNode, SNode>() {
-      public SNode select(SNode it) {
-        return SLinkOperations.getTarget(it, LINKS.classifier$cxMr);
-      }
-    }).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    }));
+    SetSequence.fromSet(classifiers).addSequence(Sequence.fromIterable(SLinkOperations.collect(types.value, LINKS.classifier$cxMr)).where(new NotNullWhereFilter<SNode>()));
     if (SetSequence.fromSet(classifiers).count() > 50) {
       sb.append(String.format("%s: classifier types = %d; classifiers = %d%n", nodeName, ListSequence.fromList(types.value).count(), SetSequence.fromSet(classifiers).count()));
     }
@@ -146,7 +137,7 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
     List<SNode> result = TypecheckingFacade.getFromContext().computeIsolated(() -> {
       List<SNode> list = ListSequence.fromList(new ArrayList<SNode>());
 
-      for (SNode node : SNodeOperations.getNodeDescendants(rootNode, CONCEPTS.BaseConcept$gP, true, new SAbstractConcept[]{})) {
+      for (SNode node : SNodeOperations.getNodeDescendants(rootNode, null, true, new SAbstractConcept[]{})) {
         SNode type = TypecheckingFacade.getFromContext().getTypeOf(node);
         if (SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$bL)) {
           ListSequence.fromList(list).addElement(SNodeOperations.cast(type, CONCEPTS.ClassifierType$bL));
@@ -188,6 +179,5 @@ public class CalcClassifiersInRootsStatistic_Action extends BaseAction {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ClassifierType$bL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept BaseConcept$gP = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }
