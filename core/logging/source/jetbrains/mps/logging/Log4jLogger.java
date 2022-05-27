@@ -87,11 +87,6 @@ import org.apache.log4j.Level;
   }
 
   @Override
-  public void assertLog(boolean condition, String message) {
-    Log4jUtil.assertLog(myLogger, condition, message);
-  }
-
-  @Override
   public void enableTrace() {
     mySavedLevel.set(myLogger.getLevel());
     myLogger.setLevel(Level.TRACE);

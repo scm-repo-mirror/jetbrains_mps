@@ -26,12 +26,13 @@ public abstract class Logger {
    * Adapts log4j logger to our extended facility
    * These two methods we need for a migration script
    */
+  @SuppressWarnings({"removal", "UnstableApiUsage"})
   public static Logger wrap(org.apache.log4j.Logger logger) {
     return new Log4jLogger(logger);
   }
 
   public static Logger getLogger(Class<?> requestor) {
-    return new Log4jLogger(org.apache.log4j.Logger.getLogger(requestor));
+    return new JULogger(java.util.logging.Logger.getLogger(requestor.getName()));
   }
 
   public abstract boolean isErrorLevel();
@@ -94,7 +95,7 @@ public abstract class Logger {
     if (t != null) {
       error(t.getClass().getName() + (t.getMessage() != null ? " : " + t.getMessage() : ""), t, hintObject);
     } else {
-      error(new Throwable("error with null throwable was called"));
+      error("error with null throwable was called", new Throwable(), hintObject);
     }
   }
 
@@ -143,7 +144,11 @@ public abstract class Logger {
     assertLog(condition, "Assertion failed");
   }
 
-  public abstract void assertLog(boolean condition, String message);
+  public void assertLog(boolean condition, String message) {
+    if (!condition) {
+      errorWithTrace(message);
+    }
+  }
 
   /**
    * Provisionally allow verbose logging to testing purposes. Invocations of {@link #enableTrace()}
