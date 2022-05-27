@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.logging;
 
+import org.jetbrains.annotations.TestOnly;
+
 /**
  * log4j logger augmented with hint object
  */
@@ -142,5 +144,14 @@ public abstract class Logger {
   }
 
   public abstract void assertLog(boolean condition, String message);
+
+  /**
+   * Provisionally allow verbose logging to testing purposes. Invocations of {@link #enableTrace()}
+   * and {@link #disableTrace()} shall go in pairs.
+   */
+  @TestOnly
+  public abstract void enableTrace();
+  @TestOnly
+  public abstract void disableTrace();
 }
 

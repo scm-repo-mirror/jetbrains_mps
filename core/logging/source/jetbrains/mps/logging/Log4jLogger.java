@@ -24,6 +24,8 @@ import org.apache.log4j.Level;
 @Deprecated(since = "2022.2", forRemoval = true)
 /*package*/ final class Log4jLogger extends Logger {
   private final org.apache.log4j.Logger myLogger;
+  // for use in enableTrace()/disableTrace()
+  private final ThreadLocal<Level> mySavedLevel = new ThreadLocal<>();
 
   public Log4jLogger(org.apache.log4j.Logger logger) {
     myLogger = logger;
@@ -89,4 +91,16 @@ import org.apache.log4j.Level;
     Log4jUtil.assertLog(myLogger, condition, message);
   }
 
+  @Override
+  public void enableTrace() {
+    mySavedLevel.set(myLogger.getLevel());
+    myLogger.setLevel(Level.TRACE);
+  }
+
+  @Override
+  public void disableTrace() {
+    // I don't care about effective level. If there's explicit level for the logger, I've got it in mySavedLevel.
+    // If not, I'm fine with null and delegation to parent
+    myLogger.setLevel(mySavedLevel.get());
+  }
 }
