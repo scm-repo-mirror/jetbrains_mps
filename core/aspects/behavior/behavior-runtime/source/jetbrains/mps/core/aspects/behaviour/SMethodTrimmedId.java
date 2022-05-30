@@ -35,7 +35,7 @@ import java.util.Objects;
 @Immutable
 public final class SMethodTrimmedId implements SMethodId {
   private final SAbstractConcept myConcept;
-  private final SNodeId myNodeId;
+  final SNodeId myNodeId;
 
   /**
    * @param concept is null iff is is a virtual method id (for them the concept does not belong to the id)
