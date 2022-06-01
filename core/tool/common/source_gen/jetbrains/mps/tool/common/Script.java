@@ -174,6 +174,7 @@ public class Script {
   }
 
   public Level getLogLevel() {
+    // FIXME WorkerBase.log needs update
     return myStartupData.getLogLevel();
   }
 

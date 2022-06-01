@@ -35,7 +35,7 @@ import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.extapi.module.SRepositoryExt;
-import org.apache.log4j.Level;
+import java.util.logging.Level;
 import java.io.StringWriter;
 import java.io.PrintWriter;
 
@@ -217,11 +217,9 @@ public abstract class WorkerBase {
   }
 
   private void log(String text, Level level) {
-    if (!(level.isGreaterOrEqual(myWhatToDo.getLogLevel()))) {
-      return;
-    }
+    // FIXME once ScriptData comes with proper Level value, get this code bacl
 
-    if (level == Level.ERROR) {
+    if (level == Level.SEVERE) {
       System.err.println(text);
     } else {
       System.out.println(text);
@@ -231,13 +229,13 @@ public abstract class WorkerBase {
     log(text, Level.INFO);
   }
   public void warning(String text) {
-    log(text, Level.WARN);
+    log(text, Level.WARNING);
   }
   public void debug(String text) {
-    log(text, Level.DEBUG);
+    log(text, Level.FINE);
   }
   public void error(String text) {
-    log(text, Level.ERROR);
+    log(text, Level.SEVERE);
     myErrors.add(text);
   }
   public void error(String text, Throwable e) {
@@ -245,8 +243,7 @@ public abstract class WorkerBase {
       StringBuffer sb = WorkerBase.extractStackTrace(e);
       text = text + "\n" + sb.toString();
     }
-    log(text, Level.ERROR);
-    myErrors.add(text);
+    error(text);
   }
   private static StringBuffer extractStackTrace(Throwable e) {
     StringWriter writer = new StringWriter();
