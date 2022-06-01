@@ -14,7 +14,6 @@ import com.intellij.openapi.progress.EmptyProgressIndicator;
 import jetbrains.mps.ide.migration.wizard.MigrationTask;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.migration.wizard.MigrationError;
-import org.apache.log4j.LogManager;
 import jetbrains.mps.messages.LogHandler;
 
 @GeneratedClass(node = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)/8164581507603015291", model = "a5b1c28d-abeb-49a6-a58c-559039616d64/r:a9597bdf-0806-4a79-8ace-88240c6b9878(jetbrains.mps.migration.component/jetbrains.mps.ide.migration)")
@@ -60,10 +59,7 @@ public class AntTaskExecutionUtil {
         if (LOG.isErrorLevel()) {
           LOG.error(error.getMessage());
         }
-        project.getRepository().getModelAccess().runReadAction(() -> {
-          org.apache.log4j.Logger logger = LogManager.getLogger(AntTaskExecutionUtil.class);
-          error.logProblems(new LogHandler(logger));
-        });
+        project.getRepository().getModelAccess().runReadAction(() -> error.logProblems(new LogHandler(Logger.getLogger(AntTaskExecutionUtil.class))));
 
         rv.set(Boolean.FALSE);
       }

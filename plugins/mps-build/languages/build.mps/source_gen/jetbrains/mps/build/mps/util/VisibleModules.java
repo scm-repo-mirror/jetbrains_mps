@@ -9,7 +9,7 @@ import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.messages.LogHandler;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.build.util.DependenciesHelper;
@@ -50,7 +50,7 @@ public final class VisibleModules {
   }
 
   public VisibleModules(SNode project, @Nullable TemplateQueryContext genContext) {
-    this(project, new LogHandler(LogManager.getLogger(VisibleModules.class)), genContext);
+    this(project, new LogHandler(Logger.getLogger(VisibleModules.class)), genContext);
   }
 
   public VisibleModules(@NotNull SNode project, @NotNull IMessageHandler msgHandler, @Nullable TemplateQueryContext genContext) {

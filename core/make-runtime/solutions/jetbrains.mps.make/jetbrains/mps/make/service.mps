@@ -23,7 +23,6 @@
     <import index="ud0o" ref="r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="rk9m" ref="r:f8580193-afc4-4673-a635-d4757ca591cf(jetbrains.mps.internal.make.runtime.util)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
   </imports>
   <registry>
@@ -821,7 +820,7 @@
                     <node concept="3clFbF" id="6eQ0BhLYKt8" role="3cqZAp">
                       <node concept="2OqwBi" id="6eQ0BhLYKta" role="3clFbG">
                         <node concept="liA8E" id="6eQ0BhLYKte" role="2OqNvi">
-                          <ref role="37wK5l" to="q7tw:~Category.debug(java.lang.Object,java.lang.Throwable)" resolve="debug" />
+                          <ref role="37wK5l" to="wwqx:~Logger.debug(java.lang.String,java.lang.Throwable)" resolve="debug" />
                           <node concept="Xl_RD" id="6eQ0BhLYKtf" role="37wK5m">
                             <property role="Xl_RC" value="Unexpected exception" />
                           </node>
@@ -830,8 +829,8 @@
                           </node>
                         </node>
                         <node concept="2YIFZM" id="Hn0$MvbXUw" role="2Oq$k0">
-                          <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-                          <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
+                          <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                          <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
                           <node concept="3VsKOn" id="Hn0$MvbXUx" role="37wK5m">
                             <ref role="3VsUkX" node="6eQ0BhLYtbb" resolve="CoreMakeTask" />
                           </node>
@@ -1212,8 +1211,8 @@
                           </node>
                         </node>
                         <node concept="2YIFZM" id="41innpAibl2" role="3clFbw">
-                          <ref role="1Pybhc" to="fyhk:~InternalFlag" resolve="InternalFlag" />
-                          <ref role="37wK5l" to="fyhk:~InternalFlag.isInternalMode()" resolve="isInternalMode" />
+                          <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
+                          <ref role="37wK5l" to="fyhk:~RuntimeFlags.isInternalMode()" resolve="isInternalMode" />
                         </node>
                       </node>
                       <node concept="3clFbH" id="41innpAibl3" role="3cqZAp" />

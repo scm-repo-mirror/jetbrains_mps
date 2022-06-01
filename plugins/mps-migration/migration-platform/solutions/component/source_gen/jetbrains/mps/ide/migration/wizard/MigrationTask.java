@@ -17,7 +17,6 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import org.apache.log4j.LogManager;
 import jetbrains.mps.messages.LogHandler;
 import com.intellij.history.LocalHistory;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -155,8 +154,7 @@ public class MigrationTask {
           mySession.getProject().getModelAccess().runReadAction(new Runnable() {
             @Override
             public void run() {
-              org.apache.log4j.Logger logger = LogManager.getLogger(MigrationTask.class);
-              preCheckError.logProblems(new LogHandler(logger));
+              preCheckError.logProblems(new LogHandler(Logger.getLogger(MigrationTask.class)));
             }
           });
         }
