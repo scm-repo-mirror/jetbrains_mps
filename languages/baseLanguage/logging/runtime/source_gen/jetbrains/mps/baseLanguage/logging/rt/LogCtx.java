@@ -5,9 +5,9 @@ package jetbrains.mps.baseLanguage.logging.rt;
 import org.jetbrains.mps.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.apache.log4j.Level;
-import jetbrains.mps.logging.MessageObject;
-import org.apache.log4j.LogManager;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 /*package*/ final class LogCtx implements Log {
   private static final String MSG_VIEW_TOKEN = "###MESSAGES_VIEW_TOKEN###";
@@ -23,22 +23,29 @@ import org.apache.log4j.LogManager;
   }
 
   private void _log(Level level, Object msg) {
-    // FIXME provisional code, at the moment the same as in LoggingRuntime
-    MessageObject msgObject = new MessageObject(msg.toString(), null, mySender, myProject);
-    LogManager.getLogger(MSG_VIEW_TOKEN).log(level, msgObject, myException);
+    // log directly into JUL, where MessageViewLoggingHandler would pick them, not need to go through
+    // j.m.logging.Logger wrap
+    LogRecord lr = new LogRecord(level, String.valueOf(msg));
+    lr.setThrown(myException);
+    if (myProject == null) {
+      lr.setParameters(new Object[]{mySender});
+    } else {
+      lr.setParameters(new Object[]{mySender, myProject});
+    }
+    Logger.getLogger(MSG_VIEW_TOKEN).log(lr);
   }
 
   @Override
   public void fatal(Object msg) {
-    _log(Level.FATAL, msg);
+    _log(Level.SEVERE, msg);
   }
   @Override
   public void error(Object msg) {
-    _log(Level.ERROR, msg);
+    _log(Level.SEVERE, msg);
   }
   @Override
   public void warning(Object msg) {
-    _log(Level.WARN, msg);
+    _log(Level.WARNING, msg);
   }
   @Override
   public void info(Object msg) {
@@ -46,10 +53,10 @@ import org.apache.log4j.LogManager;
   }
   @Override
   public void debug(Object msg) {
-    _log(Level.DEBUG, msg);
+    _log(Level.FINE, msg);
   }
   @Override
   public void trace(Object msg) {
-    _log(Level.TRACE, msg);
+    _log(Level.FINEST, msg);
   }
 }
