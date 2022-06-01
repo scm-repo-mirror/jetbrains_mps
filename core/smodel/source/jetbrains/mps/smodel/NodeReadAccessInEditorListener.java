@@ -15,9 +15,8 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;

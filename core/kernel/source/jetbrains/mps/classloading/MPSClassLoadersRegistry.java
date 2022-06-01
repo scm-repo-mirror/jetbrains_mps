@@ -17,9 +17,8 @@ package jetbrains.mps.classloading;
 
 import jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress;
 import jetbrains.mps.classloading.DeployListener.ResourceTrackerCallback;
-import jetbrains.mps.module.ReloadableModule;
-import org.apache.log4j.LogManager;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.module.ReloadableModule;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModuleReference;
