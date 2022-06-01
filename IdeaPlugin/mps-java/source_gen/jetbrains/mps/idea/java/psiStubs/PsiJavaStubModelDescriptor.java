@@ -4,7 +4,7 @@ package jetbrains.mps.idea.java.psiStubs;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.smodel.RegularModelDescriptor;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNodeId;
