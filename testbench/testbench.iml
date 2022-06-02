@@ -82,5 +82,6 @@
     <orderEntry type="module" module-name="boot-util" scope="TEST" />
     <orderEntry type="module" module-name="vfs-tracking" scope="TEST" />
     <orderEntry type="library" name="lz4-java" level="project" />
+    <orderEntry type="library" name="rd-core" level="project" />
   </component>
 </module>

@@ -3,6 +3,8 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/idea_rt.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/3rd-party-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/external-system-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/externalProcess-rt.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
