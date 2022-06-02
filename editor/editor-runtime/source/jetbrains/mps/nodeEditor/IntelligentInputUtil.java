@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
 import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
+import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.typechecking.TypecheckingFacade;
@@ -345,8 +346,10 @@ public class IntelligentInputUtil {
       if (concept == null) {
         return false;
       }
-      boolean property = (Boolean) BHReflection.invoke(MetaAdapterByDeclaration.getConcept(concept),
-                                                       SMethodTrimmedId.create("substituteInAmbigousPosition", null, "1653mnvAgq$"));
+      // substituteInAmbigousPosition() is a behavior method declared in BaseConcept
+      // No idea why it's handwritten code
+      boolean property = (Boolean) BHReflection.invoke0(MetaAdapterByDeclaration.getConcept(concept), SNodeUtil.concept_BaseConcept,
+                                                        SMethodTrimmedId.create("substituteInAmbigousPosition", null, "1653mnvAgq$"));
 
       if (property) {
         SNode outputConcept = substituteInfo.getMatchingActions(text, true).get(0).getOutputConcept();

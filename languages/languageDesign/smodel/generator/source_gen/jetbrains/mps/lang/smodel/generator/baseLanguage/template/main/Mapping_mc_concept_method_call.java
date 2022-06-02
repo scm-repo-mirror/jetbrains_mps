@@ -88,7 +88,7 @@ public class Mapping_mc_concept_method_call extends MapConfigBase implements Tem
               }
               {
                 Collection<SNode> tlist5 = null;
-                tlist5 = environment.callSite(new Template_reduce_ConceptMethodCallReflective(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6417869169768657677")).apply(context2);
+                tlist5 = environment.callSite(new Template_reduce_ConceptMethodCallReflective(), new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8298041013864055422")).apply(context2);
                 environment.aggregate(tnode3, myAggregationLinks[1], tlist5);
               }
             }
