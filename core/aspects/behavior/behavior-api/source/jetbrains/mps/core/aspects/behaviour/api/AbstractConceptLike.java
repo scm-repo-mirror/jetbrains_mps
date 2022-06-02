@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,8 @@
 package jetbrains.mps.core.aspects.behaviour.api;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Unites the concept hierarchy (sources node<>/deployed SAbstractConcept)
@@ -30,36 +27,10 @@ import java.util.stream.Collectors;
 public interface AbstractConceptLike {
   @NotNull String getName();
 
-  @NotNull List<InterfaceConceptLike> getSuperInterfaces();
+  boolean isAbstract(); // is there need for the method?
 
-  boolean isAbstract();
-
-  /**
-   * @return null iff it is a root (e.g. BaseConcept or interface concept)
-   */
-  @Nullable ConceptLike getSuperConcept();
-
-  // FIXME <C extends ACL> doesn't make sense here, we can not cast superinterfaces to anything but AbstractConceptLike.
-  @NotNull default <C extends AbstractConceptLike> List<C> getImmediateParents() {
-    final List<C> res = getSuperInterfaces().stream()
-                                            .map(it -> (C) it)
-                                            .collect(Collectors.toCollection(ArrayList::new));
-    ConceptLike superConcept = getSuperConcept();
-    if (superConcept != null) {
-      res.add((C) superConcept);
-    }
-    return res;
-  }
-
-  /**
-   * @deprecated no need to use, everything is in AbstractConceptLike
-   */
-  interface InterfaceConceptLike extends AbstractConceptLike {
-  }
-
-  /**
-   * @deprecated no need to use, everything is in AbstractConceptLike
-   */
-  interface ConceptLike extends AbstractConceptLike {
-  }
+  // XXX Perhaps, shall parameterize AbstractConceptLike with <C extends ACL>
+  // and use List<C> here to facilitate _SAbstractConcept.getImmediateParents():List<_SAbstractConcept>
+  @NotNull
+  List<AbstractConceptLike> getImmediateParents();
 }

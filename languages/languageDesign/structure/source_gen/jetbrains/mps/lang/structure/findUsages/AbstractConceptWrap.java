@@ -6,17 +6,19 @@ import jetbrains.mps.core.aspects.behaviour.api.AbstractConceptLike;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-/*package*/ abstract class AbstractConceptWrap implements AbstractConceptLike {
+/*package*/ final class AbstractConceptWrap implements AbstractConceptLike {
   private final SNode myPeer;
 
-  protected AbstractConceptWrap(SNode peer) {
+  /*package*/ AbstractConceptWrap(SNode peer) {
     myPeer = peer;
   }
 
@@ -30,10 +32,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return SPropertyOperations.getString(myPeer, PROPS.name$MnvL);
   }
 
-  @Nullable
   @Override
-  public AbstractConceptLike.ConceptLike getSuperConcept() {
-    return null;
+  public boolean isAbstract() {
+    if (SNodeOperations.isInstanceOf(myPeer, CONCEPTS.InterfaceConceptDeclaration$CG)) {
+      // not certain if myPeer.abstract is set properly for node<ICD>
+      return true;
+    }
+    return SPropertyOperations.getBoolean(myPeer, PROPS.abstract$ibpT);
   }
 
   @Override
@@ -49,14 +54,20 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return false;
   }
 
+
   @NotNull
-  public static AbstractConceptWrap wrap(SNode toWrap) {
-    if (SNodeOperations.isInstanceOf(toWrap, CONCEPTS.ConceptDeclaration$gH)) {
-      return new ConceptWrap(SNodeOperations.cast(toWrap, CONCEPTS.ConceptDeclaration$gH));
-    } else if (SNodeOperations.isInstanceOf(toWrap, CONCEPTS.InterfaceConceptDeclaration$CG)) {
-      return new InterfaceConceptWrap(SNodeOperations.cast(toWrap, CONCEPTS.InterfaceConceptDeclaration$CG));
-    }
-    throw new IllegalArgumentException("Impossible to wrap the " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(toWrap));
+  @Override
+  public List<AbstractConceptLike> getImmediateParents() {
+    return ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(myPeer)).select(new ISelector<SNode, AbstractConceptWrap>() {
+      public AbstractConceptWrap select(SNode it) {
+        return wrap(it);
+      }
+    }).ofType(AbstractConceptLike.class).toListSequence();
+  }
+
+  @NotNull
+  public static AbstractConceptWrap wrap(@NotNull SNode toWrap) {
+    return new AbstractConceptWrap(toWrap);
   }
 
   @Override
@@ -66,10 +77,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class PROPS {
     /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty abstract$ibpT = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept ConceptDeclaration$gH = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
     /*package*/ static final SConcept InterfaceConceptDeclaration$CG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
   }
 }

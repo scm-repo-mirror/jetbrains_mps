@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package jetbrains.mps.core.aspects.constraints.rules;
 
 import jetbrains.mps.core.aspects.behaviour.SConceptC3StarMRO;
 import jetbrains.mps.core.aspects.behaviour._SAbstractConcept;
+import jetbrains.mps.core.aspects.behaviour.api.AbstractConceptLike;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeAncestorContext;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
@@ -234,7 +235,7 @@ public final class LegacyAndRulesConstraintsDescriptor implements RulesConstrain
     List<Rule<?>> result = new ArrayList<>();
     List<_SAbstractConcept> linearization = myMro.calcLinearization(_SAbstractConcept.wrap(myConcept));
     Deque<_SAbstractConcept> legacyAdded = new LinkedList<>();
-    Set<_SAbstractConcept> woLegacyParents = new HashSet<>();
+    Set<AbstractConceptLike> woLegacyParents = new HashSet<>();
     for (_SAbstractConcept _concept : linearization) {
       if (legacyAdded.stream()
                      .anyMatch(was -> was.isSubConceptOf(_concept))) {
