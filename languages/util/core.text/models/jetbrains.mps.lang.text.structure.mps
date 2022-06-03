@@ -359,5 +359,12 @@
       <ref role="PrY4T" node="4ruP0NLeIr4" resolve="IndentedPoint" />
     </node>
   </node>
+  <node concept="PlHQZ" id="1zevWKa0GFG">
+    <property role="TrG5h" value="IHoldComment" />
+    <property role="EcuMT" value="1787506616430674431" />
+    <node concept="t5JxF" id="1zevWKa0Ggy" role="lGtFl">
+      <property role="t5JxN" value="Flag to trick the comment style for Words" />
+    </node>
+  </node>
 </model>
 
