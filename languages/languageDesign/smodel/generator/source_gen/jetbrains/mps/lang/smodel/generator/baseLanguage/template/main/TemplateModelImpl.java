@@ -354,6 +354,9 @@ public class TemplateModelImpl extends TemplateModelBase {
     if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8432949284911505812"))) {
       return new Template_reduce_HasPrevSiblingOperation();
     }
+    if (template.equals(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "467389800995873023"))) {
+      return new Template_createSMethodId();
+    }
     return null;
   }
 }
