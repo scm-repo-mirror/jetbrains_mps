@@ -105,7 +105,7 @@ public abstract class SNodeId implements Comparable<SNodeId>, org.jetbrains.mps.
 
     @Override
     public int hashCode() {
-      return (int) (myId ^ (myId >>> 32));
+      return Long.hashCode(myId);
     }
 
     @Override
