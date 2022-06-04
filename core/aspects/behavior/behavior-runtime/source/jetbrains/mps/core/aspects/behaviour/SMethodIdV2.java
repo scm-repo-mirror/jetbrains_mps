@@ -33,7 +33,7 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 @Immutable
 public final class SMethodIdV2 implements SMethodId {
   // we need two separate fields in order to preserve runtime compatibility with the previous version: SMethodTrimmedId
-  private final long myBaseMethodId;
+  /*package*/ final long myBaseMethodId;
   private final long myBaseMethodLanguageCompressedId;
 
   /**
@@ -50,7 +50,8 @@ public final class SMethodIdV2 implements SMethodId {
 
   @Override
   public int hashCode() {
-    return (int) (myBaseMethodId + 31 * myBaseMethodLanguageCompressedId);
+    // important that during migration period it is equal to SMethodTrimmedId#hashCode
+    return Long.hashCode(myBaseMethodId /*+ 31 * myBaseMethodLanguageCompressedId*/); // fixme [apyshkin] uncomment after 223
   }
 
   @Override
@@ -65,7 +66,7 @@ public final class SMethodIdV2 implements SMethodId {
     return false;
   }
 
-  private static long nodeIdToLong(SNodeId id) {
+  /*package*/ static long nodeIdToLong(SNodeId id) {
     if (!(id instanceof Regular)) {
       // todo [apyshkin]: work on SNodeId serialization if needed, we can make an extension for people to provide their
       //                  own java-friendly serializations of SNodeId
