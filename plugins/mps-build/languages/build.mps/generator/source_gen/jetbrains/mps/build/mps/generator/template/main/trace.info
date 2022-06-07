@@ -491,7 +491,7 @@
       <node id="5970181360960287740" at="1969,39,1970,186" concept="6" />
       <node id="5970181360960411046" at="1974,63,1975,34" concept="6" />
       <node id="7391870795497191286" at="1978,74,1979,37" concept="6" />
-      <node id="5970181360960287858" at="1981,39,1982,211" concept="1" />
+      <node id="5970181360960287858" at="1981,39,1982,388" concept="1" />
       <node id="4662909768656960990" at="1984,39,1985,66" concept="6" />
       <node id="7391870795497191475" at="1987,11,1988,232" concept="1" />
       <node id="8845345751178284772" at="1990,5,1991,23" concept="6" />
@@ -773,7 +773,7 @@
       <node id="3340252814672973587" at="1897,5,1904,5" concept="3" />
       <node id="3340252814673340889" at="1913,5,1920,5" concept="3" />
       <node id="3733986151371807578" at="1926,0,1933,0" concept="9" trace="varMacro_Value_10_3#(Ljetbrains/mps/generator/template/TemplateVarContext;)Ljava/lang/Object;" />
-      <node id="7391870795497191469" at="1982,211,1989,7" concept="2" />
+      <node id="7391870795497191469" at="1982,388,1989,7" concept="2" />
       <node id="6354776497085480748" at="1952,0,1960,0" concept="9" trace="varMacro_Value_10_7#(Ljetbrains/mps/generator/template/TemplateVarContext;)Ljava/lang/Object;" />
       <node id="8845345751178284778" at="1541,0,1550,0" concept="9" trace="sourceNodesQuery_10_3#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodesContext;)Ljava/lang/Iterable;" />
       <node id="4035665851936901616" at="1584,105,1593,30" concept="5" />
@@ -1271,7 +1271,7 @@
         <var name="gentest" id="8986357566212685846" />
         <var name="visibleModules" id="8986357566212685836" />
       </scope>
-      <scope id="7391870795497191469" at="1982,211,1989,7">
+      <scope id="7391870795497191469" at="1982,388,1989,7">
         <var name="c" id="7391870795497191470" />
       </scope>
       <scope id="3967774530650472143" at="575,89,583,39" />

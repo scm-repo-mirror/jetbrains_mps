@@ -1979,7 +1979,7 @@ public class QueriesGenerated extends QueryProviderBase {
           return it.getConflicting();
         }
       }), CONCEPTS.BuildMps_Module$JW);
-      _context.showErrorMessage(null, "cannot create `generate' task, there is a dependency cycle between a language and modules using it; add `mps settings' aspect with bootstrap = true to turn off the check");
+      _context.showErrorMessage(null, "cannot create `generate' task, there is a dependency cycle between a language and modules using it; read 'https://www.jetbrains.com/help/mps/removing-bootstrapping-dependency-problems.html' to understand the situation and how to fix it, you may add the `mps settings' aspect with bootstrap = true to turn off the check as the last resort solution");
       for (SNode c : Sequence.fromIterable(samples).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
           return DependenciesHelper.getOriginalNode(it, _context);

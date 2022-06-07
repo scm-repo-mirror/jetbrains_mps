@@ -19765,7 +19765,7 @@
                         <node concept="1iwH7S" id="5bqm540GzhN" role="2Oq$k0" />
                         <node concept="2k5nB$" id="5bqm540Gzie" role="2OqNvi">
                           <node concept="Xl_RD" id="5bqm540Gzig" role="2k5Stb">
-                            <property role="Xl_RC" value="cannot create `generate' task, there is a dependency cycle between a language and modules using it; add `mps settings' aspect with bootstrap = true to turn off the check" />
+                            <property role="Xl_RC" value="cannot create `generate' task, there is a dependency cycle between a language and modules using it; read 'https://www.jetbrains.com/help/mps/removing-bootstrapping-dependency-problems.html' to understand the situation and how to fix it, you may add the `mps settings' aspect with bootstrap = true to turn off the check as the last resort solution" />
                           </node>
                         </node>
                       </node>
