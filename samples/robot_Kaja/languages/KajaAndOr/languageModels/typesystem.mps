@@ -4,9 +4,7 @@
   <languages>
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
-  <imports>
-    <import index="6ms5" ref="r:d3eab93d-0231-40c7-b095-39bdf7a89e92(jetbrains.mps.samples.KajaAndOr.structure)" />
-  </imports>
+  <imports />
   <registry />
 </model>
 
