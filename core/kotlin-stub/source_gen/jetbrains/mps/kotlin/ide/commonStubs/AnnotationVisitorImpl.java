@@ -14,7 +14,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.ResolveInfo;
 import jetbrains.mps.smodel.behaviour.BHReflection;
-import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
+import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -126,7 +126,7 @@ public class AnnotationVisitorImpl implements AnnotationVisitor {
       return type;
     } else {
       SNode clType = classTypeOf("kotlin/Array", context);
-      ListSequence.fromList(SLinkOperations.getChildren(clType, LINKS.typeProjections$vhti)).addElement(((SNode) BHReflection.invoke0(arrayOf(type, depth - 1, context), CONCEPTS.IType$Ni, SMethodTrimmedId.create("asInvariantProjection", CONCEPTS.IType$Ni, "2gj5XQXIqKf"))));
+      ListSequence.fromList(SLinkOperations.getChildren(clType, LINKS.typeProjections$vhti)).addElement(((SNode) BHReflection.invoke0(arrayOf(type, depth - 1, context), CONCEPTS.IType$Ni, SMethodIdV2.create("asInvariantProjection", 2599447651061181455L, 0xe09770275b3c9251L))));
       return clType;
     }
   }

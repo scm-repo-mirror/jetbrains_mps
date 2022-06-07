@@ -6,33 +6,30 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.builder.SNodeBuilder;
-import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class TypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, "jetbrains.mps.kotlin.structure.TypeParameter");
 
-  public static final SMethod<SNode> getThisType_id5g3vQLJG6ED = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6053822427823106729L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2461357008637220589L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisType_id5g3vQLJG6ED);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDescriptor_id28CvMylflrH);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getThisType_id5g3vQLJG6ED(@NotNull SNode __thisNode__, boolean nullable) {
-    return createTypeParameterReference_q3hhup_a0a0(__thisNode__, nullable);
+  /*package*/ static TypeParameterDeclaration getDescriptor_id28CvMylflrH(@NotNull SNode __thisNode__) {
+    return new KotlinTypeParameterDeclaration(__thisNode__);
   }
 
   /*package*/ TypeParameter__BehaviorDescriptor() {
@@ -51,7 +48,7 @@ public final class TypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getThisType_id5g3vQLJG6ED(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((TypeParameterDeclaration) getDescriptor_id28CvMylflrH(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -79,23 +76,5 @@ public final class TypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-  private static SNode createTypeParameterReference_q3hhup_a0a0(SNode p0, boolean p1) {
-    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.TypeParameterReference$ya);
-    n0.setReferenceTarget(LINKS.parameter$ofYr, p0);
-    n0.setProperty(PROPS.isNullable$KWwD, "" + (p1));
-    return n0.getResult();
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept TypeParameterReference$ya = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, "jetbrains.mps.kotlin.structure.TypeParameterReference");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SReferenceLink parameter$ofYr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x21e0c9232886358dL, 0x21e0c9232886358eL, "parameter");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

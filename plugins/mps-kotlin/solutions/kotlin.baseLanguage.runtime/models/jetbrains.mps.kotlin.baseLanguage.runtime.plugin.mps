@@ -554,7 +554,7 @@
                       <property role="huDt6" value="Error: Incompatible method signature" />
                     </node>
                     <node concept="2YIFZM" id="77yS8CrUOPc" role="3clFbG">
-                      <ref role="1Pybhc" to="akzu:77yS8CrUJ$d" resolve="JavaToKotlinConversion" />
+                      <ref role="1Pybhc" to="akzu:77yS8CrUJ$d" resolve="JavaToKtConversion" />
                       <ref role="37wK5l" to="akzu:4L0QGs2lAME" resolve="convertProjectionsInto" />
                       <node concept="2OqwBi" id="4L0QGs2mhA1" role="37wK5m">
                         <node concept="37vLTw" id="4L0QGs2mhA2" role="2Oq$k0">
@@ -707,7 +707,7 @@
                     </node>
                     <node concept="2YIFZM" id="77yS8CrUOPd" role="3clFbG">
                       <ref role="37wK5l" to="akzu:4L0QGs2lAME" resolve="convertProjectionsInto" />
-                      <ref role="1Pybhc" to="akzu:77yS8CrUJ$d" resolve="JavaToKotlinConversion" />
+                      <ref role="1Pybhc" to="akzu:77yS8CrUJ$d" resolve="JavaToKtConversion" />
                       <node concept="2OqwBi" id="4L0QGs2m6rS" role="37wK5m">
                         <node concept="37vLTw" id="4L0QGs2m6rT" role="2Oq$k0">
                           <ref role="3cqZAo" node="4L0QGs2lovY" resolve="clType" />
@@ -1249,7 +1249,7 @@
                     </node>
                     <node concept="2YIFZM" id="117xv0QrrXL" role="3clFbG">
                       <ref role="37wK5l" to="3hq4:4L0QGs2lAME" resolve="convertProjectionsInto" />
-                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversions" />
+                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
                       <node concept="2OqwBi" id="117xv0Qrd3R" role="37wK5m">
                         <node concept="37vLTw" id="117xv0Qrd3S" role="2Oq$k0">
                           <ref role="3cqZAo" node="4L0QGs2krqu" resolve="clType" />
@@ -1382,7 +1382,7 @@
                     </node>
                     <node concept="2YIFZM" id="117xv0QrrXM" role="3clFbG">
                       <ref role="37wK5l" to="3hq4:4L0QGs2lAME" resolve="convertProjectionsInto" />
-                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversions" />
+                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
                       <node concept="2OqwBi" id="117xv0Qrd3z" role="37wK5m">
                         <node concept="1PxgMI" id="117xv0Qrd3$" role="2Oq$k0">
                           <property role="1BlNFB" value="true" />

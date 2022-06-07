@@ -6,7 +6,7 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
@@ -19,6 +19,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import java.util.Collections;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -33,8 +36,9 @@ public final class ValueArgument__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<ParameterDeclaration> getNamedTarget_id2PMtXoK3vgE = new SMethodBuilder<ParameterDeclaration>(new SJavaCompoundTypeImpl(ParameterDeclaration.class)).name("getNamedTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3274811640864699434L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getArgExpression_id26mUjU3EUyw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getArgExpression").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2420378304464529568L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isVarArg_idbbFPPtRGEL = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isVarArg").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(201447423889820337L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<SNode>> getAvailableParameters_id7bIC29gIZM1 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getAvailableParameters").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8281732834024750209L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getNamedTarget_id2PMtXoK3vgE, getArgExpression_id26mUjU3EUyw, isVarArg_idbbFPPtRGEL);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getNamedTarget_id2PMtXoK3vgE, getArgExpression_id26mUjU3EUyw, isVarArg_idbbFPPtRGEL, getAvailableParameters_id7bIC29gIZM1);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -52,6 +56,17 @@ public final class ValueArgument__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static boolean isVarArg_idbbFPPtRGEL(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getBoolean(__thisNode__, PROPS.isVararg$zs5Z);
+  }
+  /*package*/ static Iterable<SNode> getAvailableParameters_id7bIC29gIZM1(@NotNull SAbstractConcept __thisConcept__, SNode thisOrContextNode) {
+    SNode provider = (SNodeOperations.isInstanceOf(thisOrContextNode, CONCEPTS.IArguments$xj) ? SNodeOperations.cast(thisOrContextNode, CONCEPTS.IArguments$xj) : SNodeOperations.as(SNodeOperations.getParent(thisOrContextNode), CONCEPTS.IArguments$xj));
+    if ((provider == null)) {
+      return Sequence.fromIterable(Collections.<SNode>emptyList());
+    }
+    return Sequence.fromIterable(IArguments__BehaviorDescriptor.getAvailableParameters_id1$jFvlD0xqw.invoke(provider)).select(new ISelector<ParameterDeclaration, SNode>() {
+      public SNode select(ParameterDeclaration this0) {
+        return this0.getNode();
+      }
+    }).where(new NotNullWhereFilter<SNode>());
   }
 
   /*package*/ ValueArgument__BehaviorDescriptor() {
@@ -87,6 +102,8 @@ public final class ValueArgument__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 3:
+        return (T) ((Iterable<SNode>) getAvailableParameters_id7bIC29gIZM1(concept, (SNode) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

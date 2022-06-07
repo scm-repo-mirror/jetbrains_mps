@@ -6,17 +6,24 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.scopes.signed.ListSignatureScope;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.runtime.members.signature.VariableSignature;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import jetbrains.mps.kotlin.api.members.SourcedSignature;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.kotlin.scopes.signed.CompositeSignatureScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -28,22 +35,30 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b5aaL, "jetbrains.mps.kotlin.structure.EnumClassDeclaration");
 
-  public static final SMethod<Void> populateNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103769461993L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
+  public static final SMethod<SignatureScope> getCompanionInstanceScope_id3HHsmlLCHeX = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getCompanionInstanceScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4282203501211341757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""));
   public static final SMethod<Boolean> hasModifier_id2NtWm0y2Y2A = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasModifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3233005502712242342L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateNestedDeclarations_id213J8chg2jD, hasModifier_id2NtWm0y2Y2A);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCompanionInstanceScope_id3HHsmlLCHeX, hasModifier_id2NtWm0y2Y2A);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
-    // Regular declarations
-    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, collector, context);
+  /*package*/ static SignatureScope getCompanionInstanceScope_id3HHsmlLCHeX(@NotNull final SNode __thisNode__, SignatureFilter<?> filter) {
+    SignatureScope parent = IClassLike__BehaviorDescriptor.getCompanionInstanceScope_id3HHsmlLCHeX.invoke0(__thisNode__, CONCEPTS.ClassDeclaration$Jm, filter);
+    ListSignatureScope entries = new ListSignatureScope(() -> {
+      // Get entries
+      return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i)).translate(new ITranslator2<SNode, SourcedSignature>() {
+        public Iterable<SourcedSignature> translate(final SNode it) {
+          return Sequence.fromIterable(PropertySignature.signaturesOf(it, false)).select(new ISelector<PropertySignature, SourcedSignature>() {
+            public SourcedSignature select(PropertySignature sig) {
+              return sig.toSourced(it, null);
+            }
+          });
+        }
+      });
+    });
 
-    // Entries belong to non instantiated receiver scope
-    if (context.isWithCompanionMembers()) {
-      collector.declareAll(SLinkOperations.getChildren(__thisNode__, LINKS.entries$EB0i), VariableSignature.class);
-    }
+    return CompositeSignatureScope.of(entries, parent);
   }
   /*package*/ static boolean hasModifier_id2NtWm0y2Y2A(@NotNull SNode __thisNode__, SAbstractConcept modifier) {
     return modifier == null || SConceptOperations.isExactly(SNodeOperations.asSConcept(modifier), CONCEPTS.EnumClassModifier$uP);
@@ -65,8 +80,7 @@ public final class EnumClassDeclaration__BehaviorDescriptor extends BaseBHDescri
     }
     switch (methodIndex) {
       case 0:
-        populateNestedDeclarations_id213J8chg2jD(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
-        return null;
+        return (T) ((SignatureScope) getCompanionInstanceScope_id3HHsmlLCHeX(node, (SignatureFilter<?>) parameters[0]));
       case 1:
         return (T) ((Boolean) hasModifier_id2NtWm0y2Y2A(node, (SAbstractConcept) parameters[0]));
       default:

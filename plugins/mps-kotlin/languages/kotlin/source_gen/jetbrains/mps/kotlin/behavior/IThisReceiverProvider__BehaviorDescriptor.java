@@ -26,8 +26,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class IThisReceiverProvider__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x85989ab41addf50L, "jetbrains.mps.kotlin.structure.IThisReceiverProvider");
 
-  public static final SMethod<Iterable<TypeReference>> getThisTypeReferences_idxpyqH1FuA0 = new SMethodBuilder<Iterable<TypeReference>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeReference>>) ((Class) Object.class))).name("getThisTypeReferences").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("xpyqH1FuA0").build();
-  public static final SMethod<Boolean> collectScope_id7DyvjiA20yV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("collectScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("7DyvjiA20yV").build(SMethodBuilder.createJavaParameter(ScopeCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Iterable<TypeReference>> getThisTypeReferences_idxpyqH1FuA0 = new SMethodBuilder<Iterable<TypeReference>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeReference>>) ((Class) Object.class))).name("getThisTypeReferences").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(601663393865001344L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Boolean> collectScope_id7DyvjiA20yV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("collectScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8818748685422168251L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(ScopeCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisTypeReferences_idxpyqH1FuA0, collectScope_id7DyvjiA20yV);
 

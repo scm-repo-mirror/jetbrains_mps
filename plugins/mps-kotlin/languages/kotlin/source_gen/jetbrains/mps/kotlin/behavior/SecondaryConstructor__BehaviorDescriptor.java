@@ -11,28 +11,23 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.scope.Scope;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class SecondaryConstructor__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, "jetbrains.mps.kotlin.structure.SecondaryConstructor");
 
   public static final SMethod<List<SNode>> getParameters_id6f3juM$_Kx4 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7188675108982425668L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Scope> getSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> collectSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameters_id6f3juM$_Kx4, getSpecificScope_id1yTI8p9qmpS);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getParameters_id6f3juM$_Kx4, collectSpecificScope_id1yTI8p9qmpS);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -40,13 +35,10 @@ public final class SecondaryConstructor__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static List<SNode> getParameters_id6f3juM$_Kx4(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.parameters$dfEr);
   }
-  /*package*/ static Scope getSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
+  /*package*/ static void collectSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SignatureCollector collector, SNode childNode) {
     // Parameters
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IVariableIdentifier$v2) && ListSequence.fromList(SNodeOperations.getNodeAncestors(child, CONCEPTS.SecondaryConstructor$Lg, false)).contains(__thisNode__)) {
-      return new NamedElementsScope(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(__thisNode__));
-    }
+    PropertySignature.declareAllTo(IFunctionDeclaration__BehaviorDescriptor.getParameters_id6f3juM$_Kx4.invoke(__thisNode__), false, null, collector);
 
-    return null;
   }
 
   /*package*/ SecondaryConstructor__BehaviorDescriptor() {
@@ -67,7 +59,8 @@ public final class SecondaryConstructor__BehaviorDescriptor extends BaseBHDescri
       case 0:
         return (T) ((List<SNode>) getParameters_id6f3juM$_Kx4(node));
       case 1:
-        return (T) ((Scope) getSpecificScope_id1yTI8p9qmpS(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        collectSpecificScope_id1yTI8p9qmpS(node, (SignatureCollector) parameters[0], (SNode) parameters[1]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -99,10 +92,5 @@ public final class SecondaryConstructor__BehaviorDescriptor extends BaseBHDescri
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameters$dfEr = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d755909980L, 0x28bef6d755909981L, "parameters");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept SecondaryConstructor$Lg = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af393L, "jetbrains.mps.kotlin.structure.SecondaryConstructor");
-    /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
   }
 }

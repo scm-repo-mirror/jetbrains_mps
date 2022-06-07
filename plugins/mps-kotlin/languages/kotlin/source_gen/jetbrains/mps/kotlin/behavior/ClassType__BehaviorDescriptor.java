@@ -9,24 +9,22 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
-import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
-import jetbrains.mps.scope.Scope;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
+import jetbrains.mps.kotlin.api.members.SuperTypesVisitor;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -41,11 +39,12 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012687677431L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignature").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012692426249L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
-  public static final SMethod<Scope> getTypeScope_id7ubb0gUcNKV = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getTypeScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8614027108944133179L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignedDeclarationFilter.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
+  public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SignatureScope> getCompanionInstanceScope_id1ODRHGtugRP = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getCompanionInstanceScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818723829L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getClassifier_id7an2tsIdpk7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifier").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975879L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975922L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, getTypeScope_id7ubb0gUcNKV, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, populateTypeSignatures_id5q426iHK5S9, getStaticScope_id1ODRHGtufGw, getCompanionInstanceScope_id1ODRHGtugRP, getClassifier_id7an2tsIdpk7, getTypeParameters_id7an2tsIdpkM);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -107,10 +106,11 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
       }
     });
   }
-  /*package*/ static Scope getTypeScope_id7ubb0gUcNKV(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context) {
-    DeclarationCollector collector = new DeclarationCollector(filter);
-    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), collector, context);
-    return collector.getScope();
+  /*package*/ static SignatureScope getStaticScope_id1ODRHGtufGw(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
+    return (SignatureScope) IClassLike__BehaviorDescriptor.getNestedConstructorsScope_id3HHsmlLCHdO.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter);
+  }
+  /*package*/ static SignatureScope getCompanionInstanceScope_id1ODRHGtugRP(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
+    return (SignatureScope) IClassLike__BehaviorDescriptor.getCompanionInstanceScope_id3HHsmlLCHeX.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX), filter);
   }
   /*package*/ static SNode getClassifier_id7an2tsIdpk7(@NotNull SNode __thisNode__) {
     return SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX);
@@ -119,7 +119,7 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
     {
       final SNode withParams = SLinkOperations.getTarget(__thisNode__, LINKS.class$ExdX);
       if (SNodeOperations.isInstanceOf(withParams, CONCEPTS.ITypeParameters$G$)) {
-        return KotlinTypeParameterDeclaration.of(SLinkOperations.getChildren(withParams, LINKS.typeParameters$eq6K));
+        return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(withParams);
       }
     }
     return Sequence.fromIterable(Collections.<TypeParameterDeclaration>emptyList());
@@ -147,10 +147,12 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
         populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
-        return (T) ((Scope) getTypeScope_id7ubb0gUcNKV(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1]));
+        return (T) ((SignatureScope) getStaticScope_id1ODRHGtufGw(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
       case 3:
-        return (T) ((SNode) getClassifier_id7an2tsIdpk7(node));
+        return (T) ((SignatureScope) getCompanionInstanceScope_id1ODRHGtugRP(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
       case 4:
+        return (T) ((SNode) getClassifier_id7an2tsIdpk7(node));
+      case 5:
         return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id7an2tsIdpkM(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -185,7 +187,6 @@ public final class ClassType__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SReferenceLink class$ExdX = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5c7be90f2440b378L, 0x5c7be90f2440b37bL, "class");
     /*package*/ static final SContainmentLink superclasses$6CkZ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6ef8a3cf68294651L, 0x1ba36e493d40fea5L, "superclasses");
     /*package*/ static final SContainmentLink members$gqdV = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8310a1ff68L, 0x2043bc8310a1ff69L, "members");
-    /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
   }
 
   private static final class CONCEPTS {

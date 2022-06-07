@@ -25,8 +25,8 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public final class ITypeParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, "jetbrains.mps.kotlin.structure.ITypeParameter");
 
-  public static final SMethod<SNode> getThisType_id2J12cYiFgTM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("2J12cYiFgTM").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
-  public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).id("28CvMylflrH").build();
+  public static final SMethod<SNode> getThisType_id2J12cYiFgTM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3152810901748125298L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<TypeParameterDeclaration> getDescriptor_id28CvMylflrH = new SMethodBuilder<TypeParameterDeclaration>(new SJavaCompoundTypeImpl(TypeParameterDeclaration.class)).name("getDescriptor").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2461357008637220589L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getThisType_id2J12cYiFgTM, getDescriptor_id28CvMylflrH);
 

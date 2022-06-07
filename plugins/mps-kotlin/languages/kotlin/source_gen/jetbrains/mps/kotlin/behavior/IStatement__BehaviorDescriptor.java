@@ -9,31 +9,32 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
-import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af322L, "jetbrains.mps.kotlin.structure.IStatement");
 
-  public static final SMethod<Boolean> isLeftExpressionTarget_id69RFwVHPwd9 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeftExpressionTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7095331117088506697L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> isLeftExpressionTarget_id69RFwVHPwd9 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeftExpressionTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7095331117088506697L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SContainmentLink>) ((Class) Object.class), ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLeftExpressionTarget_id69RFwVHPwd9);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static boolean isLeftExpressionTarget_id69RFwVHPwd9(@NotNull SNode __thisNode__, SNode child) {
+  /*package*/ static boolean isLeftExpressionTarget_id69RFwVHPwd9(@NotNull SNode __thisNode__, @Nullable SContainmentLink child) {
     {
       final SNode expr = SNodeOperations.getParent(__thisNode__);
       if (SNodeOperations.isInstanceOf(expr, CONCEPTS.IStatement$fj)) {
-        return (boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(expr, __thisNode__);
+        return (boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(expr, SNodeOperations.getContainingLink(__thisNode__));
       }
     }
 
@@ -56,7 +57,7 @@ public final class IStatement__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) isLeftExpressionTarget_id69RFwVHPwd9(node, (SNode) parameters[0]));
+        return (T) ((Boolean) isLeftExpressionTarget_id69RFwVHPwd9(node, (SContainmentLink) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

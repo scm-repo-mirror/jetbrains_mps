@@ -24,7 +24,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class Comment__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x661f917376e93866L, "jetbrains.mps.kotlin.structure.Comment");
 
-  public static final SMethod<Boolean> isTodo_id6CwBo1Z9RMC = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isTodo").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6CwBo1Z9RMC").build();
+  public static final SMethod<Boolean> isTodo_id6CwBo1Z9RMC = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isTodo").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7647285342489771176L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isTodo_id6CwBo1Z9RMC);
 

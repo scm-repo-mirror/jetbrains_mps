@@ -23626,7 +23626,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="2AHcQZ" id="3X8BNX8FO31" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" />
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="2tJIrI" id="6czvyFynk5M" role="jymVt" />
@@ -23736,7 +23736,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
       <node concept="2AHcQZ" id="3X8BNX8FOWw" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" />
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
       </node>
     </node>
     <node concept="3clFb_" id="4W0pdSCLQiD" role="jymVt">
@@ -23879,7 +23879,7 @@
               <ref role="3cqZAo" node="5LVUgW$lvkZ" resolve="pres" />
             </node>
             <node concept="liA8E" id="3oF6_HBMDRO" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.Object)" resolve="append" />
+              <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
               <node concept="3K4zz7" id="3oF6_HBH4vh" role="37wK5m">
                 <node concept="Xl_RD" id="3oF6_HBH5j5" role="3K4GZi">
                   <property role="Xl_RC" value="&lt;no class&gt;" />

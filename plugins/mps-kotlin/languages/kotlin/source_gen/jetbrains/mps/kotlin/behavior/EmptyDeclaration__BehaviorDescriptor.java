@@ -5,13 +5,8 @@ package jetbrains.mps.kotlin.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
-import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
-import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
 import java.util.List;
+import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -22,16 +17,12 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class EmptyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4e07f19a40c4182bL, "jetbrains.mps.kotlin.structure.EmptyDeclaration");
 
-  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103759133107L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateDeclarations_id213J8cgCCAN);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, DeclarationCollector collector, ScopeContext context) {
-    // no-op
-  }
 
   /*package*/ EmptyDeclaration__BehaviorDescriptor() {
   }
@@ -48,9 +39,6 @@ public final class EmptyDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        populateDeclarations_id213J8cgCCAN(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
-        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

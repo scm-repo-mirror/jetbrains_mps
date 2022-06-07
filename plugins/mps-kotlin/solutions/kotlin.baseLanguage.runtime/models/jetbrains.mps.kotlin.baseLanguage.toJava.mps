@@ -458,7 +458,7 @@
                       <node concept="3clFbF" id="4mCQDm_Avp5" role="3cqZAp">
                         <node concept="2YIFZM" id="117xv0QrrXO" role="3clFbG">
                           <ref role="37wK5l" node="4mCQDm_$3In" resolve="convertProjection" />
-                          <ref role="1Pybhc" node="117xv0Qrpm9" resolve="KtToJavaConversions" />
+                          <ref role="1Pybhc" node="117xv0Qrpm9" resolve="KtToJavaConversion" />
                           <node concept="37vLTw" id="4mCQDm_AEpO" role="37wK5m">
                             <ref role="3cqZAo" node="4mCQDm_Avp9" resolve="it" />
                           </node>
@@ -544,7 +544,7 @@
       </node>
     </node>
     <node concept="2AHcQZ" id="117xv0QsifK" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
     </node>
   </node>
   <node concept="312cEu" id="1t03WazlpG0">

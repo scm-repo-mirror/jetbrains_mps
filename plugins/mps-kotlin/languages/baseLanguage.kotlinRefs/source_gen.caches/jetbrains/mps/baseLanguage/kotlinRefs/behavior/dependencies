@@ -79,7 +79,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.ParameterDeclaration" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
+    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionDeclaration__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IFunctionIdentifier__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.KotlinParameterDeclaration" />
@@ -109,7 +109,6 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.ParameterDeclaration" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
@@ -156,8 +155,8 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService" />
+    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion" />
+    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtConversion" />
     <classNode dependClassName="jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.kotlin.scopes.SuperTypesGenericVisitor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
@@ -267,7 +266,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.ParameterDeclaration" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
+    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -295,7 +294,6 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.kotlin.api.declaration.ParameterDeclaration" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -328,7 +326,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConversionService" />
+    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />

@@ -13,31 +13,61 @@ import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import jetbrains.mps.kotlin.api.members.SuperTypesVisitor;
 import jetbrains.mps.kotlin.api.generics.TypeVarSubs;
 import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IterableUtils;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, "jetbrains.mps.kotlin.structure.TypeAliasType");
 
+  public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314964191515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012692426249L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Void> visitHierarchy_id5q426iHtYvR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("visitHierarchy").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012687677431L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SuperTypesVisitor.class, ""));
   public static final SMethod<Void> populateSubstitutions_id4f4W8JpwgWV = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateSubstitutions").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4883292379416694587L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(TypeVarSubs.class, ""));
-  public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314964191515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id7an2tsIdpkM = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8257079261604975922L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SignatureScope> getStaticScope_id1ODRHGtufGw = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getStaticScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818719008L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SignatureScope> getCompanionInstanceScope_id1ODRHGtugRP = new SMethodBuilder<SignatureScope>(new SJavaCompoundTypeImpl(SignatureScope.class)).name("getCompanionInstanceScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2101455733818723829L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureFilter.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateTypeSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, toString_id4nn3FPlZH$r, shallowId_idJmO2PmZtH5);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toString_id4nn3FPlZH$r, populateTypeSignatures_id5q426iHK5S9, visitHierarchy_id5q426iHtYvR, populateSubstitutions_id4f4W8JpwgWV, shallowId_idJmO2PmZtH5, getTypeParameters_id7an2tsIdpkM, getStaticScope_id1ODRHGtufGw, getCompanionInstanceScope_id1ODRHGtugRP);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
+    StringBuilder pres = new StringBuilder();
+    SNode classifier = SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN);
+    pres.append((isNotEmptyString(SPropertyOperations.getString(classifier, PROPS.name$MnvL)) ? SPropertyOperations.getString(classifier, PROPS.name$MnvL) : "<no class>"));
+    if (!(erased) && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti)).isNotEmpty()) {
+      pres.append("<");
+      pres.append(IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti)).select(new ISelector<SNode, String>() {
+        public String select(SNode it) {
+          return ((it != null) ? BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(it) : "?");
+        }
+      }), ", "));
+      pres.append(">");
+    }
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isNullable$KWwD)) {
+      pres.append("?");
+    }
+    return pres.toString();
+  }
   /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull SNode __thisNode__, SignatureCollector visitor) {
     IType__BehaviorDescriptor.populateTypeSignatures_id5q426iHK5S9.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU), visitor);
   }
@@ -50,13 +80,20 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
     visitor.exitType(__thisNode__);
   }
   /*package*/ static void populateSubstitutions_id4f4W8JpwgWV(@NotNull SNode __thisNode__, TypeVarSubs<SNode> subs) {
-    subs.populate(ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN)), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
-  }
-  /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
-    return "";
+    subs.populate(IType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke(__thisNode__), SLinkOperations.getChildren(__thisNode__, LINKS.typeProjections$vhti));
   }
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
+    // Same type roughly
     return IType__BehaviorDescriptor.shallowId_idJmO2PmZtH5.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU));
+  }
+  /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id7an2tsIdpkM(@NotNull SNode __thisNode__) {
+    return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN));
+  }
+  /*package*/ static SignatureScope getStaticScope_id1ODRHGtufGw(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
+    return IType__BehaviorDescriptor.getStaticScope_id1ODRHGtufGw.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU), filter, contextNode);
+  }
+  /*package*/ static SignatureScope getCompanionInstanceScope_id1ODRHGtugRP(@NotNull SNode __thisNode__, SignatureFilter<?> filter, SNode contextNode) {
+    return IType__BehaviorDescriptor.getCompanionInstanceScope_id1ODRHGtugRP.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.typeAlias$NsaN), LINKS.type$JuNU), filter, contextNode);
   }
 
   /*package*/ TypeAliasType__BehaviorDescriptor() {
@@ -75,18 +112,24 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
+        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
+      case 1:
         populateTypeSignatures_id5q426iHK5S9(node, (SignatureCollector) parameters[0]);
         return null;
-      case 1:
+      case 2:
         visitHierarchy_id5q426iHtYvR(node, (SuperTypesVisitor) parameters[0]);
         return null;
-      case 2:
+      case 3:
         populateSubstitutions_id4f4W8JpwgWV(node, (TypeVarSubs<SNode>) parameters[0]);
         return null;
-      case 3:
-        return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       case 4:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
+      case 5:
+        return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id7an2tsIdpkM(node));
+      case 6:
+        return (T) ((SignatureScope) getStaticScope_id1ODRHGtufGw(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
+      case 7:
+        return (T) ((SignatureScope) getCompanionInstanceScope_id1ODRHGtugRP(node, (SignatureFilter<?>) parameters[0], (SNode) parameters[1]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -115,10 +158,18 @@ public final class TypeAliasType__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink typeAlias$NsaN = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6fcb81ab07d43684L, 0x6fcb81ab07dd8e21L, "typeAlias");
-    /*package*/ static final SContainmentLink type$JuNU = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, 0x28bef6d7551af810L, "type");
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
+    /*package*/ static final SContainmentLink type$JuNU = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4e2L, 0x28bef6d7551af810L, "type");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isNullable$KWwD = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, 0x56840864ad823b96L, "isNullable");
   }
 }

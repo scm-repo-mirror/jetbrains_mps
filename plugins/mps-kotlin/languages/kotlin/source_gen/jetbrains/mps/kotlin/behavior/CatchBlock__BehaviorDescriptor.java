@@ -9,27 +9,27 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.scope.Scope;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class CatchBlock__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af320L, "jetbrains.mps.kotlin.structure.CatchBlock");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1729083799690515557L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isAssignable_idCy8Bus9oGm = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703600406L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Scope> getSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<TypeReference> getType_id1TQsu41FTV5 = new SMethodBuilder<TypeReference>(new SJavaCompoundTypeImpl(TypeReference.class)).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2195067079599562437L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Void> collectSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm, getSpecificScope_id1yTI8p9qmpS);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm, getType_id1TQsu41FTV5, collectSpecificScope_id1yTI8p9qmpS);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -41,12 +41,12 @@ public final class CatchBlock__BehaviorDescriptor extends BaseBHDescriptor {
     // Similar to val
     return false;
   }
-  /*package*/ static Scope getSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
+  /*package*/ static TypeReference getType_id1TQsu41FTV5(@NotNull SNode __thisNode__) {
+    return ConcreteTypeReference.nullSafeOf(SLinkOperations.getTarget(__thisNode__, LINKS.type$fVtD));
+  }
+  /*package*/ static void collectSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SignatureCollector collector, SNode childNode) {
     // The catch block declares a variable
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IVariableIdentifier$v2)) {
-      return new NamedElementsScope(__thisNode__);
-    }
-    return null;
+    PropertySignature.declareTo(__thisNode__, null, collector);
   }
 
   /*package*/ CatchBlock__BehaviorDescriptor() {
@@ -69,7 +69,10 @@ public final class CatchBlock__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         return (T) ((Boolean) isAssignable_idCy8Bus9oGm(node));
       case 2:
-        return (T) ((Scope) getSpecificScope_id1yTI8p9qmpS(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        return (T) ((TypeReference) getType_id1TQsu41FTV5(node));
+      case 3:
+        collectSpecificScope_id1yTI8p9qmpS(node, (SignatureCollector) parameters[0], (SNode) parameters[1]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -99,7 +102,7 @@ public final class CatchBlock__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$fVtD = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af320L, 0x28bef6d7551af5c3L, "type");
   }
 }

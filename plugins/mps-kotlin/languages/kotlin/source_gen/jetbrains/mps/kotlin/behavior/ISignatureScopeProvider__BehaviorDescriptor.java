@@ -9,38 +9,27 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.scopes.signed.ScopeCollector;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class LessOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x45d70ebd5587135dL, "jetbrains.mps.kotlin.structure.LessOperation");
+public final class ISignatureScopeProvider__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x7a627d34a607ff89L, "jetbrains.mps.kotlin.structure.ISignatureScopeProvider");
 
-  public static final SMethod<Precedence> getPrecedenceLevel_id666oMY59eOv = new SMethodBuilder<Precedence>(new SJavaCompoundTypeImpl(Precedence.class)).name("getPrecedenceLevel").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7027413324306640159L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOperatorProviderName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314958578757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2420378304462001193L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Boolean> collectScope_id7DyvjiA20yV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("collectScope").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8818748685422168251L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(ScopeCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(collectScope_id7DyvjiA20yV);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static Precedence getPrecedenceLevel_id666oMY59eOv(@NotNull SNode __thisNode__) {
-    return Precedence.COMPARISON;
-  }
-  /*package*/ static String getFunctionName_id4nn3FPlEjh5(@NotNull SNode __thisNode__) {
-    return "compareTo";
-  }
-  /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
-    return CompareToOperator.forOperation(__thisNode__);
-  }
 
-  /*package*/ LessOperation__BehaviorDescriptor() {
+  /*package*/ ISignatureScopeProvider__BehaviorDescriptor() {
   }
 
   @Override
@@ -55,12 +44,6 @@ public final class LessOperation__BehaviorDescriptor extends BaseBHDescriptor {
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        return (T) ((Precedence) getPrecedenceLevel_id666oMY59eOv(node));
-      case 1:
-        return (T) ((String) getFunctionName_id4nn3FPlEjh5(node));
-      case 2:
-        return (T) ((FunctionDeclaration) getFunctionDescriptor_id26mUjU3xhgD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

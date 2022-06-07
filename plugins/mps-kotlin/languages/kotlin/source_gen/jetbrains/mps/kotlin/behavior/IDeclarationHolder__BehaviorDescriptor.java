@@ -11,61 +11,39 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
-import jetbrains.mps.kotlin.scopes.ScopeContext;
-import jetbrains.mps.scope.Scope;
-import jetbrains.mps.kotlin.scopes.SignedDeclarationFilter;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.scopes.signed.ScopeCollector;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
-import jetbrains.mps.lang.scopes.runtime.HidingByNameScope;
-import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IDeclarationHolder__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc8311401b49L, "jetbrains.mps.kotlin.structure.IDeclarationHolder");
 
   public static final SMethod<List<SNode>> getMembers_id213J8chg2xy = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103769462882L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Void> populateNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103769461993L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
-  public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5811245382203252452L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Scope> getScope_id1pD7IS1FrZI = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1614855948968247278L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignedDeclarationFilter.class, ""), SMethodBuilder.createJavaParameter(ScopeContext.class, ""));
+  public static final SMethod<Void> populatesNestedDeclarations_id213J8chg2jD = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populatesNestedDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103769461993L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
+  public static final SMethod<Boolean> collectScope_id7DyvjiA20yV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("collectScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8818748685422168251L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(ScopeCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMembers_id213J8chg2xy, populateNestedDeclarations_id213J8chg2jD, getScope_id52_Geb4QDV$, getScope_id1pD7IS1FrZI);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMembers_id213J8chg2xy, populatesNestedDeclarations_id213J8chg2jD, collectScope_id7DyvjiA20yV);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, final DeclarationCollector collector, final ScopeContext context) {
+  /*package*/ static void populatesNestedDeclarations_id213J8chg2jD(@NotNull SNode __thisNode__, final SignatureCollector collector) {
     // Declaration scope -> order does not matter
     ListSequence.fromList(IDeclarationHolder__BehaviorDescriptor.getMembers_id213J8chg2xy.invoke(__thisNode__)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
-        IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(it, collector, context);
+        IDeclarationScopePart__BehaviorDescriptor.populateDeclarations_id213J8cgCCAN.invoke(it, collector);
       }
     });
   }
-  /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    // Any kind of identifier
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IIdentifier$wg)) {
-      return IDeclarationHolder__BehaviorDescriptor.getScope_id1pD7IS1FrZI.invoke(__thisNode__, new SignedDeclarationFilter((SAbstractConcept) kind), ScopeContext.STANDALONE);
-    }
-
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$aq, kind, child));
-  }
-  /*package*/ static Scope getScope_id1pD7IS1FrZI(@NotNull SNode __thisNode__, SignedDeclarationFilter filter, ScopeContext context) {
-    // Collect declarations
-    DeclarationCollector collector = filter.toCollector();
-    IDeclarationHolder__BehaviorDescriptor.populateNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, collector, context);
-
-    // Provide scope
-    // TODO [unrelated to kotlin] lazyParentScope is used as ScopeUtils.lazyParentScope(node<>,concept< >):Scope is not supposed to be here (see concept's typechecking rule), but adding it wouldn't raise error before compilation (todo: enhance parent scope to support any function provided with concept, or update typechecking rule to search for overrides definition rather than name?)
-    return new HidingByNameScope(CONCEPTS.IIdentifier$wg, filter.getConceptFilter(), collector.getScope(), ScopeUtils.lazyParentScope(__thisNode__, filter.getConceptFilter()));
+  /*package*/ static boolean collectScope_id7DyvjiA20yV(@NotNull final SNode __thisNode__, ScopeCollector collector, SNode childNode) {
+    collector.declareCollectedScope((SignatureCollector sigCollector) -> IDeclarationHolder__BehaviorDescriptor.populatesNestedDeclarations_id213J8chg2jD.invoke(__thisNode__, sigCollector));
+    return true;
   }
 
   /*package*/ IDeclarationHolder__BehaviorDescriptor() {
@@ -84,12 +62,10 @@ public final class IDeclarationHolder__BehaviorDescriptor extends BaseBHDescript
     }
     switch (methodIndex) {
       case 1:
-        populateNestedDeclarations_id213J8chg2jD(node, (DeclarationCollector) parameters[0], (ScopeContext) parameters[1]);
+        populatesNestedDeclarations_id213J8chg2jD(node, (SignatureCollector) parameters[0]);
         return null;
       case 2:
-        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
-      case 3:
-        return (T) ((Scope) getScope_id1pD7IS1FrZI(node, (SignedDeclarationFilter) parameters[0], (ScopeContext) parameters[1]));
+        return (T) ((Boolean) collectScope_id7DyvjiA20yV(node, (ScopeCollector) parameters[0], (SNode) parameters[1]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -117,10 +93,5 @@ public final class IDeclarationHolder__BehaviorDescriptor extends BaseBHDescript
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
-    /*package*/ static final SInterfaceConcept ScopeProvider$aq = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }
 }

@@ -9,26 +9,54 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.kotlin.scopes.signed.ScopeCollector;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
+import jetbrains.mps.kotlin.scopes.signed.ConstructorsScope;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, "jetbrains.mps.kotlin.structure.FunctionCallExpression");
 
   public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<SignatureScope>> getFunctionScopeParts_id6dAo8EmAhT7 = new SMethodBuilder<Iterable<SignatureScope>>(new SJavaCompoundTypeImpl((Class<Iterable<SignatureScope>>) ((Class) Object.class))).name("getFunctionScopeParts").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7162518405727723079L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ, getFunctionScopeParts_id6dAo8EmAhT7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static CallReceiver getReceiver_id5D4bOjrrgiZ(@NotNull SNode __thisNode__) {
-    return null;
+    TypeReference reference = Sequence.fromIterable(IThisReceiverProvider__BehaviorDescriptor.getThisTypeReferences_idxpyqH1FuA0.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.receiver$fya4))).skip(SPropertyOperations.getInteger(__thisNode__, PROPS.receiverIndex$ELkw)).first();
+    if (reference == null) {
+      return null;
+    }
+    return new CallReceiver(reference, true, false);
+  }
+  /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
+    ScopeCollector collector = new ScopeCollector(new SignatureFilter<FunctionSignature>(FunctionSignature.class));
+
+    // We get scopes as a list in the collector rather than as an unified scope as each is independent.
+    SignatureScope.collectHierarchyScopes(contextNode, contextNode, collector);
+
+    // + scope for constructors
+    collector.declareScope(new ConstructorsScope(SNodeOperations.getModel(contextNode)));
+
+    return collector.getScopes();
   }
 
   /*package*/ FunctionCallExpression__BehaviorDescriptor() {
@@ -60,6 +88,8 @@ public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDesc
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 1:
+        return (T) ((Iterable<SignatureScope>) getFunctionScopeParts_id6dAo8EmAhT7(concept, (SNode) parameters[0], (SNode) parameters[1], (SContainmentLink) parameters[2]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -75,5 +105,13 @@ public final class FunctionCallExpression__BehaviorDescriptor extends BaseBHDesc
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink receiver$fya4 = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, 0x6b93446a6f90602eL, "receiver");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty receiverIndex$ELkw = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x40b4c3a5339a6979L, 0x6b93446a6f906849L, "receiverIndex");
   }
 }

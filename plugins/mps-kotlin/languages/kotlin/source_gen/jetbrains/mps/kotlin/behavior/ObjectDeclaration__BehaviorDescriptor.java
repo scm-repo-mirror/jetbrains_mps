@@ -9,10 +9,12 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -21,8 +23,10 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af364L, "jetbrains.mps.kotlin.structure.ObjectDeclaration");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1729083799690515557L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Void> populateDeclarations_id213J8cgCCAN = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2324909103759133107L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
+  public static final SMethod<TypeReference> getType_id1TQsu41FTV5 = new SMethodBuilder<TypeReference>(new SJavaCompoundTypeImpl(TypeReference.class)).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2195067079599562437L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, populateDeclarations_id213J8cgCCAN, getType_id1TQsu41FTV5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -30,6 +34,13 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
   /*package*/ static boolean isLocal_id1vYW8S3rTh_(@NotNull SNode __thisNode__) {
     // TODO maybe?
     return false;
+  }
+  /*package*/ static void populateDeclarations_id213J8cgCCAN(@NotNull SNode __thisNode__, SignatureCollector collector) {
+    PropertySignature.declareTo(__thisNode__, null, collector);
+  }
+  @NotNull
+  /*package*/ static TypeReference getType_id1TQsu41FTV5(@NotNull SNode __thisNode__) {
+    return new ThisTypeReference(__thisNode__);
   }
 
   /*package*/ ObjectDeclaration__BehaviorDescriptor() {
@@ -49,6 +60,11 @@ public final class ObjectDeclaration__BehaviorDescriptor extends BaseBHDescripto
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) isLocal_id1vYW8S3rTh_(node));
+      case 1:
+        populateDeclarations_id213J8cgCCAN(node, (SignatureCollector) parameters[0]);
+        return null;
+      case 2:
+        return (T) ((TypeReference) getType_id1TQsu41FTV5(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

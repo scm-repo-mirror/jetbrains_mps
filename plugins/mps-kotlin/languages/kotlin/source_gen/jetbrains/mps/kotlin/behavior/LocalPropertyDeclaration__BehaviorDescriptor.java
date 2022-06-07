@@ -9,13 +9,12 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.runtime.members.signature.VariableSignature;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -24,27 +23,31 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90b9L, "jetbrains.mps.kotlin.structure.LocalPropertyDeclaration");
 
-  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3444023549502858454L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""));
+  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3444023549502858454L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<Boolean> isDeconstructing_id7RZWrHVbnio = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDeconstructing").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9079241161329964184L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<List<SNode>> getDeclarations_id7RZWrHVaXCH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9079241161329859117L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SNode> getVariablesReceiverType_id75chmMYhcwP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariablesReceiverType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8163976557866829877L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateStatementDeclarations_id2ZbCiJacEjm, isDeconstructing_id7RZWrHVbnio, getVariablesReceiver_id4FOkRjXx8jV, getDeclarations_id7RZWrHVaXCH);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateStatementDeclarations_id2ZbCiJacEjm, isDeconstructing_id7RZWrHVbnio, getVariablesReceiver_id4FOkRjXx8jV, getDeclarations_id7RZWrHVaXCH, getVariablesReceiverType_id75chmMYhcwP);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, DeclarationCollector collector) {
-    collector.declareAll(SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z), VariableSignature.class);
+  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, SignatureCollector collector) {
+    AbstractPropertyDeclaration__BehaviorDescriptor.declareToCollector_id5$XWI2QkXNB.invoke(__thisNode__, collector, null);
   }
   /*package*/ static boolean isDeconstructing_id7RZWrHVbnio(@NotNull SNode __thisNode__) {
     return ((boolean) IDeconstructingDeclarations__BehaviorDescriptor.isDeconstructed_id4FOkRjXxnrt.invoke(__thisNode__));
   }
   /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
-    return CallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j), true, PropertyInitializerKeys.ASSIGNED_TYPE);
+    return CallReceiver.of(SLinkOperations.getTarget(__thisNode__, LINKS.assignment$nl1j), true, false, PropertyInitializerKeys.ASSIGNED_TYPE);
   }
   /*package*/ static List<SNode> getDeclarations_id7RZWrHVaXCH(@NotNull SNode __thisNode__) {
     return SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z);
+  }
+  /*package*/ static SNode getVariablesReceiverType_id75chmMYhcwP(@NotNull SNode __thisNode__) {
+    return null;
   }
 
   /*package*/ LocalPropertyDeclaration__BehaviorDescriptor() {
@@ -63,7 +66,7 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
     }
     switch (methodIndex) {
       case 0:
-        populateStatementDeclarations_id2ZbCiJacEjm(node, (DeclarationCollector) parameters[0]);
+        populateStatementDeclarations_id2ZbCiJacEjm(node, (SignatureCollector) parameters[0]);
         return null;
       case 1:
         return (T) ((Boolean) isDeconstructing_id7RZWrHVbnio(node));
@@ -71,6 +74,8 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
         return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
       case 3:
         return (T) ((List<SNode>) getDeclarations_id7RZWrHVaXCH(node));
+      case 4:
+        return (T) ((SNode) getVariablesReceiverType_id75chmMYhcwP(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -101,7 +106,7 @@ public final class LocalPropertyDeclaration__BehaviorDescriptor extends BaseBHDe
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
     /*package*/ static final SContainmentLink assignment$nl1j = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x123d0b402b9a90aaL, 0x28bef6d7551af7baL, "assignment");
+    /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
   }
 }

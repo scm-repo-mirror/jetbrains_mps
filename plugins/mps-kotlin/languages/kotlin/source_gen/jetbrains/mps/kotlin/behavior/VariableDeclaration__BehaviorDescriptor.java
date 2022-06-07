@@ -15,20 +15,24 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, "jetbrains.mps.kotlin.structure.VariableDeclaration");
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1729083799690515557L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isAssignable_idCy8Bus9oGm = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703600406L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SNode> getReceiverType_id75chmMYh8YE = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReceiverType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8163976557866815402L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<SNode>> getVariables_id1xjvXvOr9B8 = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1752885245472709064L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<TypeReference> getType_id1TQsu41FTV5 = new SMethodBuilder<TypeReference>(new SJavaCompoundTypeImpl(TypeReference.class)).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2195067079599562437L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm, getVariables_id1xjvXvOr9B8);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, isAssignable_idCy8Bus9oGm, getReceiverType_id75chmMYh8YE, getVariables_id1xjvXvOr9B8, getType_id1TQsu41FTV5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -47,8 +51,27 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
 
     return ((boolean) IVariableIdentifier__BehaviorDescriptor.isAssignable_idCy8Bus9oGm.invoke0(__thisNode__, CONCEPTS.IVariableIdentifier$v2));
   }
+  /*package*/ static SNode getReceiverType_id75chmMYh8YE(@NotNull SNode __thisNode__) {
+    {
+      final SNode constraintHolder = SNodeOperations.getParent(__thisNode__);
+      if (SNodeOperations.isInstanceOf(constraintHolder, CONCEPTS.IVariableConstraintHolder$zF)) {
+        return IVariableConstraintHolder__BehaviorDescriptor.getVariablesReceiverType_id75chmMYhcwP.invoke(constraintHolder);
+      }
+    }
+
+    return null;
+  }
   /*package*/ static Iterable<SNode> getVariables_id1xjvXvOr9B8(@NotNull SNode __thisNode__) {
     return Sequence.<SNode>singleton(__thisNode__);
+  }
+  @NotNull
+  /*package*/ static TypeReference getType_id1TQsu41FTV5(@NotNull SNode __thisNode__) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.type$RmkT) != null)) {
+      return new ConcreteTypeReference(SLinkOperations.getTarget(__thisNode__, LINKS.type$RmkT));
+    } else {
+      // Inferred from context
+      return new InferredTypeReference(__thisNode__, null);
+    }
   }
 
   /*package*/ VariableDeclaration__BehaviorDescriptor() {
@@ -71,7 +94,11 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
       case 1:
         return (T) ((Boolean) isAssignable_idCy8Bus9oGm(node));
       case 2:
+        return (T) ((SNode) getReceiverType_id75chmMYh8YE(node));
+      case 3:
         return (T) ((Iterable<SNode>) getVariables_id1xjvXvOr9B8(node));
+      case 4:
+        return (T) ((TypeReference) getType_id1TQsu41FTV5(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -105,5 +132,9 @@ public final class VariableDeclaration__BehaviorDescriptor extends BaseBHDescrip
     /*package*/ static final SConcept PropertyDeclaration$SE = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4a1L, "jetbrains.mps.kotlin.structure.PropertyDeclaration");
     /*package*/ static final SInterfaceConcept IVariableConstraintHolder$zF = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xa2222779c25a386L, "jetbrains.mps.kotlin.structure.IVariableConstraintHolder");
     /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$RmkT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af571L, 0x28bef6d7551af917L, "type");
   }
 }

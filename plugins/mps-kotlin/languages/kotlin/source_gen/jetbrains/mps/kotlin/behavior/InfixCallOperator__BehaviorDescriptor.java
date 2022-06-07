@@ -11,20 +11,24 @@ import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.kotlin.overloading.Argument;
-import jetbrains.mps.kotlin.runtime.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.kotlin.overloading.NodeArgument;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class InfixCallOperator__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7909561c6L, "jetbrains.mps.kotlin.structure.InfixCallOperator");
@@ -36,8 +40,9 @@ public final class InfixCallOperator__BehaviorDescriptor extends BaseBHDescripto
   public static final SMethod<SAbstractConcept> getModifierFilter_id5D4bOjruyUS = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl((Class<SAbstractConcept>) ((Class) Object.class))).name("getModifierFilter").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734616338104L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<FunctionDeclaration> getFunctionDescriptor_id26mUjU3xhgD = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getFunctionDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2420378304462001193L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<SignatureScope>> getFunctionScopeParts_id6dAo8EmAhT7 = new SMethodBuilder<Iterable<SignatureScope>>(new SJavaCompoundTypeImpl((Class<Iterable<SignatureScope>>) ((Class) Object.class))).name("getFunctionScopeParts").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7162518405727723079L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, getModifierFilter_id5D4bOjruyUS, getArguments_id1VI7K1jROBX, getFunctionDescriptor_id26mUjU3xhgD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPrecedenceLevel_id666oMY59eOv, getFunctionName_id4nn3FPlEjh5, getTargetLink_id5D4bOjrrcOr, getReceiver_id5D4bOjrrgiZ, getModifierFilter_id5D4bOjruyUS, getArguments_id1VI7K1jROBX, getFunctionDescriptor_id26mUjU3xhgD, getFunctionScopeParts_id6dAo8EmAhT7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -62,6 +67,12 @@ public final class InfixCallOperator__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static FunctionDeclaration getFunctionDescriptor_id26mUjU3xhgD(@NotNull SNode __thisNode__) {
     return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(__thisNode__, LINKS.function$i6$W));
+  }
+  /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
+    // If node being created, we have to consider target for transformation
+    SNode context = (((referenceNode == null) ? PrecedenceUtil.getTargetForTransform(SNodeOperations.as(contextNode, CONCEPTS.IExpression$2i), Precedence.INFIX, false) : SLinkOperations.getTarget(SNodeOperations.as(referenceNode, CONCEPTS.InfixCallOperator$j$), LINKS.left$yQgK)));
+
+    return SignatureScopeHelper.getFunctionScopeParts(CallReceiver.of(context), contextNode, new InfixSignatureFilter());
   }
 
   /*package*/ InfixCallOperator__BehaviorDescriptor() {
@@ -105,6 +116,8 @@ public final class InfixCallOperator__BehaviorDescriptor extends BaseBHDescripto
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 7:
+        return (T) ((Iterable<SignatureScope>) getFunctionScopeParts_id6dAo8EmAhT7(concept, (SNode) parameters[0], (SNode) parameters[1], (SContainmentLink) parameters[2]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -134,5 +147,7 @@ public final class InfixCallOperator__BehaviorDescriptor extends BaseBHDescripto
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept InfixFunctionModifier$PI = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c1L, "jetbrains.mps.kotlin.structure.InfixFunctionModifier");
+    /*package*/ static final SConcept InfixCallOperator$j$ = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7909561c6L, "jetbrains.mps.kotlin.structure.InfixCallOperator");
+    /*package*/ static final SInterfaceConcept IExpression$2i = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression");
   }
 }

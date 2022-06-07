@@ -9,25 +9,25 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.members.SuperTypesVisitor;
-import jetbrains.mps.kotlin.runtime.declaration.TypeParameterDeclaration;
+import jetbrains.mps.kotlin.api.members.SuperTypesVisitor;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.runtime.members.SignatureCollector;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
+import jetbrains.mps.kotlin.api.types.identifiers.TypeKey;
 import java.util.List;
-import jetbrains.mps.kotlin.runtime.types.identifiers.TypeKey;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kotlin.runtime.types.BuiltIn;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import java.util.ArrayList;
-import jetbrains.mps.kotlin.runtime.types.identifiers.FunctionType;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import jetbrains.mps.kotlin.api.types.identifiers.FunctionType;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -44,11 +44,10 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Void> populateTypeSignatures_id5q426iHK5S9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateTypeSignatures").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012692426249L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
   public static final SMethod<String> getDetailedPresentation_id22G2W3WJ92t = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDetailedPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2354269628709769373L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
   public static final SMethod<String> toString_id4nn3FPlZH$r = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314964191515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
-  public static final SMethod<List<SNode>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<TypeKey> shallowId_idJmO2PmZtH5 = new SMethodBuilder<TypeKey>(new SJavaCompoundTypeImpl(TypeKey.class)).name("shallowId").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(853098072584870725L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<SNode> getIdentifiable_idauY8guyXvs = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getIdentifiable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(188861480727992284L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, getTypeParameters_id7an2tsIdpkM, getInheritedType_id5q426iHvzD9, populateTypeSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5, getIdentifiable_idauY8guyXvs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(visitHierarchy_id5q426iHtYvR, getTypeParameters_id7an2tsIdpkM, getInheritedType_id5q426iHvzD9, populateTypeSignatures_id5q426iHK5S9, getDetailedPresentation_id22G2W3WJ92t, toString_id4nn3FPlZH$r, getTypeParameters_id1VI7K1kLcNv, shallowId_idJmO2PmZtH5);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -62,17 +61,13 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
     }
   }
   /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id7an2tsIdpkM(@NotNull SNode __thisNode__) {
-    // TODO type parameters?????
     return ((Iterable<TypeParameterDeclaration>) IType__BehaviorDescriptor.getTypeParameters_id7an2tsIdpkM.invoke0(__thisNode__, CONCEPTS.INullableType$$I));
   }
   /*package*/ static SNode getInheritedType_id5q426iHvzD9(@NotNull SNode __thisNode__) {
     return __thisNode__;
   }
   /*package*/ static void populateTypeSignatures_id5q426iHK5S9(@NotNull final SNode __thisNode__, final SignatureCollector visitor) {
-    visitor.addSimpleDeclaration(__thisNode__, true, FunctionSignature.class, () -> {
-      String erasure = KotlinSignatures.erasureOf(SLinkOperations.collect(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy), LINKS.type$69zk), visitor);
-      return new FunctionSignature(new FunctionTypeInvokeDeclaration(__thisNode__), erasure);
-    });
+    visitor.addSimpleDeclaration(__thisNode__, null, FunctionSignature.class, () -> new FunctionSignature(new FunctionTypeInvokeDeclaration(__thisNode__), visitor));
   }
   /*package*/ static String getDetailedPresentation_id22G2W3WJ92t(@NotNull SNode __thisNode__) {
     return IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(__thisNode__, ((boolean) false));
@@ -84,8 +79,11 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
     }
 
     if (erased) {
-      builder.append("kotlin.Function").append(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).count());
+      builder.append("kotlin.Function").append(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).count() + (((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) != null) ? 1 : 0)));
     } else {
+      if ((SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT) != null)) {
+        builder.append(IType__BehaviorDescriptor.toString_id4nn3FPlZH$r.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.receiverType$7yLT), ((boolean) erased))).append(".");
+      }
       builder.append("(");
       builder.append(IterableUtils.join(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).select(new ISelector<SNode, String>() {
         public String select(SNode it) {
@@ -103,22 +101,12 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
 
     return builder.toString();
   }
-  /*package*/ static List<SNode> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {
+  /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {
     // No type parameter for function type
-    return new ArrayList<SNode>();
+    return Sequence.fromIterable(Collections.<TypeParameterDeclaration>emptyList());
   }
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     return new FunctionType(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.parameters$jkhy)).count());
-  }
-  /*package*/ static SNode getIdentifiable_idauY8guyXvs(@NotNull SNode __thisNode__) {
-    // Function type may be associated with a variable, in which case this variable becomes a callable of the type
-    {
-      final SNode parent = SNodeOperations.getParent(__thisNode__);
-      if (SNodeOperations.isInstanceOf(parent, CONCEPTS.IVariableIdentifier$v2)) {
-        return parent;
-      }
-    }
-    return __thisNode__;
   }
 
   /*package*/ FunctionType__BehaviorDescriptor() {
@@ -151,11 +139,9 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
       case 5:
         return (T) ((String) toString_id4nn3FPlZH$r(node, ((boolean) (Boolean) parameters[0])));
       case 6:
-        return (T) ((List<SNode>) getTypeParameters_id1VI7K1kLcNv(node));
+        return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id1VI7K1kLcNv(node));
       case 7:
         return (T) ((TypeKey) shallowId_idJmO2PmZtH5(node));
-      case 8:
-        return (T) ((SNode) getIdentifiable_idauY8guyXvs(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -189,12 +175,12 @@ public final class FunctionType__BehaviorDescriptor extends BaseBHDescriptor {
     /*package*/ static final SContainmentLink typeProjections$vhti = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5b1dd60162c97579L, 0x5b1dd60162c9757cL, "typeProjections");
     /*package*/ static final SContainmentLink returnType$jkY_ = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af611L, "returnType");
     /*package*/ static final SContainmentLink parameters$jkhy = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af37dL, 0x28bef6d7551af60eL, "parameters");
+    /*package*/ static final SContainmentLink receiverType$7yLT = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb7908c7f22L, 0x764202afbfc6bde5L, "receiverType");
     /*package*/ static final SContainmentLink type$69zk = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca48843ccL, 0x63c34deca48843d1L, "type");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept INullableType$$I = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af542L, "jetbrains.mps.kotlin.structure.INullableType");
-    /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
   }
 
   private static final class PROPS {

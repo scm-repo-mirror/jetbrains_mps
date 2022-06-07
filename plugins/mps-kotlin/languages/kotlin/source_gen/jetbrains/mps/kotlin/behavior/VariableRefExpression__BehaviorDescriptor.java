@@ -6,32 +6,38 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class VariableRefExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4cca44497635e571L, "jetbrains.mps.kotlin.structure.VariableRefExpression");
 
-  public static final SMethod<SNode> getLocalTarget_id7Iv8Cw7qtkn = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLocalTarget").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8907876555597403415L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
+  public static final SMethod<TypeReference> getLocalTargetType_id7Iv8Cw7qtkn = new SMethodBuilder<TypeReference>(new SJavaCompoundTypeImpl(TypeReference.class)).name("getLocalTargetType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8907876555597403415L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703594665L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLocalTarget_id7Iv8Cw7qtkn, assignableState_idCy8Bus9niD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getLocalTargetType_id7Iv8Cw7qtkn, assignableState_idCy8Bus9niD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode getLocalTarget_id7Iv8Cw7qtkn(@NotNull SNode __thisNode__) {
-    return ((boolean) IVariableIdentifier__BehaviorDescriptor.isLocal_id1vYW8S3rTh_.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr)) ? SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr) : null);
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr), PROPS.name$MnvL);
+  }
+  /*package*/ static TypeReference getLocalTargetType_id7Iv8Cw7qtkn(@NotNull SNode __thisNode__) {
+    return ((boolean) IVariableIdentifier__BehaviorDescriptor.isLocal_id1vYW8S3rTh_.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr)) ? new InferredTypeReference(SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr), null) : null);
   }
   /*package*/ static Assignable assignableState_idCy8Bus9niD(@NotNull SNode __thisNode__) {
     return ((boolean) IVariableIdentifier__BehaviorDescriptor.isAssignable_idCy8Bus9oGm.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$xQFr)) ? Assignable.TRUE : Assignable.FALSE);
@@ -53,8 +59,10 @@ public final class VariableRefExpression__BehaviorDescriptor extends BaseBHDescr
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) getLocalTarget_id7Iv8Cw7qtkn(node));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       case 1:
+        return (T) ((TypeReference) getLocalTargetType_id7Iv8Cw7qtkn(node));
+      case 2:
         return (T) ((Assignable) assignableState_idCy8Bus9niD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -87,5 +95,9 @@ public final class VariableRefExpression__BehaviorDescriptor extends BaseBHDescr
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink target$xQFr = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4cca44497635e571L, 0x4cca44497635e572L, "target");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

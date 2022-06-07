@@ -616,7 +616,7 @@
                     </node>
                     <node concept="2YIFZM" id="117xv0QrrXN" role="37vLTx">
                       <ref role="37wK5l" to="3hq4:4mCQDm_$3In" resolve="convertProjection" />
-                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversions" />
+                      <ref role="1Pybhc" to="3hq4:117xv0Qrpm9" resolve="KtToJavaConversion" />
                       <node concept="2OqwBi" id="4L0QGs28$4n" role="37wK5m">
                         <node concept="2GrUjf" id="4L0QGs28yK_" role="2Oq$k0">
                           <ref role="2Gs0qQ" node="4L0QGs27Qjy" resolve="entry" />

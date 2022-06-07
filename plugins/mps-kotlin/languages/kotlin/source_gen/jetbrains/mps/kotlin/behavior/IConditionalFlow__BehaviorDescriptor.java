@@ -20,7 +20,7 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class IConditionalFlow__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x35c828d9d27f9e83L, "jetbrains.mps.kotlin.structure.IConditionalFlow");
 
-  public static final SMethod<Boolean> hasBooleanType_id6$EaMzzB4rH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasBooleanType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).id("6$EaMzzB4rH").build();
+  public static final SMethod<Boolean> hasBooleanType_id6$EaMzzB4rH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasBooleanType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7577916777621636845L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(hasBooleanType_id6$EaMzzB4rH);
 

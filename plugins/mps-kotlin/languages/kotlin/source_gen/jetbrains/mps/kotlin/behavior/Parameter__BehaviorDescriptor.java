@@ -26,9 +26,10 @@ public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<Boolean> isLocal_id1vYW8S3rTh_ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLocal").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1729083799690515557L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
+  public static final SMethod<TypeReference> getType_id1TQsu41FTV5 = new SMethodBuilder<TypeReference>(new SJavaCompoundTypeImpl(TypeReference.class)).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2195067079599562437L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getPresentationInFunction_id7uO8z1BmBpf = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentationInFunction").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8625556777609098831L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getPresentation_idhEwIMiw, getPresentationInFunction_id7uO8z1BmBpf);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLocal_id1vYW8S3rTh_, getPresentation_idhEwIMiw, getType_id1TQsu41FTV5, getPresentationInFunction_id7uO8z1BmBpf);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -38,6 +39,13 @@ public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(__thisNode__, PROPS.name$MnvL);
+  }
+  /*package*/ static TypeReference getType_id1TQsu41FTV5(@NotNull SNode __thisNode__) {
+    TypeReference thisType = ConcreteTypeReference.nullSafeOf(SLinkOperations.getTarget(__thisNode__, LINKS.type$1aXr));
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isVararg$GaYv)) {
+      return new ArrayTypeReference(thisType);
+    }
+    return thisType;
   }
   /*package*/ static String getPresentationInFunction_id7uO8z1BmBpf(@NotNull SNode __thisNode__, boolean erased) {
     StringBuilder sb = new StringBuilder();
@@ -71,6 +79,8 @@ public final class Parameter__BehaviorDescriptor extends BaseBHDescriptor {
       case 1:
         return (T) ((String) getPresentation_idhEwIMiw(node));
       case 2:
+        return (T) ((TypeReference) getType_id1TQsu41FTV5(node));
+      case 3:
         return (T) ((String) getPresentationInFunction_id7uO8z1BmBpf(node, ((boolean) (Boolean) parameters[0])));
       default:
         throw new BHMethodNotFoundException(this, method);

@@ -6,45 +6,40 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.scope.Scope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.overloading.Argument;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
+import jetbrains.mps.kotlin.signatures.PropertySignature;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, "jetbrains.mps.kotlin.structure.ForStatement");
 
-  public static final SMethod<Scope> getSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Void> collectSpecificScope_id1yTI8p9qmpS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectSpecificScope").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1781658014498514552L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isChildVariableAssignable_idCy8Bus9qei = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isChildVariableAssignable").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703606674L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getFunctionName_id4nn3FPlEjh5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFunctionName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5032507314958578757L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<CallReceiver> getVariablesReceiver_id4FOkRjXx8jV = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getVariablesReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5401033615058699515L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<SNode> getVariablesReceiverType_id75chmMYhcwP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVariablesReceiverType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8163976557866829877L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSpecificScope_id1yTI8p9qmpS, isChildVariableAssignable_idCy8Bus9qei, getFunctionName_id4nn3FPlEjh5, getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX, getVariablesReceiver_id4FOkRjXx8jV);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(collectSpecificScope_id1yTI8p9qmpS, isChildVariableAssignable_idCy8Bus9qei, getFunctionName_id4nn3FPlEjh5, getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX, getVariablesReceiver_id4FOkRjXx8jV, getVariablesReceiverType_id75chmMYhcwP);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static Scope getSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.IVariableIdentifier$v2)) {
-      return new NamedElementsScope(SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z));
-    }
-    return null;
+  /*package*/ static void collectSpecificScope_id1yTI8p9qmpS(@NotNull SNode __thisNode__, SignatureCollector collector, SNode childNode) {
+    PropertySignature.declareAllTo(SLinkOperations.getChildren(__thisNode__, LINKS.variables$EO9Z), false, null, collector);
   }
   /*package*/ static boolean isChildVariableAssignable_idCy8Bus9qei(@NotNull SNode __thisNode__) {
     // Equivalent to val
@@ -60,7 +55,10 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     return Argument.none;
   }
   /*package*/ static CallReceiver getVariablesReceiver_id4FOkRjXx8jV(@NotNull SNode __thisNode__) {
-    return new CallReceiver(__thisNode__, true, ForStatementKeys.NEXT_FUNCTION_RET);
+    return new CallReceiver(new InferredTypeReference(__thisNode__, ForStatementKeys.NEXT_FUNCTION_RET), true, false);
+  }
+  /*package*/ static SNode getVariablesReceiverType_id75chmMYhcwP(@NotNull SNode __thisNode__) {
+    return null;
   }
 
   /*package*/ ForStatement__BehaviorDescriptor() {
@@ -79,7 +77,8 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Scope) getSpecificScope_id1yTI8p9qmpS(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        collectSpecificScope_id1yTI8p9qmpS(node, (SignatureCollector) parameters[0], (SNode) parameters[1]);
+        return null;
       case 1:
         return (T) ((Boolean) isChildVariableAssignable_idCy8Bus9qei(node));
       case 2:
@@ -90,6 +89,8 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Iterable<Argument>) getArguments_id1VI7K1jROBX(node));
       case 5:
         return (T) ((CallReceiver) getVariablesReceiver_id4FOkRjXx8jV(node));
+      case 6:
+        return (T) ((SNode) getVariablesReceiverType_id75chmMYhcwP(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -122,9 +123,5 @@ public final class ForStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final class LINKS {
     /*package*/ static final SContainmentLink variables$EO9Z = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5aee73f62d23451L, 0x4af45374fd847a71L, "variables");
     /*package*/ static final SContainmentLink in$_8gh = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af425L, 0x28bef6d7551af708L, "in");
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IVariableIdentifier$v2 = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2043bc83114d2ab6L, "jetbrains.mps.kotlin.structure.IVariableIdentifier");
   }
 }

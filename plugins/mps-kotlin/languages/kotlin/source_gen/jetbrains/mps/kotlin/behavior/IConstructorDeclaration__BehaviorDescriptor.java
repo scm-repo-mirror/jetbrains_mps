@@ -10,20 +10,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
@@ -33,7 +32,7 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
   public static final SMethod<SNode> getConstructedClass_id7WpE6U5evQG = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getConstructedClass").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(9158536509869653420L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getClass_id4vugIDehkCF = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClass").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5178650195625593387L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<SAbstractConcept>> getModifiers_id4q11fqJUzWN = new SMethodBuilder<Iterable<SAbstractConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SAbstractConcept>>) ((Class) Object.class))).name("getModifiers").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5080347312210460467L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<List<SNode>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> getReturnType_id6QVUYzas5Of = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7907172955840339215L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1213877396640L).languageId(0x9b92103b95ca8c0cL, 0xceab519525ea4f22L).build2();
 
@@ -62,8 +61,8 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
     // No modifiers
     return Sequence.fromIterable(Collections.<SAbstractConcept>emptyList());
   }
-  /*package*/ static List<SNode> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassDeclaration$bQ, true, false), LINKS.typeParameters$eq6K);
+  /*package*/ static Iterable<TypeParameterDeclaration> getTypeParameters_id1VI7K1kLcNv(@NotNull SNode __thisNode__) {
+    return ITypeParameters__BehaviorDescriptor.getTypeParameterDescriptors_id28CvMylfXMr.invoke(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IClassDeclaration$bQ, true, false));
   }
   /*package*/ static SNode getReturnType_id6QVUYzas5Of(@NotNull SNode __thisNode__) {
     // Type parameters are not specified as it is up to the typesystem to figure them out (using type arguments of call)
@@ -103,7 +102,7 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
       case 3:
         return (T) ((Iterable<SAbstractConcept>) getModifiers_id4q11fqJUzWN(node));
       case 4:
-        return (T) ((List<SNode>) getTypeParameters_id1VI7K1kLcNv(node));
+        return (T) ((Iterable<TypeParameterDeclaration>) getTypeParameters_id1VI7K1kLcNv(node));
       case 5:
         return (T) ((SNode) getReturnType_id6QVUYzas5Of(node));
       case 6:
@@ -141,10 +140,6 @@ public final class IConstructorDeclaration__BehaviorDescriptor extends BaseBHDes
     /*package*/ static final SInterfaceConcept IClassDeclaration$bQ = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d75547b56dL, "jetbrains.mps.kotlin.structure.IClassDeclaration");
     /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
     /*package*/ static final SConcept InnerClassModifier$wL = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af40bL, "jetbrains.mps.kotlin.structure.InnerClassModifier");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink typeParameters$eq6K = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7556a4df5L, 0x28bef6d7556a4df6L, "typeParameters");
   }
 
   private static final class PROPS {

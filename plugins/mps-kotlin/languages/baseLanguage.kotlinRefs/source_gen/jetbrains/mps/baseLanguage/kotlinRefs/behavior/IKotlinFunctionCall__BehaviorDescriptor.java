@@ -6,13 +6,13 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import java.util.List;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine;
+import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -21,6 +21,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.behavior.KotlinParameterDeclaration;
 import jetbrains.mps.kotlin.behavior.IFunctionIdentifier__BehaviorDescriptor;
+import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -30,8 +31,8 @@ public final class IKotlinFunctionCall__BehaviorDescriptor extends BaseBHDescrip
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x2405a196e75d462cL, 0x938bae8e3fac20aaL, 0x17400fc2a348282eL, "jetbrains.mps.baseLanguage.kotlinRefs.structure.IKotlinFunctionCall");
 
   public static final SMethod<Iterable<ParameterDeclaration>> getFunctionParameters_idUG7NftR_2Q = new SMethodBuilder<Iterable<ParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<ParameterDeclaration>>) ((Class) Object.class))).name("getFunctionParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151351478L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
-  public static final SMethod<List<SNode>> getFunctionTypeParameters_id1t03WaySlJT = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getFunctionTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1675356390012574713L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
-  public static final SMethod<SNode> getFunctionReturnType_idUG7NftRy8a = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFunctionReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151339530L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2(SMethodBuilder.createJavaParameter(KtToJavaEngine.class, ""));
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getFunctionTypeParameters_id1t03WaySlJT = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getFunctionTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1675356390012574713L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
+  public static final SMethod<SNode> getFunctionReturnType_idUG7NftRy8a = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFunctionReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151339530L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getFunctionParameters_idUG7NftR_2Q, getFunctionTypeParameters_id1t03WaySlJT, getFunctionReturnType_idUG7NftRy8a);
 
@@ -45,11 +46,11 @@ public final class IKotlinFunctionCall__BehaviorDescriptor extends BaseBHDescrip
       }
     });
   }
-  /*package*/ static List<SNode> getFunctionTypeParameters_id1t03WaySlJT(@NotNull SNode __thisNode__) {
+  /*package*/ static Iterable<TypeParameterDeclaration> getFunctionTypeParameters_id1t03WaySlJT(@NotNull SNode __thisNode__) {
     return IFunctionIdentifier__BehaviorDescriptor.getTypeParameters_id1VI7K1kLcNv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$7dy6));
   }
-  /*package*/ static SNode getFunctionReturnType_idUG7NftRy8a(@NotNull SNode __thisNode__, KtToJavaEngine converter) {
-    return converter.convert(IFunctionDeclaration__BehaviorDescriptor.getReturnType_id6QVUYzas5Of.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$7dy6)));
+  /*package*/ static SNode getFunctionReturnType_idUG7NftRy8a(@NotNull SNode __thisNode__) {
+    return KtToJavaConversion.convert(IFunctionDeclaration__BehaviorDescriptor.getReturnType_id6QVUYzas5Of.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$7dy6)));
   }
 
   /*package*/ IKotlinFunctionCall__BehaviorDescriptor() {
@@ -70,9 +71,9 @@ public final class IKotlinFunctionCall__BehaviorDescriptor extends BaseBHDescrip
       case 0:
         return (T) ((Iterable<ParameterDeclaration>) getFunctionParameters_idUG7NftR_2Q(node));
       case 1:
-        return (T) ((List<SNode>) getFunctionTypeParameters_id1t03WaySlJT(node));
+        return (T) ((Iterable<TypeParameterDeclaration>) getFunctionTypeParameters_id1t03WaySlJT(node));
       case 2:
-        return (T) ((SNode) getFunctionReturnType_idUG7NftRy8a(node, (KtToJavaEngine) parameters[0]));
+        return (T) ((SNode) getFunctionReturnType_idUG7NftRy8a(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

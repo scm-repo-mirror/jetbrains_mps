@@ -10,23 +10,32 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.kotlin.overloading.Argument;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScope;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.kotlin.scopes.signed.SignatureScopeHelper;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.scopes.SignatureFilter;
+import jetbrains.mps.kotlin.signatures.FunctionSignature;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class OverloadedPrefixUnaryExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x1eee1f0053e5acbfL, "jetbrains.mps.kotlin.structure.OverloadedPrefixUnaryExpression");
 
   public static final SMethod<CallReceiver> getReceiver_id5D4bOjrrgiZ = new SMethodBuilder<CallReceiver>(new SJavaCompoundTypeImpl(CallReceiver.class)).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6504375734615475391L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Iterable<Argument>> getArguments_id1VI7K1jROBX = new SMethodBuilder<Iterable<Argument>>(new SJavaCompoundTypeImpl((Class<Iterable<Argument>>) ((Class) Object.class))).name("getArguments").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951862577661L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<SignatureScope>> getFunctionScopeParts_id6dAo8EmAhT7 = new SMethodBuilder<Iterable<SignatureScope>>(new SJavaCompoundTypeImpl((Class<Iterable<SignatureScope>>) ((Class) Object.class))).name("getFunctionScopeParts").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7162518405727723079L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_id5D4bOjrrgiZ, getArguments_id1VI7K1jROBX, getFunctionScopeParts_id6dAo8EmAhT7);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -36,6 +45,14 @@ public final class OverloadedPrefixUnaryExpression__BehaviorDescriptor extends B
   }
   /*package*/ static Iterable<Argument> getArguments_id1VI7K1jROBX(@NotNull SNode __thisNode__) {
     return Argument.none;
+  }
+  /*package*/ static Iterable<SignatureScope> getFunctionScopeParts_id6dAo8EmAhT7(@NotNull SAbstractConcept __thisConcept__, SNode referenceNode, SNode contextNode, SContainmentLink containment) {
+    return SignatureScopeHelper.getFunctionScopeParts(IFunctionCall__BehaviorDescriptor.getReceiver_id5D4bOjrrgiZ.invoke(SNodeOperations.as(referenceNode, CONCEPTS.IFunctionCall$Sf)), contextNode, new SignatureFilter<FunctionSignature>(FunctionSignature.class) {
+      @Override
+      protected boolean accept(FunctionSignature signature, SNode source) {
+        return FunctionDeclaration.hasModifier(signature.getFunctionDeclaration(), CONCEPTS.OperatorFunctionModifier$Pf);
+      }
+    });
   }
 
   /*package*/ OverloadedPrefixUnaryExpression__BehaviorDescriptor() {
@@ -69,6 +86,8 @@ public final class OverloadedPrefixUnaryExpression__BehaviorDescriptor extends B
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 2:
+        return (T) ((Iterable<SignatureScope>) getFunctionScopeParts_id6dAo8EmAhT7(concept, (SNode) parameters[0], (SNode) parameters[1], (SContainmentLink) parameters[2]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -88,5 +107,10 @@ public final class OverloadedPrefixUnaryExpression__BehaviorDescriptor extends B
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink operand$YS5t = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956f20L, 0x11400bb790956f23L, "operand");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IFunctionCall$Sf = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x5a442f44db6c8a2cL, "jetbrains.mps.kotlin.structure.IFunctionCall");
+    /*package*/ static final SConcept OperatorFunctionModifier$Pf = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3c0L, "jetbrains.mps.kotlin.structure.OperatorFunctionModifier");
   }
 }

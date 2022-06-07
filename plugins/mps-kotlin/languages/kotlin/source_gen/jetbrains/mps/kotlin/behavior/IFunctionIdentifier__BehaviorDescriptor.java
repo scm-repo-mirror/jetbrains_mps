@@ -6,15 +6,14 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.kotlin.runtime.members.signature.MemberSignature;
+import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
-import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kotlin.runtime.members.signature.FunctionSignature;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -22,17 +21,13 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class IFunctionIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x36c39bccb20f46cfL, "jetbrains.mps.kotlin.structure.IFunctionIdentifier");
 
-  public static final SMethod<Class<? extends MemberSignature>> getMemberSignatureKind_id5q426iHFtTk = new SMethodBuilder<Class<? extends MemberSignature>>(new SJavaCompoundTypeImpl(Class.class)).name("getMemberSignatureKind").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012691213908L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<List<SNode>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTypeParameters").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Iterable<TypeParameterDeclaration>> getTypeParameters_id1VI7K1kLcNv = new SMethodBuilder<Iterable<TypeParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<TypeParameterDeclaration>>) ((Class) Object.class))).name("getTypeParameters").modifiers(12, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(2228752951877618911L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMemberSignatureKind_id5q426iHFtTk, getTypeParameters_id1VI7K1kLcNv);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTypeParameters_id1VI7K1kLcNv);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static Class<? extends MemberSignature> getMemberSignatureKind_id5q426iHFtTk(@NotNull SAbstractConcept __thisConcept__) {
-    return FunctionSignature.class;
-  }
 
   /*package*/ IFunctionIdentifier__BehaviorDescriptor() {
   }
@@ -61,8 +56,6 @@ public final class IFunctionIdentifier__BehaviorDescriptor extends BaseBHDescrip
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 0:
-        return (T) ((Class<? extends MemberSignature>) getMemberSignatureKind_id5q426iHFtTk(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

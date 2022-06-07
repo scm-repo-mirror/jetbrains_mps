@@ -10,15 +10,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.runtime.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import java.util.List;
-import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaEngine;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
-import java.util.ArrayList;
+import jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -31,10 +30,9 @@ public final class KotlinPropertyGetterCall__BehaviorDescriptor extends BaseBHDe
 
   public static final SMethod<SNode> getReceiver_idUG7NftRxKM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReceiver").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151338034L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
   public static final SMethod<Iterable<ParameterDeclaration>> getFunctionParameters_idUG7NftR_2Q = new SMethodBuilder<Iterable<ParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<ParameterDeclaration>>) ((Class) Object.class))).name("getFunctionParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151351478L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
-  public static final SMethod<List<SNode>> getFunctionTypeParameters_id1t03WaySlJT = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getFunctionTypeParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1675356390012574713L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
-  public static final SMethod<SNode> getFunctionReturnType_idUG7NftRy8a = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFunctionReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151339530L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2(SMethodBuilder.createJavaParameter(KtToJavaEngine.class, ""));
+  public static final SMethod<SNode> getFunctionReturnType_idUG7NftRy8a = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFunctionReturnType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1057254320151339530L).languageId(0x938bae8e3fac20aaL, 0x2405a196e75d462cL).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_idUG7NftRxKM, getFunctionParameters_idUG7NftR_2Q, getFunctionTypeParameters_id1t03WaySlJT, getFunctionReturnType_idUG7NftRy8a);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getReceiver_idUG7NftRxKM, getFunctionParameters_idUG7NftR_2Q, getFunctionReturnType_idUG7NftRy8a);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -46,13 +44,9 @@ public final class KotlinPropertyGetterCall__BehaviorDescriptor extends BaseBHDe
     // Getter doesn't need anything
     return Sequence.fromIterable(Collections.emptyList());
   }
-  /*package*/ static List<SNode> getFunctionTypeParameters_id1t03WaySlJT(@NotNull SNode __thisNode__) {
-    // No type parameter either
-    return new ArrayList<SNode>();
-  }
-  /*package*/ static SNode getFunctionReturnType_idUG7NftRy8a(@NotNull SNode __thisNode__, KtToJavaEngine converter) {
+  /*package*/ static SNode getFunctionReturnType_idUG7NftRy8a(@NotNull SNode __thisNode__) {
     // TODO assert somewhere type must be explicit
-    return converter.convert(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.target$7dy6), LINKS.type$RmkT));
+    return KtToJavaConversion.convert(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.target$7dy6), LINKS.type$RmkT));
   }
 
   /*package*/ KotlinPropertyGetterCall__BehaviorDescriptor() {
@@ -75,9 +69,7 @@ public final class KotlinPropertyGetterCall__BehaviorDescriptor extends BaseBHDe
       case 1:
         return (T) ((Iterable<ParameterDeclaration>) getFunctionParameters_idUG7NftR_2Q(node));
       case 2:
-        return (T) ((List<SNode>) getFunctionTypeParameters_id1t03WaySlJT(node));
-      case 3:
-        return (T) ((SNode) getFunctionReturnType_idUG7NftRy8a(node, (KtToJavaEngine) parameters[0]));
+        return (T) ((SNode) getFunctionReturnType_idUG7NftRy8a(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -9,30 +9,27 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.scopes.DeclarationCollector;
+import jetbrains.mps.kotlin.api.members.SignatureCollector;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IStatementScopePart__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x2fcba12bca328e26L, "jetbrains.mps.kotlin.structure.IStatementScopePart");
 
-  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3444023549502858454L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(DeclarationCollector.class, ""));
+  public static final SMethod<Void> populateStatementDeclarations_id2ZbCiJacEjm = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateStatementDeclarations").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(3444023549502858454L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(SignatureCollector.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(populateStatementDeclarations_id2ZbCiJacEjm);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, DeclarationCollector collector) {
-    // Default behavior: current node is a standalone declaration
-    collector.declare(SNodeOperations.as(__thisNode__, CONCEPTS.IIdentifier$wg));
+  /*package*/ static void populateStatementDeclarations_id2ZbCiJacEjm(@NotNull SNode __thisNode__, SignatureCollector collector) {
+    // default: no-op
   }
 
   /*package*/ IStatementScopePart__BehaviorDescriptor() {
@@ -51,7 +48,7 @@ public final class IStatementScopePart__BehaviorDescriptor extends BaseBHDescrip
     }
     switch (methodIndex) {
       case 0:
-        populateStatementDeclarations_id2ZbCiJacEjm(node, (DeclarationCollector) parameters[0]);
+        populateStatementDeclarations_id2ZbCiJacEjm(node, (SignatureCollector) parameters[0]);
         return null;
       default:
         throw new BHMethodNotFoundException(this, method);
@@ -80,9 +77,5 @@ public final class IStatementScopePart__BehaviorDescriptor extends BaseBHDescrip
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
   }
 }

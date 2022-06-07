@@ -6,14 +6,16 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import java.math.BigInteger;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.kotlin.api.builtins.BuiltIn;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -22,19 +24,23 @@ import org.jetbrains.mps.openapi.language.SProperty;
 public final class CharLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af3d3L, "jetbrains.mps.kotlin.structure.CharLiteral");
 
-  public static final SMethod<Integer> getValue_id6cg9X74s8pg = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7138249191279593040L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Void> setValue_id6cg9X74saKl = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7138249191279602709L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
+  public static final SMethod<BigInteger> getValue_id6cg9X74s8pg = new SMethodBuilder<BigInteger>(new SJavaCompoundTypeImpl(BigInteger.class)).name("getValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7138249191279593040L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Void> setValue_id6cg9X74saKl = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setValue").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7138249191279602709L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(BigInteger.class, ""));
+  public static final SMethod<SNode> getType_id6563FJLeSWZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7009306070417641279L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getValue_id6cg9X74s8pg, setValue_id6cg9X74saKl);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getValue_id6cg9X74s8pg, setValue_id6cg9X74saKl, getType_id6563FJLeSWZ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static int getValue_id6cg9X74s8pg(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, PROPS.value$xaQr).toCharArray()[0];
+  /*package*/ static BigInteger getValue_id6cg9X74s8pg(@NotNull SNode __thisNode__) {
+    return BigInteger.valueOf(SPropertyOperations.getString(__thisNode__, PROPS.value$xaQr).toCharArray()[0]);
   }
-  /*package*/ static void setValue_id6cg9X74saKl(@NotNull SNode __thisNode__, int value) {
-    SPropertyOperations.assign(__thisNode__, PROPS.value$xaQr, Character.toString((char) value));
+  /*package*/ static void setValue_id6cg9X74saKl(@NotNull SNode __thisNode__, BigInteger value) {
+    SPropertyOperations.assign(__thisNode__, PROPS.value$xaQr, Character.toString((char) value.intValue()));
+  }
+  /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
+    return BuiltIn.CHAR.toClassType();
   }
 
   /*package*/ CharLiteral__BehaviorDescriptor() {
@@ -53,10 +59,12 @@ public final class CharLiteral__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Integer) getValue_id6cg9X74s8pg(node));
+        return (T) ((BigInteger) getValue_id6cg9X74s8pg(node));
       case 1:
-        setValue_id6cg9X74saKl(node, ((int) (Integer) parameters[0]));
+        setValue_id6cg9X74saKl(node, (BigInteger) parameters[0]);
         return null;
+      case 2:
+        return (T) ((SNode) getType_id6563FJLeSWZ(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

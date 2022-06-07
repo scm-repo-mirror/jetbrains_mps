@@ -10,29 +10,36 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import jetbrains.mps.kotlin.behavior.Assignable;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtConversion;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class JavaVariableReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L, "jetbrains.mps.kotlin.javaRefs.structure.JavaVariableReference");
 
   public static final SMethod<SNode> getType_id6563FJLeSWZ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7009306070417641279L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703594665L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id6563FJLeSWZ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getType_id6563FJLeSWZ, assignableState_idCy8Bus9niD);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode getType_id6563FJLeSWZ(@NotNull SNode __thisNode__) {
     return JavaToKtConversion.convert(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.variable$GDHR), LINKS.type$a1UY));
+  }
+  /*package*/ static Assignable assignableState_idCy8Bus9niD(@NotNull SNode __thisNode__) {
+    return Assignable.of(!(SPropertyOperations.getBoolean(SLinkOperations.getTarget(__thisNode__, LINKS.variable$GDHR), PROPS.isFinal$gvTP)));
   }
 
   /*package*/ JavaVariableReference__BehaviorDescriptor() {
@@ -52,6 +59,8 @@ public final class JavaVariableReference__BehaviorDescriptor extends BaseBHDescr
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getType_id6563FJLeSWZ(node));
+      case 1:
+        return (T) ((Assignable) assignableState_idCy8Bus9niD(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -84,5 +93,9 @@ public final class JavaVariableReference__BehaviorDescriptor extends BaseBHDescr
   private static final class LINKS {
     /*package*/ static final SReferenceLink variable$GDHR = MetaAdapterFactory.getReferenceLink(0x9e4ff22b60f143efL, 0xa50bf9f0fcec22e0L, 0x459f9eebcf0e5fc2L, 0x459f9eebcf0ee37bL, "variable");
     /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$gvTP = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
   }
 }

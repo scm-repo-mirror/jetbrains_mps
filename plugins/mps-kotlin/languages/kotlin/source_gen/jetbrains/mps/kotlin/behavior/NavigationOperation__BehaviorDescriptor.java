@@ -10,16 +10,17 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
+import java.util.Objects;
+import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -29,10 +30,11 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
   public static final SMethod<SNode> getContextType_id7ubb0gUcL0j = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getContextType").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(8614027108944121875L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<Boolean> isResolved_id4MvRlgZCbFz = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isResolved").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5521375022094007011L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> tryResolve_id4MvRlgZCbFB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("tryResolve").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(5521375022094007015L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Boolean> isLeftExpressionTarget_id69RFwVHPwd9 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeftExpressionTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7095331117088506697L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> isLeftExpressionTarget_id69RFwVHPwd9 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeftExpressionTarget").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(7095331117088506697L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter((Class<SContainmentLink>) ((Class) Object.class), ""));
   public static final SMethod<Assignable> assignableState_idCy8Bus9niD = new SMethodBuilder<Assignable>(new SJavaCompoundTypeImpl(Assignable.class)).name("assignableState").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(730183986703594665L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<Boolean> showParenthesis_id3PNJzGvypf4 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("showParenthesis").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(4428092019776787396L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContextType_id7ubb0gUcL0j, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB, isLeftExpressionTarget_id69RFwVHPwd9, assignableState_idCy8Bus9niD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContextType_id7ubb0gUcL0j, isResolved_id4MvRlgZCbFz, tryResolve_id4MvRlgZCbFB, isLeftExpressionTarget_id69RFwVHPwd9, assignableState_idCy8Bus9niD, showParenthesis_id3PNJzGvypf4);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -47,15 +49,19 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
     // TODO try with var scope and fun scope
     return null;
   }
-  /*package*/ static boolean isLeftExpressionTarget_id69RFwVHPwd9(@NotNull SNode __thisNode__, SNode child) {
-    if (child == SLinkOperations.getTarget(__thisNode__, LINKS.target$C6zp)) {
-      return ((boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke0(__thisNode__, CONCEPTS.PostfixUnaryExpression$2v, child));
+  /*package*/ static boolean isLeftExpressionTarget_id69RFwVHPwd9(@NotNull SNode __thisNode__, @Nullable SContainmentLink childLink) {
+    // Self or target propagate (super is not used as it refers to UnaryExpression which we bypass)
+    if (!(Objects.equals(childLink, LINKS.operand$YS5t)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.IStatement$fj)) {
+      return (boolean) IStatement__BehaviorDescriptor.isLeftExpressionTarget_id69RFwVHPwd9.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.IStatement$fj), SNodeOperations.getContainingLink(__thisNode__));
     }
 
     return false;
   }
   /*package*/ static Assignable assignableState_idCy8Bus9niD(@NotNull SNode __thisNode__) {
     return ILeftExpression__BehaviorDescriptor.assignableState_idCy8Bus9niD.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$C6zp));
+  }
+  /*package*/ static boolean showParenthesis_id3PNJzGvypf4(@NotNull SNode __thisNode__) {
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.operand$YS5t), CONCEPTS.TypePostFixUnaryExpression$In);
   }
 
   /*package*/ NavigationOperation__BehaviorDescriptor() {
@@ -80,9 +86,11 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
       case 2:
         return (T) ((SNode) tryResolve_id4MvRlgZCbFB(node));
       case 3:
-        return (T) ((Boolean) isLeftExpressionTarget_id69RFwVHPwd9(node, (SNode) parameters[0]));
+        return (T) ((Boolean) isLeftExpressionTarget_id69RFwVHPwd9(node, (SContainmentLink) parameters[0]));
       case 4:
         return (T) ((Assignable) assignableState_idCy8Bus9niD(node));
+      case 5:
+        return (T) ((Boolean) showParenthesis_id3PNJzGvypf4(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -120,6 +128,7 @@ public final class NavigationOperation__BehaviorDescriptor extends BaseBHDescrip
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IType$Ni = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af441L, "jetbrains.mps.kotlin.structure.IType");
     /*package*/ static final SConcept UnresolvedParsedReference$2A = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x430acdda9dcb793eL, "jetbrains.mps.kotlin.structure.UnresolvedParsedReference");
-    /*package*/ static final SConcept PostfixUnaryExpression$2v = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790956fd8L, "jetbrains.mps.kotlin.structure.PostfixUnaryExpression");
+    /*package*/ static final SInterfaceConcept IStatement$fj = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af322L, "jetbrains.mps.kotlin.structure.IStatement");
+    /*package*/ static final SConcept TypePostFixUnaryExpression$In = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x6babb2d406575098L, "jetbrains.mps.kotlin.structure.TypePostFixUnaryExpression");
   }
 }
