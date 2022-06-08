@@ -27,6 +27,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Implement this to have your own appender.
+ * Note, methods from Skeleton we used to override here stay just in case they are referenced from outside, but don't
+ * bear {@code Override} as present IDEA's AppenderSkeleton implementation no longer implements {@code Skeleton}
  * @deprecated With switch to JUL, use {@link java.util.logging.Handler}
  */
 @SuppressWarnings("UnstableApiUsage")
@@ -51,18 +53,18 @@ public abstract class MPSAppenderBase extends AppenderSkeleton {
     unregister(Logger.getRootLogger());
   }
 
-  protected void register(@NotNull Logger logger) {
-    logger.addAppender(this);
+  protected void register(Logger logger) {
+    warnDeprecatedUse();
   }
 
-  protected void unregister(@NotNull Logger logger) {
-    logger.removeAppender(this);
+  protected void unregister(Logger logger) {
+    warnDeprecatedUse();
   }
 
   /**
    * @deprecated use with a specified project method instead
    */
-@Deprecated(since = "2017.2", forRemoval = true)
+  @Deprecated(since = "2017.2", forRemoval = true)
   protected abstract void append(@NotNull Priority level,
                                  @NotNull String categoryName,
                                  @NotNull String message,
@@ -78,17 +80,21 @@ public abstract class MPSAppenderBase extends AppenderSkeleton {
     append(level, categoryName, message, t, hintObject);
   }
 
-  @Override
+//  @Override
   protected void append(LoggingEvent event) {
+    warnDeprecatedUse();
+  }
+
+  private void warnDeprecatedUse() {
     System.err.println("MPSAppenderBase is deprecated, stop using this class. MPS uses JUL now, switch to j.u.l.Handler");
   }
 
-  @Override
+//  @Override
   public boolean requiresLayout() {
     return true;
   }
 
-  @Override
+//  @Override
   public void close() {
   }
 }
