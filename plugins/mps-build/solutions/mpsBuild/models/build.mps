@@ -24586,6 +24586,11 @@
             <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
+        <node concept="1SiIV0" id="4w7r6BHyYZv" role="3bR37C">
+          <node concept="3bR9La" id="4w7r6BHyYZw" role="1SiIV1">
+            <ref role="3bR37D" node="rD7wKO6k$" resolve="MPS.Generator" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="2eDSGe9d1qi" role="2G$12L">
         <property role="TrG5h" value="jetbrains.mps.ide" />
