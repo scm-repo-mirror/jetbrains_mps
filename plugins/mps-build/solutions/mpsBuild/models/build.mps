@@ -17161,6 +17161,9 @@
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.lang.generator" />
         <property role="3LESm3" value="b401a680-8325-4110-8fd3-84331ff25bef" />
+        <node concept="1E0d5M" id="4EaKDedw7l4" role="1E1XAP">
+          <ref role="1E0d5P" node="rD7wKO6k$" resolve="MPS.Generator" />
+        </node>
         <node concept="3rtmxn" id="EpEP7iihXB" role="3bR31x">
           <node concept="3LXTmp" id="EpEP7iihXC" role="3rtmxm">
             <node concept="3qWCbU" id="EpEP7iihXD" role="3LXTna">
