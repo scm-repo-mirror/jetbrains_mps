@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -298,7 +298,7 @@ public class CrossModelEnvironment {
     } while (!discarded.isEmpty());
   }
 
-  public static class CacheGen implements CacheGenerator {
+  public static class CacheGen implements CacheGenerator<GenerationStatus> {
     @Override
     public void generateCache(GenerationStatus status, StreamHandler handler) {
       CrossModelEnvironment cme = status.getCrossModelEnvironment();

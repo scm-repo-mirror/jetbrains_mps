@@ -149,7 +149,7 @@ public final class TraceInfoCache {
     return new CacheGen(newInfo);
   }
 
-  private class CacheGen implements CacheGenerator {
+  private class CacheGen implements CacheGenerator<GenerationStatus> {
     private final DebugInfo myInfoNew;
 
     public CacheGen(DebugInfo newInfo) {

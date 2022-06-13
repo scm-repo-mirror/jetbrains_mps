@@ -16,7 +16,7 @@
     <import index="vqh0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make(MPS.Core/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
-    <import index="3uhc" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.generationTypes(MPS.Generator/)" />
+    <import index="3uhc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.generationTypes(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1743,7 +1743,7 @@
     </node>
     <node concept="2tJIrI" id="m01hLMm2M" role="jymVt" />
     <node concept="3Tm1VV" id="3zGGVE6UVeR" role="1B3o_S" />
-    <node concept="3uibUv" id="3zGGVE6UVsv" role="EKbjA">
+    <node concept="3uibUv" id="3czmY16JkhF" role="EKbjA">
       <ref role="3uigEE" to="3uhc:~StreamHandler" resolve="StreamHandler" />
     </node>
     <node concept="3clFb_" id="3zGGVE6UVsH" role="jymVt">
