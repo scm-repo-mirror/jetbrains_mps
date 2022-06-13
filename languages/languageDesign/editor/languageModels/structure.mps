@@ -1491,7 +1491,7 @@
         <node concept="1TJgyi" id="gXezIA2" role="3l_iP">
           <property role="TrG5h" value="presentation" />
           <property role="IQ2nx" value="1165254125954" />
-          <ref role="AX2Wp" to="tpcw:gWZP3tS" resolve="NodePresentationOptions" />
+          <ref role="AX2Wp" to="tpcw:3Ftr4R6BFvV" resolve="NodePresentationOptions" />
         </node>
       </node>
     </node>
@@ -3252,7 +3252,7 @@
         <node concept="1TJgyi" id="5UApK7d2wMb" role="3l_iP">
           <property role="TrG5h" value="tableComponent" />
           <property role="IQ2nx" value="6820251943131810955" />
-          <ref role="AX2Wp" node="5UApK7d2wM7" resolve="TableComponentEnum" />
+          <ref role="AX2Wp" node="3Ftr4R6BFed" resolve="TableComponentEnum" />
         </node>
       </node>
     </node>

@@ -26,16 +26,12 @@
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
         <property id="1421157252384165432" name="memberId" index="3tVfz5" />
         <property id="672037151186491528" name="presentation" index="1L1pqM" />
-        <reference id="899069222106091871" name="oldMember" index="2wpffI" />
       </concept>
       <concept id="3348158742936976479" name="jetbrains.mps.lang.structure.structure.EnumerationDeclaration" flags="ng" index="25R3W">
         <reference id="1075010451642646892" name="defaultMember" index="1H5jkz" />
         <child id="3348158742936976577" name="members" index="25R1y" />
       </concept>
-      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
-        <property id="1225118929411" name="build" index="YLPcu" />
-        <property id="1225118933224" name="comment" index="YLQ7P" />
-      </concept>
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9" />
       <concept id="6054523464626862044" name="jetbrains.mps.lang.structure.structure.AttributeInfo_IsMultiple" flags="ng" index="tn0Fv">
         <property id="6054523464626875854" name="value" index="tnX3d" />
       </concept>
@@ -44,19 +40,6 @@
       </concept>
       <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
         <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
-      </concept>
-      <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old" flags="ng" index="AxPO7">
-        <reference id="1083171729157" name="memberDataType" index="M4eZT" />
-        <child id="1083172003582" name="member" index="M5hS2" />
-      </concept>
-      <concept id="1588368162884797030" name="jetbrains.mps.lang.structure.structure.EnumMigrationInfo" flags="ng" index="2JgGob">
-        <property id="6491077959634662372" name="valueOpMigration" index="3scbB" />
-        <property id="6491077959634650670" name="nameOpMigration" index="3sfsH" />
-        <child id="6491077959632451996" name="oldEnum" index="3lCyv" />
-      </concept>
-      <concept id="1083171877298" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old" flags="ig" index="M4N5e">
-        <property id="1083923523172" name="externalValue" index="1uS6qo" />
-        <property id="1083923523171" name="internalValue" index="1uS6qv" />
       </concept>
       <concept id="2992811758677295509" name="jetbrains.mps.lang.structure.structure.AttributeInfo" flags="ng" index="M6xJ_">
         <property id="7588428831955550663" name="role" index="Hh88m" />
@@ -571,45 +554,18 @@
     <property role="TrG5h" value="Side" />
     <property role="3F6X1D" value="1215604970641" />
     <ref role="1H5jkz" node="3Ftr4R6BF3h" resolve="right" />
-    <node concept="2JgGob" id="3Ftr4R6BF3g" role="lGtFl">
-      <property role="3scbB" value="5CkWgdpp3fo/by_custom_methods" />
-      <property role="3sfsH" value="5CkWgdpp0p2/by_presentation" />
-      <node concept="AxPO7" id="hG7GXih" role="3lCyv">
-        <property role="TrG5h" value="Side" />
-        <property role="3F6X1D" value="1215604970641" />
-        <ref role="M4eZT" to="tpck:fKAOsGN" resolve="string" />
-        <node concept="asaX9" id="5GuVNMLxmI_" role="lGtFl">
-          <property role="YLPcu" value="3.4" />
-          <property role="YLQ7P" value="Use TransformationLocation_SideTransform in the editor aspect" />
-        </node>
-        <node concept="M4N5e" id="hG7GXii" role="M5hS2">
-          <property role="1uS6qo" value="right" />
-        </node>
-        <node concept="M4N5e" id="hG7Hapr" role="M5hS2">
-          <property role="1uS6qv" value="left" />
-          <property role="1uS6qo" value="left" />
-        </node>
-        <node concept="M4N5e" id="38nmGbCPLik" role="M5hS2">
-          <property role="1uS6qv" value="both" />
-          <property role="1uS6qo" value="both sides" />
-        </node>
-      </node>
-    </node>
     <node concept="25R33" id="3Ftr4R6BF3h" role="25R1y">
       <property role="TrG5h" value="right" />
       <property role="3tVfz5" value="1215604970642" />
-      <ref role="2wpffI" node="hG7GXii" />
     </node>
     <node concept="25R33" id="3Ftr4R6BF3i" role="25R1y">
       <property role="TrG5h" value="left" />
       <property role="3tVfz5" value="1215605024347" />
-      <ref role="2wpffI" node="hG7Hapr" />
     </node>
     <node concept="25R33" id="3Ftr4R6BF3j" role="25R1y">
       <property role="TrG5h" value="both_sides" />
       <property role="1L1pqM" value="both sides" />
       <property role="3tVfz5" value="3609453419537306772" />
-      <ref role="2wpffI" node="38nmGbCPLik" />
     </node>
   </node>
   <node concept="1TIwiD" id="1oZFGAbEjxR">

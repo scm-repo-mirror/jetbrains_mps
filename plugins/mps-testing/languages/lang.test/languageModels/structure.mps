@@ -29,7 +29,6 @@
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
         <property id="1421157252384165432" name="memberId" index="3tVfz5" />
-        <reference id="899069222106091871" name="oldMember" index="2wpffI" />
       </concept>
       <concept id="3348158742936976479" name="jetbrains.mps.lang.structure.structure.EnumerationDeclaration" flags="ng" index="25R3W">
         <reference id="1075010451642646892" name="defaultMember" index="1H5jkz" />
@@ -50,19 +49,6 @@
       </concept>
       <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
         <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
-      </concept>
-      <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old" flags="ng" index="AxPO7">
-        <reference id="1083171729157" name="memberDataType" index="M4eZT" />
-        <child id="1083172003582" name="member" index="M5hS2" />
-      </concept>
-      <concept id="1588368162884797030" name="jetbrains.mps.lang.structure.structure.EnumMigrationInfo" flags="ng" index="2JgGob">
-        <property id="6491077959634662372" name="valueOpMigration" index="3scbB" />
-        <property id="6491077959634650670" name="nameOpMigration" index="3sfsH" />
-        <child id="6491077959632451996" name="oldEnum" index="3lCyv" />
-      </concept>
-      <concept id="1083171877298" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old" flags="ig" index="M4N5e">
-        <property id="1083923523172" name="externalValue" index="1uS6qo" />
-        <property id="1083923523171" name="internalValue" index="1uS6qv" />
       </concept>
       <concept id="2992811758677295509" name="jetbrains.mps.lang.structure.structure.AttributeInfo" flags="ng" index="M6xJ_">
         <property id="7588428831955550663" name="role" index="Hh88m" />
@@ -1184,7 +1170,7 @@
         <node concept="1TJgyi" id="4xJw7Bve0T$" role="3l_iP">
           <property role="TrG5h" value="level" />
           <property role="IQ2nx" value="5219531754070085220" />
-          <ref role="AX2Wp" node="4xJw7BvdBf3" resolve="Level" />
+          <ref role="AX2Wp" node="3Ftr4R6BFGQ" resolve="Level" />
         </node>
       </node>
     </node>
@@ -1431,87 +1417,37 @@
     <property role="3GE5qa" value="log" />
     <property role="3F6X1D" value="5219531754069980099" />
     <ref role="1H5jkz" node="3Ftr4R6BFGS" resolve="OFF" />
-    <node concept="2JgGob" id="3Ftr4R6BFGR" role="lGtFl">
-      <property role="3scbB" value="5CkWgdpp3eY/string_name" />
-      <property role="3sfsH" value="5CkWgdpp0p1/by_name" />
-      <node concept="AxPO7" id="4xJw7BvdBf3" role="3lCyv">
-        <property role="3GE5qa" value="log" />
-        <property role="TrG5h" value="Level" />
-        <property role="3F6X1D" value="5219531754069980099" />
-        <ref role="M4eZT" to="tpck:fKAOsGN" resolve="string" />
-        <node concept="M4N5e" id="4xJw7BvdBf4" role="M5hS2">
-          <property role="1uS6qv" value="OFF" />
-          <property role="1uS6qo" value="OFF" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBf5" role="M5hS2">
-          <property role="1uS6qo" value="FATAL" />
-          <property role="1uS6qv" value="FATAL" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBfa" role="M5hS2">
-          <property role="1uS6qo" value="ERROR" />
-          <property role="1uS6qv" value="ERROR" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBfh" role="M5hS2">
-          <property role="1uS6qo" value="WARN" />
-          <property role="1uS6qv" value="WARN" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBfq" role="M5hS2">
-          <property role="1uS6qo" value="INFO" />
-          <property role="1uS6qv" value="INFO" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBf_" role="M5hS2">
-          <property role="1uS6qo" value="DEBUG" />
-          <property role="1uS6qv" value="DEBUG" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBfM" role="M5hS2">
-          <property role="1uS6qo" value="TRACE" />
-          <property role="1uS6qv" value="TRACE" />
-        </node>
-        <node concept="M4N5e" id="4xJw7BvdBg1" role="M5hS2">
-          <property role="1uS6qo" value="ALL" />
-          <property role="1uS6qv" value="ALL" />
-        </node>
-      </node>
-    </node>
     <node concept="25R33" id="3Ftr4R6BFGS" role="25R1y">
       <property role="TrG5h" value="OFF" />
       <property role="3tVfz5" value="5219531754069980100" />
-      <ref role="2wpffI" node="4xJw7BvdBf4" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGT" role="25R1y">
       <property role="TrG5h" value="FATAL" />
       <property role="3tVfz5" value="5219531754069980101" />
-      <ref role="2wpffI" node="4xJw7BvdBf5" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGU" role="25R1y">
       <property role="TrG5h" value="ERROR" />
       <property role="3tVfz5" value="5219531754069980106" />
-      <ref role="2wpffI" node="4xJw7BvdBfa" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGV" role="25R1y">
       <property role="TrG5h" value="WARN" />
       <property role="3tVfz5" value="5219531754069980113" />
-      <ref role="2wpffI" node="4xJw7BvdBfh" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGW" role="25R1y">
       <property role="TrG5h" value="INFO" />
       <property role="3tVfz5" value="5219531754069980122" />
-      <ref role="2wpffI" node="4xJw7BvdBfq" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGX" role="25R1y">
       <property role="TrG5h" value="DEBUG" />
       <property role="3tVfz5" value="5219531754069980133" />
-      <ref role="2wpffI" node="4xJw7BvdBf_" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGY" role="25R1y">
       <property role="TrG5h" value="TRACE" />
       <property role="3tVfz5" value="5219531754069980146" />
-      <ref role="2wpffI" node="4xJw7BvdBfM" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFGZ" role="25R1y">
       <property role="TrG5h" value="ALL" />
       <property role="3tVfz5" value="5219531754069980161" />
-      <ref role="2wpffI" node="4xJw7BvdBg1" />
     </node>
   </node>
   <node concept="PlHQZ" id="143xXLdhW$X">

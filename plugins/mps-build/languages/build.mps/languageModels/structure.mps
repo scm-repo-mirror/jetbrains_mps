@@ -19,7 +19,6 @@
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
         <property id="1421157252384165432" name="memberId" index="3tVfz5" />
         <property id="672037151186491528" name="presentation" index="1L1pqM" />
-        <reference id="899069222106091871" name="oldMember" index="2wpffI" />
       </concept>
       <concept id="3348158742936976479" name="jetbrains.mps.lang.structure.structure.EnumerationDeclaration" flags="ng" index="25R3W">
         <reference id="1075010451642646892" name="defaultMember" index="1H5jkz" />
@@ -42,22 +41,8 @@
       <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
         <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
       </concept>
-      <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old" flags="ng" index="AxPO7">
-        <property id="1212080844762" name="hasNoDefaultMember" index="PDuV0" />
-        <reference id="1083171729157" name="memberDataType" index="M4eZT" />
-        <child id="1083172003582" name="member" index="M5hS2" />
-      </concept>
       <concept id="1082978499127" name="jetbrains.mps.lang.structure.structure.ConstrainedDataTypeDeclaration" flags="ng" index="Az7Fb">
         <property id="1083066089218" name="constraint" index="FLfZY" />
-      </concept>
-      <concept id="1588368162884797030" name="jetbrains.mps.lang.structure.structure.EnumMigrationInfo" flags="ng" index="2JgGob">
-        <property id="6491077959634662372" name="valueOpMigration" index="3scbB" />
-        <property id="6491077959634650670" name="nameOpMigration" index="3sfsH" />
-        <child id="6491077959632451996" name="oldEnum" index="3lCyv" />
-      </concept>
-      <concept id="1083171877298" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old" flags="ig" index="M4N5e">
-        <property id="1083923523172" name="externalValue" index="1uS6qo" />
-        <property id="1083923523171" name="internalValue" index="1uS6qv" />
       </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
@@ -211,7 +196,7 @@
         <node concept="1TJgyi" id="eYcmk9RcI2" role="3l_iP">
           <property role="TrG5h" value="sourcesKind" />
           <property role="IQ2nx" value="269707337715731330" />
-          <ref role="AX2Wp" node="eYcmk9QOkj" resolve="BuildMps_ModuleSourcesKind" />
+          <ref role="AX2Wp" node="3Ftr4R6BFCz" resolve="BuildMps_ModuleSourcesKind" />
         </node>
       </node>
     </node>
@@ -1507,7 +1492,7 @@
         <node concept="1TJgyi" id="dVfA4asVwA" role="3l_iP">
           <property role="IQ2nx" value="250862790757300262" />
           <property role="TrG5h" value="skipUnmodifiedModels" />
-          <ref role="AX2Wp" node="dVfA4asWrb" resolve="BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
+          <ref role="AX2Wp" node="3Ftr4R6BFCC" resolve="BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
         </node>
       </node>
     </node>
@@ -1770,44 +1755,18 @@
     <property role="TrG5h" value="BuildMps_ModuleSourcesKind" />
     <property role="3GE5qa" value="Project.Sources" />
     <property role="3F6X1D" value="269707337715631379" />
-    <node concept="2JgGob" id="3Ftr4R6BFC$" role="lGtFl">
-      <property role="3scbB" value="5CkWgdpp3eZ/string_presentation" />
-      <property role="3sfsH" value="5CkWgdpp0p2/by_presentation" />
-      <node concept="AxPO7" id="eYcmk9QOkj" role="3lCyv">
-        <property role="3GE5qa" value="Project.Sources" />
-        <property role="TrG5h" value="BuildMps_ModuleSourcesKind" />
-        <property role="PDuV0" value="true" />
-        <property role="3F6X1D" value="269707337715631379" />
-        <ref role="M4eZT" to="tpck:fKAOsGN" resolve="string" />
-        <node concept="M4N5e" id="eYcmk9QOli" role="M5hS2">
-          <property role="1uS6qo" value="sources" />
-          <property role="1uS6qv" value="sources" />
-        </node>
-        <node concept="M4N5e" id="eYcmk9QOlj" role="M5hS2">
-          <property role="1uS6qo" value="sources and tests" />
-          <property role="1uS6qv" value="sources and tests" />
-        </node>
-        <node concept="M4N5e" id="eYcmk9QOls" role="M5hS2">
-          <property role="1uS6qo" value="tests" />
-          <property role="1uS6qv" value="tests" />
-        </node>
-      </node>
-    </node>
     <node concept="25R33" id="3Ftr4R6BFC_" role="25R1y">
       <property role="TrG5h" value="sources" />
       <property role="3tVfz5" value="269707337715631442" />
-      <ref role="2wpffI" node="eYcmk9QOli" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFCA" role="25R1y">
       <property role="TrG5h" value="sources_and_tests" />
       <property role="1L1pqM" value="sources and tests" />
       <property role="3tVfz5" value="269707337715631443" />
-      <ref role="2wpffI" node="eYcmk9QOlj" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFCB" role="25R1y">
       <property role="TrG5h" value="tests" />
       <property role="3tVfz5" value="269707337715631452" />
-      <ref role="2wpffI" node="eYcmk9QOls" />
     </node>
     <node concept="25R33" id="77WRb6jODAF" role="25R1y">
       <property role="3tVfz5" value="8213682475664316843" />
@@ -1820,33 +1779,14 @@
     <property role="3GE5qa" value="Project" />
     <property role="3F6X1D" value="250862790757304011" />
     <ref role="1H5jkz" node="3Ftr4R6BFCE" resolve="use_mps_generator_skipUnmodifiedModels_macro" />
-    <node concept="2JgGob" id="3Ftr4R6BFCD" role="lGtFl">
-      <property role="3scbB" value="5CkWgdpp3fo/by_custom_methods" />
-      <property role="3sfsH" value="5CkWgdpp0p2/by_presentation" />
-      <node concept="AxPO7" id="dVfA4asWrb" role="3lCyv">
-        <property role="3GE5qa" value="Project" />
-        <property role="TrG5h" value="BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
-        <property role="3F6X1D" value="250862790757304011" />
-        <ref role="M4eZT" to="tpck:fKAOsGN" resolve="string" />
-        <node concept="M4N5e" id="dVfA4asWrc" role="M5hS2">
-          <property role="1uS6qo" value="use mps.generator.skipUnmodifiedModels macro" />
-        </node>
-        <node concept="M4N5e" id="dVfA4asWrd" role="M5hS2">
-          <property role="1uS6qv" value="never" />
-          <property role="1uS6qo" value="never" />
-        </node>
-      </node>
-    </node>
     <node concept="25R33" id="3Ftr4R6BFCE" role="25R1y">
       <property role="TrG5h" value="use_mps_generator_skipUnmodifiedModels_macro" />
       <property role="1L1pqM" value="use mps.generator.skipUnmodifiedModels macro" />
       <property role="3tVfz5" value="250862790757304012" />
-      <ref role="2wpffI" node="dVfA4asWrc" />
     </node>
     <node concept="25R33" id="3Ftr4R6BFCF" role="25R1y">
       <property role="TrG5h" value="never" />
       <property role="3tVfz5" value="250862790757304013" />
-      <ref role="2wpffI" node="dVfA4asWrd" />
     </node>
   </node>
   <node concept="1TIwiD" id="3AMbuf6a9Q4">

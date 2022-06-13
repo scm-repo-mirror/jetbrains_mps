@@ -1018,55 +1018,55 @@
   </root>
   <root nodeRef="r:0353b795-df17-4050-9687-ee47eeb7094f(jetbrains.mps.build.mps.structure)/4241665505353447971">
     <file name="EnumerationDescriptor_BuildMps_ModuleSourcesKind.java">
-      <node id="4241665505353447971" at="15,61,16,222" concept="10" />
-      <node id="4241665505353447973" at="19,0,20,0" concept="2" trace="myMember_sources_0" />
-      <node id="4241665505353447974" at="20,0,21,0" concept="2" trace="myMember_sources_and_tests_0" />
-      <node id="4241665505353447975" at="21,0,22,0" concept="2" trace="myMember_tests_0" />
-      <node id="8213682475664316843" at="22,0,23,0" concept="2" trace="myMember_none_0" />
-      <node id="4241665505353447971" at="24,0,25,0" concept="2" trace="myIndex" />
-      <node id="4241665505353447971" at="25,0,26,0" concept="2" trace="myMembers" />
-      <node id="4241665505353447971" at="29,62,30,16" concept="6" />
-      <node id="4241665505353447971" at="35,68,36,21" concept="6" />
-      <node id="4241665505353447971" at="42,29,43,18" concept="6" />
-      <node id="4241665505353447973" at="46,21,47,34" concept="6" />
-      <node id="4241665505353447974" at="48,31,49,44" concept="6" />
-      <node id="4241665505353447975" at="50,19,51,32" concept="6" />
-      <node id="8213682475664316843" at="52,18,53,31" concept="6" />
-      <node id="4241665505353447971" at="54,5,55,16" concept="6" />
-      <node id="4241665505353447971" at="60,73,61,39" concept="5" />
-      <node id="4241665505353447971" at="62,22,63,18" concept="6" />
-      <node id="4241665505353447971" at="64,5,65,32" concept="6" />
-      <node id="4241665505353447971" at="15,0,18,0" concept="0" trace="EnumerationDescriptor_BuildMps_ModuleSourcesKind#()V" />
-      <node id="4241665505353447971" at="41,88,44,5" concept="3" />
-      <node id="4241665505353447971" at="61,39,64,5" concept="3" />
-      <node id="4241665505353447971" at="27,0,32,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <node id="4241665505353447971" at="33,0,38,0" concept="4" trace="getMembers#()Ljava/util/List;" />
-      <node id="4241665505353447971" at="58,0,67,0" concept="4" trace="getMember#(J)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <node id="4241665505353447971" at="44,5,54,5" concept="11" />
-      <node id="4241665505353447971" at="39,0,57,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <scope id="4241665505353447971" at="15,61,16,222" />
-      <scope id="4241665505353447971" at="29,62,30,16" />
-      <scope id="4241665505353447971" at="35,68,36,21" />
-      <scope id="4241665505353447971" at="42,29,43,18" />
-      <scope id="4241665505353447973" at="46,21,47,34" />
-      <scope id="4241665505353447974" at="48,31,49,44" />
-      <scope id="4241665505353447975" at="50,19,51,32" />
-      <scope id="8213682475664316843" at="52,18,53,31" />
-      <scope id="4241665505353447971" at="62,22,63,18" />
-      <scope id="4241665505353447971" at="15,0,18,0" />
-      <scope id="4241665505353447971" at="27,0,32,0" />
-      <scope id="4241665505353447971" at="33,0,38,0" />
-      <scope id="4241665505353447971" at="60,73,65,32">
+      <node id="4241665505353447971" at="14,61,15,198" concept="10" />
+      <node id="4241665505353447973" at="18,0,19,0" concept="2" trace="myMember_sources_0" />
+      <node id="4241665505353447974" at="19,0,20,0" concept="2" trace="myMember_sources_and_tests_0" />
+      <node id="4241665505353447975" at="20,0,21,0" concept="2" trace="myMember_tests_0" />
+      <node id="8213682475664316843" at="21,0,22,0" concept="2" trace="myMember_none_0" />
+      <node id="4241665505353447971" at="23,0,24,0" concept="2" trace="myIndex" />
+      <node id="4241665505353447971" at="24,0,25,0" concept="2" trace="myMembers" />
+      <node id="4241665505353447971" at="28,62,29,16" concept="6" />
+      <node id="4241665505353447971" at="34,68,35,21" concept="6" />
+      <node id="4241665505353447971" at="41,29,42,18" concept="6" />
+      <node id="4241665505353447973" at="45,21,46,34" concept="6" />
+      <node id="4241665505353447974" at="47,31,48,44" concept="6" />
+      <node id="4241665505353447975" at="49,19,50,32" concept="6" />
+      <node id="8213682475664316843" at="51,18,52,31" concept="6" />
+      <node id="4241665505353447971" at="53,5,54,16" concept="6" />
+      <node id="4241665505353447971" at="59,73,60,39" concept="5" />
+      <node id="4241665505353447971" at="61,22,62,18" concept="6" />
+      <node id="4241665505353447971" at="63,5,64,32" concept="6" />
+      <node id="4241665505353447971" at="14,0,17,0" concept="0" trace="EnumerationDescriptor_BuildMps_ModuleSourcesKind#()V" />
+      <node id="4241665505353447971" at="40,88,43,5" concept="3" />
+      <node id="4241665505353447971" at="60,39,63,5" concept="3" />
+      <node id="4241665505353447971" at="26,0,31,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353447971" at="32,0,37,0" concept="4" trace="getMembers#()Ljava/util/List;" />
+      <node id="4241665505353447971" at="57,0,66,0" concept="4" trace="getMember#(J)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353447971" at="43,5,53,5" concept="11" />
+      <node id="4241665505353447971" at="38,0,56,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <scope id="4241665505353447971" at="14,61,15,198" />
+      <scope id="4241665505353447971" at="28,62,29,16" />
+      <scope id="4241665505353447971" at="34,68,35,21" />
+      <scope id="4241665505353447971" at="41,29,42,18" />
+      <scope id="4241665505353447973" at="45,21,46,34" />
+      <scope id="4241665505353447974" at="47,31,48,44" />
+      <scope id="4241665505353447975" at="49,19,50,32" />
+      <scope id="8213682475664316843" at="51,18,52,31" />
+      <scope id="4241665505353447971" at="61,22,62,18" />
+      <scope id="4241665505353447971" at="14,0,17,0" />
+      <scope id="4241665505353447971" at="26,0,31,0" />
+      <scope id="4241665505353447971" at="32,0,37,0" />
+      <scope id="4241665505353447971" at="59,73,64,32">
         <var name="index" id="4241665505353447971" />
       </scope>
-      <scope id="4241665505353447971" at="58,0,67,0">
+      <scope id="4241665505353447971" at="57,0,66,0">
         <var name="idValue" id="4241665505353447971" />
       </scope>
-      <scope id="4241665505353447971" at="41,88,55,16" />
-      <scope id="4241665505353447971" at="39,0,57,0">
+      <scope id="4241665505353447971" at="40,88,54,16" />
+      <scope id="4241665505353447971" at="38,0,56,0">
         <var name="memberName" id="4241665505353447971" />
       </scope>
-      <unit id="4241665505353447971" at="13,0,68,0" name="jetbrains.mps.build.mps.structure.EnumerationDescriptor_BuildMps_ModuleSourcesKind" />
+      <unit id="4241665505353447971" at="12,0,67,0" name="jetbrains.mps.build.mps.structure.EnumerationDescriptor_BuildMps_ModuleSourcesKind" />
     </file>
     <file name="StructureAspectDescriptor.java">
       <node id="4241665505353447971" at="93,0,94,0" concept="2" trace="myEnumerationBuildMps_ModuleSourcesKind" />
@@ -1074,49 +1074,49 @@
   </root>
   <root nodeRef="r:0353b795-df17-4050-9687-ee47eeb7094f(jetbrains.mps.build.mps.structure)/4241665505353447976">
     <file name="EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels.java">
-      <node id="4241665505353447976" at="15,81,16,242" concept="10" />
-      <node id="4241665505353447978" at="19,0,20,0" concept="2" trace="myMember_use_mps_generator_skipUnmodifiedModels_macro_0" />
-      <node id="4241665505353447979" at="20,0,21,0" concept="2" trace="myMember_never_0" />
-      <node id="4241665505353447976" at="22,0,23,0" concept="2" trace="myIndex" />
-      <node id="4241665505353447976" at="23,0,24,0" concept="2" trace="myMembers" />
-      <node id="4241665505353447976" at="27,62,28,67" concept="6" />
-      <node id="4241665505353447976" at="33,68,34,21" concept="6" />
-      <node id="4241665505353447976" at="40,29,41,18" concept="6" />
-      <node id="4241665505353447978" at="44,58,45,71" concept="6" />
-      <node id="4241665505353447979" at="46,19,47,32" concept="6" />
-      <node id="4241665505353447976" at="48,5,49,16" concept="6" />
-      <node id="4241665505353447976" at="54,73,55,39" concept="5" />
-      <node id="4241665505353447976" at="56,22,57,18" concept="6" />
-      <node id="4241665505353447976" at="58,5,59,32" concept="6" />
-      <node id="4241665505353447976" at="15,0,18,0" concept="0" trace="EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels#()V" />
-      <node id="4241665505353447976" at="39,88,42,5" concept="3" />
-      <node id="4241665505353447976" at="55,39,58,5" concept="3" />
-      <node id="4241665505353447976" at="25,0,30,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <node id="4241665505353447976" at="31,0,36,0" concept="4" trace="getMembers#()Ljava/util/List;" />
-      <node id="4241665505353447976" at="42,5,48,5" concept="11" />
-      <node id="4241665505353447976" at="52,0,61,0" concept="4" trace="getMember#(J)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <node id="4241665505353447976" at="37,0,51,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <scope id="4241665505353447976" at="15,81,16,242" />
-      <scope id="4241665505353447976" at="27,62,28,67" />
-      <scope id="4241665505353447976" at="33,68,34,21" />
-      <scope id="4241665505353447976" at="40,29,41,18" />
-      <scope id="4241665505353447978" at="44,58,45,71" />
-      <scope id="4241665505353447979" at="46,19,47,32" />
-      <scope id="4241665505353447976" at="56,22,57,18" />
-      <scope id="4241665505353447976" at="15,0,18,0" />
-      <scope id="4241665505353447976" at="25,0,30,0" />
-      <scope id="4241665505353447976" at="31,0,36,0" />
-      <scope id="4241665505353447976" at="54,73,59,32">
+      <node id="4241665505353447976" at="14,81,15,218" concept="10" />
+      <node id="4241665505353447978" at="18,0,19,0" concept="2" trace="myMember_use_mps_generator_skipUnmodifiedModels_macro_0" />
+      <node id="4241665505353447979" at="19,0,20,0" concept="2" trace="myMember_never_0" />
+      <node id="4241665505353447976" at="21,0,22,0" concept="2" trace="myIndex" />
+      <node id="4241665505353447976" at="22,0,23,0" concept="2" trace="myMembers" />
+      <node id="4241665505353447976" at="26,62,27,67" concept="6" />
+      <node id="4241665505353447976" at="32,68,33,21" concept="6" />
+      <node id="4241665505353447976" at="39,29,40,18" concept="6" />
+      <node id="4241665505353447978" at="43,58,44,71" concept="6" />
+      <node id="4241665505353447979" at="45,19,46,32" concept="6" />
+      <node id="4241665505353447976" at="47,5,48,16" concept="6" />
+      <node id="4241665505353447976" at="53,73,54,39" concept="5" />
+      <node id="4241665505353447976" at="55,22,56,18" concept="6" />
+      <node id="4241665505353447976" at="57,5,58,32" concept="6" />
+      <node id="4241665505353447976" at="14,0,17,0" concept="0" trace="EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels#()V" />
+      <node id="4241665505353447976" at="38,88,41,5" concept="3" />
+      <node id="4241665505353447976" at="54,39,57,5" concept="3" />
+      <node id="4241665505353447976" at="24,0,29,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353447976" at="30,0,35,0" concept="4" trace="getMembers#()Ljava/util/List;" />
+      <node id="4241665505353447976" at="41,5,47,5" concept="11" />
+      <node id="4241665505353447976" at="51,0,60,0" concept="4" trace="getMember#(J)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353447976" at="36,0,50,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <scope id="4241665505353447976" at="14,81,15,218" />
+      <scope id="4241665505353447976" at="26,62,27,67" />
+      <scope id="4241665505353447976" at="32,68,33,21" />
+      <scope id="4241665505353447976" at="39,29,40,18" />
+      <scope id="4241665505353447978" at="43,58,44,71" />
+      <scope id="4241665505353447979" at="45,19,46,32" />
+      <scope id="4241665505353447976" at="55,22,56,18" />
+      <scope id="4241665505353447976" at="14,0,17,0" />
+      <scope id="4241665505353447976" at="24,0,29,0" />
+      <scope id="4241665505353447976" at="30,0,35,0" />
+      <scope id="4241665505353447976" at="53,73,58,32">
         <var name="index" id="4241665505353447976" />
       </scope>
-      <scope id="4241665505353447976" at="52,0,61,0">
+      <scope id="4241665505353447976" at="51,0,60,0">
         <var name="idValue" id="4241665505353447976" />
       </scope>
-      <scope id="4241665505353447976" at="39,88,49,16" />
-      <scope id="4241665505353447976" at="37,0,51,0">
+      <scope id="4241665505353447976" at="38,88,48,16" />
+      <scope id="4241665505353447976" at="36,0,50,0">
         <var name="memberName" id="4241665505353447976" />
       </scope>
-      <unit id="4241665505353447976" at="13,0,62,0" name="jetbrains.mps.build.mps.structure.EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
+      <unit id="4241665505353447976" at="12,0,61,0" name="jetbrains.mps.build.mps.structure.EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModels" />
     </file>
     <file name="StructureAspectDescriptor.java">
       <node id="4241665505353447976" at="92,0,93,0" concept="2" trace="myEnumerationBuildMps_GeneratorOptions_SkipUnmodifiedModels" />
