@@ -35,9 +35,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptIconResourceExpression = createDescriptorForIconResourceExpression();
   /*package*/ final ConceptDescriptor myConceptImage = createDescriptorForImage();
   /*package*/ final ConceptDescriptor myConceptNodeIconResourceExpression = createDescriptorForNodeIconResourceExpression();
-  /*package*/ final ConceptDescriptor myConceptOldIconBundle = createDescriptorForOldIconBundle();
-  /*package*/ final ConceptDescriptor myConceptOldIconDeclaration = createDescriptorForOldIconDeclaration();
-  /*package*/ final ConceptDescriptor myConceptOldIconReference = createDescriptorForOldIconReference();
   /*package*/ final ConceptDescriptor myConceptPrimitive = createDescriptorForPrimitive();
   /*package*/ final ConceptDescriptor myConceptRect = createDescriptorForRect();
   /*package*/ final ConceptDescriptor myConceptResource = createDescriptorForResource();
@@ -63,7 +60,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptFileIcon, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptNodeIconResourceExpression, myConceptOldIconBundle, myConceptOldIconDeclaration, myConceptOldIconReference, myConceptPrimitive, myConceptRect, myConceptResource, myConceptText, myConceptTextIcon);
+    return Arrays.asList(myConceptBaseURL, myConceptBaseURLFunction, myConceptBaseURLLiteral, myConceptCircle, myConceptColor, myConceptColorLiteral, myConceptConceptIconResourceExpression, myConceptFileIcon, myConceptHelpURL, myConceptIcon, myConceptIconExpression, myConceptIconLayerDescription, myConceptIconResourceExpression, myConceptImage, myConceptNodeIconResourceExpression, myConceptPrimitive, myConceptRect, myConceptResource, myConceptText, myConceptTextIcon);
   }
 
   @Override
@@ -100,12 +97,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptImage;
       case LanguageConceptSwitch.NodeIconResourceExpression:
         return myConceptNodeIconResourceExpression;
-      case LanguageConceptSwitch.OldIconBundle:
-        return myConceptOldIconBundle;
-      case LanguageConceptSwitch.OldIconDeclaration:
-        return myConceptOldIconDeclaration;
-      case LanguageConceptSwitch.OldIconReference:
-        return myConceptOldIconReference;
       case LanguageConceptSwitch.Primitive:
         return myConceptPrimitive;
       case LanguageConceptSwitch.Rect:
@@ -275,36 +266,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.aggregate("node", 0x7ce019825925c1cL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("562388756444896284").done();
     b.alias("nodeIcon");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForOldIconBundle() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "OldIconBundle", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bdL);
-    b.class_(false, false, true);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
-    b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/8974276187400029885");
-    b.version(3);
-    b.aggregate("icons", 0x7c8b08a50a39c6beL).target(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c0L).optional(true).ordered(true).multiple(true).origin("8974276187400029886").done();
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForOldIconDeclaration() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "OldIconDeclaration", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c0L);
-    b.class_(false, false, false);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
-    b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/8974276187400029888");
-    b.version(3);
-    b.aggregate("iconExpression", 0x7c8b08a50a39c6c1L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("8974276187400029889").done();
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForOldIconReference() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.resources", "OldIconReference", 0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c7L);
-    b.class_(false, false, false);
-    // extends: jetbrains.mps.baseLanguage.structure.Expression
-    b.super_(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL);
-    b.origin("r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/8974276187400029895");
-    b.version(3);
-    b.associate("declaration", 0x7c8b08a50a39c6c8L).target(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c0L).optional(false).origin("8974276187400029896").done();
-    b.kind(ConceptKind.NORMAL, StaticScope.NONE);
-    b.alias("icon");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForPrimitive() {

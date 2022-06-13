@@ -2,7 +2,6 @@
 <model ref="r:cafe8450-2876-42f2-9c43-75da10155c47(jetbrains.mps.lang.resources.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="-1" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -172,7 +171,6 @@
         <child id="1174660783413" name="leftExpression" index="1ZfhK$" />
         <child id="1174660783414" name="rightExpression" index="1ZfhKB" />
       </concept>
-      <concept id="1174663118805" name="jetbrains.mps.lang.typesystem.structure.CreateLessThanInequationStatement" flags="nn" index="1ZobV4" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
@@ -247,64 +245,6 @@
     <node concept="1YaCAy" id="7Mb2akaesvU" role="1YuTPh">
       <property role="TrG5h" value="icon" />
       <ref role="1YaFvo" to="1oap:7Mb2akaesr3" resolve="IconExpression" />
-    </node>
-  </node>
-  <node concept="1YbPZF" id="7Mb2akaesvV">
-    <property role="TrG5h" value="typeof_IconResourceDeclaration" />
-    <property role="3GE5qa" value="deprecated" />
-    <node concept="3clFbS" id="7Mb2akaesvW" role="18ibNy">
-      <node concept="1ZobV4" id="7Mb2akaesvX" role="3cqZAp">
-        <property role="3wDh2S" value="true" />
-        <node concept="mw_s8" id="7Mb2akaesvY" role="1ZfhKB">
-          <node concept="2c44tf" id="7Mb2akaesvZ" role="mwGJk">
-            <node concept="3uibUv" id="7Mb2akaesw0" role="2c44tc">
-              <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
-            </node>
-          </node>
-        </node>
-        <node concept="mw_s8" id="7Mb2akaesw1" role="1ZfhK$">
-          <node concept="1Z2H0r" id="7Mb2akaesw2" role="mwGJk">
-            <node concept="2OqwBi" id="7Mb2akaesw3" role="1Z2MuG">
-              <node concept="1YBJjd" id="7Mb2akaesw4" role="2Oq$k0">
-                <ref role="1YBMHb" node="7Mb2akaesw6" resolve="ird" />
-              </node>
-              <node concept="3TrEf2" id="7Mb2akaesw5" role="2OqNvi">
-                <ref role="3Tt5mk" to="1oap:7Mb2akaesr1" resolve="iconExpression" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="1YaCAy" id="7Mb2akaesw6" role="1YuTPh">
-      <property role="TrG5h" value="ird" />
-      <ref role="1YaFvo" to="1oap:7Mb2akaesr0" resolve="OldIconDeclaration" />
-    </node>
-  </node>
-  <node concept="1YbPZF" id="7Mb2akaesw7">
-    <property role="TrG5h" value="typeof_IconResourceReference" />
-    <property role="3GE5qa" value="deprecated" />
-    <node concept="3clFbS" id="7Mb2akaesw8" role="18ibNy">
-      <node concept="1Z5TYs" id="7Mb2akaesw9" role="3cqZAp">
-        <node concept="mw_s8" id="7Mb2akaeswa" role="1ZfhKB">
-          <node concept="2c44tf" id="7Mb2akaeswb" role="mwGJk">
-            <node concept="3uibUv" id="7Mb2akaeswc" role="2c44tc">
-              <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
-            </node>
-          </node>
-        </node>
-        <node concept="mw_s8" id="7Mb2akaeswd" role="1ZfhK$">
-          <node concept="1Z2H0r" id="7Mb2akaeswe" role="mwGJk">
-            <node concept="1YBJjd" id="7Mb2akaeswf" role="1Z2MuG">
-              <ref role="1YBMHb" node="7Mb2akaeswg" resolve="irr" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="1YaCAy" id="7Mb2akaeswg" role="1YuTPh">
-      <property role="TrG5h" value="irr" />
-      <ref role="1YaFvo" to="1oap:7Mb2akaesr7" resolve="OldIconReference" />
     </node>
   </node>
   <node concept="1YbPZF" id="5bVxHVEur_I">

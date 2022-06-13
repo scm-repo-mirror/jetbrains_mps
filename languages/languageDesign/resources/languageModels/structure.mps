@@ -2,7 +2,6 @@
 <model ref="r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)">
   <persistence version="9" />
   <languages>
-    <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
   </languages>
   <imports>
@@ -13,11 +12,6 @@
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" implicit="true" />
   </imports>
   <registry>
-    <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
-      <concept id="8974276187400029883" name="jetbrains.mps.lang.resources.structure.FileIcon" flags="ng" index="1QGGSu">
-        <property id="2756621024541341363" name="file" index="1iqoE4" />
-      </concept>
-    </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
         <property id="1421157252384165432" name="memberId" index="3tVfz5" />
@@ -74,7 +68,6 @@
         <property id="5404671619616246344" name="staticScope" index="2_RsDV" />
         <property id="1096454100552" name="rootable" index="19KtqR" />
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
-        <child id="6327362524875300597" name="icon" index="rwd14" />
         <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
       <concept id="1071489288299" name="jetbrains.mps.lang.structure.structure.PropertyDeclaration" flags="ig" index="1TJgyi">
@@ -127,44 +120,6 @@
       <ref role="PrY4T" node="2p1v3tOa9VI" resolve="Icon" />
     </node>
   </node>
-  <node concept="1TIwiD" id="7Mb2akaesqX">
-    <property role="19KtqR" value="true" />
-    <property role="TrG5h" value="OldIconBundle" />
-    <property role="EcuMT" value="8974276187400029885" />
-    <property role="3GE5qa" value="deprecated" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="1QGGSu" id="4Q8sAA5iKg_" role="rwd14">
-      <property role="1iqoE4" value="${module}/icons/iconResourceBundle.png" />
-    </node>
-    <node concept="1TJgyj" id="7Mb2akaesqY" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="icons" />
-      <property role="20lbJX" value="fLJekj5/_0__n" />
-      <property role="IQ2ns" value="8974276187400029886" />
-      <ref role="20lvS9" node="7Mb2akaesr0" resolve="OldIconDeclaration" />
-    </node>
-    <node concept="PrWs8" id="7Mb2akaesqZ" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-    <node concept="asaX9" id="2p1v3tOa9VE" role="lGtFl" />
-  </node>
-  <node concept="1TIwiD" id="7Mb2akaesr0">
-    <property role="TrG5h" value="OldIconDeclaration" />
-    <property role="EcuMT" value="8974276187400029888" />
-    <property role="3GE5qa" value="deprecated" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
-    <node concept="1TJgyj" id="7Mb2akaesr1" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="iconExpression" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <property role="IQ2ns" value="8974276187400029889" />
-      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-    </node>
-    <node concept="PrWs8" id="7Mb2akaesr2" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-    <node concept="asaX9" id="2p1v3tOa9VC" role="lGtFl" />
-  </node>
   <node concept="1TIwiD" id="7Mb2akaesr3">
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />
@@ -181,23 +136,6 @@
       <property role="IQ2ns" value="8974276187400029893" />
       <ref role="20lvS9" node="2p1v3tOa9VI" resolve="Icon" />
     </node>
-  </node>
-  <node concept="1TIwiD" id="7Mb2akaesr7">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="TrG5h" value="OldIconReference" />
-    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
-    <property role="34LRSv" value="icon" />
-    <property role="EcuMT" value="8974276187400029895" />
-    <property role="3GE5qa" value="deprecated" />
-    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
-    <node concept="1TJgyj" id="7Mb2akaesr8" role="1TKVEi">
-      <property role="20kJfa" value="declaration" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <property role="IQ2ns" value="8974276187400029896" />
-      <ref role="20lvS9" node="7Mb2akaesr0" resolve="OldIconDeclaration" />
-    </node>
-    <node concept="asaX9" id="2p1v3tOa9VA" role="lGtFl" />
   </node>
   <node concept="PlHQZ" id="7Mb2akaesra">
     <property role="TrG5h" value="Resource" />
