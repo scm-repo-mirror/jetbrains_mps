@@ -14,7 +14,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import javax.swing.Icon;
-import jetbrains.mps.ide.editor.popup.IconResourceBundle_OverrideImplements;
+import jetbrains.mps.ide.editor.popup.OverrideImplementsIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import jetbrains.mps.workbench.action.BaseAction;
 import com.intellij.openapi.actionSystem.ActionManager;
@@ -66,7 +66,7 @@ public final class MethodOverridesEditorMessage extends AbstractOverrideEditorMe
 
   @Override
   public Icon getIcon() {
-    return (this.myOverriding ? IconResourceBundle_OverrideImplements.getInstance().getResource("OVERRIDING") : IconResourceBundle_OverrideImplements.getInstance().getResource("IMPLEMENTING"));
+    return (this.myOverriding ? OverrideImplementsIcons.OVERRIDING : OverrideImplementsIcons.IMPLEMENTING);
   }
 
   @Override

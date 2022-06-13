@@ -53,6 +53,8 @@ import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodMatch;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import com.intellij.icons.AllIcons;
+import jetbrains.mps.icons.MPSIcons;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -420,9 +422,9 @@ public class ExtractMethodDialog extends RefactoringDialog {
           myContext.getRepository().getModelAccess().runReadAction(() -> {
             if (ExtractMethodDialog.this.myStaticTarget != null) {
               if (SNodeOperations.isInstanceOf(ExtractMethodDialog.this.myStaticTarget, CONCEPTS.ClassConcept$bK)) {
-                myChooseContainerButton.setIcon(IconResourceBundle_ExtractMethodIcons.getInstance().getResource("CLASS"));
+                myChooseContainerButton.setIcon(AllIcons.Nodes.Class);
               } else if (SNodeOperations.isInstanceOf(ExtractMethodDialog.this.myStaticTarget, CONCEPTS.ConceptBehavior$2)) {
-                myChooseContainerButton.setIcon(IconResourceBundle_ExtractMethodIcons.getInstance().getResource("INTERFACE"));
+                myChooseContainerButton.setIcon(MPSIcons.Nodes.Behavior);
               }
               if (SNodeOperations.isInstanceOf(ExtractMethodDialog.this.myStaticTarget, CONCEPTS.INamedConcept$Kd)) {
                 myChooseContainerButton.setText(SPropertyOperations.getString((SNodeOperations.cast(ExtractMethodDialog.this.myStaticTarget, CONCEPTS.INamedConcept$Kd)), PROPS.name$MnvL));

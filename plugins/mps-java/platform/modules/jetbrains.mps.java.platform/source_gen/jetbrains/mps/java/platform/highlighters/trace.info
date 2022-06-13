@@ -528,14 +528,14 @@
       <node id="8432634623182579852" at="20,0,21,0" concept="5" trace="myOverridenFlag" />
       <node id="8432634623182579868" at="22,113,23,32" concept="16" />
       <node id="8432634623182579872" at="23,32,24,32" concept="4" />
-      <node id="8432634623182690087" at="28,25,29,190" concept="11" />
+      <node id="8432634623182690087" at="28,25,29,104" concept="11" />
       <node id="8432634623182579896" at="33,63,34,16" concept="11" />
       <node id="4519712202472261630" at="38,36,39,140" concept="11" />
       <node id="8432634623182579856" at="22,0,26,0" concept="2" trace="OverriddenMethodEditorMessage#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/message/EditorMessageOwner;Ljava/lang/String;Z)V" />
       <node id="8432634623182579879" at="27,0,31,0" concept="9" trace="getIcon#()Ljavax/swing/Icon;" />
       <node id="8432634623182579892" at="32,0,36,0" concept="9" trace="getType#()Ljetbrains/mps/nodeEditor/EditorMessageIconRenderer/IconRendererType;" />
       <node id="8432634623182579898" at="37,0,41,0" concept="9" trace="getClickAction#()Lcom/intellij/openapi/actionSystem/AnAction;" />
-      <scope id="8432634623182579882" at="28,25,29,190" />
+      <scope id="8432634623182579882" at="28,25,29,104" />
       <scope id="8432634623182579895" at="33,63,34,16" />
       <scope id="8432634623182579901" at="38,36,39,140" />
       <scope id="8432634623182579867" at="22,113,24,32" />
@@ -557,14 +557,14 @@
       <node id="8432634623182579926" at="20,0,21,0" concept="5" trace="isOverriding" />
       <node id="8432634623182579942" at="22,114,23,32" concept="16" />
       <node id="8432634623182579946" at="23,32,24,35" concept="4" />
-      <node id="8432634623182690115" at="28,25,29,193" concept="11" />
+      <node id="8432634623182690115" at="28,25,29,107" concept="11" />
       <node id="8432634623182579970" at="33,63,34,16" concept="11" />
       <node id="8432634623182579976" at="38,36,39,131" concept="11" />
       <node id="8432634623182579930" at="22,0,26,0" concept="2" trace="OverridingMethodEditorMessage#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/message/EditorMessageOwner;Ljava/lang/String;Z)V" />
       <node id="8432634623182579953" at="27,0,31,0" concept="9" trace="getIcon#()Ljavax/swing/Icon;" />
       <node id="8432634623182579966" at="32,0,36,0" concept="9" trace="getType#()Ljetbrains/mps/nodeEditor/EditorMessageIconRenderer/IconRendererType;" />
       <node id="8432634623182579972" at="37,0,41,0" concept="9" trace="getClickAction#()Lcom/intellij/openapi/actionSystem/AnAction;" />
-      <scope id="8432634623182579956" at="28,25,29,193" />
+      <scope id="8432634623182579956" at="28,25,29,107" />
       <scope id="8432634623182579969" at="33,63,34,16" />
       <scope id="8432634623182579975" at="38,36,39,131" />
       <scope id="8432634623182579941" at="22,114,24,35" />
@@ -588,7 +588,7 @@
       <node id="8432634623182580017" at="28,125,29,32" concept="16" />
       <node id="8432634623182580021" at="29,32,30,34" concept="4" />
       <node id="8432634623182580040" at="33,43,34,117" concept="11" />
-      <node id="8432634623182690132" at="40,25,41,190" concept="11" />
+      <node id="8432634623182690132" at="40,25,41,104" concept="11" />
       <node id="8432634623182580074" at="45,63,46,16" concept="11" />
       <node id="2786528417096380295" at="51,68,52,55" concept="10" />
       <node id="6226950206220272496" at="52,55,53,143" concept="10" />
@@ -602,7 +602,7 @@
       <node id="2786528417096367393" at="49,0,56,0" concept="9" trace="getAnchorCell#(Ljetbrains/mps/openapi/editor/EditorComponent;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="8432634623182580005" at="28,0,38,0" concept="2" trace="SubclassedClassifierEditorMessage#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/message/EditorMessageOwner;Ljava/lang/String;Z)V" />
       <scope id="8432634623182580039" at="33,43,34,117" />
-      <scope id="8432634623182580062" at="40,25,41,190" />
+      <scope id="8432634623182580062" at="40,25,41,104" />
       <scope id="8432634623182580073" at="45,63,46,16" />
       <scope id="8432634623182580099" at="58,36,59,134" />
       <scope id="2786528417096367404" at="51,68,54,64">

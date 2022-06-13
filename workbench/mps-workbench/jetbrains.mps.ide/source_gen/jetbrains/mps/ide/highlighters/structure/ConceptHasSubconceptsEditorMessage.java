@@ -18,7 +18,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import javax.swing.Icon;
-import jetbrains.mps.ide.editor.popup.IconResourceBundle_OverrideImplements;
+import jetbrains.mps.ide.editor.popup.OverrideImplementsIcons;
 import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -72,7 +72,7 @@ public class ConceptHasSubconceptsEditorMessage extends AbstractLeftEditorHighli
 
   @Override
   public Icon getIcon() {
-    return (myIsInterface ? IconResourceBundle_OverrideImplements.getInstance().getResource("IMPLEMENTED") : IconResourceBundle_OverrideImplements.getInstance().getResource("OVERRIDDEN"));
+    return (myIsInterface ? OverrideImplementsIcons.IMPLEMENTED : OverrideImplementsIcons.OVERRIDDEN);
   }
 
   @Override

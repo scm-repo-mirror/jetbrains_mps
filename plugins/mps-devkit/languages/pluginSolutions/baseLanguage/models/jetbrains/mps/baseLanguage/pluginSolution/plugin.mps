@@ -17,7 +17,6 @@
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
     <use id="3ecd7c84-cde3-45de-886c-135ecc69b742" name="jetbrains.mps.lang.refactoring" version="0" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
   </languages>
   <imports>
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
@@ -126,17 +125,6 @@
       <concept id="1238857743184" name="jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression" flags="nn" index="1LFfDK">
         <child id="1238857764950" name="tuple" index="1LFl5Q" />
         <child id="1238857834412" name="index" index="1LF_Uc" />
-      </concept>
-    </language>
-    <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
-      <concept id="8974276187400029885" name="jetbrains.mps.lang.resources.structure.OldIconBundle" flags="ng" index="1QGGSo">
-        <child id="8974276187400029886" name="icons" index="1QGGSr" />
-      </concept>
-      <concept id="8974276187400029895" name="jetbrains.mps.lang.resources.structure.OldIconReference" flags="nn" index="1QGGTy">
-        <reference id="8974276187400029896" name="declaration" index="1QGGTH" />
-      </concept>
-      <concept id="8974276187400029888" name="jetbrains.mps.lang.resources.structure.OldIconDeclaration" flags="ng" index="1QGGT_">
-        <child id="8974276187400029889" name="iconExpression" index="1QGGT$" />
       </concept>
     </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -19939,24 +19927,6 @@
       </node>
     </node>
   </node>
-  <node concept="1QGGSo" id="3UdhnxHunEy">
-    <property role="TrG5h" value="ExtractMethodIcons" />
-    <property role="3GE5qa" value="extractMethod" />
-    <node concept="1QGGT_" id="3UdhnxHunEz" role="1QGGSr">
-      <property role="TrG5h" value="CLASS" />
-      <node concept="10M0yZ" id="7nBL02TLqXx" role="1QGGT$">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Nodes" resolve="AllIcons.Nodes" />
-        <ref role="3cqZAo" to="z2i8:~AllIcons$Nodes.Class" resolve="Class" />
-      </node>
-    </node>
-    <node concept="1QGGT_" id="3UdhnxHunEA" role="1QGGSr">
-      <property role="TrG5h" value="INTERFACE" />
-      <node concept="10M0yZ" id="7UewnPO$7Ve" role="1QGGT$">
-        <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="MPSIcons.Nodes" />
-        <ref role="3cqZAo" to="l7us:~MPSIcons$Nodes.Behavior" resolve="Behavior" />
-      </node>
-    </node>
-  </node>
   <node concept="312cEu" id="3UdhnxHunED">
     <property role="TrG5h" value="ParameterTypeCellEditor" />
     <property role="3GE5qa" value="extractMethod" />
@@ -24084,8 +24054,9 @@
                                                 </node>
                                                 <node concept="liA8E" id="1KUoCipvs0s" role="2OqNvi">
                                                   <ref role="37wK5l" to="dxuu:~AbstractButton.setIcon(javax.swing.Icon)" resolve="setIcon" />
-                                                  <node concept="1QGGTy" id="1KUoCipvs0t" role="37wK5m">
-                                                    <ref role="1QGGTH" node="3UdhnxHunEz" resolve="CLASS" />
+                                                  <node concept="10M0yZ" id="7nBL02TLqXx" role="37wK5m">
+                                                    <ref role="1PxDUh" to="z2i8:~AllIcons$Nodes" resolve="Nodes" />
+                                                    <ref role="3cqZAo" to="z2i8:~AllIcons$Nodes.Class" resolve="Class" />
                                                   </node>
                                                 </node>
                                               </node>
@@ -24115,8 +24086,9 @@
                                                   </node>
                                                   <node concept="liA8E" id="1KUoCipvs0D" role="2OqNvi">
                                                     <ref role="37wK5l" to="dxuu:~AbstractButton.setIcon(javax.swing.Icon)" resolve="setIcon" />
-                                                    <node concept="1QGGTy" id="1KUoCipvs0E" role="37wK5m">
-                                                      <ref role="1QGGTH" node="3UdhnxHunEA" resolve="INTERFACE" />
+                                                    <node concept="10M0yZ" id="7UewnPO$7Ve" role="37wK5m">
+                                                      <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="Nodes" />
+                                                      <ref role="3cqZAo" to="l7us:~MPSIcons$Nodes.Behavior" resolve="Behavior" />
                                                     </node>
                                                   </node>
                                                 </node>

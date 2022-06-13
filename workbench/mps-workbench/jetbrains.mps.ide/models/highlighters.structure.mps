@@ -3,7 +3,6 @@
   <persistence version="9" />
   <languages>
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
-    <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="64d34fcd-ad02-4e73-aff8-a581124c2e30" name="jetbrains.mps.lang.findUsages" version="0" />
@@ -36,11 +35,6 @@
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
   </imports>
   <registry>
-    <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
-      <concept id="8974276187400029895" name="jetbrains.mps.lang.resources.structure.OldIconReference" flags="nn" index="1QGGTy">
-        <reference id="8974276187400029896" name="declaration" index="1QGGTH" />
-      </concept>
-    </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
       <concept id="3205675194086589964" name="jetbrains.mps.lang.plugin.structure.ActionAccessOperation" flags="nn" index="3$FdUm">
         <reference id="3205675194086671728" name="action" index="3$FpRE" />
@@ -92,6 +86,9 @@
       <concept id="1081256982272" name="jetbrains.mps.baseLanguage.structure.InstanceOfExpression" flags="nn" index="2ZW3vV">
         <child id="1081256993305" name="classType" index="2ZW6by" />
         <child id="1081256993304" name="leftExpression" index="2ZW6bz" />
+      </concept>
+      <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
+        <reference id="1144433057691" name="classifier" index="1PxDUh" />
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534370425" name="jetbrains.mps.baseLanguage.structure.IntegerType" flags="in" index="10Oyi0" />
@@ -744,14 +741,16 @@
       <node concept="3clFbS" id="7k6J8c3ti_u" role="3clF47">
         <node concept="3clFbF" id="7k6J8c3tHtk" role="3cqZAp">
           <node concept="3K4zz7" id="7k6J8c3ti_x" role="3clFbG">
-            <node concept="1QGGTy" id="7k6J8c3tHtc" role="3K4GZi">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsn" resolve="OVERRIDDEN" />
-            </node>
-            <node concept="1QGGTy" id="7k6J8c3tHte" role="3K4E3e">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsc" resolve="IMPLEMENTED" />
-            </node>
             <node concept="37vLTw" id="2BHiRxeuq69" role="3K4Cdx">
               <ref role="3cqZAo" node="7k6J8c3ti$b" resolve="myIsInterface" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmY8nb" role="3K4GZi">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmY3J6" resolve="OVERRIDDEN" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmYety" role="3K4E3e">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmXZUS" resolve="IMPLEMENTED" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
             </node>
           </node>
         </node>

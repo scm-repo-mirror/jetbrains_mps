@@ -5,7 +5,6 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="5" />
-    <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
@@ -45,11 +44,6 @@
     <import index="ntzd" ref="r:bf32fdbc-530f-4631-ba64-3e7b620ac47f(jetbrains.mps.baseLanguage.util)" />
   </imports>
   <registry>
-    <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
-      <concept id="8974276187400029895" name="jetbrains.mps.lang.resources.structure.OldIconReference" flags="nn" index="1QGGTy">
-        <reference id="8974276187400029896" name="declaration" index="1QGGTH" />
-      </concept>
-    </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
       <concept id="3205675194086589964" name="jetbrains.mps.lang.plugin.structure.ActionAccessOperation" flags="nn" index="3$FdUm">
         <reference id="3205675194086671728" name="action" index="3$FpRE" />
@@ -3381,14 +3375,16 @@
       <node concept="3clFbS" id="7k6J8c3tiyE" role="3clF47">
         <node concept="3clFbF" id="7k6J8c3tHsB" role="3cqZAp">
           <node concept="3K4zz7" id="7k6J8c3tiyH" role="3clFbG">
-            <node concept="1QGGTy" id="7k6J8c3tHsu" role="3K4E3e">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsn" resolve="OVERRIDDEN" />
-            </node>
-            <node concept="1QGGTy" id="7k6J8c3tHsz" role="3K4GZi">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsc" resolve="IMPLEMENTED" />
-            </node>
             <node concept="37vLTw" id="18Zp_RMzCOW" role="3K4Cdx">
               <ref role="3cqZAo" node="7k6J8c3tiyc" resolve="myOverridenFlag" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmY8nb" role="3K4E3e">
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
+              <ref role="3cqZAo" to="ew8r:2HvkRzmY3J6" resolve="OVERRIDDEN" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmYgan" role="3K4GZi">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmXZUS" resolve="IMPLEMENTED" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
             </node>
           </node>
         </node>
@@ -3524,17 +3520,19 @@
       <node concept="3clFbS" id="7k6J8c3tizO" role="3clF47">
         <node concept="3clFbF" id="7k6J8c3tHt3" role="3cqZAp">
           <node concept="3K4zz7" id="7k6J8c3tizR" role="3clFbG">
-            <node concept="1QGGTy" id="7k6J8c3tHt8" role="3K4E3e">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsq" resolve="OVERRIDING" />
-            </node>
-            <node concept="1QGGTy" id="7k6J8c3tHta" role="3K4GZi">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsh" resolve="IMPLEMENTING" />
-            </node>
             <node concept="2OqwBi" id="7k6J8c3tizT" role="3K4Cdx">
               <node concept="2OwXpG" id="7k6J8c3tizU" role="2OqNvi">
                 <ref role="2Oxat5" node="7k6J8c3tizm" resolve="isOverriding" />
               </node>
               <node concept="Xjq3P" id="7k6J8c3tizV" role="2Oq$k0" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmY$rw" role="3K4E3e">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmY3J$" resolve="OVERRIDING" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmYA7i" role="3K4GZi">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmY3IG" resolve="IMPLEMENTING" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
             </node>
           </node>
         </node>
@@ -3754,14 +3752,16 @@
       <node concept="3clFbS" id="7k6J8c3ti_u" role="3clF47">
         <node concept="3clFbF" id="7k6J8c3tHtk" role="3cqZAp">
           <node concept="3K4zz7" id="7k6J8c3ti_x" role="3clFbG">
-            <node concept="1QGGTy" id="7k6J8c3tHtc" role="3K4GZi">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsn" resolve="OVERRIDDEN" />
-            </node>
-            <node concept="1QGGTy" id="7k6J8c3tHte" role="3K4E3e">
-              <ref role="1QGGTH" to="ew8r:7k6J8c3tHsc" resolve="IMPLEMENTED" />
-            </node>
             <node concept="37vLTw" id="2BHiRxeuq69" role="3K4Cdx">
               <ref role="3cqZAo" node="7k6J8c3ti$b" resolve="myInterfaceFlag" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmYh5O" role="3K4GZi">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmY3J6" resolve="OVERRIDDEN" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
+            </node>
+            <node concept="10M0yZ" id="2HvkRzmYi5n" role="3K4E3e">
+              <ref role="3cqZAo" to="ew8r:2HvkRzmXZUS" resolve="IMPLEMENTED" />
+              <ref role="1PxDUh" to="ew8r:2HvkRzmXZKh" resolve="OverrideImplementsIcons" />
             </node>
           </node>
         </node>

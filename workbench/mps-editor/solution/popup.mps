@@ -4,7 +4,6 @@
   <languages>
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
-    <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="2" />
   </languages>
   <imports>
     <import index="y49u" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.util(MPS.OpenAPI/)" />
@@ -16,16 +15,9 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="z2i8" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.icons(MPS.IDEA/)" />
+    <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
   </imports>
   <registry>
-    <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
-      <concept id="8974276187400029885" name="jetbrains.mps.lang.resources.structure.OldIconBundle" flags="ng" index="1QGGSo">
-        <child id="8974276187400029886" name="icons" index="1QGGSr" />
-      </concept>
-      <concept id="8974276187400029888" name="jetbrains.mps.lang.resources.structure.OldIconDeclaration" flags="ng" index="1QGGT_">
-        <child id="8974276187400029889" name="iconExpression" index="1QGGT$" />
-      </concept>
-    </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
@@ -46,6 +38,7 @@
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
+      <concept id="1070462154015" name="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" flags="ig" index="Wx3nA" />
       <concept id="1070475587102" name="jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" flags="nn" index="XkiVB" />
       <concept id="1182160077978" name="jetbrains.mps.baseLanguage.structure.AnonymousClassCreator" flags="nn" index="YeOm9">
         <child id="1182160096073" name="cls" index="YeSDq" />
@@ -61,6 +54,7 @@
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg" />
       <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu">
         <property id="1075300953594" name="abstractClass" index="1sVAO0" />
+        <property id="1221565133444" name="isFinal" index="1EXbeo" />
         <child id="1165602531693" name="superclass" index="1zkMxy" />
       </concept>
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
@@ -348,36 +342,58 @@
       <ref role="3uigEE" to="7a0s:4iUaVbRglKh" resolve="AbstractLeftEditorHighlighterMessage" />
     </node>
   </node>
-  <node concept="1QGGSo" id="7k6J8c3tHsb">
-    <property role="TrG5h" value="OverrideImplements" />
-    <node concept="1QGGT_" id="7k6J8c3tHsc" role="1QGGSr">
+  <node concept="312cEu" id="2HvkRzmXZKh">
+    <property role="1EXbeo" value="true" />
+    <property role="TrG5h" value="OverrideImplementsIcons" />
+    <node concept="Wx3nA" id="2HvkRzmXZUS" role="jymVt">
+      <property role="3TUv4t" value="true" />
       <property role="TrG5h" value="IMPLEMENTED" />
-      <node concept="10M0yZ" id="2CgJjTGsUdY" role="1QGGT$">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="AllIcons.Gutter" />
+      <node concept="3Tm1VV" id="2HvkRzmXZVc" role="1B3o_S" />
+      <node concept="3uibUv" id="2HvkRzmY3It" role="1tU5fm">
+        <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+      </node>
+      <node concept="10M0yZ" id="2CgJjTGsUdY" role="33vP2m">
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="Gutter" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Gutter.ImplementedMethod" resolve="ImplementedMethod" />
       </node>
     </node>
-    <node concept="1QGGT_" id="7k6J8c3tHsh" role="1QGGSr">
+    <node concept="Wx3nA" id="2HvkRzmY3IG" role="jymVt">
+      <property role="3TUv4t" value="true" />
       <property role="TrG5h" value="IMPLEMENTING" />
-      <node concept="10M0yZ" id="2CgJjTGsUy4" role="1QGGT$">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="AllIcons.Gutter" />
+      <node concept="3Tm1VV" id="2HvkRzmY3IH" role="1B3o_S" />
+      <node concept="3uibUv" id="2HvkRzmY3II" role="1tU5fm">
+        <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+      </node>
+      <node concept="10M0yZ" id="2CgJjTGsUy4" role="33vP2m">
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="Gutter" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Gutter.ImplementingMethod" resolve="ImplementingMethod" />
       </node>
     </node>
-    <node concept="1QGGT_" id="7k6J8c3tHsn" role="1QGGSr">
+    <node concept="Wx3nA" id="2HvkRzmY3J6" role="jymVt">
+      <property role="3TUv4t" value="true" />
       <property role="TrG5h" value="OVERRIDDEN" />
-      <node concept="10M0yZ" id="2CgJjTGsUGl" role="1QGGT$">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="AllIcons.Gutter" />
+      <node concept="3Tm1VV" id="2HvkRzmY3J7" role="1B3o_S" />
+      <node concept="3uibUv" id="2HvkRzmY3J8" role="1tU5fm">
+        <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+      </node>
+      <node concept="10M0yZ" id="2CgJjTGsUGl" role="33vP2m">
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="Gutter" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Gutter.OverridenMethod" resolve="OverridenMethod" />
       </node>
     </node>
-    <node concept="1QGGT_" id="7k6J8c3tHsq" role="1QGGSr">
+    <node concept="Wx3nA" id="2HvkRzmY3J$" role="jymVt">
+      <property role="3TUv4t" value="true" />
       <property role="TrG5h" value="OVERRIDING" />
-      <node concept="10M0yZ" id="2CgJjTGsURJ" role="1QGGT$">
-        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="AllIcons.Gutter" />
+      <node concept="3Tm1VV" id="2HvkRzmY3J_" role="1B3o_S" />
+      <node concept="3uibUv" id="2HvkRzmY3JA" role="1tU5fm">
+        <ref role="3uigEE" to="dxuu:~Icon" resolve="Icon" />
+      </node>
+      <node concept="10M0yZ" id="2CgJjTGsURJ" role="33vP2m">
+        <ref role="1PxDUh" to="z2i8:~AllIcons$Gutter" resolve="Gutter" />
         <ref role="3cqZAo" to="z2i8:~AllIcons$Gutter.OverridingMethod" resolve="OverridingMethod" />
       </node>
     </node>
+    <node concept="3Tm1VV" id="2HvkRzmXZKi" role="1B3o_S" />
   </node>
 </model>
 
