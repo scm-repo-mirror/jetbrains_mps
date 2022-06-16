@@ -1,9 +1,8 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.psi;
 
-import com.intellij.ide.ui.UISettings;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
@@ -17,8 +16,6 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.SModelReference;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -30,7 +27,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.StreamSupport;
 
 public class MPSPsiNode extends LightElement implements MPSPsiElement {
-  private static final Logger LOG = LogManager.getLogger(MPSPsiNode.class);
 
   private final SNodeReference myNodeReference;
   private final SRepository myRepo;

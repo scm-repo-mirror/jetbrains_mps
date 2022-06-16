@@ -16,6 +16,7 @@
 package jetbrains.mps.text.impl;
 
 import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.ModelDependencyScanner;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.language.LanguageRegistry;
@@ -24,7 +25,6 @@ import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.text.MissingTextGenDescriptor;
 import jetbrains.mps.text.rt.TextGenAspectDescriptor;
 import jetbrains.mps.text.rt.TextGenDescriptor;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -128,7 +128,7 @@ public class TextGenRegistry implements CoreComponent, LanguageRegistryListener 
     LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(concept.getLanguage());
     if (languageRuntime == null) {
       // Then language was just renamed and was not re-generated then it can happen that it has no
-      Logger.getLogger(TextGenRegistry.class).warn(String.format("No language for concept %s, while looking for textgen descriptor.", concept));
+      Logger.getLogger(TextGenRegistry.class).warning(String.format("No language for concept %s, while looking for textgen descriptor.", concept));
       return null;
     } else {
       return languageRuntime.getAspect(TextGenAspectDescriptor.class);

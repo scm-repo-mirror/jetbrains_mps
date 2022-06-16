@@ -7,10 +7,10 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="5" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
   </languages>
   <imports>
     <import index="ends" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.persistence(MPS.Core/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
@@ -43,6 +43,9 @@
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
         <child id="1082485599096" name="statements" index="9aQI4" />
+      </concept>
+      <concept id="7485977462274819189" name="jetbrains.mps.baseLanguage.structure.FormatOperation" flags="ng" index="2cAKMz">
+        <child id="7485977462274819664" name="arguments" index="2cAKU6" />
       </concept>
       <concept id="1215693861676" name="jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression" flags="nn" index="d038R">
         <child id="1068498886297" name="rValue" index="37vLTx" />
@@ -235,9 +238,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
-      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
-        <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
       <concept id="1200397529627" name="jetbrains.mps.baseLanguage.structure.CharConstant" flags="nn" index="1Xhbcc">
         <property id="1200397540847" name="charConstant" index="1XhdNS" />
       </concept>
@@ -266,6 +266,13 @@
       </concept>
       <concept id="6985522012210254362" name="jetbrains.mps.lang.quotation.structure.NodeBuilderPropertyExpression" flags="nn" index="WxPPo">
         <child id="6985522012210254363" name="expression" index="WxPPp" />
+      </concept>
+    </language>
+    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
+      <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
+        <property id="2034914114981261751" name="severity" index="RRSoG" />
+        <child id="2034914114981261755" name="throwable" index="RRSow" />
+        <child id="2034914114981261753" name="message" index="RRSoy" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -359,21 +366,6 @@
   </registry>
   <node concept="312cEu" id="3urGXjhz7oK">
     <property role="TrG5h" value="PropertyFilesStubModelRoot" />
-    <node concept="Wx3nA" id="3se2FvxAxve" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3Tm6S6" id="3se2FvxAuBj" role="1B3o_S" />
-      <node concept="3uibUv" id="3se2FvxAxnd" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-      <node concept="2YIFZM" id="3se2FvxAz_I" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-        <node concept="3VsKOn" id="3se2FvxAzTJ" role="37wK5m">
-          <ref role="3VsUkX" node="3urGXjhz7oK" resolve="PropertyFilesStubModelRoot" />
-        </node>
-      </node>
-    </node>
     <node concept="312cEg" id="3hCHlvt0G05" role="jymVt">
       <property role="TrG5h" value="myFacade" />
       <property role="3TUv4t" value="true" />
@@ -992,29 +984,19 @@
               </node>
               <node concept="9aQIb" id="3lXdTo1Gceu" role="9aQIa">
                 <node concept="3clFbS" id="3lXdTo1Gcev" role="9aQI4">
-                  <node concept="3clFbF" id="3lXdTo1GcBm" role="3cqZAp">
-                    <node concept="2OqwBi" id="3lXdTo1Gdrc" role="3clFbG">
-                      <node concept="37vLTw" id="3lXdTo1GcBl" role="2Oq$k0">
-                        <ref role="3cqZAo" node="3se2FvxAxve" resolve="LOG" />
+                  <node concept="RRSsy" id="6V2p7IueaaX" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fh_4/error" />
+                    <node concept="2OqwBi" id="6V2p7IuenP_" role="RRSoy">
+                      <node concept="Xl_RD" id="3lXdTo1GeyK" role="2Oq$k0">
+                        <property role="Xl_RC" value="The source root at %s  s not a directory and so cannot be loaded." />
                       </node>
-                      <node concept="liA8E" id="3lXdTo1Geg9" role="2OqNvi">
-                        <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object)" resolve="error" />
-                        <node concept="3cpWs3" id="3lXdTo1GfXN" role="37wK5m">
-                          <node concept="Xl_RD" id="3lXdTo1Gg7T" role="3uHU7w">
-                            <property role="Xl_RC" value=" is not a directory and so cannot be loaded." />
+                      <node concept="2cAKMz" id="6V2p7Iues$d" role="2OqNvi">
+                        <node concept="2OqwBi" id="3lXdTo1Gf$w" role="2cAKU6">
+                          <node concept="37vLTw" id="3lXdTo1Gfod" role="2Oq$k0">
+                            <ref role="3cqZAo" node="6STCsy2s48R" resolve="file" />
                           </node>
-                          <node concept="3cpWs3" id="3lXdTo1Gf93" role="3uHU7B">
-                            <node concept="Xl_RD" id="3lXdTo1GeyK" role="3uHU7B">
-                              <property role="Xl_RC" value="The source root at " />
-                            </node>
-                            <node concept="2OqwBi" id="3lXdTo1Gf$w" role="3uHU7w">
-                              <node concept="37vLTw" id="3lXdTo1Gfod" role="2Oq$k0">
-                                <ref role="3cqZAo" node="6STCsy2s48R" resolve="file" />
-                              </node>
-                              <node concept="liA8E" id="3lXdTo1GfK8" role="2OqNvi">
-                                <ref role="37wK5l" to="ends:~SourceRoot.getAbsolutePath()" resolve="getAbsolutePath" />
-                              </node>
-                            </node>
+                          <node concept="liA8E" id="3lXdTo1GfK8" role="2OqNvi">
+                            <ref role="37wK5l" to="ends:~SourceRoot.getAbsolutePath()" resolve="getAbsolutePath" />
                           </node>
                         </node>
                       </node>
@@ -1432,29 +1414,19 @@
               </node>
               <node concept="9aQIb" id="3se2FvxArsT" role="9aQIa">
                 <node concept="3clFbS" id="3se2FvxArsU" role="9aQI4">
-                  <node concept="3clFbF" id="3se2FvxAAy1" role="3cqZAp">
-                    <node concept="2OqwBi" id="3se2FvxAAGY" role="3clFbG">
-                      <node concept="37vLTw" id="3se2FvxAAy0" role="2Oq$k0">
-                        <ref role="3cqZAo" node="3se2FvxAxve" resolve="LOG" />
+                  <node concept="RRSsy" id="6V2p7Iuf3eN" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fh_4/error" />
+                    <node concept="2OqwBi" id="6V2p7IufhNZ" role="RRSoy">
+                      <node concept="Xl_RD" id="3se2FvxABhQ" role="2Oq$k0">
+                        <property role="Xl_RC" value="Could not create property  files source stub model for directory %s (failed to guess the folder name)" />
                       </node>
-                      <node concept="liA8E" id="3se2FvxAB8z" role="2OqNvi">
-                        <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object)" resolve="error" />
-                        <node concept="3cpWs3" id="3se2FvxADOw" role="37wK5m">
-                          <node concept="Xl_RD" id="3se2FvxADOF" role="3uHU7w">
-                            <property role="Xl_RC" value=" (failed to guess the folder name)" />
+                      <node concept="2cAKMz" id="6V2p7IuflR6" role="2OqNvi">
+                        <node concept="2OqwBi" id="3se2FvxAD5O" role="2cAKU6">
+                          <node concept="37vLTw" id="3se2FvxACWB" role="2Oq$k0">
+                            <ref role="3cqZAo" node="1__2wAbtf_x" resolve="dir" />
                           </node>
-                          <node concept="3cpWs3" id="3se2FvxACUL" role="3uHU7B">
-                            <node concept="Xl_RD" id="3se2FvxABhQ" role="3uHU7B">
-                              <property role="Xl_RC" value="Could not create property  files source stub model for directory " />
-                            </node>
-                            <node concept="2OqwBi" id="3se2FvxAD5O" role="3uHU7w">
-                              <node concept="37vLTw" id="3se2FvxACWB" role="2Oq$k0">
-                                <ref role="3cqZAo" node="1__2wAbtf_x" resolve="dir" />
-                              </node>
-                              <node concept="liA8E" id="3se2FvxADzZ" role="2OqNvi">
-                                <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
-                              </node>
-                            </node>
+                          <node concept="liA8E" id="3se2FvxADzZ" role="2OqNvi">
+                            <ref role="37wK5l" to="3ju5:~IFile.getPath()" resolve="getPath" />
                           </node>
                         </node>
                       </node>
@@ -1625,21 +1597,6 @@
   </node>
   <node concept="312cEu" id="3urGXjhzd23">
     <property role="TrG5h" value="PropertyFilesDataSource" />
-    <node concept="Wx3nA" id="3se2Fvx_xLH" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3Tm6S6" id="3se2Fvx_wvZ" role="1B3o_S" />
-      <node concept="2YIFZM" id="3se2Fvx_z7e" role="33vP2m">
-        <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-        <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-        <node concept="3VsKOn" id="3se2Fvx_$eh" role="37wK5m">
-          <ref role="3VsUkX" node="3urGXjhzd23" resolve="PropertyFilesDataSource" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="3se2Fvx_z4P" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-    </node>
     <node concept="2tJIrI" id="3urGXjhzdeb" role="jymVt" />
     <node concept="3Tm1VV" id="3urGXjhzd24" role="1B3o_S" />
     <node concept="3uibUv" id="3urGXjhzd2Z" role="1zkMxy">
@@ -1764,21 +1721,6 @@
   </node>
   <node concept="312cEu" id="3urGXjhzSk2">
     <property role="TrG5h" value="PropertyFilesStubModelDescriptor" />
-    <node concept="Wx3nA" id="1nLyZqZ7QbP" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <property role="3TUv4t" value="true" />
-      <node concept="3uibUv" id="1nLyZqZ7QbQ" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-      <node concept="2YIFZM" id="1nLyZqZ7QbR" role="33vP2m">
-        <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-        <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-        <node concept="3VsKOn" id="1nLyZqZ7QbS" role="37wK5m">
-          <ref role="3VsUkX" node="3urGXjhzSk2" resolve="PropertyFilesStubModelDescriptor" />
-        </node>
-      </node>
-      <node concept="3Tm6S6" id="1nLyZqZ7QbT" role="1B3o_S" />
-    </node>
     <node concept="Wx3nA" id="1DJXmnO20D5" role="jymVt">
       <property role="3TUv4t" value="true" />
       <property role="TrG5h" value="PROPERTY_DEF_LANGUAGE" />
@@ -1918,26 +1860,18 @@
               </node>
             </node>
             <node concept="3clFbS" id="1nLyZqZ67_9" role="1zc67A">
-              <node concept="3clFbF" id="1nLyZqZ81q5" role="3cqZAp">
-                <node concept="2OqwBi" id="1nLyZqZ81q6" role="3clFbG">
-                  <node concept="10M0yZ" id="3urGXjh$k0w" role="2Oq$k0">
-                    <ref role="3cqZAo" node="1nLyZqZ7QbP" resolve="LOG" />
-                    <ref role="1PxDUh" node="3urGXjhzSk2" resolve="PropertyFilesStubModelDescriptor" />
+              <node concept="RRSsy" id="6V2p7Iud9M8" role="3cqZAp">
+                <property role="RRSoG" value="gZ5fksE/warn" />
+                <node concept="2OqwBi" id="6V2p7Iudi0M" role="RRSoy">
+                  <node concept="37vLTw" id="6V2p7Iudf4Z" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
                   </node>
-                  <node concept="liA8E" id="1nLyZqZ81q7" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.warn(java.lang.Object,java.lang.Throwable)" resolve="warn" />
-                    <node concept="2OqwBi" id="1nLyZqZ81q8" role="37wK5m">
-                      <node concept="37vLTw" id="1nLyZqZ81q9" role="2Oq$k0">
-                        <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
-                      </node>
-                      <node concept="liA8E" id="1nLyZqZ81qa" role="2OqNvi">
-                        <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
-                      </node>
-                    </node>
-                    <node concept="37vLTw" id="1nLyZqZ81qb" role="37wK5m">
-                      <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
-                    </node>
+                  <node concept="liA8E" id="6V2p7IudkMo" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
                   </node>
+                </node>
+                <node concept="37vLTw" id="6V2p7IudnVC" role="RRSow">
+                  <ref role="3cqZAo" node="1nLyZqZ67_a" resolve="e" />
                 </node>
               </node>
               <node concept="3cpWs8" id="3sPzdxadT7h" role="3cqZAp">
@@ -2325,20 +2259,15 @@
                         </node>
                         <node concept="3clFbJ" id="3urGXjh$Air" role="3cqZAp">
                           <node concept="3clFbS" id="3urGXjh$Ait" role="3clFbx">
-                            <node concept="3clFbF" id="3urGXjh$Dy_" role="3cqZAp">
-                              <node concept="2OqwBi" id="3urGXjh$E5X" role="3clFbG">
-                                <node concept="37vLTw" id="3urGXjhAihk" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="1nLyZqZ7QbP" resolve="LOG" />
+                            <node concept="RRSsy" id="6V2p7Iud$UZ" role="3cqZAp">
+                              <property role="RRSoG" value="h1akgim/info" />
+                              <node concept="2OqwBi" id="6V2p7IudLMh" role="RRSoy">
+                                <node concept="Xl_RD" id="3urGXjh$ERX" role="2Oq$k0">
+                                  <property role="Xl_RC" value="No key=value separator found on this line: %d" />
                                 </node>
-                                <node concept="liA8E" id="3urGXjh$EFj" role="2OqNvi">
-                                  <ref role="37wK5l" to="q7tw:~Category.info(java.lang.Object)" resolve="info" />
-                                  <node concept="3cpWs3" id="3urGXjh$GIJ" role="37wK5m">
-                                    <node concept="37vLTw" id="3urGXjh$GJ9" role="3uHU7w">
-                                      <ref role="3cqZAo" node="3urGXjh$s34" resolve="line" />
-                                    </node>
-                                    <node concept="Xl_RD" id="3urGXjh$ERX" role="3uHU7B">
-                                      <property role="Xl_RC" value="No key=value separator found on this line: " />
-                                    </node>
+                                <node concept="2cAKMz" id="6V2p7IudP8o" role="2OqNvi">
+                                  <node concept="37vLTw" id="6V2p7IudRLg" role="2cAKU6">
+                                    <ref role="3cqZAo" node="3urGXjh$s34" resolve="line" />
                                   </node>
                                 </node>
                               </node>

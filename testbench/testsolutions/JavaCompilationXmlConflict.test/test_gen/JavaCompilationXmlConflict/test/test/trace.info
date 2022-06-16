@@ -9,7 +9,7 @@
     <file name="TestCompilation_Test.java">
       <node id="8449002106978639917" at="24,0,25,0" concept="4" trace="PROJECT_PATH" />
       <node id="7122818462003117667" at="26,55,27,78" concept="2" />
-      <node id="8077162446288430989" at="27,78,28,140" concept="2" />
+      <node id="8077162446288430989" at="27,78,28,136" concept="2" />
       <node id="7122818462003122058" at="29,50,30,65" concept="2" />
       <node id="7122818462003124751" at="30,65,31,51" concept="0" />
       <node id="8077162446288433250" at="31,51,32,84" concept="0" />
@@ -18,7 +18,7 @@
       <node id="1809965251472643120" at="35,0,36,73" concept="2" />
       <node id="430932450842854185" at="36,73,37,40" concept="0" />
       <node id="7122818462003176936" at="37,40,38,37" concept="0" />
-      <node id="4766190306072323081" at="28,140,34,7" concept="0" />
+      <node id="4766190306072323081" at="28,136,34,7" concept="0" />
       <node id="7122818462003109476" at="25,0,40,0" concept="1" trace="test_compileSolution#()V" />
       <scope id="4766190306072329348" at="29,50,33,70">
         <var name="projectModules" id="7122818462003122059" />

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package jetbrains.mps.typesystem.checking;
 
 import jetbrains.mps.checkers.ICheckingPostprocessor;
 import jetbrains.mps.errors.item.NodeReportItem;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.EditorMessage;
 import jetbrains.mps.nodeEditor.checking.UpdateResult;
 import jetbrains.mps.nodeEditor.checking.UpdateResult.Completed;
@@ -25,8 +26,6 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typechecking.TypecheckingSession;
 import jetbrains.mps.util.Cancellable;
 import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -41,7 +40,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public class TypesEditorChecker extends AbstractTypesystemEditorChecker {
-  private static final Logger LOG = LogManager.getLogger(TypesEditorChecker.class);
 
   public TypesEditorChecker(SRepository repository, Collection<ICheckingPostprocessor<NodeReportItem>> postprocessors) {
     super(repository, postprocessors);
@@ -78,7 +76,7 @@ public class TypesEditorChecker extends AbstractTypesystemEditorChecker {
 
 
         } catch (Throwable t) {
-          LOG.error(null, t);
+          Logger.getLogger(TypesEditorChecker.class).error(t);
           return UpdateResult.CANCELLED;
         }
       }

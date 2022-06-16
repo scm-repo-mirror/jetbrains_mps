@@ -15,7 +15,7 @@
  */
 package jetbrains.mps;
 
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 
 /**
  * Replacement for MPSCore#isMergeDriverMode and MPSCore#isTestMode as these flags has nothing to do with

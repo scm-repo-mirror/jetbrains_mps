@@ -4,7 +4,7 @@ package jetbrains.mps.idea.java.psiStubs;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.smodel.RegularModelDescriptor;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNodeId;
@@ -31,7 +31,6 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import com.intellij.psi.PsiClass;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import jetbrains.mps.smodel.CopyUtil;
@@ -111,7 +110,7 @@ public class PsiJavaStubModelDescriptor extends RegularModelDescriptor implement
             for (PsiClass cls : jf.getClasses()) {
               SNode node = converter.convertClass(cls);
               if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ) && (javaImports != null)) {
-                AttributeOperations.setAttribute(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN), javaImports);
+                new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN).set(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), javaImports);
               }
               // TODO check for duplicate ids (in java sources there may be 2 classes with the same name 
               //  which is an error but none the less) 
@@ -185,7 +184,7 @@ public class PsiJavaStubModelDescriptor extends RegularModelDescriptor implement
       for (PsiClass cls : file.getClasses()) {
         SNode node = converter.convertClass(cls);
         if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ) && (javaImports != null)) {
-          AttributeOperations.setAttribute(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN), javaImports);
+          new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN).set(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), javaImports);
         }
 
         modelCopy.addRootNode(node);

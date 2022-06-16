@@ -34,7 +34,6 @@
     <import index="ykok" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.constraints(MPS.Core/)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
     <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -14344,21 +14343,10 @@
             <node concept="3clFbS" id="4y5Xi4pL32o" role="9aQI4">
               <node concept="3clFbJ" id="4y5Xi4pL8zb" role="3cqZAp">
                 <node concept="3clFbS" id="4y5Xi4pL8zd" role="3clFbx">
-                  <node concept="3clFbF" id="4y5Xi4pLd7y" role="3cqZAp">
-                    <node concept="2OqwBi" id="4y5Xi4pLh9U" role="3clFbG">
-                      <node concept="2YIFZM" id="4y5Xi4pLdtO" role="2Oq$k0">
-                        <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-                        <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-                        <node concept="3VsKOn" id="4y5Xi4pLdXH" role="37wK5m">
-                          <ref role="3VsUkX" node="47k7VnvViZM" resolve="ClassifierResolveUtils" />
-                        </node>
-                      </node>
-                      <node concept="liA8E" id="4y5Xi4pLkjL" role="2OqNvi">
-                        <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object)" resolve="error" />
-                        <node concept="Xl_RD" id="4y5Xi4pL8rh" role="37wK5m">
-                          <property role="Xl_RC" value="need a context to resolve anything within a model" />
-                        </node>
-                      </node>
+                  <node concept="RRSsy" id="6V2p7Iui3TT" role="3cqZAp">
+                    <property role="RRSoG" value="gZ5fh_4/error" />
+                    <node concept="Xl_RD" id="4y5Xi4pL8rh" role="RRSoy">
+                      <property role="Xl_RC" value="need a context to resolve anything within a model" />
                     </node>
                   </node>
                   <node concept="3cpWs6" id="4y5Xi4pLkxv" role="3cqZAp">

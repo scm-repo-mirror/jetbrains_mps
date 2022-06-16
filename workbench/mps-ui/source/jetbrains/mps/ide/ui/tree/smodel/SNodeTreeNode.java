@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,7 @@ import jetbrains.mps.ide.ui.tree.ErrorState;
 import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
 import jetbrains.mps.ide.ui.tree.TreeErrorMessage;
 import jetbrains.mps.ide.ui.util.NodeAttributesUtil;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -35,7 +34,6 @@ import java.awt.font.TextAttribute;
 import java.util.stream.StreamSupport;
 
 public class SNodeTreeNode extends MPSTreeNodeEx implements NodeTargetProvider {
-  private static final Logger LOG = LogManager.getLogger(SNodeTreeNode.class);
 
 
   // Must stay protected - used in com.mbeddr.mpsutil.targetchooser.TargetChooser
@@ -196,7 +194,7 @@ public class SNodeTreeNode extends MPSTreeNodeEx implements NodeTargetProvider {
         nodePresentation = node.getPresentation();
       } catch (Throwable t) {
         nodePresentation = null;
-        LOG.error(null, t);
+        Logger.getLogger(SNodeTreeNode.class).error(t);
       }
       String nodeString = nodePresentation;
       output.append(nodeString);

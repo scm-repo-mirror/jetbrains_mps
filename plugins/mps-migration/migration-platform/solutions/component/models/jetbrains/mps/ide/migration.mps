@@ -64,10 +64,10 @@
     <import index="i5cy" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent.atomic(JDK/)" />
     <import index="gspm" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui.popup(MPS.IDEA/)" />
     <import index="cttk" ref="r:5ff047e0-2953-4750-806a-bdc16824aa89(jetbrains.mps.smodel)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="et5u" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.messages(MPS.Core/)" />
     <import index="qkt" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.actionSystem(MPS.IDEA/)" />
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -4960,21 +4960,6 @@
                       <node concept="1QHqEK" id="9_P5txe1pz" role="3cqZAp">
                         <node concept="1QHqEC" id="9_P5txe1p_" role="1QHqEI">
                           <node concept="3clFbS" id="9_P5txe1pB" role="1bW5cS">
-                            <node concept="3cpWs8" id="7kOTsA1_2fh" role="3cqZAp">
-                              <node concept="3cpWsn" id="7kOTsA1_2fi" role="3cpWs9">
-                                <property role="TrG5h" value="logger" />
-                                <node concept="3uibUv" id="7kOTsA1_15r" role="1tU5fm">
-                                  <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-                                </node>
-                                <node concept="2YIFZM" id="7kOTsA1_2fj" role="33vP2m">
-                                  <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-                                  <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-                                  <node concept="3VsKOn" id="7kOTsA1_2fk" role="37wK5m">
-                                    <ref role="3VsUkX" node="75eqTYkpEpV" resolve="AntTaskExecutionUtil" />
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
                             <node concept="3clFbF" id="61n5glKkuS4" role="3cqZAp">
                               <node concept="2OqwBi" id="61n5glKkvi6" role="3clFbG">
                                 <node concept="37vLTw" id="61n5glKkuS3" role="2Oq$k0">
@@ -4984,9 +4969,13 @@
                                   <ref role="37wK5l" to="o8ag:61n5glKgCIJ" resolve="logProblems" />
                                   <node concept="2ShNRf" id="7kOTsA1_aUG" role="37wK5m">
                                     <node concept="1pGfFk" id="7kOTsA1_kLh" role="2ShVmc">
-                                      <ref role="37wK5l" to="et5u:~LogHandler.&lt;init&gt;(org.apache.log4j.Logger)" resolve="LogHandler" />
-                                      <node concept="37vLTw" id="7kOTsA1_mh3" role="37wK5m">
-                                        <ref role="3cqZAo" node="7kOTsA1_2fi" resolve="logger" />
+                                      <ref role="37wK5l" to="et5u:~LogHandler.&lt;init&gt;(jetbrains.mps.logging.Logger)" resolve="LogHandler" />
+                                      <node concept="2YIFZM" id="4ms$LpNP3kL" role="37wK5m">
+                                        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+                                        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+                                        <node concept="3VsKOn" id="4ms$LpNP3kM" role="37wK5m">
+                                          <ref role="3VsUkX" node="75eqTYkpEpV" resolve="AntTaskExecutionUtil" />
+                                        </node>
                                       </node>
                                     </node>
                                   </node>

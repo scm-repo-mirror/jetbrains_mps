@@ -4,8 +4,7 @@ package jetbrains.mps.ide.platform.dialogs.choosers;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.ui.DialogWrapper;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.workbench.goTo.ui.ChooseByNamePanel;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import com.intellij.openapi.project.Project;
@@ -13,7 +12,6 @@ import com.intellij.ide.util.gotoByName.ChooseByNameModel;
 import jetbrains.mps.workbench.goTo.ui.MpsPopupFactory;
 import com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent;
 import com.intellij.openapi.application.ModalityState;
-import org.apache.log4j.Level;
 import jetbrains.mps.workbench.choose.ChooseByNameData;
 import jetbrains.mps.workbench.choose.NodesPresentation;
 import jetbrains.mps.ide.project.ProjectHelper;
@@ -29,7 +27,7 @@ import java.awt.Dimension;
 
 @GeneratedClass(node = "r:bfb6ca7e-5411-4ee0-a5c0-1edd33370efd(jetbrains.mps.ide.platform.dialogs.choosers)/397101727194120959", model = "r:bfb6ca7e-5411-4ee0-a5c0-1edd33370efd(jetbrains.mps.ide.platform.dialogs.choosers)")
 public class NodeChooserDialog extends DialogWrapper {
-  private static final Logger LOG = LogManager.getLogger(NodeChooserDialog.class);
+  private static final Logger LOG = Logger.getLogger(NodeChooserDialog.class);
   private final ChooseByNamePanel myChooser;
   private SNodeReference myChosenElement;
 
@@ -55,8 +53,8 @@ public class NodeChooserDialog extends DialogWrapper {
     if (element instanceof SNodeReference) {
       myChosenElement = (SNodeReference) element;
     } else {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn("Only SNodeReference can be chosen");
+      if (LOG.isWarningLevel()) {
+        LOG.warning("Only SNodeReference can be chosen");
       }
     }
 

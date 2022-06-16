@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  * Types of messages reported through {@link IMessageHandler}.
  * Note, this is not a replacement for logging facilities. {@linkplain IMessage Messages} are intended for end-user
  * and thus levels other than 'severe issue', 'worth mentioning' and 'if you are curious' do not make sense here.
- * If you need trace/debug levels, use {@link org.apache.log4j.Logger}.
+ * If you need trace/debug levels, use {@link java.util.logging.Logger}.
  */
 public enum MessageKind {
   INFORMATION, WARNING, ERROR;

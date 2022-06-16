@@ -17,8 +17,7 @@ package jetbrains.mps.vfs.iofs.jar;
 
 import gnu.trove.THashMap;
 import gnu.trove.THashSet;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -38,7 +37,7 @@ import java.util.zip.ZipFile;
  * It stores cache with all subdirectories and all entries
  */
 class JarFileData extends AbstractJarFileData {
-  private static Logger LOG = LogManager.getLogger(JarFileData.class);
+  private static Logger LOG = Logger.getLogger(JarFileData.class);
 
   private final Object myLock = new Object();
   private boolean isInitialized = false;

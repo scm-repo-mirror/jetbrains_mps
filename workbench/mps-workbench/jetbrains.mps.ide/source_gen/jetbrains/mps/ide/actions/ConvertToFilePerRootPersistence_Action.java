@@ -5,8 +5,7 @@ package jetbrains.mps.ide.actions;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
 import com.intellij.openapi.actionSystem.UpdateInBackground;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import javax.swing.Icon;
 import jetbrains.mps.workbench.action.ActionAccess;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -28,7 +27,6 @@ import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
-import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.persistence.DataSource;
@@ -41,7 +39,7 @@ import org.jetbrains.mps.openapi.persistence.ModelSaveException;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/3616898894718121639", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class ConvertToFilePerRootPersistence_Action extends BaseAction implements UpdateInBackground {
-  private static final Logger LOG = LogManager.getLogger(ConvertToFilePerRootPersistence_Action.class);
+  private static final Logger LOG = Logger.getLogger(ConvertToFilePerRootPersistence_Action.class);
   private static final Icon ICON = null;
 
   public ConvertToFilePerRootPersistence_Action() {
@@ -129,7 +127,7 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
     final ModelFactoryService modelFactoryService = mpsProject.getComponent(ModelFactoryService.class);
     final ModelFactory filePerRootFactory = modelFactoryService.getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
     if (filePerRootFactory == null) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
+      if (LOG.isErrorLevel()) {
         LOG.error("No ModelFactory for per-root persistence found");
       }
       return;
@@ -145,7 +143,7 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
         }
       });
       if (Sequence.fromIterable(problems).isNotEmpty()) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error(String.format("Skip converting %s: %s.", name, Sequence.fromIterable(problems).first().getText()));
         }
         continue;
@@ -163,7 +161,7 @@ public class ConvertToFilePerRootPersistence_Action extends BaseAction implement
         oldDS.delete();
         ((AbstractModule) module).updateModelsSet();
       } catch (IOException | ModelCannotBeCreatedException | ModelSaveException ex) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error(String.format("cannot write %s", name) + smodel, ex);
         }
       }

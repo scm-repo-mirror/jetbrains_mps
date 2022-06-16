@@ -4,8 +4,7 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.workbench.action.BaseAction;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
@@ -19,7 +18,6 @@ import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.apache.log4j.Level;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
@@ -29,7 +27,7 @@ import jetbrains.mps.util.IterableUtil;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/8671835029167053045", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class CalcSNodeStatistic_Action extends BaseAction {
-  private static final Logger LOG = LogManager.getLogger(CalcSNodeStatistic_Action.class);
+  private static final Logger LOG = Logger.getLogger(CalcSNodeStatistic_Action.class);
   private static final Icon ICON = null;
 
   public CalcSNodeStatistic_Action() {
@@ -67,16 +65,16 @@ public class CalcSNodeStatistic_Action extends BaseAction {
         final ProgressMonitorAdapter progress = new ProgressMonitorAdapter(indicator);
         ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(() -> {
           Iterable<? extends SModule> modules = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModulesWithGenerators();
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn("Modules: " + Sequence.fromIterable(modules).count());
+          if (LOG.isWarningLevel()) {
+            LOG.warning("Modules: " + Sequence.fromIterable(modules).count());
           }
           Iterable<SModel> models = Sequence.fromIterable(modules).translate(new ITranslator2<SModule, SModel>() {
             public Iterable<SModel> translate(SModule it) {
               return it.getModels();
             }
           });
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn("Models: " + Sequence.fromIterable(models).count());
+          if (LOG.isWarningLevel()) {
+            LOG.warning("Models: " + Sequence.fromIterable(models).count());
           }
 
           progress.start("Traversing models...", Sequence.fromIterable(models).count());
@@ -103,17 +101,17 @@ public class CalcSNodeStatistic_Action extends BaseAction {
       }
     });
 
-    if (LOG.isEnabledFor(Level.WARN)) {
-      LOG.warn("Property size statistic: " + propertiesStatistic);
+    if (LOG.isWarningLevel()) {
+      LOG.warning("Property size statistic: " + propertiesStatistic);
     }
-    if (LOG.isEnabledFor(Level.WARN)) {
-      LOG.warn("Refs size statistic: " + refsStatistic);
+    if (LOG.isWarningLevel()) {
+      LOG.warning("Refs size statistic: " + refsStatistic);
     }
-    if (LOG.isEnabledFor(Level.WARN)) {
-      LOG.warn("Children size statistic: " + childrenStatistic);
+    if (LOG.isWarningLevel()) {
+      LOG.warning("Children size statistic: " + childrenStatistic);
     }
-    if (LOG.isEnabledFor(Level.WARN)) {
-      LOG.warn("Zeros statistic: " + zeros.value);
+    if (LOG.isWarningLevel()) {
+      LOG.warning("Zeros statistic: " + zeros.value);
     }
   }
 }

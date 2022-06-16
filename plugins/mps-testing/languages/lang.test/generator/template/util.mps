@@ -10,9 +10,9 @@
     <import index="tp5o" ref="r:00000000-0000-4000-0000-011c89590380(jetbrains.mps.lang.test.behavior)" />
     <import index="tp5g" ref="r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
   </imports>
@@ -232,14 +232,14 @@
         <node concept="3clFbF" id="7v5ch11ErzB" role="3cqZAp">
           <node concept="2OqwBi" id="7v5ch11ErzC" role="3clFbG">
             <node concept="2YIFZM" id="7v5ch11ErzD" role="2Oq$k0">
-              <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
-              <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
+              <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+              <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
               <node concept="3VsKOn" id="7v5ch11ErzE" role="37wK5m">
                 <ref role="3VsUkX" node="L0xQjiTXbn" resolve="TestsUtil" />
               </node>
             </node>
             <node concept="liA8E" id="7v5ch11ErzF" role="2OqNvi">
-              <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object)" resolve="error" />
+              <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String)" resolve="error" />
               <node concept="2YIFZM" id="7v5ch11ErzG" role="37wK5m">
                 <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                 <ref role="1Pybhc" to="wyt6:~String" resolve="String" />

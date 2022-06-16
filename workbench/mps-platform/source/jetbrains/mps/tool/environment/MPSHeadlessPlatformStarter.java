@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+ * Copyright 2000-2022 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 package jetbrains.mps.tool.environment;
 
@@ -48,6 +48,9 @@ public final class MPSHeadlessPlatformStarter implements ApplicationStarter {
     /*package*/ Application createApp() {
       try {
         StartupUtil.start(MAIN_CLASS.getName(),
+                          true, // Since 2022.1, IDEA takes isHeadless explicitly (although still uses Main.isHeadless())
+                          true, // XXX if start() fails, Main.showMessage reports an error, and needs to detect
+                                // isHeadless || isCommandLine from Main e.g. not to show message dialog on TC
                           new String[]{MPSHeadlessPlatformStarter.CMD_NAME},
                           new LinkedHashMap<>());
       } catch (Exception e) {

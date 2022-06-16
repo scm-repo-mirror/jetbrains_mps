@@ -22,8 +22,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.openapi.wm.ex.WindowManagerEx;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +31,7 @@ import javax.swing.JFrame;
 import java.awt.Window;
 
 public class FrameRule implements GetDataRule {
-  private static final Logger LOG = LogManager.getLogger(FrameRule.class);
+  private static final Logger LOG = Logger.getLogger(FrameRule.class);
 
   @Override
   @Nullable

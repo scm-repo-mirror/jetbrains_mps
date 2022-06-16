@@ -21,12 +21,12 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.library.BaseLibraryManager.LibraryState;
 import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.library.contributor.LibraryContributor;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.util.PathFormatChecker.PathFormatException;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -84,7 +84,7 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
           // fixme apyshkin
           Matcher matcher = MacroHelper.MACRO_PATTERN.matcher(e.getProblemPath());
           if (matcher.find()) {
-            LogManager.getLogger(BaseLibraryManager.class).warn("Some paths might contain unknown macros, please define them in 'Path variables'");
+            Logger.getLogger(BaseLibraryManager.class).warning("Some paths might contain unknown macros, please define them in 'Path variables'");
           } else {
             throw e;
           }

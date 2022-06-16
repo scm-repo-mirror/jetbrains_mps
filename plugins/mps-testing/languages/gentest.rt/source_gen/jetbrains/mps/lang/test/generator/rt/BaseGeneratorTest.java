@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import org.jetbrains.mps.openapi.project.Project;
 import jetbrains.mps.messages.LogHandler;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.test.matcher.NodeDifference;
 import jetbrains.mps.smodel.ModelAccessHelper;

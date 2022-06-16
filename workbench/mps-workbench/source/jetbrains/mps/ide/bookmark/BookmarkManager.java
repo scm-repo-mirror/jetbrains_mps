@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,12 +32,11 @@ import com.intellij.util.PlatformIcons;
 import com.intellij.util.ui.JBCachingScalableIcon;
 import jetbrains.mps.ide.bookmark.BookmarkManager.MyState;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.Highlighter;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -69,7 +68,7 @@ import static java.lang.Math.ceil;
     storages = @Storage(StoragePathMacros.WORKSPACE_FILE)
 )
 public class BookmarkManager implements ProjectComponent, PersistentStateComponent<MyState> {
-  private static final Logger LOG = LogManager.getLogger(BookmarkManager.class);
+  private static final Logger LOG = Logger.getLogger(BookmarkManager.class);
 
   private static final Icon DEFAULT_ICON = new MyCheckedIcon();
 

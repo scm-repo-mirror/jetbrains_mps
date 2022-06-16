@@ -3,11 +3,10 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/idea_rt.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/3rd-party-rt.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/3rd-party.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/external-system-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/externalProcess-rt.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/lib/3rd-party.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

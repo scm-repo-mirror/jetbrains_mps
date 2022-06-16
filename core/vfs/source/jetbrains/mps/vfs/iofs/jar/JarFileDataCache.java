@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.vfs.iofs.jar;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +39,7 @@ import java.util.zip.ZipFile;
  * namely we close the <code>ZipFile</code> associated with the JarFileData instance.
  */
 final class JarFileDataCache {
-  private static final Logger LOG = LogManager.getLogger(JarFileDataCache.class);
+  private static final Logger LOG = Logger.getLogger(JarFileDataCache.class);
 
   private final ReferenceQueue<JarFileData> myQueue = new ReferenceQueue<>();
   private final Map<String, JarFileDataWeakReference> myPathToRef = new HashMap<>();

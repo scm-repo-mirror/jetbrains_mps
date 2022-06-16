@@ -25,7 +25,7 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="g3l6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.model(MPS.Core/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="4it6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.loading(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="i290" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.java.stub(MPS.Core/)" />
@@ -510,6 +510,22 @@
     <property role="TrG5h" value="PsiJavaStubModelDescriptor" />
     <node concept="3uibUv" id="6tBBmXXyWPJ" role="1zkMxy">
       <ref role="3uigEE" to="w1kc:~RegularModelDescriptor" resolve="RegularModelDescriptor" />
+    </node>
+    <node concept="312cEg" id="5KbBVJNco18" role="jymVt">
+      <property role="34CwA1" value="false" />
+      <property role="eg7rD" value="false" />
+      <property role="TrG5h" value="LOG" />
+      <property role="3TUv4t" value="false" />
+      <node concept="3uibUv" id="5JDdqVARnhV" role="1tU5fm">
+        <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
+      </node>
+      <node concept="2YIFZM" id="3if7C7GZhm7" role="33vP2m">
+        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class):org.apache.log4j.Logger" resolve="getLogger" />
+        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+        <node concept="3VsKOn" id="3if7C7GZhm8" role="37wK5m">
+          <ref role="3VsUkX" node="2H6usAyHwA2" resolve="PsiJavaStubModelDescriptor" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="5KbBVJNdskL" role="jymVt" />
     <node concept="3uibUv" id="4LI1zZpK6w5" role="EKbjA">
@@ -1195,7 +1211,7 @@
                                     <ref role="3cqZAo" node="5KbBVJNco18" resolve="LOG" />
                                   </node>
                                   <node concept="liA8E" id="5KbBVJNdATe" role="2OqNvi">
-                                    <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable):void" resolve="error" />
+                                    <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable):void" resolve="error" />
                                     <node concept="Xl_RD" id="5KbBVJNdCU8" role="37wK5m">
                                       <property role="Xl_RC" value="could not build stub model for code PSI: you may not be able to reference java code from MPS" />
                                     </node>
@@ -9060,20 +9076,6 @@
       <ref role="3uigEE" to="ends:~ModelRootBase" resolve="ModelRootBase" />
     </node>
     <node concept="3Tm1VV" id="2H6usAyJJ3B" role="1B3o_S" />
-    <node concept="Wx3nA" id="1qhkleFOBAm" role="jymVt">
-      <property role="TrG5h" value="LOG" />
-      <node concept="2YIFZM" id="1qhkleFOCmg" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~Logger.getLogger(java.lang.Class):org.apache.log4j.Logger" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~Logger" resolve="Logger" />
-        <node concept="3VsKOn" id="1qhkleFOCpC" role="37wK5m">
-          <ref role="3VsUkX" node="2H6usAyJJ3_" resolve="PsiJavaStubModelRoot" />
-        </node>
-      </node>
-      <node concept="3uibUv" id="1qhkleFOBAw" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
-      </node>
-      <node concept="3Tm6S6" id="1qhkleFOBAn" role="1B3o_S" />
-    </node>
     <node concept="Wx3nA" id="2H6usAyJJ3D" role="jymVt">
       <property role="TrG5h" value="TYPE" />
       <property role="3TUv4t" value="true" />

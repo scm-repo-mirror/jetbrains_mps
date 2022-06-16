@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import jetbrains.mps.intentions.IntentionsVisitor.GetHighestAvailableIntentionTy
 import jetbrains.mps.lang.script.runtime.AbstractMigrationRefactoring;
 import jetbrains.mps.lang.script.runtime.RefactoringScript;
 import jetbrains.mps.lang.script.runtime.ScriptAspectDescriptor;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.nodeEditor.HighlighterMessage;
 import jetbrains.mps.openapi.editor.EditorContext;
@@ -43,8 +44,6 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SLanguage;
@@ -70,7 +69,7 @@ import java.util.stream.Collectors;
     storages = @Storage("intentions.xml")
 )
 public class IntentionsManager implements PersistentStateComponent<IntentionsManager.MyState> {
-  private static final Logger LOG = LogManager.getLogger(IntentionsManager.class);
+  private static final Logger LOG = Logger.getLogger(IntentionsManager.class);
 
   public static String getDescriptorClassName(SModuleReference langRef) {
     return "IntentionsDescriptor";

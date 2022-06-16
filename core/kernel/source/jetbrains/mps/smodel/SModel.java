@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.model.SModelData;
 import jetbrains.mps.extapi.model.SModelDescriptorStub;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.project.structure.modules.RefUpdateUtil;
 import jetbrains.mps.smodel.event.ModelEventDispatch;
@@ -33,8 +34,6 @@ import jetbrains.mps.smodel.loading.UpdateModeSupport;
 import jetbrains.mps.smodel.nodeidmap.INodeIdToNodeMap;
 import jetbrains.mps.smodel.nodeidmap.UniversalOptimizedNodeIdMap;
 import jetbrains.mps.util.StatefulUpdate;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -82,7 +81,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * </p>
  */
 public class SModel implements SModelData, UpdateModeSupport {
-  private static final Logger LOG = LogManager.getLogger(SModel.class);
+  private static final Logger LOG = Logger.getLogger(SModel.class);
   private static AtomicLong ourCounter = new AtomicLong();
 
   static {
@@ -387,7 +386,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.devkitAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -401,7 +400,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.devkitRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -415,7 +414,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.languageAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -429,7 +428,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.languageRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -443,7 +442,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.importAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -457,7 +456,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.importRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -471,7 +470,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.rootAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -485,7 +484,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.rootRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -499,7 +498,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.beforeRootRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -513,7 +512,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.propertyChanged(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -529,7 +528,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.childAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -545,7 +544,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.childRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -561,7 +560,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.beforeChildRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -575,7 +574,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.referenceAdded(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }
@@ -589,7 +588,7 @@ public class SModel implements SModelData, UpdateModeSupport {
       try {
         sModelListener.referenceRemoved(event);
       } catch (Throwable t) {
-        LOG.error(null, t);
+        LOG.error(t);
       }
     }
   }

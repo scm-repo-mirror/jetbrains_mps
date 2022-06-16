@@ -4,8 +4,7 @@ package jetbrains.mps.execution.configurations.generator.template.main;
 
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.generator.template.CreateRootRuleContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -41,7 +40,6 @@ import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.generator.template.WeavingMappingRuleContext;
 import jetbrains.mps.generator.template.MappingScriptContext;
-import org.apache.log4j.Level;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ReductionRuleCondition;
 import java.util.HashMap;
@@ -72,7 +70,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
-  private static final Logger LOG = LogManager.getLogger(QueriesGenerated.class);
+  private static final Logger LOG = Logger.getLogger(QueriesGenerated.class);
   public QueriesGenerated() {
     super(1);
   }
@@ -552,7 +550,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static void mappingScript_CodeBlock_18(final MappingScriptContext _context) {
     for (SNode runConfiguration : ListSequence.fromList(SModelOperations.roots(_context.getModel(), CONCEPTS.RunConfiguration$B$))) {
       if ((RunConfiguration__BehaviorDescriptor.getExecutor_id3gs394eDyIj.invoke(runConfiguration) == null)) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("Configuration " + SPropertyOperations.getString(runConfiguration, PROPS.name$MnvL) + " does not have any executors.");
         }
       }

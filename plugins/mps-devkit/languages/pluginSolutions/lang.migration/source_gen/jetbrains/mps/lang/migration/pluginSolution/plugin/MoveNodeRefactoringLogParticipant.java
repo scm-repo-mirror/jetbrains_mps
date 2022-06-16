@@ -6,8 +6,7 @@ import jetbrains.mps.refactoring.participant.RefactoringParticipantBase;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.refactoring.participant.MoveNodeRefactoringParticipant;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.structure.Extension;
 import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
-import org.apache.log4j.Level;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchResult;
@@ -33,7 +31,7 @@ import java.util.Iterator;
 import org.jetbrains.mps.openapi.model.SModel;
 
 public class MoveNodeRefactoringLogParticipant extends RefactoringParticipantBase<SNodeReference, SNodeReference, SNode, SNode> implements MoveNodeRefactoringParticipant<SNodeReference, SNodeReference> {
-  private static final Logger LOG = LogManager.getLogger(MoveNodeRefactoringLogParticipant.class);
+  private static final Logger LOG = Logger.getLogger(MoveNodeRefactoringLogParticipant.class);
 
   public static class MoveNodeRefactoringLogParticipant_extension extends Extension.Default<MoveNodeRefactoringParticipant<?, ?>> {
     public MoveNodeRefactoringLogParticipant_extension() {
@@ -101,7 +99,7 @@ public class MoveNodeRefactoringLogParticipant extends RefactoringParticipantBas
     for (SModule module : Sequence.fromIterable(searchScope.getModules())) {
       if (MigrationModuleUtil.isModuleMigrateable(module) && !(MigrationModuleUtil.allDependenciesActual(module))) {
         String message = "Module " + module + " requires migration. It is recommended to run migration first and then restart refactoring.";
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error(message);
         }
       }

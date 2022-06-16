@@ -23,7 +23,7 @@ import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.messages.IMessageList;
 import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.project.Project;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 /**

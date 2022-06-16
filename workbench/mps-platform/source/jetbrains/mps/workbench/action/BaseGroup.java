@@ -24,7 +24,7 @@ import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.util.NlsActions.ActionText;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.workbench.ActionPlace;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.ModelAccess;

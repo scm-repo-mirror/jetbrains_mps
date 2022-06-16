@@ -6,8 +6,6 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.make.service.AbstractMakeService;
 import jetbrains.mps.make.IMakeService;
 import com.intellij.openapi.Disposable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 import jetbrains.mps.make.MakeSession;
 import java.util.concurrent.atomic.AtomicReference;
@@ -49,6 +47,7 @@ import jetbrains.mps.make.script.IConfigMonitor;
 import jetbrains.mps.make.script.IJobMonitor;
 import jetbrains.mps.make.script.IPropertiesPool;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.script.IFeedback;
 import jetbrains.mps.make.facet.ITarget;
 import jetbrains.mps.internal.make.cfg.GenerateFacetInitializer;
@@ -63,8 +62,6 @@ import jetbrains.mps.internal.make.runtime.script.MessageFeedbackStrategy;
 
 @GeneratedClass(node = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)/173672751428923285", model = "r:abe0ad99-3ef3-4277-a170-d1efd7986b86(jetbrains.mps.ide.make)")
 public class WorkbenchMakeService extends AbstractMakeService implements IMakeService, Disposable {
-
-  private static Logger LOG = LogManager.getLogger(WorkbenchMakeService.class);
 
   private AtomicMarkableReference<MakeSession> currentSessionStickyMark = new AtomicMarkableReference<MakeSession>(null, false);
   private volatile AtomicReference<Future<IResult>> currentProcess = new AtomicReference<Future<IResult>>();
@@ -313,7 +310,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
       try {
         code.invoke(jobMon);
       } catch (RuntimeException e) {
-        WorkbenchMakeService.LOG.debug("Error running job", e);
+        Logger.getLogger(WorkbenchMakeService.class).debug("Error running job", e);
         jobMon.reportFeedback(new IFeedback.ERROR("Error running job", e));
         throw e;
       }

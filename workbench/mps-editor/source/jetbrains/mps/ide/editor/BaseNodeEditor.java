@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.ide.editor;
 
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataProvider;
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.wm.IdeFocusManager;
 import com.intellij.ui.components.JBScrollPane;
@@ -25,6 +24,7 @@ import com.intellij.util.ui.JBUI;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.nodeEditor.EditorPanelManagerImpl;
 import jetbrains.mps.nodeEditor.InspectorTool;
@@ -36,10 +36,7 @@ import jetbrains.mps.openapi.editor.EditorComponentState;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
-import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.Project;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -57,7 +54,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public abstract class BaseNodeEditor implements Editor {
-  private static final Logger LOG = LogManager.getLogger(BaseNodeEditor.class);
+  private static final Logger LOG = Logger.getLogger(BaseNodeEditor.class);
 
   private NodeEditorComponent myEditorComponent;
   private final JComponent myComponent = new EditorPanel();
@@ -275,7 +272,7 @@ public abstract class BaseNodeEditor implements Editor {
     if (s.memento == null || editorContext == null || editorComponent == null) {
       return;
     }
-    final IdeFocusManager focusManager = ServiceManager.getService(((MPSProject)myProject).getProject(), IdeFocusManager.class);
+    final IdeFocusManager focusManager = IdeFocusManager.findInstance();
 
     executeInEDT(new PrioritizedTask(TaskType.EDITOR_MEMENTO, myType2TaskMap) {
       @Override

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,9 @@
  */
 package jetbrains.mps.smodel;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.SNodeId.StringBasedId;
 import jetbrains.mps.util.InternUtil;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.annotations.Internal;
@@ -136,7 +135,7 @@ import java.util.Objects;
 @Internal
 @Immutable
 public final class StringBasedIdForJavaStubMethods extends SNodeId implements StringBasedId {
-  private static final Logger LOG = LogManager.getLogger(StringBasedIdForJavaStubMethods.class);
+  private static final Logger LOG = Logger.getLogger(StringBasedIdForJavaStubMethods.class);
   /**
    * it was a mistake breaking the persistence compatibility.
    * see the plan

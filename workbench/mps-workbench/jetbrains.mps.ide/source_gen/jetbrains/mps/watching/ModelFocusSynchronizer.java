@@ -4,8 +4,7 @@ package jetbrains.mps.watching;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.ide.FrameStateListener;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import com.intellij.ide.GeneralSettings;
 import java.util.Set;
 import jetbrains.mps.vfs.IFile;
@@ -27,12 +26,11 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.vfs.newvfs.RefreshSession;
 import com.intellij.openapi.vfs.newvfs.RefreshQueue;
 import jetbrains.mps.ide.vfs.IdeaFile;
-import org.apache.log4j.Level;
 import com.intellij.openapi.application.ModalityState;
 
 @GeneratedClass(node = "r:b41d4b6d-4038-4cd8-94d3-475689babea3(jetbrains.mps.watching)/3316697760692356691", model = "r:b41d4b6d-4038-4cd8-94d3-475689babea3(jetbrains.mps.watching)")
 public class ModelFocusSynchronizer implements FrameStateListener {
-  private static final Logger LOG = LogManager.getLogger(ModelFocusSynchronizer.class);
+  private static final Logger LOG = Logger.getLogger(ModelFocusSynchronizer.class);
   @Override
   public void onFrameDeactivated() {
   }
@@ -89,8 +87,8 @@ public class ModelFocusSynchronizer implements FrameStateListener {
             fileToRefresh = fileToRefresh.getParent();
           }
           if (!(fileToRefresh instanceof IdeaFile)) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("File " + fileToRefresh + " must be a project file and managed by IDEA FS");
+            if (LOG.isWarningLevel()) {
+              LOG.warning("File " + fileToRefresh + " must be a project file and managed by IDEA FS");
             }
             continue;
           }

@@ -5,8 +5,6 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -22,7 +20,6 @@ import com.intellij.openapi.project.Project;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import org.apache.log4j.Level;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.RunProfileState;
@@ -39,7 +36,6 @@ import com.intellij.openapi.util.Key;
 import com.intellij.execution.BeforeRunTask;
 
 public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration, Copyable<DeployPlugins_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(DeployPlugins_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
   private DeployPluginsSettings_Configuration myPluginsSettings = new DeployPluginsSettings_Configuration(this.getProject());
@@ -66,16 +62,9 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
     if (element == null) {
       throw new InvalidDataException("Cant read " + this + ": element is null.");
     }
-    XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
-    {
-      Element fieldElement = element.getChild("myPluginsSettings");
-      if (fieldElement != null) {
-        myPluginsSettings.readExternal(fieldElement);
-      } else {
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("Element " + "myPluginsSettings" + " in " + this.getClass().getName() + " was null.");
-        }
-      }
+    XmlSerializer.deserializeInto(myState, element.getChildren().get(0));
+    if (element.getChild("myPluginsSettings") != null) {
+      myPluginsSettings.readExternal(element.getChild("myPluginsSettings"));
     }
   }
 
@@ -104,18 +93,7 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
   @Override
   @Deprecated
   public DeployPlugins_Configuration clone() {
-    DeployPlugins_Configuration clone = createCloneTemplate();
-    try {
-      // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
-      // the value of myState, and != clone as regular Java passer-by would expect.
-      clone.myState = (MyState) myState.clone();
-    } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("", ex);
-      }
-    }
-    clone.myPluginsSettings = (DeployPluginsSettings_Configuration) myPluginsSettings.clone();
-    return clone;
+    return copy();
   }
 
   @Override
@@ -123,7 +101,7 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
     DeployPlugins_Configuration cloneTemplate = createCloneTemplate();
     // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
     // the value of myState, and != clone as regular Java passer-by would expect.
-    cloneTemplate.myState = (MyState) myState.copy();
+    cloneTemplate.myState = myState.copy();
     cloneTemplate.myPluginsSettings = ((Copyable<DeployPluginsSettings_Configuration>) myPluginsSettings).copy();
     return cloneTemplate;
   }
@@ -154,23 +132,20 @@ public final class DeployPlugins_Configuration extends BaseMpsRunConfiguration i
 
     @Deprecated
     @Override
-    public Object clone() throws CloneNotSupportedException {
-      MyState state = (MyState) super.clone();
-      state.mySkipModulesLoading = mySkipModulesLoading;
-      state.myRestartCurrentInstance = myRestartCurrentInstance;
-      return state;
+    public MyState clone() {
+      try {
+        MyState state = (MyState) super.clone();
+        state.mySkipModulesLoading = mySkipModulesLoading;
+        state.myRestartCurrentInstance = myRestartCurrentInstance;
+        return state;
+      } catch (CloneNotSupportedException ex) {
+        throw new IllegalStateException("Shall not happen", ex);
+      }
     }
 
     @Override
     public MyState copy() {
-      try {
-        return (MyState) clone();
-      } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
-          LOG.error("", e);
-        }
-        return null;
-      }
+      return clone();
     }
   }
   public DeployPlugins_Configuration(Project project, ConfigurationFactory factory, String name) {

@@ -4,8 +4,6 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -21,12 +19,10 @@ import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.xmlb.XmlSerializer;
 import com.intellij.openapi.util.InvalidDataException;
 import jetbrains.mps.execution.lib.PointerUtils;
-import org.apache.log4j.Level;
 import jetbrains.mps.execution.lib.ClonableList;
 import com.intellij.openapi.project.Project;
 
 public final class DeployPluginsSettings_Configuration implements IPersistentConfiguration, Copyable<DeployPluginsSettings_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(DeployPluginsSettings_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
 
@@ -57,7 +53,7 @@ public final class DeployPluginsSettings_Configuration implements IPersistentCon
     if (element == null) {
       throw new InvalidDataException("Cant read " + this + ": element is null.");
     }
-    XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
+    XmlSerializer.deserializeInto(myState, element.getChildren().get(0));
   }
 
   public List<SNodeReference> getPluginsListToDeploy() {
@@ -66,17 +62,7 @@ public final class DeployPluginsSettings_Configuration implements IPersistentCon
   @Override
   @Deprecated
   public DeployPluginsSettings_Configuration clone() {
-    DeployPluginsSettings_Configuration clone = createCloneTemplate();
-    try {
-      // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
-      // the value of myState, and != clone as regular Java passer-by would expect.
-      clone.myState = (MyState) myState.clone();
-    } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("", ex);
-      }
-    }
-    return clone;
+    return copy();
   }
 
   @Override
@@ -84,7 +70,7 @@ public final class DeployPluginsSettings_Configuration implements IPersistentCon
     DeployPluginsSettings_Configuration cloneTemplate = createCloneTemplate();
     // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
     // the value of myState, and != clone as regular Java passer-by would expect.
-    cloneTemplate.myState = (MyState) myState.copy();
+    cloneTemplate.myState = myState.copy();
     return cloneTemplate;
   }
 
@@ -101,24 +87,21 @@ public final class DeployPluginsSettings_Configuration implements IPersistentCon
 
     @Deprecated
     @Override
-    public Object clone() throws CloneNotSupportedException {
-      MyState state = (MyState) super.clone();
-      if (myPluginsToDeploy != null) {
-        state.myPluginsToDeploy = myPluginsToDeploy.copy();
+    public MyState clone() {
+      try {
+        MyState state = (MyState) super.clone();
+        if (myPluginsToDeploy != null) {
+          state.myPluginsToDeploy = myPluginsToDeploy.copy();
+        }
+        return state;
+      } catch (CloneNotSupportedException ex) {
+        throw new IllegalStateException("Shall not happen", ex);
       }
-      return state;
     }
 
     @Override
     public MyState copy() {
-      try {
-        return (MyState) clone();
-      } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
-          LOG.error("", e);
-        }
-        return null;
-      }
+      return clone();
     }
   }
   public DeployPluginsSettings_Configuration(Project project) {

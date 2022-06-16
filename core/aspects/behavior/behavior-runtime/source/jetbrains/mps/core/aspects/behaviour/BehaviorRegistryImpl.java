@@ -15,17 +15,16 @@
  */
 package jetbrains.mps.core.aspects.behaviour;
 
+import jetbrains.mps.core.aspects.behaviour.api.AncestorResolutionOrder;
 import jetbrains.mps.core.aspects.behaviour.api.BHDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.CachingAncestorResolutionOrder;
-import jetbrains.mps.core.aspects.behaviour.api.AncestorResolutionOrder;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.behaviour.BHReflectionInit;
 import jetbrains.mps.smodel.language.ConceptInLoadingStorage;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.smodel.runtime.BehaviorAspectDescriptor;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by apyshkin on 7/15/15.
  */
 public class BehaviorRegistryImpl implements BehaviorRegistry {
-  private static final Logger LOG = LogManager.getLogger(BehaviorRegistryImpl.class);
+  private static final Logger LOG = Logger.getLogger(BehaviorRegistryImpl.class);
 
   private final CachingAncestorResolutionOrder<_SAbstractConcept> myMRO;
   private final ConceptInLoadingStorage<SAbstractConcept> myStorage = new ConceptInLoadingStorage<>();
@@ -74,7 +73,7 @@ public class BehaviorRegistryImpl implements BehaviorRegistry {
         LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(concept.getLanguage());
         BehaviorAspectDescriptor behaviorAspect = null;
         if (languageRuntime == null) {
-          LOG.warn("No language for: " + concept + ", while looking for the behavior descriptor.");
+          LOG.warning("No language for: " + concept + ", while looking for the behavior descriptor.");
         } else {
           behaviorAspect = languageRuntime.getAspect(BehaviorAspectDescriptor.class);
         }

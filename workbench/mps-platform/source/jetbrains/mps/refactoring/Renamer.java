@@ -21,6 +21,7 @@ import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.project.ProjectBase;
@@ -36,8 +37,6 @@ import jetbrains.mps.smodel.ModuleInstanceFactory;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.vfs.IFile;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
@@ -65,7 +64,7 @@ import static jetbrains.mps.project.MPSExtentions.DOT;
  * @author viktor, apyshkin
  */
 public final class Renamer {
-  private static final Logger LOG = LogManager.getLogger(Renamer.class);
+  private static final Logger LOG = Logger.getLogger(Renamer.class);
 
   private final Consumer<RenameProblem> myHandler;
   private final Project myProject;
@@ -528,7 +527,7 @@ public final class Renamer {
     switch (problem.getSeverity()) {
       case CRITICAL: LOG.error("Critical problem during rename: " + problem.getPresentation(), new IllegalStateException());
       break;
-      case NON_CRITICAL: LOG.warn("Got a problem during rename: " + problem.getPresentation());
+      case NON_CRITICAL: LOG.warning("Got a problem during rename: " + problem.getPresentation());
       break;
       case NO_PROBLEM: LOG.info(problem.getPresentation());
     }

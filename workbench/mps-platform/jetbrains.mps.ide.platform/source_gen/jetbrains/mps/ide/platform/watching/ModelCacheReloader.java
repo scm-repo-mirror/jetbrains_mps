@@ -4,15 +4,13 @@ package jetbrains.mps.ide.platform.watching;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.vfs.newvfs.BulkFileListener;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.generator.ModelGenerationStatusManager;
-import org.apache.log4j.Level;
 import java.util.HashSet;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.events.VFilePropertyChangeEvent;
@@ -30,7 +28,7 @@ import jetbrains.mps.generator.impl.dependencies.GenerationDependenciesCache;
  */
 @GeneratedClass(node = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)/8474613039627890805", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
 public final class ModelCacheReloader implements BulkFileListener {
-  private static final Logger LOG = LogManager.getLogger(ModelCacheReloader.class);
+  private static final Logger LOG = Logger.getLogger(ModelCacheReloader.class);
   private boolean myWarningPosted;
 
   @Override
@@ -39,8 +37,8 @@ public final class ModelCacheReloader implements BulkFileListener {
     final ModelGenerationStatusManager mgsm = mpsPlaf.findComponent(ModelGenerationStatusManager.class);
     if (mgsm == null) {
       if (!(myWarningPosted)) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("Could not find ModelGenerationStatusManager component; no refresh for model hash files");
+        if (LOG.isWarningLevel()) {
+          LOG.warning("Could not find ModelGenerationStatusManager component; no refresh for model hash files");
         }
         myWarningPosted = true;
       }
@@ -76,8 +74,8 @@ public final class ModelCacheReloader implements BulkFileListener {
             }
           }
           if (!(eventReported) && (System.nanoTime() - start) / 1000 > 1000) {
-            if (LOG.isEnabledFor(Level.WARN)) {
-              LOG.warn("UNEXPECTED: processing of VFS event takes too long: " + e);
+            if (LOG.isWarningLevel()) {
+              LOG.warning("UNEXPECTED: processing of VFS event takes too long: " + e);
             }
             eventReported = true;
           }
@@ -85,8 +83,8 @@ public final class ModelCacheReloader implements BulkFileListener {
 
         if (eventReported) {
           String m = String.format("Total time spent processing VFS event %s took %d ms", e, (System.nanoTime() - start) / 1000000);
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn(m);
+          if (LOG.isWarningLevel()) {
+            LOG.warning(m);
           }
         }
 

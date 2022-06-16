@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import jetbrains.mps.idea.core.make.MPSMakeConstants;
 import jetbrains.mps.jps.make.fileUtil.FileRecursiveTraverser;
 import jetbrains.mps.jps.make.fileUtil.ProjectDirFinder;
 import jetbrains.mps.jps.make.fileUtil.SimpleFileReader;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -45,13 +44,6 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class MpsJpsBuildTestCase extends JpsBuildTestCase {
-  static {
-    initLogging();
-  }
-
-  private static void initLogging() {
-    LogManager.getLogger(MpsJpsBuildTestCase.class).info("The log4 has been initialized successfully");
-  }
 
   @NotNull
   @NonNls

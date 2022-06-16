@@ -5,8 +5,7 @@ package jetbrains.mps.execution.impl.configurations;
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.components.ProjectComponent;
 import jetbrains.mps.plugins.PluginReloadingListener;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.plugins.PluginLoaderRegistry;
 import java.util.List;
@@ -15,7 +14,6 @@ import jetbrains.mps.ide.ThreadUtils;
 import com.intellij.execution.ui.RunContentDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import com.intellij.ui.content.Content;
-import org.apache.log4j.Level;
 import com.intellij.execution.ExecutionManager;
 import com.intellij.execution.ui.RunContentManagerImpl;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -44,7 +42,7 @@ import org.jetbrains.annotations.Nullable;
  */
 @GeneratedClass(node = "r:c10c60c4-8193-4b28-a3f2-372a46125628(jetbrains.mps.execution.impl.configurations)/5145867626676099642", model = "r:c10c60c4-8193-4b28-a3f2-372a46125628(jetbrains.mps.execution.impl.configurations)")
 public class RunConfigurationsStateManager implements ProjectComponent, PluginReloadingListener {
-  private static final Logger LOG = LogManager.getLogger(RunConfigurationsStateManager.class);
+  private static final Logger LOG = Logger.getLogger(RunConfigurationsStateManager.class);
   private final Project myProject;
   private final PluginLoaderRegistry myRegistry;
   private final RunConfigurationsState myState = new RunConfigurationsState();
@@ -93,13 +91,13 @@ public class RunConfigurationsStateManager implements ProjectComponent, PluginRe
     for (RunContentDescriptor descriptor : ListSequence.fromList(descriptors)) {
       Content attachedContent = descriptor.getAttachedContent();
       if (attachedContent == null) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("Attached content of descriptor " + descriptor.getDisplayName() + " is null.");
+        if (LOG.isWarningLevel()) {
+          LOG.warning("Attached content of descriptor " + descriptor.getDisplayName() + " is null.");
         }
       } else
       if (attachedContent.getManager() == null) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("Manager of attached content of descriptor " + descriptor.getDisplayName() + " is null.");
+        if (LOG.isWarningLevel()) {
+          LOG.warning("Manager of attached content of descriptor " + descriptor.getDisplayName() + " is null.");
         }
       } else {
         attachedContent.getManager().removeAllContents(true);

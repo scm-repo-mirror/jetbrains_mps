@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,6 @@ import jetbrains.mps.newTypesystem.state.blocks.WhenConcreteBlock;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckerHelper;
 import jetbrains.mps.util.Computable;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.util.Consumer;
@@ -33,7 +31,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IncrementalTypecheckingContext extends ReportingTypecheckingContext<State, IncrementalTypechecking> {
-  private static Logger LOG = LogManager.getLogger(IncrementalTypecheckingContext.class);
   private final ClassLoaderManager myClassManager;
   private Consumer<SNode> myTypeInvalidatedNotifier = null;
 

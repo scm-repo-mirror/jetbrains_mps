@@ -4,8 +4,7 @@ package jetbrains.mps.execution.impl.configurations.tests.inprocess;
 
 import jetbrains.mps.MPSLaunch;
 import jetbrains.mps.lang.test.runtime.BaseTransformationTest;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
@@ -38,7 +37,7 @@ import com.intellij.util.WaitFor;
 
 @MPSLaunch
 public class JUnitInProcessTermination_Test extends BaseTransformationTest {
-  private static final Logger LOG = LogManager.getLogger(JUnitInProcessTermination_Test.class);
+  private static final Logger LOG = Logger.getLogger(JUnitInProcessTermination_Test.class);
   @ClassRule
   public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitInProcessTermination_Test.class, "${mps_home}", "r:ff98d12f-bc65-4639-94c3-dee022b33791(jetbrains.mps.execution.impl.configurations.tests.inprocess@tests)", false);
 
@@ -68,7 +67,7 @@ public class JUnitInProcessTermination_Test extends BaseTransformationTest {
         JUnitTests_Configuration junitRC = new JUnitTests_Configuration(ideaProject, null, "dummyRCInitializer");
         JUnitInProcessRunStarter processExecutor = new JUnitInProcessRunStarter(myProject, junitRC, testNodes);
         final TestInProcessRunState lightState = processExecutor.getRunState();
-        if (LOG.isInfoEnabled()) {
+        if (LOG.isInfoLevel()) {
           LOG.info("Starting in-process-execution");
         }
         ProcessHandler process = processExecutor.execute();

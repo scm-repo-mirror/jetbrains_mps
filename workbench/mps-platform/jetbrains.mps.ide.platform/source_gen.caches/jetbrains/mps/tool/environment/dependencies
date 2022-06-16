@@ -65,6 +65,7 @@
     <classNode dependClassName="jetbrains.mps.ide.vfs.IdeaFileSystem" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.library.LibraryInitializer" />
+    <classNode dependClassName="jetbrains.mps.logging.Logger" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
     <classNode dependClassName="jetbrains.mps.project.ProjectManager" />
@@ -78,9 +79,6 @@
     <classNode dependClassName="jetbrains.mps.util.annotation.Hack" />
     <classNode dependClassName="jetbrains.mps.vfs.refresh.CachingFileSystem" />
     <classNode dependClassName="jetbrains.mps.vfs.refresh.DefaultCachingContext" />
-    <classNode dependClassName="org.apache.log4j.Level" />
-    <classNode dependClassName="org.apache.log4j.LogManager" />
-    <classNode dependClassName="org.apache.log4j.Logger" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.tool.environment.EnvironmentBase" />
   </dependency>

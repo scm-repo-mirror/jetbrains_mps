@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,13 +21,12 @@ import com.intellij.util.xmlb.annotations.Tag;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.tools.BaseTool;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.plugins.part.ProjectPluginPart;
 import jetbrains.mps.plugins.prefs.BaseProjectPrefsComponent;
 import jetbrains.mps.plugins.projectplugins.BaseProjectPlugin.PluginState;
 import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.project.MPSProject;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
@@ -37,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class BaseProjectPlugin implements PersistentStateComponent<PluginState> {
-  private static final Logger LOG = LogManager.getLogger(BaseProjectPlugin.class);
+  private static final Logger LOG = Logger.getLogger(BaseProjectPlugin.class);
 
   private Project myIJProject;
   private MPSProject myMPSProject;
@@ -129,7 +128,7 @@ public abstract class BaseProjectPlugin implements PersistentStateComponent<Plug
     for (BaseTool tool : toolsToInit) {
       try {
         tool.init(myIJProject);
-        tool.register();
+        tool.registerLater();
       } catch (Throwable t) {
         LOG.error("Exception on a tool init: " + tool, t);
       }

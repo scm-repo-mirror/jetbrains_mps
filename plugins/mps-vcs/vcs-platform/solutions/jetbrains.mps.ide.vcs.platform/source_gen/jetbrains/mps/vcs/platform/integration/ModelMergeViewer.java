@@ -4,8 +4,7 @@ package jetbrains.mps.vcs.platform.integration;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.diff.merge.MergeTool;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import com.intellij.diff.merge.MergeContext;
 import com.intellij.diff.merge.TextMergeRequest;
 import jetbrains.mps.vcs.diff.ui.merge.MergeModelsPanel;
@@ -32,7 +31,6 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.persistence.PersistenceVersionAware;
 import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import org.apache.log4j.Level;
 import java.io.IOException;
 import javax.swing.JComponent;
 import javax.swing.Action;
@@ -48,8 +46,7 @@ import com.intellij.openapi.vfs.CharsetToolkit;
 
 @GeneratedClass(node = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)/5085852630254873851", model = "r:f7252e75-44f2-46f6-9600-c9b291e7dd5f(jetbrains.mps.vcs.platform.integration)")
 public class ModelMergeViewer implements MergeTool.MergeViewer {
-  private static final Logger LOG_276369528 = LogManager.getLogger(ModelMergeViewer.class);
-  private static final Logger LOG = LogManager.getLogger(ModelMergeViewer.class);
+  private static final Logger LOG = Logger.getLogger(ModelMergeViewer.class);
 
   private MergeContext myMergeContext;
   private TextMergeRequest myMergeRequest;
@@ -117,8 +114,8 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
                     break;
                 }
               } else {
-                if (LOG_276369528.isEnabledFor(Level.ERROR)) {
-                  LOG_276369528.error("Cannot save merge resulting model " + SModelOperations.getModelName(resultModel), error);
+                if (LOG.isErrorLevel()) {
+                  LOG.error("Cannot save merge resulting model " + SModelOperations.getModelName(resultModel), error);
                 }
               }
             }
@@ -127,8 +124,8 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
                 try {
                   file.setBinaryContent(resultContent.value);
                 } catch (IOException e) {
-                  if (LOG_276369528.isEnabledFor(Level.ERROR)) {
-                    LOG_276369528.error("Cannot save merge result into " + file.getPath(), e);
+                  if (LOG.isErrorLevel()) {
+                    LOG.error("Cannot save merge result into " + file.getPath(), e);
                   }
                 }
               });
@@ -143,7 +140,9 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
         return viewer;
       }
     } catch (IOException e) {
-      LOG.error(null, e);
+      if (LOG.isErrorLevel()) {
+        LOG.error("Failed to create merge view", e);
+      }
     }
     return null;
   }

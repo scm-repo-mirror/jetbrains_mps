@@ -20,9 +20,8 @@ import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.util.io.FileUtil;
 import jetbrains.mps.LanguageLibrary;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFileSystem;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -35,7 +34,7 @@ import java.util.Set;
  * Contributes user libraries from the extension point in {@link LanguageLibrary#EP_LANGUAGE_LIBS}
  */
 public final class PluginLibraryContributor implements LibraryContributor {
-  private static final Logger LOG = LogManager.getLogger(PluginLibraryContributor.class);
+  private static final Logger LOG = Logger.getLogger(PluginLibraryContributor.class);
   private final IFileSystem myFileSystem;
 
   public PluginLibraryContributor(IFileSystem fileSystem) {

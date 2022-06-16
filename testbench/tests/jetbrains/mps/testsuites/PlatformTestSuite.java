@@ -65,7 +65,6 @@ public class PlatformTestSuite extends OutputWatchingTestSuite {
     // MigrationsTest needs "migration" plugin
     // modules loading tests need kotlin plugin (kotlin stubs loading)
     EnvironmentConfig cfg = EnvironmentConfig.defaultConfig()
-                                             .setCreatePluginClassLoaders(false)
                                              .withVcsPlugin()
                                              .withBuildPlugin()
                                              .withMigrationPlugin()

@@ -15,12 +15,11 @@
  */
 package jetbrains.mps.vfs.iofs.jar;
 
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.util.PathFormatChecker;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Internal;
 
@@ -28,7 +27,7 @@ import java.io.File;
 
 public final class JarIoFileSystem implements IFileSystem {
   public static final String JAR_SEPARATOR = "!";
-  private static final Logger LOG = LogManager.getLogger(JarIoFileSystem.class);
+  private static final Logger LOG = Logger.getLogger(JarIoFileSystem.class);
   private final VFSManager myManager;
 
   private final JarFileDataCache myJarCache;
@@ -60,7 +59,7 @@ public final class JarIoFileSystem implements IFileSystem {
     if (jarFile.exists()) {
       jarFileData = myJarCache.getDataFor(jarFile);
     } else {
-      LOG.warn("Requested jar file does not exist " + jarFile);
+      LOG.warning("Requested jar file does not exist " + jarFile);
       jarFileData = new AbstractJarFileData(jarFile);
     }
     return createFile(entryPath, jarFileData);

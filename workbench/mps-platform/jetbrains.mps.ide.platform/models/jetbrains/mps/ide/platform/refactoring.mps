@@ -33,7 +33,6 @@
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="g4jo" ref="r:d98d04fb-4a60-4106-81cf-6cb40b67de4d(jetbrains.mps.ide.findusages.model)" />
     <import index="y38" ref="r:4c8c6241-8bf4-4d04-84a1-f7fd7fcbdc2c(jetbrains.mps.refactoring.runtime.access)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -43,7 +42,6 @@
     <import index="j9co" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.event(MPS.Core/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="qqrq" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.components(MPS.IDEA/)" />
-    <import index="ncw5" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:jetbrains.mps.util.annotation(Annotations/)" />
     <import index="4o98" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.core.platform(MPS.Core/)" />
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="ogx7" ref="r:896b61c7-1bb0-433c-9386-4bed38ff63bd(jetbrains.mps.refactoring.runtime)" />
@@ -51,10 +49,10 @@
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="cuxm" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.goTo.ui(MPS.Platform/)" />
     <import index="1l1f" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.util.gotoByName(MPS.IDEA/)" />
     <import index="yha4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.choose(MPS.Platform/)" />
+    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" implicit="true" />
   </imports>
   <registry>
@@ -373,12 +371,13 @@
     <node concept="3Tm1VV" id="1TclyuNTOmE" role="1B3o_S" />
     <node concept="312cEg" id="1TclyuNTOmz" role="jymVt">
       <property role="TrG5h" value="myLog" />
+      <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="4Zi05bwvyC$" role="1tU5fm">
-        <ref role="3uigEE" to="q7tw:~Logger" resolve="Logger" />
+        <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
       </node>
       <node concept="2YIFZM" id="4Zi05bwvrTS" role="33vP2m">
-        <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-        <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
+        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
         <node concept="2OqwBi" id="4Zi05bwvrTT" role="37wK5m">
           <node concept="Xjq3P" id="4Zi05bwvrTU" role="2Oq$k0" />
           <node concept="liA8E" id="4Zi05bwvrTV" role="2OqNvi">
@@ -477,11 +476,11 @@
                         <node concept="3clFbF" id="1KUoCiqb7H1" role="3cqZAp">
                           <node concept="2OqwBi" id="1KUoCiqb7H2" role="3clFbG">
                             <node concept="liA8E" id="1KUoCiqb7H3" role="2OqNvi">
-                              <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
+                              <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
                               <node concept="3cpWs3" id="1KUoCiqb7H4" role="37wK5m">
                                 <node concept="3cpWs3" id="1KUoCiqb7H5" role="3uHU7B">
                                   <node concept="Xl_RD" id="1KUoCiqb7H6" role="3uHU7B">
-                                    <property role="Xl_RC" value="An exception occured while trying to execute refactoring " />
+                                    <property role="Xl_RC" value="An exception occurred while trying to execute refactoring " />
                                   </node>
                                   <node concept="2OqwBi" id="1KUoCiqb7H8" role="3uHU7w">
                                     <node concept="37vLTw" id="3GM_nagTs4j" role="2Oq$k0">
@@ -543,7 +542,7 @@
               <node concept="3clFbF" id="1TclyuNTOob" role="3cqZAp">
                 <node concept="2OqwBi" id="1TclyuNTOoc" role="3clFbG">
                   <node concept="liA8E" id="1TclyuNTOod" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
+                    <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
                     <node concept="3cpWs3" id="1TclyuNTOoe" role="37wK5m">
                       <node concept="Xl_RD" id="1TclyuNTOof" role="3uHU7B">
                         <property role="Xl_RC" value="An error occurred in dgoWhenDone(), refactoring: " />
@@ -636,7 +635,7 @@
               <ref role="3cqZAo" node="1TclyuNTOmz" resolve="myLog" />
             </node>
             <node concept="liA8E" id="5cztR1nD6Aj" role="2OqNvi">
-              <ref role="37wK5l" to="q7tw:~Category.assertLog(boolean,java.lang.String)" resolve="assertLog" />
+              <ref role="37wK5l" to="wwqx:~Logger.assertLog(boolean,java.lang.String)" resolve="assertLog" />
               <node concept="2OqwBi" id="5cztR1nCN34" role="37wK5m">
                 <node concept="2OqwBi" id="5cztR1nCM6b" role="2Oq$k0">
                   <node concept="2OqwBi" id="5cztR1nCM6c" role="2Oq$k0">
@@ -958,8 +957,7 @@
                               <ref role="3cqZAo" node="1TclyuNTOmz" resolve="myLog" />
                             </node>
                             <node concept="liA8E" id="1KUoCipvGui" role="2OqNvi">
-                              <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
-                              <node concept="10Nm6u" id="1KUoCipvGuj" role="37wK5m" />
+                              <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.Throwable)" resolve="error" />
                               <node concept="37vLTw" id="3GM_nagT$Dn" role="37wK5m">
                                 <ref role="3cqZAo" node="1KUoCipvGul" resolve="t" />
                               </node>
@@ -1517,7 +1515,7 @@
               <node concept="3clFbF" id="1TclyuNTOps" role="3cqZAp">
                 <node concept="2OqwBi" id="1TclyuNTOpt" role="3clFbG">
                   <node concept="liA8E" id="1TclyuNTOpu" role="2OqNvi">
-                    <ref role="37wK5l" to="q7tw:~Category.error(java.lang.Object,java.lang.Throwable)" resolve="error" />
+                    <ref role="37wK5l" to="wwqx:~Logger.error(java.lang.String,java.lang.Throwable)" resolve="error" />
                     <node concept="3cpWs3" id="1TclyuNTOpv" role="37wK5m">
                       <node concept="3cpWs3" id="1TclyuNTOpw" role="3uHU7B">
                         <node concept="Xl_RD" id="1TclyuNTOpx" role="3uHU7B">

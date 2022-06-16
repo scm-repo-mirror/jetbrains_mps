@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2020 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,11 +28,10 @@ import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.Color;
@@ -40,7 +39,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StyleRegistryIdeaImpl extends StyleRegistry implements Disposable {
-  private static final Logger LOG = LogManager.getLogger(StyleRegistryIdeaImpl.class);
 
   private final static int colorIterationSteps = 5;
   private final static int colorIterationDelta = 50;
@@ -196,7 +194,7 @@ public class StyleRegistryIdeaImpl extends StyleRegistry implements Disposable {
 
       //addIdeaMappingsExt("","");
     } catch (StyleRegistryMappingKeyException e) {
-      LOG.error("Exception on registering IDEA style mappings", e);
+      Logger.getLogger(StyleRegistryIdeaImpl.class).error("Exception on registering IDEA style mappings", e);
     }
   }
 

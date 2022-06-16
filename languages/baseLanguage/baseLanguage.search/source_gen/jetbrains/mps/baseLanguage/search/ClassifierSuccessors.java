@@ -4,8 +4,7 @@ package jetbrains.mps.baseLanguage.search;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.components.CoreComponent;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import java.util.Map;
 import jetbrains.mps.project.Project;
 import java.util.HashMap;
@@ -16,11 +15,10 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
-import org.apache.log4j.Level;
 
 @GeneratedClass(node = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)/3896109655413979709", model = "r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)")
 public class ClassifierSuccessors implements CoreComponent {
-  private static final Logger LOG = LogManager.getLogger(ClassifierSuccessors.class);
+  private static final Logger LOG = Logger.getLogger(ClassifierSuccessors.class);
   private static ClassifierSuccessors INSTANCE;
 
   private final Map<Project, Finder> myFastFinders = new HashMap<>();
@@ -71,7 +69,7 @@ public class ClassifierSuccessors implements CoreComponent {
 
   public void addFinder(@NotNull Project project, @NotNull Finder finder) {
     myFastFinders.put(project, finder);
-    if (LOG.isDebugEnabled()) {
+    if (LOG.isDebugLevel()) {
       LOG.debug(String.format("Attached finder %s to project %s", finder, project));
     }
   }
@@ -79,12 +77,12 @@ public class ClassifierSuccessors implements CoreComponent {
   public void removeFinder(@NotNull Project project, @NotNull Finder finder) {
     Finder removed = myFastFinders.remove(project);
     if (removed == null) {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn(String.format("Attempt to remove unknown finder %s from project %s", finder, project));
+      if (LOG.isWarningLevel()) {
+        LOG.warning(String.format("Attempt to remove unknown finder %s from project %s", finder, project));
       }
     } else if (removed != finder) {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn(String.format("Removed finder %s from project %s while expected to get %s", removed, project, finder));
+      if (LOG.isWarningLevel()) {
+        LOG.warning(String.format("Removed finder %s from project %s while expected to get %s", removed, project, finder));
       }
     }
   }

@@ -4,7 +4,7 @@ package jetbrains.mps.samples.propertyPersistenceDef.persistence;
 
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.CopyableModelRoot;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
@@ -87,7 +87,9 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
       if (file.getAbsolutePath().isDirectory()) {
         ListSequence.fromList(result).addSequence(SetSequence.fromSet(getModels(file.getAbsolutePath())));
       } else {
-        LOG.error("The source root at " + file.getAbsolutePath() + " is not a directory and so cannot be loaded.");
+        if (LOG.isErrorLevel()) {
+          LOG.error(String.format("The source root at %s  s not a directory and so cannot be loaded.", file.getAbsolutePath()));
+        }
       }
     }
     return result;
@@ -117,7 +119,9 @@ public class PropertyFilesStubModelRoot extends FileBasedModelRoot implements Co
         PropertyFilesStubModelDescriptor model = new PropertyFilesStubModelDescriptor(ref, dataSource);
         SetSequence.fromSet(models).addElement(model);
       } else {
-        LOG.error("Could not create property  files source stub model for directory " + dir.getPath() + " (failed to guess the folder name)");
+        if (LOG.isErrorLevel()) {
+          LOG.error(String.format("Could not create property  files source stub model for directory %s (failed to guess the folder name)", dir.getPath()));
+        }
       }
     }
 

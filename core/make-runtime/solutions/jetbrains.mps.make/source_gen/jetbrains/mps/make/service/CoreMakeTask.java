@@ -9,7 +9,7 @@ import jetbrains.mps.make.script.IScriptController;
 import jetbrains.mps.messages.IMessageHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import java.util.Map;
 import jetbrains.mps.make.facet.ITarget;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -21,7 +21,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.messages.Message;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.messages.IMessage;
-import jetbrains.mps.InternalFlag;
+import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.make.runtime.script.CompositeResult;
@@ -56,7 +56,7 @@ public class CoreMakeTask {
       try {
         reconcile();
       } catch (RuntimeException ex) {
-        LogManager.getLogger(CoreMakeTask.class).debug("Unexpected exception", ex);
+        Logger.getLogger(CoreMakeTask.class).debug("Unexpected exception", ex);
       }
     }
   }
@@ -85,7 +85,7 @@ public class CoreMakeTask {
           return false;
         }
 
-        if (InternalFlag.isInternalMode()) {
+        if (RuntimeFlags.isInternalMode()) {
           myMessageHandler.handle(new Message(MessageKind.INFORMATION, "Modules cluster " + (idx.value + 1) + "/" + clsize + " [" + IterableUtils.join(Sequence.fromIterable(cl).select(new ISelector<IResource, String>() {
             public String select(IResource r) {
               return (r).describe();

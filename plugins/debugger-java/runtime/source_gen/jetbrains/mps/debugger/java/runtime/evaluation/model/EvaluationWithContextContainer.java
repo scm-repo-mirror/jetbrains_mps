@@ -4,8 +4,7 @@ package jetbrains.mps.debugger.java.runtime.evaluation.model;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.debugger.java.runtime.evaluation.container.EvaluationContainer;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.debugger.java.runtime.state.DebugSession;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +38,6 @@ import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import com.sun.jdi.InvalidStackFrameException;
-import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.java.stub.JavaPackageNameStub;
@@ -64,7 +62,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 
 @GeneratedClass(node = "r:86d21248-3bf4-41d8-8375-ab68885d035f(jetbrains.mps.debugger.java.runtime.evaluation.model)/317191294095137637", model = "r:86d21248-3bf4-41d8-8375-ab68885d035f(jetbrains.mps.debugger.java.runtime.evaluation.model)")
 public class EvaluationWithContextContainer extends EvaluationContainer {
-  private static final Logger LOG = LogManager.getLogger(EvaluationWithContextContainer.class);
+  private static final Logger LOG = Logger.getLogger(EvaluationWithContextContainer.class);
   private final boolean myIsInWatch;
   private boolean myVariablesInitialized = false;
   protected final EvaluationContext myEvaluationContext;
@@ -175,8 +173,8 @@ public class EvaluationWithContextContainer extends EvaluationContainer {
       }
       // todo highlight when this type or static context type are invalid
     } catch (InvalidStackFrameException e) {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn("InvalidStackFrameException", e);
+      if (LOG.isWarningLevel()) {
+        LOG.warning("InvalidStackFrameException", e);
       }
     }
     myVariablesInitialized = true;

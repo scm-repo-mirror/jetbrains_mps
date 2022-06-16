@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,14 +60,13 @@ import jetbrains.mps.ide.ui.tree.TreeErrorMessage;
 import jetbrains.mps.ide.ui.tree.TreeHighlighterExtension;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.SNodeGroupTreeNode;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.ModelReadRunnable;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TempModule2;
 import jetbrains.mps.util.annotation.Hack;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -91,7 +90,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectViewPaneOverride {
-  private static final Logger LOG = LogManager.getLogger(ProjectPane.class);
+  private static final Logger LOG = Logger.getLogger(ProjectPane.class);
   private final SRepositoryListener myRepositoryListener = new SRepositoryListener() {
     @Override
     public void moduleAdded(@NotNull SModule module) {
@@ -701,7 +700,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
         }
         toSelect = createFindHelper().findMostSuitableModuleTreeNode(module);
         if (toSelect == null) {
-          LOG.warn("Couldn't select module \"" + myModule.getModuleName() + "\" : tree node not found.");
+          LOG.warning("Couldn't select module \"" + myModule.getModuleName() + "\" : tree node not found.");
           return;
         }
       } else if (myModel != null) {
@@ -711,7 +710,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
         }
         toSelect = createFindHelper().findMostSuitableModelTreeNode(model);
         if (toSelect == null) {
-          LOG.warn("Couldn't select model \"" + myModel.getModelName() + "\" : tree node not found.");
+          LOG.warning("Couldn't select model \"" + myModel.getModelName() + "\" : tree node not found.");
           return;
         }
       } else if (myNode != null) {
@@ -721,7 +720,7 @@ public class ProjectPane extends BaseLogicalViewProjectPane implements ProjectVi
         }
         toSelect = createFindHelper().findMostSuitableSNodeTreeNode(node);
         if (toSelect == null) {
-          LOG.warn("Couldn't select node \"" + myNode.toString() + "\" : tree node not found.");
+          LOG.warning("Couldn't select node \"" + myNode.toString() + "\" : tree node not found.");
           return;
         }
       }

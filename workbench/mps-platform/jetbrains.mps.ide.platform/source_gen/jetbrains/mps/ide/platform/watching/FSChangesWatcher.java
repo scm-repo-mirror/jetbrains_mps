@@ -4,8 +4,7 @@ package jetbrains.mps.ide.platform.watching;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import com.intellij.openapi.vfs.newvfs.BulkFileListener;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
@@ -27,7 +26,7 @@ import com.intellij.openapi.vfs.newvfs.events.VFileMoveEvent;
 
 @GeneratedClass(node = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)/8474613039627890958", model = "r:383be79d-d39d-4dc4-9df3-57e57bcac2b5(jetbrains.mps.ide.platform.watching)")
 public final class FSChangesWatcher implements BulkFileListener {
-  private static final Logger LOG = LogManager.getLogger(FSChangesWatcher.class);
+  private static final Logger LOG = Logger.getLogger(FSChangesWatcher.class);
 
   public FSChangesWatcher() {
   }
@@ -55,7 +54,7 @@ public final class FSChangesWatcher implements BulkFileListener {
       public void runAction(final FileProcessor participant) {
         ListSequence.fromList(eventsOfInterest).visitAll(new IVisitor<VFileEvent>() {
           public void visit(VFileEvent it) {
-            if (LOG.isDebugEnabled()) {
+            if (LOG.isDebugLevel()) {
               LOG.debug("Got event " + it);
             }
             processAfterEvent(it, participant);
@@ -71,7 +70,7 @@ public final class FSChangesWatcher implements BulkFileListener {
     }
 
     String path = event.getPath();
-    if (LOG.isDebugEnabled()) {
+    if (LOG.isDebugLevel()) {
       LOG.debug("Process after event for " + path);
     }
 

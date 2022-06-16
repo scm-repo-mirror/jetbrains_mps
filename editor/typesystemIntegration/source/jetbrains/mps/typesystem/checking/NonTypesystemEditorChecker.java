@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2013 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ import jetbrains.mps.checkers.ICheckingPostprocessor;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.errors.item.TypesystemReportItemAdapter;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.typechecking.IncrementalTypechecking;
 import jetbrains.mps.nodeEditor.EditorMessage;
@@ -34,8 +35,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext.NonTypesystemComputationMode;
 import jetbrains.mps.util.Cancellable;
 import jetbrains.mps.util.Pair;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -52,7 +51,6 @@ import java.util.stream.Collectors;
  * Date: 4/30/13
  */
 public class NonTypesystemEditorChecker extends AbstractTypesystemEditorChecker {
-  private static final Logger LOG = LogManager.getLogger(NonTypesystemEditorChecker.class);
 
   public NonTypesystemEditorChecker(SRepository repository, Collection<ICheckingPostprocessor<NodeReportItem>> postprocessors) {
     super(repository, postprocessors);
@@ -108,7 +106,7 @@ public class NonTypesystemEditorChecker extends AbstractTypesystemEditorChecker 
             typesComponent.setCheckedNonTypesystem();
           }
         } catch (Throwable t) {
-          LOG.error(null, t);
+          Logger.getLogger(NonTypesystemEditorChecker.class).error(t);
           typesComponent.setCheckedNonTypesystem();
         } finally {
           context.setNonTypesystemComputationMode(NonTypesystemComputationMode.OFF);

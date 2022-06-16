@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.vfs.IdeaFile;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.tempmodel.TempModule;
@@ -37,7 +38,6 @@ import jetbrains.mps.smodel.tempmodel.TempModule2;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.VFSManager;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleListener;
@@ -164,7 +164,7 @@ final class IndexableRootCalculator implements Disposable {
           } catch (IOException e) {
             String message = String.format("received io error when expanding archive; contentRoot=%s", contentRoot);
             //noinspection UnstableApiUsage
-            LogManager.getLogger(IndexableRootCalculator.class).error(message, e);
+            Logger.getLogger(IndexableRootCalculator.class).error(message, e);
           }
         }
       }

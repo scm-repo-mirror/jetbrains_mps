@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,12 @@ import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.platform.watching.WatchedRoots;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileSystemEvent;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
@@ -51,7 +50,7 @@ import java.util.List;
  * AP
  */
 public final class ProjectRootListenerComponent implements Disposable {
-  private static final Logger LOG = LogManager.getLogger(ProjectRootListenerComponent.class);
+  private static final Logger LOG = Logger.getLogger(ProjectRootListenerComponent.class);
   private static final List<String> EXCLUDED_FOLDERS = Collections.singletonList(".git");
 
   private final Project myProject;
@@ -86,7 +85,7 @@ public final class ProjectRootListenerComponent implements Disposable {
         }
       });
     } else {
-      LOG.warn("Could not find base path of the project " + myProject);
+      LOG.warning("Could not find base path of the project " + myProject);
     }
   }
 

@@ -29,8 +29,7 @@ import com.intellij.util.ui.update.MergingUpdateQueue;
 import com.intellij.util.ui.update.Update;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.ide.ThreadUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -63,7 +62,7 @@ import java.util.Set;
 public abstract class MPSTree extends DnDAwareTree implements Disposable {
   public static final String PATH = "path";
 
-  protected static final Logger LOG = LogManager.getLogger(MPSTree.class);
+  protected static final Logger LOG = Logger.getLogger(MPSTree.class);
 
   public static final String TREE_PATH_SEPARATOR = "/";
 
@@ -800,7 +799,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
       TreePath path = expanded.nextElement();
       String pathString = pathToString(path);
       if (result.contains(pathString)) {
-        LOG.warn("two expanded paths have the same string representation");
+        LOG.warning("two expanded paths have the same string representation");
       }
       result.add(pathString);
     }
@@ -832,7 +831,7 @@ public abstract class MPSTree extends DnDAwareTree implements Disposable {
     for (TreePath selectionPart : getSelectionPaths()) {
       String pathString = pathToString(selectionPart);
       if (result.contains(pathString)) {
-        LOG.warn("two selected paths have the same string representation");
+        LOG.warning("two selected paths have the same string representation");
       }
       result.add(pathString);
     }

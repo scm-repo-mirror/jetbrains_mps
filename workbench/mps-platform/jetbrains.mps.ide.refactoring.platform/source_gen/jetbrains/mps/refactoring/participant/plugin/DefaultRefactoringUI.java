@@ -4,8 +4,7 @@ package jetbrains.mps.refactoring.participant.plugin;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.refactoring.participant.RefactoringUI;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.project.MPSProject;
@@ -20,7 +19,6 @@ import com.intellij.openapi.progress.Task;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
-import org.apache.log4j.Level;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchTask;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
@@ -32,7 +30,7 @@ import com.intellij.openapi.ui.Messages;
 
 @GeneratedClass(node = "r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.refactoring.participant.plugin)/5532289631192025701", model = "r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.refactoring.participant.plugin)")
 public class DefaultRefactoringUI implements RefactoringUI {
-  private static final Logger LOG = LogManager.getLogger(DefaultRefactoringUI.class);
+  private static final Logger LOG = Logger.getLogger(DefaultRefactoringUI.class);
   protected Project myProject;
   protected SRepository myRepository;
   protected String myRefactoringName;
@@ -84,7 +82,7 @@ public class DefaultRefactoringUI implements RefactoringUI {
             task.invoke(progressMonitor);
           } catch (RuntimeException e) {
             progressMonitor.cancel();
-            if (LOG.isEnabledFor(Level.ERROR)) {
+            if (LOG.isErrorLevel()) {
               LOG.error("Exception during usages search", e);
             }
           }
@@ -103,7 +101,7 @@ public class DefaultRefactoringUI implements RefactoringUI {
           try {
             performRefactoringTask.run();
           } catch (RuntimeException exception) {
-            if (LOG.isEnabledFor(Level.ERROR)) {
+            if (LOG.isErrorLevel()) {
               LOG.error("Exception during refactoring: ", exception);
             }
           }

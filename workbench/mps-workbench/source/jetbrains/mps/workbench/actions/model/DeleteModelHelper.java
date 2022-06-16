@@ -41,8 +41,7 @@ import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.ModelImports;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.logging.Logger;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -53,7 +52,6 @@ import java.util.Collections;
 import java.util.Iterator;
 
 public class DeleteModelHelper {
-  private static final Logger LOG = LogManager.getLogger(DeleteModelHelper.class);
 
   public static void deleteModel(Project project, SModule contextModule, SModel modelDescriptor, boolean safeDelete, boolean deleteFiles) {
     if (LanguageAspect.STRUCTURE.is(modelDescriptor)) {
@@ -78,8 +76,8 @@ public class DeleteModelHelper {
     } else if (contextModule instanceof Generator) {
       deleteModelFromGenerator((Generator) contextModule, modelDescriptor);
     } else {
-      LOG.warn("Module type " + contextModule.getClass().getSimpleName() + " is not supported by delete refactoring." +
-               "Changes will not be saved automatically for modules of this type.");
+      Logger.getLogger(DeleteModelHelper.class).warning("Module type " + contextModule.getClass().getSimpleName() + " is not supported by delete refactoring." +
+                                                     "Changes will not be saved automatically for modules of this type.");
     }
 
     if (!modelDescriptor.isReadOnly()) {

@@ -4,8 +4,6 @@ package jetbrains.mps.baseLanguage.execution.api;
 
 import jetbrains.mps.execution.api.settings.IPersistentConfiguration;
 import jetbrains.mps.project.structure.modules.Copyable;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -16,11 +14,9 @@ import com.intellij.openapi.util.InvalidDataException;
 import jetbrains.mps.util.PathManager;
 import java.io.File;
 import java.io.IOException;
-import org.apache.log4j.Level;
 import com.intellij.openapi.project.Project;
 
 public final class JavaRunParameters_Configuration implements IPersistentConfiguration, Copyable<JavaRunParameters_Configuration> {
-  private static final Logger LOG = LogManager.getLogger(JavaRunParameters_Configuration.class);
   @NotNull
   private MyState myState = new MyState();
 
@@ -37,7 +33,7 @@ public final class JavaRunParameters_Configuration implements IPersistentConfigu
     if (element == null) {
       throw new InvalidDataException("Cant read " + this + ": element is null.");
     }
-    XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
+    XmlSerializer.deserializeInto(myState, element.getChildren().get(0));
   }
 
   /*package*/ String getDefaultWorkingDir() {
@@ -54,17 +50,7 @@ public final class JavaRunParameters_Configuration implements IPersistentConfigu
   @Override
   @Deprecated
   public JavaRunParameters_Configuration clone() {
-    JavaRunParameters_Configuration clone = createCloneTemplate();
-    try {
-      // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
-      // the value of myState, and != clone as regular Java passer-by would expect.
-      clone.myState = (MyState) myState.clone();
-    } catch (CloneNotSupportedException ex) {
-      if (LOG.isEnabledFor(Level.ERROR)) {
-        LOG.error("", ex);
-      }
-    }
-    return clone;
+    return copy();
   }
 
   @Override
@@ -72,7 +58,7 @@ public final class JavaRunParameters_Configuration implements IPersistentConfigu
     JavaRunParameters_Configuration cloneTemplate = createCloneTemplate();
     // beware, PersistenceConfiguration.this of newly created MyState instance would be the same as
     // the value of myState, and != clone as regular Java passer-by would expect.
-    cloneTemplate.myState = (MyState) myState.copy();
+    cloneTemplate.myState = myState.copy();
     return cloneTemplate;
   }
 
@@ -89,24 +75,21 @@ public final class JavaRunParameters_Configuration implements IPersistentConfigu
 
     @Deprecated
     @Override
-    public Object clone() throws CloneNotSupportedException {
-      MyState state = (MyState) super.clone();
-      if (myJavaParameters != null) {
-        state.myJavaParameters = myJavaParameters.copy();
+    public MyState clone() {
+      try {
+        MyState state = (MyState) super.clone();
+        if (myJavaParameters != null) {
+          state.myJavaParameters = myJavaParameters.copy();
+        }
+        return state;
+      } catch (CloneNotSupportedException ex) {
+        throw new IllegalStateException("Shall not happen", ex);
       }
-      return state;
     }
 
     @Override
     public MyState copy() {
-      try {
-        return (MyState) clone();
-      } catch (CloneNotSupportedException e) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
-          LOG.error("", e);
-        }
-        return null;
-      }
+      return clone();
     }
   }
   public JavaRunParameters_Configuration(Project project) {

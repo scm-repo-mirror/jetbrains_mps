@@ -14,6 +14,7 @@
     <modelRoot contentPath="${platform_lib}" type="java_classes">
       <!-- For historical reasons, next libraries were exposed through MPS.Core; need to write migration code to update references to proper solutions -->
       <sourceRoot location="util.jar" />
+      <sourceRoot location="util_rt.jar" />
       <sourceRoot location="3rd-party-rt.jar" />
       <PackageScope>
         <include prefix="gnu.trove."/> <!-- trove4j.jar -->
@@ -41,6 +42,7 @@
     <stubModelEntry path="${mps_home}/lib/mps-tuples.jar" />
     <!-- Some code expects MPS.Core to provide next libraries as classpath. Don't want to add guava, xstream, asm-all unless have to do so-->
     <stubModelEntry path="${platform_lib}/util.jar" />
+    <stubModelEntry path="${platform_lib}/util_rt.jar" />
     <stubModelEntry path="${platform_lib}/3rd-party-rt.jar" />
   </stubModelEntries>
   <sourcePath />

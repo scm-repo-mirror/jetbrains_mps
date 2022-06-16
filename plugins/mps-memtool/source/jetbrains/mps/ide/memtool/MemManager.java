@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,16 +26,15 @@ import com.intellij.util.Alarm.ThreadToUse;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.project.MPSProject;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 public class MemManager implements StartupActivity.Background {
   public static final int DELAY = 5;
-  private static final Logger LOG = LogManager.getLogger(MemManager.class);
+  private static final Logger LOG = Logger.getLogger(MemManager.class);
   private static final int DELAY2 = DELAY * 2;
 
   private Project myProject;

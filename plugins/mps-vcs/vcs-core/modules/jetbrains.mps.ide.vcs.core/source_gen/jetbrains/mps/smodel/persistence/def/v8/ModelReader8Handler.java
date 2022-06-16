@@ -5,8 +5,7 @@ package jetbrains.mps.smodel.persistence.def.v8;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.util.xml.XMLSAXHandler;
 import jetbrains.mps.smodel.loading.ModelLoadResult;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+import jetbrains.mps.logging.Logger;
 import java.util.Stack;
 import org.xml.sax.Locator;
 import jetbrains.mps.smodel.SModelHeader;
@@ -31,12 +30,11 @@ import jetbrains.mps.smodel.InterfaceSNode;
 import jetbrains.mps.smodel.SNodeLegacy;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.apache.log4j.Level;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 
 @GeneratedClass(node = "r:050eb90d-d917-47d4-8d74-cc37a63452a4(jetbrains.mps.smodel.persistence.def.v8)/286176397450364062", model = "r:050eb90d-d917-47d4-8d74-cc37a63452a4(jetbrains.mps.smodel.persistence.def.v8)")
 public class ModelReader8Handler extends XMLSAXHandler<ModelLoadResult> {
-  private static final Logger LOG = LogManager.getLogger(ModelReader8Handler.class);
+  private static final Logger LOG = Logger.getLogger(ModelReader8Handler.class);
   private ModelElementHandler modelHandler = new ModelElementHandler();
   private PersistenceElementHandler persistenceHandler = new PersistenceElementHandler();
   private Module_referenceElementHandler module_referenceHandler = new Module_referenceElementHandler();
@@ -427,7 +425,7 @@ public class ModelReader8Handler extends XMLSAXHandler<ModelLoadResult> {
       Pair<Boolean, SNodeReference> pptr = my_helperField.readLink_internal(child[1]);
       SNodeReference ptr = pptr.o2;
       if (ptr == null || ptr.getModelReference() == null) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
+        if (LOG.isErrorLevel()) {
           LOG.error("couldn't create reference '" + child[0] + "' from " + child[1]);
         }
         return;

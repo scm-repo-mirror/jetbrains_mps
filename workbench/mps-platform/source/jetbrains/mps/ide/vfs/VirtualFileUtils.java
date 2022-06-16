@@ -21,11 +21,10 @@ import com.intellij.openapi.vfs.VfsUtilCore;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
+import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.QualifiedPath;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
@@ -40,7 +39,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 public final class VirtualFileUtils {
-  private static final Logger LOG = LogManager.getLogger(VirtualFileUtils.class);
+  private static final Logger LOG = Logger.getLogger(VirtualFileUtils.class);
 
   private VirtualFileUtils() {
   }

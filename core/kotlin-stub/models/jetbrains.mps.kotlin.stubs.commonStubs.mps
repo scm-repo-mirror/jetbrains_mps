@@ -30,7 +30,6 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="4it6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.loading(MPS.Core/)" />
     <import index="tzbx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.nodeidmap(MPS.Core/)" />
@@ -1383,21 +1382,18 @@
     <property role="3GE5qa" value="model.descriptor" />
     <node concept="Wx3nA" id="5HlCeYoHvYL" role="jymVt">
       <property role="TrG5h" value="LOG" />
-      <node concept="2YIFZM" id="17QXLl0fvYI" role="33vP2m">
-        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-        <ref role="37wK5l" to="wwqx:~Logger.wrap(org.apache.log4j.Logger)" resolve="wrap" />
-        <node concept="2YIFZM" id="17QXLl0fvYJ" role="37wK5m">
-          <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-          <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-          <node concept="3VsKOn" id="17QXLl0fvYK" role="37wK5m">
-            <ref role="3VsUkX" node="2ntakj1pRh8" resolve="KotlinCommonStubModelDescriptor" />
-          </node>
-        </node>
-      </node>
+      <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="1iIkS8Rm0VG" role="1tU5fm">
         <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
       </node>
       <node concept="3Tm6S6" id="5HlCeYoHvYN" role="1B3o_S" />
+      <node concept="2YIFZM" id="2hdoiXOQYb3" role="33vP2m">
+        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+        <node concept="3VsKOn" id="2hdoiXOQYb4" role="37wK5m">
+          <ref role="3VsUkX" node="2ntakj1pRh8" resolve="KotlinCommonStubModelDescriptor" />
+        </node>
+      </node>
     </node>
     <node concept="312cEg" id="1Oh4A_0I1nl" role="jymVt">
       <property role="TrG5h" value="myImportsToAdd" />
@@ -1946,11 +1942,11 @@
                                     </node>
                                   </node>
                                   <node concept="2OqwBi" id="6wISvADNgW2" role="3uHU7w">
-                                    <node concept="liA8E" id="6wISvADNivA" role="2OqNvi">
-                                      <ref role="37wK5l" to="b66x:~BinaryVersion.toString()" resolve="toString" />
-                                    </node>
                                     <node concept="37vLTw" id="6wISvADNfLS" role="2Oq$k0">
                                       <ref role="3cqZAo" node="6wISvADN1Ri" resolve="fileVersion" />
+                                    </node>
+                                    <node concept="liA8E" id="6wISvADNivA" role="2OqNvi">
+                                      <ref role="37wK5l" to="b66x:~BinaryVersion.toString()" resolve="toString" />
                                     </node>
                                   </node>
                                 </node>
@@ -1962,11 +1958,11 @@
                       </node>
                       <node concept="3fqX7Q" id="13KYllCaT_B" role="3clFbw">
                         <node concept="2OqwBi" id="13KYllCaT_D" role="3fr31v">
-                          <node concept="liA8E" id="13KYllCaT_F" role="2OqNvi">
-                            <ref role="37wK5l" to="b66x:~BinaryVersion.isCompatible()" resolve="isCompatible" />
-                          </node>
                           <node concept="37vLTw" id="13KYllCaT_E" role="2Oq$k0">
                             <ref role="3cqZAo" node="6wISvADN1Ri" resolve="fileVersion" />
+                          </node>
+                          <node concept="liA8E" id="13KYllCaT_F" role="2OqNvi">
+                            <ref role="37wK5l" to="b66x:~BinaryVersion.isCompatible()" resolve="isCompatible" />
                           </node>
                         </node>
                       </node>
@@ -2900,21 +2896,18 @@
     <property role="TrG5h" value="EnumFlags" />
     <node concept="Wx3nA" id="2Fzt74RqCWo" role="jymVt">
       <property role="TrG5h" value="LOG" />
-      <node concept="2YIFZM" id="2Fzt74RqCWp" role="33vP2m">
-        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-        <ref role="37wK5l" to="wwqx:~Logger.wrap(org.apache.log4j.Logger)" resolve="wrap" />
-        <node concept="2YIFZM" id="2Fzt74RqCWq" role="37wK5m">
-          <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-          <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-          <node concept="3VsKOn" id="2Fzt74RqCWr" role="37wK5m">
-            <ref role="3VsUkX" node="5D6Cze4pzNU" resolve="EnumFlags" />
-          </node>
-        </node>
-      </node>
+      <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="2Fzt74RqCWs" role="1tU5fm">
         <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
       </node>
       <node concept="3Tm6S6" id="2Fzt74RqCWt" role="1B3o_S" />
+      <node concept="2YIFZM" id="2hdoiXOQGlb" role="33vP2m">
+        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+        <node concept="3VsKOn" id="2hdoiXOQGlc" role="37wK5m">
+          <ref role="3VsUkX" node="5D6Cze4pzNU" resolve="EnumFlags" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2Fzt74RqEjS" role="jymVt" />
     <node concept="2YIFZL" id="5D6Cze4p_0i" role="jymVt">
@@ -4030,15 +4023,15 @@
               </node>
             </node>
             <node concept="2OqwBi" id="2Aaqzls4Ocl" role="3uHU7w">
-              <node concept="10M0yZ" id="1L_$dPB2IJR" role="2Oq$k0">
-                <ref role="3cqZAo" to="b66x:~Flags.IS_VALUE_CLASS" resolve="IS_VALUE_CLASS" />
-                <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-              </node>
               <node concept="liA8E" id="2Aaqzls4Ocn" role="2OqNvi">
                 <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
                 <node concept="37vLTw" id="2Aaqzls4Oco" role="37wK5m">
                   <ref role="3cqZAo" node="2Aaqzls33y_" resolve="flags" />
                 </node>
+              </node>
+              <node concept="10M0yZ" id="1L_$dPB2IJR" role="2Oq$k0">
+                <ref role="3cqZAo" to="b66x:~Flags.IS_VALUE_CLASS" resolve="IS_VALUE_CLASS" />
+                <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
               </node>
             </node>
           </node>
@@ -9524,9 +9517,6 @@
                 <node concept="3clFbS" id="2AaqzlsnUR4" role="1bW5cS">
                   <node concept="3clFbF" id="2AaqzlsnVta" role="3cqZAp">
                     <node concept="37vLTI" id="2AaqzlsnWfb" role="3clFbG">
-                      <node concept="37vLTw" id="7p20EYZMPl6" role="37vLTx">
-                        <ref role="3cqZAo" node="2AaqzlsnV1q" resolve="type" />
-                      </node>
                       <node concept="2OqwBi" id="2AaqzlsnV_E" role="37vLTJ">
                         <node concept="37vLTw" id="2AaqzlsnVt9" role="2Oq$k0">
                           <ref role="3cqZAo" node="2AaqzlsnUA_" resolve="node" />
@@ -9534,6 +9524,9 @@
                         <node concept="3TrEf2" id="2AaqzlsnVMt" role="2OqNvi">
                           <ref role="3Tt5mk" to="hcm8:7p20EYZLFR_" resolve="receiverType" />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="7p20EYZMPl6" role="37vLTx">
+                        <ref role="3cqZAo" node="2AaqzlsnV1q" resolve="type" />
                       </node>
                     </node>
                   </node>
@@ -9636,9 +9629,6 @@
                         <ref role="3cqZAo" node="7SVeP54glFp" resolve="type" />
                       </node>
                       <node concept="2OqwBi" id="7SVeP54gpp2" role="37vLTJ">
-                        <node concept="3TrEf2" id="7SVeP54gpEB" role="2OqNvi">
-                          <ref role="3Tt5mk" to="hcm8:2yYXHtl6J$n" resolve="type" />
-                        </node>
                         <node concept="2OqwBi" id="7SVeP54goki" role="2Oq$k0">
                           <node concept="37vLTw" id="7SVeP54gnQc" role="2Oq$k0">
                             <ref role="3cqZAo" node="2AaqzlsnUA_" resolve="node" />
@@ -9646,6 +9636,9 @@
                           <node concept="3TrEf2" id="7SVeP54gp6s" role="2OqNvi">
                             <ref role="3Tt5mk" to="hcm8:18X2O0FAIfH" resolve="declaration" />
                           </node>
+                        </node>
+                        <node concept="3TrEf2" id="7SVeP54gpEB" role="2OqNvi">
+                          <ref role="3Tt5mk" to="hcm8:2yYXHtl6J$n" resolve="type" />
                         </node>
                       </node>
                     </node>
@@ -9777,9 +9770,6 @@
               <ref role="3cqZAo" node="2AaqzlsnLYZ" resolve="name" />
             </node>
             <node concept="2OqwBi" id="7SVeP54g5CA" role="37vLTJ">
-              <node concept="3TrcHB" id="7SVeP54g5So" role="2OqNvi">
-                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
-              </node>
               <node concept="2OqwBi" id="7SVeP54g4a4" role="2Oq$k0">
                 <node concept="37vLTw" id="7SVeP54g3GT" role="2Oq$k0">
                   <ref role="3cqZAo" node="2AaqzlsnOi$" resolve="decl" />
@@ -9787,6 +9777,9 @@
                 <node concept="3TrEf2" id="7SVeP54g5f2" role="2OqNvi">
                   <ref role="3Tt5mk" to="hcm8:18X2O0FAIfH" resolve="declaration" />
                 </node>
+              </node>
+              <node concept="3TrcHB" id="7SVeP54g5So" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
               </node>
             </node>
           </node>
@@ -10050,21 +10043,18 @@
     <property role="TrG5h" value="VisitorContext" />
     <node concept="Wx3nA" id="2Fzt74Rpra4" role="jymVt">
       <property role="TrG5h" value="LOG" />
-      <node concept="2YIFZM" id="2Fzt74Rpra5" role="33vP2m">
-        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
-        <ref role="37wK5l" to="wwqx:~Logger.wrap(org.apache.log4j.Logger)" resolve="wrap" />
-        <node concept="2YIFZM" id="2Fzt74Rpra6" role="37wK5m">
-          <ref role="1Pybhc" to="q7tw:~LogManager" resolve="LogManager" />
-          <ref role="37wK5l" to="q7tw:~LogManager.getLogger(java.lang.Class)" resolve="getLogger" />
-          <node concept="3VsKOn" id="2Fzt74Rpra7" role="37wK5m">
-            <ref role="3VsUkX" node="6ZbwqG7V1gA" resolve="VisitorContext" />
-          </node>
-        </node>
-      </node>
+      <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="2Fzt74Rpra8" role="1tU5fm">
         <ref role="3uigEE" to="wwqx:~Logger" resolve="Logger" />
       </node>
       <node concept="3Tm6S6" id="2Fzt74Rpra9" role="1B3o_S" />
+      <node concept="2YIFZM" id="2hdoiXOQL2Z" role="33vP2m">
+        <ref role="37wK5l" to="wwqx:~Logger.getLogger(java.lang.Class)" resolve="getLogger" />
+        <ref role="1Pybhc" to="wwqx:~Logger" resolve="Logger" />
+        <node concept="3VsKOn" id="2hdoiXOQL30" role="37wK5m">
+          <ref role="3VsUkX" node="6ZbwqG7V1gA" resolve="VisitorContext" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="2Fzt74Rq564" role="jymVt" />
     <node concept="2RhdJD" id="6ZbwqG7V1iZ" role="jymVt">
@@ -12059,1488 +12049,6 @@
       </node>
     </node>
   </node>
-  <node concept="312cEu" id="2sZWskLzHi0">
-    <property role="3GE5qa" value="parsing.visitor.annotation" />
-    <property role="TrG5h" value="AnnotationsMetadataExtensions" />
-    <node concept="3clFb_" id="2bJGON6Rt9Y" role="jymVt">
-      <property role="TrG5h" value="readAnnotations" />
-      <node concept="37vLTG" id="2bJGON6Rud8" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6RuQF" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6S8qJ" role="3clF46">
-        <property role="TrG5h" value="element" />
-        <node concept="16syzq" id="2bJGON6Sb35" role="1tU5fm">
-          <ref role="16sUi3" node="2bJGON6R$ik" resolve="MessageType" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6RvJi" role="3clF46">
-        <property role="TrG5h" value="extension" />
-        <node concept="3uibUv" id="2bJGON6P2GP" role="1tU5fm">
-          <ref role="3uigEE" to="f1as:~GeneratedMessageLite$GeneratedExtension" resolve="GeneratedMessageLite.GeneratedExtension" />
-          <node concept="16syzq" id="2bJGON6RDzE" role="11_B2D">
-            <ref role="16sUi3" node="2bJGON6R$ik" resolve="MessageType" />
-          </node>
-          <node concept="3uibUv" id="2bJGON6R_An" role="11_B2D">
-            <ref role="3uigEE" to="33ny:~List" resolve="List" />
-            <node concept="3uibUv" id="2bJGON6SFvs" role="11_B2D">
-              <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6SpSB" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6SqKI" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Rta1" role="3clF47">
-        <node concept="3clFbJ" id="2bJGON6RHfY" role="3cqZAp">
-          <node concept="3fqX7Q" id="2bJGON6RKhM" role="3clFbw">
-            <node concept="2ZW3vV" id="2bJGON6RKhO" role="3fr31v">
-              <node concept="3uibUv" id="2bJGON6RKhP" role="2ZW6by">
-                <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-              </node>
-              <node concept="37vLTw" id="2bJGON6RKhQ" role="2ZW6bz">
-                <ref role="3cqZAo" node="2bJGON6Rud8" resolve="visitor" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbS" id="2bJGON6RHg0" role="3clFbx">
-            <node concept="3cpWs6" id="2bJGON6RL2t" role="3cqZAp" />
-          </node>
-        </node>
-        <node concept="3cpWs8" id="2bJGON6RNax" role="3cqZAp">
-          <node concept="3cpWsn" id="2bJGON6RNay" role="3cpWs9">
-            <property role="TrG5h" value="annotationVisitor" />
-            <node concept="3uibUv" id="2bJGON6RNaz" role="1tU5fm">
-              <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-            </node>
-            <node concept="1eOMI4" id="2bJGON6RQUr" role="33vP2m">
-              <node concept="10QFUN" id="2bJGON6RQUo" role="1eOMHV">
-                <node concept="3uibUv" id="2bJGON6RQUt" role="10QFUM">
-                  <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6RREo" role="10QFUP">
-                  <ref role="3cqZAo" node="2bJGON6Rud8" resolve="visitor" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="2bJGON6RSmM" role="3cqZAp" />
-        <node concept="3cpWs8" id="2bJGON6QoB1" role="3cqZAp">
-          <node concept="3cpWsn" id="2bJGON6QoB2" role="3cpWs9">
-            <property role="TrG5h" value="annotations" />
-            <node concept="3uibUv" id="2bJGON6QnQz" role="1tU5fm">
-              <ref role="3uigEE" to="33ny:~List" resolve="List" />
-              <node concept="3uibUv" id="2bJGON6QnQA" role="11_B2D">
-                <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
-              </node>
-            </node>
-            <node concept="10QFUN" id="49UfAr1F6RV" role="33vP2m">
-              <node concept="3uibUv" id="49UfAr1F84e" role="10QFUM">
-                <ref role="3uigEE" to="33ny:~List" resolve="List" />
-                <node concept="3uibUv" id="49UfAr1Fabn" role="11_B2D">
-                  <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
-                </node>
-              </node>
-              <node concept="2OqwBi" id="2bJGON6Sl6M" role="10QFUP">
-                <node concept="37vLTw" id="2bJGON6Sl6N" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6S8qJ" resolve="element" />
-                </node>
-                <node concept="liA8E" id="2bJGON6Sl6O" role="2OqNvi">
-                  <ref role="37wK5l" to="f1as:~GeneratedMessageLite$ExtendableMessage.getExtension(kotlinx.metadata.internal.protobuf.GeneratedMessageLite$GeneratedExtension)" resolve="getExtension" />
-                  <node concept="37vLTw" id="2bJGON6Sl6P" role="37wK5m">
-                    <ref role="3cqZAo" node="2bJGON6RvJi" resolve="extension" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="2Gpval" id="2bJGON6Rd0L" role="3cqZAp">
-          <node concept="2GrKxI" id="2bJGON6Rd0N" role="2Gsz3X">
-            <property role="TrG5h" value="annotation" />
-          </node>
-          <node concept="37vLTw" id="2bJGON6Rg_K" role="2GsD0m">
-            <ref role="3cqZAo" node="2bJGON6QoB2" resolve="annotations" />
-          </node>
-          <node concept="3clFbS" id="2bJGON6Rd0R" role="2LFqv$">
-            <node concept="3cpWs8" id="2bJGON6Su2v" role="3cqZAp">
-              <node concept="3cpWsn" id="2bJGON6Su2w" role="3cpWs9">
-                <property role="TrG5h" value="readAnnotation" />
-                <node concept="3uibUv" id="2bJGON6Sss1" role="1tU5fm">
-                  <ref role="3uigEE" to="z352:~KmAnnotation" resolve="KmAnnotation" />
-                </node>
-                <node concept="2YIFZM" id="2bJGON6Su2x" role="33vP2m">
-                  <ref role="37wK5l" to="fz3c:~ReadUtilsKt.readAnnotation(kotlinx.metadata.internal.metadata.ProtoBuf$Annotation,kotlinx.metadata.internal.metadata.deserialization.NameResolver)" resolve="readAnnotation" />
-                  <ref role="1Pybhc" to="fz3c:~ReadUtilsKt" resolve="ReadUtilsKt" />
-                  <node concept="2GrUjf" id="2bJGON6Su2y" role="37wK5m">
-                    <ref role="2Gs0qQ" node="2bJGON6Rd0N" resolve="annotation" />
-                  </node>
-                  <node concept="2OqwBi" id="2bJGON6Su2z" role="37wK5m">
-                    <node concept="37vLTw" id="2bJGON6Su2$" role="2Oq$k0">
-                      <ref role="3cqZAo" node="2bJGON6SpSB" resolve="context" />
-                    </node>
-                    <node concept="liA8E" id="2bJGON6Su2_" role="2OqNvi">
-                      <ref role="37wK5l" to="fz3c:~ReadContext.getStrings()" resolve="getStrings" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbF" id="2bJGON6SwbE" role="3cqZAp">
-              <node concept="2OqwBi" id="2bJGON6Sx5Z" role="3clFbG">
-                <node concept="37vLTw" id="2bJGON6SwbC" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6RNay" resolve="annotationVisitor" />
-                </node>
-                <node concept="liA8E" id="2bJGON6SxPN" role="2OqNvi">
-                  <ref role="37wK5l" node="2bJGON6QczJ" resolve="visitAnnotation" />
-                  <node concept="37vLTw" id="2bJGON6SyFE" role="37wK5m">
-                    <ref role="3cqZAo" node="2bJGON6Su2w" resolve="readAnnotation" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="2bJGON6Rslv" role="1B3o_S" />
-      <node concept="16euLQ" id="2bJGON6R$ik" role="16eVyc">
-        <property role="TrG5h" value="MessageType" />
-        <node concept="3uibUv" id="2bJGON6S9As" role="3ztrMU">
-          <ref role="3uigEE" to="f1as:~GeneratedMessageLite$ExtendableMessage" resolve="GeneratedMessageLite.ExtendableMessage" />
-        </node>
-      </node>
-      <node concept="3cqZAl" id="2bJGON6RBse" role="3clF45" />
-    </node>
-    <node concept="2tJIrI" id="49UfAr1EJve" role="jymVt" />
-    <node concept="3Tm1VV" id="2sZWskLzHi1" role="1B3o_S" />
-    <node concept="3uibUv" id="2bJGON6Q1ZH" role="EKbjA">
-      <ref role="3uigEE" to="nfiy:~MetadataExtensions" resolve="MetadataExtensions" />
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q24s" role="jymVt">
-      <property role="TrG5h" value="readClassExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q24t" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q24v" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q24w" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q24x" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmClassVisitor" resolve="KmClassVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24y" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q24z" role="3clF46">
-        <property role="TrG5h" value="aClass" />
-        <node concept="3uibUv" id="2bJGON6Q24$" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Class" resolve="ProtoBuf.Class" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24_" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q24A" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q24B" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24C" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q24D" role="3clF47">
-        <node concept="3clFbJ" id="7LA8mnHwH7D" role="3cqZAp">
-          <node concept="3clFbS" id="7LA8mnHwH7F" role="3clFbx">
-            <node concept="3clFbF" id="2bJGON6SzFG" role="3cqZAp">
-              <node concept="1rXfSq" id="2bJGON6SzFE" role="3clFbG">
-                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-                <node concept="2OqwBi" id="49UfAr1E6js" role="37wK5m">
-                  <node concept="37vLTw" id="2bJGON6S$z8" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2bJGON6Q24w" resolve="visitor" />
-                  </node>
-                  <node concept="liA8E" id="49UfAr1E7ul" role="2OqNvi">
-                    <ref role="37wK5l" to="z352:~KmClassVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                    <node concept="10M0yZ" id="49UfAr1EaNq" role="37wK5m">
-                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2bJGON6S_wd" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q24z" resolve="aClass" />
-                </node>
-                <node concept="10M0yZ" id="2bJGON6SDeV" role="37wK5m">
-                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.classAnnotation" resolve="classAnnotation" />
-                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6SAyh" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q24A" resolve="context" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="7LA8mnHwLJN" role="3clFbw">
-            <node concept="10M0yZ" id="7LA8mnHwLJO" role="2Oq$k0">
-              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
-              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-            </node>
-            <node concept="liA8E" id="7LA8mnHwLJP" role="2OqNvi">
-              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-              <node concept="2OqwBi" id="7LA8mnHwLJQ" role="37wK5m">
-                <node concept="37vLTw" id="7LA8mnHwLJR" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6Q24z" resolve="aClass" />
-                </node>
-                <node concept="liA8E" id="7LA8mnHwLJS" role="2OqNvi">
-                  <ref role="37wK5l" to="f46w:~ProtoBuf$Class.getFlags()" resolve="getFlags" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q24E" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2bJGON6Q7R9" role="jymVt" />
-    <node concept="3clFb_" id="2bJGON6Q24F" role="jymVt">
-      <property role="TrG5h" value="readPackageExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q24G" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q24I" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q24J" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q24K" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmPackageVisitor" resolve="KmPackageVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24L" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q24M" role="3clF46">
-        <property role="TrG5h" value="aPackage" />
-        <node concept="3uibUv" id="2bJGON6Q24N" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Package" resolve="ProtoBuf.Package" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24O" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q24P" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q24Q" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q24R" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q24S" role="3clF47">
-        <node concept="3SKdUt" id="2bJGON6SWuX" role="3cqZAp">
-          <node concept="1PaTwC" id="2bJGON6SWuY" role="1aUNEU">
-            <node concept="3oM_SD" id="2bJGON6SXIp" role="1PaTwD">
-              <property role="3oM_SC" value="no-op" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q24T" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q24U" role="jymVt">
-      <property role="TrG5h" value="readModuleFragmentExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q24V" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q24X" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q24Y" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q24Z" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmModuleFragmentVisitor" resolve="KmModuleFragmentVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q250" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q251" role="3clF46">
-        <property role="TrG5h" value="fragment" />
-        <node concept="3uibUv" id="2bJGON6Q252" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$PackageFragment" resolve="ProtoBuf.PackageFragment" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q253" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q254" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q255" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q256" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q257" role="3clF47">
-        <node concept="3SKdUt" id="2bJGON6T1Gu" role="3cqZAp">
-          <node concept="1PaTwC" id="2bJGON6T1Gv" role="1aUNEU">
-            <node concept="3oM_SD" id="2bJGON6T2_7" role="1PaTwD">
-              <property role="3oM_SC" value="no-op" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q258" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q259" role="jymVt">
-      <property role="TrG5h" value="readFunctionExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q25a" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q25c" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q25d" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q25e" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmFunctionVisitor" resolve="KmFunctionVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25f" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25g" role="3clF46">
-        <property role="TrG5h" value="function" />
-        <node concept="3uibUv" id="2bJGON6Q25h" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Function" resolve="ProtoBuf.Function" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25i" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25j" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q25k" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25l" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q25m" role="3clF47">
-        <node concept="3clFbJ" id="7LA8mnHwyOz" role="3cqZAp">
-          <node concept="3clFbS" id="7LA8mnHwyO_" role="3clFbx">
-            <node concept="3clFbF" id="2bJGON6SJQi" role="3cqZAp">
-              <node concept="1rXfSq" id="2bJGON6SJQj" role="3clFbG">
-                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-                <node concept="2OqwBi" id="49UfAr1Ec51" role="37wK5m">
-                  <node concept="37vLTw" id="2bJGON6SJQk" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2bJGON6Q25d" resolve="visitor" />
-                  </node>
-                  <node concept="liA8E" id="49UfAr1Edhc" role="2OqNvi">
-                    <ref role="37wK5l" to="z352:~KmFunctionVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                    <node concept="10M0yZ" id="49UfAr1Edhd" role="37wK5m">
-                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2bJGON6SJQl" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25g" resolve="function" />
-                </node>
-                <node concept="10M0yZ" id="2bJGON6T5sE" role="37wK5m">
-                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.functionAnnotation" resolve="functionAnnotation" />
-                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6SJQn" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25j" resolve="context" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="7LA8mnHwyPN" role="3clFbw">
-            <node concept="10M0yZ" id="7LA8mnHwyPO" role="2Oq$k0">
-              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
-            </node>
-            <node concept="liA8E" id="7LA8mnHwyPP" role="2OqNvi">
-              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-              <node concept="2OqwBi" id="7LA8mnHwyPQ" role="37wK5m">
-                <node concept="37vLTw" id="7LA8mnHwyPR" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6Q25g" resolve="function" />
-                </node>
-                <node concept="liA8E" id="7LA8mnHwyPS" role="2OqNvi">
-                  <ref role="37wK5l" to="f46w:~ProtoBuf$Function.getFlags()" resolve="getFlags" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q25n" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q25o" role="jymVt">
-      <property role="TrG5h" value="readPropertyExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q25p" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q25r" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q25s" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q25t" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmPropertyVisitor" resolve="KmPropertyVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25u" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25v" role="3clF46">
-        <property role="TrG5h" value="property" />
-        <node concept="3uibUv" id="2bJGON6Q25w" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Property" resolve="ProtoBuf.Property" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25x" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25y" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q25z" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25$" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q25_" role="3clF47">
-        <node concept="3clFbJ" id="7LA8mnHwoTy" role="3cqZAp">
-          <node concept="3clFbS" id="7LA8mnHwoT$" role="3clFbx">
-            <node concept="3clFbF" id="2bJGON6SKDB" role="3cqZAp">
-              <node concept="1rXfSq" id="2bJGON6SKDC" role="3clFbG">
-                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-                <node concept="2OqwBi" id="49UfAr1EfyN" role="37wK5m">
-                  <node concept="37vLTw" id="2bJGON6SKDD" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2bJGON6Q25s" resolve="visitor" />
-                  </node>
-                  <node concept="liA8E" id="49UfAr1Egyo" role="2OqNvi">
-                    <ref role="37wK5l" to="z352:~KmPropertyVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                    <node concept="10M0yZ" id="49UfAr1Egyp" role="37wK5m">
-                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2bJGON6SKDE" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25v" resolve="property" />
-                </node>
-                <node concept="10M0yZ" id="2bJGON6T6CX" role="37wK5m">
-                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.propertyAnnotation" resolve="propertyAnnotation" />
-                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6SKDG" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25y" resolve="context" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="7LA8mnHwq2Z" role="3clFbw">
-            <node concept="10M0yZ" id="7LA8mnHwq30" role="2Oq$k0">
-              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
-            </node>
-            <node concept="liA8E" id="7LA8mnHwq31" role="2OqNvi">
-              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-              <node concept="2OqwBi" id="7LA8mnHwq32" role="37wK5m">
-                <node concept="37vLTw" id="7LA8mnHwq33" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6Q25v" resolve="property" />
-                </node>
-                <node concept="liA8E" id="7LA8mnHwq34" role="2OqNvi">
-                  <ref role="37wK5l" to="f46w:~ProtoBuf$Property.getFlags()" resolve="getFlags" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q25A" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q25B" role="jymVt">
-      <property role="TrG5h" value="readConstructorExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q25C" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q25E" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q25F" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q25G" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmConstructorVisitor" resolve="KmConstructorVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25H" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25I" role="3clF46">
-        <property role="TrG5h" value="constructor" />
-        <node concept="3uibUv" id="2bJGON6Q25J" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Constructor" resolve="ProtoBuf.Constructor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25K" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25L" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q25M" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25N" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q25O" role="3clF47">
-        <node concept="3clFbJ" id="7LA8mnHwcFA" role="3cqZAp">
-          <node concept="3clFbS" id="7LA8mnHwcFC" role="3clFbx">
-            <node concept="3clFbF" id="2bJGON6SLHB" role="3cqZAp">
-              <node concept="1rXfSq" id="2bJGON6SLHC" role="3clFbG">
-                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-                <node concept="2OqwBi" id="49UfAr1EjRa" role="37wK5m">
-                  <node concept="37vLTw" id="2bJGON6SLHD" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2bJGON6Q25F" resolve="visitor" />
-                  </node>
-                  <node concept="liA8E" id="49UfAr1EkL0" role="2OqNvi">
-                    <ref role="37wK5l" to="z352:~KmConstructorVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                    <node concept="10M0yZ" id="49UfAr1EkL1" role="37wK5m">
-                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2bJGON6SLHE" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25I" resolve="constructor" />
-                </node>
-                <node concept="10M0yZ" id="2bJGON6TaVl" role="37wK5m">
-                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.constructorAnnotation" resolve="constructorAnnotation" />
-                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6SLHG" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q25L" resolve="context" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="7LA8mnHwdO8" role="3clFbw">
-            <node concept="10M0yZ" id="7LA8mnHwdO9" role="2Oq$k0">
-              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
-            </node>
-            <node concept="liA8E" id="7LA8mnHwdOa" role="2OqNvi">
-              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-              <node concept="2OqwBi" id="7LA8mnHwdOb" role="37wK5m">
-                <node concept="37vLTw" id="7LA8mnHwdOc" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6Q25I" resolve="constructor" />
-                </node>
-                <node concept="liA8E" id="7LA8mnHwdOd" role="2OqNvi">
-                  <ref role="37wK5l" to="f46w:~ProtoBuf$Constructor.getFlags()" resolve="getFlags" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q25P" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q25Q" role="jymVt">
-      <property role="TrG5h" value="readTypeParameterExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q25R" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q25T" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q25U" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q25V" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmTypeParameterVisitor" resolve="KmTypeParameterVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25W" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q25X" role="3clF46">
-        <property role="TrG5h" value="parameter" />
-        <node concept="3uibUv" id="2bJGON6Q25Y" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeParameter" resolve="ProtoBuf.TypeParameter" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q25Z" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q260" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q261" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q262" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q263" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6SM$E" role="3cqZAp">
-          <node concept="1rXfSq" id="2bJGON6SM$F" role="3clFbG">
-            <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-            <node concept="2OqwBi" id="49UfAr1EnVb" role="37wK5m">
-              <node concept="37vLTw" id="2bJGON6SM$G" role="2Oq$k0">
-                <ref role="3cqZAo" node="2bJGON6Q25U" resolve="visitor" />
-              </node>
-              <node concept="liA8E" id="49UfAr1Ep6T" role="2OqNvi">
-                <ref role="37wK5l" to="z352:~KmTypeParameterVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                <node concept="10M0yZ" id="49UfAr1Ep6U" role="37wK5m">
-                  <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                  <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                </node>
-              </node>
-            </node>
-            <node concept="37vLTw" id="2bJGON6SM$H" role="37wK5m">
-              <ref role="3cqZAo" node="2bJGON6Q25X" resolve="parameter" />
-            </node>
-            <node concept="10M0yZ" id="2bJGON6TlcZ" role="37wK5m">
-              <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.typeParameterAnnotation" resolve="typeParameterAnnotation" />
-              <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-            </node>
-            <node concept="37vLTw" id="2bJGON6SM$J" role="37wK5m">
-              <ref role="3cqZAo" node="2bJGON6Q260" resolve="context" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q264" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q265" role="jymVt">
-      <property role="TrG5h" value="readTypeExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q266" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q268" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q269" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q26a" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmTypeVisitor" resolve="KmTypeVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26b" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26c" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q26d" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Type" resolve="ProtoBuf.Type" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26e" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26f" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q26g" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26h" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q26i" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6SNKx" role="3cqZAp">
-          <node concept="1rXfSq" id="2bJGON6SNKy" role="3clFbG">
-            <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-            <node concept="2OqwBi" id="49UfAr1EslL" role="37wK5m">
-              <node concept="37vLTw" id="2bJGON6SNKz" role="2Oq$k0">
-                <ref role="3cqZAo" node="2bJGON6Q269" resolve="visitor" />
-              </node>
-              <node concept="liA8E" id="49UfAr1EtzZ" role="2OqNvi">
-                <ref role="37wK5l" to="z352:~KmTypeVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                <node concept="10M0yZ" id="49UfAr1Et$0" role="37wK5m">
-                  <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                  <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                </node>
-              </node>
-            </node>
-            <node concept="37vLTw" id="2bJGON6SNK$" role="37wK5m">
-              <ref role="3cqZAo" node="2bJGON6Q26c" resolve="type" />
-            </node>
-            <node concept="10M0yZ" id="2bJGON6Tpx_" role="37wK5m">
-              <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.typeAnnotation" resolve="typeAnnotation" />
-              <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-            </node>
-            <node concept="37vLTw" id="2bJGON6SNKA" role="37wK5m">
-              <ref role="3cqZAo" node="2bJGON6Q26f" resolve="context" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q26j" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q26k" role="jymVt">
-      <property role="TrG5h" value="readTypeAliasExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q26l" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q26n" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q26o" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q26p" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmTypeAliasVisitor" resolve="KmTypeAliasVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26q" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26r" role="3clF46">
-        <property role="TrG5h" value="alias" />
-        <node concept="3uibUv" id="2bJGON6Q26s" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeAlias" resolve="ProtoBuf.TypeAlias" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26t" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26u" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q26v" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26w" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q26x" role="3clF47">
-        <node concept="3SKdUt" id="2bJGON6TvWu" role="3cqZAp">
-          <node concept="1PaTwC" id="2bJGON6TvWv" role="1aUNEU">
-            <node concept="3oM_SD" id="2bJGON6Tx2S" role="1PaTwD">
-              <property role="3oM_SC" value="no-op" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q26y" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q26z" role="jymVt">
-      <property role="TrG5h" value="readValueParameterExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q26$" role="1B3o_S" />
-      <node concept="3cqZAl" id="2bJGON6Q26A" role="3clF45" />
-      <node concept="37vLTG" id="2bJGON6Q26B" role="3clF46">
-        <property role="TrG5h" value="visitor" />
-        <node concept="3uibUv" id="2bJGON6Q26C" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmValueParameterVisitor" resolve="KmValueParameterVisitor" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26D" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26E" role="3clF46">
-        <property role="TrG5h" value="parameter" />
-        <node concept="3uibUv" id="2bJGON6Q26F" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$ValueParameter" resolve="ProtoBuf.ValueParameter" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26G" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q26H" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q26I" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q26J" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q26K" role="3clF47">
-        <node concept="3clFbJ" id="7LA8mnHvjif" role="3cqZAp">
-          <node concept="3clFbS" id="7LA8mnHvjih" role="3clFbx">
-            <node concept="3clFbF" id="2bJGON6SPXB" role="3cqZAp">
-              <node concept="1rXfSq" id="2bJGON6SPXC" role="3clFbG">
-                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
-                <node concept="2OqwBi" id="49UfAr1EvJv" role="37wK5m">
-                  <node concept="37vLTw" id="2bJGON6SPXD" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2bJGON6Q26B" resolve="visitor" />
-                  </node>
-                  <node concept="liA8E" id="49UfAr1EvJI" role="2OqNvi">
-                    <ref role="37wK5l" to="z352:~KmValueParameterVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
-                    <node concept="10M0yZ" id="49UfAr1EvJJ" role="37wK5m">
-                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
-                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="37vLTw" id="2bJGON6SPXE" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q26E" resolve="parameter" />
-                </node>
-                <node concept="10M0yZ" id="2bJGON6TzsZ" role="37wK5m">
-                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.parameterAnnotation" resolve="parameterAnnotation" />
-                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
-                </node>
-                <node concept="37vLTw" id="2bJGON6SPXG" role="37wK5m">
-                  <ref role="3cqZAo" node="2bJGON6Q26H" resolve="context" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="7LA8mnHvwe4" role="3clFbw">
-            <node concept="10M0yZ" id="7LA8mnHvv0S" role="2Oq$k0">
-              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
-              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
-            </node>
-            <node concept="liA8E" id="7LA8mnHvz5o" role="2OqNvi">
-              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
-              <node concept="2OqwBi" id="7LA8mnHvC9L" role="37wK5m">
-                <node concept="37vLTw" id="7LA8mnHv$BI" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2bJGON6Q26E" resolve="parameter" />
-                </node>
-                <node concept="liA8E" id="7LA8mnHvEi_" role="2OqNvi">
-                  <ref role="37wK5l" to="f46w:~ProtoBuf$ValueParameter.getFlags()" resolve="getFlags" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q26L" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="2bJGON6SRf0" role="jymVt" />
-    <node concept="3clFb_" id="2bJGON6Q2V5" role="jymVt">
-      <property role="TrG5h" value="writeClassExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2V6" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2V8" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2V9" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmClassExtensionVisitor" resolve="KmClassExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Va" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2Vb" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Vc" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Vd" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2Ve" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Class$Builder" resolve="ProtoBuf.Class.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Vf" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Vg" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2Vh" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Vi" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Vj" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Vm" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Vl" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Vk" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Vn" role="jymVt">
-      <property role="TrG5h" value="writePackageExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Vo" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Vq" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Vr" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmPackageExtensionVisitor" resolve="KmPackageExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Vs" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2Vt" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Vu" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Vv" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2Vw" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Package$Builder" resolve="ProtoBuf.Package.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Vx" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Vy" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2Vz" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2V$" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2V_" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2VC" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2VB" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2VA" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2VD" role="jymVt">
-      <property role="TrG5h" value="writeModuleFragmentExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2VE" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2VG" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2VH" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmModuleFragmentExtensionVisitor" resolve="KmModuleFragmentExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2VI" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2VJ" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2VK" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2VL" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2VM" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$PackageFragment$Builder" resolve="ProtoBuf.PackageFragment.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2VN" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2VO" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2VP" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2VQ" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2VR" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2VU" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2VT" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2VS" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2VV" role="jymVt">
-      <property role="TrG5h" value="writeFunctionExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2VW" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2VY" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2VZ" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmFunctionExtensionVisitor" resolve="KmFunctionExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2W0" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2W1" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2W2" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2W3" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2W4" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Function$Builder" resolve="ProtoBuf.Function.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2W5" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2W6" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2W7" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2W8" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2W9" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Wc" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Wb" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Wa" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Wd" role="jymVt">
-      <property role="TrG5h" value="writePropertyExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2We" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Wg" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Wh" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmPropertyExtensionVisitor" resolve="KmPropertyExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Wi" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2Wj" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Wk" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Wl" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2Wm" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Property$Builder" resolve="ProtoBuf.Property.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Wn" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Wo" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2Wp" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Wq" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Wr" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Wu" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Wt" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Ws" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Wv" role="jymVt">
-      <property role="TrG5h" value="writeConstructorExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Ww" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Wy" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Wz" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmConstructorExtensionVisitor" resolve="KmConstructorExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2W$" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2W_" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WA" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2WB" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2WC" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Constructor$Builder" resolve="ProtoBuf.Constructor.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WD" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2WE" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2WF" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WG" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2WH" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2WK" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2WJ" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2WI" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2WL" role="jymVt">
-      <property role="TrG5h" value="writeTypeParameterExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2WM" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2WO" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2WP" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmTypeParameterExtensionVisitor" resolve="KmTypeParameterExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2WQ" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2WR" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WS" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2WT" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2WU" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeParameter$Builder" resolve="ProtoBuf.TypeParameter.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WV" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2WW" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2WX" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2WY" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2WZ" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2X2" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2X1" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2X0" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2X3" role="jymVt">
-      <property role="TrG5h" value="writeTypeExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2X4" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2X6" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2X7" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmTypeExtensionVisitor" resolve="KmTypeExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2X8" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2X9" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xa" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Xb" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2Xc" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$Type$Builder" resolve="ProtoBuf.Type.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xd" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Xe" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2Xf" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xg" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Xh" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Xk" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Xj" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Xi" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Xl" role="jymVt">
-      <property role="TrG5h" value="writeTypeAliasExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Xm" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Xo" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Xp" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmTypeAliasExtensionVisitor" resolve="KmTypeAliasExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Xq" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2Xr" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xs" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Xt" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2Xu" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeAlias$Builder" resolve="ProtoBuf.TypeAlias.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xv" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2Xw" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2Xx" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2Xy" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Xz" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2XA" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2X_" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2X$" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2XB" role="jymVt">
-      <property role="TrG5h" value="writeValueParameterExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2XC" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2XE" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2XF" role="3clF45">
-        <ref role="3uigEE" to="z352:~KmValueParameterExtensionVisitor" resolve="KmValueParameterExtensionVisitor" />
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2XG" role="3clF46">
-        <property role="TrG5h" value="type" />
-        <node concept="3uibUv" id="2bJGON6Q2XH" role="1tU5fm">
-          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2XI" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2XJ" role="3clF46">
-        <property role="TrG5h" value="builder" />
-        <node concept="3uibUv" id="2bJGON6Q2XK" role="1tU5fm">
-          <ref role="3uigEE" to="f46w:~ProtoBuf$ValueParameter$Builder" resolve="ProtoBuf.ValueParameter.Builder" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2XL" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="2bJGON6Q2XM" role="3clF46">
-        <property role="TrG5h" value="context" />
-        <node concept="3uibUv" id="2bJGON6Q2XN" role="1tU5fm">
-          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
-        </node>
-        <node concept="2AHcQZ" id="2bJGON6Q2XO" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2XP" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2XS" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2XR" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2XQ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2XT" role="jymVt">
-      <property role="TrG5h" value="createClassExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2XU" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2XW" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2XX" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmClassExtension" resolve="KmClassExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2XY" role="3clF47">
-        <node concept="3clFbF" id="49UfAr1EFWM" role="3cqZAp">
-          <node concept="10Nm6u" id="49UfAr1EFWL" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2XZ" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Y2" role="jymVt">
-      <property role="TrG5h" value="createPackageExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Y3" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Y5" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Y6" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmPackageExtension" resolve="KmPackageExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Y7" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Ya" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Y9" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Y8" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Yb" role="jymVt">
-      <property role="TrG5h" value="createModuleFragmentExtensions" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Yc" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Ye" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Yf" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmModuleFragmentExtension" resolve="KmModuleFragmentExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Yg" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Yj" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Yi" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Yh" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Yk" role="jymVt">
-      <property role="TrG5h" value="createFunctionExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Yl" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Yn" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Yo" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmFunctionExtension" resolve="KmFunctionExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Yp" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Ys" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Yr" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Yq" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Yt" role="jymVt">
-      <property role="TrG5h" value="createPropertyExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Yu" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Yw" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Yx" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmPropertyExtension" resolve="KmPropertyExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Yy" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Y_" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Y$" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Yz" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2YA" role="jymVt">
-      <property role="TrG5h" value="createConstructorExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2YB" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2YD" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2YE" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmConstructorExtension" resolve="KmConstructorExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2YF" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2YI" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2YH" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2YG" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2YJ" role="jymVt">
-      <property role="TrG5h" value="createTypeParameterExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2YK" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2YM" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2YN" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmTypeParameterExtension" resolve="KmTypeParameterExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2YO" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2YR" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2YQ" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2YP" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2YS" role="jymVt">
-      <property role="TrG5h" value="createTypeExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2YT" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2YV" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2YW" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmTypeExtension" resolve="KmTypeExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2YX" role="3clF47">
-        <node concept="3clFbF" id="49UfAr1EIku" role="3cqZAp">
-          <node concept="10Nm6u" id="49UfAr1EIkt" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2YY" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Z1" role="jymVt">
-      <property role="TrG5h" value="createTypeAliasExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Z2" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Z4" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Z5" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmTypeAliasExtension" resolve="KmTypeAliasExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Z6" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Z9" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Z8" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Z7" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="3clFb_" id="2bJGON6Q2Za" role="jymVt">
-      <property role="TrG5h" value="createValueParameterExtension" />
-      <node concept="3Tm1VV" id="2bJGON6Q2Zb" role="1B3o_S" />
-      <node concept="2AHcQZ" id="2bJGON6Q2Zd" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="3uibUv" id="2bJGON6Q2Ze" role="3clF45">
-        <ref role="3uigEE" to="nfiy:~KmValueParameterExtension" resolve="KmValueParameterExtension" />
-      </node>
-      <node concept="3clFbS" id="2bJGON6Q2Zf" role="3clF47">
-        <node concept="3clFbF" id="2bJGON6Q2Zi" role="3cqZAp">
-          <node concept="10Nm6u" id="2bJGON6Q2Zh" role="3clFbG" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="2bJGON6Q2Zg" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-  </node>
   <node concept="3HP615" id="2bJGON6Qcs0">
     <property role="3GE5qa" value="parsing.visitor.annotation" />
     <property role="TrG5h" value="AnnotationVisitor" />
@@ -15063,6 +13571,1488 @@
       </node>
     </node>
     <node concept="2tJIrI" id="41oFpARdu1v" role="jymVt" />
+  </node>
+  <node concept="312cEu" id="2sZWskLzHi0">
+    <property role="3GE5qa" value="parsing.visitor.annotation" />
+    <property role="TrG5h" value="AnnotationsMetadataExtensions" />
+    <node concept="3clFb_" id="2bJGON6Rt9Y" role="jymVt">
+      <property role="TrG5h" value="readAnnotations" />
+      <node concept="37vLTG" id="2bJGON6Rud8" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6RuQF" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6S8qJ" role="3clF46">
+        <property role="TrG5h" value="element" />
+        <node concept="16syzq" id="2bJGON6Sb35" role="1tU5fm">
+          <ref role="16sUi3" node="2bJGON6R$ik" resolve="MessageType" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6RvJi" role="3clF46">
+        <property role="TrG5h" value="extension" />
+        <node concept="3uibUv" id="2bJGON6P2GP" role="1tU5fm">
+          <ref role="3uigEE" to="f1as:~GeneratedMessageLite$GeneratedExtension" resolve="GeneratedMessageLite.GeneratedExtension" />
+          <node concept="16syzq" id="2bJGON6RDzE" role="11_B2D">
+            <ref role="16sUi3" node="2bJGON6R$ik" resolve="MessageType" />
+          </node>
+          <node concept="3uibUv" id="2bJGON6R_An" role="11_B2D">
+            <ref role="3uigEE" to="33ny:~List" resolve="List" />
+            <node concept="3uibUv" id="2bJGON6SFvs" role="11_B2D">
+              <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6SpSB" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6SqKI" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Rta1" role="3clF47">
+        <node concept="3clFbJ" id="2bJGON6RHfY" role="3cqZAp">
+          <node concept="3fqX7Q" id="2bJGON6RKhM" role="3clFbw">
+            <node concept="2ZW3vV" id="2bJGON6RKhO" role="3fr31v">
+              <node concept="3uibUv" id="2bJGON6RKhP" role="2ZW6by">
+                <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+              </node>
+              <node concept="37vLTw" id="2bJGON6RKhQ" role="2ZW6bz">
+                <ref role="3cqZAo" node="2bJGON6Rud8" resolve="visitor" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbS" id="2bJGON6RHg0" role="3clFbx">
+            <node concept="3cpWs6" id="2bJGON6RL2t" role="3cqZAp" />
+          </node>
+        </node>
+        <node concept="3cpWs8" id="2bJGON6RNax" role="3cqZAp">
+          <node concept="3cpWsn" id="2bJGON6RNay" role="3cpWs9">
+            <property role="TrG5h" value="annotationVisitor" />
+            <node concept="3uibUv" id="2bJGON6RNaz" role="1tU5fm">
+              <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+            </node>
+            <node concept="1eOMI4" id="2bJGON6RQUr" role="33vP2m">
+              <node concept="10QFUN" id="2bJGON6RQUo" role="1eOMHV">
+                <node concept="3uibUv" id="2bJGON6RQUt" role="10QFUM">
+                  <ref role="3uigEE" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6RREo" role="10QFUP">
+                  <ref role="3cqZAo" node="2bJGON6Rud8" resolve="visitor" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="2bJGON6RSmM" role="3cqZAp" />
+        <node concept="3cpWs8" id="2bJGON6QoB1" role="3cqZAp">
+          <node concept="3cpWsn" id="2bJGON6QoB2" role="3cpWs9">
+            <property role="TrG5h" value="annotations" />
+            <node concept="3uibUv" id="2bJGON6QnQz" role="1tU5fm">
+              <ref role="3uigEE" to="33ny:~List" resolve="List" />
+              <node concept="3uibUv" id="2bJGON6QnQA" role="11_B2D">
+                <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
+              </node>
+            </node>
+            <node concept="10QFUN" id="49UfAr1F6RV" role="33vP2m">
+              <node concept="3uibUv" id="49UfAr1F84e" role="10QFUM">
+                <ref role="3uigEE" to="33ny:~List" resolve="List" />
+                <node concept="3uibUv" id="49UfAr1Fabn" role="11_B2D">
+                  <ref role="3uigEE" to="f46w:~ProtoBuf$Annotation" resolve="ProtoBuf.Annotation" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="2bJGON6Sl6M" role="10QFUP">
+                <node concept="37vLTw" id="2bJGON6Sl6N" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6S8qJ" resolve="element" />
+                </node>
+                <node concept="liA8E" id="2bJGON6Sl6O" role="2OqNvi">
+                  <ref role="37wK5l" to="f1as:~GeneratedMessageLite$ExtendableMessage.getExtension(kotlinx.metadata.internal.protobuf.GeneratedMessageLite$GeneratedExtension)" resolve="getExtension" />
+                  <node concept="37vLTw" id="2bJGON6Sl6P" role="37wK5m">
+                    <ref role="3cqZAo" node="2bJGON6RvJi" resolve="extension" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2Gpval" id="2bJGON6Rd0L" role="3cqZAp">
+          <node concept="2GrKxI" id="2bJGON6Rd0N" role="2Gsz3X">
+            <property role="TrG5h" value="annotation" />
+          </node>
+          <node concept="37vLTw" id="2bJGON6Rg_K" role="2GsD0m">
+            <ref role="3cqZAo" node="2bJGON6QoB2" resolve="annotations" />
+          </node>
+          <node concept="3clFbS" id="2bJGON6Rd0R" role="2LFqv$">
+            <node concept="3cpWs8" id="2bJGON6Su2v" role="3cqZAp">
+              <node concept="3cpWsn" id="2bJGON6Su2w" role="3cpWs9">
+                <property role="TrG5h" value="readAnnotation" />
+                <node concept="3uibUv" id="2bJGON6Sss1" role="1tU5fm">
+                  <ref role="3uigEE" to="z352:~KmAnnotation" resolve="KmAnnotation" />
+                </node>
+                <node concept="2YIFZM" id="2bJGON6Su2x" role="33vP2m">
+                  <ref role="37wK5l" to="fz3c:~ReadUtilsKt.readAnnotation(kotlinx.metadata.internal.metadata.ProtoBuf$Annotation,kotlinx.metadata.internal.metadata.deserialization.NameResolver)" resolve="readAnnotation" />
+                  <ref role="1Pybhc" to="fz3c:~ReadUtilsKt" resolve="ReadUtilsKt" />
+                  <node concept="2GrUjf" id="2bJGON6Su2y" role="37wK5m">
+                    <ref role="2Gs0qQ" node="2bJGON6Rd0N" resolve="annotation" />
+                  </node>
+                  <node concept="2OqwBi" id="2bJGON6Su2z" role="37wK5m">
+                    <node concept="37vLTw" id="2bJGON6Su2$" role="2Oq$k0">
+                      <ref role="3cqZAo" node="2bJGON6SpSB" resolve="context" />
+                    </node>
+                    <node concept="liA8E" id="2bJGON6Su2_" role="2OqNvi">
+                      <ref role="37wK5l" to="fz3c:~ReadContext.getStrings()" resolve="getStrings" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="2bJGON6SwbE" role="3cqZAp">
+              <node concept="2OqwBi" id="2bJGON6Sx5Z" role="3clFbG">
+                <node concept="37vLTw" id="2bJGON6SwbC" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6RNay" resolve="annotationVisitor" />
+                </node>
+                <node concept="liA8E" id="2bJGON6SxPN" role="2OqNvi">
+                  <ref role="37wK5l" node="2bJGON6QczJ" resolve="visitAnnotation" />
+                  <node concept="37vLTw" id="2bJGON6SyFE" role="37wK5m">
+                    <ref role="3cqZAo" node="2bJGON6Su2w" resolve="readAnnotation" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="2bJGON6Rslv" role="1B3o_S" />
+      <node concept="16euLQ" id="2bJGON6R$ik" role="16eVyc">
+        <property role="TrG5h" value="MessageType" />
+        <node concept="3uibUv" id="2bJGON6S9As" role="3ztrMU">
+          <ref role="3uigEE" to="f1as:~GeneratedMessageLite$ExtendableMessage" resolve="GeneratedMessageLite.ExtendableMessage" />
+        </node>
+      </node>
+      <node concept="3cqZAl" id="2bJGON6RBse" role="3clF45" />
+    </node>
+    <node concept="2tJIrI" id="49UfAr1EJve" role="jymVt" />
+    <node concept="3Tm1VV" id="2sZWskLzHi1" role="1B3o_S" />
+    <node concept="3uibUv" id="2bJGON6Q1ZH" role="EKbjA">
+      <ref role="3uigEE" to="nfiy:~MetadataExtensions" resolve="MetadataExtensions" />
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q24s" role="jymVt">
+      <property role="TrG5h" value="readClassExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q24t" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q24v" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q24w" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q24x" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmClassVisitor" resolve="KmClassVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24y" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q24z" role="3clF46">
+        <property role="TrG5h" value="aClass" />
+        <node concept="3uibUv" id="2bJGON6Q24$" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Class" resolve="ProtoBuf.Class" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24_" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q24A" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q24B" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24C" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q24D" role="3clF47">
+        <node concept="3clFbJ" id="7LA8mnHwH7D" role="3cqZAp">
+          <node concept="3clFbS" id="7LA8mnHwH7F" role="3clFbx">
+            <node concept="3clFbF" id="2bJGON6SzFG" role="3cqZAp">
+              <node concept="1rXfSq" id="2bJGON6SzFE" role="3clFbG">
+                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+                <node concept="2OqwBi" id="49UfAr1E6js" role="37wK5m">
+                  <node concept="37vLTw" id="2bJGON6S$z8" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2bJGON6Q24w" resolve="visitor" />
+                  </node>
+                  <node concept="liA8E" id="49UfAr1E7ul" role="2OqNvi">
+                    <ref role="37wK5l" to="z352:~KmClassVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                    <node concept="10M0yZ" id="49UfAr1EaNq" role="37wK5m">
+                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2bJGON6S_wd" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q24z" resolve="aClass" />
+                </node>
+                <node concept="10M0yZ" id="2bJGON6SDeV" role="37wK5m">
+                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.classAnnotation" resolve="classAnnotation" />
+                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6SAyh" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q24A" resolve="context" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7LA8mnHwLJN" role="3clFbw">
+            <node concept="10M0yZ" id="7LA8mnHwLJO" role="2Oq$k0">
+              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+            </node>
+            <node concept="liA8E" id="7LA8mnHwLJP" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="2OqwBi" id="7LA8mnHwLJQ" role="37wK5m">
+                <node concept="37vLTw" id="7LA8mnHwLJR" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6Q24z" resolve="aClass" />
+                </node>
+                <node concept="liA8E" id="7LA8mnHwLJS" role="2OqNvi">
+                  <ref role="37wK5l" to="f46w:~ProtoBuf$Class.getFlags()" resolve="getFlags" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q24E" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2bJGON6Q7R9" role="jymVt" />
+    <node concept="3clFb_" id="2bJGON6Q24F" role="jymVt">
+      <property role="TrG5h" value="readPackageExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q24G" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q24I" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q24J" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q24K" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmPackageVisitor" resolve="KmPackageVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24L" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q24M" role="3clF46">
+        <property role="TrG5h" value="aPackage" />
+        <node concept="3uibUv" id="2bJGON6Q24N" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Package" resolve="ProtoBuf.Package" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24O" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q24P" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q24Q" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q24R" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q24S" role="3clF47">
+        <node concept="3SKdUt" id="2bJGON6SWuX" role="3cqZAp">
+          <node concept="1PaTwC" id="2bJGON6SWuY" role="1aUNEU">
+            <node concept="3oM_SD" id="2bJGON6SXIp" role="1PaTwD">
+              <property role="3oM_SC" value="no-op" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q24T" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q24U" role="jymVt">
+      <property role="TrG5h" value="readModuleFragmentExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q24V" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q24X" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q24Y" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q24Z" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmModuleFragmentVisitor" resolve="KmModuleFragmentVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q250" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q251" role="3clF46">
+        <property role="TrG5h" value="fragment" />
+        <node concept="3uibUv" id="2bJGON6Q252" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$PackageFragment" resolve="ProtoBuf.PackageFragment" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q253" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q254" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q255" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q256" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q257" role="3clF47">
+        <node concept="3SKdUt" id="2bJGON6T1Gu" role="3cqZAp">
+          <node concept="1PaTwC" id="2bJGON6T1Gv" role="1aUNEU">
+            <node concept="3oM_SD" id="2bJGON6T2_7" role="1PaTwD">
+              <property role="3oM_SC" value="no-op" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q258" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q259" role="jymVt">
+      <property role="TrG5h" value="readFunctionExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q25a" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q25c" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q25d" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q25e" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmFunctionVisitor" resolve="KmFunctionVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25f" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25g" role="3clF46">
+        <property role="TrG5h" value="function" />
+        <node concept="3uibUv" id="2bJGON6Q25h" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Function" resolve="ProtoBuf.Function" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25i" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25j" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q25k" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25l" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q25m" role="3clF47">
+        <node concept="3clFbJ" id="7LA8mnHwyOz" role="3cqZAp">
+          <node concept="3clFbS" id="7LA8mnHwyO_" role="3clFbx">
+            <node concept="3clFbF" id="2bJGON6SJQi" role="3cqZAp">
+              <node concept="1rXfSq" id="2bJGON6SJQj" role="3clFbG">
+                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+                <node concept="2OqwBi" id="49UfAr1Ec51" role="37wK5m">
+                  <node concept="37vLTw" id="2bJGON6SJQk" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2bJGON6Q25d" resolve="visitor" />
+                  </node>
+                  <node concept="liA8E" id="49UfAr1Edhc" role="2OqNvi">
+                    <ref role="37wK5l" to="z352:~KmFunctionVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                    <node concept="10M0yZ" id="49UfAr1Edhd" role="37wK5m">
+                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2bJGON6SJQl" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25g" resolve="function" />
+                </node>
+                <node concept="10M0yZ" id="2bJGON6T5sE" role="37wK5m">
+                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.functionAnnotation" resolve="functionAnnotation" />
+                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6SJQn" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25j" resolve="context" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7LA8mnHwyPN" role="3clFbw">
+            <node concept="10M0yZ" id="7LA8mnHwyPO" role="2Oq$k0">
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
+            </node>
+            <node concept="liA8E" id="7LA8mnHwyPP" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="2OqwBi" id="7LA8mnHwyPQ" role="37wK5m">
+                <node concept="37vLTw" id="7LA8mnHwyPR" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6Q25g" resolve="function" />
+                </node>
+                <node concept="liA8E" id="7LA8mnHwyPS" role="2OqNvi">
+                  <ref role="37wK5l" to="f46w:~ProtoBuf$Function.getFlags()" resolve="getFlags" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q25n" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q25o" role="jymVt">
+      <property role="TrG5h" value="readPropertyExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q25p" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q25r" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q25s" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q25t" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmPropertyVisitor" resolve="KmPropertyVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25u" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25v" role="3clF46">
+        <property role="TrG5h" value="property" />
+        <node concept="3uibUv" id="2bJGON6Q25w" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Property" resolve="ProtoBuf.Property" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25x" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25y" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q25z" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25$" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q25_" role="3clF47">
+        <node concept="3clFbJ" id="7LA8mnHwoTy" role="3cqZAp">
+          <node concept="3clFbS" id="7LA8mnHwoT$" role="3clFbx">
+            <node concept="3clFbF" id="2bJGON6SKDB" role="3cqZAp">
+              <node concept="1rXfSq" id="2bJGON6SKDC" role="3clFbG">
+                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+                <node concept="2OqwBi" id="49UfAr1EfyN" role="37wK5m">
+                  <node concept="37vLTw" id="2bJGON6SKDD" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2bJGON6Q25s" resolve="visitor" />
+                  </node>
+                  <node concept="liA8E" id="49UfAr1Egyo" role="2OqNvi">
+                    <ref role="37wK5l" to="z352:~KmPropertyVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                    <node concept="10M0yZ" id="49UfAr1Egyp" role="37wK5m">
+                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2bJGON6SKDE" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25v" resolve="property" />
+                </node>
+                <node concept="10M0yZ" id="2bJGON6T6CX" role="37wK5m">
+                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.propertyAnnotation" resolve="propertyAnnotation" />
+                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6SKDG" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25y" resolve="context" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7LA8mnHwq2Z" role="3clFbw">
+            <node concept="10M0yZ" id="7LA8mnHwq30" role="2Oq$k0">
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
+            </node>
+            <node concept="liA8E" id="7LA8mnHwq31" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="2OqwBi" id="7LA8mnHwq32" role="37wK5m">
+                <node concept="37vLTw" id="7LA8mnHwq33" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6Q25v" resolve="property" />
+                </node>
+                <node concept="liA8E" id="7LA8mnHwq34" role="2OqNvi">
+                  <ref role="37wK5l" to="f46w:~ProtoBuf$Property.getFlags()" resolve="getFlags" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q25A" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q25B" role="jymVt">
+      <property role="TrG5h" value="readConstructorExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q25C" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q25E" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q25F" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q25G" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmConstructorVisitor" resolve="KmConstructorVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25H" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25I" role="3clF46">
+        <property role="TrG5h" value="constructor" />
+        <node concept="3uibUv" id="2bJGON6Q25J" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Constructor" resolve="ProtoBuf.Constructor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25K" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25L" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q25M" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25N" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q25O" role="3clF47">
+        <node concept="3clFbJ" id="7LA8mnHwcFA" role="3cqZAp">
+          <node concept="3clFbS" id="7LA8mnHwcFC" role="3clFbx">
+            <node concept="3clFbF" id="2bJGON6SLHB" role="3cqZAp">
+              <node concept="1rXfSq" id="2bJGON6SLHC" role="3clFbG">
+                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+                <node concept="2OqwBi" id="49UfAr1EjRa" role="37wK5m">
+                  <node concept="37vLTw" id="2bJGON6SLHD" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2bJGON6Q25F" resolve="visitor" />
+                  </node>
+                  <node concept="liA8E" id="49UfAr1EkL0" role="2OqNvi">
+                    <ref role="37wK5l" to="z352:~KmConstructorVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                    <node concept="10M0yZ" id="49UfAr1EkL1" role="37wK5m">
+                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2bJGON6SLHE" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25I" resolve="constructor" />
+                </node>
+                <node concept="10M0yZ" id="2bJGON6TaVl" role="37wK5m">
+                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.constructorAnnotation" resolve="constructorAnnotation" />
+                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6SLHG" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q25L" resolve="context" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7LA8mnHwdO8" role="3clFbw">
+            <node concept="10M0yZ" id="7LA8mnHwdO9" role="2Oq$k0">
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
+            </node>
+            <node concept="liA8E" id="7LA8mnHwdOa" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="2OqwBi" id="7LA8mnHwdOb" role="37wK5m">
+                <node concept="37vLTw" id="7LA8mnHwdOc" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6Q25I" resolve="constructor" />
+                </node>
+                <node concept="liA8E" id="7LA8mnHwdOd" role="2OqNvi">
+                  <ref role="37wK5l" to="f46w:~ProtoBuf$Constructor.getFlags()" resolve="getFlags" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q25P" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q25Q" role="jymVt">
+      <property role="TrG5h" value="readTypeParameterExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q25R" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q25T" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q25U" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q25V" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmTypeParameterVisitor" resolve="KmTypeParameterVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25W" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q25X" role="3clF46">
+        <property role="TrG5h" value="parameter" />
+        <node concept="3uibUv" id="2bJGON6Q25Y" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeParameter" resolve="ProtoBuf.TypeParameter" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q25Z" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q260" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q261" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q262" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q263" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6SM$E" role="3cqZAp">
+          <node concept="1rXfSq" id="2bJGON6SM$F" role="3clFbG">
+            <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+            <node concept="2OqwBi" id="49UfAr1EnVb" role="37wK5m">
+              <node concept="37vLTw" id="2bJGON6SM$G" role="2Oq$k0">
+                <ref role="3cqZAo" node="2bJGON6Q25U" resolve="visitor" />
+              </node>
+              <node concept="liA8E" id="49UfAr1Ep6T" role="2OqNvi">
+                <ref role="37wK5l" to="z352:~KmTypeParameterVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                <node concept="10M0yZ" id="49UfAr1Ep6U" role="37wK5m">
+                  <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                  <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2bJGON6SM$H" role="37wK5m">
+              <ref role="3cqZAo" node="2bJGON6Q25X" resolve="parameter" />
+            </node>
+            <node concept="10M0yZ" id="2bJGON6TlcZ" role="37wK5m">
+              <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.typeParameterAnnotation" resolve="typeParameterAnnotation" />
+              <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+            </node>
+            <node concept="37vLTw" id="2bJGON6SM$J" role="37wK5m">
+              <ref role="3cqZAo" node="2bJGON6Q260" resolve="context" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q264" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q265" role="jymVt">
+      <property role="TrG5h" value="readTypeExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q266" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q268" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q269" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q26a" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmTypeVisitor" resolve="KmTypeVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26b" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26c" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q26d" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Type" resolve="ProtoBuf.Type" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26e" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26f" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q26g" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26h" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q26i" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6SNKx" role="3cqZAp">
+          <node concept="1rXfSq" id="2bJGON6SNKy" role="3clFbG">
+            <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+            <node concept="2OqwBi" id="49UfAr1EslL" role="37wK5m">
+              <node concept="37vLTw" id="2bJGON6SNKz" role="2Oq$k0">
+                <ref role="3cqZAo" node="2bJGON6Q269" resolve="visitor" />
+              </node>
+              <node concept="liA8E" id="49UfAr1EtzZ" role="2OqNvi">
+                <ref role="37wK5l" to="z352:~KmTypeVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                <node concept="10M0yZ" id="49UfAr1Et$0" role="37wK5m">
+                  <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                  <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                </node>
+              </node>
+            </node>
+            <node concept="37vLTw" id="2bJGON6SNK$" role="37wK5m">
+              <ref role="3cqZAo" node="2bJGON6Q26c" resolve="type" />
+            </node>
+            <node concept="10M0yZ" id="2bJGON6Tpx_" role="37wK5m">
+              <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.typeAnnotation" resolve="typeAnnotation" />
+              <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+            </node>
+            <node concept="37vLTw" id="2bJGON6SNKA" role="37wK5m">
+              <ref role="3cqZAo" node="2bJGON6Q26f" resolve="context" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q26j" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q26k" role="jymVt">
+      <property role="TrG5h" value="readTypeAliasExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q26l" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q26n" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q26o" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q26p" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmTypeAliasVisitor" resolve="KmTypeAliasVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26q" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26r" role="3clF46">
+        <property role="TrG5h" value="alias" />
+        <node concept="3uibUv" id="2bJGON6Q26s" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeAlias" resolve="ProtoBuf.TypeAlias" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26t" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26u" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q26v" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26w" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q26x" role="3clF47">
+        <node concept="3SKdUt" id="2bJGON6TvWu" role="3cqZAp">
+          <node concept="1PaTwC" id="2bJGON6TvWv" role="1aUNEU">
+            <node concept="3oM_SD" id="2bJGON6Tx2S" role="1PaTwD">
+              <property role="3oM_SC" value="no-op" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q26y" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q26z" role="jymVt">
+      <property role="TrG5h" value="readValueParameterExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q26$" role="1B3o_S" />
+      <node concept="3cqZAl" id="2bJGON6Q26A" role="3clF45" />
+      <node concept="37vLTG" id="2bJGON6Q26B" role="3clF46">
+        <property role="TrG5h" value="visitor" />
+        <node concept="3uibUv" id="2bJGON6Q26C" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmValueParameterVisitor" resolve="KmValueParameterVisitor" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26D" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26E" role="3clF46">
+        <property role="TrG5h" value="parameter" />
+        <node concept="3uibUv" id="2bJGON6Q26F" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$ValueParameter" resolve="ProtoBuf.ValueParameter" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26G" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q26H" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q26I" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~ReadContext" resolve="ReadContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q26J" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q26K" role="3clF47">
+        <node concept="3clFbJ" id="7LA8mnHvjif" role="3cqZAp">
+          <node concept="3clFbS" id="7LA8mnHvjih" role="3clFbx">
+            <node concept="3clFbF" id="2bJGON6SPXB" role="3cqZAp">
+              <node concept="1rXfSq" id="2bJGON6SPXC" role="3clFbG">
+                <ref role="37wK5l" node="2bJGON6Rt9Y" resolve="readAnnotations" />
+                <node concept="2OqwBi" id="49UfAr1EvJv" role="37wK5m">
+                  <node concept="37vLTw" id="2bJGON6SPXD" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2bJGON6Q26B" resolve="visitor" />
+                  </node>
+                  <node concept="liA8E" id="49UfAr1EvJI" role="2OqNvi">
+                    <ref role="37wK5l" to="z352:~KmValueParameterVisitor.visitExtensions(kotlinx.metadata.KmExtensionType)" resolve="visitExtensions" />
+                    <node concept="10M0yZ" id="49UfAr1EvJJ" role="37wK5m">
+                      <ref role="3cqZAo" node="49UfAr1Dbkn" resolve="type" />
+                      <ref role="1PxDUh" node="2bJGON6Qcs0" resolve="AnnotationVisitor" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="37vLTw" id="2bJGON6SPXE" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q26E" resolve="parameter" />
+                </node>
+                <node concept="10M0yZ" id="2bJGON6TzsZ" role="37wK5m">
+                  <ref role="3cqZAo" to="e6zq:~BuiltInsProtoBuf.parameterAnnotation" resolve="parameterAnnotation" />
+                  <ref role="1PxDUh" to="e6zq:~BuiltInsProtoBuf" resolve="BuiltInsProtoBuf" />
+                </node>
+                <node concept="37vLTw" id="2bJGON6SPXG" role="37wK5m">
+                  <ref role="3cqZAo" node="2bJGON6Q26H" resolve="context" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="7LA8mnHvwe4" role="3clFbw">
+            <node concept="10M0yZ" id="7LA8mnHvv0S" role="2Oq$k0">
+              <ref role="1PxDUh" to="b66x:~Flags" resolve="Flags" />
+              <ref role="3cqZAo" to="b66x:~Flags.HAS_ANNOTATIONS" resolve="HAS_ANNOTATIONS" />
+            </node>
+            <node concept="liA8E" id="7LA8mnHvz5o" role="2OqNvi">
+              <ref role="37wK5l" to="b66x:~Flags$BooleanFlagField.get(int)" resolve="get" />
+              <node concept="2OqwBi" id="7LA8mnHvC9L" role="37wK5m">
+                <node concept="37vLTw" id="7LA8mnHv$BI" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2bJGON6Q26E" resolve="parameter" />
+                </node>
+                <node concept="liA8E" id="7LA8mnHvEi_" role="2OqNvi">
+                  <ref role="37wK5l" to="f46w:~ProtoBuf$ValueParameter.getFlags()" resolve="getFlags" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q26L" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="2bJGON6SRf0" role="jymVt" />
+    <node concept="3clFb_" id="2bJGON6Q2V5" role="jymVt">
+      <property role="TrG5h" value="writeClassExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2V6" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2V8" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2V9" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmClassExtensionVisitor" resolve="KmClassExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Va" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2Vb" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Vc" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Vd" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2Ve" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Class$Builder" resolve="ProtoBuf.Class.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Vf" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Vg" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2Vh" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Vi" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Vj" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Vm" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Vl" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Vk" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Vn" role="jymVt">
+      <property role="TrG5h" value="writePackageExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Vo" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Vq" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Vr" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmPackageExtensionVisitor" resolve="KmPackageExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Vs" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2Vt" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Vu" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Vv" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2Vw" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Package$Builder" resolve="ProtoBuf.Package.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Vx" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Vy" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2Vz" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2V$" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2V_" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2VC" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2VB" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2VA" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2VD" role="jymVt">
+      <property role="TrG5h" value="writeModuleFragmentExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2VE" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2VG" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2VH" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmModuleFragmentExtensionVisitor" resolve="KmModuleFragmentExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2VI" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2VJ" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2VK" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2VL" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2VM" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$PackageFragment$Builder" resolve="ProtoBuf.PackageFragment.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2VN" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2VO" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2VP" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2VQ" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2VR" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2VU" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2VT" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2VS" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2VV" role="jymVt">
+      <property role="TrG5h" value="writeFunctionExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2VW" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2VY" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2VZ" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmFunctionExtensionVisitor" resolve="KmFunctionExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2W0" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2W1" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2W2" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2W3" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2W4" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Function$Builder" resolve="ProtoBuf.Function.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2W5" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2W6" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2W7" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2W8" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2W9" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Wc" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Wb" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Wa" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Wd" role="jymVt">
+      <property role="TrG5h" value="writePropertyExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2We" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Wg" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Wh" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmPropertyExtensionVisitor" resolve="KmPropertyExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Wi" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2Wj" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Wk" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Wl" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2Wm" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Property$Builder" resolve="ProtoBuf.Property.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Wn" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Wo" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2Wp" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Wq" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Wr" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Wu" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Wt" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Ws" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Wv" role="jymVt">
+      <property role="TrG5h" value="writeConstructorExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Ww" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Wy" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Wz" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmConstructorExtensionVisitor" resolve="KmConstructorExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2W$" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2W_" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WA" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2WB" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2WC" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Constructor$Builder" resolve="ProtoBuf.Constructor.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WD" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2WE" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2WF" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WG" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2WH" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2WK" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2WJ" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2WI" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2WL" role="jymVt">
+      <property role="TrG5h" value="writeTypeParameterExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2WM" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2WO" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2WP" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmTypeParameterExtensionVisitor" resolve="KmTypeParameterExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2WQ" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2WR" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WS" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2WT" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2WU" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeParameter$Builder" resolve="ProtoBuf.TypeParameter.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WV" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2WW" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2WX" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2WY" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2WZ" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2X2" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2X1" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2X0" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2X3" role="jymVt">
+      <property role="TrG5h" value="writeTypeExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2X4" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2X6" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2X7" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmTypeExtensionVisitor" resolve="KmTypeExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2X8" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2X9" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xa" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Xb" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2Xc" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$Type$Builder" resolve="ProtoBuf.Type.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xd" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Xe" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2Xf" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xg" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Xh" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Xk" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Xj" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Xi" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Xl" role="jymVt">
+      <property role="TrG5h" value="writeTypeAliasExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Xm" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Xo" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Xp" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmTypeAliasExtensionVisitor" resolve="KmTypeAliasExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Xq" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2Xr" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xs" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Xt" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2Xu" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$TypeAlias$Builder" resolve="ProtoBuf.TypeAlias.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xv" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2Xw" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2Xx" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2Xy" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Xz" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2XA" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2X_" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2X$" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2XB" role="jymVt">
+      <property role="TrG5h" value="writeValueParameterExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2XC" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2XE" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2XF" role="3clF45">
+        <ref role="3uigEE" to="z352:~KmValueParameterExtensionVisitor" resolve="KmValueParameterExtensionVisitor" />
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2XG" role="3clF46">
+        <property role="TrG5h" value="type" />
+        <node concept="3uibUv" id="2bJGON6Q2XH" role="1tU5fm">
+          <ref role="3uigEE" to="z352:~KmExtensionType" resolve="KmExtensionType" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2XI" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2XJ" role="3clF46">
+        <property role="TrG5h" value="builder" />
+        <node concept="3uibUv" id="2bJGON6Q2XK" role="1tU5fm">
+          <ref role="3uigEE" to="f46w:~ProtoBuf$ValueParameter$Builder" resolve="ProtoBuf.ValueParameter.Builder" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2XL" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="2bJGON6Q2XM" role="3clF46">
+        <property role="TrG5h" value="context" />
+        <node concept="3uibUv" id="2bJGON6Q2XN" role="1tU5fm">
+          <ref role="3uigEE" to="fz3c:~WriteContext" resolve="WriteContext" />
+        </node>
+        <node concept="2AHcQZ" id="2bJGON6Q2XO" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2XP" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2XS" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2XR" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2XQ" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2XT" role="jymVt">
+      <property role="TrG5h" value="createClassExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2XU" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2XW" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2XX" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmClassExtension" resolve="KmClassExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2XY" role="3clF47">
+        <node concept="3clFbF" id="49UfAr1EFWM" role="3cqZAp">
+          <node concept="10Nm6u" id="49UfAr1EFWL" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2XZ" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Y2" role="jymVt">
+      <property role="TrG5h" value="createPackageExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Y3" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Y5" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Y6" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmPackageExtension" resolve="KmPackageExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Y7" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Ya" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Y9" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Y8" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Yb" role="jymVt">
+      <property role="TrG5h" value="createModuleFragmentExtensions" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Yc" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Ye" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Yf" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmModuleFragmentExtension" resolve="KmModuleFragmentExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Yg" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Yj" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Yi" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Yh" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Yk" role="jymVt">
+      <property role="TrG5h" value="createFunctionExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Yl" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Yn" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Yo" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmFunctionExtension" resolve="KmFunctionExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Yp" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Ys" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Yr" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Yq" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Yt" role="jymVt">
+      <property role="TrG5h" value="createPropertyExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Yu" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Yw" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Yx" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmPropertyExtension" resolve="KmPropertyExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Yy" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Y_" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Y$" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Yz" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2YA" role="jymVt">
+      <property role="TrG5h" value="createConstructorExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2YB" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2YD" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2YE" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmConstructorExtension" resolve="KmConstructorExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2YF" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2YI" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2YH" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2YG" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2YJ" role="jymVt">
+      <property role="TrG5h" value="createTypeParameterExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2YK" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2YM" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2YN" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmTypeParameterExtension" resolve="KmTypeParameterExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2YO" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2YR" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2YQ" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2YP" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2YS" role="jymVt">
+      <property role="TrG5h" value="createTypeExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2YT" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2YV" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2YW" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmTypeExtension" resolve="KmTypeExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2YX" role="3clF47">
+        <node concept="3clFbF" id="49UfAr1EIku" role="3cqZAp">
+          <node concept="10Nm6u" id="49UfAr1EIkt" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2YY" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Z1" role="jymVt">
+      <property role="TrG5h" value="createTypeAliasExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Z2" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Z4" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Z5" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmTypeAliasExtension" resolve="KmTypeAliasExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Z6" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Z9" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Z8" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Z7" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2bJGON6Q2Za" role="jymVt">
+      <property role="TrG5h" value="createValueParameterExtension" />
+      <node concept="3Tm1VV" id="2bJGON6Q2Zb" role="1B3o_S" />
+      <node concept="2AHcQZ" id="2bJGON6Q2Zd" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
+      <node concept="3uibUv" id="2bJGON6Q2Ze" role="3clF45">
+        <ref role="3uigEE" to="nfiy:~KmValueParameterExtension" resolve="KmValueParameterExtension" />
+      </node>
+      <node concept="3clFbS" id="2bJGON6Q2Zf" role="3clF47">
+        <node concept="3clFbF" id="2bJGON6Q2Zi" role="3cqZAp">
+          <node concept="10Nm6u" id="2bJGON6Q2Zh" role="3clFbG" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="2bJGON6Q2Zg" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
   </node>
 </model>
 
