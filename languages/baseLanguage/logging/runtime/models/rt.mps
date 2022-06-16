@@ -279,7 +279,7 @@
           <node concept="2ShNRf" id="3ceUhxsVMsm" role="3cqZAk">
             <node concept="1pGfFk" id="3ceUhxsVQLO" role="2ShVmc">
               <property role="373rjd" value="true" />
-              <ref role="37wK5l" node="3ceUhxsVOS4" />
+              <ref role="37wK5l" node="3ceUhxsVOS4" resolve="LogCtx" />
               <node concept="2OqwBi" id="3ceUhxsVQSI" role="37wK5m">
                 <node concept="37vLTw" id="3ceUhxsVQSJ" role="2Oq$k0">
                   <ref role="3cqZAo" node="3ceUhxsVMii" resolve="sender" />

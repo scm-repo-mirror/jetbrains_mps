@@ -3082,35 +3082,35 @@
       <property role="TrG5h" value="Level" />
       <node concept="QsSxf" id="4lRieqsIejQ" role="Qtgdg">
         <property role="TrG5h" value="OFF" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIfkr" role="Qtgdg">
         <property role="TrG5h" value="FATAL" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIgox" role="Qtgdg">
         <property role="TrG5h" value="ERROR" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIhb_" role="Qtgdg">
         <property role="TrG5h" value="WARN" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIi4m" role="Qtgdg">
         <property role="TrG5h" value="INFO" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIj9I" role="Qtgdg">
         <property role="TrG5h" value="DEBUG" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIk2S" role="Qtgdg">
         <property role="TrG5h" value="TRACE" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="QsSxf" id="4lRieqsIkSu" role="Qtgdg">
         <property role="TrG5h" value="ALL" />
-        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" />
+        <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
       </node>
       <node concept="3Tm1VV" id="4lRieqsI4V2" role="1B3o_S" />
       <node concept="3UR2Jj" id="4lRieqsIlXE" role="lGtFl">
@@ -3130,7 +3130,7 @@
         <node concept="37vLTG" id="6pLVEngLTUU" role="3clF46">
           <property role="TrG5h" value="other" />
           <node concept="3uibUv" id="6pLVEngLTUV" role="1tU5fm">
-            <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+            <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
           </node>
         </node>
         <node concept="10P_77" id="6pLVEngLT7x" role="3clF45" />
@@ -3166,7 +3166,7 @@
     <node concept="2YIFZL" id="6pLVEngNAUi" role="jymVt">
       <property role="TrG5h" value="fromLog4jLevel" />
       <node concept="3uibUv" id="6pLVEngNKAq" role="3clF45">
-        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
       </node>
       <node concept="3clFbS" id="6pLVEngNAUm" role="3clF47">
         <node concept="3SKdUt" id="6pLVEngPUsX" role="3cqZAp">
@@ -3216,7 +3216,7 @@
               <node concept="3cpWs6" id="6pLVEngOqQO" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngO$ea" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIk2S" resolve="TRACE" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3230,7 +3230,7 @@
               <node concept="3cpWs6" id="6pLVEngOBht" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngP0uP" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIj9I" resolve="DEBUG" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3244,7 +3244,7 @@
               <node concept="3cpWs6" id="6pLVEngOEQN" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngP7eu" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIi4m" resolve="INFO" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3258,7 +3258,7 @@
               <node concept="3cpWs6" id="6pLVEngOHzu" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngPcG7" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIhb_" resolve="WARN" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3272,7 +3272,7 @@
               <node concept="3cpWs6" id="6pLVEngOKfA" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngPjqQ" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIgox" resolve="ERROR" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3286,7 +3286,7 @@
               <node concept="3cpWs6" id="6pLVEngOKg8" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngPqbW" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIfkr" resolve="FATAL" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3300,7 +3300,7 @@
               <node concept="3cpWs6" id="6pLVEngPsRY" role="3cqZAp">
                 <node concept="Rm8GO" id="6pLVEngPzEE" role="3cqZAk">
                   <ref role="Rm8GQ" node="4lRieqsIejQ" resolve="OFF" />
-                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                  <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
                 </node>
               </node>
             </node>
@@ -3312,7 +3312,7 @@
             <node concept="3cpWs6" id="6pLVEngPDp5" role="3cqZAp">
               <node concept="Rm8GO" id="6pLVEngPNPV" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIkSu" resolve="ALL" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3335,7 +3335,7 @@
     <node concept="2YIFZL" id="1lYeGqZQWiI" role="jymVt">
       <property role="TrG5h" value="fromJUL" />
       <node concept="3uibUv" id="1lYeGqZQWiJ" role="3clF45">
-        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
       </node>
       <node concept="3clFbS" id="1lYeGqZQWiK" role="3clF47">
         <node concept="3SKdUt" id="1lYeGqZQWiL" role="3cqZAp">
@@ -3380,7 +3380,7 @@
             <node concept="3cpWs6" id="1lYeGqZQWj2" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZQWj3" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIk2S" resolve="TRACE" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3421,7 +3421,7 @@
             <node concept="3cpWs6" id="1lYeGqZQWj7" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZQWj8" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIj9I" resolve="DEBUG" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3451,7 +3451,7 @@
             <node concept="3cpWs6" id="1lYeGqZVGdw" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZVWht" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIi4m" resolve="INFO" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3470,7 +3470,7 @@
             <node concept="3cpWs6" id="1lYeGqZVSRM" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZW49J" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIhb_" resolve="WARN" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3489,7 +3489,7 @@
             <node concept="3cpWs6" id="1lYeGqZWb1x" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZWhXe" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIgox" resolve="ERROR" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3508,7 +3508,7 @@
             <node concept="3cpWs6" id="1lYeGqZWoQi" role="3cqZAp">
               <node concept="Rm8GO" id="1lYeGqZWvLX" role="3cqZAk">
                 <ref role="Rm8GQ" node="4lRieqsIejQ" resolve="OFF" />
-                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+                <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
               </node>
             </node>
           </node>
@@ -3525,7 +3525,7 @@
         <node concept="3cpWs6" id="1lYeGqZQWj$" role="3cqZAp">
           <node concept="Rm8GO" id="1lYeGqZQWj_" role="3cqZAk">
             <ref role="Rm8GQ" node="4lRieqsIkSu" resolve="ALL" />
-            <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="Level" />
+            <ref role="1Px2BO" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
           </node>
         </node>
       </node>
@@ -3543,7 +3543,7 @@
         <property role="3TUv4t" value="true" />
         <node concept="3Tm1VV" id="6pLVEngNwCL" role="1B3o_S" />
         <node concept="3uibUv" id="6pLVEngNwL0" role="1tU5fm">
-          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
         </node>
       </node>
       <node concept="312cEg" id="6pLVEngNxBg" role="jymVt">
@@ -3579,7 +3579,7 @@
         <node concept="37vLTG" id="6pLVEngNxWE" role="3clF46">
           <property role="TrG5h" value="l" />
           <node concept="3uibUv" id="6pLVEngNxWD" role="1tU5fm">
-            <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+            <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
           </node>
         </node>
         <node concept="37vLTG" id="6pLVEngNy8i" role="3clF46">
@@ -3605,7 +3605,7 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="6pLVEngJKC2" role="1B3o_S" />
       <node concept="3uibUv" id="6pLVEngJKC4" role="1tU5fm">
-        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+        <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
       </node>
     </node>
     <node concept="312cEg" id="4_TMdeLkOY1" role="jymVt">
@@ -3647,7 +3647,7 @@
       <node concept="3uibUv" id="4_TMdeLkOYe" role="1tU5fm">
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3uibUv" id="6pLVEngQ8j4" role="11_B2D">
-          <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+          <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
         </node>
       </node>
       <node concept="3Tm6S6" id="4_TMdeLkOYm" role="1B3o_S" />
@@ -3666,7 +3666,7 @@
       <node concept="3uibUv" id="4_TMdeLkOYp" role="1tU5fm">
         <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3uibUv" id="6pLVEngQcxM" role="11_B2D">
-          <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+          <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
         </node>
       </node>
       <node concept="3Tm6S6" id="4_TMdeLkOYx" role="1B3o_S" />
@@ -3685,7 +3685,7 @@
       <node concept="37vLTG" id="6pLVEngJJJH" role="3clF46">
         <property role="TrG5h" value="watchLevel" />
         <node concept="3uibUv" id="6pLVEngJJJI" role="1tU5fm">
-          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
         </node>
       </node>
       <node concept="3cqZAl" id="4_TMdeLkOYz" role="3clF45" />
@@ -3840,7 +3840,7 @@
         <node concept="3clFbF" id="6pLVEngJKC5" role="3cqZAp">
           <node concept="37vLTI" id="6pLVEngJKC7" role="3clFbG">
             <node concept="37vLTw" id="6pLVEngJKCa" role="37vLTJ">
-              <ref role="3cqZAo" node="6pLVEngJKC1" resolve="myWatchLevel" />
+              <ref role="3cqZAo" node="6pLVEngJKC1" resolve="myUnexpectedWatchLevel" />
             </node>
             <node concept="37vLTw" id="6pLVEngJKCb" role="37vLTx">
               <ref role="3cqZAo" node="6pLVEngJJJH" resolve="watchLevel" />
@@ -3901,7 +3901,7 @@
                       </node>
                     </node>
                     <node concept="2AHcQZ" id="1lYeGqZXatY" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3clFb_" id="1lYeGqZXatZ" role="jymVt">
@@ -3910,7 +3910,7 @@
                     <node concept="3cqZAl" id="1lYeGqZXau2" role="3clF45" />
                     <node concept="3clFbS" id="1lYeGqZXau4" role="3clF47" />
                     <node concept="2AHcQZ" id="1lYeGqZXau5" role="2AJF6D">
-                      <ref role="2AI5Lk" to="wyt6:~Override" />
+                      <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
                     </node>
                   </node>
                   <node concept="3clFb_" id="1lYeGqZYABZ" role="jymVt">
@@ -4062,10 +4062,10 @@
           <node concept="3cpWsn" id="6pLVEngMcZM" role="3cpWs9">
             <property role="TrG5h" value="eventLevel" />
             <node concept="3uibUv" id="6pLVEngMcZN" role="1tU5fm">
-              <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+              <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
             </node>
             <node concept="1rXfSq" id="6pLVEngNKRH" role="33vP2m">
-              <ref role="37wK5l" node="1lYeGqZQWiI" resolve="fromLog4jLevel" />
+              <ref role="37wK5l" node="1lYeGqZQWiI" resolve="fromJUL" />
               <node concept="2OqwBi" id="6pLVEngNRMW" role="37wK5m">
                 <node concept="37vLTw" id="6pLVEngNP0A" role="2Oq$k0">
                   <ref role="3cqZAo" node="4_TMdeLkOYC" resolve="loggingEvent" />
@@ -4081,7 +4081,7 @@
           <node concept="3cpWsn" id="6pLVEngKTQD" role="3cpWs9">
             <property role="TrG5h" value="pr" />
             <node concept="3uibUv" id="6pLVEngQudH" role="1tU5fm">
-              <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+              <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
             </node>
             <node concept="1rXfSq" id="6pLVEngKTQE" role="33vP2m">
               <ref role="37wK5l" node="4_TMdeLkOZl" resolve="findExpected" />
@@ -4157,7 +4157,7 @@
             <node concept="3clFbF" id="4_TMdeLkOYL" role="3cqZAp">
               <node concept="3uNrnE" id="4_TMdeLkOYM" role="3clFbG">
                 <node concept="37vLTw" id="4_TMdeLkOYN" role="2$L3a6">
-                  <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEvents" />
+                  <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEventCount" />
                 </node>
               </node>
             </node>
@@ -4259,7 +4259,7 @@
                     <node concept="liA8E" id="1lYeGqZZf0D" role="2OqNvi">
                       <ref role="37wK5l" to="wyt6:~Throwable.printStackTrace(java.io.PrintWriter)" resolve="printStackTrace" />
                       <node concept="37vLTw" id="1lYeGqZZXEG" role="37wK5m">
-                        <ref role="3cqZAo" node="1lYeGqZZXEC" resolve="writer" />
+                        <ref role="3cqZAo" node="1lYeGqZZXEC" resolve="pw" />
                       </node>
                     </node>
                   </node>
@@ -4332,7 +4332,7 @@
       <node concept="37vLTG" id="6pLVEngV1yq" role="3clF46">
         <property role="TrG5h" value="eventLevel" />
         <node concept="3uibUv" id="6pLVEngV1yr" role="1tU5fm">
-          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
         </node>
       </node>
       <node concept="37vLTG" id="6pLVEngUXB_" role="3clF46">
@@ -4348,7 +4348,7 @@
             <property role="TrG5h" value="pr" />
             <property role="3TUv4t" value="false" />
             <node concept="3uibUv" id="6pLVEngQAEu" role="1tU5fm">
-              <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+              <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
             </node>
           </node>
           <node concept="3clFbS" id="4_TMdeLkOZr" role="2LFqv$">
@@ -4417,7 +4417,7 @@
                       <node concept="liA8E" id="4_TMdeLlhGx" role="2OqNvi">
                         <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                         <node concept="37vLTw" id="6pLVEngVsym" role="37wK5m">
-                          <ref role="3cqZAo" node="6pLVEngUXB_" resolve="message" />
+                          <ref role="3cqZAo" node="6pLVEngUXB_" resolve="eventMessage" />
                         </node>
                       </node>
                     </node>
@@ -4464,7 +4464,7 @@
       </node>
       <node concept="3Tm6S6" id="4_TMdeLkP03" role="1B3o_S" />
       <node concept="3uibUv" id="6pLVEngQyn8" role="3clF45">
-        <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+        <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
       </node>
     </node>
     <node concept="2tJIrI" id="d4HXLLqdQ4" role="jymVt" />
@@ -4479,7 +4479,7 @@
         <node concept="3cpWs6" id="4_TMdeLkP08" role="3cqZAp">
           <node concept="3eOSWO" id="4_TMdeLkP09" role="3cqZAk">
             <node concept="37vLTw" id="4_TMdeLkP0a" role="3uHU7B">
-              <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEvents" />
+              <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEventCount" />
             </node>
             <node concept="3cmrfG" id="4_TMdeLkP0b" role="3uHU7w">
               <property role="3cmrfH" value="0" />
@@ -4503,7 +4503,7 @@
         <node concept="3cpWs6" id="4_TMdeLkP0h" role="3cqZAp">
           <node concept="3cpWs3" id="4_TMdeLkP0i" role="3cqZAk">
             <node concept="37vLTw" id="4_TMdeLkP0j" role="3uHU7B">
-              <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEvents" />
+              <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEventCount" />
             </node>
             <node concept="Xl_RD" id="4_TMdeLkP0k" role="3uHU7w">
               <property role="Xl_RC" value=" events" />
@@ -4643,7 +4643,7 @@
             <node concept="3uibUv" id="4_TMdeLkP1e" role="1tU5fm">
               <ref role="3uigEE" to="33ny:~List" resolve="List" />
               <node concept="3uibUv" id="6pLVEngS_TQ" role="11_B2D">
-                <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+                <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
               </node>
             </node>
           </node>
@@ -4669,14 +4669,14 @@
             <property role="TrG5h" value="pr" />
             <property role="3TUv4t" value="false" />
             <node concept="3uibUv" id="6pLVEngSCtX" role="1tU5fm">
-              <ref role="3uigEE" node="6pLVEngNrUb" resolve="EE" />
+              <ref role="3uigEE" node="6pLVEngNrUb" resolve="CachingAppender.EE" />
             </node>
           </node>
           <node concept="3clFbS" id="4_TMdeLkP1t" role="2LFqv$">
             <node concept="3clFbF" id="4_TMdeLkP1u" role="3cqZAp">
               <node concept="3uNrnE" id="4_TMdeLkP1v" role="3clFbG">
                 <node concept="37vLTw" id="4_TMdeLkP1w" role="2$L3a6">
-                  <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEvents" />
+                  <ref role="3cqZAo" node="4_TMdeLkOY1" resolve="myEventCount" />
                 </node>
               </node>
             </node>
@@ -4742,7 +4742,7 @@
               <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
               <node concept="2ShNRf" id="4_TMdeLlhHe" role="37wK5m">
                 <node concept="1pGfFk" id="4_TMdeLlhHf" role="2ShVmc">
-                  <ref role="37wK5l" node="6pLVEngNxNm" resolve="EE" />
+                  <ref role="37wK5l" node="6pLVEngNxNm" resolve="CachingAppender.EE" />
                   <node concept="1rXfSq" id="6pLVEngSXXY" role="37wK5m">
                     <ref role="37wK5l" node="6pLVEngNAUi" resolve="fromLog4jLevel" />
                     <node concept="37vLTw" id="6pLVEngT0ty" role="37wK5m">
@@ -4784,7 +4784,7 @@
       <node concept="37vLTG" id="4lRieqsIFrr" role="3clF46">
         <property role="TrG5h" value="level" />
         <node concept="3uibUv" id="4lRieqsITU3" role="1tU5fm">
-          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="Level" />
+          <ref role="3uigEE" node="4lRieqsI9Jy" resolve="CachingAppender.Level" />
         </node>
       </node>
       <node concept="37vLTG" id="4lRieqsIFrt" role="3clF46">
@@ -4801,7 +4801,7 @@
               <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
               <node concept="2ShNRf" id="4lRieqsIFr$" role="37wK5m">
                 <node concept="1pGfFk" id="4lRieqsIFr_" role="2ShVmc">
-                  <ref role="37wK5l" node="6pLVEngNxNm" resolve="EE" />
+                  <ref role="37wK5l" node="6pLVEngNxNm" resolve="CachingAppender.EE" />
                   <node concept="37vLTw" id="4lRieqsIFrA" role="37wK5m">
                     <ref role="3cqZAo" node="4lRieqsIFrr" resolve="level" />
                   </node>

@@ -1828,7 +1828,7 @@
           <node concept="1Wc70l" id="YRLB6F1J4b" role="3clFbw">
             <node concept="2OqwBi" id="YRLB6F1JJc" role="3uHU7w">
               <node concept="37vLTw" id="YRLB6F1PHX" role="2Oq$k0">
-                <ref role="3cqZAo" node="YRLB6F1PHS" resolve="parent" />
+                <ref role="3cqZAo" node="YRLB6F1PHS" resolve="parentNode" />
               </node>
               <node concept="1mIQ4w" id="YRLB6F1K9I" role="2OqNvi">
                 <node concept="chp4Y" id="YRLB6F1KI_" role="cj9EA">
@@ -1852,7 +1852,7 @@
             <ref role="37wK5l" node="hEwIoti" resolve="getEnclosingMacro" />
             <node concept="10Nm6u" id="5MNWG2Nwp5R" role="37wK5m" />
             <node concept="37vLTw" id="YRLB6F1PHY" role="37wK5m">
-              <ref role="3cqZAo" node="YRLB6F1PHS" resolve="parent" />
+              <ref role="3cqZAo" node="YRLB6F1PHS" resolve="parentNode" />
             </node>
           </node>
         </node>

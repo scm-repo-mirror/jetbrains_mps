@@ -10792,7 +10792,7 @@
               <ref role="37wK5l" to="fnpx:~Notification.addAction(com.intellij.openapi.actionSystem.AnAction)" resolve="addAction" />
               <node concept="2ShNRf" id="2oo0Ycn2AsB" role="37wK5m">
                 <node concept="1pGfFk" id="2oo0Ycn3mY7" role="2ShVmc">
-                  <ref role="37wK5l" node="2oo0Ycn3j7O" resolve="ShowProjectDetails" />
+                  <ref role="37wK5l" node="2oo0Ycn3j7O" resolve="MigrationNotificationsSupport.ShowProjectDetails" />
                 </node>
               </node>
             </node>
@@ -11072,7 +11072,7 @@
                               </node>
                             </node>
                             <node concept="10M0yZ" id="53d0N_LgtMs" role="3uHU7w">
-                              <ref role="1PxDUh" to="gsia:~HyperlinkEvent$EventType" resolve="EventType" />
+                              <ref role="1PxDUh" to="gsia:~HyperlinkEvent$EventType" resolve="HyperlinkEvent.EventType" />
                               <ref role="3cqZAo" to="gsia:~HyperlinkEvent$EventType.ACTIVATED" resolve="ACTIVATED" />
                             </node>
                           </node>
@@ -11132,7 +11132,7 @@
               <ref role="37wK5l" to="fnpx:~Notification.addAction(com.intellij.openapi.actionSystem.AnAction)" resolve="addAction" />
               <node concept="2ShNRf" id="2aIiRm4Cwcd" role="37wK5m">
                 <node concept="1pGfFk" id="2aIiRm4Cwce" role="2ShVmc">
-                  <ref role="37wK5l" node="2oo0Ycn3j7O" resolve="ShowProjectDetails" />
+                  <ref role="37wK5l" node="2oo0Ycn3j7O" resolve="MigrationNotificationsSupport.ShowProjectDetails" />
                 </node>
               </node>
             </node>
@@ -12632,7 +12632,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="2oo0Ycn264y" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
       <node concept="3clFb_" id="2oo0Ycn1F4a" role="jymVt">
@@ -12705,7 +12705,7 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="2oo0Ycn1F4i" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" />
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
     </node>

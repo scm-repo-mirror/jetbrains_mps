@@ -3641,7 +3641,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="7lYdzzuYM5D" role="3uHU7w">
-                        <ref role="3cqZAo" node="7lYdzzuYM5$" resolve="name" />
+                        <ref role="3cqZAo" node="7lYdzzuYM5$" resolve="dirName" />
                       </node>
                     </node>
                     <node concept="3clFbC" id="7aqpU4Hxup6" role="3K4Cdx">
@@ -3658,7 +3658,7 @@
                       </node>
                     </node>
                     <node concept="37vLTw" id="7lYdzzuYM5E" role="3K4E3e">
-                      <ref role="3cqZAo" node="7lYdzzuYM5$" resolve="name" />
+                      <ref role="3cqZAo" node="7lYdzzuYM5$" resolve="dirName" />
                     </node>
                   </node>
                 </node>

@@ -3063,11 +3063,11 @@
                 <node concept="3cpWsn" id="4nPCR7KFTCa" role="3cpWs9">
                   <property role="TrG5h" value="state" />
                   <node concept="3uibUv" id="4nPCR7KFTCb" role="1tU5fm">
-                    <ref role="3uigEE" node="4nPCR7KFTBD" resolve="MyState" />
+                    <ref role="3uigEE" node="4nPCR7KFTBD" resolve="PersistentConfiguration_Template.MyState" />
                   </node>
                   <node concept="10QFUN" id="1htmYMkD4Qv" role="33vP2m">
                     <node concept="3uibUv" id="1htmYMkD6gG" role="10QFUM">
-                      <ref role="3uigEE" node="4nPCR7KFTBD" resolve="MyState" />
+                      <ref role="3uigEE" node="4nPCR7KFTBD" resolve="PersistentConfiguration_Template.MyState" />
                     </node>
                     <node concept="3nyPlj" id="1htmYMkD2J9" role="10QFUP">
                       <ref role="37wK5l" to="wyt6:~Object.clone()" resolve="clone" />
@@ -3276,7 +3276,7 @@
         </node>
         <node concept="3Tm1VV" id="1htmYMkCRjJ" role="1B3o_S" />
         <node concept="3uibUv" id="1htmYMkCSbX" role="3clF45">
-          <ref role="3uigEE" node="4nPCR7KFTBD" resolve="MyState" />
+          <ref role="3uigEE" node="4nPCR7KFTBD" resolve="PersistentConfiguration_Template.MyState" />
         </node>
         <node concept="2AHcQZ" id="1htmYMkDgK8" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />

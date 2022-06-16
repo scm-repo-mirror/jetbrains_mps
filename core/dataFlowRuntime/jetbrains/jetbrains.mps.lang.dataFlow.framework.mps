@@ -6191,7 +6191,7 @@
               <node concept="3cpWsn" id="16taZ9E$kUx" role="3cpWs9">
                 <property role="TrG5h" value="enclosingBlock" />
                 <node concept="3uibUv" id="16taZ9E$kUy" role="1tU5fm">
-                  <ref role="3uigEE" node="3yaa4ph8tze" resolve="TryFinallyInfo" />
+                  <ref role="3uigEE" node="3yaa4ph8tze" resolve="Program.TryFinallyInfo" />
                 </node>
                 <node concept="2OqwBi" id="16taZ9E$kUz" role="33vP2m">
                   <node concept="37vLTw" id="16taZ9E$kU$" role="2Oq$k0">

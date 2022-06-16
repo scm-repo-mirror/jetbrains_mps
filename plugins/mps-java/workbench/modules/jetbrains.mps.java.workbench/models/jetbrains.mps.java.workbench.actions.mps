@@ -7455,8 +7455,8 @@
                 <node concept="YeOm9" id="7QCr3uXUcXS" role="2ShVmc">
                   <node concept="1Y3b0j" id="7QCr3uXUcXT" role="YeSDq">
                     <property role="2bfB8j" value="true" />
-                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Modal" />
-                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Modal" />
+                    <ref role="37wK5l" to="xygl:~Task$Modal.&lt;init&gt;(com.intellij.openapi.project.Project,java.lang.String,boolean)" resolve="Task.Modal" />
+                    <ref role="1Y3XeK" to="xygl:~Task$Modal" resolve="Task.Modal" />
                     <node concept="2OqwBi" id="7QCr3uXUcXU" role="37wK5m">
                       <node concept="2OqwBi" id="7QCr3uXUcXV" role="2Oq$k0">
                         <node concept="2WthIp" id="7QCr3uXUcXW" role="2Oq$k0" />

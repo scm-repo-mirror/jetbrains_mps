@@ -809,7 +809,7 @@
         </node>
         <node concept="3clFbF" id="2TzypFyLI7B" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqysrmq" role="3clFbG">
-            <ref role="37wK5l" node="2TzypFyLI9T" resolve="configureLog4j" />
+            <ref role="37wK5l" node="2TzypFyLI9T" resolve="configureLog" />
           </node>
         </node>
         <node concept="3cpWs8" id="Y1BBlv$vrf" role="3cqZAp">
@@ -1867,7 +1867,7 @@
             <node concept="liA8E" id="3Y3i7n6KtGN" role="2OqNvi">
               <ref role="37wK5l" to="dr5r:~Logger.addHandler(java.util.logging.Handler)" resolve="addHandler" />
               <node concept="37vLTw" id="3Y3i7n6LahT" role="37wK5m">
-                <ref role="3cqZAo" node="3Y3i7n6LahI" resolve="handler" />
+                <ref role="3cqZAo" node="3Y3i7n6LahI" resolve="fh" />
               </node>
             </node>
           </node>

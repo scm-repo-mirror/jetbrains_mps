@@ -11434,7 +11434,7 @@
                   <node concept="1eOMI4" id="4w2h6RLvcOG" role="2Oq$k0">
                     <node concept="10QFUN" id="4w2h6RLvcOD" role="1eOMHV">
                       <node concept="3uibUv" id="4w2h6RLvdbs" role="10QFUM">
-                        <ref role="3uigEE" node="4w2h6RLuW05" resolve="NodeWrapper" />
+                        <ref role="3uigEE" node="4w2h6RLuW05" resolve="MethodResolveUtil.NodeWrapper" />
                       </node>
                       <node concept="37vLTw" id="4w2h6RLvcOJ" role="10QFUP">
                         <ref role="3cqZAo" node="4w2h6RLv7kC" resolve="that" />

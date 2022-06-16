@@ -5529,8 +5529,8 @@
         <node concept="3clFbF" id="3Y3i7n6NiLr" role="3cqZAp">
           <node concept="2OqwBi" id="3Y3i7n6NiLo" role="3clFbG">
             <node concept="10M0yZ" id="3Y3i7n6NiLp" role="2Oq$k0">
-              <ref role="1PxDUh" to="wyt6:~System" />
-              <ref role="3cqZAo" to="wyt6:~System.err" />
+              <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+              <ref role="3cqZAo" to="wyt6:~System.err" resolve="err" />
             </node>
             <node concept="liA8E" id="3Y3i7n6NiLq" role="2OqNvi">
               <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String)" resolve="println" />
@@ -5545,7 +5545,7 @@
       <node concept="3cqZAl" id="2519QBqd1og" role="3clF45" />
     </node>
     <node concept="2AHcQZ" id="1lYeGr02gf2" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       <node concept="2B6LJw" id="1lYeGr02gS8" role="2B76xF">
         <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
         <node concept="3clFbT" id="1lYeGr02heG" role="2B70Vg">

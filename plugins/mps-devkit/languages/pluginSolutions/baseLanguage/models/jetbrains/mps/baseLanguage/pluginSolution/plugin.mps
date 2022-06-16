@@ -24055,7 +24055,7 @@
                                                 <node concept="liA8E" id="1KUoCipvs0s" role="2OqNvi">
                                                   <ref role="37wK5l" to="dxuu:~AbstractButton.setIcon(javax.swing.Icon)" resolve="setIcon" />
                                                   <node concept="10M0yZ" id="7nBL02TLqXx" role="37wK5m">
-                                                    <ref role="1PxDUh" to="z2i8:~AllIcons$Nodes" resolve="Nodes" />
+                                                    <ref role="1PxDUh" to="z2i8:~AllIcons$Nodes" resolve="AllIcons.Nodes" />
                                                     <ref role="3cqZAo" to="z2i8:~AllIcons$Nodes.Class" resolve="Class" />
                                                   </node>
                                                 </node>
@@ -24087,7 +24087,7 @@
                                                   <node concept="liA8E" id="1KUoCipvs0D" role="2OqNvi">
                                                     <ref role="37wK5l" to="dxuu:~AbstractButton.setIcon(javax.swing.Icon)" resolve="setIcon" />
                                                     <node concept="10M0yZ" id="7UewnPO$7Ve" role="37wK5m">
-                                                      <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="Nodes" />
+                                                      <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="MPSIcons.Nodes" />
                                                       <ref role="3cqZAo" to="l7us:~MPSIcons$Nodes.Behavior" resolve="Behavior" />
                                                     </node>
                                                   </node>

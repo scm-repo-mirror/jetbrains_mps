@@ -116,7 +116,7 @@
       <node id="1315815304215981421" at="168,90,169,70" concept="2" />
       <node id="1315815304215981428" at="170,5,171,36" concept="7" />
       <node id="1315815304215981434" at="171,36,172,32" concept="2" />
-      <node id="1315815304215981440" at="172,32,173,173" concept="2" />
+      <node id="1315815304215981440" at="172,32,173,190" concept="2" />
       <node id="1315815304215981462" at="175,43,176,38" concept="8" />
       <node id="1315815304215981470" at="179,38,180,26" concept="8" />
       <node id="1315815304215981482" at="183,56,184,94" concept="7" />
@@ -186,7 +186,7 @@
       <node id="1315815304215994099" at="195,39,202,5" concept="15" />
       <node id="1315815304216002059" at="206,0,213,0" concept="6" trace="getIconForExactConcept#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Ljetbrains/mps/smodel/runtime/IconResource;" />
       <node id="1315815304215981477" at="182,24,190,5" concept="5" />
-      <node id="1315815304215981449" at="173,173,182,24" concept="7" />
+      <node id="1315815304215981449" at="173,190,182,24" concept="7" />
       <node id="1315815304215994089" at="194,0,205,0" concept="6" trace="getIconForConceptNoCache#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Ljetbrains/mps/smodel/runtime/IconResource;" />
       <node id="1315815304215979641" at="148,0,162,0" concept="6" trace="getIconFromConstraints#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljavax/swing/Icon;" />
       <node id="1315815304215978059" at="132,0,147,0" concept="6" trace="getIconFor#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljavax/swing/Icon;" />
@@ -325,7 +325,7 @@
         <var name="node" id="1315815304215981384" />
       </scope>
       <unit id="1315815304215925444" at="241,0,244,0" name="jetbrains.mps.ide.icons.BaseIconManager$CONCEPTS" />
-      <unit id="1315815304215981460" at="174,198,178,5" name="jetbrains.mps.ide.icons.BaseIconManager$1" />
+      <unit id="1315815304215981460" at="174,215,178,5" name="jetbrains.mps.ide.icons.BaseIconManager$1" />
       <unit id="1315815304215981468" at="178,17,182,5" name="jetbrains.mps.ide.icons.BaseIconManager$2" />
       <unit id="1315815304215925444" at="44,0,245,0" name="jetbrains.mps.ide.icons.BaseIconManager" />
     </file>

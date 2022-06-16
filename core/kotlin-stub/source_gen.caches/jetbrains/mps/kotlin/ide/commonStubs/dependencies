@@ -14,6 +14,7 @@
   <uses module="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" kind="dp" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" kind="rt+dp" />
+  <uses module="498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)" kind="dp" />
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt+dp" />
   <uses module="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt+dp" />
@@ -21,20 +22,111 @@
   <uses module="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" kind="rt+dp" />
   <uses module="4caf0310-491e-41f5-8a9b-2006b3a94898(jetbrains.mps.execution.util)" kind="dp" />
   <uses module="6b3888c1-9802-44d8-8baf-f8e6c33ed689(jetbrains.mps.kotlin)" kind="dp" />
-  <uses module="e6477889-841a-4dd6-b8fa-21093ba0e76d(jetbrains.mps.kotlin.runtime)" kind="dp" />
   <uses module="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be(jetbrains.mps.kotlin.stubs)" kind="dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt+dp" />
-  <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
+  <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt+dp" />
   <uses module="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" kind="dp" />
   <uses module="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt+dp" />
+  <dependency className="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor">
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="kotlin.jvm.JvmClassMappingKt" />
+    <classNode dependClassName="kotlinx.metadata.KmAnnotation" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode extendsClassName="kotlinx.metadata.KmClassExtensionVisitor" />
+    <classNode extendsClassName="kotlinx.metadata.KmConstructorExtensionVisitor" />
+    <classNode extendsClassName="kotlinx.metadata.KmFunctionExtensionVisitor" />
+    <classNode extendsClassName="kotlinx.metadata.KmPropertyExtensionVisitor" />
+    <classNode extendsClassName="kotlinx.metadata.KmTypeExtensionVisitor" />
+    <classNode extendsClassName="kotlinx.metadata.KmValueParameterExtensionVisitor" />
+  </dependency>
+  <dependency className="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl">
+    <classNode dependClassName="java.lang.Boolean" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodIdV2" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IMapping" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.smodel.behaviour.BHReflection" />
+    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="kotlinx.metadata.KmAnnotation" />
+    <classNode dependClassName="kotlinx.metadata.KmAnnotationArgument" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SInterfaceConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.ResolveInfo" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+  </dependency>
+  <dependency className="jetbrains.mps.kotlin.ide.commonStubs.AnnotationsMetadataExtensions">
+    <classNode dependClassName="java.lang.Object" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmAnnotation" />
+    <classNode dependClassName="kotlinx.metadata.KmClassExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmClassVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmConstructorExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmConstructorVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="kotlinx.metadata.KmFunctionExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmFunctionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmModuleFragmentExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmModuleFragmentVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmPackageExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmPackageVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmPropertyExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmPropertyVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeAliasExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeAliasVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeParameterExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeParameterVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmValueParameterExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmValueParameterVisitor" />
+    <classNode dependClassName="kotlinx.metadata.impl.ReadContext" />
+    <classNode dependClassName="kotlinx.metadata.impl.ReadUtilsKt" />
+    <classNode dependClassName="kotlinx.metadata.impl.WriteContext" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmClassExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmConstructorExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmFunctionExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmModuleFragmentExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmPackageExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmPropertyExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmTypeAliasExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmTypeExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmTypeParameterExtension" />
+    <classNode dependClassName="kotlinx.metadata.impl.extensions.KmValueParameterExtension" />
+    <classNode dependClassName="kotlinx.metadata.internal.metadata.ProtoBuf" />
+    <classNode dependClassName="kotlinx.metadata.internal.metadata.builtins.BuiltInsProtoBuf" />
+    <classNode dependClassName="kotlinx.metadata.internal.metadata.deserialization.Flags" />
+    <classNode dependClassName="kotlinx.metadata.internal.protobuf.GeneratedMessageLite" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode extendsClassName="kotlinx.metadata.impl.extensions.MetadataExtensions" />
+  </dependency>
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.ClassVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.ConstructorVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.EnumFlags" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.FunctionVisitor" />
@@ -50,7 +142,9 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.references.Reference" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="kotlinx.metadata.KmClassExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmConstructorVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
     <classNode dependClassName="kotlinx.metadata.KmFunctionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmPropertyVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeAliasVisitor" />
@@ -72,7 +166,10 @@
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.ConstructorVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.EnumFlags" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.ParameterVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
@@ -80,6 +177,8 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="kotlinx.metadata.KmConstructorExtensionVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
     <classNode dependClassName="kotlinx.metadata.KmValueParameterVisitor" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.deserialization.Flags" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
@@ -108,19 +207,22 @@
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.FunctionVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.EnumFlags" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.ParameterVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.TypeParameterVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.TypeVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
     <classNode dependClassName="jetbrains.mps.kotlin.stubs.common.FunctionIdBuilder" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="kotlinx.metadata.KmFunctionExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeParameterVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmValueParameterVisitor" />
@@ -204,8 +306,10 @@
     <classNode dependClassName="kotlinx.metadata.impl.ReadersKt" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.ProtoBuf" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.builtins.BuiltInsBinaryVersion" />
+    <classNode dependClassName="kotlinx.metadata.internal.metadata.builtins.BuiltInsProtoBuf" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.deserialization.BinaryVersion" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.deserialization.NameResolverImpl" />
+    <classNode dependClassName="kotlinx.metadata.internal.protobuf.ExtensionRegistryLite" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
@@ -287,18 +391,26 @@
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.ParameterVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.TypeVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
     <classNode dependClassName="kotlinx.metadata.KmTypeVisitor" />
+    <classNode dependClassName="kotlinx.metadata.KmValueParameterExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.internal.metadata.deserialization.Flags" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SInterfaceConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="kotlinx.metadata.KmValueParameterVisitor" />
@@ -306,16 +418,19 @@
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.PropertyVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitorImpl" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.EnumFlags" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.TypeVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
-    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs._Adapters" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="kotlinx.metadata.KmPropertyExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeParameterVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmValueParameterVisitor" />
@@ -346,6 +461,7 @@
     <classNode dependClassName="kotlinx.metadata.KmVariance" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
@@ -363,8 +479,11 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.references.Reference" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeParameterExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmTypeVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmVariance" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SInterfaceConcept" />
@@ -375,9 +494,12 @@
   <dependency className="jetbrains.mps.kotlin.ide.commonStubs.TypeVisitor">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="java.util.StringJoiner" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
+    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.AnnotationVisitor" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.EnumFlags" />
     <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.VisitorContext" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
@@ -386,6 +508,9 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="kotlinx.metadata.Flag" />
+    <classNode dependClassName="kotlinx.metadata.KmAnnotation" />
+    <classNode dependClassName="kotlinx.metadata.KmExtensionType" />
+    <classNode dependClassName="kotlinx.metadata.KmTypeExtensionVisitor" />
     <classNode dependClassName="kotlinx.metadata.KmVariance" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
@@ -424,11 +549,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.ide.commonStubs._Adapters">
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
   </dependency>
 </dependenciesRoot>
 

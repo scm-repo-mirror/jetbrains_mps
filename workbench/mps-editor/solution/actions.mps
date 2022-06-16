@@ -16888,7 +16888,7 @@
                                     <property role="Xl_RC" value="Do not suppress error" />
                                   </node>
                                   <node concept="10M0yZ" id="74NIvneSRC7" role="37wK5m">
-                                    <ref role="1PxDUh" to="l7us:~MPSIcons$Actions" resolve="Actions" />
+                                    <ref role="1PxDUh" to="l7us:~MPSIcons$Actions" resolve="MPSIcons.Actions" />
                                     <ref role="3cqZAo" to="l7us:~MPSIcons$Actions.SuppressedError" resolve="SuppressedError" />
                                   </node>
                                 </node>
@@ -17395,7 +17395,7 @@
                                           </node>
                                         </node>
                                         <node concept="Rm8GO" id="1nIaFUJ2YAR" role="37wK5m">
-                                          <ref role="1Px2BO" to="gspm:~JBPopupFactory$ActionSelectionAid" resolve="ActionSelectionAid" />
+                                          <ref role="1Px2BO" to="gspm:~JBPopupFactory$ActionSelectionAid" resolve="JBPopupFactory.ActionSelectionAid" />
                                           <ref role="Rm8GQ" to="gspm:~JBPopupFactory$ActionSelectionAid.ALPHA_NUMBERING" resolve="ALPHA_NUMBERING" />
                                         </node>
                                         <node concept="3clFbT" id="1nIaFUJ2YAS" role="37wK5m">

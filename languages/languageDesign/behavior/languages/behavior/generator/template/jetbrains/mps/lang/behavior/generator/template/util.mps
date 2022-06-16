@@ -302,10 +302,10 @@
         <node concept="3clFbF" id="3F9xXv_6Mo" role="3cqZAp">
           <node concept="37vLTI" id="3F9xXv_6V7" role="3clFbG">
             <node concept="37vLTw" id="1lvLhh1KHto" role="37vLTx">
-              <ref role="3cqZAo" node="1lvLhh1KHcV" resolve="methodDecl" />
+              <ref role="3cqZAo" node="1lvLhh1KHcV" resolve="method" />
             </node>
             <node concept="37vLTw" id="3F9xXv_6Mn" role="37vLTJ">
-              <ref role="3cqZAo" node="3F9xXv_6vx" resolve="myMethodDecl" />
+              <ref role="3cqZAo" node="3F9xXv_6vx" resolve="myMethod" />
             </node>
           </node>
         </node>
@@ -432,7 +432,7 @@
             <node concept="1eOMI4" id="4f3kxhJawes" role="2Oq$k0">
               <node concept="10QFUN" id="4f3kxhJawet" role="1eOMHV">
                 <node concept="3uibUv" id="4f3kxhJaweu" role="10QFUM">
-                  <ref role="3uigEE" to="w1kc:~SNodeId$Regular" resolve="Regular" />
+                  <ref role="3uigEE" to="w1kc:~SNodeId$Regular" resolve="SNodeId.Regular" />
                 </node>
                 <node concept="2OqwBi" id="4f3kxhJawev" role="10QFUP">
                   <node concept="2JrnkZ" id="4f3kxhJawew" role="2Oq$k0">
@@ -756,7 +756,7 @@
                     </node>
                   </node>
                   <node concept="3uibUv" id="7NTi8jMcqXl" role="10QFUM">
-                    <ref role="3uigEE" to="z1c3:~ModuleId$Regular" resolve="Regular" />
+                    <ref role="3uigEE" to="z1c3:~ModuleId$Regular" resolve="ModuleId.Regular" />
                   </node>
                 </node>
               </node>

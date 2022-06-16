@@ -3638,7 +3638,7 @@
                 <ref role="37wK5l" to="zu0:~CachingAppender.expectEvent(jetbrains.mps.testbench.util.CachingAppender$Level,java.lang.String)" resolve="expectEvent" />
                 <node concept="Rm8GO" id="1pQpPQ2kc6C" role="37wK5m">
                   <ref role="Rm8GQ" to="zu0:~CachingAppender$Level.ERROR" resolve="ERROR" />
-                  <ref role="1Px2BO" to="zu0:~CachingAppender$Level" resolve="Level" />
+                  <ref role="1Px2BO" to="zu0:~CachingAppender$Level" resolve="CachingAppender.Level" />
                   <node concept="1ZhdrF" id="1pQpPQ2kcWP" role="lGtFl">
                     <property role="2qtEX8" value="enumConstantDeclaration" />
                     <property role="P3scX" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1083260308424/1083260308426" />
@@ -7430,7 +7430,7 @@
       <node concept="j$656" id="ZcWKOipsWX" role="1lVwrX">
         <ref role="v9R2y" node="hPLRi3V" resolve="reduce_SimpleNodeTest" />
         <node concept="v3LJS" id="ZcWKOiptHv" role="v9R3O">
-          <ref role="v3LJV" node="ZcWKOii8ea" resolve="needsCommand" />
+          <ref role="v3LJV" node="ZcWKOii8ea" resolve="mode" />
         </node>
       </node>
     </node>
