@@ -37,6 +37,7 @@
 classes
 classes_gen
 testclasses
+kotlin_compiled_cache.xml
 teamcity-info.xml
 *.hprof
 *.class
@@ -88,6 +89,9 @@ teamcity-info.xml
 
 # Intellij Idea platform artifact, which is extracted to bin, build, lib & plugins folders
 /mps-platform.zip
+
+# Kotlin compiler
+/tools/kotlinc
 
 # Binary files, required for application startup (including Mac executable)
 /bin/linux

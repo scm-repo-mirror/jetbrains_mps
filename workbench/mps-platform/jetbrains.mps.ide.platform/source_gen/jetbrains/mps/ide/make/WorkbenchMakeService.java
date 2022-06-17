@@ -17,6 +17,7 @@ import java.util.Collections;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.core.platform.Platform;
+import java.io.File;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.make.resources.IResource;
@@ -30,6 +31,10 @@ import com.intellij.openapi.project.DumbService;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.make.MakeNotification;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import java.nio.file.Path;
+import java.nio.file.Files;
+import com.intellij.openapi.util.Disposer;
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -56,6 +61,7 @@ import jetbrains.mps.generator.GenerationSettingsProvider;
 import jetbrains.mps.internal.make.cfg.TextGenFacetInitializer;
 import jetbrains.mps.internal.make.cfg.JavaCompileFacetInitializer;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
+import jetbrains.mps.make.kotlin.KotlinCompilerOptions;
 import jetbrains.mps.make.script.IOption;
 import jetbrains.mps.make.script.IQuery;
 import jetbrains.mps.internal.make.runtime.script.MessageFeedbackStrategy;
@@ -67,6 +73,11 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
   private volatile AtomicReference<Future<IResult>> currentProcess = new AtomicReference<Future<IResult>>();
   private List<IMakeNotificationListener> listeners = Collections.synchronizedList(ListSequence.fromList(new ArrayList<IMakeNotificationListener>()));
   private final Platform myPlatform;
+
+  /**
+   * File that indicates the service to be up, will get deleted on dispose.
+   */
+  private File myAliveFile;
 
   public WorkbenchMakeService() {
     myPlatform = MPSCoreComponents.getInstance().getPlatform();
@@ -176,6 +187,20 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
     if (sess != null) {
       notifyListeners(new MakeNotification(this, MakeNotification.Kind.SESSION_CLOSED));
     }
+  }
+
+  private File getAliveFlagFile() {
+    if (myAliveFile == null) {
+      try {
+        Path createTempFile = Files.createTempFile("mps-workbench-make-", ".alive");
+        myAliveFile = createTempFile.toFile();
+        Disposer.register(this, () -> myAliveFile.delete());
+      } catch (IOException e) {
+        myAliveFile = new File("");
+      }
+    }
+
+    return myAliveFile;
   }
 
   private synchronized void awaitCurrentProcess() {
@@ -325,7 +350,7 @@ public class WorkbenchMakeService extends AbstractMakeService implements IMakeSe
       IModifiableGenerationSettings genSettings = getSession().getProject().getComponent(GenerationSettingsProvider.class).getGenerationSettings();
       new TextGenFacetInitializer().generateDebugInfo(genSettings.isGenerateDebugInfo()).populate(ppool);
 
-      new JavaCompileFacetInitializer().setJavaCompileOptions(JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(getSession().getProject())).populate(ppool);
+      new JavaCompileFacetInitializer().setJavaCompileOptions(JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(getSession().getProject())).setKotlinCompileOptions(new KotlinCompilerOptions(getAliveFlagFile())).populate(ppool);
 
       if (delegateScrCtr != null) {
         delegateScrCtr.setup(ppool, targets, input);

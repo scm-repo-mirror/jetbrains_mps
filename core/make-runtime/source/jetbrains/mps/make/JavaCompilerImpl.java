@@ -24,6 +24,7 @@ import jetbrains.mps.util.performance.IPerformanceTracer.NullPerformanceTracer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.TestOnly;
+import org.jetbrains.mps.openapi.util.SubProgressKind;
 
 import javax.tools.Diagnostic;
 import javax.tools.Diagnostic.Kind;
@@ -49,6 +50,7 @@ import java.util.ServiceLoader.Provider;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -104,35 +106,51 @@ final class JavaCompilerImpl implements AutoCloseable {
     myFileManagerListener = new FileManagerDiagnostics();
   }
 
+  // TODO review: this allows to run kotlin compilation AFTER files have been cleaned. Possible alternatives:
+  //  - providing a lambda to the previously existing compile function: will introduce kotlin specific code here and make returned result ugly
+  //  - call compiler from here: doesn't feel like the right place
+  //  - keep the previous logic of providing BMC the list of files not to delete. this way the analysis will not remove them, but that's extra
+  //  computation (probably wont impact compile time though). Kotlin compilation will occur before any cycle then
   @NotNull
   public MPSCompilationResult compile(BaseModuleContainer<? extends JavaModule> modules, CompositeTracer tracer) {
+    final ModuleAnalyzerResult analysisResult = analyze(modules, tracer);
+    return compile(modules, tracer, analysisResult);
+  }
+
+  public ModuleAnalyzerResult analyze(BaseModuleContainer<? extends JavaModule> modules, CompositeTracer tracer) {
+    final int count = (int) modules.getDirtyModules().count();
+    if (count == 0) {
+      // XXX is it correct that we check all modules, not dirty? Could I get a cycle of 'clean' modules
+      //   in between of other cycles with dirty modules?
+      return null;
+    }
+    tracer.start("", 3 + (count > 1 ? count * 3 : count * 2)); // analyze, copyRes, classpath, 2 per module (javac+instrument) +(count) for bulk
+    tracer.push(InternalJavaCompiler.PREPARING_TO_COMPILE_MSG);
+    // FTR, original code in InternalJavaCompiler analyzed dirty modules only
+    //   although once/if we get rid of dirty check, we likely need to analyze all modules here
+    ModuleAnalyzerResult analysisResult = modules.analyze();
+    if (!analysisResult.hasJavaToCompile && !analysisResult.hasKotlinToCompile && !analysisResult.hasResourcesToUpdate) {
+      tracer.pop(1);
+      return analysisResult;
+    }
+
+    analysisResult.filesToDelete.forEach(FileUtil::delete); // removing all stale files
+    tracer.pop(1);
+    tracer.push(InternalJavaCompiler.COPYING_RESOURCES_MSG);
+    // XXX original InternalJavaCompiler copied resources of all modules, I feel it's not right.
+    modules.getDirtyModules().forEach(this::copyResources);
+    tracer.pop(1);
+
+    return analysisResult;
+  }
+
+  public <T extends JavaModule> MPSCompilationResult compile(BaseModuleContainer<T> modules, CompositeTracer tracer, ModuleAnalyzerResult analysisResult) {
     myFileManagerListener.withReporter(tracer.getSender());
     File tempDir = null;
     try {
       if (myFileManager == null) {
         myFileManager = myJavaCompiler.getStandardFileManager(myFileManagerListener, null, null);
       }
-      final int count = (int) modules.getDirtyModules().count();
-      if (count == 0) {
-        // XXX is it correct that we check all modules, not dirty? Could I get a cycle of 'clean' modules
-        //   in between of other cycles with dirty modules?
-        return MPSCompilationResult.ZERO_COMPILATION_RESULT;
-      }
-      tracer.start("", 3 + (count > 1 ? count * 3 : count * 2)); // analyze, copyRes, classpath, 2 per module (javac+instrument) +(count) for bulk
-      tracer.push(InternalJavaCompiler.PREPARING_TO_COMPILE_MSG);
-      // FTR, original code in InternalJavaCompiler analyzed dirty modules only
-      //   although once/if we get rid of dirty check, we likely need to analyze all modules here
-      ModuleAnalyzerResult analysisResult = modules.analyze();
-      if (!analysisResult.hasJavaToCompile && !analysisResult.hasResourcesToUpdate) {
-        tracer.pop(1);
-        return MPSCompilationResult.nothingToDoCompilationResult();
-      }
-      analysisResult.filesToDelete.forEach(FileUtil::delete); // removing all stale files
-      tracer.pop(1);
-      tracer.push(InternalJavaCompiler.COPYING_RESOURCES_MSG);
-      // XXX original InternalJavaCompiler copied resources of all modules, I feel it's not right.
-      modules.getDirtyModules().forEach(this::copyResources);
-      tracer.pop(1);
 
       if (!analysisResult.hasJavaToCompile) {
         // XXX original code in InternalJavaCompiler didn't invoke reportModulesWithRemovalsAreNotChanged() in this case, is it correct?
@@ -145,6 +163,8 @@ final class JavaCompilerImpl implements AutoCloseable {
       tracer.push(InternalJavaCompiler.COMPILING_JAVA_MSG);
       tracer.getSender().info(String.format("Compiler in use: %s", myJavaCompiler.getClass().getSimpleName()));
       configureClassPath(classpath);
+
+      final int count = (int) modules.getDirtyModules().count();
       if (count > 1) {
         tempDir = Files.createTempDirectory("mpsjc").toFile(); // intentionally not FileUtil.createTempDir, want to handle IOException
         bulkCompileOnlyIntoTempLocation(modules.getDirtyModules(), tempDir, tracer.getSender());

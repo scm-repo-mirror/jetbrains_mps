@@ -64,9 +64,13 @@
     <fileset file="${artifacts.IDEA}/lib/util.jar" />
   </path>
   
-  <path id="path.java.library.KotlinCoreLibs">
+  <path id="path.java.library.kotlin-metadata">
     <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar" />
     <fileset file="${projectHome}/plugins/mps-core/lib/kotlinx-metadata-jvm-0.4.2.jar" />
+  </path>
+  
+  <path id="path.java.library.kotlin-compiler-client-embeddable">
+    <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-compiler-client-embeddable-1.7.0.jar" />
   </path>
   
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
@@ -130,6 +134,9 @@
     </jar>
     <copy todir="${build.layout}">
       <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar" />
+    </copy>
+    <copy todir="${build.layout}">
+      <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-compiler-client-embeddable-1.7.0.jar" />
     </copy>
     <copy todir="${build.layout}">
       <fileset file="${projectHome}/plugins/mps-core/lib/kotlinx-metadata-jvm-0.4.2.jar" />
@@ -709,7 +716,7 @@
         <path refid="path.java.library.util" />
         <path refid="path.java.library.eclipse.ecj" />
         <path refid="path.java.library.objectweb.asm" />
-        <path refid="path.java.library.KotlinCoreLibs" />
+        <path refid="path.java.library.kotlin-metadata" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>

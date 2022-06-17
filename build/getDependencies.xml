@@ -78,7 +78,16 @@
           <!-- Assumes the presence of javadoc and such if the version is correct -->
           <available file="${kotlin.core.libs}/kotlinx-metadata-jvm-0.4.2.jar"/>
           <available file="${kotlin.core.libs}/kotlin-stdlib-${kotlin.version}.jar"/>
+          <available file="${kotlin.core.libs}/kotlin-compiler-client-embeddable-${kotlin.version}.jar"/>
         </and>
+      </not>
+    </condition>
+  </target>
+
+  <target name="check-kotlin-compiler" description="Check kotlin compiler availability">
+    <condition property="kotlincompiler.missing" value="true" else="false">
+      <not>
+        <available file="${kotlin.compiler}/lib"/>
       </not>
     </condition>
   </target>
@@ -88,7 +97,7 @@
       <not>
         <and>
           <available file="${kotlin.lib}/kotlin-stdlib-common-${kotlin.version}.jar"/>
-          <available file="${kotlin.lib}/kotlin-compiler-embeddable-${kotlin.version}.jar"/>
+          <available file="${kotlin.lib}/kotlin-builtins.jar"/>
         </and>
       </not>
     </condition>
@@ -368,6 +377,16 @@
     </unzip>
     <jar basedir="${basedir}/../plugins/mps-kotlin/lib/kotlin-builtins/" destfile="${basedir}/../plugins/mps-kotlin/lib/kotlin-builtins.jar"/>
     <delete dir="${basedir}/../plugins/mps-kotlin/lib/kotlin-builtins"/>
+    <delete file="${basedir}/../plugins/mps-kotlin/lib/kotlin-compiler-embeddable-${kotlin.version}.jar" />
+  </target>
+
+  <target name="download-kotlin-compiler" depends="check-kotlin-compiler,install-ivy" if="${kotlincompiler.missing}"
+          description="Download Kotlin metadata and compiler libraries">
+    <echo message="Kotlin compiler is missing. Downloading..."/>
+    <ivy:resolve file="./ivyKotlinCompiler.xml" validate="false" showprogress="true"/>
+    <ivy:retrieve pattern="${basedir}/../tools/compiler.zip" overwritemode="different" />
+    <unzip src="${basedir}/../tools/compiler.zip" dest="${basedir}/../tools/"/>
+    <delete file="${basedir}/../tools/compiler.zip" />
   </target>
 
   <target name="download-kotlin-core-libs" depends="check-kotlin-core-libs,install-ivy" if="${kotlincorelibs.missing}"
@@ -450,6 +469,7 @@
   <target name="clean-kotlin">
     <delete dir="${kotlin.lib}" includeemptydirs="true" failonerror="false"/>
     <delete dir="${kotlin.core.libs}" includeemptydirs="true" failonerror="false"/>
+    <delete dir="${kotlin.compiler}" includeemptydirs="true" failonerror="false"/>
   </target>
 
   <target name="clean-3rd-party" depends="clean-diffutils,clean-testlib,clean-jetpad,clean-kotlin" description="Delete 3rd party libraries"/>

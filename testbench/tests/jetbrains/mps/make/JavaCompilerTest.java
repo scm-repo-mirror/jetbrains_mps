@@ -143,7 +143,7 @@ public class JavaCompilerTest {
 
       @Override
       public ModuleAnalyzerResult analyze() {
-        return ModuleAnalyzerResult.build(true, false, Collections.emptySet(), Collections.emptySet());
+        return ModuleAnalyzerResult.build(true, false, false, Collections.emptySet(), Collections.emptySet());
       }
     }
     final Supplier<List<File>> findClassFiles = () -> {

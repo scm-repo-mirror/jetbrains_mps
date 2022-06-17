@@ -10,38 +10,47 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/6329021646629104954:jetbrains.mps.baseLanguage.structure.SingleLineComment" />
   <root nodeRef="r:dc013bd4-6bcf-44c3-9e08-a65e07c88df7(jetbrains.mps.internal.make.cfg)/6705512905415971354">
     <file name="JavaCompileFacetInitializer.java">
-      <node id="6705512905416286305" at="14,0,15,0" concept="2" trace="mySkipCompilation" />
-      <node id="206972823228610209" at="15,0,16,0" concept="2" trace="myOptions" />
-      <node id="6705512905416286309" at="19,68,20,29" concept="1" />
-      <node id="6705512905416301062" at="20,29,21,16" concept="6" />
-      <node id="206972823228610908" at="24,89,25,24" concept="1" />
-      <node id="206972823228611352" at="25,24,26,16" concept="6" />
-      <node id="8092479555022511299" at="30,47,31,217" concept="5" />
-      <node id="8092479555022511317" at="32,31,33,41" concept="1" />
-      <node id="206972823228863170" at="33,41,34,33" concept="1" />
-      <node id="6705512905416263623" at="17,0,19,0" concept="0" trace="JavaCompileFacetInitializer#()V" />
-      <node id="6705512905416263735" at="19,0,23,0" concept="4" trace="skipCompilation#(Ljava/lang/Boolean;)Ljetbrains/mps/internal/make/cfg/JavaCompileFacetInitializer;" />
-      <node id="206972823228603759" at="24,0,28,0" concept="4" trace="setJavaCompileOptions#(Ljetbrains/mps/compiler/JavaCompilerOptions;)Ljetbrains/mps/internal/make/cfg/JavaCompileFacetInitializer;" />
-      <node id="8092479555022511315" at="31,217,35,5" concept="3" />
-      <node id="6705512905415971441" at="29,0,37,0" concept="4" trace="populate#(Ljetbrains/mps/make/script/IPropertiesPool;)V" />
-      <scope id="6705512905416263627" at="17,40,17,40" />
-      <scope id="6705512905416263623" at="17,0,19,0" />
-      <scope id="6705512905416263739" at="19,68,21,16" />
-      <scope id="206972823228603762" at="24,89,26,16" />
-      <scope id="8092479555022511316" at="32,31,34,33" />
-      <scope id="6705512905416263735" at="19,0,23,0">
+      <node id="6705512905416286305" at="15,0,16,0" concept="2" trace="mySkipCompilation" />
+      <node id="206972823228610209" at="16,0,17,0" concept="2" trace="myOptions" />
+      <node id="5445948832678317076" at="17,0,18,0" concept="2" trace="myKotlinOptions" />
+      <node id="6705512905416286309" at="21,68,22,29" concept="1" />
+      <node id="6705512905416301062" at="22,29,23,16" concept="6" />
+      <node id="206972823228610908" at="26,89,27,24" concept="1" />
+      <node id="206972823228611352" at="27,24,28,16" concept="6" />
+      <node id="5445948832678317794" at="31,93,32,30" concept="1" />
+      <node id="5445948832678317798" at="32,30,33,16" concept="6" />
+      <node id="8092479555022511299" at="37,47,38,263" concept="5" />
+      <node id="8092479555022511317" at="39,31,40,41" concept="1" />
+      <node id="206972823228863170" at="40,41,41,33" concept="1" />
+      <node id="1834953602900837431" at="41,33,42,39" concept="1" />
+      <node id="6705512905416263623" at="19,0,21,0" concept="0" trace="JavaCompileFacetInitializer#()V" />
+      <node id="6705512905416263735" at="21,0,25,0" concept="4" trace="skipCompilation#(Ljava/lang/Boolean;)Ljetbrains/mps/internal/make/cfg/JavaCompileFacetInitializer;" />
+      <node id="206972823228603759" at="26,0,30,0" concept="4" trace="setJavaCompileOptions#(Ljetbrains/mps/compiler/JavaCompilerOptions;)Ljetbrains/mps/internal/make/cfg/JavaCompileFacetInitializer;" />
+      <node id="5445948832678317792" at="31,0,35,0" concept="4" trace="setKotlinCompileOptions#(Ljetbrains/mps/make/kotlin/KotlinCompilerOptions;)Ljetbrains/mps/internal/make/cfg/JavaCompileFacetInitializer;" />
+      <node id="8092479555022511315" at="38,263,43,5" concept="3" />
+      <node id="6705512905415971441" at="36,0,45,0" concept="4" trace="populate#(Ljetbrains/mps/make/script/IPropertiesPool;)V" />
+      <scope id="6705512905416263627" at="19,40,19,40" />
+      <scope id="6705512905416263623" at="19,0,21,0" />
+      <scope id="6705512905416263739" at="21,68,23,16" />
+      <scope id="206972823228603762" at="26,89,28,16" />
+      <scope id="5445948832678317793" at="31,93,33,16" />
+      <scope id="8092479555022511316" at="39,31,42,39" />
+      <scope id="6705512905416263735" at="21,0,25,0">
         <var name="skip" id="6705512905416286274" />
       </scope>
-      <scope id="206972823228603759" at="24,0,28,0">
+      <scope id="206972823228603759" at="26,0,30,0">
         <var name="options" id="206972823228604409" />
       </scope>
-      <scope id="6705512905415971444" at="30,47,35,5">
+      <scope id="5445948832678317792" at="31,0,35,0">
+        <var name="options" id="5445948832678317802" />
+      </scope>
+      <scope id="6705512905415971444" at="37,47,43,5">
         <var name="compileProps" id="8092479555022511300" />
       </scope>
-      <scope id="6705512905415971441" at="29,0,37,0">
+      <scope id="6705512905415971441" at="36,0,45,0">
         <var name="ppool" id="6705512905415971455" />
       </scope>
-      <unit id="6705512905415971354" at="12,0,38,0" name="jetbrains.mps.internal.make.cfg.JavaCompileFacetInitializer" />
+      <unit id="6705512905415971354" at="13,0,46,0" name="jetbrains.mps.internal.make.cfg.JavaCompileFacetInitializer" />
     </file>
   </root>
   <root nodeRef="r:dc013bd4-6bcf-44c3-9e08-a65e07c88df7(jetbrains.mps.internal.make.cfg)/6705512905416012324">

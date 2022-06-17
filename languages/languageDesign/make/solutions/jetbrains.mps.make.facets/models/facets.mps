@@ -8,7 +8,6 @@
     <use id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet" version="0" />
     <use id="95f8a3e6-f994-4ca0-a65e-763c9bae2d3b" name="jetbrains.mps.make.script" version="0" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="12" />
-    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="19" />
   </languages>
   <imports>
@@ -36,6 +35,8 @@
     <import index="t6h5" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang.reflect(JDK/)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" />
+    <import index="mzcb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make.kotlin(MPS.Core/)" />
+    <import index="9agv" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make.kotlin.cache(MPS.Core/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -118,6 +119,9 @@
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
+      </concept>
+      <concept id="1513279640923991009" name="jetbrains.mps.baseLanguage.structure.IGenericClassCreator" flags="ng" index="366HgL">
+        <property id="1513279640906337053" name="inferTypeParams" index="373rjd" />
       </concept>
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
@@ -545,16 +549,44 @@
               </node>
             </node>
             <node concept="3clFbF" id="50pO7_b7$p0" role="3cqZAp">
-              <node concept="2OqwBi" id="50pO7_b7_Wx" role="3clFbG">
-                <node concept="37vLTw" id="50pO7_b7$oY" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6SVxhiG6cys" resolve="mm" />
+              <node concept="2OqwBi" id="4IjTpK4Go_9" role="3clFbG">
+                <node concept="2OqwBi" id="4IjTpK4GmH5" role="2Oq$k0">
+                  <node concept="2OqwBi" id="50pO7_b7_Wx" role="2Oq$k0">
+                    <node concept="37vLTw" id="50pO7_b7$oY" role="2Oq$k0">
+                      <ref role="3cqZAo" node="6SVxhiG6cys" resolve="mm" />
+                    </node>
+                    <node concept="liA8E" id="50pO7_b7AGo" role="2OqNvi">
+                      <ref role="37wK5l" to="vqh0:~ModuleMaker.options(jetbrains.mps.compiler.JavaCompilerOptions)" resolve="options" />
+                      <node concept="1aIXbY" id="50pO7_b7AGV" role="37wK5m">
+                        <node concept="1aIXbZ" id="50pO7_b7AGU" role="2Oq$k0" />
+                        <node concept="2sxana" id="50pO7_b7AGY" role="2OqNvi">
+                          <ref role="2sxfKC" node="bvkaYAFSqh" resolve="options" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="4IjTpK4GotH" role="2OqNvi">
+                    <ref role="37wK5l" to="vqh0:~ModuleMaker.kotlinOptions(jetbrains.mps.make.kotlin.KotlinCompilerOptions)" resolve="kotlinOptions" />
+                    <node concept="1aIXbY" id="4IjTpK4Gowu" role="37wK5m">
+                      <node concept="1aIXbZ" id="4IjTpK4Gowt" role="2Oq$k0" />
+                      <node concept="2sxana" id="4IjTpK4Gowx" role="2OqNvi">
+                        <ref role="2sxfKC" node="4IjTpK4Glh8" resolve="kotlinOptions" />
+                      </node>
+                    </node>
+                  </node>
                 </node>
-                <node concept="liA8E" id="50pO7_b7AGo" role="2OqNvi">
-                  <ref role="37wK5l" to="vqh0:~ModuleMaker.options(jetbrains.mps.compiler.JavaCompilerOptions)" resolve="options" />
-                  <node concept="1aIXbY" id="50pO7_b7AGV" role="37wK5m">
-                    <node concept="1aIXbZ" id="50pO7_b7AGU" role="2Oq$k0" />
-                    <node concept="2sxana" id="50pO7_b7AGY" role="2OqNvi">
-                      <ref role="2sxfKC" node="bvkaYAFSqh" resolve="options" />
+                <node concept="liA8E" id="4IjTpK4Gq03" role="2OqNvi">
+                  <ref role="37wK5l" to="vqh0:~ModuleMaker.kotlinCompileCache(jetbrains.mps.make.kotlin.cache.KotlinCompileCacheHandler)" resolve="kotlinCompileCache" />
+                  <node concept="2ShNRf" id="4IjTpK4Gq5f" role="37wK5m">
+                    <node concept="1pGfFk" id="4IjTpK4GqJh" role="2ShVmc">
+                      <property role="373rjd" value="true" />
+                      <ref role="37wK5l" to="9agv:~KotlinCompileCacheHandlerImpl.&lt;init&gt;(jetbrains.mps.messages.IMessageHandler)" resolve="KotlinCompileCacheHandlerImpl" />
+                      <node concept="2OqwBi" id="1juFuk3EKET" role="37wK5m">
+                        <node concept="2_BwXt" id="1juFuk3EKEU" role="2Oq$k0" />
+                        <node concept="liA8E" id="1juFuk3EKEV" role="2OqNvi">
+                          <ref role="37wK5l" to="hfuk:7yGn3z4N4Nw" resolve="getMessageHandler" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -891,6 +923,12 @@
           <property role="TrG5h" value="options" />
           <node concept="3uibUv" id="26I8knZG$C4" role="2lK19J">
             <ref role="3uigEE" to="l46t:~JavaCompilerOptions" resolve="JavaCompilerOptions" />
+          </node>
+        </node>
+        <node concept="2lGYhJ" id="4IjTpK4Glh8" role="2pHZQ9">
+          <property role="TrG5h" value="kotlinOptions" />
+          <node concept="3uibUv" id="4IjTpK4Gm_Z" role="2lK19J">
+            <ref role="3uigEE" to="mzcb:~KotlinCompilerOptions" resolve="KotlinCompilerOptions" />
           </node>
         </node>
       </node>

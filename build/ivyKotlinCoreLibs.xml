@@ -11,5 +11,10 @@
       <artifact name="kotlin-stdlib" m:classifier="sources" ext="jar"/>
       <artifact name="kotlin-stdlib" m:classifier="javadoc" ext="jar"/>
     </dependency>
+    <dependency org="org.jetbrains.kotlin" name="kotlin-compiler-client-embeddable" rev="${kotlin.version}">
+      <artifact name="kotlin-compiler-client-embeddable" ext="jar"/>
+      <artifact name="kotlin-compiler-client-embeddable" m:classifier="sources" ext="jar"/>
+      <artifact name="kotlin-compiler-client-embeddable" m:classifier="javadoc" ext="jar"/>
+    </dependency>
   </dependencies>
 </ivy-module>

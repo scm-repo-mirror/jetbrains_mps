@@ -34,6 +34,9 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.make.MPSCompilationResult;
 import jetbrains.mps.make.ModuleMaker;
+import jetbrains.mps.make.kotlin.KotlinCompilerOptions;
+import jetbrains.mps.make.kotlin.cache.KotlinCompileCacheHandlerImpl;
+import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ProjectLibraryManager;
@@ -44,6 +47,7 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -102,7 +106,12 @@ public final class StartupModuleMakerImpl extends StartupModuleMaker implements 
   private void doBuild(ProgressMonitor monitor) {
     LOG.info("Building modules on startup");
     final ModuleMaker maker = new ModuleMaker();
-    maker.options(JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(myMPSProject));
+
+    // Create temporary client file
+    final File clientFile = KotlinCompilerOptions.createClientFile();
+    maker.options(JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(myMPSProject))
+         .kotlinCompileCache(new KotlinCompileCacheHandlerImpl(IMessageHandler.NULL_HANDLER))
+         .kotlinOptions(new KotlinCompilerOptions(clientFile));
     final ReloadManager reloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
     reloadManager.computeNoReload(() -> {
       monitor.start("", 5);
@@ -127,6 +136,9 @@ public final class StartupModuleMakerImpl extends StartupModuleMaker implements 
         Notifications.Bus.notify(n, myMPSProject.getProject());
         LOG.info(n.getTitle());
       }
+
+      // Delete client file after exit
+      clientFile.delete();
       return null;
     });
     LOG.info("Building on startup is finished");

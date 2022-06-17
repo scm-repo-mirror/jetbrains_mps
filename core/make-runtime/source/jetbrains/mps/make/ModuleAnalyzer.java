@@ -42,16 +42,19 @@ class ModuleAnalyzer {
   @Immutable
   final static class ModuleAnalyzerResult {
     public final boolean hasJavaToCompile;
+    public final boolean hasKotlinToCompile;
     public final boolean hasResourcesToUpdate;
     @NotNull public final Set<BaseModuleContainer.JavaModule> modulesWithRemovals;
     @NotNull public final Set<File> filesToDelete;
 
     private ModuleAnalyzerResult(
         boolean hasJavaToCompile,
+        boolean hasKotlinToCompile,
         boolean hasResourcesToUpdate,
         @NotNull Set<BaseModuleContainer.JavaModule> modulesWithRemovals,
         @NotNull Set<File> filesToDelete) {
       this.hasJavaToCompile = hasJavaToCompile;
+      this.hasKotlinToCompile = hasKotlinToCompile;
       this.hasResourcesToUpdate = hasResourcesToUpdate;
       this.modulesWithRemovals = modulesWithRemovals;
       this.filesToDelete = filesToDelete;
@@ -59,10 +62,11 @@ class ModuleAnalyzer {
 
     public static ModuleAnalyzerResult build(
         boolean hasJavaToCompile,
+        boolean hasKotlinToCompile,
         boolean hasResourcesToUpdate,
         Set<BaseModuleContainer.JavaModule> modulesWithRemovals,
         Set<File> filesToDelete) {
-      return new ModuleAnalyzerResult(hasJavaToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
+      return new ModuleAnalyzerResult(hasJavaToCompile, hasKotlinToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
     }
   }
 

@@ -26,6 +26,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.make.ModuleMaker;
+import jetbrains.mps.make.kotlin.cache.KotlinCompileCacheHandlerImpl;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.lang.core.plugin.TextGen_Facet.Target_textGen;
 import jetbrains.mps.make.MPSCompilationResult;
@@ -35,6 +36,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.make.script.IPropertiesPool;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.compiler.JavaCompilerOptions;
+import jetbrains.mps.make.kotlin.KotlinCompilerOptions;
 import java.util.stream.IntStream;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.internal.make.runtime.java.IdeaJavaCompiler;
@@ -99,7 +101,7 @@ public class JavaCompile_Facet extends IFacet.Stub {
               }
               progressMonitor.start("Compiling Java", 100);
               final ModuleMaker mm = new ModuleMaker(monitor.getSession().getMessageHandler());
-              mm.options(vars(pa.global()).options());
+              mm.options(vars(pa.global()).options()).kotlinOptions(vars(pa.global()).kotlinOptions()).kotlinCompileCache(new KotlinCompileCacheHandlerImpl(monitor.getSession().getMessageHandler()));
               new ModelAccessHelper(monitor.getSession().getProject().getModelAccess()).runReadAction(() -> {
                 // re-use dependencies known to textGen facet (freshly built, in fact)
                 mm.dependencies(Target_textGen.vars(pa.global()).dependenciesCache());
@@ -176,7 +178,7 @@ public class JavaCompile_Facet extends IFacet.Stub {
     public <T> T createParameters(Class<T> cls, T copyFrom) {
       T t = createParameters(cls);
       if (t != null) {
-        ((Tuples._3) t).assign((Tuples._3) copyFrom);
+        ((Tuples._4) t).assign((Tuples._4) copyFrom);
       }
       return t;
     }
@@ -186,12 +188,12 @@ public class JavaCompile_Facet extends IFacet.Stub {
     public static Parameters vars(IPropertiesPool ppool) {
       return ppool.properties(name, Parameters.class);
     }
-    public static class Parameters extends MultiTuple._3<Boolean, Boolean, JavaCompilerOptions> {
+    public static class Parameters extends MultiTuple._4<Boolean, Boolean, JavaCompilerOptions, KotlinCompilerOptions> {
       public Parameters() {
         super();
       }
-      public Parameters(Boolean compiledAnything, Boolean skipCompilation, JavaCompilerOptions options) {
-        super(compiledAnything, skipCompilation, options);
+      public Parameters(Boolean compiledAnything, Boolean skipCompilation, JavaCompilerOptions options, KotlinCompilerOptions kotlinOptions) {
+        super(compiledAnything, skipCompilation, options, kotlinOptions);
       }
       public Boolean compiledAnything(Boolean value) {
         return super._0(value);
@@ -202,6 +204,9 @@ public class JavaCompile_Facet extends IFacet.Stub {
       public JavaCompilerOptions options(JavaCompilerOptions value) {
         return super._2(value);
       }
+      public KotlinCompilerOptions kotlinOptions(KotlinCompilerOptions value) {
+        return super._3(value);
+      }
       public Boolean compiledAnything() {
         return super._0();
       }
@@ -210,6 +215,9 @@ public class JavaCompile_Facet extends IFacet.Stub {
       }
       public JavaCompilerOptions options() {
         return super._2();
+      }
+      public KotlinCompilerOptions kotlinOptions() {
+        return super._3();
       }
     }
   }
@@ -376,6 +384,7 @@ public class JavaCompile_Facet extends IFacet.Stub {
           MapSequence.fromMap(store).put("jetbrains.mps.make.facets.JavaCompile.compile.compiledAnything", String.valueOf(props.compiledAnything()));
           MapSequence.fromMap(store).put("jetbrains.mps.make.facets.JavaCompile.compile.skipCompilation", String.valueOf(props.skipCompilation()));
           MapSequence.fromMap(store).put("jetbrains.mps.make.facets.JavaCompile.compile.options", null);
+          MapSequence.fromMap(store).put("jetbrains.mps.make.facets.JavaCompile.compile.kotlinOptions", null);
         }
       }
       {
@@ -400,6 +409,9 @@ public class JavaCompile_Facet extends IFacet.Stub {
           }
           if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.JavaCompile.compile.options")) {
             props.options(null);
+          }
+          if (MapSequence.fromMap(store).containsKey("jetbrains.mps.make.facets.JavaCompile.compile.kotlinOptions")) {
+            props.kotlinOptions(null);
           }
         }
         {

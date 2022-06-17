@@ -23,6 +23,11 @@ import jetbrains.mps.make.dependencies.graph.Graph;
 import jetbrains.mps.make.dependencies.graph.IVertex;
 import jetbrains.mps.make.java.BLDependenciesCache;
 import jetbrains.mps.make.java.ModelDependencies;
+import jetbrains.mps.make.kotlin.KotlinCompilationOutput;
+import jetbrains.mps.make.kotlin.KotlinCompilerOptions;
+import jetbrains.mps.make.kotlin.KotlinCompilerRunner;
+import jetbrains.mps.make.kotlin.cache.KotlinCompileCacheHandler;
+import jetbrains.mps.make.kotlin.cache.KotlinModuleCache;
 import jetbrains.mps.messages.IMessageHandler;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.SModuleOperations;
@@ -87,6 +92,7 @@ public final class ModuleMaker {
   public final static Comparator<SModule> MODULE_BY_NAME_COMPARATOR = Comparator.comparing(SModule::getModuleName);
 
   private final static String BUILDING_MODULES_MSG = "Building %d Modules";
+  private final static String KOTLIN_COMPILE_MSG = "Kotlin Compilation";
   private final static String CYCLE_FORMAT_MSG = "Cycle #%d: [%s]";
   // XXX do I want to report these phases?
   private final static String COLLECTING_DEPENDENCIES_MSG = "Collecting Dependent Candidates";
@@ -101,6 +107,11 @@ public final class ModuleMaker {
   private final CompositeTracer myTracer;
   @Nullable
   private BLDependenciesCache myDependenciesCache;
+  @Nullable
+  private KotlinCompileCacheHandler myKotlinCacheHandler;
+
+  @Nullable
+  private KotlinCompilerOptions myKotlinCompilerOptions;
 
   /**
    * The empty constructor delegates only error messages to the apache's logger and traces nothing
@@ -140,8 +151,21 @@ public final class ModuleMaker {
     return this;
   }
 
+  /**
+   * @param options set of compilation options for kotlin for the subsequent {@code make} calls
+   */
+  public ModuleMaker kotlinOptions(@Nullable KotlinCompilerOptions options) {
+    myKotlinCompilerOptions = options;
+    return this;
+  }
+
   public ModuleMaker dependencies(@Nullable BLDependenciesCache dependenciesCache) {
     myDependenciesCache = dependenciesCache;
+    return this;
+  }
+
+  public ModuleMaker kotlinCompileCache(@Nullable KotlinCompileCacheHandler cacheProvider) {
+    myKotlinCacheHandler = cacheProvider;
     return this;
   }
 
@@ -176,6 +200,12 @@ public final class ModuleMaker {
   }
 
   static class MC {
+    private final KotlinCompileCacheHandler myKotlinCacheHandler;
+
+    MC(KotlinCompileCacheHandler kotlinCacheHandler) {
+      myKotlinCacheHandler = kotlinCacheHandler;
+    }
+
     private final HashMap<SModuleReference, JM> myModules = new HashMap<>();
     private final HashMap<JM, SModule> myTransientMap = new HashMap<>();
 
@@ -305,7 +335,8 @@ public final class ModuleMaker {
       }
       final Set<String> allSourcePaths = SModuleOperations.getAllSourcePaths(m);
       final IFile outputRoot = jmf.getOutputRoot();
-      jm.setSources(allSourcePaths, classesOut.getPath(), outputRoot == null ? null : outputRoot.getPath());
+      final IFile outputCacheRoot = jmf.getOutputCacheRoot();
+      jm.setSources(allSourcePaths, classesOut.getPath(), outputRoot == null ? null : outputRoot.getPath(), outputCacheRoot == null ? null : outputCacheRoot.getPath(), myKotlinCacheHandler);
     }
 
     // requires SModule knowledge
@@ -363,7 +394,7 @@ public final class ModuleMaker {
     private Set<String> myClasspath; // nullable
     private JS mySources; // nullable
     private Collection<String> mySourcePaths; // nullable
-    private File myClassesOut, mySourcesOut; // nullable
+    private File myClassesOut, mySourcesOut, mySourcesCache; // nullable
 
     JM(SModuleReference moduleRef) {
       myModule = moduleRef;
@@ -406,15 +437,21 @@ public final class ModuleMaker {
       myClasspath = classpath;
     }
 
-    void setSources(Collection<String> allSourcePaths, /*not null*/ String classOut, @Nullable String sourceOutRoot) {
+    void setSources(Collection<String> allSourcePaths, /*not null*/ String classOut, @Nullable String sourceOutRoot, String sourceOutCacheRoot, KotlinCompileCacheHandler kotlinCache) {
       JS js = new JS();
       // seems fair to walk java.io.File here, not IDEA's VirtualFile or MPS IFile, as we care about actual FS state, not some cached one
       // Besides, it's tricky to get IFile with present SModule/JMF API.
       js.collectSources(allSourcePaths.stream().map(File::new));
-      js.walkOutput(myClassesOut = new File(classOut));
+
+      // Might be used by kotlin cache
       mySources = js;
       mySourcePaths = allSourcePaths;
       mySourcesOut = sourceOutRoot == null ? null : new File(sourceOutRoot);
+      mySourcesCache = sourceOutCacheRoot == null ? null : new File(sourceOutCacheRoot);
+
+      // Get kotlin cache and walk output
+      KotlinModuleCache cache = !js.myKotlinFiles.isEmpty() && kotlinCache != null ? kotlinCache.getCache(this) : null;
+      js.walkOutput(myClassesOut = new File(classOut), cache);
     }
 
     @Override
@@ -439,6 +476,11 @@ public final class ModuleMaker {
     }
 
     @Nullable
+    public File getSourcesCache() {
+      return mySourcesCache;
+    }
+
+    @Nullable
     public Set<String> getClasspath() {
       return myClasspath;
     }
@@ -457,6 +499,10 @@ public final class ModuleMaker {
     @Override
     public boolean hasJavaToCompile() {
       return !mySources.myFilesToCompile.isEmpty();
+    }
+
+    public boolean hasKotlinToCompile() {
+      return mySources.myHasKotlinFilesToCompile;
     }
 
     @Override
@@ -494,10 +540,13 @@ public final class ModuleMaker {
 
   private static class JS {
     private final Map<String, JavaFile> myJavaFiles = new HashMap<>();
+    private final Set<File> myKotlinFiles = new HashSet<>();
     private final Map<String, ResourceFile> myResourceFiles = new HashMap<>();
 
     private final List<File> myFilesToDelete = new ArrayList<>();
     private final List<JavaFile> myFilesToCompile = new ArrayList<>(); // FIXME remove
+    private boolean myHasKotlinFilesToCompile = false;
+    private final List<File> myKotlinCompiledFiles = new ArrayList<>();
     private final List<ResourceFile> myResourcesToCopy = new ArrayList<>();
 
     void collectSources(Stream<File> srcRoot) {
@@ -526,6 +575,9 @@ public final class ModuleMaker {
         if (childName.endsWith(MPSExtentions.DOT_JAVAFILE)) {
           String fqName = packPrefix.fqnWithTail(childName.substring(0, childName.length() - MPSExtentions.DOT_JAVAFILE.length()));
           myJavaFiles.put(fqName, new JavaFile(f, fqName, f.lastModified()));
+        } else if (childName.endsWith(MPSExtentions.DOT_KOTLINFILE)) {
+          // Unlike java, file name does not always map to a specific class fqName -> we keep the file itself
+          myKotlinFiles.add(f);
         } else {
           // treat others as 'resources'
           // childName may contain '.', don't replace it with '/'.
@@ -538,7 +590,12 @@ public final class ModuleMaker {
       }
     }
 
-    void walkOutput(File classesRoot) {
+    void walkOutput(File classesRoot, KotlinModuleCache cache) {
+      // Search for unregistered source files (all input files are mapped in cache, even empty though .kotlin_modules)
+      myHasKotlinFilesToCompile = !myKotlinFiles.isEmpty() && (cache == null ||
+                                                               myKotlinFiles.size() > cache.getSourceFiles().size() ||
+                                                               !cache.getSourceFiles().containsAll(myKotlinFiles));
+
       myFilesToCompile.clear();
       myResourcesToCopy.clear();
       myFilesToCompile.addAll(myJavaFiles.values());
@@ -546,11 +603,12 @@ public final class ModuleMaker {
       if (!classesRoot.exists()) {
         return;
       }
-      classes(classesRoot, new PackagePrefix());
+
+      classes(classesRoot, new PackagePrefix(), cache);
     }
 
     // pre: dir.exists()
-    private void classes(File dir, PackagePrefix packPrefix) {
+    private void classes(File dir, PackagePrefix packPrefix, KotlinModuleCache kotlinCache) {
       for (File f : dir.listFiles()) {
         final String childName = f.getName();
         if (isIgnoredFileName(childName)) {
@@ -558,11 +616,39 @@ public final class ModuleMaker {
         }
         if (f.isDirectory()) {
           packPrefix.push(childName);
-          classes(f, packPrefix);
+          classes(f, packPrefix, kotlinCache);
           packPrefix.pop();
           continue;
         }
         assert f.isFile(); // XXX don't need this assert, leave as comment not to forget continue;
+
+        if (childName.endsWith(MPSExtentions.DOT_CLASSFILE) || childName.endsWith(MPSExtentions.DOT_KOTLINMODULE)) {
+          // If the .class/.kotlin_module file is in the kotlin cache, assumes it to be compiled from kotlin
+          final Collection<String> sourceFiles;
+          if (kotlinCache != null && (sourceFiles = kotlinCache.getSourcesFor(packPrefix.pathWithTail(childName))) != null) {
+            final long classFileLastModified = f.lastModified();
+
+            // Check for any outdated file to mark as to compile
+            myHasKotlinFilesToCompile = myHasKotlinFilesToCompile ||
+                                        sourceFiles.stream()
+                                                   .map(File::new)
+                                                   .filter(myKotlinFiles::contains)
+                                                   .anyMatch(file -> !isFileUpToDate(file.lastModified(), classFileLastModified));
+
+            // Keep trace of compiled files (so we can remove those that are not necessary after compilation)
+            myKotlinCompiledFiles.add(f);
+
+            /*
+              No need to consider the class file is issued from java/resources from there.
+
+              Note: The current file can be deleted later on iff kotlin compiler does not output it again (this handles case of a migration from a
+              kotlin class to a java class: kt .class file get deleted, java compiles the new .class file right after).
+             */
+            continue;
+          }
+          // Not in cache: fallback to checking for java files and resources
+        }
+
         if (childName.endsWith(MPSExtentions.DOT_CLASSFILE)) {
           final String cName = childName.substring(0, childName.length() - MPSExtentions.DOT_CLASSFILE.length());
           final int ds = cName.indexOf('$');
@@ -578,7 +664,7 @@ public final class ModuleMaker {
           final JavaFile javaFile = myJavaFiles.get(fqName);
           if (javaFile == null) {
             myFilesToDelete.add(f);
-          } else if (!innerClass && isFileUpToDate(javaFile, f.lastModified())) {
+          } else if (!innerClass && isFileUpToDate(javaFile.getLastModified(), f.lastModified())) {
             // FIXME logic traces back to 5ffdea07a0d, but as long as I don't need filesToCompile, seems fair to recognize
             //       change in any inner class as 'sources need re-compile' status
             myFilesToCompile.remove(javaFile);
@@ -597,8 +683,8 @@ public final class ModuleMaker {
       }
     }
 
-    private boolean isFileUpToDate(JavaFile javaFile, long classFileLastModified) {
-      if (javaFile.getLastModified() >= classFileLastModified) {
+    private boolean isFileUpToDate(long sourceFileLastModified, long classFileLastModified) {
+      if (sourceFileLastModified >= classFileLastModified) {
         return false;
       }
       // here used to be logic that looked into Dependencies (extended/used classes, serialized in 'dependencies' cache)
@@ -610,23 +696,20 @@ public final class ModuleMaker {
     }
 
     boolean outdatedSources() {
-      return !myFilesToCompile.isEmpty() || !myResourcesToCopy.isEmpty() || !myFilesToDelete.isEmpty();
+      return !myFilesToCompile.isEmpty() || !myResourcesToCopy.isEmpty() || !myFilesToDelete.isEmpty() || myHasKotlinFilesToCompile;
     }
 
     @Override
     public String toString() {
-      return String.format("SRC(java %d/%d; resources %d/%d; to delete %d)", myFilesToCompile.size(), myJavaFiles.size(), myResourcesToCopy.size(),
+      return String.format("SRC(java %d/%d; kotlin %d%s; resources %d/%d; to delete %d)", myFilesToCompile.size(), myJavaFiles.size(), myKotlinFiles.size(), myHasKotlinFilesToCompile ? "*" : "", myResourcesToCopy.size(),
                            myResourceFiles.size(), myFilesToDelete.size());
     }
   }
 
   public static class BMC implements BaseModuleContainer<JM> {
     private final Collection<JM> myModules;
-    private final Collection<File> myExternalOutputToKeep;
-
-    BMC(Collection<JM> modules, Collection<File> externalOutputToKeep) {
+    BMC(Collection<JM> modules) {
       myModules = modules;
-      myExternalOutputToKeep = externalOutputToKeep;
     }
 
     @Override
@@ -636,7 +719,7 @@ public final class ModuleMaker {
 
     @Override
     public Collection<String> getCompileClasspath() {
-      return getCompileClasspath(myModules);
+      return getCompileClasspath(myModules, true);
     }
 
     /**
@@ -644,13 +727,18 @@ public final class ModuleMaker {
      * @param modules modules to get the classpath from
      * @return list of paths
      */
-    public static Collection<String> getCompileClasspath(Collection<JM> modules) {
+    public static Collection<String> getCompileClasspath(Collection<JM> modules, boolean withClassesOut) {
       HashSet<JM> seen = new HashSet<>();
       ArrayDeque<JM> queue = new ArrayDeque<>(modules);
       HashSet<String> rv = new LinkedHashSet<>();
       do {
         final JM jm = queue.removeFirst();
         if (seen.add(jm)) {
+          // classes_gen will contain some kotlin files now used for compilation
+          if (withClassesOut && jm.mySources != null && !jm.mySources.myKotlinFiles.isEmpty() && jm.getClassesOut() != null) {
+            rv.add(jm.getClassesOut().getAbsolutePath());
+          }
+
           if (jm.myClasspath == null) {
             System.out.printf("Module %s got no classpath!\n", jm.name());
             continue;
@@ -665,6 +753,7 @@ public final class ModuleMaker {
     @Override
     public ModuleAnalyzerResult analyze() {
       boolean hasJavaToCompile = false;
+      boolean hasKotlinToCompile = false;
       boolean hasResourcesToUpdate = false;
       Set<BaseModuleContainer.JavaModule> modulesWithRemovals = new HashSet<>();
       Set<File> filesToDelete = new HashSet<>();
@@ -677,15 +766,12 @@ public final class ModuleMaker {
         // XXX is it right to include files to delete into condition?
         hasResourcesToUpdate |= !jm.mySources.myResourcesToCopy.isEmpty() || !jm.mySources.myFilesToDelete.isEmpty();
         hasJavaToCompile |= !jm.mySources.myFilesToCompile.isEmpty();
+        hasKotlinToCompile |= jm.hasKotlinToCompile();
         if (filesToDelete.addAll(jm.mySources.myFilesToDelete)) {
           modulesWithRemovals.add(jm);
         }
       }
-      // prevent removal of externally managed files
-      if (myExternalOutputToKeep != null) {
-        myExternalOutputToKeep.forEach(filesToDelete::remove);
-      }
-      return ModuleAnalyzerResult.build(hasJavaToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
+      return ModuleAnalyzerResult.build(hasJavaToCompile, hasKotlinToCompile, hasResourcesToUpdate, modulesWithRemovals, filesToDelete);
     }
   }
 
@@ -694,23 +780,22 @@ public final class ModuleMaker {
   }
 
   // requires model read
-  @Nullable
-  public List<List<JM>> prepare(final Collection<? extends SModule> modules, boolean forceCompile, @NotNull final ProgressMonitor monitor) {
+  public void prepare(final Collection<? extends SModule> modules, boolean forceCompile, @NotNull final ProgressMonitor monitor) {
     myToCompile = Collections.emptyList();
     final CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
     tracer.start(String.format(CALCULATING_DEPENDENCIES_TO_COMPILE_MSG, modules.size()), 10);
     final Predicate<SModule> isExcluded = ModuleMaker::isExcluded;
-    MC initial = new MC();
+    MC initial = new MC(myKotlinCacheHandler);
     for (SModule m : modules.stream().filter(isExcluded.negate()).collect(Collectors.toList())) {
       JM jm = initial.createJM(m);
     }
     if (initial.isEmpty()) {
       // report "nothing to make"
-      return null;
+      return;
     }
 
     // depJM - one of requested modules depend on a module which is not among requested. we keep these targets in depJM
-    MC depJM = new MC();
+    MC depJM = new MC(myKotlinCacheHandler);
     for (JM jm : initial.allJavaModules()) {
       final BLDependenciesCache depCache = myDependenciesCache == null ? new BLDependenciesCache() : myDependenciesCache;
       Collection<SModule> deps = initial.walkDependencies(jm, depCache);
@@ -731,7 +816,7 @@ public final class ModuleMaker {
         jm.dependsFrom(djm);
       }
     }
-    MC withDeps = new MC();
+    MC withDeps = new MC(myKotlinCacheHandler);
     // by design, initial doesn't intersect with depJM
     withDeps.addAll(initial);
     withDeps.addAll(depJM);
@@ -743,7 +828,7 @@ public final class ModuleMaker {
       // walk graph of JMs
       if (!withDeps.needsCompile(initial)) {
         // FIXME report "nothing to make"
-        return null;
+        return;
       }
     }
     // XXX may compile classpath for each JM, not only dirty, CP for a dirty module needs CP of its dependencies.
@@ -781,7 +866,7 @@ public final class ModuleMaker {
       }
     }
     tracer.done();
-    return myToCompile = components;
+    myToCompile = components;
   }
 
   private List<List<JM>> myToCompile;
@@ -789,16 +874,10 @@ public final class ModuleMaker {
   // doesn't need model read, deals with what #prepare() got ready
   @NotNull
   public MPSCompilationResult make(@NotNull final ProgressMonitor monitor) {
-    return make(monitor, null);
-  }
-
-  // doesn't need model read, deals with what #prepare() got ready
-  @NotNull
-  public MPSCompilationResult make(@NotNull final ProgressMonitor monitor, @Nullable Collection<File> externalOutputToKeep) {
     final CompositeTracer tracer = new CompositeTracer(myTracer, monitor);
     tracer.start(String.format(BUILDING_MODULES_MSG, myToCompile.size()), 10);
     try {
-      return compileCycles2(tracer.subTracer(9, SubProgressKind.REPLACING), externalOutputToKeep);
+      return compileCycles2(tracer.subTracer(9, SubProgressKind.REPLACING));
     } catch (Exception ex) {
       String m = String.format("Unexpected exception '%s', compilation aborted!", ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
       tracer.getSender().error(m, ex);
@@ -809,9 +888,11 @@ public final class ModuleMaker {
     }
   }
 
-  private MPSCompilationResult compileCycles2(CompositeTracer tracer, @Nullable Collection<File> externalOutputToKeep) {
+  private MPSCompilationResult compileCycles2(CompositeTracer tracer) {
     List<MPSCompilationResult> cycleCompilationResults = new ArrayList<>();
     tracer.start("Cycles", myToCompile.size());
+
+    KotlinCompilerRunner kotlinCompilerRunner = null;
 
     try (JavaCompilerImpl jc = decideOnActualCompiler(tracer.getSender())) {
       int cycleNumber = 0;
@@ -822,16 +903,77 @@ public final class ModuleMaker {
         ++cycleNumber;
         CompositeTracer cycleTracer = tracer.subTracer(1, SubProgressKind.REPLACING);
         tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, cc.stream().map(JM::name).collect(Collectors.joining(","))));
-        cycleTracer.start(getCycleString(cycleNumber, cc), 1);
-        BaseModuleContainer<JM> modulesContainer = new BMC(cc, externalOutputToKeep);
-        final MPSCompilationResult cycleCompilationResult = jc.compile(modulesContainer, cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
+        cycleTracer.start(getCycleString(cycleNumber, cc), 2);
+        BaseModuleContainer<JM> modulesContainer = new BMC(cc);
+
+        // Analysis, resources file copy and deletion of marked files
+        final CompositeTracer subTrace = cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT);
+        final ModuleAnalyzerResult analysisResult = jc.analyze(modulesContainer, subTrace);
+
+        // Kotlin compilation
+        final CompositeTracer kotlinSubTracer = cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT);
+        if (analysisResult.hasKotlinToCompile) {
+          if (kotlinCompilerRunner == null) {
+            kotlinCompilerRunner = new KotlinCompilerRunner(myTracer, myKotlinCompilerOptions);
+          }
+
+          kotlinSubTracer.start(KOTLIN_COMPILE_MSG, 1);
+          cycleCompilationResults.add(compileKotlin(kotlinCompilerRunner, modulesContainer));
+          kotlinSubTracer.done();
+        }
+
+        // Java compilation
+        final MPSCompilationResult cycleCompilationResult = jc.compile(modulesContainer, subTrace, analysisResult);
         cycleCompilationResults.add(cycleCompilationResult);
         cycleTracer.done(0);
       }
     } finally {
       tracer.done();
+      if (kotlinCompilerRunner != null) {
+        kotlinCompilerRunner.dispose();
+      }
     }
     return combineCycleCompilationResults(cycleCompilationResults);
+  }
+
+  public MPSCompilationResult compileKotlin(KotlinCompilerRunner runner, BaseModuleContainer<JM> container) {
+    final List<JM> modules = container.getDirtyModules().filter(JM::hasKotlinToCompile).collect(Collectors.toList());
+
+    // Link all kotlin source files to their module (to trace back output files to module)
+    HashMap<File, JM> moduleByInputFile = new HashMap<>();
+    modules.forEach(module ->
+      module.mySources.myKotlinFiles.forEach(file -> moduleByInputFile.put(file, module))
+    );
+
+    // Do the actual compilation
+    final KotlinCompilationOutput collector = runner.doCompile(modules, moduleByInputFile);
+
+    // Get the inputs-per-output mapping per module
+    final HashMap<JM, Map<File, List<File>>> outputFiles = collector.getOutputFiles();
+
+    modules.forEach(module -> {
+      if (outputFiles.containsKey(module)) {
+        // Existing .class file before compilation
+        final HashSet<File> previous = new HashSet<>(module.mySources.myKotlinCompiledFiles);
+        // Map of new .class files -> list of input files
+        final Map<File, List<File>> current = outputFiles.get(module);
+
+        // Remove current output files from the previous list, and delete those remaining
+        previous.removeAll(current.keySet());
+        previous.forEach(File::delete);
+
+        // Current now contains all the new files -> declare to cache provider if needed
+        if (myKotlinCacheHandler != null) {
+          myKotlinCacheHandler.addOutput(module, current);
+        }
+      } else if (collector.getCompilationResult().isOk()) {
+        // No output files on successful compilation -> all existing kotlin output files must be removed
+        // TODO can that actually happens? (those files are marked as to compile)
+        module.mySources.myKotlinCompiledFiles.forEach(File::delete);
+      }
+    });
+
+    return collector.getCompilationResult();
   }
 
 

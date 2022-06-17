@@ -5,6 +5,7 @@ package jetbrains.mps.internal.make.cfg;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.make.script.PropertyPoolInitializer;
 import jetbrains.mps.compiler.JavaCompilerOptions;
+import jetbrains.mps.make.kotlin.KotlinCompilerOptions;
 import jetbrains.mps.make.script.IPropertiesPool;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.make.facet.ITarget;
@@ -13,6 +14,7 @@ import jetbrains.mps.make.facet.ITarget;
 public final class JavaCompileFacetInitializer implements PropertyPoolInitializer {
   private Boolean mySkipCompilation;
   private JavaCompilerOptions myOptions;
+  private KotlinCompilerOptions myKotlinOptions;
 
   public JavaCompileFacetInitializer() {
   }
@@ -26,12 +28,18 @@ public final class JavaCompileFacetInitializer implements PropertyPoolInitialize
     return this;
   }
 
+  public JavaCompileFacetInitializer setKotlinCompileOptions(KotlinCompilerOptions options) {
+    myKotlinOptions = options;
+    return this;
+  }
+
   @Override
   public void populate(IPropertiesPool ppool) {
-    Tuples._3<Boolean, Boolean, JavaCompilerOptions> compileProps = (Tuples._3<Boolean, Boolean, JavaCompilerOptions>) ppool.properties(new ITarget.Name("jetbrains.mps.make.facets.JavaCompile.compile"), Object.class);
+    Tuples._4<Boolean, Boolean, JavaCompilerOptions, KotlinCompilerOptions> compileProps = (Tuples._4<Boolean, Boolean, JavaCompilerOptions, KotlinCompilerOptions>) ppool.properties(new ITarget.Name("jetbrains.mps.make.facets.JavaCompile.compile"), Object.class);
     if (compileProps != null) {
       compileProps._1(mySkipCompilation);
       compileProps._2(myOptions);
+      compileProps._3(myKotlinOptions);
     }
   }
 }

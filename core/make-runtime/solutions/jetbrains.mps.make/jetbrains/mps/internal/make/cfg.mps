@@ -16,6 +16,7 @@
     <import index="tpcq" ref="r:00000000-0000-4000-0000-011c89590286(jetbrains.mps.lang.core.plugin)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="ap4t" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator(MPS.Generator/)" />
+    <import index="mzcb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.make.kotlin(MPS.Core/)" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -201,6 +202,13 @@
         <ref role="3uigEE" to="l46t:~JavaCompilerOptions" resolve="JavaCompilerOptions" />
       </node>
     </node>
+    <node concept="312cEg" id="4IjTpK4JCKk" role="jymVt">
+      <property role="TrG5h" value="myKotlinOptions" />
+      <node concept="3Tm6S6" id="4IjTpK4JCBH" role="1B3o_S" />
+      <node concept="3uibUv" id="4IjTpK4JCUn" role="1tU5fm">
+        <ref role="3uigEE" to="mzcb:~KotlinCompilerOptions" resolve="KotlinCompilerOptions" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="5OeL7nc8EkL" role="jymVt" />
     <node concept="3clFbW" id="5OeL7nc8$v7" role="jymVt">
       <node concept="3cqZAl" id="5OeL7nc8$v9" role="3clF45" />
@@ -268,6 +276,39 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="4IjTpK4JD6M" role="jymVt" />
+    <node concept="3clFb_" id="4IjTpK4JCVw" role="jymVt">
+      <property role="1EzhhJ" value="false" />
+      <property role="TrG5h" value="setKotlinCompileOptions" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <property role="2aFKle" value="false" />
+      <node concept="3clFbS" id="4IjTpK4JCVx" role="3clF47">
+        <node concept="3clFbF" id="4IjTpK4JCVy" role="3cqZAp">
+          <node concept="37vLTI" id="4IjTpK4JCVz" role="3clFbG">
+            <node concept="37vLTw" id="4IjTpK4JCV$" role="37vLTx">
+              <ref role="3cqZAo" node="4IjTpK4JCVE" resolve="options" />
+            </node>
+            <node concept="37vLTw" id="4IjTpK4JCV_" role="37vLTJ">
+              <ref role="3cqZAo" node="4IjTpK4JCKk" resolve="myKotlinOptions" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="4IjTpK4JCVA" role="3cqZAp">
+          <node concept="Xjq3P" id="4IjTpK4JCVB" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="4IjTpK4JCVC" role="1B3o_S" />
+      <node concept="3uibUv" id="4IjTpK4JCVD" role="3clF45">
+        <ref role="3uigEE" node="5OeL7nc7t8q" resolve="JavaCompileFacetInitializer" />
+      </node>
+      <node concept="37vLTG" id="4IjTpK4JCVE" role="3clF46">
+        <property role="TrG5h" value="options" />
+        <node concept="3uibUv" id="4IjTpK4JCVF" role="1tU5fm">
+          <ref role="3uigEE" to="mzcb:~KotlinCompilerOptions" resolve="KotlinCompilerOptions" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="3rCIVT6Fw$r" role="jymVt" />
     <node concept="3clFb_" id="5OeL7nc7t9L" role="jymVt">
       <property role="1EzhhJ" value="false" />
@@ -288,6 +329,9 @@
               <node concept="3uibUv" id="bvkaYAHOjI" role="1Lm7xW">
                 <ref role="3uigEE" to="l46t:~JavaCompilerOptions" resolve="JavaCompilerOptions" />
               </node>
+              <node concept="3uibUv" id="1_R49hKeB3Y" role="1Lm7xW">
+                <ref role="3uigEE" to="mzcb:~KotlinCompilerOptions" resolve="KotlinCompilerOptions" />
+              </node>
             </node>
             <node concept="10QFUN" id="71egOude_N8" role="33vP2m">
               <node concept="1LlUBW" id="71egOude_N9" role="10QFUM">
@@ -299,6 +343,9 @@
                 </node>
                 <node concept="3uibUv" id="bvkaYAHOFd" role="1Lm7xW">
                   <ref role="3uigEE" to="l46t:~JavaCompilerOptions" resolve="JavaCompilerOptions" />
+                </node>
+                <node concept="3uibUv" id="1_R49hKeAJC" role="1Lm7xW">
+                  <ref role="3uigEE" to="mzcb:~KotlinCompilerOptions" resolve="KotlinCompilerOptions" />
                 </node>
               </node>
               <node concept="2OqwBi" id="71egOude_Nc" role="10QFUP">
@@ -350,6 +397,21 @@
                     <property role="3cmrfH" value="2" />
                   </node>
                   <node concept="37vLTw" id="bvkaYAHPb0" role="1LFl5Q">
+                    <ref role="3cqZAo" node="71egOude_N4" resolve="compileProps" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="1_R49hKe$gR" role="3cqZAp">
+              <node concept="37vLTI" id="1_R49hKeAh7" role="3clFbG">
+                <node concept="37vLTw" id="1_R49hKeAso" role="37vLTx">
+                  <ref role="3cqZAo" node="4IjTpK4JCKk" resolve="myKotlinOptions" />
+                </node>
+                <node concept="1LFfDK" id="1_R49hKe$La" role="37vLTJ">
+                  <node concept="3cmrfG" id="1_R49hKe$Vu" role="1LF_Uc">
+                    <property role="3cmrfH" value="3" />
+                  </node>
+                  <node concept="37vLTw" id="1_R49hKe$gP" role="1LFl5Q">
                     <ref role="3cqZAo" node="71egOude_N4" resolve="compileProps" />
                   </node>
                 </node>
