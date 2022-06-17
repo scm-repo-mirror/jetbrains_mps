@@ -612,6 +612,8 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
     assertCanChange();
     LOG.trace("Disposing the module " + this);
     clearFacets();
+    // FIXME perhaps, have to call super.dispose() prior MR.dispose()
+    //       just in case models care about thir model root?
     for (ModelRoot m : mySModelRoots) {
       ((ModelRootBase) m).dispose();
     }

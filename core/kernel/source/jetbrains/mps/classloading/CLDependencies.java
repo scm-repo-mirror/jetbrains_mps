@@ -71,8 +71,8 @@ public class CLDependencies {
         }
       }
       // hack to deal with defect in RuntimeDependencies in mps.build.mps.util, where I forgot to iterate over
-      // 'extends' dependency. Remove once defect has been fixed and at least one release was there.
-      // doesn't hurt to keep this longer than utterly necessary.
+      // 'extends' dependency. Remove once defect has been fixed (6de6b0c7) and at least one release was there.
+      // Just keep in mind, with LinkedHashSet rv, doesn't hurt to keep this longer than utterly necessary.
       if (module instanceof Language) {
         for (SModuleReference extLanRef : ((Language) module).getExtendedLanguageRefs()) {
           final SModule extLang = extLanRef.resolve(myRepository);

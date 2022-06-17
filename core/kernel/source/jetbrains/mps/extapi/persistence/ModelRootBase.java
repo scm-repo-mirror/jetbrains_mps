@@ -39,9 +39,10 @@ import java.util.Set;
 
 /**
  * Base model root implementation which relies on module. Note that the model root might be not attached to module.
+ * ModelRoot is a 'supplier/provider', it doesn't own SModel instances nor manages their lifecycle.
+ *
  * FIXME a module ought to be passed in constructor
  *
- * evgeny, 10/23/12
  */
 public abstract class ModelRootBase implements ModelRoot {
   private static final Logger LOG = Logger.getLogger(ModelRootBase.class);
@@ -127,13 +128,12 @@ public abstract class ModelRootBase implements ModelRoot {
     myRepository = myModule.getRepository();
   }
 
+  /**
+   * The method is to clean-up MRs own stuff, not SModel it provided to SModule.
+   * It's responsibility of an SModule (or any other caller) to unregister SModel instances obtained from this root.
+   */
   public void dispose() {
-    if (myModule != null) {
-      Collection<SModel> models = new ArrayList<>(getModels());
-      for (SModel model : models) {
-        myModule.unregisterModel((SModelBase) model);
-      }
-    }
+    myModule = null;
     myRepository = null;
   }
 
@@ -237,6 +237,8 @@ public abstract class ModelRootBase implements ModelRoot {
         mdd.registerModel(model, this);
       }
     }
+    // FIXME getModels() triggers loading of *ALL* models in the module. Is it what we want here?
+    //       Perhaps myModule.forEachRegisteredModel() is better alternative?
     Collection<SModel> models = new ArrayList<>(getModels());
     for (SModel model : models) {
       if (!loaded.contains(model.getModelId())) {
