@@ -233,7 +233,6 @@
     <classNode dependClassName="jetbrains.mps.text.TextGenSettings" />
     <classNode dependClassName="jetbrains.mps.text.TextGeneratorEngine" />
     <classNode dependClassName="jetbrains.mps.text.TextUnit" />
-    <classNode dependClassName="jetbrains.mps.text.impl.BLDependenciesBuilder" />
     <classNode dependClassName="jetbrains.mps.text.impl.DebugInfoBuilder" />
     <classNode dependClassName="jetbrains.mps.textgen.trace.TraceInfoCache" />
     <classNode dependClassName="jetbrains.mps.util.IStatus" />

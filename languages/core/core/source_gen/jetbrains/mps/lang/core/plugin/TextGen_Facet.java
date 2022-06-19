@@ -49,7 +49,6 @@ import jetbrains.mps.internal.make.runtime.java.FileDeltaCollector;
 import jetbrains.mps.generator.impl.dependencies.GenerationDependencies;
 import java.util.HashSet;
 import jetbrains.mps.generator.impl.cache.CacheGenLayout;
-import jetbrains.mps.text.impl.BLDependenciesBuilder;
 import jetbrains.mps.text.impl.DebugInfoBuilder;
 import jetbrains.mps.generator.impl.plan.CrossModelEnvironment;
 import jetbrains.mps.util.IStatus;
@@ -336,7 +335,7 @@ public class TextGen_Facet extends IFacet.Stub {
                       //  
                       // Update caches and auxiliary artifacts
                       CacheGenLayout cgl = new CacheGenLayout(messageHandler);
-                      cgl.register(cachesLocation, blDepsCache.newCacheGenerator(languageRegistry, mpsProject.getRepository(), new BLDependenciesBuilder().build(tgr)));
+                      cgl.register(cachesLocation, blDepsCache.newCacheGenerator(languageRegistry, mpsProject.getRepository(), null));
                       cgl.register(cachesLocation, genDepsCache.getGenerator());
                       if (_generateDebugInfo) {
                         cgl.register(javaSourcesLoc, traceInfoCache.newCacheGenerator(new DebugInfoBuilder(mpsProject.getRepository()).build(tgr)));

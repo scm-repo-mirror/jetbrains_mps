@@ -54,10 +54,6 @@ public class BLDependenciesCache extends BaseModelCache<ModelDependencies> {
     return "dependencies";
   }
 
-  public CacheGenerator newCacheGenerator(@Nullable ModelDependencies newDeps) {
-    return new CacheGen(null, null, newDeps);
-  }
-
   public CacheGenerator newCacheGenerator(@NotNull LanguageRegistry languageRegistry, @NotNull SRepository modelDeps, @Nullable ModelDependencies newDeps) {
     return new CacheGen(languageRegistry, modelDeps, newDeps);
   }

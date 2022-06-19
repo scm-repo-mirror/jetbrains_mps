@@ -3434,19 +3434,7 @@
                                                   <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                                                 </node>
                                               </node>
-                                              <node concept="2OqwBi" id="nbGO$BsM83" role="37wK5m">
-                                                <node concept="2ShNRf" id="nbGO$BsLxf" role="2Oq$k0">
-                                                  <node concept="1pGfFk" id="nbGO$BsM76" role="2ShVmc">
-                                                    <ref role="37wK5l" to="kpbf:~BLDependenciesBuilder.&lt;init&gt;()" resolve="BLDependenciesBuilder" />
-                                                  </node>
-                                                </node>
-                                                <node concept="liA8E" id="nbGO$BsOlK" role="2OqNvi">
-                                                  <ref role="37wK5l" to="kpbf:~BLDependenciesBuilder.build(jetbrains.mps.text.TextGenResult)" resolve="build" />
-                                                  <node concept="37vLTw" id="nbGO$BsOwh" role="37wK5m">
-                                                    <ref role="3cqZAo" node="7A08csWcILH" resolve="tgr" />
-                                                  </node>
-                                                </node>
-                                              </node>
+                                              <node concept="10Nm6u" id="3dFdpltOudh" role="37wK5m" />
                                             </node>
                                           </node>
                                         </node>
