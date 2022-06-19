@@ -12,6 +12,7 @@ import jetbrains.mps.project.structure.modules.Dependency;
 import jetbrains.mps.project.structure.modules.DeploymentDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.Language;
+import kotlinx.serialization.descriptors.PrimitiveKind.BOOLEAN;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SDependencyScope;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -37,6 +38,8 @@ import java.util.Map;
  * @since 2022.2
  */
 public class CLDependencies {
+  private static final boolean USE_DD = Boolean.getBoolean("mps.clm.dd");
+
   private final SRepository myRepository;
   private final Map<ReloadableModule, List<SearchError>> myModulesWithAbsentDeps = new HashMap<>();
 
@@ -55,7 +58,7 @@ public class CLDependencies {
     ErrorContainer errorContainer = new ErrorContainer();
     final Collection<SModule> rv;
     DeploymentDescriptor dd = ddIfPresent(module);
-    if (dd != null) {
+    if (USE_DD && dd != null) {
       rv = new LinkedHashSet<>(20);
       // process all dependencies, irrespective of "rt"/"cl" (RUNTIME/DEFAULT) scope
       for (Dependency dependency : dd.getDependencies()) {
