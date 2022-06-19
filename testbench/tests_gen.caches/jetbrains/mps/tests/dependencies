@@ -21,35 +21,5 @@
   <uses module="415bc577-86ca-46a6-b873-4670fd19e169(jetbrains.mps.traceInfo.test)" kind="dp" />
   <uses module="ab0ae915-e3b5-4f35-b55a-c655d649a03c(jetbrains.mps.transformation.test.inputLang)" kind="dp" />
   <uses module="cdd4e8a8-17c1-4f16-b054-27e94948bd47(jetbrains.mps.transformation.test.inputModels)" kind="dp" />
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_baseLanguage_math_tests">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_lang_extension_tests">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_lang_pattern_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_make_tests">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_traceInfo_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_transformation_test_inputModels">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
 </dependenciesRoot>
 

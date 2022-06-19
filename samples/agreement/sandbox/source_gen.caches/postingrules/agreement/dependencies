@@ -18,30 +18,5 @@
   <uses module="144f7012-c2d5-43be-be2b-4bfb7dff6503(jetbrains.mps.samples.agreementLanguage)" kind="dp" />
   <uses module="191c9cb2-d1d4-4aae-aafa-a30eaf3192a6(jetbrains.mps.samples.formula.runtime)" kind="rt+dp" />
   <uses module="b1a9bc47-8a26-4792-8b68-4660c531090a(jetbrains.mps.samples.formulaLanguage)" kind="dp" />
-  <dependency className="postingrules.agreement.AgreementRegistryBuilder">
-    <classNode dependClassName="formulaAdapter.FeeMoney" />
-    <classNode dependClassName="formulaAdapter.MoneyAdapter" />
-    <classNode dependClassName="formulaAdapter.MoneyAddOperation" />
-    <classNode dependClassName="formulaAdapter.MoneyConstant" />
-    <classNode dependClassName="formulaAdapter.MoneyMultiplyOperation" />
-    <classNode dependClassName="formulaAdapter.PostingRule_Formula" />
-    <classNode dependClassName="formulaAdapter.QuantityGreaterThanOperation" />
-    <classNode dependClassName="formulaAdapter.UsageDouble" />
-    <classNode dependClassName="formulaAdapter.UsageQuantity" />
-    <classNode dependClassName="formulaAdapter.ValueDouble" />
-    <classNode dependClassName="formulaAdapter.ValueQuantity" />
-    <classNode dependClassName="jetbrains.mps.samples.formulaLanguage.api.DoubleConstant" />
-    <classNode dependClassName="jetbrains.mps.samples.formulaLanguage.api.IfFunction" />
-    <classNode dependClassName="jetbrains.mps.samples.formulaLanguage.api.MultiplyOperation" />
-    <classNode dependClassName="mf.Currency" />
-    <classNode dependClassName="mf.MfDate" />
-    <classNode dependClassName="mf.Money" />
-    <classNode dependClassName="mf.Quantity" />
-    <classNode dependClassName="mf.Unit" />
-    <classNode dependClassName="postingrules.AccountType" />
-    <classNode dependClassName="postingrules.AgreementRegistry" />
-    <classNode dependClassName="postingrules.EventType" />
-    <classNode dependClassName="postingrules.ServiceAgreement" />
-  </dependency>
 </dependenciesRoot>
 

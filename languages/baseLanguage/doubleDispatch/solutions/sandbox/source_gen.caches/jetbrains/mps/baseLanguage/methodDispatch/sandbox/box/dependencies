@@ -4,50 +4,5 @@
   <uses language="l:7db4447f-913e-4b81-bd75-c9a473319ac6:jetbrains.mps.baseLanguage.doubleDispatch" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg1" />
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg2">
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg1" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg3">
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg1" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg4">
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg2" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg5">
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg4" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Descendant">
-    <classNode dependClassName="java.lang.Double" />
-    <classNode dependClassName="java.lang.Float" />
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Long" />
-    <classNode dependClassName="java.lang.Number" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg2" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg4" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg5" />
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.TestClass" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Further">
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Long" />
-    <classNode dependClassName="java.lang.Number" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Descendant" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.TestClass">
-    <classNode dependClassName="java.lang.Double" />
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Number" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg1" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg2" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg3" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.methodDispatch.sandbox.box.Arg5" />
-  </dependency>
 </dependenciesRoot>
 

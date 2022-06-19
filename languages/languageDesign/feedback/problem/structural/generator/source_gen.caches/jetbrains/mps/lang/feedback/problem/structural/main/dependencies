@@ -20,9 +20,5 @@
   <uses module="7127d409-29f0-43e8-917f-f016ea288944(jetbrains.mps.lang.feedback.problem.structural)" kind="dp" />
   <uses module="a098f3e2-deaa-4e97-bf80-9109efff59dd(jetbrains.mps.lang.feedback.problem.structure)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.lang.feedback.problem.structural.main.QueriesGenerated">
-    <classNode dependClassName="jetbrains.mps.generator.runtime.Generated" />
-    <classNode extendsClassName="jetbrains.mps.generator.impl.query.QueryProviderBase" />
-  </dependency>
 </dependenciesRoot>
 

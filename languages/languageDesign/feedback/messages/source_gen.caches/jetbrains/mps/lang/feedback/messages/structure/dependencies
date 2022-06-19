@@ -12,35 +12,5 @@
   <uses module="cd17a113-ca4e-472f-a8de-c49008f9eea8(jetbrains.mps.lang.feedback)" kind="dp" />
   <uses module="517077fd-e44f-4338-a475-1d29781dfdb8(jetbrains.mps.lang.feedback.skeleton)" kind="dp" />
   <uses module="ad93155d-79b2-4759-b10c-55123e763903(jetbrains.mps.lang.messages)" kind="dp" />
-  <dependency className="jetbrains.mps.lang.feedback.messages.structure.ConceptPresentationAspectImpl">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.lang.feedback.messages.structure.LanguageConceptSwitch" />
-    <classNode dependClassName="jetbrains.mps.lang.feedback.messages.structure.StructureAspectDescriptor" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentation" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentationBuilder" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.StructureAspectDescriptor" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
-    <classNode extendsClassName="jetbrains.mps.smodel.runtime.ConceptPresentationAspectBase" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.feedback.messages.structure.LanguageConceptSwitch">
-    <classNode dependClassName="jetbrains.mps.lang.smodel.LanguageConceptIndex" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.LanguageConceptIndexBuilder" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.SConceptId" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.feedback.messages.structure.StructureAspectDescriptor">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.util.Arrays" />
-    <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.lang.feedback.messages.structure.LanguageConceptSwitch" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.SConceptId" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptDescriptor" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.StructureAspectDescriptor" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
-    <classNode extendsClassName="jetbrains.mps.smodel.runtime.BaseStructureAspectDescriptor" />
-  </dependency>
 </dependenciesRoot>
 

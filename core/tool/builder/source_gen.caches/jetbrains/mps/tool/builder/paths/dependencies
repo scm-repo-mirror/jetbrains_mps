@@ -14,36 +14,5 @@
   <uses module="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="a1250a4d-c090-42c3-ad7c-d298a3357dd4(jetbrains.mps.make.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.tool.builder.paths.IRedirects">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.vfs.IFile" />
-  </dependency>
-  <dependency className="jetbrains.mps.tool.builder.paths.ModuleOutputPaths">
-    <classNode dependClassName="java.lang.Iterable" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.extapi.persistence.FileBasedModelRoot" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ITranslator2" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.NotNullWhereFilter" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
-    <classNode dependClassName="jetbrains.mps.internal.make.runtime.util.DirUtil" />
-    <classNode dependClassName="jetbrains.mps.project.facets.JavaModuleFacet" />
-    <classNode dependClassName="jetbrains.mps.project.facets.TestsFacet" />
-    <classNode dependClassName="jetbrains.mps.vfs.IFile" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.ModelRoot" />
-  </dependency>
-  <dependency className="jetbrains.mps.tool.builder.paths.OutputPathRedirects">
-    <classNode dependClassName="java.io.File" />
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.tool.builder.paths.ModuleOutputPaths" />
-    <classNode dependClassName="jetbrains.mps.vfs.IFile" />
-    <classNode extendsClassName="jetbrains.mps.tool.builder.paths.IRedirects" />
-  </dependency>
 </dependenciesRoot>
 

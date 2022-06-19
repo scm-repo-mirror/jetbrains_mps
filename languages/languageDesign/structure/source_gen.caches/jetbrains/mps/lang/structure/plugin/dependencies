@@ -50,44 +50,5 @@
   <uses module="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" kind="dp" />
   <uses module="7a5dda62-9140-4668-ab76-d5ed1746f2b2(jetbrains.mps.lang.typesystem)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt+dp" />
-  <dependency className="jetbrains.mps.lang.structure.plugin.ExtensionDescriptor">
-    <classNode dependClassName="java.util.Arrays" />
-    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.LanguageAspectsEP_extension" />
-    <classNode dependClassName="jetbrains.mps.smodel.structure.ExtensionPoint" />
-    <classNode extendsClassName="jetbrains.mps.smodel.structure.DefaultExtensionDescriptor" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.structure.plugin.IconContainer">
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.IconResource" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.structure.plugin.LanguageAspectsEP_extension">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.aspects.OrderDescriptor" />
-    <classNode dependClassName="jetbrains.mps.aspects.OrderParticipant" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.IconContainer" />
-    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.MPSAspects_Order" />
-    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.URLFunction_HelpCenterDocUrl" />
-    <classNode dependClassName="jetbrains.mps.smodel.ModelImports" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.smodel.language.LanguageAspectDescriptor" />
-    <classNode dependClassName="jetbrains.mps.smodel.language.LanguageAspectDescriptorBase" />
-    <classNode dependClassName="jetbrains.mps.smodel.runtime.IconResource" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModuleReference" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
-    <classNode extendsClassName="jetbrains.mps.smodel.structure.Extension" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.structure.plugin.MPSAspects_Order">
-    <classNode extendsClassName="jetbrains.mps.aspects.OrderDescriptor" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.structure.plugin.URLFunction_HelpCenterDocUrl">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
-    <classNode dependClassName="jetbrains.mps.help.HelpURLProvider" />
-  </dependency>
 </dependenciesRoot>
 

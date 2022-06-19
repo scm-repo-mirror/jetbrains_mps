@@ -7,14 +7,5 @@
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="25092e07-e655-497c-92fb-558a8e3080ed(jetbrains.mps.ide.ui)" kind="dp" />
-  <dependency className="jetbrains.mps.ide.ui.dialogs.properties.editors.RuleTypeEditor">
-    <classNode dependClassName="java.awt.event.KeyEvent" />
-    <classNode dependClassName="java.awt.event.KeyListener" />
-    <classNode dependClassName="javax.swing.JComboBox" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.ide.ui.dialogs.properties.renderers.RuleTypeRenderer" />
-    <classNode dependClassName="jetbrains.mps.project.structure.modules.mappingpriorities.RuleType" />
-    <classNode extendsClassName="javax.swing.DefaultCellEditor" />
-  </dependency>
 </dependenciesRoot>
 

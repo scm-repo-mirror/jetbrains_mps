@@ -13,31 +13,5 @@
   <uses module="cc7da2f6-419f-4133-a811-31fcd3295a85(jetbrains.mps.debugger.api.api)" kind="dp" />
   <uses module="25891414-2b70-48c7-b1cc-8dc0c127d669(jetbrains.mps.debugger.api.runtime)" kind="dp" />
   <uses module="36c11d2d-1875-4a95-8bdb-70ea1ac63222(jetbrains.mps.execution.api)" kind="dp" />
-  <dependency className="jetbrains.mps.debugger.api.runner.MPSDebugRunner">
-    <classNode dependClassName="com.intellij.execution.ExecutionException" />
-    <classNode dependClassName="com.intellij.execution.ExecutionResult" />
-    <classNode dependClassName="com.intellij.execution.Executor" />
-    <classNode dependClassName="com.intellij.execution.configurations.RunConfiguration" />
-    <classNode dependClassName="com.intellij.execution.configurations.RunProfile" />
-    <classNode dependClassName="com.intellij.execution.configurations.RunProfileState" />
-    <classNode dependClassName="com.intellij.execution.executors.DefaultDebugExecutor" />
-    <classNode dependClassName="com.intellij.execution.runners.ExecutionEnvironment" />
-    <classNode dependClassName="com.intellij.execution.ui.RunContentDescriptor" />
-    <classNode dependClassName="com.intellij.openapi.options.SettingsEditor" />
-    <classNode dependClassName="com.intellij.openapi.project.Project" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.debug.api.AbstractDebugSession" />
-    <classNode dependClassName="jetbrains.mps.debug.api.AbstractDebugSessionCreator" />
-    <classNode dependClassName="jetbrains.mps.debug.api.DebugSessionManagerComponent" />
-    <classNode dependClassName="jetbrains.mps.debug.api.IDebugger" />
-    <classNode dependClassName="jetbrains.mps.debug.api.run.DebuggerRunProfileState" />
-    <classNode dependClassName="jetbrains.mps.debugger.api.ui.tool.DebuggerToolContentBuilder" />
-    <classNode dependClassName="jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode extendsClassName="com.intellij.execution.runners.GenericProgramRunner" />
-  </dependency>
 </dependenciesRoot>
 

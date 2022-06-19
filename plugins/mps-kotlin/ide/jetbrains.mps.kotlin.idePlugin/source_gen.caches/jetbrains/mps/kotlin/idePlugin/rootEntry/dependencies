@@ -10,32 +10,5 @@
   <uses module="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="6944825c-ddc2-4099-8cc7-5e6dbbf7f0be(jetbrains.mps.kotlin.stubs)" kind="dp" />
-  <dependency className="jetbrains.mps.kotlin.idePlugin.rootEntry.KotlinCommonStubModelRootEntry">
-    <classNode dependClassName="java.awt.Color" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="javax.swing.JComponent" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.ide.ui.dialogs.properties.roots.editors.FileBasedModelRootEntry" />
-    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.KotlinCommonStubModelRoot" />
-    <classNode dependClassName="jetbrains.mps.project.MPSProject" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntryEditor" />
-    <classNode extendsClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry" />
-    <classNode extendsClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntryExt" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.idePlugin.rootEntry.KotlinCommonStubModelRootEntryFactory">
-    <classNode dependClassName="com.intellij.openapi.project.Project" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.ide.project.ProjectHelper" />
-    <classNode dependClassName="jetbrains.mps.kotlin.ide.commonStubs.KotlinCommonStubModelRoot" />
-    <classNode dependClassName="jetbrains.mps.kotlin.idePlugin.rootEntry.KotlinCommonStubModelRootEntry" />
-    <classNode dependClassName="jetbrains.mps.project.MPSProject" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntry" />
-    <classNode extendsClassName="org.jetbrains.mps.openapi.ui.persistence.ModelRootEntryFactory" />
-  </dependency>
 </dependenciesRoot>
 

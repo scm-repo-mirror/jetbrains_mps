@@ -8,31 +8,5 @@
   <uses module="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="a1250a4d-c090-42c3-ad7c-d298a3357dd4(jetbrains.mps.make.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.make.resources.IPropertiesAccessor">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.make.resources.IResource" />
-    <classNode dependClassName="jetbrains.mps.make.script.IPropertiesPool" />
-  </dependency>
-  <dependency className="jetbrains.mps.make.resources.IPropertiesIO">
-    <classNode dependClassName="java.io.IOException" />
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.util.Map" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-  </dependency>
-  <dependency className="jetbrains.mps.make.resources.IPropertiesPersistence">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.util.Map" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.make.script.IPropertiesPool" />
-  </dependency>
-  <dependency className="jetbrains.mps.make.resources.IResource">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-  </dependency>
-  <dependency className="jetbrains.mps.make.resources.IResourceWithProperties">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.make.resources.IPropertiesIO" />
-  </dependency>
 </dependenciesRoot>
 

@@ -11,27 +11,5 @@
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.lang.editor.forms.runtime.AbstractToggleCheckboxAction">
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.CellIdLocator" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.CellSelector" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.ChildCellLocator" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelection" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelectionByCell" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell_Collection" />
-    <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.editor.forms.runtime.SaveSelectionForCheckbox">
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.CellIdLocator" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.CellSelector" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.ChildCellLocator" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelection" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelectionByCell" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell_Collection" />
-    <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
-  </dependency>
 </dependenciesRoot>
 

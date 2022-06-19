@@ -20,9 +20,5 @@
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
   <uses module="2e4f876d-c394-4f48-93c5-b5f4c0ec9b51(testLangWithRT)" kind="dp" />
   <uses module="097970c1-2702-4857-9899-ec475bceb8d3(testLangWithRT.runtime)" kind="dp" />
-  <dependency className="main.QueriesGenerated">
-    <classNode dependClassName="jetbrains.mps.generator.runtime.Generated" />
-    <classNode extendsClassName="jetbrains.mps.generator.impl.query.QueryProviderBase" />
-  </dependency>
 </dependenciesRoot>
 

@@ -10,37 +10,5 @@
   <uses module="cc7da2f6-419f-4133-a811-31fcd3295a85(jetbrains.mps.debugger.api.api)" kind="dp" />
   <uses module="cf8c9de5-1b4a-4dc8-8e6d-847159af31dd(jetbrains.mps.debugger.java.api)" kind="dp" />
   <uses module="fcffe3cf-3ebc-4d3d-989b-2f30533bc904(jetbrains.mps.debugger.java.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.debugger.java.runtime.JavaDebugger">
-    <classNode dependClassName="com.intellij.openapi.project.Project" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.debug.api.AbstractDebugSessionCreator" />
-    <classNode dependClassName="jetbrains.mps.debug.api.breakpoints.IBreakpointsProvider" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.api.evaluation.EvaluationUtils" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.api.evaluation.proxies.MirrorUtil" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.runtime.breakpoints.JavaBreakpointsProvider" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.runtime.engine.VmCreator" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.runtime.evaluation.EvaluationUtilsImpl" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.runtime.evaluation.proxies.MirrorUtilImpl" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="com.intellij.openapi.components.BaseComponent" />
-    <classNode extendsClassName="jetbrains.mps.debug.api.AbstractDebugger" />
-  </dependency>
-  <dependency className="jetbrains.mps.debugger.java.runtime.JavaNodePositionProvider">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.util.Iterator" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.debug.api.AbstractDebugSession" />
-    <classNode dependClassName="jetbrains.mps.debug.api.programState.ILocation" />
-    <classNode dependClassName="jetbrains.mps.debugger.java.runtime.state.DebugSession" />
-    <classNode dependClassName="jetbrains.mps.textgen.trace.BaseLanguageNodeLookup" />
-    <classNode dependClassName="jetbrains.mps.textgen.trace.DebugInfo" />
-    <classNode dependClassName="jetbrains.mps.util.NameUtil" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
-    <classNode extendsClassName="jetbrains.mps.debug.api.source.NodePositionProvider" />
-  </dependency>
 </dependenciesRoot>
 

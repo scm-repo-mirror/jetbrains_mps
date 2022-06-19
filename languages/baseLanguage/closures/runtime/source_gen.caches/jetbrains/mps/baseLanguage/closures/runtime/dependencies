@@ -6,42 +6,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.AdapterClass">
-    <classNode dependClassName="java.lang.String" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.DelayedException">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.Throwable" />
-    <classNode extendsClassName="java.lang.RuntimeException" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.Nothing" />
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.Outcome" />
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.Result">
-    <classNode dependClassName="java.lang.Boolean" />
-    <classNode dependClassName="java.lang.Byte" />
-    <classNode dependClassName="java.lang.Character" />
-    <classNode dependClassName="java.lang.Double" />
-    <classNode dependClassName="java.lang.Float" />
-    <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Long" />
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.Short" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.SuppressWarnings" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.Outcome" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.Wrappers" />
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator">
-    <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.UnsupportedOperationException" />
-    <classNode dependClassName="java.util.NoSuchElementException" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.DelayedException" />
-    <classNode extendsClassName="java.util.Iterator" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes">
-    <classNode dependClassName="java.lang.Throwable" />
-  </dependency>
 </dependenciesRoot>
 

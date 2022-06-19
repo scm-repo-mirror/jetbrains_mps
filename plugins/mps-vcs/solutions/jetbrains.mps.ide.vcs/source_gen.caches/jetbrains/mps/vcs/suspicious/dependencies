@@ -17,28 +17,5 @@
   <uses module="fdaaf35f-8ee3-4c37-b09d-9efaeaaa7a41(jetbrains.mps.core.tool.environment)" kind="dp" />
   <uses module="8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)" kind="dp" />
   <uses module="8fe4c62a-2020-4ff4-8eda-f322a55bdc9f(jetbrains.mps.refactoring.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.vcs.suspicious.BaseTaskQueue">
-    <classNode dependClassName="com.intellij.concurrency.JobScheduler" />
-    <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.util.ArrayList" />
-    <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="java.util.concurrent.LinkedBlockingQueue" />
-    <classNode dependClassName="java.util.concurrent.ScheduledExecutorService" />
-    <classNode dependClassName="java.util.concurrent.ScheduledFuture" />
-    <classNode dependClassName="java.util.concurrent.Semaphore" />
-    <classNode dependClassName="java.util.concurrent.TimeUnit" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-  </dependency>
-  <dependency className="jetbrains.mps.vcs.suspicious.PlatformActivityTracker">
-    <classNode dependClassName="com.intellij.openapi.project.Project" />
-    <classNode dependClassName="com.intellij.openapi.project.ProjectManager" />
-    <classNode dependClassName="com.intellij.openapi.vcs.ProjectLevelVcsManager" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManager" />
-    <classNode dependClassName="com.intellij.openapi.vfs.VirtualFileManagerListener" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadListener" />
-    <classNode dependClassName="jetbrains.mps.ide.platform.watching.ReloadManagerComponent" />
-  </dependency>
 </dependenciesRoot>
 

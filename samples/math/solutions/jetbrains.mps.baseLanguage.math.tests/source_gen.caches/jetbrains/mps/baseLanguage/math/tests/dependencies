@@ -5,17 +5,5 @@
   <uses module="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="dp" />
   <uses module="b98999bc-8369-4b20-9510-598d4eb5ace6(jetbrains.mps.baseLanguage.math.runtime)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.baseLanguage.math.tests.IntervalTest">
-    <classNode dependClassName="java.lang.Comparable" />
-    <classNode dependClassName="java.lang.IllegalArgumentException" />
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.UnsupportedOperationException" />
-    <classNode dependClassName="java.util.ArrayList" />
-    <classNode dependClassName="java.util.Arrays" />
-    <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.math.runtime.Interval" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Test" />
-  </dependency>
 </dependenciesRoot>
 

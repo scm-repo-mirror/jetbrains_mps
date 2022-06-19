@@ -7,17 +7,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.jetpad.builders.sandbox.Abc">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.jetpad.builders.sandbox.Node" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
-  </dependency>
-  <dependency className="jetbrains.jetpad.builders.sandbox.As">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.jetpad.builders.sandbox.Node" />
-  </dependency>
-  <dependency className="jetbrains.jetpad.builders.sandbox.Node">
-    <classNode dependClassName="java.lang.String" />
-  </dependency>
 </dependenciesRoot>
 

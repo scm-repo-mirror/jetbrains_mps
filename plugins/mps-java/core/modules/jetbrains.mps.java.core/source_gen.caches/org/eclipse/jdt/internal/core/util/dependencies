@@ -7,44 +7,5 @@
   <uses module="eb57df31-1cf1-45a8-9e5c-fb583b442849(Eclipse.ECJ)" kind="dp" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="org.eclipse.jdt.internal.core.util.CodeSnippetParsingUtil">
-    <classNode dependClassName="java.lang.IllegalArgumentException" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.util.Locale" />
-    <classNode dependClassName="java.util.Map" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="org.eclipse.jdt.core.compiler.CategorizedProblem" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.CompilationResult" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.DefaultErrorHandlingPolicies" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.ASTNode" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.Expression" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.TypeDeclaration" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.batch.CompilationUnit" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.env.ICompilationUnit" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.impl.CompilerOptions" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.problem.ProblemReporter" />
-    <classNode dependClassName="org.eclipse.jdt.internal.core.util.CommentRecorderParser" />
-    <classNode dependClassName="org.eclipse.jdt.internal.core.util.RecordedParsingInformation" />
-  </dependency>
-  <dependency className="org.eclipse.jdt.internal.core.util.CommentRecorderParser">
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.classfmt.ClassFileConstants" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.impl.CompilerOptions" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.parser.Scanner" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.problem.ProblemReporter" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.problem.ProblemSeverities" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.util.Util" />
-    <classNode extendsClassName="org.eclipse.jdt.internal.compiler.parser.Parser" />
-  </dependency>
-  <dependency className="org.eclipse.jdt.internal.core.util.RecordedParsingInformation">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="org.eclipse.jdt.core.compiler.CategorizedProblem" />
-    <classNode dependClassName="org.eclipse.jdt.internal.compiler.CompilationResult" />
-  </dependency>
 </dependenciesRoot>
 

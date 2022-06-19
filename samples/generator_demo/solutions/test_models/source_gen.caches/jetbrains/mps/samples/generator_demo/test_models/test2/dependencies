@@ -5,13 +5,5 @@
   <uses language="l:ef47f5be-76c4-4166-8925-2b415ec6b840:jetbrains.mps.samples.generator_demo.demoLang2" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.samples.generator_demo.test_models.test2.DemoApp">
-    <classNode dependClassName="java.awt.Container" />
-    <classNode dependClassName="java.awt.FlowLayout" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="javax.swing.JButton" />
-    <classNode dependClassName="javax.swing.JFrame" />
-    <classNode dependClassName="javax.swing.JLabel" />
-  </dependency>
 </dependenciesRoot>
 

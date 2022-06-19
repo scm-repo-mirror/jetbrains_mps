@@ -7,11 +7,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="b35bb3d4-59ec-4075-a2bb-8d977813e263(jetbrains.mps.baseLanguage.overloadedOperators.sandbox)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test2.TestModel">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test.Complex" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test.Complex2" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.overloadedOerators.sandbox.test.ComplexOperators" />
-  </dependency>
 </dependenciesRoot>
 

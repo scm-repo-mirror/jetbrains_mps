@@ -4,18 +4,5 @@
   <uses language="l:26b3d6d5-b99a-4ed6-83be-d2ea6f3627a1:jetbrains.mps.calculator" />
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.calculator.sandbox.sandbox.mySalary">
-    <classNode dependClassName="java.awt.GridLayout" />
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.NumberFormatException" />
-    <classNode dependClassName="java.lang.Runnable" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="javax.swing.JLabel" />
-    <classNode dependClassName="javax.swing.JTextField" />
-    <classNode dependClassName="javax.swing.SwingUtilities" />
-    <classNode dependClassName="javax.swing.event.DocumentEvent" />
-    <classNode dependClassName="javax.swing.event.DocumentListener" />
-    <classNode extendsClassName="javax.swing.JFrame" />
-  </dependency>
 </dependenciesRoot>
 

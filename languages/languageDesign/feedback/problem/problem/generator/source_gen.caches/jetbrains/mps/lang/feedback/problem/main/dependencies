@@ -16,9 +16,5 @@
   <uses module="9e98f4e2-decf-4e97-bf80-9109e8b759aa(jetbrains.mps.lang.feedback.context)" kind="dp" />
   <uses module="033598a4-76a9-47e1-ac89-a300c0fceab8(jetbrains.mps.lang.feedback.problem)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.lang.feedback.problem.main.QueriesGenerated">
-    <classNode dependClassName="jetbrains.mps.generator.runtime.Generated" />
-    <classNode extendsClassName="jetbrains.mps.generator.impl.query.QueryProviderBase" />
-  </dependency>
 </dependenciesRoot>
 

@@ -8,59 +8,5 @@
   <uses module="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" kind="dp" />
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.testbench.util.CachingAppender">
-    <classNode dependClassName="java.io.PrintWriter" />
-    <classNode dependClassName="java.io.StringWriter" />
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.SecurityException" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.StringBuilder" />
-    <classNode dependClassName="java.lang.SuppressWarnings" />
-    <classNode dependClassName="java.lang.Throwable" />
-    <classNode dependClassName="java.util.ArrayList" />
-    <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="java.util.logging.Handler" />
-    <classNode dependClassName="java.util.logging.Level" />
-    <classNode dependClassName="java.util.logging.LogRecord" />
-    <classNode dependClassName="java.util.logging.Logger" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="org.apache.log4j.Level" />
-    <classNode extendsClassName="jetbrains.mps.testbench.util.Output" />
-  </dependency>
-  <dependency className="jetbrains.mps.testbench.util.CachingPrintStream">
-    <classNode dependClassName="java.io.IOException" />
-    <classNode dependClassName="java.io.OutputStream" />
-    <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.StringBuilder" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="java.util.regex.Pattern" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode extendsClassName="java.io.PrintStream" />
-    <classNode extendsClassName="jetbrains.mps.testbench.util.Output" />
-  </dependency>
-  <dependency className="jetbrains.mps.testbench.util.Output">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-  </dependency>
-  <dependency className="jetbrains.mps.testbench.util.ThreadWatcher">
-    <classNode dependClassName="gnu.trove.TLongObjectHashMap" />
-    <classNode dependClassName="java.lang.IllegalStateException" />
-    <classNode dependClassName="java.lang.InterruptedException" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.StringBuilder" />
-    <classNode dependClassName="java.lang.Thread" />
-    <classNode dependClassName="java.lang.management.ManagementFactory" />
-    <classNode dependClassName="java.lang.management.ThreadInfo" />
-    <classNode dependClassName="java.lang.management.ThreadMXBean" />
-    <classNode dependClassName="java.util.regex.Pattern" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode extendsClassName="jetbrains.mps.testbench.util.Output" />
-  </dependency>
 </dependenciesRoot>
 

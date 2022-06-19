@@ -6,20 +6,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="3adc1bc4-83b1-45f4-b261-03e8e8553ebc(jetbrains.mps.samples.lambdaCalculus.runtime)" kind="rt+dp" />
-  <dependency className="sandboxModel2.first">
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.util.ArrayList" />
-    <classNode dependClassName="java.util.List" />
-    <classNode dependClassName="jetbrains.mps.samples.lambdaCalculus.runtime.Function" />
-  </dependency>
-  <dependency className="sandboxModel2.qwert">
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-  </dependency>
 </dependenciesRoot>
 

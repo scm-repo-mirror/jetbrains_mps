@@ -5,18 +5,5 @@
   <uses module="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="086f6299-eca0-43c4-bbca-fab3f95963aa(jetbrains.mps.samples.secretCompartment.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.samples.secretCompartmentLanguage.runtime.test.HStateMachineFactory">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.Event" />
-    <classNode dependClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.State" />
-    <classNode dependClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.StateMachine" />
-    <classNode extendsClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.StateMachineFactory" />
-  </dependency>
-  <dependency className="jetbrains.mps.samples.secretCompartmentLanguage.runtime.test.Test">
-    <classNode dependClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.StateMachineFactory" />
-    <classNode dependClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.test.HStateMachineFactory" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode extendsClassName="jetbrains.mps.samples.secretCompartmentLanguage.runtime.StateMachineTest" />
-  </dependency>
 </dependenciesRoot>
 

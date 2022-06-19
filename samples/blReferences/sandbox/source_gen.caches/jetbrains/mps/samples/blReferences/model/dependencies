@@ -7,15 +7,5 @@
   <uses module="194d1782-2e1a-47e7-9530-40a1f8d132aa(jetbrains.mps.baseLanguage.box.runtime)" kind="rt+dp" />
   <uses module="6541e803-08dc-479c-ab86-dfa9b4e915e3(jetbrains.mps.baseLanguage.date.runtime)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt+dp" />
-  <dependency className="jetbrains.mps.samples.blReferences.model.BlReferencesSandbox">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.time.LocalDate" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.box.runtime.Box" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.box.runtime.BoxImpl" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.date.runtime.operations.DateOperations" />
-    <classNode dependClassName="jetbrains.mps.references.BLOperations" />
-    <classNode dependClassName="jetbrains.mps.references.LocalReference" />
-  </dependency>
 </dependenciesRoot>
 

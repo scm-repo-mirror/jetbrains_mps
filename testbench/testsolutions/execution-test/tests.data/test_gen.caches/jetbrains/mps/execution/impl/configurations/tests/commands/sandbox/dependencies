@@ -5,35 +5,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.FailedBTestCase_Test">
-    <classNode dependClassName="java.lang.Exception" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Test" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.Main">
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.ReadingPropertyBTestCase_Test">
-    <classNode dependClassName="java.lang.Exception" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.util.Objects" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Test" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.ReadingPropertyWithSpacesBTestCase_Test">
-    <classNode dependClassName="java.lang.Exception" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.System" />
-    <classNode dependClassName="java.util.Objects" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Test" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.SimpleBTestCase_Test">
-    <classNode dependClassName="java.lang.Exception" />
-    <classNode dependClassName="org.junit.Assert" />
-    <classNode dependClassName="org.junit.Test" />
-  </dependency>
 </dependenciesRoot>
 

@@ -7,30 +7,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt+dp" />
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.baseLanguage.logging.rt.Log">
-    <classNode dependClassName="java.lang.Object" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.logging.rt.LogContext">
-    <classNode dependClassName="java.lang.Class" />
-    <classNode dependClassName="java.lang.Throwable" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.logging.rt.Log" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.logging.rt.LogCtx" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.project.Project" />
-  </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.logging.rt.LogCtx">
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.Throwable" />
-    <classNode dependClassName="java.util.logging.Level" />
-    <classNode dependClassName="java.util.logging.LogRecord" />
-    <classNode dependClassName="java.util.logging.Logger" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.project.Project" />
-    <classNode extendsClassName="jetbrains.mps.baseLanguage.logging.rt.Log" />
-  </dependency>
 </dependenciesRoot>
 

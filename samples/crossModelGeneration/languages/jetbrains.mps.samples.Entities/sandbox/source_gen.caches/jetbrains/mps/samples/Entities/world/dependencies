@@ -5,8 +5,5 @@
   <uses module="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="06a1348c-6b6d-48be-a2be-12ddf682b114(jetbrains.mps.samples.Entities.sandbox)" kind="dp" />
-  <dependency className="jetbrains.mps.samples.Entities.world.Fan">
-    <classNode dependClassName="jetbrains.mps.samples.Entities.sandbox.Harry" />
-  </dependency>
 </dependenciesRoot>
 

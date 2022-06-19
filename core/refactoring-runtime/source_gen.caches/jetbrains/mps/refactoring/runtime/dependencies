@@ -8,16 +8,5 @@
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
   <uses module="8fe4c62a-2020-4ff4-8eda-f322a55bdc9f(jetbrains.mps.refactoring.runtime)" kind="dp" />
-  <dependency className="jetbrains.mps.refactoring.runtime.RefactoringAspect">
-    <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.refactoring.framework.IRefactoring" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="jetbrains.mps.smodel.runtime.ILanguageAspect" />
-  </dependency>
-  <dependency className="jetbrains.mps.refactoring.runtime.RefactoringAspectBase">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode extendsClassName="jetbrains.mps.refactoring.runtime.RefactoringAspect" />
-  </dependency>
 </dependenciesRoot>
 

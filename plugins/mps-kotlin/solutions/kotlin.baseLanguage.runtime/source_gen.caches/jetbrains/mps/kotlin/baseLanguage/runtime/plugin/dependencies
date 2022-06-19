@@ -31,52 +31,5 @@
   <uses module="c0080a47-7e37-4558-bee9-9ae18e690549(jetbrains.mps.lang.extension)" kind="dp" />
   <uses module="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" kind="dp" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt+dp" />
-  <dependency className="jetbrains.mps.kotlin.baseLanguage.runtime.plugin.DefaultJavaToKtConversions">
-    <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.JavaToKtConversion" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.KotlinClassTypeBuilder" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toKotlin.KotlinGenericClassBuilder" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.ClassToClassEnum" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.ClassToConceptEnum" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverterEngine" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverterEngineWithClass" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.smodel.structure.Extension" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.baseLanguage.runtime.plugin.DefaultKtToJavaConversions">
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.JavaClassTypeBuilder" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.JavaGenericClassTypeBuilder" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.toJava.KtToJavaConversion" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.ClassToClassEnum" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.ClassToConceptEnum" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.ConceptBuilder" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverterEngine" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.typeConversion.TypeConverterEngineWithClass" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.smodel.structure.Extension" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.baseLanguage.runtime.plugin.ExtensionDescriptor">
-    <classNode dependClassName="java.util.Arrays" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.runtime.plugin.DefaultJavaToKtConversions" />
-    <classNode dependClassName="jetbrains.mps.kotlin.baseLanguage.runtime.plugin.DefaultKtToJavaConversions" />
-    <classNode dependClassName="jetbrains.mps.smodel.structure.ExtensionPoint" />
-    <classNode extendsClassName="jetbrains.mps.smodel.structure.DefaultExtensionDescriptor" />
-  </dependency>
 </dependenciesRoot>
 

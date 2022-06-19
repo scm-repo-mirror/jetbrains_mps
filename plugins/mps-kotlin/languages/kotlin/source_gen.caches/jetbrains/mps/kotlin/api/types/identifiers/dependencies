@@ -14,32 +14,5 @@
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt+dp" />
   <uses module="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
   <uses module="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.kotlin.api.types.identifiers.ClassTypeKey">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.api.types.identifiers.IdBasedType" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.api.types.identifiers.FunctionType">
-    <classNode dependClassName="java.lang.Integer" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.api.types.identifiers.IdBasedType" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.api.types.identifiers.IdBasedType">
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.util.Objects" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.api.types.identifiers.TypeKey" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.api.types.identifiers.TypeKey">
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
-  </dependency>
-  <dependency className="jetbrains.mps.kotlin.api.types.identifiers.UnmatchableType">
-    <classNode dependClassName="java.lang.Object" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
-    <classNode extendsClassName="jetbrains.mps.kotlin.api.types.identifiers.TypeKey" />
-  </dependency>
 </dependenciesRoot>
 

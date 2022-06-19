@@ -11,35 +11,5 @@
   <uses module="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="dp" />
   <uses module="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt+dp" />
   <uses module="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
-  <dependency className="jetbrains.mps.execution.api.settings.ActionWrapper">
-    <classNode dependClassName="java.awt.event.ActionEvent" />
-    <classNode dependClassName="java.beans.PropertyChangeEvent" />
-    <classNode dependClassName="java.beans.PropertyChangeListener" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="javax.swing.Action" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="javax.swing.AbstractAction" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.api.settings.IPersistentConfiguration">
-    <classNode dependClassName="com.intellij.execution.configurations.RuntimeConfigurationException" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.execution.api.settings.PersistentConfigurationContext" />
-    <classNode dependClassName="jetbrains.mps.execution.api.settings.SettingsEditorEx" />
-    <classNode extendsClassName="com.intellij.openapi.util.JDOMExternalizable" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.api.settings.PersistentConfigurationContext">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.project.Project" />
-  </dependency>
-  <dependency className="jetbrains.mps.execution.api.settings.SettingsEditorEx">
-    <classNode dependClassName="com.intellij.openapi.options.ConfigurationException" />
-    <classNode dependClassName="com.intellij.openapi.ui.Messages" />
-    <classNode dependClassName="com.intellij.openapi.util.Factory" />
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode extendsClassName="com.intellij.openapi.options.SettingsEditor" />
-  </dependency>
 </dependenciesRoot>
 
