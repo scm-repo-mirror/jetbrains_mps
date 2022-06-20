@@ -2058,6 +2058,7 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     SNode quotedNode_69 = null;
     SNode quotedNode_70 = null;
     SNode quotedNode_71 = null;
+    SNode quotedNode_72 = null;
     SNodeBuilder nb = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x35ebd6e5b3437508L, "MpsStartupScript"));
     quotedNode_3 = nb.getResult();
     nb.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3443492L, "startupClass"), "jetbrains.mps.Launcher");
@@ -2335,12 +2336,16 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3437728L, "bootClasspath"), quotedNode_69);
     SNodeBuilder nb67 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x35ebd6e5b3437509L, "ClassPathItem"));
     quotedNode_70 = nb67.getResult();
-    nb67.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437509L, 0x35ebd6e5b343750aL, "path"), "lib/3rd-party-rt.jar");
+    nb67.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437509L, 0x35ebd6e5b343750aL, "path"), "lib/util_rt.jar");
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3437728L, "bootClasspath"), quotedNode_70);
     SNodeBuilder nb68 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x35ebd6e5b3437509L, "ClassPathItem"));
     quotedNode_71 = nb68.getResult();
-    nb68.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437509L, 0x35ebd6e5b343750aL, "path"), "lib/jna.jar");
+    nb68.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437509L, 0x35ebd6e5b343750aL, "path"), "lib/3rd-party-rt.jar");
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3437728L, "bootClasspath"), quotedNode_71);
+    SNodeBuilder nb69 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x35ebd6e5b3437509L, "ClassPathItem"));
+    quotedNode_72 = nb69.getResult();
+    nb69.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437509L, 0x35ebd6e5b343750aL, "path"), "lib/jna.jar");
+    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3437728L, "bootClasspath"), quotedNode_72);
     return quotedNode_3;
   }
   private static SNode _quotation_createNode_un708i_a0a5a63(Object parameter_1) {
