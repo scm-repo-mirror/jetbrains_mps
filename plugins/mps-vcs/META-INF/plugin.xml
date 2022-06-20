@@ -47,6 +47,9 @@
     <listener class="jetbrains.mps.vcs.changesmanager.editor.EditorHighlighterFactory$MyEditorComponentCreateListener"
               topic="jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener"
               activeInHeadlessMode="false"/>
+    <listener class="jetbrains.mps.vcs.fs.ExternalVcsRepoSynchronization"
+              topic="git4idea.repo.GitRepositoryChangeListener"
+              activeInHeadlessMode="false"/>
   </projectListeners>
 
   <actions>
@@ -105,6 +108,7 @@
 
     <registryKey key="vcs.show.root.history.compare.models" defaultValue="true"
                  description="Show Root History action uses models comparison if true, otherwise the persisted files comparison is used."/>
+    <registryKey key="mps.sync.external.git.repos" defaultValue="false" description="Enables external vcs repo synchronization"/>
 
     <obsoleteStorage file="$WORKSPACE_FILE$" isProjectLevel="true">
       <components>

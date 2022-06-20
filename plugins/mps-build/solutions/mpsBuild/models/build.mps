@@ -32178,6 +32178,16 @@
           <ref role="3bR37D" node="rD7wKO6k$" resolve="MPS.Generator" />
         </node>
       </node>
+      <node concept="1SiIV0" id="24kmG9GeOxB" role="3bR37C">
+        <node concept="3bR9La" id="24kmG9GeOxC" role="1SiIV1">
+          <ref role="3bR37D" node="44LXwdzyvTi" resolve="Annotations" />
+        </node>
+      </node>
+      <node concept="1SiIV0" id="24kmG9GeOxD" role="3bR37C">
+        <node concept="3bR9La" id="24kmG9GeOxE" role="1SiIV1">
+          <ref role="3bR37D" node="4wxeloVufXp" resolve="jetbrains.mps.git4idea.stubs" />
+        </node>
+      </node>
     </node>
     <node concept="1E1JtA" id="4rN0KgDgJoZ" role="3989C9">
       <property role="BnDLt" value="true" />
