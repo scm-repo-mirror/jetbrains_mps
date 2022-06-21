@@ -202,6 +202,10 @@ public final class CreateProjectWizard extends DialogWrapper {
 
     templatesGroups.addAll(Arrays.asList(ProjectTemplatesGroup.EP_NAME.getExtensions()));
 
+    // Note, although it's not mandated by API, present implementation of ProjectTemplatesGroup.getTemplates
+    // uses IDEA extension points with direct MPSProjectTemplate instantiation, i.e. template instances are the same
+    // for subsequent calls of Create Project Wizard, with values previously set and all UI elements initialized and
+    // kept in the memory. I don't know if it's intentional or not, just beware of the fact.
     for (ProjectTemplatesGroup templatesGroup : templatesGroups) {
       for (MPSProjectTemplate template : templatesGroup.getTemplates()) {
         templateItems.add(new TemplateItem(template, templatesGroup));

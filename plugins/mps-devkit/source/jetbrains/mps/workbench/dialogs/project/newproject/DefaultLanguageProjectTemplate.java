@@ -52,6 +52,7 @@ public class DefaultLanguageProjectTemplate implements LanguageProjectTemplate {
         mySandboxSolution.setSelected(false);
       }
     };
+    mySettings.withDefaults("NewLanguage", "languages");
     mySettings.onChange(this::fireSettingsChanged);
   }
 

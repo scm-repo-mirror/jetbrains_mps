@@ -35,7 +35,7 @@ public class DefaultSolutionProjectTemplate implements SolutionProjectTemplate {
 
   public DefaultSolutionProjectTemplate() {
     myNewSolutionSettings = new NameLocationPanel(new File("."), "Solution name:", "Solution file location:");
-    myNewSolutionSettings.withDefaults("NewSolution", "");
+    myNewSolutionSettings.withDefaults("NewSolution", "solutions");
     myNewSolutionSettings.onChange(this::fireSettingsChanged);
   }
 

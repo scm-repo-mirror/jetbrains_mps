@@ -40,6 +40,7 @@ public class NameLocationPanel extends JPanel {
   private String mySelectedModuleName;
 
   private boolean myLocationDocListenerEnabled = true;
+  private boolean myNameDocListenerEnabled = true;
 
   private File myProjectPath;
 
@@ -52,6 +53,9 @@ public class NameLocationPanel extends JPanel {
     updateModuleNameText(myDefaultModuleName);
     myModuleName.getDocument().addDocumentListener(new DocumentAdapter() {
       protected void textChanged(DocumentEvent p0) {
+        if (!(myNameDocListenerEnabled)) {
+          return;
+        }
         final String moduleName = myModuleName.getText().trim();
         if (moduleName.equals(mySelectedModuleName)) {
           return;
@@ -96,10 +100,8 @@ public class NameLocationPanel extends JPanel {
 
   public void withProjectPath(@NotNull File projectPath) {
     myProjectPath = projectPath;
-    if (mySelectedLocation != null) {
-      mySelectedLocation = null;
-      updateModuleLocationText(getActualLocation());
-    }
+    mySelectedLocation = null;
+    updateModuleLocationText(getActualLocation());
   }
 
   public String getModuleName() {
@@ -112,7 +114,11 @@ public class NameLocationPanel extends JPanel {
 
   /*package*/ void updateModuleNameText(String moduleName) {
     mySelectedModuleName = moduleName;
+    // change of myModuleName triggers update of myModuleLocation, which I'd like to avoid here, in
+    // implementation level method. It's up to caller to update module location in addition to module name.
+    myNameDocListenerEnabled = false;
     myModuleName.setText(moduleName);
+    myNameDocListenerEnabled = true;
   }
 
   /*package*/ void updateModuleLocationText(File moduleLocation) {
@@ -142,7 +148,10 @@ public class NameLocationPanel extends JPanel {
 
   public void reset() {
     updateModuleNameText(myDefaultModuleName);
-    // now respect mySelectedLocation, if any. alternatively, may want to reset mySelectedLocation to null
+    // now reset mySelectedLocation to get fresh defaults. Alternatively, may want to respect mySelectedLocation, if any.
+    // however, uses of this class with LanguageProjectTemplate/SolutionProjectTemplate, where template instance is re-used
+    // in various instances of CreateProjectWizard, I find it convenient for 'reset' to bring everything to initial state.
+    mySelectedLocation = null;
     updateModuleLocationText(getActualLocation());
   }
 
