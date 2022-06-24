@@ -23,6 +23,7 @@ import java.util.HashSet;
 import jetbrains.mps.lang.dataFlow.framework.analyzers.InitializedVariablesAnalyzer;
 import jetbrains.mps.lang.dataFlow.framework.instructions.RetInstruction;
 import jetbrains.mps.lang.dataFlow.framework.instructions.JumpInstruction;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.dataFlow.framework.instructions.IfJumpInstruction;
 import jetbrains.mps.lang.dataFlow.DataFlow;
 import jetbrains.mps.lang.dataFlow.framework.analyzers.MayBeInitializedVariablesAnalyzer;
@@ -261,6 +262,19 @@ public class Program {
     for (Instruction inst : copyOfInstructions) {
       TryFinallyInfo enclosingBlock = inst.getEnclosingBlock();
       if (!(inst instanceof RetInstruction) && !(inst instanceof JumpInstruction) && enclosingBlock != null && inst.isBefore(enclosingBlock.getFinally())) {
+
+        SNode sourceNode = (SNode) inst.getSource();
+        if (sourceNode == null) {
+          continue;
+        }
+        final Object trySourceNode = enclosingBlock.getTry().getSource();
+        while (sourceNode.getParent() != null && sourceNode.getParent().getParent() != trySourceNode) {
+          sourceNode = sourceNode.getParent();
+        }
+        if (sourceNode == null || sourceNode.getPrevSibling() == null) {
+          continue;
+        }
+
         IfJumpInstruction jump = new IfJumpInstruction();
         jump.setJumpTo(enclosingBlock.getFinally().getIndex());
         insert(jump, inst.getIndex(), true, true);
