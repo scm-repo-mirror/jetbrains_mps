@@ -581,9 +581,10 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
 
     public FindActionButton(JBTable table) {
       myTable = table;
-      this.getTemplatePresentation().setEnabledAndVisible(true);
       this.getTemplatePresentation().setIcon(Actions.Find);
       this.getTemplatePresentation().setText(PropertiesBundle.message("model.dependencies.find.text"));
+      setEnabled(true);
+      setVisible(true);
     }
 
     @Override
@@ -614,20 +615,16 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
     }
 
     @Override
-    protected int convertIndexToModel(int viewIndex) {
-      return myComponent.convertRowIndexToModel(viewIndex);
+    protected int getElementCount() {
+      final TableModel tableModel = myComponent.getModel();
+      return tableModel.getRowCount();
     }
 
-    @NotNull
     @Override
-    public Object[] getAllElements() {
+    protected Object getElementAt(int viewIndex) {
       final TableModel tableModel = myComponent.getModel();
-      final int count = tableModel.getRowCount();
-      Object[] elements = new Object[count];
-      for (int idx = 0; idx < count; idx++) {
-        elements[idx] = tableModel.getValueAt(idx, myColumnIndex);
-      }
-      return elements;
+      // XXX not sure if need convertRowIndexToModel? I assume as long as I query tableModel than it's not viewIndex.
+      return tableModel.getValueAt(myComponent.convertRowIndexToModel(viewIndex), myColumnIndex);
     }
 
     @Override
