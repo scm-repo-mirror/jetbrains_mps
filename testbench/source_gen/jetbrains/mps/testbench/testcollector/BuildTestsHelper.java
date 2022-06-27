@@ -28,8 +28,8 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:3574087b-0c7b-4264-955a-ea1a8cd2504b(jetbrains.mps.testbench.testcollector)/7763823021516159816", model = "r:3574087b-0c7b-4264-955a-ea1a8cd2504b(jetbrains.mps.testbench.testcollector)")
-public class BuildTestsHelper {
-  public static List<SNode> findIncludedInBuildTests(SearchScope testsScope, SearchScope buildScope) {
+public final class BuildTestsHelper {
+  public static List<SNode> findIncludedInBuildTests(List<SNode> tests, SearchScope buildScope) {
     final Wrappers._T<List<SModuleReference>> buildTestModulesWithTests = new Wrappers._T<List<SModuleReference>>();
     final Wrappers._T<List<SModuleReference>> buildTestModulesWithSources = new Wrappers._T<List<SModuleReference>>();
     Iterable<SNode> buildSolutions = SNodeOperations.ofConcept(Sequence.fromIterable(((Iterable<SModel>) buildScope.getModels())).translate(new ITranslator2<SModel, SNode>() {
@@ -63,7 +63,7 @@ public class BuildTestsHelper {
         return ModuleReference.parseReference(((String) BHReflection.invoke0(it, CONCEPTS.BuildMps_AbstractModule$FZ, SMethodIdV2.create("getModuleReference", 4643216374596368935L, 0xadcbcfcfd3d8853fL))));
       }
     }).toListSequence();
-    return ListSequence.fromList(collectTests(testsScope)).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(tests).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode testRef) {
         return (SModelStereotype.isTestModel(SNodeOperations.getModel(((SNode) BHReflection.invoke0(testRef, CONCEPTS.ITestRef$zt, SMethodIdV2.create("getTargetTest", 8789333569555872183L, 0x7ecf94d7495e678eL))))) ? ListSequence.fromList(buildTestModulesWithTests.value).contains(SNodeOperations.getModel(((SNode) BHReflection.invoke0(testRef, CONCEPTS.ITestRef$zt, SMethodIdV2.create("getTargetTest", 8789333569555872183L, 0x7ecf94d7495e678eL)))).getModule().getModuleReference()) : ListSequence.fromList(buildTestModulesWithSources.value).contains(SNodeOperations.getModel(((SNode) BHReflection.invoke0(testRef, CONCEPTS.ITestRef$zt, SMethodIdV2.create("getTargetTest", 8789333569555872183L, 0x7ecf94d7495e678eL)))).getModule().getModuleReference()));
       }
@@ -73,13 +73,14 @@ public class BuildTestsHelper {
       }
     }).toListSequence();
   }
-  public static List<SNode> findIncludedInSuiteTests(SearchScope testsScope, SearchScope suiteScope) {
+
+  public static List<SNode> findIncludedInSuiteTests(List<SNode> tests, SearchScope suiteScope) {
     final List<SNode> suiteTests = Sequence.fromIterable(((Iterable<SModel>) suiteScope.getModels())).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
         return SModelOperations.nodes(((SModel) it), CONCEPTS.ITestRef$zt);
       }
     }).toListSequence();
-    return ListSequence.fromList(collectTests(testsScope)).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(tests).where(new IWhereFilter<SNode>() {
       public boolean accept(final SNode test) {
         return ListSequence.fromList(suiteTests).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
@@ -93,10 +94,12 @@ public class BuildTestsHelper {
       }
     }).toListSequence();
   }
+
   public static List<SNode> collectTests(SearchScope testsScope) {
+    TestCollector collector = new TestCollector();
     List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
     for (SModel model : Sequence.fromIterable(testsScope.getModels())) {
-      new TestCollector().collectTests(model, result);
+      collector.collectTests(model, result);
     }
     return result;
   }

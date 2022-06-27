@@ -5,35 +5,37 @@ package jetbrains.mps.testbench.junit.suites;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.tool.environment.MpsEnvironment;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.vfs.IFile;
 import org.junit.BeforeClass;
 import java.lang.reflect.InvocationTargetException;
 import jetbrains.mps.tool.environment.EnvironmentConfig;
 import jetbrains.mps.tool.environment.ProjectStrategy;
 import jetbrains.mps.testbench.junit.runners.MPSCompositeProjectStrategy;
+import jetbrains.mps.project.FileBasedProject;
+import jetbrains.mps.vfs.VFSManager;
 import org.junit.AfterClass;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
+import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.project.FileBasedProject;
-import jetbrains.mps.vfs.VFSManager;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.BaseScope;
-import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.junit.Test;
-import org.junit.Ignore;
+import org.jetbrains.mps.util.Condition;
+import org.jetbrains.mps.openapi.module.SearchScope;
+import jetbrains.mps.scope.ConditionalScope;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.testbench.testcollector.BuildTestsHelper;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.junit.Assert;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -43,12 +45,20 @@ public class TestsDeployedTest {
   private static MpsEnvironment ourEnvironment;
   private static Project ourProject;
 
+  private static IFile ourSamplesHome;
+
+
   @BeforeClass
   public static void initEnvironment() throws InvocationTargetException, InterruptedException {
     ourEnvironment = new MpsEnvironment(EnvironmentConfig.defaultConfig().withTestModeOn());
     ourEnvironment.init();
     ProjectStrategy strategy = new MPSCompositeProjectStrategy();
     ourProject = ourEnvironment.createProject(strategy);
+    if (ourProject instanceof FileBasedProject) {
+      ourSamplesHome = ourEnvironment.getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS).getFile(((FileBasedProject) ourProject).getProjectFile()).findChild("samples");
+    } else {
+      ourSamplesHome = null;
+    }
   }
 
   @AfterClass
@@ -58,7 +68,7 @@ public class TestsDeployedTest {
     ourEnvironment = null;
   }
 
-  public boolean isExcluded(SModel model) {
+  /*package*/ boolean isExcluded(SModel model) {
     if (isIdeaTest(model)) {
       return true;
     }
@@ -68,12 +78,17 @@ public class TestsDeployedTest {
     if (SModelStereotype.isStubModel(model)) {
       return true;
     }
-    AbstractModule module = (AbstractModule) model.getModule();
+    if (isExcluded(model.getModule())) {
+      return true;
+    }
+    return false;
+  }
+  /*package*/ boolean isExcluded(SModule module) {
     if (module.getModuleName().contains("sandbox")) {
       return true;
     }
-    if (ourProject instanceof FileBasedProject) {
-      if (module.getDescriptorFile().isDescendant(ourEnvironment.getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS).getFile(((FileBasedProject) ourProject).getProjectFile()).findChild("samples"))) {
+    if (ourSamplesHome != null && module instanceof AbstractModule) {
+      if (((AbstractModule) module).getDescriptorFile().isDescendant(ourSamplesHome)) {
         return true;
       }
     }
@@ -106,26 +121,26 @@ public class TestsDeployedTest {
   }
 
   @Test
-  @Ignore
   public void everyTestIsDeployed() {
     ourProject.getRepository().getModelAccess().runReadAction(() -> {
-      List<SNode> includedInBuildTests = ListSequence.fromList(BuildTestsHelper.findIncludedInBuildTests(ourProject.getScope(), new ModuleScope(PersistenceFacade.getInstance().createModuleReference("422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)").resolve(ourProject.getRepository())))).distinct().toListSequence();
-      List<SNode> includedInSuiteTests = ListSequence.fromList(BuildTestsHelper.findIncludedInSuiteTests(ourProject.getScope(), new ModuleScope(PersistenceFacade.getInstance().createModuleReference("79f9d103-4ff6-4def-9c1a-27070f9ba255(jetbrains.mps.testbench.make)").resolve(ourProject.getRepository())))).distinct().toListSequence();
-      List<SNode> allTests = ListSequence.fromList(BuildTestsHelper.collectTests(ourProject.getScope())).select(new ISelector<SNode, SNode>() {
+      Condition<SModule> c1 = (SModule m) -> !(isExcluded(m));
+      Condition<SModel> c2 = (SModel m) -> !(isExcluded(m));
+      SearchScope scope = new ConditionalScope(ourProject.getScope(), c1, c2);
+      List<SNode> collectedTests = BuildTestsHelper.collectTests(scope);
+
+      List<SNode> includedInBuildTests = ListSequence.fromList(BuildTestsHelper.findIncludedInBuildTests(collectedTests, new ModuleScope(PersistenceFacade.getInstance().createModuleReference("422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)").resolve(ourProject.getRepository())))).distinct().toListSequence();
+      List<SNode> includedInSuiteTests = ListSequence.fromList(BuildTestsHelper.findIncludedInSuiteTests(collectedTests, new ModuleScope(PersistenceFacade.getInstance().createModuleReference("79f9d103-4ff6-4def-9c1a-27070f9ba255(jetbrains.mps.testbench.make)").resolve(ourProject.getRepository())))).distinct().toListSequence();
+      List<SNode> allTests = ListSequence.fromList(collectedTests).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
           return ((SNode) (SNode) BHReflection.invoke0(it, CONCEPTS.ITestRef$zt, SMethodIdV2.create("getTargetTest", 8789333569555872183L, 0x7ecf94d7495e678eL)));
         }
       }).distinct().toListSequence();
-      List<SNode> forgottenTests = ListSequence.fromList(allTests).subtract(ListSequence.fromList(includedInSuiteTests)).subtract(ListSequence.fromList(includedInBuildTests)).where(new IWhereFilter<SNode>() {
-        public boolean accept(SNode it) {
-          return !(isExcluded(SNodeOperations.getModel(it)));
-        }
-      }).toListSequence();
+      List<SNode> forgottenTests = ListSequence.fromList(allTests).subtract(ListSequence.fromList(includedInSuiteTests)).subtract(ListSequence.fromList(includedInBuildTests)).toListSequence();
       if (ListSequence.fromList(forgottenTests).isNotEmpty()) {
         StringBuilder message = new StringBuilder();
         message.append("The following " + ListSequence.fromList(forgottenTests).count() + " tests are not included into neither buildscript nor legacy suite:\n");
         for (SNode forgottenTest : ListSequence.fromList(forgottenTests)) {
-          message.append(forgottenTest.getName() + " from model " + SModelOperations.getModelName(SNodeOperations.getModel(forgottenTest)) + "\n");
+          message.append(String.format("%s from model %s\n", forgottenTest.getName(), SModelOperations.getModelName(SNodeOperations.getModel(forgottenTest))));
         }
         Assert.fail(message.toString());
       }
