@@ -99,6 +99,30 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
   public void test_ErrorMessagesCheck2575419463997271506() throws Throwable {
     new TestBody(this).test_ErrorMessagesCheck2575419463997271506();
   }
+  @Test
+  public void test_ErrorMessagesCheck7260441899644199519() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck7260441899644199519();
+  }
+  @Test
+  public void test_ErrorMessagesCheck7260441899644236788() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck7260441899644236788();
+  }
+  @Test
+  public void test_NodeVariableHasNotBeenInitializedErrorCheck7260441899644362119() throws Throwable {
+    new TestBody(this).test_NodeVariableHasNotBeenInitializedErrorCheck7260441899644362119();
+  }
+  @Test
+  public void test_ErrorMessagesCheck7260441899644249267() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck7260441899644249267();
+  }
+  @Test
+  public void test_ErrorMessagesCheck7260441899644343674() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck7260441899644343674();
+  }
+  @Test
+  public void test_ErrorMessagesCheck7260441899644284322() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck7260441899644284322();
+  }
 
   /*package*/ static class TestBody extends BaseTestBody {
 
@@ -247,6 +271,54 @@ public class UnreachableStatements_Test extends BaseTransformationTest {
       runWithinCommand(() -> {
         SNode nodeToCheck = getRealNodeById("7475692990582180654");
         SNode operation = getRealNodeById("2575419463997271506");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
+    }
+    public void test_ErrorMessagesCheck7260441899644199519() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644199494");
+        SNode operation = getRealNodeById("7260441899644199519");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
+    }
+    public void test_ErrorMessagesCheck7260441899644236788() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644236767");
+        SNode operation = getRealNodeById("7260441899644236788");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
+    }
+    public void test_NodeVariableHasNotBeenInitializedErrorCheck7260441899644362119() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644249263");
+        SNode operation = getRealNodeById("7260441899644362119");
+        new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), "Error: Variable 'o' might not have been initialized", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+      });
+    }
+    public void test_ErrorMessagesCheck7260441899644249267() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644249246");
+        SNode operation = getRealNodeById("7260441899644249267");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("7260441899644249263"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), "Error: Variable 'o' might not have been initialized", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
+      });
+    }
+    public void test_ErrorMessagesCheck7260441899644343674() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644343648");
+        SNode operation = getRealNodeById("7260441899644343674");
+        new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
+      });
+    }
+    public void test_ErrorMessagesCheck7260441899644284322() throws Exception {
+
+      runWithinCommand(() -> {
+        SNode nodeToCheck = getRealNodeById("7260441899644284296");
+        SNode operation = getRealNodeById("7260441899644284322");
         new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
       });
     }
