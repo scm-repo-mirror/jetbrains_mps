@@ -25,7 +25,7 @@ public class TryUniversalStatement_DataFlow extends DataFlowBuilder {
       if ((SLinkOperations.getTarget(_context.getNode(), LINKS.finallyClause$KUl) != null)) {
         _context.getBuilder().emitMayBeUnreachable(new Runnable() {
           public void run() {
-            _context.getBuilder().emitIfJump(_context.getBuilder().label(_context.getNode(), "afterCatches"), "r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/8970362107895603566");
+            _context.getBuilder().emitIfJump(_context.getBuilder().label(_context.getNode(), "exit"), "r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/8970362107895603566");
           }
         });
       }
@@ -55,6 +55,12 @@ public class TryUniversalStatement_DataFlow extends DataFlowBuilder {
           }
         });
       }
+      _context.getBuilder().emitLabel("exit");
+      _context.getBuilder().emitMayBeUnreachable(new Runnable() {
+        public void run() {
+          _context.getBuilder().emitRet("r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/8970362107909540179");
+        }
+      });
       _context.getBuilder().emitLabel("afterCatches");
     };
     if ((SLinkOperations.getTarget(_context.getNode(), LINKS.finallyClause$KUl) != null)) {

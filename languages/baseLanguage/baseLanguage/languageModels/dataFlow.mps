@@ -7975,7 +7975,7 @@
                     <node concept="3F2QtG" id="7LX8cXzJF9A" role="3cqZAp">
                       <node concept="3_J$rt" id="7LX8cXzJu5I" role="3F2SoO">
                         <node concept="ayLgZ" id="7LX8cXzJyyF" role="3_JbIs">
-                          <ref role="ayMZ1" node="4z_SuroxEVp" resolve="afterCatches" />
+                          <ref role="ayMZ1" node="7LX8cX$$nKf" resolve="exit" />
                         </node>
                       </node>
                     </node>
@@ -8117,6 +8117,12 @@
                       <ref role="ehGHo" to="tpee:2FJPm3OfY71" resolve="AbstractCatchClause" />
                     </node>
                   </node>
+                </node>
+                <node concept="axUMO" id="7LX8cX$$nKf" role="3cqZAp">
+                  <property role="TrG5h" value="exit" />
+                </node>
+                <node concept="3F2QtG" id="7LX8cX$_hRN" role="3cqZAp">
+                  <node concept="3AM$9J" id="7LX8cX$$C_j" role="3F2SoO" />
                 </node>
                 <node concept="axUMO" id="4z_SuroxEVp" role="3cqZAp">
                   <property role="TrG5h" value="afterCatches" />
