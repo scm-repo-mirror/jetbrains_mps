@@ -121,11 +121,11 @@
     <!-- If property does not match version in build.txt - assume platform is outdated -->
     <condition property="platform.outdated" value="true" else="false">
       <not>
-        <equals arg1="${idea.platform.version}" arg2="${current.version}"/>
+        <equals arg1="${mps.platform.build}" arg2="${current.version}"/>
       </not>
     </condition>
 
-    <!-- If platform is not need to be build locally and is outdated - platform with idea.platform.version will be downloaded -->
+    <!-- If platform is not need to be build locally and is outdated - platform with mps.platform.build will be downloaded -->
     <condition property="do.platform.download" value="true" else="false">
       <and>
         <isfalse value="${idea.platform.local.build}"/>
