@@ -47,6 +47,7 @@ teamcity-info.xml
 /plugins/mps-kotlin/lib
 /plugins/debugger-api/lib
 /plugins/debugger-java/lib
+/plugins/dev/lib
 /plugins/mps-vcs/lib/
 /plugins/mps-java/lib/
 /plugins/mps-java-workbench/lib/
