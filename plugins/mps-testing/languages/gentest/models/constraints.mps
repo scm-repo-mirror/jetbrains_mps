@@ -239,6 +239,63 @@
                 </node>
               </node>
             </node>
+            <node concept="3clFbJ" id="7K_WrSLuyRC" role="3cqZAp">
+              <node concept="3clFbS" id="7K_WrSLuyRE" role="3clFbx">
+                <node concept="3cpWs8" id="7K_WrSLu_9d" role="3cqZAp">
+                  <node concept="3cpWsn" id="7K_WrSLu_9e" role="3cpWs9">
+                    <property role="TrG5h" value="arg" />
+                    <node concept="3Tqbb2" id="7K_WrSLu_9f" role="1tU5fm">
+                      <ref role="ehGHo" to="lur:uLQNrGW9LE" resolve="TestArgument" />
+                    </node>
+                    <node concept="2OqwBi" id="7K_WrSLu_9g" role="33vP2m">
+                      <node concept="1PxgMI" id="7K_WrSLu_9h" role="2Oq$k0">
+                        <property role="1BlNFB" value="true" />
+                        <node concept="chp4Y" id="7K_WrSLu_9i" role="3oSUPX">
+                          <ref role="cht4Q" to="lur:uLQNrGWd1r" resolve="ArgumentReference" />
+                        </node>
+                        <node concept="2H4GUG" id="7K_WrSLu_9j" role="1m5AlR" />
+                      </node>
+                      <node concept="3TrEf2" id="7K_WrSLu_9k" role="2OqNvi">
+                        <ref role="3Tt5mk" to="lur:uLQNrGWd1s" resolve="arg" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3cpWs6" id="7K_WrSLu_9l" role="3cqZAp">
+                  <node concept="22lmx$" id="7K_WrSLu_9m" role="3cqZAk">
+                    <node concept="2OqwBi" id="7K_WrSLu_9n" role="3uHU7B">
+                      <node concept="37vLTw" id="7K_WrSLu_9o" role="2Oq$k0">
+                        <ref role="3cqZAo" node="7K_WrSLu_9e" resolve="arg" />
+                      </node>
+                      <node concept="3w_OXm" id="7K_WrSLu_9p" role="2OqNvi" />
+                    </node>
+                    <node concept="2OqwBi" id="7K_WrSLu_9q" role="3uHU7w">
+                      <node concept="2OqwBi" id="7K_WrSLu_9r" role="2Oq$k0">
+                        <node concept="37vLTw" id="7K_WrSLu_9s" role="2Oq$k0">
+                          <ref role="3cqZAo" node="7K_WrSLu_9e" resolve="arg" />
+                        </node>
+                        <node concept="2yIwOk" id="7K_WrSLu_9t" role="2OqNvi" />
+                      </node>
+                      <node concept="3O6GUB" id="7K_WrSLu_9u" role="2OqNvi">
+                        <node concept="chp4Y" id="7K_WrSLu_9v" role="3QVz_e">
+                          <ref role="cht4Q" to="lur:7K_WrSLrg_Z" resolve="ModelMatchOptions" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="7K_WrSLuzo7" role="3clFbw">
+                <node concept="2DA6wF" id="7K_WrSLuyXn" role="2Oq$k0" />
+                <node concept="liA8E" id="7K_WrSLuzXv" role="2OqNvi">
+                  <ref role="37wK5l" to="wyt6:~Object.equals(java.lang.Object)" resolve="equals" />
+                  <node concept="359W_D" id="7K_WrSLu$2P" role="37wK5m">
+                    <ref role="359W_E" to="lur:uLQNrGWd1n" resolve="TransformationMatchAssertion" />
+                    <ref role="359W_F" to="lur:7K_WrSLuxDO" resolve="matchOptions" />
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3SKdUt" id="5wiIlPAvU4Z" role="3cqZAp">
               <node concept="1PaTwC" id="ATZLwXo4u4" role="1aUNEU">
                 <node concept="3oM_SD" id="ATZLwXo4u5" role="1PaTwD">

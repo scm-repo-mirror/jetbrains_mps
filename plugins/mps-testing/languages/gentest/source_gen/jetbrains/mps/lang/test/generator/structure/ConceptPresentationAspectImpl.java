@@ -12,6 +12,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ArgumentReference;
   private ConceptPresentation props_GeneratorTest;
   private ConceptPresentation props_ModelArgument;
+  private ConceptPresentation props_ModelMatchOptions;
   private ConceptPresentation props_TestArgument;
   private ConceptPresentation props_TestAssertion;
   private ConceptPresentation props_TransformationMatchAssertion;
@@ -44,6 +45,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ModelArgument = cpb.create();
         }
         return props_ModelArgument;
+      case LanguageConceptSwitch.ModelMatchOptions:
+        if (props_ModelMatchOptions == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("how to match individual nodes in a model");
+          cpb.presentationByName();
+          props_ModelMatchOptions = cpb.create();
+        }
+        return props_ModelMatchOptions;
       case LanguageConceptSwitch.TestArgument:
         if (props_TestArgument == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

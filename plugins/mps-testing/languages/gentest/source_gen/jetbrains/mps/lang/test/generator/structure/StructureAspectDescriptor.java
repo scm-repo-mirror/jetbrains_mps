@@ -16,6 +16,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptArgumentReference = createDescriptorForArgumentReference();
   /*package*/ final ConceptDescriptor myConceptGeneratorTest = createDescriptorForGeneratorTest();
   /*package*/ final ConceptDescriptor myConceptModelArgument = createDescriptorForModelArgument();
+  /*package*/ final ConceptDescriptor myConceptModelMatchOptions = createDescriptorForModelMatchOptions();
   /*package*/ final ConceptDescriptor myConceptTestArgument = createDescriptorForTestArgument();
   /*package*/ final ConceptDescriptor myConceptTestAssertion = createDescriptorForTestAssertion();
   /*package*/ final ConceptDescriptor myConceptTransformationMatchAssertion = createDescriptorForTransformationMatchAssertion();
@@ -35,7 +36,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptArgumentReference, myConceptGeneratorTest, myConceptModelArgument, myConceptTestArgument, myConceptTestAssertion, myConceptTransformationMatchAssertion, myConceptTransformationMatchManyAssertion);
+    return Arrays.asList(myConceptArgumentReference, myConceptGeneratorTest, myConceptModelArgument, myConceptModelMatchOptions, myConceptTestArgument, myConceptTestAssertion, myConceptTransformationMatchAssertion, myConceptTransformationMatchManyAssertion);
   }
 
   @Override
@@ -48,6 +49,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptGeneratorTest;
       case LanguageConceptSwitch.ModelArgument:
         return myConceptModelArgument;
+      case LanguageConceptSwitch.ModelMatchOptions:
+        return myConceptModelMatchOptions;
       case LanguageConceptSwitch.TestArgument:
         return myConceptTestArgument;
       case LanguageConceptSwitch.TestAssertion:
@@ -95,6 +98,20 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("model");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForModelMatchOptions() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.test.generator", "ModelMatchOptions", 0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7c25f1be316d097fL);
+    b.class_(false, false, false);
+    b.parent(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf09c6aL);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:fc8379f0-84d2-4927-817e-ae0057474174(jetbrains.mps.lang.test.generator.structure)/8945822034016668031");
+    b.version(3);
+    b.property("propertyUserValue", 0x7c25f1be316d84d5L).type(PrimitiveTypeId.BOOLEAN).origin("8945822034016699605").done();
+    b.property("associationIdenticalTarget", 0x7c25f1be316d9741L).type(PrimitiveTypeId.BOOLEAN).origin("8945822034016704321").done();
+    b.property("aggregateIgnoreOrder", 0x7c25f1be316db127L).type(PrimitiveTypeId.BOOLEAN).origin("8945822034016710951").done();
+    b.property("comment", 0x7c25f1be316dd059L).type(PrimitiveTypeId.STRING).origin("8945822034016718937").done();
+    b.alias("model match options");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForTestArgument() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.test.generator", "TestArgument", 0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf09c6aL);
     b.interface_();
@@ -119,6 +136,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("inputModel", 0x7b1db36ecf0d05eL).target(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf0d05bL).optional(false).ordered(true).multiple(false).origin("554465258093203550").done();
     b.aggregate("referenceModel", 0x7b1db36ecf0d060L).target(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf0d05bL).optional(false).ordered(true).multiple(false).origin("554465258093203552").done();
     b.aggregate("transformationPlan", 0x7b1db36ecf0d063L).target(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf0d05bL).optional(true).ordered(true).multiple(false).origin("554465258093203555").done();
+    b.aggregate("matchOptions", 0x7c25f1be317a1a74L).target(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf0d05bL).optional(true).ordered(true).multiple(false).origin("8945822034017524340").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTransformationMatchManyAssertion() {
