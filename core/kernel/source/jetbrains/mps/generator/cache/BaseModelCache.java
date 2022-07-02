@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,8 +111,15 @@ public abstract class BaseModelCache<T> {
     final SModelReference mr = model.getReference();
     Pair<IFile, T> entry = myCache.remove(mr);
     if (entry != null) {
-      // decided not to update with incomplete entry, although perhaps it won't hurt (file == null))
       myCache.put(mr, new Pair<>(entry.o1, cache));
+    } else {
+      // Note, we need to record new value in cache, otherwise there's no re-use of values we pass here from
+      // e.g. BLDependenciesCache.generateCache(). BLDependenciesCache instance then goes from TextGen to JavaCompile,
+      // where same models get queried for their BL deps. If I don't want to read them again, need to keep cached value here.
+      myCache.put(mr, new Pair<>(getCacheFile(model), cache));
+      // decided not to update with incomplete entry, although perhaps it won't hurt (file == null))
+      // File name presence seems to affect discard() only; BLDependenciesCache instance populated this way (through update()) doesn't go
+      // far beyond TextGen/JavaCompile facets, where I don't expect any explicit 'discard'. Perhaps, file == null is ok as well.
     }
   }
 
