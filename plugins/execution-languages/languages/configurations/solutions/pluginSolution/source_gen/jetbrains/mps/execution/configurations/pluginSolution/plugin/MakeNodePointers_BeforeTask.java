@@ -86,7 +86,7 @@ public class MakeNodePointers_BeforeTask extends BaseMpsBeforeTaskProvider<MakeN
         return true;
       }
 
-      MessagesViewPostingHandler handler = new MessagesViewPostingHandler(mpsProject, MessageListOptions.DeafOnMessage);
+      MessagesViewPostingHandler handler = new MessagesViewPostingHandler(mpsProject, MessageListOptions.DeafOnMessage, MessageListOptions.ReuseExisting);
       MakeSession session = new MakeSession(mpsProject, handler, true);
       IMakeService makeService = mpsProject.getComponent(MakeServiceComponent.class).get();
       if (makeService.openNewSession(session)) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="7k81ksg5jj0aijaqyz6jqx4h1r4339">
+<product version="3" modelHash="cyrlmh13eb2waz4ny3we3f7ugz2puog">
   <files names="AddExecutor_Action.java:AddProducer_Action.java:BeforeTasksInitializer_ProjectPluginPart.java:Executor_Order.java:Executor_TabDescriptor.java:MakeNodePointers_BeforeTask.java:PluginSolution_ApplicationPlugin.java:PluginSolution_ProjectPlugin.java:Producer_Order.java:Producer_TabDescriptor.java:Run_Configuration_TabDescriptor.java:ShowAsIntentions_ExecutionConfigurations_ActionGroup.java" />
 </product>
 

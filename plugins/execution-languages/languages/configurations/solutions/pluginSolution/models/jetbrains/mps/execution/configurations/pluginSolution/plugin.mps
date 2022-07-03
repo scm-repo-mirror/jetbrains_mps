@@ -767,6 +767,10 @@
                   <ref role="Rm8GQ" to="57ty:~MessageListOptions.DeafOnMessage" resolve="DeafOnMessage" />
                   <ref role="1Px2BO" to="57ty:~MessageListOptions" resolve="MessageListOptions" />
                 </node>
+                <node concept="Rm8GO" id="6I8tQNT_Me_" role="37wK5m">
+                  <ref role="Rm8GQ" to="57ty:~MessageListOptions.ReuseExisting" resolve="ReuseExisting" />
+                  <ref role="1Px2BO" to="57ty:~MessageListOptions" resolve="MessageListOptions" />
+                </node>
               </node>
             </node>
           </node>
