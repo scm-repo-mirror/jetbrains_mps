@@ -62,17 +62,17 @@ public abstract class TypecheckingSessionImpl implements TypecheckingSession {
 
   @Override
   public TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
-    return getQueries(myController.selectProvider(src, trg, trgConcept));
+    return getQueries(myController.selectProvider(src, trg, trgConcept, myFlags));
   }
 
   @Override
   public TypecheckingQueries getQueries(@NotNull SNode src, SNode trg) {
-    return getQueries(myController.selectProvider(src, trg, null));
+    return getQueries(myController.selectProvider(src, trg, null, myFlags));
   }
 
   @Override
   public TypecheckingQueries getQueries(@NotNull SNode node) {
-    return getQueries(myController.selectProvider(node, null, null));
+    return getQueries(myController.selectProvider(node, null, null, myFlags));
   }
 
   @Override

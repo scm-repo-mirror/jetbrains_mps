@@ -21,6 +21,10 @@ import jetbrains.mps.typechecking.TypecheckingSession.Flags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.project.Project;
+
+import java.util.Collections;
+import java.util.Map;
 
 /**
  * Backend interface of a type checker.
@@ -44,9 +48,16 @@ public interface TypecheckingProvider<Queries extends TypecheckingQueries> {
    * <li> two parameters {@link SNode} {@code src} and {@link SConcept} {@code trgConcept} correspond to a query with a source node and a target concept.
    *
    * The provider is expected to return {@code true} in case it is relevant for the feature with given parameters, {@code false} otherwise.
+   * 
+   * @deprecated use the variant with the addiitonal flags parameter
    */
+  @Deprecated
   boolean isRelevant(@NotNull SNode src, SNode trg, SConcept trgConcept);
   
+  default boolean isRelevant(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
+    return isRelevant(src, trg, trgConcept);
+  }
+
   @NotNull
   @Deprecated(forRemoval = true)
   default Queries createQueries(@NotNull Flags flags) {
@@ -69,6 +80,15 @@ public interface TypecheckingProvider<Queries extends TypecheckingQueries> {
 
   default AuxDataContainer createDataContainer(Flags flags) {
     return null;
+  }
+
+  /**
+   * This method is expected to do necessary configuration and return a map
+   * populated with parameters to be reused later.
+   * The parameter project is optional and can be null.
+   */
+  default Map<String, Object> configure(Project project) {
+    return Collections.emptyMap();
   }
 
 }

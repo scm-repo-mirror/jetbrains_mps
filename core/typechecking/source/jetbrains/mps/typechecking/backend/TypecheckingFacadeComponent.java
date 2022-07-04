@@ -124,6 +124,7 @@ public class TypecheckingFacadeComponent implements CoreComponent {
 
   protected static class ContextTypecheckingFacade extends TypecheckingFacade {
 
+    /* Provides access to a protected static field in the superclass */
     protected static void setFactoryInstance(Supplier<TypecheckingFacade> factoryInstance) {
       TypecheckingFacade.DEFAULT_INSTANCE_FACTORY = factoryInstance;
     }

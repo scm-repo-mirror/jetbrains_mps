@@ -20,6 +20,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.Map;
+
 /**
  * @author Fedor Isakov
  */
@@ -78,6 +80,7 @@ public interface TypecheckingSession {
     private long myFlags;
     private SNode myRoot;
     private IPerformanceTracer myTracer;
+    private Map<String, ?> myParamsMap;
 
     @NotNull
     public static Flags basic() {
@@ -116,6 +119,11 @@ public interface TypecheckingSession {
       return this;
     }
 
+    public Flags withParameters(Map<String, ?> paramsMap) {
+      myParamsMap = paramsMap;
+      return this;
+    }
+
     public SNode getRoot() {
       return myRoot;
     }
@@ -148,6 +156,10 @@ public interface TypecheckingSession {
       return myTracer;
     }
 
+    public Map<String, ?> getParamsMap() {
+      return myParamsMap;
+    }
+
     @Override
     public String toString() {
       return "[root=" + myRoot + (myRoot != null ? " (" + myRoot.getReference() + ")" : "") + ", flags=" + myFlags + "]";
@@ -157,6 +169,7 @@ public interface TypecheckingSession {
       this.myRoot = copyFrom.myRoot;
       this.myFlags = copyFrom.myFlags;
       this.myTracer = copyFrom.myTracer;
+      this.myParamsMap = copyFrom.myParamsMap;
     }
 
     private Flags(long flags) {

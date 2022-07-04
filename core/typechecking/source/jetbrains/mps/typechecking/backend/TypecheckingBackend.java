@@ -18,13 +18,18 @@ package jetbrains.mps.typechecking.backend;
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.typechecking.TypecheckingQueries;
+import jetbrains.mps.typechecking.TypecheckingSession.Flags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.project.Project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -114,10 +119,10 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  protected TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  protected TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
     for (TypecheckingProvider<? extends TypecheckingQueries> candidate: providersSortedDescending()) {
       try {
-        if (candidate.isRelevant(src, trg, trgConcept)) return candidate;
+        if (candidate.isRelevant(src, trg, trgConcept, flags)) return candidate;
         
       } catch (Error e) {
         // FIXME skip on error: the provider can be misconfigured
@@ -126,7 +131,28 @@ public class TypecheckingBackend implements CoreComponent {
 
     throw new IllegalStateException("No available TypecheckingProvider");
   }
-  
+
+  protected Map<String, Object> configure(Project project) {
+    // merge parameters from all providers to a single map
+    Map<String, Object> paramsMap = new HashMap<>();
+    for (TypecheckingProvider<? extends TypecheckingQueries> provider: providersSortedDescending()) {
+      try {
+        Map<String, Object> map = provider.configure(project);
+        if (map != null) {
+          for (Entry<String, Object> e : map.entrySet()) {
+            if (paramsMap.containsKey(e.getKey())) {
+              LOG.warning("duplicate parameter key: `"+e.getKey()+"`");
+            }
+            paramsMap.put(e.getKey(), e.getValue());
+          }
+        }
+      } catch (Error e) {
+        // FIXME skip on error: the provider can be misconfigured
+      }
+    }
+    return paramsMap;
+  }
+
   private ArrayList<TypecheckingProvider<? extends TypecheckingQueries>> providersSortedDescending() {
     ArrayList<TypecheckingProvider<? extends TypecheckingQueries>> providers = new ArrayList<>(myProviders.values());
     Collections.reverse(providers);
@@ -138,11 +164,11 @@ public class TypecheckingBackend implements CoreComponent {
    */
   public class ProviderToken {
 
-    private final TypecheckingProvider myProvider;
+    private final TypecheckingProvider<?> myProvider;
     private final ProviderLevel myLevel;
     private boolean myInstalled = true;
 
-    private ProviderToken(@NotNull TypecheckingProvider provider, @NotNull ProviderLevel level) {
+    private ProviderToken(@NotNull TypecheckingProvider<?> provider, @NotNull ProviderLevel level) {
       this.myProvider = provider;
       this.myLevel = level;
     }

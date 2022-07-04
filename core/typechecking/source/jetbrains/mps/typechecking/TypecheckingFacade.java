@@ -22,8 +22,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.project.Project;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -132,6 +134,10 @@ public abstract class TypecheckingFacade
   @Override
   public boolean isCacheUpToDate(SNode root) {
     return activeController().isCacheUpToDate(root);
+  }
+
+  public Map<String, Object> configure(Project project) {
+    return activeController().configure(project);
   }
 
   protected static TypecheckingFacade getContextInstance() {
