@@ -115,7 +115,7 @@ public class GenerationController implements ITaskPoolProvider {
       : new NullPerformanceTracer();
 
     boolean traceTypes = myOptions.getTracingMode() == GenerationOptions.TRACE_TYPES;
-    Flags flags = Flags.generator();
+    Flags flags = Flags.generator().withParameters(myOptions.getParametersProvider().getDefaultParameters());
     if (traceTypes) {
       flags = flags.withTracer(ttrace);
     }

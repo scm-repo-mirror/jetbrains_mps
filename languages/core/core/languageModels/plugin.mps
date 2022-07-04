@@ -43,6 +43,7 @@
     <import index="ao3" ref="7124e466-fc92-4803-a656-d7a6b7eb3910/java:jetbrains.mps.text(MPS.TextGen/)" />
     <import index="w8cm" ref="215c4c45-ba99-49f5-9ab7-4b6901a63cfd/java:jetbrains.mps.generator.impl.dependencies(MPS.Generator/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
+    <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
     <import index="28m1" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.time(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -5621,6 +5622,57 @@
                 </node>
               </node>
             </node>
+            <node concept="3SKdUt" id="4q$qzhhNM1z" role="3cqZAp">
+              <node concept="1PaTwC" id="4q$qzhhNM1$" role="1aUNEU">
+                <node concept="3oM_SD" id="4q$qzhhNMxe" role="1PaTwD">
+                  <property role="3oM_SC" value="ensure" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNM$U" role="1PaTwD">
+                  <property role="3oM_SC" value="typechecking" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNMF3" role="1PaTwD">
+                  <property role="3oM_SC" value="providers" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNMRF" role="1PaTwD">
+                  <property role="3oM_SC" value="create" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNMUc" role="1PaTwD">
+                  <property role="3oM_SC" value="their" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNMWI" role="1PaTwD">
+                  <property role="3oM_SC" value="configuration" />
+                </node>
+                <node concept="3oM_SD" id="4q$qzhhNN1H" role="1PaTwD">
+                  <property role="3oM_SC" value="parameters" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="4q$qzhhNJpm" role="3cqZAp">
+              <node concept="2OqwBi" id="4q$qzhhNKvK" role="3clFbG">
+                <node concept="1aIXbY" id="4q$qzhhNJpi" role="2Oq$k0">
+                  <node concept="1aIXbZ" id="4q$qzhhNJph" role="2Oq$k0" />
+                  <node concept="2sxana" id="4q$qzhhNJpl" role="2OqNvi">
+                    <ref role="2sxfKC" node="yFQhmmgiGu" resolve="parametersProvider" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="4q$qzhhNKWt" role="2OqNvi">
+                  <ref role="37wK5l" to="ap4t:~DefaultGenerationParametersProvider.addAllParameters(java.util.Map)" resolve="addAllParameters" />
+                  <node concept="2OqwBi" id="4q$qzhhNL3Q" role="37wK5m">
+                    <node concept="2YIFZM" id="4q$qzhhNL3R" role="2Oq$k0">
+                      <ref role="37wK5l" to="1ka:~TypecheckingFacade.getFromContext()" resolve="getFromContext" />
+                      <ref role="1Pybhc" to="1ka:~TypecheckingFacade" resolve="TypecheckingFacade" />
+                    </node>
+                    <node concept="liA8E" id="4q$qzhhNL3S" role="2OqNvi">
+                      <ref role="37wK5l" to="1ka:~TypecheckingFacade.configure(org.jetbrains.mps.openapi.project.Project)" resolve="configure" />
+                      <node concept="37vLTw" id="4q$qzhhNL3T" role="37wK5m">
+                        <ref role="3cqZAo" node="5jLBleAj6wp" resolve="mpsProject" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="4q$qzhhNoJD" role="3cqZAp" />
             <node concept="3cpWs8" id="suC6ndRIIE" role="3cqZAp">
               <node concept="3cpWsn" id="suC6ndRIIF" role="3cpWs9">
                 <property role="TrG5h" value="tmc" />

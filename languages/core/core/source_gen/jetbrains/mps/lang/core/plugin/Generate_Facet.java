@@ -25,6 +25,7 @@ import jetbrains.mps.generator.GenerationCacheContainer;
 import jetbrains.mps.smodel.structure.ExtensionPoint;
 import jetbrains.mps.generator.DefaultGenerationParametersProvider;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.generator.TransientModelsProvider;
 import jetbrains.mps.smodel.resources.CleanupActivityResource;
 import jetbrains.mps.make.script.IConfigMonitor;
@@ -171,6 +172,9 @@ public class Generate_Facet extends IFacet.Stub {
               vars(pa.global()).generationOptions().parameters(vars(pa.global()).parametersProvider());
 
               Project mpsProject = monitor.getSession().getProject();
+              // ensure typechecking providers create their configuration parameters
+              vars(pa.global()).parametersProvider().addAllParameters(TypecheckingFacade.getFromContext().configure(mpsProject));
+
               TransientModelsProvider tmc = mpsProject.getComponent(TransientModelsProvider.class);
               boolean ownTransientsProvider = tmc == null;
               vars(pa.global()).transientModelsProvider((ownTransientsProvider ? new TransientModelsProvider(mpsProject.getRepository(), null) : tmc));
