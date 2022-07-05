@@ -82,10 +82,13 @@ public class ResolverComponent implements CoreComponent {
   }
   public boolean resolveScopesOnly(SReference reference, SRepository repository) {
     SNode sourceNode = reference.getSourceNode();
-    if (sourceNode == null || sourceNode.getReference(reference.getLink()) != reference) {
+    // XXX in fact, no idea why we used to demand equality for supplied and actual references here; 
+    // feel it's enough to check the one is still there (with SReference as facade, equality doesn't work, anyway)
+    SReference updatedInstance;
+    if (sourceNode == null || (updatedInstance = sourceNode.getReference(reference.getLink())) == null) {
       return false;
     }
-    return myScopeResolver.resolve(reference, sourceNode, repository);
+    return myScopeResolver.resolve(updatedInstance, sourceNode, repository);
   }
   public static ResolverComponent getInstance() {
     return INSTANCE;

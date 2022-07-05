@@ -180,6 +180,8 @@ public final class CopyPasteUtil {
           // I decided to remove it as there's similar logic in StaticReference (that takes node.getName as RI).
           // If this doesn't work, perhaps, need another ResolveInfo.of method to take SNodePointer hint in addition to String
           if (oldTargetNode != null) {
+            // XXX seems to be the need to resolveInfo is justified, perhaps, we should set one in AssociationData the moment
+            //     we get detached node as target. Just to facilitate proper later re-resolve in ResolverComponent.resolveScopesOnly
             newSourceNode.setReferenceTarget(sourceReference.getLink(), oldTargetNode);
           } else {
             String resolveInfo = SLinkOperations.getResolveInfo(sourceReference);
