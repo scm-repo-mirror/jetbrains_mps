@@ -113,7 +113,7 @@ final class AttachedNodeOwner extends SNodeOwner {
       // not inside a repository, that's why I don't make them indirect just the moment node get attached to a model.
       // There's ImmatureReferences that would force indirect references the moment command completes, regardless of
       // repository presence.
-      final Transition transition = new Transition();
+      final Transition transition = new Transition(false);
       node.forEachAssociationDeep(data -> transition.makeIndirect(data, StaticReference::getResolveInfo));
     }
   }

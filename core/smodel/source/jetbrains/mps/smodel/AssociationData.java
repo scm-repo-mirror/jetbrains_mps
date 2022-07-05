@@ -247,8 +247,15 @@ import java.util.function.Supplier;
   }
 
   /*package*/ final class Transition {
+    private boolean myForce;
+
     Transition() {
+      this(false);
+    }
+
+    Transition(boolean force) {
       // FIXME takes command context? but it might not be effective to mandate its instance?
+      myForce = force;
     }
 
     // aka makeMature
@@ -259,6 +266,13 @@ import java.util.function.Supplier;
         return data;
       }
       final SNode immatureNode = ((DirectNode)data).myImmatureTargetNode;
+      if (immatureNode == null || immatureNode.getModel() == null) {
+        return data;
+      }
+      // next is from StaticReference.makeIndirect(false)
+      if (!myForce && immatureNode.getModel().getRepository() == null) {
+        return data;
+      }
       SNodeId targetNodeId = immatureNode.getNodeId();
       final SModel targetModel = immatureNode.getModel();
       SModelReference targetModelReference = targetModel == null ? null : targetModel.getReference();
