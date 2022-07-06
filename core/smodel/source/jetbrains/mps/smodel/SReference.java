@@ -30,6 +30,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
+import java.util.Objects;
 import java.util.Set;
 
 public abstract class SReference implements org.jetbrains.mps.openapi.model.SReference {
@@ -155,6 +156,22 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
   /*package*/ AssociationData getData() {
     // FIXME shall be abstract but might require change in MPS-extensions or mbeddr
     return null;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(getData()) + getSourceNode().hashCode()*31 + getLink().hashCode()*17;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj.getClass() != getClass()) {
+      return false;
+    }
+    final SReference other = (SReference) obj;
+    // XXX I didn't implement equals for AssociationData as it seems sufficient for now just to
+    //     rely on == (tests pass). However, one day we might need to look deeper into AssociationData equality.
+    return Objects.equals(getData(), other.getData()) && getSourceNode() == other.getSourceNode() && getLink().equals(other.getLink());
   }
 
   protected abstract SNode getTargetNode_internal(/*not null*/ ProblemReporter reporter);

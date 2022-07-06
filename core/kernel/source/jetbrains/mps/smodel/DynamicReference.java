@@ -127,6 +127,8 @@ public final class DynamicReference extends SReferenceBase {
 
     final Set<DynamicReference> currentRefs = currentlyResolved.get();
     final Set<DynamicReference> loggedRefs = currentlySourceNodeLogged.get();
+    // FIXME use of (this) works as long as equals/hashCode is right. Consider using another identity object
+    //       or come up with another mechanism to avoid stack overflow and reference resolution cycles
     if (currentRefs.contains(this)) {
       // loop detected!
       if (!loggedRefs.contains(this)) {
