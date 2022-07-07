@@ -45,7 +45,7 @@ public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
     tgs.append("fun ");
     KotlinTextGen.typeParameters(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.receiver(ctx.getPrimaryInput(), ctx);
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+    KotlinTextGen.identifier(ctx.getPrimaryInput(), ctx);
     tgs.append("(");
     KotlinTextGen.arguments(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.parameters$dfEr), ctx);
     tgs.append(")");
@@ -59,7 +59,6 @@ public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty isOverride$Gfqk = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af434L, 0x441fd2709ecea6bdL, "isOverride");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {

@@ -80,13 +80,15 @@ public interface KtEnvironmentConfig {
 
     @Override
     public String getName(SNode named) {
-      return SPropertyOperations.getString(named, PROPS.name$MnvL);
+      String name = SPropertyOperations.getString(named, PROPS.name$MnvL);
+      return ((boolean) IIdentifier__BehaviorDescriptor.isRegular_idnhyiqtKtUT.invoke(SNodeOperations.asSConcept(CONCEPTS.IIdentifier$wg), name) ? name : "`" + name + "`");
     }
   };
 
   final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IKotlinRoot$wS = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0xad71950af90e8f8L, "jetbrains.mps.kotlin.structure.IKotlinRoot");
     /*package*/ static final SInterfaceConcept IClassLike$go = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x298a6a355c110274L, "jetbrains.mps.kotlin.structure.IClassLike");
+    /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
   }
 
   final class PROPS {

@@ -11,9 +11,9 @@ import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.IKotlinRoot__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
 import jetbrains.mps.baseLanguage.kotlinRefs.behavior.IKotlinFunctionLikeCall__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -62,7 +62,8 @@ public abstract class KotlinForBLTextGen extends BaseLanguageTextGen {
 
     // Name happens before of after type arguments depending if constructor
     if (isConstructor) {
-      tgs.append(SPropertyOperations.getString(call, PROPS.functionName$M4b));
+      // Constructor also needs a proper ref/import
+      KotlinForBLTextGen.kotlinNestedRef(SNodeOperations.as(SLinkOperations.getTarget(call, LINKS.target$7dy6), CONCEPTS.AbstractConstructorDeclaration$GC), ctx);
     }
 
     if (ListSequence.fromList(SLinkOperations.getChildren(call, LINKS.typeArgument$Q6Au)).isNotEmpty()) {

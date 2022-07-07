@@ -23,7 +23,7 @@ public class TypeParameter_TextGen extends TextGenDescriptorBase {
       tgs.append(" ");
     }
 
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+    KotlinTextGen.identifier(ctx.getPrimaryInput(), ctx);
 
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.bound$KhhI) != null)) {
       tgs.append(" : ");
@@ -34,7 +34,6 @@ public class TypeParameter_TextGen extends TextGenDescriptorBase {
   private static final class PROPS {
     /*package*/ static final SProperty isReified$AAd = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af50dL, 0x56840864ad7e5da7L, "isReified");
     /*package*/ static final SProperty variance$xP5D = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x4da39967d13161a1L, 0x22287f28953f8c9bL, "variance");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {

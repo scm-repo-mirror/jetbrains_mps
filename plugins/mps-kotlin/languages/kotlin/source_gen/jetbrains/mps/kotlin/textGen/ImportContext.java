@@ -47,10 +47,12 @@ public class ImportContext {
     return SetSequence.fromSet(importedRefs).select(new ISelector<SNode, String>() {
       public String select(SNode it) {
         String packageName = IKotlinRoot__BehaviorDescriptor.getPackageName_id4f4W8JpDCGu.invoke(SNodeOperations.getNodeAncestor(it, CONCEPTS.IKotlinRoot$wS, false, false));
+        String name = ((boolean) IIdentifier__BehaviorDescriptor.isRegular_idnhyiqtKtUT.invoke(SNodeOperations.asSConcept(CONCEPTS.IIdentifier$wg), SPropertyOperations.getString(it, PROPS.name$MnvL)) ? SPropertyOperations.getString(it, PROPS.name$MnvL) : "`" + SPropertyOperations.getString(it, PROPS.name$MnvL) + "`");
+
         if ((packageName == null || packageName.length() == 0)) {
-          return SPropertyOperations.getString(it, PROPS.name$MnvL);
+          return name;
         }
-        return packageName + "." + SPropertyOperations.getString(it, PROPS.name$MnvL);
+        return packageName + "." + name;
       }
     }).union(SetSequence.fromSet(arbitraryImports));
   }

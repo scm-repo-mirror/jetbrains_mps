@@ -26,7 +26,7 @@ public class FunctionParameter_TextGen extends TextGenDescriptorBase {
       tgs.append("vararg ");
     }
 
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+    KotlinTextGen.identifier(ctx.getPrimaryInput(), ctx);
     tgs.append(":");
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$1aXr));
 
@@ -44,6 +44,5 @@ public class FunctionParameter_TextGen extends TextGenDescriptorBase {
 
   private static final class PROPS {
     /*package*/ static final SProperty isVararg$GaYv = MetaAdapterFactory.getProperty(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x63c34deca4888fe2L, 0x2a5d340976790b94L, "isVararg");
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

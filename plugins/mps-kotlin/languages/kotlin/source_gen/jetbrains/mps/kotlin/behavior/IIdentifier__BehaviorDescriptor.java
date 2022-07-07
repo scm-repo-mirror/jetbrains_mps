@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.kotlin.constraints.Identifiers;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,8 +27,9 @@ public final class IIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Class<? extends MemberSignature>> getMemberSignatureKind_id5q426iHFtTk = new SMethodBuilder<Class<? extends MemberSignature>>(new SJavaCompoundTypeImpl(Class.class)).name("getMemberSignatureKind").modifiers(9, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012691213908L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<String> getNestedName_id1d2BQ0ZyA$g = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNestedName").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1387846870915246352L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
   public static final SMethod<SNode> getImportRoot_id1d2BQ0ZAmKw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getImportRoot").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1387846870916230176L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(KtEnvironmentConfig.class, ""));
+  public static final SMethod<Boolean> isRegular_idnhyiqtKtUT = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isRegular").modifiers(1, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(419267039270657721L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2(SMethodBuilder.createJavaParameter(String.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMemberSignatureKind_id5q426iHFtTk, getNestedName_id1d2BQ0ZyA$g, getImportRoot_id1d2BQ0ZAmKw);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMemberSignatureKind_id5q426iHFtTk, getNestedName_id1d2BQ0ZyA$g, getImportRoot_id1d2BQ0ZAmKw, isRegular_idnhyiqtKtUT);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -60,6 +62,9 @@ public final class IIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
     }
 
     return IIdentifier__BehaviorDescriptor.getImportRoot_id1d2BQ0ZAmKw.invoke(SNodeOperations.cast(ancestor, CONCEPTS.IIdentifier$wg), configuration);
+  }
+  /*package*/ static boolean isRegular_idnhyiqtKtUT(@NotNull SAbstractConcept __thisConcept__, String name) {
+    return Identifiers.isValidNonKeyword(name);
   }
 
   /*package*/ IIdentifier__BehaviorDescriptor() {
@@ -95,6 +100,8 @@ public final class IIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((Class<? extends MemberSignature>) getMemberSignatureKind_id5q426iHFtTk(concept));
+      case 3:
+        return (T) ((Boolean) isRegular_idnhyiqtKtUT(concept, (String) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

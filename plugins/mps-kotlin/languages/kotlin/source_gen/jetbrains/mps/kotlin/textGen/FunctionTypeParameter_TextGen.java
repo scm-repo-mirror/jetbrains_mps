@@ -17,7 +17,7 @@ public class FunctionTypeParameter_TextGen extends TextGenDescriptorBase {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.annotations(ctx.getPrimaryInput(), false, ctx);
     if (isNotEmptyString(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL))) {
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+      KotlinTextGen.identifier(ctx.getPrimaryInput(), ctx);
       tgs.append(": ");
     }
     tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.type$69zk));

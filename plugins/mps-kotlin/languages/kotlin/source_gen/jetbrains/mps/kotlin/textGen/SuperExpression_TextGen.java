@@ -6,10 +6,8 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SuperExpression_TextGen extends TextGenDescriptorBase {
   @Override
@@ -18,21 +16,17 @@ public class SuperExpression_TextGen extends TextGenDescriptorBase {
     tgs.append("super");
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetType$4zrk) != null)) {
       tgs.append("<");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetType$4zrk), PROPS.name$MnvL));
+      KotlinTextGen.identifier(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetType$4zrk), ctx);
       tgs.append(">");
     }
     if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetLabel$93KM) != null)) {
       tgs.append("@");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetLabel$93KM), PROPS.name$MnvL));
+      KotlinTextGen.identifier(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.targetLabel$93KM), ctx);
     }
   }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink targetType$4zrk = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af577L, 0x441fd2709ed9e88aL, "targetType");
     /*package*/ static final SReferenceLink targetLabel$93KM = MetaAdapterFactory.getReferenceLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af577L, 0x631027d1c4473729L, "targetLabel");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

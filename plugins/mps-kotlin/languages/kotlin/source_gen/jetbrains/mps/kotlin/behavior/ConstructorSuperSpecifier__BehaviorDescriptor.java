@@ -10,15 +10,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import jetbrains.mps.kotlin.api.declaration.ParameterDeclaration;
+import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.kotlin.api.declaration.FunctionDeclaration;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import java.util.Collections;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -33,10 +30,10 @@ public final class ConstructorSuperSpecifier__BehaviorDescriptor extends BaseBHD
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f6L, "jetbrains.mps.kotlin.structure.ConstructorSuperSpecifier");
 
   public static final SMethod<SNode> getInheritedType_id5q426iHvzD9 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInheritedType").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6234117012688091721L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
-  public static final SMethod<Iterable<ParameterDeclaration>> getAvailableParameters_id1$jFvlD0xqw = new SMethodBuilder<Iterable<ParameterDeclaration>>(new SJavaCompoundTypeImpl((Class<Iterable<ParameterDeclaration>>) ((Class) Object.class))).name("getAvailableParameters").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1806979145046038176L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
   public static final SMethod<SNode> convertToNonConstructor_id1$jFvlEUFDL = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("convertToNonConstructor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(1806979145078061681L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
+  public static final SMethod<FunctionDeclaration> getConstructorDescriptor_idnhyiqudFLy = new SMethodBuilder<FunctionDeclaration>(new SJavaCompoundTypeImpl(FunctionDeclaration.class)).name("getConstructorDescriptor").modifiers(8, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(419267039278316642L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInheritedType_id5q426iHvzD9, getAvailableParameters_id1$jFvlD0xqw, convertToNonConstructor_id1$jFvlEUFDL);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInheritedType_id5q426iHvzD9, convertToNonConstructor_id1$jFvlEUFDL, getConstructorDescriptor_idnhyiqudFLy);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -44,18 +41,13 @@ public final class ConstructorSuperSpecifier__BehaviorDescriptor extends BaseBHD
   /*package*/ static SNode getInheritedType_id5q426iHvzD9(@NotNull SNode __thisNode__) {
     return createClassType_au2j0a_a0a0(SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb), CONCEPTS.IClassDeclaration$bQ, true, false), ITypeArguments__BehaviorDescriptor.getTypeProjections_idFn6l2JqIEF.invoke(__thisNode__));
   }
-  @NotNull
-  /*package*/ static Iterable<ParameterDeclaration> getAvailableParameters_id1$jFvlD0xqw(@NotNull SNode __thisNode__) {
-    FunctionDeclaration desc = KotlinFunctionDeclaration.of(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb));
-    if (desc == null) {
-      return Sequence.fromIterable(Collections.<ParameterDeclaration>emptyList());
-    }
-    return desc.getParameters();
-  }
   /*package*/ static SNode convertToNonConstructor_id1$jFvlEUFDL(@NotNull SNode __thisNode__) {
     SNode node = SNodeFactoryOperations.createNewNode(CONCEPTS.SuperClassSpecifier$ZV, __thisNode__);
     SLinkOperations.setTarget(node, LINKS.target$mYQV, SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb), CONCEPTS.IClassDeclaration$bQ, true, false));
     return node;
+  }
+  /*package*/ static FunctionDeclaration getConstructorDescriptor_idnhyiqudFLy(@NotNull SNode __thisNode__) {
+    return KotlinFunctionDeclaration.of(SLinkOperations.getTarget(__thisNode__, LINKS.target$VUYb));
   }
 
   /*package*/ ConstructorSuperSpecifier__BehaviorDescriptor() {
@@ -76,9 +68,9 @@ public final class ConstructorSuperSpecifier__BehaviorDescriptor extends BaseBHD
       case 0:
         return (T) ((SNode) getInheritedType_id5q426iHvzD9(node));
       case 1:
-        return (T) ((Iterable<ParameterDeclaration>) getAvailableParameters_id1$jFvlD0xqw(node));
-      case 2:
         return (T) ((SNode) convertToNonConstructor_id1$jFvlEUFDL(node));
+      case 2:
+        return (T) ((FunctionDeclaration) getConstructorDescriptor_idnhyiqudFLy(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

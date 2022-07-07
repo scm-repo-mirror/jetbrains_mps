@@ -5,19 +5,17 @@ package jetbrains.mps.kotlin.textGen;
 import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EnumEntry_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     KotlinTextGen.annotations(ctx.getPrimaryInput(), true, ctx);
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.name$MnvL));
+    KotlinTextGen.identifier(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.projections(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.typeArguments$86s6), ctx);
 
     if (ListSequence.fromList(SLinkOperations.getChildren(ctx.getPrimaryInput(), LINKS.arguments$zJyV)).isNotEmpty()) {
@@ -27,10 +25,6 @@ public class EnumEntry_TextGen extends TextGenDescriptorBase {
     }
 
     KotlinTextGen.classBody(ctx.getPrimaryInput(), ctx);
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 
   private static final class LINKS {

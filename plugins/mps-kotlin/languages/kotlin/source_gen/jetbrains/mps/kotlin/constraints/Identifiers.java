@@ -19,9 +19,16 @@ public abstract class Identifiers {
   private static final String CHAR = "0-9" + LETTER;
   public static final Pattern VALID_IDENTIFIER = Pattern.compile("^([" + LETTER + "][" + CHAR + "]*)|`[" + CHAR + "]+`$");
 
+  private static final Pattern REGEXP = Pattern.compile("^[^`\\n\\r]+$", 0);
+  public static final Pattern QUOTED_IDENTIFIER = REGEXP;
+
   public static boolean isKeyword(String identifier) {
     // As array is sorted we can use binary search
     return Arrays.binarySearch(KEYWORDS, identifier) >= 0;
+  }
+
+  public static boolean isValidQuotableIdentifier(String identifier) {
+    return QUOTED_IDENTIFIER.matcher(identifier).matches();
   }
 
   public static boolean isValid(String identifier) {

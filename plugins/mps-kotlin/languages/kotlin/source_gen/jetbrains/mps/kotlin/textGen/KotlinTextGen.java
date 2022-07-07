@@ -13,13 +13,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.kotlin.behavior.IInheritable__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.IStatementHolder__BehaviorDescriptor;
 import jetbrains.mps.kotlin.overloading.FunctionParamHelper;
 import jetbrains.mps.kotlin.behavior.IFunctionCall__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.kotlin.overloading.Argument;
 import jetbrains.mps.kotlin.overloading.ParamException;
-import jetbrains.mps.kotlin.behavior.IIdentifier__BehaviorDescriptor;
 import jetbrains.mps.kotlin.behavior.KtEnvironmentConfig;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -29,6 +29,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public abstract class KotlinTextGen {
   public static void modifier(boolean applicable, String name, final TextGenContext ctx) {
@@ -125,7 +126,7 @@ public abstract class KotlinTextGen {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     if ((SLinkOperations.getTarget(node, LINKS.targetLabel$iS7r) != null)) {
       tgs.append("@");
-      tgs.append(SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.targetLabel$iS7r), PROPS.name$MnvL));
+      KotlinTextGen.identifier(SLinkOperations.getTarget(node, LINKS.targetLabel$iS7r), ctx);
     }
   }
   public static void inheritance(SNode node, final TextGenContext ctx) {
@@ -184,7 +185,7 @@ public abstract class KotlinTextGen {
 
     tgs.append(SConceptOperations.conceptAlias(SNodeOperations.getConcept(node)));
     tgs.append(" ");
-    tgs.append(SPropertyOperations.getString(node, PROPS.name$MnvL));
+    KotlinTextGen.identifier(node, ctx);
     KotlinTextGen.typeParameters(node, ctx);
   }
   public static void classConstraints(SNode node, final TextGenContext ctx) {
@@ -206,6 +207,17 @@ public abstract class KotlinTextGen {
           }
         }
       }
+    }
+  }
+  public static void identifier(SNode identifier, final TextGenContext ctx) {
+    final TextGenSupport tgs = new TextGenSupport(ctx);
+    boolean quoted = !((boolean) IIdentifier__BehaviorDescriptor.isRegular_idnhyiqtKtUT.invoke(SNodeOperations.asSConcept(CONCEPTS.IIdentifier$wg), SPropertyOperations.getString(identifier, PROPS.name$MnvL)));
+    if (quoted) {
+      tgs.append("`");
+    }
+    tgs.append(SPropertyOperations.getString(identifier, PROPS.name$MnvL));
+    if (quoted) {
+      tgs.append("`");
     }
   }
   public static void annotations(SNode node, boolean newLine, final TextGenContext ctx) {
@@ -363,7 +375,7 @@ public abstract class KotlinTextGen {
     if (nested) {
       tgs.append(IIdentifier__BehaviorDescriptor.getNestedName_id1d2BQ0ZyA$g.invoke(ref, KtEnvironmentConfig.Kotlin));
     } else {
-      tgs.append(SPropertyOperations.getString(ref, PROPS.name$MnvL));
+      KotlinTextGen.identifier(ref, ctx);
     }
   }
   public static void imports(final TextGenContext ctx) {
@@ -452,5 +464,6 @@ public abstract class KotlinTextGen {
   private static final class CONCEPTS {
     /*package*/ static final SConcept PublicVisibility$Me = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af395L, "jetbrains.mps.kotlin.structure.PublicVisibility");
     /*package*/ static final SConcept ClassDeclaration$Jm = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af469L, "jetbrains.mps.kotlin.structure.ClassDeclaration");
+    /*package*/ static final SInterfaceConcept IIdentifier$wg = MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af330L, "jetbrains.mps.kotlin.structure.IIdentifier");
   }
 }
