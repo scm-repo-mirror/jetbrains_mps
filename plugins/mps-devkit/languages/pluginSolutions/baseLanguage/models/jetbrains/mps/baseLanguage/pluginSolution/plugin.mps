@@ -15677,7 +15677,7 @@
       </node>
     </node>
     <node concept="3clFb_" id="3JD6rrJwjIx" role="jymVt">
-      <property role="TrG5h" value="findUssages" />
+      <property role="TrG5h" value="findUsages" />
       <node concept="3Tm6S6" id="3JD6rrJwjID" role="1B3o_S" />
       <node concept="3clFbS" id="3JD6rrJwjI$" role="3clF47">
         <node concept="3clFbJ" id="3JD6rrJwka3" role="3cqZAp">
@@ -15715,7 +15715,7 @@
                     </node>
                     <node concept="3Tm1VV" id="3JD6rrJwcXe" role="1B3o_S" />
                     <node concept="Xl_RD" id="3JD6rrJwcXf" role="37wK5m">
-                      <property role="Xl_RC" value="Searching for ussages" />
+                      <property role="Xl_RC" value="Searching for usages" />
                     </node>
                     <node concept="3clFbT" id="3JD6rrJwcXg" role="37wK5m">
                       <property role="3clFbU" value="true" />

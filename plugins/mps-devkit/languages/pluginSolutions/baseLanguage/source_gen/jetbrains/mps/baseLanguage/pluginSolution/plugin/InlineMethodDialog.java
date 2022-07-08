@@ -132,7 +132,7 @@ public class InlineMethodDialog extends RefactoringDialog {
    */
   @Override
   protected void doRefactoringAction() {
-    SearchResults<SNode> usages = findUssages();
+    SearchResults<SNode> usages = findUsages();
     if (canExecuteRefactoring(usages)) {
       performRefactoring(usages);
     }
@@ -147,12 +147,12 @@ public class InlineMethodDialog extends RefactoringDialog {
     dialog.show();
     return dialog.getExitCode() == DialogWrapper.NEXT_USER_EXIT_CODE;
   }
-  private SearchResults<SNode> findUssages() {
+  private SearchResults<SNode> findUsages() {
     if (!(myForAll)) {
       return null;
     }
     final Wrappers._T<SearchResults<SNode>> usages = new Wrappers._T<SearchResults<SNode>>();
-    ProgressManager.getInstance().run(new Task.Modal(getProject(), "Searching for ussages", true) {
+    ProgressManager.getInstance().run(new Task.Modal(getProject(), "Searching for usages", true) {
       @Override
       public void run(@NotNull final ProgressIndicator indicator) {
         myEditorRepo.getModelAccess().runReadAction(() -> usages.value = MethodRefactoringUtils.findMethodUsages(ProjectHelper.fromIdeaProject(getProject()).new ProjectScope(), myModel.getMethod(), new ProgressMonitorAdapter(indicator)));
@@ -206,7 +206,7 @@ public class InlineMethodDialog extends RefactoringDialog {
     }
     @Override
     protected void doAction(ActionEvent event) {
-      final SearchResults<SNode> usages = findUssages();
+      final SearchResults<SNode> usages = findUsages();
       if (canExecuteRefactoring(usages)) {
         RefactoringViewAction refactoringViewAction = new RefactoringViewAction() {
           @Override
