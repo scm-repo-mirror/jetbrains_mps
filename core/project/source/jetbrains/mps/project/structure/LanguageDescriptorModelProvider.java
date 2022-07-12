@@ -17,7 +17,6 @@ package jetbrains.mps.project.structure;
 
 import jetbrains.mps.extapi.model.GeneratableSModel;
 import jetbrains.mps.extapi.module.SModuleBase;
-import jetbrains.mps.extapi.module.SModuleExt;
 import jetbrains.mps.generator.ModelDigestUtil;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.project.persistence.LanguageDescriptorPersistence;
@@ -84,11 +83,7 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
           }
         }
       });
-      if (module instanceof SModuleExt) {
-        ((SModuleExt) module).forEachRegisteredModel(mlattach);
-      } else {
-        module.getModels().forEach(mlattach);
-      }
+      module.forEachRegisteredModel(mlattach);
     }
 
     public void detach(SModule module) {
@@ -96,12 +91,7 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
         myListenedModels.remove(m.getReference());
         m.removeChangeListener(this);
       });
-      if (module instanceof SModuleExt) {
-        ((SModuleExt) module).forEachRegisteredModel(mldetach);
-      } else {
-        // doesn't hurt to remove a listener even if we didn't add it
-        module.getModels().forEach(mldetach);
-      }
+      module.forEachRegisteredModel(mldetach);
     }
 
     @Override

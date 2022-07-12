@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package org.jetbrains.mps.openapi.module;
 
-import jetbrains.mps.extapi.module.SModuleExt;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
 import org.jetbrains.mps.openapi.event.SNodeReadEvent;
@@ -69,24 +68,12 @@ public class SRepositoryContentAdapter implements
   protected void startListening(SModule module) {
     if (!isIncluded(module)) return;
     module.addModuleListener(this);
-    if (module instanceof SModuleExt) {
-      ((SModuleExt) module).forEachRegisteredModel(this::startListening);
-    } else {
-      for (SModel model : module.getModels()) {
-        startListening(model);
-      }
-    }
+    module.forEachRegisteredModel(this::startListening);
   }
 
   protected void stopListening(SModule module) {
     // it's not very nice to stop listening models of any module, even the one we didn't include this module in startListening(SModule), but who cares
-    if (module instanceof SModuleExt) {
-      ((SModuleExt) module).forEachRegisteredModel(this::stopListening);
-    } else {
-      for (SModel model : module.getModels()) {
-        stopListening(model);
-      }
-    }
+    module.forEachRegisteredModel(this::stopListening);
     module.removeModuleListener(this);
   }
 

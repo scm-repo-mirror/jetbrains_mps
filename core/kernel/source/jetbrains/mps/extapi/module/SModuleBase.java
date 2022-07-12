@@ -163,9 +163,6 @@ public abstract class SModuleBase implements SModule, SModuleExt {
     return myCachedModelsList;
   }
 
-  /*s
-   * INTERNAL API, DON'T USE OUTSIDE OF MPS IMPLEMENTATION
-   */
   @Override
   public void forEachRegisteredModel(Consumer<? super SModel> c) {
     assertCanRead();
