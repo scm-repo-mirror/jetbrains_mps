@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 public final class LoadedModelsPanel extends TextPanel implements CustomStatusBarWidget, Activatable {
   public static final String WIDGET_ID = "Models";
@@ -168,24 +169,18 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
 
   // generally runs on a pooled, non-EDT, thread
   /*package*/ void updateState() {
-    final SRepository repo = myProject.getRepository();
-    // don't want to block any write action, there's nothing important in this mem indicator
-    final CancellableReadAction ra = new CancellableReadAction() {
+    class ModelCounter implements Consumer<SModel> {
+      int modelsTotal = 0, loadedModels = 0;
+
       @Override
-      protected void execute() {
-        int modelsTotal = 0, loadedModels = 0;
-        for (SModule module : repo.getModules()) {
-          if (isCancelRequested()) {
-            confirmCancel();
-            return;
-          }
-          for (SModel m : module.getModels()) {
-            modelsTotal++;
-            if (m.isLoaded()) {
-              loadedModels++;
-            }
-          }
+      public void accept(SModel m) {
+        modelsTotal++;
+        if (m.isLoaded()) {
+          loadedModels++;
         }
+      }
+
+      void fireUpdateIfChanged() {
         if (loadedModels != myLastLoadedModels || modelsTotal != myModelsTotal) {
           myLastLoadedModels = loadedModels;
           myModelsTotal = modelsTotal;
@@ -194,8 +189,25 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
           EdtExecutorService.getInstance().execute(() -> updateVisuals(tx, tt));
         }
       }
+    }
+    // FIXME tell project models/modules from deployed modules/models
+    final ModelCounter mc = new ModelCounter();
+    final SRepository repo = myProject.getRepository();
+    // don't want to block any write action, there's nothing important in this mem indicator
+    final CancellableReadAction ra = new CancellableReadAction() {
+      @Override
+      protected void execute() {
+        for (SModule module : repo.getModules()) {
+          if (isCancelRequested()) {
+            confirmCancel();
+            return;
+          }
+          module.forEachRegisteredModel(mc);
+        }
+      }
     };
     repo.getModelAccess().runReadAction(ra);
+    mc.fireUpdateIfChanged();
   }
 
   // XXX not sure setText/setToolTipText/isShowing do need EDT, but it's safe to assume they do,
@@ -214,7 +226,7 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
   }
 
   private static String formatTooltip(int loaded, int max) {
-    return "Models Loaded: " + loaded + "<br>" + "Total: " + max;
+    return String.format("Models fully loaded: %d<br>Total registered: %d", loaded, max);
   }
 
   public static final class WidgetFactory implements StatusBarWidgetFactory {

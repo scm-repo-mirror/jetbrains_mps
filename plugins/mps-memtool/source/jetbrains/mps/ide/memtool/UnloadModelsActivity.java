@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2021 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,9 +76,7 @@ import static com.intellij.openapi.util.io.FileUtilRt.MEGABYTE;
   private static void forEachModel(SRepository repo, Consumer<SModel> consumer) {
     repo.getModelAccess().runWriteAction(() -> {
       for (SModule module : repo.getModules()) {
-        for (SModel model : module.getModels()) {
-          consumer.accept(model);
-        }
+        module.forEachRegisteredModel(consumer);
       }
     });
   }
