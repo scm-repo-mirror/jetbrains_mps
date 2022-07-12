@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * @author Fedor Isakov
  */
-public class WorkbenchTypecheckingController extends DefaultTypecheckingController {
+public class WorkbenchTypecheckingController extends DefaultTypecheckingController implements ParametersDiscoverable {
 
   private static final Logger LOG = Logger.getLogger(WorkbenchTypecheckingController.class);
 
@@ -62,6 +62,17 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
     } else {
       return super.requestSession(flags);
     }
+  }
+
+  @Override
+  public Map<String, ?> discoverParameters(SNode anchor) {
+    SNode containingRoot = anchor.getContainingRoot();
+    TypecheckingSessionImpl session = myRootSessions.get(new SNodeHandle(containingRoot));
+    if (session == null) {
+      // sometimes root is not the "containing root"
+      session = myRootSessions.get(new SNodeHandle(anchor));
+    }
+    return session != null ? session.flags().getParamsMap() : null;
   }
 
   @NotNull

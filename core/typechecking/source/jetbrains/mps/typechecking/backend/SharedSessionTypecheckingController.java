@@ -25,10 +25,12 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.Map;
+
 /**
  * @author Fedor Isakov
  */
-public class SharedSessionTypecheckingController extends TypecheckingController {
+public class SharedSessionTypecheckingController extends TypecheckingController implements ParametersDiscoverable {
 
   private TypecheckingSessionImpl mySharedSession;
   private TypecheckingController myDelegate;
@@ -57,6 +59,11 @@ public class SharedSessionTypecheckingController extends TypecheckingController 
     }
     // not disposing the delegate: TypecheckingFacade is responsible for it
     this.myDelegate = null;
+  }
+
+  @Override
+  public Map<String, ?> discoverParameters(SNode anchor) {
+    return mySharedSession.discoverParameters(anchor);
   }
 
   @NotNull

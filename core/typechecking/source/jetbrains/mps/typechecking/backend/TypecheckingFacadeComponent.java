@@ -9,18 +9,19 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.TypecheckingSession;
-import jetbrains.mps.typechecking.backend.TypecheckingProvider.AuxDataContainer;
 import jetbrains.mps.typechecking.TypecheckingSession.Flags;
 import jetbrains.mps.typechecking.internal.MPSTypechecking;
 import jetbrains.mps.util.containers.ConcurrentHashSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.SwingUtilities;
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -59,12 +60,12 @@ public class TypecheckingFacadeComponent implements CoreComponent {
                 return new WorkbenchTypecheckingController(myTypecheckingBackend);
               }
 
-              public TypecheckingController createIsolatedController(Flags flags) {
+              public TypecheckingController createIsolatedController(Flags flags, ParametersDiscoverable discoverable) {
                 if (flags.getRoot() != null && flags.isIncremental()) {
                   return new WorkbenchTypecheckingController(myTypecheckingBackend);
 
                 } else {
-                  return new DefaultTypecheckingController(myTypecheckingBackend, flags);
+                  return new IsolatedTypecheckingController(myTypecheckingBackend, flags, discoverable);
                 }
               }
 
@@ -80,8 +81,8 @@ public class TypecheckingFacadeComponent implements CoreComponent {
                 return new DefaultTypecheckingController(myTypecheckingBackend, TypecheckingSession.Flags.basic());
               }
 
-              public TypecheckingController createIsolatedController(Flags flags) {
-                return new DefaultTypecheckingController(myTypecheckingBackend, flags);
+              public TypecheckingController createIsolatedController(Flags flags, ParametersDiscoverable discoverable) {
+                return new IsolatedTypecheckingController(myTypecheckingBackend, flags, discoverable);
               }
 
               public TypecheckingController createSharedController(@NotNull TypecheckingSessionImpl session, TypecheckingController contextController) {
@@ -116,7 +117,7 @@ public class TypecheckingFacadeComponent implements CoreComponent {
 
     TypecheckingController createContextController();
 
-    TypecheckingController createIsolatedController(Flags flags);
+    TypecheckingController createIsolatedController(Flags flags, ParametersDiscoverable parametersDiscoverable);
 
     TypecheckingController createSharedController(@NotNull TypecheckingSessionImpl session, TypecheckingController contextController);
 
@@ -161,7 +162,7 @@ public class TypecheckingFacadeComponent implements CoreComponent {
     @Override
     protected TypecheckingController overrideIsolatedController(Flags flags) {
       init();
-      TypecheckingController controller = myControllerFactory.createIsolatedController(flags);
+      TypecheckingController controller = myControllerFactory.createIsolatedController(flags, peek());
       push(controller);
       return controller;
     }

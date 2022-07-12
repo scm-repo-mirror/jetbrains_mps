@@ -40,10 +40,9 @@ import java.util.function.Consumer;
  *
  * @author Fedor Isakov
  */
-public abstract class TypecheckingController implements TypecheckingQueries {
+public abstract class TypecheckingController implements TypecheckingQueries, ParametersDiscoverable {
 
   private final TypecheckingBackend myTypecheckingBackend;
-
 
   public TypecheckingController(TypecheckingBackend typecheckingBackend) {
     myTypecheckingBackend = typecheckingBackend;
@@ -157,7 +156,7 @@ public abstract class TypecheckingController implements TypecheckingQueries {
   }
 
   @NotNull
-  protected final TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
+  protected TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
     return myTypecheckingBackend.selectProvider(src, trg, trgConcept, flags);
   }
 }

@@ -49,6 +49,11 @@ public class DefaultTypecheckingController extends TypecheckingController {
     disposeSession();
   }
 
+  @Override
+  public Map<String, ?> discoverParameters(SNode anchor) {
+    return null;
+  }
+
   @NotNull
   @Override
   protected Handle requestSession(@NotNull Flags flags) {
