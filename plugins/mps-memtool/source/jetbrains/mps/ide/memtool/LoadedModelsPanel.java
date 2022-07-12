@@ -39,6 +39,7 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.CancellableReadAction;
+import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -54,6 +55,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Arrays;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -64,8 +66,8 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
 
   private final MPSProject myProject;
   private ScheduledFuture<?> myFuture;
-  private int myLastLoadedModels = 0;
-  private int myModelsTotal = 1000;
+
+  private final Stats myStats = new Stats();
 
   private final MouseListener myActionListener = new MouseAdapter() {
     @Override
@@ -141,7 +143,7 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
     Dimension size = getSize();
     int barWidth = size.width;
 
-    int usedBarLength = barWidth * myLastLoadedModels / myModelsTotal;
+    int usedBarLength = myStats.totalModels == 0 ? 0 : barWidth * myStats.loadedModels / myStats.totalModels;
 
     // background
     g.setColor(UIUtil.getPanelBackground());
@@ -164,37 +166,20 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
 
   @Override
   protected String getTextForPreferredSize() {
-    return " " + formatCaption(1000, 1000);
+    // 5 digits per counter, 2 counters in "current of total"
+    char[] c = new char[5*3];
+    Arrays.fill(c, '0');
+    return new String(c);
   }
 
   // generally runs on a pooled, non-EDT, thread
   /*package*/ void updateState() {
-    class ModelCounter implements Consumer<SModel> {
-      int modelsTotal = 0, loadedModels = 0;
-
-      @Override
-      public void accept(SModel m) {
-        modelsTotal++;
-        if (m.isLoaded()) {
-          loadedModels++;
-        }
-      }
-
-      void fireUpdateIfChanged() {
-        if (loadedModels != myLastLoadedModels || modelsTotal != myModelsTotal) {
-          myLastLoadedModels = loadedModels;
-          myModelsTotal = modelsTotal;
-          final String tx = formatCaption(loadedModels, modelsTotal);
-          final String tt = formatTooltip(loadedModels, modelsTotal);
-          EdtExecutorService.getInstance().execute(() -> updateVisuals(tx, tt));
-        }
-      }
-    }
     // FIXME tell project models/modules from deployed modules/models
-    final ModelCounter mc = new ModelCounter();
     final SRepository repo = myProject.getRepository();
     // don't want to block any write action, there's nothing important in this mem indicator
-    final CancellableReadAction ra = new CancellableReadAction() {
+    class ModelCounter extends CancellableReadAction implements Consumer<SModel> {
+      final Stats s = new Stats();
+
       @Override
       protected void execute() {
         for (SModule module : repo.getModules()) {
@@ -202,12 +187,36 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
             confirmCancel();
             return;
           }
-          module.forEachRegisteredModel(mc);
+          s.totalModules++;
+          if (myProject.isProjectModule(module)) {
+            s.projectModules++;
+          }
+          if (module.isPackaged()) {
+            s.packagedModules++;
+          }
+          module.forEachRegisteredModel(this);
+        }
+      }
+
+      @Override
+      public void accept(SModel m) {
+        s.totalModels++;
+        if (m.isLoaded()) {
+          s.loadedModels++;
+        }
+        if (SModelStereotype.isStubModel(m)) {
+          s.stubModels++;
         }
       }
     };
-    repo.getModelAccess().runReadAction(ra);
-    mc.fireUpdateIfChanged();
+    ModelCounter mc = new ModelCounter();
+    repo.getModelAccess().runReadAction(mc);
+    if (myStats.differs(mc.s)) {
+      myStats.resetFrom(mc.s);
+      final String tx = myStats.caption();
+      final String tt = myStats.tooltip();
+      EdtExecutorService.getInstance().execute(() -> updateVisuals(tx, tt));
+    }
   }
 
   // XXX not sure setText/setToolTipText/isShowing do need EDT, but it's safe to assume they do,
@@ -218,15 +227,6 @@ public final class LoadedModelsPanel extends TextPanel implements CustomStatusBa
     }
     setText(text);
     setToolTipText(tooltip);
-  }
-
-  @NotNull
-  private static String formatCaption(int loaded, int max) {
-    return loaded + " of " + max + "       "; // last spaces make a place for icon
-  }
-
-  private static String formatTooltip(int loaded, int max) {
-    return String.format("Models fully loaded: %d<br>Total registered: %d", loaded, max);
   }
 
   public static final class WidgetFactory implements StatusBarWidgetFactory {
