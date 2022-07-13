@@ -223,7 +223,7 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
 
         int messagesToRemove = 0;
         if (myMessages.size() > MessageList.this.myMaxListSize) {
-          for (int i = Math.min(myMessages.size() - MessageList.this.myMaxListSize, myMessages.size()); i > 0; i--) {
+          for (int i = myMessages.size() - MessageList.this.myMaxListSize; i > 0; i--) {
             IMessage toRemove = myMessages.remove();
             updateMessageCounters(toRemove, -1);
             if (isVisible(toRemove)) {
@@ -231,9 +231,11 @@ public abstract class MessageList implements IMessageList, SearchHistoryStorage,
             }
           }
           if (messagesToRemove > myModel.getSize()) {
-            messagesToAdd = messagesToAdd.subList(messagesToRemove - myModel.getSize(), messagesToAdd.size());
             messagesToRemove = myModel.getSize();
           }
+          messagesToAdd = messagesToAdd.subList(
+              Math.max(messagesToAdd.size() - MessageList.this.myMaxListSize, 0),
+              messagesToAdd.size());
         }
 
         if (messagesToRemove > 0) {
