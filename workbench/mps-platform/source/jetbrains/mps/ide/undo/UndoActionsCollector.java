@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2022 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,6 +63,8 @@ public class UndoActionsCollector {
     myIsGlobal |= action.getAssociatedVfsChange() != VFSChange.NOT_CHANGED;
 
     MPSNodeVirtualFile fileToUpdate = null;
+    // UndoContext may change virtualFileNode, e.g. like EditorCommand does (which ignores affected node of e.g. AddRootUndoableAction), while
+    // respecting action's getAssociatedVfsChange(). It's odd. I suppose MPS-31758 is about this.
     for (SNode virtualFileNode : myUndoContext.getVirtualFileNodes(action)) {
       if (virtualFileNode.getModel() == null) {
         continue;
