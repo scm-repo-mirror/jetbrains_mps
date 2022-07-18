@@ -7,8 +7,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.kotlin.behavior.NodeTypeVarSubs;
 import jetbrains.mps.references.Reference;
 import java.util.List;
-import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.kotlin.behavior.IType__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.kotlin.api.declaration.TypeParameterDeclaration;
@@ -64,6 +65,7 @@ public class DirectSuperTypesVisitor implements SuperTypesVisitor {
   protected DirectSuperTypesVisitor(SNode visitedType) {
     myVisitedType = visitedType;
     setSubstitutions(new NodeTypeVarSubs());
+    setSupertypes(ListSequence.fromList(new ArrayList<SNode>()));
   }
 
   @Override

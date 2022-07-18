@@ -53,6 +53,7 @@ public final class KotlinFileClassifierType__BehaviorDescriptor extends BaseBHDe
   /*package*/ static String toString_id4nn3FPlZH$r(@NotNull SNode __thisNode__, boolean erased) {
     return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.file$5SpC), PROPS.name$MnvL) + "Kt";
   }
+  @NotNull
   /*package*/ static TypeKey shallowId_idJmO2PmZtH5(@NotNull SNode __thisNode__) {
     return new ClassTypeKey(SLinkOperations.getPointer(__thisNode__, LINKS.file$5SpC));
   }

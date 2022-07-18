@@ -5,6 +5,7 @@ package jetbrains.mps.baseLanguage.kotlinRefs.typesystem;
 import jetbrains.mps.lang.typesystem.runtime.BaseHelginsDescriptor;
 import jetbrains.mps.lang.typesystem.runtime.InferenceRule_Runtime;
 import jetbrains.mps.lang.typesystem.runtime.SubtypingRule_Runtime;
+import jetbrains.mps.lang.typesystem.runtime.InequationReplacementRule_Runtime;
 
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
   public TypesystemDescriptor() {
@@ -27,6 +28,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     {
       SubtypingRule_Runtime subtypingRule = new supertypesOf_KtTypeParameterReference_SubtypingRule();
       this.mySubtypingRules.add(subtypingRule);
+    }
+    {
+      InequationReplacementRule_Runtime eliminationRule = new kotlinClassifierType_subtypeOf_genericType_InequationReplacementRule();
+      this.myInequationReplacementRules.add(eliminationRule);
     }
   }
 }
