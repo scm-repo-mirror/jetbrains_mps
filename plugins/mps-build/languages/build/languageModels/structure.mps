@@ -1323,6 +1323,11 @@
       <property role="IQ2nx" value="1476884141929960215" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="1TJgyi" id="1FkcQH_$3_5" role="1TKVEl">
+      <property role="IQ2nx" value="1933226676407253317" />
+      <property role="TrG5h" value="generatorJvmOptions" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
     <node concept="1QGGSu" id="4Q8sAA5iJQO" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/javaOptions.png" />
     </node>

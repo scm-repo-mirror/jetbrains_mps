@@ -37,7 +37,7 @@
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/3856853424911912638">
     <file name="mpsEditorImageGen.xml">
-      <unit id="3856853424911912638" at="1,0,769,10" name="jetbrains.mps.ide.build.tests.mpsEditorImageGen" />
+      <unit id="3856853424911912638" at="1,0,770,10" name="jetbrains.mps.ide.build.tests.mpsEditorImageGen" />
     </file>
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/4074183641147971049">
