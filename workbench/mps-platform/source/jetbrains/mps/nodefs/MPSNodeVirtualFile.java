@@ -116,6 +116,7 @@ public final class MPSNodeVirtualFile extends VirtualFile {
    * Pre-evaluated user-presentable name of the file, may include extra information to distinguish nodes with the same {@linkplain #getName() name}.
    * This method doesn't require model access.
    */
+  @NotNull
   @Override
   public String getPresentableName() {
     return myPresentationName;
