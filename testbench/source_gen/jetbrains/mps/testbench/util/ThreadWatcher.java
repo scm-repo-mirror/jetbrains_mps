@@ -117,6 +117,9 @@ public class ThreadWatcher implements Output {
       builder.append("|(Keep\\-Alive.*)");
       builder.append("|(AnimatorThread)");
 
+      // RMI specific threads (used by KotlinCompilerRunner)
+      builder.append("|(RMI .*)");
+
       // macOS specific thread
       builder.append("|(Poller SunPKCS11-Darwin)");
 
