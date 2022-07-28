@@ -1,6 +1,6 @@
 package jetbrains.mps.kotlin.smodel.runtime.lib
-import kotlin.collections.List
 import kotlin.Array
+import kotlin.collections.List
 import kotlin.Boolean
 import org.jetbrains.mps.openapi.language.SAbstractConcept
 import org.jetbrains.mps.openapi.model.SNode

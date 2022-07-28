@@ -7,7 +7,7 @@
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/plugins/mps-kotlin/lib/kotlin-stdlib-common-1.7.0.jar" />
-    <stubModelEntry path="${mps_home}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar" />
+    <stubModelEntry path="${mps_home}/plugins/mps-kotlin/lib/kotlin-stdlib-1.7.0.jar" />
   </stubModelEntries>
   <models>
     <!-- Regular (JVM) stdlib is not included there -->

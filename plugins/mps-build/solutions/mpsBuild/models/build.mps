@@ -2116,9 +2116,6 @@
         <node concept="3_I8Xc" id="342RIYSTir4" role="39821P">
           <ref role="3_I8Xa" node="342RIYSThyD" />
         </node>
-        <node concept="3_I8Xc" id="2a4T6D6rraC" role="39821P">
-          <ref role="3_I8Xa" node="2a4T6D6r5S_" />
-        </node>
         <node concept="3981dx" id="1FaKCGJSzFW" role="39821P">
           <node concept="3ygNvl" id="wKi8DoW48f" role="39821P">
             <ref role="3ygNvj" node="wKi8DoW41H" resolve="vfs.jar" />
@@ -49208,25 +49205,6 @@
     </node>
     <node concept="PiPfp" id="2FD4j7hQCb6" role="3989C9">
       <property role="TrG5h" value="kotlin-metadata" />
-      <node concept="25yagZ" id="2FD4j7hQChm" role="PiKyV">
-        <node concept="2HycW7" id="2FD4j7hQChi" role="25yagT">
-          <node concept="398BVA" id="2a4T6D6rma7" role="25ysHA">
-            <ref role="398BVh" node="6IJvZDkyhr7" resolve="projectHome" />
-            <node concept="2Ry0Ak" id="2a4T6D6rma8" role="iGT6I">
-              <property role="2Ry0Am" value="plugins" />
-              <node concept="2Ry0Ak" id="2a4T6D6rma9" role="2Ry0An">
-                <property role="2Ry0Am" value="mps-core" />
-                <node concept="2Ry0Ak" id="2a4T6D6rmaa" role="2Ry0An">
-                  <property role="2Ry0Am" value="lib" />
-                  <node concept="2Ry0Ak" id="2a4T6D6rmbu" role="2Ry0An">
-                    <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
       <node concept="25yagZ" id="2FD4j7hQLdQ" role="PiKyV">
         <node concept="2HycW7" id="2FD4j7hQLdR" role="25yagT">
           <node concept="398BVA" id="6wLf4lx9D_f" role="25ysHA">
@@ -50405,23 +50383,6 @@
         </node>
         <node concept="Saw0i" id="21I$vcvIHyI" role="39821P">
           <ref role="Saw0g" node="21I$vcvIHpM" resolve="mps-tool-convertModels" />
-        </node>
-      </node>
-      <node concept="28jJK3" id="2a4T6D6r5S_" role="39821P">
-        <node concept="398BVA" id="2a4T6D6r5SA" role="28jJRO">
-          <ref role="398BVh" node="6IJvZDkyhr7" resolve="projectHome" />
-          <node concept="2Ry0Ak" id="2a4T6D6r5SB" role="iGT6I">
-            <property role="2Ry0Am" value="plugins" />
-            <node concept="2Ry0Ak" id="2a4T6D6r5SC" role="2Ry0An">
-              <property role="2Ry0Am" value="mps-core" />
-              <node concept="2Ry0Ak" id="2a4T6D6r5SD" role="2Ry0An">
-                <property role="2Ry0Am" value="lib" />
-                <node concept="2Ry0Ak" id="2a4T6D6rm0$" role="2Ry0An">
-                  <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
-                </node>
-              </node>
-            </node>
-          </node>
         </node>
       </node>
       <node concept="28jJK3" id="342RIYSThyD" role="39821P">
@@ -51866,28 +51827,6 @@
         <property role="TrG5h" value="jetbrains.mps.kotlin.stdlib" />
         <property role="3LESm3" value="b50d89c0-0fb9-4105-b652-222148c26a9b" />
         <property role="2GAjPV" value="true" />
-        <node concept="1SiIV0" id="1oDhglv0GMW" role="3bR37C">
-          <node concept="1BurEX" id="1oDhglv0GMX" role="1SiIV1">
-            <node concept="3yrxFa" id="1oDhglv0GN0" role="2gdwQb">
-              <ref role="3yrxFb" node="2a4T6D6r5S_" />
-            </node>
-            <node concept="398BVA" id="2a4T6D6rlBx" role="1BurEY">
-              <ref role="398BVh" node="1fy59xXoa5n" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="2a4T6D6rlBy" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="2a4T6D6rlE7" role="2Ry0An">
-                  <property role="2Ry0Am" value="mps-core" />
-                  <node concept="2Ry0Ak" id="2a4T6D6rlGi" role="2Ry0An">
-                    <property role="2Ry0Am" value="lib" />
-                    <node concept="2Ry0Ak" id="2a4T6D6rlIt" role="2Ry0An">
-                      <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="398BVA" id="Ye$g8PO9xW" role="3LF7KH">
           <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
           <node concept="2Ry0Ak" id="Ye$g8PO9xX" role="iGT6I">
@@ -51908,6 +51847,19 @@
                 <property role="2Ry0Am" value="lib" />
                 <node concept="2Ry0Ak" id="5_$mXMqOBsf" role="2Ry0An">
                   <property role="2Ry0Am" value="kotlin-stdlib-common-1.7.0.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="4u1Fin18OzD" role="3bR37C">
+          <node concept="1BurEX" id="4u1Fin18OzE" role="1SiIV1">
+            <node concept="398BVA" id="4u1Fin18Ozs" role="1BurEY">
+              <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
+              <node concept="2Ry0Ak" id="4u1Fin18Ozt" role="iGT6I">
+                <property role="2Ry0Am" value="lib" />
+                <node concept="2Ry0Ak" id="4u1Fin18Ozu" role="2Ry0An">
+                  <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
                 </node>
               </node>
             </node>
@@ -51948,17 +51900,8 @@
         <node concept="398223" id="1oDhglv4ReF" role="39821P">
           <node concept="3_J27D" id="1oDhglv4ReH" role="Nbhlr">
             <node concept="3Mxwew" id="1oDhglv4Rf5" role="3MwsjC">
-              <property role="3MwjfP" value="languagues" />
+              <property role="3MwjfP" value="languages" />
             </node>
-          </node>
-          <node concept="28u9K_" id="1fdBXnioIvx" role="39821P">
-            <property role="28hIV_" value="Kotlin language + internal utility language + stdlib" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioCqI" role="39821P">
-            <ref role="L2wRA" node="Ye$g8PO8Uc" resolve="jetbrains.mps.kotlin" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioIa2" role="39821P">
-            <ref role="L2wRA" node="1G33vFCcOiL" resolve="jetbrains.mps.kotlin.internal" />
           </node>
           <node concept="3981dx" id="1oDhglv4RYV" role="39821P">
             <node concept="1bldCd" id="1oDhglv4Rlt" role="39821P">
@@ -51970,36 +51913,6 @@
               </node>
             </node>
           </node>
-          <node concept="28u9K_" id="1fdBXnioIm$" role="39821P">
-            <property role="28hIV_" value="Base language interop" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioIfj" role="39821P">
-            <ref role="L2wRA" node="Ye$g8PO8XA" resolve="jetbrains.mps.kotlin.baseLanguage.runtime" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioCt5" role="39821P">
-            <ref role="L2wRA" node="Ye$g8PO8TM" resolve="jetbrains.mps.kotlin.javaRefs" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioI3P" role="39821P">
-            <ref role="L2wRA" node="Ye$g8PO8Uw" resolve="jetbrains.mps.baseLanguage.kotlinRefs" />
-          </node>
-          <node concept="28u9K_" id="1fdBXnioILc" role="39821P">
-            <property role="28hIV_" value="SModel language interop" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioCtw" role="39821P">
-            <ref role="L2wRA" node="1G33vFC9d3f" resolve="jetbrains.mps.kotlin.smodel" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioCz9" role="39821P">
-            <ref role="L2wRA" node="1G33vFC9dMs" resolve="jetbrains.mps.kotlin.smodel.runtime" />
-          </node>
-          <node concept="28u9K_" id="1fdBXnioJ_o" role="39821P">
-            <property role="28hIV_" value="Devkits" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioJDy" role="39821P">
-            <ref role="L2wRA" node="Ye$g8PO912" resolve="jetbrains.mps.devkit.kotlin" />
-          </node>
-          <node concept="L2wRC" id="1fdBXnioJHI" role="39821P">
-            <ref role="L2wRA" node="5I86xgmtLbe" resolve="jetbrains.mps.devkit.kotlin.jvm" />
-          </node>
         </node>
         <node concept="398223" id="Ye$g8POamn" role="39821P">
           <node concept="28jJK3" id="2ZkYPo6ri9u" role="39821P">
@@ -52009,6 +51922,17 @@
                 <property role="2Ry0Am" value="lib" />
                 <node concept="2Ry0Ak" id="5_$mXMqPcgG" role="2Ry0An">
                   <property role="2Ry0Am" value="kotlin-builtins.jar" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="28jJK3" id="4u1Fin18OSy" role="39821P">
+            <node concept="398BVA" id="4u1Fin18OSz" role="28jJRO">
+              <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
+              <node concept="2Ry0Ak" id="4u1Fin18OS$" role="iGT6I">
+                <property role="2Ry0Am" value="lib" />
+                <node concept="2Ry0Ak" id="4u1Fin18OXI" role="2Ry0An">
+                  <property role="2Ry0Am" value="kotlin-stdlib-1.7.0.jar" />
                 </node>
               </node>
             </node>
@@ -52040,7 +51964,7 @@
             </node>
           </node>
         </node>
-        <node concept="pUk6w" id="1fdBXnioqQV" role="pUk7w" />
+        <node concept="pUk6x" id="4u1Fin18OB9" role="pUk7w" />
       </node>
     </node>
     <node concept="10PD9b" id="1fy59xXoa3h" role="10PD9s" />

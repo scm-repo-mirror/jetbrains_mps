@@ -12,7 +12,7 @@ import java.util.Set;
  * Kotlin output cache for a single module. It contains the list of all inputs for each
  * output file.
  * <br>
- * This data is used for compilation avoidance (not compiling modules that are up to date)
+ * This data is used for compilation avoidance (not compiling modules that are up-to-date)
  */
 public class KotlinModuleCache {
   private final Map<String, List<String>> myOutputToSourceFiles;

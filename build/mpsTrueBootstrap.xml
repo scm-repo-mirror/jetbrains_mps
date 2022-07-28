@@ -65,7 +65,6 @@
   </path>
   
   <path id="path.java.library.kotlin-metadata">
-    <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar" />
     <fileset file="${projectHome}/plugins/mps-core/lib/kotlinx-metadata-jvm-0.4.2.jar" />
   </path>
   
@@ -132,9 +131,6 @@
       <fileset dir="${build.tmp}/java/out/platform-persistence-only" />
       <fileset dir="${build.tmp}/java/out/mps-tool-convertModels" />
     </jar>
-    <copy todir="${build.layout}">
-      <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-stdlib-1.7.0.jar" />
-    </copy>
     <copy todir="${build.layout}">
       <fileset file="${projectHome}/plugins/mps-core/lib/kotlin-compiler-client-embeddable-1.7.0.jar" />
     </copy>

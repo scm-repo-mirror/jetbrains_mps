@@ -77,7 +77,6 @@
         <and>
           <!-- Assumes the presence of javadoc and such if the version is correct -->
           <available file="${kotlin.core.libs}/kotlinx-metadata-jvm-0.4.2.jar"/>
-          <available file="${kotlin.core.libs}/kotlin-stdlib-${kotlin.version}.jar"/>
           <available file="${kotlin.core.libs}/kotlin-compiler-client-embeddable-${kotlin.version}.jar"/>
         </and>
       </not>
@@ -109,6 +108,7 @@
       <not>
         <and>
           <available file="${kotlin.lib}/kotlin-stdlib-common-${kotlin.version}.jar"/>
+          <available file="${kotlin.lib}/kotlin-stdlib-${kotlin.version}.jar"/>
           <available file="${kotlin.lib}/kotlin-builtins.jar"/>
         </and>
       </not>
