@@ -418,10 +418,10 @@
     <ivy:resolve file="./ivyKotlinCompiler-${kotlin.version}.xml" validate="false" showprogress="true"/>
 
     <!-- Kt 1.7.0: structure matters, those jar must be placed in a lib/ folder for the compiler to function -->
-    <ivy:retrieve pattern="${basedir}/../tools/kotlinc/lib/[artifact](-[classifier]).[ext]" type="jar" conf="default"  overwritemode="different" />
+    <ivy:retrieve pattern="${kotlin.compiler}/lib/[artifact](-[classifier]).[ext]" type="jar" conf="default"  overwritemode="different" />
 
     <!-- Kt 1.7.0: version number is included in annotations.jar -->
-    <rename src="${basedir}/../tools/kotlinc/lib/annotations.jar" dest="${basedir}/../tools/kotlinc/lib/annotations-13.0.jar" />
+    <rename src="${kotlin.compiler}/lib/annotations.jar" dest="${kotlin.compiler}/lib/annotations-13.0.jar" />
   </target>
 
   <target name="download-kotlin-core-libs" depends="check-kotlin-core-libs,install-ivy" if="${kotlincorelibs.missing}"

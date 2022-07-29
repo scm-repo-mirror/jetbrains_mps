@@ -226,7 +226,7 @@ public class KotlinCompilerRunner {
    */
   @NotNull
   private static CompilerId createCompilerId() {
-    final File kotlinCompilerLib = Path.of(PathManager.getHomePath(), "tools", "kotlinc", "lib").toFile();
+    final File kotlinCompilerLib = Path.of(PathManager.getPreInstalledPluginsPath(), "mps-kotlin", "kotlinc", "lib").toFile();
 
     final File toolsJar = getToolsJar();
     final File compilerJar = new File(kotlinCompilerLib, "kotlin-compiler.jar");

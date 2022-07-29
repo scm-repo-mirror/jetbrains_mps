@@ -93,7 +93,7 @@ teamcity-info.xml
 /mps-platform.zip
 
 # Kotlin compiler
-/tools/kotlinc
+/plugins/mps-kotlin/kotlinc
 
 # Binary files, required for application startup (including Mac executable)
 /bin/linux
