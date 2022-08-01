@@ -2460,7 +2460,7 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("1476884141930961395", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x147ef24d5e272d05L, "compilerOptions"), null));
     pvqMethods.put("4416461515995914322", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x3d4a6c597112f405L, "fork"), "true"));
     pvqMethods.put("8206585334429808322", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x71e3a5e19d971200L, "conditionalCompile"), null));
-    pvqMethods.put("7687809870063245674", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x6ab0965855d6fac1L, "containsKotlin"), null));
+    pvqMethods.put("7687809870063245674", new PVQ(i++, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x6ab0965855d6fac1L, "withKotlin"), null));
     pvqMethods.put("7926701909975671868", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "value"));
     pvqMethods.put("144710003695560914", new PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "library"));
     pvqMethods.put("5248329904288079405", new PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "folder"));
