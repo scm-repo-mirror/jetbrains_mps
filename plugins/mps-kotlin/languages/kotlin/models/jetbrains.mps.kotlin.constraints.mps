@@ -3164,5 +3164,92 @@
       </node>
     </node>
   </node>
+  <node concept="1M2fIO" id="1CUeZUolNVs">
+    <property role="3GE5qa" value="expression.literal.string" />
+    <ref role="1M2myG" to="hcm8:1502VugFMzt" resolve="StringLiteralRaw" />
+    <node concept="EnEH3" id="1CUeZUolNYj" role="1MhHOB">
+      <ref role="EomxK" to="hcm8:1502VugFMzu" resolve="content" />
+      <node concept="QB0g5" id="1CUeZUolO33" role="QCWH9">
+        <node concept="3clFbS" id="1CUeZUolO34" role="2VODD2">
+          <node concept="3SKdUt" id="1CUeZUolY57" role="3cqZAp">
+            <node concept="1PaTwC" id="1CUeZUolY58" role="1aUNEU">
+              <node concept="3oM_SD" id="1CUeZUolYcp" role="1PaTwD">
+                <property role="3oM_SC" value="Allow" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYeW" role="1PaTwD">
+                <property role="3oM_SC" value="to" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYgE" role="1PaTwD">
+                <property role="3oM_SC" value="move" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYkj" role="1PaTwD">
+                <property role="3oM_SC" value="from" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYlh" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYmD" role="1PaTwD">
+                <property role="3oM_SC" value="right" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYpi" role="1PaTwD">
+                <property role="3oM_SC" value="of" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYqF" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYsw" role="1PaTwD">
+                <property role="3oM_SC" value="string" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYuN" role="1PaTwD">
+                <property role="3oM_SC" value="when" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYwF" role="1PaTwD">
+                <property role="3oM_SC" value="typing" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolY$S" role="1PaTwD">
+                <property role="3oM_SC" value="&quot;," />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYHC" role="1PaTwD">
+                <property role="3oM_SC" value="and" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYLO" role="1PaTwD">
+                <property role="3oM_SC" value="to" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYNI" role="1PaTwD">
+                <property role="3oM_SC" value="insert" />
+              </node>
+              <node concept="3oM_SD" id="1CUeZUolYQx" role="1PaTwD">
+                <property role="3oM_SC" value="\&quot;" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="1CUeZUolOd7" role="3cqZAp">
+            <node concept="22lmx$" id="1CUeZUolR4u" role="3clFbG">
+              <node concept="3fqX7Q" id="1CUeZUolR8U" role="3uHU7B">
+                <node concept="2OqwBi" id="1CUeZUolR8W" role="3fr31v">
+                  <node concept="1Wqviy" id="1CUeZUolR8X" role="2Oq$k0" />
+                  <node concept="liA8E" id="1CUeZUolR8Y" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
+                    <node concept="Xl_RD" id="1CUeZUolR8Z" role="37wK5m">
+                      <property role="Xl_RC" value="\&quot;" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="1CUeZUolQe0" role="3uHU7w">
+                <node concept="1Wqviy" id="1CUeZUolPIn" role="2Oq$k0" />
+                <node concept="liA8E" id="1CUeZUolQJ$" role="2OqNvi">
+                  <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
+                  <node concept="Xl_RD" id="1CUeZUolQLF" role="37wK5m">
+                    <property role="Xl_RC" value="\\\&quot;" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

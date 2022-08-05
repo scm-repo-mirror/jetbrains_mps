@@ -6,20 +6,14 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
-public class BinaryOperator_RemoveFromLeft {
+public class StringLiteral_Actions {
 
   /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
     return new AbstractCellAction() {
@@ -27,16 +21,10 @@ public class BinaryOperator_RemoveFromLeft {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.left$yQgK))) {
+        if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
-        if ((SLinkOperations.getTarget(node, LINKS.left$yQgK) != null) && !(SNodeOperations.getConcept(SLinkOperations.getTarget(node, LINKS.left$yQgK)).isAbstract())) {
-          SLinkOperations.setTarget(node, LINKS.left$yQgK, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression"))));
-          return;
-        }
-
-        SNode right = SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.right$yQIM));
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, right, SelectionManager.FIRST_CELL, 0);
+        SNodeOperations.deleteNode(node);
       }
 
     };
@@ -81,10 +69,5 @@ public class BinaryOperator_RemoveFromLeft {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink left$yQgK = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790954edfL, 0x11400bb790954ee0L, "left");
-    /*package*/ static final SContainmentLink right$yQIM = MetaAdapterFactory.getContainmentLink(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790954edfL, 0x11400bb790954ee2L, "right");
   }
 }

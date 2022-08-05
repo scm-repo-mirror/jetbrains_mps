@@ -216,9 +216,6 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
     private EditorCell createConstant_1() {
       EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_oalvrv_a2a");
-      Style style = new StyleImpl();
-      style.set(StyleAttributes.EDITABLE, false);
-      editorCell.getStyle().putAll(style);
       UnaryExpression_RemoveFromSuffix.setCellActions(editorCell, myNode, getEditorContext());
       editorCell.setDefaultText("");
       return editorCell;

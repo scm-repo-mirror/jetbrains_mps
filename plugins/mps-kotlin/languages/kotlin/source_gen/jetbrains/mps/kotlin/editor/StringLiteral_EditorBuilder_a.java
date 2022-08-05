@@ -82,6 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.PUNCTUATION_RIGHT, _StyleParameter_QueryFunction_fgt3_a1a0());
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
+    StringLiteral_Actions.setCellActions(editorCell, myNode, getEditorContext());
     return editorCell;
   }
   private boolean _StyleParameter_QueryFunction_fgt3_a1a0() {
@@ -205,6 +206,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     style.set(StyleAttributes.PUNCTUATION_LEFT, true);
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
+    StringLiteral_Actions.setCellActions(editorCell, myNode, getEditorContext());
     return editorCell;
   }
 

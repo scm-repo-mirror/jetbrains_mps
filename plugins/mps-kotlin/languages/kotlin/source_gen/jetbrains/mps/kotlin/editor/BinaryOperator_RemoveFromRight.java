@@ -30,7 +30,7 @@ public class BinaryOperator_RemoveFromRight {
         if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.right$yQIM))) {
           return;
         }
-        if (!(SNodeOperations.getConcept(SLinkOperations.getTarget(node, LINKS.right$yQIM)).isAbstract())) {
+        if ((SLinkOperations.getTarget(node, LINKS.right$yQIM) != null) && !(SNodeOperations.getConcept(SLinkOperations.getTarget(node, LINKS.right$yQIM)).isAbstract())) {
           SLinkOperations.setTarget(node, LINKS.right$yQIM, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4d0L, "jetbrains.mps.kotlin.structure.IExpression"))));
           return;
         }

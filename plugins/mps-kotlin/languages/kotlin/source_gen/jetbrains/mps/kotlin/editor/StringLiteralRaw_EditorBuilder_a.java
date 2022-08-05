@@ -28,7 +28,7 @@ import java.util.Objects;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
-import jetbrains.mps.kotlin.behavior.StringLiteralRaw__BehaviorDescriptor;
+import jetbrains.mps.kotlin.behavior.IStringLiteralPart__BehaviorDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -95,7 +95,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
   private boolean _StyleParameter_QueryFunction_5bsss1_a6a0() {
-    return (boolean) StringLiteralRaw__BehaviorDescriptor.isPunctuationLeft_id5yEpxXMAhZ6.invoke(getNode());
+    return (boolean) IStringLiteralPart__BehaviorDescriptor.isPunctuationLeft_id5yEpxXMAhZ6.invoke(getNode());
   }
 
   private static final class PROPS {

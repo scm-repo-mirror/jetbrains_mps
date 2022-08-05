@@ -18,8 +18,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class StringLiteralRaw__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x11400bb790af28ddL, "jetbrains.mps.kotlin.structure.StringLiteralRaw");
+public final class IStringLiteralPart__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af476L, "jetbrains.mps.kotlin.structure.IStringLiteralPart");
 
   public static final SMethod<Boolean> isPunctuationLeft_id5yEpxXMAhZ6 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isPunctuationLeft").modifiers(0, AccessPrivileges.PUBLIC).concept(CONCEPT).baseMethodId(6389031306631126982L).languageId(0x8baff8e6c33ed689L, 0x6b3888c1980244d8L).build2();
 
@@ -32,7 +32,7 @@ public final class StringLiteralRaw__BehaviorDescriptor extends BaseBHDescriptor
     return SNodeOperations.getIndexInParent(__thisNode__) != 0;
   }
 
-  /*package*/ StringLiteralRaw__BehaviorDescriptor() {
+  /*package*/ IStringLiteralPart__BehaviorDescriptor() {
   }
 
   @Override
