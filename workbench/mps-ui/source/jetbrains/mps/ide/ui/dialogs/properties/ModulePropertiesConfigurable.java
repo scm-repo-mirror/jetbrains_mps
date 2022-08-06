@@ -548,7 +548,8 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       if (renameTo != null) {
         final String finalRenameTo = renameTo;
         Renamer r = new Renamer(myMPSProject, myModule, null);
-        myMPSProject.getModelAccess().runReadAction(() -> r.collectRenames(finalRenameTo));
+        myMPSProject.getModelAccess().runReadAction(r::collectRenames);
+        r.prepareRename(finalRenameTo);
         if (r.hasPrimaryRename() || r.hasDependantRenames()) {
           final Task.Modal renameTask = new Task.Modal(myIdeaProject, "Renaming...", false) {
             @Override

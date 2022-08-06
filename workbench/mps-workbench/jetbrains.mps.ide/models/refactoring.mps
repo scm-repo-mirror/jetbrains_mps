@@ -2828,14 +2828,24 @@
                         <ref role="3cqZAo" node="4$oa5rtwh0r" resolve="rr" />
                       </node>
                       <node concept="liA8E" id="4$oa5rtwt8v" role="2OqNvi">
-                        <ref role="37wK5l" to="smoa:~Renamer.collectRenames(java.lang.String)" resolve="collectRenames" />
-                        <node concept="37vLTw" id="4$oa5rtwuvQ" role="37wK5m">
-                          <ref role="3cqZAo" node="5_EKmHbXMu" resolve="newModuleName" />
-                        </node>
+                        <ref role="37wK5l" to="smoa:~Renamer.collectRenames()" resolve="collectRenames" />
                       </node>
                     </node>
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="2d7ghdyvn37" role="3cqZAp">
+          <node concept="2OqwBi" id="2d7ghdyvnQ5" role="3clFbG">
+            <node concept="37vLTw" id="2d7ghdyvn35" role="2Oq$k0">
+              <ref role="3cqZAo" node="4$oa5rtwh0r" resolve="rr" />
+            </node>
+            <node concept="liA8E" id="2d7ghdyvp6r" role="2OqNvi">
+              <ref role="37wK5l" to="smoa:~Renamer.prepareRename(java.lang.String)" resolve="prepareRename" />
+              <node concept="37vLTw" id="2d7ghdyvqit" role="37wK5m">
+                <ref role="3cqZAo" node="5_EKmHbXMu" resolve="newModuleName" />
               </node>
             </node>
           </node>
@@ -2937,20 +2947,6 @@
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="4xnDkoPp7wR" role="3clF47">
-        <node concept="3clFbJ" id="5NLyd09ydBg" role="3cqZAp">
-          <node concept="3clFbS" id="5NLyd09ydBi" role="3clFbx">
-            <node concept="3cpWs6" id="5NLyd09ygf3" role="3cqZAp" />
-          </node>
-          <node concept="3fqX7Q" id="5NLyd09yeHD" role="3clFbw">
-            <node concept="2YIFZM" id="5NLyd09yeWY" role="3fr31v">
-              <ref role="37wK5l" to="smoa:~Renamer.needToRenameSubmodules(jetbrains.mps.project.AbstractModule)" resolve="needToRenameSubmodules" />
-              <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
-              <node concept="37vLTw" id="5NLyd09yeYi" role="37wK5m">
-                <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs8" id="4$oa5rtukQ_" role="3cqZAp">
           <node concept="3cpWsn" id="4$oa5rtukQA" role="3cpWs9">
             <property role="TrG5h" value="r" />
@@ -2992,15 +2988,7 @@
                         <ref role="3cqZAo" node="4$oa5rtukQA" resolve="r" />
                       </node>
                       <node concept="liA8E" id="4$oa5rtuNzh" role="2OqNvi">
-                        <ref role="37wK5l" to="smoa:~Renamer.collectRenames(java.lang.String)" resolve="collectRenames" />
-                        <node concept="2OqwBi" id="4$oa5rtvruj" role="37wK5m">
-                          <node concept="37vLTw" id="4$oa5rtvqnW" role="2Oq$k0">
-                            <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
-                          </node>
-                          <node concept="liA8E" id="4$oa5rtvtqj" role="2OqNvi">
-                            <ref role="37wK5l" to="z1c3:~AbstractModule.getModuleName()" resolve="getModuleName" />
-                          </node>
-                        </node>
+                        <ref role="37wK5l" to="smoa:~Renamer.collectRenames()" resolve="collectRenames" />
                       </node>
                     </node>
                   </node>

@@ -86,10 +86,15 @@ public abstract class ProjectBase extends Project {
     return myModuleLoader.getErrors();
   }
 
+  /**
+   * FIXME deprecate or reduce visibility to protected once mbeddr
+   *       switches to MPS 22.2, where direct ProjectBase.getVirtualFolder() was added.
+   *       Now there's org.modelix.model.mpsadapters/ProjectModuleAsNode that accesses
+   *       virtual folder by means of this method, and can't use cast to StandaloneMPSProject
+   *       as it adds MPS.Workbench dependency
+   */
   @Nullable
   public final ModulePath getPath(@NotNull SModule module) {
-    // FIXME there's very limited use of the method outside of our own implementation
-    //       perhaps we can avoid from being exposed from MPSProject?
     return myModuleLoader.getPath(module.getModuleReference());
   }
 

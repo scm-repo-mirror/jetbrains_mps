@@ -228,13 +228,13 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
     invokeInCommand(() -> moduleReference.set(moduleSupplier.get(moduleName)));
     invokeInCommand(() -> {
       AbstractModule module = moduleReference.get();
-      final Collection<AbstractModule> subModules = new Renamer(myProject).getSubModules(module);
+      final Collection<AbstractModule> subModules = new Renamer(myProject, module, null).getSubModules();
 
       // If module name is not equals to folder name, that folder should not be renamed
       boolean mustBeMoved = module.getModuleName().equals(module.getModuleSourceDir().getName());
       final SModuleId moduleId = module.getModuleId();
 
-      AbstractModule result = new Renamer(myProject).renameModule(module, newModuleName);
+      AbstractModule result = new Renamer(myProject, module, null).renameModule(newModuleName);
 
       Assert.assertNull(module.getRepository());
       module = (AbstractModule) myProject.getRepository().getModule(moduleId);
@@ -413,7 +413,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
     invokeInCommand(() -> langRef.set(new LanguageProducer(myProject).create(moduleName, getNewDirInProject(moduleName))));
     invokeInCommand(() -> {
       @NotNull Language lang = langRef.get();
-      Language renamedLang = (Language) new Renamer(myProject).renameModule(lang, newModuleName);
+      Language renamedLang = (Language) new Renamer(myProject,lang, null).renameModule(newModuleName);
       Assert.assertNull(lang.getRepository());
       Assert.assertFalse(myProject.getProjectModules().contains(lang));
       Assert.assertTrue(myProject.getProjectModules().contains(renamedLang));
@@ -438,7 +438,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
       @NotNull Language lang = langRef.get();
       saveProjectInTest();
       projectBackup.doBackup();
-      new Renamer(myProject).renameModule(lang, newModuleName);
+      new Renamer(myProject, lang, null).renameModule(newModuleName);
 
       lang = (Language) myProject.getRepository().getModule(langRef.get().getModuleId());
       Assert.assertNotNull("Renamed module was not found in project repository by SModuleId", lang);

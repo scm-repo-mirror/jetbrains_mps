@@ -61,7 +61,8 @@ public class RenameModuleDialog extends RenameDialog {
   protected void doRefactoringAction() {
     final String newModuleName = getCurrentValue();
     final Renamer rr = new Renamer(myProject, myModule, null);
-    myProject.getModelAccess().runReadAction(() -> rr.collectRenames(newModuleName));
+    myProject.getModelAccess().runReadAction(() -> rr.collectRenames());
+    rr.prepareRename(newModuleName);
     if (rr.hasPrimaryRename() || rr.hasDependantRenames()) {
       rr.runRenameCommand();
     }
@@ -82,11 +83,8 @@ public class RenameModuleDialog extends RenameDialog {
    * i.e. infamous init() in cons call design defect. Perhaps, shall not use RenameDialog superclass?
    */
   private void updateCentralPanel() {
-    if (!(Renamer.needToRenameSubmodules(myModule))) {
-      return;
-    }
     final Renamer r = new Renamer(myProject, myModule, null);
-    myProject.getModelAccess().runReadAction(() -> r.collectRenames(myModule.getModuleName()));
+    myProject.getModelAccess().runReadAction(() -> r.collectRenames());
 
     if (r.hasDependantRenames()) {
       JLabel label = new JBLabel(r.getDependantRenamesHTML(), JBLabel.LEFT);
