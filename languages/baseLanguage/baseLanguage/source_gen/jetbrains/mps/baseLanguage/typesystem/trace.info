@@ -19709,8 +19709,8 @@
     <file name="CheckExcessTypeCasts_NonTypesystemRule.java">
       <node id="3748798472484767872" at="26,117,27,123" concept="12" />
       <node id="7192154694571020962" at="28,194,29,86" concept="14" />
-      <node id="3637195266923171603" at="30,7,31,66" concept="12" />
-      <node id="3637195266923171603" at="31,66,32,244" concept="12" />
+      <node id="3637195266923171603" at="30,7,31,86" concept="12" />
+      <node id="3637195266923171603" at="31,86,32,241" concept="12" />
       <node id="3637195266923171609" at="33,9,34,177" concept="12" />
       <node id="3637195266923171610" at="34,177,35,58" concept="6" />
       <node id="3637195266923171609" at="35,58,36,71" concept="6" />
@@ -19725,7 +19725,7 @@
       <node id="3637195266922472263" at="41,0,44,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="3637195266922472263" at="44,0,47,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="3637195266922472263" at="47,0,50,0" concept="11" trace="overrides#()Z" />
-      <node id="3637195266923171609" at="32,244,37,9" concept="1" />
+      <node id="3637195266923171609" at="32,241,37,9" concept="1" />
       <node id="3637195266923171603" at="29,86,38,7" concept="1" />
       <node id="8159235211454066348" at="27,123,39,5" concept="10" />
       <node id="3637195266922472263" at="26,0,41,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
