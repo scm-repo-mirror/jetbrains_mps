@@ -2525,7 +2525,7 @@
                           <node concept="2OqwBi" id="6EK__xlPTBu" role="3clFbG">
                             <node concept="30H73N" id="6EK__xlPTn0" role="2Oq$k0" />
                             <node concept="3TrcHB" id="6EK__xlPTRA" role="2OqNvi">
-                              <ref role="3TsBF5" to="8xvf:6EK__xlPJF1" resolve="containsKotlin" />
+                              <ref role="3TsBF5" to="8xvf:6EK__xlPJF1" resolve="withKotlin" />
                             </node>
                           </node>
                         </node>

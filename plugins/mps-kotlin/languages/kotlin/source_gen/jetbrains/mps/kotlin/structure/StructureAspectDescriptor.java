@@ -2521,6 +2521,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(3);
     b.aggregate("statements_", 0x28bef6d7551af85dL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af322L).optional(true).ordered(true).multiple(true).origin("2936055411798374493").done();
     b.aggregate("parameters", 0x11400bb7909511ebL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af479L).optional(true).ordered(true).multiple(true).origin("1243006380186866155").done();
+    b.aggregate("_thisTypeHolder_hack", 0x37f51ee20f709e5fL).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af598L).optional(false).ordered(true).multiple(false).origin("4032162997650628191").done();
+    b.aggregate("_itTypeHolder_hack", 0x37f51ee20f70b404L).target(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af598L).optional(false).ordered(true).multiple(false).origin("4032162997650633732").done();
     b.alias("lambda");
     return b.create();
   }

@@ -422,7 +422,7 @@
           <node concept="2MkqsV" id="1oGqGn0Wtup" role="3cqZAp">
             <node concept="3Cnw8n" id="1oGqGn0XVQA" role="1urrFz">
               <property role="ARO6o" value="true" />
-              <ref role="QpYPw" node="1oGqGn0XMmN" resolve="quickfix_BinaryOperator_Predecence" />
+              <ref role="QpYPw" node="1oGqGn0XMmN" resolve="BinaryExpression_FixPriority" />
               <node concept="3CnSsL" id="1oGqGn0XVTq" role="3Coj4f">
                 <ref role="QkamJ" node="1oGqGn0XMG8" resolve="child" />
                 <node concept="1YBJjd" id="1oGqGn0XVTB" role="3CoRuB">
@@ -580,7 +580,7 @@
               <ref role="1YBMHb" node="4ZsNJbI6Ljn" resolve="unresolved" />
             </node>
             <node concept="3Cnw8n" id="4ZsNJbI026o" role="1urrFz">
-              <ref role="QpYPw" node="4caNtEtNmq3" resolve="RemoveUnresolvedRefMarker" />
+              <ref role="QpYPw" node="4caNtEtNmq3" resolve="UnresolvedParsedReference_RemoveUnresolvedRefMarker" />
               <node concept="3CnSsL" id="4ZsNJbI6M2T" role="3Coj4f">
                 <ref role="QkamJ" node="4ZsNJbI0z5M" resolve="ref" />
                 <node concept="1YBJjd" id="4ZsNJbI6M4O" role="3CoRuB">
@@ -651,7 +651,7 @@
         <node concept="3clFbS" id="Cy8Bus92FS" role="3clFbx">
           <node concept="2MkqsV" id="Cy8Bus95nx" role="3cqZAp">
             <node concept="3Cnw8n" id="Cy8Bus9dhW" role="1urrFz">
-              <ref role="QpYPw" node="Cy8Bus965o" resolve="ChangeInheritanceModifier" />
+              <ref role="QpYPw" node="Cy8Bus965o" resolve="IInheritable_ChangeInheritanceModifier" />
               <node concept="3CnSsL" id="Cy8Bus9dz6" role="3Coj4f">
                 <ref role="QkamJ" node="Cy8Bus965F" resolve="inheritable" />
                 <node concept="37vLTw" id="Cy8Bus9dzj" role="3CoRuB">
@@ -838,7 +838,7 @@
               <ref role="1YBMHb" node="5dNsAxXObBI" resolve="decl" />
             </node>
             <node concept="3Cnw8n" id="1d7PsgczbJS" role="1urrFz">
-              <ref role="QpYPw" node="5dNsAxXOggQ" resolve="AddPropertyInitializer" />
+              <ref role="QpYPw" node="5dNsAxXOggQ" resolve="PropertyDeclaration_AddInitializer" />
               <node concept="3CnSsL" id="1d7PsgczbJT" role="3Coj4f">
                 <ref role="QkamJ" node="5dNsAxXOgh9" resolve="property" />
                 <node concept="1YBJjd" id="1d7PsgczbJU" role="3CoRuB">
@@ -847,7 +847,7 @@
               </node>
             </node>
             <node concept="3Cnw8n" id="1d7PsgczbJV" role="1urrFz">
-              <ref role="QpYPw" node="Cy8Bus965o" resolve="ChangeInheritanceModifier" />
+              <ref role="QpYPw" node="Cy8Bus965o" resolve="IInheritable_ChangeInheritanceModifier" />
               <node concept="3CnSsL" id="1d7PsgczbJW" role="3Coj4f">
                 <ref role="QkamJ" node="Cy8Bus965F" resolve="inheritable" />
                 <node concept="1YBJjd" id="1d7PsgczbJX" role="3CoRuB">
@@ -1945,7 +1945,7 @@
                   <ref role="2Gs0qQ" node="7ZZRFA6PMPn" resolve="param" />
                 </node>
                 <node concept="3Cnw8n" id="7ZZRFA6PQXw" role="1urrFz">
-                  <ref role="QpYPw" node="7ZZRFA6PPFj" resolve="AddVarVarToParameter" />
+                  <ref role="QpYPw" node="7ZZRFA6PPFj" resolve="ClassParameter_SetProperty" />
                   <node concept="3CnSsL" id="7ZZRFA6PR5A" role="3Coj4f">
                     <ref role="QkamJ" node="7ZZRFA6PPOk" resolve="classParameter" />
                     <node concept="2GrUjf" id="7ZZRFA6PR8P" role="3CoRuB">
@@ -2089,7 +2089,7 @@
                       <ref role="2Gs0qQ" node="4FOkRjXxSJG" resolve="var" />
                     </node>
                     <node concept="3Cnw8n" id="4FOkRjXxWyG" role="1urrFz">
-                      <ref role="QpYPw" node="3ulTMGHZ0wK" resolve="FixMethodCallReference" />
+                      <ref role="QpYPw" node="3ulTMGHZ0wK" resolve="FunctionCall_FixReference" />
                       <node concept="3CnSsL" id="4FOkRjXxWDc" role="3Coj4f">
                         <ref role="QkamJ" node="3ulTMGHZ0x3" resolve="call" />
                         <node concept="2GrUjf" id="4FOkRjXxWFd" role="3CoRuB">
@@ -2542,7 +2542,7 @@
                     <node concept="2MkqsV" id="ccTy7z$EDy" role="3cqZAp">
                       <node concept="3Cnw8n" id="ccTy7z$EDz" role="1urrFz">
                         <property role="ARO6o" value="true" />
-                        <ref role="QpYPw" node="3ulTMGHZ0wK" resolve="FixMethodCallReference" />
+                        <ref role="QpYPw" node="3ulTMGHZ0wK" resolve="FunctionCall_FixReference" />
                         <node concept="3CnSsL" id="ccTy7z$ED$" role="3Coj4f">
                           <ref role="QkamJ" node="3ulTMGHZ0x3" resolve="call" />
                           <node concept="37vLTw" id="ccTy7z$KUG" role="3CoRuB">
