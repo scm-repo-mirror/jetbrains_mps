@@ -455,7 +455,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getBoolean(_context.getNode(), PROPS.conditionalCompile$$C4P);
   }
   public static Object propertyMacro_GetValue_0_83(final PropertyMacroContext _context) {
-    return SPropertyOperations.getBoolean(_context.getNode(), PROPS.withKotlin$Qmoi);
+    return SPropertyOperations.getBoolean(_context.getNode(), PROPS.withKotlin$2YBL);
   }
   public static Object propertyMacro_GetValue_0_84(final PropertyMacroContext _context) {
     return (String) BuildSource_JavaContentFolder__BehaviorDescriptor.getAntPath_id24CrdeMZy0h.invoke(_context.getNode(), Context.defaultContext(_context));
@@ -3691,7 +3691,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SProperty compilerOptions$L8ue = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0x147ef24d5e249317L, "compilerOptions");
     /*package*/ static final SProperty fork$NhhS = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0x3d4a6c59711a0304L, "fork");
     /*package*/ static final SProperty conditionalCompile$$C4P = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, 0x71e3a5e19d7f03e3L, "conditionalCompile");
-    /*package*/ static final SProperty withKotlin$Qmoi = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, 0x6ab0965855d5f133L, "withKotlin");
+    /*package*/ static final SProperty withKotlin$2YBL = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x23f6fd361bdcfd27L, 0x6ab0965855d5f133L, "withKotlin");
     /*package*/ static final SProperty path$bazz = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x72b7d8e699d63212L, 0x72b7d8e699d63213L, "path");
     /*package*/ static final SProperty pattern$XCpz = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9262f9cL, 0x48d5d03db9262f9dL, "pattern");
     /*package*/ static final SProperty pattern$u5_$ = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7819f90ca2eb7bf6L, 0x7819f90ca2eb7bf8L, "pattern");

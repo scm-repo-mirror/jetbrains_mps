@@ -154,7 +154,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_leuqor_a1b0a() {
-    return SPropertyOperations.getBoolean(myNode, PROPS.withKotlin$WXj5);
+    return SPropertyOperations.getBoolean(myNode, PROPS.withKotlin$2YBL);
   }
   private boolean nodeCondition_leuqor_a2b0a() {
     return SPropertyOperations.getBoolean(myNode, PROPS.doNotCompile$4EF);
@@ -383,7 +383,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static final class PROPS {
     /*package*/ static final SProperty uuid$pC01 = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d3868bL, "uuid");
-    /*package*/ static final SProperty withKotlin$WXj5 = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x6ab0965855ec95d9L, "withKotlin");
+    /*package*/ static final SProperty withKotlin$2YBL = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x23f6fd361bdcfd27L, 0x6ab0965855d5f133L, "withKotlin");
     /*package*/ static final SProperty doNotCompile$4EF = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x14d3fb6fb84ac614L, "doNotCompile");
   }
 

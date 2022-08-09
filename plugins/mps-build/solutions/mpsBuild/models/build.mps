@@ -123,6 +123,9 @@
         <property id="8618885170173601779" name="head" index="2Ry0Am" />
         <child id="8618885170173601778" name="tail" index="2Ry0An" />
       </concept>
+      <concept id="2591537044435828007" name="jetbrains.mps.build.structure.BuildSource_CompilablePart" flags="ng" index="Saw0h">
+        <property id="7687809870062809395" name="withKotlin" index="ZpmtF" />
+      </concept>
       <concept id="2591537044435828004" name="jetbrains.mps.build.structure.BuildLayout_CompileOutputOf" flags="ng" index="Saw0i">
         <reference id="2591537044435828006" name="module" index="Saw0g" />
       </concept>
@@ -344,7 +347,6 @@
       <concept id="2105528055260548241" name="jetbrains.mps.build.mps.structure.BuildMpsLayout_FolderWithSources" flags="ng" index="1bldCd" />
       <concept id="5253498789149381388" name="jetbrains.mps.build.mps.structure.BuildMps_Module" flags="ng" index="3bQrTs">
         <property id="1500819558096356884" name="doNotCompile" index="2GAjPV" />
-        <property id="7687809870064293337" name="withKotlin" index="Zn0e1" />
         <child id="5253498789149547825" name="sources" index="3bR31x" />
         <child id="5253498789149547704" name="dependencies" index="3bR37C" />
       </concept>
@@ -51655,7 +51657,7 @@
         <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.kotlin.smodel.runtime" />
         <property role="3LESm3" value="d23a40f1-3b52-44c2-822a-4d3bb398ef15" />
-        <property role="Zn0e1" value="true" />
+        <property role="ZpmtF" value="true" />
         <node concept="398BVA" id="1G33vFC9cRn" role="3LF7KH">
           <ref role="398BVh" node="1fy59xXoa5p" resolve="plugin_home" />
           <node concept="2Ry0Ak" id="1G33vFC9cT9" role="iGT6I">

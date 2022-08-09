@@ -2,6 +2,7 @@
 <model ref="r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)">
   <persistence version="9" />
   <languages>
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -122,6 +123,9 @@
         <child id="1163668914799" name="condition" index="3K4Cdx" />
         <child id="1163668922816" name="ifTrue" index="3K4E3e" />
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
+      </concept>
+      <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
+        <child id="8356039341262087992" name="line" index="1aUNEU" />
       </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1200397529627" name="jetbrains.mps.baseLanguage.structure.CharConstant" flags="nn" index="1Xhbcc">
@@ -253,6 +257,14 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
+      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="nn" index="3oM_SD">
+        <property id="155656958578482949" name="value" index="3oM_SC" />
+      </concept>
+      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="nn" index="1PaTwC">
+        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
@@ -1672,6 +1684,242 @@
     <node concept="1YaCAy" id="7N6lJotW6km" role="1YuTPh">
       <property role="TrG5h" value="manifest" />
       <ref role="1YaFvo" to="3ior:15teMbUWwWI" resolve="BuildLayout_JarManifest" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="gpKvTmWIvi">
+    <property role="TrG5h" value="check_BuildSource_CompilablePart_forkWithKotlin" />
+    <property role="3GE5qa" value="Project.Java" />
+    <node concept="3clFbS" id="gpKvTmWIvj" role="18ibNy">
+      <node concept="3SKdUt" id="gpKvTnoWRW" role="3cqZAp">
+        <node concept="1PaTwC" id="gpKvTnoWRX" role="1aUNEU">
+          <node concept="3oM_SD" id="gpKvTnoWRY" role="1PaTwD">
+            <property role="3oM_SC" value="Fork" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWRZ" role="1PaTwD">
+            <property role="3oM_SC" value="option" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS0" role="1PaTwD">
+            <property role="3oM_SC" value="is" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS1" role="1PaTwD">
+            <property role="3oM_SC" value="not" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS2" role="1PaTwD">
+            <property role="3oM_SC" value="compatible" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS3" role="1PaTwD">
+            <property role="3oM_SC" value="with" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS4" role="1PaTwD">
+            <property role="3oM_SC" value="the" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS5" role="1PaTwD">
+            <property role="3oM_SC" value="&lt;withKotlin&gt;" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS6" role="1PaTwD">
+            <property role="3oM_SC" value="ant" />
+          </node>
+          <node concept="3oM_SD" id="gpKvTnoWS7" role="1PaTwD">
+            <property role="3oM_SC" value="task" />
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbJ" id="gpKvTnoWS8" role="3cqZAp">
+        <node concept="3clFbS" id="gpKvTnoWS9" role="3clFbx">
+          <node concept="3cpWs8" id="gpKvTnp21N" role="3cqZAp">
+            <node concept="3cpWsn" id="gpKvTnp21O" role="3cpWs9">
+              <property role="TrG5h" value="options" />
+              <node concept="3Tqbb2" id="gpKvTnp1YX" role="1tU5fm">
+                <ref role="ehGHo" to="3ior:NvWe6DpNB2" resolve="BuildSource_JavaOptions" />
+              </node>
+              <node concept="2OqwBi" id="gpKvTnp21P" role="33vP2m">
+                <node concept="1YBJjd" id="gpKvTnp21Q" role="2Oq$k0">
+                  <ref role="1YBMHb" node="gpKvTmWIvl" resolve="node" />
+                </node>
+                <node concept="2qgKlT" id="gpKvTnp21R" role="2OqNvi">
+                  <ref role="37wK5l" to="vbkb:gpKvTnoZBS" resolve="getOptions" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="gpKvTnoWSH" role="3cqZAp">
+            <node concept="3clFbS" id="gpKvTnoWSI" role="3clFbx">
+              <node concept="2MkqsV" id="gpKvTnoWSJ" role="3cqZAp">
+                <node concept="3Cnw8n" id="gpKvTnoWSK" role="1urrFz">
+                  <ref role="QpYPw" node="gpKvTmX1vs" resolve="disableJavacForkOption" />
+                  <node concept="3CnSsL" id="gpKvTnoWSL" role="3Coj4f">
+                    <ref role="QkamJ" node="gpKvTmXKiu" resolve="options" />
+                    <node concept="37vLTw" id="gpKvTnoWSM" role="3CoRuB">
+                      <ref role="3cqZAo" node="gpKvTnp21O" resolve="options" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3Cnw8n" id="gpKvTnoWSN" role="1urrFz">
+                  <ref role="QpYPw" node="gpKvTmXNEu" resolve="removeKotlinCompilation" />
+                </node>
+                <node concept="Xl_RD" id="gpKvTnoWSO" role="2MkJ7o">
+                  <property role="Xl_RC" value="'fork' option is not supported by kotlin compilation" />
+                </node>
+                <node concept="1YBJjd" id="gpKvTnoWSP" role="1urrMF">
+                  <ref role="1YBMHb" node="gpKvTmWIvl" resolve="node" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="gpKvTnoWSQ" role="3clFbw">
+              <node concept="37vLTw" id="gpKvTnp21S" role="2Oq$k0">
+                <ref role="3cqZAo" node="gpKvTnp21O" resolve="options" />
+              </node>
+              <node concept="3TrcHB" id="gpKvTnoWSS" role="2OqNvi">
+                <ref role="3TsBF5" to="3ior:3Par5_L6wc4" resolve="fork" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="gpKvTnoWST" role="3clFbw">
+          <node concept="1YBJjd" id="gpKvTnoWSU" role="2Oq$k0">
+            <ref role="1YBMHb" node="gpKvTmWIvl" resolve="node" />
+          </node>
+          <node concept="3TrcHB" id="gpKvTnoWSV" role="2OqNvi">
+            <ref role="3TsBF5" to="3ior:6EK__xlPv4N" resolve="withKotlin" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="gpKvTmWIvl" role="1YuTPh">
+      <property role="TrG5h" value="node" />
+      <ref role="1YaFvo" to="3ior:2fQZjorRfOB" resolve="BuildSource_CompilablePart" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="gpKvTmX1vs">
+    <property role="3GE5qa" value="Project.Java" />
+    <property role="TrG5h" value="disableJavacForkOption" />
+    <node concept="Q5ZZ6" id="gpKvTmX1vt" role="Q6x$H">
+      <node concept="3clFbS" id="gpKvTmX1vu" role="2VODD2">
+        <node concept="3clFbF" id="gpKvTmX1Qf" role="3cqZAp">
+          <node concept="37vLTI" id="gpKvTmX31k" role="3clFbG">
+            <node concept="3clFbT" id="gpKvTmX32L" role="37vLTx" />
+            <node concept="2OqwBi" id="gpKvTmX2rF" role="37vLTJ">
+              <node concept="3TrcHB" id="gpKvTmX2B6" role="2OqNvi">
+                <ref role="3TsBF5" to="3ior:3Par5_L6wc4" resolve="fork" />
+              </node>
+              <node concept="QwW4i" id="gpKvTmXKkW" role="2Oq$k0">
+                <ref role="QwW4h" node="gpKvTmXKiu" resolve="options" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="QznSV" id="gpKvTmX1yD" role="QzAvj">
+      <node concept="3clFbS" id="gpKvTmX1yE" role="2VODD2">
+        <node concept="3clFbF" id="gpKvTmX1BC" role="3cqZAp">
+          <node concept="3cpWs3" id="gpKvTnNRsX" role="3clFbG">
+            <node concept="Xl_RD" id="gpKvTnNY9c" role="3uHU7w">
+              <property role="Xl_RC" value=" options" />
+            </node>
+            <node concept="3cpWs3" id="gpKvTnNMze" role="3uHU7B">
+              <node concept="Xl_RD" id="gpKvTmX1BB" role="3uHU7B">
+                <property role="Xl_RC" value="Disable fork option in " />
+              </node>
+              <node concept="1eOMI4" id="gpKvTnNS1W" role="3uHU7w">
+                <node concept="3K4zz7" id="gpKvTnNOjC" role="1eOMHV">
+                  <node concept="3cpWs3" id="gpKvTnNQl4" role="3K4E3e">
+                    <node concept="Xl_RD" id="gpKvTnNQy0" role="3uHU7w">
+                      <property role="Xl_RC" value="'" />
+                    </node>
+                    <node concept="3cpWs3" id="gpKvTnNQAU" role="3uHU7B">
+                      <node concept="Xl_RD" id="gpKvTnNQNV" role="3uHU7B">
+                        <property role="Xl_RC" value="'" />
+                      </node>
+                      <node concept="2OqwBi" id="gpKvTnNOUG" role="3uHU7w">
+                        <node concept="QwW4i" id="gpKvTnNOq$" role="2Oq$k0">
+                          <ref role="QwW4h" node="gpKvTmXKiu" resolve="options" />
+                        </node>
+                        <node concept="3TrcHB" id="gpKvTnNPey" role="2OqNvi">
+                          <ref role="3TsBF5" to="3ior:NvWe6DpNB3" resolve="optionsName" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Xl_RD" id="gpKvTnNPra" role="3K4GZi">
+                    <property role="Xl_RC" value="default" />
+                  </node>
+                  <node concept="2OqwBi" id="gpKvTnNNum" role="3K4Cdx">
+                    <node concept="2OqwBi" id="gpKvTnNMTQ" role="2Oq$k0">
+                      <node concept="QwW4i" id="gpKvTnNM$v" role="2Oq$k0">
+                        <ref role="QwW4h" node="gpKvTmXKiu" resolve="options" />
+                      </node>
+                      <node concept="3TrcHB" id="gpKvTnNN9T" role="2OqNvi">
+                        <ref role="3TsBF5" to="3ior:NvWe6DpNB3" resolve="optionsName" />
+                      </node>
+                    </node>
+                    <node concept="17RvpY" id="gpKvTnNNTT" role="2OqNvi" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="Q6JDH" id="gpKvTmXKiu" role="Q6Id_">
+      <property role="TrG5h" value="options" />
+      <node concept="3Tqbb2" id="gpKvTmXJCe" role="Q6QK4">
+        <ref role="ehGHo" to="3ior:NvWe6DpNB2" resolve="BuildSource_JavaOptions" />
+      </node>
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="gpKvTmXNEu">
+    <property role="3GE5qa" value="Project.Java" />
+    <property role="TrG5h" value="removeKotlinCompilation" />
+    <node concept="Q5ZZ6" id="gpKvTmXNEv" role="Q6x$H">
+      <node concept="3clFbS" id="gpKvTmXNEw" role="2VODD2">
+        <node concept="3clFbF" id="gpKvTmXO3_" role="3cqZAp">
+          <node concept="37vLTI" id="gpKvTmY8fz" role="3clFbG">
+            <node concept="3clFbT" id="gpKvTmY8gS" role="37vLTx" />
+            <node concept="2OqwBi" id="gpKvTmY7Fe" role="37vLTJ">
+              <node concept="1PxgMI" id="gpKvTmY7wC" role="2Oq$k0">
+                <property role="1BlNFB" value="true" />
+                <node concept="chp4Y" id="gpKvTmY7wD" role="3oSUPX">
+                  <ref role="cht4Q" to="3ior:2fQZjorRfOB" resolve="BuildSource_CompilablePart" />
+                </node>
+                <node concept="Q6c8r" id="gpKvTmY7wE" role="1m5AlR" />
+              </node>
+              <node concept="3TrcHB" id="gpKvTmY7Pn" role="2OqNvi">
+                <ref role="3TsBF5" to="3ior:6EK__xlPv4N" resolve="withKotlin" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="QznSV" id="gpKvTmXNFP" role="QzAvj">
+      <node concept="3clFbS" id="gpKvTmXNFQ" role="2VODD2">
+        <node concept="3clFbF" id="gpKvTmXNKE" role="3cqZAp">
+          <node concept="3cpWs3" id="gpKvTmXZ4X" role="3clFbG">
+            <node concept="Xl_RD" id="gpKvTmXZjj" role="3uHU7w">
+              <property role="Xl_RC" value="'" />
+            </node>
+            <node concept="3cpWs3" id="gpKvTmXWM6" role="3uHU7B">
+              <node concept="Xl_RD" id="gpKvTmXNKD" role="3uHU7B">
+                <property role="Xl_RC" value="Disable kotlin compilation for '" />
+              </node>
+              <node concept="2OqwBi" id="gpKvTmXXQV" role="3uHU7w">
+                <node concept="1PxgMI" id="gpKvTmXXrK" role="2Oq$k0">
+                  <property role="1BlNFB" value="true" />
+                  <node concept="chp4Y" id="gpKvTmXXxd" role="3oSUPX">
+                    <ref role="cht4Q" to="3ior:2fQZjorRfOB" resolve="BuildSource_CompilablePart" />
+                  </node>
+                  <node concept="Q6c8r" id="gpKvTmXWN0" role="1m5AlR" />
+                </node>
+                <node concept="3TrcHB" id="gpKvTmXYcU" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>
