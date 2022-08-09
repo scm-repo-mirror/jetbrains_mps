@@ -304,11 +304,12 @@ public class SelectionManagerImpl implements SelectionManager {
     EditorCell cell = findCell(node, cellId);
     if (cell instanceof EditorCell_Label) {
       EditorCell_Label label = (EditorCell_Label) cell;
-      if (selectionStart == -1) {
-        selectionStart = label.getText().length();
+      // Interpret negative values as indexes from the back, stop at 0, if necessary
+      if (selectionStart < 0) {
+        selectionStart = Math.max(label.getText().length() + 1 + selectionStart, 0);
       }
-      if (selectionEnd == -1) {
-        selectionEnd = label.getText().length();
+      if (selectionEnd < 0) {
+        selectionEnd = Math.max(label.getText().length() + 1 + selectionEnd, 0);
       }
 
       setSelection(label, selectionEnd, selectionStart, selectionEnd);
