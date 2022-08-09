@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.build;
 
+import com.intellij.ide.impl.TrustedPaths;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
@@ -27,6 +28,7 @@ import com.intellij.openapi.progress.Task.Modal;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.BuildNumber;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.util.ThreeState;
 import com.intellij.util.io.ZipUtil;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.build.SamplesExtractor.MyState;
@@ -39,6 +41,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.function.Supplier;
 
 @State(
@@ -215,8 +218,23 @@ public final class SamplesExtractor implements PersistentStateComponent<MyState>
         // that something went wrong and it is better to fail fast
         throw new RuntimeException(e);
       }
+
+      clearTrustForSamplesInDir(samplesDir);
+
       if (!FileUtil.delete(samplesDir)) {
         throw new RuntimeException(SamplesBundle.message("modal.task.delete.step.fail", samplesDir.getAbsolutePath()));
+      }
+    }
+
+    @SuppressWarnings("UnstableApiUsage")
+    private void clearTrustForSamplesInDir(File samplesDir) {
+      final TrustedPaths tp = TrustedPaths.getInstance();
+      for (File file : samplesDir.listFiles()) {
+        final Path path = Path.of(file.getAbsolutePath());
+        final ThreeState state = tp.getProjectPathTrustedState(path);
+        if (state != ThreeState.UNSURE) {
+          tp.setProjectPathTrusted(path, false);
+        }
       }
     }
 
@@ -230,6 +248,7 @@ public final class SamplesExtractor implements PersistentStateComponent<MyState>
         if (!FileUtil.moveDirWithContent(from, to) && !to.exists()) {
           FileUtil.copyDir(from, to);
         }
+        clearTrustForSamplesInDir(to);
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
