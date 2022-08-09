@@ -41,8 +41,6 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
 
   private final Map<SNodeHandle, TypecheckingSessionImpl> myRootSessions = new HashMap<>();
 
-  private Map<TypecheckingProvider, AuxDataContainer> mySharedData = new HashMap<>();
-
   public WorkbenchTypecheckingController(TypecheckingBackend typecheckingBackend) {
     super(typecheckingBackend, TypecheckingSession.Flags.basic());
   }
@@ -94,11 +92,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
 
   @Override
   protected AuxDataContainer getDataContainer(TypecheckingProvider<?> provider) {
-    AuxDataContainer defaultContainer = super.getDataContainer(provider);
-    if (defaultContainer != null) {
-      return defaultContainer;
-    }
-    return mySharedData.computeIfAbsent(provider, (key) -> provider.createDataContainer(Flags.basic()));
+    return super.getDataContainer(provider);
   }
 
   private void disposeAllSessions() {
@@ -106,10 +100,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
       session.dispose();
     }
     myRootSessions.clear();
-    for(AuxDataContainer dc: mySharedData.values()) {
-      dc.dispose();
-    }
-    mySharedData.clear();
+    super.dispose();
   }
 
   private synchronized TypecheckingSessionImpl getOrCreateSession(Flags flags) {

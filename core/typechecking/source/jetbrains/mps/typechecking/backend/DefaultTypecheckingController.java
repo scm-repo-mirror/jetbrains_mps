@@ -25,6 +25,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Handles a single default (basic) session.
@@ -37,7 +39,7 @@ public class DefaultTypecheckingController extends TypecheckingController {
 
   private TypecheckingSessionImpl myActiveSession;
 
-  private Map<TypecheckingProvider, AuxDataContainer> myAuxData = new HashMap<>();
+  private ConcurrentMap<TypecheckingProvider, AuxDataContainer> myAuxData = new ConcurrentHashMap<>();
 
   public DefaultTypecheckingController(TypecheckingBackend typecheckingBackend, Flags defaultFlags) {
     super(typecheckingBackend);
