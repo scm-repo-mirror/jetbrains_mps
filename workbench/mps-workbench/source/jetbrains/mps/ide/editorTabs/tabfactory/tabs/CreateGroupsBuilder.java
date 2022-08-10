@@ -38,7 +38,6 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class CreateGroupsBuilder {
@@ -58,7 +57,7 @@ public class CreateGroupsBuilder {
       List<DefaultActionGroup> groups = new ArrayList<>();
 
       List<RelationDescriptor> tabs = new ArrayList<>(possibleTabs);
-      Collections.sort(tabs, new RelationComparator());
+      tabs.sort(new RelationComparator());
 
       if (currentAspect != null) {
         tabs.remove(currentAspect);
@@ -95,14 +94,20 @@ public class CreateGroupsBuilder {
   }
 
   private DefaultActionGroup doGetCreateGroup(RelationDescriptor d) {
-    Iterable<SConcept> concepts = d.getAspectConcepts(myBaseNode.resolve(myProject.getRepository()));
+    final SNode baseNode = myBaseNode.resolve(myProject.getRepository());
+    Iterable<SConcept> concepts = d.getAspectConcepts(baseNode);
     if (!concepts.iterator().hasNext()) {
       return new DefaultActionGroup();
     }
 
+    final boolean readOnly = baseNode.getModel().getModule().isReadOnly();
     DefaultActionGroup group = new DefaultActionGroup(d.getTitle(), true);
     for (SConcept concept : concepts) {
-      group.add(new CreateAction(concept, d));
+      final CreateAction a = new CreateAction(concept, d);
+      // doesn't make sense to create aspects when module doesn't allow changes,
+      // but still want to see possible actions grayed-out for educational purposes
+      a.setReadOnly(readOnly);
+      group.add(a);
     }
     return group;
   }
@@ -128,6 +133,7 @@ public class CreateGroupsBuilder {
   private class CreateAction extends AnAction {
     private final SConcept myConcept;
     private final RelationDescriptor myDescriptor;
+    private boolean myReadOnly;
 
     public CreateAction(SConcept concept, RelationDescriptor descriptor) {
       super(getActionText(concept), "Create aspect", GlobalIconManager.getInstance().getIconFor(concept));
@@ -135,6 +141,10 @@ public class CreateGroupsBuilder {
       myDescriptor = descriptor;
     }
 
+    @Override
+    public void update(@NotNull AnActionEvent e) {
+      e.getPresentation().setEnabled(!myReadOnly);
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -167,6 +177,10 @@ public class CreateGroupsBuilder {
       if (conceptPackage != null) {
         SPropertyOperations.assign(res, SNodeUtil.property_BaseConcept_virtualPackage, conceptPackage);
       }
+    }
+
+    void setReadOnly(boolean readOnly) {
+      myReadOnly = readOnly;
     }
   }
 }
