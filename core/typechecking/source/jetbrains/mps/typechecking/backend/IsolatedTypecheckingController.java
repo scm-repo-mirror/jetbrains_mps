@@ -23,19 +23,10 @@ public class IsolatedTypecheckingController extends DefaultTypecheckingControlle
 
   @NotNull
   @Override
-  protected <Q extends TypecheckingQueries> TypecheckingProvider<Q> selectProvider(@NotNull Class<? extends Q> providerClass) {
-    return super.selectProvider(providerClass);
-  }
-
-  @NotNull
-  @Override
   protected TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
     if (flags.getParamsMap() == null) {
-      return super.selectProvider(src, trg, trgConcept, flags.withParameters(
-          myParametersDiscoverable.discoverParameters(src)));
-
-    } else {
-      return super.selectProvider(src, trg, trgConcept, flags);
+      flags = flags.withParameters(myParametersDiscoverable.discoverParameters(src));
     }
+    return super.selectProvider(src, trg, trgConcept, flags);
   }
 }

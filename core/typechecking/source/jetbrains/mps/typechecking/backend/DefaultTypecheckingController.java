@@ -33,7 +33,7 @@ import java.util.concurrent.ConcurrentMap;
  *
  * @author Fedor Isakov
  */
-public class DefaultTypecheckingController extends TypecheckingController {
+public class DefaultTypecheckingController extends TypecheckingController implements ParametersDiscoverable {
 
   private final Flags myDefaultFlags;
 
@@ -70,10 +70,13 @@ public class DefaultTypecheckingController extends TypecheckingController {
 
   @NotNull
   @Override
-  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
     // request new session on demand
-    if (myActiveSession == null) {
-      this.myActiveSession = createSession(myDefaultFlags);
+    if (myActiveSession == null || (myActiveSession.flags().getParamsMap() != flags.getParamsMap())) {
+      if (myActiveSession != null) {
+        myActiveSession.dispose();
+      }
+      this.myActiveSession = createSession(myDefaultFlags.withParameters(flags.getParamsMap()));
     }
     return myActiveSession.getQueries(src, trg, trgConcept);
   }

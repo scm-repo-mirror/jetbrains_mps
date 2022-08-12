@@ -28,6 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Handles the sessions requested by the editor.
@@ -70,12 +71,18 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
       // sometimes root is not the "containing root"
       session = myRootSessions.get(new SNodeHandle(anchor));
     }
-    return session != null ? session.flags().getParamsMap() : null;
+    if (session != null) {
+      return session.flags().getParamsMap();
+    }
+    return myRootSessions.values().stream()
+                         .map((s) -> s.flags().getParamsMap())
+                         .filter(Objects::nonNull).findFirst()
+                         .orElse(null);
   }
 
   @NotNull
   @Override
-  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
     SNode containingRoot = src.getContainingRoot();
     TypecheckingSessionImpl session = myRootSessions.get(new SNodeHandle(containingRoot));
     if (session == null) {
@@ -86,7 +93,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
       return session.getQueries(src, trg, trgConcept);
 
     } else {
-      return super.getQueries(src, trg, trgConcept);
+      return super.getQueries(src, trg, trgConcept, flags);
     }
   }
 

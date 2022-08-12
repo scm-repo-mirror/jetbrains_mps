@@ -62,7 +62,7 @@ public class SharedSessionTypecheckingController extends TypecheckingController 
 
   @Override
   public Map<String, ?> discoverParameters(SNode anchor) {
-    return mySharedSession.flags().getParamsMap();
+    return mySharedSession.getController().discoverParameters(anchor);
   }
 
   @NotNull
@@ -73,8 +73,17 @@ public class SharedSessionTypecheckingController extends TypecheckingController 
 
   @NotNull
   @Override
-  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
-    return mySharedSession.getQueries(src, trg, trgConcept);
+  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept, Flags flags) {
+    SNode containingRoot = src.getContainingRoot();
+    if (mySharedSession.flags().getRoot() == containingRoot) {
+      return mySharedSession.getQueries(src, trg, trgConcept);
+
+    } else {
+      if (flags.getParamsMap() == null) {
+        flags = flags.withParameters(mySharedSession.flags().getParamsMap());
+      }
+      return myDelegate.getQueries(src, trg, trgConcept, flags);
+    }
   }
 
   @Nullable
