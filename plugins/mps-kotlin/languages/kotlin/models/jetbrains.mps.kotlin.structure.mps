@@ -1078,6 +1078,9 @@
     <node concept="PrWs8" id="6Ijh6DJzpLb" role="PzmwI">
       <ref role="PrY4T" node="xpyqH1FtXg" resolve="IThisReceiverProvider" />
     </node>
+    <node concept="PrWs8" id="5aV8Unahq31" role="PzmwI">
+      <ref role="PrY4T" node="oITd3Ithrr" resolve="IKotlinRunnable" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2yYXHtl6JgZ">
     <property role="EcuMT" value="2936055411798373439" />

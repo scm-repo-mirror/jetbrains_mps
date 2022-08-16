@@ -11,15 +11,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.traceable.behavior.UnitConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
+    tgs.createUnitInfo();
     KotlinTextGen.annotations(ctx.getPrimaryInput(), true, ctx);
     KotlinTextGen.visibility(ctx.getPrimaryInput(), ctx);
     KotlinTextGen.inheritance(ctx.getPrimaryInput(), ctx);
@@ -55,6 +58,9 @@ public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
       tgs.append(" ");
       KotlinTextGen.functionStatements(ctx.getPrimaryInput(), ctx);
     }
+    if (tgs.needPositions()) {
+      tgs.fillUnitInfo(UnitConcept__BehaviorDescriptor.getUnitName_id4pl5GY7LKmR.invoke(SNodeOperations.cast(ctx.getPrimaryInput(), CONCEPTS.UnitConcept$1g)));
+    }
   }
 
   private static final class PROPS {
@@ -69,5 +75,6 @@ public class FunctionDeclaration_TextGen extends TextGenDescriptorBase {
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept AbstractInheritanceModifier$GA = MetaAdapterFactory.getConcept(0x6b3888c1980244d8L, 0x8baff8e6c33ed689L, 0x28bef6d7551af4f2L, "jetbrains.mps.kotlin.structure.AbstractInheritanceModifier");
+    /*package*/ static final SInterfaceConcept UnitConcept$1g = MetaAdapterFactory.getInterfaceConcept(0x9ded098bad6a4657L, 0xbfd948636cfe8bc3L, 0x465516cf87c705a4L, "jetbrains.mps.lang.traceable.structure.UnitConcept");
   }
 }
