@@ -16,20 +16,13 @@ import jetbrains.mps.core.aspects.behaviour.SMethodIdV2;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.ide.project.ProjectHelper;
 import java.util.ArrayList;
-import java.util.Set;
-import org.jetbrains.mps.openapi.model.SModelReference;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
-import org.jetbrains.mps.openapi.language.SLanguage;
+import jetbrains.mps.smodel.ModelDependencyScanner;
+import jetbrains.mps.smodel.undo.NamedCommand;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import java.util.HashMap;
-import jetbrains.mps.internal.collections.runtime.IVisitor;
-import org.jetbrains.mps.openapi.model.SReference;
+import java.util.Set;
+import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.ide.datatransfer.CopyPasteUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -84,10 +77,9 @@ public class OverrideImplementMethodAction {
       final Iterable<SNodeReference> selectedElements = (Iterable<SNodeReference>) dialog.getSelectedElements();
 
       final List<SNode> insertedMethods = new ArrayList<SNode>();
-      final Set<SModelReference> necessaryModels = SetSequence.fromSet(new HashSet<SModelReference>());
-      final Set<SLanguage> necessaryLanguages = SetSequence.fromSet(new HashSet<SLanguage>());
+      final ModelDependencyScanner depScan = new ModelDependencyScanner();
 
-      myProject.getModelAccess().executeCommand(new Runnable() {
+      myProject.getModelAccess().executeCommand(new NamedCommand("Override Methods", true) {
         @Override
         public void run() {
           List<SNode> selection = Sequence.fromIterable(selectedElements).select(new ISelector<SNodeReference, SNode>() {
@@ -101,38 +93,20 @@ public class OverrideImplementMethodAction {
           if (insertedMethods.isEmpty()) {
             return;
           }
-
-          Iterable<SNode> insertedNodes = ListSequence.fromList(insertedMethods).translate(new ITranslator2<SNode, SNode>() {
-            public Iterable<SNode> translate(SNode it) {
-              return SNodeOperations.getNodeDescendants(it, CONCEPTS.BaseConcept$gP, false, new SAbstractConcept[]{});
-            }
-          });
-
-          final Map<SNode, SNode> sourceNodesToNewNodes = MapSequence.fromMap(new HashMap<SNode, SNode>());
-          Sequence.fromIterable(insertedNodes).visitAll(new IVisitor<SNode>() {
-            public void visit(SNode it) {
-              MapSequence.fromMap(sourceNodesToNewNodes).put(it, it);
-            }
-          });
-
-          final Set<SReference> allReferences = SetSequence.fromSet(new HashSet<SReference>());
-          Sequence.fromIterable(insertedNodes).visitAll(new IVisitor<SNode>() {
-            public void visit(SNode it) {
-              Iterable<? extends SReference> references = it.getReferences();
-              for (SReference ref : references) {
-                SetSequence.fromSet(allReferences).addElement(ref);
-              }
-            }
-          });
-          CopyPasteUtil.processImportsAndLanguages(necessaryModels, necessaryLanguages, sourceNodesToNewNodes, allReferences);
+          List<SNode> toScan = insertedMethods;
+          depScan.walk(toScan);
         }
       });
 
+      Set<SModelReference> necessaryModels = depScan.getCrossModelReferences();
+      Set<SLanguage> necessaryLanguages = depScan.getUsedLanguages();
+
       Runnable imports = CopyPasteUtil.addImportsWithDialog(SNodeOperations.getModel(mySelectedNode), necessaryLanguages, necessaryModels, myProject);
       if (imports != null) {
-        myProject.getModelAccess().executeCommand(imports);
+        myProject.getModelAccess().executeCommand(NamedCommand.wrap("Add Imports", imports));
       }
 
+      // FIXME does editor manipulations here require command? EC.update(), perhaps? If yes, could we get a name then?
       myProject.getModelAccess().executeCommandInEDT(new Runnable() {
         @Override
         public void run() {
@@ -160,7 +134,6 @@ public class OverrideImplementMethodAction {
     /*package*/ static final SInterfaceConcept IMemberContainer$yM = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
     /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
     /*package*/ static final SConcept Interface$db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept BaseConcept$gP = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 
   private static final class LINKS {

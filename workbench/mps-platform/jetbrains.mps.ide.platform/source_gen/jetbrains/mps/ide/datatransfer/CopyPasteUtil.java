@@ -57,6 +57,12 @@ public final class CopyPasteUtil {
   private static final Logger LOG = Logger.getLogger(CopyPasteUtil.class);
   public CopyPasteUtil() {
   }
+
+  /**
+   * 
+   * @deprecated use {@code ModelDependencyScanner} instead
+   */
+  @Deprecated(since = "2022.2", forRemoval = true)
   public static void processImportsAndLanguages(Set<SModelReference> necessaryImports, Set<SLanguage> necessaryLanguages, Map<SNode, SNode> sourceNodesToNewNodes, Set<SReference> allReferences) {
     necessaryImports.clear();
     necessaryLanguages.clear();

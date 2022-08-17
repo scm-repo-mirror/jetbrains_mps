@@ -256,6 +256,9 @@
       <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
         <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
+      <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
+        <child id="3106559687488741665" name="line" index="2Xj1qM" />
+      </concept>
       <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
         <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
       </concept>
@@ -354,6 +357,7 @@
       <node concept="3cqZAl" id="5tGs5KqKiwy" role="3clF45" />
       <node concept="3clFbS" id="5tGs5KqKiwz" role="3clF47" />
     </node>
+    <node concept="2tJIrI" id="6Pc129LDifN" role="jymVt" />
     <node concept="2YIFZL" id="5tGs5KqKiw$" role="jymVt">
       <property role="TrG5h" value="processImportsAndLanguages" />
       <node concept="3Tm1VV" id="5aHAsTKN53m" role="1B3o_S" />
@@ -546,6 +550,42 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+      <node concept="P$JXv" id="6Pc129LDuL6" role="lGtFl">
+        <node concept="TZ5HI" id="6Pc129LDuL7" role="3nqlJM">
+          <node concept="TZ5HA" id="6Pc129LDuL8" role="3HnX3l">
+            <node concept="1dT_AC" id="6Pc129LDwPk" role="1dT_Ay">
+              <property role="1dT_AB" value="use " />
+            </node>
+            <node concept="1dT_AA" id="6Pc129LDwPn" role="1dT_Ay">
+              <node concept="VVOAv" id="6Pc129LDwPt" role="qph3F">
+                <node concept="TZ5HA" id="6Pc129LDwPv" role="2Xj1qM">
+                  <node concept="1dT_AC" id="6Pc129LDwPz" role="1dT_Ay">
+                    <property role="1dT_AB" value="ModelDependencyScanner" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="1dT_AC" id="6Pc129LDwPm" role="1dT_Ay">
+              <property role="1dT_AB" value=" instead" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="6Pc129LDuL9" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" />
+        <node concept="2B6LJw" id="6Pc129LDwBy" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.since()" resolve="since" />
+          <node concept="Xl_RD" id="6Pc129LDwEj" role="2B70Vg">
+            <property role="Xl_RC" value="2022.2" />
+          </node>
+        </node>
+        <node concept="2B6LJw" id="6Pc129LDwFm" role="2B76xF">
+          <ref role="2B6OnR" to="wyt6:~Deprecated.forRemoval()" resolve="forRemoval" />
+          <node concept="3clFbT" id="6Pc129LDwOX" role="2B70Vg">
+            <property role="3clFbU" value="true" />
           </node>
         </node>
       </node>
