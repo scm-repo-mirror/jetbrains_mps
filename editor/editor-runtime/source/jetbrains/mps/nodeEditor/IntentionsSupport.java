@@ -254,15 +254,11 @@ public class IntentionsSupport {
     } else {
       DefaultActionGroup intentionActionGroup = new DefaultActionGroup(text, true) {
         @Override
-        public boolean canBePerformed(DataContext c) {
-          return true;
-        }
-
-        @Override
         public void actionPerformed(AnActionEvent e) {
           IntentionsSupport.this.getModelAccess().executeCommandInEDT(ic);
         }
       };
+      intentionActionGroup.getTemplatePresentation().setPerformGroup(true);
       intentionActionGroup.addAll(intentionActions);
       intentionActionGroup.getTemplatePresentation().setIcon(icon);
       return intentionActionGroup;
