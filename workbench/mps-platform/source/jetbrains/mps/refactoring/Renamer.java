@@ -58,6 +58,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -394,6 +395,7 @@ public final class Renamer {
   }
 
   private void renameModuleDirs(Collection<ModuleRenameInfo> modules) {
+    HashMap<IFile, IFile> justRenamed = new HashMap<>();
     for (ModuleRenameInfo ri : modules) {
       if (ri.moduleDirMatch == NameMatch.NONE) {
         continue;
@@ -401,6 +403,12 @@ public final class Renamer {
       final String newDirName = ri.newModuleDirName;
       final IFile target = ri.moduleDir.getParent().findChild(newDirName);
       if (target.exists()) {
+        if (justRenamed.containsKey(ri.moduleDir) && target.equals(justRenamed.get(ri.moduleDir))) {
+          // skip already renamed
+          ri.moduleDir = target;
+          ri.descriptorFile = target.findChild(ri.descriptorFile.getName());
+          continue;
+        }
         final String msg = String.format("Can't rename module folder '%s' as target '%s' already exists", ri.moduleDir, newDirName);
         handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, msg));
         continue;
@@ -414,6 +422,7 @@ public final class Renamer {
         handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL,
                                              String.format("Expected module folder '%s' has incorrect name '%s'", newDirName, newDir.getName())));
       } else {
+        justRenamed.put(ri.moduleDir, newDir);
         ri.moduleDir = newDir;
         ri.descriptorFile = newDir.findChild(ri.descriptorFile.getName());
       }
@@ -426,6 +435,7 @@ public final class Renamer {
   }
 
   private void renameDescriptorFiles(Collection<ModuleRenameInfo> modules) {
+    Map<IFile, IFile> justRenamed = new HashMap<>();
     for (ModuleRenameInfo ri : modules) {
       if (ri.moduleFileMatch == NameMatch.NONE) {
         continue;
@@ -433,6 +443,11 @@ public final class Renamer {
       final String newFileName = ri.newDescriptorFileName;
       final IFile target = ri.descriptorFile.getParent().findChild(newFileName);
       if (target.exists()) {
+        if (justRenamed.containsKey(ri.descriptorFile) && target.equals(justRenamed.get(ri.descriptorFile))) {
+          // skip rename, one of the modules we already renamed share descriptor file with us
+          ri.descriptorFile = target;
+          continue;
+        }
         final String fmt = "'%s' descriptor file could not be renamed to the '%s' since the target '%s' already exists on disk, ignored";
         final String msg = String.format(fmt, ri.descriptorFile, newFileName, target);
         handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, msg));
@@ -444,6 +459,7 @@ public final class Renamer {
         final String msg = String.format("Expected module file '%s' but there's incorrect name '%s'", newFile, newFile.getName());
         handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, msg));
       } else {
+        justRenamed.put(ri.descriptorFile, newFile);
         ri.descriptorFile = newFile;
       }
     }
