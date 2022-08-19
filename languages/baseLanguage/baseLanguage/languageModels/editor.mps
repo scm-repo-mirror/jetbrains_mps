@@ -22269,7 +22269,6 @@
       </node>
       <node concept="OXEIz" id="17WpDCYKaQd" role="P5bDN">
         <node concept="1ou48o" id="17WpDCYKaRB" role="OY2wv">
-          <property role="1ezIyd" value="custom" />
           <node concept="3GJtP1" id="17WpDCYKaRC" role="1ou48n">
             <node concept="3clFbS" id="17WpDCYKaRD" role="2VODD2">
               <node concept="3clFbH" id="17WpDCYKaRE" role="3cqZAp" />
