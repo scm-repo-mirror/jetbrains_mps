@@ -295,10 +295,16 @@ public class IntentionsSupport {
         collectActionsAsIntentions(child, actions, dataContext);
       }
     } else if (action instanceof BaseAction) {
-      Presentation presentation = action.getTemplatePresentation();
+      Presentation presentation = action.getTemplatePresentation().clone();
       if (presentation.getIcon() == null) {
         presentation.setIcon(Icons.REAL_INTENTION);
       }
+      // clone() is vital not to get into Presentation.assertNotTemplatePresentation() troubles
+      // However, setIcon for a non-template presentation seems to be no-op, therefore we modify template first,
+      // and then get a clone for setVisible() inside update() to work. This didn't work (no icon is shown for the
+      // action, but doesn't throw any assert, and I leave this code in a futile attempt to address this defect later.
+      //noinspection UseOfClone
+      presentation = presentation.clone();
       action.update(new AnActionEvent(null, dataContext, "", presentation, ActionManager.getInstance(), 0));
       if (presentation.isVisible()) {
         actions.add(action);
